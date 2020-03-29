@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65204261"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar proxy da web para seu dispositivo StorSimple
@@ -29,7 +29,7 @@ Este tutorial descreve como usar o Windows PowerShell para StorSimple para confi
 
 As diretrizes deste tutorial se aplicam somente a dispositivos físicos StorSimple da série 8000. Não há suporte para a configuração de proxy Web no Dispositivo de Nuvem StorSimple (8010 e 8020).
 
-O proxy Web é uma configuração _opcional_ para seu dispositivo StorSimple. Você pode configurar o proxy Web apenas por meio do Windows PowerShell para StorSimple. A configuração é um processo em duas etapas da seguinte maneira:
+O proxy da Web é uma configuração _opcional_ para o seu dispositivo StorSimple. Você pode configurar o proxy Web apenas por meio do Windows PowerShell para StorSimple. A configuração é um processo em duas etapas da seguinte maneira:
 
 1. Primeiro, você define as configurações de proxy Web por meio do assistente de instalação ou de cmdlets do Windows PowerShell para StorSimple.
 2. Em seguida, você habilita as configurações de proxy Web definidas por meio de cmdlets do Windows PowerShell para StorSimple.
@@ -62,16 +62,16 @@ Use o assistente de instalação para guiá-lo durante as etapas de configuraç�
 1. No menu de console serial, escolha a opção 1, **Fazer logon com acesso completo** e forneça a **senha de administrador do dispositivo**. Digite o seguinte comando para iniciar uma sessão do assistente de instalação:
    
     `Invoke-HcsSetupWizard`
-2. Se esta for a primeira vez que você usa o assistente de instalação para registrar dispositivos, será preciso definir todas as configurações de rede necessárias até alcançar a configuração de proxy Web. Se o dispositivo já estiver registrado, aceite todas as configurações de rede definidas até alcançar a configuração de proxy Web. No assistente de instalação, quando solicitado a definir as configurações de proxy da web, digite **Sim**.
+2. Se esta for a primeira vez que você usa o assistente de instalação para registrar dispositivos, será preciso definir todas as configurações de rede necessárias até alcançar a configuração de proxy Web. Se o dispositivo já estiver registrado, aceite todas as configurações de rede definidas até alcançar a configuração de proxy Web. No assistente de configuração, quando solicitado a definir as configurações do proxy Web, digite **Sim**.
 3. Para a **URL de Proxy Web**, especifique o endereço IP ou o FQDN (nome de domínio totalmente qualificado) do servidor proxy Web e número de porta TCP que você deseja que seu dispositivo use ao se comunicar com a nuvem. Use o seguinte formato:
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Por padrão, o número de porta TCP 8080 é especificado.
-4. Escolha o tipo de autenticação como **NTLM**, **Básica** ou **Nenhuma**. Básica é a autenticação menos segura para a configuração do servidor proxy. NTLM (NT LAN Manager) é um protocolo de autenticação complexo e de alta segurança que usa um sistema de mensagens de três vias (às vezes, quatro, se for necessária integridade adicional) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, confira autenticação [Básica](https://hc.apache.org/httpclient-3.x/authentication.html) e [Autenticação NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Selecione o tipo de autenticação como **NTLM**, **Básico** ou **Nenhum**. Básica é a autenticação menos segura para a configuração do servidor proxy. NTLM (NT LAN Manager) é um protocolo de autenticação complexo e de alta segurança que usa um sistema de mensagens de três vias (às vezes, quatro, se for necessária integridade adicional) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, confira autenticação [Básica](https://hc.apache.org/httpclient-3.x/authentication.html) e [Autenticação NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **No serviço do Gerenciador de Dispositivos do StorSimple, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação Básica ou NTLM é habilitada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisará garantir que a autenticação seja definida como NENHUMA.**
+   > **No serviço StorSimple Device Manager, os gráficos de monitoramento de dispositivos não funcionam quando a autenticação Básica ou NTLM está ativada na configuração do servidor proxy para o dispositivo. Para que os gráficos de monitoramento funcionem, você precisa garantir que a autenticação esteja definida como NONE.**
   
 5. Se você habilitar a autenticação, forneça um **Nome de Usuário de Proxy Web** e uma **Senha de Proxy Web**. Você também precisará confirmar a senha.
    
@@ -86,7 +86,7 @@ Agora o proxy Web estará habilitado. Você pode ignorar a etapa [Habilitar o pr
 Uma forma alternativa de definir configurações de proxy Web por meio de cmdlets do Windows PowerShell para StorSimple. Execute as etapas a seguir para configurar o proxy Web.
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>Para configurar o proxy Web por meio de cmdlets
-1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
+1. No menu do console serial, selecione a opção 1, **Log in com acesso completo**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
 2. No prompt de comando, digite:
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
@@ -102,13 +102,13 @@ O proxy Web agora está configurado e precisa ser habilitado.
 O proxy Web está desabilitado por padrão. Depois de definir as configurações de proxy Web em seu dispositivo StorSimple, use o Windows PowerShell para StorSimple para habilitar as configurações de proxy Web.
 
 > [!NOTE]
-> **Essa etapa não será necessária se você tiver usado o assistente de instalação para configurar o proxy Web. O proxy Web é habilitado automaticamente por padrão depois de uma sessão do assistente de instalação.**
+> **Esta etapa não é necessária se você usou o assistente de configuração para configurar o proxy da Web. O proxy da Web é ativado automaticamente por padrão após uma sessão de assistente de configuração.**
 
 
 Execute as seguintes etapas no Windows PowerShell para StorSimple para habilitar o proxy Web em seu dispositivo:
 
 #### <a name="to-enable-web-proxy"></a>Para habilitar o proxy Web
-1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
+1. No menu do console serial, selecione a opção 1, **Log in com acesso completo**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é `Password1`.
 2. No prompt de comando, digite:
    
     `Enable-HcsWebProxy`

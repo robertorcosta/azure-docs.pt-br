@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840614"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
@@ -52,11 +52,11 @@ Sua conta deve atender a uma das seguintes opções para ativar a análise de tr
         
 Para verificar funções atribuídas a um usuário para uma inscrição:
 
-1. Entre no Azure usando **login-AzAccount**. 
+1. Faça login no Azure usando **login-AzAccount**. 
 
 2. Selecione a assinatura necessária usando **Select-AzSubscription**. 
 
-3. Para listar todas as funções atribuídas a um usuário especificado, use **Get-AzRoleAssignment-SignInName [email do usuário]-IncludeClassicAdministrators**. 
+3. Para listar todas as funções atribuídas a um usuário especificado, use **Get-AzRoleAssignment -SignInName [e-mail do usuário] -IncluirAdministradores Clássicos**. 
 
 Se você não estiver vendo nenhuma saída, entre em contato com o administrador da assinatura respectiva para obter acesso para executar os comandos. Para obter mais detalhes, consulte [ Gerenciar controle de acesso baseado em função com o Azure PowerShell ](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -69,26 +69,26 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - Leste dos EUA
 - Leste dos EUA 2
 - Centro-Norte dos EUA
-- Centro-Sul dos EUA
-- EUA Central
+- Centro-Sul dos Estados Unidos
+- Centro dos EUA
 - Oeste dos EUA
 - Oeste dos EUA 2
 - França Central
-- Oeste da Europa
-- Europa Setentrional
+- Europa Ocidental
+- Norte da Europa
 - Sul do Brasil
 - Oeste do Reino Unido
 - Sul do Reino Unido
-- Austrália Oriental
+- Leste da Austrália
 - Sudeste da Austrália 
-- Ásia Oriental
+- Leste da Ásia
 - Sudeste Asiático
 - Coreia Central
 - Índia Central
 - Sul da Índia
 - Leste do Japão
 - Oeste do Japão
-- US Gov - Virgínia
+- Gov. dos EUA – Virgínia
 - Leste da China 2
 
 O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
@@ -97,23 +97,23 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 - Leste dos EUA
 - Leste dos EUA 2
 - Centro-Norte dos EUA
-- Centro-Sul dos EUA
-- EUA Central
+- Centro-Sul dos Estados Unidos
+- Centro dos EUA
 - Oeste dos EUA
 - Oeste dos EUA 2
 - França Central
-- Oeste da Europa
-- Europa Setentrional
+- Europa Ocidental
+- Norte da Europa
 - Oeste do Reino Unido
 - Sul do Reino Unido
-- Austrália Oriental
+- Leste da Austrália
 - Sudeste da Austrália
-- Ásia Oriental
+- Leste da Ásia
 - Sudeste Asiático 
 - Coreia Central
 - Índia Central
 - Leste do Japão
-- US Gov - Virgínia
+- Gov. dos EUA – Virgínia
 - Leste da China 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes do meu workspace?
@@ -126,7 +126,7 @@ Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um workspace existente?
 
-Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [Azure monitor logs atualizar para a nova pesquisa de logs](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se você selecionar um workspace existente, verifique se ele foi migrado para o novo idioma de consulta. Se você não quiser atualizar o workspace, precisará criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [os logs do Azure Monitor atualizados para uma nova pesquisa de log](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento do Microsoft Azure pode estar em uma assinatura e meu espaço de trabalho do Log Analytics está em uma assinatura diferente?
 
@@ -176,7 +176,7 @@ Você está vendo a informação de recursos no painel, no entanto, não há est
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Posso configurar a análise de tráfego usando o PowerShell ou um modelo ou cliente do Azure Resource Manager?
 
-Você pode configurar a análise de tráfego usando o Windows PowerShell a partir da versão 6.2.1. Para configurar o log de fluxo e a análise de tráfego para um NSG específico usando o cmdlet Set, consulte [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o log de fluxo e o status da análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+Você pode configurar a análise de tráfego usando o Windows PowerShell a partir da versão 6.2.1. Para configurar o registro de fluxo e a análise de tráfego para um NSG específico usando o set cmdlet, consulte [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o status de registro de fluxo e análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Atualmente, você não pode usar um modelo do Azure Resource Manager para configurar a análise de tráfego.
 
@@ -248,23 +248,23 @@ A Análise de Tráfego é limitada. A medição é baseada no processamento de d
 
 Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), considerando a região Central Oeste dos EUA, se os logs de fluxo de dados armazenados em uma conta de armazenamento processada pela Análise de Tráfego tiver 10 GB e os logs aprimorados ingeridos no espaço de trabalho do Log Analytics tiver 1 GB, os encargos aplicáveis serão: 10 x 2,3$ + 1 x 2,76$ = 25,76$
 
-## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que frequência Análise de Tráfego processar dados?
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que freqüência o Traffic Analytics processa dados?
 
-Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
+Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) em Esquema de Análise de Tráfego e Documento de Agregação de Dados
 
-## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como Análise de Tráfego decidir que um IP é mal-intencionado? 
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como o Traffic Analytics decide que um IP é malicioso? 
 
-Análise de Tráfego se baseia nos sistemas internos de inteligência contra ameaças da Microsoft para considerar um IP como mal-intencionado. Esses sistemas aproveitam fontes de telemetria diferentes, como produtos e serviços da Microsoft, a DCU (unidade de crimes digitais da Microsoft), o MSRC (Microsoft Security Response Center) e os feeds externos e criam uma grande quantidade de inteligência sobre ele. Alguns desses dados são internos da Microsoft. Se um IP conhecido estiver sendo sinalizado como mal-intencionado, gere um tíquete de suporte para saber os detalhes.
+O Traffic Analytics conta com sistemas internos de inteligência de ameaças da Microsoft para julgar um IP como malicioso. Esses sistemas aproveitam diversas fontes de telemetria, como produtos e serviços da Microsoft, a Unidade de Crimes Digitais (DCU) da Microsoft, o Microsoft Security Response Center (MSRC) e feeds externos e constroem muita inteligência em cima dele. Alguns desses dados são da Microsoft Internal. Se um IP conhecido estiver sendo sinalizado como malicioso, por favor, crie um bilhete de suporte para saber os detalhes.
 
-## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Como posso definir alertas em Análise de Tráfego dados?
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Como posso definir alertas sobre dados do Traffic Analytics?
 
-Análise de Tráfego não tem suporte interno para alertas. No entanto, como Análise de Tráfego dados são armazenados em Log Analytics você pode escrever consultas personalizadas e definir alertas neles. Tarefas
-- Você pode usar o Shortlink para Log Analytics no Análise de Tráfego. 
+O Traffic Analytics não tem suporte embutido para alertas. No entanto, como os dados do Traffic Analytics são armazenados no Log Analytics, você pode escrever consultas personalizadas e definir alertas sobre eles. Passos:
+- Você pode usar o shortlink para Log Analytics no Traffic Analytics. 
 - Use o [esquema documentado aqui](traffic-analytics-schema.md) para escrever suas consultas 
-- Clique em "nova regra de alerta" para criar o alerta
+- Clique em "Nova regra de alerta" para criar o alerta
 - Consulte a [documentação de alertas de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para criar o alerta
 
-## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Como fazer verificar quais VMs estão recebendo a maioria do tráfego no local
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Como verificar quais VMs estão recebendo mais tráfego no local
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -286,9 +286,9 @@ Análise de Tráfego não tem suporte interno para alertas. No entanto, como An�
             | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
             | render timechart
 
-Para o tempo, use o formato: aaaa-mm-dd 00:00:00
+Para tempo, use o formato : yyyy-mm-dd 00:00:00
 
-## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Como fazer verificar o desvio padrão no tráfego recebido pelas minhas VMs de computadores locais
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Como verificar o desvio padrão no tráfego recebido pelas minhas VMs de máquinas on-premise
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
@@ -309,7 +309,7 @@ Para IPs:
             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
             | summarize deviation = stdev(traffic)  by IP
             
-## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Como fazer verificar quais portas estão acessíveis (ou bocked) entre pares de IP com regras de NSG
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Como verificar quais portas são acessíveis (ou bocked) entre pares ip com regras NSG
 
             AzureNetworkAnalytics_CL
             | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
@@ -324,8 +324,8 @@ Para IPs:
 
 A página do mapa geográfico contém duas seções principais:
     
-- **Faixa**: a faixa na parte superior do mapa geográfico fornece botões para selecionar os filtros de distribuição de tráfego (por exemplo, implantação, tráfego de países/regiões e mal-intencionado). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
-- **Mapa**: abaixo da faixa, a seção mapa mostra a distribuição de tráfego entre data centers do Azure e países/regiões.
+- **Banner**: O banner na parte superior do mapa geográfico fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, Implantação, Tráfego de países/regiões e Malicioso). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
+- **Mapa**: Abaixo do banner, a seção mapa mostra a distribuição de tráfego entre data centers do Azure e países/regiões.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
     
@@ -336,13 +336,13 @@ A página do mapa geográfico contém duas seções principais:
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navegação do teclado no mapa
     
-- Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco será movido para um dos nós destacados (**datacenter do Azure** ou **País / Região**) na exibição do mapa.
+- Depois de selecionar qualquer filtro no banner e pressionar `Ctrl+F6`, o foco será movido para um dos nós destacados (** datacenter do Azure ** ou ** País / Região **) na exibição do mapa.
 - Para mover para outros nós destacados no mapa, use `Tab` ou a tecla `Right arrow` para o movimento de avanço. Use `Shift+Tab` ou a tecla `Left arrow` para movimento para trás.
 - Para selecionar qualquer nó destacado no mapa, utilize a tecla `Enter` ou `Down arrow`.
 - Na seleção de quaisquer desses nós, o foco move-se para a **Caixa de Ferramentas de Informações** do nó. Por padrão, o foco move-se para o botão próximo à **Caixa de Ferramentas de Informações**. Para mover-se ainda mais dentro da visão **Box**, use as teclas `Right arrow` e `Left arrow` para avançar e voltar, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão com foco na **Caixa de Ferramentas de Informações**.
-- Quando você pressiona `Tab` enquanto o foco está na  **Caixa de Ferramentas de Informações**, o foco se move para os pontos finais no mesmo continente que o nó selecionado. Use as teclas `Right arrow` e `Left arrow` para percorrer esses endpoints.
+- Quando você pressiona `Tab` enquanto o foco está na ** Caixa de Ferramentas de Informações**, o foco se move para os pontos finais no mesmo continente que o nó selecionado. Use as teclas `Right arrow` e `Left arrow` para percorrer esses endpoints.
 - Para mover para outros pontos finais de fluxo ou clusters continentais, use `Tab` para o movimento de avanço e `Shift+Tab` para o movimento de retrocesso.
-- Quando o foco estiver em **Continent clusters**, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster do continente. Para percorrer os endpoints e o botão fechar na caixa de informações do cluster do continente, use a tecla `Right arrow` ou `Left arrow` para o movimento de avanço e retrocesso, respectivamente. Em qualquer ponto de extremidade você poderá utilizar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para ir para o terminal selecionado.
+- Quando o foco estiver em ** Continent clusters **, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster do continente. Para percorrer os endpoints e o botão fechar na caixa de informações do cluster do continente, use a tecla `Right arrow` ou `Left arrow` para o movimento de avanço e retrocesso, respectivamente. Em qualquer ponto de extremidade você poderá utilizar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para ir para o terminal selecionado.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navegação do teclado em qualquer estágio
     
@@ -376,7 +376,7 @@ A página de topologia de redes virtuais contém duas seções principais:
 
 A página de topologia de sub-redes virtuais contém duas seções principais:
     
-- **Banner**: o banner na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes Ativas, Médias e de Gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
+- ** Banner **: o banner na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes Ativas, Médias e de Gateway). Quando você seleciona um botão, o respectivo filtro é aplicado na topologia. Por exemplo, se você selecionar o botão Ativo, a topologia destacará a sub-rede virtual ativa em sua implantação.
 - **Topologia**: abaixo do banner, a seção de topologia mostra a distribuição de tráfego entre as sub-redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner

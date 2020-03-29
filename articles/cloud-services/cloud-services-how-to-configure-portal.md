@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75361000"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
 
-Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no portal do Azure. Ou, se você quiser atualizar seus arquivos de configuração diretamente, baixe um arquivo de configuração de serviço a atualizar e depois carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer forma, as atualizações de configuração são enviadas para todas as instâncias da função.
+Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no portal do Azure. Ou então, se desejar atualizar diretamente seus arquivos de configuração, baixe um arquivo de configuração de serviço para atualizar e carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer maneira, as atualizações da configuração são enviadas por push a todas as instâncias de função.
 
 Você também pode gerenciar as instâncias de suas funções de serviço de nuvem ou da área de trabalho remota para elas.
 
@@ -46,7 +46,7 @@ Se você precisar direcionar para uma versão específica do sistema operacional
 
 ## <a name="monitoring"></a>Monitoramento
 
-Você pode adicionar alertas para o seu serviço de nuvem. Clique em **Configurações** > **Regras de Alerta** > **Adicionar alerta**.
+Você pode adicionar alertas para o seu serviço de nuvem. Clique em**Configurações** > Regras **de** > alerta**Adicionar alerta**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +62,7 @@ Daqui, você pode configurar um alerta. Com a caixa suspensa **Métrica**, você
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configurar o monitoramento de um bloco de métrica
 
-Em vez de usar **Configurações** > **Regras de alerta**, você pode clicar em um dos blocos de métrica na seção **Monitoramento** do serviço de nuvem.
+Em vez de usar regras de alerta de **configurações,** > **Alert Rules**você pode clicar em uma das telhas métricas na seção **De monitoramento** do serviço em nuvem.
 
 ![Monitoramento de Serviço de Nuvem](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -98,12 +98,12 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da 
     ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o arquivo .cscfg e clique em **OK**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
-* Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

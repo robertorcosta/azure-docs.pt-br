@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61320061"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
@@ -57,7 +57,7 @@ O uso de AC X.509 é mais bem compreendido em relação a um exemplo concreto. C
 
 A Empresa X tem a opção de adquirir um Certificado de Autoridade de Certificação X.509 de uma autoridade de certificado raiz pública ou criando um através de um processo autoassinado. Uma opção seria ideal em relação à outra, dependendo do cenário da aplicação. Independentemente da opção, o processo envolve duas etapas fundamentais, gerar um par de chaves públicas/privadas e assinar a chave pública em um certificado.
 
-![Fluxo para gerar um certificado de X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
+![Fluxo para geração de certificados X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 Detalhes sobre como realizar essas etapas diferem com vários provedores de serviço.
 
@@ -77,7 +77,7 @@ A Empresa X precisa registrar a AC X.509 no Hub IoT onde ela servirá para auten
 
 Registrar o Certificado de Autoridade de Certificação X.509 é um processo de duas etapas, o upload do certificado e prova de posse do certificado.
 
-![Registrar um certificado de X509CA](./media/iot-hub-x509ca-concept/pop-flow.png)
+![Registrando um certificado X509CA](./media/iot-hub-x509ca-concept/pop-flow.png)
 
 ### <a name="x509-ca-certificate-upload"></a>Upload do Certificado de Autoridade de Certificação X.509
 
@@ -101,7 +101,7 @@ Uma maneira de fazer isso é gerar previamente certificados para Widgets intelig
 
 A autenticação de Certificado de Autoridade de Certificação X.509 oferece soluções elegantes para os desafios listados com o uso de cadeias confiáveis. Uma cadeia de certificados resulta de uma AC assinando uma AC intermediária que, por sua vez, assina outra AC intermediária e assim por diante até que uma AC intermediária final assina um dispositivo. Em nosso exemplo, a Empresa X assina a Fábrica-Y, que, por sua vez, assina o Técnico Z que assina finalmente o Widget inteligente X.
 
-![Hierarquia de cadeia de certificados](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
+![Hierarquia da cadeia de certificados](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
 
 A cascata de certificados acima na cadeia apresenta a transmissão de autoridade lógica. Muitas cadeias de fornecimento seguem essa transmissão lógica em que cada AC intermediária é inserida na cadeia enquanto recebe todos os certificados de AC de upstream e a última AC intermediária finalmente assina cada dispositivo e insere todos os certificados de autoridade da cadeia no dispositivo. Isso é comum quando a empresa de fabricação contratada com uma hierarquia de fábricas contrata uma fábrica específica para fazer a fabricação. Embora a hierarquia possa ter diversos níveis (por exemplo, por geografia/tipo de produto/linha de produção), somente a fábrica no final interage com o dispositivo, mas a cadeia é mantida desde o topo da hierarquia.
 
@@ -109,7 +109,7 @@ Cadeias alternativas podem ter uma interação de AC intermediária com o dispos
 
 Em nosso exemplo, tanto a Fábrica Y quanto o Técnico Z interagem com o Widget inteligente X. Embora a Empresa X seja a proprietária do Widget inteligente X, na verdade, ela não interage fisicamente com ele na cadeia de fornecimento. A cadeia de certificados de confiança para o Widget inteligente X, portanto, é composta pela Empresa X assinando a Fábrica Y, que, por sua vez, assina o Técnico Z, que fornecerá a assinatura final para o Widget inteligente X. A fabricação e a instalação do Widget inteligente X incluem a Fábrica Y e o Técnico Z usando seus respectivos certificados de AC intermediária para assinar cada Widget inteligente X. O resultado final de todo esse processo é Widgets inteligentes X com certificados de dispositivo exclusivos e a cadeia de certificados de confiança avançando até o certificado de Autoridade de certificação da Empresa X.
 
-![Cadeia de confiança de que os certificados de uma empresa para os certificados de outra empresa](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![Cadeia de confiança desde os certs de uma empresa para os certs de outra empresa](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
 Esse é um bom ponto para analisar o valor do método de AC X.509. Em vez de pré-gerar e transmitir os certificados para cada Widget Smart X na cadeia de fornecimento, a Empresa X só precisou assinar a Fábrica Y uma vez. Em vez de precisar controlar todos os dispositivos em todo o ciclo de vida de dispositivos, agora a Empresa X precisa controlar e gerenciar dispositivos por meio de grupos que naturalmente surgem do processo de cadeia de fornecimento, por exemplo, dispositivos instalados pelo Técnico Z depois de julho de algum ano.
 
@@ -127,6 +127,6 @@ Durante o upload da cadeia de certificados, o dispositivo carrega seu certificad
 
 Em nosso exemplo, cada Widget inteligente X deve carregar seu certificado de dispositivo exclusivo junto com certificados de AC X.509 da Fábrica Y e do Técnico Z e, em seguida, responder ao desafio de prova de posse do Hub IoT.
 
-![Fluir de um certificado para o pop-up, outro desafio do hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![Fluxo de um cert para outro, desafio pop do hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
 Observe que a base da confiança depende da proteção de chaves privadas, incluindo as chaves privadas de dispositivo. Portanto, nunca é demais enfatizar a importância de chips de silicone seguros na forma de HSM (Módulos Seguros de Hardware) para proteger as chaves privadas de dispositivo e da prática recomendada geral de nunca compartilhar nenhuma chave privada, como quando uma fábrica confia em outra sua chave privada.

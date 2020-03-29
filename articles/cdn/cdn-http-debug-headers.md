@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593833"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do Azure
@@ -33,7 +33,7 @@ A resposta enviada de servidores POP para um usuário inclui o `X-EC-Debug` cabe
 ## <a name="requesting-debug-cache-information"></a>Solicitação de informações do cache de depuração
 Use as seguintes diretivas na solicitação especificada para definir as informações do cache de depuração que serão incluídas na resposta:
 
-Cabeçalho da solicitação | DESCRIÇÃO |
+Cabeçalho da solicitação | Descrição |
 ---------------|-------------|
 X-EC-Debug: x-ec-cache | [Código de status do cache](#cache-status-code-information)
 X-EC-Debug: x-ec-cache-remote | [Código de status do cache](#cache-status-code-information)
@@ -54,7 +54,7 @@ Cabeçalhos de resposta de cache de depuração podem ser solicitados incluindo-
 ## <a name="cache-status-code-information"></a>Informações de código de status do cache
 O cabeçalho de resposta X-EC-Debug pode identificar um servidor e como ele manipulou a resposta por meio das diretivas a seguir:
 
-Cabeçalho | DESCRIÇÃO
+Cabeçalho | Descrição
 -------|------------
 X-EC-Debug: x-ec-cache | Esse cabeçalho é informado sempre que o conteúdo é encaminhado por meio da CDN. Ele identifica o servidor POP que atendeu à solicitação.
 X-EC-Debug: x-ec-cache-remote | Esse cabeçalho é relatado somente quando o conteúdo solicitado foi armazenado em cache em um servidor de proteção de origem ou de um servidor de gateway ADN.
@@ -103,10 +103,10 @@ O `X-EC-Debug` cabeçalho de reposta relatando se uma solicitação pode ter sid
 
 Os termos usados na sintaxe são definidos da seguinte maneira:
 
-Valor  | DESCRIÇÃO
+Valor  | Descrição
 -------| --------
-SIM    | Indica que o conteúdo solicitado estava elegível para cache.
-NÃO     | Indica que o conteúdo solicitado estava inelegível para cache. Esse status pode ser devido a um dos seguintes motivos: <br /> Configuração específica do cliente: Uma configuração específica à sua conta pode impedir que os servidores pop armazenem um ativo de cache. Por exemplo, mecanismo de regras pode impedir um ativo que está sendo armazenado em cache, permitindo que o recurso Ignorar Cache qualifique as solicitações.<br /> -Cabeçalhos de resposta de cache: Cabeçalhos de Cache-Control e Expires do ativo solicitado podem impedir que os servidores POP em cache.
+YES    | Indica que o conteúdo solicitado estava elegível para cache.
+Não     | Indica que o conteúdo solicitado estava inelegível para cache. Esse status pode ser devido a um dos seguintes motivos: <br /> - Configuração Específica do cliente: uma configuração específica do cliente para a sua conta pode impedir que os servidores pop armazenem um ativo em cache. Por exemplo, mecanismo de regras pode impedir um ativo que está sendo armazenado em cache, permitindo que o recurso Ignorar Cache qualifique as solicitações.<br /> - Cabeçalhos de resposta cache: Cabeçalhos de Cache-Control e Expires do ativo podem impedir que os servidores POP sejam armazenados em cache.
 DESCONHECIDO | Indica que os servidores não foram puderam avaliar se o recurso solicitado foi armazenável em cache. Normalmente, esse status ocorre quando a solicitação for negada devido a autenticação baseada em token.
 
 ### <a name="sample-response-header"></a>Exemplo de cabeçalho de resposta
@@ -118,7 +118,7 @@ O exemplo de cabeçalho de resposta a seguir indica se o conteúdo solicitado po
 ## <a name="cache-key-response-header"></a>Cabeçalho de reposta Cache-Key
 O `X-EC-Debug: x-ec-cache-key` cabeçalho de resposta indica o Cache-Key físico associado ao conteúdo solicitado. Um cache-key é o caminho relativo que identifica um ativo para fins de cache. Em outras palavras, os servidores verificarão se há uma versão em cache de um ativo de acordo com seu caminho, conforme definido pelo cache-key.
 
-Este cache-key começa com uma barra invertida dupla (/ /) seguido pelo protocolo usado para solicitar o conteúdo (HTTP ou HTTPS). Esse protocolo é seguido pelo caminho relativo para o ativo solicitado, o que inicia com o ponto de acesso ao conteúdo (por exemplo, _/000001/_ ).
+Este cache-key começa com uma barra invertida dupla (/ /) seguido pelo protocolo usado para solicitar o conteúdo (HTTP ou HTTPS). Esse protocolo é seguido pelo caminho relativo para o ativo solicitado, o que inicia com o ponto de acesso ao conteúdo (por exemplo, _/000001/_).
 
 Por padrão, as plataformas HTTP são configuradas para usar *cache padrão*, o que significa que as cadeias de caracteres de consulta são ignoradas pelo mecanismo de armazenamento em cache. Esse tipo de configuração impede que o cache-key inclua dados de cadeia de caracteres de consulta.
 
@@ -147,23 +147,23 @@ O `X-EC-Debug` cabeçalho de resposta relata informações de estado de cache no
 
 Os termos usados na sintaxe são definidos da seguinte maneira:
 
-- MASeconds: Indica a idade máxima (em segundos), conforme definido por cabeçalhos de controle de Cache do conteúdo solicitado.
+- MASeconds: Indica a idade máxima (em segundos), conforme definido por cabeçalhos de controle de Cache-Control do conteúdo solicitado.
 
 - MATimePeriod: Converte o valor de idade máxima (ou seja, MASeconds) aproximado equivalente a uma unidade maior (por exemplo, em dias). 
 
-- UnixTime: Indica o carimbo de hora do cache do conteúdo solicitado no horário do Unix (também conhecido como hora POSIX ou época do Unix). O carimbo de hora de cache indica a data/hora inicial do qual será calculado um TTL do ativo. 
+- UnixTime: Indica o carimbo de tempo do cache do conteúdo solicitado no tempo Unix (também conhecido como tempo POSIX ou época Unix). O carimbo de hora de cache indica a data/hora inicial do qual será calculado um TTL do ativo. 
 
-    Se o servidor de origem não utiliza um servidor de cache HTTP de terceiros ou se o servidor não retorna o cabeçalho de resposta de Idade, em seguida, o carimbo de data/hora sempre será a data/hora quando o ativo foi recuperado ou revalidado. Caso contrário, os servidores POP usará o campo de idade para calcular a TTL do ativo da seguinte maneira: Recuperação/RevalidateDateTime - idade.
+    Se o servidor de origem não utiliza um servidor de cache HTTP de terceiros ou se o servidor não retorna o cabeçalho de resposta de Idade, em seguida, o carimbo de data/hora sempre será a data/hora quando o ativo foi recuperado ou revalidado. Caso contrário, os servidores POP usarão o campo de idade para calcular o tempo de vida do ativo da seguinte maneira: Recuperação/RevalidateDateTime - Idade.
 
-- DDD, dd MMM AAAA HH: mm ss GMT: Indica o carimbo de hora do cache do conteúdo solicitado. Para mais informações, consulte o termo UnixTime acima.
+- ddd, dd MMM yyyy HH:mm:ss GMT: Indica o carimbo de hora/data do cache do conteúdo solicitado. Para mais informações, consulte o termo UnixTime acima.
 
-- CASeconds: Indica o número de segundos decorridos desde o carimbo de hora do cache.
+- CASeconds: Indica o número de segundos decorridos desde o carimbo de data/hora do cache.
 
 - RTSeconds: Indica o número de segundos restantes para o qual o conteúdo em cache será considerado atualizado. Esse valor é calculado da seguinte maneira: RTSeconds = max-age - idade do cache.
 
-- RTTimePeriod: Converte o valor de TTL remanescente (ou seja, Maseconds) aproximado equivalente a uma unidade maior (por exemplo, em dias).
+- RTTimePeriod: Converte o valor de TTL remanescente máxima (ou seja, MASeconds) aproximado equivalente a uma unidade maior (por exemplo, em dias).
 
-- ExpiresSeconds: Indica o número de segundos restantes antes que a data/hora especificada no `Expires` cabeçalho de resposta. Se o `Expires` cabeçalho de resposta não foi incluído na resposta, em seguida, o valor do termo é *nenhum*.
+- ExpiresSeconds: Indica o número de segundos restantes antes da data/hora especificada no `Expires` cabeçalho de resposta. Se o `Expires` cabeçalho de resposta não foi incluído na resposta, em seguida, o valor do termo é *nenhum*.
 
 ### <a name="sample-response-header"></a>Exemplo de cabeçalho de resposta
 

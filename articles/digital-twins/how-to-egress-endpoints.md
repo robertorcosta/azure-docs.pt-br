@@ -1,6 +1,6 @@
 ---
-title: Saída e pontos de extremidade – Azure digital gêmeos | Microsoft Docs
-description: Saiba como criar e saída de pontos de extremidade de evento no Azure digital gêmeos.
+title: Egresso e endpoints - Azure Digital Twins | Microsoft Docs
+description: Aprenda a criar e criar pontos finais de eventos no Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,13 +9,13 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76511562"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Saída e pontos de extremidade no Azure digital gêmeos
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress e pontos finais em Gêmeos Digitais Azure
 
 Os *pontos de extremidade* dos Gêmeos Digitais do Azure representam um agente de mensagens ou eventos na assinatura de um usuário do Azure. Eventos e mensagens podem ser enviados para os tópicos Hubs de Eventos do Azure, Grade de Eventos do Azure e Barramento de Serviço do Azure.
 
@@ -47,16 +47,16 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 }
 ```
 
-| Atributo | Tipo | Description |
+| Atributo | Type | Descrição |
 | --- | --- | --- |
-| id | cadeia de caracteres | Identificador exclusivo do evento. |
-| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| id | string | Identificador exclusivo do evento. |
+| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | data | objeto | Dados do evento específicos ao provedor de recursos. |
-| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
-| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 
 Para obter mais informações sobre o esquema de evento da Grade de Eventos:
 
@@ -85,12 +85,12 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- Relate
+- Relatório
 - RoleDefinition
 - Sensor
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Espacial
+- Space
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -246,7 +246,7 @@ Os exemplos a seguir demonstram como configurar os pontos de extremidade suporta
 >[!IMPORTANT]
 > Preste muita atenção ao atributo **eventTypes**. Ele define quais tipos de evento são manipulados pelo ponto de extremidade e assim, determinam seu roteamento.
 
-Uma solicitação HTTP POST autenticada em relação a:
+Uma solicitação HTTP POST autenticada contra:
 
 ```URL
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -320,7 +320,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
     | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
     | YOUR_EVENT_HUB_NAME | O nome do hub de eventos |
 
-- Rotear para o tipo de evento Hubs de Eventos **DeviceMessage**. A inclusão de `EntityPath` no **connectionString** é obrigatório:
+- Rotear para o tipo de evento Hubs de Eventos **DeviceMessage**. A inclusão `EntityPath` na **conexãoString** é obrigatória:
 
   ```JSON
   {
@@ -356,7 +356,7 @@ Sempre que o sistema estiver em um estado de espera de retrocesso, a atualizaç�
 
 Quando um endpoint se torna inacessível, o sistema entra em um tempo de espera de recuo exponencial de até 30 minutos. Os eventos são descartados em cada tempo de espera de recuo acionado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Aprenda [como usar o Swagger de Gêmeos Digitais do Azure](how-to-use-swagger.md).
 

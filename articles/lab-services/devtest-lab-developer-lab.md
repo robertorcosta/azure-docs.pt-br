@@ -1,6 +1,6 @@
 ---
 title: Usar o Azure DevTest Labs para desenvolvedores | Microsoft Docs
-description: Saiba mais sobre os recursos do Azure DevTest Labs que podem ser usados para atender aos requisitos do desenvolvedor e as etapas detalhadas que você pode seguir para configurar um laboratório.
+description: Conheça os recursos do Azure DevTest Labs que podem ser usados para atender aos requisitos do desenvolvedor e as etapas detalhadas que você pode seguir para configurar um laboratório.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760140"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Usar o Azure DevTest Labs para desenvolvedores
@@ -82,7 +82,7 @@ Neste artigo, você aprenderá sobre os diversos recursos do Azure DevTest Labs 
    
    | Tarefa | O que você aprenderá |
    | --- | --- |
-   | [Criar artefatos personalizados para suas VM dos Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md) |Crie seus próprio artefatos personalizados para as máquinas virtuais em seu laboratório.|
+   | [Criar artefatos personalizados para suas VM dos Laboratórios de Desenvolvimento/Teste.](devtest-lab-artifact-author.md) |Crie seus próprio artefatos personalizados para as máquinas virtuais em seu laboratório.|
    | [Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Azure Resource Manager para uso no Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Saiba como armazenar os artefatos personalizados em seu próprio repositório de Git privado.|
 
 5. **Controlar os custos**

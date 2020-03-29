@@ -1,5 +1,5 @@
 ---
-title: Como usar o envio em lote para melhorar o desempenho do aplicativo
+title: Como usar o loteamento para melhorar o desempenho do aplicativo
 description: O tópico fornece provas de que as operações de banco de dados de envio em lote melhorar consideravelmente a velocidade e a escalabilidade de seus aplicativos de Banco de Dados SQL do Azure. Embora essas técnicas de envio em lote funcionem para qualquer banco de dados do SQL Server, o foco do artigo é no Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76545017"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
@@ -43,7 +43,7 @@ A primeira parte do documento examina várias técnicas de envio em lote para ap
 > [!NOTE]
 > Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](sql-database-service-tiers-dtu.md) ou [camadas de serviço vCore](sql-database-service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 
-### <a name="transactions"></a>Transações
+### <a name="transactions"></a>Transactions
 
 Parece estranho iniciar uma análise do envio em lote discutindo transações. Mas o uso de transações no lado do cliente tem um efeito sutil no envio em lote do lado do servidor que melhora o desempenho. E é possível adicionar transações com apenas algumas linhas de código, portanto elas fornecem uma maneira rápida de melhorar o desempenho de operações sequenciais.
 
@@ -91,34 +91,34 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. Conforme a documentação do [log de transações write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), registros de log são liberados no disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
+Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. De acordo com a documentação do [log de transações write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), os registros de log são liberados para o disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
 
-**Local para o Azure**:
+**On-Premises para Azure**:
 
-| Operations | Sem transação (ms) | Com transação (ms) |
+| Operações | Sem transação (ms) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
-| 1\.000 |128852 |102917 |
+| 1000 |128852 |102917 |
 
-**Do Azure para o Azure (mesmo datacenter)** :
+**Do Azure para o Azure (mesmo datacenter)**:
 
-| Operations | Sem transação (ms) | Com transação (ms) |
+| Operações | Sem transação (ms) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
 | 100 |2145 |341 |
-| 1\.000 |21479 |2756 |
+| 1000 |21479 |2756 |
 
 > [!NOTE]
 > Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
 
 Com base nos resultados do teste anterior, a disposição de uma única operação em uma transação reduz o desempenho. Mas, à medida que você aumenta o número de operações em uma única transação, o aprimoramento do desempenho fica mais evidente. A diferença de desempenho também é mais perceptível quando todas as operações ocorrem dentro do datacenter do Microsoft Azure. O aumento da latência devido ao uso do Banco de Dados SQL fora do datacenter do Microsoft Azure ofusca o ganho de desempenho do uso das transações.
 
-Embora o uso das transações possa aumentar o desempenho, continue a [seguir as práticas recomendadas para transações e conexões](https://msdn.microsoft.com/library/ms187484.aspx). Mantenha a transação a mais curta possível, e feche a conexão do banco de dados após a conclusão do trabalho. A instrução using no exemplo anterior garante o fechamento da conexão após a conclusão do bloco de códigos subsequente.
+Embora o uso de transações possa aumentar o desempenho, continue [seguindo as práticas recomendadas para transações e conexões](https://msdn.microsoft.com/library/ms187484.aspx). Mantenha a transação a mais curta possível, e feche a conexão do banco de dados após a conclusão do trabalho. A instrução using no exemplo anterior garante o fechamento da conexão após a conclusão do bloco de códigos subsequente.
 
 O exemplo anterior demonstra que você pode adicionar uma transação local a qualquer código ADO.NET com duas linhas. As transações oferecem uma maneira rápida de melhorar o desempenho do código que faz as operações de inserção sequencial, atualização e de exclusão. No entanto, para obter o melhor desempenho, considere alterar o código ainda mais para aproveitar o envio em lote no lado do cliente, por exemplo, com os parâmetros com valor de tabela.
 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **\@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro avaliado em tabela, ** \@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType** .
 
@@ -191,14 +191,14 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equivalente ou superior às outras técnicas de envio em lote. Normalmente, a preferência fica com os parâmetros com valor de tabela, pois são mais flexíveis do que as outras opções. Por exemplo, outras técnicas, como cópia em massa do SQL, só permitem a inserção de novas linhas. Porém, com os parâmetros com valor de tabela, você pode usar lógica no procedimento armazenado para determinar quais linhas serão atualizações e quais serão inserções. O tipo de tabela também pode ser modificado para conter uma coluna "Operação" que indica se a linha especificada deve ser inserida, atualizada ou excluída.
 
-A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
+A tabela a seguir mostra os resultados dos testes ad hoc para o uso de parâmetros avaliados em tabela em milissegundos.
 
-| Operations | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
+| Operações | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
 | 100 |338 |51 |
-| 1\.000 |2615 |382 |
+| 1000 |2615 |382 |
 | 10000 |23830 |3586 |
 
 > [!NOTE]
@@ -231,14 +231,14 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Há alguns casos nos quais é preferível usar a cópia em massa do que os parâmetros com valor de tabela. Consulte a tabela de comparação de Parâmetros com valor de tabela versus operações BULK INSERT no artigo [Parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb510489.aspx).
 
-Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
+Os resultados aseguir do teste ad hoc mostram o desempenho do loteamento com **SqlBulkCopy** em milissegundos.
 
-| Operations | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
+| Operações | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
 | 100 |636 |53 |
-| 1\.000 |2535 |341 |
+| 1000 |2535 |341 |
 | 10000 |21605 |2737 |
 
 > [!NOTE]
@@ -246,9 +246,9 @@ Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote co
 > 
 > 
 
-Em lotes menores, o uso dos parâmetros com valor de tabela superaram a classe **SqlBulkCopy** . No entanto, **SqlBulkCopy** teve um desempenho de 12 a 31% mais rápido do que os parâmetros com valor de tabela nos testes de 1.000 e 10.000 linhas. Assim como os parâmetros com valor de tabela, **SqlBulkCopy** é uma boa opção para inserções em lotes, especialmente quando comparado ao desempenho de operações que não são feitas em lotes.
+Em lotes menores, o uso dos parâmetros com valor de tabela superaram a classe **SqlBulkCopy** . No entanto, **o SqlBulkCopy** executou 12-31% mais rápido do que os parâmetros de valor de tabela para os testes de 1.000 e 10.000 linhas. Assim como os parâmetros com valor de tabela, **SqlBulkCopy** é uma boa opção para inserções em lotes, especialmente quando comparado ao desempenho de operações que não são feitas em lotes.
 
-Para saber mais sobre a cópia em massa no ADO.NET, consulte [Operações de cópia em massa no SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
+Para obter mais informações sobre a cópia em massa no ADO.NET, consulte [Operações de cópia em massa no SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
 ### <a name="multiple-row-parameterized-insert-statements"></a>Instruções INSERT com parâmetros de várias linhas
 
@@ -276,9 +276,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Esse exemplo tem como objetivo mostrar o conceito básico. Um cenário mais realista percorreria as entidades necessárias a fim de construir simultaneamente a cadeia de caracteres de consulta e os parâmetros de comando. Você está limitado a um total de 2100 parâmetros de consulta, e isso limita o número total de linhas que podem ser processadas dessa maneira.
 
-Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
+Os resultados aseguir do teste ad hoc mostram o desempenho deste tipo de instrução de inserção em milissegundos.
 
-| Operations | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
+| Operações | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -293,11 +293,11 @@ Essa abordagem pode ser ligeiramente mais rápida para lotes com menos de 100 li
 
 ### <a name="dataadapter"></a>DataAdapter
 
-A classe **DataAdapter** permite que você modifique um objeto **DataSet** e envie as alterações como operações INSERT, UPDATE e DELETE. Se você estiver usando o **DataAdapter** dessa maneira, é importante observar são realizadas chamadas separadas para cada operação distinta. Para melhorar o desempenho, use a propriedade **UpdateBatchSize** de acordo com o número de operações que devem ser enviadas em lote por vez. Para saber mais, consulte [Executando operações em lote usando DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
+A classe **DataAdapter** permite que você modifique um objeto **DataSet** e envie as alterações como operações INSERT, UPDATE e DELETE. Se você estiver usando o **DataAdapter** dessa maneira, é importante observar são realizadas chamadas separadas para cada operação distinta. Para melhorar o desempenho, use a propriedade **UpdateBatchSize** de acordo com o número de operações que devem ser enviadas em lote por vez. Para obter mais informações, consulte [Executando operações em lotes usando DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
 ### <a name="entity-framework"></a>Entity Framework
 
-No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir esta discussão, confira [Anotações da reunião de design – 2 de agosto de 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para ver esta discussão, consulte [Design Meeting Notes - 2 de agosto de 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 
@@ -327,7 +327,7 @@ Em nossos testes, geralmente não houve vantagem em dividir lotes grandes em par
 
 | Tamanho do lote | Iterações | Parâmetros com valor de tabela (ms) |
 | --- | --- | --- |
-| 1\.000 |1 |347 |
+| 1000 |1 |347 |
 | 500 |2 |355 |
 | 100 |10 |465 |
 | 50 |20 |630 |
@@ -674,7 +674,7 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 * Evite a execução paralela de lotes que operam em uma única tabela em um banco de dados. Se você optar por dividir um único lote entre vários threads de trabalho, execute testes para determinar o número ideal de threads. Após um limite não especificado, uma quantidade maior de threads diminuirá o desempenho em vez de aumentá-lo.
 * Considere o armazenamento em buffer de acordo com o tamanho e o tempo como uma maneira de implementar o envio em lote para mais cenários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
 

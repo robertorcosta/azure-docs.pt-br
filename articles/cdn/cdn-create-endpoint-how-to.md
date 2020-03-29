@@ -15,16 +15,16 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593929"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure
-Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para um início rápido sobre como criar um perfil e um ponto de extremidade, consulte [guia de início rápido: Criar um ponto de extremidade e um perfil de CDN do Azure](cdn-create-new-endpoint.md).
+Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para ver um início rápido sobre como criar um perfil e um ponto de extremidade, confira [Início rápido: criar um ponto de extremidade e um perfil CDN do Azure](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar um ponto de extremidade da CDN, é necessário criar pelo menos um perfil CDN, que pode conter um ou mais pontos de extremidade CDN. Para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério, use vários perfis. Como os preços da CDN são aplicados no nível do perfil CDN, você deverá criar vários perfis CDN se quiser usar uma combinação de tipos de preços para a CDN do Azure. Para criar um perfil CDN, confira [Criar um novo perfil CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
@@ -32,7 +32,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
 
 ## <a name="create-a-new-cdn-endpoint"></a>Criar um novo ponto de extremidade CDN
 
-1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Em caso negativo, encontre-o selecionando **Todos os serviços** e selecionando **Perfis de CDN**. No painel **Perfis de CDN**, selecione o perfil ao qual você pretende adicionar seu ponto de extremidade. 
+1. No [portal Azure,](https://portal.azure.com)navegue até o seu perfil de CDN. Você pode ter fixado ao painel na etapa anterior. Em caso negativo, encontre-o selecionando **Todos os serviços** e selecionando **Perfis de CDN**. No painel **Perfis de CDN**, selecione o perfil ao qual você pretende adicionar seu ponto de extremidade. 
    
     O painel Perfil de CDN é exibido.
 
@@ -44,7 +44,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    
     ![Adicionar página de ponto de extremidade](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Em **Nome**, insira um nome exclusivo para o novo ponto de extremidade de CDN. Esse nome é usado para acessar os recursos armazenados em cache no domínio  _\<endpointname >_ . azureedge.net.
+3. Em **Nome**, insira um nome exclusivo para o novo ponto de extremidade de CDN. Esse nome é usado para acessar seus recursos armazenados em cache no _ \<nome de ponto final _do domínio>.azureedge.net.
 
 4. Para **Tipo de origem**, escolha um dos seguintes tipos de origem: 
    - **Armazenamento** para Armazenamento do Azure
@@ -62,7 +62,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    > Alguns tipos de origens, como o Armazenamento do Azure e Aplicativos Web, exigem que o cabeçalho de host corresponda ao domínio da origem. A menos que tenha uma origem que exija um cabeçalho de host diferente do seu domínio, você deverá deixar o valor padrão.
    > 
     
-8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos no servidor de origem. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS). Usar o domínio fornecido pela CDN ( _\<endpointname >_ . azureedge.net) para acessar o conteúdo HTTPS. 
+8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos no servidor de origem. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS). Use o domínio fornecido pelo CDN_\<(nome de ponto final>_.azureedge.net) para acessar o conteúdo HTTPS. 
    
    > [!NOTE]
    > O valor da **Porta de origem** determina somente a porta usada pelo ponto de extremidade para recuperar as informações do servidor de origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente do valor de **Porta de origem**.  
@@ -74,18 +74,18 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
 9. Para **Otimizado para**, selecione um tipo de otimização que melhor corresponda ao cenário e ao tipo de conteúdo que você quer que seja distribuído pelo ponto de extremidade. Para saber mais, confira [Otimizar a CDN do Azure para o tipo de distribuição de conteúdo](cdn-optimization-overview.md).
 
     As seguintes configurações de tipo de otimização são compatíveis, de acordo com o tipo de perfil:
-    - **CDN do Azure Standard dos perfis da Microsoft**:
+    - **Padrão Azure CDN dos** perfis da Microsoft:
        - [**Distribuição na Web geral**](cdn-optimization-overview.md#general-web-delivery)
 
     - **CDN do Azure Standard dos perfis da Verizon** e **CDN do Azure Premium dos perfis da Verizon**:
        - [**Distribuição na Web geral**](cdn-optimization-overview.md#general-web-delivery)
        - [**Aceleração de site dinâmica**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
-    - **CDN do Azure Standard dos perfis da Akamai**:
+    - **Padrão Azure CDN dos perfis Akamai:**
        - [**Distribuição na Web geral**](cdn-optimization-overview.md#general-web-delivery)
        - [**Streaming de mídia geral**](cdn-optimization-overview.md#general-media-streaming)
        - [**Streaming de mídia do vídeo por demanda**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**Download de arquivo grande**](cdn-optimization-overview.md#large-file-download)
+       - [**Download de arquivos grandes**](cdn-optimization-overview.md#large-file-download)
        - [**Aceleração de site dinâmica**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. Selecione **Adicionar** para criar um novo ponto de extremidade.

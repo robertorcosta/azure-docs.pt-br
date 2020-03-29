@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: bf0740bbdd4754aeba43e64f1076a1bea33cffc6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844405"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solucionar problemas de consultas do Azure Stream Analytics
@@ -21,11 +21,11 @@ Este artigo descreve problemas comuns com o desenvolvimento de consultas do Stre
 
 ## <a name="query-is-not-producing-expected-output"></a>A consulta não está produzindo a saída esperada
 1.  Examine os erros testando localmente:
-    - Em portal do Azure, na guia **consulta** , selecione **testar**. Use os dados de exemplo baixado para [testar a consulta](stream-analytics-test-query.md). Examine os erros e tente corrigi-los.   
-    - Você também pode [testar sua consulta localmente](stream-analytics-live-data-local-testing.md) usando Azure Stream Analytics Tools para Visual Studio ou [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
+    - No portal Azure, na guia **Consulta,** selecione **Teste**. Use os dados de exemplo baixado para [testar a consulta](stream-analytics-test-query.md). Examine os erros e tente corrigi-los.   
+    - Você também pode [testar sua consulta localmente](stream-analytics-live-data-local-testing.md) usando ferramentas do Azure Stream Analytics para visual studio ou [visual studio code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Depurar consultas passo a passo localmente usando o diagrama de trabalho](debug-locally-using-job-diagram.md) no Azure Stream Analytics Tools para Visual Studio. O diagrama de trabalho é mostrar como os dados fluem de fontes de entrada (Hub de eventos, Hub IoT etc.) por meio de várias etapas de consulta e, finalmente, saída para coletores. Cada etapa de consulta é mapeada para um conjunto de resultados temporário definido no script usando a instrução WITH. Você pode exibir os dados e as métricas em cada etapa de consulta em cada conjunto de resultados intermediários para localizar a origem do problema.
-    ![resultado da visualização do diagrama de trabalho](./media/debug-locally-using-job-diagram/preview-result.png)
+2.  [Depurações passo a passo localmente usando o diagrama de trabalho](debug-locally-using-job-diagram.md) nas ferramentas do Azure Stream Analytics para o Visual Studio. O diagrama de trabalho é para mostrar como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de várias etapas de consulta e, finalmente, saída para afundantes. Cada etapa de consulta é mapeada para um conjunto de resultados temporário definido no script usando a declaração WITH. Você pode visualizar os dados, bem como as métricas em cada etapa de consulta em cada resultado intermediário definido para encontrar a fonte do problema.
+    ![Resultado da visualização do diagrama do trabalho](./media/debug-locally-using-job-diagram/preview-result.png)
 
 3.  Se você usar [**Carimbo de Data/Hora Por**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), verifique se os eventos têm carimbos de data/hora maiores que a [hora de início do trabalho](stream-analytics-out-of-order-and-late-events.md).
 
@@ -69,10 +69,10 @@ Assim, você pode reescrever a consulta desta forma:
 Agora, reinicie o trabalho e deixe ele ser executado por alguns minutos. Em seguida, consulte temp1 e temp2 com o Cloud Explorer do Visual Studio para gerar as seguintes tabelas:
 
 **tabela temp1**
-![SELECIONAR EM temp1 tabela consulta do Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+![SELECT INTO temp1 tabela Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
 **tabela temp2**
-![SELECIONAR EM temp2 tabela consulta do Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+![SELECIONE em consulta de fluxo de fluxo de tabela temp2](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Como você pode ver, temp1 e temp2 têm dados e a coluna de nome é preenchida corretamente em temp2. No entanto, como ainda não há dados na saída, algo está errado:
 
@@ -92,14 +92,14 @@ Dessa vez, os dados na saída são formatados e preenchidos conforme esperado.
 
 ![SELECIONAR EM tabela final de consulta do Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>Obtenha ajuda
+## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente [nosso fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
+* [Comece a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

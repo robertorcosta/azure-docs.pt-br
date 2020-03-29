@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: Conceitos técnicos | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: conceitos técnicos | Microsoft Docs'
 description: Explica os conceitos técnicos da sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60347560"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: Conceitos técnicos
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
 Este artigo é um resumo do tópico [Entender a arquitetura](how-to-connect-sync-technical-concepts.md).
 
 O Azure AD Connect Sync tem como base uma plataforma sólida de sincronização de metadiretório.
@@ -43,7 +43,7 @@ As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Servi
 ## <a name="connector"></a>Conector
 Os módulos de código que são usados para comunicação com um diretório conectado são chamados de conectores (anteriormente conhecidos como MAs [agentes de gerenciamento]).
 
-Eles são instalados no computador que executa a sincronização do Azure AD Connect. Os conectores fornecem a capacidade de conversar sem agentes usando protocolos de sistema remoto, em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
+Estes são instalados no computador executando a sincronização Azure AD Connect. Os conectores fornecem a capacidade sem agente de conversar usando protocolos remotos do sistema em vez de depender da implantação de agentes especializados. Isso significa que o risco e tempos de implantação reduzidos, especialmente ao lidar com sistemas e aplicativos críticos.
 
 Na figura acima, o conector é sinônimo de espaço conector, mas abrange toda a comunicação com o sistema externo.
 
@@ -87,8 +87,8 @@ Inerentemente, isso estabelece um vínculo e o fluxo de atributo pode prosseguir
 Sempre que uma regra determina que um novo objeto de espaço conector precisa ser criado, ele é chamado de provisionamento. No entanto, como essa operação só ocorre dentro do espaço conector, ele não se transfere para a fonte de dados conectada até que uma exportação seja executada.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Sincronização do Azure AD Connect: personalizando opções de Sincronização](how-to-connect-sync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+* [Azure AD Connect Sync: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
+* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244337"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
@@ -21,7 +21,7 @@ ms.locfileid: "61244337"
 
 O [roteamento de mensagens](iot-hub-devguide-routing-query-syntax.md) do Hub IoT permite que os usuários encaminhem mensagens de dispositivo para nuvem a pontos de extremidade voltados para o serviço. O roteamento também fornece uma funcionalidade de consulta para filtrar os dados antes de encaminhá-los aos pontos de extremidade. Cada regra de roteamento que você configura tem as seguintes propriedades:
 
-| Propriedade      | DESCRIÇÃO |
+| Propriedade      | Descrição |
 | ------------- | ----------- |
 | **Nome**      | O nome exclusivo que identifica a consulta. |
 | **Fonte**    | A origem do fluxo de dados a ser afetado. Por exemplo, telemetria do dispositivo. |
@@ -46,9 +46,9 @@ Para saber mais sobre a leitura de pontos de extremidade personalizados, confira
 
 * Leitura de [contêineres de Armazenamento do Azure](../storage/blobs/storage-blobs-introduction.md).
 
-* Leitura de [Hubs de Eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* Leitura de [Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* Leitura de [Filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+* Lendo das [filas](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)de ônibus de serviço .
 
 * Leitura de [tópicos do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
 

@@ -16,17 +16,17 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60280453"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configurar Concur para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Concur e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Concur.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -67,7 +67,7 @@ Ao criar o perfil que será usado para habilitar o aplicativo, insira o nome do 
 
 Essa ação não deve ser feita com o perfil usado para a administração normal de T&E pelos seguintes motivos.
 
-* É o cliente que deve clicar em “*Sim*” na janela do diálogo exibida após a habilitação de um aplicativo. Esse clique confirma que o cliente está disposto a permitir que o Aplicativo parceiro acesse seus dados, portanto você ou o Parceiro não pode clicar no botão Sim.
+* O cliente tem de ser aquele que clica em "*Sim*" na janela de diálogo que é exibida depois que um aplicativo é habilitado. Esse clique confirma que o cliente está disposto a permitir que o Aplicativo parceiro acesse seus dados, portanto você ou o Parceiro não pode clicar no botão Sim.
 
 * Se um administrador de cliente que habilitou um aplicativo usando o perfil de administrador de T&E deixar a empresa (resultando na inativação do perfil), qualquer aplicativo habilitado com esse perfil não funcionará até que seja habilitado com outro perfil ativo de Administrador de WS. É por isso que você deve criar perfis de Administrador de Serviços Web distintos.
 
@@ -81,15 +81,15 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
    
     ![Locatário do Concur](./media/concur-provisioning-tutorial/IC721729.png "Locatário do Concur")
 
-3. No lado esquerdo, no painel **Serviços Web**, selecione **Habilitar Aplicativo do Parceiro**.
+3. Do lado esquerdo, no painel **Serviços Web**, selecione **Habilitar Aplicativo Parceiro**.
    
     ![Habilitar Aplicativo do Parceiro](./media/concur-provisioning-tutorial/ic721730.png "Habilitar Aplicativo do Parceiro")
 
-4. Na lista **Habilitar Aplicativo**, selecione **Azure Active Directory** e clique em **Habilitar**.
+4. Na lista **Habilitar Aplicativo**, selecione **Azure Active Directory** e, em seguida, clique em **Habilitar**.
    
-    ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
+    ![Active Directory do Microsoft Azure](./media/concur-provisioning-tutorial/ic721731.png "Active Directory do Microsoft Azure")
 
-5. Clique em **Sim** para fechar o diálogo **Confirmar Ação**.
+5. Clique em **Sim** para fechar a caixa de diálogo **Confirmar Ação**.
    
     ![Confirmar Ação](./media/concur-provisioning-tutorial/ic721732.png "Confirmar Ação")
 
@@ -99,7 +99,7 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 8. Selecione sua instância do Concur e selecione a guia **Provisionamento**.
 
-9. Defina o **Modo de Provisionamento** como **Automático**. 
+9. Defina o **modo de provisionamento** como **automático**. 
  
     ![provisionamento](./media/concur-provisioning-tutorial/provisioning.png)
 
@@ -107,9 +107,9 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 11. No Portal do Azure, clique em **Testar Conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo Concur. Se a conexão falhar, verifique se a sua conta do Concur tem permissões de Administrador de Equipe.
 
-12. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
+12. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
-13. Clique em **Salvar.**
+13. Clique **em Salvar.**
 
 14. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Concur.**
 
@@ -117,13 +117,13 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 16. Para habilitar o serviço de provisionamento do Azure AD para o Concur, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-17. Clique em **Salvar.**
+17. Clique **em Salvar.**
 
 Agora você pode criar uma conta de teste. Aguarde 20 minutos para verificar se a conta foi sincronizada com o Concur.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar Logon Único](concur-tutorial.md)
+* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](tutorial-list.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configurar o único sinal de inscrição](concur-tutorial.md)
 

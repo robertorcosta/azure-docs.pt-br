@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938537"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho sobre Gerenciador de Tráfego
@@ -58,7 +58,7 @@ As ferramentas nesses sites medem as latências de DNS e exibem os endereços IP
 
 * [Monitor Sintético de Aplicativo de AC](https://asm.ca.com/en/checkit.php)
 
-    Anteriormente conhecido como a ferramenta de site Watch-mouse check, este site mostra o tempo de resolução DNS de várias regiões geográficas simultaneamente. Insira a URL para ver o tempo de resolução de DNS, o tempo de conexão e a velocidade de vários locais geográficos. Use esse teste para ver qual serviço hospedado é retornado para diferentes locais no mundo.
+    Anteriormente conhecida como a ferramenta Watch-mouse Check Website, este site mostra o tempo de resolução do DNS de várias regiões geográficas simultaneamente. Insira a URL para ver o tempo de resolução de DNS, o tempo de conexão e a velocidade de vários locais geográficos. Use esse teste para ver qual serviço hospedado é retornado para diferentes locais no mundo.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

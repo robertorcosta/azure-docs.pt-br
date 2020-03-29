@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60382011"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Preenchimento de UserPrincipalName do Azure AD
@@ -25,7 +25,7 @@ O valor do atributo UserPrincipalName é o nome de usuário do Azure AD para as 
 ## <a name="upn-terminology"></a>Terminologia de UPN
 A seguinte terminologia é usada neste artigo:
 
-|Termo|DESCRIÇÃO|
+|Termo|Descrição|
 |-----|-----|
 |Domínio inicial|O domínio padrão (monmicrosoft.com) no locatário do Azure AD. Por exemplo, contoso.onmicrosoft.com.|
 |MOERA (endereço de roteamento de email online da Microsoft)|O Azure AD calcula o MOERA por meio do atributo MailNickName do Azure AD e do domínio inicial do Azure AD como: &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.|
@@ -52,7 +52,7 @@ Em alguns ambientes, os usuários finais só pode estar atento a seu endereço d
 
 ID de logon alternativo permite configurar uma experiência de entrada, onde os usuários podem entrar com um atributo diferente de seu UPN, como e-mail.
 
-Ao usar o Azure AD Connect, não são necessárias etapas de configurações adicionais para se habilitar a ID de logon alternativa com o Azure AD. A ID alternativa pode ser configurada no assistente. Consulte a configuração de conexão do Azure AD dos usuários na seção Sincronização. Na lista suspensa **Nome UPN**, selecione o atributo para a ID de logon alternativa.
+Ao usar o Azure AD Connect, não são necessárias etapas de configurações adicionais para se habilitar a ID de logon alternativa com o Azure AD. A ID alternativa pode ser configurada no assistente. Consulte a configuração de login do Azure AD para seus usuários a seção Sincronizar. Na versão do nome principal do **usuário,** selecione o atributo para ID de login alternativo.
 
 ![Domínios não verificados](./media/plan-connect-userprincipalname/altloginid.png)  
 
@@ -142,7 +142,7 @@ Objeto de usuário do locatário do Azure AD:
 - MailNickName      : us4
 - UserPrincipalName: us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Cenário 4: sufixo UPN não verificado – atualizar o endereço SMTP primário e o atributo de email local
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Cenário 4: sufixo UPN não verificado – atualização do endereço SMTP primário e atributo de email local
 
 ![Cenário4](./media/plan-connect-userprincipalname/example4.png)
 

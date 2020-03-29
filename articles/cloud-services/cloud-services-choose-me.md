@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386843"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
@@ -43,7 +43,7 @@ Os Serviços de Nuvem do Azure também fornecem monitoramento. Assim como as Má
 
 A natureza da PaaS dos Serviços de Nuvem do Azure tem outras implicações também. Uma das mais importantes é que os aplicativos com base nessa tecnologia devem ser escritos para serem executados corretamente quando houver falha de alguma instância da função de trabalho ou da Web. Para isso, um aplicativo dos Serviços de Nuvem do Azure não deve manter o estado de suas próprias VMs no sistema de arquivos. Ao contrário das VMs criadas com Máquinas Virtuais, gravações feitas para VMs de Serviços de Nuvem do Azure não são persistentes. Não há nada como um disco de dados de Máquinas Virtuais. Um aplicativo dos Serviços de Nuvem do Azure deve gravar explicitamente todo o estado no Banco de Dados SQL do Azure, em blobs, tabelas ou em algum outro armazenamento externo. Criar aplicativos dessa forma facilita o dimensionamento deles e os torna mais resistente a falhas, que são metas importantes dos Serviços de Nuvem do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Criar um aplicativo de serviço de nuvem em .NET](cloud-services-dotnet-get-started.md) 
 * [Criar um aplicativo de serviço de nuvem em Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Criar um aplicativo de serviço de nuvem em PHP](../cloud-services-php-create-web-role.md) 

@@ -1,5 +1,5 @@
 ---
-title: Elementos do email de convite B2B – Azure Active Directory | Microsoft Docs
+title: Elementos do e-mail de convite B2B - Azure Active Directory | Microsoft Docs
 description: Modelo de email de convite para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65768361"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
@@ -28,11 +28,11 @@ Emails de convite são um componente essencial para ingressar parceiros como usu
 ## <a name="explaining-the-email"></a>Explicação do email
 Vamos examinar alguns elementos do email para que você conheça a melhor maneira de usar esses recursos.
 
-### <a name="subject"></a>Subject
-O assunto do email segue o seguinte padrão: Você foi convidado para a organização &lt;tenantname&gt;
+### <a name="subject"></a>Assunto
+O assunto do email segue o seguinte padrão: você foi convidado para a organização &lt;nomedolocatário&gt;
 
 ### <a name="from-address"></a>Do endereço
-Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: Microsoft Invitations <invites@microsoft.com> ou &lt;nome de exibição do emissor do convite&gt; partir &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
+Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: <invites@microsoft.com> Microsoft &lt;Invitations ou&gt; &lt;Display&gt; name do <invites@microsoft.com>convidado do nome do inquilino (via Microsoft) .
 
 ### <a name="reply-to"></a>Responder Para
 O email para resposta é definido como o email do emissor do convite, quando houver um disponível, para que a resposta envie um email ao emissor do convite.
@@ -42,7 +42,7 @@ Os emails de convite de seu locatário usam a identidade visual da empresa confi
 
 ### <a name="call-to-action"></a>Plano de ação
 O plano de ação é composto por duas partes: explicação do motivo de o destinatário ter recebido o email, e o que o destinatário deve fazer a respeito.
-- A seção "porquê" pode ser resolvida usando o seguinte padrão: Você foi convidado para acessar aplicativos na organização &lt;tentname&gt;
+- A seção "motivo" pode ter o seguinte padrão: Você foi convidado(a) para acessar aplicativos na organização &lt;nomedolocatário&gt;
 
 - E a seção "o que você deve fazer" é indicada pela presença do botão **Introdução**. Quando o destinatário tiver sido adicionado sem a necessidade de convites, esse botão não aparecerá.
 
@@ -51,12 +51,12 @@ O nome de exibição do emissor do convite está incluído no email. E, além di
 
 Se você ainda não tiver configurado uma imagem de perfil, um ícone com as iniciais do emissor do convite no lugar da imagem, conforme mostra a imagem:
 
-  ![Captura de tela mostrando o convite com o emissor do convite iniciais exibidas](media/invitation-email-elements/inviters-initials.png)
+  ![Captura de tela mostrando o convite com as iniciais do convidado exibidas](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Corpo
 O corpo contém a mensagem que o emissor do convite compõe ao [convidar um usuário convidado para o diretório, grupo ou aplicativo](add-users-administrator.md) ou [usando a API de convite](customize-invitation-api.md). Como é uma área de texto, ela não processa marcas HTML por motivos de segurança.
 
-  ![Captura de tela mostrando o corpo do email de convite](media/invitation-email-elements/invitation-email-body.png)
+  ![Captura de tela mostrando o corpo do e-mail convite](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Seção de rodapé
 O rodapé contém a marca da empresa Microsoft e informará ao destinatário se o email foi enviado de um alias não monitorado. 
@@ -65,7 +65,7 @@ Casos especiais:
 
 - O emissor do convite não tem um endereço de email no locatário que está convidando
 
-  ![Captura de tela quando um emissor do convite não tem o email no locatário que convida](media/invitation-email-elements/inviter-no-email.png)
+  ![Captura de tela quando um convidado não tem e-mail na locação convidativa](media/invitation-email-elements/inviter-no-email.png)
 
 
 - O destinatário não precisa resgatar o convite

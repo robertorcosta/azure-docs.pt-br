@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60860271"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalar a Atualização 4 em seu dispositivo StorSimple
@@ -45,11 +45,11 @@ Conclua as etapas a seguir para atualizar o dispositivo para a [Atualização 4]
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Verifique se o dispositivo está executando a **Atualização 4 do StorSimple série 8000 (6.3.9600.17820)** . A **Data da última atualização** também deve ser modificada.
+Verifique se o dispositivo está executando a **Atualização 4 do StorSimple série 8000 (6.3.9600.17820)**. A **Data da última atualização** também deve ser modificada.
 
 * Agora, você também verá que as atualizações do modo de Manutenção estão disponíveis (essa mensagem pode continuar sendo exibida por até 24 horas após a instalação das atualizações). As atualizações do modo de manutenção são atualizações interrompidas que resultam em tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell de seu dispositivo.
 
-* Baixe as atualizações do modo de manutenção usando as etapas listadas em [para baixar os hotfixes](#to-download-hotfixes) a fim de pesquisar e baixar a KB4011837, que instala atualizações de firmware de disco (a essa altura, as outras atualizações já devem estar instaladas). Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
+* Baixe as atualizações do modo de manutenção usando as etapas listadas em [para baixar os hotfixes](#to-download-hotfixes) a fim de pesquisar e baixar a KB4011837, que instala atualizações de firmware de disco (a essa altura, as outras atualizações já devem estar instaladas). Siga as etapas listadas na [instalação e verifique os hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) do modo de manutenção para instalar as atualizações do modo de manutenção.
 
 ## <a name="install-update-4-as-a-hotfix"></a>Instalar a Atualização 4 como um hotfix
 O método recomendado para instalar a Atualização 4 é pelo Portal do Azure.
@@ -74,7 +74,7 @@ O método de hotfix envolve as três etapas a seguir:
 
 Você deve baixar e instalar os seguintes hotfixes na ordem descrita e as pastas sugeridas:
 
-| Classificar | KB | DESCRIÇÃO | Tipo de atualização | Hora da instalação |Instalar na pasta|
+| Order | KB | Descrição | Tipo de atualização | Hora da instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |Atualização de software |Regular <br></br>Não interruptiva |Aproxim. 25 minutos |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Atualizações de firmware e driver LSI <br> Atualização de firmware USM (versão 3.38) |Regular <br></br>Não interruptiva |Aproxim. 3 horas <br> (inclui 2A. + 2B. + 2C.)|SecondOrderUpdate|
@@ -83,9 +83,9 @@ Você deve baixar e instalar os seguintes hotfixes na ordem descrita e as pastas
 
 Você também precisa instalar as atualizações de firmware de disco além de todas as atualizações mostradas nas tabelas anteriores. Você pode verificar se precisa de atualizações de firmware de disco executando o cmdlet `Get-HcsFirmwareVersion` . Se estiver executando as versões de firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, você não precisará instalar essas atualizações.
 
-| Classificar | KB | DESCRIÇÃO | Tipo de atualização | Hora da instalação | Instalar na pasta|
+| Order | KB | Descrição | Tipo de atualização | Hora da instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |Firmware de disco |Manutenção <br></br>Interruptiva |~ 30 Min. | ThirdOrderUpdate |
+| 3. |KB3121899 |Firmware de disco |Manutenção  <br></br>Interruptiva |~ 30 Min. | ThirdOrderUpdate |
 
 <br></br>
 

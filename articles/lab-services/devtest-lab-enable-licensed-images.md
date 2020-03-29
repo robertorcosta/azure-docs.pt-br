@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 11b6553fe8aceef0d3d15977998dd870c275128a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61294184"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
@@ -28,9 +28,9 @@ No Azure DevTest Labs, uma imagem licenciada inclui os termos e condições – 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Determinar se uma imagem licenciada está disponível para os usuários
 A primeira etapa para permitir que os usuários criem VMs a partir de uma imagem licenciada é certificar-se de que os termos e condições da imagem licenciada foram aceitos. As etapas a seguir mostram como você pode exibir o status de oferta de uma imagem licenciada e, se necessário, aceitar os termos e condições.
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Todos os serviços**e selecione **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 
@@ -77,7 +77,7 @@ Habilite a implantação programática para uma imagem licenciada executando est
    >
 
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
     Na lista de imagens do marketplace, essa imagem agora mostra **Termos aceitos** e está disponível para os usuários criarem máquinas virtuais.
 

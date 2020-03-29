@@ -1,5 +1,5 @@
 ---
-title: Sobre o monitoramento de rede no Azure Monitor registra em log | Microsoft Docs
+title: Sobre o Monitoramento de Rede nos registros do Monitor do Azure | Microsoft Docs
 description: Visão geral de soluções de monitoramento de rede, incluindo NPM, para gerenciar redes em nuvens, locais e ambientes híbridos.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67672176"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
@@ -37,7 +37,7 @@ Monitor de Desempenho de Rede (NPM) é um conjunto de recursos, cada um deles é
 
 O Monitor de Desempenho, Monitor do ExpressRoute e Monitor da Conectividade de Serviço estão monitorando os recursos dentro do NPM e são descritos abaixo.
 
-## <a name="performance-monitor"></a>Monitorar Desempenho
+## <a name="performance-monitor"></a>Monitor de desempenho
 
 Monitor de Desempenho é parte do NPM e está monitorando a rede para ambientes locais, híbridos e na nuvem. Você pode monitorar a conectividade de rede em escritórios e filiais remotas, locais de armazenamento, data centers e nuvens. Você pode detectar problemas de rede antes de seus usuários reclamarem. As principais vantagens são:
 
@@ -51,9 +51,9 @@ Monitor de Desempenho é parte do NPM e está monitorando a rede para ambientes 
 
 Para obter mais informações, consulte os seguintes artigos:
 
-* [Configurar uma solução de Monitor de desempenho de rede nos logs do Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
-* [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-* Atualizações de produto:
+* [Configure uma solução de monitor de desempenho de rede nos registros do Monitor do Azure](../azure-monitor/insights/network-performance-monitor.md) 
+* [Use casos](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+* Atualizações de produtos:
   * [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
   * [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
@@ -70,7 +70,7 @@ NPM para o ExpressRoute oferece monitoramento abrangente do ExpressRoute para co
 
 ![Mapa geográfico mostrando o tráfego entre as regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 * [Configurar o Monitor de Desempenho de Rede para ExpressRoute](../expressroute/how-to-npm.md)
 * [Postagem no blog](https://aka.ms/NPMExRmonitorGA)
@@ -86,7 +86,7 @@ Com o monitoramento da Conectividade de Serviço, você pode testar a acessibili
 * Determinar os pontos de acesso na rede, que podem estar causando o desempenho insatisfatório do aplicativo
 * Monitorar o alcance a aplicativos do Office 365, usando testes internos para o Microsoft Office 365, Dynamics 365, Skype for Business e outros serviços da Microsoft
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 * [Configurar o Monitor de Desempenho de Rede para monitorar pontos de extremidade do serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Postagem no blog](https://aka.ms/svcendptmonitor)

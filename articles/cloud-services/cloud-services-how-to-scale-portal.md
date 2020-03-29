@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360830"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um Serviço de Nuvem no portal
@@ -66,7 +66,7 @@ Depois de configurar o perfil e as regras, selecione o ícone **Salvar** na part
 #### <a name="profile"></a>Perfil
 O perfil define as instâncias mínimas e máximas da escala, e também quando esse intervalo de escala estará ativo.
 
-* **Always**
+* **Sempre**
 
     Sempre mantenha esse intervalo de instâncias disponível.  
 

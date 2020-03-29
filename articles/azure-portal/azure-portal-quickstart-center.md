@@ -1,6 +1,6 @@
 ---
-title: Introdução ao centro de início rápido do Azure
-description: Use a experiência guiada do centro de início rápido do Azure para começar a usar o Azure. Aprenda a configurar, migrar e inovar.
+title: Comece com o Azure Quickstart Center
+description: Use a experiência guiada do Azure Quickstart Center para começar com o Azure. Aprenda a configurar, migrar e inovar.
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,40 +10,40 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900695"
 ---
-# <a name="get-started-with-the-azure-quickstart-center"></a>Introdução ao centro de início rápido do Azure
+# <a name="get-started-with-the-azure-quickstart-center"></a>Comece com o Azure Quickstart Center
 
-O centro de início rápido do Azure é uma experiência guiada no portal do Azure disponível para qualquer pessoa que queira melhorar seu conhecimento do Azure. Para as organizações novas no Azure, é a maneira mais rápida de carregar e configurar seu ambiente de nuvem.
+O Azure Quickstart Center é uma experiência guiada no portal Azure disponível para qualquer um que queira melhorar seus conhecimentos sobre o Azure. Para organizações novas no Azure, é a maneira mais rápida de embarcar e configurar seu ambiente de nuvem.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
-O centro de início rápido do Azure tem três opções de introdução:
+O Azure Quickstart Center tem três opções para começar:
 
-* **Guias de instalação**: projetados para o administrador de ti e o arquiteto de nuvem, nossos guias apresentam os principais conceitos para a adoção do Azure. As etapas estruturadas ajudam você a tomar medidas conforme você aprende, aplicando as práticas recomendadas da Microsoft. O guia de migração ajuda a avaliar a preparação e o plano conforme você se prepara para mudar para o Azure.
+* **Guias de configuração**: Projetados para o administrador de TI e arquiteto em nuvem, nossos guias introduzem conceitos-chave para a adoção do Azure. Etapas estruturadas ajudam você a agir conforme você aprende, aplicando as práticas recomendadas da Microsoft. O guia de migração ajuda você a avaliar a prontidão e planejar enquanto você se prepara para mudar para o Azure.
 
-* **Iniciar um projeto**: se você estiver pronto para criar um recurso, esta seção permitirá que você saiba mais sobre suas escolhas antes de confirmar uma opção de serviço. Você descobrirá mais sobre o serviço e por que deve usá-lo, explorar os custos e identificar os pré-requisitos. Depois de fazer sua escolha, você pode ir diretamente para criar.
+* **Inicie um projeto**: Se você estiver pronto para criar um recurso, esta seção permite que você aprenda mais sobre suas escolhas antes de se comprometer com uma opção de serviço. Você descobrirá mais sobre o serviço e por que você deve usá-lo, explorar custos e identificar pré-requisitos. Depois de fazer sua escolha, você pode ir diretamente para criar.
 
-* **Aprendizado online**: Esta seção do centro de início rápido do Azure realça os módulos de curso introdutórios gratuitos do Microsoft learn. Selecione um bloco para iniciar um curso e saiba mais sobre os conceitos de nuvem e gerenciamento de recursos no Azure.
+* **Aprendizado on-line**: Esta seção do Azure Quickstart Center destaca módulos de cursos introdutórios gratuitos da Microsoft Learn. Selecione um azulejo para lançar um curso e saiba mais sobre conceitos em nuvem e gerenciamento de recursos no Azure.
 
-## <a name="how-to-use-azure-quickstart-center"></a>Como usar o centro de início rápido do Azure
+## <a name="how-to-use-azure-quickstart-center"></a>Como usar o Azure Quickstart Center
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 
-1. Selecione **todos os serviços** no menu portal do Azure.
+1. Selecione **Todos os serviços** do menu do portal Azure.
 
-1. Selecione **geral** > **centro de início rápido**.
+1. Selecione **General** > **Quickstart Center**.
 
-Para obter uma visão aprofundada do que o Azure QuickStart Center pode fazer por você, confira este vídeo:
+Para uma olhada aprofundada no que o Azure Quickstart Center pode fazer por você, confira este vídeo:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]
 
-[Introdução ao centro de início rápido do Azure](https://www.youtube.com/watch?v=0bSA7RXrbAg)
+[Introdução ao Azure Quickstart Center](https://www.youtube.com/watch?v=0bSA7RXrbAg)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a instalação e a migração do Azure na [estrutura de adoção do Microsoft Cloud para o Azure](/azure/architecture/cloud-adoption/).
-* Desbloqueie suas habilidades de nuvem com mais cursos da [Microsoft Learn](/learn/azure/).
+* Saiba mais sobre a configuração e migração do Azure no [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/).
+* Desbloqueie suas habilidades na nuvem com mais cursos do [Microsoft Learn](/learn/azure/).

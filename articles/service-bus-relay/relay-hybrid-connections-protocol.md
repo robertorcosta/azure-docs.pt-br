@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: clemensv
 ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514945"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 
-A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade _Conexões Híbridas_ da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso chamado igualmente de _Serviços BizTalk_, criado sobre uma base de protocolo proprietário. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
+A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade _Conexões Híbridas_ da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso _biztalk services,_ igualmente chamado de BizTalk Services, que foi construído em uma fundação de protocolo proprietária. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
 
 As Conexões Híbridas permitem a comunicação de fluxo binário bidirecional e o fluxo de datagrama simples entre dois aplicativos em rede. Uma ou ambas as partes podem residir atrás de firewalls ou NATs.
 
@@ -51,7 +51,7 @@ As mensagens de escuta, aceitação e solicitação são recebidas do serviço. 
 
 Para indicar a preparação para o serviço sinalizando que um ouvinte está pronto para aceitar conexões, ele cria uma conexão WebSocket de saída. O handshake de conexão recebe o mesmo nome de uma Conexão Híbrida configurada no namespace de Retransmissão, além de um token de segurança que confere o direito "Listen" (de escuta) nesse nome.
 
-Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos para uma conexão híbrida. A cota de AppHooks deve ser determinada.
+Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos para uma Conexão Híbrida. A cota de AppHooks deve ser determinada.
 
 Para as Conexões Híbridas, se houver dois ou mais ouvintes ativos, as conexões de entrada serão balanceadas entre eles em ordem aleatória, com o máximo de esforço para realizar uma distribuição justa.
 
@@ -144,25 +144,25 @@ O `namespace-address` é o nome de domínio totalmente qualificado do namespace 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir.
 
-| Parâmetro        | Obrigatório | Description
+| Parâmetro        | Obrigatório | Descrição
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Sim      | Para a função de ouvinte, o parâmetro precisa ser **sb-hc-action=listen**
+| `sb-hc-action`   | Sim      | Para a função de ouvinte, o parâmetro deve ser **sb-hc-action=listen**
 | `{path}`         | Sim      | O caminho de namespace codificado como URL da Conexão Híbrida pré-configurada na qual este ouvinte será registrado. Esta expressão é acrescentada à parte do caminho `$hc/` fixa.
 | `sb-hc-token`    | Sim\*    | O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Listen** (escutar).
 | `sb-hc-id`       | Não       | Essa ID opcional fornecida pelo cliente permite o rastreamento de diagnóstico de ponta a ponta.
 
 Se a conexão de WebSocket falhar porque o caminho de Conexão Híbrida não está sendo registrado, porque há um token inválido ou ausente ou por algum outro erro, os comentários de erro serão fornecidos usando o modelo comum de comentários de status HTTP 1.1. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
 
-| Codificar | Erro          | Description
+| Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Não encontrado      | O caminho da Conexão Híbrida é inválido ou a URL base está malformada.
-| 401  | Não autorizado   | O token de segurança está ausente ou malformado ou inválido.
+| 401  | Não Autorizado   | O token de segurança está ausente ou malformado ou inválido.
 | 403  | Proibido      | O token de segurança não é válido para esse caminho para essa ação.
 | 500  | Erro Interno | Algo deu errado no serviço.
 
 Se a conexão de WebSocket for desligada intencionalmente pelo serviço depois que ele tiver sido inicialmente configurado, o motivo para fazer isso será comunicado usando código de erro de protocolo WebSocket apropriado juntamente com uma mensagem de erro descritiva, que também incluirá uma ID de acompanhamento. O serviço não desligará o canal de controle sem encontrar uma condição de erro. Qualquer desligamento normal é controlado de cliente.
 
-| Status WS | Description
+| Status WS | Descrição
 | --------- | -------------------------------------------------------------------------------
 | 1001      | O caminho de Conexão Híbrida foi excluído ou desabilitado.
 | 1008      | O token de segurança expirou, portanto, a política de autorização foi violada.
@@ -204,7 +204,7 @@ O mesmo se aplica ao cabeçalho `Sec-WebSocket-Extensions`. Se a estrutura der s
 
 A URL deve ser usada no estado em que se encontra para estabelecer o soquete de aceitação, mas contém os seguintes parâmetros:
 
-| Parâmetro      | Obrigatório | Description
+| Parâmetro      | Obrigatório | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sim      | Para aceitar um soquete, o parâmetro deverá ser `sb-hc-action=accept`
 | `{path}`       | Sim      | (confira no parágrafo a seguir)
@@ -219,14 +219,14 @@ Para obter mais informações, consulte a seção "Sender Protocol" (Protocolo d
 
 Se houver um erro, o serviço poderá responder da seguinte maneira:
 
-| Codificar | Erro          | Description
+| Código | Erro          | Descrição
 | ---- | -------------- | -----------------------------------
 | 403  | Proibido      | A URL não é válida.
 | 500  | Erro Interno | Algo deu errado no serviço
 
  Depois que a conexão tiver sido estabelecida, o servidor será desligado do WebSocket quando o WebSocket do remetente desligar ou com o status a seguir:
 
-| Status WS | Description                                                                     |
+| Status WS | Descrição                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | O cliente remetente encerra a conexão.                                    |
 | 1001      | O caminho de Conexão Híbrida foi excluído ou desabilitado.                        |
@@ -241,7 +241,7 @@ Se houver um erro, o serviço poderá responder da seguinte maneira:
 
  Para rejeitar o soquete, o cliente usa o URI de endereço da mensagem `accept` e acrescenta dois parâmetros da cadeia de consulta, da seguinte forma:
 
-| Param                   | Obrigatório | Description                              |
+| Param                   | Obrigatório | Descrição                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | Sim      | Código de status HTTP numérico.                |
 | sb-hc-statusDescription | Sim      | Motivo da rejeição legível por humanos. |
@@ -250,7 +250,7 @@ O URI resultante é usado para estabelecer uma conexão WebSocket.
 
 Ao ser concluído corretamente, esse handshake falhará intencionalmente com um código de erro HTTP 410, pois nenhum WebSocket terá sido estabelecido. Se algo der errado, os códigos a seguir descrevem o erro:
 
-| Codificar | Erro          | Description                          |
+| Código | Erro          | Descrição                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Proibido      | A URL não é válida.                |
 | 500  | Erro Interno | Algo deu errado no serviço. |
@@ -376,13 +376,13 @@ Para as respostas que excedem 64 KB, a resposta PRECISA ser entregue por um soqu
 
 A URL `address` na `request` precisa ser usada no estado em que se encontra para estabelecer o soquete de reunião, mas contém os seguintes parâmetros:
 
-| Parâmetro      | Obrigatório | Description
+| Parâmetro      | Obrigatório | Descrição
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Sim      | Para aceitar um soquete, o parâmetro deverá ser `sb-hc-action=request`
 
 Se houver um erro, o serviço poderá responder da seguinte maneira:
 
-| Codificar | Erro           | Description
+| Código | Erro           | Descrição
 | ---- | --------------- | -----------------------------------
 | 400  | Solicitação inválida | Ação não reconhecida ou URL inválida.
 | 403  | Proibido       | A URL expirou.
@@ -390,7 +390,7 @@ Se houver um erro, o serviço poderá responder da seguinte maneira:
 
  Depois que a conexão é estabelecida, o servidor desliga o WebSocket quando o soquete HTTP do cliente é desligado ou com o status a seguir:
 
-| Status WS | Description                                                                     |
+| Status WS | Descrição                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1001      | O cliente remetente encerra a conexão.                                    |
 | 1001      | O caminho de Conexão Híbrida foi excluído ou desabilitado.                        |
@@ -402,7 +402,7 @@ Se houver um erro, o serviço poderá responder da seguinte maneira:
 
 Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituído enviando uma mensagem de quadro de texto ao serviço por meio do canal de controle estabelecido. A mensagem contém um objeto JSON chamado `renewToken`, que define a propriedade a seguir neste momento:
 
-* **token** – um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida e que confere o direito **Listen** (escutar).
+* **token** – um token de acesso compartilhado válido e codificado por URL para o namespace ou conexão híbrida que confere o direito **ouvir.**
 
 ```json
 {
@@ -415,7 +415,7 @@ Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituíd
 
 Se a validação de token falhar, o acesso será negado e serviço de nuvem fechará o WebSocket do canal de controle com um erro. Caso contrário, não há nenhuma resposta.
 
-| Status WS | Description                                                                     |
+| Status WS | Descrição                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1008      | O token de segurança expirou, portanto, a política de autorização foi violada. |
 
@@ -434,7 +434,7 @@ A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Obrigatório? | Description
+| Param          | Obrigatório? | Descrição
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sim       | Para a função de remetente, o parâmetro deve ser `sb-hc-action=connect`.
 | `{path}`       | Sim       | (confira no parágrafo a seguir)
@@ -451,18 +451,18 @@ A expressão `path` é passada por meio do ouvinte no URI do endereço contido n
 
 Se a conexão de WebSocket falhar porque o caminho de Conexão Híbrida não está sendo registrado, porque há um token inválido ou ausente ou por algum outro erro, os comentários de erro serão fornecidos usando o modelo comum de comentários de status HTTP 1.1. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
 
-| Codificar | Erro          | Description
+| Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Não encontrado      | O caminho da Conexão Híbrida é inválido ou a URL base está malformada.
-| 401  | Não autorizado   | O token de segurança está ausente ou malformado ou inválido.
+| 401  | Não Autorizado   | O token de segurança está ausente ou malformado ou inválido.
 | 403  | Proibido      | O token de segurança não é válido para esse caminho e para essa ação.
 | 500  | Erro Interno | Algo deu errado no serviço.
 
 Se a conexão de WebSocket for desligada intencionalmente pelo serviço depois que ele tiver sido inicialmente configurado, o motivo para fazer isso será comunicado usando código de erro de protocolo WebSocket apropriado juntamente com uma mensagem de erro descritiva, que também incluirá uma ID de acompanhamento.
 
-| Status WS | Description
+| Status WS | Descrição
 | --------- | ------------------------------------------------------------------------------- 
-| 1\.000      | O ouvinte desligou o soquete.
+| 1000      | O ouvinte desligou o soquete.
 | 1001      | O caminho de Conexão Híbrida foi excluído ou desabilitado.
 | 1008      | O token de segurança expirou, portanto, a política de autorização foi violada.
 | 1011      | Algo deu errado no serviço.
@@ -482,7 +482,7 @@ A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Obrigatório? | Description
+| Param          | Obrigatório? | Descrição
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Send**.
 
@@ -491,25 +491,25 @@ O token também pode estar contido no cabeçalho HTTP `ServiceBusAuthorization` 
 Como o serviço age efetivamente como um proxy, mesmo que não como um proxy HTTP verdadeiro, ele adiciona um cabeçalho `Via` ou anota o cabeçalho `Via` existente compatível com o [RFC7230, Seção 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 O serviço adiciona o nome do host do namespace de retransmissão em `Via`.
 
-| Codificar | Mensagem  | Description                    |
+| Código | Mensagem  | Descrição                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | A solicitação foi manipulada por pelo menos um ouvinte.  |
 | 202  | Aceita | A solicitação foi aceita por pelo menos um ouvinte. |
 
 Se houver algum erro, o serviço poderá responder da seguinte maneira. É possível identificar se a resposta se origina do serviço ou do ouvinte por meio da presença do cabeçalho `Via`. Se o cabeçalho estiver presente, a resposta será do ouvinte.
 
-| Codificar | Erro           | Description
+| Código | Erro           | Descrição
 | ---- | --------------- |--------- |
 | 404  | Não encontrado       | O caminho da Conexão Híbrida é inválido ou a URL base está malformada.
-| 401  | Não autorizado    | O token de segurança está ausente ou malformado ou inválido.
+| 401  | Não Autorizado    | O token de segurança está ausente ou malformado ou inválido.
 | 403  | Proibido       | O token de segurança não é válido para esse caminho e para essa ação.
 | 500  | Erro Interno  | Algo deu errado no serviço.
 | 503  | Gateway incorreto     | Não foi possível rotear a solicitação para nenhum ouvinte.
 | 504  | Tempo Limite do Gateway | A solicitação foi encaminhada para um ouvinte, mas o ouvinte não reconheceu o recebimento no tempo necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Perguntas frequentes sobre retransmissão](relay-faq.md)
-* [Criar um namespace](relay-create-namespace-portal.md)
+* [Perguntas frequentes sobre Retransmissão](relay-faq.md)
+* [Crie um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)

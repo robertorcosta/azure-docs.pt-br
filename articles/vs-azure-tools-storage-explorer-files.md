@@ -15,23 +15,23 @@ ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
 ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456547"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso do Gerenciador de Armazenamento com o armazenamento de arquivos do Azure
 
 O armazenamento de Arquivos do Azure é um serviço que oferece compartilhamentos de arquivos na nuvem usando o Protocolo SMB (Server Message Block) padrão. Há suporte ao SMB 2.1 e ao 3.0 SMB. Com o armazenamento de Arquivos do Azure, você pode migrar aplicativos herdados que dependem de compartilhamentos de arquivos para o Azure rapidamente e sem regravações caras. Você pode usar o Armazenamento de Arquivos para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento para trabalhar com compartilhamento de arquivos e arquivos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 - [Baixe e instale o Gerenciador de Armazenamento](https://www.storageexplorer.com/)
 
-- [Conectar-se a uma conta de armazenamento do Azure ou serviço](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Conecte-se a uma conta ou serviço de armazenamento do Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
 
@@ -117,7 +117,7 @@ As etapas a seguir ilustram como copiar um compartilhamento de arquivos de uma c
 
 ## <a name="get-the-sas-for-a-file-share"></a>Obter a SAS para um compartilhamento de arquivos
 
-Uma [SAS (Assinatura de Acesso Compartilhado)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
+Uma [assinatura de acesso compartilhado (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) fornece acesso delegado aos recursos em sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
 
 As etapas a seguir ilustram como criar uma SAS para um compartilhamento de arquivos:+
 
@@ -165,7 +165,7 @@ As etapas abaixo ilustram como gerenciar (adicionar e remover) políticas de ace
     
     - **Adicionar uma nova política de acesso** — escolha **Adicionar**. Uma vez gerada, a caixa de diálogo **Políticas de Acesso** exibirá a política de acesso recém-adicionada (com configurações padrão).
 
-    - **Editar uma política de acesso** — faça as edições desejadas e escolha **Salvar**.
+    - **Editar uma política de acesso** - Faça todas as edições desejadas e selecione **Salvar**.
 
     - **Remover uma política de acesso** — escolha **Remover** ao lado da política de acesso que você deseja remover.
 
@@ -199,27 +199,27 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
 
     - **Carregar arquivos em um compartilhamento de arquivos**
 
-        a.  Na barra de ferramentas do painel principal, escolha **Carregar** e **Carregar Arquivos** no menu suspenso.
+        a.  Na barra de ferramentas do painel principal, selecione **Carregar**e, em seguida, **carregar arquivos** no menu suspenso.
 
         ![Carregar arquivos](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. Na caixa de diálogo **Carregar arquivos**, escolha o botão de reticências ( **...** ) no lado direito da caixa de texto **Arquivos** para selecionar os arquivos que você deseja carregar.
+        b. Na caixa de diálogo **Carregar arquivos**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Arquivos** para selecionar os arquivos que você deseja carregar.
 
         ![Adicionando arquivos](media/vs-azure-tools-storage-explorer-files/image19.png)
 
-        c. Escolha **Carregar**.
+        c. Selecione **Carregar**.
 
     - **Carregar uma pasta em um compartilhamento de arquivos**
         
-        a. Na barra de ferramentas do painel principal, escolha **Carregar** e **Carregar Pasta** no menu suspenso.
+        a. Na barra de ferramentas do painel principal, selecione **'Carregar'** e, em seguida, **Carregar pasta** no menu suspenso.
 
         ![Menu Carregar pasta](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. Na caixa de diálogo **Carregar pasta**, escolha o botão de reticências ( **...** ) no lado direito da caixa de texto **Pasta** para selecionar a pasta cujo conteúdo você deseja carregar.
+        b. Na caixa de diálogo **Carregar pasta**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Pasta** para selecionar a pasta cujo conteúdo você deseja carregar.
 
         c. Como opção, especifique uma pasta de destino na qual o conteúdo da pasta selecionada será carregado. Se a pasta de destino não existir, ela será criada.
 
-        d. Escolha **Carregar**.
+        d. Selecione **Carregar**.
 
     - **Baixar um arquivo em seu computador local**
         
@@ -229,7 +229,7 @@ As etapas a seguir ilustram como gerenciar os arquivos (e pastas) dentro de um c
         
         c. Na caixa de diálogo **Especifique onde salvar o arquivo baixado**, especifique o local onde você deseja baixar o arquivo e o nome que deseja dar a ele.
 
-        d. Clique em **Salvar**.
+        d. Selecione **Salvar**.
 
     - **Abrir um arquivo em seu computador local**
         

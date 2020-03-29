@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60455749"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacidade do usuário e Azure AD Connect 
@@ -77,7 +77,7 @@ Use as etapas a seguir para agendar o script para executar a cada 48 horas.
 5.  Selecione **Diariamente** para o acionador de tarefa e clique em **Avançar**.
 6.  Defina a recorrência para **2 dias** e clique em **Avançar**.
 7.  Selecione **Iniciar um programa** como a ação e clique em **Avançar**.
-8.  Digite **PowerShell** na caixa para o programa/script e, na caixa rotulada **Adicionar argumentos (opcional)** , insira o caminho completo para o script que você criou anteriormente e clique em **Avançar**.
+8.  Digite **PowerShell** na caixa para o programa/script e, na caixa rotulada **Adicionar argumentos (opcional)**, insira o caminho completo para o script que você criou anteriormente e clique em **Avançar**.
 9.  A próxima tela mostra um resumo da tarefa que você está prestes a criar. Verifique os valores e clique em **Concluir** para criar a tarefa.
 
 

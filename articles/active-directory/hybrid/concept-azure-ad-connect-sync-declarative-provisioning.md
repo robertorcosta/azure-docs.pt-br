@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: noções básicas sobre o provisionamento declarativo | Microsoft Docs'
+title: 'Azure AD Connect: Noções básicas sobre provisionamento declarativo | Microsoft Docs'
 description: Explica o modelo de configuração de provisionamento declarativo no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60246254"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Noções básicas sobre o provisionamento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
 
 ## <a name="overview"></a>Visão geral
@@ -42,18 +42,18 @@ O pipeline tem vários módulos diferentes. Cada um é responsável por um conce
 * [Precedência](#precedence)resolve conflitos de contribuições de atributo
 * Destino, objeto de destino
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Escopo
 O módulo de escopo está avaliando um objeto e determina as regras que estão no escopo e devem ser incluídas no processamento. Dependendo dos valores de atributos no objeto, regras de sincronização diferentes são avaliadas como estando no escopo. Por exemplo, um usuário desabilitado sem uma caixa de correio do Exchange tem regras diferentes das de um usuário habilitado com uma caixa de correio.  
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Escopo](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 O escopo é definido como grupos e cláusulas. As cláusulas estão dentro de um grupo. Um E lógico é usado entre todas as cláusulas em um grupo. Por exemplo, (department =TI E country = Dinamarca). Um OU lógico é usado entre grupos.
 
-![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
-O escopo nesta imagem deve ser lido como (department = TI e country = Dinamarca) ou (country = Suécia). Se o grupo 1 ou 2 for avaliado como true, a regra está no escopo.
+![Escopo](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+ O escopo nesta imagem deve ser lido como (department = TI e country = Dinamarca) ou (country = Suécia). Se o grupo 1 ou 2 for avaliado como true, a regra está no escopo.
 
 O módulo de escopo dá suporte às operações a seguir.
 
-| Operação | DESCRIÇÃO |
+| Operação | Descrição |
 | --- | --- |
 | EQUAL, NOTEQUAL |Uma comparação de cadeia de caracteres que avalia se o valor é igual ao valor do atributo. Para atributos com valores múltiplos, confira ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Uma comparação de cadeia de caracteres que avalia se o valor é menor do que o valor do atributo. |
@@ -66,16 +66,16 @@ O módulo de escopo dá suporte às operações a seguir.
 | ISBITSET, ISNOTBITSET |Avalia se um bit específico está definido. Por exemplo, pode ser usado para avaliar os bits em userAccountControl para ver se um usuário está habilitado ou desabilitado. |
 | ISMEMBEROF, ISNOTMEMBEROF |O valor deve conter um DN para um grupo no espaço do conector. Se o objeto for membro do grupo especificado, a regra está no escopo. |
 
-## <a name="join"></a>Ingressar
+## <a name="join"></a>Join
 O módulo de junção no pipeline de sincronização é responsável por localizar a relação entre o objeto de origem e um objeto de destino. Em uma regra de entrada, essa relação seria um objeto em um espaço de conector que localiza uma relação com um objeto no metaverso.  
 ![Junção entre cs e mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
-O objetivo é ver se já existe um objeto no metaverso, criado por outro Conector ao qual ele deve ser associado. Por exemplo, em uma floresta de recursos de conta, o usuário da floresta de contas deve ser unido ao usuário da floresta de recursos.
+ O objetivo é ver se já existe um objeto no metaverso, criado por outro Conector ao qual ele deve ser associado. Por exemplo, em uma floresta de recursos de conta, o usuário da floresta de contas deve ser unido ao usuário da floresta de recursos.
 
 As junções são usadas principalmente em regras de entrada para unir os objetos de espaço do conector ao mesmo objeto do metaverso.
 
 As junções são definidas como um ou mais grupos. Dentro de um grupo, há cláusulas. Um E lógico é usado entre todas as cláusulas em um grupo. Um OU lógico é usado entre grupos. Os grupos são processados na ordem de cima para baixo. Quando um grupo encontra uma correspondência exata com um objeto de destino, nenhuma outra regra de associação é avaliada. Se zero ou mais de um objeto for localizado, o processamento continuará para o próximo grupo de regras. Por esse motivo, as regras devem ser criadas na ordem com a mais explícita primeiro e a mais difusa no fim.  
 ![Definição de junção](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
-As junções nesta figura são processadas de cima para baixo. Primeiro, o pipeline de sincronização vê se há uma correspondência em employeeID. Caso contrário, a segunda regra vê se o nome da conta pode ser usado para unir os objetos. Se essa não for uma correspondência, a terceira e última regra será uma correspondência mais difusa usando o nome de usuário.
+ As junções nesta figura são processadas de cima para baixo. Primeiro, o pipeline de sincronização vê se há uma correspondência em employeeID. Caso contrário, a segunda regra vê se o nome da conta pode ser usado para unir os objetos. Se essa não for uma correspondência, a terceira e última regra será uma correspondência mais difusa usando o nome de usuário.
 
 Se todas as regras de junção forem avaliadas e não houver exatamente uma correspondência, o **Tipo de Link** na página **Descrição** será usado. Se essa opção for definida como **Provisionar**, será criado um novo objeto de destino.  
 ![Provisionar ou ingressar](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -124,15 +124,15 @@ Veja um exemplo:
 
 Em *saída para AD – usuário Exchange híbrido* fluxo a seguir pode ser encontrado:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-esta expressão deve ser lida como: se a caixa de correio do usuário estiver localizada no Azure AD, então, flua o atributo do Azure AD para o AD. Caso contrário, não flua nada de volta para o Active Directory. Neste caso, ele manteria o valor existente no AD.
+ esta expressão deve ser lida como: se a caixa de correio do usuário estiver localizada no Azure AD, então, flua o atributo do Azure AD para o AD. Caso contrário, não flua nada de volta para o Active Directory. Neste caso, ele manteria o valor existente no AD.
 
 ### <a name="importedvalue"></a>ImportedValue
-A função ImportedValue é diferente de todas as outras funções, pois o nome do atributo deve ser colocado entre aspas, em vez de colchetes:  
+A função ImportedValue é diferente de todas as outras funções, pois o nome do atributo deve ser colocado entre aspas, em vez de colchetes:   
 `ImportedValue("proxyAddresses")`.
 
 Geralmente, durante a sincronização, um atributo usa o valor esperado, mesmo que ele ainda não tenha sido exportado ou que um erro tenha sido recebido durante a exportação ("topo da torre"). Uma sincronização de entrada presumirá que um atributo que ainda não atingiu um diretório conectado finalmente o atingirá. Em alguns casos, é importante sincronizar apenas um valor que foi confirmado pelo diretório conectado ("holograma e torre de importação delta").
 
-Um exemplo dessa função pode ser encontrado na Regra de Sincronização pronta para uso *Entrada do AD – Usuário Comum do Exchange*. No Exchange Híbrido, o valor adicionado pelo Exchange online só deve ser sincronizado quando confirmado que o valor foi exportado com êxito:  
+Um exemplo dessa função pode ser encontrado na Regra de Sincronização pronta para uso *Entrada do AD – Usuário Comum do Exchange*. No Exchange Híbrido, o valor adicionado pelo Exchange online só deve ser sincronizado quando confirmado que o valor foi exportado com êxito:   
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## <a name="precedence"></a>Precedência
@@ -159,9 +159,9 @@ Para esse cenário, você precisa alterar o escopo das regras de sincronização
 
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
 
 **Tópicos de referência**
 
-* [Sincronização do Azure AD Connect: referência de funções](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect Sync: referência de funções](reference-connect-sync-functions-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: Registrar uma API Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar uma API Web que chama APIs da Web downstream (registro de aplicativo).
+title: Registre uma API web que chama APIs web - plataforma de identidade Microsoft | Azure
+description: Aprenda a construir uma API web que chama APIs web downstream (registro de aplicativos).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,25 +15,25 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: bafd71f34602535bb6193a8d8114a1182e4e8f40
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701783"
 ---
-# <a name="a-web-api-that-calls-web-apis-app-registration"></a>Uma API Web que chama APIs da Web: registro de aplicativo
+# <a name="a-web-api-that-calls-web-apis-app-registration"></a>Uma API web que chama APIs web: registro de aplicativos
 
-Uma API da Web que chama APIs da Web downstream tem o mesmo registro de uma API Web protegida. Portanto, você precisa seguir as instruções em [API Web protegida: registro de aplicativo](scenario-protected-web-api-app-registration.md).
+Uma API web que chama APIs web downstream tem o mesmo registro de uma API da Web protegida. Portanto, você precisa seguir as instruções na [API web protegida: Registro de aplicativos.](scenario-protected-web-api-app-registration.md)
 
-Como o aplicativo Web agora chama APIs da Web, ele se torna um aplicativo cliente confidencial. É por isso que as informações de registro extras são necessárias: o aplicativo precisa compartilhar segredos (credenciais de cliente) com a plataforma Microsoft Identity.
+Como o aplicativo web agora chama APIs da Web, ele se torna um aplicativo cliente confidencial. É por isso que são necessárias informações extras de registro: o aplicativo precisa compartilhar segredos (credenciais do cliente) com a plataforma de identidade da Microsoft.
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Os aplicativos Web chamam APIs em nome dos usuários para os quais o token de portador foi recebido. Os aplicativos Web precisam solicitar permissões delegadas. Para obter mais informações, consulte [adicionar permissões para acessar APIs da Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Os aplicativos da Web chamam APIs em nome dos usuários para os quais o token portador foi recebido. Os aplicativos web precisam solicitar permissões delegadas. Para obter mais informações, consulte [Adicionar permissões para acessar APIs da Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Uma API Web que chama APIs da Web: configuração de código](scenario-web-api-call-api-app-configuration.md)
+> [Uma API web que chama APIs da Web: configuração de código](scenario-web-api-call-api-app-configuration.md)

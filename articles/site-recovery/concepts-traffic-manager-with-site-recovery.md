@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947697"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager com o Azure Site Recovery
@@ -66,10 +66,10 @@ A **Empresa C** está executando aplicativos com pontos de extremidade públicos
 
 A configuração é a seguinte:
 - A **Empresa C** cria um perfil do [Gerenciador de Tráfego](../traffic-manager/traffic-manager-create-profile.md).
-- Utilizando o método de roteamento **Prioridade**, a **Empresa C** cria dois pontos de extremidade – **Primário** para a região de origem (Ásia Oriental do Azure) e **Failover** para a região de recuperação (Sudeste Asiático do Azure). Para o **Primário** é atribuída a Prioridade 1 e para **Failover** é atribuída a Prioridade 2.
+- Utilizando o método de roteamento **Prioridade**, a **Empresa C** cria dois pontos de extremidade – **Primário** para a região de origem (Leste da Ásia do Azure) e **Failover** para a região de recuperação (Sudeste Asiático do Azure). Para o **Primário** é atribuída a Prioridade 1 e para **Failover** é atribuída a Prioridade 2.
 - Como o ponto de extremidade **Primário** é hospedado no Azure, o ponto de extremidade pode ser como um ponto de extremidade do [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints).
 - Com o Azure Site Recovery, o site do Azure de recuperação não possui máquinas virtuais ou aplicativos em execução antes do failover. Portanto, o ponto de extremidade do **Failover** pode ser criado como um ponto de extremidade [Externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).
-- Por padrão, o tráfego de usuários é direcionado para o aplicativo da região de origem (Ásia Oriental), pois esse ponto de extremidade possui a prioridade mais alta associada a ele. Nenhum tráfego será direcionado para a região de recuperação, se o ponto de extremidade **Primário** estiver íntegro.
+- Por padrão, o tráfego de usuários é direcionado para o aplicativo da região de origem (Leste da Ásia), pois esse ponto de extremidade possui a prioridade mais alta associada a ele. Nenhum tráfego será direcionado para a região de recuperação, se o ponto de extremidade **Primário** estiver íntegro.
 
 ![Azure para Azure antes do failover](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
 
@@ -99,7 +99,7 @@ Para evitar esse problema e garantir a resiliência do aplicativo, a **Empresa D
 
 ![Aplicativo de várias regiões após](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-Por exemplo, se o ponto de extremidade no Centro da Alemanha falhar, o aplicativo poderá ser recuperado rapidamente no Nordeste da Alemanha. O novo ponto de extremidade manipula o tráfego originado da Alemanha com um tempo de inatividade mínimo para os usuários. Da mesma forma, uma interrupção do ponto de extremidade na Europa Ocidental pode ser manipulada pela recuperação da carga de trabalho do aplicativo para a Europa Setentrional, com o Gerenciador de Tráfego do Microsoft Azure manipulando redirecionamentos de DNS para o ponto de extremidade disponível.
+Por exemplo, se o ponto de extremidade no Centro da Alemanha falhar, o aplicativo poderá ser recuperado rapidamente no Nordeste da Alemanha. O novo ponto de extremidade manipula o tráfego originado da Alemanha com um tempo de inatividade mínimo para os usuários. Da mesma forma, uma interrupção do ponto de extremidade na Europa Ocidental pode ser manipulada pela recuperação da carga de trabalho do aplicativo para o Norte da Europa, com o Gerenciador de Tráfego do Microsoft Azure manipulando redirecionamentos de DNS para o ponto de extremidade disponível.
 
 A configuração acima pode ser expandida para incluir quantas combinações de região e pontos de extremidades forem necessários. O Gerenciador de Tráfego permite até 10 níveis de perfis aninhados e não permite loops dentro da configuração aninhada.
 

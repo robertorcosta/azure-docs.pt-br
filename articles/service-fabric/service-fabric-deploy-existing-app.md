@@ -1,13 +1,13 @@
 ---
-title: Implantar um executável existente no Azure Service Fabric
+title: Implantar um executável existente no azure Service Fabric
 description: Aprenda a empacotar um aplicativo existente como um executável de convidado, para que ele possa ser implantado em um cluster do Service Fabric.
 ms.topic: conceptual
 ms.date: 07/02/2017
 ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377099"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empacotar e implantar um executável existente no Service Fabric
@@ -20,9 +20,9 @@ Ao empacotar um executável já existente como [executável convidado](service-f
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Usar o Visual Studio para empacotar e implantar um executável existente
 O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar você a implantar um executável convidado em um cluster do Service Fabric.
 
-1. Escolha **Arquivo** > **Novo Projeto** e crie um aplicativo de Service Fabric.
+1. Escolha **o projeto** > **novo de**arquivo e crie um aplicativo de malha de serviço.
 2. Escolha **Executável Convidado** como o modelo de serviço.
-3. Clique em **Procurar** para selecionar a pasta com o executável e preencha o restante dos parâmetros para criar o serviço.
+3. Clique **em Procurar** para selecionar a pasta com o executável e preencher o restante dos parâmetros para criar o serviço.
    * *Comportamento do Pacote de Código*. Pode ser definido para copiar todo o conteúdo da pasta para o Projeto do Visual Studio, o que será útil se o executável não mudar. Se você espera que o executável mude e se quiser a capacidade de obter novas compilações dinamicamente, poderá optar por vincular para a pasta. Você pode usar pastas vinculadas ao criar o projeto de aplicativo no Visual Studio. Isso cria um vínculo com o local de origem de dentro do projeto, tornando possível atualizar o executável convidado em seu destino de origem. Essas atualizações se tornam parte do pacote de aplicativo no build.
    * *Programa* especifica o executável que deve ser executado para iniciar o serviço.
    * *Argumentos* especificam os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
@@ -62,7 +62,7 @@ O processo de empacotar manualmente um executável convidado baseia-se nas segui
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Criar a estrutura de diretórios do pacote
-Você pode começar criando a estrutura de diretório, conforme descrito em [empacotar um aplicativo de Service Fabric do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Você pode começar criando a estrutura do diretório, conforme descrito no [Package an Azure Service Fabric App](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Adicionar os arquivos de configuração e código do aplicativo
 Depois de criar a estrutura de diretório, você pode adicionar os arquivos de configuração e código do aplicativo aos diretórios de code e config. Também é possível criar diretórios adicionais ou subdiretórios nos diretórios code ou config.
@@ -285,7 +285,7 @@ Se navegar até o diretório usando o Gerenciador de Servidores, você poderá l
 
 ![Local do log](./media/service-fabric-deploy-existing-app/loglocation.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Consulte os seguintes artigos para tarefas e informações relacionadas.
 
 * [Amostra de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo um link para o pré-lançamento da ferramenta de empacotamento

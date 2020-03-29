@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60318422"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar uploads de arquivo do Hub IoT usando o PowerShell
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Para usar a funcionalidade de [upload de arquivos no Hub IoT](iot-hub-devguide-file-upload.md), você deve primeiro associar uma conta de armazenamento do Azure ao seu hub IoT. Você pode usar uma conta de armazenamento existente ou criar uma nova.
+Para usar a [funcionalidade de upload de arquivos no IoT Hub,](iot-hub-devguide-file-upload.md)você deve primeiro associar uma conta de armazenamento Azure ao seu hub IoT. Você pode usar uma conta de armazenamento existente ou criar uma nova.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tiver uma conta, você pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* [Cmdlets do PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* [Cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Um Hub IoT do Azure. Se você não tiver um hub IoT, você pode usar o [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para criar uma ou usar o portal para [criar um hub IoT](iot-hub-create-through-portal.md).
+* Um Hub IoT do Azure. Se você não tiver um hub de IoT, você pode usar o [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para criar um ou usar o portal para [criar um hub de IoT](iot-hub-create-through-portal.md).
 
 * Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento do Azure, você pode usar o [cmdlets do PowerShell do armazenamento do Azure](https://docs.microsoft.com/powershell/module/az.storage/) para criar uma ou usar o portal para [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md)
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Entre na sua conta do Azure e selecione sua assinatura.
 
-1. No prompt do PowerShell, execute as **AzAccount Connect** cmdlet:
+1. No prompt do PowerShell, execute o cmdlet **Connect-AzAccount:**
 
     ```powershell
     Connect-AzAccount
@@ -99,15 +99,15 @@ Agora você pode configurar seu hub IoT para [fazer upload de arquivos para o hu
 
 A configuração requer os seguintes valores:
 
-* **Contêiner de armazenamento**: Um contêiner de blobs em uma conta de armazenamento do Azure em sua assinatura atual do Azure a ser associado ao hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+* **Contêiner de armazenamento**: um contêiner de blob em uma conta de armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
 
-* **Receber notificações para arquivos carregados**: Habilite ou desabilite notificações de upload de arquivo.
+* **Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo.
 
-* **TTL de SAS**: Essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
+* **TTL de SAS**: essa configuração é o tempo de vida dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
 
-* **TTL padrão das configurações de notificação de arquivo**: A vida útil de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
+* **TTL de configurações de notificação de arquivo padrão**: o tempo de vida de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
 
-* **Contagem de entrega máxima de notificação de arquivo**: O número de vezes que o Hub IoT tenta entregar uma notificação de upload de arquivo. Defina como 10 por padrão.
+* **Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Defina como 10 por padrão.
 
 Use o cmdlet do PowerShell a seguir para configurar o arquivo de configurações de upload em seu Hub IoT:
 
@@ -125,16 +125,16 @@ Set-AzIotHub `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre os recursos de upload de arquivos do Hub IoT, consulte [Upload de arquivos de um dispositivo](iot-hub-devguide-file-upload.md).
+Para saber mais sobre os recursos de upload de arquivo do Hub IoT, consulte [Carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md).
 
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [Guia de desenvolvedores do IoT Hub](iot-hub-devguide.md)
 * [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

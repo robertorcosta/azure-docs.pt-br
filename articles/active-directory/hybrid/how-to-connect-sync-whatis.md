@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: Compreender e personalizar a sincronização | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: compreender e personalizar a sincronização | Microsoft Docs'
 description: Explica como funciona a sincronização do Azure AD Connect e como personalizá-lo.
 services: active-directory
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60348732"
 ---
-# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização do Azure AD Connect: Compreender e personalizar a sincronização
+# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização do Azure AD Connect: compreender e personalizar a sincronização
 Os serviços de sincronização do Azure Active Directory Connect (sincronização do Azure AD Connect) são um componente principal do Azure AD Connect. Eles cuidam de todas as operações relacionadas à sincronização de dados de identidade entre seu ambiente local e o Azure AD. O serviço de sincronização do Azure AD Connect é o sucessor do DirSync, do AD do Azure Sync e do Forefront Identity Manager com o Azure Active Directory Connector configurado.
 
-Este tópico é a base da **sincronização do Azure AD Connect** (também chamada de **mecanismo de sincronização**) e relaciona links para todos os outros tópicos relacionados a ela. Para obter links para o Azure AD Connect, confira [Integrando suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Este tópico é a base da **sincronização do Azure AD Connect** (também chamada de **mecanismo de sincronização**) e relaciona links para todos os outros tópicos relacionados a ela. Para obter links para o Azure AD Connect, consulte [Integrar suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
 
-O serviço de sincronização consiste em dois componentes, o componente local **Sincronização do Azure AD Connect** e o lado do serviço no Azure AD, chamado **Serviço de sincronização do Azure AD Connect** .
+O serviço de sincronização consiste em dois componentes, o componente local **Sincronização do Azure AD Connect** e o lado do serviço no Azure AD, chamado **Serviço de sincronização do Azure AD Connect **.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Tópicos da sincronização do Azure AD Connect
 | Tópico | O que ele abrange e quando deve ser lido |
@@ -39,18 +39,18 @@ O serviço de sincronização consiste em dois componentes, o componente local *
 | [Topologias para o Azure AD Connect](plan-connect-topologies.md) |Descreve as diferentes topologias e os cenários com suporte no mecanismo de sincronização. |
 | **Configuração personalizada** | |
 | [Executando o assistente de instalação novamente](how-to-connect-installation-wizard.md) |Explica as opções disponíveis para quando você executar o assistente de instalação do Azure AD Connect novamente. |
-| [Noções básicas sobre provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md) |Descreve o modelo de configuração chamado provisionamento declarativo. |
+| [Entendendo o Provisionamento Declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md) |Descreve o modelo de configuração chamado provisionamento declarativo. |
 | [Noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |Descreve a sintaxe para a linguagem de expressão usada no provisionamento declarativo. |
-| [Noções básicas sobre a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md) |Descreve as regras prontas e a configuração padrão. Também descreve como as regras trabalham juntas para que os cenários prontos funcionem. |
+| [Entendendo a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md) |Descreve as regras prontas e a configuração padrão. Também descreve como as regras trabalham juntas para que os cenários prontos funcionem. |
 | [Compreendendo usuários e contatos](concept-azure-ad-connect-sync-user-and-contacts.md) |Continua do tópico anterior e descreve como a configuração para usuários e contatos funciona em conjunto, especialmente em um ambiente de várias florestas. |
 | [Como fazer uma alteração na configuração padrão](how-to-connect-sync-change-the-configuration.md) |Explica como alterar uma configuração comum para fluxos de atributo. |
 | [Práticas recomendadas para alterar a configuração padrão](how-to-connect-sync-best-practices-changing-default-configuration.md) |Limitações de suporte e para fazer alterações na configuração de integração. |
 | [Configurar a filtragem](how-to-connect-sync-configure-filtering.md) |Descreve as diferentes opções para limitar quais objetos serão sincronizados com o Azure AD e o passo a passo de como configurá-los. |
 | **Recursos e cenários** | |
-| [Impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) |Descreve o recurso para *impedir exclusões acidentais* e como configurá-lo. |
+| [Evitar exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) |Descreve o recurso para *impedir exclusões acidentais* e como configurá-lo. |
 | [Agendador](how-to-connect-sync-feature-scheduler.md) |Descreve o agendador interno que está importando, sincronizando e exportando dados. |
 | [Implementar a sincronização de senha hash](how-to-connect-password-hash-synchronization.md) |Descreve o funcionamento da sincronização de senha, como implementá-la, como operá-la e como solucionar problemas. |
-| [Write-back de dispositivo](how-to-connect-device-writeback.md) |Descreve como o write-back de dispositivo funciona no Azure AD Connect. |
+| [Regravação de gravação do dispositivo](how-to-connect-device-writeback.md) |Descreve como o write-back de dispositivo funciona no Azure AD Connect. |
 | [Extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) |Descreve como estender o esquema do Azure AD com seus próprios atributos personalizados. |
 | [PreferredDataLocation do Office 365](how-to-connect-sync-feature-preferreddatalocation.md) |Descreve como colocar os recursos do Office 365 do usuário na mesma região que o usuário. |
 | **Serviço de Sincronização** | |
@@ -67,4 +67,4 @@ O serviço de sincronização consiste em dois componentes, o componente local *
 | [Referência de funções](reference-connect-sync-functions-reference.md) |Lista todas as funções disponíveis no provisionamento declarativo. |
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)

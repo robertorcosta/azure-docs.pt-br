@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o Azure Data Lake Analytics usando o SDK do .NET do Azure
-description: Este artigo descreve como usar o SDK do .NET para escrever aplicativos que gerenciam trabalhos do Data Lake Analytics, fontes de dados e os usuários.
+description: Este artigo descreve como usar o Azure .NET SDK para escrever aplicativos que gerenciam trabalhos do Data Lake Analytics, fontes de dados & usuários.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60617700"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo .NET
@@ -22,7 +22,7 @@ ms.locfileid: "60617700"
 
 Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando um aplicativo codificado com o SDK do .NET do Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado**.
 * **SDK do Microsoft Azure para .NET versão 2.5 ou posterior**.  Instale-o usando o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).
@@ -123,7 +123,7 @@ graphClient.TenantID = domain;
 
 ## <a name="manage-accounts"></a>Gerenciar Contas
 
-### <a name="create-an-azure-resource-group"></a>Criar um grupo de recursos do Azure
+### <a name="create-an-azure-resource-group"></a>Criar um Grupo de Recursos do Azure
 
 Se você ainda não criou um, deve ter um Grupo de Recursos do Azure para criar os componentes do Data Lake Analytics. Você precisa das suas credenciais de autenticação, da ID de assinatura e de um local. O código abaixo mostra como criar um grupo de recursos:
 
@@ -219,7 +219,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 
-* [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Conta de Armazenamento do Azure](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Vincular a uma conta de armazenamento do Azure
@@ -443,6 +443,6 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitorar e solucionar problemas em trabalhos do Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Gerencie o Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)
+* [Monitore e soluciona problemas do Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

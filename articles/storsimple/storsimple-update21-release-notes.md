@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60531043"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notas de versão da Atualização 2.2 do StorSimple Série 8000
@@ -56,7 +56,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | 4 |Criação de instantâneos |Houve problemas relacionados à criação de instantâneos incrementais em cenários com grandes volumes e pouca, ou nenhuma, rotatividade de dados. Esses problemas foram corrigidos nesta versão. |Sim |Sim |
 | 5 |Autenticação Openstack |Ao usar o Openstack como o provedor de serviços de nuvem, o usuário enfrentaria um bug raro relacionado à autenticação, no qual o analisador JSON resultava em uma falha. Esse bug foi corrigido nesta versão. |Sim |Não |
 | 6 |Cópia do host |Nas versões anteriores do software, um bug raro relacionado ao intervalo de ODX foi visto durante a cópia dos dados de um volume para outro. Isso resultaria em um failover de controlador e o sistema potencialmente poderia entrar no modo de recuperação. Esse bug foi corrigido nesta versão. |Sim |Não |
-| 7 |WMI (Instrumentação de Gerenciamento do Windows) |Nas versões anteriores do software, havia várias instâncias de falha de proxy da web com a exceção "\<ManagementException > Falha ao carregar o provedor". Esse bug foi atribuído a um vazamento de memória da WMI, e agora está corrigido. |Sim |Não |
+| 7 |WMI (Instrumentação de Gerenciamento do Windows) |Nas versões anteriores do software, houve várias\<instâncias de falha de proxy web com a exceção " ManagementException> Falha de carga do Provedor". Esse bug foi atribuído a um vazamento de memória da WMI, e agora está corrigido. |Sim |Não |
 | 8 |Atualizar |Em determinados casos raros, nas versões anteriores do software, o usuário recebia um "CisPowershellHcsscripterror" ao tentar verificar ou instalar as atualizações. Esse problema foi corrigido nesta versão. |Sim |Sim |
 | 9 |Pacote de suporte |Nesta versão, houve melhorias na forma como o pacote de suporte é coletado e carregado. |Sim |Sim |
 
@@ -66,7 +66,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | Não. | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum de disco |Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. |Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. |Sim |Não |
-| 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. |Sim |Não |
+| 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Não é necessária nenhuma ação do usuário. Esta situação se resolverá depois que a substituição do controlador for concluída. |Sim |Não |
 | 3 |Contas de armazenamento |Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados. | |Sim |Sim |
 | 4 |Failover de dispositivo |Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | |Sim |Não |
 | 5 |Instalação |Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |

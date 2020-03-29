@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
 ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842896"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
@@ -244,6 +244,6 @@ Você pode clicar no título do painel para vê-lo, mas agora ele está vazio, p
 
 Ao integrar o Observador de Rede com o Graylog, você agora tem uma maneira centralizada e conveniente de gerenciar e visualizar os logs de fluxo do grupo de segurança de rede. O Graylog tem vários outros recursos avançados, como streams e alertas, que também podem ser usados para gerenciar os logs de fluxo e entender melhor o tráfego de rede. Agora que você tem o Graylog configurado e conectado ao Azure, fique à vontade para continuar a explorar outras funcionalidades que ele oferece.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como visualizar os logs de fluxo do grupo de segurança de rede com o Power BI, acesse [Como visualizar logs de fluxos do grupo de segurança de rede com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

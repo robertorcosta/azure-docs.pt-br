@@ -1,6 +1,6 @@
 ---
-title: Como depurar UDFs – gêmeos digital do Azure | Microsoft Docs
-description: Saiba mais sobre as abordagens recomendadas para depurar funções definidas pelo usuário no Azure digital gêmeos.
+title: Como depurar UDFs - Azure Digital Twins | Microsoft Docs
+description: Saiba mais sobre abordagens recomendadas para depurar funções definidas pelo usuário no Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,42 +10,42 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 518383488aa878dab75aec7ad5da664332b62ad0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76511630"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário em Gêmeos Digitais do Azure
 
-Este artigo resume como diagnosticar e depurar funções definidas pelo usuário no Azure digital gêmeos. Em seguida, ele identifica alguns dos cenários mais comuns encontrados ao depurá-las.
+Este artigo resume como diagnosticar e depurar funções definidas pelo usuário no Azure Digital Twins. Em seguida, ele identifica alguns dos cenários mais comuns encontrados ao depurá-las.
 
 >[!TIP]
 > Leia [Como configurar monitoramento e registro em log](./how-to-configure-monitoring.md) para saber mais sobre a configuração de ferramentas de depuração em Gêmeos Digitais do Azure usando Logs de Atividades, Logs de Diagnóstico e Azure Monitor.
 
 ## <a name="debug-issues"></a>Problemas de depuração
 
-Saber como diagnosticar problemas no Azure digital gêmeos permite que você analise problemas com eficiência, identifique as causas dos problemas e forneça as soluções apropriadas para eles.
+Saber como diagnosticar problemas dentro do Azure Digital Twins permite analisar efetivamente os problemas, identificar as causas dos problemas e fornecer soluções adequadas para eles.
 
-Uma variedade de ferramentas de log, análise e diagnóstico é fornecida para esse fim.
+Uma variedade de ferramentas de registro, análise e diagnóstico são fornecidas para esse fim.
 
-### <a name="enable-logging-for-your-instance"></a>Habilitar o registro em log para sua instância
+### <a name="enable-logging-for-your-instance"></a>Habilite o registro para sua instância
 
-Os Gêmeos Digitais do Azure dão suporte a registro em log, monitoramento e análise robustos. As soluções que os desenvolvedores podem usar Azure Monitor logs, logs de diagnóstico, logs de atividades e outros serviços para dar suporte às necessidades complexas de monitoramento de um aplicativo de IoT. As opções de registro em log podem ser combinadas para consultar ou exibir registros em vários serviços e para fornecer cobertura de registro em log granular para muitos serviços.
+Os Gêmeos Digitais do Azure dão suporte a registro em log, monitoramento e análise robustos. Os desenvolvedores de soluções podem usar registros do Monitor Do Azure, registros de diagnóstico, registros de atividades e outros serviços para suportar as complexas necessidades de monitoramento de um aplicativo IoT. As opções de registro em log podem ser combinadas para consultar ou exibir registros em vários serviços e para fornecer cobertura de registro em log granular para muitos serviços.
 
-* Para a configuração de log específica do Azure digital gêmeos, leia [como configurar o monitoramento e o registro em log](./how-to-configure-monitoring.md).
-* Consulte a visão geral de [Azure monitor](../azure-monitor/overview.md) para saber mais sobre configurações de log avançadas habilitadas por meio de Azure monitor.
-* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md) para definir as configurações de log de diagnóstico no gêmeos digital do Azure por meio do portal do Azure, CLI do Azure ou PowerShell.
+* Para configurar configuração específica do Azure Digital Twins, leia [Como configurar monitoramento e registro](./how-to-configure-monitoring.md).
+* Consulte a visão geral do [Azure Monitor](../azure-monitor/overview.md) para saber mais sobre as configurações de log poderosas habilitadas através do Azure Monitor.
+* Revise o artigo [Colete e consuma dados de log de seus recursos do Azure](../azure-monitor/platform/platform-logs-overview.md) para configurar configurações de registro de diagnóstico em Gêmeos Digitais Azure através do portal Azure, Azure CLI ou PowerShell.
 
-Uma vez configurado, você poderá selecionar todas as categorias de log, métricas e usar espaços de trabalho de Azure Monitor do log Analytics eficientes para dar suporte aos seus esforços de depuração.
+Uma vez configurado, você poderá selecionar todas as categorias de log, métricas e usar poderosos espaços de trabalho de análise de log do Azure Monitor para suportar seus esforços de depuração.
 
 ### <a name="trace-sensor-telemetry"></a>Sensor de telemetria de rastreamento
 
-Para rastrear telemetria do sensor, verifique se as configurações de diagnóstico estão habilitadas para sua instância dos Gêmeos Digitais do Azure. Em seguida, verifique se todas as categorias de log desejadas estão selecionadas. Por fim, confirme se os logs desejados estão sendo enviados aos logs de Azure Monitor.
+Para rastrear telemetria do sensor, verifique se as configurações de diagnóstico estão habilitadas para sua instância dos Gêmeos Digitais do Azure. Em seguida, verifique se todas as categorias de log desejadas estão selecionadas. Por último, confirme se os registros desejados estão sendo enviados para os registros do Monitor do Azure.
 
 Para corresponder a uma mensagem de telemetria do sensor para seus respectivos logs, você pode especificar uma ID de Correlação nos dados de evento que estão sendo enviados. Para fazer isso, defina a propriedade `x-ms-client-request-id` para um GUID.
 
-Depois de enviar telemetria, abra Azure Monitor log Analytics para consultar logs usando a ID de correlação do conjunto:
+Depois de enviar a telemetria, abra as análises de log do Azure Monitor para consultar os logs usando o ID de correlação definido:
 
 ```Kusto
 AzureDiagnostics
@@ -56,14 +56,14 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | A ID de Correlação que foi especificada nos dados de evento |
 
-Para ler a consulta de todos os logs de telemetria recentes:
+Para ler todas as consultas de logs de telemetria recentes:
 
 ```Kusto
 AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-Se você habilitar o registro em log para a função definida pelo usuário, esses logs aparecerão na instância do log Analytics com a categoria `UserDefinedFunction`. Para recuperá-los, insira a seguinte condição de consulta no log Analytics:
+Se você habilitar o registro para sua função definida pelo usuário, `UserDefinedFunction`esses logs aparecerão na instância de análise de log com a categoria . Para recuperá-los, digite a seguinte condição de consulta em análises de log:
 
 ```Kusto
 AzureDiagnostics
@@ -163,7 +163,7 @@ Resposta:
 
 Quando você não estiver recebendo notificações da função definida pelo usuário disparada, confirme que seu parâmetro de tipo de objeto de topologia corresponde ao tipo de identificador que está sendo usado.
 
-Exemplo **Incorreto**:
+**Incorreto** Exemplo:
 
 ```JavaScript
 var customNotification = {
@@ -175,7 +175,7 @@ sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification)
 
 Esse cenário ocorre porque o identificador usado refere-se a um sensor, enquanto o tipo de objeto de topologia especificado é `Space`.
 
-Exemplo **Correto**:
+**Correto** Exemplo:
 
 ```JavaScript
 var customNotification = {
@@ -212,8 +212,8 @@ Se habilitar as configurações de diagnóstico, você poderá encontrar estas e
 
 1. **Não Autorizado**: se sua função definida pelo usuário não tiver uma atribuição de função definida ou não tiver permissões suficientes para acessar alguns metadados da topologia, a operação falhará.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como habilitar [logs e monitoramento](./how-to-configure-monitoring.md) nos Gêmeos Digitais do Azure.
 
-- Leia o artigo [visão geral do log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) para obter mais opções de log do Azure.
+- Leia o [artigo de registro de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) para obter mais opções de registro do Azure.

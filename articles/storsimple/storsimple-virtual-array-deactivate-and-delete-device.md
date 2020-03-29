@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: bb1a56d204a46f89213f20e317494120f0ea565e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580494"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desativar e excluir uma Matriz Virtual StorSimple
@@ -36,9 +36,9 @@ As informações nesse artigo aplicam-se somente a Matrizes Virtuais do StorSimp
 
 A desativação é uma operação PERMANENTE e não pode ser desfeita. Não é possível registrar um dispositivo desativado com o serviço Gerenciador de Dispositivos do StorSimple. Talvez seja necessário desativar e excluir uma Matriz Virtual do StorSimple nos seguintes cenários:
 
-* **Failover planejado** : Seu dispositivo está online e você planeja efetuar failover do dispositivo. Talvez seja necessário fazer isso se você estiver planejando atualizar para um dispositivo maior. Após a transferência de propriedade dos dados e a conclusão do failover, o dispositivo de origem será excluído automaticamente.
-* **Failover não planejado** : Seu dispositivo está offline e você precisa fazer failover de dispositivo. Esse cenário pode ocorrer durante um desastre, quando há uma interrupção no datacenter e o dispositivo primário fica inativo. Você planeja fazer failover de dispositivo para um dispositivo secundário. Após a transferência de propriedade dos dados e a conclusão do failover, o dispositivo de origem será excluído automaticamente.
-* **Encerrar** : Você deseja encerrar o dispositivo. Para isso, primeiro você precisa desativar o dispositivo e, depois, excluí-lo. Ao desativar um dispositivo, não é mais possível acessar os dados que foram armazenados localmente. Você só pode acessar e recuperar os dados armazenados na nuvem. Se você planeja manter os dados do dispositivo após a desativação, você deve tirar um instantâneo de nuvem de todos os dados antes de desativar um dispositivo. Esse instantâneo permitirá que você recupere todos os dados em um estágio posterior.
+* **Failover não planejado**: seu dispositivo está online e você planeja efetuar o failover no dispositivo. Talvez seja necessário fazer isso se você estiver planejando atualizar para um dispositivo maior. Após a transferência de propriedade dos dados e a conclusão do failover, o dispositivo de origem será excluído automaticamente.
+* **Failover não planejado**: seu dispositivo está online e você precisa efetuar o failover no dispositivo. Esse cenário pode ocorrer durante um desastre, quando há uma interrupção no datacenter e o dispositivo primário fica inativo. Você planeja fazer failover de dispositivo para um dispositivo secundário. Após a transferência de propriedade dos dados e a conclusão do failover, o dispositivo de origem será excluído automaticamente.
+* **Desativar**: você deseja desativar o dispositivo. Para isso, primeiro você precisa desativar o dispositivo e, depois, excluí-lo. Ao desativar um dispositivo, não é mais possível acessar os dados que foram armazenados localmente. Você só pode acessar e recuperar os dados armazenados na nuvem. Se você planeja manter os dados do dispositivo após a desativação, você deve tirar um instantâneo de nuvem de todos os dados antes de desativar um dispositivo. Esse instantâneo permitirá que você recupere todos os dados em um estágio posterior.
 
 ## <a name="deactivate-a-device"></a>Desativar um dispositivo
 

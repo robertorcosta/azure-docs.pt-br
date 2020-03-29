@@ -1,5 +1,5 @@
 ---
-title: Use a captura de pacote para fazer o monitoramento de rede proativo com alertas-Azure Functions
+title: Use a captura de pacotes para fazer o monitoramento proativo da rede com alertas - Funções do Azure
 titleSuffix: Azure Network Watcher
 description: Este artigo descreve como criar uma captura de pacotes disparada por alertas com o Observador de Rede do Azure
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842930"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
@@ -79,11 +79,11 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Nome do aplicativo**|PacketCaptureExample|O nome do aplicativo de funções.|
     |**Assinatura**|[Sua assinatura]A assinatura na qual a criar o aplicativo de funções.||
     |**Grupo de recursos**|PacketCaptureRG|O nome do grupo de recursos para conter o aplicativo de funções.|
-    |**Plano de hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
-    |**Localidade**|EUA Central| A região na qual um aplicativo de funções será criado.|
+    |**Plano de Hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
+    |**Local**|Centro dos EUA| A região na qual um aplicativo de funções será criado.|
     |**Conta de armazenamento**|{gerado automaticamente}| A conta de armazenamento que o Azure Functions usa para armazenamento de finalidade geral.|
 
-3. Na folha **Aplicativos do Functions PacketCaptureExample**, selecione **Functions** > **Função personalizada** > **+** .
+3. Na folha **Aplicativos do Functions PacketCaptureExample**, selecione **Functions** > **Função personalizada** >**+**.
 
 4. Selecione **HttpTrigger-Powershell** e, em seguida, insira as informações restantes. Finalmente, para criar a função, selecione **Criar**.
 
@@ -120,7 +120,7 @@ Para usar os cmdlets do PowerShell no Observador de Rede, faça upload do últim
 
      ![Pastas do PowerShell][functions5]
 
-1. Selecione **Configurações do Aplicativo de funções** > **Ir para o Editor do Serviço de Aplicativo**.
+1. Selecione **Configurações** > do aplicativo Função**Vá para o App Service Editor**.
 
     ![Configurações do aplicativo de funções][functions2]
 
@@ -136,11 +136,11 @@ Para usar os cmdlets do PowerShell no Observador de Rede, faça upload do últim
 
     * Az.Resources
 
-1. Clique com o botão direito do mouse na subpasta **AZ. Network** e selecione **carregar arquivos**. 
+1. Clique com o botão direito do mouse na subpasta **Az.Network** e, em seguida, selecione **'Upload Files '**. 
 
-6. Vá para os módulos do Azure. Na pasta **AZ. Network** local, selecione todos os arquivos na pasta. Depois, selecione **OK**. 
+6. Vá para os módulos do Azure. Na pasta **Az.Network** local, selecione todos os arquivos da pasta. Em seguida, selecione **OK**. 
 
-7. Repita essas etapas para **AZ. Accounts** e **AZ. Resources**.
+7. Repita essas etapas para **Az.Accounts** e **Az.Resources**.
 
     ![Carregar arquivos][functions6]
 
@@ -207,7 +207,7 @@ A ID do cliente é a ID de um aplicativo no Azure Active Directory.
    > [!NOTE]
    > A senha que você usa ao criar o aplicativo deve ser a mesma senha criada anteriormente ao salvar o arquivo de chave.
 
-1. No Portal do Azure, selecione **Assinaturas**. Selecione a assinatura para usar e, em seguida, selecione **Controle de Acesso (IAM)** .
+1. No Portal do Azure, selecione **Assinaturas**. Selecione a assinatura para usar e, em seguida, selecione **Controle de Acesso (IAM)**.
 
     ![IAM de funções][functions9]
 
@@ -246,7 +246,7 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>Armazenar as variáveis de ambiente
 
-1. Vá para o aplicativo de funções. Selecione **Configurações do aplicativo de função** > **Definir configurações de aplicativo**.
+1. Vá para o aplicativo de funções. Em seguida, **selecione Configurações** > do aplicativo**Função Configure as configurações do aplicativo**.
 
     ![Definir configurações de aplicativo][functions11]
 
@@ -350,7 +350,7 @@ Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais doc
   |**Condição**|Maior que| A condição para usar ao avaliar a métrica.|
   |**Limite**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período no qual procurar o limite na métrica.|
-  |**Webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
+  |**Gancho de web**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
 
 > [!NOTE]
 > A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar outras métricas visitando [Habilitar o monitoramento e o diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
@@ -370,7 +370,7 @@ Depois que a captura for baixada, você poderá exibi-la usando qualquer ferrame
 - [Analisador de Mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
 - [WireShark](https://www.wireshark.org/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como exibir as capturas de pacotes visitando [Análise da captura de pacotes com o Wireshark](network-watcher-deep-packet-inspection.md).
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244222"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET 
@@ -281,7 +281,7 @@ Observe o uso da macro {Resolution} no FileName. Isso faz com que o codificador 
 
 Embora todos os exemplos acima tenham discutido como enviar uma tarefa de codificação que produz apenas imagens, também é possível combinar a codificação de vídeo ou áudio com a geração de miniaturas. As predefinições JSON e XML a seguir fazem com que o **Media Encoder Standard** gere uma miniatura durante a codificação.
 
-### <a id="json"></a>Predefinição JSON
+### <a name="json-preset"></a><a id="json"></a>Pré-definido json
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
 
 ```json
@@ -346,7 +346,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
     }
 ```
 
-### <a id="xml"></a>Predefinição XML
+### <a name="xml-preset"></a><a id="xml"></a>Predefinido XML
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artigo.
 
 ```csharp
@@ -401,7 +401,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
     </Preset>   
 ```
 
-## <a id="code_sample"></a>Codificar vídeos e gerar miniaturas com o .NET
+## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>Codificar vídeos e gerar miniaturas com o .NET
 
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
@@ -551,14 +551,14 @@ As seguintes considerações se aplicam:
 * O uso de carimbos explícitos para Início/Etapa/Intervalo pressupõe que a fonte de entrada tem duração de pelo menos 1 minuto.
 * Elementos Jpg/Png/BmpImage têm atributos de cadeia de caracteres de Início, Etapa e Intervalo que podem ser interpretados como:
   
-  * Número de quadro se eles forem números inteiros não negativos, por exemplo, “Início”: "120",
-  * Relativos à duração da origem se expressos com o sufixo %, por exemplo, “Início”: “15%”, OU
-  * Carimbo de data/hora se expresso no formato HH:MM:SS… . Por exemplo “Iniciar”: "00:01:00"
+  * Número de quadro se eles forem números inteiros não negativos, por exemplo, "Início": "120",
+  * Relativos à duração da origem se expressos com sufixo %, por exemplo, "Início": "15%", OU
+  * Carimbo de data/hora se expresso no formato HH:MM:SS… . Por exemplo “Iniciar” : “00:01:00”
     
     Você pode combinar as notações como desejar.
     
-    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro “interessante” da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
-  * Padrões: Início:{Best}
+    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
+  * Padrões: Start:{Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -571,6 +571,6 @@ Você pode verificar o [andamento do trabalho](media-services-check-job-progress
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 

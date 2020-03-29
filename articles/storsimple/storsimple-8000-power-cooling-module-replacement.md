@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60632281"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
@@ -50,31 +50,31 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
 > Antes de remover o PCM, verifique se você tem uma peça de reposição correta (764 W para o compartimento primário ou 580 W para o compartimento EBOD).
 
 #### <a name="to-remove-a-pcm"></a>Para remover um PCM
-1. No Portal Clássico do Azure, clique em **Configurações > Monitor > Integridade do hardware**. Verifique o status dos componentes do PCM em **Componentes compartilhados** para identificar qual PCM falhou:
+1. No Portal Clássico do Azure, clique em **Configurações > Monitor > Integridade do hardware**. Verifique o status dos componentes PCM em **componentes compartilhados** para identificar qual PCM falhou:
    
    * Se uma fonte de alimentação no PCM 0 tiver falhado, o status da **Fonte de Alimentação no PCM 0** ficará vermelho.
    * Se uma fonte de alimentação no PCM 1 tiver falhado, o status da **Fonte de Alimentação no PCM 1** ficará vermelho.
    * Se houve falha no ventilador do PCM 1, o status do **Resfriamento 0 do PCM 0** ou do **Resfriamento 1 do PCM 0** ficará vermelho.
-2. Localize o PCM com falha na parte traseira do compartimento primário. Se você estiver executando um modelo 8600, identifique o compartimento primário examinando o número de identificação da unidade do sistema no display de LED do painel frontal. A ID de unidade padrão exibida no compartimento primário é **00**, enquanto que a ID de unidade padrão exibida no compartimento EBOD é **01**. O diagrama e a tabela a seguir explicam o painel frontal do display de LED.
+2. Localize o PCM com falha na parte traseira do compartimento primário. Se você estiver executando um modelo 8600, identifique o compartimento primário examinando o número de identificação da unidade do sistema no display de LED do painel frontal. A ID da Unidade padrão exibida no compartimento principal é **00**, enquanto a ID da Unidade padrão exibida no compartimento EBOD é **01**. O diagrama e a tabela a seguir explicam o painel frontal do display de LED.
    
     ![ID do sistema na no painel de operações frontal](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
      **Figura 1** Parte frontal do dispositivo  
    
-   | Rotular | DESCRIÇÃO |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Botão silenciar |
    | 2 |Energia do sistema |
    | 3 |Falha do módulo |
    | 4 |Falha lógica |
    | 5 |Exibição da ID da unidade |
-3. Os LEDs indicadores de monitoramento na parte traseira do compartimento primário também podem ser usado para identificar o PCM defeituoso. Consulte o diagrama e a tabela a seguir para entender como usar os LEDs para localizar o PCM defeituoso. Por exemplo, se o LED correspondente à **Falha do Ventilador** estiver aceso, houve falha no ventilador. Da mesma forma, se o LED correspondente à **Falha de CA** estiver aceso, a fonte de alimentação falhou. 
+3. Os LEDs indicadores de monitoramento na parte traseira do compartimento primário também podem ser usado para identificar o PCM defeituoso. Consulte o diagrama e a tabela a seguir para entender como usar os LEDs para localizar o PCM defeituoso. Por exemplo, se o LED correspondente a **Falha do Ventilador** estiver aceso, o ventilador falhou. Da mesma forma, se o LED correspondente a **Falha na CA** estiver aceso, a fonte de alimentação falhou. 
    
     ![Backplane dos LEDs indicadores de monitoramento de PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    
      **Figura 2** Parte posterior do PCM com LEDs indicadores
    
-   | Rotular | DESCRIÇÃO |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Falha de energia CA |
    | 2 |Falha do ventilador |
@@ -88,7 +88,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      **Figura 3** Parte traseira do dispositivo com módulos de plug-in 
    
-   | Rotular | DESCRIÇÃO |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

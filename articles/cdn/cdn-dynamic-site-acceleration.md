@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 08e705d3c3623d4d02ccaea609eb0555aa1c8e33
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593917"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração de site dinâmico via CDN do Azure
@@ -27,7 +27,7 @@ Com a explosão de mídia social, comércio eletrônico e a Web extremamente per
 
 A funcionalidade da CDN (rede de distribuição de conteúdo) padrão inclui a capacidade de armazenar arquivos em cache mais próximos dos usuários finais para acelerar a entrega de arquivos estáticos. No entanto, com aplicativos Web dinâmicos, armazenar em cache esse conteúdo em localizações de borda não é possível porque o servidor gera o conteúdo em resposta ao comportamento do usuário. Acelerar a entrega desse tipo de conteúdo é mais complexo do que o cache de borda tradicional e exige uma solução de ponta a ponta que ajuste bem cada elemento ao longo de todo o caminho de dados, do início à entrega. Com a otimização de DSA (aceleração de site dinâmico) da CDN do Azure, o desempenho de páginas da Web com conteúdo dinâmico é melhorado de maneira significativa.
 
-A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade. Aceleração de site dinâmico da Microsoft é oferecida por meio [o serviço do Azure da frente](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+A **CDN do Azure da Akamai** e **CDN do Azure CDN do Verizon** ambos oferecem otimização de DSA através do menu **Otimizado para** durante a criação do ponto de extremidade. A aceleração dinâmica do site da Microsoft é oferecida via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Para perfis **CDN do Azure da Akamai**, é possível alterar a otimização de um ponto de extremidade CDN após sua criação.
@@ -76,8 +76,8 @@ Para configurar um ponto de extremidade CDN para otimizar a entrega de arquivos 
 
 Aceleração de site dinâmico na CDN do Azure acelera a entrega de ativos dinâmicos usando as técnicas a seguir:
 
--   [Otimização de rota](#route-optimization)
--   [Otimizações de TCP](#tcp-optimizations)
+-   [Otimização de rotas](#route-optimization)
+-   [Otimizações do TCP](#tcp-optimizations)
 -   [Pré-busca de objeto(CDN do Azure da Akamai, somente)](#object-prefetch-azure-cdn-from-akamai-only)
 -   [Compactação da imagem adaptável (CDN do Azure da Akamai, somente)](#adaptive-image-compression-azure-cdn-from-akamai-only)
 
@@ -169,7 +169,7 @@ Para os perfis **CDN Premium do Azure do Verizon** somente, você ativa o cache 
 
 Para acessar o mecanismo de regras:
     
-1. Na página **Perfil CDN**, selecione **Gerenciar**.  
+1. Na página de perfil do **CDN,** selecione **Gerenciar**.  
     
     ![Botão Gerenciar perfil da CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ Para acessar o mecanismo de regras:
 
 Como alternativa, é possível utilizar dois pontos de extremidade CDN: um ponto de extremidade otimizado com DSA para fornecer ativos dinâmicos e outro ponto de extremidade otimizado com um tipo de otimização estática, como entrega Web geral, para entrega de ativos armazenáveis em cache. Modifique as URLs da página da Web para conectar-se diretamente ao ativo no ponto de extremidade CDN que você planeja usar. 
 
-Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e é carregado do ponto de extremidade DSA.  A página HTML faz referência a vários ativos estáticos como bibliotecas JavaScript ou imagens que são carregadas do ponto de extremidade CDN estático, tais como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
+Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e é carregado do ponto de extremidade DSA.A página HTML faz referência a vários ativos estáticos como bibliotecas JavaScript ou imagens que são carregadas do ponto de extremidade CDN estático, tais como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
 
 
 

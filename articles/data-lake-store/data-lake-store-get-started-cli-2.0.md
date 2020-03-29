@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60885330"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Storage usando a CLI do Azure
@@ -23,24 +23,24 @@ ms.locfileid: "60885330"
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Powershell](data-lake-store-get-started-powershell.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-Saiba como usar a CLI do Azure para criar uma conta do Azure Data Lake Storage Gen1 e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta etc. Para saber mais sobre o Data Lake Storage Gen1, confira [Visão geral do Data Lake Storage Gen1](data-lake-store-overview.md).
+Aprenda a usar o Azure CLI para criar uma conta Azure Data Lake Storage Gen1 e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre data lake storage Gen1, consulte [Visão geral do Data Lake Storage Gen1](data-lake-store-overview.md).
 
 A CLI do Azure é a experiência de linha de comando do Azure para gerenciar recursos do Azure. Ela pode ser usada em Windows, Linux e macOS. Para obter mais informações, confira [Visão geral da CLI do Azure](https://docs.microsoft.com/cli/azure). Você também pode examinar a [referência da CLI do Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) para obter uma lista completa de comandos e sintaxes.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **CLI do Azure** – Confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Este artigo usa uma abordagem de autenticação mais simples com o Data Lake Storage Gen1, em que você faz logon como um usuário final. O nível de acesso à conta do Data Lake Storage Gen1 e ao sistema de arquivos é controlado pelo nível de acesso do usuário conectado. No entanto, há outras abordagens para autenticar com o Data Lake Storage Gen1, que são a **autenticação de usuário final** ou a **autenticação serviço a serviço**. Para obter instruções e saber mais sobre como se autenticar, veja [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md) ou [Autenticação de serviço a serviço](data-lake-store-authenticate-using-active-directory.md).
 
@@ -134,7 +134,7 @@ A saída desse comando deve ser:
 
 ## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Renomear, baixar e excluir dados de uma conta do Data Lake Storage Gen1 
 
-* **Para renomear um arquivo**, use o seguinte comando:
+* **Para renomear um arquivo,** use o seguinte comando:
   
     ```azurecli
     az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
@@ -151,7 +151,7 @@ A saída desse comando deve ser:
     > 
     >
 
-* **Para excluir um arquivo**, use o seguinte comando:
+* **Para excluir um arquivo,** use o seguinte comando:
   
     ```azurecli
     az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv
@@ -185,7 +185,7 @@ Nesta seção, saiba mais sobre como gerenciar ACLs e permissões usando a CLI d
     az dls fs access show --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv
     ```
 
-    A saída deverá ser semelhante a esta:
+    A saída deve ser semelhante ao seguinte:
 
         {
             "entries": [

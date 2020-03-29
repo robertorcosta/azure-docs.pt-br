@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Como se recuperar do problema de limite de 10 GB do LocalDB | Microsoft Docs'
+title: 'Azure AD Connect: Como recuperar LocalDB problema de limite de 10 GB | Microsoft Docs'
 description: Este tópico descreve como recuperar o serviço de sincronização do Azure do AD Connect quando encontra LocalDB 10GB limitar o problema.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60386917"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
@@ -29,14 +29,14 @@ O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados d
 ## <a name="symptoms"></a>Sintomas
 Há dois sintomas comuns:
 
-* O Serviço de sincronização do Azure do AD Connect **está em execução**, mas não consegue sincronizar com o erro *"stopped-database-disk-full"* .
+* O Serviço de sincronização do Azure do AD Connect **está em execução**, mas não consegue sincronizar com o erro *"stopped-database-disk-full"*.
 
 * Serviço de sincronização do Azure do AD Connect **não pode iniciar**. Quando você tentar iniciar o serviço, ele falha com o evento 6323 e mensagem de erro *"o servidor encontrou um erro porque o SQL Server está sem espaço em disco“.*
 
 ## <a name="short-term-recovery-steps"></a>Etapas de recuperação de curto prazo
 Esta seção fornece as etapas para recuperar o espaço de banco de dados necessário para o serviço do Azure AD Connect sincronização retomar a operação. As etapas são as seguintes:
-1. [Determinar o status do Serviço de Sincronização](#determine-the-synchronization-service-status)
-2. [Reduzir o banco de dados](#shrink-the-database)
+1. [Determinar o status do serviço de sincronização](#determine-the-synchronization-service-status)
+2. [Encolher o banco de dados](#shrink-the-database)
 3. [Excluir dados de histórico de execução](#delete-run-history-data)
 4. [Reduzir o período de retenção de dados de histórico de execução](#shorten-retention-period-for-run-history-data)
 
@@ -87,7 +87,7 @@ Por padrão, Azure AD Connect retém a dias sete de dados de histórico de execu
 
 3. Em **Ações**, selecione **Limpar Execuções**…
 
-4. Você pode escolher **limpar todas as execuções** ou **limpar execuções antes... \<data >** opção. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
+4. Você pode escolher **Limpar todas as corridas** ou limpar corridas **antes... opção \<de>data.** É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reduzir o período de retenção de dados de histórico de execução
 Esta etapa é reduzir a probabilidade de executando o problema de limite de 10 GB após vários ciclos de sincronização.
@@ -101,7 +101,7 @@ Esta etapa é reduzir a probabilidade de executando o problema de limite de 10 G
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Solução de longo prazo – migrar para o SQL completo
 Em geral, o problema é indicativo de que o tamanho do banco de dados de 10 GB não é mais suficiente para o Azure AD Connect sincronizar seu Active Directory local ao Azure AD. É recomendável que você troque pelo uso da versão completa do SQL Server. Você não pode substituir o LocalDB de uma implantação existente do Azure AD Connect diretamente com o banco de dados da versão completa do SQL. Em vez disso, você deve implantar um novo servidor do Azure AD Connect com a versão completa do SQL. É recomendável que você faça uma migração swing, onde o novo servidor do Azure AD Connect (com o banco de dados SQL) é implantado como um servidor de preparo, ao lado do servidor do Azure AD Connect existente (com o LocalDB). 
 * Para obter instruções sobre como configurar o remote SQL com o Azure AD Connect, consulte o artigo [instalação personalizada do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* Para obter instruções sobre a migração swing para atualização do Azure AD Connect, veja o artigo [Azure AD Connect: atualização de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+* Para obter instruções sobre a migração swing para atualização do Azure AD Connect, veja o artigo [Azure AD Connect: Atualização de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

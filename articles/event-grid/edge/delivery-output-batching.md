@@ -1,6 +1,6 @@
 ---
-title: Envio em lote de saída na grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Envio em lote de saída na grade de eventos em IoT Edge.
+title: Loteamento de saída em Azure Event Grid IoT Edge | Microsoft Docs
+description: Loteamento de saída em Event Grid em IoT Edge.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,50 +10,50 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841740"
 ---
 # <a name="output-batching"></a>Envio em lote de saída
 
-A grade de eventos tem suporte para entregar mais de um evento em uma única solicitação de entrega. Esse recurso torna possível aumentar a taxa de transferência de entrega geral sem pagar as sobrecargas HTTP por solicitação. O envio em lote é desativado por padrão e pode ser ativado por assinatura.
+Event Grid tem suporte para entregar mais de um evento em uma única solicitação de entrega. Esse recurso permite aumentar o throughput de entrega global sem pagar as despesas gerais por solicitação. O lote é desligado por padrão e pode ser ligado por assinatura.
 
 > [!WARNING]
-> A duração máxima permitida para processar cada solicitação de entrega não é alterada, embora o código do assinante precise fazer mais trabalho por solicitação em lote. O tempo limite de entrega padrão é de 60 segundos.
+> A duração máxima permitida para processar cada solicitação de entrega não muda, embora o código do assinante potencialmente tenha que fazer mais trabalho por solicitação em lote. O tempo de intervalo de entrega é padrão para 60 segundos.
 
-## <a name="batching-policy"></a>Política de envio em lote
+## <a name="batching-policy"></a>Política de loteamento
 
-O comportamento de envio em lote da grade de eventos pode ser personalizado por assinante, ajustando as duas configurações a seguir:
+O comportamento de loteamento do Event Grid pode ser personalizado por assinante, ajustando as duas configurações a seguir:
 
-* Máximo de eventos por lote
+* Eventos máximos por lote
 
-  Essa configuração define um limite superior para o número de eventos que podem ser adicionados a uma solicitação de entrega em lote.
+  Essa configuração estabelece um limite superior no número de eventos que podem ser adicionados a uma solicitação de entrega em lote.
 
-* Tamanho de lote preferencial em kilobytes
+* Tamanho do lote preferido em kilobytes
 
-  Esse botão é usado para controlar ainda mais o número máximo de quilobytes que podem ser enviados por solicitação de entrega
+  Este botão é usado para controlar ainda mais o número máximo de kilobytes que podem ser enviados por solicitação de entrega
 
-## <a name="batching-behavior"></a>Comportamento de envio em lote
+## <a name="batching-behavior"></a>Comportamento de loteamento
 
-* Todos ou nenhum
+* Tudo ou nenhum
 
-  A grade de eventos opera com a semântica All-ou-None. Ele não dá suporte ao sucesso parcial de uma entrega em lote. Os assinantes devem ter cuidado para solicitar o máximo de eventos por lote, pois eles podem ser tratados razoavelmente em 60 segundos.
+  Event Grid opera com semântica tudo ou nenhum. Não suporta o sucesso parcial de uma entrega em lote. Os assinantes devem ter o cuidado de pedir apenas o máximo de eventos por lote que puderem lidar razoavelmente em 60 segundos.
 
-* Envio em lote otimista
+* Loteamento otimista
 
-  As configurações de política de envio em lote não são limites estritos no comportamento de envio em lote e são respeitadas em uma base de melhor esforço. Com as baixas taxas de evento, muitas vezes você observará que o tamanho do lote é menor que o máximo de eventos solicitados por lote.
+  As configurações da diretiva de loteamento não são limites rígidos sobre o comportamento de loteamento e são respeitadas com base no melhor esforço. Com baixas taxas de eventos, muitas vezes você observará o tamanho do lote sendo menor do que os eventos máximos solicitados por lote.
 
 * O padrão é definido como OFF
 
-  Por padrão, a grade de eventos adiciona apenas um evento a cada solicitação de entrega. A maneira de ativar o envio em lote é definir qualquer uma das configurações mencionadas anteriormente no artigo no JSON da assinatura de evento.
+  Por padrão, event grid adiciona apenas um evento a cada solicitação de entrega. A maneira de ativar o loteamento é definir qualquer uma das configurações mencionadas anteriormente no artigo no evento de assinatura JSON.
 
 * Valores padrão
 
-  Não é necessário especificar as configurações (máximo de eventos por lote e tamanho de lote aproximado em quilobytes bytes) ao criar uma assinatura de evento. Se apenas uma configuração for definida, a grade de eventos usará valores padrão (configuráveis). Consulte as seções a seguir para obter os valores padrão e como substituí-los.
+  Não é necessário especificar as configurações (Máximo de eventos por lote e tamanho de lote aproximado em bytes de quilo) ao criar uma assinatura de evento. Se apenas uma configuração estiver definida, a Grade de Eventos usará os valores padrão (configuráveis). Consulte as seções a seguir para os valores padrão e como substituí-los.
 
-## <a name="turn-on-output-batching"></a>Ativar o envio em lote de saída
+## <a name="turn-on-output-batching"></a>Ativar o lote amento de saída
 
 ```json
 {
@@ -73,20 +73,20 @@ O comportamento de envio em lote da grade de eventos pode ser personalizado por 
 }
 ```
 
-## <a name="configuring-maximum-allowed-values"></a>Configurando valores máximos permitidos
+## <a name="configuring-maximum-allowed-values"></a>Configuração de valores máximos permitidos
 
 As configurações de tempo de implantação a seguir controlam o valor máximo permitido ao criar uma assinatura de evento.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | ------------- | ----------- | 
-| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido para o botão de `PreferredBatchSizeInKilobytes`. `1033`padrão.
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para o botão de `MaxEventsPerBatch`. `50`padrão.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valor máximo permitido `PreferredBatchSizeInKilobytes` para o botão. Padrão `1033`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido `MaxEventsPerBatch` para o botão. Padrão `50`.
 
-## <a name="configuring-runtime-default-values"></a>Configurando valores padrão de tempo de execução
+## <a name="configuring-runtime-default-values"></a>Configuração de valores padrão de tempo de execução
 
-As configurações de tempo de implantação a seguir controlam o valor padrão de tempo de execução de cada botão quando ele não é especificado na assinatura do evento. Para reiterar, pelo menos um botão deve ser definido na assinatura do evento para ativar o comportamento de envio em lote.
+As configurações de tempo de implantação a seguir controlam o valor padrão de tempo de execução de cada botão quando ele não está especificado na Assinatura de Evento. Para reiterar, pelo menos um botão deve ser configurado na Assinatura de Eventos para ativar o comportamento de loteamento.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | ------------- | ----------- |
-| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo da solicitação de entrega quando apenas `MaxEventsPerBatch` é especificado. `1_058_576`padrão.
-| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a serem adicionados a um lote quando somente `MaxBatchSizeInBytes` for especificado. `10`padrão.
+| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo da `MaxEventsPerBatch` solicitação de entrega quando apenas é especificado. Padrão `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a serem `MaxBatchSizeInBytes` adicionados a um lote quando apenas é especificado. Padrão `10`.

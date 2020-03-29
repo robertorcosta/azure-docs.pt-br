@@ -6,24 +6,24 @@ ms.subservice: process-automation
 ms.date: 03/19/2019
 ms.topic: conceptual
 ms.openlocfilehash: b17a0403a3b2a3ff8c3586ed26a4b833db54922d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75365930"
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook Python
 
 > [!div class="op_single_selector"]
 > - [Gráfico](automation-first-runbook-graphical.md)
-> - [PowerShell](automation-first-runbook-textual-powershell.md)
+> - [Powershell](automation-first-runbook-textual-powershell.md)
 > - [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 > - [Python](automation-first-runbook-textual-python2.md)
 
 Este tutorial orienta você durante a criação de um [Runbook Python](automation-runbook-types.md#python-runbooks) na Automação do Azure. Você começa com um runbook simples você testa e publica. Em seguida, você modifica o runbook para gerenciar os recursos do Azure, neste caso, iniciando uma máquina virtual do Azure. Depois, você torna o runbook mais robusto adicionando parâmetros de runbook.
 
 > [!NOTE]
-> Não há suporte para o uso de um webhook para iniciar um runbook do Python.
+> O uso de um webhook para iniciar um runbook Python não é suportado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -75,9 +75,9 @@ Publicar um runbook substitui a versão publicada existente pela versão de Rasc
 Neste caso, ainda não há uma versão publicada porque você acabou de criar o runbook.
 
 1. Clique em **Publicar** para publicar o runbook e em **Sim** quando solicitado.
-1. Se você rolar para a esquerda para exibir o runbook no painel **Runbooks**, ele mostrará o **Status de Criação** **Publicado**.
+1. Se você rolar para a esquerda para exibir o runbook no painel **Runbooks**, ele mostrará o **Status de Criação****Publicado**.
 1. Role para a direita para exibir o painel do **MyFirstRunbook-Python**.
-   As opções na parte superior nos permitem iniciar o runbook, exibir o runbook ou agendá-lo para iniciar em algum momento no futuro.
+   As opções em toda a parte superior nos permitem iniciar o manual, ver o manual ou agendar para começar em algum momento no futuro.
 2. Você quer iniciar o runbook, sendo assim, clique em **Iniciar** e em **OK** quando a folha Iniciar Runbook for aberta.
 3. Um painel de trabalho é aberto para o trabalho de runbook criado. Você pode fechar esse painel, mas neste caso, deixe-o averto para acompanhar o progresso do trabalho.
 1. O status do trabalho é mostrado em **Resumo do trabalho** e corresponde aos status que você viu quando testou o runbook.
@@ -202,9 +202,9 @@ Insira o nome do seu grupo de recursos como o valor para o primeiro parâmetro e
 
 Clique em **OK** para iniciar o runbook. Ele é executado e inicia a VM especificada.
 
-## <a name="error-handling-in-python"></a>Tratamento de erros no Python
+## <a name="error-handling-in-python"></a>Manipulação de erros em Python
 
-Você também pode usar as seguintes convenções para recuperar vários fluxos de seus runbooks do Python, incluindo fluxos de **aviso**, **erro**e **depuração** .
+Você também pode usar as seguintes convenções para recuperar vários fluxos de seus runbooks Python, incluindo fluxos **DE AVISO,** **ERRO**e **DEBUG.**
 
 ```python
 print("Hello World output") 
@@ -214,7 +214,7 @@ print("DEBUG: - Hello world debug")
 print("VERBOSE: - Hello world verbose")
 ```
 
-O exemplo a seguir mostra essa convenção usada em um bloco de `try...except`.
+O exemplo a seguir mostra `try...except` esta convenção usada em um bloco.
 
 ```python
 try:
@@ -224,13 +224,13 @@ except Exception as detail:
 ```
 
 > [!NOTE]
-> Não há suporte para **Sys. stderr** na automação do Azure.
+> **sys.stderr** não é suportado no Azure Automation.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 - Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
-- Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
+- Para começar com os runbooks do fluxo de trabalho PowerShell, consulte [Meu primeiro runbook de fluxo de trabalho PowerShell](automation-first-runbook-textual.md)
 - Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
-- Para aprender sobre o desenvolvimento do Azure com o Python, consulte [Azure para desenvolvedores do Python ](/azure/python/)
-- Para exibir runbooks de amostra do Python 2, consulte o [GitHub de Automação do Azure](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+- Para saber mais sobre o desenvolvimento do Azure com Python, consulte [Azure para desenvolvedores Python](/azure/python/)
+- Para ver os runbooks do Python 2, consulte o [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

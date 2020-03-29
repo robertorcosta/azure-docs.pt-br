@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66392918"
 ---
 # <a name="streaming-policies"></a>Políticas de Streaming
 
-Nos Serviços de Mídia do Azure v3, as [Políticas de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permitem definir protocolos de streaming e opções de criptografia para seus [Localizadores de Streaming](streaming-locators-concept.md). Serviços de mídia v3 fornece que algumas predefinidas Streaming políticas para que você pode usá-los diretamente para avaliação ou produção. 
+Nos Serviços de Mídia do Azure v3, as [Políticas de Streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permitem definir protocolos de streaming e opções de criptografia para seus [Localizadores de Streaming](streaming-locators-concept.md). O Media Services v3 fornece algumas políticas de streaming predefinidas para que você possa usá-las diretamente para teste ou produção. 
 
-Streaming de políticas predefinidas disponíveis no momento:<br/>
+As políticas de streaming predefinidas atualmente disponíveis:<br/>
 * 'Predefined_DownloadOnly'
 * 'Predefined_ClearStreamingOnly'
 * 'Predefined_DownloadAndClearStreaming'
@@ -30,7 +30,7 @@ Streaming de políticas predefinidas disponíveis no momento:<br/>
 * 'Predefined_MultiDrmCencStreaming' 
 * 'Predefined_MultiDrmStreaming'
 
-A seguir "árvore de decisão" ajuda a escolher uma política predefinida de Streaming para seu cenário.
+A seguinte "Árvore de decisão" ajuda você a escolher uma política de streaming predefinida para o seu cenário.
 
 > [!IMPORTANT]
 > * As propriedades de **Políticas de Streaming** que são do tipo Datetime estão sempre no formato UTC.
@@ -42,13 +42,13 @@ Clique na imagem para exibi-la em tamanho normal.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-Se criptografar seu conteúdo, você precisará criar uma [política de chave de conteúdo](content-key-policy-concept.md), o **política de chave de conteúdo** não é necessária para limpar streaming ou baixar. 
+Se criptografar seu conteúdo, você precisa criar uma [Política de Chave de Conteúdo](content-key-policy-concept.md), a Política de Chave de **Conteúdo** não é necessária para um streaming ou download claro. 
 
-Se você tiver requisitos especiais (por exemplo, se você deseja especificar protocolos diferentes, precisará usar um serviço de distribuição de chaves personalizado, ou precisará usar uma faixa de áudio claro), você poderá [criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) uma política personalizada de Streaming. 
+Se você tiver requisitos especiais (por exemplo, se você quiser especificar diferentes protocolos, precisar usar um serviço de entrega de chaves personalizado ou precisar usar uma faixa de áudio clara), você pode [criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) uma Política de Streaming personalizada. 
 
-## <a name="get-a-streaming-policy-definition"></a>Obter uma definição de política de Streaming  
+## <a name="get-a-streaming-policy-definition"></a>Obtenha uma definição de Política de Streaming  
 
-Se você quiser ver a definição de uma política de Streaming, use [obter](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e especifique o nome da política. Por exemplo:
+Se você quiser ver a definição de uma política de streaming, use [Obter](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e especificar o nome da diretiva. Por exemplo: 
 
 ### <a name="rest"></a>REST
 
@@ -87,4 +87,4 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 * [Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
 * [Usar criptografia dinâmica AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
-* [Use criptografia dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)
+* [Usar o serviço de entrega de licença e criptografia dinâmica do DRM](protect-with-drm.md)

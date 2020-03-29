@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de falhas de conexão de cluster do Gerenciador de dados do Azure
-description: Este artigo descreve as etapas de solução de problemas para se conectar a um cluster no Gerenciador de dados do Azure.
+title: Solucionar problemas falhas de conexão do cluster do Azure Data Explorer
+description: Este artigo descreve etapas de solução de problemas para se conectar a um cluster no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: c71af799f614e9cd28221d79634666cbc3b2c987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60827029"
 ---
-# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Solucionar problemas: Falha ao se conectar a um cluster no Gerenciador de dados do Azure
+# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Solucionar problemas: Falha ao se conectar a um cluster no Data Explorer do Azure
 
 Se você não conseguir se conectar a um cluster no Data Explorer do Azure, siga estas etapas.
 
@@ -28,6 +28,6 @@ Se você não conseguir se conectar a um cluster no Data Explorer do Azure, siga
 
 1. Verifique o [painel de integridade do serviço do Azure](https://azure.microsoft.com/status/). Procure o status do Data Explorer do Azure na região em que você está tentando se conectar a um cluster.
 
-    Se o status não for **Bom** (marca de seleção verde), tente criar o cluster após a melhoria do status.
+    Se o status não for **bom** (marca de verificação verde), tente conectar-se ao cluster depois que o status melhorar.
 
 1. Se você ainda precisar de ajuda para resolver seu problema, abra uma solicitação de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

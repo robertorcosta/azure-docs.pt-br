@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 1c625e628f53d156ad56a1c69df1c23aec9120ac
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76548706"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Entenda os módulos do Azure IoT Edge
@@ -41,7 +41,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 ## <a name="module-identities"></a>Identidades de módulo
 
-Quando uma nova instância de módulo é criada pelo IoT Edge Runtime, ela obtém uma identidade de módulo correspondente. A identidade do módulo é armazenada no Hub IoT e é usada como o escopo de endereçamento e segurança para todas as comunicações locais e na nuvem para essa instância do módulo.
+Quando uma nova instância de módulo é criada pelo tempo de execução do IoT Edge, ele obtém uma identidade de módulo correspondente. A identidade do módulo é armazenada no IoT Hub e é usada como escopo de endereçamento e segurança para todas as comunicações locais e em nuvem para essa instância do módulo.
 
 A identidade associada a uma instância de módulo depende da identidade do dispositivo no qual a instância está em execução, e do nome fornecido para esse módulo em sua solução. Por exemplo, se você chamar `insight` um módulo que usa um Azure Stream Analytics e implantá-lo em um dispositivo chamado `Hannover01`, o runtime do IoT Edge criará uma identidade de módulo correspondente chamada `/devices/Hannover01/modules/insight`.
 
@@ -68,9 +68,9 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>Funcionalidades offline
 
-Azure IoT Edge módulos podem operar offline indefinidamente após a sincronização com o Hub IoT pelo menos uma vez. IoT Edge dispositivos também podem estender esse recurso offline para outros dispositivos IoT. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge dispositivos, módulos e dispositivos filho](offline-capabilities.md).
+Os módulos Azure IoT Edge podem operar offline indefinidamente após sincronizar com o IoT Hub pelo menos uma vez. Os dispositivos IoT Edge também podem estender essa capacidade offline para outros dispositivos IoT. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge dispositivos, módulos e dispositivos filho](offline-capabilities.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge](module-development.md)
 * [Entenda o runtime do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md)

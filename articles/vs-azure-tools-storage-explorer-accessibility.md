@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60457228"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Gerenciador de Armazenamento
@@ -29,9 +29,9 @@ O Gerenciador de Armazenamento dá suporte ao uso de um leitor de tela no Window
 
 Plataforma | Leitor de tela
 ---------|--------------
-Windows  | NVDA
-Mac      | Voice Over
-Linux    | (os leitores de tela não têm suporte no Linux)
+Windows  | Nvda
+Mac      | Voice over
+Linux    | (leitores de tela não são suportados no Linux)
 
 Se você tiver um problema de acessibilidade ao usar o Gerenciador de Armazenamento, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -45,7 +45,7 @@ A configuração de zoom aumenta o tamanho da maioria dos elementos de interface
 
 ## <a name="high-contrast-themes"></a>Temas de alto contraste
 
-O Gerenciador de Armazenamento tem dois temas de alto contraste, **Alto Contraste Claro** e **Alto Contraste Escuro**. Você pode alterar seu tema selecionando da Ajuda > menu temas.
+O Gerenciador de Armazenamento tem dois temas de alto contraste, **Alto Contraste Claro** e **Alto Contraste Escuro**. Você pode alterar seu tema selecionando no menu Ajuda > Temas.
 
 ![Submenu Temas][1]
 
@@ -80,22 +80,22 @@ Editor anterior        | **Control+Page Up**
 
 Comando  | Atalho do teclado
 ---------|------------------
-Ampliar  | **Control+=**
-Reduzir | **Control+-**
+Ampliar  | **Controle+=**
+Reduzir | **Controle+-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Comandos do Editor de compartilhamento de arquivo e blob
 
 Comando | Atalho do teclado
 --------|--------------------
-Voltar    | **Alt+Left Arrow**
-Avançar | **Alt+Right Arrow**
+Voltar    | **Alt+Seta esquerda**
+Avançar | **Alt+Seta direita**
 Para cima      | **Alt+Up Arrow**
 
 ### <a name="editor-commands"></a>Comandos do Editor
 
 Comando | Atalho do teclado
 --------|------------------
-Copiar    | **Control+C**
+Cópia    | **Control+C**
 Recortar     | **Control+X**
 Colar   | **Control+V**
 Atualizar  | **Control+R**
@@ -105,7 +105,7 @@ Atualizar  | **Control+R**
 Comando                | Atalho do teclado
 -----------------------|------------------
 Alterar ferramentas para desenvolvedores | **F12**
-Recarregar                 | **Controle + ALT + R**
+Recarregar                 | **Alt+Control+R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

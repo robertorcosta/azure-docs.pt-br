@@ -16,10 +16,10 @@ ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: a63914116f5ef9922ac05745764e0ad505dc3c91
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593959"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Fornecimento de conteúdo da China com a Rede de Distribuição de Conteúdo do Microsoft Azure
@@ -38,7 +38,7 @@ A CDN do Microsoft Azure e a CDN do Microsoft Azure Chine têm os seguintes recu
 
      - Executa o fornecimento de conteúdo fora da China
 
-     - Quatro tipos de preço: Padrão da Microsoft, Verizon standard, premium da Verizon e Akamai standard
+     - Quatro camadas de preços: Microsoft standard, Verizon standard, Verizon premium e Akamai standard
 
      - [Documentação](https://docs.microsoft.com/azure/cdn/)
 
@@ -48,7 +48,7 @@ A CDN do Microsoft Azure e a CDN do Microsoft Azure Chine têm os seguintes recu
 
      - Executa o fornecimento de conteúdo dentro da China
 
-     - Dois tipos de preço: Standard e premium
+     - Duas camadas de preço: standard e premium
 
      - [Documentação](https://docs.azure.cn/en-us/cdn/)
  

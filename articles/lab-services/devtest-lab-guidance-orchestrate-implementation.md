@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62127337"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação do Azure DevTest Labs
@@ -28,11 +28,11 @@ Este artigo fornece uma abordagem recomendada para implantação e implementaç�
 ## <a name="assumptions"></a>Suposições
 Este artigo pressupõe que você tenha os seguintes itens em vigor antes de implementar um piloto do DevTest Labs:
 
-- **Assinatura do Azure**: A equipe piloto tem acesso à implantação de recursos em uma assinatura do Azure. Se as cargas de trabalho são apenas de desenvolvimento e teste, é recomendável selecionar a oferta Desenvolvimento/Teste Enterprise para imagens disponíveis adicionais e taxas mais baixas em máquinas virtuais do Windows.
-- **Acesso local**: Se necessário, o acesso local já foi configurado. O acesso local pode ser feito por meio de uma conexão VPN site a site ou por meio do ExpressRoute. A conectividade por ExpressRoute normalmente pode levar várias semanas para ser estabelecida, então é recomendável ter o ExpressRoute em vigor antes de iniciar o projeto.
-- **Equipes piloto**: As equipes de projeto de desenvolvimento inicial que usam o DevTest Labs foram identificadas com atividades de teste ou de desenvolvimento aplicáveis e foram estabelecidos requisitos/objetivos/metas para essas equipes.
+- **Assinatura do Azure**: A equipe-piloto tem acesso para implantar recursos em uma assinatura do Azure. Se as cargas de trabalho são apenas de desenvolvimento e teste, é recomendável selecionar a oferta Desenvolvimento/Teste Enterprise para imagens disponíveis adicionais e taxas mais baixas em máquinas virtuais do Windows.
+- **Acesso local**: se necessário, o acesso local já foi configurado. O acesso local pode ser feito por meio de uma conexão VPN site a site ou por meio do ExpressRoute. A conectividade por ExpressRoute normalmente pode levar várias semanas para ser estabelecida, então é recomendável ter o ExpressRoute em vigor antes de iniciar o projeto.
+- **Equipes-piloto**: as equipes de projeto de desenvolvimento inicial que usam o DevTest Labs foram identificadas com atividades de teste ou de desenvolvimento aplicáveis e foram estabelecidos requisitos/objetivos/metas para essas equipes.
 
-## <a name="milestone-1-establish-initial-network-topology-and-design"></a>Marco 1: Estabelecer design e topologia de rede inicial
+## <a name="milestone-1-establish-initial-network-topology-and-design"></a>Marco 1: estabelecer o design e a topologia de rede iniciais
 A primeira área de foco ao implantar uma solução do Azure DevTest Labs é estabelecer a conectividade planejada para as máquinas virtuais. As etapas a seguir descrevem os procedimentos necessários:
 
 1. Definir **intervalos de endereços IP iniciais** que são atribuídos à assinatura do DevTest Labs no Azure. Esta etapa requer a previsão do uso esperado em número de VMs, de modo que você possa fornecer um bloco suficientemente grande para expansão futura.
@@ -51,7 +51,7 @@ Depois que a topologia de rede está em vigor, o primeiro laboratório/laborató
 6. Decida sobre o uso de repositórios públicos ou privados, ou ainda uma combinação de ambos. Organize modelos de JSON para implantações e sustentabilidade a longo prazo.
 7. Se necessário, crie artefatos personalizados. Esta etapa é opcional. 
 
-## <a name="milestone-3-documentation-support-learn-and-improve"></a>Marco 3: Documentação, suporte, aprender e melhorar
+## <a name="milestone-3-documentation-support-learn-and-improve"></a>Marco 3: documentação, suporte, aprendizado e melhora
 As equipes-piloto iniciais podem exigir suporte detalhado para que possam começar. Use as experiências deles para garantir que a documentação correta e o suporte estejam preparados para distribuição contínua do Azure DevTest Labs.
 
 1. Apresentar as equipes-piloto a seus novos recursos do DevTest Labs (demonstrações, documentação)

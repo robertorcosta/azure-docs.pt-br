@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60893379"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Ler dados das tabelas de API do Cassandra do Azure Cosmos DB usando Spark
@@ -142,6 +142,6 @@ A seguir estão os artigos adicionais sobre como trabalhar com a API Cassandra d
  
  * [Operações de Upsert](cassandra-spark-upsert-ops.md)
  * [Excluir operações](cassandra-spark-delete-ops.md)
- * [Aggregation operations](cassandra-spark-aggregation-ops.md)
+ * [Operações de agregação](cassandra-spark-aggregation-ops.md)
  * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)
 

@@ -11,13 +11,13 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60454652"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell do ADSyncTools
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADSyncTools
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADSyncTools.psm1 que é incluído com o Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -25,13 +25,13 @@ A documentação a seguir fornece informações de referência para o módulo do
 ### <a name="synopsis"></a>SINOPSE
 Limpar o mS-Ds-ConsistencyGuid do usuário do AD
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Clear-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Limpar o valor no mS-Ds-ConsistencyGuid do usuário do AD de destino
 
 ### <a name="examples"></a>EXEMPLOS
@@ -46,7 +46,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Usuário de destino no Active Directory a definir
@@ -72,13 +72,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher a sinopse}}
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ADSyncToolsADModuleLoaded
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 {{Preencher a descrição}}
 
 ### <a name="examples"></a>EXEMPLOS
@@ -95,14 +95,14 @@ PS C:\> {{ Add example code here }}
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher a sinopse}}
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Connect-AdSyncDatabase [-Server] <String> [[-Instance] <String>] [[-Database] <String>] [[-UserName] <String>]
  [[-Password] <String>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 {{Preencher a descrição}}
 
 ### <a name="examples"></a>EXEMPLOS
@@ -114,7 +114,7 @@ PS C:\> {{ Add example code here }}
 
 {{Adicionar uma descrição de exemplo aqui}}
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-database"></a>-Database
 {{Preencher descrição do banco de dados}}
@@ -200,14 +200,14 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Exportar relatório ConsistencyGuid
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Export-ADSyncToolsConsistencyGuidMigration [-AlternativeLoginId] [-UserPrincipalName] <String>
  [-ImmutableIdGUID] <String> [-Output] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Gera um relatório de ConsistencyGuid com base em um arquivo CSV de importação de Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="examples"></a>EXEMPLOS
@@ -222,7 +222,7 @@ Import-Csv .\AllSyncUsers.csv | Export-ADSyncToolsConsistencyGuidMigration -Outp
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-alternativeloginid"></a>-AlternativeLoginId
 Use a ID de logon alternativa (email)
@@ -293,13 +293,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher a sinopse}}
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncSQLBrowserInstances [[-hostName] <String>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 {{Preencher a descrição}}
 
 ### <a name="examples"></a>EXEMPLOS
@@ -311,7 +311,7 @@ PS C:\> {{ Add example code here }}
 
 {{Adicionar uma descrição de exemplo aqui}}
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{Preencher a descrição do hostName}}
@@ -333,14 +333,14 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>SINOPSE
 Obter usuário do AD
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
-Retorna um objeto do AD TO DO: Suporte a várias florestas
+### <a name="description"></a>DESCRIPTION
+Retorna um objeto do AD para fazer: suporte a várias florestas
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -354,7 +354,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Usuário de destino no Active Directory para definir ConsistencyGuid
@@ -380,13 +380,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Obter o mS-Ds-ConsistencyGuid do usuário do AD
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsConsistencyGuid [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Retorna o valor do atributo mS-Ds-ConsistencyGuid do usuário do AD de destino em formato GUID
 
 ### <a name="examples"></a>EXEMPLOS
@@ -401,7 +401,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Usuário de destino no Active Directory a definir
@@ -427,13 +427,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Obter o ObjectGuid do usuário do AD
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsObjectGuid [-User] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Retorna o valor no atributo ObjectGUID do usuário do AD de destino em formato GUID
 
 ### <a name="examples"></a>EXEMPLOS
@@ -448,7 +448,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Usuário de destino no Active Directory a definir
@@ -474,13 +474,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Obter o histórico de execuções do AAD Connect
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Função que retorna o histórico de execuções do AAD Connect em formato XML
 
 ### <a name="examples"></a>EXEMPLOS
@@ -495,7 +495,7 @@ Get-ADSyncToolsRunHistory
 Get-ADSyncToolsRunHistory -Days 1
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-days"></a>-Days
 {{Preencher descrição de dias}}
@@ -521,14 +521,14 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Obter usuários com erros de SourceAnchor alterado
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
-A função consulta o histórico de execuções do AAD Connect e exporta todos os usuários relatando o erro: "O atributo SourceAnchor foi alterado."
+### <a name="description"></a>DESCRIPTION
+Consulta à função AAD Connect Execute History e exporta todos os usuários que relatam o erro: "O atributo SourceAnchor foi alterado."
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -546,7 +546,7 @@ $sourcePath = Read-Host -Prompt "Insira o caminho do arquivo de log com o nome d
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-sourcepath"></a>-sourcePath
 {{Preencher descrição de sourcePath}}
@@ -587,15 +587,15 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Importar o ImmutableID do AAD
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Import-ADSyncToolsImmutableIdMigration [-Output] <String> [-IncludeSyncUsersFromRecycleBin]
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
-Gera um arquivo com todos os usuários sincronizados do Azure AD que contém o valor de ImmutableID no formato GUID. Requisitos: Módulo do PowerShell MSOnline
+### <a name="description"></a>DESCRIPTION
+Gera um arquivo com todos os usuários sincronizados do Azure AD que contém o valor de ImmutableID no formato GUID. Requisitos: módulo do PowerShell do MSOnline
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -609,7 +609,7 @@ Import-ADSyncToolsImmutableIdMigration -OutputFile '.\AllSyncUsers.csv'
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-output"></a>-Output
 Arquivo CSV de saída
@@ -651,13 +651,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher a sinopse}}
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Invoke-AdSyncDatabaseQuery [-SqlConnection] <SqlConnection> [[-Query] <String>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 {{Preencher a descrição}}
 
 ### <a name="examples"></a>EXEMPLOS
@@ -669,7 +669,7 @@ PS C:\> {{ Add example code here }}
 
 {{Adicionar uma descrição de exemplo aqui}}
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-query"></a>-Query
 {{Preencher descrição da consulta}}
@@ -710,18 +710,18 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Script para remover certificados expirados do atributo UserCertificate
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boolean>] [-ObjectClass] <String>
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Esse script usa todos os objetos de uma unidade organizacional de destino no domínio do Active Directory – filtrados por classe de objeto (usuário/computador) – e exclui todos os certificados expirados presentes no atributo UserCertificate.
 Por padrão, (modo BackupOnly) ele fará backup apenas de certificados expirados para um arquivo e não fará nenhuma alteração no AD.
 Se você usa -BackupOnly $false, então qualquer certificado expirado presente no atributo UserCertificate para esses objetos é removido do AD depois de ser copiado para o arquivo.
-Cada certificado será feito para um nome de arquivo separado: ObjectClass_ObjectGUID_CertThumprint.cer. O script também criará um arquivo de log no formato CSV mostrando todos os usuários com certificados que são válidos ou expirados, incluindo a ação real tomada ( Ignorado/Exportado/Excluído).
+Cada certificado será feito para um nome do arquivo separado: ObjectClass_ObjectGUID_CertThumprint.cer. O script também criará um arquivo de log no formato CSV mostrando todos os usuários com certificados que são válidos ou expirados, incluindo a ação real tomada ( Ignorado/Exportado/Excluído).
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -739,7 +739,7 @@ Delete Expired Certs from all Computer objects in target OU - Expired Certificat
 
 Remove-ADSyncToolsExpiredCertificates -TargetOU "OU=Computers,OU=Corp,DC=Contoso,DC=com" -ObjectClass computer -BackupOnly $false
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-targetou"></a>-TargetOU
 UO de destino para pesquisar por objetos do AD
@@ -795,13 +795,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Descrição breve
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Repair-ADSyncToolsAutoUpgradeState
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Descrição longa
 
 ### <a name="examples"></a>EXEMPLOS
@@ -821,13 +821,13 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher a sinopse}}
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Resolve-ADSyncHostAddress [[-hostName] <String>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 {{Preencher a descrição}}
 
 ### <a name="examples"></a>EXEMPLOS
@@ -839,7 +839,7 @@ PS C:\> {{ Add example code here }}
 
 {{Adicionar uma descrição de exemplo aqui}}
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{Preencher a descrição do hostName}}
@@ -859,15 +859,15 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>SINOPSE
-(PARA FAZER) Restaura o atributo UserCertificate de AD de um arquivo de certificado
+(A FAZER) Restaura o atributo AD UserCertificate a partir de um arquivo de certificado
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Restore-ADSyncToolsExpiredCertificates
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Descrição longa
 
 ### <a name="examples"></a>EXEMPLOS
@@ -887,13 +887,13 @@ Another example of how to use this cmdlet
 ### <a name="synopsis"></a>SINOPSE
 Set mS-Ds-ConsistencyGuid on AD User
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Set-ADSyncToolsConsistencyGuid [-User] <Object> [-Value] <Object> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Definir um valor no atributo mS-Ds-ConsistencyGuid do usuário do AD de destino
 
 ### <a name="examples"></a>EXEMPLOS
@@ -908,7 +908,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-user"></a>-User
 Usuário de destino no Active Directory para definir ConsistencyGuid
@@ -949,13 +949,13 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher a sinopse}}
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Test-ADSyncNetworkPort [[-hostName] <String>] [[-port] <String>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 {{Preencher a descrição}}
 
 ### <a name="examples"></a>EXEMPLOS
@@ -967,7 +967,7 @@ PS C:\> {{ Add example code here }}
 
 {{Adicionar uma descrição de exemplo aqui}}
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-hostname"></a>-hostName
 {{Preencher a descrição do hostName}}
@@ -1004,14 +1004,14 @@ Accept wildcard characters: False
 ### <a name="synopsis"></a>SINOPSE
 Cria um arquivo de rastreamento de uma etapa de importação do AD
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsADImport [[-ADConnectorXML] <String>] [[-dc] <String>] [[-rootDN] <String>]
  [[-filter] <String>] [-SkipCredentials] [[-ADwatermark] <String>] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Rastreia todas as consultas ldap de uma importação do AD do AAD Connect executada de um determinado ponto de verificação de marca-d'água do AD (cookie de partição). Cria um arquivo de rastreamento '.\ADimportTrace_yyyyMMddHHmmss.log' na pasta atual.
 
 ### <a name="examples"></a>EXEMPLOS
@@ -1026,7 +1026,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
 {{Preencher a descrição de ADConnectorXML}}
@@ -1128,14 +1128,14 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Descrição breve
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Trace-ADSyncToolsLdapQuery [-Context] <String> [-Server] <String> [-Port] <Int32> [-Filter] <String>
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>DESCRIPTION
 Descrição longa
 
 ### <a name="examples"></a>EXEMPLOS
@@ -1150,7 +1150,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-context"></a>-Context
 Descrição de ajuda Param1
@@ -1221,15 +1221,15 @@ Para obter mais informações, confira about_CommonParameters (https://go.micros
 ### <a name="synopsis"></a>SINOPSE
 Atualiza os usuários com o novo ConsistencyGuid (ImmutableId)
 
-### <a name="syntax"></a>SINTAXE
+### <a name="syntax"></a>SYNTAX
 
 ```
 Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-ImmutableIdGUID] <String>
  [-Action] <String> [-Output] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Descrição
-Atualiza os usuários com o novo valor de ConsistencyGuid (ImmutableId) obtido do Relatório de ConsistencyGuid. Essa função dá suporte à opção WhatIf. Observação: O relatório ConsistencyGuid precisa ser importado com delimitador de guias
+### <a name="description"></a>DESCRIPTION
+Atualiza os usuários com o novo valor de ConsistencyGuid (ImmutableId) obtido do Relatório de ConsistencyGuid. Essa função dá suporte à opção WhatIf. Observação: o relatório ConsistencyGuid precisa ser importado com delimitador de guias
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -1243,7 +1243,7 @@ Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsCons
 Import-Csv .\AllSyncUsersTEST-Report.csv -Delimiter "`t"| Update-ADSyncToolsConsistencyGuidMigration -Output .\AllSyncUsersTEST-Result2
 ```
 
-### <a name="parameters"></a>PARÂMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-distinguishedname"></a>-DistinguishedName
 DistinguishedName

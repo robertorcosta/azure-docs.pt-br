@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67876201"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
@@ -55,8 +55,8 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**Disposição em camadas do StorSimple**
-![Diagrama da disposição em camadas do StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+**Diagrama de hierar**
+![simples storSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 -   Realize suas restaurações mais frequentes do conjunto de dados de trabalho local.
@@ -253,7 +253,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal | 1 | 4  | 4 |
-| Incremental diário | 0,5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário | 0.5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
@@ -265,7 +265,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 ### <a name="to-set-up-netbackup-storage"></a>Configurar o armazenamento do NetBackup
 
-1.  No Console de Administração do NetBackup, selecione **Gerenciamento de Dispositivos e Mídia** > **Dispositivos** > **Pools de Discos**. No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk**e, em seguida, selecione **Avançar**.
+1.  No Console de Administração NetBackup, selecione**Pools** > de discos de gerenciamento de mídia **e dispositivos** > **.** No Assistente de Configuração do Pool de Disco, selecione o tipo de servidor de armazenamento **AdvancedDisk**e, em seguida, selecione **Avançar**.
 
     ![Console de Administração do NetBackup, Assistente de Configuração do Pool de Disco](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
     ![Console de Administração do NetBackup, selecionar o disco de volume do StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Insira um nome para o destino de backup e selecione **Avançar** > **Avançar** para concluir o assistente.
+4.  Digite um nome para o destino de backup e, em seguida, **selecione Next** > **Next** para concluir o assistente.
 
 5.  Examine as configurações e selecione **Concluir**.
 
@@ -340,7 +340,7 @@ A sequência a seguir pressupõe que NetBackup e o host de destino estão config
 
    ![Console de Administração do NetBackup, frequência e rotação de backup para uma nova política](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selecione **Avançar** > **Avançar** > **Concluir**.  É possível modificar o agendamento depois que a política for criada.
+8. Selecione **Next** > **Next** > **Finish**.  É possível modificar o agendamento depois que a política for criada.
 
 9. Expanda a política que você criou e selecione **Agendamentos**.
 
@@ -406,7 +406,7 @@ A tabela a seguir mostra como configurar backups para execução no local e disc
 A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Exemplo de agenda do GFS: Agenda semanal, mensal e anual da rotação do GFS
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo GFS: agendamento de rotação GFS semanal, mensal e anual
 
 | Semana | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
 |---|---|---|---|---|---|---|
@@ -430,7 +430,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Para atribuir os volumes do StorSimple a um trabalho de arquivamento e duplicação do NetBackup
 
-1. No Console de Administração do NetBackup, selecione **Armazenamento** > **Políticas de Ciclo de Vida de Armazenamento** > **Nova Política de Ciclo de Vida de Armazenamento**.
+1. No Console de administração NetBackup, selecione**Políticas de ciclo de vida de armazenamento de** >  **armazenamento** > **Nova política de ciclo de vida de armazenamento**.
 
    ![Console de Administração do NetBackup, nova política de ciclo de vida de armazenamento](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
@@ -472,7 +472,7 @@ Depois de definir os pools de disco iniciais, você precisa definir três polít
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal |  1  |  4 | 4  |
-| Incremental diário  | 0,5  | 20 (os ciclos são iguais ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário  | 0.5  | 20 (os ciclos são iguais ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo  | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS  |     |     | 38 |
@@ -540,7 +540,7 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 Os documentos a seguir foram mencionados neste artigo:
 
 - [Configuração de Multipath I/O de StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: provisionamento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Cenários de armazenamento: provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 

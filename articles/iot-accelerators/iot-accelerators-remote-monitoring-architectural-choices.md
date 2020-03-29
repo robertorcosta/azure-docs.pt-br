@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447159"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opções de arquitetura de Monitoramento Remoto
@@ -66,17 +66,17 @@ Para armazenamento, o acelerador de solução de Monitoramento Remoto usa o Azur
 O Azure Cosmos DB é a solução de armazenamento warm de uso geral recomendado para aplicativos de IoT. No entanto, as soluções como o Azure Time Series Insights e o Azure Data Lake são apropriadas para muitos casos de uso. Com o Azure Time Series Insights, você pode obter informações mais detalhadas sobre os dados dos sensores de séries temporais detectando tendências e anomalias. Esse recurso permite realizar análises de causa raiz e evitar períodos de inatividade dispendiosos.
 
 > [!NOTE]
-> Os Insights de Séries Temporais não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
+> Os Time Series Insights não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
 
 ### <a name="business-integration"></a>Integração de negócios
 
 A integração de negócios na solução de Monitoramento Remoto é limitada à geração de alertas, que são colocados no armazenamento warm. Conecte a solução com os Aplicativos Lógicos do Azure para implementar cenários de integração mais profundos de negócios.
 
-### <a name="user-interface"></a>Interface do usuário
+### <a name="user-interface"></a>Interface do Usuário
 
 A interface do usuário da Web é criada com JavaScript React. O React oferece uma estrutura de interface do usuário da Web do setor usada com frequência e é semelhante a outras estruturas populares, como o Angular.
 
-### <a name="runtime-and-orchestration"></a>Tempo de execução e orquestração
+### <a name="runtime-and-orchestration"></a>Runtime e orquestração
 
 A solução de Monitoramento Remoto usa contêineres Docker para executar os subsistemas com Kubernetes como o orquestrador para escala horizontal. Essa arquitetura permite definições de escala individuais para cada subsistema. No entanto, essa arquitetura incorre custos de DevOps para manter as máquinas virtuais e contêineres, atualizados e protegidos.
 

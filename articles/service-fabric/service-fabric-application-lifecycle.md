@@ -1,13 +1,13 @@
 ---
-title: Ciclo de vida do aplicativo em Service Fabric
+title: Ciclo de vida do aplicativo no tecido de serviço
 description: Descreve o desenvolvimento, implantação, testes, atualização, manutenção e remoção de aplicativos da Service Fabric.
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377997"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida do aplicativo Service Fabric
@@ -18,20 +18,20 @@ Semelhante a outras plataformas, um aplicativo no Azure Service Fabric geralment
 ## <a name="service-model-roles"></a>Funções do modelo de serviço
 As funções do modelo de serviço são:
 
-* **Desenvolvedor de serviço**: desenvolve serviços modulares e genéricos que podem ser adaptados e usados em vários aplicativos do mesmo tipo ou tipos diferentes. Por exemplo, um serviço de fila pode ser usado para criar um aplicativo de emissão de tíquetes (assistência técnica) ou um aplicativo de comércio eletrônico (carrinho de compras).
+* **Desenvolvedor de**serviços : Desenvolve serviços modulares e genéricos que podem ser reaproveitados e usados em vários aplicativos do mesmo tipo ou tipos diferentes. Por exemplo, um serviço de fila pode ser usado para criar um aplicativo de emissão de tíquetes (assistência técnica) ou um aplicativo de comércio eletrônico (carrinho de compras).
 * **Desenvolvedor de aplicativos**: cria aplicativos integrando uma coleção de serviços para atender a determinados requisitos ou cenários. Por exemplo, um site de comércio eletrônico pode integrar o “Serviço de Front-End JSON sem Monitoração de Estado”, "Serviço de Monitoração de Estado do Leilão" e "Serviço de Monitoração de Estado da Fila" para criar uma solução de leilão.
 * **Administrador do aplicativo**: toma decisões sobre a configuração do aplicativo (preenchendo os parâmetros de configuração do modelo), implantação (mapeamento os recursos disponíveis) e qualidade do serviço. Por exemplo, um administrador do aplicativo decide a localidade do idioma do aplicativo (inglês para os EUA ou japonês para o Japão, por exemplo). Outro aplicativo implantado pode ter configurações diferentes.
 * **Operador**: implanta os aplicativos baseados na configuração do aplicativo e nos requisitos especificados pelo administrador do aplicativo. Por exemplo, um operador provisiona, implanta o aplicativo e verifica se ele está em execução no Azure. Os operadores de monitoram as informações de integridade e de desempenho do aplicativo e mantêm a infra-estrutura física conforme necessário.
 
-## <a name="develop"></a>Desenvolva
+## <a name="develop"></a>Desenvolver
 1. Um *desenvolvedor de serviço* desenvolve tipos diferentes de serviços usando o modelo de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) ou [Reliable Services](service-fabric-reliable-services-introduction.md).
-2. Um *desenvolvedor de serviço* descreve declarativamente os tipos de serviço desenvolvidos em um arquivo de manifesto do serviço que consiste em um ou mais pacotes de código, de configuração e de dados.
+2. Um *desenvolvedor de serviços* declarativamente descreve os tipos de serviço desenvolvidos em um arquivo de manifesto do serviço que consiste em um ou mais pacotes de código, configuração e dados.
 3. Um *desenvolvedor de aplicativos* cria um aplicativo usando diferentes tipos de serviço.
-4. Um *desenvolvedor de aplicativos* descreve declarativamente o tipo de aplicativo em um manifesto de aplicativo referenciando os manifestos do serviço dos serviços membros e substituindo e parametrizando adequadamente as diferentes configurações de implantação e configurações dos serviços membros.
+4. Um *desenvolvedor de aplicativos* declarativamente descreve o tipo de aplicativo em um manifesto do aplicativo, referenciando os manifestos do serviço dos serviços de componentes e adequadamente substituindo e parametrizando diferentes configurações e definições de implantação dos serviços de componentes.
 
 Confira [Introdução aos Reliable Actors](service-fabric-reliable-actors-get-started.md) e [Introdução aos Reliable Services](service-fabric-reliable-services-quick-start.md) para obter exemplos.
 
-## <a name="deploy"></a>Implantação
+## <a name="deploy"></a>Implantar
 1. Um *administrador do aplicativo* personaliza o tipo de aplicativo para um aplicativo específico a ser implantado para um cluster Service Fabric especificando os parâmetros apropriados do elemento **ApplicationType** no manifesto do aplicativo.
 2. Um *operador* carrega o pacote de aplicativos para o armazenamento de imagens do cluster usando o [**método CopyApplicationPackage**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) ou o cmdlet [**Copy-ServiceFabricApplicationPackage**](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). O pacote de aplicativo contém o manifesto do aplicativo e a coleção de pacotes de serviço. O Service Fabric implanta os aplicativos do pacote de aplicativos colocado no armazenamento de imagens, que pode ser um armazenamento de blobs do Azure ou o serviço do sistema Service Fabric.
 3. O *operador*, então, configura o tipo de aplicativo no cluster de destino do pacote de aplicativos carregado usando o [**método ProvisionApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), o cmdlet [**Register-ServiceFabricApplicationType**](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype) ou a operação REST [**Provisionar um aplicativo**](https://docs.microsoft.com/rest/api/servicefabric/provision-an-application).
@@ -44,14 +44,14 @@ Confira [implantar um aplicativo](service-fabric-deploy-remove-applications.md) 
 ## <a name="test"></a>Teste
 1. Depois de implantar o cluster de desenvolvimento local ou um cluster de teste, um *desenvolvedor de serviço* executa o cenário de teste de failover interno usando as classes [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) e [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) ou o cmdlet [**Invoke-ServiceFabricFailoverTestScenario**](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). O cenário de teste de failover executa um determinado serviço através de transições e failovers importantes para garantir que ainda estará disponível e funcionando.
 2. O *desenvolvedor de serviço* executa o cenário de teste de caos interno usando as classes [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) e [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) ou o cmdlet [**Invoke-ServiceFabricChaosTestScenario**](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). O cenário de teste caos induz vários nós, pacote de código e falhas de réplica aleatoriamente no cluster.
-3. O *desenvolvedor do serviço* [testa a comunicação entre](service-fabric-testability-scenarios-service-communication.md) serviços criando cenários de teste que movem réplicas primárias em todo o cluster.
+3. O *desenvolvedor de serviço* [testa a comunicação entre serviços](service-fabric-testability-scenarios-service-communication.md) por meio da criação de cenários de teste que movem réplicas primárias pelo cluster.
 
 Consulte [Introduction to the Fault Analysis Service (Introdução ao Fault Analysis Service)](service-fabric-testability-overview.md) para obter mais informações.
 
-## <a name="upgrade"></a>Atualize
+## <a name="upgrade"></a>Atualizar
 1. Um *desenvolvedor de serviço* atualiza os serviços membros do aplicativo instanciado e/ou corrige erros e fornece uma nova versão do manifesto do serviço.
 2. Um *desenvolvedor de aplicativos* substitui e parametriza as configurações de implantação e configuração dos serviços membros e fornece uma nova versão do manifesto do aplicativo. O desenvolvedor do aplicativo incorpora as novas versões dos manifestos do serviço no aplicativo e fornece uma nova versão do tipo de aplicativo em um pacote de aplicativo atualizado.
-3. Um *administrador do aplicativo* incorpora a nova versão do tipo de aplicativo no aplicativo de destino atualizando os parâmetros apropriados.
+3. Um *administrador de aplicativos* incorpora a nova versão do tipo de aplicativo para o aplicativo de destino atualizando os parâmetros apropriados.
 4. Um *operador* carrega o pacote de aplicativos atualizado no armazenamento de imagens de cluster usando o método [**CopyApplicationPackage**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) ou o cmdlet [**Copy-ServiceFabricApplicationPackage**](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). O pacote de aplicativo contém o manifesto do aplicativo e a coleção de pacotes de serviço.
 5. Um *operador* configura a nova versão do aplicativo no cluster de destino usando o método [**ProvisionApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), o cmdlet [**Register-ServiceFabricApplicationType**](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype) ou a operação REST [**Configurar um Aplicativo**](https://docs.microsoft.com/rest/api/servicefabric/provision-an-application).
 6. Um *operador* atualiza o aplicativo de destino para a nova versão usando o método [**UpgradeApplicationAsync**](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), o cmdlet [**Start-ServiceFabricApplicationUpgrade**](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) ou a operação REST [**Atualizar um Aplicativo**](https://docs.microsoft.com/rest/api/servicefabric/upgrade-an-application).
@@ -77,11 +77,11 @@ Consulte [Tutorial sobre a atualização do aplicativo](service-fabric-applicati
 
 Confira [implantar um aplicativo](service-fabric-deploy-remove-applications.md) para obter exemplos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o desenvolvimento, o teste e o gerenciamento de aplicativos e serviços da Malha do Serviço, confira:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
-* [Atualização do aplicativo](service-fabric-application-upgrade.md)
+* [Atualização de aplicativos](service-fabric-application-upgrade.md)
 * [Visão geral da Possibilidade de Teste](service-fabric-testability-overview.md)

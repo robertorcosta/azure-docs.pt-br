@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60518447"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrar o Gen1 do Armazenamento de Dados do Azure pelas regiões
 
 À medida que o Armazenamento de Dados do Windows Azure Gen1 se torna disponível em novas regiões, você pode optar por fazer uma migração única para aproveitar a nova região. Saiba o que considerar ao planejar e concluir a migração.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure**. Para obter mais informações, consulte [Criar sua conta gratuita do Azure hoje mesmo](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure.** Para obter mais informações, consulte [Criar sua conta gratuita do Azure hoje mesmo](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Data Lake armazenamento Gen1 em duas regiões diferentes**. Para obter mais informações, consulte [Introdução ao Azure Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md).
-* **Azure Data Factory**. Para obter mais informações, consulte [Introdução ao Azure Data Factory](../data-factory/introduction.md).
+* **Fábrica de Dados Azure**. Para obter mais informações, consulte [Introdução ao Azure Data Factory](../data-factory/introduction.md).
 
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60576081"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Alterar o modo do dispositivo StorSimple
@@ -48,7 +48,7 @@ O dispositivo StorSimple pode operar nos modos normal, de manutenção ou de rec
 Você pode colocar o sistema no modo de manutenção somente por meio do Windows PowerShell para StorSimple. Todas as solicitações de E/S são pausadas neste modo. Serviços como NVRAM (memória de acesso aleatório não volátil) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair do modo de manutenção, todos os serviços continuarão e deverão estar íntegros. Isso pode levar alguns minutos.
 
 > [!NOTE]
-> **Só há suporte ao modo de Manutenção em um dispositivo que esteja funcionando corretamente. Não há suporte para esse modo em um dispositivo no qual um ou ambos os controladores não estejam funcionando.**
+> **O modo de manutenção só é suportado em um dispositivo que funciona corretamente. Não é suportado em um dispositivo no qual um ou ambos os controladores não estão funcionando.**
 
 
 ### <a name="recovery-mode"></a>Modo de recuperação
@@ -78,7 +78,7 @@ Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo nor
 #### <a name="to-enter-maintenance-mode"></a>Para entrar no modo de manutenção
 
 1. Faça logon no console serial do dispositivo seguindo as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é: `Password1`.
+2. No menu do console serial, selecione a opção 1, **Log in com acesso completo**. Quando solicitado, forneça a **senha de administrador do dispositivo**. A senha padrão é: `Password1`.
 3. No prompt de comando, digite 
    
     `Enter-HcsMaintenanceMode`

@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 0f94ae4a4b5ad7806658c4ae54146d4ac940750e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771305"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de tabela do Azure Cosmos DB para Node.js: notas de versão e recursos
@@ -26,8 +26,8 @@ ms.locfileid: "76771305"
 
 |   |   |
 |---|---|
-|**Baixe o SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**Documentação da API**|[Documentação de referência da API do Node.js](https://azure.github.io/azure-storage-node/)|
+|**Download do SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
+|**Documentação de API**|[Documentação de referência da API do Node.js](https://azure.github.io/azure-storage-node/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
@@ -36,7 +36,7 @@ ms.locfileid: "76771305"
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 * Versão de disponibilidade geral
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
@@ -48,9 +48,9 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de novembro de 2017 |--- |
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

@@ -15,28 +15,28 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64869014"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para Serviços de Mídia do Azure  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial orienta você ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de vídeo com o Serviços de Mídia do Azure usando o SDK de cliente Java.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os itens a seguir são necessários para concluir este tutorial:
 
-* Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
+* Uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de serviços de mídia](media-services-portal-create-account.md).
 * O atual [SDK de Java dos Serviços de Mídia do Azure](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Como: importar o pacote de SDK de cliente Java dos Serviços de Mídia do Azure
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Como: importar o pacote de SDK de cliente Java do Serviços de Mídia do Azure
 
 Para começar a usar o SDK do Media Services para Java, adicione uma referência para a versão atual (0.9.8) do pacote `azure-media` do [SDK de Java do Serviços de Mídia do Azure](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
@@ -53,15 +53,15 @@ Por exemplo, se a ferramenta de compilação é `gradle`, adicione a seguinte de
 ## <a name="how-to-use-azure-media-services-with-java"></a>Como: usar os Serviços de Mídia do Azure com o Java
 
 >[!NOTE]
->Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
+>Quando sua conta de Serviços de Mídia é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar a embalagem dinâmica e a criptografia dinâmica, o ponto final de streaming a partir do qual você deseja transmitir conteúdo tem que estar no estado **em execução.**
 
 O código a seguir mostra como criar um ativo, carregar um arquivo de mídia para o ativo, executar um trabalho com uma tarefa para transformar o ativo e criar um localizador para transmitir seu vídeo.
 
 Configure uma conta de Serviços de Mídia antes de usar esse código. Para obter informações sobre como configurar uma conta, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
 
 O código conecta-se à API de Serviços de Mídia do Azure usando a autenticação de entidade de serviço do Azure AD. Crie um aplicativo do Azure AD e especifique os valores para as seguintes variáveis no código:
-* `tenant`: o domínio de locatário do Azure AD em que reside o aplicativo do Azure AD
-* `clientId`: a ID do cliente do aplicativo do Azure AD
+* `tenant`: o domínio de locatário do Azure AD onde reside o aplicativo do Azure AD
+* `clientId`: a ID de cliente do aplicativo do Azure AD
 * `clientKey`: a chave de cliente do aplicativo do Azure AD
 * `restApiEndpoint`: o ponto de extremidade da API REST da conta de Serviços de Mídia do Azure
 

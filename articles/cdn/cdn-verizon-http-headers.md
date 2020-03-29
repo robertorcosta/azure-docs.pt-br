@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
 ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593258"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon específicos para o mecanismo de regras de CDN do Microsoft Azure
@@ -33,7 +33,7 @@ Por exemplo, para remover o `Via` cabeçalho, o campo de cabeçalhos da regra de
 
 A tabela a seguir descreve os cabeçalhos que podem ser adicionados pelo Verizon CDN POP na solicitação:
 
-Cabeçalho da solicitação | DESCRIÇÃO | Exemplo
+Cabeçalho da solicitação | Descrição | Exemplo
 ---------------|-------------|--------
 [Através de](#via-request-header) | Identifica o servidor POP que faz o proxy da solicitação para um servidor de origem. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | Indica o endereço IP do solicitante.| 10.10.10.10
@@ -41,8 +41,8 @@ X-Forwarded-Proto | Indica o endereço IP do solicitante. | http
 X-Host | Indica o nome do host da solicitação. | cdn.mydomain.com
 X-Midgress | Indica se a solicitação foi proxy por meio de um servidor adicional de CDN. Por exemplo, um servidor de proteção do servidor de origem POP ou um servidor POP de gateway de servidor para ADN. <br />Esse cabeçalho é adicionado à solicitação somente quando o tráfego de midgress ocorrer. Nesse caso, o cabeçalho é definido como 1 para indicar que a solicitação foi proxy por meio de um servidor adicional de CDN.| 1
 [Host](#host-request-header) | Identifica o host e a porta em que o conteúdo solicitado pode ser encontrado. | marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica a lista de failover de servidores de Gateway ADN atribuído a uma origem de cliente. <br />Blindagem da origem: Indica o conjunto de servidores de escudo de origem atribuído a uma origem de cliente. | `icn1,hhp1,hnd1`
-X-EC- _&lt;name&gt;_ | Cabeçalhos de solicitação que começam com *X EC* (por exemplo, X-EC-Tag, [EC-X-Debug](cdn-http-debug-headers.md)) são reservados para uso pela CDN.| waf-production
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica a lista de failover de servidores de Gateway ADN atribuído a uma origem de cliente. <br />Blindagem da origem: indica o conjunto de blindagem dos servidores de origem atribuído a uma origem de cliente. | `icn1,hhp1,hnd1`
+X-EC-_&lt;nome&gt;_ | Cabeçalhos de solicitação que começam com *X EC* (por exemplo, X-EC-Tag, [EC-X-Debug](cdn-http-debug-headers.md)) são reservados para uso pela CDN.| waf-production
 
 ## <a name="via-request-header"></a>Através do cabeçalho da solicitação
 O formato por meio do qual o cabeçalho de solicitação `Via` identifica um servidor POP é especificado pela seguinte sintaxe:
@@ -50,7 +50,7 @@ O formato por meio do qual o cabeçalho de solicitação `Via` identifica um ser
 `Via: Protocol from Platform (POP/ID)` 
 
 Os termos usados na sintaxe são definidos da seguinte maneira:
-- Protocolo: Indica que a versão do protocolo (por exemplo, HTTP/1.1) usada para o proxy da solicitação. 
+- Protocolo: Indica a versão do protocolo (por exemplo, HTTP/1.1) usada para o proxy a solicitação. 
 
 - Plataforma: Indica a plataforma na qual o conteúdo foi solicitado. Os códigos a seguir são válidos para este campo: 
 
@@ -62,7 +62,7 @@ Os termos usados na sintaxe são definidos da seguinte maneira:
 
 - POP: Indica o [POP](cdn-pop-abbreviations.md) que tratou a solicitação. 
 
-- ID: Apenas para uso interno.
+- ID: somente para uso interno.
 
 ### <a name="example-via-request-header"></a>Exemplo através do cabeçalho da solicitação
 

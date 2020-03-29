@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60193587"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação no Azure Data Lake Storage Gen1 usando o Azure Active Directory
@@ -37,12 +37,12 @@ A tabela a seguir ilustra como os mecanismos de autenticação de usuário final
 
 |Use essa opção de autenticação com...                   |.NET         |Java     |PowerShell |CLI do Azure | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|Usuário final (sem MFA \*\*)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)** (preterido)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
+|Usuário final (sem MFA \*\*)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(preterido)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Usuário final (com MFA)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
 |Serviço a serviço (usando a chave de cliente)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |Serviço a serviço (usando o certificado do cliente) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* Clique no símbolo <b>✔\*</b>. Ele é um link.</i><br>
+<i>* Clique no símbolo <b>✔.\* </b> É um elo.</i><br>
 <i>** MFA significa autenticação multifator</i>
 
 Consulte [Cenários de autenticação do Azure Active Directory](../active-directory/develop/authentication-scenarios.md) para obter mais informações sobre como usar o Azure Active Directory para autenticação.
@@ -50,6 +50,6 @@ Consulte [Cenários de autenticação do Azure Active Directory](../active-direc
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md)
-* [Autenticação serviço a serviço](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+* [Autenticação serviço-serviço](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 
 

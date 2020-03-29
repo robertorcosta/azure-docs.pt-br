@@ -1,23 +1,23 @@
 ---
-title: Monitorar status, exibir histórico e configurar alertas
-description: Solucionar problemas de aplicativos lógicos verificando o status da execução, examinando o histórico do gatilho e habilitando alertas em aplicativos lógicos do Azure
+title: Monitore o status, veja o histórico e configure alertas
+description: Solucionar problemas de aplicativos lógicos verificando o status de execução, revisando o histórico de gatilhos e ativando alertas no Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76907767"
 ---
-# <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para aplicativos lógicos do Azure
+# <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitore o status de execução, revise o histórico do gatilho e configure alertas para aplicativos azure logic
 
-Depois de [criar e executar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md), você pode verificar o status de execução do aplicativo lógico, o [histórico de execuções](#review-runs-history), o [histórico de gatilho](#review-trigger-history)e o desempenho. Para obter notificações sobre falhas ou outros possíveis problemas, configure [alertas](#add-azure-alerts). Por exemplo, você pode criar um alerta que detecta “quando mais de cinco execuções falham em uma hora”.
+Depois [de criar e executar um aplicativo lógico,](../logic-apps/quickstart-create-first-logic-app-workflow.md)você pode verificar o status de execução do aplicativo lógico, [executar o histórico,](#review-runs-history) [o histórico de gatilhos](#review-trigger-history)e o desempenho. Para obter notificações sobre falhas ou outros possíveis problemas, configure [alertas](#add-azure-alerts). Por exemplo, você pode criar um alerta que detecta “quando mais de cinco execuções falham em uma hora”.
 
-Para monitoramento de eventos em tempo real e depuração mais avançada, configure o log de diagnóstico para seu aplicativo lógico usando [logs de Azure monitor](../azure-monitor/overview.md). Esse serviço do Azure ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Em seguida, você pode localizar e exibir eventos, como eventos de gatilho, eventos de execução e eventos de ação. Ao armazenar essas informações em [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md), você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a localizar e analisar essas informações. Você também pode usar esses dados de diagnóstico com outros serviços do Azure, como o armazenamento do Azure e os hubs de eventos do Azure. Para obter mais informações, consulte [monitorar aplicativos lógicos usando Azure monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
+Para monitoramento de eventos em tempo real e depuração mais rica, configure o registro de diagnósticos para o seu aplicativo lógico usando [logs do Monitor Do Azure](../azure-monitor/overview.md). Este serviço do Azure ajuda você a monitorar seus ambientes em nuvem e no local para que você possa manter mais facilmente sua disponibilidade e desempenho. Em seguida, você pode encontrar e visualizar eventos, como eventos de gatilho, eventos de execução e eventos de ação. Ao armazenar essas informações nos [registros do Monitor do Azure,](../azure-monitor/platform/data-platform-logs.md)você pode criar consultas de [log](../azure-monitor/log-query/log-query-overview.md) que o ajudam a encontrar e analisar essas informações. Você também pode usar esses dados de diagnóstico com outros serviços do Azure, como o Azure Storage e o Azure Event Hubs. Para obter mais informações, consulte [os aplicativos de lógica do Monitor usando o Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -25,161 +25,161 @@ Para monitoramento de eventos em tempo real e depuração mais avançada, config
 
 ## <a name="review-runs-history"></a>Examinar o histórico de execuções
 
-Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplicativos lógicos cria e executa uma instância de fluxo de trabalho separada para cada item ou evento. Por padrão, cada instância de fluxo de trabalho é executada em paralelo para que nenhum fluxo de trabalho precise aguardar antes de iniciar uma execução. Você pode examinar o que aconteceu durante essa execução, incluindo o status de cada etapa no fluxo de trabalho, além das entradas e saídas de cada etapa.
+Cada vez que o gatilho é acionado para um item ou evento, o mecanismo Logic Apps cria e executa uma instância de fluxo de trabalho separada para cada item ou evento. Por padrão, cada instância de fluxo de trabalho é executada em paralelo para que nenhum fluxo de trabalho tenha que esperar antes de iniciar uma execução. Você pode rever o que aconteceu durante essa execução, incluindo o status de cada etapa do fluxo de trabalho mais as entradas e saídas para cada etapa.
 
-1. Na [portal do Azure](https://portal.azure.com), localize e abra seu aplicativo lógico no designer de aplicativo lógico.
+1. No [portal Azure,](https://portal.azure.com)encontre e abra seu aplicativo lógico no Logic App Designer.
 
-   Para localizar seu aplicativo lógico, na caixa principal do Azure Search, digite `logic apps`e, em seguida, selecione **aplicativos lógicos**.
+   Para encontrar seu aplicativo lógico, na caixa de `logic apps`pesquisa principal do Azure, digite e selecione **Logic Apps**.
 
-   ![Localizar e selecionar o serviço "aplicativos lógicos"](./media/monitor-logic-apps/find-your-logic-app.png)
+   ![Encontre e selecione o serviço "Logic Apps"](./media/monitor-logic-apps/find-your-logic-app.png)
 
-   O portal do Azure mostra todos os aplicativos lógicos associados às suas assinaturas do Azure. Você pode filtrar essa lista com base no nome, na assinatura, no grupo de recursos, no local e assim por diante.
+   O portal Azure mostra todos os aplicativos lógicos associados às suas assinaturas do Azure. Você pode filtrar esta lista com base no nome, assinatura, grupo de recursos, localização e assim por diante.
 
-   ![Exibir aplicativos lógicos associados a assinaturas](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
+   ![Ver aplicativos lógicos associados a assinaturas](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
-1. Selecione seu aplicativo lógico e, em seguida, selecione **visão geral**.
+1. Selecione seu aplicativo lógico e, em seguida, selecione **Visão geral**.
 
-   No painel Visão geral, em **histórico de execuções**, todas as execuções anteriores, atuais e em espera para seu aplicativo lógico são exibidas. Se a lista mostrar muitas execuções e você não conseguir encontrar a entrada desejada, tente filtrar a lista. Se você não encontrar os dados esperados, experimente selecionar **Atualizar** na barra de ferramentas.
+   No painel de visão geral, em **Executa histórico**, todo o passado, atual, e qualquer espera é executada para o seu aplicativo lógico aparecer. Se a lista mostrar muitas corridas e você não encontrar a entrada desejada, tente filtrar a lista. Se você não encontrar os dados esperados, experimente selecionar **Atualizar** na barra de ferramentas.
 
-   ![Visão geral, histórico de execuções e outras informações de aplicativo lógico](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
+   ![Visão geral, executa histórico e outras informações lógicas do aplicativo](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
-   Estes são os status possíveis para uma execução de aplicativo lógico:
+   Aqui estão os possíveis status para uma execução de aplicativo lógico:
 
-   | Status | Description |
+   | Status | Descrição |
    |--------|-------------|
-   | **Cancelado** | O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento |
-   | **Com falha** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho foi configurada para lidar com a falha |
-   | **Executando** | O fluxo de trabalho está em execução atualmente. <p>Esse status também pode aparecer para fluxos de trabalho limitados ou devido ao plano de preços atual. Para saber mais, consulte os [limites de ações na página de preço](https://azure.microsoft.com/pricing/details/logic-apps/). Se você configurar o [log de diagnóstico](../logic-apps/monitor-logic-apps.md), poderá obter informações sobre os eventos de restrição que acontecerem. |
-   | **Êxito** | Todas as ações foram bem sucedidas. <p>**Observação**: se alguma falha ocorreu em uma ação específica, uma ação posterior no fluxo de trabalho tratou dessa falha. |
-   | **Dando** | O fluxo de trabalho não foi iniciado ou está em pausa, por exemplo, devido a um fluxo de trabalho anterior que ainda está em execução. |
+   | **Cancelado** | O fluxo de trabalho estava em execução, mas recebeu um pedido de cancelamento |
+   | **Falha** | Pelo menos uma ação falhou, e nenhuma ação posterior no fluxo de trabalho foi criada para lidar com a falha |
+   | **Em execução** | O fluxo de trabalho está em execução atualmente. <p>Esse status também pode aparecer para fluxos de trabalho estrangulados ou devido ao plano de preços atual. Para saber mais, consulte os [limites de ações na página de preço](https://azure.microsoft.com/pricing/details/logic-apps/). Se você configurar [o registro de diagnósticos,](../logic-apps/monitor-logic-apps.md)você pode obter informações sobre quaisquer eventos de aceleração que aconteçam. |
+   | **Conseguiu** | Todas as ações foram bem sucedidas. <p>**Nota**: Se alguma falha ocorreu em uma ação específica, uma ação posterior no fluxo de trabalho lidou com essa falha. |
+   | **Aguardando** | O fluxo de trabalho não foi iniciado ou está pausado, por exemplo, devido a um fluxo de trabalho anterior que ainda está sendo executado. |
    |||
 
-1. Para examinar as etapas e outras informações de uma execução específica, em **histórico de execuções**, selecione essa execução.
+1. Para revisar as etapas e outras informações para uma execução específica, em **'Executa histórico',** selecione essa execução.
 
-   ![Selecione uma execução específica para examinar](./media/monitor-logic-apps/select-specific-logic-app-run.png)
+   ![Selecione uma corrida específica para revisar](./media/monitor-logic-apps/select-specific-logic-app-run.png)
 
-   O painel **execução do aplicativo lógico** mostra cada etapa na execução selecionada, o status de execução de cada etapa e o tempo necessário para cada etapa ser executada, por exemplo:
+   O painel **de execução do aplicativo Logic** mostra cada passo na execução selecionada, o status de execução de cada etapa e o tempo de execução de cada passo a ser executado, por exemplo:
 
    ![Cada ação na execução específica](./media/monitor-logic-apps/logic-app-run-pane.png)
 
-   Para exibir essas informações em formulário de lista, na barra de ferramentas de **execução do aplicativo lógico** , selecione **detalhes da execução**.
+   Para visualizar essas informações no formulário de lista, na barra de ferramentas **do aplicativo Logic,** selecione **Executar detalhes**.
 
-   ![Na barra de ferramentas, selecione "detalhes da execução"](./media/monitor-logic-apps/select-run-details-on-toolbar.png)
+   ![Na barra de ferramentas, selecione "Executar detalhes"](./media/monitor-logic-apps/select-run-details-on-toolbar.png)
 
-   O modo de exibição detalhes de execução mostra cada etapa, seu status e outras informações.
+   A exibição 'Detalhes de execução' mostra cada passo, seu status e outras informações.
 
-   ![Examine os detalhes sobre cada etapa na execução](./media/monitor-logic-apps/review-logic-app-run-details.png)
+   ![Revisar detalhes sobre cada etapa da corrida](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Por exemplo, você pode obter a propriedade de **ID de correlação** da execução, que pode ser necessária ao usar a [API REST para aplicativos lógicos](https://docs.microsoft.com/rest/api/logic).
+   Por exemplo, você pode obter a propriedade **DeScoride** de correlação da execução, que você pode precisar quando você usa a [API REST para aplicativos lógicos](https://docs.microsoft.com/rest/api/logic).
 
-1. Para obter mais informações sobre uma etapa específica, selecione uma das opções:
+1. Para obter mais informações sobre uma etapa específica, selecione qualquer opção:
 
-   * No painel de **execução do aplicativo lógico** , selecione a etapa para que a forma se expanda. Agora você pode exibir informações como entradas, saídas e erros que ocorreram nessa etapa, por exemplo:
+   * No **painel de execução** do aplicativo Logic selecione o passo para que a forma se expanda. Agora você pode visualizar informações como entradas, saídas e quaisquer erros que aconteceram nessa etapa, por exemplo:
 
-     ![No painel execução do aplicativo lógico, exiba a etapa com falha](./media/monitor-logic-apps/specific-step-inputs-outputs-errors.png)
+     ![No painel de execução do aplicativo lógico, ver passo falho](./media/monitor-logic-apps/specific-step-inputs-outputs-errors.png)
 
-   * No painel de **detalhes de execução do aplicativo lógico** , selecione a etapa desejada.
+   * No **painel de detalhes do aplicativo Logic,** selecione o passo que deseja.
 
-     ![No painel de detalhes da execução, exiba a etapa com falha](./media/monitor-logic-apps/select-failed-step-in-failed-run.png)
+     ![No painel de detalhes de execução, ver passo falho](./media/monitor-logic-apps/select-failed-step-in-failed-run.png)
 
-     Agora você pode exibir informações como entradas e saídas para essa etapa, por exemplo:
+     Agora você pode visualizar informações como entradas e saídas para essa etapa, por exemplo:
 
    > [!NOTE]
-   > Todos os eventos e detalhes de runtime são criptografados no serviço Aplicativos Lógicos. Eles são descriptografados apenas quando um usuário solicita a exibição desses dados. Você pode [ocultar entradas e saídas no histórico de execução](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou controlar o acesso do usuário a essas informações usando o [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md).
+   > Todos os eventos e detalhes de runtime são criptografados no serviço Aplicativos Lógicos. Eles são descriptografados apenas quando um usuário solicita a exibição desses dados. Você pode [ocultar entradas e saídas no histórico de execução](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) ou controlar o acesso do usuário a essas informações usando [o RBAC (Azure Role-Based Access Control, controle de acesso baseado em função)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 
 ## <a name="review-trigger-history"></a>Examinar histórico de gatilho
 
-Cada execução de aplicativo lógico começa com um gatilho. O histórico de gatilho lista todas as tentativas de gatilho que seu aplicativo lógico fez e informações sobre as entradas e saídas para cada tentativa de gatilho.
+Cada execução de aplicativo lógico começa com um gatilho. O histórico de gatilhos lista todas as tentativas de gatilho que seu aplicativo lógico fez e informações sobre as entradas e saídas para cada tentativa de gatilho.
 
-1. Na [portal do Azure](https://portal.azure.com), localize e abra seu aplicativo lógico no designer de aplicativo lógico.
+1. No [portal Azure,](https://portal.azure.com)encontre e abra seu aplicativo lógico no Logic App Designer.
 
-   Para localizar seu aplicativo lógico, na caixa principal do Azure Search, digite `logic apps`e, em seguida, selecione **aplicativos lógicos**.
+   Para encontrar seu aplicativo lógico, na caixa de `logic apps`pesquisa principal do Azure, digite e selecione **Logic Apps**.
 
-   ![Localizar e selecionar o serviço "aplicativos lógicos"](./media/monitor-logic-apps/find-your-logic-app.png)
+   ![Encontre e selecione o serviço "Logic Apps"](./media/monitor-logic-apps/find-your-logic-app.png)
 
-   O portal do Azure mostra todos os aplicativos lógicos associados às suas assinaturas do Azure. Você pode filtrar essa lista com base no nome, na assinatura, no grupo de recursos, no local e assim por diante.
+   O portal Azure mostra todos os aplicativos lógicos associados às suas assinaturas do Azure. Você pode filtrar esta lista com base no nome, assinatura, grupo de recursos, localização e assim por diante.
 
-   ![Exibir aplicativos lógicos associados a assinaturas](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
+   ![Ver aplicativos lógicos associados a assinaturas](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
-1. Selecione seu aplicativo lógico e, em seguida, selecione **visão geral**.
+1. Selecione seu aplicativo lógico e, em seguida, selecione **Visão geral**.
 
-1. No menu do aplicativo lógico, selecione **visão geral**. Na seção **Resumo** , em **avaliação**, selecione **Ver Histórico de gatilho**.
+1. No menu do aplicativo lógico, selecione **Visão geral**. Na seção **Resumo,** em **Avaliação,** selecione **Ver histórico de gatilhos**.
 
-   ![Exibir o histórico de gatilho para seu aplicativo lógico](./media/monitor-logic-apps/overview-pane-logic-app-details-trigger-history.png)
+   ![Exibir histórico de gatilhos para o seu aplicativo lógico](./media/monitor-logic-apps/overview-pane-logic-app-details-trigger-history.png)
 
-   O painel Histórico de gatilho mostra todas as tentativas de gatilho que seu aplicativo lógico fez. Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplicativos lógicos cria uma instância de aplicativo lógico separada que executa o fluxo de trabalho. Por padrão, cada instância é executada em paralelo para que nenhum fluxo de trabalho precise esperar para iniciar uma execução. Portanto, se o aplicativo lógico for disparado em vários itens ao mesmo tempo, uma entrada de gatilho com a mesma data e hora será exibida para cada item.
+   O painel de histórico de gatilho mostra todas as tentativas de gatilho que seu aplicativo lógico fez. Cada vez que o gatilho é acionado para um item ou evento, o mecanismo Logic Apps cria uma instância de aplicativo de lógica separada que executa o fluxo de trabalho. Por padrão, cada instância é executada em paralelo para que nenhum fluxo de trabalho precise esperar para iniciar uma execução. Portanto, se o aplicativo lógico for acionado em vários itens ao mesmo tempo, uma entrada de gatilho com a mesma data e hora será exibida para cada item.
 
-   ![Várias tentativas de gatilho para itens diferentes](./media/monitor-logic-apps/logic-app-trigger-history.png)
+   ![Múltiplas tentativas de gatilho para diferentes itens](./media/monitor-logic-apps/logic-app-trigger-history.png)
 
    Aqui estão os possíveis status para uma tentativa de disparo:
 
-   | Status | Description |
+   | Status | Descrição |
    |--------|-------------|
-   | **Com falha** | Ocorreu um erro. Para examinar as mensagens de erro geradas para um disparador com falha, selecione essa tentativa de disparo e escolha **Saídas**. Por exemplo, você pode descobrir entradas que não são válidas. |
-   | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. |
-   | **Êxito** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status de "Disparado" também é exibida junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou comando `SplitOn` que não foi atendido. <p>Esse status pode se aplicar a um gatilho manual, gatilho recorrente ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações gerarem erros sem tratamento. |
+   | **Falha** | Ocorreu um erro. Para examinar as mensagens de erro geradas para um disparador com falha, selecione essa tentativa de disparo e escolha **Saídas**. Por exemplo, você pode descobrir entradas que não são válidas. |
+   | **Ignorada** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. |
+   | **Conseguiu** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status de "Disparado" também é exibida junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou comando `SplitOn` que não foi atendido. <p>Esse status pode se aplicar a um gatilho manual, gatilho recorrente ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações gerarem erros sem tratamento. |
    |||
 
    > [!TIP]
-   > Você pode verificar novamente o gatilho sem aguardar a próxima recorrência. Na barra de ferramentas visão geral, selecione **executar gatilho**e selecione o gatilho, que força uma verificação. Ou então, selecione **Executar** na barra de ferramentas do Designer de Aplicativos Lógicos.
+   > Você pode verificar novamente o gatilho sem aguardar a próxima recorrência. Na barra de ferramentas da visão geral, **selecione Executar gatilho**e selecione o gatilho, que força uma verificação. Ou então, selecione **Executar** na barra de ferramentas do Designer de Aplicativos Lógicos.
 
-1. Para exibir informações sobre uma tentativa de gatilho específica, no painel de gatilho, selecione esse evento de gatilho. Se a lista mostrar muitas tentativas de gatilho e você não conseguir encontrar a entrada desejada, tente filtrar a lista. Se você não encontrar os dados esperados, experimente selecionar **Atualizar** na barra de ferramentas.
+1. Para visualizar informações sobre uma tentativa de gatilho específica, no painel do gatilho, selecione o evento do gatilho. Se a lista mostrar muitas tentativas de gatilho e você não conseguir encontrar a entrada desejada, tente filtrar a lista. Se você não encontrar os dados esperados, experimente selecionar **Atualizar** na barra de ferramentas.
 
    ![Exibir tentativa de gatilho específica](./media/monitor-logic-apps/select-trigger-event-for-review.png)
 
-   Agora você pode examinar informações sobre o evento de gatilho selecionado, por exemplo:
+   Agora você pode rever informações sobre o evento de gatilho selecionado, por exemplo:
 
-   ![Exibir informações de gatilho específicas](./media/monitor-logic-apps/view-specific-trigger-details.png)
+   ![Exibir informações específicas do gatilho](./media/monitor-logic-apps/view-specific-trigger-details.png)
 
 <a name="add-azure-alerts"></a>
 
-## <a name="set-up-monitoring-alerts"></a>Configurar alertas de monitoramento
+## <a name="set-up-monitoring-alerts"></a>Configure alertas de monitoramento
 
-Para obter alertas com base em métricas específicas ou limites excedidos para seu aplicativo lógico, configure [alertas no Azure monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Para configurar alertas sem usar [Azure monitor](../log-analytics/log-analytics-overview.md), siga estas etapas.
+Para obter alertas com base em métricas específicas ou limites excedidos para o seu aplicativo lógico, configure [alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Para configurar alertas sem usar [o Monitor Azure,](../log-analytics/log-analytics-overview.md)siga estas etapas.
 
-1. No menu do aplicativo lógico, em **monitoramento**, selecione **alertas** > **nova regra de alerta**.
+1. No menu do aplicativo lógico, em **Monitoramento,** selecione **Alertas** > **Nova regra de alerta**.
 
    ![Adicionar um alerta ao aplicativo lógico](./media/monitor-logic-apps/add-new-alert-rule.png)
 
-1. No painel **criar regra** , em **recurso**, selecione seu aplicativo lógico, se ainda não estiver selecionado. Under **Condition**, select **Add** so that you can define the condition that triggers the alert.
+1. No **painel Criar regra,** em **Recurso,** selecione seu aplicativo lógico, se ainda não estiver selecionado. Em **Condição,** **selecione Adicionar** para que você possa definir a condição que aciona o alerta.
 
-   ![Add a condition for the rule](./media/monitor-logic-apps/add-condition-for-rule.png)
+   ![Adicione uma condição para a regra](./media/monitor-logic-apps/add-condition-for-rule.png)
 
-1. On the **Configure signal logic** pane, find and select the signal for which you want to get an alert. You can use the search box, or to sort the signals alphabetically, select the **Signal name** column header.
+1. No **painel lógica de sinal Configurar,** encontre e selecione o sinal para o qual deseja receber um alerta. Você pode usar a caixa de pesquisa ou classificar os sinais em ordem alfabética, selecione o cabeçalho da coluna **nome do sinal.**
 
-   For example, if you want to send an alert when a trigger fails, follow these steps:
+   Por exemplo, se você quiser enviar um alerta quando um gatilho falhar, siga estas etapas:
 
-   1. In the **Signal name** column, find and select the **Triggers Failed** signal.
+   1. Na coluna **Nome do sinal,** encontre e selecione o sinal **de falha dos gatilhos.**
 
-      ![Select signal for creating alert](./media/monitor-logic-apps/find-and-select-signal.png)
+      ![Selecione o sinal para criar alerta](./media/monitor-logic-apps/find-and-select-signal.png)
 
-   1. On the information pane that opens for the selected signal, under **Alert logic**, set up your condition, for example:
+   1. No painel de informações que abre para o sinal selecionado, **a lógica Alerta,** configure sua condição, por exemplo:
 
-   1. For **Operator**, select **Greater than or equal to**.
+   1. Para **Operador,** selecione **Maior ou igual a**.
 
-   1. For **Aggregation type**, select **Count**.
+   1. Para **o tipo de agregação,** selecione **Contagem**.
 
-   1. For **Threshold value**, enter `1`.
+   1. Para o valor `1` **limite,** digite .
 
-   1. Under **Condition preview**, confirm that your condition appears correct.
+   1. Em **Condição de visualização,** confirme se sua condição aparece correta.
 
-   1. Under **Evaluated based on**, set up the interval and frequency for running the alert rule. For **Aggregation granularity (Period)** , select the period for grouping the data. For **Frequency of evaluation**, select how often you want to check the condition.
+   1. Em **Avaliação com base em**, configure o intervalo e a freqüência para executar a regra de alerta. Para **granularidade de agregação (Período)**, selecione o período para agrupar os dados. Para **freqüência de avaliação,** selecione quantas vezes deseja verificar a condição.
 
-   1. When you're ready, select **Done**.
+   1. Quando estiver pronto, selecione **Pronto**.
 
-   Here's the finished condition:
+   Aqui está a condição final:
 
-   ![Set up condition for alert](./media/monitor-logic-apps/set-up-condition-for-alert.png)
+   ![Configurar condição para alerta](./media/monitor-logic-apps/set-up-condition-for-alert.png)
 
-   The **Create rule** page now shows the condition that you created and the cost for running that alert.
+   A página **Criar regra** agora mostra a condição que você criou e o custo para executar esse alerta.
 
-   ![New alert on the "Create rule" page](./media/monitor-logic-apps/finished-alert-condition-cost.png)
+   ![Novo alerta na página "Criar regra"](./media/monitor-logic-apps/finished-alert-condition-cost.png)
 
-1. Specify a name, optional description, and severity level for your alert. Either leave the **Enable rule upon creation** setting turned on, or turn off until you're ready to enable the rule.
+1. Especifique um nome, descrição opcional e nível de gravidade para o seu alerta. Deixe a **regra Ativar na** configuração de criação ativada ou desligue até que esteja pronto para ativar a regra.
 
-1. When you're done, select **Create alert rule**.
+1. Quando terminar, selecione **Criar regra de alerta**.
 
 > [!TIP]
 > Para executar um aplicativo lógico em um alerta, você pode incluir o [gatilho de solicitação](../connectors/connectors-native-reqres.md) no fluxo de trabalho, o que permite realizar tarefas como estes exemplos:
@@ -188,6 +188,6 @@ Para obter alertas com base em métricas específicas ou limites excedidos para 
 > * [Enviar um texto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 > * [Adicionar uma mensagem a uma fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md)
+* [Monitore aplicativos lógicos usando o Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md)

@@ -7,18 +7,18 @@ keywords: inventário, automação, alteração, acompanhamento
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844812"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerenciar uma Máquina Virtual do Azure com a coleta de inventário
 
-Você pode habilitar o acompanhamento de inventário para uma máquina virtual do Azure na página de recursos da máquina virtual. Você pode coletar e exibir as seguintes informações de inventário em seus computadores:
+Você pode habilitar o acompanhamento de inventário para uma máquina virtual do Azure na página de recursos da máquina virtual. Você pode coletar e visualizar as seguintes informações de inventário em seus computadores:
 
-- Software do Windows (aplicativos do Windows e atualizações do Windows), serviços, arquivos e chaves do registro
-- Daemons de software (pacotes) do Linux e arquivos
+- Software do Windows (aplicativos windows e atualizações do Windows), serviços, arquivos e chaves de registro
+- Daemons e arquivos de software Linux (pacotes)
 
 Esse método fornece uma interface do usuário baseada em navegador para definir e configurar a coleta de inventário.
 
@@ -30,14 +30,14 @@ Este artigo pressupõe que você tem uma VM para configurar a solução. Se voc�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Faça login no [portal Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Habilitar a coleta de inventário de página de recursos da máquina virtual
 
 1. No Portal do Azure, no painel esquerdo, selecione **Máquinas virtuais**.
 2. Na lista de máquinas virtuais, selecione uma máquina virtual.
 3. No menu **Recurso**, em **Operações**, selecione **Inventário**.
-4. Selecione um espaço de trabalho Log Analytics para armazenar seus logs de dados.
+4. Selecione um espaço de trabalho do Log Analytics para armazenar seus registros de dados.
     Se nenhum workspace estiver disponível para essa região, será solicitado que você crie uma conta de automação e um workspace padrão.
 5. Para iniciar a integração de seu computador, selecione **Habilitar**.
 
@@ -61,7 +61,7 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ### <a name="windows-registry"></a>Registro do Windows
 
-|Propriedade  |Description  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
@@ -70,7 +70,7 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ### <a name="windows-files"></a>Arquivos do Windows
 
-|Propriedade  |Description  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
@@ -79,7 +79,7 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ### <a name="linux-files"></a>Arquivos do Linux
 
-|Propriedade  |Description  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
@@ -92,7 +92,7 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ## <a name="manage-machine-groups"></a>Gerenciar grupos de computadores
 
-O inventário permite criar e exibir grupos de computadores em logs de Azure Monitor. Grupos de computadores são coleções de computadores definidos por uma consulta em logs de Azure Monitor.
+O inventário permite criar e visualizar grupos de máquinas nos registros do Monitor Do Azure. Grupos de máquinas são coleções de máquinas definidas por uma consulta nos registros do Monitor do Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -106,7 +106,7 @@ Selecionar um grupo de computadores na lista abre a página de grupos de Computa
 
 Clique no botão **+ Clonar** para clonar o grupo de computadores. Aqui, você precisa atribuir ao grupo um novo nome e um alias para o grupo. A definição pode ser alterada neste momento. Depois de alterar a consulta, pressione **Validar consulta** para visualizar os computadores que seriam selecionados. Quando estiver satisfeito com o grupo, clique em **Criar** para criar o grupo de computadores
 
-Se você quiser criar um novo grupo de computadores, selecione **+ criar um grupo de computadores**. Esse botão abre a **página Criar um grupo de computadores**, na qual é possível definir o novo grupo. Clique em **Criar** para criar o grupo.
+Se você quiser criar um novo grupo de máquinas, selecione **+ Crie um grupo de máquinas**. Esse botão abre a **página Criar um grupo de computadores**, na qual é possível definir o novo grupo. Clique em **Criar** para criar o grupo.
 
 ![Criar novo grupo de computadores](./media/automation-vm-inventory/create-new-group.png)
 
@@ -119,13 +119,13 @@ Para remover sua máquina virtual do gerenciamento de inventário:
 3. Na lista, selecione a máquina virtual que você deseja desconectar. A máquina virtual tem uma marca de seleção verde ao lado de **Este workspace** na coluna **Conexão OMS**.
 
    >[!NOTE]
-   >O OMS agora é conhecido como logs de Azure Monitor.
+   >O OMS agora é referido como logs do Monitor Do Azure.
    
 4. Na parte superior da página seguinte, selecione **Desconectar**.
 5. Na janela de confirmação, selecione **Sim**.
     Essa ação desconecta a máquina do gerenciamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre o gerenciamento de alterações em configurações de arquivos e do Registro em suas máquinas virtuais, consulte [Controlar alterações de software em seu ambiente com a solução Controle de Alterações](../log-analytics/log-analytics-change-tracking.md).
 * Para saber mais sobre como gerenciar atualizações de pacote e do Windows para máquinas virtuais, consulte [A solução de Gerenciamento de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).

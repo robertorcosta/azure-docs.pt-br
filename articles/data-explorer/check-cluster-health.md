@@ -1,6 +1,6 @@
 ---
 title: Verificar a integridade de um cluster do Azure Data Explorer
-description: Este artigo descreve as etapas para monitorar a integridade do seu cluster do Gerenciador de dados do Azure.
+description: Este artigo descreve etapas para monitorar a saúde do seu cluster Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a280d8869a3790444a97c38f792a3d9eeb6bde1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60861279"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Verificar a integridade de um cluster do Azure Data Explorer
 
 Há vários fatores que afetam a integridade de um cluster do Azure Data Explorer, incluindo CPU, memória e o subsistema do disco. Este artigo mostra algumas etapas básicas que você pode tomar para medir a integridade de um cluster.
 
-1. Entre em [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
+1. Faça login [https://dataexplorer.azure.com](https://dataexplorer.azure.com)em .
 
 1. No painel esquerdo, selecione o cluster e execute o comando a seguir.
 

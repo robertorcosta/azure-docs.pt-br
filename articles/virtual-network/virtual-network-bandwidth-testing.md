@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
 ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60743064"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Teste de Largura de Banda/Taxa de Transferência (NTTTCP)
@@ -34,7 +34,7 @@ Anote o número de núcleos da VM. Vamos chamar isso de “\#num\_cores”
 
 Execute o teste NTTTCP durante 300 segundos (ou 5 minutos) na VM remetente e na VM receptora.
 
-Dica: Ao configurar esse teste pela primeira vez, você poderá tentar um período de teste mais curto para obter um feedback mais rápido. Depois que a ferramenta estiver funcionando como esperado, estenda o período de teste para 300 segundos para obter os resultados mais precisos.
+Dica: ao configurar esse teste pela primeira vez, você poderá tentar um período de teste mais curto para obter comentários mais rápidos. Depois que a ferramenta estiver funcionando como esperado, estenda o período de teste para 300 segundos para obter os resultados mais precisos.
 
 > [!NOTE]
 > O remetente **e** o receptor devem especificar **o mesmo** parâmetro de duração de teste (-t).
@@ -132,13 +132,13 @@ Nesses cenários, devemos habilitar o modo sem sincronização para que o teste 
 
 #### <a name="from-linux-to-windows"></a>Do Linux para Windows:
 
-Receiver \<Windows>:
+Receptor \<Windows>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Remetente \<Linux >:
+Sender \<Linux>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>Do Windows para Linux:
 
-Receptor \<Linux >:
+Receptor \<Linux>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Remetente \<Windows >:
+> \<do Sender Windows:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

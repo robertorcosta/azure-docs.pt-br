@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: damaerte
 ms.openlocfilehash: bbf6c1f3049265961559ea34c8b748b2b4d263b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60614303"
 ---
 # <a name="embed-azure-cloud-shell"></a>Inserir o Azure Cloud Shell
@@ -27,13 +27,13 @@ Inserir o Azure Cloud Shell permite que desenvolvedores e gravadores de conteúd
 
 Botão de tamanho regular
 
-[![Inicialização regular](https://shell.azure.com/images/launchcloudshell.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
+[![Lançamento regular](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 Botão de tamanho grande
 
-[![Iniciar tamanho grande](https://shell.azure.com/images/launchcloudshell@2x.png "Inicializar o Azure Cloud Shell")](https://shell.azure.com)
+[![Lançamento de grande porte](https://shell.azure.com/images/launchcloudshell@2x.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
-## <a name="how-to"></a>Instruções
+## <a name="how-to"></a>Como fazer
 
 Integre o botão de inicialização do Azure Cloud Shell em arquivos markdown, copiando o seguinte:
 

@@ -8,17 +8,17 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60774022"
 ---
 # <a name="rendering-using-azure"></a>Renderizar usando o Azure
 
 A renderização é o processo de obter modelos 3D e convertê-los em imagens 2D. Os arquivos de cenas 3D são criados em aplicativos como Autodesk 3ds Max, Autodesk Maya e Blender.  Aplicativos de renderização como Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray e Blender Cycles produzem imagens 2D.  Às vezes, imagens individuais são criadas a partir dos arquivos de cena. No entanto, é comum modelar e renderizar várias imagens e, em seguida, combiná-las em uma animação.
 
-A carga de trabalho de renderização é muito usada para efeitos especiais (VFX) na indústria de Mídia e Entretenimento. Renderização também é usada em muitos outros setores, como anúncios, varejo, fabricação, petróleo e gás.
+A carga de trabalho de renderização é muito usada para efeitos especiais (VFX) na indústria de Mídia e Entretenimento. A renderização também é usada em muitos outros setores como publicidade, varejo, petróleo e gás e manufatura.
 
 O processo de renderização é computacionalmente intensivo, isso significa que pode haver muitos quadros/imagens a serem produzidos e cada imagem poderá demorar muitas horas para ser renderizada.  A renderização é, portanto, uma carga de trabalho de processamento em lotes perfeita que pode aproveitar o Azure e o Lote do Azure para executar muitas renderizações em paralelo.
 

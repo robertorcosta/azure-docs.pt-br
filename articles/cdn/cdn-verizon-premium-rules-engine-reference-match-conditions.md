@@ -1,6 +1,6 @@
 ---
-title: Condições de correspondência do mecanismo de regras do Azure CDN do Verizon Premium | Microsoft Docs
-description: Documentação de referência para a rede de distribuição de conteúdo do Azure das condições de correspondência do mecanismo de regras do Verizon Premium.
+title: CDN azure da Verizon Premium rege as condições de correspondência do motor | Microsoft Docs
+description: A documentação de referência para a Azure Content Delivery Network da Verizon Premium rege as condições de correspondência do motor.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593213"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras do Azure CDN do Verizon Premium
+# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>CDN azure da Verizon Premium rege as condições de correspondência do motor
 
-Este artigo lista descrições detalhadas das condições de correspondência disponíveis para a CDN (rede de distribuição de conteúdo) do Azure do [mecanismo de regras](cdn-verizon-premium-rules-engine.md)do Verizon Premium.
+Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o CDN (Azure Content Delivery Network, rede de entrega de conteúdo do Azure) do [motor de regras](cdn-verizon-premium-rules-engine.md)Verizon Premium.
 
 A segunda parte de uma regra é a condição de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para os quais um conjunto de recursos será executado.
 
 Por exemplo, você pode usar uma condição de correspondência para:
 
 - Filtrar solicitações para conteúdo em um local específico.
-- Filtrar solicitações geradas de um determinado endereço IP ou país/região.
+- Solicitações de filtro geradas a partir de um endereço IP específico ou país/região.
 - Filtrar solicitações por informações de cabeçalho.
 
 ## <a name="always-match-condition"></a>Condição de correspondência Sempre
@@ -49,7 +49,7 @@ As condições de correspondência Localização identificam solicitações base
 Nome | Finalidade
 -----|--------
 [Número AS](#as-number) | Identifica solicitações originadas de uma rede específica.
-[País](#country) | Identifica solicitações originadas dos países/regiões especificados.
+[País](#country) | Identifica solicitações originárias dos países/regiões especificadas.
 
 ## <a name="origin-match-conditions"></a>Condições de correspondência Origem
 
@@ -66,7 +66,7 @@ As condições de correspondência Solicitação identificam solicitações base
 
 Nome | Finalidade
 -----|--------
-[Endereço IP do cliente](#client-ip-address) | Identifica solicitações originadas de um endereço IP específico.
+[Endereço IP do Cliente](#client-ip-address) | Identifica solicitações originadas de um endereço IP específico.
 [Parâmetro de Cookie](#cookie-parameter) | Verifica o valor especificado nos cookies associados a cada solicitação.
 [Regex de Parâmetro de Cookie](#cookie-parameter-regex) | Verifica a expressão regular especificada nos cookies associados a cada solicitação.
 [Cname de Borda](#edge-cname) | Identifica solicitações que apontam para um CNAME de borda específico.
@@ -112,10 +112,10 @@ A condição de correspondência Sempre aplica um conjunto de recursos padrão a
 
 A rede de número AS é definida por seu número de sistema autônomo (ASN). 
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Número e Sistema Automático é atendida:
+A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do número AS é atendida:
 
-- **Corresponde**: exige que o ASN da rede do cliente corresponda a um dos ASNs especificados. 
-- **Não corresponde**: exige que o ASN da rede do cliente não corresponda a nenhum dos ASNs especificados.
+- **Corresponde**: Exige que o ASN da rede do cliente corresponda a um dos ASNs especificados. 
+- **Não Corresponde**: Exige que o ASN da rede do cliente não corresponda a nenhum dos ASNs especificados.
 
 Informações de chave:
 
@@ -141,8 +141,8 @@ A condição de correspondência de origem CDN é atendida quando as condições
 
 - O conteúdo do armazenamento CDN foi solicitado.
 - A URI de solicitação usa o tipo do ponto de acesso ao conteúdo (por exemplo, /000001) que está definido nessa condição de correspondência:
-  - URL da CDN: o URI da solicitação deve conter o ponto de acesso ao conteúdo selecionado.
-  - URL CNAME de borda: a configuração do CNAME de borda correspondente deve apontar para o ponto de acesso ao conteúdo selecionado.
+  - URL da CDN: O URI da solicitação deve conter o ponto de acesso ao conteúdo selecionado.
+  - URL CNAME de borda: A configuração CNAME de borda correspondente deve apontar para o ponto de acesso ao conteúdo selecionado.
   
 Informações de chave:
 
@@ -157,20 +157,20 @@ Informações de chave:
 
 ### <a name="client-ip-address"></a>Endereço IP do Cliente
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência de Endereço de IP de Cliente são atendidas:
+A opção **'Corresponde**/**não corresponder'** determina as condições em que a condição de correspondência endereço IP do cliente é atendida:
 
-- **Corresponde**: requer que o endereço IP do cliente corresponda a um dos endereços IP especificados. 
-- **Não corresponde**: requer que o endereço IP do cliente não corresponda a nenhum dos endereços IP especificados. 
+- **Corresponde**: Exige que o endereço IP do cliente corresponda a um dos endereços IP especificados. 
+- **Não Corresponde**: Exige que o endereço IP do cliente não corresponda a nenhum dos endereços IP especificados. 
 
 Informações de chave:
 
 - Use a notação CIDR.
-- Especifique vários endereços IP e/ou blocos de endereços IP delimitando cada um com um único espaço. Por exemplo:
-  - **Exemplo de IPv4**: 1.2.3.4 10.20.30.40 corresponde a qualquer solicitação que chega dos endereços 1.2.3.4 ou 10.20.30.40.
-  - **Exemplo de IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a qualquer solicitação que chega dos endereços 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
-- A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo:
-  - **Exemplo de IPv4**: 5.5.5.64/26 corresponde a qualquer solicitação que chega dos endereços 5.5.5.64 a 5.5.5.127.
-  - **Exemplo de IPv6**: 1:2:3:/48 corresponde a qualquer solicitação que chega dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3:ffff:ffff:ffff:ffff:ffff.
+- Especifique vários endereços IP e/ou blocos de endereços IP delimitando cada um com um único espaço. Por exemplo: 
+  - **Exemplo de IPv4**: 1.2.3.4 10.20.30.40 corresponde a qualquer solicitação que chegue do endereço 1.2.3.4 ou 10.20.30.40.
+  - **Exemplo de IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a qualquer solicitação que chegue do endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
+- A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo: 
+  - **Exemplo de IPv4**: 5.5.5.64/26 corresponde a qualquer solicitação que chegue do endereço 5.5.5.64 ou 5.5.5.127.
+  - **Exemplo de IPv6**: 1:2:3:/48 corresponde a qualquer solicitação que chegue dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - Devido à maneira como as configurações de cache são acompanhadas, essa condição de correspondência é incompatível com os recursos a seguir:
   - Concluir o Preenchimento do Cache
   - Idade Máxima Interna Padrão
@@ -186,9 +186,9 @@ Informações de chave:
 
 ### <a name="cookie-parameter"></a>Parâmetro de Cookie
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Parâmetro de Cookie são atendidas.
+A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Parâmetro de Cookie é atendida.
 
-- **Corresponde**: requer que uma solicitação contenha o cookie especificado com um valor que corresponde a pelo menos um dos valores definidos nessa condição de correspondência.
+- **Corresponde**: requer uma solicitação para conter o cookie especificado com um valor que corresponde a pelo menos um dos valores definidos nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cookie especificado.
   - Ela contém o cookie especificado, mas seu valor não corresponde a nenhum dos valores que são definidos nessa condição de correspondência.
@@ -220,9 +220,9 @@ Informações de chave:
 
 A condição de correspondência de Regex de Parâmetro de Cookie define o valor e o nome de um cookie. Você pode usar [expressões regulares](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) para definir o valor do cookie desejado.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Regex de Parâmetro de Cookie são atendidas.
+A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Parâmetro de Cookie Regex é atendida.
 
-- **Corresponde**: requer que uma solicitação contenha o cookie especificado com um valor que corresponde à expressão regular especificada.
+- **Corresponde**: Requer que uma solicitação contenha o cookie especificado com um valor que corresponde à expressão regular especificada.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cookie especificado.
   - Ela contém o cookie especificado, mas seu valor não corresponde à expressão regular especificada.
@@ -249,14 +249,14 @@ Informações de chave:
 
 ---
 
-### <a name="country"></a>País
+### <a name="country"></a>País/Região
 
 Você pode especificar um país por meio de seu código de país. 
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência País são atendidas:
+A opção **Partidas**/**Não Corresponde** determina as condições as quais a condição de correspondência do País é atendida:
 
-- **Corresponde**: requer que a solicitação contenha os valores de código de país especificados. 
-- **Não corresponde**: requer que a solicitação não contenha os valores de código de país especificados.
+- **Correspondências**: Requer que a solicitação contenha os valores de código de país especificados. 
+- **Não Corresponde**: Requer que a solicitação não contenha os valores de código de país especificados.
 
 Informações de chave:
 
@@ -272,18 +272,18 @@ Informações de chave:
   - Ignorar Ausência de Cache de Origem
   - Máximo de Estado Obsoleto Interno
 
-#### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Implementando a filtragem de país/região, usando o mecanismo de regras
+#### <a name="implementing-country-filtering-by-using-the-rules-engine"></a>Implementando a filtragem de país, usando o mecanismo de regras
 
 Essa condição de correspondência permite que você execute uma variedade de personalizações com base no local de origem de uma solicitação. Por exemplo, o comportamento do recurso de filtragem de país pode ser replicado por meio da configuração a seguir:
 
-- Correspondência do Curinga de Caminho da URL: defina a [condição de correspondência do Curinga de Caminho da URL](#url-path-wildcard) para o diretório que será protegido. 
+- Correspondência de curinga de caminho de URL: Definir a [condição de correspondência de Curinga de caminho de URL](#url-path-wildcard) para o diretório que será protegido. 
     Acrescente um asterisco no final do caminho relativo para garantir que o acesso a todos os seus elementos filho sejam restritos por essa regra.
 
-- Correspondência de país: defina a condição de correspondência de país para o conjunto desejado de países.
-  - Permitir: defina a condição de correspondência de país como **Não corresponde** para permitir que apenas os países especificados tenham acesso ao conteúdo armazenado no local definido pela condição de correspondência do Curinga de Caminho da URL.
-  - Bloquear: defina a condição de correspondência de país como **Corresponde** para bloquear o acesso dos países especificados ao conteúdo armazenado no local definido pela condição de correspondência do Curinga de Caminho da URL.
+- Correspondência de país: define a condição de correspondência de país para o conjunto desejado de países.
+  - Permitir: define a condição de correspondência de país como **Não corresponde** para permitir que somente o acesso de países especificados para o conteúdo armazenado no local definido pela condição de correspondência de curinga do caminho de URL.
+  - Bloquear: define a condição de correspondência de país como **Corresponde** para bloquear o acesso de países especificados para o conteúdo armazenado no local definido pela condição de correspondência de curinga do caminho de URL.
 
-- Recurso do negar acesso (403): habilite o [Recurso negar acesso (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) para replicar a porção permitir ou bloquear do recurso de filtragem de país.
+- Recurso do negar acesso (403): habilita o [Recurso negar acesso (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) para replicar a porção permitir ou bloquear do recurso de filtragem de país.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -307,14 +307,14 @@ Informações de chave:
 
 ---
 
-### <a name="device"></a>Dispositivos
+### <a name="device"></a>Dispositivo
 
 A condição de correspondência Dispositivo identifica solicitações feitas de um dispositivo móvel baseadas em suas propriedades. A detecção de dispositivos móveis é alcançada por meio de [WURFL](http://wurfl.sourceforge.net/). 
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Dispositivo são atendidas:
+A opção **Correspondências**/**Não Corresponde** determina as condições em que a condição de correspondência do dispositivo é atendida:
 
-- **Corresponde**: requer que o dispositivo do solicitante corresponda ao valor especificado. 
-- **Não corresponde**: requer que o dispositivo do solicitante não corresponda ao valor especificado.
+- **Correspondências**: Requer que o dispositivo do solicitante corresponda ao valor especificado. 
+- **Não Corresponde**: Requer que o dispositivo do solicitante não corresponda ao valor especificado.
 
 Informações de chave:
 
@@ -330,7 +330,7 @@ Informações de chave:
 
 Normalmente, um recurso WURFL aceita qualquer combinação de números, letras e símbolos. Devido à natureza flexível dessa funcionalidade, você deve escolher como o valor associado a essa condição de correspondência é interpretado. A tabela a seguir descreve o conjunto disponível de opções:
 
-Tipo     | Descrição
+Type     | Descrição
 ---------|------------
 Literal  | Selecione esta opção para impedir que a maioria dos caracteres tenham um significado especial usando seus [valores literal](cdn-verizon-premium-rules-engine-reference.md#literal-values).
 Curinga | Selecione esta opção para aproveitar todos os [caracteres curinga] ([valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
@@ -345,13 +345,13 @@ A tabela a seguir lista recursos WURFL e suas variáveis para o mecanismo de reg
 > [!NOTE]
 > As variáveis a seguir têm suporte nos recursos **Modificar Cabeçalho de Solicitação do Cliente** e **Modificar Cabeçalho de Resposta do Cliente**.
 
-Funcionalidade | Variável | Descrição | Valores de exemplo
+Recurso | Variável | Descrição | Valores de exemplo
 -----------|----------|-------------|----------------
-Nome da Marca | %{wurfl_cap_brand_name} | Uma cadeia de caracteres que indica o nome da marca do dispositivo. | Samsung
+Nome da marca | %{wurfl_cap_brand_name} | Uma cadeia de caracteres que indica o nome da marca do dispositivo. | Samsung
 SO do dispositivo | %{wurfl_cap_device_os} | Uma cadeia de caracteres que indica o sistema operacional instalado no dispositivo. | IOS
 Versão do SO do dispositivo | %{wurfl_cap_device_os_version} | Uma cadeia de caracteres que indica o número de versão do sistema operacional instalado no dispositivo. | 1.0.1
 Orientação dupla | %{wurfl_cap_dual_orientation} | Um booliano que indica se o dispositivo dá suporte a orientação dupla. | true
-DTD preferencial HTML | %{wurfl_cap_html_preferred_dtd} | Uma cadeia de caracteres que indica a DTD (definição de tipo de documento) do dispositivo móvel para conteúdo HTML. | nenhum<br/>xhtml_basic<br/>html5
+DTD preferencial HTML | %{wurfl_cap_html_preferred_dtd} | Uma cadeia de caracteres que indica a DTD (definição de tipo de documento) do dispositivo móvel para conteúdo HTML. | none<br/>xhtml_basic<br/>html5
 Inlining de Imagem | %{wurfl_cap_image_inlining} | Um booliano que indica se o dispositivo dá suporte a imagens codificadas de Base64. | false
 É Android | %{wurfl_vcap_is_android} | Um booliano que indica se o dispositivo usa o sistema operacional Android. | true
 É IOS | %{wurfl_vcap_is_ios} | Um booliano que indica se o dispositivo usa iOS. | false
@@ -364,7 +364,7 @@ Navegador de dispositivo móvel | %{wurfl_cap_mobile_browser} | Uma cadeia de ca
 Versão do navegador móvel | %{wurfl_cap_mobile_browser_version} | Uma cadeia de caracteres que indica a versão do navegador que é usado para solicitar conteúdo do dispositivo. | 31
 Nome do modelo | %{wurfl_cap_model_name} | Uma cadeia de caracteres que indica o nome do modelo do dispositivo. | s3
 Download progressivo | %{wurfl_cap_progressive_download} | Um booliano que indica se o dispositivo dá suporte a reprodução de áudio e vídeo enquanto ele ainda está sendo baixado. | true
-Data do Lançamento | %{wurfl_cap_release_date} | Uma cadeia de caracteres que indica o ano e o mês em que o dispositivo foi adicionado ao banco de dados WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
+Data de lançamento | %{wurfl_cap_release_date} | Uma cadeia de caracteres que indica o ano e o mês em que o dispositivo foi adicionado ao banco de dados WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
 Altura de resolução | %{wurfl_cap_resolution_height} | Um inteiro que indica a altura do dispositivo em pixels. | 768
 Largura de resolução | %{wurfl_cap_resolution_width} | Um inteiro que indica a largura do dispositivo em pixels. | 1024
 
@@ -398,10 +398,10 @@ Informações de chave:
 
 O nome do host associado com o referenciador por meio do qual o conteúdo foi solicitado determina se a condição do domínio de referência é atendida.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Domínio de Referência são atendidas:
+A opção **'Não**/**corresponde',** determina as condições em que a condição de correspondência de domínio de causa de encaminhamento é atendida:
 
-- **Corresponde**: requer que o nome do host de referência corresponda aos valores especificados. 
-- **Não corresponde**: requer que o nome do host de referência não corresponda ao valor especificado.
+- **Correspondências**: Requer que o nome do host corresponda ao valor especificado. 
+- **Não Corresponde**: Requer que o nome do host não corresponda ao valor especificado.
 
 Informações de chave:
 
@@ -424,9 +424,9 @@ Informações de chave:
 
 ### <a name="request-header-literal"></a>Literal de Cabeçalho de Solicitação
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Literal do Cabeçalho da Solicitação será atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência de cabeçalho de solicitação é atendida.
 
-- **Corresponde**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao que está definido nessa condição de correspondência.
+- **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao que está definido nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cabeçalho especificado.
   - Ela contém o cabeçalho especificado, mas seu valor não corresponde ao que está definido nessa condição de correspondência.
@@ -449,9 +449,9 @@ Informações de chave:
 
 ### <a name="request-header-regex"></a>Regex do Cabeçalho da Solicitação
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Regex do Cabeçalho da Solicitação será atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Cabeçalho de Solicitação Regex é atendida.
 
-- **Corresponde**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao padrão que é definido na [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) especificada.
+- **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao padrão que é definido na [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) especificada.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cabeçalho especificado.
   - Ela contém o cabeçalho especificado, mas seu valor não corresponde à expressão regular especificada.
@@ -480,9 +480,9 @@ Informações de chave:
 
 ### <a name="request-header-wildcard"></a>Curinga de Cabeçalho de Solicitação
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Curinga do Cabeçalho da Solicitação será atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Cabeçalho de Solicitação É atendida.
 
-- **Corresponde**: requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder a pelo menos um dos valores que são definidos nessa condição de correspondência.
+- **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder a pelo menos um dos valores que são definidos nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
   - Ela não contém o cabeçalho especificado.
   - Ela contém o cabeçalho especificado, mas seu valor não corresponde a nenhum dos valores especificados.
@@ -514,12 +514,12 @@ Informações de chave:
 
 A condição de correspondência do Método de Solicitação é atendido somente quando os ativos são solicitados por meio do método de solicitação selecionado. Os métodos de solicitação disponíveis são:
 
-- OBTER
+- GET
 - HEAD
-- POSTAR
+- POST
 - OPÇÕES
 - PUT
-- DELETE
+- Delete (excluir)
 - RASTREAMENTO
 - CONECTAR
 
@@ -565,25 +565,25 @@ Informações de chave:
 
 Identifica uma solicitação por seu caminho relativo, que exclui o nome do arquivo do ativo solicitado.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Diretório de Caminho de URL são atendidas.
+A opção **'Não**/**corresponde',** determina as condições em que a condição de correspondência do diretório de caminho de URL é atendida.
 
-- **Corresponde**: requer que a solicitação contenha um caminho de URL relativa, exceto pelo nome do arquivo, que corresponda ao padrão de URL especificado.
-- **Não corresponde**: requer que a solicitação contenha um caminho de URL relativa, exceto pelo nome do arquivo, que não corresponda ao padrão de URL especificado.
+- **Corresponde**: requer a solicitação para conter um caminho de URL relativo, exceto o nome do arquivo, que corresponde ao padrão de URL especificado.
+- **Não corresponde**: requer a solicitação para conter um caminho de URL relativo, exceto o nome do arquivo, que não corresponde ao padrão de URL especificado.
 
 Informações de chave:
 
 - Use a opção **Relativo a** para especificar se a comparação de URL começa antes ou após o ponto de acesso do conteúdo. O ponto de acesso de conteúdo é a parte do caminho que aparece entre o nome do host Verizon CDN e o caminho relativo ao ativo solicitado (por exemplo, /800001/CustomerOrigin). Ele identifica um local por tipo de servidor (por exemplo, origem de cliente ou CDN) e seu número de conta do cliente.
 
    Os valores a seguir estão disponíveis para a opção **Relativo a**:
-  - **Raiz**: indica que o ponto de comparação de URL começa logo após o nome de host da CDN. 
+  - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN. 
 
   Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder**/index.htm
 
-  - **Origem**: indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
+  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
   Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder**/index.htm 
 
-  Essa URL aponta para o seguinte nome do host da CDN da Verizon: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder**/index.htm
+  Esta URL aponta para o seguinte nome de\/host do Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/**myfolder**/index.htm
 
 - Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL.
 
@@ -623,7 +623,7 @@ Informações de chave:
 
 Identifica solicitações pela extensão de arquivo do ativo solicitado.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Extensão de Caminho de URL são atendidas.
+A opção **'Não**/**corresponde',** determina as condições em que a condição de correspondência de extensão de caminho de URL é atendida.
 
 - **Corresponde**: requer que a URL de solicitação contenha uma extensão de arquivo que corresponda exatamente ao padrão especificado.
 
@@ -647,7 +647,7 @@ Informações de chave:
 
 A configuração de exemplo a seguir supõe que essa condição de correspondência é atendida quando uma solicitação corresponde a uma das extensões especificadas.
 
-Especificação de valor: ASP aspx PHP HTML
+Especificação de valor: asp aspx php html
 
 Esta condição de correspondência é atendida quando encontra URLs que terminam com as seguintes extensões:
 
@@ -666,7 +666,7 @@ Esta condição de correspondência é atendida quando encontra URLs que termina
 
 Identifica solicitações pelo nome de arquivo do ativo solicitado. Para a finalidade dessa condição de correspondência, um nome de arquivo consiste no nome do ativo solicitado, um ponto e a extensão do arquivo (por exemplo, index.html).
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Nome de Arquivo de Caminho de URL são atendidas.
+A opção **'Corresponde**/**não corresponder'** determina as condições em que a condição de correspondência de nome de arquivo de caminho de URL é atendida.
 
 - **Corresponde**: requer que a solicitação contenha um nome de arquivo em seu caminho de URL que corresponda ao padrão especificado.
 - **Não corresponde**: requer que a solicitação contenha um nome de arquivo em seu caminho de URL que não corresponda ao padrão especificado.
@@ -697,7 +697,7 @@ Informações de chave:
 
 Compara o caminho da URL da solicitação, incluindo o nome de arquivo, para o valor especificado.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Literal de Caminho de URL são atendidas.
+A opção **'Não**/**corresponde',** determina as condições em que a condição de correspondência literal do caminho de URL é atendida.
 
 - **Corresponde**: requer que a solicitação contenha um caminho de URL que corresponda ao padrão especificado.
 - **Não corresponde**: requer que a solicitação contenha um caminho de URL que não corresponda ao padrão especificado.
@@ -707,15 +707,15 @@ Informações de chave:
 - Use a opção **Relativo a** para especificar se o ponto de comparação de URL começa antes ou após o ponto de acesso do conteúdo. 
 
     Os valores a seguir estão disponíveis para a opção **Relativo a**:
-  - **Raiz**: indica que o ponto de comparação de URL começa logo após o nome de host da CDN.
+  - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN.
 
-    Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
+    Por exemplo:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm** de domínio
 
-  - **Origem**: indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
+  - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
-    Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+    Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder/index.htm**
 
-  Essa URL aponta para o seguinte nome do host da CDN da Verizon: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
+  Esta URL aponta para o seguinte nome de\/host do Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/myfolder/index.htm**myfolder/index.htm**
 
 - Uma URL CNAME de borda é reescrita para uma URL CDN antes de uma comparação de URL.
 
@@ -746,7 +746,7 @@ Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm
 
 Compara o caminho de URL da solicitação com a [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) especificada.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Regex de Caminho de URL são atendidas.
+A opção **'Não**/**corresponde',** determina as condições em que a condição de correspondência URL Path Regex é atendida.
 
 - **Corresponde**: requer que a solicitação contenha um caminho de URL que corresponda à expressão regular especificada.
 - **Não corresponde**: requer que a solicitação contenha um caminho de URL que não corresponda à expressão regular especificada.
@@ -781,30 +781,30 @@ Informações de chave:
 
 Compara o caminho de URL relativo da solicitação com o padrão de curinga especificado.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Curinga de Caminho de URL são atendidas.
+A opção **'Não**/**corresponde',** determina as condições em que a condição de correspondência do URL Path Wildcard é atendida.
 
 - **Corresponde**: requer que a solicitação contenha um caminho de URL que corresponda ao padrão de curinga especificado.
 - **Não corresponde**: requer que a solicitação contenha um caminho de URL que não corresponda ao padrão de curinga especificado.
 
 Informações de chave:
 
-- Opção **Relativo a**: esta opção determina se o ponto de comparação de URL começa antes ou após o ponto de acesso do conteúdo.
+- Opção **Relativo a**: Essa opção determina se o ponto de comparação de URL começa antes ou após o ponto de acesso do conteúdo.
 
    Essa opção pode ter os seguintes valores:
-     - **Raiz**: indica que o ponto de comparação de URL começa logo após o nome de host da CDN.
+     - **Raiz**: Indica que o ponto de comparação de URL começa diretamente após o nome de host CDN.
 
-       Por exemplo: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
+       Por exemplo:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm** de domínio
 
-     - **Origem**: indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
+     - **Origem**: Indica que o ponto de comparação de URL começa após o ponto de acesso do conteúdo (por exemplo, /000001 ou /800001/myorigin). Como o \*.azureedge.net CNAME é criado em relação ao diretório de origem no nome do host Verizon CDN por padrão, os usuários do Azure CDN devem usar o valor de **Origem**. 
 
-       Por exemplo: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+       Por exemplo:\//&lt;https:&gt;endpoint .azureedge.net/**myfolder/index.htm**
 
-     Essa URL aponta para o seguinte nome do host da CDN da Verizon: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
+     Esta URL aponta para o seguinte nome de\/host do Verizon CDN: http: /wpc.0001. &lt;domínio&gt;/800001/myorigin/myfolder/index.htm**myfolder/index.htm**
 
 - Uma URL CNAME de borda é reescrita para uma URL CDN antes da comparação de URL.
 
     Por exemplo, ambas as URLs a seguir apontam para o mesmo ativo e, portanto, têm o mesmo caminho de URL:
-     - URL da CDN: http://wpc.0001.&lt ;domain&gt; /800001/CustomerOrigin/path/asset.htm
+     - URL da CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - URL de CNAME de borda: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:
@@ -829,10 +829,10 @@ Informações de chave:
 
 A configuração de exemplo na tabela a seguir supõe que essa condição de correspondência é atendida quando uma solicitação corresponde ao padrão de URL especificado:
 
-Valor                   | Relativo a    | Resultado 
+Valor                   | Relativo a    | Result 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Raiz ou origem | Esse padrão é correspondido por solicitações para ativos nomeados "test.html" ou "test.php" em qualquer pasta.
-/80ABCD/origin/text/*   | Raiz           | Esse padrão é correspondido quando o ativo solicitado atende aos seguintes critérios: <br />- Ele deve estar em uma origem de cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "texto" ou em uma de suas subpastas recursivas.
+/80ABCD/origin/text/*   | Root           | Esse padrão é correspondido quando o ativo solicitado atende aos seguintes critérios: <br />- Ele deve estar em uma origem de cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "texto" ou em uma de suas subpastas recursivas.
 */css/* */js/*          | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda que contenham uma pasta css ou js.
 *.jpg *.gif *.png       | Raiz ou origem | Esse padrão é correspondido por todas as URLs CDN ou CNAME de borda terminando com .jpg, .gif, ou .png. Uma maneira alternativa de especificar esse padrão é com a [condição de correspondência de Extensão de Caminho de URL](#url-path-extension).
 /images/\* /media/\*      | Origem         | Esse padrão é correspondido pelas URLs CNAME de borda ou CDN cujo caminho relativo começa com uma pasta "imagens" ou "mídia". <br />- URL da CDN: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME de borda de exemplo: http:\//cdn.mydomain.com/images/sales/event1.png
@@ -847,7 +847,7 @@ Valor                   | Relativo a    | Resultado
 
 Compara a sequência da cadeia de caracteres de consulta da solicitação com o valor especificado.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Literal de Consulta de URL são atendidas.
+A opção **Correspondências**/**Não Corresponde** determina as condições em que a condição de correspondência literal da consulta de URL é atendida.
 
 - **Corresponde**: requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que corresponda à cadeia de caracteres de consulta especificada.
 - **Não corresponde**: requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que não corresponda à cadeia de caracteres de consulta especificada.
@@ -862,9 +862,9 @@ Informações de chave:
     
 - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para a URL codificar os seguintes caracteres:
 
-   Character | Codificação de URL
+   Caractere | Codificação de URL
    ----------|---------
-   Espaço     | %20
+   Space     | %20
    &         | %25
 
 - Devido à maneira como as configurações de cache são acompanhadas, essa condição de correspondência é incompatível com os recursos a seguir:
@@ -884,7 +884,7 @@ Informações de chave:
 
 Identifica as solicitações que contêm o parâmetro de cadeia de caracteres de consulta especificado. Esse parâmetro é definido como um valor que corresponde a um padrão especificado. Parâmetros de cadeia de caracteres de consulta (por exemplo, parâmetro = valor) na URL de solicitação determinam se essa condição é atendida. Essa condição de correspondência identifica um parâmetro de cadeia de caracteres de consulta por seu nome e aceita um ou mais valores para o valor do parâmetro. 
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Parâmetro de Consulta de URL são atendidas.
+A opção **Correspondências**/**Não Corresponde** determina as condições em que a condição de correspondência do Parâmetro de Consulta de URL é atendida.
 
 - **Corresponde**: requer uma solicitação para conter o parâmetro especificado com um valor que corresponde a pelo menos um dos valores definidos nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
@@ -902,9 +902,9 @@ Informações de chave:
    - Cada padrão de valor do parâmetro pode consistir em um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
    - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para a URL codificar os seguintes caracteres:
 
-       Character | Codificação de URL
+       Caractere | Codificação de URL
        ----------|---------
-       Espaço     | %20
+       Space     | %20
        &         | %25
 
 - Especifique vários valores de parâmetro de cadeia de caracteres de consulta delimitando cada um deles com um único espaço. Essa condição de correspondência é atendida quando uma solicitação contém uma das combinações de nome/valor especificadas.
@@ -953,10 +953,10 @@ Informações de chave:
 
 O exemplo a seguir demonstra como essa opção funciona em situações específicas:
 
-Nome  | Valor |  Resultado
+Nome  | Valor |  Result
 ------|-------|--------
-User  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
-User  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
+Usuário  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
+Usuário  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
 Email | Joe\* | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de E-mail que começa com “Joe”.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
@@ -969,7 +969,7 @@ Email | Joe\* | Esse padrão é correspondido quando a cadeia de caracteres de c
 
 Identifica as solicitações que contêm o parâmetro de cadeia de caracteres de consulta especificado. Esse parâmetro é definido como um valor que corresponde a uma [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) especificada.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Regex de Consulta de URL são atendidas.
+A opção **Correspondências**/**Não Corresponde** determina as condições em que a condição de correspondência url Query Regex é atendida.
 
 - **Corresponde**: requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que corresponda à expressão regular especificada.
 - **Não corresponde**: requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que não corresponda à expressão regular especificada.
@@ -984,16 +984,16 @@ Informações de chave:
     
 - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para a URL codificar os seguintes caracteres:
 
-   Character | Codificação de URL | Valor
+   Caractere | Codificação de URL | Valor
    ----------|--------------|------
-   Espaço     | %20          | \%20
+   Space     | %20          | \%20
    &         | %25          | \%25
 
    Observe que os símbolos de porcentagem devem ser substituídos.
 
 - Caracteres de expressão regular especiais de escape duplo (por exemplo, \^$.+) para incluir uma barra invertida na expressão regular.
 
-   Por exemplo:
+   Por exemplo: 
 
    Valor | Interpretado como 
    ------|---------------
@@ -1017,7 +1017,7 @@ Informações de chave:
 
 Compara os valores especificados com a cadeia de caracteres de consulta da solicitação.
 
-A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência Curinga de Consulta de URL são atendidas.
+A opção **Correspondências**/**Não Corresponde** determina as condições em que a condição de correspondência do URL Query Curing a Vida é atendida.
 
 - **Corresponde**: requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que corresponda ao valor do curinga especificado.
 - **Não corresponde**: requer que a solicitação contenha uma cadeia de caracteres de consulta de URL que não corresponda ao valor do curinga especificado.
@@ -1025,18 +1025,18 @@ A opção **Corresponde**/**Não corresponde** determina as condições sob as q
 Informações de chave:
 
 - Para os fins desta opção, uma cadeia de caracteres de consulta começa com o primeiro caractere após o delimitador de ponto de interrogação (?) para a cadeia de caracteres de consulta.
-- Os valores de parâmetros podem incluir [valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values):
+- Os valores dos parâmetros podem incluir [valores curinga:](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
    - Cada padrão de valor do parâmetro pode consistir em um ou mais asteriscos (*), onde cada asterisco pode corresponder a uma sequência de um ou mais caracteres.
    - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para a URL codificar os seguintes caracteres:
 
-     Character | Codificação de URL
+     Caractere | Codificação de URL
      ----------|---------
-     Espaço     | %20
+     Space     | %20
      &         | %25
 
 - Especifique vários valores delimitando cada um deles com um único espaço.
 
-   Por exemplo:  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Por exemplo: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Apenas as correspondências exatas a pelo menos um dos padrões de cadeia de caracteres de consulta especificados satisfazem essa condição de correspondência.
     
@@ -1056,7 +1056,7 @@ O exemplo a seguir demonstra como essa opção funciona em situações específi
  Nome                 | Descrição
  ---------------------|------------
 user=joe              | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
-\*user=\* \*optout=\* | Esse padrão é correspondido quando a consulta de URL CDN contém o parâmetro opcional ou de usuário.
+\*usuário=\* \*optout=\* | Esse padrão é correspondido quando a consulta de URL CDN contém o parâmetro opcional ou de usuário.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
 
@@ -1066,6 +1066,6 @@ user=joe              | Esse padrão é correspondido quando a cadeia de caracte
 
 - [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md)
 - [Referência do mecanismo de regras](cdn-verizon-premium-rules-engine-reference.md)
-- [Expressões condicionais do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
+- [Regras de expressões condicionais do motor](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Recursos do mecanismo de regras](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-verizon-premium-rules-engine.md)

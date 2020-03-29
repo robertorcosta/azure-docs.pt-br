@@ -1,6 +1,6 @@
 ---
-title: Notas de versão-IoT Edge de grade de eventos do Azure | Microsoft Docs
-description: Grade de eventos do Azure nas notas de versão IoT Edge
+title: Notas de lançamento - Azure Event Grid IoT Edge | Microsoft Docs
+description: Azure Event Grid em Notas de Lançamento de Borda ioT
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,42 +9,42 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 18a4fb9a979841bbf6cd0090fc67a77327c61596
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76849702"
 ---
-# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Notas de versão: grade de eventos do Azure no IoT Edge
+# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Notas de lançamento: Azure Event Grid on IoT Edge
 
-## <a name="100-preview1"></a>1.0.0-Preview1
+## <a name="100-preview1"></a>1.0.0-visualização1
 
-Versão inicial da grade de eventos do Azure no IoT Edge. Recursos incluídos:
+Lançamento inicial do Azure Event Grid em IoT Edge. Características incluídas:
 
-* Criação de tópico
-* Criação de assinatura de evento
-* Filtros avançados
+* Criação de tópicos
+* Criação de Assinatura de Eventos
+* filtros avançados
 * Envio em lote de saída
 * Políticas de repetição
-* Publicação de módulo para módulo
-* Publicar no webhook como um destino
-* Publicar no Hub de IoT Edge como um destino
-* Publicar no serviço de nuvem da grade de eventos do Azure como um destino
-* Estado persistente para metadados
-* Integração do módulo de armazenamento de BLOBs
+* Publicação módulo a módulo
+* Publique no WebHook como destino
+* Publique para IoT Edge Hub como destino
+* Publique para o Azure Event Grid serviço de nuvem como destino
+* Estado persistido para metadados
+* Integração do módulo de armazenamento Blob
 
-Marcas: `1.0.0-preview1`
+Tags:`1.0.0-preview1`
 
-## <a name="100-preview2"></a>1.0.0-Preview2
+## <a name="100-preview2"></a>1.0.0-visualização2
 
-Visualização 2 da grade de eventos do Azure em IoT Edge adicionada:
+A pré-visualização 2 do Azure Event Grid no IoT Edge acrescentou:
 
-* Eventos de persistência configurados no disco
-* Métricas de tópico
-* Métricas de assinatura de evento
-* Publicar nos hubs de eventos como um destino
-* Publicar em filas do barramento de serviço como um destino
-* Publicar em tópicos do barramento de serviço como um destino
-* Publicar em filas de armazenamento como um destino
+* Eventos persistentes configuráveis em disco
+* Métricas de tópicos
+* Métricas de assinatura de eventos
+* Publique para hubs de eventos como destino
+* Publique para as filas de ônibus de serviço como destino
+* Publique para os Tópicos de Ônibus de Serviço como destino
+* Publique para filas de armazenamento como destino
 
-Marcas: `1.0.0-preview2`, `1.0`, `latest`
+Tags: `1.0.0-preview2` `1.0`, ,`latest`

@@ -1,6 +1,6 @@
 ---
-title: Problemas conhecidos com HB-HC-VMs das séries e - máquinas virtuais do Azure | Microsoft Docs
-description: Saiba mais sobre problemas conhecidos com tamanhos VM da série HB no Azure.
+title: Problemas conhecidos com VMs série HB e HC - Azure Virtual Machines | Microsoft Docs
+description: Conheça problemas conhecidos com tamanhos de VM da série HB no Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,47 +13,47 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707789"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas comuns com VMs série HB e série HC
 
-Este artigo fornece os problemas e soluções mais comuns ao usar HB-HC-VMs das séries e.
+Este artigo fornece os problemas e soluções mais comuns ao usar VMs série HB e SÉRIE HC.
 
-## <a name="dram-on-hb-series"></a>DRAM HB-Series
+## <a name="dram-on-hb-series"></a>DRAM na série HB
 
-As VMs da série HB podem expor somente 228 GB de RAM para máquinas virtuais convidadas neste momento. Isso é devido a uma limitação conhecida de hipervisor do Azure para impedir que páginas que está sendo atribuído para o local DRAM do AMD CCX (domínios NUMA) reservada para a VM convidada.
+As VMs da série HB só podem expor 228 GB de RAM a VMs convidados neste momento. Isso se deve a uma limitação conhecida do hipervisor Azure para evitar que páginas sejam atribuídas à DRAM local dos domínios NUMA (domínios NUMA) da AMD CCX reservadas para o VM convidado.
 
 ## <a name="accelerated-networking"></a>Rede Acelerada
 
-Rede acelerada do Azure não está habilitada no momento, mas será como nós progredimos com o período de visualização. Vamos notificar os clientes quando esse recurso tem suporte.
+O Azure Accelerated Networking não está habilitado neste momento, mas irá à medida que avançamos durante o período de visualização. Notificaremos os clientes quando esse recurso for suportado.
 
-## <a name="qp0-access-restriction"></a>Restrição de acesso qp0
+## <a name="qp0-access-restriction"></a>restrição de acesso qp0
 
-Para impedir o acesso de hardware de baixo nível que pode resultar em vulnerabilidades de segurança, o par de fila 0 não está acessível para as VMs convidadas. Isso só deve afetar ações normalmente associados com a administração da NIC ConnectX-5 e executar alguns diagnósticos InfiniBand como ibdiagnet, mas não os aplicativos do usuário final em si.
+Para evitar acesso de hardware de baixo nível que pode resultar em vulnerabilidades de segurança, o Queue Pair 0 não está acessível às VMs convidadas. Isso só deve afetar ações tipicamente associadas à administração da NIC ConnectX-5 e executar alguns diagnósticos da InfiniBand, como o ibdiagnet, mas não os aplicativos do usuário final em si.
 
-## <a name="ud-transport"></a>Transporte UD
+## <a name="ud-transport"></a>Transporte ud
 
-No lançamento, as séries de HB e de HC não dão suporte a dinamicamente conectado transporte (DCT). Suporte para DCT será implementado ao longo do tempo. Há suporte para transportes de Conexão (RC) e não confiáveis datagrama (UD) confiáveis.
+No lançamento, as séries HB e HC não suportam transporte dinamicamente conectado (DCT). O suporte ao DCT será implementado ao longo do tempo. Os transportes de Conexão Confiável (RC) e Datagram (UD) não confiável são suportados.
 
-## <a name="gss-proxy"></a>Proxy GSS
+## <a name="gss-proxy"></a>GSS Proxy
 
-GSS Proxy tem um bug conhecido no RHEL/CentOS 7.5 que pode se manifestar como um significativos de desempenho e a penalidade de capacidade de resposta quando usado com NFS. Isso pode ser reduzido com:
+O GSS Proxy tem um bug conhecido no CentOS/RHEL 7.5 que pode se manifestar como uma penalidade significativa de desempenho e responsividade quando usado com NFS. Isso pode ser mitigado com:
 
 ```console
 sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 ```
 
-## <a name="cache-cleaning"></a>Limpeza do cache
+## <a name="cache-cleaning"></a>Limpeza de cache
 
-Em sistemas HPC, geralmente é útil limpar a memória depois que um trabalho foi concluído antes do próximo usuário é atribuído o mesmo nó. Depois de executar aplicativos no Linux, você pode achar que sua memória disponível reduz enquanto o seu aumenta de memória de buffer, apesar de não executar quaisquer aplicativos.
+Em sistemas HPC, muitas vezes é útil limpar a memória depois que um trabalho é concluído antes que o próximo usuário seja atribuído ao mesmo nó. Depois de executar aplicativos no Linux, você pode descobrir que sua memória disponível reduz enquanto sua memória buffer aumenta, apesar de não executar nenhum aplicativo.
 
 ![Captura de tela do prompt de comando](./media/known-issues/cache-cleaning-1.png)
 
-Usando `numactl -H` mostrará quais NUMAnode(s) a memória é armazenada em buffer com (possivelmente todos). No Linux, os usuários podem limpar os caches em três maneiras de retornar armazenadas em buffer ou armazenados em cache de memória para 'gratuito'. Você precisa ser a raiz ou ter permissões de sudo.
+O `numactl -H` uso mostrará quais NUMAnode(s) a memória está tamponada com (possivelmente todas). No Linux, os usuários podem limpar os caches de três maneiras para devolver a memória tampão ou armazenada em cache para 'gratuito'. Você precisa ser raiz ou ter permissões de sudo.
 
 ```console
 echo 1 > /proc/sys/vm/drop_caches [frees page-cache]
@@ -63,9 +63,9 @@ echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 
 ![Captura de tela do prompt de comando](./media/known-issues/cache-cleaning-2.png)
 
-## <a name="kernel-warnings"></a>Avisos de kernel
+## <a name="kernel-warnings"></a>Avisos do kernel
 
-Você pode ver as seguintes mensagens de aviso de kernel durante a inicialização de uma VM da série HB no Linux.
+Você pode ver as seguintes mensagens de aviso do kernel ao inicializar uma VM da série HB no Linux.
 
 ```console
 [  0.004000] WARNING: CPU: 4 PID: 0 at arch/x86/kernel/smpboot.c:376 topology_sane.isra.3+0x80/0x90
@@ -85,7 +85,7 @@ Você pode ver as seguintes mensagens de aviso de kernel durante a inicializaç�
 [  0.004000] ---[ end trace 73fc0e0825d4ca1f ]---
 ```
 
-Você pode ignorar este aviso. Isso ocorre devido a uma limitação conhecida do hipervisor do Azure que será resolvido ao longo do tempo.
+Você pode ignorar este aviso. Isso se deve a uma limitação conhecida do hipervisor Azure que será abordada ao longo do tempo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

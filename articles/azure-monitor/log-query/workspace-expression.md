@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364944"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expressão workspace() nas consultas de log do Azure Monitor
@@ -26,7 +26,7 @@ A expressão `workspace` é usada em uma consulta do Azure Monitor para recupera
 
 - *Identificador*: identifica o workspace usando um dos formatos na tabela a seguir.
 
-| Identificador | Description | Exemplo
+| Identificador | Descrição | Exemplo
 |:---|:---|:---|
 | Nome do Recurso | Nome legível do workspace (também conhecido como "nome do componente") | workspace("contosoretail") |
 | Nome Qualificado | Nome completo do workspace no formato: "subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
@@ -62,8 +62,8 @@ union
 | where TimeGenerated between(todatetime("2018-02-08 15:00:00") .. todatetime("2018-12-08 15:05:00"))
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a [expressão do aplicativo](app-expression.md) para se referir a um aplicativo Application insights.
+- Consulte a expressão do [aplicativo](app-expression.md) para consultar um aplicativo do Application Insights.
 - Leia mais sobre como os [dados do Azure Monitor](log-query-overview.md) são armazenados.
 - Acesse a documentação completa da [linguagem de consulta Kusto](/azure/kusto/query/).

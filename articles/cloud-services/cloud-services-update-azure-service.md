@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360337"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
@@ -21,7 +21,7 @@ A atualização de um serviço de nuvem, incluindo suas funções e o SO convida
 ## <a name="update-an-azure-service"></a>Atualizar um serviço do Azure
 O Azure organiza suas instâncias de função em agrupamentos lógicos chamados de domínios de atualização (UD). Os domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizados como um grupo.  O Azure atualiza um serviço de nuvem um UD por vez, o que permite que instâncias em outros UDs continuem a atender ao tráfego.
 
-O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de definição de serviços de nuvem do Azure (arquivo. csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+O número padrão de domínios de atualização é de cinco. Você pode especificar um número diferente de domínios de atualização incluindo o atributo upgradeDomainCount no arquivo de definição do serviço (.csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [Azure Cloud Services Definition Schema (.csdef File)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 Quando você executa uma atualização in-loco de uma ou mais funções em seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização ao qual elas pertencem. O Azure atualiza todas as instâncias em um determinado domínio de atualização. Ele faz isso interrompendo as atualizações, atualizando-as, colocando-as online novamente e, em seguida, passando-as para o próximo domínio. Ao interromper somente as instâncias em execução no domínio de atualização atual, o Azure garante que uma atualização ocorrerá com o menor impacto possível no serviço em execução. Para saber mais, veja [Como atualizar os lucros](#howanupgradeproceeds) posteriormente neste artigo.
 
@@ -88,7 +88,7 @@ O diagrama a seguir ilustra como a atualização ocorre se você estiver atualiz
 
 Este próximo diagrama ilustra como a atualização ocorre se você estiver atualizando somente uma única função:
 
-![Função de atualização](media/cloud-services-update-azure-service/IC345880.png "Atualizar função")  
+![Atualizar função](media/cloud-services-update-azure-service/IC345880.png "Atualizar função")  
 
 Durante uma atualização automática, o Azure Fabric Controller avalia periodicamente a integridade do serviço de nuvem a fim de determinar quando é seguro passar ao próximo UD. Essa avaliação de integridade é executada de acordo com a função e considera apenas instâncias na versão mais recente (ou seja, instâncias de UDs que já foram descritos). Ela verifica se um número mínimo de instâncias de função, para cada função, atingiu um estado de terminal satisfatório.
 
@@ -114,10 +114,10 @@ Para minimizar o tempo de inatividade ao atualizar um serviço de instância ún
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Reversão de uma atualização
-O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualização, permitindo que você inicie outras operações em um serviço, após a aceitação da solicitação de atualização inicial pelo controlador de malha do Azure. Uma reversão só pode ser realizada quando uma atualização (mudança de configuração) ou upgrade estiver no estado **em andamento** na implantação. Uma atualização ou upgrade é considerada em andamento desde que exista pelo menos uma instância do serviço que ainda não foi atualizada para a nova versão. Para testar se há permissão para uma reversão, verifique se o valor do sinalizador RollbackAllowed, retornado pelas operações [Obter Implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Obter Propriedades do Serviço de Nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), está definido como true.
+O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualização, permitindo que você inicie outras operações em um serviço, após a aceitação da solicitação de atualização inicial pelo controlador de malha do Azure. Uma reversão pode ser executada apenas quando uma atualização (alteração da configuração) ou upgrade está no estado **em andamento** na implantação. Uma atualização ou upgrade é considerada em andamento desde que exista pelo menos uma instância do serviço que ainda não foi atualizada para a nova versão. Para testar se há permissão para uma reversão, verifique se o valor do sinalizador RollbackAllowed, retornado pelas operações [Obter Implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Obter Propriedades do Serviço de Nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), está definido como true.
 
 > [!NOTE]
-> Só faz sentido chamar a Reversão em uma atualização ou upgrade **in-loco** porque os upgrades de permuta de VIP envolvem a substituição de toda uma instância em execução do seu serviço por outra.
+> Faz sentido chamar a Reversão apenas em uma atualização **in-loco** ou upgrade pois as atualizações de permuta de VIP envolvem a substituição de uma instância em execução inteira de seu serviço por outra.
 >
 >
 
@@ -149,7 +149,7 @@ Durante a implantação da atualização você chama a [Implantação de atualiz
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Inicialização de várias operações de mutação em uma implantação em andamento
-Em alguns casos, convém iniciar várias operações de mutação simultâneas em uma implantação em andamento. Por exemplo, você pode executar uma atualização de serviço e, enquanto a atualização estiver sendo revertida em seu serviço, convém fazer algumas alterações por exemplo, reverter a atualização, aplicar outra atualização ou até mesmo excluir a implantação. Um caso em que isso pode ser necessário é se uma atualização de serviço contiver um código com bugs que faz com que uma instância de função atualizada apresente falhas repetidamente. Nesse caso, o controlador de malha do Azure não poderá progredir com a aplicação dessa atualização, pois há um número insuficiente de instâncias íntegras no domínio atualizado. Esse estado é conhecido como *implantação paralisada*. Você pode resolver a paralisação da implantação revertendo a atualização ou aplicando uma nova atualização sobre a atualização com falha.
+Em alguns casos, convém iniciar várias operações de mutação simultâneas em uma implantação em andamento. Por exemplo, você pode executar uma atualização de serviço e, enquanto a atualização estiver sendo revertida em seu serviço, convém fazer algumas alterações por exemplo, reverter a atualização, aplicar outra atualização ou até mesmo excluir a implantação. Um caso em que isso pode ser necessário é se uma atualização de serviço contiver um código com bugs que faz com que uma instância de função atualizada apresente falhas repetidamente. Nesse caso, o controlador de malha do Azure não poderá progredir com a aplicação dessa atualização, pois há um número insuficiente de instâncias íntegras no domínio atualizado. Esse estado é conhecido como uma *implantação paralisada*. Você pode resolver a paralisação da implantação revertendo a atualização ou aplicando uma nova atualização sobre a atualização com falha.
 
 Após o recebimento da solicitação inicial de atualização ou upgrade pelo controlador de malha do Azure, você pode iniciar operações de mutação subsequentes. Ou seja, não é necessário esperar que a operação inicial seja concluída antes de iniciar outra operação de mutação.
 
@@ -179,8 +179,8 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
-[Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)  
+## <a name="next-steps"></a>Próximas etapas
+[Como gerenciar serviços em nuvem](cloud-services-how-to-manage-portal.md)  
 [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
 [Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)  
 

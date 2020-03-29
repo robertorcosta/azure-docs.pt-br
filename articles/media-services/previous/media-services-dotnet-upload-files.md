@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64869488"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
+No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legendas fechadas (e os metadados sobre esses arquivos.)  Uma vez que os arquivos são carregados, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming posteriores.
 
 Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
 
@@ -34,10 +34,10 @@ Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **Asse
 
 As seguintes considerações se aplicam:
  
- * Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+ * Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao criar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por essa razão, a codificação percentual não é permitida. O valor da propriedade **Name** não pode ter nenhum dos [seguintes caracteres reservados por porcentagem de codificação](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 * O comprimento do nome não deve ser maior do que 260 caracteres.
 * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho do arquivo.
-* Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
+* Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Ao criar ativos, as opções de criptografia a seguir poderão ser especificadas:
 
@@ -53,7 +53,7 @@ Ao criar ativos, as opções de criptografia a seguir poderão ser especificadas
 
 Se você especificar para que o ativo seja criptografado com a opção **CommonEncrypted** ou uma opção **EnvelopeEncrypted**, será necessário associar o ativo a uma **ContentKey**. Para obter mais informações, consulte [Como criar uma ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Se você especificar para que o ativo seja criptografado com uma opção **StorageEncrypted**, o SDK de Serviços de Mídia para .NET criará uma **ContentKey** de **StorageEncrypted** para o ativo.
+Se você especificar que seu ativo será criptografado com uma opção **StorageEncrypted,** o Media Services SDK for .NET criará uma **StorageEncrypted** **ContentKey** para o seu ativo.
 
 Este artigo mostra como usar o SDK de Serviços de Mídia, assim como extensões de SDK do .NET de Serviços de Mídia para carregar arquivos em um ativo de Serviços de Mídia.
 
@@ -92,7 +92,7 @@ O código faz o seguinte:
 
 * Cria um ativo vazio usando o método CreateEmptyAsset definido na etapa anterior.
 * Cria uma instância de **AccessPolicy** que define as permissões e a duração do acesso ao ativo.
-* Cria uma instância de **Locator** que fornece acesso ao ativo.
+* Cria uma **instância Localizador** que fornece acesso ao ativo.
 * Cria uma instância de **BlobTransferClient** . Esse tipo representa um cliente que opera nos blobs do Azure. Neste exemplo, o cliente monitora o progresso do upload. 
 * Enumere os arquivos no diretório especificado e cria uma instância de **AssetFile** para cada arquivo.
 * Carregue os arquivos para os serviços de mídia usando o método **UploadAsync** . 
@@ -167,7 +167,7 @@ Ao carregar um grande número de ativos, considere o seguinte:
 * Aumente NumberOfConcurrentTransfers do valor padrão de 2 para um valor maior como 5. Configurar essa propriedade afeta todas as instâncias de **CloudMediaContext**. 
 * Mantenha ParallelTransferThreadCount no valor padrão de 10.
 
-## <a id="ingest_in_bulk"></a>Ingestão de ativos em massa usando o SDK do .NET dos Serviços de Mídia
+## <a name="ingesting-assets-in-bulk-using-media-services-net-sdk"></a><a id="ingest_in_bulk"></a>Ingestão de ativos em massa usando o SDK do .NET dos Serviços de Mídia
 O carregamento de grandes arquivos de ativo pode ser um gargalo durante a criação do ativo. A ingestão de ativos em massa, ou "Ingestão em massa", envolve a dissociação da criação do ativo do processo de carregamento. Para usar uma abordagem de ingestão em massa, crie um manifesto (IngestManifest) que descreve o ativo e seus arquivos associados. Em seguida, use o método de carregamento de sua escolha para carregar os arquivos associados ao contêiner de blob do manifesto. Os serviços de mídia do Microsoft Azure observa o contêiner de blob associado ao manifesto. Depois que um arquivo é carregado para o contêiner de blob, os serviços de mídia do Microsoft Azure concluem a criação do ativo com base na configuração do ativo no manifesto (IngestManifestAsset).
 
 Para criar um novo IngestManifest, chame o método Criar exposto pela coleção IngestManifests no CloudMediaContext. Esse método cria um novo IngestManifest com o nome manifesto fornecido.

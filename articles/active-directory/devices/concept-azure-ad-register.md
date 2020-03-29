@@ -1,5 +1,5 @@
 ---
-title: Quais são o Azure AD, dispositivos registrados?
+title: O que são dispositivos registrados no Azure AD?
 description: Saiba como o gerenciamento de identidade do dispositivo pode ajudar você a gerenciar dispositivos que estão acessando os recursos em seu ambiente.
 services: active-directory
 ms.service: active-directory
@@ -12,54 +12,54 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67462753"
 ---
 # <a name="azure-ad-registered-devices"></a>Dispositivos registrados no Azure AD
 
-A meta dos dispositivos registrados no Azure AD é fornecer aos usuários com suporte para o BYOD traga seu próprio dispositivo () ou cenários de dispositivo móvel. Nesses cenários, um usuário pode acessar os recursos da organização do Active Directory do Azure controlado usando um dispositivo pessoal.
+O objetivo dos dispositivos registrados no Azure AD é fornecer aos seus usuários suporte para os cenários do Bring Your Own Device (BYOD) ou de dispositivos móveis. Nesses cenários, um usuário pode acessar os recursos controlados do Azure Active Directory da sua organização usando um dispositivo pessoal.
 
 |   | Azure AD registrado |
 | --- | --- |
-| **Definição** | Registrado com o Azure AD sem a necessidade de uma conta organizacional para entrar no dispositivo |
-| **Público-alvo principal** | Aplicável a todos os usuários com os seguintes critérios: |
-|   | Traga seu próprio dispositivo (BYOD) |
+| **Definição** | Registrado no Azure AD sem exigir que a conta organizacional faça login no dispositivo |
+| **Audiência primária** | Aplicável a todos os usuários com os seguintes critérios: |
+|   | BYOD (Traga seu próprio dispositivo) |
 |   | Dispositivos móveis |
-| **Propriedade do dispositivo** | Usuário ou a organização |
-| **Sistemas operacionais** | Windows 10, iOS, Android e MacOS |
-| **Provisionamento** | Windows 10 – configurações |
-|   | iOS/Android – o aplicativo Microsoft Authenticator ou do Portal da empresa |
-|   | Portal da empresa MacOS |
-| **Entrada de dispositivo nas opções** | Credenciais locais do usuário final |
+| **Propriedade do dispositivo** | Usuário ou Organização |
+| **Sistemas Operacionais** | Windows 10, iOS, Android e MacOS |
+| **Provisionamento** | Windows 10 – Configurações |
+|   | iOS/Android – Portal da Empresa ou aplicativo Autenticador microsoft |
+|   | MacOS – Portal da Empresa |
+| **Opções de login do dispositivo** | Credenciais locais do usuário final |
 |   | Senha |
 |   | Windows Hello |
 |   | PIN |
-|   | Biometria ou padrão para outros dispositivos |
-| **Gerenciamento de dispositivos** | Gerenciamento de dispositivo móvel (exemplo: Microsoft Intune) |
+|   | Biometria ou Padrão para outros dispositivos |
+| **Gerenciamento de dispositivos** | Gerenciamento de dispositivos móveis (exemplo: Microsoft Intune) |
 |   | gerenciamento de aplicativos móveis |
-| **Principais recursos** | SSO aos recursos de nuvem |
-|   | Acesso condicional, quando registrado no Intune |
-|   | Acesso condicional por meio da diretiva de proteção de aplicativo |
-|   | Permite a entrada de telefone com o aplicativo Microsoft Authenticator |
+| **Principais funcionalidades** | SSO para recursos em nuvem |
+|   | Acesso Condicional quando inscrito em Intune |
+|   | Acesso Condicional via política de proteção de aplicativos |
+|   | Permite que o telefone faça login com o aplicativo Microsoft Authenticator |
 
 ![Dispositivos registrados no Azure AD](./media/concept-azure-ad-register/azure-ad-registered-device.png)
 
-Dispositivos registrados no AD do Azure se conectaram usando uma conta local, como uma conta da Microsoft em um dispositivo Windows 10, mas Além disso, ter uma conta do AD do Azure anexada para o acesso aos recursos organizacionais. Acesso aos recursos na organização pode ser ainda mais limitado com base nessa conta do Azure AD e as políticas de acesso condicional aplicadas à identidade do dispositivo.
+Os dispositivos registrados no Azure AD são conectados ao uso de uma conta local como uma conta da Microsoft em um dispositivo Windows 10, mas além disso têm uma conta Azure AD anexada para acesso a recursos organizacionais. O acesso aos recursos na organização pode ser ainda mais limitado com base nas políticas de conta Ad do Azure e do Acesso Condicional aplicadas à identidade do dispositivo.
 
-Os administradores podem proteger e controlar ainda mais esses dispositivos registrados no Azure AD usando as ferramentas de gerenciamento de dispositivo móvel (MDM) como o Microsoft Intune. MDM fornece um meio para impor as configurações necessárias de organização, como exigir armazenamento sejam criptografados, a complexidade de senha e mantido atualizado do software de segurança. 
+Os administradores podem proteger e controlar ainda mais esses dispositivos registrados no Azure AD usando ferramentas de MDM (Mobile Device Management, gerenciamento de dispositivos móveis) como o Microsoft Intune. O MDM fornece um meio para impor configurações exigidas pela organização, como exigir que o armazenamento seja criptografado, a complexidade da senha e o software de segurança mantido atualizado. 
 
-Registro do Azure AD pode ser feito ao acessar um aplicativo de trabalho pela primeira vez ou manualmente usando o menu de configurações do Windows 10. 
+O registro do Azure AD pode ser realizado ao acessar um aplicativo de trabalho pela primeira vez ou manualmente usando o menu Configurações do Windows 10. 
 
 ## <a name="scenarios"></a>Cenários
 
-Um usuário em sua organização quer acessar ferramentas para email, o relatório de licença e registro de benefícios de seus PCs domésticos. Sua organização tem essas ferramentas por trás de uma política de acesso condicional que exige acesso a partir de um dispositivo em conformidade do Intune. O usuário adiciona a conta da organização e registra seus PCs domésticos com o Azure AD e políticas do Intune necessárias são impostas, dando ao usuário acesso aos seus recursos.
+Um usuário em sua organização deseja acessar ferramentas para e-mail, relatórios de tempo limite e benefícios de inscrição de seu PC doméstico. Sua organização tem essas ferramentas por trás de uma política de acesso condicional que requer acesso a partir de um dispositivo compatível com Intune. O usuário adiciona sua conta de organização e registra seu PC doméstico com o Azure AD e as políticas intune necessárias são aplicadas dando ao usuário acesso aos seus recursos.
 
-Outro usuário deseja acessar o email organizacional em seus telefones pessoais Android que foi modificado. Sua empresa exige um dispositivo em conformidade e criou uma política de conformidade do Intune para bloquear todos os dispositivos com raiz. O funcionário está parado de acessar recursos organizacionais este dispositivo.
+Outro usuário quer acessar seu e-mail organizacional em seu telefone Android pessoal que foi enraizado. Sua empresa requer um dispositivo compatível e criou uma política de conformidade intune para bloquear quaisquer dispositivos enraizados. O funcionário é impedido de acessar recursos organizacionais neste dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciar identidades de dispositivo usando o portal do Azure](device-management-azure-portal.md)
+- [Gerenciar identidades de dispositivos usando o portal Azure](device-management-azure-portal.md)
 - [Gerenciar dispositivos obsoletos no Azure AD](manage-stale-devices.md)

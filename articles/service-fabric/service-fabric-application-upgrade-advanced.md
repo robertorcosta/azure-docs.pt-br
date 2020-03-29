@@ -4,13 +4,13 @@ description: Este artigo aborda alguns tópicos avançados relativos à atualiza
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845435"
 ---
-# <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: Tópicos avançados
+# <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: tópicos avançados
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Adicionar ou remover tipos de serviço durante uma atualização de aplicativo
 
@@ -18,23 +18,23 @@ Se um novo tipo de serviço é adicionado a um aplicativo publicado como parte d
 
 Da mesma forma, os tipos de serviços também podem ser removidos de um aplicativo como parte de uma atualização. No entanto, todas as instâncias de serviço do tipo de serviço a ser removido devem ser removidas antes de prosseguir com a atualização (consulte [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evitar quedas de conexão durante o tempo de inatividade planejado do serviço sem estado (versão prévia)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evite quedas de conexão durante o tempo de inatividade planejado do serviço apátrida (visualização)
 
-Para tempos de inatividade planejados de instância sem monitoração de estado, como atualização de aplicativo/cluster ou desativação de nó, as conexões podem ser descartadas devido ao ponto de extremidade exposto ser removido depois de ficar inativo.
+Para tempos de inatividade de instâncias não-estaduais planejados, como upgrade de aplicativo/cluster ou desativação de nó, as conexões podem ser descartadas devido ao ponto final exposto ser removido após a queda.
 
-Para evitar isso, configure o recurso *RequestDrain* (versão prévia) adicionando uma *duração de atraso de fechamento da instância* de réplica na configuração do serviço. Isso garante que o ponto de extremidade anunciado pela instância sem estado seja removido *antes que* o temporizador de atraso seja iniciado para fechar a instância. Esse atraso permite que as solicitações existentes sejam descarregadas normalmente antes que a instância realmente fique inativa. Os clientes são notificados sobre a alteração do ponto de extremidade pela função de retorno de chamada, para que possam reresolver o ponto de extremidade e evitar o envio de novas solicitações para a instância ficar inativa.
+Para evitar isso, configure o recurso *RequestDrain* (visualização) adicionando uma ocorrência de réplica *de tempo de atraso* de fechamento na configuração do serviço. Isso garante que o ponto final anunciado pela instância apátrida seja removido *antes* que o temporizador de atraso comece para fechar a instância. Esse atraso permite que as solicitações existentes drenem graciosamente antes que a instância realmente desça. Os clientes são notificados da alteração do ponto final pela função de retorno de chamada, para que possam reresolver o ponto final e evitar o envio de novas solicitações para a instância que vai abaixo.
 
 ### <a name="service-configuration"></a>Configuração do serviço
 
-Há várias maneiras de configurar o atraso no lado do serviço.
+Existem várias maneiras de configurar o atraso no lado do serviço.
 
- * **Ao criar um novo serviço**, especifique um `-InstanceCloseDelayDuration`:
+ * **Ao criar um novo serviço,** especifique a: `-InstanceCloseDelayDuration`
 
     ```powershell
     New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
     ```
 
- * **Ao definir o serviço na seção padrões no manifesto do aplicativo**, atribua a propriedade `InstanceCloseDelayDurationSeconds`:
+ * **Ao definir o serviço na seção de padrões no manifesto do aplicativo,** atribua a `InstanceCloseDelayDurationSeconds` propriedade:
 
     ```xml
           <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
@@ -42,7 +42,7 @@ Há várias maneiras de configurar o atraso no lado do serviço.
           </StatelessService>
     ```
 
- * **Ao atualizar um serviço existente**, especifique um `-InstanceCloseDelayDuration`:
+ * **Ao atualizar um serviço existente,** especifique a: `-InstanceCloseDelayDuration`
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
@@ -50,7 +50,7 @@ Há várias maneiras de configurar o atraso no lado do serviço.
 
 ### <a name="client-configuration"></a>Configuração do cliente
 
-Para receber uma notificação quando um ponto de extremidade for alterado, os clientes poderão registrar um retorno de chamada (`ServiceManager_ServiceNotificationFilterMatched`) da seguinte maneira: 
+Para receber a notificação quando um ponto final for`ServiceManager_ServiceNotificationFilterMatched`alterado, os clientes podem registrar um retorno de chamada ( ) como este: 
 
 ```csharp
     var filterDescription = new ServiceNotificationFilterDescription
@@ -67,11 +67,11 @@ private static void ServiceManager_ServiceNotificationFilterMatched(object sende
 }
 ```
 
-A notificação de alteração é uma indicação de que os pontos de extremidade foram alterados, o cliente deve reresolver os pontos de extremidade e não usar os pontos de extremidade que não são mais anunciados, pois eles ficarão inativos em breve.
+A notificação de alteração é uma indicação de que os pontos finais foram alterados, o cliente deve reresolver os pontos finais e não usar os pontos finais que não são mais anunciados, pois eles irão para baixo em breve.
 
-### <a name="optional-upgrade-overrides"></a>Substituições de atualização opcionais
+### <a name="optional-upgrade-overrides"></a>Substituições opcionais de upgrade
 
-Além de definir as durações de atraso padrão por serviço, você também pode substituir o atraso durante a atualização de aplicativo/cluster usando a mesma opção (`InstanceCloseDelayDurationSec`):
+Além de definir as durações de atraso padrão por serviço, você também pode`InstanceCloseDelayDurationSec`substituir o atraso durante a atualização do aplicativo/cluster usando a mesma opção ( )
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -79,7 +79,7 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-A duração do atraso só se aplica à instância de atualização invocada e não altera as configurações de atraso de serviço individual. Por exemplo, você pode usar isso para especificar um atraso de `0` a fim de ignorar quaisquer atrasos de atualização pré-configurados.
+A duração do atraso só se aplica à instância de atualização invocada e não altera de outra forma as configurações de atraso de serviço individual. Por exemplo, você pode usar isso `0` para especificar um atraso para pular quaisquer atrasos de upgrade pré-configurados.
 
 ## <a name="manual-upgrade-mode"></a>Modo de atualização manual
 
@@ -142,9 +142,9 @@ app1/
 
 Em outras palavras, crie um pacote de aplicativos completo normalmente e, em seguida, remova todas as pastas de códigos/configurações/pacotes de dados para as quais a versão não foi alterada.
 
-## <a name="upgrade-application-parameters-independently-of-version"></a>Atualizar parâmetros do aplicativo independentemente da versão
+## <a name="upgrade-application-parameters-independently-of-version"></a>Atualizar parâmetros de aplicativo independentemente da versão
 
-Às vezes, é desejável alterar os parâmetros de um aplicativo Service Fabric sem alterar a versão do manifesto. Isso pode ser feito convenientemente usando o sinalizador **-ApplicationParameter** com o cmdlet **Start-ServiceFabricApplicationUpgrade** do PowerShell do Azure Service Fabric. Suponha um aplicativo Service Fabric com as seguintes propriedades:
+Às vezes, é desejável alterar os parâmetros de um aplicativo service fabric sem alterar a versão manifesto. Isso pode ser feito convenientemente usando o sinalizador **-ApplicationParameter** com o cmdlet PowerShell de malha de serviço **do Start-ServiceFabricUpgrade** Azure Service Fabric. Suponha que um aplicativo de malha de serviço com as seguintes propriedades:
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
@@ -157,7 +157,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Agora, atualize o aplicativo usando o cmdlet **Start-ServiceFabricApplicationUpgrade** . Este exemplo mostra uma atualização monitorada, mas uma atualização não monitorada também pode ser usada. Para ver uma descrição completa dos sinalizadores aceitos por esse cmdlet, consulte a [referência de módulo do PowerShell Service Fabric do Azure](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+Agora, atualize o aplicativo usando o **cmdlet Start-ServiceFabricApplicationUpgrade.** Este exemplo mostra uma atualização monitorada, mas um upgrade não monitorado também pode ser usado. Para ver uma descrição completa das bandeiras aceitas por este cmdlet, consulte a referência do [módulo PowerShell do azure Service Fabric](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
@@ -180,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
 ```
 
-## <a name="roll-back-application-upgrades"></a>Reverter atualizações de aplicativos
+## <a name="roll-back-application-upgrades"></a>Reverter as atualizações de aplicativos
 
 Embora atualizações possam ser roladas para frente em um dos três modos (*Monitored*, *UnmonitoredAuto* ou *UnmonitoredManual*), elas só podem ser revertidas em modo *UnmonitoredAuto* ou *UnmonitoredManual*. A reversão em modo *UnmonitoredAuto* funciona da mesma forma que o roll forward, com a exceção de que o valor padrão de *UpgradeReplicaSetCheckTimeout* é diferente - consulte [Parâmetros de atualização do aplicativo](service-fabric-application-upgrade-parameters.md). A reversão em modo *UnmonitoredManual* funciona da mesma forma que o roll forward - a reversão se suspenderá depois de concluir cada UD e deve ser retomada explicitamente usando [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar a reversão.
 
@@ -188,13 +188,13 @@ As reversões poderão ser disparadas automaticamente quando as políticas de in
 
 Durante a reversão, o valor de *UpgradeReplicaSetCheckTimeout* e o modo ainda podem ser alterados a qualquer momento usando-se [Update-ServiceFabricApplicationUpgrad](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
-[Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
+[Atualizar seu aplicativo Usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você através de uma atualização de aplicativo usando o PowerShell.
 
-Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
+Controle como o aplicativo atualiza usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
 
-Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
+Torne os upgrades de aplicativos compatíveis, aprendendo como usar [serialização de dados.](service-fabric-application-upgrade-data-serialization.md)
 
-Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+Corrija problemas comuns em atualizações de aplicativos, referindo-se às etapas em [Upgrades de aplicativos de solução de problemas](service-fabric-application-upgrade-troubleshooting.md).

@@ -1,6 +1,6 @@
 ---
 title: ingerir dados do Logstash para o Azure Data Explorer
-description: Neste artigo, você aprenderá a ingestão de dados (carga) no Data Explorer do Azure, do Logstash
+description: Neste artigo, você aprende como ingerir dados (carregar) no Azure Data Explorer do Logstash
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494537"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>ingerir dados do Logstash para o Azure Data Explorer
 
-O [Logstash](https://www.elastic.co/products/logstash) é um software livre de pipeline de processamento de dados no lado do servidor que ingere dados de muitas origens simultaneamente, transforma os dados e, depois, envia os dados ao seu "stash" favorito. Neste artigo, você vai enviar esses dados para o Gerenciador de dados do Azure, que é um serviço de exploração de dados rápida e altamente escalonável para dados de log e telemetria. Inicialmente, você criará um mapeamento de tabela e dados em um cluster de teste e, depois, instruirá o Logstash a enviar dados para a tabela e validar os resultados.
+O [Logstash](https://www.elastic.co/products/logstash) é um software livre de pipeline de processamento de dados no lado do servidor que ingere dados de muitas origens simultaneamente, transforma os dados e, depois, envia os dados ao seu "stash" favorito. Neste artigo, você enviará esses dados para o Azure Data Explorer, que é um serviço de exploração de dados rápido e altamente escalável para dados de registro e telemetria. Inicialmente, você criará um mapeamento de tabela e dados em um cluster de teste e, depois, instruirá o Logstash a enviar dados para a tabela e validar os resultados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/), caso ainda não tenha uma, antes de começar.
 * Um [cluster e banco de dados de teste](create-cluster-database-portal.md) do Azure Data Explorer
@@ -106,14 +106,14 @@ output {
 }
 ```
 
-| Nome do Parâmetro | DESCRIÇÃO |
+| Nome do Parâmetro | Descrição |
 | --- | --- |
 | **path** | O plug-in do Logstash grava eventos em arquivos temporários antes de enviá-los para o Azure Data Explorer. Esse parâmetro inclui um caminho no qual os arquivos devem ser gravados e uma expressão de tempo para a rotação de arquivos a fim de disparar um upload para o serviço do Azure Data Explorer.|
 | **ingest_url** | O ponto de extremidade do Kusto para comunicação relacionada à ingestão.|
 | **app_id**, **app_key** e **app_tenant**| Credenciais necessárias para se conectar ao Azure Data Explorer. Certifique-se de usar um aplicativo com privilégios de ingestão. |
-| **database**| Nome do banco de dados para colocar os eventos. |
-| **tabela** | Nome da tabela de destino para colocar os eventos. |
-| **mapeamento** | O mapeamento é usado para mapear uma cadeia de caracteres json de evento recebida no formato correto de linha (define qual propriedade entra em qual coluna). |
+| **Database**| Nome do banco de dados para colocar os eventos. |
+| **Tabela** | Nome da tabela de destino para colocar os eventos. |
+| **Mapeamento** | O mapeamento é usado para mapear uma cadeia de caracteres json de evento recebida no formato correto de linha (define qual propriedade entra em qual coluna). |
 
 ## <a name="run-logstash"></a>Executar o Logstash
 

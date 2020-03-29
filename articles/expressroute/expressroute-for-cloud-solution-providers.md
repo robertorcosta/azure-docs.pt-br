@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67849256"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
@@ -31,7 +31,7 @@ O Microsoft Azure fornece um número crescente de serviços que você pode ofere
 A Microsoft fornece CSPs com APIs para gerenciar as assinaturas de cliente do Azure, permitindo a integração programática com seus próprios sistemas de gerenciamento de serviço. Os recursos de gerenciamento com suporte podem ser encontrados [aqui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gerenciamento de recursos do Microsoft Azure
-O contrato que você tem com o cliente determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: modelo "*Connect-Through*" ou modelo "*Direct-To*". Esses modelos serão descritos em detalhes nas seções a seguir.  
+O contrato que você tem com o cliente determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o seu cliente gerenciar a criação de recursos em sua assinatura do Microsoft Azure, ele usará um dos dois modelos: "*Connect-Through*" modelo, ou "*Direct-To*". Esses modelos serão descritos em detalhes nas seções a seguir.  
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -88,10 +88,10 @@ Você pode auxiliar na configuração da conexão e na configuração das rotas 
 ## <a name="expressroute-routing-domains"></a>Domínios de roteamento do ExpressRoute
 o ExpressRoute oferece três domínios de roteamento: público, privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento é configurado com roteadores idênticos na configuração ativo-ativo para obtenção de alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento do ExpressRoute, entre [aqui](expressroute-circuit-peerings.md).
 
-Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para obter mais informações ou para ver como fazer essas alterações consulte o artigo: [Criar e alterar o roteamento de um circuito de ExpressRoute usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
+Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para saber mais ou para ver como fazer essas alterações, confira o artigo: [Criar e modificar o roteamento de um circuito de ExpressRoute usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
 
 > [!NOTE]
-> Para o emparelhamento da Microsoft e público, a conectividade deve passar por um endereço IP público de propriedade do cliente ou do CSP e deve aderir a todas as regras definidas. Para saber mais, veja a página [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md) .  
+> Para o emparelhamento da Microsoft e público, a conectividade deve passar por um endereço IP público de propriedade do cliente ou do CSP e deve aderir a todas as regras definidas. Para obter mais informações, consulte a página [Pré-requisitos expressroute.](expressroute-prerequisites.md)  
 > 
 > 
 

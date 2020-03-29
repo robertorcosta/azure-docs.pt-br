@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60755164"
 ---
-# <a name="azure-data-box-gateway-limits"></a>Limites de Gateway da caixa de dados do Azure
+# <a name="azure-data-box-gateway-limits"></a>Limites do Gateway da caixa de dados do Azure
 
 Considere esses limites ao implantar e operar sua solução do Microsoft Azure Data Box Gateway. 
 
@@ -28,7 +28,7 @@ Considere esses limites ao implantar e operar sua solução do Microsoft Azure D
 
 A tabela a seguir descreve esses limites para o dispositivo do Data Box Gateway.
 
-| DESCRIÇÃO | Valor |
+| Descrição | Valor |
 |---|---|
 |Não. de arquivos por dispositivo |100 milhões <br> O limite é aproximadamente 25 milhões de arquivos para cada 2 TB de espaço em disco com o limite máximo em 100 milhões |
 |Não. de compartilhamentos por dispositivo |24 |
@@ -53,4 +53,4 @@ A tabela a seguir descreve esses limites para o dispositivo do Data Box Gateway.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
+- [Prepare-se para implantar o Gateway da Caixa de Dados Do Azure](data-box-gateway-deploy-prep.md)

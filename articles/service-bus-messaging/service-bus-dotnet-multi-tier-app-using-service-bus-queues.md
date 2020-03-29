@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60402848"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
@@ -33,7 +33,7 @@ Você aprenderá o seguinte:
 
 Neste tutorial você compilará e executará o aplicativo de multicamadas em um serviço de nuvem do Microsoft Azure. O front-end é uma função Web MVC do ASP.NET e o back-end é uma função de trabalho que usa uma fila do Barramento de Serviço. Você pode criar o mesmo aplicativo multicamadas com o front-end que o de um projeto Web, que é implantado em um site do Azure em vez de em um serviço de nuvem. Você também pode experimentar o tutorial [Aplicativo .NET híbrido local/na nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-Captura de tela a seguir mostra o aplicativo concluído.
+A captura de tela a seguir mostra o aplicativo concluído.
 
 ![][0]
 
@@ -50,7 +50,7 @@ Esse mecanismo de comunicação oferece diversas vantagens sobre mensagens diret
 
 * **Desacoplamento temporal.** Com o padrão de mensagens assíncrono, os produtores e consumidores não precisam estar online ao mesmo tempo. O ServiceBus armazena de forma confiável as mensagens até que a parte de consumo esteja prontapara recebê-las. Isso permite que os componentes do aplicativo distribuído sejam desconectados voluntariamente, por exemplo, para manutenção ou devido a uma falha de componente, sem afetar o sistema como um todo. Além disso, o aplicativo de consumo só precisa ser colocado online durante determinadas horas do dia.
 * **Nivelamento de carga.** Em muitos aplicativos, a carga do sistema varia ao longo do tempo enquanto o tempo de processamento necessário para cada unidade de trabalho for normalmente constante. Intermediar produtores de mensagem e consumidorescom uma fila significa que o aplicativo de consumo (o função de trabalho) sóprecisa ser configurado para acomodar a carga média em vez de pico decarga. A profundidade da fila aumentará e diminuirá conforme a carga de entrada variar. Isso economiza dinheiro diretamente em termos da quantidade deinfraestrutura necessária para atender à carga do aplicativo.
-* **Balanceamento de carga.** Conforme a carga aumenta, mais processos de função de trabalho podem seradicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga com base em recepção permite uma utilização ideal das máquinas de trabalho mesmo se as máquinas de trabalho diferem em termos de capacidade de processamento, pois elas irão receber mensagens em sua própria taxa máxima. Esse padrão geralmente é chamado de padrão de *consumidor concorrente*.
+* **Balanceamento de carga.** Conforme a carga aumenta, mais processos de função de trabalho podem seradicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga com base em recepção permite uma utilização ideal das máquinas de trabalho mesmo se as máquinas de trabalho diferem em termos de capacidade de processamento, pois elas irão receber mensagens em sua própria taxa máxima. Esse padrão é geralmente denominado de *consumidor concorrente*.
   
   ![][2]
 
@@ -72,7 +72,7 @@ Depois, adiciona o código que envia os itens para uma fila do Barramento de Ser
 1. Usando os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa do **Visual Studio**, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, discutido mais adiante neste artigo, exige iniciar o Visual Studio com privilégios de administrador.
    
    No Visual Studio, no menu **Arquivo**, clique em **Novo** e clique em **Projeto**.
-2. Em **Modelos Instalados**, em **Visual C#** , clique em **Nuvem** e em **Serviço de Nuvem do Azure**. Nomeie o projeto como **AppVáriasCamadas**. Em seguida, clique em **OK**.
+2. Em **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e em **Serviço de Nuvem do Azure**. Nomeie o projeto como **AppVáriasCamadas**. Em seguida, clique em **OK**.
    
    ![][9]
 3. No painel **Funções**, clique duas vezes em **Função Web ASP.NET**.
@@ -94,7 +94,7 @@ Depois, adiciona o código que envia os itens para uma fila do Barramento de Ser
    ![][13]
    
    Os assemblies de cliente obrigatórios agora são referenciados e alguns arquivos de código novos foram adicionados.
-10. Em **Gerenciador de Soluções**, clique com o botão direito do mouse em **Modelos**, **Adicionar** e **Classe**. Na caixa **Nome**, digite o nome **OnlineOrder.cs**. Clique em **Adicionar**.
+10. Em **Gerenciador de Soluções**, clique com o botão direito do mouse em **Modelos**, **Adicionar** e **Classe**. Na caixa **Nome**, digite o nome **OnlineOrder.cs**. Em seguida, clique em **Adicionar**.
 
 ### <a name="write-the-code-for-your-web-role"></a>Escreva o código para a função Web
 Nesta seção, você cria várias páginas que exibem seu aplicativo.
@@ -310,19 +310,19 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 
 1. Certifique-se de ter conectado o Visual Studio à sua conta do Azure.
 2. No Visual Studio, no **Gerenciador de Soluções**, clique com o botão direito na pasta **Funções** no projeto **AppVáriasCamadas**.
-3. Clique em **Adicionar** e clique em **Novo Projeto da Função de Trabalho**. A caixa de diálogo **Adicionar Novo Projeto da Função** é exibida.
+3. Clique em **Adicionar** e, a seguir, clique em **Novo Projeto de Função de Trabalho**. A caixa de diálogo **Adicionar Novo Projeto da Função** é exibida.
    
    ![][26]
 4. Na caixa de diálogo **Adicionar Novo Projeto** de Função, clique em **Função de Trabalho com Fila do Barramento de Serviço**.
    
    ![][23]
-5. Na caixa **Nome**, nomeie o projeto **OrderProcessingRole**. Clique em **Adicionar**.
+5. Na caixa **Nome**, insira **OrderProcessingRole**. Em seguida, clique em **Adicionar**.
 6. Copie a cadeia de conexão que você obteve na etapa 9 da seção "Criar um namespace do Barramento de Serviço" para a área de transferência.
-7. No **Gerenciador de Soluções**, clique com botão direito do mouse em **OrderProcessingRole** criado na etapa 5 (não se esqueça de clicar com o botão direito do mouse em **OrderProcessingRole** em **Funções**, e não na classe). Clique em **Propriedades**.
+7. No **Gerenciador de Soluções**, clique com botão direito do mouse em **OrderProcessingRole** criado na etapa 5 (não se esqueça de clicar com o botão direito do mouse em **OrderProcessingRole** em **Funções**, e não na classe). A seguir, clique em **Propriedades**.
 8. Na guia **Configurações** da caixa de diálogo **Propriedades**, clique dentro da caixa **Valor** para **Microsoft.ServiceBus.ConnectionString** e cole o valor do ponto de extremidade que você copiou na etapa 6.
    
    ![][25]
-9. Crie uma classe **OnlineOrder** para representar os pedidos conforme você os processa na fila. Você pode reutilizar uma classe já criada. No **Gerenciador de Soluções**, clique com o botão direito na classe **OrderProcessingRole** (clique com o botão direito no ícone da classe, não na função). Clique em **Adicionar** e clique em **Item Existente**.
+9. Crie uma classe **OnlineOrder** para representar os pedidos conforme você os processa na fila. Você pode reutilizar uma classe já criada. No **Gerenciador de Soluções**, clique com o botão direito na classe **OrderProcessingRole** (clique com o botão direito no ícone da classe, não na função). Clique em **Adicionar** e, a seguir, em **Item Existente**.
 10. Navegue até a subpasta para **FrontendWebRole\Models** e clique duas vezes em **OnlineOrder.cs** para adicioná-la a esse projeto.
 11. Em **WorkerRole.cs**, altere o valor da variável **QueueName** de `"ProcessingQueue"` para `"OrdersQueue"`, como mostrado no código a seguir.
     

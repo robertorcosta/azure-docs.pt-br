@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67357031"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
@@ -33,7 +33,7 @@ As opções recomendadas para a transferência de dados periódica se enquadram 
 - **Ferramentas de ingestão de dados contínuas** – para a ingestão de dados contínua, em andamento, você pode selecionar um dispositivo de transferência online Data Box ou Azure Data Factory. Essas ferramentas são configuradas por profissionais de TI e podem automatizar a transferência de dados de forma transparente.
 
     - **Azure Data Factory** – o Data Factory deve ser usado para expandir uma operação de transferência e se houver necessidade de funcionalidades de monitoramento de nível empresarial e de orquestração. Use o Azure Data Factory para configurar um pipeline de nuvem para regularmente transferir arquivos entre vários serviços do Azure, no local ou uma combinação dos dois. O Azure Data Factory permite que você orquestre fluxos de trabalho controlados por dados que ingerem dados de armazenamentos de dados diferentes e automatizam a movimentação e transformação de dados.
-    - **Família Azure Data Box para transferências online** – o Data Box Edge e o Data Box Gateway são dispositivos de rede online que podem mover dados para dentro e para fora do Azure. O Azure Data Box Edge usa a inteligência artificial (AI)-habilitado a computação de borda pré-processar os dados antes do carregamento. O Data Box Gateway é uma versão virtual do dispositivo com os mesmos recursos de transferência de dados.
+    - **A família Azure Data Box para transferências on-line** - Data Box Edge e Data Box Gateway são dispositivos de rede on-line que podem mover dados para dentro e para fora do Azure. O Azure Data Box Edge usa a inteligência artificial (AI)-habilitado a computação de borda pré-processar os dados antes do carregamento. O Data Box Gateway é uma versão virtual do dispositivo com os mesmos recursos de transferência de dados.
 
 
 ## <a name="comparison-of-key-capabilities"></a>Comparação das principais funcionalidades
@@ -55,17 +55,17 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 | Recurso                                       | Data Box Gateway | Data Box Edge   | Fábrica de dados do Azure        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fator forma                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, agente local                                                            |
-| Hardware                                      | Seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
+| Hardware                                      | Seu hipervisor            | Fornecido pela Microsoft    | NA                                                            |
 | Esforço de configuração inicial                          | Baixo (< 30 min.)            | Moderado (~ acoplar horas) | Grande (~dias)                                                 |
 | Formato de Dados                                   | Blobs do Azure, Azure Files   | Blobs do Azure, Azure Files | [Dá suporte a mais de 70 conectores de dados para os formatos e armazenamentos de dados](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Pré-processamento de dados                           | Não                         | Sim, via computação de borda    | Sim                                                           |
-| Cache local<br>(para armazenar dados locais)    | Sim                        | sim                      | Não                                                            |
+| Cache local<br>(para armazenar dados locais)    | Sim                        | Sim                      | Não                                                            |
 | Transferência de outras nuvens                    | Não                         | Não                       | Sim                                                           |
 | Preços                                       | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Transferir dados com AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Transferir dados com o AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 - [Mais informações sobre transferência de dados com APIs REST do Armazenamento](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
 - Entenda como:
     - [Transferir dados com o Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).

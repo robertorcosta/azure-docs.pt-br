@@ -1,6 +1,6 @@
 ---
-title: Guia para instalar e implantar o C# agente do Linux da central de segurança do Azure para IOT | Microsoft Docs
-description: Saiba como instalar a central de segurança do Azure para agente de IoT em Linux de 32 bits e 64 bits.
+title: Guia para instalar e implantar o agente Linux C# do Azure Security Center para IoT| Microsoft Docs
+description: Aprenda a instalar o Azure Security Center para agente IoT em Linux de 32 bits e 64 bits.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,27 +16,27 @@ ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
 ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75367409"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implantar um agente de segurança baseado em C# da Central de Segurança do Azure para IoT para Linux
 
 
-Este guia explica como instalar e implantar a central de segurança do Azure para C#o agente de segurança baseado em IOT no Linux.
+Este guia explica como instalar e implantar o Azure Security Center para agente de segurança baseado em IoT C#no Linux.
 
 Neste guia, você aprenderá a: 
 > [!div class="checklist"]
-> * Instale
+> * Instalar o
 > * Verificar implantação
 > * Desinstalar o agente
-> * Solucionar problemas 
+> * Solução de problemas 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para outras plataformas e tipos de agente, consulte [escolher o agente de segurança certo](how-to-deploy-agent.md).
+Para outras plataformas e sabores de agente, consulte [Escolha o agente de segurança certo](how-to-deploy-agent.md).
 
 1. Para implantar o agente de segurança, são necessários direitos de administrador local no computador em que você deseja instalar. 
 
@@ -46,29 +46,29 @@ Para outras plataformas e tipos de agente, consulte [escolher o agente de segura
 
 Para implantar o agente de segurança, use as seguintes etapas:
 
-1. Baixe a versão mais recente em seu computador do [GitHub](https://aka.ms/iot-security-github-cs).
+1. Baixe a versão mais recente para sua máquina no [GitHub](https://aka.ms/iot-security-github-cs).
 
-1. Extraia o conteúdo do pacote e navegue até a pasta _/install_.
+1. Extrair o conteúdo do pacote e navegar até a pasta _/Install._
 
 1. Adicione permissões de execução para o **script InstallSecurityAgent** executando `chmod +x InstallSecurityAgent.sh` 
 
-1. Em seguida, execute o seguinte comando com **privilégios de raiz**: 
+1. Em seguida, execute o seguinte comando com **privilégios de raiz:** 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   para obter mais informações sobre parâmetros de autenticação, consulte [como configurar a autenticação](concept-security-agent-authentication-methods.md).
+   para obter mais informações sobre parâmetros de autenticação, consulte [Como configurar a autenticação](concept-security-agent-authentication-methods.md).
 
 O script executa as ações a seguir:
 
 - Instala pré-requisitos.
 
-- Adiciona um usuário de serviço (com logon interativo desabilitado).
+- Adiciona um usuário de serviço (com sinal interativo desativado).
 
-- Instala o agente como um **daemon** -presume que o dispositivo usa o modelo de implantação clássico do **sistema** .
+- Instala o agente como um **Daemon** - assume que o dispositivo usa **sistemapara** modelo clássico de implantação.
 
-- Configura os **sudoers** para permitir que o agente execute determinadas tarefas como raiz.
+- Configura **sudoers** para permitir que o agente faça certas tarefas como raiz.
 
 - Configura o agente com os parâmetros de autenticação fornecidos.
 
@@ -120,10 +120,10 @@ Para desinstalar o agente, execute o script com o parâmetro –u: `./InstallSec
 
        Altere o caminho do local do arquivo de acordo com o nome que você escolheu para o **logFilePath** na etapa 2. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Leia a [visão geral](overview.md) da central de segurança do Azure para serviços de IOT
-- Saiba mais sobre a [arquitetura](architecture.md) da central de segurança do Azure para IOT
+- Leia o Centro de Segurança do Azure para visão geral do serviço [de IoT](overview.md)
+- Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)
 - Habilite o [serviço](quickstart-onboard-iot-hub.md)
-- Leia as [Perguntas frequentes](resources-frequently-asked-questions.md)
+- Leia a [FAQ](resources-frequently-asked-questions.md)
 - Entenda os [alertas](concept-security-alerts.md)

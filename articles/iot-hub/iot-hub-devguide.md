@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60400143"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia do desenvolvedor do Hub IoT do Azure
@@ -33,7 +33,7 @@ O Hub IoT do Azure oferece:
 
 Este guia do desenvolvedor do Hub IoT inclui os seguintes artigos:
 
-* [Diretrizes de comunicação de dispositivo para nuvem](iot-hub-devguide-d2c-guidance.md) que ajudam você a escolher entre mensagens de dispositivo para nuvem, propriedades relatadas do dispositivo gêmeo e carregamento de arquivos.
+* [Orientação de comunicação do dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md) ajuda você a escolher entre mensagens do dispositivo para a nuvem, propriedades reportadas do dispositivo gêmeo ou carregamento do arquivo.
 
 * [Diretrizes de comunicação de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) que ajudam você a escolher entre métodos diretos, propriedades desejadas do dispositivo gêmeo e mensagens de nuvem para dispositivo.
 
@@ -41,38 +41,38 @@ Este guia do desenvolvedor do Hub IoT inclui os seguintes artigos:
 
   * [Enviar mensagens de dispositivo para nuvem para Hub IoT](iot-hub-devguide-messages-d2c.md).
 
-  * [Ler mensagens de dispositivo para nuvem do ponto de extremidade interno](iot-hub-devguide-messages-read-builtin.md).
+  * [Leia mensagens dispositivo-nuvem do ponto final incorporado](iot-hub-devguide-messages-read-builtin.md).
 
-  * [Usar regras de roteamentos e pontos de extremidade personalizados para mensagens de dispositivo para nuvem](iot-hub-devguide-messages-read-custom.md).
+  * [Use pontos finais personalizados e regras de roteamento para mensagens dispositivo-nuvem](iot-hub-devguide-messages-read-custom.md).
 
-  * [Enviar mensagens de nuvem para dispositivo do Hub IoT](iot-hub-devguide-messages-c2d.md).
+  * [Envie mensagens nuvem-para-dispositivo do IoT Hub](iot-hub-devguide-messages-c2d.md).
 
-  * [Criar e ler mensagens do Hub IoT](iot-hub-devguide-messages-construct.md).
+  * [Crie e leia mensagens do IoT Hub](iot-hub-devguide-messages-construct.md).
 
-* [Carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md) descreve como é possível carregar arquivos a partir de um dispositivo. O artigo também inclui informações sobre tópicos como as notificações que podem ser enviadas pelo processo de carregamento.
+* [Carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md) descreve como você pode carregar arquivos de um dispositivo. O artigo também inclui informações sobre tópicos como as notificações que podem ser enviadas pelo processo de carregamento.
 
 * [Gerenciar identidades de dispositivos no Hub IoT](iot-hub-devguide-identity-registry.md) descreve quais informações cada registro de identidade do Hub IoT armazena. O artigo também descreve como você pode acessar e modificá-lo.
 
-* [Controlar acesso ao Hub IoT](iot-hub-devguide-security.md) descreve o modelo de segurança usado para conceder acesso à funcionalidade do Hub IoT a ambos os componentes de nuvem e dispositivos. O artigo inclui informações sobre como usar tokens e certificados X.509, e os detalhes das permissões que você pode conceder.
+* [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md) descreve o modelo de segurança usado para conceder acesso à funcionalidade do Hub IoT para componentes de dispositivos e da nuvem. O artigo inclui informações sobre como usar tokens e certificados X.509, e os detalhes das permissões que você pode conceder.
 
-* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md) descreve o conceito de *dispositivo gêmeo*. O artigo também descreve o dispositivo de funcionalidade gêmeos expõem, como sincronizar um dispositivo com seu dispositivo gêmeo. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
+* [Usar dispositivos gêmeos para sincronizar o estado e as configurações](iot-hub-devguide-device-twins.md) descreve o conceito de *dispositivos gêmeos*. O artigo também descreve o dispositivo de funcionalidade que os gêmeos expõem, como sincronizar um dispositivo com seu dispositivo gêmeo. O artigo inclui informações sobre os dados armazenados em um dispositivo gêmeo.
 
 * [Invocar um método direto em um dispositivo](iot-hub-devguide-direct-methods.md) descreve o ciclo de vida de um método direto. O artigo descreve como invocar métodos em um dispositivo de seu aplicativo de back-end e manipular o método direto no seu dispositivo.
 
-* [Agendar trabalhos em vários dispositivos](iot-hub-devguide-jobs.md) descreve como é possível agendar trabalhos em vários dispositivos. O artigo descreve como enviar trabalhos que executam tarefas, por exemplo, execução de um método direto, atualização de um dispositivo usando um dispositivo gêmeo. Ele também descreve como consultar o status de um trabalho.
+* [Agendar trabalhos em vários dispositivos](iot-hub-devguide-jobs.md) descreve como você pode agendar trabalhos em vários dispositivos. O artigo descreve como enviar trabalhos que executam tarefas, por exemplo, execução de um método direto, atualização de um dispositivo usando um dispositivo gêmeo. Ele também descreve como consultar o status de um trabalho.
 
 * [Referência - escolher um protocolo de comunicação](iot-hub-devguide-protocols.md) descreve os protocolos de comunicação que o Hub IoT dá suporte para comunicação de dispositivo e lista as portas que devem ser abertas.
 
-* [Referência - Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md) descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento. O artigo também descreve como você pode criar mais pontos de extremidade adicionais em seu Hub IoT e como usar um gateway de campo para habilitar a conectividade para seus pontos de extremidade de Hub IoT em cenários não padrão.
+* [Referência - Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md) descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de runtime e de gerenciamento. O artigo também descreve como você pode criar mais pontos de extremidade adicionais em seu Hub IoT e como usar um gateway de campo para habilitar a conectividade para seus pontos de extremidade de Hub IoT em cenários não padrão.
 
-* [Referência - Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md) descreve que a linguagem de consulta do Hub IoT permite recuperar informações do Hub sobre os trabalhos e os dispositivos gêmeos.
+* [Referência - Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md) descreve que a linguagem de consulta do Hub IoT permite que você recupere informações do seu Hub sobre seus dispositivos gêmeos e trabalhos.
 
-* [Referência – cotas e limitação](iot-hub-devguide-quotas-throttling.md) resume as cotas definidas no serviço do Hub IoT e a limitação que ocorre ao exceder uma cota.
+* [Referência – cotas e limitação](iot-hub-devguide-quotas-throttling.md) resume as cotas definidas no serviço do Hub IoT e a limitação que ocorre ao exceder a cota.
 
 * [Referência - preços](iot-hub-devguide-pricing.md) fornece informações gerais sobre diferentes SKUs e preços do Hub IoT e os detalhes sobre como as várias funcionalidades do Hub IoT são medidas como mensagens pelo Hub IoT.
 
-* [Referência - SDKs de serviço e dispositivo](iot-hub-devguide-sdks.md) lista os SDKs do IoT do Azure para desenvolvimento de aplicativos de serviço e dispositivo que interagem com o Hub IoT. O artigo inclui links para documentação online da API.
+* [Referência – SDKs de dispositivo e serviço](iot-hub-devguide-sdks.md) lista os SDKs do IoT do Azure para o desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT. O artigo inclui links para documentação online da API.
 
-* [Referência - Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece informações detalhadas sobre como o Hub IoT dá suporte ao protocolo MQTT. O artigo descreve o suporte para o protocolo MQTT interno para os SDKs do IoT do Azure e fornece informações sobre como usar o protocolo MQTT diretamente.
+* [Referência - Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece informações detalhadas sobre como o Hub IoT oferece suporte ao protocolo MQTT. O artigo descreve o suporte para o protocolo MQTT interno para os SDKs do IoT do Azure e fornece informações sobre como usar o protocolo MQTT diretamente.
 
 * [Glossário](iot-hub-devguide-glossary.md) uma lista de termos comuns relacionados ao Hub IoT.

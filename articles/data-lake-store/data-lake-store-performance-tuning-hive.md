@@ -13,25 +13,25 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61437269"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes de ajuste de desempenho para o Hive no HDInsight e Azure Data Lake Storage Gen1
 
 As configurações padrão foram definidas para fornecer bom desempenho em muitos casos de uso diferentes.  Para consultas intensivas de E/S, o Hive pode ser ajustado para obter um melhor desempenho com Azure Data Lake Storage Gen1.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do Data Lake Storage Gen1**. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [Comece com o Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen1. Veja [Criar um cluster HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
 * **Execução do Hive no HDInsight**.  Para saber mais sobre como executar trabalhos de Hive no HDInsight, confira [Usar Hive no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**.  Para obter os conceitos gerais de desempenho, consulte [Diretrizes de ajuste de desempenho do Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen1**.  Para conceitos gerais de desempenho, consulte [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Aqui estão as configurações mais importantes para melhorar o desempenho do Data Lake Storage Gen1:
 
@@ -51,7 +51,7 @@ Aqui estão as configurações mais importantes para melhorar o desempenho do Da
 
 **hive.exec.reducer.bytes.per.reducer** – esse parâmetro define o tamanho de cada redutor.  Por padrão, o tamanho de cada redutor é de 256 MB.  
 
-## <a name="guidance"></a>Diretrizes
+## <a name="guidance"></a>Orientação
 
 **Definir hive.exec.reducer.bytes.per.reducer** – o valor padrão funciona bem quando os dados são descompactados.  Para dados compactados, você deve reduzir o tamanho do redutor.  
 
@@ -59,7 +59,7 @@ Aqui estão as configurações mais importantes para melhorar o desempenho do Da
 
 As cargas de trabalho que usam muita E/S podem se beneficiar de mais paralelismo reduzindo o tamanho do contêiner do Tez. Isso proporciona ao usuário mais contêineres, o que aumenta a simultaneidade.  No entanto, algumas consultas do Hive exigem uma quantidade significativa de memória (por exemplo, MapJoin).  Se a tarefa não tiver memória suficiente, você receberá uma exceção de falta de memória durante o runtime.  Se você receber sem exceções de falta de memória, será preciso aumentá-la.   
 
-O número simultâneo de tarefas em execução ou de paralelismo será limitado pela memória YARN total.  O número de contêineres YARN ditará quantas tarefas simultâneas podem ser executadas.  Para localizar a memória YARN por nó, você pode ir para o Ambari.  Navegue até YARN e exiba a guia Configurações.  A memória YARN é exibida nessa janela.  
+O número simultâneo de tarefas em execução ou de paralelismo será limitado pela memória YARN total.  O número de contêineres YARN ditará quantas tarefas simultâneas podem ser executadas.  Para localizar a memória YARN por nó, você pode ir para o Ambari.  Navegue até O Fio e visualize a guia Configs.  A memória YARN é exibida nesta janela.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
@@ -75,13 +75,13 @@ Digamos que você tenha um cluster D14 de 8 nós.
 
 ## <a name="limitations"></a>Limitações
 
-**Limitação do Data Lake Storage Gen1** 
+**Limitação do data Lake armazenamento Gen1** 
 
 Se você atingir os limites de largura de banda fornecidos pelo Data Lake Storage Gen1, começará a ver falhas de tarefas. Isso poderia ser identificado observando os erros de limitação nos logs de tarefa.  Você pode reduzir o paralelismo aumentando o tamanho do contêiner Tez.  Se precisar de mais simultaneidade para seu trabalho, entre em contato conosco.
 
 Para verificar se há problemas de limitação, você precisa habilitar o log de depuração no lado do cliente. Veja como fazer isso:
 
-1. Coloque a propriedade a seguir nas propriedades de log4j na configuração do Hive. Isso pode ser feito no modo de exibição do Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Reinicie todos os nós/serviços para que a configuração entre em vigor.
+1. Coloque a seguinte propriedade nas propriedades log4j na configuração da Colmeia. Isso pode ser feito a partir da exibição do Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Reiniciar todos os nós/serviço para que a configuração entre em vigor.
 
 2. Se o problema for de limitação, você verá o código de erro HTTP 429 no arquivo de log do Hive. O arquivo de log do Hive está em /tmp/&lt;usuário&gt;/hive.log
 

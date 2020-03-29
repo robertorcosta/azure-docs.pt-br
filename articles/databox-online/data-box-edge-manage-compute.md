@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65953130"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gerenciar computação no Azure Data Box Edge
 
 Este artigo descreve como gerenciar a computação em seu Azure Data Box Edge. É possível gerenciar a computação pelo portal do Azure ou pela IU da Web local. Use o portal do Azure para gerenciar módulos, gatilhos e configuração de computação e a IU da Web local para gerenciar configurações de computação.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Gerenciar disparadores
@@ -30,8 +30,8 @@ Neste artigo, você aprenderá a:
 
 Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Gatilhos acionam os eventos. Para o Data Box Edge, os gatilhos podem ser em resposta a eventos de arquivo ou a um agendamento.
 
-- **Arquivo**: esses gatilhos são em resposta a eventos de arquivo, como a criação de um arquivo, a modificação de um arquivo.
-- **Scheduled**: esses gatilhos são em resposta a uma agenda que você pode definir com uma data de início, hora de início e o intervalo de repetição.
+- **Arquivo**: Esses gatilhos são em resposta a eventos de arquivo, como criação de um arquivo, modificação de um arquivo.
+- **Agendado**: Esses gatilhos são uma resposta a um cronograma que você pode definir com uma data de início, hora de início e o intervalo de repetição.
 
 
 ### <a name="add-a-trigger"></a>Adicionar um gatilho
@@ -74,7 +74,7 @@ Siga estas etapas no portal do Azure para excluir um gatilho.
 
     ![Selecione excluir](media/data-box-edge-manage-compute/add-trigger-1.png)
 
-3. Quando solicitado a confirmar, clique em **Sim**.
+3. Quando solicitada a confirmação, clique em **Sim**.
 
     ![Confirmar exclusão](media/data-box-edge-manage-compute/add-trigger-1.png)
 
@@ -131,4 +131,4 @@ Siga estas etapas no portal do Azure para sincronizar as chaves de acesso para s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [rede por meio do portal do Azure de computação de borda gerenciar](data-box-edge-extend-compute-access-modules.md).
+- Saiba como gerenciar a [rede de computação edge através do portal Azure](data-box-edge-extend-compute-access-modules.md).

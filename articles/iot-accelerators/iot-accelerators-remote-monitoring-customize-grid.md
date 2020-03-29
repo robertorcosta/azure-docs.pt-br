@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447090"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma grade personalizada à interface da Web da web do acelerador de solução de monitoramento remoto
@@ -24,7 +24,7 @@ Este artigo mostra como adicionar uma nova grade a uma página na interface da W
 
 A grade de exemplo deste artigo exibe os dados do serviço que o artigo explicativo [Adicionar um serviço personalizado ao objeto de instruções da Web da aceleração de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md) mostra como adicionar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 
@@ -35,8 +35,8 @@ Para concluir as etapas neste guia de instruções, você precisa ter o seguinte
 
 Você deve concluir as etapas nos seguintes artigos antes de continuar:
 
-- [Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adicione um serviço personalizado à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adicione uma página personalizada à ui web do acelerador de soluções de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md).
+- [Adicione um serviço personalizado à interface do usuário da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md)
 
 ## <a name="add-a-grid"></a>Adicionar uma grade
 
@@ -182,7 +182,7 @@ Se a interface do usuário da web ainda não estiver em execução localmente, e
 npm start
 ```
 
-O comando anterior executa a interface do usuário localmente em [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Navegue até a página **Exemplo** para ver os dados de exibição da grade do serviço.
+O comando anterior executa a [http://localhost:3000/dashboard](http://localhost:3000/dashboard)ui localmente em . Navegue até a página **Exemplo** para ver os dados de exibição da grade do serviço.
 
 ## <a name="select-rows"></a>Selecionar linhas
 
@@ -283,4 +283,4 @@ Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a adi
 
 Agora você definiu uma grade, a próxima etapa é [Adicionar um flyout personalizado à interface da Web da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-flyout.md) exibida na página de exemplo.
 
-Para obter informações mais conceituais sobre o acelerador de solução de monitoramento remoto, consulte [Arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

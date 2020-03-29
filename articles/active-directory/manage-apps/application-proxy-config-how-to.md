@@ -1,6 +1,6 @@
 ---
 title: Como configurar um aplicativo de Application Proxy| Microsoft Docs
-description: Saiba como criar e configurar um aplicativo de application Proxy em poucas etapas simples
+description: Saiba como criar e configurar um aplicativo proxy de application em algumas etapas simples
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,15 +17,15 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67807848"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Como configurar um aplicativo de Application Proxy
 
-Este artigo ajuda você a entender como configurar um aplicativo de Proxy de aplicativo no Azure AD para expor seus aplicativos locais para a nuvem.
+Este artigo ajuda você a entender como configurar um aplicativo proxy de aplicativo no Azure AD para expor seus aplicativos locais à nuvem.
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
@@ -45,9 +45,9 @@ Se você estiver seguindo as etapas na documentação [publicar aplicativos usan
 - As URLs começam com http ou https e terminam com um "/"
 - A URL deve ser um nome de domínio, não um endereço IP
 
-A mensagem de erro deve exibir no canto superior direito, quando você cria o aplicativo. Você também pode selecionar o ícone de notificação para ver as mensagens de erro.
+A mensagem de erro deve ser exibida no canto superior direito quando você criar o aplicativo. Você também pode selecionar o ícone de notificação para ver as mensagens de erro.
 
-![Mostra onde encontrar o prompt de notificação no portal do Azure](./media/application-proxy-config-how-to/error-message.png)
+![Mostra onde encontrar o prompt de notificação no portal Azure](./media/application-proxy-config-how-to/error-message.png)
 
 ## <a name="configure-connectorsconnector-groups"></a>Configurar grupos de conectores/conectores
 
@@ -65,7 +65,7 @@ Se você estiver encontrando problemas ao carregar o certificado, procure as men
 - O certificado é auto-assinado
 - Certificado está sem a chave privada
 
-A mensagem de erro exibida no canto superior direito ao tentar carregar o certificado. Você também pode selecionar o ícone de notificação para ver as mensagens de erro.
+A mensagem de erro é exibida no canto superior direito enquanto você tenta carregar o certificado. Você também pode selecionar o ícone de notificação para ver as mensagens de erro.
 
 ## <a name="next-steps"></a>Próximas etapas
 

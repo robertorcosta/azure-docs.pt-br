@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67203151"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto
@@ -21,11 +21,11 @@ Este artigo fornece informações sobre como configurar os controles de acesso b
 
 ## <a name="default-settings"></a>Configurações padrão
 
-Quando você implantar a solução de monitoramento remoto, há duas funções: **Admin** e **somente leitura**.
+Quando você implantar a solução de monitoramento remoto, há duas funções: **Admin** e **Somente Leitura**.
 
 Qualquer usuário na função **Admin** tem acesso total à solução, incluindo as seguintes permissões abaixo. Um usuário na função **Somente leitura** só terá acesso para visualizar a solução.
 
-| Permissão            | Administrador | Somente leitura |
+| Permissão            | Admin | Somente leitura |
 |----------------       |-------|-----------|
 | Solução de modo de exibição         | Sim   | Sim       |
 | Atualizar alarmes         | Sim   | Não        |
@@ -51,7 +51,7 @@ Por padrão, o usuário que implantou a solução recebe automaticamente a funç
 
 Como um proprietário de aplicativo do Azure Active Directory Domain Services, você pode usar o portal do Azure para adicionar ou remover um usuário de uma função da solução de monitoramento remoto. As etapas a seguir usam o [Aplicativo corporativo do Azure Active Directory Domain Services](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que foi criado quando você implantou a solução de monitoramento remoto.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 
 1. Verifique o [usuário que está no diretório](../active-directory/fundamentals/add-users-azure-active-directory.md) que você está usando. Você escolheu o diretório a ser usado quando você entrou no site [Aceleradores de Solução de IoT do Microsoft Azure](https://www.azureiotsolutions.com/Accelerators) site. O nome do diretório estará visível no canto superior direito da [página](https://www.azureiotsolutions.com/Accelerators).
 
@@ -247,7 +247,7 @@ Neste artigo, você aprendeu que os controles são implementados no acelerador d
 
 Ver [configurar controles de acesso para o Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) para obter informações sobre como gerenciar o acesso para o Time Series Insights explorer no acelerador de solução de Monitoramento Remoto.
 
-Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Para obter informações mais conceituais sobre o acelerador de soluções de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Para saber mais sobre como personalizar a solução de Monitoramento Remoto, veja [Personalizar e reimplantar um microsserviço](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

@@ -1,6 +1,6 @@
 ---
 title: Configurações de porta da Retransmissão do Azure | Microsoft Docs
-description: Este artigo inclui uma tabela que descreve a configuração necessária para valores de porta para a retransmissão do Azure.
+description: Este artigo inclui uma tabela que descreve a configuração necessária para valores de porta para o Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 55bb6b620c7ba9ee13068213cbc867b165acc185
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514877"
 ---
 # <a name="azure-relay-port-settings"></a>Configurações de porta de Retransmissão do Azure
 
 A tabela a seguir descreve a configuração necessária dos valores de porta para uma Retransmissão do Azure.
 
-## <a name="hybrid-connections"></a>Conexões híbridas
+## <a name="hybrid-connections"></a>Conexões Híbridas
 
 Conexões Híbridas usam WebSockets na porta 443 com SSL como o mecanismo de transporte subjacente, que usa **HTTPS**. 
 
 ## <a name="wcf-relays"></a>Retransmissões de WCF
   
-|Associação|Segurança de transporte|Port|  
+|Associação|Segurança de transporte|Porta|  
 |-------------|------------------------|----------|  
 |[Classe BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (cliente)|Sim|HTTPS| 
 |" |Não|HTTP|  
@@ -50,7 +50,7 @@ Conexões Híbridas usam WebSockets na porta 443 com SSL como o mecanismo de tra
 |" |Não|HTTP|  
 |[Classe WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (serviço)|Você pode usar o|9351/HTTP|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a Retransmissão do Azure, visite estes links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
-* [Perguntas frequentes sobre retransmissão](relay-faq.md)
+* [Perguntas frequentes sobre Retransmissão](relay-faq.md)

@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 6710f5e5b873f751ad21068acdc15d38574f8378
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593450"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorar a integridade dos recursos da CDN do Azure
@@ -32,7 +32,7 @@ A Azure CDN Resource Health é um subconjunto de [Azure Resource Health](../reso
 
 ## <a name="how-to-find-azure-cdn-resource-health"></a>Como localizar a Azure CDN Resource Health
 
-1. No [Portal do Azure](https://portal.azure.com), navegue para seu perfil CDN.
+1. No [portal Azure,](https://portal.azure.com)navegue pelo seu perfil de CDN.
 
 2. Clique no botão **Configurações** .
 

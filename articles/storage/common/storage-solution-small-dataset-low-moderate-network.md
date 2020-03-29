@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60397270"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequenos com largura de banda de rede baixa a moderada
@@ -52,7 +52,7 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 | Recurso | Gerenciador de Armazenamento do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | SDKs ou APIs REST do Armazenamento do Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilidade | Fazer o download e instalar <br>Ferramenta autônoma | Ferramentas de exploração baseadas na Web no portal do Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
-| Interface gráfica | Sim | sim | Não | Não |
+| Interface gráfica | Sim | Sim | Não | Não |
 | Plataformas com suporte | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
 | Operações de Armazenamento de Blobs permitidas<br>para blobs e pastas | Carregar<br>Baixar<br>Gerenciar | Carregar<br>Baixar<br>Gerenciar |Carregar<br>Baixar<br>Gerenciar | Sim, personalizável |
 | Armazenamento do Data Lake Gen1 permitido<br>operações para arquivos e pastas | Carregar<br>Baixar<br>Gerenciar | Não |Carregar<br>Baixar<br>Gerenciar                   | Não |

@@ -1,14 +1,14 @@
 ---
-title: Criar políticas de backup usando a API REST
-description: Neste artigo, você aprenderá a criar e gerenciar políticas de backup (agendamento e retenção) usando a API REST.
+title: Crie políticas de backup usando a API REST
+description: Neste artigo, você aprenderá como criar e gerenciar políticas de backup (cronograma e retenção) usando a API REST.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76963845"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup de serviços de recuperação do Azure usando a API REST
@@ -29,9 +29,9 @@ O `{policyName}` e `{vaultName}` são fornecidas no URI. Informações adicionai
 
 Por exemplo, para criar uma política para o backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Obrigatório  |Tipo  |Description  |
+|Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|properties     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
 |marcas     |         | Objeto        |  Marcações de recursos       |
 
 Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](/rest/api/backup/protectionpolicies/createorupdate).
@@ -135,9 +135,9 @@ A diretiva diz:
 
 A criação/atualização de política de backup é um [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
-Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
+Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada, e depois 200 (OK) quando essa operação é concluída.
 
-|Nome  |Tipo  |Description  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [Proteção PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Aceito     |         |     Aceita    |
@@ -260,7 +260,7 @@ Depois que a operação for concluída, ele retorna 200 (OK) com o conteúdo de 
 
 Se uma política já estiver sendo usada para proteger um item, qualquer atualização na política resultará em [modificar a proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) para todos os itens associados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Habilitar a proteção para uma VM do Azure desprotegidos](backup-azure-arm-userestapi-backupazurevms.md).
 

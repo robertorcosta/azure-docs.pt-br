@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: selecionar o tipo de instalação | Microsoft Docs'
+title: 'Azure AD Connect: Selecionar o tipo de instalação | Microsoft Docs'
 description: Este tópico explica como selecionar o tipo de instalação para o Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60348273"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação para o Azure AD Connect
-O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: expressa e personalizada. Este tópico ajuda você a decidir qual opção usar durante a instalação.
+O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: Expressa e personalizado. Este tópico ajuda você a decidir qual opção usar durante a instalação.
 
 ## <a name="express"></a>Express
 Expressa é a opção mais comum e é usada por cerca de 90% de todas as novas instalações. Ela foi projetada para fornecer uma configuração que funcione para os cenários mais comuns dos clientes.

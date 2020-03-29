@@ -1,5 +1,5 @@
 ---
-title: Como girar a chave de acesso para o serviço do Azure SignalR
+title: Como fazer rotação de chaves de acesso para o Serviço do Azure SignalR
 description: Uma visão geral sobre o motivo pelo qual o cliente precisa girar as chaves de acesso de forma rotineira e como fazer isso com a GUI do portal do Azure e a CLI do Azure.
 author: sffamily
 ms.service: signalr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67565739"
 ---
-# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Como girar a chave de acesso para o serviço do Azure SignalR
+# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Como fazer rotação de chaves de acesso para o Serviço do Azure SignalR
 
 Cada instância do Serviço do Azure SignalR tem um par de chaves de acesso chamadas chaves Primária e Secundária. Elas são usadas para autenticar clientes do SignalR ao fazer solicitações para o serviço. As chaves são associadas à URL de ponto de extremidade da instância. Proteja suas chaves e gire-as regularmente. Você recebe duas chaves de acesso, de modo que possa manter conexões usando uma chave enquanto regenera a outra.
 

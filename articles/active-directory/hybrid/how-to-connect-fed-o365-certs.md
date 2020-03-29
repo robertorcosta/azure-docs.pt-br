@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60244805"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar certificados de federação para o Office 365 e o Azure Active Directory
@@ -36,7 +36,7 @@ Este artigo fornece informações adicionais para o gerenciamento de seus certif
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configuração padrão do AD FS para certificados de assinatura de token
 Os certificados de assinatura de token e de descriptografia de token geralmente são autoassinados e têm validade de um ano. Por padrão, o AD FS inclui um processo de renovação automática chamado **AutoCertificateRollover**. Se você estiver usando o AD FS 2.0 ou posterior, o Office 365 e o Azure AD atualizarão automaticamente o certificado antes que ele expire.
 
-### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notificação de renovação do Centro de administração do Microsoft 365 ou um email
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notificação de renovação do centro de admin microsoft 365 ou um e-mail
 > [!NOTE]
 > Se você recebeu um email ou uma notificação no portal solicitando a renovação do certificado do Office, confira [Gerenciamento de alterações para certificados de assinatura de token](#managecerts) para saber se precisa tomar alguma providência. A Microsoft está ciente de um possível problema que pode levar ao envio de notificações para renovação de certificados, mesmo quando nenhuma ação é necessária.
 >
@@ -44,8 +44,8 @@ Os certificados de assinatura de token e de descriptografia de token geralmente 
 
 O Azure AD tenta monitorar os metadados de federação e atualizar os certificados de assinatura de token como indicado pelos metadados. Trinta dias antes da expiração dos certificados de assinatura de token, o Azure AD verifica se há novos certificados disponíveis por meio de sondagem dos metadados de federação.
 
-* Se ele pode sondar os metadados de Federação e recuperar os novos certificados com êxito, nenhuma notificação por email ou aviso no Centro de administração do Microsoft 365 será emitido para o usuário.
-* Se ele não é possível recuperar o novo token de certificados de assinatura, ou porque os metadados de Federação não estão acessível ou substituição automática de certificado não estiver habilitada, o Azure AD emite uma notificação por email e um aviso no Centro de administração do Microsoft 365.
+* Se ele puder sondar com sucesso os metadados da federação e recuperar os novos certificados, nenhuma notificação ou aviso de e-mail no centro de admin microsoft 365 será emitido para o usuário.
+* Se não conseguir recuperar os novos certificados de assinatura de tokens, seja porque os metadados da federação não são acessíveis ou a rolagem automática de certificados não está ativada, o Azure AD emite uma notificação por e-mail e um aviso no centro de administradores do Microsoft 365.
 
 ![Notificação do portal do Office 365](./media/how-to-connect-fed-o365-certs/notification.png)
 
@@ -58,8 +58,8 @@ O Azure AD tenta monitorar os metadados de federação e atualizar os certificad
 >
 >
 
-## Verifique se os certificados precisam ser atualizados <a name="managecerts"></a>
-### <a name="step-1-check-the-autocertificaterollover-state"></a>Etapa 1: Verificar o estado de AutoCertificateRollover
+## <a name="check-if-the-certificates-need-to-be-updated"></a>Verifique se os certificados precisam ser atualizados <a name="managecerts"></a>
+### <a name="step-1-check-the-autocertificaterollover-state"></a>Etapa 1: verificar o estado de AutoCertificateRollover
 No servidor do AD FS, abra o PowerShell. Verifique se o valor AutoCertificateRollover está definido como True.
 
     Get-Adfsproperties
@@ -69,7 +69,7 @@ No servidor do AD FS, abra o PowerShell. Verifique se o valor AutoCertificateRol
 >[!NOTE] 
 >Se você estiver usando o AD FS 2.0, primeiro execute Add-Pssnapin Microsoft.Adfs.Powershell.
 
-### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Etapa 2: Confirmar se o AD FS e o Azure Active Directory estão em sincronia
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Etapa 2: confirmar se o AD FS e o Azure AD estão em sincronia
 No servidor do AD FS, abra o prompt do MSOnline PowerShell e conecte-se ao Azure AD.
 
 > [!NOTE]
@@ -93,18 +93,18 @@ Verifique os certificados configurados no AD FS e as propriedades de confiança 
 
 Se as impressões digitais em ambas as saídas forem correspondentes, isso indicará que os certificados estão em sincronia com o Azure AD.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Etapa 3: Verificar se o certificado está prestes a expirar
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Etapa 3: verificar se o certificado está prestes a expirar
 Na saída de Get-MsolFederationProperty ou de Get-AdfsCertificate, verifique a data em "Não Após". Se a data for inferior a daqui a 30 dias, você deverá executar a ação.
 
 | AutoCertificateRollover | Certificados em sincronia com o Azure AD | Os metadados de federação do AD FS estão acessíveis publicamente | Validade | Ação |
 |:---:|:---:|:---:|:---:|:---:|
-| Sim |sim |Sim |- |Nenhuma ação necessária. Confira [Renovar o certificado de assinatura de token automaticamente](#autorenew). |
+| Sim |Sim |Sim |- |Nenhuma ação necessária. Confira [Renovar o certificado de assinatura de token automaticamente](#autorenew). |
 | Sim |Não |- |Menos de 15 dias |Renovar imediatamente. Confira [Renovar manualmente o certificado de assinatura de token ](#manualrenew). |
 | Não |- |- |Menos de 30 dias |Renovar imediatamente. Confira [Renovar manualmente o certificado de assinatura de token ](#manualrenew). |
 
 \[-] Não importa
 
-## Renovar o certificado de assinatura de token automaticamente (recomendado) <a name="autorenew"></a>
+## <a name="renew-the-token-signing-certificate-automatically-recommended"></a>Renovar o certificado de assinatura de token automaticamente (recomendado) <a name="autorenew"></a>
 Você não precisará executar nenhuma etapa manual se os seguintes itens forem verdadeiros:
 
 * Você já implantou o Proxy de Aplicativo Web, que pode habilitar o acesso a metadados de federação da extranet.
@@ -114,14 +114,14 @@ Verifique o seguinte para confirmar se o certificado pode ser atualizado automat
 
 **1. A propriedade AutoCertificateRollover do AD FS deve ser definida como True.** Isso indica que o AD FS gerará automaticamente novos certificados de assinatura de token e de descriptografia de token antes da expiração dos antigos.
 
-**2. Os metadados de federação do AD FS estão acessíveis publicamente.** Verifique se os metadados de federação são acessíveis publicamente, navegando até a seguinte URL em um computador na Internet pública (fora da rede corporativa):
+**2. Os metadados de federação do AD FS estão acessíveis publicamente.**  Verifique se os metadados de federação são acessíveis publicamente, navegando até a seguinte URL em um computador na Internet pública (fora da rede corporativa):
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-onde `(your_FS_name)` é substituído com o nome de host do serviço de Federação sua organização usa, por exemplo, fs.contoso.com.  Se você puder verificar ambas as configurações com êxito, não terá de fazer mais nada.  
+onde `(your_FS_name)` é substituído pelo nome de host de serviço da federação que sua organização usa, como fs.contoso.com.  Se você puder verificar ambas as configurações com êxito, não terá de fazer mais nada.  
 
 Exemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-## Renovar manualmente o certificado de assinatura de token <a name="manualrenew"></a>
+## <a name="renew-the-token-signing-certificate-manually"></a>Renovar manualmente o certificado de assinatura de token <a name="manualrenew"></a>
 Você pode optar por renovar os certificados de assinatura de token manualmente. Por exemplo, os seguintes cenários podem funcionar melhor para a renovação manual:
 
 * Os certificados de assinatura de token não são certificados autoassinados. O motivo mais comum para isso é que sua organização gerencia certificados do AD FS inscritos de uma autoridade de certificação organizacional.
@@ -129,7 +129,7 @@ Você pode optar por renovar os certificados de assinatura de token manualmente.
 
 Nesses cenários, sempre que atualizar os certificados de assinatura de token, você também deverá atualizar seu domínio do Office 365 usando o comando Update-MsolFederatedDomain do PowerShell.
 
-### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Etapa 1: Verificar se o AD FS tem novos certificados de autenticação de tokens
+### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Etapa 1: verifique se o AD FS tem novos certificados de assinatura de token
 **Configuração não padrão**
 
 Se estiver usando uma configuração não padrão do AD FS (em que **AutoCertificateRollover** está definido como **False**), você provavelmente está usando certificados personalizados (não autoassinados). Para obter mais informações sobre como renovar os certificados de assinatura de token do AD FS, confira [Orientação para os clientes que não usam certificados autoassinados do AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
@@ -154,21 +154,21 @@ Por outro lado, se **AutoCertificateRollover** estiver definido como **True**, m
 
 Dois certificados deverão ser listados agora, um dos quais tem uma data **NotAfter** de aproximadamente um ano no futuro e para o qual o valor **IsPrimary** é **False**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Etapa 2: Atualizar os novos certificados de autenticação de tokens para a relação de confiança do Office 365
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Etapa 2: atualizar os novos certificados de assinatura de token para a relação de confiança do Office 365
 Atualize o Office 365 com os novos certificados de assinatura de token a serem usados para a relação de confiança, da maneira a seguir.
 
 1. Abra o Módulo Microsoft Azure Active Directory para Windows PowerShell.
 2. Execute $cred = Get-Credential. Quando este cmdlet solicitar credenciais, digite as credenciais da conta de administrador de serviços de nuvem.
-3. Execute Connect-MsolService –Credential $cred. Esse cmdlet conecta você ao serviço de nuvem. A criação de um contexto que conecta você ao serviço de nuvem é necessária antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
+3. Execute Connect-MsolService – Credencial $cred. Este cmdlet conecta você ao serviço de nuvem. A criação de um contexto que conecta você ao serviço de nuvem é necessária antes de executar qualquer um dos cmdlets adicionais instalados pela ferramenta.
 4. Se estiver executando esses comandos em um computador que não seja o servidor de federação AD FS primário, execute o &lt;servidor AD FS primário&gt; Set-MSOLAdfscontext -Computer, onde &lt;servidor AD FS primário&gt; é o nome FQDN interno do servidor AD FS primário. Esse cmdlet cria um contexto que conecta você ao AD FS.
 5. Execute o &lt;domínio&gt; Update-MSOLFederatedDomain –DomainName. Esse cmdlet atualiza as configurações do AD FS no serviço de nuvem e configura a relação de confiança entre os dois.
 
 > [!NOTE]
-> Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção **SupportMultipleDomain** com todos os cmdlets. Para obter mais informações, veja [Suporte para vários domínios de nível superior](how-to-connect-install-multiple-domains.md).
+> Se você precisar oferecer suporte a vários domínios de nível superior, como o contoso.com e fabrikam.com, você deve usar a mudança **SupportMultipleDomain** com quaisquer cmdlets. Para obter mais informações, veja [Suporte para vários domínios de nível superior](how-to-connect-install-multiple-domains.md).
 >
 
 
-## Reparar a relação de confiança do Azure AD usando o Azure AD Connect <a name="connectrenew"></a>
+## <a name="repair-azure-ad-trust-by-using-azure-ad-connect"></a>Reparar a relação de confiança do Azure AD usando o Azure AD Connect <a name="connectrenew"></a>
 Se tiver configurado o farm do AD FS e a relação de confiança do Azure AD usando o Azure AD Connect, você poderá usar o Azure AD Connect para detectar se precisa realizar alguma ação para seus certificados de assinatura de token. Se precisar renovar os certificados, você poderá usar o Azure AD Connect para fazê-lo.
 
 Para obter mais informações, confira [Reparar a relação de confiança](how-to-connect-fed-management.md).

@@ -1,5 +1,5 @@
 ---
-title: Adicionar um submenu para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
+title: Adicionar um submenu à interface do usuário da solução de monitoramento remoto - Azure | Microsoft Docs
 description: Este artigo mostra como adicionar um novo submenu em uma página na interface da Web da web do acelerador de solução de monitoramento remoto.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447107"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um desdobrável personalizado à interface de usuário da web do acelerador de solução de monitoramento remoto
@@ -24,7 +24,7 @@ Este artigo mostra como adicionar um novo desdobrável em uma página na interfa
 
 O flyout de exemplo deste artigo é exibido na página com a grade que a seção [Adicionar uma grade personalizada ao artigo explicativo de UI da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-grid.md) mostra como adicionar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 
@@ -35,9 +35,9 @@ Para concluir as etapas neste guia de instruções, você precisa ter o seguinte
 
 Você deve concluir as etapas nos seguintes artigos antes de continuar:
 
-- [Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adicionar um serviço personalizado para o acelerador de solução de Monitoramento Remoto da IU da web](iot-accelerators-remote-monitoring-customize-service.md)
-- [Adicione uma grade personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-grid.md)
+- [Adicione uma página personalizada à ui web do acelerador de soluções de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md).
+- [Adicione um serviço personalizado à interface do usuário da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adicionar uma grade personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-grid.md)
 
 ## <a name="add-a-flyout"></a>Adicionar um submenu
 
@@ -133,7 +133,7 @@ Se a interface do usuário da web ainda não estiver em execução localmente, e
 npm start
 ```
 
-O comando anterior é executado localmente na interface do usuário [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Navegue até a **exemplo** da página e clique em **flutuante aberto**.
+O comando anterior executa a [http://localhost:3000/dashboard](http://localhost:3000/dashboard)ui localmente em . Navegue até a **exemplo** da página e clique em **flutuante aberto**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -141,4 +141,4 @@ Neste artigo, você aprendeu sobre os recursos disponíveis para ajudá-lo a adi
 
 Agora você definiu um submenu em uma página, a próxima etapa é [Adicionar um painel ao painel na IU da Web do acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-monitoring-customize-panel.md).
 
-Para obter mais informações conceituais sobre o Acelerador de solução de monitoramento remoto, consulte [arquitetura de monitoramento remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para obter mais informações conceituais sobre o acelerador da solução de Monitoramento Remoto, veja [Arquitetura de Monitoramento Remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md).

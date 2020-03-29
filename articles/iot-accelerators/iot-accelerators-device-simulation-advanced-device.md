@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61448967"
 ---
 # <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
@@ -22,11 +22,11 @@ Este guia prático descreve os arquivos JSON e JavaScript que definem um modelo 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir as etapas deste guia prático, você precisa de uma instância implantada do Device Simulation em sua assinatura do Azure.
 
-Se você ainda não implantou o Device Simulation, deverá concluir o [Implantar e executar uma simulação de dispositivo IoT no início rápido do Azure](quickstart-device-simulation-deploy.md).
+Se você ainda não implantou a Simulação de Dispositivo, conclua o início rápido [Implantar e executar uma simulação de dispositivo IoT no Azure](quickstart-device-simulation-deploy.md).
 
 ### <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
 
@@ -149,7 +149,7 @@ O serviço de simulação pode enviar vários tipos de telemetria para cada disp
 ],
 ```
 
-Os espaços reservados usam uma sintaxe especial **$ {NAME}** , onde **NAME** é uma chave do objeto de estado do dispositivo retornado pela função **principal** do JavaScript. As strings devem ser citadas, enquanto os números não devem.
+Os espaços reservados usam uma sintaxe especial **$ {NAME}**, onde **NAME** é uma chave do objeto de estado do dispositivo retornado pela função **principal** do JavaScript. As strings devem ser citadas, enquanto os números não devem.
 
 #### <a name="message-schema"></a>Esquema de mensagem
 
@@ -161,15 +161,15 @@ Os campos listados no esquema podem ser dos tipos a seguir:
 
 * Objeto - serializado usando JSON
 * Binário - serializado usando base64
-* Text
+* Texto
 * Boolean
-* Número inteiro
+* Integer
 * Double
-* DateTime
+* Datetime
 
 ### <a name="supported-methods"></a>Métodos com suporte
 
-Dispositivos simulados também podem reagir a chamadas de método, caso em que executam alguma lógica e fornecem alguma resposta. Da mesma forma que a simulação, a lógica do método é armazenada em um arquivo JavaScript e pode interagir com o estado do dispositivo. Por exemplo:
+Dispositivos simulados também podem reagir a chamadas de método, caso em que executam alguma lógica e fornecem alguma resposta. Da mesma forma que a simulação, a lógica do método é armazenada em um arquivo JavaScript e pode interagir com o estado do dispositivo. Por exemplo: 
 
 ```json
 "CloudToDeviceMethods": {
@@ -255,11 +255,11 @@ Os arquivos JavaScript devem ter uma função **principal**, que aceita dois par
 
 * Um **contexto** objeto que contém três propriedades:
     * **currentTime** como uma cadeia de caracteres com o formato **aaaa-MM-dd'T'HH: mm: sszzz**.
-    * **deviceId**. Por exemplo, **Simulated.Elevator.123**.
-    * **deviceModel**. Por exemplo, **elevador**.
+    * **dispositivoId**. Por exemplo, **Simulated.Elevator.123**.
+    * **dispositivoModelo**. Por exemplo, **elevador**.
 * Um **estado** objeto que é o valor retornado pela função na chamada anterior. Esse estado do dispositivo é mantido pelo serviço de simulação e usado para gerar mensagens de telemetria.
 
-A função **principal** retorna o novo estado do dispositivo. Por exemplo:
+A função **principal** retorna o novo estado do dispositivo. Por exemplo: 
 
 ```JavaScript
 function main(context, state) {
@@ -494,7 +494,7 @@ function main(context, state) {
 
 Para implantar seu modelo de dispositivo avançado, faça o upload dos arquivos da sua instância de Simulação do dispositivo:
 
-Selecione **Modelos de dispositivos** na barra de menus. A página **Modelos de dispositivos** lista os modelos de dispositivos disponíveis nesta instância da Simulação de dispositivos:
+Selecione **Modelos de dispositivo** na barra de menus. A página **Modelos de dispositivos** lista os modelos de dispositivos disponíveis nesta instância da Simulação de dispositivos:
 
 ![Modelos de dispositivo](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 

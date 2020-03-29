@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364298"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
@@ -85,7 +85,7 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 }
 ```
 
-| Seção | Nome do elemento | Description |
+| Seção | Nome do elemento | Descrição |
 | --- | --- | --- |
 | Configuração | ID | A ID do recurso da configuração de dimensionamento automático. As configurações de dimensionamento automático são um recurso do Azure Resource Manager. |
 | Configuração | name | O nome da configuração de dimensionamento automático. |
@@ -107,7 +107,7 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 | regra | scaleAction | A ação a ser executada quando o metricTrigger da regra for acionado. |
 | scaleAction | direction | "Increase" para escalar horizontalmente ou "Decrease" para reduzir horizontalmente.|
 | scaleAction | value | Quanto aumentar ou diminuir a capacidade do recurso. |
-| scaleAction | cooldown | O período de tempo a esperar após uma operação de dimensionamento antes de escalonar novamente. Por exemplo, se **cooldown = “PT10M”** , a Autoescala não tentará escalonar novamente nos próximos 10 minutos. O resfriamento deve permitir que as métricas se estabilizem após a adição ou a remoção de instâncias. |
+| scaleAction | cooldown | O período de tempo a esperar após uma operação de dimensionamento antes de escalonar novamente. Por exemplo, se **cooldown = “PT10M”**, a Autoescala não tentará escalonar novamente nos próximos 10 minutos. O resfriamento deve permitir que as métricas se estabilizem após a adição ou a remoção de instâncias. |
 
 ## <a name="autoscale-profiles"></a>Perfis de dimensionamento automático
 
@@ -286,24 +286,24 @@ A Autoescala usa a seguinte sequência para escolher o perfil:
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Como o dimensionamento automático avalia várias regras?
 
-Depois que a Autoescala determina qual perfil executar, ela avalia todas as regras para escalar horizontalmente no perfil (essas são regras com **direction = “Increase”** ).
+Depois que a Autoescala determina qual perfil executar, ela avalia todas as regras para escalar horizontalmente no perfil (essas são regras com **direction = “Increase”**).
 
 Se uma ou mais regras para escalar horizontalmente forem acionadas, a Autoescala calculará a nova capacidade determinada pela **scaleAction** de cada uma dessas regras. Então, ela escalará horizontalmente até o máximo dessas capacidades para garantir a disponibilidade do serviço.
 
 Por exemplo, digamos que há um conjunto de dimensionamento de máquinas virtuais com uma capacidade atual de 10. Há duas regras de escalonamento horizontal: uma que aumenta a capacidade em 10% e outra que aumenta 3 pontos na capacidade. A primeira regra resultará em uma nova capacidade igual a 11 e a segunda regra resultará em uma capacidade igual a 13. Para garantir a disponibilidade do serviço, a Autoescala escolhe a ação que resulta na capacidade máxima, portanto, a segunda regra é escolhida.
 
-Se nenhuma regra para escalar horizontalmente for acionada, a Autoescala avaliará todas as regras para reduzir horizontalmente (regras com **direction = “Decrease”** ). O dimensionamento automático só executará uma ação de redução se todas as regras para reduzir forem acionadas.
+Se nenhuma regra para escalar horizontalmente for acionada, a Autoescala avaliará todas as regras para reduzir horizontalmente (regras com **direction = “Decrease”**). O dimensionamento automático só executará uma ação de redução se todas as regras para reduzir forem acionadas.
 
 A Autoescala calculará a nova capacidade determinada pela **scaleAction** de cada uma dessas regras. Em seguida, ele escolherá a ação de dimensionamento que resultará no máximo dessas capacidades para garantir a disponibilidade do serviço.
 
 Por exemplo, digamos que há um conjunto de dimensionamento de máquinas virtuais com uma capacidade atual de 10. Há duas regras de redução horizontal: uma que reduz a capacidade em 50% e outra que diminui 3 pontos na capacidade. A primeira regra resultará em uma nova capacidade igual a 5 e a segunda regra resultará em uma capacidade igual a 7. Para garantir a disponibilidade do serviço, a Autoescala escolhe a ação que resulta na capacidade máxima, portanto, a segunda regra é escolhida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a Autoescala consultando o seguinte:
 
-* [Visão geral do dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md)
+* [Visão geral da escala automática](../../azure-monitor/platform/autoscale-overview.md)
 * [Métricas comuns de dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Práticas recomendadas para dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Use ações de autoescala para enviar notificações de alerta de e-mail e webhook](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
 

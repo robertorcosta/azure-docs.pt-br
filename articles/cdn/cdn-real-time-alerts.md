@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593472"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas em tempo real na CDN do Microsoft Azure
@@ -30,10 +30,10 @@ Este documento explica os alertas em tempo real na CDN do Microsoft Azure. Essa 
 * Largura de banda
 * Códigos de status
 * Status do Cache
-* Conexões
+* conexões
 
 ## <a name="creating-a-real-time-alert"></a>Criar um alerta em tempo real
-1. No [Portal do Azure](https://portal.azure.com), navegue para seu perfil CDN.
+1. No [portal Azure,](https://portal.azure.com)navegue pelo seu perfil de CDN.
    
     ![Perfil CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
 1. Na folha do perfil do CDN, clique no botão **Gerenciar** .
@@ -110,5 +110,5 @@ Este documento explica os alertas em tempo real na CDN do Microsoft Azure. Essa 
 ## <a name="next-steps"></a>Próximas etapas
 * Analisar [estatísticas em tempo real na CDN do Azure](cdn-real-time-stats.md)
 * Saiba mais com os [relatórios HTTP avançados](cdn-advanced-http-reports.md)
-* Analisar os [padrões de uso](cdn-analyze-usage-patterns.md)
+* Analisar [padrões de uso](cdn-analyze-usage-patterns.md)
 

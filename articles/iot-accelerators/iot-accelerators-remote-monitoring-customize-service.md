@@ -1,5 +1,5 @@
 ---
-title: Adicionar um serviço para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
+title: Adicione um serviço à solução de monitoramento remoto da interface do usuário – Azure | Microsoft Docs
 description: Este artigo mostra como adicionar um novo serviço na interface do usuário Web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447039"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um serviço personalizado à interface do usuário da Web do acelerador de solução de Monitoramento Remoto
@@ -26,7 +26,7 @@ O serviço de exemplo deste artigo fornece os dados para uma grade que a seção
 
 Em um aplicativo React, um serviço normalmente interage com um serviço de back-end. Exemplos no acelerador de solução de Monitoramento Remoto incluem serviços que interagem com o gerenciador do hub IoT e microsserviços de configuração.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 

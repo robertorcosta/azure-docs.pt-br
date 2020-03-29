@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de gateway e conexões de VNET – API REST do Azure
+title: Solução de problemas VNET Gateway e Conexões - API Azure REST
 titleSuffix: Azure Network Watcher
 description: Esta página explica como solucionar problemas de conexões e gateways de rede virtual com o observador de rede do Azure usando a REST
 services: network-watcher
@@ -13,25 +13,25 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: ab9f7fd95d7081b66e05dfd3d6a5ef47eb3c4053
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840665"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o observador de rede do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
-> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI do Azure](network-watcher-troubleshoot-manage-cli.md)
+> - [Powershell](network-watcher-troubleshoot-manage-powershell.md)
+> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 O observador de rede oferece muitos recursos que dizem respeito às noções básicas sobre os recursos de rede no Azure. Um desses recursos é a solução de problemas de recursos. A solução de problemas de recursos pode ser chamada pelo Portal, pelo PowerShell, pela CLI ou pela API REST. Quando chamado, o Observador de rede inspeciona a integridade de uma conexão ou um gateway de rede virtual e faz um relatório sobre suas descobertas.
 
 Neste artigo, você conhecerá as diferentes tarefas de gerenciamento que estão disponíveis para a solução de problemas de recursos.
 
-- [**Solução de problemas de um gateway de rede virtual**](#troubleshoot-a-virtual-network-gateway)
+- [**Solucionar problemas de um gateway de rede virtual**](#troubleshoot-a-virtual-network-gateway)
 - [**Como solucionar problemas de uma conexão**](#troubleshoot-connections)
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -42,7 +42,7 @@ Este cenário pressupõe que você seguiu as etapas em [Criação de um Observad
 
 Para obter uma lista de tipos de gateway com suporte, visite [Tipos de Gateway com suporte](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 A solução de problemas do observador de rede fornece a capacidade de solucionar problemas que podem surgir com as conexões e os gateways de rede virtual. Quando se faz uma solicitação para a solução de problemas de recursos, os logs são consultados e inspecionados. Quando a inspeção estiver concluída, você receberá um relatório com os resultados. As solicitações de API de solução de problemas são solicitações de execução longa e podem demorar para gerar um resultado. Os logs são armazenados em um contêiner em uma conta de armazenamento.
 
@@ -123,7 +123,7 @@ Enquanto a operação está em andamento, a resposta mostra **InProgress** confo
 }
 ```
 
-Quando a operação estiver concluída o status será alterado para **Succeeded**.
+Quando a operação estiver concluída, o status muda para **Sucesso**.
 
 ```json
 {
@@ -323,8 +323,8 @@ is a transient state while the Azure platform is being updated.",
 
 O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento acesse o link: [Gerenciador de armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/manage-network-security-group.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
