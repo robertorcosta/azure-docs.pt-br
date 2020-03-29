@@ -1,6 +1,6 @@
 ---
-title: Medidas de Usuário Reais com páginas da Web-Gerenciador de tráfego do Azure
-description: Neste artigo, saiba como configurar suas páginas da Web para enviar Medidas de Usuário Reais para o Gerenciador de tráfego do Azure.
+title: Medições reais do usuário com páginas da Web - Azure Traffic Manager
+description: Neste artigo, saiba como configurar suas páginas da Web para enviar medições reais do usuário para o Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 927d774ee30a291607a8a47fc2fd6878c1bc6fee
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938692"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar as Medidas Reais de Usuário para o Gerenciador de Tráfego do Azure usando páginas da Web
@@ -26,7 +26,7 @@ Você pode configurar suas páginas da Web para enviar as Medidas Reais de Usuá
 
 ## <a name="obtain-a-real-user-measurements-key"></a>Obter uma chave de Medidas Reais de Usuário
 
-As medidas obtidas e enviadas para o Gerenciador de Tráfego do aplicativo cliente são identificadas pelo serviço usando uma cadeia de caracteres exclusiva, chamada de **Chave de RUM (Medidas Reais de Usuário)** . Você pode obter uma chave de RUM usando o portal do Azure, uma API REST ou a CLI do Azure ou do PowerShell.
+As medidas obtidas e enviadas para o Gerenciador de Tráfego do aplicativo cliente são identificadas pelo serviço usando uma cadeia de caracteres exclusiva, chamada de **Chave de RUM (Medidas Reais de Usuário)**. Você pode obter uma chave de RUM usando o portal do Azure, uma API REST ou a CLI do Azure ou do PowerShell.
 
 Para obter a chave de RUM usando o portal do Azure:
 1. Em um navegador, entre no portal do Azure. Se você ainda não tiver uma conta, inscreva-se para uma avaliação gratuita de um mês.
@@ -64,9 +64,9 @@ Depois de obter a chave de RUM, a próxima etapa será inserir esse JavaScript c
 4. Na próxima vez em que essa página for renderizada em um navegador da Web, o JavaScript referenciado será baixado e o script executará as operações de medição e relatórios.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [Medidas Reais de Usuário](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
-- Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil de Gerenciador de Tráfego](traffic-manager-create-profile.md)
 

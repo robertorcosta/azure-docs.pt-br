@@ -1,5 +1,5 @@
 ---
-title: Fluxos de trabalho do Apache Oozie & segurança corporativa-Azure HDInsight
+title: Fluxos de trabalho Apache Oozie & Enterprise Security - Azure HDInsight
 description: Proteja os fluxos de trabalho do Apache Oozie usando o Enterprise Security Package do Azure HDInsight. Saiba como definir um fluxo de trabalho do Oozie e enviar um trabalho do Oozie.
 author: omidm1
 ms.author: omidm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/09/2019
 ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194896"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Executar o Apache Oozie em clusters do HDInsight Hadoop com o Enterprise Security Package
@@ -31,7 +31,7 @@ Você também pode usar o Oozie para agendar trabalhos específicos para um sist
 Um cluster do Azure HDInsight Hadoop com o ESP (Enterprise Security Package). Confira [Configurar clusters do HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
 > [!NOTE]  
-> Para obter instruções detalhadas sobre como usar o Oozie em clusters não-ESP, consulte [usar fluxos de trabalho do Apache Oozie no Azure HDInsight baseado em Linux](../hdinsight-use-oozie-linux-mac.md).
+> Para obter instruções detalhadas sobre como usar o Oozie em clusters não-ESP, consulte [Use fluxos de trabalho Apache Oozie no Azure HDInsight baseado em Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="connect-to-an-esp-cluster"></a>Conectar a um cluster ESP
 
@@ -69,7 +69,7 @@ As definições de fluxos de trabalho do Oozie estão gravadas em Apache Hadoop 
 
    Substitua `DomainUser` pelo nome de usuário de domínio.
    Substitua `DomainUserPath` pelo caminho do diretório base do usuário de domínio.
-   Substitua `ClusterVersion` pela sua versão da plataforma de dados do cluster.
+   Substitua pela `ClusterVersion` versão da plataforma de dados de cluster.
 
 2. Use a instrução a seguir para criar e editar um novo arquivo:
 
@@ -178,17 +178,17 @@ As definições de fluxos de trabalho do Oozie estão gravadas em Apache Hadoop 
 
 4. Substitua `clustername` pelo nome do cluster.
 
-5. Para salvar o arquivo, selecione **Ctrl + X**. Digite **Y**. Em seguida, selecione **Enter**.
+5. Para salvar o arquivo, selecione **Ctrl+X**. Digite **Y**. Em seguida, **selecione Enter**.
 
     O fluxo de trabalho é dividido em duas partes:
 
-   - **Provedores.** Essa seção de credenciais usa as credenciais que serão usadas para autenticar as ações do Oozie:
+   - **Credencial.** Essa seção de credenciais usa as credenciais que serão usadas para autenticar as ações do Oozie:
 
      Esse exemplo usa autenticação para as ações do Hive. Para saber mais, veja [Autenticação de Usuário](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
      O serviço de credenciais permite que as ações do Oozie representem o usuário para acessar os serviços do Hadoop.
 
-   - **Action.** Esta seção tem três ações: redução de mapa, Hive server 2 e o servidor Hive 1:
+   - **Ação.** Esta seção tem três ações: redução de mapa, Hive server 2 e o servidor Hive 1:
 
      - A ação do map-reduce executa um exemplo de um pacote Oozie para o map-reduce que sai da contagem de palavra agregada.
 
@@ -230,7 +230,7 @@ As definições de fluxos de trabalho do Oozie estão gravadas em Apache Hadoop 
    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   - Use o URI `adl://home` para a propriedade `nameNode` se você tiver o Azure Data Lake Storage Gen1 como armazenamento de cluster principal. Se você estiver usando o armazenamento de BLOBs do Azure, altere-o para `wasb://home`. Se você estiver usando Azure Data Lake Storage Gen2, altere para `abfs://home`.
+   - Use o URI `adl://home` para a propriedade `nameNode` se você tiver o Azure Data Lake Storage Gen1 como armazenamento de cluster principal. Se você estiver usando o Azure Blob `wasb://home`Storage, mude isso para . Se você estiver usando o Azure Data Lake `abfs://home`Storage Gen2, mude isso para .
    - Substitua `domainuser` por seu nome de usuário para o domínio.  
    - Substitua `ClusterShortName` pelo nome curto para o cluster. Por exemplo, se o nome do cluster for https:// *[link do exemplo]* sechadoopcontoso.azurehdisnight.net, o `clustershortname` é os primeiro de seis caracteres do cluster: **sechad**.  
    - Substitua `jdbcurlvalue` pela URL JDBC da configuração do Hive. Por exemplo, jdbc:hive2://headnodehost:10001/;transportMode=http.
@@ -347,5 +347,5 @@ A IU da Web do Oozie fornece um modo de exibição baseado na web sobre o status
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux](../hdinsight-use-oozie-linux-mac.md).
+- [Use o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux](../hdinsight-use-oozie-linux-mac.md).
 - [Conectar ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

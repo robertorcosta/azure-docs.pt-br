@@ -8,10 +8,10 @@ ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277767"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(PRETERIDO) Monitorar um cluster do Serviço de Contêiner do Azure com ELK
@@ -28,11 +28,11 @@ Neste artigo, demonstraremos como implantar a pilha ELK (Elasticsearch, Logstash
 ELK pilha é uma combinação de Elasticsearch, Logstash e Kibana que fornece uma pilha de ponta a ponta que pode ser usada para monitorar e analisar os logs no cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configurar a pilha ELK em um cluster de DC/sistema operacional
-Acessar a interface do usuário do DC/sistema operacional por meio de [http://localhost:80/](http://localhost:80/) uma vez na interface do usuário do controlador de domínio/sistema operacional, navegue até **Universo**. Pesquisar e instalar Elasticsearch, Logstash e Kibana do universo DC/sistema operacional e em que ordem específica. Você pode aprender mais sobre a configuração se você for para o **instalação avançada** link.
+Acesse sua UI DC/OS via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navegar para o **Universo**. Pesquisar e instalar Elasticsearch, Logstash e Kibana do universo DC/sistema operacional e em que ordem específica. Você pode aprender mais sobre a configuração se você for para o **instalação avançada** link.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
-Uma vez os contêineres ELK e está em funcionamento, você precisa habilitar Kibana para serem acessados pelo maratona LB. Navegue até **Serviços** > **kibana**e clique em **Editar** conforme mostrado abaixo.
+Uma vez os contêineres ELK e está em funcionamento, você precisa habilitar Kibana para serem acessados pelo maratona LB. Navegue até **serviços** > **kibana**e clique **em Editar** como mostrado abaixo.
 
 ![ELK4](./media/container-service-monitoring-elk/elk4.PNG)
 
@@ -56,7 +56,7 @@ Depois que você navegue até a URL, você deve ver o painel HAPROXY, conforme m
 
 Para acessar o painel de Kibana, que é implantado na porta 5601, você precisa abrir a porta 5601. Siga as instruções [aqui](container-service-enable-public-access.md). Abra o painel de Kibana em: `http://localhost:5601`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para configuração e encaminhamento de log de aplicativo e sistema, confira [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/) (Gerenciamento de Log no DC/SO com ELK).
 

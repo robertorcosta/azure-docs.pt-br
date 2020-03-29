@@ -1,15 +1,15 @@
 ---
-title: 'Capacidade de teste: comunicação de serviço'
+title: 'Testability: Comunicação de serviço'
 description: As comunicação entre serviços é um ponto de integração essencial de um aplicativo da Malha do Serviço. Este artigo aborda as considerações de design e as técnicas de teste.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465554"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de Possibilidade de Teste do Service Fabric: Comunicação do serviço
@@ -35,7 +35,7 @@ As instâncias do serviço podem se movimentar com o tempo. Isso acontece especi
 
 A manipulação tranquila desses cenários é importante para um sistema em execução adequada. Para fazer isso, lembre-se que:
 
-* Todos os serviços aos quais é possível se conectar têm um *endereço* no qual escutam (por exemplo, HTTP ou WebSockets). Quando uma instância de serviço ou partição se move, altera seu ponto de extremidade do endereço. (Ele se move para um nó diferente com um endereço IP diferente.) Se você estiver usando os componentes de comunicação internos, eles tratarão de reresolver os endereços de serviço para você.
+* Todos os serviços aos quais é possível se conectar têm um *endereço* no qual escutam (por exemplo, HTTP ou WebSockets). Quando uma instância de serviço ou partição se move, altera seu ponto de extremidade do endereço. (Ele se move para um nó diferente com um endereço IP diferente.) Se você estiver usando os componentes de comunicação incorporados, eles lidarão com a reresolução de endereços de serviço para você.
 * Pode haver um aumento temporário na latência do serviço à medida que a instância do serviço começa sua escuta novamente. Isso depende da rapidez com que serviço abre após a movimentação da instância do serviço.
 * Quaisquer conexões existentes precisam ser fechadas e reabertas quando o serviço for aberto em um novo nó. Um desligamento ou reinicialização de nó proporciona tempo para o desligamento correto das conexões existentes.
 
@@ -81,7 +81,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 Neste exemplo, definimos `QuorumLossMode` como `QuorumReplicas` para indicar que desejamos induzir perda de quórum sem interromper todas as réplicas. Dessa forma, as operações de leitura ainda são possíveis. Para testar um cenário no qual uma partição inteira não está disponível, você pode definir essa opção como `AllReplicas`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre as ações de possibilidade de teste](service-fabric-testability-actions.md)
 
 [Saiba mais sobre os cenários de possibilidade de teste](service-fabric-testability-scenarios.md)

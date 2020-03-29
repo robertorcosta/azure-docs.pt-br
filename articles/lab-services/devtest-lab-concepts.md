@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75428911"
 ---
-# <a name="devtest-labs-concepts"></a>Conceitos dos DevTest Labs
-## <a name="overview"></a>Visão Geral
+# <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
+## <a name="overview"></a>Visão geral
 A lista a seguir contém as principais definições e conceitos dos Laboratórios de Desenvolvimento/Teste:
 
 ## <a name="labs"></a>Laboratórios
@@ -44,7 +44,7 @@ No DevTest Labs, um ambiente refere-se a uma coleção de recursos do Azure em u
 ## <a name="base-images"></a>Imagens base
 Imagens base são imagens de VM com todas as ferramentas e configurações pré-instaladas e configuradas para criar uma VM rapidamente. Você pode provisionar uma VM escolhendo uma base existente e adicionando um artefato para instalar o agente de teste. Você pode salvar a VM provisionada como base para que a base possa ser usada sem precisar reinstalar o agente de teste para cada provisionamento da VM.
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>Artefatos
 Artefatos são usados para implantar e configurar seu aplicativo após o provisionamento de uma VM. Os artefatos podem ser:
 
 * Ferramentas que você deseja instalar na VM, por exemplo, agentes, Fiddler e Visual Studio.
@@ -89,5 +89,5 @@ Todos os conceitos discutidos neste artigo podem ser configurados usando modelos
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Criar um laboratório no DevTest Labs](devtest-lab-create-lab.md)

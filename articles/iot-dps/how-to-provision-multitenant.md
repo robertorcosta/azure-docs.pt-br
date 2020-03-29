@@ -1,6 +1,6 @@
 ---
-title: Como provisionar dispositivos para multilocação no serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como provisionar dispositivos para multilocação com sua instância do serviço de provisionamento de dispositivos (DPS)
+title: Como provisionar dispositivos para multi-locação no Serviço de Provisionamento de Dispositivos Hub Azure IoT
+description: Como provisionar dispositivos para multilocação com a instância do DPS (Device Provisioning Service, serviço de provisionamento de dispositivos)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75434746"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
@@ -131,7 +131,7 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
     **--nome**: insira um nome exclusivo para seu dispositivo regional VM no **Leste dos EUA**. 
 
-    **nome de usuário-admin-** : usar seu próprio nome de usuário administrador.
+    **nome de usuário-admin-**: usar seu próprio nome de usuário administrador.
 
     **-- admin-password**: Use sua própria senha de administrador.
 
@@ -152,7 +152,7 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
     **--nome**: insira um nome exclusivo para seu dispositivo regional VM no **Oeste dos EUA**. 
 
-    **nome de usuário-admin-** : usar seu próprio nome de usuário administrador.
+    **nome de usuário-admin-**: usar seu próprio nome de usuário administrador.
 
     **-- admin-password**: Use sua própria senha de administrador.
 
@@ -191,16 +191,16 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exemplo que simulará a configuração de cada região do dispositivo de um locatário.
 
-1. Para cada VM, instale **CMake**, **g + +** , **gcc**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
+1. Para cada VM, instale **CMake,** **g++**, **gcc**e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
-1. Localize o nome da marca para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
+1. Localize o nome da tag para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
 
-1. Clone o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) em ambas as VMs.  Use a marca que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
+1. Clone o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) em ambas as VMs.  Use a tag que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
 
     ```bash
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -300,7 +300,7 @@ Nesta seção, você atualizará um exemplo de provisionamento no SDK de C do Io
 
 Esse código de exemplo simula uma sequência de inicialização do dispositivo que envia a solicitação de provisionamento à sua instância do Serviço de Provisionamento de Dispositivos. A sequência de inicialização fará com que o dispositivo seja reconhecido e atribuído ao Hub IoT que esteja mais próximo baseado em latência.
 
-1. No portal do Azure, selecione a guia **Visão Geral** de seu serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_** .
+1. No portal do Azure, selecione a guia **Visão Geral** de seu serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_**.
 
     ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo na folha do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -398,7 +398,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Caso planeje continuar a trabalhar com recursos criados neste artigo, você pode mantê-los. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este artigo, a fim de evitar alterações desnecessárias.
 
@@ -412,16 +412,16 @@ Para excluir o grupo de recursos por nome:
 
 1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-2. Na caixa de texto **Filtrar por nome...** , digite o nome do grupo de recursos que contém seus recursos, **contoso-us-resource-group**. 
+2. Na caixa de texto **Filtrar por nome...**, digite o nome do grupo de recursos que contém seus recursos, **contoso-us-resource-group**. 
 
-3. À direita do seu grupo de recursos, na lista de resultados, clique em **...** , depois em **Excluir grupo de recursos**.
+3. À direita do seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
 
 4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
-- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
+- Para saber mais Reprovisionamento, consulte conceitos de [reprovisionamento do Dispositivo Hub IoT](concepts-device-reprovision.md) 
+- Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram provisionados automaticamente](how-to-unprovision-devices.md) 
 
 
 

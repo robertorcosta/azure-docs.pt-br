@@ -1,15 +1,15 @@
 ---
-title: CLI do Azure Service Fabric-serviço de malha sfctl-réplica
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter detalhes da réplica para os recursos do aplicativo.
+title: Azure Service Fabric CLI-sfctl mesh service-replica
+description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter detalhes de réplica para os recursos de um aplicativo.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: ac604ec0a854964746ef34627b054e853662265f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905944"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
@@ -17,7 +17,7 @@ Obtenha detalhes da réplica e listar as réplicas de um determinado serviço em
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
 | list | Lista todas as réplicas de um serviço. |
 | mostrar | Obtém a réplica fornecida do serviço de um aplicativo. |
@@ -29,14 +29,14 @@ Obtém as informações sobre todas as replicas de um serviço. As informações
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --app-name --application-name [Obrigatório] | O nome do aplicativo. |
 | --service-name                [Obrigatório] | O nome do serviço. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -51,7 +51,7 @@ Obtém as informações sobre a réplica do serviço com o nome fornecido. As in
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --app-name --application-name [Obrigatório] | O nome do aplicativo. |
 | --name -n                     [Obrigatório] | O nome da réplica do serviço. |
@@ -59,7 +59,7 @@ Obtém as informações sobre a réplica do serviço com o nome fornecido. As in
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -68,6 +68,6 @@ Obtém as informações sobre a réplica do serviço com o nome fornecido. As in
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximos passos
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
+## <a name="next-steps"></a>Próximas etapas
+- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -1,5 +1,5 @@
 ---
-title: Carregar arquivo VHD para Azure DevTest Labs usando Gerenciador de Armazenamento
+title: Carregue o arquivo VHD para a Azure DevTest Labs usando o Storage Explorer
 description: Carregar o arquivo VHD na conta de armazenamento do laboratório usando o Explorer do Armazenamento do Microsoft Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76170366"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carregar o arquivo VHD na conta de armazenamento do laboratório usando o Explorer do Armazenamento do Microsoft Azure
@@ -35,17 +35,17 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
 
 1. Obtenha o nome da conta de armazenamento do laboratório usando o Portal do Azure:
 
-    1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
-    1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+    1. Selecione **Todos os serviços**e selecione **DevTest Labs** na lista.
     
     1. Na lista de laboratórios, selecione o laboratório desejado.  
     
     1. Na folha do laboratório, selecione **Configuração**. 
     
-    1. Na folha **Configuração** do laboratório, selecione **Imagens personalizadas (VHDs)** .
+    1. Na folha **Configuração** do laboratório, selecione **Imagens personalizadas (VHDs)**.
     
-    1. Na folha **Imagens personalizadas**, selecione **+Adicionar**. 
+    1. Na **lâmina de imagens personalizadas,** Selecione **+Adicionar**. 
     
     1. Na folha **Imagem personalizada**, selecione **VHD**.
     
@@ -103,7 +103,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
         
         ![Botão Carregar][6]
     
-    1. No menu suspenso **Carregar**, escolha **Carregar arquivos...** .
+    1. No menu suspenso **Carregar**, escolha **Carregar arquivos...**.
     
     1. Na caixa de diálogo **Carregar arquivos**, escolha as reticências.
         
@@ -113,7 +113,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
     
     1. Quando retornar para a caixa de diálogo **Carregar arquivos**, altere **Tipo de blob** para **Blob de páginas**.
     
-    1. Escolha **Carregar**.
+    1. Selecione **Carregar**.
 
         ![Escolher arquivo][9]  
     
@@ -121,7 +121,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
 
         ![Status de carregamento do arquivo][10]  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o Portal do Azure](devtest-lab-create-template.md)
 - [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

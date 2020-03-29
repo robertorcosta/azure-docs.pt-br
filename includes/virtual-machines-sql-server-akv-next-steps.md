@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171872"
 ---
 ## <a name="next-steps"></a>Próximas etapas
@@ -17,7 +17,7 @@ Depois de habilitar a integração do Cofre da Chave do Azure, você poderá hab
 
 Há várias formas de criptografia das quais você pode tirar proveito:
 
-* [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Criptografia de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Backups criptografados](https://msdn.microsoft.com/library/dn449489.aspx)
 * [Criptografia de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
@@ -50,7 +50,7 @@ WITH PROVIDER_KEY_NAME = 'KeyName_in_KeyVault',  --The key name here requires th
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
+### <a name="transparent-data-encryption-tde"></a>Criptografia de Dados Transparente (TDE)
 
 1. Crie um logon do SQL Server que será usado pelo Mecanismo de banco de dados para TDE e adicione a credencial a ele.
 

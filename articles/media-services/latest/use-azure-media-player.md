@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
 ms.openlocfilehash: d9e42e809443a2dd6cdeb989f692b96d63269f79
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673572"
 ---
 # <a name="azure-media-player-overview"></a>Visão geral do Player de Mídia do Azure
@@ -25,7 +25,7 @@ O Player de Mídia do Azure é um player de vídeo da Web criado para reproduzir
 Os Serviços de Mídia do Microsoft Azure permitem que o conteúdo seja fornecido com os formatos de streaming DASH, Smooth Streaming e HLS para reprodução de conteúdo. O Player de Mídia do Azure leva em conta esses vários formatos e executa automaticamente o melhor link com base nos recursos da plataforma/navegador. Os Serviços de Mídia também permitem a criptografia dinâmica de ativos com criptografia PlayReady ou criptografia de envelope de 128 bits AES. O Player de Mídia do Azure permite a descriptografia do conteúdo criptografado com PlayReady e AES de 128 bits, quando configurado adequadamente. 
 
 > [!NOTE]
-> A reprodução de HTTPS é necessária para conteúdo criptografado Widevine.
+> A reprodução HTTPS é necessária para conteúdo criptografado Widevine.
 
 ## <a name="use-azure-media-player-demo-page"></a>Use a página de demonstração do Player de Mídia do Azure
 
@@ -55,5 +55,5 @@ O Player de Mídia do Azure é fácil de configurar. São necessários apenas al
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Documentação do Player de Mídia do Azure](https://aka.ms/ampdocs)
+- [Documentação do Azure Media Player](https://aka.ms/ampdocs)
 - [Amostras do Player de Mídia do Azure](https://aka.ms/ampsamples)

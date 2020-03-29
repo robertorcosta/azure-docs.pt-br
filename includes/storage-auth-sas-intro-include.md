@@ -9,17 +9,17 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75371762"
 ---
-Uma SAS (assinatura de acesso compartilhado) permite que você conceda acesso limitado a contêineres e blobs em sua conta de armazenamento. Ao criar uma SAS, você especifica suas restrições, incluindo quais recursos de armazenamento do Azure um cliente tem permissão para acessar, quais permissões eles têm nesses recursos e por quanto tempo a SAS é válida.
+Uma assinatura de acesso compartilhado (SAS) permite que você conceda acesso limitado a contêineres e blobs em sua conta de armazenamento. Quando você cria um SAS, você especifica suas restrições, incluindo quais recursos do Azure Storage um cliente pode acessar, quais permissões eles têm sobre esses recursos e quanto tempo o SAS é válido.
 
-Cada SAS é assinada com uma chave. Você pode assinar uma SAS de uma das duas maneiras:
+Toda SAS é assinada com uma chave. Você pode assinar um SAS de duas maneiras:
 
-- Com uma chave criada usando as credenciais do Azure Active Directory (AD do Azure). Uma SAS que é assinada com as credenciais do Azure AD é uma SAS de *delegação de usuário* .
-- Com a chave da conta de armazenamento. Uma *SAS de serviço* e uma *SAS de conta* são assinadas com a chave da conta de armazenamento.
+- Com uma chave criada usando credenciais do Azure Active Directory (Azure AD). Um SAS que é assinado com credenciais Azure AD é uma *delegação de usuários* SAS.
+- Com a chave da conta de armazenamento. Tanto um *SAS de serviço* quanto um *SAS de conta* são assinados com a chave da conta de armazenamento.
 
-Uma SAS de delegação de usuário oferece segurança superior a uma SAS que é assinada com a chave da conta de armazenamento. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível. Para obter mais informações, consulte [conceder acesso limitado a dados com SAS (assinaturas de acesso compartilhado)](../articles/storage/common/storage-sas-overview.md).
+Uma delegação de usuários SAS oferece segurança superior a um SAS que é assinado com a chave da conta de armazenamento. A Microsoft recomenda o uso de uma delegação de usuários SAS quando possível. Para obter mais informações, consulte [Grant acesso limitado a dados com assinaturas de acesso compartilhado (SAS)](../articles/storage/common/storage-sas-overview.md).

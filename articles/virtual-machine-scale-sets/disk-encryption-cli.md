@@ -1,5 +1,5 @@
 ---
-title: Criptografar discos para conjuntos de dimensionamento do Azure com CLI do Azure
+title: Criptografar discos para conjuntos de escala do Azure com o Azure CLI
 description: Saiba como usar o Azure PowerShell para criptografar as instâncias de VM e discos conectados em conjuntos de escala de máquinas virtuais do Windows
 author: msmbaldwin
 manager: rkarlin
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279069"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografar o sistema operacional e OS discos de dados anexados em um conjunto de dimensionamento de máquinas virtuais com o CLI do Azure
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografar os discos de dados e anexar o sistema operacional em uma escala de máquina virtual com o Cli do Azure
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia de início rápido mostra como usar o CLI do Azure para criar e criptografar um conjunto de dimensionamento de máquinas virtuais. Para obter mais informações sobre como aplicar a criptografia de disco do Azure a um conjunto de dimensionamento de máquinas virtuais, consulte [Azure Disk Encryption para conjuntos de dimensionamento de máquinas virtuais](disk-encryption-overview.md).
+A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este quickstart mostra como usar o Azure CLI para criar e criptografar um conjunto de escala de máquina virtual. Para obter mais informações sobre a aplicação da criptografia de disco Azure a um conjunto de escalas de máquina virtual, consulte [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de escala
 
-Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Antes de criar uma máquina virtual, crie um grupo de recursos com o [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -104,9 +104,9 @@ Pode levar um minuto ou dois para iniciar o processo de criptografia.
 
 Como o conjunto de dimensionamento atualiza a política no conjunto de dimensionamento criado em uma etapa anterior definida como *automática*, as instâncias de VM iniciam automaticamente o processo de criptografia. Em conjuntos de dimensionamento em que a política de atualização é manual, inicie a política de criptografia nas instâncias de VM com [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Habilitar criptografia usando KEK para encapsular a chave
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Habilite a criptografia usando o KEK para envolver a chave
 
-Você também pode usar uma chave de criptografia de chave para aumentar a segurança ao criptografar o conjunto de dimensionamento de máquinas virtuais.
+Você também pode usar uma chave de criptografia para maior segurança ao criptografar o conjunto de escalas de máquina virtual.
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -123,10 +123,10 @@ az vmss encryption enable \
 ```
 
 > [!NOTE]
->  A sintaxe para o valor do parâmetro Disk-Encryption-keyvault é a cadeia de caracteres do identificador completo:</br>
-/subscriptions/[Subscription-ID-GUID]/resourceGroups/[nome-do-grupo-de-recursos]/providers/Microsoft.KeyVault/vaults/[keyvault-nome]</br></br>
-> A sintaxe para o valor do parâmetro Key-Encryption-Key é o URI completo para o KEK como em:</br>
-https://[keyvault-Name]. Vault. Azure. net/Keys/[kekname]/[Kek-Unique-ID]
+>  A sintaxe para o valor do parâmetro disk-encryption-keyvault é a seqüência de identificadores completos:</br>
+/assinaturas/[assinatura-id-guid]/resourceGroups/[resource-group-name]/providerss/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> A sintaxe para o valor do parâmetro chave-chave-chave é o URI completo para o KEK como em:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>Verificar o andamento da criptografia
 
@@ -171,8 +171,8 @@ Se você não quiser mais usar discos de instâncias de VM criptografadas, você
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Neste artigo, você usou a CLI do Azure para criptografar um conjunto de dimensionamento de máquinas virtuais. Você também pode usar modelos de [Azure PowerShell](disk-encryption-powershell.md) ou [Azure Resource Manager](disk-encryption-azure-resource-manager.md).
-- Se desejar ter Azure Disk Encryption aplicado depois que outra extensão for provisionada, você poderá usar o [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md). 
+- Neste artigo, você usou a CLI do Azure para criptografar um conjunto de dimensionamento de máquinas virtuais. Você também pode usar [modelos do Azure PowerShell](disk-encryption-powershell.md) ou [do Azure Resource Manager](disk-encryption-azure-resource-manager.md).
+- Se você deseja ter a Criptografia de Disco Azure aplicada após a criptografia de outra extensão ser provisionada, você pode usar [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md). 
 - Um exemplo de arquivo em lotes de ponta a ponta para criptografia de disco de dados do conjunto de dimensionamento Linux pode ser encontrado [aqui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Este exemplo cria um grupo de recursos e o conjunto de dimensionamento Linux, monta um disco de dados de 5 GB e criptografa o conjunto de dimensionamento de máquinas virtuais.

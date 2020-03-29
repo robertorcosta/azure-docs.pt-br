@@ -1,6 +1,6 @@
 ---
-title: Migrar aplicativos dos serviços BizTalk para o aplicativo lógico do Azure
-description: Como mover seus aplicativos e soluções de Serviços BizTalk do Microsoft Azure (MABS) para os aplicativos lógicos do Azure
+title: Migrar aplicativos de Serviços BizTalk para Aplicativos lógicos do Azure
+description: Como mover seus aplicativos e soluções do Microsoft Azure BizTalk Services (MABS) para o Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -9,13 +9,13 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905441"
 ---
-# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre seus aplicativos e soluções dos serviços BizTalk para os aplicativos lógicos do Azure
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre seus aplicativos e soluções de Serviços BizTalk para Aplicativos azure Logic
 
 O MABS (Serviços BizTalk do Microsoft Azure) está sendo desativado. Para mover suas soluções de integração do MABS para os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md), siga as orientações deste artigo. 
 
@@ -32,10 +32,10 @@ As [Conexões Híbridas do Serviço de Aplicativo do Azure](../app-service/app-s
 
 Esta tabela mapeia os recursos de Serviços BizTalk para Aplicativos Lógicos.
 
-| Serviços do BizTalk   | aplicativos Lógicos            | Finalidade                      |
+| Serviços do BizTalk   | Aplicativos Lógicos            | Finalidade                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Conector          | Conector             | Enviar e receber dados   |
-| Ponte             | Aplicativo de lógica             | Processador de pipeline           |
+| Ponte             | Aplicativo Lógico             | Processador de pipeline           |
 | Estágio de validação     | Ação de Validação de XML | Validar um documento XML em relação a um esquema | 
 | Estágio de enriquecimento       | Tokens de Dados           | Promover propriedades em mensagens ou para decisões de encaminhamento |
 | Estágio de transformação    | Ação Transformar      | Converter mensagens XML de um formato em outro |
@@ -51,7 +51,7 @@ Os Serviços BizTalk têm vários tipos de artefatos.
 
 ## <a name="connectors"></a>Conectores
 
-Os conectores dos Serviços BizTalk ajudam as pontes a enviar e receber dados, incluindo pontes bidirecionais que habilitam interações de solicitação/resposta com base em HTTP. Os aplicativos lógicos usam a mesma terminologia e têm centenas de conectores que têm a mesma finalidade conectando-se a uma ampla gama de tecnologias e serviços. Por exemplo, os conectores estão disponíveis para serviços PaaS e SaaS de nuvem, como o OneDrive, Office 365, Dynamics CRM e muito mais, além de sistemas locais por meio do Gateway de Dados Local, que substitui o Serviço de Adaptador BizTalk pelos Serviços BizTalk. As origens nos Serviços BizTalk são limitadas a FTP, SFTP e Fila do Barramento de Serviço ou assinatura de Tópico.
+Os conectores dos Serviços BizTalk ajudam as pontes a enviar e receber dados, incluindo pontes bidirecionais que habilitam interações de solicitação/resposta com base em HTTP. Logic Apps usa a mesma terminologia e tem centenas de conectores que servem ao mesmo propósito conectando-se a uma ampla gama de tecnologias e serviços. Por exemplo, os conectores estão disponíveis para serviços PaaS e SaaS de nuvem, como o OneDrive, Office 365, Dynamics CRM e muito mais, além de sistemas locais por meio do Gateway de Dados Local, que substitui o Serviço de Adaptador BizTalk pelos Serviços BizTalk. As origens nos Serviços BizTalk são limitadas a FTP, SFTP e Fila do Barramento de Serviço ou assinatura de Tópico.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
@@ -125,7 +125,7 @@ Diferentemente dos Serviços BizTalk, essas ações são separadas dos protocolo
 
 ## <a name="manage-and-monitor"></a>Gerenciar e monitorar
 
-No Serviços Biztalk, um portal dedicado fornecia recursos de rastreamento para monitorar e solucionar problemas. Os aplicativos lógicos fornecem recursos mais avançados de rastreamento e monitoramento para [monitorar aplicativos lógicos no portal do Azure](../logic-apps/monitor-logic-apps.md)e inclui um aplicativo móvel para ficar atento às coisas quando você estiver em movimento.
+No Serviços Biztalk, um portal dedicado fornecia recursos de rastreamento para monitorar e solucionar problemas. A Logic Apps oferece recursos de rastreamento e monitoramento mais ricos para [monitorar aplicativos lógicos no portal Azure,](../logic-apps/monitor-logic-apps.md)e inclui um aplicativo móvel para ficar de olho nas coisas quando você está em movimento.
 
 ## <a name="high-availability"></a>Alta disponibilidade
 
@@ -133,7 +133,7 @@ Para HA (alta disponibilidade) nos Serviços BizTalk, você pode compartilhar a 
 
 No Serviços BizTalk, a recuperação de desastre fora de região para o processamento B2B exige um processo de backup e restauração. Para continuidade de negócios, os Aplicativos Lógicos fornecem um [recurso de RD](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) ativo/passivo entre regiões, que permite a sincronização de dados B2B entre contas de integração em regiões diferentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [O que são Aplicativos Lógicos?](../logic-apps/logic-apps-overview.md)
 * [Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou comece rapidamente usando um [modelo predefinido](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  

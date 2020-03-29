@@ -1,13 +1,13 @@
 ---
 title: ReliableConcurrentQueue no Azure Service Fabric
-description: ReliableConcurrentQueue é uma fila de alta taxa de transferência que permite filas paralelas e remover filas.
+description: ReliableConcurrentQueue é uma fila de alto desempenho que permite filas e filas paralelas.
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462732"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric
@@ -21,7 +21,7 @@ Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada qu
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Comparação com [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx)
+## <a name="comparison-with-reliable-queue"></a>Comparação com [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
 A Fila Simultâneas Confiável é oferecida como uma alternativa à [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx). Ela deve ser usada em casos em que ordenação PEPS estrita não seja necessária, como garantir que PEPS exija uma compensação com simultaneidade.  [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) usa bloqueios para impor a ordenação PEPS, com no máximo uma transação com permissão para enfileirar e no máximo uma transação com permissão para remover da fila por vez. Em comparação, Fila Simultâneos Confiável flexibiliza a restrição de ordenação e permite que qualquer número de transações simultâneas intercale suas operações de enfileirar e remover da fila. Ordenação de melhor esforço é fornecido, porém, a ordenação relativa de dois valores em uma Fila Simultânea Confiável nunca pode ser garantida.
 
@@ -34,15 +34,15 @@ Um exemplo de caso de uso para o ReliableConcurrentQueue é o cenário [Fila de 
 * A fila não assegura a ordenação PEPS estrita.
 * A fila não lê suas próprias gravações. Se um item for enfileirado em uma transação, ele não será visível para uma operação de remover da fila na mesma transação.
 * As operações de remover da fila não são isoladas umas das outras. Se o item *A* for removido da fila na transação *txnA*, embora *txnA* não esteja confirmado, o item *A* não ficará visível a uma transação simultânea *txnB*.  Se *txnA* for anulada, *A* ficará visível a *txnB* imediatamente.
-* O comportamento *TryPeekAsync* pode ser implementado usando um *TryDequeueAsync* e, em seguida, anulando a transação. Um exemplo desse comportamento pode ser encontrado na seção padrões de programação.
+* O comportamento *TryPeekAsync* pode ser implementado usando um *TryDequeueAsync* e, em seguida, anulando a transação. Um exemplo desse comportamento pode ser encontrado na seção Padrões de programação.
 * A contagem é não transacional. Você pode usá-la para ter uma ideia do número de elementos na fila, mas representa um ponto no tempo e não é confiável.
-* O processamento dispendioso nos itens da fila não deve ser executado enquanto a transação estiver ativa, para evitar transações de longa execução que podem ter um impacto no desempenho do sistema.
+* O processamento caro dos itens desfilados não deve ser realizado enquanto a transação estiver ativa, para evitar transações de longo prazo que possam ter um impacto de desempenho no sistema.
 
 ## <a name="code-snippets"></a>Snippets de código
 Vamos analisar alguns snippets de código e suas saídas esperadas. O tratamento de exceção é ignorado nesta seção.
 
 ### <a name="instantiation"></a>Instanciação
-A criação de uma instância de uma fila simultânea confiável é semelhante a qualquer outra coleção confiável.
+Criar uma instância de uma fila simultânea confiável é semelhante a qualquer outra coleção confiável.
 
 ```csharp
 IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
@@ -170,7 +170,7 @@ O mesmo é verdadeiro para todos os casos em que a transação não foi *Confirm
 Nesta seção, vamos analisar alguns padrões de programação que podem ser úteis no uso de ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Remoções de fila em lote
-O padrão de programação recomendado é a tarefa de consumidor realizar remoções da fila em lote, em vez de executar uma remoção da fila por vez. O usuário pode optar por restringir atrasos entre cada lote ou o tamanho do lote. O snippet de código a seguir mostra esse modelo de programação. Lembre-se, neste exemplo, que o processamento é feito depois que a transação é confirmada, portanto, se ocorrer uma falha durante o processamento, os itens não processados serão perdidos sem terem sido processados.  Como alternativa, o processamento pode ser feito dentro do escopo da transação, no entanto, ele pode ter um impacto negativo no desempenho e requer o tratamento dos itens já processados.
+O padrão de programação recomendado é a tarefa de consumidor realizar remoções da fila em lote, em vez de executar uma remoção da fila por vez. O usuário pode optar por restringir atrasos entre cada lote ou o tamanho do lote. O snippet de código a seguir mostra esse modelo de programação. Esteja atento, neste exemplo, o processamento é feito após a transação ser cometida, portanto, se uma falha ocorrer durante o processamento, os itens não processados serão perdidos sem terem sido processados.  Alternativamente, o processamento pode ser feito dentro do escopo da transação, porém pode ter um impacto negativo no desempenho e requer o manuseio dos itens já processados.
 
 ```
 int batchSize = 5;
@@ -264,9 +264,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Drenagem de melhor esforço
-Uma drenagem da fila não pode ser garantida devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de usuário na fila esteja em andamento, uma chamada específica para TryDequeueAsync pode não retornar um item que foi anteriormente enfileirado e confirmado.  É garantido que o item enfileirado *acabará* ficando visível à remoção da fila, porém, sem um mecanismo de comunicação fora da banda, um consumidor independente não tem como saber que a fila atingiu um estado estável mesmo que todos os produtores tenham sido interrompidos e nenhuma nova operação de enfileiramento seja permitida. Portanto, a operação de drenagem é o melhor esforço conforme implementado abaixo.
+Uma drenagem da fila não pode ser garantida devido à natureza simultânea da estrutura de dados.  É possível que, mesmo que nenhuma operação de usuário na fila esteja em voo, uma chamada específica para tryDequeueAsync pode não retornar um item que foi anteriormente enfileirado e comprometido.  É garantido que o item enfileirado *acabará* ficando visível à remoção da fila, porém, sem um mecanismo de comunicação fora da banda, um consumidor independente não tem como saber que a fila atingiu um estado estável mesmo que todos os produtores tenham sido interrompidos e nenhuma nova operação de enfileiramento seja permitida. Portanto, a operação de drenagem é o melhor esforço conforme implementado abaixo.
 
-O usuário deve interromper todas as outras tarefas de produtor e consumidor e esperar qualquer transação em andamento ser confirmada ou anulada antes de tentar drenar a fila.  Se o usuário souber o número esperado de itens na fila, ele poderá configurar uma notificação que sinalizará que todos os itens foram removidas da fila.
+O usuário deve interromper todas as outras tarefas de produtor e consumidor e esperar qualquer transação em andamento ser confirmada ou anulada antes de tentar drenar a fila.  Se o usuário souber o número esperado de itens na fila, ele pode configurar uma notificação que sinaliza que todos os itens foram enfileirados.
 
 ```
 int numItemsDequeued;
@@ -336,8 +336,8 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
-* [Backup e restauração de Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
-* [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
-* [Introdução aos serviços de API Web do Service Fabric](service-fabric-reliable-services-communication-webapi.md)
+* [Backup e restauração de serviços confiáveis (recuperação de desastres)](service-fabric-reliable-services-backup-restore.md)
+* [Configuração confiável do Gerente de Estado](service-fabric-reliable-services-configuration.md)
+* [Começando com serviços de API web de malha de serviço](service-fabric-reliable-services-communication-webapi.md)
 * [Uso avançado do modelo de programação de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-* [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Referência do desenvolvedor para coleções confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

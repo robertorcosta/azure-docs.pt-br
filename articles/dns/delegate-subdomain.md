@@ -1,6 +1,6 @@
 ---
-title: Delegar um subdomínio-DNS do Azure
-description: Com este roteiro de aprendizagem, comece a delegar um subdomínio de DNS do Azure.
+title: Delegue um subdomínio - Azure DNS
+description: Com este caminho de aprendizado, comece a delegar um subdomínio Azure DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937427"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegar um subdomínio DNS do Azure
@@ -31,7 +31,7 @@ Para delegar um subdomínio de DNS do Azure, primeiro você deve delegar seu dom
 
 Primeiro, crie a zona para o subdomínio **engineering**.
 
-1. No portal do Azure, selecione **Criar um recurso**.
+1. No portal Azure, selecione **Criar um recurso**.
 2. Na caixa de pesquisa, digite **DNS**e selecione **Zona DNS**.
 3. Selecione **Criar**.
 4. No painel **Criar zona DNS**, digite **engineering.contoso.com** na caixa de texto **Nome**.
@@ -68,6 +68,6 @@ Use nslookup para testar a delegação.
 2. No prompt de comando, digite `nslookup www.engineering.contoso.com.`
 3. Você deve receber uma resposta não autoritativa mostrando o endereço **10.10.10.10**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Configurar DNS reverso para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

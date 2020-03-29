@@ -1,5 +1,5 @@
 ---
-title: Medidas de Usuário Reais com o Visual Studio Mobile Center-Gerenciador de tráfego do Azure
+title: Medições reais do usuário com visual studio mobile center - Azure Traffic Manager
 description: Configurar seu aplicativo móvel desenvolvido usando o Visual Studio Mobile Center para enviar as Medidas Reais de Usuário ao Gerenciador de Tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 3106334e1fb3e3000cbd09e00e413b34a1b55e54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939177"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar as Medidas Reais de Usuário ao Gerenciador de Tráfego com o Visual Studio Mobile Center
@@ -41,7 +41,7 @@ Para obter a chave de RUM pelo portal do Azure use o procedimento a seguir:
         
    ![Gerar chave de Medidas Reais de Usuário](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: geração de chave de Medidas Reais de Usuário**
+   **Figura 1: Geração de chaves de medições reais do usuário**
 
 5. A página exibe a chave de RUM que é gerada e um snippet de código JavaScript que precisa ser inserido em sua página HTML.
  
@@ -96,11 +96,11 @@ Para usar as Medidas Reais de Usuário, conclua o procedimento a seguir:
     MobileCenter.start(getApplication(), "<Your Mobile Center AppSecret>", RealUserMeasurements.class);
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [Medidas Reais de Usuário](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre o [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - [Inscreva-se](https://mobile.azure.com) no Mobile Center
 - Saiba mais sobre os [métodos de roteamento do tráfego](traffic-manager-routing-methods.md) com suporte pelo Gerenciador de Tráfego
-- Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil de Gerenciador de Tráfego](traffic-manager-create-profile.md)
 

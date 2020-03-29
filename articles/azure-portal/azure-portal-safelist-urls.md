@@ -1,6 +1,6 @@
 ---
-title: ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
-description: Adicione essas URLs ao bypass do servidor proxy para se comunicar com o portal do Azure e seus serviços
+title: Safelist os URLs do portal Azure em seu firewall ou servidor proxy
+description: Adicione esses URLs ao bypass do servidor proxy para se comunicar com o portal Azure e seus serviços
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900665"
 ---
-# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
+# <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Safelist os URLs do portal Azure em seu firewall ou servidor proxy
 
-Você pode configurar dispositivos de segurança locais para ignorar as restrições de segurança para as URLs de portal do Azure. Essa configuração pode melhorar o desempenho e a conectividade entre sua rede local ou de longa distância e a nuvem do Azure.
+Você pode configurar dispositivos de segurança no local para contornar as restrições de segurança para os URLs do portal Azure. Essa configuração pode melhorar o desempenho e a conectividade entre sua rede local ou ampla e a nuvem Azure.
 
-Os administradores de rede geralmente implantam servidores proxy, firewalls ou outros dispositivos. Esses dispositivos ajudam a proteger e fornecem controle sobre como os usuários acessam a Internet. As regras projetadas para proteger os usuários às vezes podem bloquear ou reduzir o tráfego de Internet legítimo relacionado aos negócios. Esse tráfego inclui comunicações entre você e o Azure. Para otimizar a conectividade entre a rede e o portal do Azure e seus serviços, recomendamos que você adicione portal do Azure URLs à sua assafe.
+Os administradores de rede geralmente implantam servidores proxy, firewalls ou outros dispositivos. Esses dispositivos ajudam a proteger e dar controle sobre como os usuários acessam a internet. Regras projetadas para proteger os usuários podem, por vezes, bloquear ou retardar o tráfego legítimo da Internet relacionado aos negócios. Este tráfego inclui comunicações entre você e o Azure. Para otimizar a conectividade entre sua rede e o portal Azure e seus serviços, recomendamos que você adicione URLs do portal Azure à sua lista de segurança.
 
-## <a name="azure-portal-urls-for-proxy-bypass"></a>URLs de portal do Azure para bypass de proxy
+## <a name="azure-portal-urls-for-proxy-bypass"></a>URLs do portal Azure para bypass proxy
 
-Os pontos de extremidade de URL para a lista segura para os portal do Azure são específicos para a nuvem do Azure em que sua organização está implantada. Para permitir que o tráfego de rede para esses pontos de extremidade ignore as restrições, selecione sua nuvem. Em seguida, adicione a lista de URLs ao seu servidor proxy ou firewall.
+Os pontos finais da URL para safelist para o portal Azure são específicos para a nuvem Dozure onde sua organização está implantada. Para permitir que o tráfego de rede para esses pontos finais contorne as restrições, selecione sua nuvem. Em seguida, adicione a lista de URLs ao seu servidor proxy ou firewall.
 
-#### <a name="public-cloudtabpublic-cloud"></a>[Nuvem pública](#tab/public-cloud)
+#### <a name="public-cloud"></a>[Nuvem Pública](#tab/public-cloud)
 
 ```
 *.aadcdn.microsoftonline-p.com
@@ -50,7 +50,7 @@ Os pontos de extremidade de URL para a lista segura para os portal do Azure são
 *.windows-int.net
 ```
 
-#### <a name="us-government-cloudtabus-government-cloud"></a>[Nuvem do governo dos EUA](#tab/us-government-cloud)
+#### <a name="us-government-cloud"></a>[Nuvem do governo dos EUA](#tab/us-government-cloud)
 
 ```
 *.azure.us
@@ -63,7 +63,7 @@ Os pontos de extremidade de URL para a lista segura para os portal do Azure são
 *.windowsazure.us
 ```
 
-#### <a name="china-government-cloudtabchina-government-cloud"></a>[Nuvem do governo da China](#tab/china-government-cloud)
+#### <a name="china-government-cloud"></a>[Nuvem do governo da China](#tab/china-government-cloud)
 
 ```
 *.azure.cn
@@ -77,16 +77,16 @@ Os pontos de extremidade de URL para a lista segura para os portal do Azure são
 ---
 
 > [!NOTE]
-> O tráfego para esses pontos de extremidade usa portas TCP padrão para HTTP (80) e HTTPS (443).
+> O tráfego para esses pontos finais usa portas TCP padrão para HTTP (80) e HTTPS (443).
 >
 >
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Precisa de endereços IP de resafelist? Baixe a lista de intervalos de IP do datacenter Microsoft Azure para sua nuvem:
+Precisa de segurança de endereços IP? Baixe a lista das faixas IP do data center do Microsoft Azure para sua nuvem:
 
-* [Pelo](https://www.microsoft.com/download/details.aspx?id=56519)
+* [Worldwide](https://www.microsoft.com/download/details.aspx?id=56519)
 * [Governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063)
 * [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
 * [China](https://www.microsoft.com/download/details.aspx?id=57062)
 
-Outros serviços da Microsoft usam URLs e endereços IP adicionais para conectividade. Para otimizar a conectividade de rede para serviços de Microsoft 365, consulte [configurar sua rede para o Office 365](/office365/enterprise/set-up-network-for-office-365).
+Outros serviços da Microsoft usam URLs adicionais e endereços IP para conectividade. Para otimizar a conectividade de rede para os serviços Microsoft 365, consulte [Configurar sua rede para o Office 365](/office365/enterprise/set-up-network-for-office-365).

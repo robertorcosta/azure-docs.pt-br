@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/03/2020
 ms.author: lugoldbe
 ms.openlocfilehash: 22af1f413bef0c69eb732f75fa03049140e4c7e3
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964285"
 ---
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
-Neste artigo, você usa um modelo de Azure Resource Manager para criar um grupo de recursos, uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Salve o conteúdo a seguir em um arquivo com o nome `template.json`. Você usará esse arquivo para executar o exemplo de código.
+Neste artigo, você usa um modelo do Azure Resource Manager para criar um grupo de recursos, uma conta de armazenamento e um contêiner, um hub de eventos e um cluster e banco de dados do Azure Data Explorer. Salve o conteúdo a seguir `template.json`em um arquivo com o nome . Você usará este arquivo para executar o exemplo de código.
 
 ```json
 {

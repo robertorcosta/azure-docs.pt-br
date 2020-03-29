@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 48dec3a87ab540af224ae4ac59dd37cee7c9d0ee
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76271332"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>Notas de versão da atualização 1.0 da StorSimple Virtual Array
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 As notas de versão a seguir identificam as questões críticas em aberto e os problemas resolvidos para as atualizações do Microsoft Azure StorSimple Virtual Array.
 
@@ -51,7 +51,7 @@ A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 | --- | --- | --- |
 | 1 |Autenticação baseada no AAD| Esta versão contém alterações que permitem que o AAD autentique com o Gerenciador de Dispositivos do StorSimple.|
 | 2 |Coleta de lixo| Esse problema foi relatado no local de um cliente em que as contas de armazenamento e de dispositivo estão em regiões diferentes e o cliente relatou erros de rede intermitentes impactando assim a cobrança. Nessa versão, esse problema foi corrigido. |
-| 3 |Performance| Esta versão contém alterações que resultam na melhoria do desempenho na restauração/leituras de nuvem/entrada de nuvem/saída de nuvem.|
+| 3 |Desempenho| Esta versão contém alterações que resultam na melhoria do desempenho na restauração/leituras de nuvem/entrada de nuvem/saída de nuvem.|
 | 4 |Atualizar| Houve um problema com a atualização na versão anterior que resultava em falhas de backup no local do cliente. Esse problema foi corrigido nesta versão.|
 
 ## <a name="known-issues-in-update-10"></a>Problemas conhecidos na Atualização 1.0
@@ -65,7 +65,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **3.** |Política de grupo |Quando um dispositivo é associado a um domínio, a aplicação de uma política de grupo pode afetar a operação do dispositivo. |Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory e que nenhum GPO (objeto de política de grupo) seja aplicado a ela. |
 | **4.** |Interface do Usuário da Web local |Se os recursos de segurança aprimorados estão habilitados no Internet Explorer (IE ESC), algumas páginas da interface do usuário da Web local, como Solução de Problemas ou Manutenção, podem não funcionar corretamente. Os botões nessas páginas também podem não funcionar. |Desligue os recursos de segurança reforçada do Internet Explorer. |
 | **5.** |Interface do Usuário da Web local |Em uma máquina virtual de Hyper-V, as interfaces de rede na interface do usuário da Web são exibidas como interfaces de 10 Gbps. |Esse comportamento é um reflexo do Hyper-V. O Hyper-V sempre mostra 10 Gbps para adaptadores de rede virtual. |
-| **6.** |Compartilhamentos ou volumes em camadas |Não há suporte para bloqueio de intervalo de bytes para aplicativos que funcionam com os volumes em camadas do StorSimple. Se o bloqueio de intervalo de bytes estiver habilitado, a disposição em camadas do StorSimple não funcionará. |As medidas recomendadas incluem: <br></br>Desligar o bloqueio de intervalo de bytes em sua lógica de aplicativo.<br></br>Optar por colocar dados desse aplicativo em volumes localmente afixados em vez de volumes em camadas.<br></br>*Ressalva*: ao usar volumes fixados localmente e o bloqueio de intervalo de bytes estiver habilitado, esteja ciente de que o volume fixo local pode ficar online antes mesmo da restauração ser concluída. Nesses casos, se uma restauração está em andamento, você deve aguardar a restauração ser concluída. |
+| **6.** |Compartilhamentos ou volumes em camadas |Não há suporte para bloqueio de intervalo de bytes para aplicativos que funcionam com os volumes em camadas do StorSimple. Se o bloqueio de intervalo de bytes estiver habilitado, a disposição em camadas do StorSimple não funcionará. |As medidas recomendadas incluem:  <br></br>Desligar o bloqueio de intervalo de bytes em sua lógica de aplicativo.<br></br>Optar por colocar dados desse aplicativo em volumes localmente afixados em vez de volumes em camadas.<br></br>*Ressalva*: ao usar volumes fixados localmente e o bloqueio de intervalo de bytes estiver habilitado, esteja ciente de que o volume fixo local pode ficar online antes mesmo da restauração ser concluída. Nesses casos, se uma restauração está em andamento, você deve aguardar a restauração ser concluída. |
 | **7.** |Compartilhamentos em camadas |Trabalhar com arquivos grandes pode resultar em uma divisão em camadas lenta. |Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento. |
 | **8.** |Capacidade utilizada para compartilhamentos |Você pode ver o consumo de compartilhamento quando não houver dados no compartilhamento. Esse consumo ocorre porque a capacidade utilizada para compartilhamentos inclui metadados. | |
 | **9.** |Recuperação de desastre |Você só pode executar a recuperação de desastres de um servidor de arquivos no mesmo domínio que o dispositivo de origem. Não há suporte nesta versão para a recuperação de desastres para um dispositivo de destino em outro domínio. |Isso será implementado em uma versão posterior. Para obter mais informações, acesse [Failover e recuperação de desastre da Matriz Virtual do StorSimple](storsimple-virtual-array-failover-dr.md) |
@@ -80,14 +80,14 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 | **18.** |Atualizações |Se você usar a interface do usuário da Web local para instalar a Atualização 1 na matriz virtual, deverá garantir que está executando a Atualização 0.6. Se você estiver executando uma versão inferior à Atualização 0.6, deverá instalar a Atualização 0.6 primeiro e, em seguida, aplicar a Atualização 1. Se você instalar diretamente a Atualização 1.0 de uma versão anterior à Atualização 0.6, perderá algumas atualizações e os gráficos de monitoramento não funcionarão.   | |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Instalar a Atualização 1.0](storsimple-virtual-array-install-update-1.md) em seu StorSimple Virtual Array.
 
 ## <a name="references"></a>Referências
 Procurando uma nota de versão mais antiga? Acesse:
-*  [Notas de versão da atualização 0.6 da StorSimple Virtual Array](storsimple-virtual-array-update-06-release-notes.md)
+*  [StorSimple Virtual Array Update 0.6 Release Notes](storsimple-virtual-array-update-06-release-notes.md)
 * [Notas de versão da Atualização 0.5 do StorSimple Virtual Array](storsimple-virtual-array-update-05-release-notes.md)
-* [Notas de versão da Matriz Virtual do StorSimple Atualização 0.4](storsimple-virtual-array-update-04-release-notes.md)
-* [Notas de versão da atualização 0.3 da StorSimple Virtual Array](storsimple-ova-update-03-release-notes.md)
+* [StorSimple Virtual Array Update 0.4 Release Notes](storsimple-virtual-array-update-04-release-notes.md)
+* [StorSimple Virtual Array Update 0.3 Release Notes](storsimple-ova-update-03-release-notes.md)
 * [Notas de versão as Atualizações 0.1 e 0.2 do StorSimple Virtual Array](storsimple-ova-update-01-release-notes.md)
 * [Notas de versão de disponibilidade geral do StorSimple Virtual Array](storsimple-ova-pp-release-notes.md)

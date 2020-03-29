@@ -1,6 +1,6 @@
 ---
-title: 'Agente de provisionamento do Azure AD Connect: histórico de lançamento de versão | Microsoft Docs'
-description: Este artigo lista todas as versões do agente de provisionamento do Azure AD Connect e descreve os novos recursos e problemas corrigidos
+title: 'Azure AD Connect Provisioning Agent: Histórico de lançamento de versão | Microsoft Docs'
+description: Este artigo lista todos os lançamentos do Azure AD Connect Provisioning Agent e descreve novos recursos e problemas fixos
 services: active-directory
 documentationcenter: ''
 author: cmmdesai
@@ -17,54 +17,54 @@ ms.subservice: app-provisioning
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183237"
 ---
-# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agente de provisionamento do Azure AD Connect: histórico de lançamento de versão
-Este artigo lista as versões e os recursos do agente de provisionamento do Azure Active Directory Connect que foram lançados. A equipe do Azure AD atualiza regularmente o agente de provisionamento com novos recursos e funcionalidades. O agente de provisionamento é atualizado automaticamente quando uma nova versão é liberada. 
+# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Azure AD Connect Provisioning Agent: Histórico de lançamento de versão
+Este artigo lista as versões e recursos do Azure Active Directory Connect Provisioning Agent que foram lançados. A equipe do Azure AD atualiza regularmente o Provisionand Agent com novos recursos e funcionalidades. O Provisionamento é atualizado automaticamente quando uma nova versão é lançada. 
 
-A Microsoft fornece suporte direto para a versão mais recente do agente e uma versão anterior.
+A Microsoft oferece suporte direto para a versão mais recente do agente e uma versão anterior.
 
 ## <a name="11960"></a>1.1.96.0
 
 ### <a name="release-status"></a>Status de liberação
 
-4 de dezembro de 2019: liberado para download
+4 de dezembro de 2019: Liberado para download
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* Inclui suporte para [provisionamento Azure ad Connect nuvem](../cloud-provisioning/what-is-cloud-provisioning.md) para sincronizar usuários, contatar e agrupar dados do Active Directory local para o Azure AD
+* Inclui suporte para [provisionamento em nuvem do Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) para sincronizar dados de usuário, contato e grupo do Active Directory on-premises para o Azure AD
 
 
 ## <a name="11670"></a>1.1.67.0
 
 ### <a name="release-status"></a>Status de liberação
 
-9 de setembro de 2019: liberado para atualização automática
+9 de setembro de 2019: Lançado para atualização automática
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* Capacidade de configurar rastreamento e log adicionais para depuração de problemas do agente de provisionamento
-* Capacidade de buscar somente os atributos do AD do Azure que estão configurados no mapeamento para melhorar o desempenho da sincronização
+* Capacidade de configurar rastreamento e registro adicionais para problemas de agente de provisionamento de depuração
+* Capacidade de buscar apenas os atributos Azure AD que são configurados no mapeamento para melhorar o desempenho da sincronização
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 
-* Corrigido um bug em que o agente entrou em um estado sem resposta se houvesse problemas com falhas de conexão do Azure AD
-* Correção de um bug que causou problemas quando dados binários foram lidos de Azure Active Directory
-* Correção de um bug em que o agente falhou ao renovar a confiança com o serviço de identidade híbrida na nuvem
+* Corrigimos um bug no qual o agente entrava em um estado sem resposta se houvesse problemas com falhas de conexão AD do Azure
+* Corrigimos um bug que causou problemas quando os dados binários foram lidos do Azure Active Directory
+* Corrigimos um bug no qual o agente não conseguiu renovar a confiança com o serviço de identidade híbrida em nuvem
 
 ## <a name="11300"></a>1.1.30.0
 
 ### <a name="release-status"></a>Status de liberação
 
-23 de janeiro de 2019: liberado para download
+23 de janeiro de 2019: Liberado para download
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* Remodelado o agente de provisionamento e a arquitetura de conector para melhorar o desempenho, a estabilidade e a confiabilidade 
-* Simplifica a configuração do agente de provisionamento usando o assistente de instalação orientado por interface do usuário 
-* Suporte adicionado para atualizações automáticas de agente
+* Renovou o agente de provisionamento e a arquitetura do conector para melhor desempenho, estabilidade e confiabilidade 
+* Simplificou a configuração do provisionamento usando o assistente de instalação orientado por interface do usuário 
+* Suporte adicionado para atualizações automáticas de agentes
 

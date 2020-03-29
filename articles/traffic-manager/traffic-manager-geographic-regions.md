@@ -1,5 +1,5 @@
 ---
-title: Hierarquia de país/região usada pelo roteamento geográfico – Gerenciador de tráfego do Azure
+title: Hierarquia país/região usada por roteamento geográfico - Gerente de Tráfego do Azure
 description: Este artigo lista a hierarquia País/Região usada pelo tipo de roteamento Geográfico do Gerenciador de Tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938638"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia País/Região usada pelo Gerenciador de Tráfego do Azure para método de roteamento de tráfico geográfico
@@ -99,7 +99,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - Me(Montenegro)
 
-        - MK(Macedônia do Norte)
+        - MK (Macedônia do Norte)
 
         - MT(Malta)
 
@@ -128,7 +128,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
         - SM(San Marino)
 
         - UA(Ucrânia)
-            - Região de Crimeia
+            - Região da Criméia
 
         - VA(Cidade do Vaticano)
 
@@ -270,7 +270,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - TT(Trinidad e Tobago)
 
-        - UM (territórios insulares dos EUA)
+        - UM (Ilhas Periféricas dos EUA)
 
         - US(Estados Unidos)
 
@@ -380,7 +380,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - VG(Ilhas Virgens Britânicas)
 
-        - VI (Ilhas Virgens dos EUA)
+        - VI (Ilhas Virgens Americanas)
 
         - XE(Santo Eustáquio)
 
@@ -688,6 +688,6 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [Método de roteamento de tráfego Geográfico no Gerenciador de Tráfego do Azure](traffic-manager-routing-methods.md#geographic).

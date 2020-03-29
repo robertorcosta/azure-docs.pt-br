@@ -1,18 +1,18 @@
 ---
-title: Erros de SKU não disponível
-description: Descreve como solucionar o erro SKU não disponível ao implantar recursos com o Azure Resource Manager.
+title: SKU erros não disponíveis
+description: Descreve como solucionar problemas do SKU não disponível erro ao implantar recursos com o Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 3dcc26f2d74799a6d282ee4bd733d36bec7b05e4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942722"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolva erros de SKU não disponível
 
-Este artigo descreve como resolver o erro **SkuNotAvailable**. Se não for possível encontrar um SKU adequado nessa região/zona ou em uma região/zona alternativa que atenda às suas necessidades de negócios, envie uma [solicitação de SKU](https://aka.ms/skurestriction) para o suporte do Azure.
+Este artigo descreve como resolver o erro **SkuNotAvailable**. Se você não conseguir encontrar um SKU adequado nessa região/região ou em uma região/região alternativa que atenda às suas necessidades de negócios, envie uma [solicitação De SKU](https://aka.ms/skurestriction) ao Azure Support.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -30,11 +30,11 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Você recebe esse erro quando o recurso SKU selecionado (como o tamanho da VM) não está disponível para o local escolhido.
 
-Se você estiver implantando uma VM do Azure spot ou uma instância do conjunto de escala de spot, não haverá nenhuma capacidade para o Azure Spot neste local. Para obter mais informações, consulte [mensagens de erro de spot](../../virtual-machines/error-codes-spot.md).
+Se você estiver implantando uma instância de conjunto de escala sinuosa do Azure Spot ou spot, não há capacidade para o Azure Spot neste local. Para obter mais informações, consulte [mensagens de erro Spot](../../virtual-machines/error-codes-spot.md).
 
 ## <a name="solution-1---powershell"></a>Solução 1: PowerShell
 
-Para determinar quais SKUs estão disponíveis em uma região/zona, use o comando [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) . Filtre os resultados por local. Você deve ter a versão mais recente do PowerShell para esse comando.
+Para determinar quais SKUs estão disponíveis em uma região/região, use o comando [Get-AzComputeResourceSku.](/powershell/module/az.compute/get-azcomputeresourcesku) Filtre os resultados por local. Você deve ter a versão mais recente do PowerShell para esse comando.
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
@@ -51,14 +51,14 @@ virtualMachines       Standard_A2    centralus             NotAvailableForSubscr
 virtualMachines       Standard_D1_v2 centralus   {2, 1, 3}                                  MaxResourceVolumeMB
 ```
 
-Alguns exemplos adicionais:
+Algumas amostras adicionais:
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
 Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
 ```
 
-Acrescentar "FC" no final retorna mais detalhes.
+Anexar "fc" no final retorna mais detalhes.
 
 ## <a name="solution-2---azure-cli"></a>Solução 2: CLI do Azure
 

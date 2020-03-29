@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre Enterprise State Roaming-Azure Active Directory
-description: Perguntas frequentes sobre o ESR
+title: Faq roaming do Estado Corporativo - Diretório Ativo do Azure
+description: Perguntas frequentes sobre ESR
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672385"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
@@ -30,18 +30,18 @@ Este artigo responde a algumas dúvidas que os administradores de TI podem ter s
 * *Configurações do Internet Explorer*, incluindo guias abertas recentemente e favoritos.
 * *Configurações do navegador Microsoft Edge*, como favoritos e lista de leitura.
 * *Senhas*, incluindo senhas da Internet, perfis de Wi-Fi e outros.
-* *Preferências de idioma*, que incluem configurações para layouts de teclado, idioma do sistema, data e hora e muito mais.
+* *Preferências de idioma*, que incluem configurações para layouts de teclado, linguagem do sistema, data e hora e muito mais.
 * *Recursos de facilidade de acesso*, como tema de alto contraste, Narrador e Lupa.
 * *Outras configurações do Windows*, como as configurações de mouse.
 
 > [!NOTE]
-> Este artigo se aplica ao navegador baseado em HTML herdado do Microsoft Edge, iniciado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador Microsoft Edge Chromium lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento de sincronização para o novo Microsoft Edge, consulte o artigo [sincronização do Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
+> Este artigo se aplica ao navegador baseado em HTML Microsoft Edge Legacy, lançado com o Windows 10 em julho de 2015. O artigo não se aplica ao novo navegador baseado no Microsoft Edge Chromium, lançado em 15 de janeiro de 2020. Para obter mais informações sobre o comportamento do Sync para o novo Microsoft Edge, consulte o artigo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dados de aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais informações sobre como desenvolver um aplicativo universal do Windows que usa roaming, consulte a [API de armazenamento de AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o blog do desenvolvedor de [roaming do Windows 8 AppData](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Dados de aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais informações sobre como desenvolver um aplicativo Universal Windows que use roaming, consulte a [API de armazenamento de dados](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) de aplicativos e o blog de desenvolvedor de [roaming](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)de dados de aplicativos do Windows 8 .
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Qual conta é usada para a sincronização de configurações?
 
-No Windows 8.1, a sincronização de configurações sempre usou as contas de consumidor da Microsoft. Os usuários empresariais tinham a capacidade de conectar um conta Microsoft à sua conta de domínio Active Directory para obter acesso à sincronização de configurações. No Windows 10, essa funcionalidade de conta Microsoft conectada está sendo substituída por uma estrutura de conta primária/secundária.
+No Windows 8.1, a sincronização de configurações sempre usou as contas de consumidor da Microsoft. Os usuários corporativos tinham a capacidade de conectar uma conta Microsoft à sua conta de domínio do Active Directory para obter acesso à sincronização de configurações. No Windows 10, essa funcionalidade de conta microsoft conectada está sendo substituída por uma estrutura de conta primária/secundária.
 
 A conta principal é definida como a conta usada para entrar no Windows. Ela pode ser uma conta da Microsoft, uma conta do Azure AD (Azure Active Directory), uma conta do Active Directory local ou uma conta local. Além da conta principal, os usuários do Windows 10 podem adicionar uma ou mais contas de nuvem secundária ao dispositivo. Uma conta secundária geralmente é uma conta da Microsoft, uma conta do Azure AD ou outra conta, como do Gmail ou do Facebook. Essas contas secundárias fornecem acesso a serviços adicionais, como o logon único e a Windows Store, mas elas não são capazes de alimentar a sincronização de configurações.
 
@@ -50,7 +50,7 @@ No Windows 10, apenas a conta principal do dispositivo pode ser usada para a sin
 Os dados nunca são misturados entre as diferentes contas de usuário no dispositivo. Há duas regras para a sincronização de configurações:
 
 * As configurações do Windows sempre serão movidas com a conta principal.
-* Os dados do aplicativo serão marcados com a conta usada para adquirir o aplicativo. Somente os aplicativos marcados com a conta primária serão sincronizados. A marcação de Propriedade do aplicativo é determinada quando um aplicativo é carregado por meio da Windows Store ou do MDM (gerenciamento de dispositivo móvel).
+* Os dados do aplicativo serão marcados com a conta usada para adquirir o aplicativo. Apenas os aplicativos marcados com a conta principal serão sincronizados. A marcação de propriedade do aplicativo é determinada quando um aplicativo é carregado lateralmente através da Windows Store ou do gerenciamento de dispositivos móveis (MDM).
 
 Se o proprietário de um aplicativo não puder ser identificado, o aplicativo será movido com a conta principal. Se um dispositivo for atualizado do Windows 8 ou do Windows 8.1 para o Windows 10, todos os aplicativos serão marcados como adquiridos por conta da Microsoft. Isso ocorre porque a maioria dos usuários adquire aplicativos por meio da Windows Store, e não havia nenhum suporte da Windows Store para contas do Azure AD antes do Windows 10. Se um aplicativo for instalado por meio de uma licença offline, o aplicativo será marcado usando a conta principal no dispositivo.
 
@@ -96,7 +96,7 @@ Administradores podem configurar o UE-V para fazer roaming de dados de aplicativ
 
 No futuro, a Microsoft poderá investigar maneiras de tornar a UE-V ainda mais integrada ao Windows e de estender a UE-V para mover as configurações por meio da nuvem do AD do Azure.
 
-## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Posso armazenar configurações e dados sincronizados no local?
+## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Posso armazenar configurações sincronizadas e dados no local?
 
 O Enterprise State Roaming armazena todos os dados sincronizados no Microsoft Cloud. O UE-V oferece uma solução de roaming local.
 
@@ -121,7 +121,7 @@ A Microsoft tem algumas soluções de roaming de configurações diferentes disp
 Ao se usar o Enterprise State Roaming e o UE-V, as seguintes regras são aplicáveis:
 
 * O Enterprise State Roaming é o principal agente de roaming no dispositivo. A UE-V está sendo usada para suplementar a "lacuna do Win32".
-* O roaming da UE-V para as configurações do Windows e os dados de aplicativo UWP modernos devem ser desabilitados ao usar as políticas de grupo do UE-V. Eles já estão cobertos pelo Roaming de Estado de Empresa.
+* O roaming UE-V para configurações do Windows e dados modernos do aplicativo UWP deve ser desativado ao usar as políticas do grupo UE-V. Eles já estão cobertos pelo Roaming de Estado de Empresa.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Como o Roaming de Estado de Empresa dá suporte ao VDI (Virtual Desktop Infrastructure)?
 
@@ -133,7 +133,7 @@ Se sua organização já estiver usando o roaming no Windows 10 com a assinatura
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Consulte a documentação na seção de [solução de problemas](enterprise-state-roaming-troubleshooting.md) para obter uma lista de problemas conhecidos. 
+Consulte a documentação na seção [solução de problemas](enterprise-state-roaming-troubleshooting.md) para obter uma lista de problemas conhecidos. 
 
 ## <a name="next-steps"></a>Próximas etapas 
 

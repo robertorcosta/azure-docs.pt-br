@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75417775"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implantações de atualização do OMS para Azure
@@ -33,15 +33,15 @@ No portal do Azure, clique em **Conta de Automação**
 
 Na Conta de Automação, clique em **	Gerenciamento de Atualizações** para abrir o Gerenciamento de Atualizações.
 
-![Gerenciamento de atualização](media/migrate-oms-update-deployments/azure-automation.png)
+![Gerenciamento de atualizações](media/migrate-oms-update-deployments/azure-automation.png)
 
-Futuramente, será possível acessar diretamente o portal do Azure, em **Todos os serviços**, selecionar **Contas de Automação**  em **Ferramentas de Gerenciamento**, selecionar a Conta de Automação apropriada e clicar em **Gerenciamento de Atualizações**.
+Futuramente, será possível acessar diretamente o portal do Azure, em **Todos os serviços**, selecionar **Contas de Automação ** em **Ferramentas de Gerenciamento**, selecionar a Conta de Automação apropriada e clicar em **Gerenciamento de Atualizações**.
 
 ## <a name="recreate-existing-deployments"></a>Recriar implantações existentes
 
 Todas as implantações de atualização criadas no portal do OMS têm uma [pesquisa salva](../azure-monitor/platform/computer-groups.md) também conhecida como grupo de computadores, com o mesmo nome da implantação de atualização existente. A pesquisa salva contém a lista de computadores que foram agendados na implantação de atualizações.
 
-![Gerenciamento de atualização](media/migrate-oms-update-deployments/oms-deployment.png)
+![Gerenciamento de atualizações](media/migrate-oms-update-deployments/oms-deployment.png)
 
 Para usar essa pesquisa salva existente, siga estas etapas:
 
@@ -53,10 +53,10 @@ O painel **Nova implantação de atualizações** é aberto. Insira valores para
 
 Para que os Computadores atualizem, selecione a pesquisa salva usada pela implantação do OMS existente.
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
 |Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
-|Sistema Operacional| Selecione **Linux** ou **Windows**.|
+|Sistema operacional| Selecione **Linux** ou **Windows**.|
 |Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Classificações de origem|Selecione todas as classificações de atualização que você precisa. CentOS não oferece suporte para isso fora da caixa.|
 |Atualizações para excluir|Insira as atualizações a serem excluídas. Para Windows, insira o artigo KB sem o prefixo **KB**. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
@@ -70,6 +70,6 @@ Clique em **Implantações de atualização agendadas** para exibir o status da 
 
 Conforme mencionado anteriormente, quando as novas implantações forem configuradas por meio do portal do Azure, as implantações existentes poderão ser removidas pelo portal do OMS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o Gerenciamento de Atualizações no Azure, consulte [Gerenciamento de Atualizações](automation-update-management.md)

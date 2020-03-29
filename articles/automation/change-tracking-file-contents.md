@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75418822"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Exibir o conteúdo de um arquivo que está sendo controlado com o Controle de Alterações
@@ -18,7 +18,7 @@ O controle de conteúdo do arquivo permite que você exiba o conteúdo de um arq
 
 ## <a name="requirements"></a>Requisitos
 
-* Uma conta de armazenamento Standard usando o modelo de implantação do Resource Manager é necessária para armazenar o conteúdo do arquivo. As contas de armazenamento do modelo de implantação Premium e Clássico não devem ser usadas. Para obter mais informações sobre contas de armazenamento, confira [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md)
+* Uma conta de armazenamento Standard usando o modelo de implantação do Resource Manager é necessária para armazenar o conteúdo do arquivo. As contas de armazenamento do modelo de implantação Premium e Clássico não devem ser usadas. Para obter mais informações sobre contas de armazenamento, consulte [Contas de armazenamento sobre o Azure](../storage/common/storage-create-storage-account.md)
 
 * A conta de armazenamento usada só pode ter uma única Conta de Automação conectada.
 
@@ -64,12 +64,12 @@ As etapas a seguir mostram como habilitar o Controle de Alterações para um arq
 
    ![exibir alterações de arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Visite o tutorial sobre Controle de Alterações para saber mais sobre o uso da solução:
 
 > [!div class="nextstepaction"]
 > [Solucionar problemas de alterações em seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Use [pesquisas de log em logs de Azure monitor](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados de controle de alterações.
+* Use [pesquisas de log nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para visualizar dados de rastreamento de alterações detalhados.
 

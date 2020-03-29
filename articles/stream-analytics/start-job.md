@@ -1,6 +1,6 @@
 ---
-title: Como iniciar um trabalho de Azure Stream Analytics
-description: Este artigo descreve como iniciar um trabalho de Stream Analytics do portal do Azure, do PowerShell e do Visual Studio.
+title: Como iniciar um trabalho do Azure Stream Analytics
+description: Este artigo descreve como iniciar um trabalho de Stream Analytics no portal Azure, PowerShell e Visual Studio.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,37 +8,37 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: c393eb782c2ff16eb5b3e5967b39938dfe2f1534
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426458"
 ---
-# <a name="how-to-start-an-azure-stream-analytics-job"></a>Como iniciar um trabalho de Azure Stream Analytics
+# <a name="how-to-start-an-azure-stream-analytics-job"></a>Como iniciar um trabalho do Azure Stream Analytics
 
-Você pode iniciar seu trabalho de Azure Stream Analytics usando o portal do Azure, o Visual Studio e o PowerShell. Ao iniciar um trabalho, você seleciona uma hora para o trabalho começar a criar a saída. Portal do Azure, o Visual Studio e o PowerShell têm métodos diferentes para definir a hora de início. Esses métodos são descritos abaixo.
+Você pode iniciar seu trabalho no Azure Stream Analytics usando o portal Azure, Visual Studio e PowerShell. Quando você começa um trabalho, você seleciona um horário para o trabalho começar a criar saída. Portal Azure, Visual Studio e PowerShell têm métodos diferentes para definir a hora de início. Esses métodos são descritos abaixo.
 
-## <a name="start-options"></a>Opções da tela inicial
-As três opções a seguir estão disponíveis para iniciar um trabalho. Observe que todos os horários mencionados abaixo são os especificados no [carimbo de data/hora por](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics). Se TIMESTAMP não for especificado, a hora de chegada será usada.
-* **Agora**: faz com que o ponto inicial do evento de saída transmita o mesmo de quando o trabalho é iniciado. Se um operador temporal for usado (por exemplo, janela de tempo, retardo ou junção), Azure Stream Analytics examinará automaticamente os dados na fonte de entrada. Por exemplo, se você iniciar um trabalho "agora" e se sua consulta usar uma janela em cascata de 5 minutos, Azure Stream Analytics procurará dados de 5 minutos atrás na entrada.
-O primeiro evento de saída possível teria um carimbo de data/hora igual ou maior do que a hora atual, e o ASA garante que todos os eventos de entrada que podem contribuir logicamente com a saída sejam contabilizados. Por exemplo, nenhuma agregação em janela parcial é gerada. É sempre o valor agregado completo.
+## <a name="start-options"></a>Opções de inicialização
+As três opções a seguir estão disponíveis para iniciar um trabalho. Observe que todas as vezes mencionadas abaixo são as especificadas no [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics). Se o TIMESTAMP BY não for especificado, o tempo de chegada será usado.
+* **Agora**: Faz com que o ponto de partida do fluxo de evento de saída seja o mesmo de quando o trabalho é iniciado. Se um operador temporal for usado (por exemplo, janela de tempo, LAG ou JOIN), o Azure Stream Analytics olhará automaticamente para os dados na fonte de entrada. Por exemplo, se você iniciar um trabalho "Agora" e se sua consulta usar uma janela de tombamento de 5 minutos, o Azure Stream Analytics buscará dados de 5 minutos atrás na entrada.
+O primeiro evento de saída possível teria um carimbo de data e hora igual ou maior do que o tempo atual, e a ASA garante que todos os eventos de entrada que possam contribuir logicamente para a saída foram contabilizados. Por exemplo, não são gerados agregados parciais de janelas. É sempre o valor agregado completo.
 
-* **Personalizado**: você pode escolher o ponto de partida da saída. Da mesma forma, para a opção **Now** , Azure Stream Analytics lerá automaticamente os dados antes desta hora se um operador temporal for usado 
+* **Personalizado**: Você pode escolher o ponto de partida da saída. Da mesma forma que a opção **Now,** o Azure Stream Analytics lerá automaticamente os dados antes desse tempo se um operador temporal for usado 
 
-* **Quando a última parada**. Essa opção está disponível quando o trabalho foi iniciado anteriormente, mas foi interrompido manualmente ou falhou. Ao escolher essa opção Azure Stream Analytics usará a última hora de saída para reiniciar o trabalho, para que nenhum dado seja perdido. Da mesma forma que as opções anteriores, Azure Stream Analytics lerá automaticamente os dados antes dessa hora se um operador temporal for usado. Como várias partições de entrada podem ter um horário diferente, a hora de parada mais antiga de todas as partições é usada, como resultado, algumas duplicatas podem ser vistas na saída. Mais informações sobre o processamento exatamente uma vez estão disponíveis na página [garantias de entrega de eventos](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
+* **Quando parou pela última vez.** Esta opção está disponível quando o trabalho foi iniciado anteriormente, mas foi parado manualmente ou falhou. Ao escolher essa opção, o Azure Stream Analytics usará o último tempo de saída para reiniciar o trabalho para que nenhum dado seja perdido. Da mesma forma que as opções anteriores, o Azure Stream Analytics lerá automaticamente os dados antes desse tempo se um operador temporal for usado. Uma vez que várias partições de entrada podem ter tempo diferente, o tempo de parada mais antigo de todas as partições é usado, como resultado, algumas duplicatas podem ser vistas na saída. Mais informações sobre o processamento exatamente uma vez estão disponíveis na página [Garantias de Entrega de Eventos](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
 
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Navegue até o trabalho na portal do Azure e selecione **Iniciar** na página Visão geral. Selecione uma **hora de início de saída do trabalho** e, em seguida, selecione **Iniciar**.
+Navegue até o seu trabalho no portal Azure e selecione **Iniciar** na página de visão geral. Selecione a **hora de início da saída de trabalho** e, em seguida, selecione **Iniciar**.
 
-Escolha uma das opções de **hora de início da saída do trabalho**. As opções *agora*são *personalizado*, e, se o trabalho foi executado anteriormente, *quando foi interrompido pela última vez*. Consulte acima para obter mais informações sobre essas opções.
+Escolha uma das opções para **o tempo de início da saída do trabalho**. As opções são *Now*, *Custom*, e, se o trabalho foi executado anteriormente, *quando a última parada*. Veja acima para obter mais informações sobre essas opções.
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Na exibição de trabalho, selecione o botão de seta verde para iniciar o trabalho. Defina o **modo de início de saída do trabalho** e selecione **Iniciar**. O status do trabalho será alterado para **em execução**.
+Na exibição de trabalho, selecione o botão seta verde para iniciar o trabalho. Defina o **modo de início da saída de trabalho** e selecione **Iniciar**. O status do trabalho mudará para **Running**.
 
-Há três opções para o **modo de início de saída do trabalho**: *JobStartTime*, *CustomTime*e *LastOutputEventTime*. Se essa propriedade estiver ausente, o padrão será *JobStartTime*. Consulte acima para obter mais informações sobre essas opções.
+Há três opções para **o modo de início da saída de trabalho**: *JobStartTime*, *CustomTime*e *LastOutputEventTime*. Se esta propriedade estiver ausente, o padrão é *JobStartTime*. Veja acima para obter mais informações sobre essas opções.
 
 
 ## <a name="powershell"></a>PowerShell
@@ -52,12 +52,12 @@ Start-AzStreamAnalyticsJob `
   -OutputStartMode 'JobStartTime'
 ```
 
-Há três opções para **OutputStartMode**: *JobStartTime*, *CustomTime*e *LastOutputEventTime*. Se essa propriedade estiver ausente, o padrão será *JobStartTime*. Consulte acima para obter mais informações sobre essas opções.
+Existem três opções para **OutputStartMode**: *JobStartTime,* *CustomTime*e *LastOutputEventTime*. Se esta propriedade estiver ausente, o padrão é *JobStartTime*. Veja acima para obter mais informações sobre essas opções.
 
-Para obter mais informações sobre o cmdlet `Start-AzStreamAnalyitcsJob`, exiba a [referência Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
+Para obter mais `Start-AzStreamAnalyitcsJob` informações sobre o cmdlet, consulte a [referência Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Início Rápido: criar um trabalho do Stream Analytics usando o Portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando o Azure Stream Analytics Tools para Visual Studio](stream-analytics-quick-create-vs.md)
+* [Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+* [Quickstart: Crie um trabalho de Stream Analytics usando o Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Início Rápido: Criar um trabalho do Stream Analytics usando ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)

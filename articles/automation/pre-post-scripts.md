@@ -1,52 +1,52 @@
 ---
-title: Configurar pré e pós-scripts em sua implantação do Gerenciamento de Atualizações no Azure
+title: Configure pré e pós-scripts na implantação do Update Management no Azure
 description: Este artigo descreve como configurar e gerenciar pré-scripts e pós-scripts para implantações de atualização.
 services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 35fba966fcdb6d1c5cd7c531bb22c9c78ae16ff3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75417795"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gerenciar pré e pós-scripts
 
-Pré-scripts e pós-scripts permitem executar runbooks do PowerShell em sua conta de automação do Azure antes de (pré-tarefa) e após (pós tarefa) uma implantação de atualização. Pré e pós-scripts são executados no contexto do Azure, não localmente. Pré-scripts executados no início da implantação da atualização. Pós-scripts executados no final da implantação e após qualquer reinicialização configurada.
+Pré-scripts e pós-scripts permitem que você execute os runbooks do PowerShell em sua conta de Automação Azure antes (pré-tarefa) e depois (pós-tarefa) de uma implantação de atualização. Pré e pós-scripts executados no contexto Azure, não localmente. Os pré-scripts são executados no início da implantação da atualização. Os scripts pós-roteirizam no final da implantação e após quaisquer reinicializações configuradas.
 
 ## <a name="runbook-requirements"></a>Requisitos do runbook
 
-Para que um runbook seja usado como um pre ou um post-script, o runbook deve ser importado para sua conta de automação e publicado. Para saber mais sobre esse processo, consulte [publicar um runbook](manage-runbooks.md#publish-a-runbook).
+Para que um runbook seja usado como pré ou pós-script, o runbook deve ser importado para sua conta de Automação e publicado. Para saber mais sobre esse processo, consulte [Publicar um runbook](manage-runbooks.md#publish-a-runbook).
 
-## <a name="using-a-pre-script-or-post-script"></a>Usando um pré-script ou um pós-script
+## <a name="using-a-pre-script-or-post-script"></a>Usando um pré-script ou pós-script
 
-Para usar um script ou um pós-script em uma implantação de atualização, comece criando uma implantação de atualização. Selecione **pré-scripts + pós-scripts**. Essa ação abre a página **Selecionar Pré-scripts + Pós-scripts**.
+Para usar um pré-script ou pós-script em uma implantação de atualização, comece criando uma implantação de atualização. Selecione **Pré-scripts + Pós-scripts**. Essa ação abre a página **Selecionar Pré-scripts + Pós-scripts**.
 
 ![Selecionar scripts](./media/pre-post-scripts/select-scripts.png)
 
-Selecione o script que você deseja usar. Neste exemplo, usamos o runbook **UpdateManagement-TurnOnVms** . Quando você seleciona o runbook, a página **Configurar script** é aberta. Selecione **pré-script**e, em seguida, selecione **OK**.
+Selecione o script que deseja usar. Neste exemplo, usamos o runbook **UpdateManagement-TurnOnVms.** Quando você seleciona o runbook, a **página Configurar script** é aberta. Selecione **Pré-Script**e selecione **OK**.
 
-Repita esse processo para o script **UpdateManagement-TurnOffVms**. Mas, ao escolher o **tipo de script**, selecione **post-script**.
+Repita esse processo para o script **UpdateManagement-TurnOffVms**. Mas quando você escolher o **tipo Script,** selecione **Post-Script**.
 
-A seção **itens selecionados** agora mostra os dois scripts selecionados. Um é um pré-script e o outro é um post-script:
+A seção **Itens selecionados** agora mostra os dois scripts selecionados. Um é um pré-script e o outro é um pós-script:
 
 ![Itens selecionados](./media/pre-post-scripts/selected-items.png)
 
-Conclua a configuração da implantação de atualizações.
+Termine de configurar sua implantação de atualização.
 
-Quando a implantação de atualizações for concluída, você poderá acessar as **implantações de atualização** para exibir os resultados. Como você pode ver, o status é fornecido para o script e o pós-script:
+Quando sua implantação de atualização estiver concluída, você pode ir para **as implantações de atualização** para visualizar os resultados. Como você pode ver, o status é fornecido para o pré-script e pós-script:
 
 ![Atualizar resultados](./media/pre-post-scripts/update-results.png)
 
-Selecionando a execução da implantação de atualização, são mostrados detalhes adicionais para os scripts anteriores e posteriores. Um link para a fonte do script no momento da execução é fornecido.
+Ao selecionar a execução de implantação de atualização, você é mostrado detalhes adicionais para os pré e pós-scripts. Um link para a fonte do script no momento da execução é fornecido.
 
 ![Resultados da execução da implantação](./media/pre-post-scripts/deployment-run.png)
 
-## <a name="passing-parameters"></a>Passagem de parâmetros
+## <a name="passing-parameters"></a>Passando parâmetros
 
-Ao configurar pré e pós-scripts, você pode passar parâmetros, assim como agendar um runbook. Os parâmetros são definidos no momento da criação da implantação de atualização. Pré e pós-scripts dão suporte aos seguintes tipos:
+Quando você configura pré e pós-scripts, você pode passar em parâmetros como agendar um runbook. Os parâmetros são definidos no momento da criação da implantação de atualização. Pré e pós-scripts suportam os seguintes tipos:
 
 * [char]
 * [byte]
@@ -60,27 +60,27 @@ Ao configurar pré e pós-scripts, você pode passar parâmetros, assim como age
 
 Se precisar de outro tipo de objeto, você poderá convertê-lo em outro tipo usando com sua própria lógica no runbook.
 
-Além dos parâmetros de runbook padrão, outro parâmetro é fornecido: **SoftwareUpdateConfigurationRunContext**
+Além dos parâmetros padrão do runbook, outro parâmetro é fornecido: **SoftwareUpdateConfigurationRunContext**
 
-Esse parâmetro é uma cadeia de caracteres JSON e, se você definir o parâmetro em seu pre ou post-script, ele será automaticamente passado pela implantação de atualização. O parâmetro contém informações sobre a implantação de atualização, que é um subconjunto de informações retornadas pela [API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). 
+Este parâmetro é uma seqüência JSON, e se você definir o parâmetro em seu pré ou pós-script, ele é automaticamente passado pela implantação da atualização. O parâmetro contém informações sobre a implantação da atualização, que é um subconjunto de informações retornadas pela [API De configurações de softwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). 
 
-A tabela a seguir mostra as propriedades que são fornecidas na variável.
+A tabela a seguir mostra as propriedades fornecidas na variável.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriedades de SoftwareUpdateConfigurationRunContext
 
-|Propriedade  |Description  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | O nome da configuração de atualização de software.        |
-|SoftwareUpdateConfigurationRunId     | A ID exclusiva para a execução.        |
+|SoftwareUpdateConfigurationRunId     | A identificação única para a corrida.        |
 |SoftwareUpdateConfigurationSettings     | Uma coleção de propriedades relacionadas à configuração de atualização de software.         |
-|SoftwareUpdateConfigurationSettings.operatingSystem     | Os sistemas operacionais destinados à implantação da atualização.         |
-|SoftwareUpdateConfigurationSettings.duration     | A duração máxima da execução da implantação de atualização como `PT[n]H[n]M[n]S` por ISO8601; também chamada de *janela de manutenção*.          |
+|SoftwareUpdateConfigurationSettings.operatingSystem     | Os sistemas operacionais direcionados para a implantação da atualização.         |
+|SoftwareUpdateConfigurationSettings.duration     | A duração máxima da implantação `PT[n]H[n]M[n]S` da atualização é executada conforme ISO8601; também chamada de *janela de manutenção.*          |
 |SoftwareUpdateConfigurationSettings.Windows     | Uma coleção de propriedades relacionadas a computadores Windows.         |
-|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Uma lista de KBs que são excluídos da implantação de atualização.        |
-|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Classificações de atualização selecionadas para a implantação de atualização.        |
-|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Reinicialize as configurações para a implantação da atualização.        |
-|azureVirtualMachines     | Uma lista de ResourceId para as VMs do Azure na implantação da atualização.        |
-|nonAzureComputerNames|Uma lista de FQDNs de computadores não Azure na implantação de atualização.|
+|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Uma lista de KBs que estão excluídos da implantação da atualização.        |
+|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Classificações de atualização selecionadas para a implantação da atualização.        |
+|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Configurações de reinicialização para a implantação da atualização.        |
+|azureVirtualMachines     | Uma lista de ids de recursos para as VMs do Azure na implantação da atualização.        |
+|nonAzureComputerNames|Uma lista dos computadores não-Azure FQDNs na implantação da atualização.|
 
 A seguir há um exemplo de cadeia de caracteres JSON passada para o parâmetro **SoftwareUpdateConfigurationRunContext**:
 
@@ -112,15 +112,15 @@ A seguir há um exemplo de cadeia de caracteres JSON passada para o parâmetro *
    }
 ```
 
-Um exemplo completo com todas as propriedades pode ser encontrado em: [obter a configuração de atualização de software por nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
+Um exemplo completo com todas as propriedades pode ser encontrado em: [Obter configuração de atualização de software pelo nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
-> O objeto `SoftwareUpdateConfigurationRunContext` pode conter entradas duplicadas para computadores. Isso pode fazer com que pré e pós-scripts sejam executados várias vezes no mesmo computador. Para contornar esse comportamento, use `Sort-Object -Unique` para selecionar apenas nomes de VM exclusivos em seu script.
+> O `SoftwareUpdateConfigurationRunContext` objeto pode conter entradas duplicadas para máquinas. Isso pode fazer com que pré e pós-scripts seja executado várias vezes na mesma máquina. Para contornar esse comportamento, use `Sort-Object -Unique` para selecionar apenas nomes vm exclusivos em seu script.
 
 
-## <a name="stopping-a-deployment"></a>Interrompendo uma implantação
+## <a name="stopping-a-deployment"></a>Parando uma implantação
 
-Se você quiser interromper uma implantação com base em um pré-script, você deve [lançar](automation-runbook-execution.md#throw) uma exceção. Se você não fizer isso, a implantação e o post-script ainda serão executados. O trecho de código a seguir mostra como lançar uma exceção.
+Se você quiser interromper uma implantação com base em um pré-script, você deve [lançar](automation-runbook-execution.md#throw) uma exceção. Se você não fizer isso, a implantação e o pós-script ainda serão executados. O seguinte trecho de código mostra como abrir uma exceção.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -137,11 +137,11 @@ foreach($summary in $finalStatus)
 
 ## <a name="samples"></a>Exemplos
 
-Exemplos de pré e pós-scripts podem ser encontrados na [Galeria do script Center](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) e no [Galeria do PowerShell](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), ou você pode importá-los por meio do portal do Azure. Para fazer isso, em sua conta de automação, em **automação de processo**, selecione Galeria de **Runbooks**. Use **Gerenciamento de Atualizações** para o filtro.
+Amostras de pré e pós-scripts podem ser encontradas na [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) e na [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), ou você pode importá-las através do portal Azure. Para fazer isso, em sua conta de Automação, em **Automação de Processos,** selecione **Runbooks Gallery**. Use **Gerenciamento de Atualizações** para o filtro.
 
 ![Lista de galerias](./media/pre-post-scripts/runbook-gallery.png)
 
-Ou você pode procurá-los pelo nome do script, conforme mostrado na lista a seguir:
+Ou você pode procurá-los pelo nome do script, como mostrado na lista a seguir:
 
 * Gerenciamento de Atualizações – Ligar VMs
 * Gerenciamento de Atualizações – Desligar VMs
@@ -150,9 +150,9 @@ Ou você pode procurá-los pelo nome do script, conforme mostrado na lista a seg
 * Gerenciamento de Atualizações – Executar script com comando de execução
 
 > [!IMPORTANT]
-> Depois de importar os runbooks, você deve publicá-los antes que possam ser usados. Para fazer isso, localize o runbook em sua conta de automação, selecione **Editar**e, em seguida, selecione **publicar**.
+> Depois de importar os runbooks, você deve publicá-los antes que eles possam ser usados. Para fazer isso, encontre o manual na conta de Automação, selecione **Editar**e selecione **Publicar**.
 
-Os exemplos são todos baseados no modelo básico que é definido no exemplo a seguir. Este modelo pode ser usado para criar seu próprio runbook para usar com pré e pós-scripts. A lógica necessária para autenticação com o Azure e o tratamento do parâmetro `SoftwareUpdateConfigurationRunContext` está incluída.
+As amostras são todas baseadas no modelo básico definido no exemplo a seguir. Este modelo pode ser usado para criar seu próprio runbook para usar com pré e pós-scripts. A lógica necessária para autenticar com o `SoftwareUpdateConfigurationRunContext` Azure e manusear o parâmetro está incluída.
 
 ```powershell
 <#
@@ -205,33 +205,33 @@ $variable = Get-AutomationVariable -Name $runId
 #>
 ```
 
-## <a name="interacting-with-machines"></a>Interagindo com computadores
+## <a name="interacting-with-machines"></a>Interagindo com máquinas
 
-As tarefas pre e post são executadas como um runbook em sua conta de automação e não diretamente nas máquinas em sua implantação. Pré e pós-tarefas também são executadas no contexto do Azure e não têm acesso a computadores não Azure. As seções a seguir mostram como você pode interagir com os computadores diretamente, sejam eles VMs do Azure ou computadores não Azure.
+Pré e pós-tarefas são executados como um runbook em sua conta de Automação e não diretamente nas máquinas em sua implantação. Pré e pós-tarefas também são executados no contexto do Azure e não têm acesso a máquinas não-Azure. As seções a seguir mostram como você pode interagir diretamente com as máquinas, sejam elas VMs Azure ou máquinas não-Azure.
 
-### <a name="interacting-with-azure-machines"></a>Interagindo com máquinas do Azure
+### <a name="interacting-with-azure-machines"></a>Interagindo com máquinas Azure
 
-Pré e pós-tarefas são executadas como runbooks e não são executadas nativamente em suas VMs do Azure em sua implantação. Para interagir com suas VMs do Azure, você deve ter os seguintes itens:
+Pré e pós-tarefas são executados como runbooks e não são executados nativamente em suas VMs Azure em sua implantação. Para interagir com suas VMs do Azure, você deve ter os seguintes itens:
 
 * Uma conta Executar como
-* Um runbook que você deseja executar
+* Um runbook que você quer executar
 
-Para interagir com máquinas do Azure, você deve usar o cmdlet [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) para interagir com suas VMs do Azure. Para obter um exemplo de como fazer isso, consulte o exemplo de runbook [Gerenciamento de atualizações – executar script com o comando executar](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+Para interagir com as máquinas Azure, você deve usar o [cmdlet Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) para interagir com suas VMs do Azure. Para um exemplo de como fazer isso, consulte o exemplo do runbook [Update Management – execute script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
-### <a name="interacting-with-non-azure-machines"></a>Interagindo com computadores não Azure
+### <a name="interacting-with-non-azure-machines"></a>Interagindo com máquinas não-Azure
 
-As tarefas anteriores e posteriores são executadas no contexto do Azure e não têm acesso a computadores não Azure. Para interagir com os computadores não Azure, você deve ter os seguintes itens:
+Pré e pós-tarefas são executadas no contexto do Azure e não têm acesso a máquinas não-Azure. Para interagir com as máquinas não-Azure, você deve ter os seguintes itens:
 
 * Uma conta Executar como
 * Um Hybrid Runbook Worker instalado no computador
 * Um runbook que deseja executar localmente
-* Um runbook pai
+* Um runbook dos pais
 
-Para interagir com computadores não Azure, um runbook pai é executado no contexto do Azure. Esse runbook chama um runbook filho com o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). É necessário especificar o parâmetro `-RunOn` e fornecer o nome do Hybrid Runbook Worker para o script ser executado. Para obter mais informações, consulte o exemplo de runbook [Gerenciamento de atualizações – executar script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Para interagir com máquinas não-Azure, um runbook pai é executado no contexto Azure. Esse runbook chama um runbook filho com o cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). É necessário especificar o parâmetro `-RunOn` e fornecer o nome do Hybrid Runbook Worker para o script ser executado. Para obter mais informações, consulte o exemplo do runbook [Update Management – execute script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
-## <a name="abort-patch-deployment"></a>Anular implantação de patch
+## <a name="abort-patch-deployment"></a>Implantação de patch de abortagem
 
-Se o seu pré-script retornar um erro, talvez você queira anular a implantação. Para fazer isso, você deve [lançar](/powershell/module/microsoft.powershell.core/about/about_throw) um erro em seu script para qualquer lógica que possa constituir uma falha.
+Se o seu pré-script retornar um erro, você pode querer abortar sua implantação. Para fazer isso, você deve [jogar](/powershell/module/microsoft.powershell.core/about/about_throw) um erro em seu script para qualquer lógica que constitua um fracasso.
 
 ```powershell
 if (<My custom error logic>)
@@ -243,11 +243,11 @@ if (<My custom error logic>)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* Não é possível passar um booliano, objetos ou matrizes para parâmetros quando você estiver usando pré e pós-scripts. Se você fizer isso, o runbook falhará. Para obter uma lista completa dos tipos com suporte, consulte [passando parâmetros](#passing-parameters).
+* Você não pode passar um booleano, objetos ou matrizes para parâmetros quando você está usando pré e pós-scripts. Se você fizer isso, o manual falha. Para obter uma lista completa de tipos suportados, consulte ['Passar parâmetros '](#passing-parameters)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Vá para o tutorial a seguir para saber como gerenciar atualizações para suas máquinas virtuais do Windows:
+Acesse o tutorial a seguir para saber como gerenciar atualizações para suas máquinas virtuais do Windows:
 
 > [!div class="nextstepaction"]
 > [Gerenciar atualizações e patches para VMs do Microsoft Azure](automation-tutorial-update-management.md)

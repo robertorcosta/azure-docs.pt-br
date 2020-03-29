@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas do Hub IoT do Azure erro 400027 ConnectionForcefullyClosedOnNewConnection
+title: Solução de problemas Erro do Hub IoT do Azure 400027 ConnectionForcefullyClosedOnNewConnection
 description: Entenda como corrigir o erro 400027 ConnectionForcefullyClosedOnNewConnection
 author: jlian
 manager: briz
@@ -9,24 +9,24 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: f4949816f516c6a6b60cfda0602f458256370d40
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76960523"
 ---
 # <a name="400027-connectionforcefullyclosedonnewconnection"></a>400027 ConnectionForcefullyClosedOnNewConnection
 
-Este artigo descreve as causas e soluções para erros de **400027 ConnectionForcefullyClosedOnNewConnection** .
+Este artigo descreve as causas e soluções para os erros **de 400027 ConnectionForcefullyClosedOnNewConnection.**
 
 ## <a name="symptoms"></a>Sintomas
 
-A operação de conexão do dispositivo para a nuvem (como propriedades relatadas de leitura ou patch) ou invocação de método direto falha com o código de erro **400027**.
+Sua operação dupla dispositivo-nuvem (como propriedades de leitura ou patch relatados) ou invocação direta do método falha com o código de erro **400027**.
 
 ## <a name="cause"></a>Causa
 
-Outro cliente criou uma nova conexão com o Hub IoT usando as mesmas credenciais, portanto, o Hub IoT fechou a conexão anterior. O Hub IoT não permite que mais de um cliente se conecte usando o mesmo conjunto de credenciais.
+Outro cliente criou uma nova conexão com o IoT Hub usando as mesmas credenciais, então o IoT Hub fechou a conexão anterior. O IoT Hub não permite que mais de um cliente se conecte usando o mesmo conjunto de credenciais.
 
 ## <a name="solution"></a>Solução
 
-Certifique-se de que cada cliente se conecte ao Hub IoT usando sua própria identidade.
+Certifique-se de que cada cliente se conecte ao IoT Hub usando sua própria identidade.

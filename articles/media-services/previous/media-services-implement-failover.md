@@ -1,6 +1,6 @@
 ---
 title: Implementar streaming de failover com os Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo mostra como implementar um cenário de streaming de failover com os serviços de mídia do Azure.
+description: Este artigo mostra como implementar um cenário de streaming failover com o Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78939212"
 ---
-# <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming de failover com os serviços de mídia v2
+# <a name="implement-failover-streaming-with-media-services-v2"></a>Implementar streaming failover com Media Services v2
 
 Este passo a passo demonstra como copiar conteúdo (blobs) de um ativo para outro a fim de lidar com a redundância no streaming sob demanda. Esse cenário é útil se você quer configurar a Rede de Distribuição de Conteúdo do Azure para fazer failover entre dois datacenters no caso de uma interrupção em um datacenter. Este passo a passo usa o SDK dos Serviços de Mídia do Azure, a API REST dos Serviços de Mídia do Azure e o SDK de Armazenamento do Azure para demonstrar as seguintes tarefas:
 
@@ -50,7 +50,7 @@ As seguintes considerações se aplicam:
 * Ativos de armazenamento criptografado (AssetCreationOptions.StorageEncrypted) não têm suporte para replicação (já que a chave de criptografia é diferente nas duas contas dos Serviços de Mídia). 
 * Se desejar aproveitar o empacotamento dinâmico, verifique se o ponto de extremidade de streaming do qual você deseja transmitir seu conteúdo está no estado **Executando**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Duas contas dos Serviços de Mídia em uma assinatura nova ou existente do Azure. Confira [Criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
 * Sistemas operacionais: Windows 7, Windows 2008 R2 ou Windows 8.
@@ -61,11 +61,11 @@ As seguintes considerações se aplicam:
 
 Nesta seção, você cria e configura um projeto de aplicativo de console em C#.
 
-1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#. Insira **HandleRedundancyForOnDemandStreaming** como o Nome e clique em **OK**.
-2. Crie a pasta **SupportFiles** no mesmo nível que o arquivo de projeto **HandleRedundancyForOnDemandStreaming.csproj**. Na pasta **SupportFiles**, crie as pastas **OutputFiles** e **MP4Files**. Copie um arquivo. mp4 para a pasta **MP4Files**. (Neste exemplo, o arquivo **Ignite. mp4** é usado.) 
-3. Use o **NuGet** para adicionar referências a DLLs relacionadas aos serviços de mídia. No **menu principal do Visual Studio**, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**. Na janela do console, digite **Install-Package windowsazure.mediaservices** e pressione Enter.
-4. Adicione outras referências que são necessárias para este projeto: System. Runtime. Serialization e System. Web.
-5. Substitua as instruções **using** que foram adicionadas ao arquivo **Programs.cs** por padrão pelas seguintes:
+1. Use o Visual Studio para criar uma nova solução que inclua o projeto de Aplicativo de Console em C#. Digite **HandleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique em **OK**.
+2. Crie a pasta **SupportFiles** no mesmo nível do arquivo de projeto **HandleRedundânciaForOnDemandStreaming.csproj.** Na pasta **SupportFiles,** crie as pastas **OutputFiles** e **MP4Files.** Copie um arquivo. mp4 para a pasta **MP4Files**. (Neste exemplo, o arquivo **ignite.mp4** é usado.) 
+3. Use **nuGet** para adicionar referências a DLLs relacionados a Serviços de mídia. No **menu principal do Visual Studio,** selecione **FERRAMENTAS** > **NuGet Package Manager** > **Package Manager Console**. Na janela do console, **digite Install-Package windowsazure.mediaservices**e pressione Enter.
+4. Adicione outras referências necessárias para este projeto: System.Runtime.Serialization e System.Web.
+5. Substitua **o uso de** instruções adicionadas ao arquivo **Programs.cs** por padrão com as seguintes:
 
 ```csharp
 using System;
@@ -205,7 +205,7 @@ Nesta seção, você cria a capacidade de manipular a redundância.
         }
     }
     ```
-3. As definições de método a seguir são chamadas do Principal. Consulte os comentários para obter mais detalhes sobre cada método.
+3. As definições de método a seguir são chamadas do Principal. Veja os comentários para obter mais detalhes sobre cada método.
 
     >[!NOTE]
     >Há um limite de 1 milhão de políticas para diferentes políticas dos Serviços de Mídia (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Você deverá usar a mesma ID de política se estiver sempre usando os mesmos dias e permissões de acesso. Por exemplo, use a mesma ID para políticas de localizadores que devam permanecer no local por um longo período (políticas sem carregamento). Para obter mais informações, consulte [este tópico](media-services-dotnet-manage-entities.md#limit-access-policies).
@@ -748,13 +748,13 @@ Nesta seção, você cria a capacidade de manipular a redundância.
     
 ## <a name="content-protection"></a>Proteção de conteúdo
 
-O exemplo neste tópico mostra Clear streaming. Se você quiser fazer streaming protegido, há algumas outras coisas que você precisa configurar, você precisa usar o mesmo **AssetDeliveryPolicy**, a mesma URL do servidor de chave externa ou **ContentKeyAuthorizationPolicy** , e você precisa duplicar as chaves de conteúdo com o mesmo identificador.
+O exemplo neste tópico mostra streaming claro. Se você quiser fazer streaming protegido, há algumas outras coisas que você precisa configurar, você precisa usar o mesmo **AssetDeliveryPolicy**, o mesmo **ContentKeyAuthorizationPolicy** ou URL de servidor de chave externa, e você precisa duplicar as chaves de conteúdo com o mesmo identificador.
 
-Para obter mais informações sobre a proteção de conteúdo, consulte [usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves](media-services-protect-with-aes128.md).
+Para obter mais informações sobre proteção de conteúdo, consulte [Use criptografia dinâmica AES-128 e o serviço de entrega chave](media-services-protect-with-aes128.md).
 
 ## <a name="see-also"></a>Confira também
 
-[Usar WebHooks do Azure para monitorar notificações de trabalho dos serviços de mídia](media-services-dotnet-check-job-progress-with-webhooks.md)
+[Use webhooks do Azure para monitorar notificações de trabalho do Media Services](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

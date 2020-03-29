@@ -1,5 +1,5 @@
 ---
-title: Interface do usuário do Microsoft Azure StorSimple Gerenciador de Dados
+title: Microsoft Azure StorSimple Data Manager UI
 description: Descreve como usar a interface do usuário do serviço do Gerenciador de Dados do StorSimple
 author: alkohli
 ms.service: storsimple
@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933745"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço do Gerenciador de Dados do StorSimple no portal do Azure
 
-Este artigo explica como você pode usar a interface do usuário do Gerenciador de Dados do StorSimple para transformar os dados que residem em dispositivos das séries StorSimple 8000. Os dados transformados podem ser consumidos por outros serviços do Azure, como os serviços de mídia do Azure, o Azure HDInsight, o Azure Machine Learning e o Azure Pesquisa Cognitiva.
+Este artigo explica como você pode usar a interface do usuário do Gerenciador de Dados do StorSimple para transformar os dados que residem em dispositivos das séries StorSimple 8000. Os dados transformados podem então ser consumidos por outros serviços do Azure, como Azure Media Services, Azure HDInsight, Azure Machine Learning e Azure Cognitive Search.
 
 
 ## <a name="use-storsimple-data-transformation"></a>Usar a transformação de dados do StorSimple
@@ -40,7 +40,7 @@ Execute as etapas a seguir para criar um serviço Gerenciador de Dados do StorSi
 
    1. Fornecer um **nome de serviço** único para o seu Gerenciador de Dados do StorSimple. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.
 
-   2. Escolha uma **Assinatura** na lista suspensa. A assinatura está vinculada à sua conta de cobrança. Este campo é preenchido automaticamente (e não é selecionável) se você tiver apenas uma assinatura.
+   2. Escolha uma **assinatura** na lista de isto. A assinatura está vinculada à sua conta de cobrança. Este campo é preenchido automaticamente (e não é selecionável) se você tiver apenas uma assinatura.
 
    3. Escolha um grupo de recursos existente ou crie um novo grupo. Para obter mais informações, veja [Grupos de recursos do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
@@ -62,7 +62,7 @@ Execute as etapas a seguir para criar uma definição de trabalho.
 
 1. Navegue até o serviço que você criou. Acesse **Gerenciamento > Definições de tarefa**.
 
-2. Clique em **+ Definição de trabalho**.
+2. Clique **+ Definição de trabalho**.
 
     ![Clique em +Definição de Trabalho](./media/storsimple-data-manager-ui/create-job-definition-1.png)
 
@@ -102,7 +102,7 @@ Execute as etapas a seguir para criar uma definição de trabalho.
 
    3. Na subseção do **Filtro**, insira o diretório raiz que contém os dados de interesse no formato _\MyRootDirectory\Data_. Letras de unidade como _\C:\Data_ não têm suporte. Você também pode adicionar qualquer filtro de arquivo aqui.
 
-   4. O serviço de transformação de dados só funciona no instantâneo mais recente dos dados que são enviados para o Azure.
+   4. O serviço de transformação de dados só funciona no snapshot mais recente dos dados que são empurrados para o Azure.
 
    5. Clique em **OK**.
 
@@ -139,7 +139,7 @@ Sempre que você precisar mover dados do StorSimple para a conta de armazenament
      
      ![Iniciar execução de trabalho 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-2. Clique em **Executar Agora**.
+2. Clique **em Executar agora**.
      
      ![Iniciar execução de trabalho 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 
@@ -151,10 +151,10 @@ Sempre que você precisar mover dados do StorSimple para a conta de armazenament
 
     ![Iniciar execução de trabalho 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
-### <a name="view-logs-after-job-completion"></a>Exibir logs após a conclusão do trabalho
+### <a name="view-logs-after-job-completion"></a>Exibir registros após a conclusão do trabalho
 
-Após a conclusão de um trabalho, você poderá exibir o status do trabalho. O status do trabalho pode ser **bem-sucedido**, **parcialmente bem-sucedido** e **com falha**. Você pode exibir a lista de arquivos que foram copiados com êxito e os arquivos que falharam ao serem copiados. Essas listas estão disponíveis em um contêiner chamado **"storsimple-Data-Manager-joblogs"** em sua conta de armazenamento de destino. Nesse contêiner, você pode procurar uma pasta com o mesmo nome que a definição de trabalho. Dentro disso, uma pasta será criada para cada execução de trabalho que conterá suas listas. O nome dessa pasta será o GUID do trabalho, que pode ser obtido na página de detalhes do trabalho. Como alternativa, na maioria dos casos você verá um link para os logs de cópia na própria página de trabalhos.
-Há dois conjuntos de arquivos CSV que serão exibidos nessa pasta. Todos os arquivos que começam com **copiedfilelist...** conterão a lista de arquivos copiados com êxito. Todos os arquivos que começam com **failedfilelist...** contêm arquivos que não puderam ser copiados, juntamente com uma mensagem de erro.
+Após a conclusão de um trabalho, você pode ver o status do trabalho. O status do trabalho pode ser **bem sucedido,** **parcialmente bem sucedido** e **falho**. Você pode visualizar a lista de arquivos que foram copiados com sucesso e arquivos que não foram copiados. Essas listas estão disponíveis em um contêiner chamado **"storsimple-data-manager-joblogs"** dentro de sua conta de armazenamento alvo. Dentro deste contêiner, você pode procurar uma pasta com o mesmo nome da definição do seu trabalho. Dentro disso, uma pasta será criada para cada execução de trabalho que conterá suas listas. O nome desta pasta será o GUID do trabalho, que você pode obter na página de detalhes do trabalho. Alternativamente, na maioria dos casos, você verá um link para os registros de cópia dentro da própria página de empregos.
+Existem 2 conjuntos de arquivos csv que você verá nesta pasta. Todos os arquivos que começam com **filelist copiado...** conterão a lista de arquivos copiados com sucesso. Todos os arquivos que começam com **a lista de arquivos com falha...** contêm arquivos que não foram capazes de ser copiados, juntamente com uma mensagem de erro.
 
 
 ## <a name="next-steps"></a>Próximas etapas

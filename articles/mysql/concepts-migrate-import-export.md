@@ -1,5 +1,5 @@
 ---
-title: Importar e exportar-banco de dados do Azure para MySQL
+title: Importação e exportação - Banco de dados Azure para MySQL
 description: Este artigo explica formas comuns de importar e exportar bancos de dados no Banco de Dados do Azure para MySQL, usando ferramentas como o MySQL Workbench.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163719"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar o banco de dados MySQL usando importação e exportação
@@ -19,10 +19,10 @@ Este artigo explica duas abordagens comuns de importação e exportação de dad
 ## <a name="before-you-begin"></a>Antes de começar
 Para seguir este guia de instruções, você precisa:
 - Um Banco de Dados do Azure para MySQL Server, seguindo [Criar um Banco de Dados do Azure para MySQL Server usando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md).
-- MySQL Workbench o [download do MySQL Workbench](https://dev.mysql.com/downloads/workbench/) ou outra ferramenta MySQL de terceiros para fazer a importação/exportação.
+- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) ou outra ferramenta MySQL de terceiros para fazer a importação/exportação.
 
 ## <a name="use-common-tools"></a>Usar ferramentas comuns
-Use ferramentas e utilitários comuns, como o MySQL Workbench ou o mysqldump, para conectar e importar ou exportar dados remotamente para o Azure Database para MySQL. 
+Use utilitários e ferramentas comuns como MySQL Workbench ou mysqldump para conectar e importar ou exportar dados remotamente para o Azure Database para MySQL. 
 
 Use essas ferramentas no computador cliente com uma conexão à Internet para se conectar ao Banco de Dados do Azure para MySQL. Use uma conexão criptografada por SSL para as melhores práticas de segurança, conforme descrito em [Configurar a conectividade SSL no Banco de Dados do Azure para MySQL](concepts-ssl-connection-security.md).
 
@@ -58,7 +58,7 @@ Por exemplo, se você tiver um aplicativo Web ou do WordPress que usa o mecanism
 -   Crie índices clusterizados e chaves primárias antes de carregar os dados. Carregue os dados na ordem de chave primária. 
 -   Atrase a criação de índices secundários até os dados serem carregados. Crie todos os índices secundários após o carregamento. 
 -   Desabilite as restrições de chave estrangeira antes do carregamento. Desabilitar as verificações de chave estrangeira proporciona ganhos significativos de desempenho. Habilite as restrições e verifique os dados após o carregamento para garantir a integridade referencial.
--   Carregar dados paralelamente. Evite o excesso de paralelismo que poderá fazer com que você atinja um limite de recursos e monitore os recursos usando as métricas disponíveis no portal do Azure. 
+-   Carregar dados em paralelo. Evite o excesso de paralelismo que poderá fazer com que você atinja um limite de recursos e monitore os recursos usando as métricas disponíveis no portal do Azure. 
 -   Use tabelas particionadas, quando apropriado.
 
 ## <a name="import-and-export-by-using-mysql-workbench"></a>Importar e exportar usando o MySQL Workbench
@@ -96,7 +96,7 @@ Use um assistente para exportar ou importar o SQL gerado no MySQL Workbench ou g
 Use a guia **Exportação de Dados** para exportar os dados do MySQL. 
 1. Selecione cada esquema que deseja exportar, opcionalmente, escolha objetos/tabelas do esquema específicos de cada esquema e gere a exportação. As opções de configuração incluem a exportação para uma pasta de projeto ou um arquivo SQL independente, despejo de rotinas e eventos armazenados ou ignorar os dados da tabela. 
  
-   Como alternativa, use **Exportar um Conjunto de Resultados** para exportar um conjunto de resultados específico no editor de SQL para outro formato como CSV, JSON, HTML e XML. 
+   Alternativamente, use **Exportar um Conjunto de Resultados** para exportar um conjunto de resultados específico no editor SQL para outro formato, como CSV, JSON, HTML e XML. 
 3. Selecione os objetos de banco de dados a serem exportados e configure as opções relacionadas.
 4. Clique em **Atualizar** para carregar os objetos atuais.
 5. Opcionalmente, abra a guia **Opções Avançadas** para refinar a operação de exportação. Por exemplo, adicione bloqueios de tabela, use instruções de substituição em vez de inserção e identificadores de aspas com caracteres de acento grave.
@@ -110,6 +110,6 @@ Use a guia **Importação de Dados** para importar ou restaurar os dados exporta
 1. Escolha a pasta de projeto ou o arquivo SQL independente, o esquema no qual importar ou **Novo** para definir um novo esquema. 
 2. Clique em **Iniciar Importação** para iniciar o processo de importação.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Como outra abordagem de migração, leia [Migrar o banco de dados MySQL usando o despejo e a restauração no Banco de Dados do Azure para MySQL](concepts-migrate-dump-restore.md).
 - Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para MySQL, confira o [Guia de Migração de Banco de Dados](https://aka.ms/datamigration). 

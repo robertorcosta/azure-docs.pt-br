@@ -1,5 +1,5 @@
 ---
-title: Como planejar sua implementação de Azure Active Directory Join
+title: Como planejar sua implementação do Azure Active Directory
 description: Explica as etapas necessárias para implementar o Azure Active Directory ingressado em dispositivos em seu ambiente.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672689"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
@@ -24,13 +24,13 @@ O ingresso no Azure AD permite que você ingresse dispositivos diretamente ao Az
 
 Esse artigo fornece as informações necessárias para começar com as APIs de relatório do Azure Active Directory.
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo presume que você esteja familiarizado com o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](../device-management-introduction.md).
 
 ## <a name="plan-your-implementation"></a>Planejar sua implementação
 
-Para planejar sua implementação de ingresso no Azure AD, você deve se familiarizar com:
+Para planejar a implementação do Azure AD, você deve se familiarizar com:
 
 |   |   |
 |---|---|
@@ -40,7 +40,7 @@ Para planejar sua implementação de ingresso no Azure AD, você deve se familia
 |![Verificação][1]|Entenda as considerações para aplicativos e recursos|
 |![Verificação][1]|Entenda suas opções de provisionamento|
 |![Verificação][1]|Configurar o roaming de estado|
-|![Verificação][1]|Configurar o acesso condicional|
+|![Verificação][1]|Configurar acesso condicional|
 
 ## <a name="review-your-scenarios"></a>Revisar seus cenários 
 
@@ -78,7 +78,7 @@ Quando você estiver usando o AD FS, será necessário habilitar os seguintes po
 Se seu provedor de identidade não oferece suporte a esses protocolos, o ingresso no Azure Active Directory não trabalha nativamente. 
 
 >[!NOTE]
-> Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
+> Atualmente, o Azure AD join não funciona com [o AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD adere à autenticação de senha como o método principal, o que resulta em falhas de autenticação neste cenário
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Cartões inteligentes e autenticação baseada em certificado
@@ -110,10 +110,10 @@ Ingresso no Azure AD:
 
 ### <a name="management-platform"></a>Plataforma de gerenciamento
 
-O gerenciamento de dispositivos para dispositivos ingressados no Azure AD é baseado em uma plataforma MDM, como o Intune, e CSPs de MDM. Windows 10 tem um agente MDM interno que funciona com todas as soluções MDM compatíveis.
+O gerenciamento de dispositivos para dispositivos azure AD é baseado em uma plataforma MDM, como Intune e CSPs MDM. Windows 10 tem um agente MDM interno que funciona com todas as soluções MDM compatíveis.
 
 > [!NOTE]
-> Não há suporte para políticas de grupo em dispositivos ingressados no Azure AD, pois eles não estão conectados a Active Directory locais. O gerenciamento de dispositivos ingressados no Azure AD só é possível por meio do MDM
+> As políticas de grupo não são suportadas em dispositivos aderidos ao Azure AD, pois eles não estão conectados ao Active Directory no local. Gerenciamento de dispositivos aderidos ao Azure AD só é possível através do MDM
 
 Há duas abordagens para gerenciar o Azure Active Directory ingressado em dispositivos:
 
@@ -129,7 +129,7 @@ Revisar as políticas compatíveis ou não compatíveis para determinar se você
 
 Se sua solução de MDM não estiver disponível por meio da galeria de aplicativo do Azure Active Directory, você pode adicioná-lo seguindo o processo descrito em [integração do Active Directory do Azure com o MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Por meio de cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma MDM. Microsoft Intune permite que o cogerenciamento com o SCCM. Para obter mais informações sobre o cogerenciamento para dispositivos Windows 10, consulte [o que é cogerenciamento?](/configmgr/core/clients/manage/co-management-overview). Se você usar um produto MDM que não seja o Intune, entre em contato com seu provedor de MDM em cenários de cogerenciamento aplicável.
+Por meio de cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma MDM. Microsoft Intune permite que o cogerenciamento com o SCCM. Para obter mais informações sobre co-gerenciamento de dispositivos Windows 10, consulte [O que é co-gerenciamento?](/configmgr/core/clients/manage/co-management-overview). Se você usar um produto MDM que não seja o Intune, entre em contato com seu provedor de MDM em cenários de cogerenciamento aplicável.
 
 **Recomendação:** considere MDM somente a dispositivos adicionados ao gerenciamento do Azure Active Directory.
 
@@ -244,7 +244,7 @@ Antes de definir as configurações de mobilidade, talvez você precise adiciona
 **Para adicionar um provedor MDM**:
 
 1. Na página **Azure Active Directory**, na seção **Gerenciar**, clique em `Mobility (MDM and MAM)`. 
-1. Clique em **Adicionar aplicativo**.
+1. Clique **em Adicionar aplicativo**.
 1. Selecione seu provedor de MDM da lista.
 
    ![Adicionar um aplicativo](./media/azureadjoin-plan/04.png)
@@ -284,19 +284,19 @@ Se você quiser habilitar o roaming de estado para o Azure Active Directory para
 
 **Recomendação**: habilite esta configuração mesmo para os dispositivos do Azure Active Directory híbrido ingressado.
 
-## <a name="configure-conditional-access"></a>Configurar o acesso condicional
+## <a name="configure-conditional-access"></a>Configurar acesso condicional
 
 Se você tiver um provedor MDM configurado para os dispositivos Azure Active Directory ingressados, o provedor sinaliza o dispositivo como conformidade assim que o dispositivo está sob gerenciamento. 
 
 ![Dispositivo em conformidade](./media/azureadjoin-plan/46.png)
 
-Você pode usar essa implementação para [exigir dispositivos gerenciados para acesso de aplicativo de nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
+Você pode usar esta implementação para [exigir dispositivos gerenciados para acesso a aplicativos em nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Ingressar um novo dispositivo Windows 10 com o Azure Active Directory durante uma primeira execução](azuread-joined-devices-frx.md)
-> [ingressar seu dispositivo de trabalho para a rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Junte-se a um novo dispositivo Windows 10 com Azure AD durante uma primeira execução](azuread-joined-devices-frx.md)
+> [Junte-se ao dispositivo de trabalho na rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

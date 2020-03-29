@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre a autenticação multifator do Azure-Azure Active Directory
+title: Faq de autenticação multifatorial do Azure - Diretório Ativo do Azure
 description: Perguntas frequentes e respostas relacionadas à Autenticação Multifator do Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425147"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
@@ -25,13 +25,13 @@ Estas perguntas frequentes respondem a perguntas comuns sobre a Autenticação M
 ## <a name="general"></a>Geral
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o MFA Server para novas implantações. Novos clientes que gostariam de exigir autenticação multifatorial de seus usuários devem usar a Autenticação Multifatorial baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 > 
-> O licenciamento baseado em consumo não estará mais disponível para novos clientes a partir de 1º de setembro de 2018.
-> A partir de 1º de setembro de 2018, novos provedores de autenticação podem não ser mais criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados. A Autenticação Multifator continuará sendo um recurso disponível nas licenças do Azure AD Premium.
+> O licenciamento baseado em consumo não está mais disponível para novos clientes a partir de 1º de setembro de 2018.
+> A partir de 1º de setembro de 2018, novos provedores de auth podem não ser mais criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados. A Autenticação Multifator continuará sendo um recurso disponível nas licenças do Azure AD Premium.
 
 > [!NOTE]
-> As informações compartilhadas abaixo em relação à Servidor de Autenticação Multifator do Azure só são aplicáveis a usuários que já têm o servidor MFA em execução.
+> As informações compartilhadas abaixo sobre o Azure Multi-Factor Authentication Server só são aplicáveis para usuários que já têm o servidor MFA em execução.
 
 **P: Como o Servidor de Autenticação Multifator do Azure lida com os dados do usuário?**
 
@@ -40,8 +40,8 @@ Com o Servidor de Autenticação Multifator, os dados do usuário são armazenad
 Quando solicitações de autenticação são enviadas ao serviço de nuvem, dados são coletados para relatórios de autenticação e uso. Os campos de dados incluídos em logs de verificação em duas etapas são:
 
 * **ID Exclusiva** (ou o nome de usuário, ou a ID do Servidor de Autenticação Multifator local)
-* **Nome e Sobrenome** (opcional)
-* **Endereço de Email** (opcional)
+* **Primeiro e Último Nome** (opcional)
+* **Endereço de e-mail** (opcional)
 * **Número de Telefone** (ao usar uma chamada de voz ou autenticação SMS)
 * **Token de Dispositivo** (ao usar a autenticação de aplicativos móveis)
 * **Modo de Autenticação**
@@ -68,7 +68,7 @@ Nos Canadá, a Microsoft usa os seguintes códigos curtos de SMS:
    * 759731 
    * 673801
 
-A Microsoft não garante a entrega de prompt consistente de Autenticação multifator com base em voz ou SMS pelo mesmo número. Pensando no melhor para nossos usuários, a Microsoft pode adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. A Microsoft não oferece suporte a códigos curtos para países/regiões além do Estados Unidos e do Canadá.
+A Microsoft não garante a entrega de prompt consistente de Autenticação multifator com base em voz ou SMS pelo mesmo número. Pensando no melhor para nossos usuários, a Microsoft pode adicionar ou remover códigos curtos a qualquer momento, pois fazemos ajustes de rota para melhorar a capacidade de entrega de SMS. A Microsoft não suporta códigos curtos para países/regiões além dos Estados Unidos e Canadá.
 
 ## <a name="billing"></a>Cobrança
 
@@ -96,7 +96,7 @@ Saiba mais sobre suas opções em [Como obter a Autenticação Multifator do Azu
 
 Em alguns casos, sim.
 
-A autenticação multifator para administradores do Azure oferece um subconjunto de recursos do Azure MFA sem custo adicional para acesso ao Microsoft serviços online, incluindo o [portal do Azure](https://portal.azure.com) e o [Microsoft 365 Admin Center](https://admin.microsoft.com). Essa oferta somente aplica-se aos administradores do Azure Active Directory em instâncias do Azure Active Directory que não tem a versão completa do Azure MFA através de uma licença MFA, um pacote ou um provedor baseado em consumo autônomo. Se seus administradores usam a versão gratuita e, em seguida, você compra uma versão completa do Azure MFA então todos os administradores globais são elevados para a versão paga automaticamente.
+A autenticação multifatorial para administradores do Azure oferece um subconjunto de recursos Do Azure MFA sem custo para acesso aos serviços online da Microsoft, incluindo o [portal Azure](https://portal.azure.com) e o [centro de administração Microsoft 365](https://admin.microsoft.com). Essa oferta somente aplica-se aos administradores do Azure Active Directory em instâncias do Azure Active Directory que não tem a versão completa do Azure MFA através de uma licença MFA, um pacote ou um provedor baseado em consumo autônomo. Se seus administradores usam a versão gratuita e, em seguida, você compra uma versão completa do Azure MFA então todos os administradores globais são elevados para a versão paga automaticamente.
 
 A Autenticação Multifator para usuários do Office 365 oferece um subconjunto de recursos do Azure MFA sem custo adicional para acessar os serviços do Office 365, incluindo o Exchange Online, o SharePoint Online. Essa oferta aplica-se aos usuários que tenham uma licença do Office 365 atribuída, quando a instância correspondente do Azure Active Directory não tem a versão completa do Azure MFA por meio de uma licença MFA, um pacote ou um provedor de baseado em consumo autônomo.
 
@@ -124,7 +124,7 @@ O Azure Active Directory é necessário para o modelo de licença porque as lice
 
 ## <a name="manage-and-support-user-accounts"></a>Gerenciar e dar suporte a contas de usuário
 
-**P: o que devo dizer aos meus usuários para fazer se não receberem uma resposta em seu telefone?**
+**P: O que devo dizer aos meus usuários para fazerem se eles não receberem uma resposta em seu telefone?**
 
 Peça para os usuários tentarem até cinco vezes em cinco minutos para receberem uma chamada telefônica ou SMS para autenticação. A Microsoft usa vários provedores para entregar mensagens SMS e chamadas. Se isso não funcionar, abra um caso de suporte com a Microsoft para realizar mais etapas de solução de problemas.
 
@@ -149,11 +149,11 @@ Se sua organização não tiver clientes herdados, você não deve permitir que 
 > [!NOTE]
 > Autenticação moderna para clientes do Office 2013
 >
-> Senhas de aplicativo são necessárias apenas para aplicativos que não suportam autenticação moderna. Clientes do Office 2013 oferece suporte aos protocolos de autenticação moderna, mas precisam ser configurados. Agora, a autenticação moderna está disponível para qualquer cliente que execute a atualização de março de 2015 ou posterior para o Office 2013. Para obter mais informações, consulte a postagem no blog [atualização da autenticação moderna do Office 365](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+> Senhas de aplicativo são necessárias apenas para aplicativos que não suportam autenticação moderna. Clientes do Office 2013 oferece suporte aos protocolos de autenticação moderna, mas precisam ser configurados. Agora, a autenticação moderna está disponível para qualquer cliente executando a atualização de março de 2015 ou posterior para o Office 2013. Para obter mais informações, consulte o blog [post Escritório Atualizado 365 autenticação moderna](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
-**P: meus usuários dizem que às vezes eles não recebem a mensagem de texto ou a verificação atinge o tempo limite.**
+**P: Meus usuários dizem que às vezes eles não recebem a mensagem de texto ou os tempos de verificação fora.**
 
-A entrega de mensagens SMS não é garantida porque existem fatores não controláveis que podem afetar a confiabilidade do serviço. Esses fatores incluem o país/região de destino, a operadora de celular e a intensidade do sinal.
+A entrega de mensagens SMS não é garantida porque existem fatores incontroláveis que podem afetar a confiabilidade do serviço. Esses fatores incluem o país/região de destino, a operadora de telefonia móvel e a força do sinal.
 
 Se os usuários geralmente têm problemas de forma segura, receber mensagens de texto, informe ao usar o método de chamada telefônica ou aplicativo móvel. O aplicativo móvel pode receber notificações em conexões de Wi-Fi e celular. Além disso, o aplicativo móvel pode gerar códigos de verificação mesmo quando o dispositivo não tem sinal. O aplicativo Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
@@ -222,7 +222,7 @@ O erro 0x800434D4L ocorre ao tentar entrar em um aplicativo sem navegador, insta
 
 Uma solução alternativa para esse erro é ter contas de usuário separadas para operações administrativas e não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, saiba como [fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário](https://help.outlook.com/141/gg709759.aspx?sl=1).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se sua pergunta não foi respondida aqui, deixe-a nos comentários na parte inferior da página. Ou então, aqui estão algumas opções adicionais para obter ajuda:
 

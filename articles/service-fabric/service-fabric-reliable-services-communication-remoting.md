@@ -1,21 +1,21 @@
 ---
-title: Comunicação remota do serviço C# usando no Service Fabric
+title: Serviço remoting usando C# em Tecido de Serviço
 description: A comunicação remota do Service Fabric permite que os clientes e serviços se comuniquem com serviços C# que usam a chamada de procedimento remoto.
 author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433877"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do serviço em C# com Reliable Services
 
 > [!div class="op_single_selector"]
-> * [C# em Windows](service-fabric-reliable-services-communication-remoting.md)
+> * [C# no Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java no Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
@@ -313,7 +313,7 @@ Siga estas etapas:
 Para atualizar da V1 para a V2 (compatível com interface, conhecida como V2_1), são necessárias atualizações de duas etapas. Siga as etapas deste tutorial.
 
 > [!NOTE]
-> Ao atualizar da v1 para a v2, verifique se o namespace `Remoting` está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
+> Ao atualizar de V1 para `Remoting` V2, certifique-se de que o namespace seja atualizado para usar o V2. Exemplo: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client'
 >
 >
 
@@ -547,7 +547,7 @@ Siga estas etapas:
       });
       ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicação do Windows Communication Foundation com Reliable Services](service-fabric-reliable-services-communication-wcf.md)

@@ -1,6 +1,6 @@
 ---
-title: Barramento de serviço do Azure – migrar para autorização de assinatura de acesso compartilhado
-description: Saiba mais sobre como migrar do serviço de controle de acesso Azure Active Directory para a autorização de assinatura de acesso compartilhado.
+title: Ônibus de serviço do Azure - Migrar para autorização de assinatura de acesso compartilhado
+description: Saiba mais sobre a migração do Serviço de Controle de Acesso ao Active Directory do Azure para a autorização de assinatura de acesso compartilhada.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,13 +13,13 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 532bbaf0b983b2d4310780686777cbe895afebe4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774611"
 ---
-# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Barramento de serviço-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Ônibus de serviço - Migrar do Serviço de Controle de Acesso ao Diretório Ativo do Azure para a autorização de assinatura de acesso compartilhado
 
 Anteriormente, os aplicativos do Barramento de Serviço podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) fornecido diretamente pelo Barramento de Serviço, e um modelo federado no qual o gerenciamento de regras de autorização era feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/), e os tokens obtidos do ACS eram passados para o Barramento de Serviço para autorização do acesso aos recursos desejados.
 
@@ -59,7 +59,7 @@ Você pode fazer essa configuração nova e adicional do SAS localmente, em qual
 
 As regras de SAS não devem ser contas, mas são chaves de assinatura nomeadas associadas aos direitos. Assim, cenários nos quais o aplicativo cria várias identidades de serviço e lhes concede direitos de acesso a várias entidades ou ao namespace inteiro, ainda exigirão um intermediário de emissão de token. Você pode obter orientação com relação a esse intermediário [entrando em contato com o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a autenticação do Barramento de Serviço, confira os tópicos a seguir:
 

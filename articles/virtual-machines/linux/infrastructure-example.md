@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944898"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Passo a passo de infraestrutura do Azure de exemplo para VMs Linux
@@ -46,8 +46,8 @@ Todos os itens acima seguem estas convenções de nomenclatura:
 * A Adventure Works Cycles usa **[carga de trabalho de TI]-[localização]-[recurso do Azure]** como prefixo
   * Neste exemplo, “**azos**” (Repositório Online do Azure) é o nome de carga de trabalho de TI e “**use**” (Leste dos EUA 2) é a localização
 * As redes virtuais usam AZOS-USE-VN<strong>[número]</strong>
-* Os conjuntos de disponibilidade usam azos-use-as- **[função]**
-* Os nomes de máquina virtual usam azos-use-vm- **[nomevm]**
+* Os conjuntos de disponibilidade usam azos-use-as-**[função]**
+* Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Assinaturas e contas do Azure
 A Adventure Works Cycles usa sua assinatura Enterprise, chamada Adventure Works Enterprise Subscription, para fornecer cobrança para essa carga de trabalho de TI.

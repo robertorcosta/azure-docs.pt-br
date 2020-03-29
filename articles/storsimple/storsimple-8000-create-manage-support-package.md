@@ -1,5 +1,5 @@
 ---
-title: Criar um pacote de suporte da série StorSimple 8000
+title: Crie um pacote de suporte à série StorSimple 8000
 description: Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple da série 8000.
 author: alkohli
 ms.service: storsimple
@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277067"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Um pacote de suporte do StorSimple é um mecanismo fácil de usar que coleta todos os logs relevantes para ajudar o Suporte da Microsoft na solução de problemas do dispositivo StorSimple. Os logs coletados são criptografados e compactados.
 
@@ -23,7 +23,7 @@ Este tutorial inclui instruções passo a passo para criar e gerenciar o pacote 
 
 ## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
-Em alguns casos, você precisará criar o pacote de suporte manualmente por meio do Windows PowerShell para StorSimple. Por exemplo:
+Em alguns casos, você precisará criar o pacote de suporte manualmente por meio do Windows PowerShell para StorSimple. Por exemplo: 
 
 * Se você precisar remover informações confidenciais de seus arquivos de log antes de compartilhar com o Microsoft Support.
 * Se você estiver tendo dificuldade para carregar o pacote devido a problemas de conectividade.
@@ -40,7 +40,7 @@ Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte d
    1. No prompt de comando, insira:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. Na caixa de diálogo que é aberta, insira sua senha de administrador do dispositivo. A senha padrão é _Senha1_.
+   2. Na caixa de diálogo que é aberta, insira sua senha de administrador do dispositivo. A senha padrão é _Password1_.
      
       ![Caixa de diálogo da credencial do PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. Selecione **OK**.
@@ -64,14 +64,14 @@ Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte d
 
 Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 
-| Parâmetro | Obrigatório/Opcional | Description |
+| Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
 | `-Path` |Obrigatório |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
 | `-EncryptionPassphrase` |Obrigatório |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
 | `-Credential` |Opcional |Use para fornecer credenciais de acesso para a pasta compartilhada de rede. |
 | `-Force` |Opcional |Use para ignorar a etapa de confirmação de frase secreta de criptografia. |
 | `-PackageTag` |Opcional |Use para especificar um diretório no *Caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora atuais:aaaa-MM-dd-HH-mm-ss]. |
-| `-Scope` |Opcional |Especifique como **Cluster** (padrão) para criar um pacote de suporte para ambos os controladores. Se você quiser criar um pacote somente para o controlador atual, especifique **Controlador**. |
+| `-Scope` |Opcional |Especifique como **Cluster** (padrão) para criar um pacote de suporte para ambos os controladores. Se você quiser criar um pacote apenas para o controlador atual, especifique o **Controlador**. |
 
 ## <a name="edit-a-support-package"></a>Editar um pacote de suporte
 
@@ -137,7 +137,7 @@ O exemplo a seguir mostra como descriptografar, editar e criptografar novamente 
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [informações coletadas no pacote de Suporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
 * Saiba como [usar pacotes de suporte e logs de dispositivo para solucionar problemas de implantação do dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

@@ -1,6 +1,6 @@
 ---
 title: Guia de solução de problemas da transmissão ao vivo | Microsoft Docs
-description: Este artigo fornece sugestões sobre como solucionar problemas de transmissão ao vivo dos serviços de mídia do Azure.
+description: Este artigo dá sugestões sobre como solucionar problemas de transmissão ao vivo do Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: b00df5e8176aaad86be5cf3ae4e04c736f36cf5b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74885595"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de solução de problemas da transmissão ao vivo  

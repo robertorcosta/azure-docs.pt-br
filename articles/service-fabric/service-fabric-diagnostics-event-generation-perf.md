@@ -1,15 +1,15 @@
 ---
-title: Monitoramento de desempenho do Azure Service Fabric
+title: Monitoramento do desempenho da malha do serviço azure
 description: Saiba mais sobre os contadores de desempenho para o monitoramento e diagnóstico de clusters do Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464710"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
@@ -23,14 +23,14 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 | Categoria do Contador | Nome do contador |
 | --- | --- |
 | Disco Lógico | Espaço livre em disco lógico |
-| PhysicalDisk(per Disco) | Comprimento médio da fila de leitura de disco |
-| PhysicalDisk(per Disco) | Comprimento médio da fila de gravação de disco |
-| PhysicalDisk(per Disco) | Média de disco s/leitura |
-| PhysicalDisk(per Disco) | Média de disco s/gravação |
-| PhysicalDisk(per Disco) | Leituras de Disco/s |
-| PhysicalDisk(per Disco) | Bytes Lidos no Disco/s |
-| PhysicalDisk(per Disco) | Gravações de Disco/s |
-| PhysicalDisk(per Disco) | Bytes Gravados no Disco/s |
+| PhysicalDisk(per Disco) | Comprimento da fila de leitura de disco avg. |
+| PhysicalDisk(per Disco) | Comprimento da fila de gravação de disco Avg. |
+| PhysicalDisk(per Disco) | Avg. Disk sec/Read |
+| PhysicalDisk(per Disco) | Avg. Disk sec/Write |
+| PhysicalDisk(per Disco) | Leituras de Disco/s  |
+| PhysicalDisk(per Disco) | Bytes Lidos no Disco/s  |
+| PhysicalDisk(per Disco) |  Gravações de Disco/s |
+| PhysicalDisk(per Disco) |  Bytes Gravados no Disco/s |
 | Memória | MBytes Disponíveis |
 | PagingFile | % Uso |
 | Processador(total) | % Tempo do Processador |
@@ -78,7 +78,7 @@ Se você usa Serviços Confiáveis ou Remoting de Serviço, da mesma forma temos
 Se você usar Coleções Confiáveis, recomendamos adicionar o `Avg. Transaction ms/Commit` do `Service Fabric Transactional Replicator` para coletar a latência média de confirmação por métrica da transação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [geração de eventos no nível de plataforma](service-fabric-diagnostics-event-generation-infra.md) do Service Fabric
 * Coletar métricas de desempenho por meio do [Agente do Log Analytics](service-fabric-diagnostics-oms-agent.md)

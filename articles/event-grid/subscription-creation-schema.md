@@ -1,6 +1,6 @@
 ---
 title: Esquema de assinatura de Grade de Eventos do Azure
-description: Este artigo descreve as propriedades de assinatura de um evento com a grade de eventos do Azure. Esquema de assinatura da grade de eventos.
+description: Este artigo descreve as propriedades para assinar um evento com o Azure Event Grid. Esquema de assinatura do Event Grid.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/23/2020
 ms.author: babanisa
 ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720751"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
@@ -34,10 +34,10 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| destino | object | O objeto que define o ponto de extremidade. |
-| filtro | object | Um campo opcional para filtrar os tipos de eventos. |
+| destino | objeto | O objeto que define o ponto de extremidade. |
+| filtro | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
-### <a name="destination-object"></a>destination object
+### <a name="destination-object"></a>objeto de destino
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
@@ -75,6 +75,6 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para ver uma introdução à Grade de Eventos, confira [O que é uma Grade de eventos?](overview.md)

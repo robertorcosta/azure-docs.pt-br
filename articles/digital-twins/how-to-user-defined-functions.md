@@ -1,5 +1,5 @@
 ---
-title: Como criar funções definidas pelo usuário – no Azure digital gêmeos | Microsoft Docs
+title: Como criar funções definidas pelo usuário - no Azure Digital Twins | Microsoft Docs
 description: Como criar funções definidas pelo usuário, correspondentes e atribuições de função com os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 232d85789c25e905873286eba6fda32c327a6e25
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76276931"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário em Gêmeos Digitais do Azure
@@ -142,7 +142,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-O parâmetro de **telemetria** expõe os atributos **SensorId** e **Message**, correspondendo a uma mensagem enviada por um sensor. O parâmetro **executionContext** expõe os seguintes atributos:
+O parâmetro **de telemetria** expõe os atributos **SensorId** e **Message,** correspondentes a uma mensagem enviada por um sensor. O parâmetro **executionContext** expõe os seguintes atributos:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -193,21 +193,21 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Para obter um exemplo de código de função definido pelo usuário mais complexo, leia o guia de [início rápido de ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+Para obter uma amostra de código de função mais complexa definida pelo usuário, leia o [quickstart de Ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
-Crie uma atribuição de função para que a função definida pelo usuário seja executada. Se não houver nenhuma atribuição de função para a função definida pelo usuário, ela não terá as permissões corretas para interagir com a API de Gerenciamento ou para ter acesso para executar ações nos objetos de grafo. As ações que a função definida pelo usuário pode executar são especificadas por meio do controle de acesso baseado em função nas APIs do Gerenciamento de Gêmeos Digitais do Azure. Por exemplo, funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou certos caminhos de controle de acesso. Para obter mais informações, leia a documentação do [controle de acesso baseado em função](./security-role-based-access-control.md) .
+Crie uma atribuição de função para que a função definida pelo usuário seja executada. Se não houver nenhuma atribuição de função para a função definida pelo usuário, ela não terá as permissões corretas para interagir com a API de Gerenciamento ou para ter acesso para executar ações nos objetos de grafo. As ações que a função definida pelo usuário pode executar são especificadas por meio do controle de acesso baseado em função nas APIs do Gerenciamento de Gêmeos Digitais do Azure. Por exemplo, funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou certos caminhos de controle de acesso. Para obter mais informações, leia a documentação [de controle de acesso baseada em função.](./security-role-based-access-control.md)
 
 1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) de todas as funções para obter a ID da função que você deseja atribuir à sua função definida pelo usuário. Faça isso, executando uma solicitação HTTP GET autenticada para:
 
     ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
-   Guarde a ID da função desejada. Ela será passada como o atributo do corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) abaixo.
+   Guarde a ID da função desejada. Ele será aprovado como o atributo corporal`YOUR_DESIRED_ROLE_IDENTIFIER`JSON **roleId** ( ) abaixo.
 
-1. O **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) será a ID da função definida pelo usuário criada anteriormente.
-1. Localize o valor do **caminho** (`YOUR_ACCESS_CONTROL_PATH`), consultando os espaços com `fullpath`.
+1. **objectId** `YOUR_USER_DEFINED_FUNCTION_ID`( ) será o ID de função definido pelo usuário que foi criado anteriormente.
+1. Encontre o **path** valor`YOUR_ACCESS_CONTROL_PATH`do caminho ( ) `fullpath`consultando seus espaços com .
 1. Copie o valor `spacePaths` retornado. Esse valor será utilizado posteriormente. Faça uma solicitação HTTP GET autenticada para:
 
     ```URL
@@ -238,7 +238,7 @@ Crie uma atribuição de função para que a função definida pelo usuário sej
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
     | YOUR_USER_DEFINED_FUNCTION_ID | A ID da função definida pelo usuário que você deseja usar |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | A ID que especifica o tipo de função definido pelo usuário (`UserDefinedFunctionId`) |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | O ID especificando o tipo`UserDefinedFunctionId`de função definida pelo usuário ( ) |
     | YOUR_ACCESS_CONTROL_PATH | O caminho de controle de acesso |
 
 >[!TIP]
@@ -252,7 +252,7 @@ O sensor definido no gráfico de inteligência espacial envia telemetria. Por su
 1. Dependendo de quais correspondentes foram avaliados com êxito, recupere as funções definidas pelo usuário associadas.
 1. Execute cada função definida pelo usuário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba com [criar pontos de extremidade de Gêmeos Digitais do Azure ](./how-to-egress-endpoints.md) para envio de eventos.
 

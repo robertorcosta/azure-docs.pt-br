@@ -10,24 +10,24 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898584"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Azure Scheduler, que está [sendo aposentado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você criou no Scheduler, [migre para o Azure Logic Apps o](../scheduler/migrate-from-scheduler-to-logic-apps.md) mais rápido possível. 
 >
-> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
+> O agendador não está mais disponível no portal Azure, mas os cmdlets [Do API e](/rest/api/scheduler) [do Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que você possa gerenciar seus trabalhos e coletas de empregos.
 
 ## <a name="entity-hierarchy"></a>Hierarquia de entidades
 
 A API REST do Agendador do Azure expõe e usa essas entidades principais, ou recursos:
 
-| Entidade | DESCRIÇÃO |
+| Entidade | Descrição |
 |--------|-------------|
 | **Trabalho** | Define uma única ação recorrente com estratégias simples ou complexas para execução. As ações podem incluir solicitações HTTP, de fila de armazenamento, de fila de Barramento de Serviço ou de tópico do Barramento de Serviço. | 
 | **Coleção de trabalhos** | Contém um grupo de trabalhos e mantém as configurações, cotas e limites que são compartilhados pelos trabalhos na coleção. Como proprietário de uma assinatura do Azure, você pode criar coleções de trabalhos e trabalhos de grupo com base em limites de aplicativo ou uso. Uma coleção de trabalhos tem estes atributos: <p>– Restrita a uma região. <br>– Permite que você imponha cotas para que possa restringir o uso de todos os trabalhos em uma coleção. <br>– As cotas incluem MaxJobs e MaxRecurrence. | 
@@ -82,14 +82,14 @@ Em alto nível, um trabalho do Agendador tem essas partes básicas:
 
 O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execução agendada do próximo do trabalho. A definição do código desse trabalho é um objeto no formato JSON (JavaScript Object Notation), que tem estes elementos:
 
-| Elemento | Obrigatório | DESCRIÇÃO | 
+| Elemento | Obrigatório | Descrição | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Não | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**action**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
+| [**Starttime**](#start-time) | Não | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**Ação**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes para a ação secundária que é executada se a ação principal falha |
-| [**recurrence**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
+| [**Recorrência**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo para um trabalho recorrente | 
 | [**retryPolicy**](#retry-policy) | Não | Os detalhes de quantas vezes repetir uma ação | 
-| [**state**](#state) | Sim | Os detalhes do estado atual do trabalho |
+| [**Estado**](#state) | Sim | Os detalhes do estado atual do trabalho |
 | [**Status**](#status) | Sim | Os detalhes do status atual do trabalho, que é controlado pelo serviço |
 ||||
 
@@ -246,18 +246,18 @@ Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto *
 },
 ```
 
-| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+| Propriedade | Obrigatório | Valor | Descrição | 
 |----------|----------|-------|-------------| 
-| **frequency** | Sim, quando **recurrence** é usado | "Minute", "Hour", "Day", "Week", "Month", "Year" | A unidade de tempo entre ocorrências | 
-| **interval** | Não | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
+| **frequência** | Sim, quando **recurrence** é usado | "Minute", "Hour", "Day", "Week", "Month", "Year" | A unidade de tempo entre ocorrências | 
+| **Intervalo** | Não | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
 | **schedule** | Não | Varia | Os detalhes de agendamentos mais avançados e complexos. Veja **hours**, **minutes**, **weekDays**, **months** e **monthDays** | 
-| **horas** | Não | 1 a 24 | Uma matriz com as marcas de hora para quando executar o trabalho | 
-| **minutos** | Não | 0 a 59 | Uma matriz com as marcas de minutos para quando executar o trabalho | 
+| **Horas** | Não | 1 a 24 | Uma matriz com as marcas de hora para quando executar o trabalho | 
+| **Minutos** | Não | 0 a 59 | Uma matriz com as marcas de minutos para quando executar o trabalho | 
 | **months** | Não | 1 a 12 | Uma matriz com os meses para quando executar o trabalho | 
-| **Dias do mês** | Não | Varia | Uma matriz com os dias do mês para quando executar o trabalho | 
-| **Dias da semana** | Não | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Uma matriz com os dias da semana para quando executar o trabalho | 
-| **contagem** | Não | <*none*> | O número de recorrências. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
-| **endTime** | Não | <*none*> | A data e hora para quando interromper a recorrência. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
+| **monthDays** | Não | Varia | Uma matriz com os dias do mês para quando executar o trabalho | 
+| **Semana** | Não | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Uma matriz com os dias da semana para quando executar o trabalho | 
+| **count** | Não | <*Nenhum*> | O número de recorrências. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
+| **Endtime** | Não | <*Nenhum*> | A data e hora para quando interromper a recorrência. O padrão é repetir indefinidamente. Não é possível usar **count** e **endTime**, mas a regra que termina primeiro é respeitada. | 
 ||||
 
 Para obter mais informações sobre esses elementos, consulte [Criar agendamentos complexos e recorrências avançadas](../scheduler/scheduler-advanced-complexity.md).
@@ -276,7 +276,7 @@ Para o caso quando um trabalho do Agendador falhar, você pode configurar uma po
 },
 ```
 
-| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+| Propriedade | Obrigatório | Valor | Descrição | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sim | **Fixed**, **None** | Determina se você especifica uma política de repetição (**fixed**) ou não (**none**). | 
 | **retryInterval** | Não | PT30S | Especifica o intervalo e a frequência entre as tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos, enquanto o valor máximo é 18 meses. | 
@@ -308,7 +308,7 @@ Depois que um trabalho é iniciado, o Agendador retorna informações sobre o st
 * O número de falhas, se houver
 * O número de falhas, se houver
 
-Por exemplo:
+Por exemplo: 
 
 ```json
 "status": {

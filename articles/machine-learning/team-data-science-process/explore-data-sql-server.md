@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720088"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorar dados na Máquina Virtual do SQL Server no Azure
@@ -29,13 +29,13 @@ Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.m
 > 
 > 
 
-## <a name="sql-dataexploration"></a>Explorar dados de SQL com scripts SQL
+## <a name="explore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Explorar dados de SQL com scripts SQL
 Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar armazenamentos de dados no SQL Server.
 
 1. Obter a contagem de observações por dia
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Obter os níveis em uma coluna categórica
+2. Obter os níveis em uma coluna categórica 
    
     `select  distinct <column_name> from <databasename>`
 3. Obter o número de níveis na combinação de duas colunas categóricas 
@@ -50,8 +50,8 @@ Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar 
 > 
 > 
 
-## <a name="python"></a>Explorar dados de SQL com o Python
-Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no blob do Azure usando o Python conforme documentado em [Processar dados de Blobs do Azure em seu ambiente de ciência de dados](data-blob.md). Carregue os dados do banco de dado em um dataframe do pandas e, em seguida, pode ser processado mais detalhadamente. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um DataFrame nesta seção.
+## <a name="explore-sql-data-with-python"></a><a name="python"></a>Explorar dados de SQL com o Python
+Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no Azure blob usando Python, conforme documentado nos [dados do Process Azure Blob em seu ambiente de ciência de dados](data-blob.md). Carregue os dados do banco de dados em um DataFrame pandas e, em seguida, pode ser processado mais adiante. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um DataFrame nesta seção.
 
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, username e password pelos seus valores específicos):
 
@@ -59,7 +59,7 @@ O seguinte formato de cadeia de conexão pode ser usado para se conectar a um ba
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-A [Biblioteca Pandas](https://pandas.pydata.org/) no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
+A [biblioteca Pandas](https://pandas.pydata.org/) em Python fornece um rico conjunto de estruturas de dados e ferramentas de análise de dados para manipulação de dados para programação Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

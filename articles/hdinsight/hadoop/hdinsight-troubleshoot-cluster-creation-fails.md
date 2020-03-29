@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de falhas de criação de cluster com o Azure HDInsight
-description: Saiba como solucionar problemas de criação do cluster do Apache para o Azure HDInsight.
+title: Solucionando falhas de criação de clusters com o Azure HDInsight
+description: Saiba como solucionar problemas de criação de clusterapache para o Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,80 +9,80 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
 ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937917"
 ---
-# <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Solucionar problemas de falhas de criação de cluster com o Azure HDInsight
+# <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Solucionando falhas de criação de clusters com o Azure HDInsight
 
-Os seguintes problemas são causas raiz mais comuns para falhas de criação de cluster:
+Os seguintes problemas são as causas básicas mais comuns para falhas de criação de clusters:
 
 - Problemas de permissão
-- Restrições de política de recurso
+- Restrições de políticas de recursos
 - Firewalls
 - Bloqueios de recurso
 - Versões de componentes sem suporte
-- Restrições de nome de conta de armazenamento
-- Interrupções de serviço
+- Restrições ao nome da conta de armazenamento
+- Paralisações de serviços
 
 ## <a name="permissions-issues"></a>Problemas de permissões
 
-Se você estiver usando Azure Data Lake Storage Gen2 e receber o erro ```AmbariClusterCreationFailedErrorCode```, ```Internal server error occurred while processing the request. Please retry the request or contact support.```, abra o portal do Azure, vá para sua conta de armazenamento e, em controle de acesso (IAM), verifique se o **colaborador de armazenamento de dados** ou a função de proprietário de **dados** de blob de armazenamento atribuiu acesso à **identidade gerenciada atribuída pelo usuário** para a assinatura. Consulte [Configurar permissões para a identidade gerenciada na conta de data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) para obter instruções detalhadas.
+Se você estiver usando o Azure Data Lake ```AmbariClusterCreationFailedErrorCode``` ```Internal server error occurred while processing the request. Please retry the request or contact support.```Storage Gen2 e receber o erro, abra o portal Dozure, vá para sua conta de armazenamento e, controle de acesso (IAM), certifique-se de que o **Storage Blob Data Contributor** ou a função Storage **Blob Data Owner** tenham atribuído acesso à identidade **gerenciada atribuída ao Usuário** para a assinatura. Consulte [Configurar permissões para a identidade gerenciada na conta de data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) para obter instruções detalhadas.
 
-Se você estiver usando Azure Data Lake Storage Gen1, consulte as instruções de instalação e configuração [aqui](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 não tem suporte para clusters HBase e não tem suporte no HDInsight versão 4,0.
+Se você estiver usando o Azure Data Lake Storage Gen1, consulte instruções de configuração e configuração [aqui](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 não é suportado para clusters HBase e não é suportado na versão 4.0 do HDInsight.
 
-Se estiver usando o armazenamento do Azure, verifique se o nome da conta de armazenamento é válido durante a criação do cluster.
+Se estiver usando o Azure Storage, certifique-se de que o nome da conta de armazenamento seja válido durante a criação do cluster.
 
-## <a name="resource-policy-restrictions"></a>Restrições de política de recurso
+## <a name="resource-policy-restrictions"></a>Restrições de políticas de recursos
 
 As políticas do Azure baseadas em assinatura podem negar a criação de endereços IP públicos. A criação do cluster HDInsight exige dois IPs públicos.  
 
-Em geral, as políticas a seguir podem afetar a criação do cluster:
+Em geral, as seguintes políticas podem impactar a criação de clusters:
 
-* As políticas que impedem a criação de endereços IP & balanceadores de carga na assinatura.
-* Política que impede a criação da conta de armazenamento.
-* Política que impede a exclusão de recursos de rede (endereço IP/Load balanceadores de carga).
+* Políticas que impeçam a criação de balanceadores de & de endereço IP dentro da assinatura.
+* Política que impede a criação de conta de armazenamento.
+* Política que impede a exclusão de recursos de rede (Endereço IP /Balanceadores de carga).
 
 ## <a name="firewalls"></a>Firewalls
 
-Firewalls em sua rede virtual ou conta de armazenamento podem negar comunicação com endereços IP de gerenciamento do HDInsight.
+Firewalls em sua rede virtual ou conta de armazenamento podem negar a comunicação com endereços IP de gerenciamento hdInsight.
 
-Permita o tráfego dos endereços IP na tabela abaixo.
+Permitir o tráfego a partir dos endereços IP na tabela abaixo.
 
 | Endereço IP de origem | Destino | Direção |
 |---|---|---|
-| 168.61.49.99 | *: 443 | Entrada |
-| 23.99.5.239 | *: 443 | Entrada |
-| 168.61.48.131 | *: 443 | Entrada |
-| 138.91.141.162 | *: 443 | Entrada |
+| 168.61.49.99 | *:443 | Entrada |
+| 23.99.5.239 | *:443 | Entrada |
+| 168.61.48.131 | *:443 | Entrada |
+| 138.91.141.162 | *:443 | Entrada |
 
-Além disso, adicione os endereços IP específicos à região em que o cluster é criado. Consulte [endereços IP de gerenciamento do HDInsight](../hdinsight-management-ip-addresses.md) para obter uma lista dos endereços para cada região do Azure.
+Adicione também os endereços IP específicos para a região onde o cluster é criado. Consulte [os endereços IP de gerenciamento do HDInsight](../hdinsight-management-ip-addresses.md) para obter uma listagem dos endereços de cada região do Azure.
 
-Se você estiver usando uma rota expressa ou seu próprio servidor DNS personalizado, consulte [planejar uma rede virtual para o Azure HDInsight – Conectando várias redes](../hdinsight-plan-virtual-network-deployment.md#multinet).
+Se você estiver usando uma rota expressa ou seu próprio servidor DNS personalizado, consulte [Planejar uma rede virtual para o Azure HDInsight - conectando várias redes](../hdinsight-plan-virtual-network-deployment.md#multinet).
 
 ## <a name="resources-locks"></a>Bloqueios de recursos  
 
-Verifique se não há [bloqueios em sua rede virtual e grupo de recursos](../../azure-resource-manager/management/lock-resources.md). Os clusters não poderão ser criados ou excluídos se o grupo de recursos estiver bloqueado. 
+Certifique-se de que não há [bloqueios em sua rede virtual e grupo de recursos](../../azure-resource-manager/management/lock-resources.md). Os clusters não podem ser criados ou excluídos se o grupo de recursos estiver bloqueado. 
 
 ## <a name="unsupported-component-versions"></a>Versões de componentes sem suporte
 
-Verifique se você está usando uma [versão com suporte do Azure HDInsight](../hdinsight-component-versioning.md) e quaisquer [Apache Hadoop componentes](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) em sua solução.  
+Certifique-se de que você está usando uma [versão suportada do Azure HDInsight](../hdinsight-component-versioning.md) e quaisquer [componentes Apache Hadoop](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) em sua solução.  
 
-## <a name="storage-account-name-restrictions"></a>Restrições de nome de conta de armazenamento
+## <a name="storage-account-name-restrictions"></a>Restrições ao nome da conta de armazenamento
 
-Os nomes de conta de armazenamento não podem ter mais de 24 caracteres e não podem conter um caractere especial. Essas restrições também se aplicam ao nome do contêiner padrão na conta de armazenamento.
+Os nomes das contas de armazenamento não podem ter mais de 24 caracteres e não podem conter um caractere especial. Essas restrições também se aplicam ao nome do contêiner padrão na conta de armazenamento.
 
-Outras restrições de nomenclatura também se aplicam à criação do cluster. Consulte [restrições de nome de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name)para obter mais informações.
+Outras restrições de nomeação também se aplicam à criação de clusters. Consulte [as restrições de nome do cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name)para obter mais informações.
 
-## <a name="service-outages"></a>Interrupções de serviço
+## <a name="service-outages"></a>Paralisações de serviços
 
-Verifique o [status do Azure](https://status.azure.com) quanto a possíveis interrupções ou problemas de serviço.
+Verifique [o status do Azure](https://status.azure.com) para verificar eventuais paralisações ou problemas de serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Estender o Azure HDInsight usando uma Rede Virtual do Azure](../hdinsight-plan-virtual-network-deployment.md)
-* [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  
+* [Use o Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 * [Usar o Armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 * [Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais](../hdinsight-hadoop-provision-linux-clusters.md)

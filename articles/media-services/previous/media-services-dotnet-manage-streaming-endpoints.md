@@ -1,6 +1,6 @@
 ---
 title: Gerenciar pontos de extremidade de streaming com o SDK .NET. | Microsoft Docs
-description: Este artigo demonstra como gerenciar pontos de extremidade de streaming com o portal do Azure.
+description: Este artigo demonstra como gerenciar os pontos finais de streaming com o portal Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74901267"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerenciar pontos de extremidade de streaming com o SDK .NET  
@@ -50,7 +50,7 @@ Para obter informações sobre como dimensionar o ponto de extremidade de stream
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>Adicionar o código que gerencia os pontos de extremidade de streaming
     
@@ -143,8 +143,8 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+## <a name="next-steps"></a>Próximas etapas
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

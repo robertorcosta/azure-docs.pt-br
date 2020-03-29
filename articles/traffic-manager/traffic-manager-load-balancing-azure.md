@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
 ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939219"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
@@ -39,7 +39,7 @@ Em um nível conceitual, cada um desses serviços desempenha uma função distin
 
   O cliente se conecta diretamente ao ponto de extremidade retornado pelo Gerenciador de Tráfego. O Gerenciador de Tráfego do Azure detecta quando um ponto de extremidade não está íntegro e redireciona os clientes para outra instância íntegra. Consulte a [documentação do Gerenciador de Tráfego do Azure](traffic-manager-overview.md) para saber mais sobre o serviço.
 * O **Gateway de Aplicativo** fornece o ADC (Controlador de Entrega de Aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para o aplicativo. Ele permite que os clientes otimizem a produtividade do web farm descarregando a terminação SSL com uso intensivo de CPU para o Gateway de Aplicativo. Outros recursos de roteamento de camada 7 incluem distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e capacidade de hospedar vários sites com um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway apenas interno ou uma combinação de ambos. O Gateway de Aplicativo é totalmente gerenciado pelo Azure, escalonável e altamente disponível. Ele fornece um conjunto avançado de recursos de log e diagnósticos para melhor capacidade de gerenciamento.
-* O **Balanceador de Carga** é uma parte integral do Azure SDN e fornece serviços de balanceamento de carga de camada 4 de baixa latência e de alto desempenho para todos protocolos TCP e UDP. Ele gerencia conexões de entrada e saída. Você pode configurar pontos de extremidade públicos e internos com balanceamento de carga e definir regras para mapear as conexões de entrada para destinos de pool de back-end usando opções TCP e HTTP de investigação de integridade para gerenciar a disponibilidade do serviço.
+* **O Balancer** de carga é parte integrante da pilha SDN do Azure, fornecendo serviços de balanceamento de carga de alta latência e baixa latência para todos os protocolos UDP e TCP. Ele gerencia conexões de entrada e saída. Você pode configurar pontos de extremidade públicos e internos com balanceamento de carga e definir regras para mapear as conexões de entrada para destinos de pool de back-end usando opções TCP e HTTP de investigação de integridade para gerenciar a disponibilidade do serviço.
 
 ## <a name="scenario"></a>Cenário
 
@@ -65,7 +65,7 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Etapa 1: Criar um perfil do Gerenciador de Tráfego
 
-1. No portal do Azure, clique em **Criar um recurso** > **Rede** > **Perfil do Gerenciador de Tráfego** > **Criar**.
+1. No portal Azure, clique em Criar um perfil de**gerenciador de** > tráfego de **rede de** > **recursos** > **Criar**.
 2. Insira as seguintes informações básicas:
 
    * **Nome**: forneça ao seu perfil de Gerenciador de Tráfego um nome de prefixo DNS.
@@ -74,13 +74,13 @@ O diagrama a seguir mostra a arquitetura desse cenário:
    * **Grupo de recursos**: selecione o grupo de recursos que contém o perfil. Pode ser um grupo de recursos novo ou existente.
    * **Local do grupo de recursos**: serviço do Gerenciador de Tráfego é global e não está associado a um local. No entanto, você deve especificar uma região para o grupo onde residem os metadados associados com o perfil do Gerenciador de Tráfego. Essa localização não tem impacto sobre a disponibilidade de runtime do perfil.
 
-3. Clique em **Criar** para gerar o perfil do Gerenciador de Tráfego.
+3. Clique **em Criar** para gerar o perfil do Gerenciador de tráfego.
 
    ![Criar folha do Gerenciador de Tráfego](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>Etapa 2: Criar os Gateways de Aplicativo
 
-1. No portal do Azure, no painel esquerdo, clique em **Criar um recurso** > **Rede** > **Gateway de Aplicativo**.
+1. No portal Azure, no painel esquerdo, clique em **Criar um gateway** > de aplicativo**de** > **rede de**recursos .
 2. Insira as seguintes informações básicas sobre o gateway de aplicativo:
 
    * **Name**: o nome do gateway de aplicativo.
@@ -158,12 +158,12 @@ Se o cluster de banco de dados de alta disponibilidade estiver usando o AlwaysOn
 
 Para obter mais informações sobre como configurar um balanceador de carga interno, consulte [Criar um balanceador de carga interno no portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. No portal do Azure, no painel esquerdo, clique em **Criar um recurso** > **Rede** > **Balanceador de carga**.
+1. No portal Azure, no painel esquerdo, clique em **Criar um balanceador** > de carga**de** > **rede de recursos**.
 2. Escolha um nome para o balanceador de carga.
-3. Defina o **Tipo** para **Interno** e escolha a rede virtual e a sub-rede apropriadas para o balanceador de carga residir.
-4. Em **Atribuição de endereço IP**, selecione **Dinâmico** ou **Estático**.
+3. Defina o **Tipo** **como Interno**e escolha a rede e a sub-rede virtuais apropriadas para que o balanceador de carga resida.
+4. Em **atribuição de endereço IP,** selecione **Dinâmica** ou **Estática**.
 5. Em **Grupo de recursos**, escolha o grupo de recursos para o balanceador de carga.
-6. Em **Local**, escolha a região apropriada para o balanceador de carga.
+6. Em **Localização,** escolha a região apropriada para o balanceador de carga.
 7. Clique em **Criar** para gerar o balanceador de carga.
 
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>Conectar uma camada de banco de dados de back-end ao balanceador de carga
@@ -186,18 +186,18 @@ Para obter mais informações sobre como configurar um balanceador de carga inte
 3. Selecione o **Protocolo** para a investigação. Para um banco de dados, é ideal utilizar uma investigação TCP em vez de uma investigação HTTP. Para saber mais sobre investigações de balanceador de carga, consulte [Entender investigações do balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Digite a **Porta** do banco de dados a ser utilizada ao acessar a investigação.
 5. Em **Intervalo** , especifique a frequência de investigação do aplicativo.
-6. Em **Limite não íntegro**, especifique o número de falhas de investigação contínuas que devem ocorrer para a VM de back-end ser considerada não íntegra.
-7. Clique em **OK** para criar a investigação.
+6. Em **limiar insalubre,** especifique o número de falhas contínuas do teste que devem ocorrer para que a VM back-end seja considerada insalubre.
+7. Clique em **OK** para criar a sonda.
 
 #### <a name="configure-the-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
 
-1. Em **Configurações** do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
+1. Em **Configurações **do balanceador de carga, selecione **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar** para criar uma regra.
 2. Insira o **Nome** da regra de balanceamento de carga.
-3. Escolha o **Endereço de IP de front-end do balanceador de carga**, o **Protocolo** e a **Porta**.
-4. Em **Porta de back-end**, especifique a porta a ser usada no pool de back-end.
+3. Escolha o **endereço IP frontend** do balanceador de carga, **protocolo**e **porta**.
+4. Em **Porta Backend,** especifique a porta a ser usada no pool back-end.
 5. Selecione o **Pool de back-end** e a **Investigação** criados nas etapas anteriores para aplicar a regra.
-6. Em **Persistência da sessão**, escolha como você deseja que as sessões persistam.
-7. Em **Tempos limite de ociosidade**, especifique o número de minutos antes de um tempo limite de ociosidade.
+6. Em **Sessão persistência,** escolha como deseja que as sessões persistam.
+7. Em **tempos de ocioso,** especifique o número de minutos antes de um intervalo ocioso.
 8. Em **IP flutuante**, selecione **Desabilitado** ou **Habilitado**.
 9. Clique em **OK** para criar a regra.
 
@@ -207,8 +207,8 @@ Agora podemos configurar o endereço IP e a porta de front-end do balanceador de
 
 ![Painel de navegação de "Pool Frontend IP" do balanceador de carga](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
+* [Visão Geral do Gerenciador de Tráfego](traffic-manager-overview.md)
 * [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
-* [Visão geral do Azure Load Balancer](../load-balancer/load-balancer-overview.md)
+* [Visão geral do Balancer de carga do Azure](../load-balancer/load-balancer-overview.md)

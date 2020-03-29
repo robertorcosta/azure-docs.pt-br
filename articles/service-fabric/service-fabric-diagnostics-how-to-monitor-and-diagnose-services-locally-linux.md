@@ -1,16 +1,16 @@
 ---
-title: Depurar aplicativos Service Fabric do Azure no Linux
+title: Depurar aplicativos de malha de serviço do Azure no Linux
 description: Saiba como monitorar e diagnosticar seus serviços do Service Fabric em um computador de desenvolvimento Linux local.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75526287"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador Linux local
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração local de desenvolvimento de máquinas Linux
 
 
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ Monitoramento, detecção, diagnóstico e solução de problemas permitem dar co
 
 ## <a name="debugging-service-fabric-java-applications"></a>Depuração de aplicativos Java do Service Fabric
 
-Para aplicativos Java, [várias estrutura de registros](https://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Como `java.util.logging` é a opção padrão com o JRE, ele também é usado nos [exemplos de código no GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). A discussão a seguir explica como configurar a estrutura `java.util.logging` .
+Para aplicativos Java, [várias estrutura de registros](https://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Como `java.util.logging` é a opção padrão com o JRE, ele também é usado para os [exemplos de código no GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). A discussão a seguir explica como configurar a estrutura `java.util.logging` .
 
 Ao usar java.util.logging, você pode redirecionar os logs do aplicativo para a memória, os fluxos de saída, os arquivos de consoles ou os soquetes. Para cada uma dessas opções, há manipuladores padrão já fornecidos na estrutura. Você pode criar um arquivo `app.properties` para configurar o manipulador de arquivo para o seu aplicativo redirecionar todos os logs para um arquivo local.
 
@@ -53,7 +53,7 @@ Esta configuração resulta em logs sendo coletados em um modo de rotação em `
 
 Por padrão, se nenhum manipulador for configurado explicitamente, o manipulador de console será registrado. Estes logs podem ser vistos no syslog, em /var/log/syslog.
 
-Para obter mais informações, confira os [exemplos de código no GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
+Para obter mais informações, consulte os [exemplos de código no GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Depuração de aplicativos C# do Service Fabric
@@ -130,6 +130,6 @@ Os exemplos neste [Exemplos de C#](https://github.com/Azure-Samples/service-fabr
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 O mesmo código de rastreamento adicionado ao seu aplicativo também funciona com o diagnóstico do seu aplicativo em um cluster do Azure. Consulte estes artigos que discutem as diferentes opções para as ferramentas e descrevem como configurá-las.
 * [Como coletar logs com o Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-lad.md)

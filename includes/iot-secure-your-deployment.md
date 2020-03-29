@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76748751"
 ---
 Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
@@ -33,7 +33,7 @@ Os aceleradores de soluções de IoT protegem dispositivos de IoT usando os dois
 
 * Fornecendo uma chave de identidade exclusiva (tokens de segurança) para cada dispositivo, o que pode ser usado pelo dispositivo para se comunicar com o Hub IoT.
 
-* Usando um [certificado X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) no dispositivo e uma chave privada como meio de autenticar o dispositivo no Hub IoT. Esse método de autenticação garante que a chave privada no dispositivo não seja conhecida for do dispositivo em momento algum, o que fornece um nível mais alto de segurança.
+* Usando um [certificado X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) no dispositivo e uma chave privada como meio de autenticar o dispositivo para o Hub IoT. Esse método de autenticação garante que a chave privada no dispositivo não seja conhecida for do dispositivo em momento algum, o que fornece um nível mais alto de segurança.
 
 O método de token de segurança fornece autenticação para cada chamada feita pelo dispositivo para Hub IoT ao associar a chave simétrica a cada chamada. A autenticação com base em x.509 permite a autenticação de um dispositivo IoT na camada física como parte do estabelecimento de conexão TLS. O método baseado em token de segurança pode ser usado sem a autenticação X.509, que é um padrão menos seguro. A escolha entre os dois métodos é determinada principalmente pelo nível de segurança que a autenticação do dispositivo precisa ter e a disponibilidade do armazenamento de segurança no dispositivo (para armazenar com segurança a chave privada).
 
@@ -43,7 +43,7 @@ O Hub IoT usa tokens de segurança para autenticar dispositivos e serviços a fi
 
 Mais detalhes sobre a estrutura do token de segurança e seu uso podem ser encontradas nos seguintes artigos:
 
-* [Estrutura de token de segurança](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
+* [Estrutura do token de segurança](../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure)
 
 * [Usando tokens SAS como um dispositivo](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
 
@@ -77,7 +77,7 @@ Ao estabelecer uma conexão TLS segura com o IoT Hub, o dispositivo IoT autentic
 
 ## <a name="securing-the-connection"></a>Protegendo a conexão
 
-A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Verifique o [suporte a TLS no Hub IOT](../articles/iot-hub/iot-hub-tls-support.md) para ver como configurar seu hub para usar o TLS 1,2, pois ele fornece a maior segurança.
+A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT suporta [TLS 1.2,](https://tools.ietf.org/html/rfc5246)TLS 1.1 e TLS 1.0, nesta ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Verifique [o suporte ao TLS no IoT Hub](../articles/iot-hub/iot-hub-tls-support.md) para ver como configurar seu hub para usar o TLS 1.2, pois ele fornece mais segurança.
 
 ## <a name="securing-the-cloud"></a>Proteger a nuvem
 
@@ -93,7 +93,7 @@ O Hub IoT do Azure permite a definição de [políticas de controle de acesso](.
 
 Há duas maneiras de obter as permissões **DeviceConnect** com o Hub IoT com [tokens de segurança](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app): usando uma chave de identidade do dispositivo ou uma tecla de acesso compartilhada. Além disso, é importante observar que qualquer funcionalidade acessível por meio de dispositivos fica exposta por padrão em pontos de extremidade com o prefixo `/devices/{deviceId}`.
 
-[Os componentes de serviço somente podem gerar tokens de segurança](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) usando políticas de acesso compartilhado que concedem as permissões apropriadas.
+[Os componentes de serviço só podem gerar tokens de segurança](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) usando políticas de acesso compartilhado que concedem as permissões apropriadas.
 
 O Hub IoT do Azure e outros serviços que podem ser parte da solução permitem o gerenciamento de usuários usando o Azure Active Directory.
 
@@ -101,13 +101,13 @@ Dados ingeridos pelo Hub IoT do Azure podem ser consumidos por diversos serviço
 
 * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados que gerencia os metadados para os dispositivos que você provisiona como atributos, configuração e propriedades de segurança. O Azure Cosmos DB oferece processamento de alto desempenho e alta produtividade, indexação de dados independente de esquema e uma interface de consulta SQL avançada.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
+* [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/): processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
 
-* [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/): uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, Node.js, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
+* [Serviços de Aplicativos do Azure](https://azure.microsoft.com/services/app-service/): uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, Node.js, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
 
-* [Aplicativos Lógicos](https://azure.microsoft.com/services/app-service/logic/): o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar a solução de IoT aos seus sistemas de linha de negócios existentes e automatiza os processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
+* [Aplicativos lógicos](https://azure.microsoft.com/services/app-service/logic/): o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
 
-* [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/): armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.
+* [Armazenamento Azure Blob](https://azure.microsoft.com/services/storage/): Armazenamento em nuvem confiável e econômico para os dados que seus dispositivos enviam para a nuvem.
 
 ## <a name="conclusion"></a>Conclusão
 

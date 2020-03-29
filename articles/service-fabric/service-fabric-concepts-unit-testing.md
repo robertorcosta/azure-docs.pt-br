@@ -1,13 +1,13 @@
 ---
-title: Serviços com estado de teste de unidade no Azure Service Fabric
+title: Unidade testando serviços estaduais em Fabric de Serviço Azure
 description: Aprenda sobre os conceitos e práticas de testes unitários do Service Fabric Stateful Services.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433920"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Unidade testando serviços com estado no Service Fabric
@@ -40,8 +40,8 @@ Além disso, ter várias instâncias permite que os testes mudem as funções de
 O Gerente de Estado deve ser tratado como um recurso remoto e, portanto, ridicularizado. Ao ridicularizar o gerente de estado, é preciso haver algum armazenamento na memória subjacente para rastrear o que é salvo no gerenciador de estado, para que ele possa ser lido e verificado. Uma maneira simples de conseguir isso é criar instâncias de simulação de cada um dos tipos de coleções confiáveis. Dentro desses mocks, use um tipo de dados que se alinha de perto com as operações executadas nessa coleção. A seguir estão alguns tipos de dados sugeridos para cada coleta confiável
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue\<T >-> System. Collections. Generic. Queue\<T >
-- IReliableConcurrentQueue\<T >-> System. Collections. Current. ConcurrentQueue\<T >
+- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
+- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>Muitas instâncias do gerenciador de estado, armazenamento único
 Como mencionado anteriormente, o Gerenciador de Estado e as Coleções Confiáveis devem ser tratados como um recurso remoto. Portanto, esses recursos devem e serão ridicularizados nos testes de unidade. No entanto, ao executar várias instâncias de um serviço com estado, será um desafio manter cada gerenciador de estado ridicularizado em sincronia entre diferentes instâncias de serviço com estado. Quando o serviço com estado está sendo executado no cluster, o Service Fabric cuida de manter o gerenciador de estado de cada réplica secundária consistente com a réplica primária. Portanto, os testes devem se comportar da mesma forma que possam simular mudanças de função.
@@ -74,9 +74,9 @@ Este teste afirma que os dados que estão sendo capturados em uma réplica estã
 #### <a name="mimic-service-fabric-replica-orchestration"></a>Imitar a orquestração de réplica do Service Fabric
 Ao gerenciar várias instâncias de serviço, os testes devem inicializar e desmontar esses serviços da mesma maneira que a orquestração do Service Fabric. Por exemplo, quando um serviço é criado em uma nova réplica primária, o Service Fabric invoca CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync e RunAsync. Os eventos do ciclo de vida estão documentados nos seguintes artigos:
 
-- [Stateful Service Startup](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
-- [Stateful Service Shutdown](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [Stateful Service Primary Swaps](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [Startup de serviços stateful](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
+- [Desligamento do Serviço Estadual](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
+- [Swaps primários de serviço séns](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
 #### <a name="run-replica-role-changes"></a>Executar alterações de função de réplica
 Os testes de unidade devem alterar as funções das instâncias de serviço da mesma maneira que a orquestração do Service Fabric. A máquina de estado da função está documentada no seguinte artigo:
@@ -111,5 +111,5 @@ Processos longos ou assíncronos que devem ser encerrados quando um token de can
 #### <a name="verify-which-replicas-should-serve-requests"></a>Verificar quais réplicas devem atender a solicitações
 Os testes devem declarar o comportamento esperado se uma solicitação for roteada para uma réplica não primária. O Service Fabric fornece a capacidade de ter réplicas secundárias atendendo a solicitações. No entanto, as gravações em coleções confiáveis podem ocorrer apenas a partir da réplica primária. Se o seu aplicativo pretender que apenas as réplicas primárias atendam a solicitações ou que apenas um subconjunto de solicitações possa ser tratado por um secundário, os testes deverão confirmar o comportamento esperado para os casos positivos e negativos. O caso negativo sendo um pedido é roteado para uma réplica que não deve manipular a solicitação e, o positivo sendo o oposto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba como [serviços com monitoração de estado do teste de unidade](service-fabric-how-to-unit-test-stateful-services.md).

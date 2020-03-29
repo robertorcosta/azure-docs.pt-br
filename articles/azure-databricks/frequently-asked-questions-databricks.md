@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 8d7aab43641c6c594ff60368ccb3810e0c060dd7
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671573"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas frequentes a respeito do Azure Databricks
@@ -27,28 +27,28 @@ Sim. Você pode usar o Azure Key Vault para armazenar chaves/segredos para uso n
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Posso usar Redes Virtuais do Azure com o Databricks?
 Sim. Você pode usar uma VNET (Rede Virtual) do Azure com o Azure Databricks. Para obter mais informações, consulte [Implantando o Azure Databricks em sua Rede Virtual do Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
-## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Como fazer Azure Data Lake Storage de acesso de um bloco de anotações? 
+## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Como acessar o Azure Data Lake Storage a partir de um notebook? 
 
 Siga estas etapas:
 1. No Azure Active Directory (Azure AD), provisione uma Entidade de Serviço e registre sua chave.
-1. Atribua as permissões necessárias à entidade de serviço no Data Lake Storage.
-1. Para acessar um arquivo no Data Lake Storage, use as credenciais da entidade de serviço no bloco de anotações.
+1. Atribua as permissões necessárias ao diretor de serviço no Data Lake Storage.
+1. Para acessar um arquivo no Data Lake Storage, use as principais credenciais do serviço no Notebook.
 
-Para obter mais informações, consulte [usar Azure data Lake Storage com Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
+Para obter mais informações, consulte [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## <a name="fix-common-problems"></a>Solução de problemas comuns
 
 Aqui estão alguns problemas que podem ocorrer com o Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: esta assinatura não está registrada para usar o namespace ' Microsoft. databricks '
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problema: Esta assinatura não está registrada para usar o namespace 'Microsoft.Databricks'
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Esta assinatura não está registrada para usar o namespace ' Microsoft. databricks '. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas. (Código: MissingSubscriptionRegistration)"
+"Esta assinatura não está registrada para usar o namespace 'Microsoft.Databricks'. Consulte https://aka.ms/rps-not-found para saber como registrar assinaturas. (Código: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Solução
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Vá para o [portal Azure.](https://portal.azure.com)
 1. Clique em **Assinaturas**, na assinatura que você está usando e, em seguida, clique em **Provedores de recursos**. 
 1. Na lista de provedores de recursos, em relação a **Microsoft.Databricks**, clique em **Registrar**. Você deve ter a função de Colaborador ou Proprietário na assinatura para registrar o provedor de recursos.
 
@@ -67,7 +67,7 @@ A seguir, estão algumas soluções para esse problema:
 
 * Esse erro também poderá ocorrer se o seu nome de domínio de e-mail estiver atribuído a vários diretórios no AD do Azure. Para contornar esse problema, crie um novo usuário no diretório que contém a assinatura com o seu workspace do Databricks.
 
-    a. No portal do Azure, vá para o AD do Azure. Selecione **Usuários e Grupos** > **Adicione um usuário**.
+    a. No portal do Azure, vá para o AD do Azure. Selecione **Usuários e Grupos** > **Adicionar um usuário**.
 
     b. Adicione um usuário com um `@<tenant_name>.onmicrosoft.com` email em vez do `@<your_domain>` email. Você pode encontrar essa opção em **Domínios personalizados**, no AD do Azure no portal do Azure.
     
@@ -88,20 +88,20 @@ Se você não criou o workspace e foi adicionado como um usuário do workspace, 
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Falha ao iniciar o provedor de nuvem: Foi encontrado um erro do provedor de nuvem durante a configuração do cluster. Para obter mais informações, consulte o guia do Databricks. Código de erro do Azure: PublicIPCountLimitReached. Mensagem de erro do Azure: não é possível criar mais de 10 endereços IP públicos para esta assinatura nesta região. "
+"Falha ao iniciar o provedor de nuvem: Foi encontrado um erro do provedor de nuvem durante a configuração do cluster. Para obter mais informações, consulte o guia do Databricks. Código de erro do Azure: PublicIPCountLimitReached. Mensagem de erro do Azure: não é possível criar mais de 10 endereços IP públicos para esta assinatura nesta região."
 
 #### <a name="background"></a>Segundo plano
 
-Os clusters do databricks usam um endereço IP público por nó (incluindo o nó de driver). As assinaturas do Azure têm [limites de endereço IP público](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) por região. Assim, as operações de criação de cluster e de expansão podem falhar se causarem o número de endereços IP públicos alocados para essa assinatura nessa região para exceder o limite. Esse limite também inclui endereços IP públicos alocados para o uso de não-Bricks, como VMs personalizadas definidas pelo usuário.
+Os clusters databricks usam um endereço IP público por nó (incluindo o nó do driver). As assinaturas do Azure têm [limites públicos de endereço IP](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) por região. Assim, as operações de criação e scale-up de clusters podem falhar se fizerem com que o número de endereços IP públicos alocados a essa assinatura naquela região exceda o limite. Esse limite também inclui endereços IP públicos alocados para uso não Databricks, como VMs personalizadas definidas pelo usuário.
 
-Em geral, os clusters consomem apenas endereços IP públicos enquanto estão ativos. No entanto, `PublicIPCountLimitReached` erros podem continuar ocorrendo por um curto período de tempo mesmo depois que outros clusters são encerrados. Isso ocorre porque o databricks armazena temporariamente os recursos do Azure em cache quando um cluster é encerrado. O cache de recursos é por design, pois reduz significativamente a latência da inicialização do cluster e do dimensionamento automático em muitos cenários comuns.
+Em geral, os clusters consomem apenas endereços IP públicos enquanto estiverem ativos. No `PublicIPCountLimitReached` entanto, os erros podem continuar a ocorrer por um curto período de tempo, mesmo após o término de outros clusters. Isso porque o Databricks armazena temporariamente os recursos do Azure quando um cluster é encerrado. O cache de recursos é por design, uma vez que reduz significativamente a latência da inicialização de cluster e do autoscaling em muitos cenários comuns.
 
 #### <a name="solution"></a>Solução
 
-Se sua assinatura já tiver atingido seu limite de endereço IP público para uma determinada região, você deverá executar uma ou outra das opções a seguir.
+Se sua assinatura já atingiu seu limite de endereço IP público para uma determinada região, então você deve fazer uma ou outra das seguintes.
 
-- Crie novos clusters em um espaço de trabalho do databricks diferente. O outro espaço de trabalho deve estar localizado em uma região em que você não tenha atingido o limite de endereços IP públicos da sua assinatura.
-- [Solicitação para aumentar o limite de endereços IP públicos](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Escolha **Cota** como o **Tipo de problema**, e **Rede: ARM** como o **Tipo de cota**. Em **Detalhes**, solicite um aumento de cota de endereço de IP público. Por exemplo, se o limite atual for de 60 e você deseja criar um cluster de 100 nós, solicite um aumento de limite para 160.
+- Crie novos clusters em um espaço de trabalho diferente do Databricks. O outro espaço de trabalho deve estar localizado em uma região na qual você não atingiu o limite público de endereço IP da sua assinatura.
+- [Solicite aumentar o limite de endereço IP público](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Escolha **Cota** como o **Tipo de problema**, e **Rede: ARM** como o **Tipo de cota**. Em **Detalhes**, solicite um aumento de cota de endereço de IP público. Por exemplo, se o limite atual for de 60 e você deseja criar um cluster de 100 nós, solicite um aumento de limite para 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problema: Um segundo tipo de falha de inicialização do provedor de nuvem durante a configuração do cluster (MissingSubscriptionRegistration)
 
@@ -112,7 +112,7 @@ Código de erro do Azure: mensagem de erro do Azure MissingSubscriptionRegistrat
 
 #### <a name="solution"></a>Solução
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Vá para o [portal Azure.](https://portal.azure.com)
 1. Clique em **Assinaturas**, na assinatura que você está usando e, em seguida, clique em **Provedores de recursos**. 
 1. Na lista de provedores de recursos, em relação a **Microsoft.Compute**, clique em **Registrar**. Você deve ter a função de Colaborador ou Proprietário na assinatura para registrar o provedor de recursos.
 

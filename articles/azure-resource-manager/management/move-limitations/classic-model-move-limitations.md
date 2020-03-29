@@ -1,20 +1,20 @@
 ---
-title: Mover os recursos de implantação clássica do Azure
-description: Use Azure Resource Manager para mover recursos de implantação clássicos para um novo grupo de recursos ou assinatura.
+title: Mover recursos de implantação do Azure Classic
+description: Use o Azure Resource Manager para mover recursos de implantação clássicos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 78b9769a31fa0c96c12e18d05cb9c484aa52a1d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75485280"
 ---
-# <a name="move-guidance-for-classic-deployment-model-resources"></a>Mover diretrizes para recursos do modelo de implantação clássico
+# <a name="move-guidance-for-classic-deployment-model-resources"></a>Mova a orientação para os recursos do modelo de implantação clássico
 
-As etapas para mover os recursos implantados por meio do modelo clássico diferem se você estiver movendo os recursos em uma assinatura ou em uma nova assinatura.
+As etapas para mover recursos implantados através do modelo clássico diferem com base em se você está movendo os recursos dentro de uma assinatura ou para uma nova assinatura.
 
-## <a name="move-in-the-same-subscription"></a>Mover na mesma assinatura
+## <a name="move-in-the-same-subscription"></a>Mova-se na mesma assinatura
 
 Ao mover recursos de um grupo de recursos para outro na mesma assinatura, as seguintes restrições se aplicarão:
 
@@ -25,9 +25,9 @@ Ao mover recursos de um grupo de recursos para outro na mesma assinatura, as seg
 * Apenas uma conta de armazenamento (clássica) pode ser movida por vez.
 * Uma conta de armazenamento (clássica) não pode ser movida na mesma operação com uma máquina virtual ou um serviço de nuvem.
 
-Para mover recursos clássicos para um novo grupo de recursos dentro da mesma assinatura, use as [operações de movimentação padrão](../move-resource-group-and-subscription.md) por meio do portal, Azure PowerShell, CLI do Azure ou API REST. Use as mesmas operações como você usa para mover os recursos do Resource Manager.
+Para transferir recursos clássicos para um novo grupo de recursos dentro da mesma assinatura, use as [operações padrão](../move-resource-group-and-subscription.md) de movimentação através do portal, Azure PowerShell, Azure CLI ou Rest API. Use as mesmas operações como você usa para mover os recursos do Resource Manager.
 
-## <a name="move-across-subscriptions"></a>Mover entre assinaturas
+## <a name="move-across-subscriptions"></a>Mova-se através de assinaturas
 
 Ao mover recursos para uma nova assinatura, as seguintes restrições se aplicarão:
 
@@ -35,7 +35,7 @@ Ao mover recursos para uma nova assinatura, as seguintes restrições se aplicar
 * A assinatura de destino não deve ter nenhum outro recurso clássico.
 * A movimentação pode ser solicitada apenas por meio de uma API REST separada para movimentações clássicas. Os comandos de movimentação padrão do Gerenciador de Recursos não funcionam quando há uma movimentação dos recursos clássicos para uma nova assinatura.
 
-Para mover recursos clássicos para uma nova assinatura, use operações REST específicas para recursos clássicos. Para usar o REST, execute as seguintes etapas:
+Para mover recursos clássicos para uma nova assinatura, use operações REST específicas para recursos clássicos. Para usar REST, faça as seguintes etapas:
 
 1. Verifique se a assinatura de origem pode participar de uma movimentação entre assinaturas. Use a operação a seguir:
 
@@ -94,8 +94,8 @@ Para mover recursos clássicos para uma nova assinatura, use operações REST es
 
 A operação pode executar por vários minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Se você tiver problemas para mover os recursos clássicos, entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Se você tiver problemas para mover recursos clássicos, entre em contato com [o Suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Para ver comandos para mover recursos, confira [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md) (Mover recursos para o novo grupo de recursos ou assinatura).

@@ -1,46 +1,46 @@
 ---
-title: Implantar no host dedicado
-description: Use um host dedicado para obter um isolamento verdadeiro no nível de host para suas cargas de trabalho de instâncias de contêiner do Azure
+title: Implantar em host dedicado
+description: Use um host dedicado para obter um verdadeiro isolamento em nível de host para as cargas de trabalho do Azure Container Instances
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934140"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implantar em hosts dedicados
 
-"Dedicado" é um SKU de ACI (instâncias de contêiner do Azure) que fornece um ambiente de computação isolado e dedicado para executar contêineres com segurança. O uso do SKU dedicado resulta em cada grupo de contêineres com um servidor físico dedicado em um datacenter do Azure, garantindo o isolamento completo da carga de trabalho para ajudar a atender aos requisitos de segurança e conformidade da sua organização. 
+"Dedicated" é um sku Azure Container Instances (ACI) que fornece um ambiente de computação isolado e dedicado para executar contêineres com segurança. O uso do sku dedicado resulta em cada grupo de contêineres ter um servidor físico dedicado em um data center do Azure, garantindo o isolamento total da carga de trabalho para ajudar a atender aos requisitos de segurança e conformidade da sua organização. 
 
-O SKU dedicado é apropriado para cargas de trabalho de contêiner que exigem isolamento de carga de trabalho de uma perspectiva de servidor físico.
+O sku dedicado é apropriado para cargas de trabalho de contêiner que requerem isolamento da carga de trabalho de uma perspectiva física do servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O limite padrão para qualquer assinatura usar o SKU dedicado é 0. Se você quiser usar essa SKU para suas implantações de contêiner de produção, crie uma [solicitação de suporte do Azure][azure-support] para aumentar o limite.
+* O limite padrão para qualquer assinatura usar o sku dedicado é 0. Se você quiser usar este sku para implantações de contêineres de produção, crie uma solicitação de suporte do [Azure][azure-support] para aumentar o limite.
 
-## <a name="use-the-dedicated-sku"></a>Usar o SKU dedicado
+## <a name="use-the-dedicated-sku"></a>Use o sku dedicado
 
 > [!IMPORTANT]
-> O uso do SKU dedicado só está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação.
+> O uso do sku dedicado só está disponível na versão mais recente da API (2019-12-01) que está sendo lançado no momento. Especifique esta versão da API no modelo de implantação.
 >
 
-A partir da versão de API 2019-12-01, há uma propriedade `sku` na seção Propriedades do grupo de contêineres de um modelo de implantação, que é necessária para uma implantação do ACI. No momento, você pode usar essa propriedade como parte de um modelo de implantação Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Começando com a versão 2019-12-01 `sku` da API, há uma propriedade a seção de propriedades do grupo de contêineres de um modelo de implantação, que é necessária para uma implantação de ACI. Atualmente, você pode usar essa propriedade como parte de um modelo de implantação do Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos ACI com um modelo no [Tutorial: Implante um grupo de vários contêineres usando um modelo de Gerenciador de recursos](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-A propriedade `sku` pode ter um dos seguintes valores:
-* `Standard`-a opção de implantação ACI padrão, que ainda garante a segurança em nível de hipervisor 
-* `Dedicated`-usado para isolamento de nível de carga de trabalho com hosts físicos dedicados para o grupo de contêineres
+A `sku` propriedade pode ter um dos seguintes valores:
+* `Standard`- a escolha padrão de implantação da ACI, que ainda garante segurança em nível de hipervisor 
+* `Dedicated`- usado para isolamento do nível de carga de trabalho com hosts físicos dedicados para o grupo de contêineres
 
-## <a name="modify-your-json-deployment-template"></a>Modificar seu modelo de implantação JSON
+## <a name="modify-your-json-deployment-template"></a>Modifique seu modelo de implantação JSON
 
-Em seu modelo de implantação, modifique ou adicione as seguintes propriedades:
-* Em `resources`, defina `apiVersion` como `2012-12-01`.
-* Nas propriedades do grupo de contêineres, adicione uma propriedade `sku` com valor `Dedicated`.
+No modelo de implantação, modifique ou adicione as seguintes propriedades:
+* Em `resources`, `apiVersion` `2012-12-01`definido para .
+* as propriedades do `sku` grupo de `Dedicated`contêineres, adicione uma propriedade com valor.
 
-Aqui está um trecho de código de exemplo para a seção de recursos de um modelo de implantação de grupo de contêineres que usa o SKU dedicado:
+Aqui está um exemplo de trecho para a seção de recursos de um modelo de implantação de grupo de contêiner que usa o sku dedicado:
 
 ```json
 [...]
@@ -60,7 +60,7 @@ Aqui está um trecho de código de exemplo para a seção de recursos de um mode
 ]
 ```
 
-Veja a seguir um modelo completo que implanta um grupo de contêineres de exemplo executando uma única instância de contêiner:
+A seguir está um modelo completo que implanta um grupo de contêiner de amostra executando uma única instância de contêiner:
 
 ```json
 {
@@ -129,9 +129,9 @@ Veja a seguir um modelo completo que implanta um grupo de contêineres de exempl
 
 ## <a name="deploy-your-container-group"></a>Implantar seu grupo de contêineres
 
-Se você criou e editou o arquivo de modelo de implantação em sua área de trabalho, você pode carregá-lo em seu diretório Cloud Shell arrastando o arquivo para ele. 
+Se você criou e editou o arquivo de modelo de implantação em sua área de trabalho, você pode carregá-lo para o diretório Cloud Shell arrastando o arquivo para ele. 
 
-Crie um grupo de recursos com o comando [az group create][az-group-create].
+Crie um grupo de recursos com o comando [az group create.][az-group-create]
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

@@ -1,5 +1,5 @@
 ---
-title: Escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB
+title: Escreva procedimentos e gatilhos armazenados usando a API de consulta JavaScript no Azure Cosmos DB
 description: Saiba como escrever procedimentos armazenados e gatilhos usando a API de Consulta do JavaScript no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
 ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441721"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Como escrever procedimentos armazenados e gatilhos no Azure Cosmos DB usando a API de consulta do JavaScript
 
 O Azure Cosmos DB permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem nenhum conhecimento da linguagem SQL que pode ser usada para escrever procedimentos armazenados ou gatilhos. Para saber mais sobre o suporte à API de Consulta do JavaScript no Azure Cosmos DB, confira o artigo [Trabalhando com a API de consulta integrada da linguagem JavaScript no Azure Cosmos DB](javascript-query-api.md).
 
-## <a id="stored-procedures"></a>Procedimento armazenado usando a API de consulta do JavaScript
+## <a name="stored-procedure-using-the-javascript-query-api"></a><a id="stored-procedures"></a>Procedimento armazenado usando a API de consulta do JavaScript
 
 O exemplo de código a seguir mostra como a API de consulta JavaScript é usada no contexto de um procedimento armazenado. O procedimento armazenado insere um item do Azure Cosmos especificado por um parâmetro de entrada e atualiza um documento de metadados usando o método `__.filter()`, com minSize, maxSize e totalSize com base na propriedade de tamanho do item de entrada.
 
@@ -78,7 +78,7 @@ function insertDocumentAndUpdateMetadata(item) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira os seguintes artigos para saber mais sobre procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 

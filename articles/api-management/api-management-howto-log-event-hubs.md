@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 2f07f6a27e78ee4df8c64a09918758d02c28c6d4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76898795"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
@@ -32,7 +32,7 @@ Para saber as etapas detalhadas sobre como criar um hub de eventos e obter cadei
 ## <a name="create-an-api-management-logger"></a>Criar um agente de Gerenciamento de API
 Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
 
-Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](https://aka.ms/apimapi). Para obter exemplos de solicitação detalhados, consulte [como criar agentes](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate).
+Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](https://aka.ms/apimapi). Para obter exemplos de solicitação detalhados, [veja como criar Loggers](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Configurar políticas log-to-eventhubs
 
@@ -46,7 +46,7 @@ Depois que o agente de log estiver configurado no Gerenciamento de API, você po
 6. Na janela de Processamento de entrada ou de saída, clique no triângulo (ao lado do lápis).
 7. Selecione o Editor de códigos. Para obter mais informações, consulte [Como definir ou editar políticas](set-edit-policies.md).
 8. Posicione o cursor na seção da política `inbound` ou `outbound`.
-9. Na janela à direita, selecione **Políticas avançadas** > **Log EventHub**. Isso insere o modelo de instrução da política `log-to-eventhub`.
+9. Na janela à direita, selecione **Políticas avançadas** > **Log to EventHub**. Isso insere o modelo de instrução da política `log-to-eventhub`.
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
@@ -59,7 +59,7 @@ Você pode usar qualquer expressão que retorne uma cadeia de caracteres como o 
 
 Clique em **Salvar** para salvar a configuração da política atualizada. Assim que for salva, a política estará ativa e os eventos serão registrados em log para o Hub de Eventos designado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre Hubs de Eventos do Azure
   * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

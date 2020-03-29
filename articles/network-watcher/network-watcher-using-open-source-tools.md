@@ -1,5 +1,5 @@
 ---
-title: Visualizar padrões de tráfego de rede com ferramentas de código aberto
+title: Visualize padrões de tráfego de rede com ferramentas de código aberto
 titleSuffix: Azure Network Watcher
 description: Esta página descreve como usar a captura de pacote do observador de rede com CapAnalysis para visualizar os padrões de tráfego para e de suas VMs.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840648"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Como visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de software livre
@@ -74,7 +74,7 @@ O CapAnalysis oferece várias opções para visualizar sua captura de pacote, ca
 
 1. Geomap
 
-    Esse painel fornece uma exibição de mapa do tráfego de rede, com cores dimensionando para o volume de tráfego de cada país/região. Você pode selecionar países/regiões realçados para exibir estatísticas de fluxo adicionais, como a proporção de dados enviados e recebidos de IPs nesse país/região.
+    Este painel fornece uma visualização do mapa do tráfego da rede, com cores dimensionadas para o volume de tráfego de cada país/região. Você pode selecionar países/regiões destacadas para visualizar estatísticas adicionais de fluxo, como a proporção de dados enviados e recebidos de IPs naquele país/região.
 
     ![geomap][8]
 
@@ -84,13 +84,13 @@ O CapAnalysis oferece várias opções para visualizar sua captura de pacote, ca
 
     ![filtros][11]
 
-    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para saber mais sobre todos os recursos de CapAnalysis.
+    Visite [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) para saber mais sobre todos os recursos do CapAnalysis.
 
 ## <a name="conclusion"></a>Conclusão
 
 O recurso de captura de pacote do observador de rede e permite que você capture os dados necessários para executar uma análise forense e compreender melhor o tráfego de rede. Nesse cenário, mostramos como as capturas de pacote do Observador de Rede podem ser facilmente integradas a ferramentas de visualização de software livre. Usando ferramentas de software livre, como o CapAnalysis, para visualizar a captura de pacotes, você pode realizar inspeções de pacotes minuciosas e identificar rapidamente as tendências do seu tráfego de rede.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre logs de fluxo NSG, acesse [Logs de fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 

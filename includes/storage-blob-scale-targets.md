@@ -5,24 +5,24 @@ ms.topic: include
 ms.date: 11/08/2019
 ms.author: tamram
 ms.openlocfilehash: 2ed88d8abb7cbe96093b68d89030e6e464a35541
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75392386"
 ---
-| Grupos | Escolha o destino        |
+| Recurso | Destino        |
 |----------|---------------|
-| Tamanho máximo do contêiner de blob único | Igual à capacidade máxima da conta de armazenamento |
-| Número máximo de blocos em um blob de blocos ou BLOB de acréscimo | 50.000 blocos |
-| Tamanho máximo de um bloco em um blob de blocos | 100 MiB |
-| Tamanho máximo de um blob de blocos | 50.000 X 100 MiB (aproximadamente 4,75 TiB) |
-| Tamanho máximo de um bloco em um blob de acréscimo | 4 MiB |
-| Tamanho máximo de um blob de acréscimo | 50.000 x 4 MiB (aproximadamente 195 GiB) |
-| Tamanho máximo de um blob de páginas | 8 TiB |
-| Número máximo de políticas de acesso armazenadas por contêiner de BLOB | 5 |
-|Taxa de solicitação de destino para um único blob | Até 500 solicitações por segundo |
-|Taxa de transferência de destino para um blob de página única | Até 60 MiB por segundo |
-|Taxa de transferência de destino para um único blob de blocos |Até os limites de entrada/saída da conta de armazenamento<sup>1</sup> |
+| Tamanho máximo do recipiente de bolha única | O mesmo que a capacidade máxima da conta de armazenamento |
+| Número máximo de blocos em uma bolha de bloco ou bolha de apêndice | 50.000 blocos |
+| Tamanho máximo de um bloco em uma bolha de bloco | 100 MiB |
+| Tamanho máximo de uma bolha de bloco | 50.000 X 100 MiB (aproximadamente 4.75 TiB) |
+| Tamanho máximo de um bloco em uma bolha de apêndice | 4 MiB |
+| Tamanho máximo de uma bolha de apêndice | 50.000 x 4 MiB (aproximadamente 195 GiB) |
+| Tamanho máximo de uma bolha de página | 8 TiB |
+| Número máximo de políticas de acesso armazenadas por contêiner blob | 5 |
+|Taxa de solicitação de destino para uma única bolha | Até 500 solicitações por segundo |
+|Throughput de alvo para uma única bolha de página | Até 60 MiB por segundo |
+|Throughput de alvo para uma bolha de bloco único |Até o limite de entrada/saída de conta de armazenamento<sup>1</sup> |
 
-<sup>1</sup> a taxa de transferência para um único blob depende de vários fatores, incluindo, mas não se limitando a: simultaneidade, tamanho da solicitação, nível de desempenho, velocidade da origem para carregamentos e destino para downloads. Para aproveitar os aprimoramentos de desempenho de [blobs de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), carregue BLOBs ou blocos maiores. Especificamente, chame a operação [Put Blob](/rest/api/storageservices/put-blob) ou [Put Block](/rest/api/storageservices/put-block) com um tamanho de bloco ou BLOB maior que 4 MIB para contas de armazenamento padrão. Para o blob de blocos Premium ou para contas de armazenamento Data Lake Storage Gen2, use um tamanho de bloco ou BLOB maior que 256 KiB.
+<sup>1</sup> O throughput para uma única bolha depende de vários fatores, incluindo, mas não se limitando a: simultâneo, tamanho da solicitação, nível de desempenho, velocidade de origem para uploads e destino para downloads. Para aproveitar os aprimoramentos de desempenho de [blobs de blocos de alta capacidade](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)de entrada, carregue blobs ou blocos maiores. Especificamente, ligue para a operação [Put Blob](/rest/api/storageservices/put-blob) ou [Put Block](/rest/api/storageservices/put-block) com uma bolha ou tamanho de bloco maior que 4 MiB para contas de armazenamento padrão. Para blob de bloco premium ou para contas de armazenamento Data Lake Gen2, use um tamanho de bloco ou bolha maior que 256 KiB.

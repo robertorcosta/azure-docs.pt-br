@@ -1,15 +1,15 @@
 ---
-title: Diferenças entre os serviços de nuvem e Service Fabric
+title: Diferenças entre serviços de nuvem e malha de serviços
 description: Uma visão geral conceitual para a migração de aplicativos dos Serviços de Nuvem para o Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75463375"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os Serviços de Nuvem e o Service Fabric antes de migrar os aplicativos.
@@ -20,11 +20,11 @@ Este é um guia introdutório para migrar aplicativos dos Serviços de Nuvem par
 ## <a name="applications-and-infrastructure"></a>Aplicativos e infraestrutura
 Uma diferença fundamental entre os Serviços de Nuvem e o Service Fabric é a relação entre as VMs, as cargas de trabalho e os aplicativos. Aqui, uma carga de trabalho é definida como o código que você escreve para executar uma tarefa específica ou fornecer um serviço.
 
-* **Os Serviços de Nuvem dizem respeito à implantação de aplicativos como máquinas virtuais.** O código que você escreve está acoplado a uma instância de VM, como uma função de trabalho ou Web. A implantação de uma carga de trabalho nos Serviços de Nuvem é a implantação de uma ou mais instâncias de VM que executam a carga de trabalho. Há uma distinção entre aplicativos e máquinas virtuais; portanto, não há nenhuma definição formal de um aplicativo. Um aplicativo pode ser considerado como um conjunto de instâncias de função de trabalho ou Web em uma implantação de Serviços de Nuvem ou toda uma implantação de Serviços de Nuvem. Neste exemplo, um aplicativo é mostrado como um conjunto de instâncias de função.
+* **Os Serviços de Nuvem dizem respeito à implantação de aplicativos como máquinas virtuais.**  O código que você escreve está acoplado a uma instância de VM, como uma função de trabalho ou Web. A implantação de uma carga de trabalho nos Serviços de Nuvem é a implantação de uma ou mais instâncias de VM que executam a carga de trabalho. Há uma distinção entre aplicativos e máquinas virtuais; portanto, não há nenhuma definição formal de um aplicativo. Um aplicativo pode ser considerado como um conjunto de instâncias de função de trabalho ou Web em uma implantação de Serviços de Nuvem ou toda uma implantação de Serviços de Nuvem. Neste exemplo, um aplicativo é mostrado como um conjunto de instâncias de função.
 
 ![Topologia e aplicativos dos Serviços de Nuvem][1]
 
-* **O Service Fabric diz respeito à implantação de aplicativos em máquinas virtuais existentes ou computadores que executam o Service Fabric no Windows ou no Linux.** Os serviços que você escreve são completamente separados da infraestrutura subjacente, que é abstraída pela plataforma de aplicativo Service Fabric, para que um aplicativo possa ser implantado em vários ambientes. Uma carga de trabalho no Service Fabric é chamada de "serviço", e um ou mais serviços são agrupados em um aplicativo formalmente definido que é executado na plataforma de aplicativo Service Fabric. Vários aplicativos podem ser implantados em um único cluster do Service Fabric.
+* **O Service Fabric diz respeito à implantação de aplicativos em máquinas virtuais existentes ou computadores que executam o Service Fabric no Windows ou no Linux.**  Os serviços que você escreve são completamente separados da infraestrutura subjacente, que é abstraída pela plataforma de aplicativo Service Fabric, para que um aplicativo possa ser implantado em vários ambientes. Uma carga de trabalho no Service Fabric é chamada de "serviço", e um ou mais serviços são agrupados em um aplicativo formalmente definido que é executado na plataforma de aplicativo Service Fabric. Vários aplicativos podem ser implantados em um único cluster do Service Fabric.
 
 ![Topologia e aplicativos Service Fabric][2]
 
@@ -81,22 +81,22 @@ O mesmo modelo de comunicação pode ser usado no Service Fabric. Isso pode ser 
 ![Comunicação direta do Service Fabric][8]
 
 ## <a name="parity"></a>Parity
-Os [serviços de nuvem são semelhantes a Service Fabric no grau de controle versus facilidade de uso, mas agora é um serviço herdado e Service Fabric é recomendado para novo desenvolvimento](https://docs.microsoft.com/azure/app-service/overview-compare); a seguir está uma comparação de API:
+[Cloud Services é semelhante ao Service Fabric em grau de controle versus facilidade de uso, mas agora é um serviço legado e o Service Fabric é recomendado para novo desenvolvimento;](https://docs.microsoft.com/azure/app-service/overview-compare) a seguir está uma comparação de API:
 
 
-| **API do serviço de nuvem** | **API de Service Fabric** | **Observações** |
+| **API de serviço em nuvem** | **API de malha de serviço** | **Observações** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId or .NodeName | ID é uma propriedade de NodeName |
-| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrar por NodeName e usar a propriedade FD |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrar por NodeName e usar a propriedade upgrade |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime. GetActivationContext ou nomenclatura (ResolveService) | CodePackageActivationContext, que é fornecido por FabricRuntime. GetActivationContext e dentro das réplicas por meio de iminitializationparameters. CodePackageActivationContext fornecido durante. Inicializar |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se você quiser fazer o mesmo tipo de filtragem por Type, poderá obter a lista de tipos de nó do manifesto do cluster por meio de FabricClient. Clustermanager. GetClusterManifest e pegar os tipos de função/nó a partir daí. |
-| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster ou criar um FabricRuntime apontado para um nó específico | * |
-| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
-| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
-| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
-| Role.GetInstances | FabricClient. Querymanager. getnodelist ou ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext ou nomenclatura (ResolveService) | * |
+| Roleinstance.getid | FabricRuntime.GetNodeContext.NodeId ou . Nodename | ID é uma propriedade do NodeName |
+| RoleInstance.getFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrar no NodeName e usar a propriedade FD |
+| RoleInstance.getUpgradeDomínio | FabricClient.QueryManager.GetNodeList | Filtrar no NodeName e usar a propriedade Upgrade |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext ou Nomin (ResolveService) | CodePackageActivationContext que é fornecido tanto por FabricRuntime.GetActivationContext quanto dentro das réplicas via ServiceInitializationParameters.CodePackageActivationContext fornecido durante o . Inicializar |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se você quiser fazer o mesmo tipo de filtragem por tipo, você pode obter a lista de tipos de nó do manifesto de cluster via FabricClient.ClusterManager.GetClusterManifest e pegar os tipos de função/nó a partir daí. |
+| RoleEnvironment.getisAvailable | Conecte-o Para o WindowsFabricOu ou crie um FabricRuntime apontado para um nó específico | * |
+| RoleEnvironment.getLocalResource | CódigoPackageAtivaçãoContexto.Log/Temp/Trabalho | * |
+| RoleEnvironment.getCurrentRoleInstance | CódigoPackageAtivaçãoContexto.Log/Temp/Trabalho | * |
+| Localresource.getrootpath | CódigoPackageAtivaçãoContexto.Log/Temp/Trabalho | * |
+| Role.getInstances | FabricClient.QueryManager.GetNodeList ou ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext ou Nomin (ResolveService) | * |
 
 ## <a name="next-steps"></a>Próximas etapas
 O caminho de migração mais simples dos Serviços de Nuvem para o Service Fabric é substituir apenas a implantação dos Serviços de Nuvem por um aplicativo Service Fabric, mantendo a arquitetura geral dele. O artigo a seguir fornece um guia para ajudar a converter uma função de trabalho ou Web em um serviço sem estado do Service Fabric.

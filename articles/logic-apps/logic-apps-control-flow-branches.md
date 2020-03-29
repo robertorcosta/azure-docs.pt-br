@@ -1,16 +1,16 @@
 ---
-title: Criar ou unir ramificações paralelas para ações em fluxos de trabalho
-description: Saiba como criar ou mesclar branches em execução paralela para ações de fluxo de trabalho independentes em aplicativos lógicos do Azure
+title: Crie ou junte ramos paralelos para ações em fluxos de trabalho
+description: Saiba como criar ou mesclar ramificações paralelas em execução para ações independentes de fluxo de trabalho em Aplicativos de Lógica do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453426"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou unir branches paralelos para ações de fluxo de trabalho nos Aplicativos Lógicos do Azure
@@ -41,7 +41,7 @@ Seu aplicativo lógico espera que todos os branches estejam concluídos antes de
 
 1. No <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>, abra o aplicativo lógico no Designer do Aplicativo Lógico.
 
-1. Mova o ponteiro sobre a seta acima da etapa em que você deseja adicionar ramificações paralelas. Escolha o **plus** sinal ( **+** ) que aparece e, em seguida, escolha **adicionar uma ramificação paralela**. 
+1. Mova o ponteiro sobre a seta acima da etapa em que você deseja adicionar ramificações paralelas. Escolha o **plus** sinal (**+**) que aparece e, em seguida, escolha **adicionar uma ramificação paralela**. 
 
    ![Adicionar branch paralelo](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -53,7 +53,7 @@ Seu aplicativo lógico espera que todos os branches estejam concluídos antes de
 
    ![Localize e selecione a ação que você deseja](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Agora, em cada ramificação paralela, adicione as etapas desejadas. Para adicionar outra ação a uma ramificação, mova seu ponteiro para a ação em que você deseja adicionar uma ação sequencial. Escolha o sinal **mais** ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+1. Agora, em cada ramificação paralela, adicione as etapas desejadas. Para adicionar outra ação a uma ramificação, mova seu ponteiro para a ação em que você deseja adicionar uma ação sequencial. Escolha o**+** sinal **de adição** () que aparece e, em seguida, **selecione Adicionar uma ação**.
 
    ![Adicionar ação sequencial ao branch paralelo](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
@@ -186,7 +186,7 @@ Se você estiver trabalhando na exibição de código, será possível definir u
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426454"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
@@ -54,7 +54,7 @@ O fluxo de dados de entrada contém informações sobre os carros que entram nas
 
 Aqui está uma breve descrição das colunas:
 
-| Column | Description |
+| Coluna | Descrição |
 | --- | --- |
 | TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
 | EntryTime |A data e hora da entrada do veículo na cabine de pedágio no horário UTC |
@@ -72,16 +72,16 @@ O fluxo de dados de saída contém informações sobre os carros que estão sain
 
 | **TollId** | **ExitTime** | **PlacaDeCarro** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000 Z |JNB 7001 |
-| 1 |2014-09-10T12:03:00.0000000 Z |1001 YXZ |
-| 3 |2014-09-10T12:04:00.0000000 Z |ABC 1004 |
-| 2 |2014-09-10T12:07:00.0000000 Z |1003 XYZ |
-| 1 |2014-09-10T12:08:00.0000000 Z |1007 BNJ |
-| 2 |2014-09-10T12:07:00.0000000 Z |CDE 1007 |
+| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
+| 1 |2014-09-10T12:03:00.0000000Z |1001 YXZ |
+| 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
+| 2 |2014-09-10T12:07:00.0000000Z |1003 XYZ |
+| 1 |2014-09-10T12:08:00.0000000Z |1007 BNJ |
+| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
 
 Aqui está uma breve descrição das colunas:
 
-| Column | Description |
+| Coluna | Descrição |
 | --- | --- |
 | TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
 | ExitTime |A data e hora de saída do veículo da cabine de pedágio no horário UTC |
@@ -101,7 +101,7 @@ A solução usa um instantâneo estático de um banco de dados de registro de ve
 
 Aqui está uma breve descrição das colunas:
 
-| Column | Description |
+| Coluna | Descrição |
 | --- | --- |
 | PlacaDeCarro |O número da placa de licença do veículo |
 | RegistrationId |A ID de registro do veículo |
@@ -171,7 +171,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
    - O **Registro** é uma conexão do Armazenamento de Blobs do Azure, apontando para um arquivo registration.json estático usado para pesquisas, conforme necessário. Essa entrada de dados de referência é usada em variações posteriores da sintaxe de consulta.
 
 4. Examinar as Saídas do trabalho de exemplo do TollApp.
-   - **Cosmos DB** saída é um contêiner de banco de dados cosmos que recebe os eventos de coletor de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
+   - A saída **do Cosmos DB** é um contêiner de banco de dados cosmos que recebe os eventos de dissipação de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar o trabalho de streaming do TollApp
 Siga estas etapas para iniciar o trabalho de streaming:
@@ -189,7 +189,7 @@ Siga estas etapas para iniciar o trabalho de streaming:
 
 3. Selecione o cabeçalho **Data Explorer** para abrir a página do Data Explorer.
 
-4. Expanda o **tollAppDatabase** > **tollAppCollection** > **Documents**.
+4. Expanda os documentos **de tollAppDatabase** > **tollAppCollection** > **Documents**.
 
 5. Na lista de IDs, vários documentos serão mostrados quando a saída estiver disponível.
 
@@ -283,7 +283,7 @@ Saída de exemplo:
 ```
 
 ## <a name="scale-out-the-job"></a>Escalar horizontalmente o trabalho
-O Azure Stream Analytics foi projetado para escalar de maneira elástica, de modo que seja possível manipular grandes volumes de dados. A consulta Azure Stream Analytics pode usar uma cláusula **Partition by** para informar ao sistema que essa etapa escala horizontalmente. **PartitionID** é uma coluna especial que o sistema adiciona para corresponder à ID de partição da entrada (Hub de eventos).
+O Azure Stream Analytics foi projetado para escalar de maneira elástica, de modo que seja possível manipular grandes volumes de dados. A consulta do Azure Stream Analytics pode usar uma cláusula **PARTITION BY** para dizer ao sistema que essa etapa é dimensionada. **PartitionId** é uma coluna especial que o sistema adiciona para corresponder ao ID de partição da entrada (hub de eventos).
 
 Para escalar horizontalmente a consulta para partições, edite a sintaxe de consulta para o código a seguir:
 ```sql
@@ -303,7 +303,7 @@ Para escalar verticalmente o trabalho de streaming para mais unidades de streami
 
 3. No cabeçalho CONFIGURE no trabalho de streaming, selecione **Escalar**.
 
-4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Clique em **Salvar**.
+4. Deslize o controle deslizante de **Unidades de streaming** de 1 a 6. As unidades de streaming definem a quantidade de potência de computação que o trabalho pode receber. Selecione **Salvar**.
 
 5. **Inicie** o trabalho de streaming para demonstrar a escala adicional. O Azure Stream Analytics distribui o trabalho em mais recursos de computação e obtém melhor taxa de transferência, particionando o trabalho entre os recursos usando a coluna designada na cláusula PARTITION BY.
 

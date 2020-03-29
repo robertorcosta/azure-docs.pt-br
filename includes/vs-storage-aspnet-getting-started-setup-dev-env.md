@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: tamram
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171823"
 ---
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
@@ -25,7 +25,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 
 1. No menu principal, selecione **Arquivo** > **Novo** > **Projeto**.
 
-1. Na caixa de diálogo **Novo Projeto**, selecione **Web** > **Aplicativo Web ASP.NET (.NET Framework)** . No campo **Nome**, especifique **StorageAspNet**. Selecione **OK**.
+1. Na caixa de diálogo **Novo Projeto**, selecione **Web** > **Aplicativo Web ASP.NET (.NET Framework)**. No campo **Nome**, especifique **StorageAspNet**. Selecione **OK**.
 
     ![A captura de tela da caixa de diálogo Novo Projeto](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
@@ -37,7 +37,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto.
 
-1. No menu de contexto, selecione **Adicionar** > **Serviços Conectados**.
+1. No menu de contexto, selecione **Adicionar** > **serviço conectado**.
 
 1. Na caixa de diálogo **Serviços Conectados**, selecione **Armazenamento em Nuvem com o Armazenamento do Microsoft Azure**.
 
@@ -45,7 +45,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 
 1. Na caixa de diálogo **Armazenamento do Microsoft Azure**, selecione a conta do Armazenamento do Azure a ser usada para este tutorial. Para criar uma nova conta do Armazenamento do Azure, selecione **Criar uma Nova Conta de Armazenamento** e preencha o formulário. Depois de selecionar uma conta de armazenamento existente ou criar uma nova, selecione **Adicionar**. O Visual Studio instalará o pacote NuGet para o Armazenamento do Microsoft Azure e uma cadeia de conexão de armazenamento para **Web.config**.
 
-1. Na **Gerenciador de soluções**, clique duas vezes em **dependências**, escolha **Manage NuGet Packages**e adicione uma referência de pacote do NuGet para a versão mais recente do Microsoft.Azure.ConfigurationManager.
+1. No **Solution Explorer,** clique com o botão direito do mouse em **Dependências,** escolha **Gerenciar pacotes NuGet**e adicione uma referência de pacote NuGet à versão mais recente do Microsoft.Azure.ConfigurationManager.
 
 > [!TIP]
 > Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).

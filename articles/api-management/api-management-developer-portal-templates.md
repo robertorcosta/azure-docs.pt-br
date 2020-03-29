@@ -1,5 +1,5 @@
 ---
-title: Personalizar o portal do desenvolvedor de gerenciamento de API usando modelos
+title: Personalize o portal de desenvolvedores de gerenciamento de API usando modelos
 titleSuffix: Azure API Management
 description: Aprenda a personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos.
 services: api-management
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430784"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
@@ -26,8 +26,8 @@ ms.locfileid: "75430784"
 Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:
 
 * [Editar o conteúdo de páginas estáticas e elementos de layout da página][modify-content-layout]
-* [Atualizar os estilos usados para elementos de página no portal do desenvolvedor][customize-styles]
-* [Modificar os modelos usados para páginas geradas pelo portal][portal-templates] (explicado neste guia)
+* [Atualizar os estilos usados para elementos de página entre o portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para as páginas geradas pelo portal][portal-templates] (explicado neste guia)
 
 Modelos são usados para personalizar o conteúdo das páginas de portal de desenvolvedor geradas pelo sistema (por exemplo, documentos de API, produtos, autenticação do usuário etc.). Com a sintaxe do [DotLiquid](http://dotliquidmarkup.org/), e um conjunto fornecido de recursos de cadeia de caracteres localizados, ícones e controles de página, você conta com muita flexibilidade para configurar o conteúdo das páginas como quiser.
 
@@ -37,7 +37,7 @@ Modelos são usados para personalizar o conteúdo das páginas de portal de dese
 
 ## <a name="developer-portal-templates-overview"></a>Visão geral de modelos de portal do desenvolvedor
 
-A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para começar, primeiro abra o portal do Azure e clique em **portal do desenvolvedor** na barra de ferramentas de serviço da sua instância de gerenciamento de API.
+A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para chegar primeiro, abra o portal Azure e clique no **portal Desenvolvedor** da barra de ferramentas de serviço da sua instância de gerenciamento de API.
 
 Para acessar os modelos de portal do desenvolvedor, clique no ícone de personalizar à esquerda para exibir o menu de personalização e clique em **Modelos**.
 
@@ -47,7 +47,7 @@ A lista de modelos exibe várias categorias de modelos que abrangem diferentes p
 
 ![Modelos de portal do desenvolvedor][api-management-templates-menu]
 
-Clicar em um modelo levará você para a página de portal do desenvolvedor, que é personalizável pelo modelo. Neste exemplo, o modelo da **Lista de produtos** é exibido. O modelo da **Lista de produtos** controla a área da tela indicada pelo retângulo vermelho.
+Clicar em um modelo levará você para a página de portal do desenvolvedor, que é personalizável pelo modelo. Neste exemplo, o modelo **de lista de produtos** é exibido. O modelo da **Lista de produtos** controla a área da tela indicada pelo retângulo vermelho.
 
 ![Modelo de lista de produtos][api-management-developer-portal-templates-overview]
 
@@ -65,7 +65,7 @@ O painel **Dados de modelo** fornece um guia para o modelo de dados para as enti
 
 ![Modelo de dados de modelo][api-management-template-data]
 
-No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que foram recuperados dos dados exibidos no painel **Dados de modelo**, conforme mostrado no exemplo a seguir:
+No exemplo anterior, há dois produtos exibidos no portal do desenvolvedor que foram recuperados dos dados exibidos no painel **de dados Template,** como mostrado no exemplo a seguir:
 
 ```json
 {
@@ -185,7 +185,7 @@ Para restaurar todos os modelos para as versões padrão, clique em **Restaurar 
 
 Os modelos restaurados devem ser publicados individualmente ou todos de uma vez, seguindo as etapas em [Para publicar um modelo](#to-publish-a-template).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter informações de referência para modelos do portal do desenvolvedor, recursos de cadeia de caracteres, ícones e controles de página, consulte [referência de modelos de portal do desenvolvedor do Gerenciamento de API](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md
