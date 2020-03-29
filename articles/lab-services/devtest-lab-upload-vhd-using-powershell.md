@@ -1,6 +1,6 @@
 ---
 title: Carregar arquivo VHD no Azure DevTest Labs usando o PowerShell | Microsoft Docs
-description: Este artigo fornece instruções que mostram como carregar um arquivo VHD para Azure DevTest Labs usando o PowerShell.
+description: Este artigo fornece um passo a passo que mostra como carregar um arquivo VHD para o Azure DevTest Labs usando o PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: a9e5a69cd7840bbaff081a4d47cb60f62a76eda6
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759748"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Carregar arquivo VHD na conta de armazenamento do laboratório usando o PowerShell
@@ -31,17 +31,17 @@ No Azure DevTest Labs, os arquivos VHD podem ser usados para criar imagens perso
 
 As etapas a seguir mostram como carregar um arquivo VHD no Azure DevTest Labs usando o PowerShell. 
 
-1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Todos os serviços**e selecione **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 
 1. Na folha do laboratório, selecione **Configuração**. 
 
-1. Na folha **Configuração** do laboratório, selecione **Imagens personalizadas (VHDs)** .
+1. Na folha **Configuração** do laboratório, selecione **Imagens personalizadas (VHDs)**.
 
-1. Na folha **Imagens personalizadas**, selecione **+Adicionar**. 
+1. Na **lâmina de imagens personalizadas,** Selecione **+Adicionar**. 
 
 1. Na folha **Imagem personalizada**, selecione **VHD**.
 
@@ -59,7 +59,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no Azure DevTest Labs us
 > 
 > O processo de carregamento de um arquivo VHD pode ser demorado, dependendo do tamanho do arquivo VHD e da velocidade de conexão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o Portal do Azure](devtest-lab-create-template.md)
 - [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

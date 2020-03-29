@@ -1,5 +1,5 @@
 ---
-title: Adicionar instruções switch a fluxos de trabalho
+title: Adicionar instruções de switch aos fluxos de trabalho
 description: Como criar instruções switch que controlam as ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793244"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar instruções switch que executam ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
@@ -42,7 +42,7 @@ Por exemplo, suponhamos que você deseje um aplicativo lógico que execute etapa
 
 1. Para este exemplo, adicione uma instrução switch no final do fluxo de trabalho de amostra. Após a última etapa, escolha **Nova etapa**.
 
-   Quando você deseja adicionar uma instrução de comutação entre as etapas, mova o ponteiro sobre a seta onde você deseja adicionar a instrução de comutação. Escolha o **sinal de adição** ( **+** ) que aparece e, em seguida, escolha **Adicionar uma ação**.
+   Quando você deseja adicionar uma instrução de comutação entre as etapas, mova o ponteiro sobre a seta onde você deseja adicionar a instrução de comutação. Escolha o sinal**+** de **adição** () que aparece e escolha Adicionar uma **ação**.
 
 1. Na caixa de pesquisa, digite “switch” como filtro. Selecione esta ação: **Switch – Control**
 
@@ -124,7 +124,7 @@ Agora que você criou um aplicativo lógico usando uma instrução switch, vamos
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar e repetir (loops)](../logic-apps/logic-apps-control-flow-loops.md)

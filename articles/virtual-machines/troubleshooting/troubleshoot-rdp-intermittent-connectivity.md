@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
 ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918216"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>A área de trabalho remota se desconecta com frequência na VM do Azure
@@ -34,7 +34,7 @@ Esse problema pode ocorrer se o RDP Listener estiver configurado incorretamente.
 
 ## <a name="solution"></a>Solução
 
-Antes de seguir estas etapas [tirar um instantâneo do disco do sistema operacional](../windows/snapshot-copy-managed-disk.md) da VM afetado como um backup. 
+Antes de seguir essas etapas, [faça um instantâneo do disco do SISTEMA OPERACIONAL](../windows/snapshot-copy-managed-disk.md) da VM afetada como backup. 
 
 Para solucionar esse problema, use o controle Serial ou [repare a VM off-line](#repair-the-vm-offline) anexando o disco do SO da VM a uma VM de recuperação.
 
@@ -87,12 +87,12 @@ Para solucionar esse problema, use o controle Serial ou [repare a VM off-line](#
 
 ### <a name="repair-the-vm-offline"></a>Repare a VM offline
 
-1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Depois que o disco do sistema operacional é anexado à VM de recuperação, verifique se o disco está sinalizado como **on-line** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 3. No disco do SO conectado, navegue até a pasta **\windows\system32\config**. Copie todos os arquivos nesta pasta como backup, no caso de uma reversão ser necessária.
 4. Inicie o Editor do registro (regedit.exe).
-5. Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione **Arquivo** > **Carregar Hive**:
-6. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco do sistema operacional que você anexou. Como o nome da seção, digite **BROKENSYSTEM**. O novo hive do Registro é exibido sob a chave **HKEY_LOCAL_MACHINE**. Em seguida, carregue a seção de software **\windows\system32\config\SOFTWARE** sob a chave **HKEY_LOCAL_MACHINE**. Para o nome do software de hive, digite **BROKENSOFTWARE**. 
+5. Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione**Colmeia de carga de** **arquivos** > :
+6. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco DO SISTEMA OPERACIONAL que você anexou. Como o nome da seção, digite **BROKENSYSTEM**. O novo hive do Registro é exibido sob a chave **HKEY_LOCAL_MACHINE**. Em seguida, carregue a seção de software **\windows\system32\config\SOFTWARE** sob a chave **HKEY_LOCAL_MACHINE**. Para o nome do software de hive, digite **BROKENSOFTWARE**. 
 7. Abra uma janela elevada do Prompt de Comando (**Executar como administrador**) e execute comandos nas etapas restantes para redefinir as configurações do RDP. 
 8. Reduza a Camada de Segurança RDP para 0, para que as comunicações entre o servidor e o cliente usem a Criptografia RDP nativa:
 

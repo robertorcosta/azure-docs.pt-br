@@ -1,5 +1,5 @@
 ---
-title: Usar um volume baseado em arquivos do Azure em um aplicativo de malha Service Fabric
+title: Use um volume baseado em arquivos azure em um aplicativo de malha de malha de malha de malha de malha de malha de serviço
 description: Saiba como armazenar estado em um aplicativo de Malha do Azure Service Fabric montando um volume baseado em Arquivos do Azure dentro do volume usando a CLI do Azure.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 5bb7ab6c861d958f6811ca852363c59cfced3940
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76718813"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montar um volume de Arquivos do Azure com base em um aplicativo da Malha do Azure Service Fabric 
@@ -19,15 +19,15 @@ Este artigo descreve como montar um volume de arquivos do Azure com base em um s
 
 Para montar um volume em um serviço, crie um recurso de volume em seu aplicativo de Malha do Azure Service Fabric e, em seguia, referencia esse volume no seu serviço.  Declarar o recurso de volume e fazer referência a ele no recurso de serviço pode ser feito nos [arquivos de recurso com base em YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) ou [o modelo de implantação com base em JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Antes de montar o volume, primeiro crie uma conta de armazenamento do Azure e um [compartilhamento de arquivos nos Arquivos do Azure](/azure/storage/files/storage-how-to-create-file-share).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 > [!NOTE]
-> **Problema conhecido com a implantação no computador de desenvolvimento RS5 do Windows:** Há um bug aberto com o cmdlet do PowerShell New-SmbGlobalMapping em computadores com Windows RS5 que impede a montagem de volumes do Azurefile. Abaixo está um erro de exemplo que é encontrado quando o volume baseado no Azure está sendo montado no computador de desenvolvimento local.
+> **Problema conhecido com implantação na máquina de desenvolvimento do Windows RS5:** Há um bug aberto com o Powershell cmdlet New-SmbGlobalMapping em máquinas RS5 Windows que impede a montagem de Volumes de Arquivos Azure. Abaixo está o erro de amostra que é encontrado quando o volume baseado no AzureFile está sendo montado na máquina de desenvolvimento local.
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
 Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
 ```
-A solução alternativa para o problema é 1) executar o comando a seguir como administrador do PowerShell e 2) reinicializar o computador.
+A solução para o problema é 1)Execute abaixo o comando como administrador do Powershell e 2)Reinicie a máquina.
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```
@@ -246,7 +246,7 @@ application:
             - name: VolumeTestNetwork
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Exibir o aplicativo de exemplo do volume de arquivos do Azure no [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Para saber mais sobre o modelo de recursos do Service Fabric, consulte [modelo de recursos de Malha do Service Fabric](service-fabric-mesh-service-fabric-resources.md).

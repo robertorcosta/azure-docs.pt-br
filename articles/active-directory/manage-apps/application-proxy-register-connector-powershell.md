@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b43d2de0a366d7e69a025b2e4e2998dccda2038e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756204"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação autônoma para o conector de Proxy de Aplicativo do Azure AD
@@ -34,7 +34,7 @@ Esse recurso é útil quando você deseja:
 * Integrar a instalação e o registro do conector como parte de outro procedimento.
 * Criar uma imagem de servidor padrão que contém bits do conector, mas que não está registrada.
 
-Para que o [conector de proxy de aplicativo](application-proxy-connectors.md) funcione, ele precisa ser registrado com seu diretório do AD do Azure usando um administrador de aplicativos e uma senha. Normalmente, essa informação é inserida durante a instalação do Conector em uma caixa de diálogo pop-up, mas em vez disso, você pode usar o PowerShell para automatizar esse processo.
+Para que o [conector proxy](application-proxy-connectors.md) do aplicativo funcione, ele deve ser registrado no diretório Azure AD usando um administrador de aplicativos e senha. Normalmente, essa informação é inserida durante a instalação do Conector em uma caixa de diálogo pop-up, mas em vez disso, você pode usar o PowerShell para automatizar esse processo.
 
 Há duas etapas para uma instalação autônoma. Primeiro, instale o conector. Segundo, registre o conector com o Azure AD. 
 
@@ -53,7 +53,7 @@ Há dois métodos que você pode usar para registrar o conector:
 * Registrar o conector usando um token criado offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrar o conector usando um objeto de credencial do Windows PowerShell
-1. Crie um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de usuário administrativo e uma senha para seu diretório. Execute o seguinte comando, substituindo *\<nome de usuário\>* e *\<senha\>* :
+1. Crie um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de usuário administrativo e uma senha para seu diretório. Execute o seguinte comando, substituindo * \<nome de\> usuário* e * \<senha:\>*
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -121,7 +121,7 @@ Há dois métodos que você pode usar para registrar o conector:
             tenantID = authResult.TenantId;
         }
 
-    **Usar o PowerShell:**
+    **Usando powershell:**
 
         # Locate AzureAD PowerShell Module
         # Change Name of Module to AzureAD after what you have installed
@@ -179,7 +179,7 @@ Há dois métodos que você pode usar para registrar o conector:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 * [Publicar aplicativos usando seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
 * [Habilitar o logon único](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)

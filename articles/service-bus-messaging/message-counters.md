@@ -1,6 +1,6 @@
 ---
-title: Barramento de serviço do Azure-contagem de mensagens
-description: Recupere a contagem de mensagens mantidas em filas e assinaturas usando Azure Resource Manager e as APIs NamespaceManager do barramento de serviço do Azure.
+title: Ônibus de serviço azure - contagem de mensagens
+description: Recupere a contagem de mensagens mantidas em filas e assinaturas usando o Azure Resource Manager e as APIs do Azure Service Bus NamespaceManager.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 3a4fca0b3b60fcb76bcdc4f5f2d53df816c5053b
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756362"
 ---
 # <a name="message-counters"></a>Contadores de mensagens
@@ -44,7 +44,7 @@ Saber a contagem de mensagens ativas é útil para determinar se uma fila cria u
 
 Se um aplicativo desejar dimensionar os recursos com base no comprimento da fila, ele deverá fazer isso com um ritmo calculado. A aquisição dos contadores de mensagem é uma operação cara dentro do agente de mensagens e executá-la com frequência afeta de forma direta e adversa o desempenho da entidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

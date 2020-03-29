@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
 ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60821901"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Visão geral de API do .NET Standard de Hubs de Eventos
 
 Este artigo resume algumas das principais APIs de cliente [.NET Standard do Azure.](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) dos Hubs de Eventos do Azure. Atualmente, há duas bibliotecas de cliente do .NET Standard para os Hubs de Eventos do Azure:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): fornece todas as operações básicas de tempo de execução.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): adiciona outra funcionalidade que permite manter o controle de eventos processados e é a maneira mais fácil de fazer a leitura a partir de um hub de eventos.
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): fornece todas as operações básicas do runtime.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): adiciona a funcionalidade adicional que permite acompanhar os eventos processados e é a maneira mais fácil de ler de um Hub de Eventos.
 
 ## <a name="event-hubs-client"></a>Cliente dos Hubs de Eventos
 
@@ -48,7 +48,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 
 ### <a name="send-events"></a>Enviar eventos
 
-Para enviar eventos a um hub de eventos, use a classe [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata). O corpo deve ser uma matriz `byte` ou um segmento de matriz `byte`.
+Para enviar eventos para um hub de eventos, use a classe [EventData.](/dotnet/api/microsoft.azure.eventhubs.eventdata) O corpo deve ser uma matriz `byte` ou um segmento de matriz `byte`.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -65,7 +65,7 @@ A maneira recomendada de receber eventos de Hubs de Eventos é usar o [Host do P
 
 #### <a name="create-a-receiver"></a>Criar um receptor
 
-Os receptores são vinculados a partições específicas, então, para receber todos os eventos de um Hub de Eventos, você precisará criar várias instâncias. Uma prática recomendada é obter as informações da partição via programação, ao invés de incorporar as IDs de partição ao código. Para fazer isso, você pode usar o método [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient).
+Os receptores são vinculados a partições específicas, então, para receber todos os eventos de um Hub de Eventos, você precisará criar várias instâncias. Uma prática recomendada é obter as informações da partição via programação, ao invés de incorporar as IDs de partição ao código. Para fazer isso, você pode usar o [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) método.
 
 ```csharp
 // Create a list to keep track of the receivers
@@ -185,7 +185,7 @@ public class SimpleEventProcessor : IEventProcessor
 Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 
 * [O que é Hub de Eventos do Azure?](event-hubs-what-is-event-hubs.md)
-* [Apis de Hubs de Eventos disponíveis](event-hubs-api-overview.md)
+* [Apis disponíveis do Event Hubs](event-hubs-api-overview.md)
 
 As referências de API .NET estão aqui:
 

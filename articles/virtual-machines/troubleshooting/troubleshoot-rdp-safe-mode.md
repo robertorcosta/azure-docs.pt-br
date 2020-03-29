@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918199"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM é inicializada no modo de segurança
@@ -73,7 +73,7 @@ Para resolver esse problema, use o controle Serial para configurar a VM para ini
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
-1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 3. Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 
@@ -83,7 +83,7 @@ O log de despejo e o Console Serial nos ajudarão a solucionar mais problemas se
 
 Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
-1. Abra uma sessão de prompt de comandos com privilégios elevados (**Executar como administrador**).
+1. Abra uma sessão de prompt de comando elevada **(Execute como administrador).**
 2. Execute o seguinte script:
 
     Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
@@ -112,7 +112,7 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
 
 #### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Configurar o Windows para ser inicializado no modo normal
 
-1. Abra uma sessão de prompt de comandos com privilégios elevados (**Executar como administrador**).
+1. Abra uma sessão de prompt de comando elevada **(Execute como administrador).**
 2. Verifique os dados de configuração da inicialização. Nos comandos a seguir, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado seja F. Substitua essa letra da unidade pelo valor apropriado para a VM.
 
         bcdedit /store F:\boot\bcd /enum

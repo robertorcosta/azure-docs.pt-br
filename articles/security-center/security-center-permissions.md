@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921310"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
@@ -41,7 +41,7 @@ Além dessas funções, há duas funções específicas da Central de Segurança
 
 A tabela a seguir exibe as funções e as ações permitidas na Central de Segurança.
 
-| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso</br> (incluindo com ' correção rápida! ') | Ignorar alertas e recomendações | Exibir alertas e recomendações |
+| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso</br> (inclusive com 'Quick Fix!') | Ignorar alertas e recomendações | Exibir alertas e recomendações |
 |:--- |:---:|:---:|:---:|:---:|
 | Proprietário da assinatura | ✔ | ✔ | ✔ | ✔ |
 | Colaborador da assinatura | -- | ✔ | ✔ | ✔ |
@@ -56,11 +56,11 @@ A tabela a seguir exibe as funções e as ações permitidas na Central de Segur
 >
 >
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Este artigo explicou como a Central de Segurança usa o RBAC para atribuir permissões aos usuários e identificou as ações permitidas para cada função. Agora que você está familiarizado com as atribuições de função necessárias para monitorar o estado de segurança de sua assinatura, editar as políticas de segurança e aplicar recomendações, saiba como:
 
-- [Configurar políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md)
+- [Definir políticas de segurança na Central de Segurança](tutorial-security-policy.md)
 - [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)
 - [Monitoramento da integridade da segurança na Central de Segurança do Azure](security-center-monitoring.md)
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
+- [Gerencie e responda a alertas de segurança no Security Center](security-center-managing-and-responding-alerts.md)
 - [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorando soluções de parceiros com a Central de Segurança do Azure)

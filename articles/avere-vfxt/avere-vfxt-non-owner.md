@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153268"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autorizar não proprietários a implantar o Avere vFXT
@@ -72,7 +72,7 @@ O proprietário da assinatura também deve [aceitar os termos de uso](avere-vfxt
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Depois de concluir esse processo, a função concede a qualquer usuário as seguintes permissões para a assinatura:
+Após concluir esse processo, a função dá a qualquer usuário as seguintes permissões para a assinatura:
 
 * Criar e configurar a infraestrutura de rede
 * Criar o controlador de cluster

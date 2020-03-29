@@ -1,5 +1,5 @@
 ---
-title: Dimensionamento automático de conjuntos de dimensionamento de máquinas virtuais no portal do Azure
+title: Conjuntos de escala de máquinas virtuais de autoescala no portal Azure
 description: Como criar regras de dimensionamento automático para conjuntos de dimensionamento de máquinas virtuais no portal do Azure
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278193"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
@@ -25,7 +25,7 @@ Este artigo mostra como criar regras de dimensionamento automático no portal do
 Para criar regras de autoescala, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. Você pode criar um conjunto de dimensionamento com o [portal do Azure](quick-create-portal.md), [do Azure PowerShell](quick-create-powershell.md), ou [CLI do Azure](quick-create-cli.md).
 
 
-## <a name="create-a-rule-to-automatically-scale-out"></a>Crie uma regra para escalar horizontalmente de modo automático
+## <a name="create-a-rule-to-automatically-scale-out"></a>Crie uma regra para expandir automaticamente
 Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunto de dimensionamento também aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. Você controla quais métricas são monitoradas, como CPU ou disco, por quanto tempo a carga do aplicativo deve atender a determinado limite e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
 1. Abra o portal do Azure e selecione **Grupos de recursos** no menu esquerdo do painel.
@@ -42,12 +42,12 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
     
     | Parâmetro              | Explicação                                                                                                         | Valor          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Tempo de agregação*     | Define como as métricas coletadas devem ser agregadas para análise.                                                | Média        |
-    | *Nome da métrica*          | A métrica de desempenho a ser monitorada, na qual as ações do conjunto de dimensionamento serão aplicadas.                                                   | Porcentagem de CPU |
+    | *Agregação de Tempo*     | Define como as métricas coletadas devem ser agregadas para análise.                                                | Média        |
+    | *Nome métrico*          | A métrica de desempenho a ser monitorada, na qual as ações do conjunto de dimensionamento serão aplicadas.                                                   | Porcentagem de CPU |
     | *Estatística de intervalo de agregação* | Define como as métricas coletadas em cada intervalo de agregação devem ser agregadas para análise.                             | Média        |
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que   |
     | *Limite*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 70             |
-    | *Duration*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
+    | *Duração*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica e qual o incremento                        | Aumentar porcentagem em |
     | *Contagem de instâncias*       | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 20             |
     | *Tempo de resfriamento (minutos)*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |
@@ -119,8 +119,8 @@ Os exemplos anteriores dimensionaram automaticamente um conjunto de dimensioname
 Para ver como as regras de dimensionamento automático são aplicadas, selecione **Histórico de execuções** na parte superior da janela **Colocação em Escala**. A lista de eventos e grafo mostra quando as regras de dimensionamento automático são acionadas e o número de instâncias da VM no seu conjunto de dimensionamento aumenta ou diminui.
 
 
-## <a name="next-steps"></a>Próximos passos
-Neste artigo, você aprendeu a usar as regras de autoescala para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+## <a name="next-steps"></a>Próximas etapas
+Neste artigo, você aprendeu a usar as regras de autoescala para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [escala automática vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Predefinição do Media Encoder Standard H264 Taxa de Bits Única 4x3 – Azure | Microsoft Docs
-description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 4x3 SD**.
+description: O tópico fornece uma visão geral da preconfiguração da tarefa **SD 4x3 do Bitrate Único H264.**
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: a1359bacdf6735ca49e22d7c7b6d0014d56f1735
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61129467"
 ---
 # <a name="h264-single-bitrate-4x3-sd"></a>H264 Taxa de Bits Única 4x3 SD

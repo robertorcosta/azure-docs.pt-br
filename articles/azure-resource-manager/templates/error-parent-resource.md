@@ -1,13 +1,13 @@
 ---
-title: Erros de recurso pai
-description: Descreve como resolver erros ao trabalhar com um recurso pai em um modelo de Azure Resource Manager.
+title: Erros de recursos dos pais
+description: Descreve como resolver erros ao trabalhar com um recurso pai em um modelo do Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76154033"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolva erros de recursos pai
@@ -78,4 +78,4 @@ Para resolver esse erro quando o recurso pai foi anteriormente implantado em um 
 }
 ```
 
-Para obter mais informações, consulte [Definir a ordem de implantação dos recursos em modelos do Azure Resource Manager](define-resource-dependency.md).
+Para obter mais informações, consulte [Definir a ordem de implantação de recursos nos modelos do Azure Resource Manager](define-resource-dependency.md).

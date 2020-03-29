@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62116884"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalar a Atualização 0.6 em seu StorSimple Virtual Array
@@ -57,7 +57,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para baixar a atualização ou o hotfix
 
-1. Inicie o Internet Explorer e navegue até [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Inicie o Internet [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)Explorer e navegue para .
 
 2. Se você estiver usando o Catálogo do Microsoft Update pela primeira vez neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
@@ -67,7 +67,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
    
     ![Pesquisar o catálogo](./media/storsimple-virtual-array-install-update-06/download1.png)
 
-4. Clique em **Download**.
+4. Clique em **Baixar**.
 
 5. Você deve ver cinco arquivos para download. Baixe cada um desses arquivos para uma pasta. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
 
@@ -94,7 +94,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Para instalar a atualização ou hotfix
 
-1. Na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0**, não será necessário atualizar o agente MDS na etapa 6.
+1. Na web UI local, vá para **Maintenance** > **Software Update**. Anote a versão do software que você está executando. Se você estiver executando **10.0.10290.0**, não será necessário atualizar o agente MDS na etapa 6.
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -110,7 +110,7 @@ Use esse método para instalar atualizações em um dispositivo que executa as v
    
     ![atualizar dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para confirmar se o software do dispositivo foi atualizado, na interface do usuário da Web local, vá para **Manutenção** > **Atualização de Software**. A versão de software exibida deve ser **10.0.0.0.0.10293** para a Atualização 0.6.
+5. Depois que a reinicialização for concluída, você será levado à página **Entrar** . Para verificar se o software do dispositivo atualizou, na ui web local, acesse **Maintenance** > **Software Update**. A versão de software exibida deve ser **10.0.0.0.0.10293** para a Atualização 0.6.
    
    > [!NOTE]
    > Relatamos as versões de software de maneira ligeiramente diferente na interface do usuário da Web local e no portal do Azure. Por exemplo, a interface do usuário da Web local informa **10.0.0.0.0.10293** e o Portal do Azure informa **10.0.10293.0** para a mesma versão.

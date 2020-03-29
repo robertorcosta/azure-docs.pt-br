@@ -1,6 +1,6 @@
 ---
-title: Usando funcionalidades de renderização-lote do Azure
-description: Como usar os recursos de renderização do lote do Azure. Tente usar o aplicativo Batch Explorer, seja diretamente ou invocado de um plug-in de aplicativo cliente.
+title: Usando recursos de renderização - Azure Batch
+description: Como usar os recursos de renderização do Azure Batch. Tente usar o aplicativo Batch Explorer, diretamente ou invocado a partir de um plug-in de aplicativo cliente.
 services: batch
 ms.service: batch
 author: mscurrell
@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: f3b2e641ab187514a7900b2ab7cc75068df00252
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672000"
 ---
 # <a name="using-azure-batch-rendering"></a>Usar a renderização de Lote do Azure
@@ -22,7 +22,7 @@ Há várias maneiras de usar a renderização de Lote do Azure:
   * Grave código usando qualquer uma das APIs de Lote.  Desenvolvedores podem integrar os recursos do Lote do Azure aos fluxos de trabalho ou aplicativos existentes, sejam baseados em nuvem ou locais.
 * Ferramentas de linha de comando:
   * A [linha de comando do Azure](https://docs.microsoft.com/cli/azure/) ou o [PowerShell](https://docs.microsoft.com/powershell/azure/overview) pode ser usado para script de uso do Lote.
-  * Em particular, o [suporte de modelo da CLI do Lote](https://docs.microsoft.com/azure/batch/batch-cli-templates) torna muito mais fácil criar pools e enviar trabalhos.
+  * Em particular, o suporte ao [modelo BATCH CLI](https://docs.microsoft.com/azure/batch/batch-cli-templates) facilita muito a criação de pools e a submissão de empregos.
 * Interface do usuário do Batch Explorer:
   * O [Batch Explorer](https://github.com/Azure/BatchLabs) é uma ferramenta do cliente de plataforma cruzada que também permite que as contas do Batch sejam gerenciadas e monitoradas.
   * Para cada um dos aplicativos de renderização, são fornecidos vários modelos de trabalho e pool que podem ser usados para facilmente criar pools e enviar trabalhos.  Um conjunto de modelos é listado na interface do usuário do aplicativo, com os arquivos de modelo sendo acessados no GitHub.
@@ -48,18 +48,18 @@ Um conjunto abrangente de modelos está disponível para uso com o Batch Explore
 
 São fornecidos modelos que atendem a todos os aplicativos presentes no Marketplace nas imagens de VM de renderização do Marketplace.  Para cada aplicativo há vários modelos, incluindo modelos de pool para atender a pools de CPU e GPU, pools do Windows e do Linux, e os modelos de trabalho incluem renderização de Blender em bloco ou quadro completo e renderização distribuída V-Ray. O conjunto de modelos fornecidos será expandido ao longo do tempo para atender a outros recursos do Lote como o dimensionamento automático do pool.
 
-Também é possível que modelos personalizados sejam produzidos, a partir do zero ou modificando os modelos fornecidos. Os modelos personalizados podem ser usados selecionando o item ' modelos locais ' na seção ' Galeria ' de Batch Explorer.
+Também é possível que modelos personalizados sejam produzidos, a partir do zero ou modificando os modelos fornecidos. Modelos personalizados podem ser usados selecionando o item 'Modelos locais' na seção 'Galeria' do Batch Explorer.
 
 ### <a name="file-system-and-data-movement"></a>Sistema de arquivos e movimentação de dados
 
-A seção ' dados ' no Batch Explorer permite que os arquivos sejam copiados entre um sistema de arquivos local e contas de armazenamento do Azure.
+A seção 'Dados' no Batch Explorer permite que os arquivos sejam copiados entre um sistema de arquivos local e contas de armazenamento Azure.
 
 ## <a name="client-application-plug-ins"></a>Plug-ins de aplicativo cliente
 
 Plug-ins estão disponíveis para alguns dos aplicativos clientes.  Os plug-ins permitem que pools e trabalhos sejam criados diretamente do aplicativo ou invocam o Batch Explorer.
 
-* [Blender 2,79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Blender 2.8 +](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
+* [Liquidificador 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Liquidificador 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 

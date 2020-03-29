@@ -10,46 +10,46 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310706"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Usar um bloco markdown em painéis do Azure para mostrar conteúdo personalizado
 
-É possível adicionar um bloco markdown a painéis do Azure para exibir conteúdo estático personalizado. Por exemplo, você pode mostrar instruções básicas, uma imagem ou um conjunto de hiperlinks em um bloco de redução.
+É possível adicionar um bloco markdown a painéis do Azure para exibir conteúdo estático personalizado. Por exemplo, você pode mostrar instruções básicas, uma imagem ou um conjunto de hiperlinks em um azulejo de marcação.
 
 ## <a name="add-a-markdown-tile-to-your-dashboard"></a>Adicionar um bloco markdown ao seu painel
 
 1. Selecione **Painel** na barra lateral do portal do Azure.
 
-   ![Captura de tela mostrando a barra lateral do portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+   ![Captura de tela mostrando barra lateral do portal](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
 1. Se você criou painéis personalizados, na exibição de painel, use a lista suspensa para selecionar o painel em que o bloco markdown personalizado deve aparecer. Selecione o ícone de edição para abrir a **Galeria de Blocos**.
 
    ![Captura de tela mostrando o modo de exibição de edição do painel](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. Na **Galeria de blocos**, localize o bloco chamado **redução** e selecione **Adicionar**. O bloco é adicionado ao painel e a janela **Editar Markdown** é exibida.
+1. Na **Galeria de Azulejos,** localize o azulejo chamado **Markdown** e selecione **Adicionar**. O bloco é adicionado ao painel e a janela **Editar Markdown** é exibida.
 
-1. Insira valores para **título** e **subtítulo**, que são exibidos no bloco depois de você passar para outro campo.
+1. Digite valores para **Título** e **Legenda**, que são exibidos no bloco depois de passar para outro campo.
 
-   ![Captura de tela mostrando os resultados da inserção do título e do subtítulo](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
+   ![Captura de tela mostrando resultados de inserir título e legenda](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-1. Selecione uma das opções para incluir o conteúdo de redução: **edição embutida** ou **Inserir conteúdo usando a URL**.
+1. Selecione uma das opções para incluir conteúdo de marcação: **Edição inline** ou **inserir conteúdo usando URL**.
 
-   - Selecione **edição embutida** se desejar inserir a redução diretamente.
+   - Selecione **edição inline** se quiser ativar a marcação diretamente.
 
-      ![Captura de tela mostrando a inserção de conteúdo embutido](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+      ![Captura de tela mostrando conteúdo inline](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
 
-   - Selecione **Inserir conteúdo usando a URL** se você quiser usar o conteúdo de redução existente que está hospedado online.
+   - Selecione **Inserir conteúdo usando URL** se quiser usar o conteúdo de marcação existente hospedado on-line.
 
-      ![Captura de tela mostrando a inserção da URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+      ![Captura de tela mostrando url de entrada](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > Para maior segurança, você pode criar um arquivo de redução e armazená-lo em um [BLOB da conta de armazenamento do Azure em que a criptografia está habilitada](../storage/common/storage-service-encryption.md)e, em seguida, apontar para o arquivo usando a opção URL. O conteúdo de redução é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver o conteúdo de redução no painel.
+      > Para maior segurança, você pode criar um arquivo de marcação e armazená-lo em uma [bolha de conta de armazenamento do Azure onde](../storage/common/storage-service-encryption.md)a criptografia está ativada e, em seguida, apontar para o arquivo usando a opção URL. O conteúdo de marcação é criptografado através das opções de criptografia da conta de armazenamento. Apenas usuários com permissões para o arquivo podem ver o conteúdo de marcação no painel.
 
-1. Selecione **Concluído** para ignorar o painel **Editar Markdown**. Seu conteúdo aparece no bloco de redução, que você pode redimensionar arrastando a alça no canto inferior direito.
+1. Selecione **Concluído** para ignorar o painel **Editar Markdown**. Seu conteúdo aparece no bloco Markdown, que você pode redimensionar arrastando a alça no canto inferior direito.
 
    ![Captura de tela mostrando o bloco markdown personalizado](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
@@ -61,6 +61,6 @@ ms.locfileid: "76310706"
 * iframes: marcas `<iframe>` serão removidas.
 * Estilo: marcas `<style>` serão removidas. Oficialmente, não há suporte para atributos de estilo embutido em elementos HTML. Você pode achar que alguns elementos de estilo embutido são ideais para você, porém, se eles interferirem no layout do portal, poderão parar de funcionar a qualquer momento. O bloco Markdown destina-se a conteúdo básico e estático que usa os estilos padrão do portal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para criar um painel personalizado, confira [Criar e compartilhar painéis no portal do Azure](../azure-portal/azure-portal-dashboards.md)

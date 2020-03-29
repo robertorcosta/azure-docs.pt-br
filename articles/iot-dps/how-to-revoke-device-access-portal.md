@@ -1,6 +1,6 @@
 ---
-title: Cancelar o registro de dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como cancelar o registro de um dispositivo para impedir o provisionamento por meio do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure
+title: Descadastrar dispositivo do Serviço de Provisionamento de Dispositivos Hub Azure IoT
+description: Como descadastrar um dispositivo para evitar o provisionamento através do DPS (Azure IoT Hub Device Provisioning Service, serviço de provisionamento de dispositivos do Hub Hub)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974914"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do Provisionamento de Dispositivos no Hub IoT
@@ -26,7 +26,7 @@ O registro no Serviço de Provisionamento de Dispositivos permite que um disposi
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Adicionar os dispositivos usando uma entrada de registro individual à lista de bloqueios
 
-Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista de bloqueios, você pode desabilitar ou excluir sua entrada de registro. 
+Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Dispositivos que usam tokens SAS como mecanismo de atestado só podem ser provisionados através de uma inscrição individual.) Para colocar na lista negra um dispositivo que tenha uma inscrição individual, você pode desativar ou excluir sua entrada de inscrição. 
 
 Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando sua entrada de registro: 
 
@@ -56,7 +56,7 @@ Depois de concluir o procedimento, você deve ver sua entrada removida da lista 
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Adicionar um intermediário X.509 ou Certificado de AC raiz à lista de bloqueios usando um grupo de registros
 
-Os certificados X.509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a relação de confiança é quebrada. O certificado deve estar na lista de bloqueios para impedir o Serviço de Provisionamento de Dispositivos de provisionar dispositivos downstream em qualquer cadeia que contenham esse certificado. Para saber mais sobre certificados X.509 e como eles são usados com o serviço de provisionamento, consulte [Certificados X.509](./concepts-security.md#x509-certificates). 
+Os certificados X.509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a relação de confiança é quebrada. O certificado deve estar na lista negra para impedir o Serviço de Provisionamento de Dispositivos de provisionar dispositivos downstream em qualquer cadeia que contenham esse certificado. Para saber mais sobre certificados X.509 e como eles são usados com o serviço de provisionamento, consulte [Certificados X.509](./concepts-security.md#x509-certificates). 
 
 Um grupo de registros é uma entrada para dispositivos que compartilham um mecanismo de atestado comum de certificados X.509 assinados pela mesma AC intermediária ou raiz. A entrada de grupo de registros está configurada com o certificado x. 509 associado com a autoridade de certificação raiz ou intermediária. A entrada também é configurada com quaisquer valores de configuração, como um estado gêmeo e uma conexão de Hub IoT, que são compartilhados pelos dispositivos com esse certificado em sua cadeia de certificados. Para adicionar o certificado à lista de bloqueios, você pode desabilitar ou excluir seu grupo de registros.
 
@@ -104,11 +104,11 @@ Para adicionar um dispositivo individual à lista de bloqueios em um grupo de re
 
 6. Role até a parte inferior da página **Adicionar registro** e selecione **Desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **Salvar**. 
 
-    [![Usar a entrada de registro individual desabilitada para desabilitar o dispositivo do registro de grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
+    [![Use a entrada de inscrição individual com deficiência para desativar o dispositivo a partir da inscrição em grupo, no portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Após a criação bem-sucedida de seu registro, você deverá ver o registro do dispositivo desabilitado listado na guia **Registros Individuais**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 O cancelamento do registro também faz parte do processo de desprovisionamento maior. O desprovisionamento de um dispositivo inclui tanto o cancelamento do registro do serviço de provisionamento como o cancelamento do registro do Hub IoT. Para saber mais sobre o processo completo, consulte [Como desprovisionar dispositivos autoprovisionados anteriormente](how-to-unprovision-devices.md) 
 

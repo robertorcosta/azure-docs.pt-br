@@ -1,15 +1,15 @@
 ---
 title: Hubs de tarefas nas Funções Duráveis – Azure
-description: Saiba o que é um hub de tarefas na extensão de Funções Duráveis do Azure Functions. Saiba como configurar os hubs de tarefas.
+description: Saiba o que é um hub de tarefas na extensão de Funções Duráveis do Azure Functions. Saiba como configurar hubs de tarefas.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76262479"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tarefas nas Funções Duráveis (Azure Functions)
@@ -29,15 +29,15 @@ Um hub de tarefas é composto pelos seguinte recursos de armazenamento:
 * Uma tabela de histórico.
 * Uma tabela de instâncias.
 * Um contêiner de armazenamento que contém um ou mais blobs de concessão.
-* Um contêiner de armazenamento que contém cargas de mensagens grandes, se aplicável.
+* Um recipiente de armazenamento contendo grandes cargas de mensagens, se aplicável.
 
-Todos esses recursos são criados automaticamente na conta de armazenamento do Azure padrão quando as funções Orchestrator, Entity ou Activity são executadas ou estão agendadas para execução. O artigo [Desempenho e Escala](durable-functions-perf-and-scale.md) explica como esses recursos são usados.
+Todos esses recursos são criados automaticamente na conta padrão do Azure Storage quando funções orquestradoras, entidades ou de atividade são executadas ou programadas para serem executadas. O artigo [Desempenho e Escala](durable-functions-perf-and-scale.md) explica como esses recursos são usados.
 
 ## <a name="task-hub-names"></a>Nomes de hub de tarefas
 
 Os hubs de tarefas são identificados por um nome declarado no arquivo *host.json*, conforme mostrado no exemplo a seguir:
 
-### <a name="hostjson-functions-20"></a>host. JSON (funções 2,0)
+### <a name="hostjson-functions-20"></a>host.json (Funções 2.0)
 
 ```json
 {
@@ -60,9 +60,9 @@ Os hubs de tarefas são identificados por um nome declarado no arquivo *host.jso
 }
 ```
 
-Os hubs de tarefas também podem ser configurados usando as configurações do aplicativo, conforme mostrado no seguinte arquivo de exemplo `host.json`:
+Os hubs de tarefas também podem ser configurados `host.json` usando configurações de aplicativos, como mostrado no arquivo de exemplo a seguir:
 
-### <a name="hostjson-functions-10"></a>host. JSON (funções 1,0)
+### <a name="hostjson-functions-10"></a>host.json (Funções 1.0)
 
 ```json
 {
@@ -72,7 +72,7 @@ Os hubs de tarefas também podem ser configurados usando as configurações do a
 }
 ```
 
-### <a name="hostjson-functions-20"></a>host. JSON (funções 2,0)
+### <a name="hostjson-functions-20"></a>host.json (Funções 2.0)
 
 ```json
 {
@@ -96,9 +96,9 @@ O nome do hub de tarefas será definido com o valor da configuração do aplicat
 }
 ```
 
-O código a seguir demonstra como escrever uma função que usa a [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) para trabalhar com um hub de tarefas que está configurado como uma configuração de aplicativo:
+O código a seguir demonstra como escrever uma função que usa a vinculação do [cliente de orquestração](durable-functions-bindings.md#orchestration-client) para trabalhar com um hub de tarefas configurado como uma configuração de aplicativo:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -119,9 +119,9 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> O exemplo C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O exemplo c# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 A propriedade do hub de tarefas no arquivo `function.json` é definida por meio da Configuração de Aplicativo:
 
@@ -136,19 +136,19 @@ A propriedade do hub de tarefas no arquivo `function.json` é definida por meio 
 
 ---
 
-Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, um nome de Hub de tarefas padrão será usado conforme mostrado na tabela a seguir:
+Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos somente por letras e números. Se não for especificado, um nome de hub de tarefa padrão será usado conforme mostrado na tabela a seguir:
 
 | Versão de extensão durável | Nome do hub de tarefas padrão |
 | - | - |
-| 2. x | Quando implantado no Azure, o nome do hub de tarefas é derivado do nome do _aplicativo de funções_. Ao executar fora do Azure, o nome do hub de tarefas padrão é `TestHubName`. |
-| 1.x | O nome do hub de tarefas padrão para todos os ambientes é `DurableFunctionsHub`. |
+| 2. x | Quando implantado no Azure, o nome do hub de tarefas é derivado do nome do _aplicativo de função_. Ao ser executado fora do Azure, `TestHubName`o nome padrão do hub de tarefas é . |
+| 1.x | O nome padrão do hub `DurableFunctionsHub`de tarefas para todos os ambientes é . |
 
-Para obter mais informações sobre as diferenças entre as versões de extensão, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+Para obter mais informações sobre as diferenças entre as versões de extensão, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
 > [!NOTE]
-> O nome é o que diferencia um hub de tarefas de outro quando há vários em uma conta de armazenamento compartilhada. Se você tiver vários aplicativos de funções compartilhando uma conta de armazenamento, será necessário configurar, explicitamente, nomes diferentes para cada hub de tarefas nos arquivos *host.json*. Caso contrário, os aplicativos de várias funções competirão uns com os outros para mensagens, o que pode resultar em um comportamento indefinido, incluindo orquestrações sendo inesperadas "presas" no estado de `Pending` ou `Running`.
+> O nome é o que diferencia um hub de tarefas de outro quando há vários em uma conta de armazenamento compartilhada. Se você tiver vários aplicativos de funções compartilhando uma conta de armazenamento, será necessário configurar, explicitamente, nomes diferentes para cada hub de tarefas nos arquivos *host.json*. Caso contrário, os aplicativos de múltiplas funções competirão entre si por mensagens, o que `Pending` pode `Running` resultar em comportamento indefinido, incluindo orquestrações ficando inesperadamente "presas" no estado ou no estado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba como lidar com o controle de versão de orquestração](durable-functions-versioning.md)
+> [Aprenda a lidar com a versão de orquestração](durable-functions-versioning.md)

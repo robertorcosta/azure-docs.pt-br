@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921446"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "SERVIÇO CRÍTICO COM FALHA" na tela azul durante a inicialização de uma VM do Azure
@@ -44,7 +44,7 @@ Para resolver esse problema [entre em contato com o suporte e envie um arquivo d
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
 1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Anexar o disco de SO a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md). 
+2. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Estabeleça uma conexão de área de trabalho remota com a VM de recuperação.
 
 ### <a name="enable-dump-logs-and-serial-console"></a>Habilitar logs de despejo e o console serial
@@ -99,24 +99,24 @@ Para habilitar logs de despejo e o console serial, execute o script a seguir.
 7. Remova as configurações de inicialização segura:
 
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
-8.  Reinicie a máquina virtual. 
+8.  Reinicie a VM. 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Opcional: analisar os logs de despejo no modo de despejo de memória
 
-Para analisar os logs de despejo, siga estas etapas:
+Para analisar os registros de despejo você mesmo, siga estas etapas:
 
 1. Anexe o disco do sistema operacional a uma VM de recuperação.
-2. No disco do sistema operacional que você anexou, navegue até **\Windows\System32\config**. Copie todos os arquivos como um backup, caso uma reversão seja necessária.
+2. No disco do SISTEMA OPERACIONAL que você anexou, navegue **até \windows\system32\config**. Copie todos os arquivos como backup caso seja necessária uma reversão.
 3. Inicie o **Editor do Registro** (regedit.exe).
-4. Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione **Arquivo** > **Carregar Hive**.
-5. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco do sistema operacional que você anexou. Como o nome da seção, digite **BROKENSYSTEM**. O novo hive do Registro é exibido sob a chave **HKEY_LOCAL_MACHINE**.
+4. Selecione a chave **HKEY_LOCAL_MACHINE**. No menu, selecione **File** > **Load Hive**.
+5. Navegue até a pasta **\windows\system32\config\SYSTEM** no disco DO SISTEMA OPERACIONAL que você anexou. Como o nome da seção, digite **BROKENSYSTEM**. O novo hive do Registro é exibido sob a chave **HKEY_LOCAL_MACHINE**.
 6. Navegue até **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** e faça as seguintes alterações:
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  Selecione **BROKENSYSTEM**. No menu, selecione **Arquivo** > **Descarregar Hive**.
-8.  Modifique a instalação do BCD para inicializar no modo de depuração. Execute os seguintes comandos de um prompt de comando elevado:
+7.  Selecione **BROKENSYSTEM**. No menu,**selecione Colmeia de descarga de** **arquivos** > .
+8.  Modifique a instalação do BCD para inicializar no modo de depuração. Execute os seguintes comandos em um prompt de comandos com privilégios elevados:
 
     ```cmd
     REM Setup some debugging flags on the boot manager

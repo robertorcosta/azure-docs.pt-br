@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade de região do StorSimple
+title: Disponibilidade da região do StorSimple
 description: Explica as regiões do Azure na qual vários modelos de dispositivo StorSimple estão disponíveis.
 author: alkohli
 ms.service: storsimple
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275121"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Os datacenters do Azure operam em várias regiões geográficas do mundo para atender às demandas do cliente por desempenho, requisitos e preferências de local dos dados. Uma geografia do Azure é uma área definida do mundo que contém, pelo menos, uma Região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais datacenters.
 
@@ -26,7 +26,7 @@ A escolha de uma região do Azure é muito importante e é influenciada por fato
 Para solução StorSimple, a escolha da região é determinada especificamente pelos seguintes fatores:
 
 - Regiões onde o serviço do Gerenciador de Dispositivos do StorSimple está disponível.
-- Os países/regiões em que o dispositivo físico, nuvem ou virtual StorSimple está disponível.
+- Os países/regiões onde o dispositivo físico, nuvem ou virtual StorSimple está disponível.
 - Regiões onde as contas de armazenamento que armazenam os dados do StorSimple devem ser localizadas para render desempenho ideal.
 
 Este tutorial descreve a disponibilidade de região para o serviço do Gerenciador de Dispositivos do StorSimple, os dispositivos físicos locais e na nuvem. As informações contidas neste artigo aplicam-se a dispositivos StorSimple das séries 8000 e 1200.
@@ -55,11 +55,11 @@ Se você está usando um Dispositivo de Nuvem StorSimple, é recomendável que o
 
 ## <a name="availability-of-storsimple-device"></a>Disponibilidade do dispositivo StorSimple
 
-Dependendo do modelo, os dispositivos StorSimple podem estar disponíveis em geografias diferentes ou em países/regiões.
+Dependendo do modelo, os dispositivos StorSimple podem estar disponíveis em diferentes geografias ou países/regiões.
 
 ### <a name="storsimple-physical-device-models-81008600"></a>Dispositivo físico StorSimple (modelos 8100/8600)
 
-Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo estará disponível nos seguintes países/regiões.
+Se usar um dispositivo físico StorSimple 8100 ou 8600, o dispositivo está disponível nos seguintes países/regiões.
 
 | #  | País/Região        | #  | País/Região     | #  | País/Região      | #  | País/Região             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
@@ -68,23 +68,23 @@ Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo 
 | 3  | Bahrein               | 18 | Islândia            | 33 | Noruega              | 48 | Espanha                      |
 | 4  | Bélgica               | 19 | Índia              | 34 | Peru                | 49 | Sri Lanka                  |
 | 5  | Brasil                | 20 | Indonésia          | 35 | Filipinas         | 50 | Suécia                     |
-| 6  | Canadá                | 21 | Irlanda            | 36 | Polônia              | 51 | Suíça                |
+| 6  | Canada                | 21 | Irlanda            | 36 | Polônia              | 51 | Suíça                |
 | 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan                     |
 | 8  | Colômbia              | 23 | Itália              | 38 | Porto Rico         | 53 | Tailândia                   |
 | 9  | República Tcheca        | 24 | Japão              | 39 | Catar               | 54 | Turquia                     |
 | 10 | Dinamarca               | 25 | Quênia              | 40 | Romênia             | 55 | Ucrânia                    |
 | 11 | Egito                 | 26 | Kuwait             | 41 | Rússia              | 56 | Emirados Árabes Unidos       |
-| 12 | Finlândia               | 27 | RAE de Macau          | 42 | Arábia Saudita        | 57 | Reino Unido             |
-| 13 | França                | 28 | Malásia           | 43 | Cingapura           | 58 | Estados Unidos              |
+| 12 | Finlândia               | 27 | RAE de Macau          | 42 | Arábia Saudita        | 57 | United Kingdom             |
+| 13 | França                | 28 | Malásia           | 43 | Singapura           | 58 | Estados Unidos              |
 | 14 | Alemanha               | 29 | México             | 44 | Eslováquia            | 59 | Vietnã                    |
-| 15 | Grécia                | 30 | Holanda        | 45 | Eslovênia            | 60 | Croácia                    |
+| 15 | Grécia                | 30 | Países Baixos        | 45 | Eslovênia            | 60 | Croácia                    |
 
-Essa lista é alterada à medida que mais países/regiões são adicionados. Para obter uma lista mais atualizada de regiões geográficas, vá para o apêndice de termos de matriz de armazenamento em [Termos do produto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Esta lista muda à medida que mais países/regiões são adicionados. Para obter uma lista mais atualizada de regiões geográficas, vá para o apêndice de termos de matriz de armazenamento em [Termos do produto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 A Microsoft pode enviar o hardware físico e substituir peças de reposição de hardware para o StorSimple para regiões geográficas na lista anterior.
 
 > [!IMPORTANT]
-> Não coloque um dispositivo físico StorSimple em uma região onde não há suporte para o StorSimple. A Microsoft não será capaz de enviar peças de substituição para países/regiões em que não há suporte para o StorSimple.
+> Não coloque um dispositivo físico StorSimple em uma região onde não há suporte para o StorSimple. A Microsoft não poderá enviar nenhuma peça de reposição para países/regiões onde o StorSimple não for suportado.
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>Dispositivo de Nuvem StorSimple (Modelos 8010/8020)
 
@@ -96,7 +96,7 @@ O 8020 usa o armazenamento premium e a VM _Standard_DS3_ para criar um dispositi
 
 Se usar a Matriz Virtual StorSimple série 1200, haverá suporte para a imagem do disco virtual em todas as regiões do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre os [preços de vários modelos de StorSimple](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-8000-manage-storage-accounts.md).

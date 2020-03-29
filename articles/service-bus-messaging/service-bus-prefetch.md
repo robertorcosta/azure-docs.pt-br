@@ -1,6 +1,6 @@
 ---
 title: Mensagens de pré-busca do Barramento de Serviço do Azure | Microsoft Docs
-description: Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure. As mensagens estão prontamente disponíveis para recuperação local antes de o aplicativo solicitar.
+description: Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure. As mensagens estão prontamente disponíveis para recuperação local antes das solicitações de aplicativos para elas.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760650"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Executar a pré-busca de mensagens do Barramento de Serviço do Azure
@@ -32,7 +32,7 @@ Com .NET, você deve habilita o recurso de Pré-busca definindo a propriedade [P
 
 Você pode adicionar facilmente esta configuração ao lado de recebimento das configurações dos exemplos [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) ou [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) para ver o efeito nesses contextos.
 
-Enquanto as mensagens estão disponíveis no buffer de pré-busca, qualquer chamada subsequente para **Receive**/**ReceiveAsync** é atendida imediatamente do buffer e o buffer é reposto em segundo plano conforme o espaço se torna disponível. Se não houver nenhuma mensagem disponível para entrega, a operação de recebimento esvazia o buffer e aguarda ou bloqueia, conforme esperado.
+Enquanto as mensagens estão disponíveis no buffer de pré-busca, quaisquer chamadas **recebidas**/**subseqüentes** são imediatamente preenchidas a partir do buffer, e o buffer é reposto em segundo plano à medida que o espaço se torna disponível. Se não houver nenhuma mensagem disponível para entrega, a operação de recebimento esvazia o buffer e aguarda ou bloqueia, conforme esperado.
 
 A pré-busca também funciona da mesma forma com as APIs [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync).
 
@@ -54,7 +54,7 @@ Se você precisar de uma taxa de transferência alta e o processamento de mensag
 
 A contagem de pré-busca máxima e a duração do bloqueio configurado na fila ou na assinatura precisam ser equilibradas, de modo que o tempo limite de bloqueio pelo menos exceda o tempo de processamento de mensagem esperado para o tamanho máximo do buffer de pré-busca, mais uma mensagem. Ao mesmo tempo, o tempo limite de bloqueio não deve ser longo o suficiente para que as mensagens possam exceder seu [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) quando são acidentalmente descartadas, exigindo assim que seu bloqueio expire antes de serem entregues novamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

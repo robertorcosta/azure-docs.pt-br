@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919423"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização de VM do Azure presa no Windows Update
@@ -43,7 +43,7 @@ Dependendo do número de atualizações que estão sendo instaladas ou revertida
 ### <a name="remove-the-update-that-causes-the-problem"></a>Remover a atualização que causou o problema
 
 1. Tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md). 
-2. [Anexar o disco de SO a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
+2. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 3. Depois que o disco do SO está conectado à VM de recuperação, execute **diskmgmt.msc** para abrir o Gerenciamento de Disco e verifique se o disco anexado está **ONLINE**. Anote a letra da unidade atribuída ao disco do sistema operacional anexado contendo a pasta \Windows. Se o disco estiver criptografado, descriptografe-o antes de continuar com as próximas etapas neste documento.
 
 4. Abra uma instância de prompt de comandos com privilégios elevados (Executar como administrador). Insira o comando a seguir para obter a lista dos pacotes de atualização que estão no disco do SO anexado:

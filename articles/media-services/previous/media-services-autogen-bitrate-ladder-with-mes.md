@@ -1,5 +1,5 @@
 ---
-title: Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits-Azure | Microsoft Docs
+title: Use o Media Encoder Standard para gerar automaticamente uma escada bitrate - Azure | Microsoft Docs
 description: Este tópico mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits com base na resolução de entrada e na taxa de bits.
 services: media-services
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896011"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Use o Media Encoder Standard para gerar automaticamente uma escada de bitrate  
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Este artigo mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits (pares de resolução de taxa de bits) com base na resolução de entrada e na taxa de bits. A predefinição gerada automaticamente nunca excederá a resolução de entrada e a taxa de bits. Por exemplo, se a entrada for 720p em 720p, a saída continuará 720p na melhor das hipóteses e iniciará com taxas menores que 3 Mbps.
 
@@ -34,20 +34,20 @@ Se sua intenção for codificar o vídeo de origem somente para streaming, é re
 
 Se sua intenção for codificar o vídeo de origem de streaming, bem como para produzir arquivos MP4 para fazer o download progressivo, é recomendável usar a predefinição "conteúdo adaptável várias taxas de bits MP4" ao criar uma tarefa de codificação. Ao usar a predefinição **MP4 de Taxa de Bits Múltiplas Adaptável a Conteúdo**, o codificador MES aplica a mesma lógica de codificação como acima, mas agora, o ativo de saída conterá arquivos MP4 onde áudio e vídeo são intercalados. Você pode usar um desses arquivos MP4 (por exemplo, a versão de taxa de bits mais alta) como um arquivo de download progressivo.
 
-## <a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
 - Crie um trabalho de codificação.
 - Obtenha uma referência para o Codificador de Mídia Padrão.
-- Adicione uma tarefa de codificação ao trabalho e especifique para usar o **Streaming Adaptável** predefinido. 
+- Adicione uma tarefa de codificação ao trabalho e especifique para usar a predefinição do **Streaming Adaptável**. 
 - Crie um ativo de saída contendo o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
 - Enviar o trabalho.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -167,7 +167,7 @@ namespace AdaptiveStreamingMESPresest
 }
 ```
 
-## <a id="output"></a>Saída
+## <a name="output"></a><a id="output"></a>Saída
 
 Esta seção exibe três exemplos de camadas de saída produzidas por MES como resultado de codificação com a predefinição do **Streaming Adaptável**. 
 

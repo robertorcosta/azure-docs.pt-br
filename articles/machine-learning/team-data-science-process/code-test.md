@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721931"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
 
 ## <a name="introduction-on-code-testing"></a>Introdução ao teste de código
-"Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas, para a ciência de dados, muitas vezes não está claro o que significa "teste de unidade" e como você deve testar o código para diferentes estágios de um ciclo de vida de ciência de dados, como:
+"Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas para a ciência de dados, muitas vezes não está claro o que significa "teste unitário" e como você deve testar código para diferentes estágios de um ciclo de vida da ciência de dados, como:
 
 * Preparação dos dados
 * Análise da qualidade dos dados
@@ -54,7 +54,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
     ![Etapas para a criação de um projeto](./media/code-test/create_python_project_in_vs.PNG)
 
-    ![Gerenciador de soluções](./media/code-test/solution_explorer_in_vs.PNG)
+    ![Gerenciador de Soluções](./media/code-test/solution_explorer_in_vs.PNG)
 
 1. Insira o código do seu projeto no repositório de códigos do projeto do Azure DevOps: 
 
@@ -128,7 +128,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
     ![Seleções de build e agente](./media/code-test/select_agent.PNG)
 
-    e. Selecione **+** no painel esquerdo para adicionar uma tarefa a essa fase de build. Como vamos executar o script Python **Test1.py** para concluir todas as verificações, essa tarefa está usando um comando do PowerShell para executar o código Python.
+    e. Selecione **+** no painel esquerdo, para adicionar uma tarefa para esta fase de compilação. Como vamos executar o script Python **test1.py** para completar todas as verificações, esta tarefa está usando um comando PowerShell para executar o código Python.
     
     ![Painel "Adicionar tarefas" com PowerShell selecionado](./media/code-test/add_task_powershell.PNG)
 
@@ -138,11 +138,11 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
     ![Detalhes do PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecione **salvar & fila** para concluir o processo de pipeline de compilação.
+    g. Selecione **Salvar & fila** para concluir o processo de compilação do pipeline.
 
     ![Botão "Salvar e enfileirar"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Agora, sempre que uma nova confirmação é enviada por push para o repositório de código, o processo de build iniciará automaticamente. (Aqui, usamos o mestre como o repositório, mas você pode definir qualquer ramificação.) O processo executa o arquivo **Test1.py** no computador do agente para garantir que tudo definido no código seja executado corretamente. 
+Agora, sempre que uma nova confirmação é enviada por push para o repositório de código, o processo de build iniciará automaticamente. (Aqui usamos o mestre como repositório, mas você pode definir qualquer ramo.) O processo executa o arquivo **test1.py** na máquina do agente para garantir que tudo definido no código seja executado corretamente. 
 
 Se os alertas estiverem configurados corretamente, você receberá uma notificação por email após a conclusão do build. Você também pode verificar o status do build no Azure DevOps. Se ele falhar, verifique os detalhes do build e descubra qual parte está incorreta.
 
@@ -150,12 +150,12 @@ Se os alertas estiverem configurados corretamente, você receberá uma notifica�
 
 ![Notificação do Azure DevOps sobre o êxito do build](./media/code-test/vs_online_build_succeed.PNG)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Veja o [repositório de previsão de receita UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para ver exemplos concretos de testes de unidade em cenários de ciência de dados.
 * Siga a estrutura e os exemplos anteriores do cenário de previsão de receita UCI em seus próprios projetos de ciência de dados.
 
 ## <a name="references"></a>Referências
-* [Processo de Ciência de Dados de Equipe](https://aka.ms/tdsp)
+* [Processo de ciência de dados de equipe](https://aka.ms/tdsp)
 * [Ferramentas de Teste do Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Recursos de teste do Azure DevOps](https://www.visualstudio.com/team-services/)
-* [Máquinas Virtuais de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Máquina Virtual de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

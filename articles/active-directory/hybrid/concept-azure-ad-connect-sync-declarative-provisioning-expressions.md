@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60245498"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Noções básicas sobre expressões de provisionamento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
 
 Uma parte essencial do provisionamento declarativo é a linguagem de expressão usada nos fluxos de atributo. A linguagem usada é um subconjunto de VBA (Visual Basic® for Applications) da Microsoft. Essa linguagem é usada no Microsoft Office e os usuários com experiência em VBScript também a reconhecerão. A Linguagem de Expressão de Provisionamento Declarativo está apenas usando funções e não é uma linguagem estruturada. Não existem métodos nem instruções. As funções são aninhadas no fluxo do programa expresso.
@@ -33,13 +33,13 @@ Para obter mais detalhes, consulte [Bem-vindo ao Visual Basic para referência d
 Os atributos são fortemente tipados. Uma função aceita somente atributos do tipo correto. Ela também diferencia maiúsculas de minúsculas. Tanto nomes de função, quanto nomes de atributo devem ter a capitalização apropriada, ou um erro será gerado.
 
 ## <a name="language-definitions-and-identifiers"></a>Identificadores e definições de idioma
-* As funções têm um nome seguido por argumentos entre parênteses: NomeFunção(argumento 1, argumento N).
+* As funções têm um nome seguido por argumentos entre parênteses: FunctionName(argumento 1, argumento N).
 * Os atributos são identificados por colchetes, [NomeDoAtributo]
 * Parâmetros são identificados por sinais de porcentagem: %NomeDoParâmetro%
-* Constantes de cadeia de caracteres ficam entre aspas: por exemplo, "Contoso" (observação: deve-se usar aspas normais "", e não inglesas “”)
+* Constantes de cadeia de caracteres estão entre aspas: por exemplo, "Contoso" (Observação: deve-se usar aspas normais "", e não inglesas “”)
 * Valores numéricos são expressos sem aspas e espera-se que sejam de tipo decimal. Valores hexadecimais são prefixados com &H. Por exemplo, 98052, &HFF
-* Valores boolianos são expressados com constantes: True, False.
-* Literais e constantes internos são expressados apenas com seu nome: NULL, CRLF, IgnoreThisFlow
+* Valores boolianos são expressos com constantes: True, False.
+* Literais e constantes internas são expressos apenas com seu nome: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Funções
 O provisionamento declarativo usa muitas funções para habilitar a possibilidade de transformar valores de atributo. Essas funções podem ser aninhadas para que o resultado de uma função seja passada para outra função.
@@ -48,7 +48,7 @@ O provisionamento declarativo usa muitas funções para habilitar a possibilidad
 
 A lista completa de funções pode ser encontrada em [referência de função](reference-connect-sync-functions-reference.md).
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 Um parâmetro é definido por um Connector ou por um administrador usando o PowerShell. Geralmente, os parâmetros contêm valores que são diferentes de sistema para sistema; por exemplo, o nome do domínio no qual o usuário está localizado. Esses parâmetros podem ser usados em fluxos de atributo.
 
 O Active Directory Connector forneceu os seguintes parâmetros para Regras de Sincronização de entrada:
@@ -62,10 +62,10 @@ O Active Directory Connector forneceu os seguintes parâmetros para Regras de Si
 | Forest.FQDN |O formato FQDN do nome da floresta que está sendo importado no momento, por exemplo, fabrikam.com |
 | Forest.LDAP |O formato LDAP do nome da floresta que está sendo importado no momento, por exemplo, DC=fabrikam,DC=com |
 
-O sistema fornece o seguinte parâmetro, usado para obter o identificador do conector em execução no momento:  
+O sistema fornece o seguinte parâmetro, usado para obter o identificador do conector em execução no momento:   
 `Connector.ID`
 
-Veja um exemplo que preenche o domínio de atributo metaverso com o nome netbios do domínio em que o usuário está localizado:  
+Veja um exemplo que preenche o domínio de atributo metaverso com o nome netbios do domínio em que o usuário está localizado:   
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Operadores
@@ -82,7 +82,7 @@ Os operadores são avaliados da esquerda para a direita e têm a mesma prioridad
 ## <a name="multi-valued-attributes"></a>Atributos de vários valores
 As funções podem operar em atributos de valor único e de vários valores. Para atributos com vários valores, a função opera sobre cada valor e aplica a mesma função para cada valor.
 
-Por exemplo:  
+Por exemplo:   
 `Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress.  
 @-sign Para cada valor com um `Word([proxyAddresses],1,"@") & "@contoso.com"`, substitua o domínio por @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
@@ -94,10 +94,10 @@ Por exemplo:
 
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
 
 **Tópicos de referência**
 
-* [Sincronização do Azure AD Connect: referência de funções](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect Sync: referência de funções](reference-connect-sync-functions-reference.md)
 

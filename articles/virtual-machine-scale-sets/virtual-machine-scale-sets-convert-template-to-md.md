@@ -1,6 +1,6 @@
 ---
 title: Converter um modelo do conjunto de dimensionamento para usar disco gerenciado
-description: Converta um modelo de conjunto de dimensionamento de máquinas virtuais Azure Resource Manager em um modelo de conjunto de dimensionamento de disco gerenciado.
+description: Converta um modelo de conjunto de escala de máquina virtual do Azure Resource Manager para um modelo de conjunto de escala de disco gerenciado.
 keywords: conjuntos de escala de máquina virtual
 author: mayanknayar
 tags: azure-resource-manager
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 5/18/2017
 ms.author: manayar
 ms.openlocfilehash: 4ab5c48c6673a2353c70fe808d09aa15675e0424
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278121"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversão de um modelo de conjunto de dimensionamento para um modelo de conjunto de dimensionamento de disco gerenciado
 
-Clientes com um modelo do Resource Manager para criar um conjunto de dimensionamento não usando disco gerenciado podem modificá-lo para usar um disco gerenciado. Este artigo mostra como usar discos gerenciados, usando como um exemplo de uma solicitação de pull dos [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates), um repositório gerenciado pela comunidade que oferece modelos do Resource Manager. A solicitação completa de pull pode ser vista aqui: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), e as partes relevantes do diff estão abaixo, junto com as explicações:
+Clientes com um modelo do Resource Manager para criar um conjunto de dimensionamento não usando disco gerenciado podem modificá-lo para usar um disco gerenciado. Este artigo mostra como usar discos gerenciados, usando como um exemplo de uma solicitação de pull dos [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates), um repositório gerenciado pela comunidade que oferece modelos do Resource Manager. O pedido de tração completo [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)pode ser visto aqui: , e as partes relevantes do diff estão abaixo, juntamente com explicações:
 
 ## <a name="making-the-os-disks-managed"></a>Como fazer os discos gerenciados do sistema operacional
 
@@ -136,8 +136,8 @@ Se você especificar `n` discos nesta matriz, cada VM no conjunto de dimensionam
 Para saber mais sobre como usar discos de dados com conjuntos de dimensionamento, veja [este artigo](./virtual-machine-scale-sets-attached-disks.md).
 
 
-## <a name="next-steps"></a>Próximos passos
-Para modelos do Resource Manager de exemplo usando conjuntos de dimensionamento, pesquise "vmss" no [repositório GitHub de Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+## <a name="next-steps"></a>Próximas etapas
+Por exemplo, modelos do Gerenciador de recursos usando conjuntos de escala, procurepor "vmss" no [repo GitHub do Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates).
 
 Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

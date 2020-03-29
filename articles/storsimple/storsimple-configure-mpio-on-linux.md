@@ -1,5 +1,5 @@
 ---
-title: Configurar o MPIO no host Linux do StorSimple
+title: Configure MPIO no host StorSimple Linux
 description: Configurar o MPIO no StorSimple conectado a um host Linux que esteja executando o CentOS 6.6
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278354"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
@@ -49,11 +49,11 @@ O arquivo de configuração `/etc/multipath.conf` faz com que muitos dos recurso
 
 O arquivo multipath.conf tem cinco seções:
 
-- **Padrões de nível do sistema** *(padrões)* : você pode substituir os padrões de nível do sistema.
-- **Dispositivos blacklists** *(Blacklist)* : você pode especificar a lista de dispositivos que não devem ser controlados pelo Device-Mapper.
-- **Exceções de lista negra** *(blacklist_exceptions)* : você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se listados na lista de bloqueios.
-- **Configurações específicas do controlador de armazenamento** *(dispositivos)* : você pode especificar as definições de configuração que serão aplicadas a dispositivos que têm informações de fornecedor e produto.
-- **Configurações específicas do dispositivo** *(vários caminhos)* : você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
+- **System level defaults** *(defaults)*: você pode substituir os padrões no nível do sistema.
+- **Blacklisted devices** *(blacklist)*: você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
+- **Blacklist exceptions** *(blacklist_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se relacionados na lista negra.
+- **Storage controller specific settings** *(devices)*: você pode especificar as definições de configuração que serão aplicadas a dispositivos com informações sobre o fornecedor e o produto.
+- **Device specific settings** *(multipaths)*: você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configurar vários caminhos no StorSimple conectado ao host Linux
 Um dispositivo StorSimple conectado a um host Linux pode ser configurado para alta disponibilidade e balanceamento de carga. Por exemplo, se o host Linux tiver duas interfaces conectadas à SAN e o dispositivo tem duas interfaces conectadas à SAN, de modo que essas interfaces estejam na mesma sub-rede, então haverá 4 caminhos disponíveis. No entanto, se cada interface DATA na interface do dispositivo e do host estiver em uma sub-rede IP diferente (e não roteável), então somente dois caminhos estarão disponíveis. Você pode configurar vários caminhos para descobrir automaticamente todos os caminhos disponíveis, escolher um algoritmo de balanceamento de carga para esses caminhos, aplicar as configurações específicas a volumes só do StorSimple e então habilitar e verificar vários caminhos.
@@ -204,12 +204,12 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
         }
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: Configurar vários caminhos para volumes StorSimple
-Por padrão, todos os dispositivos estão na lista de bloqueios no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista de bloqueios para permitir vários caminhos para volumes desde dispositivos StorSimple.
+Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
 
 1. Edite o arquivo `/etc/mulitpath.conf` . Tipo:
    
     `vi /etc/multipath.conf`
-1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista de bloqueios nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
+1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista negra nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
    
         blacklist_exceptions {
             device {
@@ -328,7 +328,7 @@ Esta seção fornece algumas dicas úteis se você tiver algum problema durante 
 
 Q. Não vejo as alterações no arquivo `multipath.conf` entrarem em vigor.
 
-a. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando:
+a. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando: 
 
     service multipathd restart
 
@@ -338,13 +338,13 @@ a. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. 
 
 Q. Quando eu listo os caminhos disponíveis, não vejo nenhuma saída.
 
-a. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no arquivo de `multipath.conf`.
+a. Normalmente, não ver nenhum caminho multipatizado sugere um problema com o daemon multipathing, `multipath.conf` e é mais provável que qualquer problema aqui esteja no arquivo.
 
-Também vale a pena verificar se você realmente pode ver alguns discos depois de se conectar ao destino, pois nenhuma resposta das listagens de vários caminhos também pode significar que você não tem discos.
+Também valeria a pena verificar se você pode realmente ver alguns discos depois de se conectar ao alvo, já que nenhuma resposta das listagens multipath também pode significar que você não tem nenhum disco.
 
 * Use o comando a seguir para examinar novamente o barramento SCSI:
   
-    `$ rescan-scsi-bus.sh` (parte do pacote sg3_utils)
+    `$ rescan-scsi-bus.sh`(parte do pacote sg3_utils)
 * Digite os seguintes comandos:
   
     `$ dmesg | grep sd*`
@@ -358,20 +358,20 @@ Também vale a pena verificar se você realmente pode ver alguns discos depois d
   
     `cat /sys/block/<DISK>/device/model`
   
-    Isso retornará uma cadeia de caracteres, que determinará se é um disco StorSimple.
+    Isso retornará uma seqüência de string, que determinará se é um disco StorSimple.
 
 Uma causa menos provável, mas possível, também poderia ser um pid iscsid obsoleto. Use o comando a seguir para fazer logoff das sessões iSCSI:
 
     iscsiadm -m node --logout -p <Target_IP>
 
-Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI, que é o seu dispositivo StorSimple. Depois de fazer logoff de todas as sessões iSCSI, use o IQN de destino iSCSI para restabelecer a sessão iSCSI. Digite o seguinte comando:
+Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI, que é o seu dispositivo StorSimple. Depois de fazer logoff de todas as sessões iSCSI, use o IQN de destino iSCSI para restabelecer a sessão iSCSI. Digite o seguinte comando: 
 
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-Q. Não sei se meu dispositivo está na lista de permissões.
+Q. Não sei se meu dispositivo está na lista branca.
 
-a. Para verificar se seu dispositivo está na lista de permissões, use o seguinte comando interativo de solução de problemas:
+a. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
 
     multipathd -k
     multipathd> show devices
@@ -410,10 +410,10 @@ a. Para verificar se seu dispositivo está na lista de permissões, use o seguin
     dm-3 devnode blacklisted, unmonitored
 
 
-Para obter mais informações, acesse [solução de problemas para vários caminhos](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
+Para obter mais informações, vá para a [solução de problemas para multipathing](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos úteis
-| Tipo | Comando | Description |
+| Type | Comando | Descrição |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Iniciar o serviço iSCSI |
 | &nbsp; |`service iscsid stop` |Parar o serviço iSCSI |
@@ -434,7 +434,7 @@ Para obter mais informações, acesse [solução de problemas para vários camin
 | &nbsp; |`mpathconf --enable` |Criar um arquivo mulitpath.conf de exemplo `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Já que você está configurando o MPIO no host Linux, talvez também seja necessário consultar os seguintes documentos do CentoS 6.6:
 
 * [Configurando o MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)

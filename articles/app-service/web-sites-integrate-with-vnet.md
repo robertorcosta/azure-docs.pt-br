@@ -1,6 +1,6 @@
 ---
-title: Integrar o aplicativo à rede virtual do Azure
-description: Integre aplicativos no serviço de Azure App com redes virtuais do Azure.
+title: Integrar aplicativo com a Rede Virtual Azure
+description: Integre aplicativos no Azure App Service com redes virtuais do Azure.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
@@ -8,148 +8,148 @@ ms.date: 02/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 89aa78e0d26598eacf436ca88cc6c5549f91d2fc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673218"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
-Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). As [redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não seja da Internet.  
+Este documento descreve o recurso de integração de rede virtual do Azure App Service e como configurá-lo com aplicativos no [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). As Redes Virtuais (VNets) do [Azure][VNETOverview] permitem que você coloque muitos de seus recursos do Azure em uma rede não-internet routable.  
 
-O serviço de Azure App tem duas variações.
+O Serviço de Aplicativos Azure tem duas variações.
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
-## <a name="enable-vnet-integration"></a>Habilitar integração VNet 
+## <a name="enable-vnet-integration"></a>Habilite a integração vnet 
 
-1. Vá para a interface do usuário de rede no portal do serviço de aplicativo. Em integração VNet, selecione *"clique aqui para configurar"* . 
+1. Vá para a UI de Rede no portal app service. Em VNet Integration, selecione *"Clique aqui para configurar"*. 
 
 1. Selecione **Adicionar VNet**.  
 
-   ![Selecionar integração VNet][1]
+   ![Selecione a Integração VNet][1]
 
-1. A lista suspensa conterá todos os VNets do Resource Manager em sua assinatura na mesma região e abaixo, que é uma lista de todos os VNets do Resource Manager em todas as outras regiões. Selecione a VNet com a qual você deseja integrar.
+1. A lista de sossegos conterá todos os VNets do Gerenciador de Recursos em sua assinatura na mesma região e abaixo está uma lista de todos os VNets do Gerenciador de Recursos em todas as outras regiões. Selecione o VNet com o que deseja integrar.
 
-   ![Selecione a VNet][2]
+   ![Selecione o VNet][2]
 
-   * Se a VNet estiver na mesma região, crie uma nova sub-rede ou escolha uma sub-rede preexistente vazia. 
+   * Se o VNet estiver na mesma região, crie uma nova sub-rede ou escolha uma sub-rede pré-existente vazia. 
 
-   * Para selecionar uma VNet em outra região, você deve ter um gateway de rede virtual provisionado com o ponto a site habilitado.
+   * Para selecionar um VNet em outra região, você deve ter um gateway de Rede Virtual provisionado com ponto a ponto ativado.
 
-   * Para integrar com uma VNet clássica, em vez de clicar no menu suspenso VNet, selecione **clique aqui para se conectar a uma vnet clássica**. Selecione a VNet clássica desejada. A VNet de destino já deve ter um gateway de rede virtual provisionado com o ponto a site habilitado.
+   * Para se integrar a um VNet clássico, em vez de clicar no vnet drop down, selecione **Clique aqui para se conectar a um VNet clássico**. Selecione o VNet clássico desejado. O VNet de destino já deve ter um gateway de Rede Virtual provisionado com ponto para local ativado.
 
-    ![Selecionar VNet clássica][3]
+    ![Selecione VNet clássico][3]
     
-Durante a integração, o aplicativo é reiniciado.  Quando a integração for concluída, você verá detalhes sobre a VNet com a qual está integrado. 
+Durante a integração, o aplicativo é reiniciado.  Quando a integração estiver concluída, você verá detalhes no VNet com o qual está integrado. 
 
-Depois que seu aplicativo estiver integrado à sua VNet, ele usará o mesmo servidor DNS com o qual sua VNet está configurada, a menos que seja Zonas Privadas do DNS do Azure. No momento, você não pode usar a integração VNet com Zonas Privadas do DNS do Azure.
+Uma vez que seu aplicativo esteja integrado ao seu VNet, ele usará o mesmo servidor DNS com o que seu VNet está configurado, a menos que seja a Azure DNS Private Zones. Atualmente, você não pode usar a Integração VNet com as Zonas Privadas do Azure DNS.
 
-## <a name="regional-vnet-integration"></a>Integração de VNet regional
+## <a name="regional-vnet-integration"></a>Integração VNet Regional
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
-### <a name="how-regional-vnet-integration-works"></a>Como funciona a integração da VNet regional
+### <a name="how-regional-vnet-integration-works"></a>Como funciona a Integração VNet Regional
 
-Os aplicativos no serviço de aplicativo são hospedados em funções de trabalho. Os planos de preços básicos e mais altos são planos de hospedagem dedicados em que não há nenhuma outra carga de trabalho de clientes em execução nos mesmos trabalhadores. A integração VNet regional funciona por meio da montagem de interfaces virtuais com endereços na sub-rede delegada. Como o endereço de está em sua VNet, ele pode acessar a maioria das coisas de ou através de sua VNet, assim como uma VM em sua VNet. A implementação de rede é diferente de executar uma VM em sua VNet e é por isso que alguns recursos de rede ainda não estão disponíveis ao usar esse recurso.
+Os aplicativos no Serviço de Aplicativo estão hospedados nas funções dos trabalhadores. Os planos básicos e de preços mais altos são planos de hospedagem dedicados onde não há outras cargas de trabalho de clientes sendo executados nos mesmos trabalhadores. A Integração VNet Regional funciona montando interfaces virtuais com endereços na sub-rede delegada. Como o endereço de partir está em seu VNet, ele pode acessar a maioria das coisas dentro ou através de seu VNet, assim como uma VM em seu VNet faria. A implementação de rede é diferente de executar uma VM em seu VNet e é por isso que alguns recursos de rede ainda não estão disponíveis durante o uso desse recurso.
 
-![Como funciona a integração da VNet regional][5]
+![Como funciona a Integração VNet regional][5]
 
-Quando a integração VNet regional estiver habilitada, seu aplicativo ainda fará chamadas de saída para a Internet por meio dos mesmos canais que o normal. Os endereços de saída listados no portal de propriedades do aplicativo ainda são os endereços usados pelo seu aplicativo. As alterações para seu aplicativo são chamadas para serviços protegidos de ponto de extremidade de serviço ou endereços RFC 1918 vão para sua VNet. Se WEBSITE_VNET_ROUTE_ALL for definido como 1, todo o tráfego de saída poderá ser enviado para sua VNet. 
+Quando a Integração VNet regional estiver ativada, seu aplicativo ainda fará chamadas de saída para a internet através dos mesmos canais que o normal. Os endereços de saída listados no portal de propriedades do aplicativo ainda são os endereços usados pelo seu aplicativo. Quais são as mudanças para o seu aplicativo, chamadas para serviços garantidos de ponto final ou endereços RFC 1918 vão para o seu VNet. Se WEBSITE_VNET_ROUTE_ALL estiver definido como 1, todo o tráfego de saída pode ser enviado para o seu VNet. 
 
-O recurso só dá suporte a uma interface virtual por trabalho.  Uma interface virtual por trabalho significa uma integração VNet regional por plano do serviço de aplicativo. Todos os aplicativos no mesmo plano do serviço de aplicativo podem usar a mesma integração de VNet, mas se você precisar de um aplicativo para se conectar a uma VNet adicional, será necessário criar outro plano do serviço de aplicativo. A interface virtual usada não é um recurso ao qual os clientes têm acesso direto.
+O recurso suporta apenas uma interface virtual por trabalhador.  Uma interface virtual por trabalhador significa um plano regional de Integração VNet por Serviço de Aplicativo. Todos os aplicativos no mesmo plano de Serviço de Aplicativo podem usar a mesma Integração VNet, mas se você precisar de um aplicativo para se conectar a um VNet adicional, você precisará criar outro plano de Serviço de Aplicativo. A interface virtual utilizada não é um recurso ao que os clientes têm acesso direto.
 
-Devido à natureza de como essa tecnologia Opera, o tráfego usado com a integração VNet não aparece no observador de rede ou nos logs de fluxo do NSG.  
+Devido à natureza de como essa tecnologia opera, o tráfego que é usado com a Integração VNet não aparece em registros de fluxo do Network Watcher ou DO NSG.  
 
-## <a name="gateway-required-vnet-integration"></a>Integração VNet necessária do gateway
+## <a name="gateway-required-vnet-integration"></a>Gateway necessário VNet Integração
 
-A integração VNet necessária do gateway dá suporte à conexão a uma VNet em outra região ou a uma VNet clássica. Integração VNet necessária do gateway: 
+O Gateway necessário é necessário Para que o VNet Integration seja conectado a um VNet em outra região ou a um VNet clássico. Integração VNet necessária do Gateway: 
 
-* Permite que um aplicativo se conecte a apenas uma VNet por vez
-* Permite que até cinco VNets sejam integrados em um plano do serviço de aplicativo 
-* Permite que a mesma VNet seja usada por vários aplicativos em um plano do serviço de aplicativo sem afetar o número total que pode ser usado por um plano do serviço de aplicativo.  Se você tiver seis aplicativos usando a mesma VNet no mesmo plano do serviço de aplicativo, isso contará como uma VNet sendo usada. 
-* Dá suporte a um SLA de 99,9% devido ao SLA no gateway
-* Permite que seus aplicativos usem o DNS com o qual a VNet está configurada
-* Requer um gateway baseado em rota de rede virtual configurado com VPN ponto a site SSTP antes que possa ser conectado ao aplicativo. 
+* Permite que um aplicativo se conecte a apenas 1 VNet por vez
+* Permite que até cinco VNets sejam integrados dentro de um Plano de Serviço de Aplicativos 
+* Permite que o mesmo VNet seja usado por vários aplicativos em um Plano de Serviço de Aplicativo sem afetar o número total que pode ser usado por um plano de Serviço de Aplicativo.  Se você tem seis aplicativos usando o mesmo VNet no mesmo plano de Serviço de Aplicativo, isso conta como 1 VNet sendo usado. 
+* Suporta um SLA de 99,9% devido ao SLA no gateway
+* Permite que seus aplicativos usem o DNS com o que o VNet está configurado
+* Requer um gateway baseado em rota de rede virtual configurado com VPN ponto a ponto sSTP antes de ser conectado ao aplicativo. 
 
 Você não pode usar a integração VNet necessária do gateway:
 
-* Com aplicativos do Linux
-* Com uma VNet conectada com o ExpressRoute 
-* Para acessar recursos protegidos dos pontos de extremidade de serviço
-* Com um gateway de coexistência que dá suporte a VPNs de ExpressRoute e ponto a site/site a site
+* Com aplicativos Linux
+* Com um VNet conectado com expressroute 
+* Para acessar os recursos protegidos do Service Endpoints
+* Com um gateway de coexistência que suporta expressroute e apontar para site/site para VPNs do site
 
 ### <a name="set-up-a-gateway-in-your-vnet"></a>Configurar um gateway em sua VNet ###
 
 Para criar um gateway:
 
-1. [Crie uma sub-rede de gateway][creategatewaysubnet] em sua VNet.  
+1. [Criar uma sub-rede de gateway][creategatewaysubnet] em sua VNet.  
 
-1. [Crie o gateway de VPN][creategateway]. Selecione um tipo VPN baseado em rota.
+1. [Crie o gateway VPN][creategateway]. Selecione um tipo VPN baseado em rota.
 
-1. [Defina os endereços ponto a site][setp2saddresses]. Se o gateway não estiver no SKU básico, o IKEV2 deverá ser desabilitado na configuração ponto a site e o SSTP deverá ser selecionado. O espaço de endereço ponto a site deve estar nos blocos de endereço RFC 1918, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+1. [Defina os endereços de ponto a site][setp2saddresses]. Se o gateway não estiver no SKU básico, então o IKEV2 deve ser desativado na configuração ponto a ponto do local e o SSTP deve ser selecionado. O espaço de endereço ponto a ponto deve estar nos blocos de endereços RFC 1918, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 
-Se você estiver criando apenas o gateway para uso com a integração VNet do serviço de aplicativo, não será necessário carregar um certificado. A criação do gateway pode levar 30 minutos. Você não poderá integrar seu aplicativo com sua VNet até que o gateway seja provisionado. 
+Se você está apenas criando o gateway para uso com o App Service VNet Integration, então você não precisa carregar um certificado. A criação do gateway pode levar 30 minutos. Você não poderá integrar seu aplicativo com sua VNet até que o gateway seja provisionado. 
 
-### <a name="how-gateway-required-vnet-integration-works"></a>Como funciona a integração VNet do gateway
+### <a name="how-gateway-required-vnet-integration-works"></a>Como funciona o Gateway VNet Integration
 
-O gateway exigia integração VNet criada com base na tecnologia de VPN ponto a site. As VPNs ponto a site limitam o acesso à rede apenas à máquina virtual que hospeda o aplicativo. Os aplicativos são restritos apenas ao envio de tráfego para a Internet, por meio de Conexões Híbridas ou por meio da Integração VNet. Quando seu aplicativo é configurado com o portal para usar a integração VNet necessária do gateway, uma negociação complexa é gerenciada em seu nome para criar e atribuir certificados no gateway e no lado do aplicativo. O resultado final é que os trabalhos usados para hospedar seus aplicativos podem se conectar diretamente ao gateway de rede virtual na VNet selecionada. 
+O Gateway exigiu a Integração VNet construída em cima da tecnologia VPN ponto a ponto. As VPNs de ponto para o site limitam o acesso à rede apenas à máquina virtual que hospeda o aplicativo. Os aplicativos são restritos apenas ao envio de tráfego para a Internet, por meio de Conexões Híbridas ou por meio da Integração VNet. Quando seu aplicativo é configurado com o portal para usar o Gateway Required VNet Integration, uma negociação complexa é gerenciada em seu nome para criar e atribuir certificados no gateway e no lado do aplicativo. O resultado final é que os trabalhadores usados para hospedar seus aplicativos são capazes de se conectar diretamente ao gateway de rede virtual no VNet selecionado. 
 
-![Como funciona a integração VNet do gateway][6]
+![Como funciona o Gateway VNet Integration][6]
 
 ### <a name="accessing-on-premises-resources"></a>Como acessar recursos locais
 
-Aplicativos podem acessar recursos locais ao integrarem-se com VNets que têm conexões site a site. Se estiver usando a integração VNet necessária do gateway, você precisará atualizar suas rotas de gateway de VPN locais com seus blocos de endereço ponto a site. Quando o VPN site a site é configurado pela primeira vez, os scripts usados para configurá-lo devem configurar as rotas adequadamente. Se adicionar os endereços ponto a site depois de criar uma VPN site a site, você precisará atualizar as rotas manualmente. Os detalhes sobre como fazer isso variam de acordo com o gateway, e não são descritos aqui. Você não pode ter o BGP configurado com uma conexão VPN site a site.
+Aplicativos podem acessar recursos locais ao integrarem-se com VNets que têm conexões site a site. Se você estiver usando o gateway necessário para a Integração VNet, você precisa atualizar suas rotas de gateway VPN no local com seus blocos de endereços ponto a local. Quando o VPN site a site é configurado pela primeira vez, os scripts usados para configurá-lo devem configurar as rotas adequadamente. Se adicionar os endereços ponto a site depois de criar uma VPN site a site, você precisará atualizar as rotas manualmente. Os detalhes sobre como fazer isso variam de acordo com o gateway, e não são descritos aqui. Não é possível configurar o BGP com uma conexão VPN site-site.
 
-Não há nenhuma configuração adicional necessária para que o recurso de integração VNet regional alcance por meio de sua VNet e para o local. Você simplesmente precisa conectar sua VNet ao local usando o ExpressRoute ou uma VPN site a site. 
+Não é necessária uma configuração adicional para que o recurso regional de Integração VNet chegue através do seu VNet e ao local. Você simplesmente precisa conectar seu VNet a locais usando o ExpressRoute ou uma VPN site-to-site. 
 
 > [!NOTE]
-> O recurso de integração VNet do gateway necessário não integra um aplicativo a uma VNet que tem um gateway de ExpressRoute. Mesmo que o gateway de ExpressRoute esteja configurado no [modo de coexistência][VPNERCoex] , a integração VNet não funciona. Se você precisar acessar recursos por meio de uma conexão do ExpressRoute, poderá usar o recurso de integração VNet regional ou um [ambiente do serviço de aplicativo][ASE], que é executado em sua VNet. 
+> O recurso de integração VNet necessário não integra um aplicativo com um VNet que tenha um Gateway ExpressRoute. Mesmo se o Gateway ExpressRoute estiver configurado no [modo de coexistência][VPNERCoex], a Integração VNet não funcionará. Se você precisar acessar recursos através de uma conexão ExpressRoute, então você pode usar o recurso regional VNet Integration ou um [App Service Environment][ASE], que é executado em seu VNet. 
 > 
 > 
 
 ### <a name="peering"></a>Emparelhamento
 
-Se você estiver usando o emparelhamento com a integração VNet regional, não será necessário fazer nenhuma configuração adicional. 
+Se você estiver usando o peering com a Integração VNet regional, você não precisa fazer nenhuma configuração adicional. 
 
-Se estiver usando a integração VNet necessária do gateway com o emparelhamento, você precisará configurar alguns itens adicionais. Para configurar o emparelhamento para funcionar com o aplicativo:
+Se você estiver usando o gateway necessário de Integração VNet com peering, você precisa configurar alguns itens adicionais. Para configurar o emparelhamento para funcionar com o aplicativo:
 
 1. Adicione que uma conexão de emparelhamento na rede virtual à qual o aplicativo se conecta. Ao adicionar a conexão de emparelhamento, habilite **Permitir acesso à rede virtual** e marque **Permitir tráfego encaminhado** e **Permitir trânsito de gateway**.
 1. Adicione uma conexão de emparelhamento na rede virtual que está sendo emparelhada à rede virtual à qual você está conectado. Ao adicionar a conexão de emparelhamento à VNet de destino, habilite **Permitir acesso à rede virtual** e marque **Permitir tráfego encaminhado** e **Permitir gateways remotos**.
 1. Vá para o Plano do Serviço de Aplicativo > Rede > Interface do usuário da Integração VNet no portal.  Selecione a VNet à qual o aplicativo se conecta. Na seção de roteamento, adicione o intervalo de endereços da VNet que está emparelhada com a VNet à qual o aplicativo está conectado.  
 
-## <a name="managing-vnet-integration"></a>Gerenciando a integração VNet 
+## <a name="managing-vnet-integration"></a>Gerenciando a Integração VNet 
 
-A conexão e a desconexão com uma VNet estão em um nível de aplicativo. As operações que podem afetar a Integração VNet entre vários aplicativos estão no nível do Plano do Serviço de Aplicativo. No aplicativo > rede > Portal de integração VNet, você pode obter detalhes sobre sua VNet. Você pode ver informações semelhantes no nível ASP no portal de integração de VNet > rede > ASP.
+Conectar-se e desconectar-se com um VNet está em um nível de aplicativo. As operações que podem afetar a Integração VNet entre vários aplicativos estão no nível do Plano do Serviço de Aplicativo. A partir do aplicativo > Networking > portal VNet Integration, você pode obter detalhes em seu VNet. Você pode ver informações semelhantes no nível ASP no portal ASP > Networking > VNet Integration.
 
-A única operação que você pode executar no modo de exibição de aplicativo da Integração VNet é desconectar-se da VNet à qual seu aplicativo está atualmente conectado. Para desconectar o aplicativo de uma VNet, selecione **Desconectar**. Seu aplicativo será reiniciado quando você se desconectar de uma VNet. Desconectar-se não altera a VNet. A sub-rede ou o gateway não é removido. Se você quiser excluir sua VNet, primeiro você precisa desconectar seu aplicativo da VNet e excluir os recursos nele, como gateways. 
+A única operação que você pode executar no modo de exibição de aplicativo da Integração VNet é desconectar-se da VNet à qual seu aplicativo está atualmente conectado. Para desconectar o aplicativo de uma VNet, selecione **Desconectar**. Seu aplicativo será reiniciado quando você se desconectar de uma VNet. Desconectar-se não altera a VNet. A sub-rede ou gateway não é removido. Se você quiser excluir seu VNet, você precisa primeiro desconectar seu aplicativo do VNet e excluir os recursos nele, como gateways. 
 
-A interface do usuário de integração da VNet ASP mostrará todas as integrações de VNet usadas pelos aplicativos em seu ASP. Para ver detalhes em cada VNet, clique na VNet que lhe interessa. Há duas ações que você pode executar aqui para a integração VNet necessária do gateway.
+A Interface do Rei da Integração ASP VNet mostrará todas as integrações vnet usadas pelos aplicativos em seu ASP. Para ver detalhes em cada VNet, clique na VNet que lhe interessa. Existem duas ações que você pode executar aqui para a integração VNet necessária do gateway.
 
-* **Sincronizar rede**. A operação de rede de sincronização é apenas para o recurso de integração VNet dependente de gateway. A execução de uma operação de rede de sincronização garante que os certificados e as informações de rede estejam em sincronia. Se você adicionar ou alterar o DNS de sua VNet, será necessário executar uma operação de **sincronização de rede** . Esta operação reiniciará todos os aplicativos usando essa VNet.
+* **Sincronizar rede**. A operação de rede de sincronização é apenas para o recurso de integração VNet dependente de gateway. A realização de uma operação de rede de sincronização garante que seus certificados e informações de rede estejam em sincronia. Se você adicionar ou alterar o DNS do seu VNet, você precisa executar uma operação **de rede Sync.** Esta operação reiniciará todos os aplicativos usando essa VNet.
 * **Adicionar rotas** A adição de rotas orientará o tráfego de saída em sua VNet. 
 
-**Roteamento de integração VNet do gateway necessário** As rotas que são definidas em sua VNet são usadas para direcionar o tráfego para sua VNet do seu aplicativo. Se você precisar enviar o tráfego de saída adicional para a VNet, você poderá adicionar esses blocos de endereço aqui. Essa funcionalidade só funciona com a integração VNet necessária do gateway. As tabelas de rotas não afetam o tráfego do aplicativo ao usar a integração VNet necessária do gateway da maneira que fazem com a integração VNet regional.
+**Roteamento de integração VNet necessário** As rotas definidas em seu VNet são usadas para direcionar o tráfego para o seu VNet a partir do seu aplicativo. Se você precisar enviar o tráfego de saída adicional para a VNet, você poderá adicionar esses blocos de endereço aqui. Esse recurso só funciona com a integração VNet necessária do gateway. As tabelas de rota não afetam o tráfego do aplicativo ao usar o Gateway Required VNet Integration da maneira que fazem com a Integração VNet regional.
 
-**Certificados de integração VNet necessários ao gateway** Quando o gateway exigia a integração VNet habilitada, há uma troca necessária de certificados para garantir a segurança da conexão. Juntamente com os certificados, há a configuração do DNS, as rotas e outros itens semelhantes que descrevem a rede.
+**Gateway exigiu certificados de integração VNet** Quando o gateway exigiu a Integração VNet ativada, há uma troca de certificados necessária para garantir a segurança da conexão. Juntamente com os certificados, há a configuração do DNS, as rotas e outros itens semelhantes que descrevem a rede.
 Se os certificados ou as informações de rede forem alterados, você precisará clicar em "Sincronizar Rede". Quando clica em "Sincronizar Rede", você causa uma breve interrupção na conectividade entre o aplicativo e a VNet. Embora seu aplicativo não seja reiniciado, a perda de conectividade pode fazer com que seu site não funcione corretamente. 
 
 ## <a name="pricing-details"></a>Detalhes de preço
-O recurso de integração VNet regional não tem nenhum custo adicional para uso além dos encargos do tipo de preço ASP.
+O recurso regional De Integração VNet não tem nenhuma taxa adicional para uso além das taxas de nível de preços ASP.
 
-Há três encargos relacionados ao uso do recurso de integração VNet exigido pelo gateway:
+Existem três encargos relacionados ao uso do recurso de integração VNet necessário ao gateway:
 
-* Cobranças do tipo de preço do ASP – seus aplicativos precisam estar em um plano do serviço de aplicativo Standard, Premium ou PremiumV2. Você pode ver mais detalhes sobre esses custos aqui: [preços do serviço de aplicativo][ASPricing]. 
-* Custos de transferência de dados – há um encargo para a saída de dados, mesmo que a VNet esteja na mesma data center. Esses encargos são descritos em [transferência de dados detalhes de preços][DataPricing]. 
-* Custos de gateway de VPN – há um custo para o gateway de VNet que é necessário para a VPN ponto a site. Os detalhes estão na página de [preços do gateway de VPN][VNETPricing] .
+* Taxas de nível de preços ASP - Seus aplicativos precisam estar em um Plano de Serviço de Aplicativo Padrão, Premium ou PremiumV2. Você pode ver mais detalhes sobre esses custos aqui: [Preço do Serviço de Aplicativo][ASPricing]. 
+* Custos de transferência de dados - Há uma cobrança pela saída de dados, mesmo que o VNet esteja no mesmo data center. Esses encargos são descritos em [Detalhes de Preços de Transferência de Dados][DataPricing]. 
+* Custos do VPN Gateway - Há um custo para o gateway VNet que é necessário para a VPN ponto a ponto. Os detalhes estão na página [Preços de Gateway de VPN][VNETPricing].
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## <a name="automation"></a>Automação
 
-Há suporte de CLI para integração de VNet regional. Para acessar os comandos a seguir, [instale CLI do Azure][installCLI]. 
+Há suporte cli para integração regional VNet. Para acessar os seguintes comandos, [instale o Azure CLI][installCLI]. 
 
         az webapp vnet-integration --help
 
@@ -171,7 +171,7 @@ Há suporte de CLI para integração de VNet regional. Para acessar os comandos 
         Commands:
             list : List the virtual network integrations used in an appservice plan.
 
-Para a integração VNet necessária do gateway, você pode integrar o serviço de aplicativo com uma rede virtual do Azure usando o PowerShell. Para um script pronto para uso, consulte [Conectar um aplicativo do Azure no Serviço de Aplicativo do Azure a uma Rede Virtual do Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+Para a integração VNet necessária do gateway, você pode integrar o App Service com uma rede virtual do Azure usando o PowerShell. Para um script pronto para uso, consulte [Conectar um aplicativo do Azure no Serviço de Aplicativo do Azure a uma Rede Virtual do Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
 title: Filtros de tópico do Barramento de Serviço do Azure | Microsoft Docs
-description: Este artigo explica como os assinantes podem definir quais mensagens desejam receber de um tópico especificando filtros.
+description: Este artigo explica como os assinantes podem definir quais mensagens querem receber de um tópico especificando filtros.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: spelluru
 ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774494"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
@@ -52,7 +52,7 @@ O particionamento usa filtros para distribuir mensagens através de várias assi
 
 O roteamento usa filtros para distribuir mensagens através de assinaturas de tópico de maneira previsível, mas não necessariamente exclusiva. Em conjunto com o recurso de [encaminhamento automático](service-bus-auto-forwarding.md), os filtros de tópico podem ser usados para criar grafos de roteamento complexos dentro de um namespace do Barramento de Serviço para a distribuição de mensagens dentro de uma região do Azure. Com o Azure Functions ou os Aplicativos Lógicos do Azure atuando como uma ponte entre os namespaces do Barramento de Serviço do Azure, você pode criar tecnologias globais complexas com integração direta em aplicativos de linhas de negócios.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
