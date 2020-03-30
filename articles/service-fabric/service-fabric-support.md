@@ -1,15 +1,15 @@
 ---
-title: Saiba mais sobre as opções de suporte do Azure Service Fabric
+title: Conheça as opções de suporte à malha de serviço do Azure
 description: Versões de cluster do Azure Service Fabric com suporte e links para transmitir tíquetes de suporte
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282088"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
@@ -26,9 +26,9 @@ Saiba mais sobre:
 - [Suporte premier da Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clusters em execução em uma camada de confiabilidade bronze ou cluster de nó único permitirão que você execute somente cargas de trabalho de teste. Se você tiver problemas com um cluster em execução em confiabilidade bronze ou cluster de nó único, a equipe de suporte da Microsoft ajudará você a mitigar o problema, mas não executará uma análise da causa raiz. Consulte [as características de confiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.
+> Os clusters em execução em um nível de confiabilidade de bronze ou cluster de nó único permitirão que você execute apenas cargas de trabalho de teste. Se você tiver problemas com um cluster em execução com confiabilidade de bronze ou cluster de nó único, a equipe de suporte da Microsoft irá ajudá-lo a mitigar o problema, mas não executará uma Análise de Causa Raiz. Consulte [as características de confiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.
 >
-> Para obter mais informações sobre o que é necessário para um cluster pronto para produção, consulte a [lista de verificação de preparação de produção](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Para obter mais informações sobre o que é necessário para um cluster pronto para produção, consulte a [lista de verificação de prontidão da produção](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -51,11 +51,11 @@ Relate problemas do Azure Service Fabric no [repositório Git de problemas do Se
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow e fóruns do MSDN
 
-A [marca de Service Fabric em StackOverflow][stackoverflow] e o [Fórum de Service Fabric no MSDN][msdn-forum] são mais bem usadas para fazer perguntas sobre como a plataforma funciona e como você pode realizar determinadas tarefas com ela.
+A [marcação Service Fabric no StackOverflow][stackoverflow] e o [fórum do Service Fabric no MSDN][msdn-forum] devem ser usados para fazer perguntas sobre o funcionamento da plataforma e como determinadas tarefas podem ser realizadas com ela.
 
 ### <a name="azure-feedback-forum"></a>Fórum de Comentários do Azure
 
-O [Fórum de comentários do Azure para Service Fabric][uservoice-forum] é o melhor lugar para enviar ideias de grandes recursos que você tem para o produto à medida que analisamos as solicitações mais populares fazem parte de nosso planejamento de média a longo prazo. Incentivamos você a conseguir suporte para suas sugestões na comunidade.
+O [Fórum de Comentários do Azure sobre o Service Fabric][uservoice-forum] é o melhor local para enviar grandes ideias de recursos para o produto, pois examinamos as solicitações mais populares como parte de nosso planejamento de médio a longo prazo. Incentivamos você a conseguir suporte para suas sugestões na comunidade.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões prévias do Service Fabric – sem suporte para uso em produção
 

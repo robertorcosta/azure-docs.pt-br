@@ -1,5 +1,5 @@
 ---
-title: Preparação do portal para o StorSimple virtual array
+title: Preparação do portal para StorSimple Virtual Array
 description: O primeiro tutorial para implantar o StorSimple Array Virtual envolve a preparação do portal do Azure
 author: alkohli
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254528"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
@@ -40,8 +40,8 @@ Consulte os artigos a seguir na sequência prescrita para implantar sua Matriz V
 | **#** | **Nesta etapa** | **Para fazer isso...** | **Use estes documentos.** |
 | --- | --- | --- | --- |
 | 1. |**Configurar o portal do Azure** |Crie e configure o serviço Gerenciador de Dispositivos StorSimple antes do provisionamento de uma Matriz Virtual StorSimple. |[Preparar o portal](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Provisionar o Virtual Array** |Para o Hyper-V, provisione e conecte-se a uma Matriz Virtual StorSimple em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, provisione e se conecte a uma Matriz Virtual StorSimple local em um sistema de host que executa o VMware ESXi 5.0, 5.5, 6.0 ou 6.5.<br></br> |[Provisionar uma matriz virtual no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**Configurar o Virtual Array** |Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br> Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI. |[Configurar a matriz virtual como um servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 2. |**Provisionar o Virtual Array** |Para o Hyper-V, provisione e conecte-se a uma Matriz Virtual StorSimple em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, provisione e se conecte a uma Matriz Virtual StorSimple local em um sistema de host que executa o VMware ESXi 5.0, 5.5, 6.0 ou 6.5.<br></br> |[Provisão de uma matriz virtual em Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 3. |**Configurar o Virtual Array** |Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br>  Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI. |[Configurar a matriz virtual como um servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Agora, você pode começar a configurar o portal do Azure.
 
@@ -52,7 +52,7 @@ A lista de verificação da configuração a seguir descreve as informações qu
 * Baixe a [Lista de verificação da configuração do servidor de arquivos do StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Baixe a [Lista de verificação da configuração do servidor iSCSI do StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Aqui você encontra os pré-requisitos de configuração para seu serviço Gerenciador de Dispositivos StorSimple, sua Matriz Virtual StorSimple e a rede de datacenter.
 
@@ -105,7 +105,7 @@ Uma única instância do serviço Gerenciador de Dispositivos StorSimple pode ge
 
 Depois que o serviço Gerenciador de Dispositivos StorSimple estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple com o serviço.
 
-Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
+Execute as seguintes etapas no [portal Azure](https://portal.azure.com/).
 
 [!INCLUDE [storsimple-virtual-array-get-service-registration-key](../../includes/storsimple-virtual-array-get-service-registration-key.md)]
 
@@ -123,11 +123,11 @@ Depois que tiver a chave de registro de serviço, você precisará baixar a imag
 > 
 > 
 
-Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
+Execute as seguintes etapas no [portal Azure](https://portal.azure.com/).
 
 #### <a name="to-get-the-virtual-array-image"></a>Para obter a imagem da matriz virtual
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/). 
+1. Inscreva-se no [portal Azure](https://portal.azure.com/). 
 2. No portal do Azure, clique em **Procurar > Gerenciadores de Dispositivos StorSimple**.
 3. Selecione um serviço Gerenciador de Dispositivos StorSimple existente. Na folha **Gerenciador de Dispositivos StorSimple**, clique em **Início Rápido**. 
 4. Clique no link correspondente à imagem que você deseja baixar do Centro de Download da Microsoft. Os arquivos de imagem têm aproximadamente 4,8 GB.

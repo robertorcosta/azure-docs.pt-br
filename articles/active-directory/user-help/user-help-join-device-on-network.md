@@ -1,5 +1,5 @@
 ---
-title: Ingresse seu dispositivo de trabalho na rede-AD da sua organização
+title: Junte seu dispositivo de trabalho à rede da sua organização - AD
 description: Saiba como associar seu dispositivo de trabalho à rede da sua organização.
 services: active-directory
 author: curtand
@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266306"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte seu dispositivo de trabalho à rede da sua organização
@@ -61,7 +61,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado a *\<your_organization >* Azure ad**.
+2. Selecione **acessar o trabalho ou a escola**, e certifique-se de ver texto que diz algo como, Conectado ao ** * \<your_organization>* Azure AD**.
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -106,7 +106,7 @@ Você pode ter certeza de que você está associado, observando as configuraçõ
 
     ![Contas na tela Configurações](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso corporativo ou de estudante**e verifique se você vê texto que diz algo como, **conectado a *\<your_organization >* Azure ad**.
+2. Selecione **acessar o trabalho ou a escola**, e certifique-se de ver texto que diz algo como, Conectado ao ** * \<your_organization>* Azure AD**.
 
     ![Acessar tela de trabalho ou escola com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -115,4 +115,4 @@ Depois de associar seu dispositivo à rede da sua organização, você poderá a
 
 - Se sua organização quer que você registrar seu dispositivo pessoal, como seu telefone, consulte [registrar seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
 
-- Se sua organização for gerenciada usando Microsoft Intune e você tiver dúvidas sobre o registro, a entrada ou qualquer outro problema relacionado ao Intune, consulte o [conteúdo da ajuda do usuário do Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Se sua organização for gerenciada usando o Microsoft Intune e você tiver dúvidas sobre inscrição, login ou qualquer outro problema relacionado ao Intune, consulte o conteúdo de [ajuda do usuário Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

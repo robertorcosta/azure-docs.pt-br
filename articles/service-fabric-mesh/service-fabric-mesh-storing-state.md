@@ -1,15 +1,15 @@
 ---
-title: Opções de armazenamento de estado na malha de Service Fabric do Azure
+title: Opções de armazenamento do estado na malha de malha de malha de malha de serviço do Azure
 description: Saiba mais sobre como armazenar o estado de forma confiável em aplicativos de Malha do Service Fabric em execução na Malha do Azure Service Fabric.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0b0bd611fa86d155bb5bf2e07808e7365e28871c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259091"
 ---
 # <a name="state-management-with-service-fabric"></a>Gerenciamento de estado com o Service Fabric
@@ -26,7 +26,7 @@ Contêineres frequentemente usam discos temporários. Discos temporários são e
 
 ### <a name="service-fabric-reliable-volume"></a>Reliable Volume do Service Fabric
 
-O Reliable Volume do Service Fabric é um driver de volume do Docker usado para montar um volume local para um contêiner. Leituras e gravações são operações locais e rápidas. Os dados são replicados para fora dos nós secundários, tornando-os altamente disponíveis. Failover também é rápido. Quando um contêiner falha, ele fará failover para um nó que já tem uma cópia dos seus dados. Por exemplo, confira [Como implantar um aplicativo com o Reliable Volume do Service Fabric](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
+O Reliable Volume do Service Fabric é um driver de volume do Docker usado para montar um volume local para um contêiner. Leituras e gravações são operações locais e rápidas. Os dados são replicados para fora dos nós secundários, tornando-os altamente disponíveis. Failover também é rápido. Quando um contêiner falha, ele fará failover para um nó que já tem uma cópia dos seus dados. Por exemplo, veja [Como implantar um aplicativo com o Service Fabric Reliable Volume](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
 ### <a name="azure-files-volume"></a>Volume de Armazenamento de Arquivos
 

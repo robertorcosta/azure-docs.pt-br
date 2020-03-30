@@ -4,10 +4,10 @@ description: Tipos de recurso com suporte por meio do Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258298"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
@@ -26,7 +26,7 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |Verificações executadas|
 |---|
-|<ul><li>A conta do lote está em execução?</li><li>A cota do pool foi excedida para esta conta do lote?</li></ul>|
+|<ul><li>A conta batch está funcionando?</li><li>A cota do bolão foi ultrapassada para esta conta de lote?</li></ul>|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/Redis
 |Verificações executadas|
@@ -41,7 +41,7 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Verificações executadas|
 |---|
-|<ul><li>O servidor host está em funcionamento?</li><li>A inicialização do SO host foi concluída?</li><li>O contêiner da máquina virtual está provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host foi degradado e previsto para falhar em breve?</li></ul>|
+|<ul><li>O servidor host está em funcionamento?</li><li>A inicialização do SO host foi concluída?</li><li>O contêiner da máquina virtual está provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host está degradado e previsto para falhar em breve?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Verificações executadas|
@@ -51,17 +51,17 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Verificações executadas|
 |---|
-|<ul><li>O servidor que hospeda a máquina virtual está em funcionamento?</li><li>A inicialização do SO host foi concluída?</li><li>O contêiner da máquina virtual está provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host foi degradado e previsto para falhar em breve?</li></ul>|
+|<ul><li>O servidor que hospeda a máquina virtual está em funcionamento?</li><li>A inicialização do SO host foi concluída?</li><li>O contêiner da máquina virtual está provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host está degradado e previsto para falhar em breve?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>Microsoft. datafactory/fábricas
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Verificações executadas|
 |---|
-|<ul><li>Há falhas de execução de pipeline?</li><li>O cluster está hospedando o Data Factory íntegro?</li></ul>|
+|<ul><li>Houve falhas no oleoduto?</li><li>O cluster que hospeda a Fábrica de Dados é saudável?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Verificações executadas|
 |---|
-|<ul><li>Os usuários tiveram problemas ao enviar ou listar seus trabalhos do Data Lake Analytics?</li><li>Data Lake Analytics trabalhos não puderam ser concluídos devido a erros do sistema?</li></ul>|
+|<ul><li>Os usuários tiveram problemas ao enviar ou listar seus trabalhos do Data Lake Analytics?</li><li>Os trabalhos do Data Lake Analytics não podem ser concluídos devido a erros no sistema?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -72,12 +72,12 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
 |Verificações executadas|
 |---|
-|<ul><li>O serviço de migração de banco de dados falhou ao provisionar?</li><li>O serviço de migração de banco de dados parou devido à inatividade ou à solicitação do usuário?</li></ul>|
+|<ul><li>O serviço de migração de banco de dados falhou na provisão?</li><li>O serviço de migração de banco de dados parou devido à inatividade ou solicitação do usuário?</li></ul>|
 
-## <a name="microsoftdatashareaccounts"></a>Microsoft. DataShare/accounts
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/contas
 |Verificações executadas|
 |---|
-|<ul><li>A conta de compartilhamento de dados está em funcionamento?</li><li>O cluster está hospedando o compartilhamento de dados disponível?</li></ul>|
+|<ul><li>A conta data share está funcionando?</li><li>O cluster que hospeda o Compartilhamento de Dados está disponível?</li></ul>|
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |Verificações executadas|
@@ -107,12 +107,12 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
 |Verificações executadas|
 |---|
-|<ul><li>O namespace dos hubs de eventos está apresentando erros gerados pelo usuário?</li><li>O namespace dos hubs de eventos está sendo atualizado no momento?</li></ul>|
+|<ul><li>O namespace do Event Hubs está experimentando erros gerados pelo usuário?</li><li>O namespace do Event Hubs está sendo atualizado?</li></ul>|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
 |Verificações executadas|
 |---|
-|<ul><li>Os serviços principais estão disponíveis no cluster HDInsight?</li><li>O cluster HDInsight pode acessar a chave para criptografia BYOK em repouso?</li></ul>|
+|<ul><li>Os serviços principais estão disponíveis no cluster HDInsight?</li><li>O cluster HDInsight pode acessar a chave da criptografia BYOK em repouso?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Verificações executadas|
@@ -122,17 +122,17 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |Verificações executadas|
 |---|
-|<ul><li>O serviço Web está funcionando?</li></ul>|
+|<ul><li>O serviço web está funcionando?</li></ul>|
 
-## <a name="microsoftmediamediaservices"></a>Microsoft. Media/mediaservices
+## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 |Verificações executadas|
 |---|
-|<ul><li>O serviço de mídia está em execução?</li></ul>|
+|<ul><li>O serviço de mídia está funcionando?</li></ul>|
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+## <a name="microsoftnetworkapplicationgateways"></a>Gateways Microsoft.network/application
 |Verificações executadas|
 |---|
-|<ul><li>O desempenho do gateway de aplicativo foi degradado?</li><li>O gateway de aplicativo está disponível?</li></ul>|
+|<ul><li>O desempenho do Gateway de aplicativo está degradado?</li><li>O Gateway de aplicativo está disponível?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Verificações executadas|
@@ -142,17 +142,17 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.network/expressroutecircuits
 |Verificações executadas|
 |---|
-|<ul><li>O circuito do ExpressRoute está íntegro?</li></ul>|
+|<ul><li>O circuito ExpressRoute é saudável?</li></ul>|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
 |Verificações executadas|
 |---|
-|<ul><li>Os back-ends de porta frontal estão respondendo com erros nas investigações de integridade?</li><li>As alterações de configuração estão atrasadas?</li></ul>|
+|<ul><li>Os backends do Front Door estão respondendo com erros nos testes de saúde?</li><li>As alterações de configuração estão atrasadas?</li></ul>|
 
-## <a name="microsoftnetworkloadbalancers"></a>Microsoft. Network/balancers
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft.network/LoadBalancers
 |Verificações executadas|
 |---|
-|<ul><li>Os pontos de extremidade de balanceamento de carga estão disponíveis?</li></ul>|
+|<ul><li>Os pontos finais de balanceamento de carga estão disponíveis?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Verificações executadas|
@@ -164,10 +164,10 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |---|
 |<ul><li>Operações de runtime como o registro, a instalação ou o envio podem ser executadas no namespace?</li></ul>|
 
-## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/espaços de trabalho
 |Verificações executadas|
 |---|
-|<ul><li>Há atrasos de indexação para o espaço de trabalho?</li></ul>|
+|<ul><li>Há atrasos na indexação do espaço de trabalho?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 |Verificações executadas|
@@ -177,7 +177,7 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Verificações executadas|
 |---|
-|<ul><li>O SO host está em funcionamento?</li><li>O workspaceCollection pode ser acessado de fora do datacenter?</li><li>O provedor de recursos de Power BI está disponível?</li><li>O serviço Power BI está disponível na região apropriada?</li></ul>|
+|<ul><li>O SO host está em funcionamento?</li><li>O workspaceCollection pode ser acessado de fora do datacenter?</li><li>O provedor de recursos power bi está disponível?</li><li>O Serviço power bi está disponível na região apropriada?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Verificações executadas|
@@ -192,14 +192,14 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftservicefabricclusters"></a>Microsoft.ServiceFabric/clusters
 |Verificações executadas|
 |---|
-|<ul><li>O Cluster Service Fabric está funcionando?</li><li>O Cluster Service Fabric pode ser gerenciado por meio de Azure Resource Manager?</li></ul>|
+|<ul><li>O cluster Service Fabric está funcionando?</li><li>O cluster Service Fabric pode ser gerenciado através do Azure Resource Manager?</li></ul>|
 
-## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft. SQL/managedInstances/bancos de dados
+## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/managedInstances/databases
 |Verificações executadas|
 |---|
-|<ul><li>O banco de dados está em execução?</li></ul>|
+|<ul><li>O banco de dados está funcionando?</li></ul>|
 
-## <a name="microsoftsqlserverdatabases"></a>Microsoft. SQL/Server/bancos de dados
+## <a name="microsoftsqlserverdatabases"></a>Microsoft.SQL/Server/bancos de dados
 |Verificações executadas|
 |---|
 |<ul><li>Houve logons no banco de dados?</li></ul>|

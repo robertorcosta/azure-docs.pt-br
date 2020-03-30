@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 64aa01995460837c820c90010d7c4e3f3d78e6a2
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 8f2e2081ee31e2ce7b21677bd261ed7eda705334
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79300226"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79486085"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -26,22 +26,22 @@ ms.locfileid: "79300226"
 
 ## <a name="portal"></a>Portal
 
-Para criar e configurar instantâneos incrementais no portal do Azure global, você deve usar o seguinte link: [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots). A criação de instantâneo incremental ainda não está disponível no portal do Azure global.
+Para criar e configurar instantâneos incrementais no portal global do [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots)Azure, você deve usar o seguinte link: . A criação incremental de instantâneos ainda não está disponível no portal global do Azure.
 
-1. Entre no [portal do Azure](https://aka.ms/incrementalsnapshots) com o link fornecido e navegue até o disco do qual você deseja fazer o instantâneo.
-1. Em seu disco, selecione **criar um instantâneo**
+1. Entre no [portal do Azure](https://aka.ms/incrementalsnapshots) com o link fornecido e navegue até o disco que você deseja tirar o instantâneo.
+1. Em seu disco, selecione **Criar um snapshot**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text=" ":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="Screenshot. A lâmina do disco, com **+Create snapshot** destacada, pois é isso que você deve selecionar.":::
 
-1. Selecione o grupo de recursos que você deseja usar e insira um nome.
-1. Selecione **incremental** e selecione **revisar + criar**
+1. Selecione o grupo de recursos que deseja usar e digite um nome.
+1. Selecione **Incremental** e selecione **Revisão + Criar**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text=" ":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Screenshot. Crie uma lâmina de instantâneo, preencha o nome e selecione incremental e crie seu snapshot.":::
 
-1. Escolha **Criar**
+1. Selecione **Criar**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text=" ":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Screenshot. Página de validação para o seu snapshot, confirme suas seleções e crie o snapshot.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser ver um exemplo de código que demonstra a capacidade diferencial de instantâneos incrementais, usando o .NET, consulte [copiar backups de Managed disks do Azure para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Se você quiser ver o código de amostra demonstrando a capacidade diferencial de instantâneos incrementais, usando o .NET, consulte backups do [Copy Azure Managed Disks para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

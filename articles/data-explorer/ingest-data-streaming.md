@@ -1,6 +1,6 @@
 ---
-title: Usar a ingestão de streaming para ingerir dados no Azure Data Explorer
-description: Saiba mais sobre como ingerir (carregar) dados no Azure Data Explorer usando a ingestão de streaming.
+title: Use a ingestão de streaming para ingerir dados no Azure Data Explorer
+description: Saiba como ingerir dados (carregar) no Azure Data Explorer usando a ingestão de streaming.
 author: orspod
 ms.author: orspodek
 ms.reviewer: tzgitlin
@@ -8,76 +8,76 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297077"
 ---
-# <a name="streaming-ingestion-preview"></a>Ingestão de streaming (visualização)
+# <a name="streaming-ingestion-preview"></a>Ingestão por streaming (Visualização)
 
-Use a ingestão de streaming quando precisar de baixa latência com um tempo de ingestão de menos de 10 segundos para dados de volume variados. Ele é usado para otimizar o processamento operacional de muitas tabelas, em um ou mais bancos de dados, em que o fluxo de dado em cada tabela é relativamente pequeno (poucos registros por segundo), mas o volume de ingestão de dados geral é alto (milhares de registros por segundo). 
+Use a ingestão de streaming quando precisar de baixa latência com um tempo de ingestão inferior a 10 segundos para dados de volume variados. É usado para otimizar o processamento operacional de muitas tabelas, em uma ou mais bases de dados, onde o fluxo de dados em cada tabela é relativamente pequeno (poucos registros por segundo), mas o volume total de ingestão de dados é alto (milhares de registros por segundo). 
 
-Use a ingestão em massa em vez da ingestão de streaming quando a quantidade de dados aumentar para mais de 1 MB por segundo por tabela. Leia [visão geral de ingestão de dados](/azure/data-explorer/ingest-data-overview) para saber mais sobre os vários métodos de ingestão.
+Use a ingestão em massa em vez de a ingestão de streaming quando a quantidade de dados cresce para mais de 1 MB por segundo por tabela. Leia [a visão geral da ingestão](/azure/data-explorer/ingest-data-overview) de dados para saber mais sobre os diversos métodos de ingestão.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* Entre na [interface do usuário da Web](https://dataexplorer.azure.com/).
-* Criar [um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-portal.md)
+* Faça login na [Web UI](https://dataexplorer.azure.com/).
+* Crie [um cluster e banco de dados do Azure Data Explorer](create-cluster-database-portal.md)
 
-## <a name="enable-streaming-ingestion-on-your-cluster"></a>Habilitar a ingestão de streaming no cluster
+## <a name="enable-streaming-ingestion-on-your-cluster"></a>Habilite a ingestão de streaming em seu cluster
 
 > [!WARNING]
-> Examine as [limitações](#limitations) antes de habilitar a ingestão de fluxo.
+> Por favor, revise as [limitações](#limitations) antes de habilitar a ingestão fumegante.
 
-1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **configurações**, selecione **configurações**. 
-1. No painel **configurações** , selecione **ativado** para habilitar a **ingestão de streaming**.
-1. Clique em **Salvar**.
+1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **Configurações,** selecione **Configurações**. 
+1. No painel **Configurações,** selecione **Ativado** para ativar a **ingestão de streaming**.
+1. Selecione **Salvar**.
  
     ![ingestão de streaming em](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. Na [interface do usuário da Web](https://dataexplorer.azure.com/), defina a [política de ingestão de streaming](/azure/kusto/management/streamingingestionpolicy) em tabela (s) ou banco (s) de dados que receberão o streaming de dado. 
+1. Na [Web UI,](https://dataexplorer.azure.com/)defina a [política de ingestão de streaming](/azure/kusto/management/streamingingestionpolicy) em tabelas ou bancos de dados que receberão dados de streaming. 
 
     > [!NOTE]
-    > * Se a política for definida no nível de banco de dados, todas as tabelas no banco de dados serão habilitadas para ingestão de streaming.
-    > * A política aplicada pode fazer referência somente a dados recentemente ingeridos e não a outras tabelas no banco de dados.
+    > * Se a política for definida no nível do banco de dados, todas as tabelas do banco de dados serão habilitadas para a ingestão de streaming.
+    > * A política aplicada pode referenciar apenas dados recém-ingeridos e não outras tabelas no banco de dados.
 
-## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Usar a ingestão de streaming para ingerir dados para o cluster
+## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Use a ingestão de streaming para ingerir dados no seu cluster
 
-Há dois tipos de ingestão de streaming com suporte:
+Existem dois tipos de ingestão de streaming suportados:
 
 
-* [**Hub de eventos**](/azure/data-explorer/ingest-data-event-hub), que é usado como uma fonte de dados
-* A **ingestão personalizada** exige que você escreva um aplicativo que usa uma das bibliotecas de cliente do Azure data Explorer. Consulte [exemplo de ingestão de streaming](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) para um aplicativo de exemplo.
+* [**Event Hub**](/azure/data-explorer/ingest-data-event-hub), que é usado como fonte de dados
+* **A ingestão personalizada** exige que você escreva um aplicativo que use uma das bibliotecas de clientes do Azure Data Explorer. Consulte [a amostra de ingestão de streaming](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) para uma aplicação de amostra.
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Escolha o tipo de ingestão de streaming apropriado
 
-|   |Hub de evento  |Ingestão personalizada  |
+|   |Hub de evento  |Ingestão Personalizada  |
 |---------|---------|---------|
-|Atraso de dados entre o início da ingestão e os dados disponíveis para consulta   |    atraso mais longo     |   atraso mais curto      |
-|Sobrecarga de desenvolvimento    |   configuração rápida e fácil, sem sobrecarga de desenvolvimento    |   alta sobrecarga de desenvolvimento para o aplicativo manipular erros e garantir a consistência dos dados     |
+|Atraso de dados entre o início da ingestão e os dados disponíveis para consulta   |    Atraso mais longo     |   Atraso mais curto      |
+|Sobrecarga de desenvolvimento    |   Configuração rápida e fácil, sem sobrecarga de desenvolvimento    |   Alta sobrecarga de desenvolvimento para aplicação para lidar com erros e garantir a consistência dos dados     |
 
-## <a name="disable-streaming-ingestion-on-your-cluster"></a>Desabilitar a ingestão de streaming no cluster
+## <a name="disable-streaming-ingestion-on-your-cluster"></a>Desativar a ingestão de streaming em seu cluster
 
 > [!WARNING]
-> Desabilitar a ingestão de streaming pode levar algumas horas.
+> Desativar a ingestão de streaming pode levar algumas horas.
 
-1. Remova a [política de ingestão de streaming](/azure/kusto/management/streamingingestionpolicy) de todas as tabelas e bancos de dados relevantes. A remoção da política de ingestão de streaming dispara a movimentação de dados de ingestão de streaming do armazenamento inicial para o armazenamento permanente no repositório de coluna (extensões ou fragmentos). A movimentação de dados pode durar entre alguns segundos e algumas horas, dependendo da quantidade de dados no armazenamento inicial e de como a CPU e a memória são usadas pelo cluster.
-1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **configurações**, selecione **configurações**. 
-1. No painel **configurações** , selecione **desativado** para desabilitar a **ingestão de streaming**.
-1. Clique em **Salvar**.
+1. Retire a política de [ingestão](/azure/kusto/management/streamingingestionpolicy) de streaming de todas as tabelas e bancos de dados relevantes. A remoção da política de ingestão de streaming desencadeia a movimentação de dados de ingestão de streaming do armazenamento inicial para o armazenamento permanente no armazenamento da coluna (extensões ou fragmentos). O movimento de dados pode durar entre alguns segundos e algumas horas, dependendo da quantidade de dados no armazenamento inicial e de como a CPU e a memória são usadas pelo cluster.
+1. No portal do Azure, acesse o cluster do Azure Data Explorer. Em **Configurações,** selecione **Configurações**. 
+1. No painel **Configurações,** selecione **Desativar** a **ingestão de streaming**.
+1. Selecione **Salvar**.
 
-    ![Ingestão de streaming desativada](media/ingest-data-streaming/streaming-ingestion-off.png)
+    ![Ingestão por streaming](media/ingest-data-streaming/streaming-ingestion-off.png)
 
 ## <a name="limitations"></a>Limitações
 
-* A ingestão de streaming não dá suporte a [cursores de banco](/azure/kusto/management/databasecursor) de [dados ou mapeamento de data](/azure/kusto/management/mappings). Somente o mapeamento [de dados pré-criado](/azure/kusto/management/create-ingestion-mapping-command) tem suporte. 
-* O desempenho de ingestão de streaming e a capacidade aumentam com tamanhos de VM e cluster maiores. Ingestãos simultâneas são limitadas a seis ingestãos por núcleo. Por exemplo, para SKUs de 16 núcleos, como D14 e L16, a carga com suporte máxima é de 96 ingestãos simultâneas. Para dois SKUs principais, como D11, a carga com suporte máxima é de 12 ingestãos simultâneas.
-* A limitação de tamanho de dados por solicitação de ingestão é 4 MB.
-* As atualizações de esquema, como criação e modificação de tabelas e mapeamentos de ingestão, podem levar até cinco minutos para o serviço de ingestão de streaming.
-* Habilitar a ingestão de streaming em um cluster, mesmo quando os dados não são ingeridos via streaming, o usa parte do disco SSD local das máquinas de cluster para dados de ingestão de streaming e reduz o armazenamento disponível para cache ativo.
-* As [marcas de extensão](/azure/kusto/management/extents-overview#extent-tagging) não podem ser definidas nos dados de ingestão de streaming.
+* A ingestão de streaming não suporta [cursores de banco de dados](/azure/kusto/management/databasecursor) ou mapeamento de [dados](/azure/kusto/management/mappings). Apenas o mapeamento de dados [pré-criado](/azure/kusto/management/create-ingestion-mapping-command) é suportado. 
+* O desempenho de ingestão de streaming e as escalas de capacidade com aumento dos tamanhos de VM e cluster. As ingestões simultâneas são limitadas a seis ingestão por núcleo. Por exemplo, para SKUs de 16 núcleos, como D14 e L16, a carga máxima suportada é de 96 ingestões simultâneas. Para duas SKUs principais, como d11, a carga máxima suportada é de 12 ingestões simultâneas.
+* A limitação do tamanho dos dados por solicitação de ingestão é de 4 MB.
+* Atualizações de esquemas, como criação e modificação de tabelas e mapeamentos de ingestão, podem levar até cinco minutos para o serviço de ingestão de streaming.
+* Habilitando a ingestão de streaming em um cluster, mesmo quando os dados não são ingeridos via streaming, usa parte do disco SSD local das máquinas de cluster para transmitir dados de ingestão e reduz o armazenamento disponível para cache quente.
+* [As marcas de extensão](/azure/kusto/management/extents-overview#extent-tagging) não podem ser definidas nos dados de ingestão de streaming.
 
 ## <a name="next-steps"></a>Próximas etapas
 

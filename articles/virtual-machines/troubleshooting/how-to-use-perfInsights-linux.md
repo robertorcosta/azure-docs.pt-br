@@ -1,6 +1,6 @@
 ---
-title: Como usar o PerfInsights Linux no Microsoft Azure | Microsoft Docs
-description: Aprende a usar o PerfInsights para solucionar problemas de desempenho de VM do Linux.
+title: Como usar o PerfInsights Linux no Microsoft Azure| Microsoft Docs
+description: Aprende como usar o PerfInsights para solucionar problemas de desempenho do Linux VM.
 services: virtual-machines-linux'
 documentationcenter: ''
 author: anandhms
@@ -14,15 +14,15 @@ ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
 ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266982"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
-O [PerfInsights Linux](https://aka.ms/perfinsightslinuxdownload) é uma ferramenta de diagnóstico de autoajuda que coleta e analisa os dados de diagnóstico e fornece um relatório para ajudar a solucionar problemas de desempenho de máquina virtual do Linux no Azure. O PerfInsights pode ser executado em máquinas virtuais com suporte como uma ferramenta autônoma ou diretamente do portal usando o [diagnóstico de desempenho para máquinas virtuais do Azure](performance-diagnostics.md).
+[O PerfInsights Linux](https://aka.ms/perfinsightslinuxdownload) é uma ferramenta de diagnóstico de autoajuda que coleta e analisa os dados de diagnóstico e fornece um relatório para ajudar a solucionar problemas de desempenho da máquina virtual Linux no Azure. O PerfInsights pode ser executado em máquinas virtuais suportadas como uma ferramenta autônoma ou diretamente do portal usando [diagnósticos de desempenho para máquinas virtuais Azure](performance-diagnostics.md).
 
 Caso esteja tendo problemas de desempenho com máquinas virtuais, antes de contatar o suporte, execute esta ferramenta.
 
@@ -32,64 +32,64 @@ O PerfInsights pode coletar e analisar vários tipos de informações. As seçõ
 
 ### <a name="quick-performance-analysis"></a>Análise rápida de desempenho
 
-Esse cenário coleta informações básicas, como a configuração de armazenamento e de hardware de sua máquina virtual, vários logs, incluindo:
+Este cenário coleta informações básicas, como armazenamento e configuração de hardware da sua máquina virtual, vários logs, incluindo:
 
 - Informações do sistema operacional
 
 - Informações do dispositivo PCI
 
-- Logs gerais de SO convidado
+- Registros gerais do Sistema Operacional de Hóspedes
 
 - Arquivos de configuração
 
 - Informações de armazenamento
 
-- Configuração de máquina virtual do Azure (coletada usando o [serviço de metadados de instância do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service))
+- Configuração da máquina virtual do Azure (coletada usando [o Serviço de Metadados de Instância do Azure)](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
-- Lista de processos em execução, disco, memória e uso da CPU
+- Lista de processos em execução, uso de disco, memória e CPU
 
 - Informações de rede
 
 Esta é uma coleção de passiva de informações que não devem afetar o sistema.
 
 >[!Note]
->O cenário de análise de desempenho rápido é incluído automaticamente em cada um dos seguintes cenários:
+>O cenário de análise rápida de desempenho é automaticamente incluído em cada um dos seguintes cenários:
 
 ### <a name="performance-analysis"></a>Análise de desempenho
 
-Esse cenário é semelhante à análise rápida de desempenho, mas permite capturar informações de diagnóstico por duração maior.
+Este cenário é semelhante à análise de desempenho rápido, mas permite capturar informações de diagnóstico por mais tempo.
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>Que tipo de informação é coletada pelo PerfInsights
 
-Informações sobre a máquina virtual Linux, sistema operacional, dispositivos de bloco, consumidores de recursos altos, configuração e vários logs são coletados. Aqui estão mais detalhes:
+Informações sobre a máquina virtual Linux, sistema operacional, dispositivos de bloqueio, consumidores de alto recurso, configuração e vários logs são coletados. Estes são mais detalhes:
 
 - Sistema operacional
-  - Distribuição e versão do Linux
+  - Distribuição e versão linux
   - Informações do kernel
-  - Informações do driver
+  - Informações do motorista
 
 - Hardware
-  - Dispositivos PCI [`*`]
+  - Dispositivos PCI`*`[ ]
 
 - Processos e memória
   - Lista de processos (nome da tarefa, memória usada, arquivos abertos)
-  - Memória física total, disponível e livre
-  - Memória de permuta total, disponível e livre
-  - Criação de perfil da captura de CPU e processa o uso da CPU em um intervalo de 5 segundos
-  - Criação de perfil de captura de processos de uso de memória em intervalo de 5 segundos
+  - Total, disponível e memória física gratuita
+  - Memória total, disponível e troca livre
+  - Captura de criação de perfil da CPU e processa o uso da CPU em intervalo de 5 segundos
+  - Captura de criação de perfil do uso da memória de processos em intervalo de 5 segundos
 
 - Rede  
   - Lista de adaptadores de rede com estatísticas de adaptadores
   - Tabela de roteamento de rede
-  - Portas e status abertos
+  - Portas abertas e status
 
 - Armazenamento
-  - Bloquear lista de dispositivos
+  - Lista de dispositivos de bloco
   - Lista de partições
   - Lista de pontos de montagem
-  - Informações de volume do MDADM
-  - Informações de volume LVM
-  - Criação de perfil de captura em todos os discos em intervalo de 5 segundos
+  - Informações sobre o volume mdadm
+  - Informações sobre o volume de LVM
+  - Captura de criação de perfil em todos os discos em intervalo de 5 segundos
 
 - Logs
   - /var/log/messages
@@ -99,71 +99,71 @@ Informações sobre a máquina virtual Linux, sistema operacional, dispositivos 
   - /var/log/boot.log
   - /var/log/yum.log
   - /var/log/dpkg.log
-  - /var/log/Cloud-init.log
+  - /var/log/cloud-init.log
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
   - /var/log/waagent.log
-  - /var/log/Azure/[pasta de extensão]/log de\*\*
+  - /var/log/azure/[pasta de\*extensão]/ log\*
   - /var/opt/microsoft/omsconfig/omsconfig.log
   - /var/opt/microsoft/omsagent/log/omsagent.log
   - /etc/waagent.config
-  - Saída de journalctl dos últimos cinco dias
+  - Saída de journalctl para os últimos cinco dias
 
-- [Metadados da instância de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- [Metadados de instância da máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 >[!Note]
->[`*`] As informações de PCI ainda não foram coletadas em distribuições Debian e SLES
+>[`*`] As informações do PCI ainda não foram coletadas nas distribuições Debian e SLES
 
-## <a name="run-the-perfinsights-linux-on-your-vm"></a>Executar o PerfInsights Linux em sua VM
+## <a name="run-the-perfinsights-linux-on-your-vm"></a>Execute o PerfInsights Linux em sua VM
 
-### <a name="what-do-i-have-to-know-before-i-run-the-tool"></a>O que preciso saber antes de executar a ferramenta
+### <a name="what-do-i-have-to-know-before-i-run-the-tool"></a>O que eu tenho que saber antes de executar a ferramenta
 
 #### <a name="tool-requirements"></a>Requisitos da ferramenta
 
 - Esta ferramenta deve ser executada na VM que tem o problema de desempenho.
-- O Python 2,7 deve ser instalado na VM
+- Python 2.7 deve ser instalado na VM
 
-- Atualmente, há suporte para as seguintes distribuições:
+- As seguintes distribuições são suportadas atualmente:
 
     | Distribuição               | Versão                                         |
     |----------------------------|-------------------------------------------------|
-    | Servidor de Oracle Linux        | 6,10 [`*`], 7,3, 7,6, 7,5 (imagem do Marketplace do Oracle-Database-EE 13,8)|
-    | CentOS                     | 6,5 [`*`], 7,6                                    |
-    | RHEL                       | 7,2, 7,5, 8,0 [`*`]                               |
+    | Servidor Oracle Linux        | 6.10`*`[], 7.3, 7.6, 7.5 (imagem de mercado Oracle-Database-Ee 13.8)|
+    | CentOS                     | 6.5`*`[], 7.6                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
     | Ubuntu                     | 14.04, 16.04, 18.04                               |
     | Debian                     | 8, 9, 10 [`*`]                                    |
-    | SLES                       | 12 SP4 [`*`]                                      |
+    | SLES                       | 12 SP4`*`[ ]                                      |
     |                            |                                                   |
 
 >[!Note]
->[`*`] Veja a seção de [problemas conhecidos](#known-issues)
+>[`*`] Consulte a seção [Problemas conhecidos](#known-issues)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-- O RHEL 8 não tem o Python instalado por padrão. Para executar o PerfInsights Linux, você deve primeiro instalar o Python 2,7
+- O RHEL 8 não tem python instalado por padrão. Para executar o PerfInsights Linux, primeiro você deve instalar o Python 2.7
 
-- A coleta de informações do agente convidado pode falhar no CentOS 6. x
+- A coleta de informações do Agente Convidado pode falhar no CentOS 6.x
 
-- As informações de dispositivos PCI não são coletadas em distribuições baseadas em Debian
+- As informações dos dispositivos PCI não são coletadas em distribuições baseadas no Debian
 
-- As informações de LVM são parcialmente coletadas em algumas distribuições
+- As informações do LVM são parcialmente coletadas em algumas distribuições
 
-### <a name="how-do-i-run-perfinsights"></a>Como fazer executar PerfInsights
+### <a name="how-do-i-run-perfinsights"></a>Como executar o PerfInsights
 
-Você pode executar o PerfInsights em uma máquina virtual instalando o diagnóstico de desempenho do Azure de portal do Azure. Você também pode executá-la como uma ferramenta independente.
+Você pode executar o PerfInsights em uma máquina virtual instalando o Azure Performance Diagnostics a partir do portal Azure. Você também pode executá-la como uma ferramenta independente.
 
 >[!Note]
->O PerfInsights simplesmente coleta e analisa os dados. Ele não faz nenhuma modificação no sistema.
+>O PerfInsights simplesmente coleta e analisa os dados. Não faz modificações no sistema.
 
-#### <a name="install-and-run-perfinsights-from-the-azure-portal"></a>Instalar e executar o PerfInsights no portal do Azure
+#### <a name="install-and-run-perfinsights-from-the-azure-portal"></a>Instalar e executar o PerfInsights do Portal do Azure
 
-Para obter mais informações sobre essa opção, consulte [diagnóstico de desempenho do Azure](performance-diagnostics.md).  
+Para obter mais informações sobre essa opção, consulte [Azure Performance Diagnostics](performance-diagnostics.md).  
 
-#### <a name="run-perfinsights-in-standalone-mode"></a>Executar PerfInsights no modo autônomo
+#### <a name="run-perfinsights-in-standalone-mode"></a>Executar o PerfInsights no modo autônomo
 
 Para executar a ferramenta PerfInsights, siga estas etapas:
 
-1. Baixe [PerfInsights. tar. gz](https://aka.ms/perfinsightslinuxdownload) em uma pasta em sua máquina virtual e extraia o conteúdo usando os comandos abaixo do terminal.
+1. Baixe [PerfInsights.tar.gz](https://aka.ms/perfinsightslinuxdownload) para uma pasta em sua máquina virtual e extraia o conteúdo usando os comandos abaixo do terminal.
 
    ```bash
    wget https://download.microsoft.com/download/9/F/8/9F80419C-D60D-45F1-8A98-718855F25722/PerfInsights.tar.gz
@@ -173,14 +173,14 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
    tar xzvf PerfInsights.tar.gz
    ```
 
-2. Navegue até a pasta que contém `perfinsights.py` arquivo e execute `perfinsights.py` para exibir os parâmetros de linha de comando disponíveis.
+2. Navegue até a `perfinsights.py` pasta que `perfinsights.py` contém arquivo e, em seguida, execute para exibir os parâmetros de linha de comando disponíveis.
 
     ```bash
     cd <the path of PerfInsights folder>
     sudo python perfinsights.py
     ```
 
-    ![Captura de tela da saída de linha de comando do Linux PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-commandline.png)
+    ![Captura de tela da saída de linha de comando do PerfInsights Linux](media/how-to-use-perfinsights-linux/perfinsights-linux-commandline.png)
 
     A sintaxe básica para execução de cenários do PerfInsights é:
 
@@ -188,65 +188,65 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     sudo python perfinsights.py -r <ScenarioName> -d [duration]<H | M | S> [AdditionalOptions]
     ```
 
-    Você pode usar o exemplo abaixo para executar um cenário de análise de desempenho rápido por 1 minuto e criar os resultados na pasta/tmp/output:
+    Você pode usar o exemplo abaixo para executar o cenário de análise de desempenho rápido por 1 minuto e criar os resultados em /tmp/pasta de saída:
 
     ```bash
     sudo python perfinsights.py -r quick -d 1M -a -o /tmp/output
     ```
 
-    Você pode usar o exemplo abaixo para executar o cenário de análise de desempenho de 5 minutos e carregar a bola de resultado tar para a conta de armazenamento:
+    Você pode usar o exemplo abaixo para executar o cenário de análise de desempenho por 5 min e carregar a bola de piche de resultado para a conta de armazenamento:
 
     ```bash
     sudo python perfinsights.py -r vmslow -d 300S -a -t <StorageAccountName> -k <StorageAccountKey> -i <full resource Uri of the current VM>
     ```
 
     >[!Note]
-    >Antes de executar um cenário, o PerfInsights solicita que o usuário concorde em compartilhar informações de diagnóstico e aceite os termos de licença. Use a opção **-a ou--Accept-disenção-e-share-Diagnostics** para ignorar esses prompts.
+    >Antes de executar um cenário, o PerfInsights solicita que o usuário concorde em compartilhar informações de diagnóstico e aceite os termos de licença. Use **-a ou --accept-isenção de responsabilidade e share-diagnostics** para pular essas solicitações.
     >
-    >Se você tiver um tíquete de suporte ativo com a Microsoft e executando PerfInsights de acordo com a solicitação do engenheiro de suporte com o qual está trabalhando, certifique-se de fornecer o número do tíquete de suporte usando a opção **-s ou--support-Request** .
+    >Se você tiver um bilhete de suporte ativo com a Microsoft e executar o PerfInsights de acordo com a solicitação do engenheiro de suporte com o qual você está trabalhando, certifique-se de fornecer o número do bilhete de suporte usando a opção **-s ou --support-request.**
 
-Quando a execução for concluída, um novo arquivo tar aparecerá na mesma pasta que PerfInsights, a menos que nenhuma pasta de saída seja especificada. O nome do arquivo é **PerformanceDiagnostics\_aaaa-mm-dd\_FFF. tar. gz.** Você pode enviar esse arquivo para o agente de suporte para análise ou abrir o relatório dentro do arquivo para examinar as conclusões e as recomendações.
+Quando a execução é concluída, um novo arquivo de piche será exibido na mesma pasta que o PerfInsights, a menos que nenhuma pasta de saída seja especificada. O nome do arquivo é **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz.** Você pode enviar este arquivo para o agente de suporte para análise ou abrir o relatório dentro do arquivo para revisar as conclusões e recomendações.
 
 ## <a name="review-the-diagnostics-report"></a>Examine o relatório de diagnóstico
 
-Dentro do **PerformanceDiagnostics\_aaaa-mm-dd\_arquivo FFF. tar. gz** , você pode encontrar um relatório HTML que detalha as conclusões de PerfInsights. Para examinar o relatório, expanda o **PerformanceDiagnostics\_aaaa-mm-dd\_arquivo FFF. tar. gz** e, em seguida, abra o arquivo **PerfInsights Report. html** .
+Dentro do arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz,** você pode encontrar um relatório HTML que detalha as descobertas do PerfInsights. Para revisar o relatório, expanda o arquivo **\_PerformanceDiagnostics\_yyyy-MM-dd hh-mm-ss-fff.tar.gz** e abra o arquivo **PerfInsights Report.html.**
 
-### <a name="overview-tab"></a>Guia Visão geral
+### <a name="overview-tab"></a>Guia Visão Geral
 
-A guia **visão geral** fornece detalhes de execução básica e informações de máquina virtual. A guia **conclusões** exibe um resumo das recomendações de todas as seções diferentes do relatório PerfInsights.
+A **guia Visão geral** fornece detalhes básicos de execução e informações da máquina virtual. A guia **Conclusões** exibe um resumo das recomendações de todas as diferentes seções do relatório PerfInsights.
 
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Captura de tela do Relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Captura de tela do Relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Constatações categorizadas como altas são problemas conhecidos que podem causar problemas de desempenho. Constatações categorizadas como médias representam configurações não adequadas que não necessariamente causam problemas de desempenho. Constatações categorizadas como lentas são declarações apenas informativas.
 
 Analise as recomendações e links para todas as conclusões altas e médias. Saiba mais sobre como eles podem afetar o desempenho e também sobre as melhores práticas para configurações de otimização de desempenho.
 
-### <a name="cpu-tab"></a>Guia CPU
+### <a name="cpu-tab"></a>Guia da CPU
 
-A guia **CPU** fornece informações sobre o consumo de CPU em todo o sistema durante a execução do PerfInsights. Informações sobre períodos altos de uso da CPU e maiores consumidores de CPU de longa duração serão úteis para solucionar problemas altos relacionados à CPU.
+**A** guia CPU fornece informações sobre o consumo de CPU em todo o sistema durante a execução do PerfInsights. Informações sobre altos períodos de uso da CPU e os principais consumidores de CPU de longa duração serão úteis para solucionar problemas relacionados à CPU.
 
-![Captura de tela da guia de CPU do relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-cpu-tab.png)
+![Captura de tela da guia CPU do PerfInsights Report](media/how-to-use-perfinsights-linux/perfinsights-linux-cpu-tab.png)
 
 ### <a name="storage-tab"></a>Guia Armazenamento
 
 A seção **Conclusões** exibe várias conclusões e recomendações relacionadas ao armazenamento.
 
-Os **dispositivos de bloco** e outras seções relacionadas, **como partições**, **LVM**e **MDADM** guias descrevem como os dispositivos de bloco são configurados e relacionados entre si.
+Os **dispositivos de bloco** e outras seções relacionadas, como **Partições,** **LVM**e **mDADM** descrevem como os dispositivos de bloco são configurados e relacionados entre si.
 
-![Captura de tela da guia armazenamento](media/how-to-use-perfinsights-linux/perfinsights-linux-storage-tab.png)  
+![Captura de tela da guia de armazenamento](media/how-to-use-perfinsights-linux/perfinsights-linux-storage-tab.png)  
 ![Captura de tela da guia MDADM](media/how-to-use-perfinsights-linux/perfinsights-linux-mdadm-config.png)
 
-### <a name="linux-tab"></a>Guia do Linux
+### <a name="linux-tab"></a>Guia Linux
 
-A guia **Linux** contém informações sobre o hardware e o sistema operacional em execução na sua VM. Os detalhes incluem uma lista de processos e informações em execução sobre o agente convidado, o PCI, a CPU, os drivers e os drivers LIS.
+A guia **Linux** contém informações sobre o hardware e o sistema operacional em execução em sua VM. Os detalhes incluem uma lista de processos em execução e informações sobre drivers Guest Agent, PCI, CPU, Drivers e LIS.
 
 ![Captura de tela da guia Linux](media/how-to-use-perfinsights-linux/perfinsights-linux-tab.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode carregar relatórios e logs de diagnóstico para o Suporte da Microsoft para análise. Quando você trabalha com a equipe de Suporte da Microsoft, elas podem solicitar que você transmita a saída gerada pelo PerfInsights para auxiliar no processo de solução de problemas.
+Você pode carregar relatórios e logs de diagnóstico para o Suporte da Microsoft para análise. Quando você trabalha com a equipe de suporte do Microsoft, eles podem solicitar que você transmita a saída gerada pelo PerfInsights para ajudar no processo de solução de problemas.
 
 A captura de tela a seguir mostra uma mensagem semelhante à qual você poderá receber:
 
@@ -254,4 +254,4 @@ A captura de tela a seguir mostra uma mensagem semelhante à qual você poderá 
 
 Siga as instruções na mensagem para acessar o workspace de transferência de arquivo. Para mais segurança, você deve alterar sua senha no primeiro uso.
 
-Depois de entrar, você encontrará uma caixa de diálogo para carregar o **PerformanceDiagnostics\_aaaa-mm-dd\_arquivo FFF. tar. gz** que foi coletado pelo PerfInsights.
+Depois de fazer login, você encontrará uma caixa de diálogo para carregar o arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz** que foi coletado pelo PerfInsights.

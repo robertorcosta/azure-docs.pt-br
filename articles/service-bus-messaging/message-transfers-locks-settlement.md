@@ -1,6 +1,6 @@
 ---
-title: Transferências, bloqueios e liquidações de mensagens do barramento de serviço do Azure
-description: Este artigo fornece uma visão geral das operações de transferência, bloqueios e transferências de mensagens do barramento de serviço do Azure.
+title: Transferências, bloqueios e liquidação de mensagens do Azure Service Bus
+description: Este artigo fornece uma visão geral das transferências, bloqueios e operações de liquidação do Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: aschhab
 ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260989"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagem, bloqueios e liquidação
@@ -127,12 +127,12 @@ Se **Complete** falhar, o que ocorre normalmente no final do tratamento das mens
 O mecanismo típico para identificar as entregas de mensagem duplicada é verificando a identificação da mensagem, que pode e deve ser definida pelo remetente como um valor exclusivo, possivelmente alinhado com um identificador do processo de origem. Um agendador provavelmente definiria a ID de mensagem do identificador da tarefa que ele está tentando atribuir a um trabalho, e o trabalho ignoraria a segunda ocorrência da atribuição de tarefa se ela já estiver concluída.
 
 > [!IMPORTANT]
-> É importante observar que o bloqueio que o PeekLock adquire na mensagem é volátil e pode ser perdido nas seguintes condições
+> É importante notar que o bloqueio que peekLock adquire na mensagem é volátil e pode ser perdido nas seguintes condições
 >   * Atualização de serviço
->   * Atualização do so
->   * Alterando propriedades na entidade (fila, tópico, assinatura) enquanto mantém o bloqueio.
+>   * Atualização do Sistema Operacional
+>   * Alterando propriedades na entidade (Fila, Tópico, Assinatura) enquanto segura o bloqueio.
 >
-> Quando o bloqueio for perdido, o barramento de serviço do Azure irá gerar um LockLostException que será exibido no código do aplicativo cliente. Nesse caso, a lógica de repetição padrão do cliente deve iniciar automaticamente e tentar a operação novamente.
+> Quando o bloqueio for perdido, o Azure Service Bus gerará um LockLostException que será divulgado no código do aplicativo cliente. Neste caso, a lógica de repetição padrão do cliente deve automaticamente iniciar e tentar novamente a operação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,7 +1,7 @@
 ---
 title: Gerenciar iterações de teste
 titleSuffix: ML Studio (classic) - Azure
-description: Como gerenciar iterações de experimento no Azure Machine Learning Studio (clássico). Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores.
+description: Como gerenciar iterações de experimentos no Azure Machine Learning Studio (clássico). Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
 ms.openlocfilehash: 5c8a278f09fdb3b605020e4c2fcf7aa2776906e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204300"
 ---
-# <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gerenciar iterações de experimento no Azure Machine Learning Studio (clássico)
+# <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gerenciar iterações de experimentos no Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,10 +25,10 @@ Desenvolver um modelo de análise de previsão é um processo iterativo - como m
 
 
 
-Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores. Quando você executa um experimento, Machine Learning Studio (clássico) mantém um histórico da execução, incluindo as conexões de conjunto de módulos (DataSet), módulo e porta e parâmetros. Esse histórico também captura resultados, informações de runtime, como tempos de início e parada, mensagens de log e status de execução. Você pode observar qualquer uma dessas execuções a qualquer momento para examinar o cronograma de seu teste e os resultados intermediários. Você pode até usar uma execução anterior de seu teste para fazer a inicialização em uma nova fase de consulta e descoberta em seu caminho para criar soluções simples, complexas ou até mesmo de modelagem conjunta.
+Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores. Quando você executa um experimento, o Machine Learning Studio (clássico) mantém um histórico da execução, incluindo conjunto de dados, módulo e conexões e parâmetros da porta. Esse histórico também captura resultados, informações de runtime, como tempos de início e parada, mensagens de log e status de execução. Você pode observar qualquer uma dessas execuções a qualquer momento para examinar o cronograma de seu teste e os resultados intermediários. Você pode até usar uma execução anterior de seu teste para fazer a inicialização em uma nova fase de consulta e descoberta em seu caminho para criar soluções simples, complexas ou até mesmo de modelagem conjunta.
 
 > [!NOTE]
-> Quando você exibe uma execução anterior de um teste, essa versão do teste está bloqueada e não pode ser editada. No entanto, você pode salvar uma cópia dele clicando em **SALVAR COMO** e fornecendo um novo nome para a cópia. Machine Learning Studio (clássico) abre a nova cópia, que você pode editar e executar. Esta cópia do seu teste está disponível na lista **TESTES** junto com todos os seus testes.
+> Quando você exibe uma execução anterior de um teste, essa versão do teste está bloqueada e não pode ser editada. No entanto, você pode salvar uma cópia dele clicando em **SALVAR COMO** e fornecendo um novo nome para a cópia. O Machine Learning Studio (clássico) abre a nova cópia, que você pode editar e executar. Esta cópia do seu teste está disponível na lista **TESTES** junto com todos os seus testes.
 > 
 > 
 
@@ -40,7 +40,7 @@ Por exemplo, suponha que você crie um teste e execute versões dele às 11h23 1
 ## <a name="viewing-the-run-history"></a>Exibindo o Histórico de execução
 Você pode exibir todas as execuções anteriores de um teste clicando em **Exibir Histórico de execução** em um teste aberto.
 
-Por exemplo, suponha que você crie um experimento com o módulo [regressão linear][linear-regression] e queira observar o efeito de alterar o valor da **taxa de aprendizagem** nos resultados do experimento. Você executa o teste várias vezes com valores diferentes para esse parâmetro, conforme segue:
+Por exemplo, suponha que você crie um teste com o módulo [Regressão Linear][linear-regression] e queira observar o efeito da alteração no valor da **Taxa de aprendizado** em seus resultados do teste. Você executa o teste várias vezes com valores diferentes para esse parâmetro, conforme segue:
 
 | Valor da Taxa de aprendizado | Hora de início da execução |
 | --- | --- |
@@ -60,20 +60,20 @@ Clique em qualquer uma dessas execuções para exibir um instantâneo do teste n
 > 
 > 
 
-A lista de experimentos na guia **experimentos** em Machine Learning Studio (clássico) sempre exibe a versão mais recente de um experimento. Se abrir uma execução anterior do teste (usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO**), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO** **Editável**.
+A lista de experimentos na guia **EXPERIMENTOS** no Machine Learning Studio (clássico) sempre exibe a versão mais recente de um experimento. Se abrir uma execução anterior do teste (usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO**), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO****Editável**.
 
 ## <a name="iterating-on-a-previous-run"></a>Iterando sobre uma Execução anterior
 Quando clicar em **Execução anterior** ou em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e abrir uma execução anterior, você poderá exibir um teste concluído no modo somente leitura.
 
-Se quiser iniciar uma iteração de seu teste começando com o modo como você o configurou para uma execução anterior, você pode fazer isso abrindo a execução e clicando em **SALVAR COMO**. Isso cria um novo teste, com um novo título, um histórico de execução vazio e todos os componentes e os valores de parâmetro de versões anteriores. Esse novo experimento é listado na guia **experimentos** do Machine Learning Studio (clássico) Home Page e você pode modificá-lo e executá-lo, iniciando um novo histórico de execução para essa iteração de seu experimento. 
+Se quiser iniciar uma iteração de seu teste começando com o modo como você o configurou para uma execução anterior, você pode fazer isso abrindo a execução e clicando em **SALVAR COMO**. Isso cria um novo teste, com um novo título, um histórico de execução vazio e todos os componentes e os valores de parâmetro de versões anteriores. Este novo experimento está listado na guia **EXPERIMENTOS** na página inicial do Machine Learning Studio (clássico) e você pode modificá-lo e executá-lo, instionando um novo histórico de execução para esta iteração do seu experimento. 
 
 Por exemplo, suponha que você tenha o teste executando o histórico mostrado na seção anterior. Você deseja observar o que acontece quando define o parâmetro **Taxa de aprendizagem** para 0,4 e testa valores diferentes para o parâmetro **Número de épocas de treinamento**.
 
 1. Clique em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e abra a iteração do teste que você executou às 16h28min36s (no qual você definiu o valor do parâmetro para 0,4).
-2. Clique em **SALVAR COMO**.
+2. Clique **em SALVAR AS**.
 3. Digite um novo título e clique na marca de seleção **OK** . É criada uma nova cópia do teste.
 4. Modifique o parâmetro **Número de épocas de treinamento** .
-5. Clique em **EXECUTAR**.
+5. Clique **em RUN**.
 
 Agora você pode continuar a modificar e executar esta versão do seu teste, criando um novo histórico de execução para registrar o seu trabalho.
 

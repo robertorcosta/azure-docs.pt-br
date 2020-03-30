@@ -14,13 +14,13 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269075"
 ---
-# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Solucionando problemas de erros transitórios de conexão para o banco de dados SQL
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Solução de problemas de erros de conexão transitórias no Banco de Dados SQL
 
 Este artigo descreve como impedir, solucionar, diagnosticar e reduzir erros de conexão e erros transitórios que seu aplicativo cliente encontra quando interage com o Banco de Dados SQL do Azure. Saiba como configurar a lógica de repetição, construir a cadeia de conexão e ajustar outras configurações de conexão.
 
@@ -77,8 +77,8 @@ Talvez você também queira definir um número máximo de novas tentativas antes
 
 Há exemplos de código com lógica de repetição disponíveis em:
 
-- [Conectar-se de forma resiliente ao SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Conectar-se de forma resiliente ao SQL com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Conecte-se resilientemente ao SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Conectar-se de maneira resiliente ao SQL com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -93,7 +93,7 @@ Uma forma de testar sua lógica de repetição é desconectar seu computador cli
 - **SqlException.Number** = 11001
 - Mensagem: "Este host não é conhecido"
 
-Como parte da primeira tentativa de repetição, você pode reconectar o computador cliente à rede e, em seguida, tentar se conectar.
+Como parte da primeira tentativa de repetição, você pode reconectar seu computador cliente à rede e, em seguida, tentar se conectar.
 
 Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de runtime que faz com que o programa:
 
@@ -133,9 +133,9 @@ Se o programa cliente se conectar ao Banco de Dados SQL usando a classe **System
 
 Ao criar a [cadeia de conexão](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o objeto **SqlConnection**, coordene os valores dentre os seguintes parâmetros:
 
-- **ConnectRetryCount**:&nbsp;&nbsp;o padrão é 1. O intervalo vai de 0 a 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;o padrão é 10 segundos. O intervalo vai de 1 a 60.
-- **Connection Timeout**:&nbsp;&nbsp;o padrão é 15 segundos. O intervalo vai de 0 a 2147483647.
+- **ConnectRetryCount**&nbsp;&nbsp;: Default é 1. O intervalo vai de 0 a 255.
+- **ConnectRetryInterval**&nbsp;&nbsp;: Padrão é de 10 segundos. O intervalo vai de 1 a 60.
+- **Tempo de conexão**:&nbsp;&nbsp;O padrão é de 15 segundos. O intervalo vai de 0 a 2147483647.
 
 Especificamente, os valores escolhidos devem tornar a seguinte igualdade verdadeira: Tempo limite de conexão = ConnectRetryCount * ConnectionRetryInterval
 
@@ -188,7 +188,7 @@ Geralmente, você só precisa garantir que a porta 1433 esteja aberta para comun
 Por exemplo, quando o programa cliente está hospedado em um computador com o Windows, você pode usar o Firewall do Windows no host para abrir a porta 1433.
 
 1. Abra o Painel de Controle.
-2. Selecione **Todos os Itens do Painel de Controle** > **Firewall do Windows** > **Configurações Avançadas** > **Regras de Saída** > **Ações** > **Nova Regra**.
+2. Selecione **todos os itens do painel de controle Windows** > **Firewall** > **Configurações avançadas** > **Regras de saída Novas** > **regras** > **.**
 
 Se o programa cliente estiver hospedado em uma máquina virtual (VM) do Azure, leia [Portas além de 1433 para ADO.NET 4.5 e Banco de Dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -275,10 +275,10 @@ O Enterprise Library 6 (EntLib60) oferece classes gerenciadas .NET para auxiliar
 
 Aqui estão algumas instruções SQL SELECT que consultam logs de erros e outras informações.
 
-| Consulta de log | DESCRIÇÃO |
+| Consulta de log | Descrição |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A exibição [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) oferece informações sobre eventos individuais, o que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>O ideal é que você possa correlacionar os valores **start_time** ou **end_time** com as informações sobre quando o programa cliente enfrentou problemas.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas dos tipos de eventos para diagnóstico adicional.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A exibição [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagem agregada de tipos de eventos para diagnósticos adicionais.<br/><br/>Você deve se conectar ao banco de dados  *mestre* para executar essa consulta. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -342,7 +342,7 @@ No namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 
 - **RetryPolicy**
   - **ExecuteAction**
-- **ExponentialBackoff**
+- **Classe ExponentialBackoff**
 - **SqlDatabaseTransientErrorDetectionStrategy**
 - **ReliableSqlConnection**
   - **ExecuteCommand**
@@ -445,7 +445,7 @@ public bool IsTransient(Exception ex)
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
-- [Pool de conexões do SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [Pool de conexão SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* é uma biblioteca de novas tentativas para fins gerais licenciada do Apache 2.0, escrita em Python,](https://pypi.python.org/pypi/retrying) para simplificar a tarefa de adicionar comportamento de nova tentativa a quase tudo.
 
 <!-- Link references. -->

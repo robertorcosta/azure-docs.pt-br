@@ -1,5 +1,5 @@
 ---
-title: Criar uma identidade de aplicativo do Azure (PowerShell) | Azure
+title: Criar uma identidade de aplicativo Azure (PowerShell) | Azure
 titleSuffix: Microsoft identity platform
 description: Descreve como usar o Azure PowerShell para criar um aplicativo do Active Directory do Azure e uma entidade de serviço, e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com um certificado.
 services: active-directory
@@ -15,10 +15,10 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: 8e428732fb49d27e3991071b87abee53b6e375b2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262952"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como usar o Azure PowerShell para criar uma entidade de serviço com um certificado
@@ -46,14 +46,14 @@ A maneira mais fácil de verificar se a sua conta tem as permissões adequadas �
 ## <a name="assign-the-application-to-a-role"></a>Atribuir o aplicativo a uma função
 Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](/azure/role-based-access-control/built-in-roles).
 
-Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função *leitor* para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém. Para permitir que o aplicativo execute ações como reinicializar, iniciar e parar instâncias, selecione a função *colaborador* .
+Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função *Reader* para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém. Para permitir que o aplicativo execute ações como instâncias de reinicialização, início e parada, selecione a *função Contribuinte.*
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar a entidade de serviço com um certificado autoassinado
 
-O exemplo a seguir aborda um cenário simples. Ele usa [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para criar uma entidade de serviço com um certificado autoassinado e usa [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para atribuir a função [leitor](/azure/role-based-access-control/built-in-roles#reader) à entidade de serviço. A atribuição de função está abrangida na sua assinatura do Azure selecionada no momento. Para selecionar uma assinatura diferente, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+O exemplo a seguir aborda um cenário simples. Ele usa [o New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para criar um diretor de serviço com um certificado auto-assinado e usa [o New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para atribuir a função [Reader](/azure/role-based-access-control/built-in-roles#reader) ao diretor do serviço. A atribuição de função está abrangida na sua assinatura do Azure selecionada no momento. Para selecionar uma assinatura diferente, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
-> No momento, não há suporte para o cmdlet New-SelfSignedCertificate e o módulo PKI no PowerShell Core. 
+> O cmdlet New-SelfSignedCertificate e o módulo PKI não são suportados no PowerShell Core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -107,7 +107,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Criar a entidade de serviço com um certificado da Autoridade de Certificação
 
-O exemplo a seguir usa um certificado emitido por uma Autoridade de Certificação para criar a entidade de serviço. A atribuição é abrangida pela assinatura do Azure especificada. Ele adiciona a entidade de serviço à função [leitor](../../role-based-access-control/built-in-roles.md#reader) . Se ocorrer um erro durante a atribuição de função, ele tentará novamente a atribuição.
+O exemplo a seguir usa um certificado emitido por uma Autoridade de Certificação para criar a entidade de serviço. A atribuição é abrangida pela assinatura do Azure especificada. Ele adiciona o diretor de serviço ao papel [de Leitor.](../../role-based-access-control/built-in-roles.md#reader) Se ocorrer um erro durante a atribuição de função, ele tentará novamente a atribuição.
 
 ```powershell
 Param (
@@ -217,9 +217,9 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 Você pode receber os seguintes erros ao criar uma entidade de serviço:
 
-* **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** - Você recebe esse erro quando sua conta não tem as [permissões necessárias](#required-permissions) no Azure AD para registrar um aplicativo. Normalmente, você vê esse erro quando somente usuários administradores no seu Azure Active Directory podem registrar aplicativos e sua conta não é um administrador. Peça ao administrador para atribuí-lo a uma função de administrador ou para permitir que os usuários registrem aplicativos.
+* **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** - Você recebe esse erro quando sua conta não tem as [permissões necessárias](#required-permissions) no Azure AD para registrar um aplicativo. Normalmente, você vê esse erro quando apenas usuários de administradores em seu Azure Active Directory podem registrar aplicativos, e sua conta não é um administrador. Peça ao administrador para atribuí-lo a uma função de administrador ou para permitir que os usuários registrem aplicativos.
 
-* Sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'".**  – Você verá esse erro quando sua conta não tiver permissões suficientes para atribuir uma função a uma identidade. Solicite ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário.
+* Sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'". ** – Você verá esse erro quando sua conta não tiver permissões suficientes para atribuir uma função a uma identidade. Solicite ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário.
 
 ## <a name="next-steps"></a>Próximas etapas
 

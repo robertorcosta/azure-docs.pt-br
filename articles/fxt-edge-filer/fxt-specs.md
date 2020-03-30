@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264720"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
@@ -37,7 +37,7 @@ Os números das unidades estão impressos no espaço entre elas. No Azure FXT Ed
 | Números de unidade    |  Use   |  Especificações |
 |------------------|--------|-----------------|
 | 0, 1             | Sistema operacional     | SSD SATA de 480 GB |
-| 2, 3, 4, 5, 6, 7, 8, 9 | data   | FXT 6600:3,2 TB de SSD do NVMe <br> FXT 6400:1,6 TB de SSD do NVMe |
+| 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600: 3,2 TB NVMe SSD <br> FXT 6400: 1,6 TB NVMe SSD |
 
 
 ## <a name="dimensions-and-weight"></a>Dimensões e peso
@@ -68,7 +68,7 @@ O Azure FXT Edge Filer foi projetado para caber em um rack de equipamento padrã
 |-------------------|-------------|--------|
 | Altura            | 311,2       | 12,25 |
 | Largura             | 642,8       | 25,31 |
-| Comprimento            | 1\.051,1     | 41,38 |
+| Comprimento            | 1.051,1     | 41,38 |
 
 ## <a name="power-and-thermal-specifications"></a>Potência e especificações térmicas
 
@@ -98,7 +98,7 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Potência aparente (VA) | 502 | 499 | 499 | 506 | 518|
 | Fator de potência | 0.99 | 0.99 |0.98 | 0.98 | 0.98 |
 | Potência real (W) | 497 |494 | 489 | 496 | 508 |
-| Dissipação térmica (BTU/h) |1\.696 | 1\.686 | 1\.669 | 1\.692 | 1\.733 |
+| Dissipação térmica (BTU/h) |1.696 | 1.686 | 1.669 | 1.692 | 1.733 |
 
 | Potência do FXT 6600 com a ventoinha em velocidade máxima | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
 |---------|---|---|---|---|---|
@@ -108,7 +108,7 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Potência aparente (VA) | 598 | 601 | 584 | 587 | 595 |
 | Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
 | Potência real (W) | 592 | 595 | 573 | 575 | 583 |
-| Dissipação térmica (BTU/h) | 2020 |2031 | 1\.954 | 1\.961 | 1990 |
+| Dissipação térmica (BTU/h) | 2020 |2031 | 1.954 | 1.961 | 1990 |
 
 | Potência do FXT 6400 em temperatura ambiente <br />(22 °C, 71,6 °F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
 |---------|---|---|---|---|---|
@@ -118,7 +118,7 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Potência aparente (VA) | 463 | 463 | 466 | 469 | 466 |
 | Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 | 
 | Potência real (W) | 458 | 459 | 457 | 460 | 456 |
-| Dissipação térmica (BTU/h) | 1\.564 | 1\.565 | 1\.558 | 1\.569 | 1\.557 |
+| Dissipação térmica (BTU/h) | 1.564 | 1.565 | 1.558 | 1.569 | 1.557 |
 
 | Potência do FXT 6400 com a ventoinha em velocidade máxima | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
@@ -128,7 +128,7 @@ Estes gráficos mostram o consumo de energia e as medidas térmicas em combinaç
 | Potência aparente (VA) | 515 | 514 | 516 | 524 | 511 |
 | Fator de potência | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
 | Potência real (W) | 510 | 508 | 506 | 514 | 501 |
-| Dissipação térmica (BTU/h) | 1\.740 | 1\.735 | 1\.725 | 1753 | 1\.709 |
+| Dissipação térmica (BTU/h) | 1.740 | 1.735 | 1.725 | 1753 | 1.709 |
 
 ## <a name="environmental-requirements"></a>Requisitos ambientais
 
@@ -144,7 +144,7 @@ Esta seção fornece especificações para o ambiente do hardware.
 | Altitude                  | até 3.048 metros (10.000 pés), sujeito à revogação da classificação de temperatura indicada abaixo | até 12.000 metros (39.370 pés) |
 
 > [!NOTE] 
-> **Desclassificação de temperatura de altitude:** A temperatura máxima é reduzida em 1 ° c/300 m (1 ° f/547 pés) acima de 950 m (3.117 pés).
+> **Desclassificação da temperatura de altitude:** A temperatura máxima é reduzida em 1°C/300 m (1°F/547 pés) acima de 950 m (3.117 pés).
 
 ### <a name="airflow-shock-and-vibration"></a>Fluxo de ar, choque e vibração 
 

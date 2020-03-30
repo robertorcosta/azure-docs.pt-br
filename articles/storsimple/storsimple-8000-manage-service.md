@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267775"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
@@ -57,10 +57,10 @@ Execute as etapas a seguir para criar um serviço.
 
 Os atributos a seguir existem para cada serviço do Gerenciador de Dispositivos do StorSimple:
 
-* **Nome** – O nome que foi atribuído ao serviço do Gerenciador de Dispositivos do StorSimple quando ele foi criado. **O nome do serviço não pode ser alterado depois que o serviço é criado. Isso também é verdadeiro para outras entidades, como dispositivos, volumes, contêineres de volume e políticas de backup que não podem ser renomeadas no portal do Azure.**
-* **Status**: o status do serviço, que pode ser **Ativo**, **Criando** ou **Online**.
+* **Nome** – O nome que foi atribuído ao serviço do Gerenciador de Dispositivos do StorSimple quando ele foi criado. **O nome do serviço não pode ser alterado após a criação do serviço. Isso também vale para outras entidades, como dispositivos, volumes, contêineres de volume e políticas de backup que não podem ser renomeadas no portal Azure.**
+* **Status** - O status de um dispositivo, que pode ser **Ativo**, **Em criação**, ou **Online**.
 * **Local** : a localização geográfica em que o dispositivo StorSimple será implantado.
-* **Assinatura** : a assinatura de cobrança associada ao seu serviço.
+* **Assinatura** - A assinatura de cobrança que está associada com seu serviço.
 
 ## <a name="delete-a-service"></a>Excluir um serviço
 
@@ -81,7 +81,7 @@ Execute as etapas a seguir para excluir um serviço.
 
     ![Excluir serviço](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Clique em **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
+3. Clique **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
 
     ![Confirmar exclusão](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
@@ -103,7 +103,7 @@ Você precisará regenerar uma chave de registro do serviço se for necessário 
 Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
 ### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
-1. Na folha **Device Manager do StorSimple** , vá para **Gerenciamento &gt;** **chaves**.
+1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
     
     ![Folha Chaves](./media/storsimple-8000-manage-service/regenregkey2.png)
 
@@ -189,7 +189,7 @@ Esse script garantirá que essa chave de criptografia de dados de serviço seja 
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Suporte para operações em dispositivos que executam versões anteriores à atualização 5.0
 No Portal do Azure, há suporte apenas para dispositivos StorSimple que executam a Atualização 5.0 ou superior. Os dispositivos que executam versões mais antigas têm suporte limitado. Após você ter migrado para o Portal do Azure, cheque a tabela a seguir para conferir quais operações têm suporte para dispositivos que executam versões anteriores à Atualização 5.0.
 
-| Operação                                                                                                                       | Suportado      |
+| Operação                                                                                                                       | Com suporte      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Registrar um dispositivo                                                                                                               | Sim            |
 | Definir as configurações do dispositivo, tais como configurações gerais, de rede e de segurança                                                                | Sim            |

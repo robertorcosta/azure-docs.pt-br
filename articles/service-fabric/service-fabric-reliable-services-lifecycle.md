@@ -1,20 +1,20 @@
 ---
-title: Visão geral do ciclo de vida do Reliable Services
-description: Saiba mais sobre os eventos do ciclo de vida em um aplicativo Service Fabric do Azure Reliable Services para serviços com e sem estado.
+title: Visão geral do ciclo de vida dos Serviços Confiáveis
+description: Conheça os eventos do ciclo de vida em um aplicativo Azure Service Fabric Reliable Services para serviços estatais e apátridas.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: fe338ca3f25cd606da7f95f6c9437a3cd3dc4e69
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258272"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
-> * [C# em Windows](service-fabric-reliable-services-lifecycle.md)
+> * [C# no Windows](service-fabric-reliable-services-lifecycle.md)
 > * [Java no Linux](service-fabric-reliable-services-lifecycle-java.md)
 >
 >
@@ -27,7 +27,7 @@ Quando você está pensando sobre os ciclos de vida do Azure Service Fabric Reli
   - Todos os ouvintes retornados são abertos, permitindo a comunicação com o serviço.
   - O método **RunAsync** do serviço é chamado, possibilitando ao serviço realizar tarefas de longa execução ou trabalho em segundo plano.
 - Durante o desligamento:
-  - O token de cancelamento passado para o **RunAsync** é cancelado e os ouvintes são fechados.
+  - O token de cancelamento passado para **o RunAsync** é cancelado, e os ouvintes estão fechados.
   - Depois de os ouvintes fecharem, o próprio objeto de serviço é destruído.
 
 Há detalhes sobre a ordem exata desses eventos. A ordem de eventos pode mudar um pouco dependendo de se o Reliable Service tem estado ou não. Além disso, para serviços com estado, temos de lidar com o cenário de troca primário. Durante esta sequência, a função da Primária é transferida para outra réplica (ou retorna) sem o desligamento do serviço. Por fim, precisamos pensar nas condições de erro ou falha.
@@ -73,7 +73,7 @@ Serviços com estado têm um padrão semelhante aos serviços sem monitoração 
 Semelhante aos serviços sem monitoração de estado, não há coordenação entre a ordem em que os ouvintes são criados e abertos e quando **RunAsync** é chamado. Se você precisar de coordenação, as soluções são muito parecidas. Há um caso adicional para o serviço com estado. Digamos que as chamadas que chegam aos ouvintes de comunicação precisem de informações mantidas dentro de algumas [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md).
 
    > [!NOTE]  
-   > Como os ouvintes de comunicação podem ser abertos antes que as coleções confiáveis fiquem legíveis ou graváveis e antes de **RunAsync** ser iniciado, é necessário realizar a coordenação. A solução mais simples e mais comum é os ouvintes de comunicação retornarem um código de erro que o cliente usa para repetir a solicitação.
+   > Como os ouvintes de comunicação poderiam abrir antes que as coleções confiáveis sejam legíveis ou graváveis, e antes que **o RunAsync** possa começar, alguma coordenação adicional é necessária. A solução mais simples e mais comum é os ouvintes de comunicação retornarem um código de erro que o cliente usa para repetir a solicitação.
 
 ## <a name="stateful-service-shutdown"></a>Desligamento de serviço com estado
 Da mesma forma que os serviços sem monitoração de estado, os eventos de ciclo de vida durante o desligamento são os mesmos que durante a inicialização, porém invertidos. Quando um serviço com estado está sendo desligado, ocorrem os seguintes eventos:
@@ -90,7 +90,7 @@ Da mesma forma que os serviços sem monitoração de estado, os eventos de ciclo
 3. Depois que `StatefulServiceBase.OnCloseAsync()` for concluído, o objeto de serviço será destruído.
 
 ## <a name="stateful-service-primary-swaps"></a>Trocas Primárias de serviço com estado
-Enquanto um serviço com estado está em execução, somente as réplicas Primárias dos serviços com estado terão seus ouvintes de comunicação abertos e seu método **RunAsync** chamado. Réplicas secundárias são construídas, mas não veem mais chamadas. Durante a execução de um serviço com estado, a réplica que atualmente é a Primária poderá ser alterada como resultado de uma falha ou da otimização do balanceamento do cluster. O que isso significa em termos dos eventos do ciclo de vida que uma réplica pode ver? O comportamento que uma réplica com estado vê depende se ela é a réplica que está sendo rebaixada ou promovida durante a troca.
+Enquanto um serviço de estado está sendo executado, apenas as réplicas primárias desses serviços estatais têm seus ouvintes de comunicação abertos e seu método **RunAsync** chamado. Réplicas secundárias são construídas, mas não veem mais chamadas. Durante a execução de um serviço com estado, a réplica que atualmente é a Primária poderá ser alterada como resultado de uma falha ou da otimização do balanceamento do cluster. O que isso significa em termos dos eventos do ciclo de vida que uma réplica pode ver? O comportamento que uma réplica com estado vê depende se ela é a réplica que está sendo rebaixada ou promovida durante a troca.
 
 ### <a name="for-the-primary-thats-demoted"></a>Para a primária que é rebaixada
 Para a réplica primária é rebaixada, o Service Fabric precisa que essa réplica interrompa o processamento de mensagens e feche qualquer trabalho em segundo plano que esteja executando. Como resultado, esta etapa tem uma aparência igual à de quando o serviço está desligado. Uma diferença é que o Serviço não é destruído nem fechado, pois ele permanece como Secundário. As seguintes APIs são chamadas:
@@ -113,7 +113,7 @@ O Service Fabric altera o Primário de um serviço com estado por vários motivo
 
 Os serviços que não tratam o cancelamento corretamente podem enfrentar vários problemas. Essas operações são lentas porque o Service Fabric aguarda até que os serviços parem normalmente. Em última instância, isso leva a falhas de upgrade que atingem um tempo limite e são revertidas. Falha em cumprir o token de cancelamento também pode causar clusters desequilibrados. Os clusters tornam-se desequilibrados porque os nós ficam ativos, mas os serviços não podem ser reequilibrados porque demora muito para movê-los para outro lugar. 
 
-Uma vez que os serviços têm estado, também é provável que eles usem [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). No Service Fabric, quando um Primário é rebaixado, uma das primeiras coisas que acontece é que o acesso de gravação ao estado subjacente é revogado. Isso leva a um segundo conjunto de problemas que pode afetar o ciclo de vida do serviço. As coleções retornam exceções que se baseiam no tempo e em se a réplica está sendo movida ou desligada. Essas exceções devem ser tratadas corretamente. As exceções geradas pelo Service Fabric se classificam nas categorias permanentes [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) e transitórias [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet). As exceções permanentes devem ser registradas e geradas, enquanto as exceções transitórias podem ser recuperadas com base em alguma lógica de repetição.
+Uma vez que os serviços têm estado, também é provável que eles usem [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). No Service Fabric, quando um Primário é rebaixado, uma das primeiras coisas que acontece é que o acesso de gravação ao estado subjacente é revogado. Isso leva a um segundo conjunto de problemas que pode afetar o ciclo de vida do serviço. As coleções retornam exceções que se baseiam no tempo e em se a réplica está sendo movida ou desligada. Essas exceções devem ser tratadas corretamente. As exceções lançadas pelo Service Fabric se enquadram nas categorias permanente [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) e transitória [(`FabricTransientException`).](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) As exceções permanentes devem ser registradas e geradas, enquanto as exceções transitórias podem ser recuperadas com base em alguma lógica de repetição.
 
 O tratamento das exceções que resultam do uso de `ReliableCollections` em conjunto com eventos de ciclo de vida do serviço é uma importante etapa do teste e da validação de um Serviço Confiável. A recomendação é sempre executar seu serviço sob carga durante a execução de upgrades e [fazer o teste de caos](service-fabric-controlled-chaos.md) antes de implantar em produção. Essas etapas básicas ajudam a garantir que o serviço seja implementado corretamente, além de tratar os eventos do ciclo de vida corretamente.
 
@@ -128,5 +128,5 @@ O tratamento das exceções que resultam do uso de `ReliableCollections` em conj
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Introdução ao Reliable Services](service-fabric-reliable-services-introduction.md)
-- [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
-- [Instâncias e réplicas](service-fabric-concepts-replica-lifecycle.md)
+- [Início rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+- [Réplicas e instâncias](service-fabric-concepts-replica-lifecycle.md)

@@ -1,5 +1,5 @@
 ---
-title: Analisar o relatório de Planejador de Implantações do Hyper-V no Azure Site Recovery
+title: Analise o relatório do Planejador de Implantação Hyper-V na recuperação do site do Azure
 description: Este artigo descreve como analisar o relatório gerado pelo Planejador de Implantações do Azure Site Recovery para recuperação de desastre de VMs Hyper-V para o Azure.
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257895"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do Planejador de Implantações do Azure Site Recovery
@@ -23,7 +23,7 @@ A planilha de resumo local fornece uma visão geral do ambiente Hyper-V analisad
 
 ![Resumo local](media/hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-**Data de início** e **Data de término**: as datas de início e de término dos dados de criação de perfil considerados para a geração de relatórios. Por padrão, a data de início é a data em que a criação de perfil começou, e a data de término é a data em que a criação de perfil é interrompida. Essas informações poderão ser os valores "StartDate" e "EndDate" se o relatório for gerado com esses parâmetros.
+**Data de início** e **data de término**: As datas de início e término dos dados de criação de perfil considerados para a geração do relatório. Por padrão, a data de início é a data em que a criação de perfil começou, e a data de término é a data em que a criação de perfil é interrompida. Essas informações poderão ser os valores "StartDate" e "EndDate" se o relatório for gerado com esses parâmetros.
 
 **Número total de dias de criação de perfil**: o número total de dias de criação de perfil entre as datas de início e de término para as quais o relatório é gerado.
 
@@ -33,13 +33,13 @@ A planilha de resumo local fornece uma visão geral do ambiente Hyper-V analisad
 
 **Número médio de discos por máquina virtual compatível**: o número médio de discos calculado em todas as VMs compatíveis.
 
-**Tamanho médio de disco (GB)** : o tamanho médio de disco calculado em todas as VMs compatíveis.
+**Tamanho médio de disco (GB)**: o tamanho médio de disco calculado em todas as VMs compatíveis.
 
-**RPO desejado (minutos)** : o objetivo de ponto de recuperação padrão ou o valor passado para o parâmetro DesiredRPO no momento da geração de relatórios para estimar a largura de banda necessária.
+**RPO desejado (minutos):** Ou o objetivo do ponto de recuperação padrão ou o valor passado para o parâmetro "DesiredRPO" no momento da geração do relatório para estimar a largura de banda necessária.
 
-**Largura de banda desejada (Mbps)** : o valor passado para o parâmetro 'Bandwidth' no momento da geração de relatórios para estimar o RPO (objetivo de ponto de recuperação) atingível.
+**Largura de banda desejada (Mbps)**: o valor passado para o parâmetro 'Bandwidth' no momento da geração de relatórios para estimar o RPO (objetivo de ponto de recuperação) atingível.
 
-**Variação de dados típica observada por dia (GB)** : a variação de dados média observada em todos os dias de criação de perfil.
+**Variação de dados típica observada por dia (GB)**: a variação de dados média observada em todos os dias de criação de perfil.
 
 ## <a name="recommendations"></a>Recomendações 
 A planilha de recomendações do Hyper-V para o relatório do Azure apresenta os seguintes detalhes de acordo com o RPO selecionado:
@@ -158,7 +158,7 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 **Nome de Conta Sugerido**: o nome de conta de armazenamento depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
 
-**Conta de Armazenamento de Log:** : todos os logs de replicação são armazenados em uma conta de armazenamento standard. Para VMs que são replicadas para uma conta de armazenamento premium, configure uma conta de armazenamento standard adicional para o armazenamento de log. Uma conta de armazenamento de log standard pode ser usada por várias contas de armazenamento de replicação premium. VMs replicadas para contas de armazenamento standard usam a mesma conta de armazenamento para logs.
+**Conta de Armazenamento de Log:**: todos os logs de replicação são armazenados em uma conta de armazenamento standard. Para VMs que são replicadas para uma conta de armazenamento premium, configure uma conta de armazenamento standard adicional para o armazenamento de log. Uma conta de armazenamento de log standard pode ser usada por várias contas de armazenamento de replicação premium. VMs replicadas para contas de armazenamento standard usam a mesma conta de armazenamento para logs.
 
 **Nome de Conta de Log Sugerido**: o nome de conta de armazenamento de log depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
 
@@ -179,7 +179,7 @@ O relatório do Excel gerado pelo Planejador de Implantações do Site Recovery 
 
 **Nome da VM**: o nome da VM que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os discos (VHDs) que estão anexados às VMs. Os nomes incluem os nomes de host de Hyper-V em que as VMs foram colocadas quando a ferramenta as descobriu durante o período de criação de perfil.
 
-**Compatibilidade de VM**: os valores são **Sim** e **Sim**\*. **Sim**\* é para instâncias em que a VM é adequada para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, a alta variação com criação de perfil ou o disco IOPS se ajustam em um tamanho de disco premium maior que o tamanho mapeado para o disco. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho: 
+**Compatibilidade de VM**: os valores são **Sim** e **Sim**\*. **Sim** \* é para casos em que a VM é adequada para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, a alta variação com criação de perfil ou o disco IOPS se ajustam em um tamanho de disco premium maior que o tamanho mapeado para o disco. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho: 
 * <128 GB é P10.
 * 128 GB a 256 GB é um P15.
 * 256 GB a 512 GB é um P20.
@@ -187,7 +187,7 @@ O relatório do Excel gerado pelo Planejador de Implantações do Site Recovery 
 * 1025 GB a 2048 GB é P40.
 * 2049 GB a 4095 GB é P50.
 
-Por exemplo, se as características de carga de trabalho de um disco o colocarem na categoria P20 ou P30, mas o tamanho o mapear para um tipo de disco de armazenamento premium inferior, a ferramenta marcará essa VM como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
+Por exemplo, se as características de carga de trabalho de um disco colocá-lo na categoria P20 ou P30, mas o tamanho mapeá-lo para um tipo de disco de armazenamento premium mais baixo, a ferramenta marca que vm como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
 
 **Tipo de armazenamento**: standard ou premium.
 
@@ -195,19 +195,19 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 
 **Conta de Armazenamento**: o nome que usa o prefixo de conta de armazenamento sugerido.
 
-**IOPS de L/G de pico (com Fator de Crescimento)** : IOPS de leitura/gravação de carga de trabalho de pico no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). O IOPS total de leitura/gravação de uma VM nem sempre é a soma dos IOPS de leitura/gravação dos discos individuais da VM. A IOPS de leitura/gravação da VM é o pico da soma dos IOPS de leitura/gravação dos discos individuais durante cada minuto do período da criação de perfil.
+**IOPS de L/G de pico (com Fator de Crescimento)**: IOPS de leitura/gravação de carga de trabalho de pico no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). O IOPS total de leitura/gravação de uma VM nem sempre é a soma dos IOPS de leitura/gravação dos discos individuais da VM. A IOPS de leitura/gravação da VM é o pico da soma dos IOPS de leitura/gravação dos discos individuais durante cada minuto do período da criação de perfil.
 
-**Variação de dados de pico em MB/s (com Fator de Crescimento)** : a taxa de variação de pico no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). A variação de dados total da VM nem sempre é a soma da variação de dados dos discos individuais da VM. O pico de variação dos dados da VM é o pico da soma da variação dos seus discos individuais durante cada minuto do período de criação de perfil.
+**Variação de dados de pico em MB/s (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). A variação de dados total da VM nem sempre é a soma da variação de dados dos discos individuais da VM. O pico de variação dos dados da VM é o pico da soma da variação dos seus discos individuais durante cada minuto do período de criação de perfil.
 
 **Tamanho de VM do Azure**: o tamanho ideal de VM mapeada dos Serviços de Nuvem do Azure para essa VM local. O mapeamento é baseado na memória da VM local, no número de discos/núcleos/NICs e IOPS de leitura/gravação. A recomendação é sempre o menor tamanho de VM do Azure que corresponde a todas as características da VM local.
 
 **Número de discos**: o número total de discos de máquina virtual (VHDs) na VM.
 
-**Tamanho de disco (GB)** : o tamanho total de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
+**Tamanho do disco (GB):** O tamanho total de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
 
 **Núcleos**: o número de núcleos de CPUs na VM.
 
-**Memória (MB)** : RAM na VM.
+**Memória (MB)**: RAM na VM.
 
 **NICs**: o número de NICs na VM.
 
@@ -246,23 +246,23 @@ O relatório do Excel gerado pelo Planejador de Implantações do Site Recovery 
 
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 80.000 por VM.
 
-* A variação média de dados da VM de origem excede o limite de variação de dados Site Recovery com suporte de 20 MB/s para o tamanho médio de e/s.
+* O churn médio de dados da VM de origem excede o limite de rotatividade de dados de recuperação de site suportado de 20 MB/s para o tamanho médio de I/O.
 
 * O IOPS médio de gravação eficiente da VM de origem excede o limite com suporte de 840 de IOPS do Site Recovery.
 
 * O armazenamento de instantâneos calculado excede o limite com suporte de 10 TB para armazenamento de instantâneos.
 
-**IOPS de L/G de pico (com Fator de Crescimento)** : o pico de IOPS de carga de trabalho no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). O IOPS total de leitura/gravação da VM nem sempre é a soma dos IOPS de leitura/gravação dos discos individuais da VM. A IOPS de leitura/gravação da VM é o pico da soma dos IOPS de leitura/gravação dos discos individuais durante cada minuto do período da criação de perfil.
+**IOPS de L/G de pico (com Fator de Crescimento)**: o pico de IOPS de carga de trabalho no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). O IOPS total de leitura/gravação da VM nem sempre é a soma dos IOPS de leitura/gravação dos discos individuais da VM. A IOPS de leitura/gravação da VM é o pico da soma dos IOPS de leitura/gravação dos discos individuais durante cada minuto do período da criação de perfil.
 
-**Variação de dados de pico (MB/s) (com Fator de Crescimento)** : a taxa de variação de pico no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). Observe que a variação de dados total da VM nem sempre é a soma da variação de dados dos discos individuais da VM. O pico de variação dos dados da VM é o pico da soma da variação dos seus discos individuais durante cada minuto do período de criação de perfil.
+**Variação de dados de pico (MB/s) (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), junto com o fator de crescimento futuro (o padrão é 30%). Observe que a variação de dados total da VM nem sempre é a soma da variação de dados dos discos individuais da VM. O pico de variação dos dados da VM é o pico da soma da variação dos seus discos individuais durante cada minuto do período de criação de perfil.
 
 **Número de discos**: o número total de VHDs na VM.
 
-**Tamanho de disco (GB)** : o tamanho total de instalação de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
+**Tamanho do disco (GB):** O tamanho total de configuração de todos os discos da VM. A ferramenta também mostra o tamanho dos discos individuais na VM.
 
 **Núcleos**: o número de núcleos de CPUs na VM.
 
-**Memória (MB)** : a quantidade de RAM na VM.
+**Memória (MB)**: a quantidade de RAM na VM.
 
 **NICs**: o número de NICs na VM.
 
@@ -271,7 +271,7 @@ O relatório do Excel gerado pelo Planejador de Implantações do Site Recovery 
 ## <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 A tabela a seguir fornece os limites do Site Recovery. Esses limites são baseados em testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Para obter os melhores resultados, mesmo após planejar a implantação, execute testes de aplicativos amplamente usando um failover de teste para obter a visão real do desempenho do aplicativo.
  
-**Destino de armazenamento de replicação** | **Tamanho de E/S médio da VM de origem** |**Variação média de dados da VM de origem** | **Variação total de dados da VM de origem por dia**
+**Alvo de armazenamento de replicação** | **Tamanho médio de I/O da Fonte VM** |**Fonte VM média de dados churn** | **Variação total de dados da VM de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s por VM | 168 GB por VM
 Armazenamento Premium | 8 KB  | 5 MB/s por VM | 421 GB por VM
@@ -298,13 +298,13 @@ A planilha fornece o requisito de espaço de armazenamento total livre para cada
 
 **Host Hyper-V**: a lista de servidores Hyper-V com criação de perfil. Se um servidor fizer parte de um cluster Hyper-V, todos os nós de cluster serão agrupados juntos.
 
-**Volume (caminho do VHD)** : cada volume de um host Hyper-V em que os VHDs/VHDXs estão presentes. 
+**Volume (caminho do VHD)**: cada volume de um host Hyper-V em que os VHDs/VHDXs estão presentes. 
 
-**Espaço livre disponível (GB)** : o espaço livre disponível no volume.
+**Espaço livre disponível (GB)**: o espaço livre disponível no volume.
 
-**Espaço de armazenamento total necessário no volume (GB)** : o espaço livre de armazenamento total necessário no volume para replicação inicial e delta com êxito. 
+**Espaço total de armazenamento necessário no volume (GB)**: O espaço total de armazenamento livre necessário no volume para replicação inicial bem sucedida e replicação delta. 
 
-**Total de armazenamento adicional a ser provisionado no volume para replicação com êxito (GB)** : recomenda o espaço total adicional que deve ser provisionado no volume para replicação inicial e delta com êxito.
+**Total de armazenamento adicional a ser provisionado no volume para replicação com êxito (GB)**: recomenda o espaço total adicional que deve ser provisionado no volume para replicação inicial e delta com êxito.
 
 ## <a name="initial-replication-batching"></a>Envio em lote da replicação inicial 
 
@@ -323,36 +323,36 @@ Depois de seguir a recomendação de requisito de armazenamento local para cada 
 ### <a name="each-batch-provides-the-following-information"></a>Cada lote fornece as seguintes informações 
 **Host Hyper-V**: o host Hyper-V da VM a ser protegida.
 
-**Máquina virtual**: a VM a ser protegida. 
+**Máquina Virtual**: A VM a ser protegida. 
 
 **Comentários**: se nenhuma ação for necessária para um volume específico de uma VM, o comentário será fornecido aqui. Por exemplo, se não houver espaço livre suficiente em um volume, o comentário dirá “Adicionar armazenamento extra para proteger essa VM”.
 
-**Volume (caminho do VHD)** : o nome do volume onde residem os VHDs da VM. 
+**Volume (caminho do VHD)**: o nome do volume onde residem os VHDs da VM. 
 
-**Espaço livre disponível no volume (GB)** : o espaço livre em disco no volume para a VM. Ao calcular o espaço livre nos volumes, considera-se o espaço em disco usado para a replicação delta pelas VMs dos lotes anteriores cujo VHDs estão no mesmo volume. 
+**Espaço livre disponível no volume (GB):** O espaço livre em disco disponível no volume para a VM. Ao calcular o espaço livre nos volumes, considera-se o espaço em disco usado para a replicação delta pelas VMs dos lotes anteriores cujo VHDs estão no mesmo volume. 
 
 Por exemplo, VM1, VM2 e VM3 residem em um volume, digamos, E:\VHDpath. Antes da replicação, o espaço livre no volume é de 500 GB. VM1 é parte do Lote 1, VM2 é parte do Lote 2 e VM3 é parte do Lote 3. Para a VM1, o espaço livre disponível é de 500 GB. Para a VM2, o espaço livre disponível é 500, o espaço em disco necessário para a replicação delta da VM1. Digamos que a VM1 requer 300 GB de espaço para a replicação delta; o espaço livre disponível para a VM2 é 500 GB - 300 GB = 200 GB. De modo semelhante, a VM2 requer 300 GB para a replicação delta. O espaço livre disponível para a VM3 é 200 GB - 300 GB = -100 GB.
 
-**Armazenamento necessário no volume para replicação inicial (GB)** : o espaço livre de armazenamento necessário no volume para a replicação inicial da VM.
+**Armazenamento necessário no volume para replicação inicial (GB)**: o espaço livre de armazenamento necessário no volume para a replicação inicial da VM.
 
-**Armazenamento necessário no volume para replicação delta (GB)** : o espaço livre de armazenamento necessário no volume para a VM para replicação delta.
+**Armazenamento necessário no volume para replicação delta (GB):** O espaço de armazenamento livre necessário no volume da VM para replicação delta.
 
-**Armazenamento adicional necessário baseado no déficit para evitar falhas de replicação (GB)** : o espaço de armazenamento adicional necessário no volume para a VM. É o máximo de requisito de espaço de armazenamento da replicação inicial e da replicação delta menos o espaço livre disponível no volume.
+**Armazenamento adicional necessário baseado no déficit para evitar falhas de replicação (GB)**: o espaço de armazenamento adicional necessário no volume para a VM. É o máximo de requisito de espaço de armazenamento da replicação inicial e da replicação delta menos o espaço livre disponível no volume.
 
-**Largura de banda mínima necessária para a replicação inicial (Mbps)** : a largura de banda mínima necessária para a replicação inicial da VM.
+**Largura de banda mínima necessária para a replicação inicial (Mbps)**: a largura de banda mínima necessária para a replicação inicial da VM.
 
-**Largura de banda mínima necessária para a replicação delta (Mbps)** : a largura de banda mínima necessária para a replicação delta da VM.
+**Largura de banda mínima necessária para a replicação delta (Mbps):** A largura de banda mínima necessária para a replicação delta para a VM.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Detalhes de utilização de rede para cada lote 
 Cada tabela de lote fornece um resumo da utilização de rede do lote.
 
-**Largura de banda disponível para o lote**: a largura de banda disponível para o lote depois de considerar a largura de banda de replicação delta do lote anterior.
+**Largura de banda disponível para lote**: A largura de banda disponível para o lote depois de considerar a largura de banda de replicação delta do lote anterior.
 
 **Largura de banda aproximada disponível para a replicação inicial do lote**: a largura de banda disponível para a replicação inicial das VMs do lote. 
 
 **Largura de banda aproximada consumida para a replicação delta do lote**: a largura de banda necessária para a replicação delta das VMs do lote. 
 
-**Tempo de replicação inicial estimado para o lote (HH:MM)** : o tempo estimado de replicação inicial em Horas:Minutos.
+**Tempo de replicação inicial estimado para o lote (HH:MM)**: O tempo inicial estimado de replicação em Horas:Minutos.
 
 
 

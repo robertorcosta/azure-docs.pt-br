@@ -1,15 +1,15 @@
 ---
-title: Diagnóstico e monitoramento do Azure infabric
+title: Diagnóstico e monitoramento do Azure ServiceFabric
 description: Este artigo descreve os recursos de monitoramento de desempenho no runtime de Service Fabric Reliable ServiceRemoting, como os contadores de desempenho emitidos por ele.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282270"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitoramento de desempenho para Reliable Service Remoting
@@ -19,7 +19,7 @@ O runtime do Reliable ServiceRemoting emite [contadores de desempenho](https://m
 ## <a name="performance-counters"></a>Contadores de desempenho
 O runtime do Reliable ServiceRemoting define as seguintes categorias de contador de desempenho:
 
-| Categoria | DESCRIÇÃO |
+| Categoria | Descrição |
 | --- | --- |
 | Serviço do Service Fabric |Contadores específicos do Azure Service Fabric Remoting, por exemplo, média de tempo gasto para processar a solicitação |
 | Método de Serviço do Service Fabric |Contadores específicos aos métodos implementados pelo Service Fabric Remoting Service; por exemplo, quantas vezes um método de serviço é invocado |
@@ -36,7 +36,7 @@ Para a categoria `Service Fabric Service`, os nomes da instância do contador es
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID da partição é um GUID e sua representação da cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceID* é a representação da cadeia de caracteres da ID da Réplica/Instância do Service Fabric à qual a instância do contador de desempenho está associada.
 
@@ -57,7 +57,7 @@ Para a categoria `Service Fabric Service Method`, os nomes da instância do cont
 
 *ServiceRuntimeMethodID* é a representação da cadeia de caracteres de um inteiro de 32 bits que é gerada pelo tempo de execução do Fabric Service para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID da partição é um GUID e sua representação da cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceID* é a representação da cadeia de caracteres da ID da Réplica/Instância do Service Fabric à qual a instância do contador de desempenho está associada.
 
@@ -74,7 +74,7 @@ No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do méto
 
 O runtime do Reliable Service publica os contadores de desempenho relacionados à execução dos métodos de serviço a seguir.
 
-| Nome da categoria | Nome do contador | DESCRIÇÃO |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Método de Serviço do Service Fabric |Invocação/s |Número de vezes que o método de serviço é invocado por segundo |
 | Método de Serviço do Service Fabric |Média de milissegundos por invocação |Tempo usado para executar o método de serviço em milissegundos |
@@ -83,7 +83,7 @@ O runtime do Reliable Service publica os contadores de desempenho relacionados �
 ### <a name="service-request-processing-performance-counters"></a>Solicitação de serviço processando contadores de desempenho
 Quando um cliente chama um método por meio de um objeto de proxy do serviço, isso resulta no envio de uma mensagem de solicitação pela rede para o serviço de comunicação remota. O serviço processa a mensagem de solicitação e envia uma resposta de volta ao cliente. O runtime do Reliable ServiceRemoting publica os seguintes contadores de desempenho relacionados ao processamento de solicitação de serviço.
 
-| Nome da categoria | Nome do contador | DESCRIÇÃO |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Serviço do Service Fabric |nº de solicitações pendentes |Número de solicitações sendo processadas no serviço |
 | Serviço do Service Fabric |Média de milissegundos por solicitação |Tempo (em milissegundos) que o serviço leva para processar uma solicitação |
@@ -91,5 +91,5 @@ Quando um cliente chama um método por meio de um objeto de proxy do serviço, i
 | Serviço do Service Fabric |Média de milissegundos para serialização de resposta |Tempo (em milissegundos) para serializar a mensagem de resposta do serviço no serviço antes de a resposta ser enviada ao cliente |
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Exemplo de código](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
+* [Código de amostra](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

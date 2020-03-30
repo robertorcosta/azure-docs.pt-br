@@ -1,6 +1,6 @@
 ---
-title: Integração de write-back de senha local com o Azure AD SSPR-Azure Active Directory
-description: Obter senhas de nuvem gravadas novamente na infraestrutura do AD local
+title: Integração de regravação de senha no local com o Azure AD SSPR - Azure Active Directory
+description: Obtenha senhas de nuvem escritas de volta à infra-estrutura de Anúncios no local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7fe58ae95c8d9c6b93c7e92e093541af009781ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263914"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454424"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
@@ -24,7 +24,7 @@ Ter um utilitário de redefinição de senha baseado em nuvem é ótimo, mas a m
 
 Há suporte de write-back de senha em ambientes que usam:
 
-* [Serviços de Federação do Active Directory (AD FS)](../hybrid/how-to-connect-fed-management.md)
+* [Serviços da Federação de Diretórios Ativos](../hybrid/how-to-connect-fed-management.md)
 * [Sincronização de hash de senha](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Autenticação de passagem](../hybrid/how-to-connect-pta.md)
 
@@ -43,7 +43,7 @@ O Write-back de senha fornece:
 * **Não exige nenhuma regra de firewall de entrada**: o write-back de senha usa uma retransmissão do Barramento de Serviço do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída pela porta 443.
 
 > [!NOTE]
-> Contas de administrador existentes em grupos protegidos no AD local podem ser usadas com o write-back de senha. Os administradores podem alterar sua senha na nuvem, mas não podem usar a redefinição de senha para redefinir uma senha esquecida. Para obter mais informações sobre grupos protegidos, consulte [Contas e grupos protegidos do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> Contas de administrador existentes em grupos protegidos no AD local podem ser usadas com o write-back de senha. Os administradores podem alterar sua senha na nuvem, mas não podem usar a redefinição de senha para redefinir uma senha esquecida. Para obter mais informações sobre grupos protegidos, consulte [contas protegidas e grupos no Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
 
@@ -106,7 +106,7 @@ O write-back de senha é um serviço altamente seguro. Para garantir que as info
    * Após a criação da retransmissão do barramento de serviço, é criada uma chave simétrica forte utilizada para criptografar a senha à medida que ela é transmitida. Essa chave existe apenas no repositório secreto de sua empresa na nuvem, que é amplamente bloqueado e auditado, assim como qualquer outra senha no diretório.
 * **Segurança de camada de transporte (TLS) padrão do setor**
    1. Quando ocorre uma redefinição de senha ou operação de alteração na nuvem, a senha de texto sem formatação é criptografada com a chave pública.
-   1. A senha criptografada é colocada em uma mensagem HTTPS que é enviada por um canal criptografado usando certificados SSL da Microsoft para a retransmissão do barramento de serviço.
+   1. A senha criptografada é colocada em uma mensagem HTTPS que é enviada por um canal criptografado usando certs Microsoft TLS/SSL no relé de barramento de serviço.
    1. Depois que a mensagem chega ao barramento de serviço, o agente local é ativado e se autentica no barramento de serviço usando a senha forte gerada anteriormente.
    1. O agente local recebe a mensagem criptografada e a descriptografa usando a chave privada.
    1. O agente local tenta definir a senha por meio da API SetPassword do AD DS. Essa etapa é o que permite a imposição da diretiva de senha local do Active Directory (como complexidade, idade, histórico e filtros) na nuvem.
@@ -151,20 +151,20 @@ O tamanho de cada mensagem descrita anteriormente normalmente é inferior a 1 KB
    * Qualquer operação de alteração de senha voluntária de autoatendimento do administrador
    * Qualquer operação para forçar o autoatendimento de alteração de senha do administrador, por exemplo, expiração de senha
    * Qualquer redefinição de senha de autoatendimento do administrador originada do [portal de redefinição de senha](https://passwordreset.microsoftonline.com)
-   * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [portal do Azure](https://portal.azure.com)
+   * Qualquer redefinição de senha de usuário final iniciada pelo administrador a partir do [portal Azure](https://portal.azure.com)
 
 ## <a name="unsupported-writeback-operations"></a>Operações de write-back sem suporte
 
 *Não* é feito o write-back das senhas em nenhuma das seguintes situações:
 
 * **Operações do usuário final sem suporte**
-   * Qualquer usuário final que redefine sua própria senha usando o PowerShell versão 1, versão 2 ou a API Microsoft Graph
+   * Qualquer usuário final redefinindo sua própria senha usando a versão 1 do PowerShell, a versão 2 ou a API do Microsoft Graph
 * **Operações do administrador sem suporte**
-   * Qualquer redefinição de senha do usuário final iniciada pelo administrador do PowerShell versão 1, versão 2 ou API de Microsoft Graph
-   * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [centro de administração Microsoft 365](https://admin.microsoft.com)
+   * Qualquer redefinição de senha do usuário final iniciada pelo administrador a partir da versão 1, versão 2 do PowerShell ou da API do Microsoft Graph
+   * Qualquer redefinição de senha de usuário final iniciada pelo administrador a partir do [centro de administração do Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> Use a caixa de seleção "o usuário deve alterar a senha no próximo logon" no local Active Directory ferramentas administrativas como Active Directory usuários e computadores ou o Centro Administrativo do Active Directory tem suporte como um recurso de visualização do Azure AD Connect. Para obter mais informações, consulte o artigo [implementar a sincronização de hash de senha com Azure ad Connect sincronização](../hybrid/how-to-connect-password-hash-synchronization.md).
+> O uso da caixa de seleção "O usuário deve alterar a senha no próximo logon" em ferramentas administrativas do Active Directory no local, como usuários e computadores ativos do diretório ou o Centro Administrativo do Diretório Ativo é suportado como um recurso de visualização do Azure AD Connect. Para obter mais informações, consulte o artigo, Implemente a [sincronização de hash de senha com a sincronização Do Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

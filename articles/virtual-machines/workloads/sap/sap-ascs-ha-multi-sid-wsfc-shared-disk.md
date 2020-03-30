@@ -1,5 +1,5 @@
 ---
-title: HA de multi-SID do SAP ASCS/SCS com WSFC & disco compartilhado no Azure | Microsoft Docs
+title: SAP ASCS/SCS multi-SID HA com WSFC&disco compartilhado no Azure | Microsoft Docs
 description: Alta disponibilidade de vários SIDs para instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 446091263596a1fd5503f38c6a60316f9b0b6843
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245168"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -208,7 +208,7 @@ ms.locfileid: "79245168"
 > ![Windows][Logo_Windows] Windows
 >
 
-Em setembro de 2016, a Microsoft lançou um recurso em que você pode gerenciar vários endereços IP virtuais usando um [balanceador de carga interno do Azure][load-balancer-multivip-overview]. Essa funcionalidade já existe no balanceador externo de carga do Azure. 
+Em setembro de 2016, a Microsoft lançou um recurso onde você pode gerenciar vários endereços IP virtuais usando um [balanceador de carga interno do Azure][load-balancer-multivip-overview]. Essa funcionalidade já existe no balanceador externo de carga do Azure. 
 
 Se tiver uma implantação do SAP, você deverá usar um balanceador de carga interno para criar uma configuração de cluster do Windows para instâncias do SAP Central Services (ASCS/SCS).
 
@@ -222,11 +222,11 @@ Este artigo aborda como passar de uma instalação ASCS/SCS única para uma conf
 >O número máximo de instâncias do SAP ASCS/SCS em um cluster WSFC é igual ao número máximo de IPs de front-end privado para cada balanceador de carga interno do Azure.
 >
 
-Para obter mais informações sobre limites de balanceador de carga, consulte a seção "IP de front-end privado por balanceador de carga" em [limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
+Para saber mais sobre limites do balanceador de carga, confira a seção "IP de front-end privado por balanceador de carga" em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você já configurou um cluster WSFC utilizado para uma instância SAP ASCS/SCS usando o **compartilhamento de arquivos**, conforme mostrado neste diagrama.
 
@@ -244,13 +244,13 @@ A meta é instalar várias instâncias clusterizadas do SAP ABAP ASCS ou do SAP 
 
 ![Várias instâncias clusterizadas do SAP ASCS/SCS no Azure][sap-ha-guide-figure-6002]
 
-Para obter mais informações sobre limites de balanceador de carga, consulte a seção "IP de front-end privado por balanceador de carga" em [limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
+Para saber mais sobre limites do balanceador de carga, confira a seção "IP de front-end privado por balanceador de carga" em [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 O cenário completo com dois sistemas SAP de alta disponibilidade seria assim:
 
 ![Instalação multi-SID de alta disponibilidade do SAP com dois SIDs do sistema SAP][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Preparar a infraestrutura para um cenário de vários SIDs do SAP
+## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a><a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Preparar a infraestrutura para um cenário de vários SIDs do SAP
 
 Para preparar sua infra-estrutura, é possível instalar uma instância do SAP ASCS/SCS adicional com os seguintes parâmetros:
 
@@ -388,7 +388,7 @@ Faça o seguinte:
 1. Inclua discos adicionais com o mesmo tamanho (que você precisa distribuir) para cada um dos nós de cluster e formate-os.
 2. Configure a replicação de armazenamento com SIOS DataKeeper.
 
-Este procedimento pressupõe que você já tenha instalado o SIOS DataKeeper em computadores do cluster WSFC. Se você o tiver instalado, agora será necessário configurar a replicação entre os computadores. O processo é descrito em detalhes em [instalar o sios Datakeeper Cluster Edition para o disco de compartilhamento de cluster do SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
+Este procedimento pressupõe que você já tenha instalado o SIOS DataKeeper em computadores do cluster WSFC. Se você o tiver instalado, agora será necessário configurar a replicação entre os computadores. O processo é descrito em detalhes em [Instalar SIOS DataKeeper Cluster Edition para o disco compartilhado do cluster do SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].  
 
 ![Espelhamento síncrono do DataKeeper para o novo disco de compartilhamento do SAP ASCS/SCS][sap-ha-guide-figure-6006]
 
@@ -401,16 +401,16 @@ Para concluir a preparação da infraestrutura para o segundo sistema SAP, faça
 
 ## <a name="install-an-sap-netweaver-multi-sid-system"></a>Instalar um sistema de vários SIDs do SAP NetWeaver
 
-Para obter uma descrição do processo completo de instalação de um segundo sistema SAP SID2, consulte [instalação de alta disponibilidade do SAP NetWeaver no cluster de failover do Windows e disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk].
+Para obter uma descrição do processo de instalação de um sistema SAP SID2 segundo completa, confira [Instalação de alta disponibilidade do SAP NetWeaver no Cluster de Failover do Windows e disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk].
 
 O procedimento de alto nível é o seguinte:
 
 1. [Instale o SAP com uma instância ASCS/SCS de alta disponibilidade][sap-high-availability-installation-wsfc-shared-disk-install-ascs].  
  Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no nó de cluster WSFC existente 1.
 
-2. [Modifique o perfil SAP da instância do ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
+2. [Modifique o perfil SAP da instância ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile].
 
-3. [Configure uma porta de investigação][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
+3. [Configurar uma investigação][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].  
  Nesta etapa, você configurará uma porta de investigação SAP-SID2-IP do recurso do cluster SAP usando o PowerShell. Execute essa configuração em um dos nós do cluster SAP ASCS/SCS.
 
 4. Instalar a instância de banco de dados.  
@@ -420,21 +420,21 @@ O procedimento de alto nível é o seguinte:
  Nesta etapa, instale o SAP com uma instância do ASCS/SCS de alta disponibilidade no nó de cluster WSFC existente 2. Para instalar o segundo cluster, siga as etapas no guia de instalação do SAP.
 
 6. Abra portas do Firewall do Windows para a Instância do SAP ASCS/SCS e a ProbePort.  
-    Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas da instância do SAP ASCS/SCS são listadas no capítulo [portas do SAP ASCS/SCS][sap-net-weaver-ports-ascs-scs-ports].
+    Em ambos os nós de cluster usados para as instâncias do SAP ASCS/SCS, abra todas as portas do Firewall do Windows usadas pelo SAP ASCS/SCS. Essas portas da instância SAP ASCS/SCS são listadas no capítulo [Portas do SAP ASCS/SCS][sap-net-weaver-ports-ascs-scs-ports].
 
-    Para obter uma lista de todas as outras portas SAP, consulte [portas TCP/IP de todos os produtos SAP][sap-net-weaver-ports].  
+    Para obter uma lista de todas as outras portas do SAP, confira [Portas TCP/IP de todos os produtos SAP][sap-net-weaver-ports].  
 
-    Além disso, abra a porta de investigação do balanceador de carga interno do Azure, que, neste cenário, é 62350. Ele é descrito [neste artigo][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
+    Além disso, abra a porta de investigação do balanceador de carga interno do Azure, que, neste cenário, é 62350. Ela é descrita [neste artigo][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Altere o tipo de início da instância de serviço do Windows ERS (liquidação de recebimento avaliado) SAP][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
+7. [Alterar o tipo de início da instância do serviço Windows do ERS (liquidação de recebimento avaliado) do SAP][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
 
 8. Instale o servidor de aplicativos primário SAP na nova VM dedicada, conforme descrito no guia de instalação do SAP.  
 
 9. Instale o servidor de aplicativos adicional SAP na nova VM dedicada, conforme descrito no guia de instalação do SAP.
 
-10. [Teste o failover da instância do SAP ASCS/SCS e a replicação sios][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
+10. [Teste o failover de ocorrência SAP ASCS/SCS e a replicação do SIOS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl].
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]
-- [Vários VIPs para Azure Load Balancer][load-balancer-multivip-overview]
+- [Múltiplos VIPs para o Azure Load Balancer][load-balancer-multivip-overview]

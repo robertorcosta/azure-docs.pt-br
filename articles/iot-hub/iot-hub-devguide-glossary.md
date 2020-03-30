@@ -1,6 +1,6 @@
 ---
 title: Glossário de termos do Hub IoT do Azure | Microsoft Docs
-description: Guia do desenvolvedor – um glossário explicando alguns dos termos comuns usados nos artigos do Hub IoT do Azure.
+description: Guia do desenvolvedor - um glossário explicando alguns dos termos comuns usados nos artigos do Azure IoT Hub.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: d73dcb89739395e4dd52b1ef4d39c41ad6125666
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3471bd7297118dc75fb97390c4601179f61e6416
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457147"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497534"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -30,7 +30,7 @@ O back-end da sua solução pode usar [configurações de dispositivo automátic
 ## <a name="azure-classic-cli"></a>CLI clássica do Azure
 O [CLI clássico do Azure](../cli-install-nodejs.md) é uma ferramenta de comando baseada em shell, de plataforma cruzada e código aberto para criar e gerenciar recursos no Microsoft Azure. Esta versão da CLI deve ser usada apenas para implantações clássicas.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure.
 
 
@@ -44,16 +44,16 @@ Há _SDKs de serviço_ disponíveis para vários idiomas que permitem que você 
 As [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) são uma extensão multiplataforma do Visual Studio Code, o código-fonte aberto que ajuda você a gerenciar dispositivos no VS Code e o Hub IoT do Azure. Com as Ferramentas do Azure IoT, os desenvolvedores de IoT podem desenvolver o projeto de IoT no VS Code com facilidade.
 
 ## <a name="azure-portal"></a>Portal do Azure
-O [portal do Microsoft Azure](https://portal.azure.com) é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Ele organiza seu conteúdo usando _folhas_.
+O [portal Microsoft Azure](https://portal.azure.com) é um lugar central onde você pode provisionar e gerenciar seus recursos do Azure. Ele organiza seu conteúdo usando _folhas_.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 O [Azure PowerShell](/powershell/azure/overview) é uma coleção de cmdlets que você pode usar para gerenciar o Azure com o Windows PowerShell. É possível usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços entregues pela plataforma Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-O [Azure Resource Manager](../azure-resource-manager/management/overview.md) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir os recursos da sua solução em uma única operação coordenada.
+[O Azure Resource Manager](../azure-resource-manager/management/overview.md) permite que você trabalhe com os recursos em sua solução em grupo. Você pode implantar, atualizar ou excluir os recursos da sua solução em uma única operação coordenada.
 
-## <a name="azure-service-bus"></a>Service Bus do Azure
-O [Barramento de Serviço](../service-bus/index.md) fornece a comunicação habilitada para nuvem com mensagens corporativas e comunicações retransmitidas que o ajudam a conectar soluções locais com a nuvem. Alguns tutoriais do Hub IoT utilizam [filas](../service-bus-messaging/service-bus-messaging-overview.md) do Barramento de Serviço.
+## <a name="azure-service-bus"></a>Barramento de Serviço do Azure
+[Service Bus](../service-bus/index.md) fornece comunicação habilitada para nuvem com mensagens corporativas e comunicação retransmitida que ajuda você a conectar soluções locais com a nuvem. Alguns tutoriais do Hub IoT utilizam [filas](../service-bus-messaging/service-bus-messaging-overview.md) do Barramento de Serviço.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 O [Armazenamento do Azure](../storage/common/storage-introduction.md) é uma solução de armazenamento de nuvem. Ele inclui o serviço Armazenamento de Blobs que você pode usar para armazenar dados de objetos não estruturados. Alguns tutoriais do Hub IoT usam o armazenamento de blobs.
@@ -103,7 +103,7 @@ No contexto do IoT, um dispositivo é normalmente um dispositivo de computação
 Um aplicativo de dispositivo é executado em seu [dispositivo](#device) e gerencia a comunicação com o [hub IoT](#iot-hub). Normalmente, você usa um dos [SDKs de dispositivo IoT do Azure](#azure-iot-device-sdks) ao implementar um aplicativo de dispositivo. Em muitos dos tutoriais de IoT, você deve usar um [dispositivo simulado](#simulated-device) para sua conveniência.
 
 ## <a name="device-condition"></a>Condição do dispositivo
-Refere-se a informações de estado do dispositivo, como o método de conectividade em uso, conforme relatado por um [aplicativo de dispositivo](#device-app). Os [aplicativos de dispositivo](#device-app) também podem relatar suas funcionalidades. Você pode consultar informações de condição e de funcionalidade usando dispositivos gêmeos.
+Refere-se às informações do estado do dispositivo, como o método de conectividade atualmente em uso, conforme relatado por um [aplicativo de dispositivo](#device-app). Os [aplicativos de dispositivo](#device-app) também podem relatar suas funcionalidades. Você pode consultar informações de condição e de funcionalidade usando dispositivos gêmeos.
 
 ## <a name="device-data"></a>Dados do dispositivo
 Os dados do dispositivo referem-se aos dados por dispositivo armazenados no [registro de identidade](#identity-registry) do Hub IoT. É possível importar e exportar esses dados.
@@ -114,7 +114,7 @@ O [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/to
 ## <a name="device-identity"></a>Identidade do dispositivo
 A identidade do dispositivo é o identificador exclusivo atribuído a cada dispositivo registrado no [registro de identidade](#identity-registry).
 
-## <a name="device-management"></a>Gerenciamento de dispositivo
+## <a name="device-management"></a>Gerenciamento de dispositivos
 O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação.
 
 ## <a name="device-management-patterns"></a>Padrões de gerenciamento de dispositivos
@@ -124,7 +124,7 @@ O [hub IoT](#iot-hub) permite que os padrões comuns de gerenciamento de disposi
 Você pode usar a [API REST de Dispositivo](https://docs.microsoft.com/rest/api/iothub/device) de um dispositivo para enviar mensagens de dispositivo para a nuvem a um hub IoT e receber mensagens da [nuvem para o dispositivo](#cloud-to-device) de um hub IoT. Normalmente, você deve usar um dos [SDKs de dispositivo](#azure-iot-device-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
-O provisionamento de dispositivos é o processo de adição dos [dados de dispositivo](#device-data) iniciais para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma ID e chaves de dispositivo ao [registro de identidades](#identity-registry) do Hub IoT. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
+O provisionamento do dispositivo é o processo de adicionar os dados iniciais do [dispositivo](#device-data) às lojas em sua solução. Para habilitar um novo dispositivo para se conectar ao seu hub, você deve adicionar um ID de dispositivo e chaves ao [registro de identidade](#identity-registry)do IoT Hub . Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
 
 ## <a name="device-twin"></a>Dispositivo gêmeo
 Um [dispositivo gêmeo](iot-hub-devguide-device-twins.md) é um documento JSON que armazena informações de estado do dispositivo, como metadados, configurações e condições. O [Hub IoT](#iot-hub) persiste um dispositivo gêmeo para cada dispositivo que você provisiona no hub IoT. Os dispositivos gêmeos permitem sincronizar [condições de dispositivo](#device-condition) e configurações entre o dispositivo e o back-end da solução. Você pode consultar dispositivos gêmeos para localizar dispositivos específicos e consultar o status de operações de longa duração.
@@ -139,10 +139,10 @@ Um hub IoT expõe vários [pontos de extremidade](iot-hub-devguide-endpoints.md)
 [Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md) é um serviço de entrada de dados altamente dimensionável que pode incluir milhões de eventos por segundo. O serviço permite processar e analisar as grandes quantidades de dados produzidas por aplicativos e dispositivos conectados. Para obter uma comparação com o serviço Hub IoT, veja [Comparação do Hub IoT do Azure e Hubs de Eventos do Azure](iot-hub-compare-event-hubs.md).
 
 ## <a name="event-hub-compatible-endpoint"></a>Ponto de extremidade compatível com o Hub de Eventos
-Para ler mensagens do [dispositivo para nuvem](#device-to-cloud) enviadas ao seu hub IoT, você pode se conectar a um ponto de extremidade em seu hub e usar qualquer método compatível com o Hub de Eventos para ler essas mensagens. Entre os métodos compatíveis com o Hub de Eventos estão o uso de [SDKs dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md) e o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md).
+Para ler mensagens [de dispositivo para nuvem](#device-to-cloud) enviadas ao seu hub de IoT, você pode se conectar a um ponto final em seu hub e usar qualquer método compatível com o Event Hub para ler essas mensagens. Entre os métodos compatíveis com o Hub de Eventos estão o uso de [SDKs dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md) e o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Gateway de campo
-Um gateway de campo permite a conectividade para dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub) e normalmente é implantado localmente com seus dispositivos. Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md)
+Um gateway de campo permite a conectividade para dispositivos que não podem se conectar diretamente ao [IoT Hub](#iot-hub) e é normalmente implantado localmente com seus dispositivos. Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md)
 
 ## <a name="free-account"></a>Conta gratuita
 Você pode criar uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) para concluir os tutoriais do Hub IoT e experimentar o serviço Hub IoT (e outros serviços do Azure).
@@ -170,14 +170,14 @@ A [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) é uma 
 ## <a name="iot-hub-resource-rest-api"></a>API REST de Recursos do Hub IoT
 Você pode usar a [API REST dos recursos do Hub IoT](https://docs.microsoft.com/rest/api/iothub/iothubresource) para gerenciar os hubs IoT em sua [assinatura do Azure](#subscription) que executam operações como criar, atualizar e excluir hubs.
 
-## <a name="iot-solution-accelerators"></a>Aceleradores de solução de IoT
+## <a name="iot-solution-accelerators"></a>Aceleradores de solução do IoT
 Os aceleradores de solução do Azure IoT incluem vários serviços do Azure para oferecer diferentes soluções. Essas soluções permitem que você realize rapidamente implementações de ponta a ponta de cenários comuns de IoT. Para obter mais informações, consulte [O que são os aceleradores de solução do Azure IoT?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli"></a>A extensão IoT para o CLI do Azure 
 [A extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
 
 ## <a name="job"></a>Trabalho
-O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa  para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
+Sua solução back-end pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e rastrear atividades em um conjunto de dispositivos registrados em seu hub de IoT. As atividades incluem atualizar [as propriedades desejadas do](#desired-properties)dispositivo, atualizar as tags [gêmeas do](#tags)dispositivo e invocar [métodos diretos.](#direct-method) O [Hub IoT](#iot-hub) também usa  para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
 
 ## <a name="modules"></a>Módulos
 No lado do dispositivo, os SDKs do dispositivo do Hub IoT permitem criar [módulos](iot-hub-devguide-module-twins.md) em que cada um abre uma conexão independente com o Hub IoT. Essa funcionalidade permite usar namespaces separados para diferentes componentes em seu dispositivo.
@@ -191,10 +191,10 @@ A identidade de módulo é o identificador exclusivo atribuído a cada módulo q
 Semelhante a um dispositivo gêmeo, um módulo gêmeo é um documento JSON que armazena informações de estado do módulo, como metadados, configurações e condições. O Hub IoT persiste um módulo gêmeo para cada identidade de módulo que você provisionar com uma identidade do dispositivo no seu Hub IoT. Os módulos gêmeos permitem sincronizar condições de módulo e configurações entre o módulo e o back-end da solução. Você pode consultar módulos gêmeos para localizar módulos específicos e consultar o status de operações de longa duração.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](https://mqtt.org/) é um dos protocolos de mensagens com suporte do [Hub IoT](#iot-hub) para comunicação com dispositivos. Para saber mais sobre os protocolos de mensagens com suporte do Hub IoT, consulte [Enviar e receber mensagens com o Hub IoT](iot-hub-devguide-messaging.md).
+[O MQTT](https://mqtt.org/) é um dos protocolos de mensagens que o [IoT Hub](#iot-hub) suporta para se comunicar com dispositivos. Para saber mais sobre os protocolos de mensagens com suporte do Hub IoT, consulte [Enviar e receber mensagens com o Hub IoT](iot-hub-devguide-messaging.md).
 
 ## <a name="operations-monitoring"></a>Monitoramento de operações
-O [monitoramento das operações](iot-hub-operations-monitoring.md) do Hub IoT permite monitorar o status das operações no seu Hub IoT em tempo real. O [Hub IoT](#iot-hub) controla eventos em várias categorias de operações. Você pode aceitar o envio de eventos de uma ou mais categorias para um ponto de extremidade de Hub IoT para processamento. É possível monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
+O monitoramento de [operações](iot-hub-operations-monitoring.md) do IoT Hub permite monitorar o status das operações em seu hub de IoT em tempo real. [O IoT Hub](#iot-hub) rastreia eventos em várias categorias de operações. Você pode aceitar o envio de eventos de uma ou mais categorias para um ponto de extremidade de Hub IoT para processamento. É possível monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
 
 ## <a name="physical-device"></a>Dispositivo físico
 Um dispositivo físico é um dispositivo real como um Raspberry Pi que se conecta a um hub IoT. Para sua conveniência, muitos dos tutoriais do Hub IoT usam [dispositivos simulados](#simulated-device) para que você possa executar os exemplos em seu computador local.
@@ -203,9 +203,9 @@ Um dispositivo físico é um dispositivo real como um Raspberry Pi que se conect
 Quando você se conecta a um ponto de extremidade voltado para o dispositivo ou voltado para o serviço em um hub IoT, sua [cadeia de conexão](#connection-string) inclui a chave para conceder acesso. Quando você adiciona um dispositivo ao [registro de identidade](#identity-registry) ou adiciona uma [política de acesso compartilhado](#shared-access-policy) para o hub, o serviço gera uma chave primária e secundária. Ter duas chaves permite que você passe de uma chave para outra quando você atualiza uma chave sem perder o acesso ao hub IoT.
 
 ## <a name="protocol-gateway"></a>Gateway de protocolo
-Um gateway de protocolo geralmente é implantado na nuvem e fornece serviços de conversão de protocolo para dispositivos que se conectam ao [Hub IoT](#iot-hub). Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md)
+Um gateway de protocolo é normalmente implantado na nuvem e fornece serviços de tradução de protocolo para dispositivos conectados ao [IoT Hub](#iot-hub). Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md)
 
-## <a name="quotas-and-throttling"></a>Cotas e limitações
+## <a name="quotas-and-throttling"></a>Cotas e limitação
 Há várias [cotas](iot-hub-devguide-quotas-throttling.md) que se aplicam ao uso do [Hub IoT](#iot-hub), muitas delas variam de acordo com a camada do hub IoT. O [Hub IoT](#iot-hub) também aplica [limitações](iot-hub-devguide-quotas-throttling.md) ao uso do serviço em tempo de execução.
 
 ## <a name="reported-configuration"></a>Configuração relatada
@@ -214,7 +214,7 @@ No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), a conf
 ## <a name="reported-properties"></a>Propriedades reportadas
 No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as propriedades relatadas compõem uma subseção do dispositivo gêmeo usado com [propriedades desejadas](#desired-properties) para sincronizar a configuração ou a condição do dispositivo. As propriedades relatadas só podem ser definidas pelo [aplicativo de dispositivo](#device-app) e podem ser lidas e consultadas pelo [aplicativo de back-end](#back-end-app).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 O [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para agrupar recursos relacionados. Você pode usar um grupo de recursos para executar operações em todos os recursos no grupo simultaneamente.
 
 ## <a name="retry-policy"></a>Política de repetição
@@ -226,8 +226,8 @@ Configurar [as regras de roteamento](iot-hub-devguide-messages-read-custom.md) e
 ## <a name="sasl-plain"></a>SASL SIMPLES
 SASL PLAIN é um protocolo que o protocolo AMQP usa para transferir tokens de segurança.
 
-## <a name="service-rest-api"></a>API REST do serviço
-Você pode usar a [API REST de Serviço](https://docs.microsoft.com/rest/api/iothub/service) da solução de back-end para gerenciar seus dispositivos. A API permite recuperar e atualizar as propriedades de [dispositivos gêmeos](#device-twin) e chamar [métodos diretos](#direct-method) e [trabalhos](#job) programados. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
+## <a name="service-rest-api"></a>API REST do Serviço
+Você pode usar a [API REST de Serviço](https://docs.microsoft.com/rest/api/iothub/service/configuration) da solução de back-end para gerenciar seus dispositivos. A API permite recuperar e atualizar as propriedades de [dispositivos gêmeos](#device-twin) e chamar [métodos diretos](#direct-method) e [trabalhos](#job) programados. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. A autenticação de SAS tem dois componentes: uma _Política de acesso Compartilhado_ e uma _Assinatura de Acesso Compartilhado_ (normalmente chamada de token). Um dispositivo usa SAS para se autenticar em um hub IoT. Os [aplicativos de back-end](#back-end-app) também usam SAS para se autenticar com os pontos de extremidade voltados para o serviço em um hub IoT. Normalmente, você pode incluir o token SAS na [cadeia de conexão](#connection-string) que um aplicativo usa para estabelecer uma conexão com um hub IoT.

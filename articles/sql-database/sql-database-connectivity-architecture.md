@@ -1,6 +1,6 @@
 ---
 title: Arquitetura de conectividade
-description: Este documento explica a arquitetura de conectividade do SQL do Azure para conexões de banco de dados de dentro do Azure ou de fora do Azure.
+description: Este documento explica a arquitetura de conectividade Azure SQL para conexões de banco de dados de dentro do Azure ou de fora do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256413"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
@@ -24,9 +24,9 @@ ms.locfileid: "79256413"
 > Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Este artigo faz *não* se aplica à **Instância Gerenciada do Banco de Dados SQL do Azure**. Consulte [arquitetura de conectividade para uma instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
+> Este artigo faz *não* se aplica à **Instância Gerenciada do Banco de Dados SQL do Azure**. Consulte a [arquitetura conectividade para obter uma instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).
 
-Este artigo explica a arquitetura de vários componentes que direcionam o tráfego de rede para o banco de dados SQL do Azure ou SQL Data Warehouse. Ele também explica políticas de conexão diferentes e como isso afeta os clientes que se conectam de dentro do Azure e os clientes que se conectam de fora do Azure. 
+Este artigo explica a arquitetura de vários componentes que direcionam o tráfego de rede para o Banco de Dados SQL do Azure ou para o SQL Data Warehouse. Também explica diferentes políticas de conexão e como ela impacta os clientes que se conectam dentro do Azure e clientes que se conectam de fora do Azure. 
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 
@@ -44,15 +44,15 @@ As seguintes etapas descrevem como uma conexão é estabelecida com um banco de 
 
 O Banco de Dados SQL do Azure oferece suporte às três opções a seguir para a configuração de diretiva de conexão de um servidor do Banco de Dados SQL:
 
-- **Redirecionar (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados, levando à latência reduzida e à taxa de transferência aprimorada. Para conexões usarem esse modo, os clientes precisam:
-   - Permita a comunicação de saída do cliente para todos os endereços IP do Azure na região em portas no intervalo de 11000 11999. Use as marcas de serviço do SQL para facilitar o gerenciamento.  
-   - Permita a comunicação de saída do cliente para endereços IP do gateway do banco de dados SQL do Azure na porta 1433.
+- **Redirecionamento (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados, levando à redução da latência e melhor produtividade. Para que as conexões usem esse modo, os clientes precisam:
+   - Permitir a comunicação de saída do cliente para todos os endereços IP do Azure na região em portas na faixa de 11000 11999. Use as etiquetas de serviço para SQL para tornar isso mais fácil de gerenciar.  
+   - Permitir a comunicação de saída do cliente para endereços IP do gateway de banco de dados Azure SQL na porta 1433.
 
-- **Proxy:** Nesse modo, todas as conexões são proxy por meio dos gateways de banco de dados SQL do Azure, levando a uma latência maior e taxa de transferência reduzida. Para conexões usarem esse modo, os clientes precisam permitir a comunicação de saída do cliente para endereços IP do gateway do banco de dados SQL do Azure na porta 1433.
+- **Proxy:** Neste modo, todas as conexões são proxidas através dos gateways do Banco de Dados SQL do Azure, levando a um aumento da latência e redução do throughput. Para que as conexões usem esse modo, os clientes precisam permitir a comunicação de saída do cliente para os endereços IP do gateway gateway do Banco de Dados Azure SQL na porta 1433.
 
-- **Padrão:** Essa é a política de conexão em vigor em todos os servidores após a criação, a menos que você altere explicitamente a política de conexão para `Proxy` ou `Redirect`. A política padrão é`Redirect` para todas as conexões de cliente originadas dentro do Azure (por exemplo, de uma máquina virtual do Azure) e `Proxy`para todas as conexões de cliente que se originam fora (por exemplo, conexões de sua estação de trabalho local).
+- **Padrão:** Esta é a política de conexão em vigor em todos os `Proxy` servidores `Redirect`após a criação, a menos que você altere explicitamente a política de conexão para qualquer um ou . A política`Redirect` padrão é para todas as conexões de cliente originárias do Azure (por exemplo, de uma Máquina Virtual Do Azure) e `Proxy`para todas as conexões de clienteoriginadas fora (por exemplo, conexões da sua estação de trabalho local).
 
- É altamente recomendável a `Redirect` política de conexão sobre a política de conexão de `Proxy` para a menor latência e taxa de transferência mais alta. No entanto, será necessário atender aos requisitos adicionais para permitir o tráfego de rede, conforme descrito acima. Se o cliente for uma máquina virtual do Azure, você poderá fazer isso usando NSG (grupos de segurança de rede) com [marcas de serviço](../virtual-network/security-overview.md#service-tags). Se o cliente estiver se conectando de uma estação de trabalho local, talvez seja necessário trabalhar com o administrador de rede para permitir o tráfego de rede por meio do firewall corporativo.
+ Recomendamos altamente `Redirect` a política `Proxy` de conexão sobre a política de conexão para a menor latência e maior throughput. No entanto, você precisará atender aos requisitos adicionais para permitir o tráfego de rede como descrito acima. Se o cliente for uma Máquina Virtual Azure, você pode conseguir isso usando o NSG (Network Security Groups, grupos de segurança de [rede)](../virtual-network/security-overview.md#service-tags)com tags de serviço . Se o cliente estiver se conectando a partir de uma estação de trabalho no local, então você pode precisar trabalhar com o administrador da rede para permitir o tráfego de rede através do firewall corporativo.
 
 ## <a name="connectivity-from-within-azure"></a>Conectividade de dentro do Azure
 
@@ -67,20 +67,20 @@ Se você estiver se conectando de fora do Azure, as conexões terão uma políti
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Além disso, abra as portas 14000-14999 para habilitar a [conexão com o DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Além disso, abra as portas 14000-14999 para habilitar [a conexão com dac](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP de gateway do Banco de Dados SQL do Azure
 
-A tabela a seguir lista os endereços IP dos gateways por região. Para se conectar a um banco de dados SQL do Azure, você precisa permitir que o tráfego de rede & de **todos os** gateways para a região.
+A tabela abaixo lista os endereços IP de Gateways por região. Para se conectar a um banco de dados SQL do Azure, você precisa permitir que o tráfego de rede & de **todos os** Gateways para a região.
 
-Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões específicas estão no seguinte artigo: [migração de tráfego do banco de dados SQL do Azure para gateways mais recentes](sql-database-gateway-migration.md)
+Detalhes de como o tráfego deve ser migrado para novos Gateways em regiões específicas estão no seguinte artigo: Migração de [tráfego do Banco de Dados Azure SQL para Gateways mais novos](sql-database-gateway-migration.md)
 
 
-| Nome da Região          | Endereços IP do gateway |
+| Nome da Região          | Endereços IP do Gateway |
 | --- | --- |
 | Austrália Central    | 20.36.105.0 |
-| Central2 da Austrália   | 20.36.113.0 |
+| Austrália Central2   | 20.36.113.0 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
 | Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
@@ -107,9 +107,9 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Centro-Norte dos EUA     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Norte da Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Leste da Noruega          | 51.120.96.0        |
-| Oeste da Noruega          | 51.120.216.0       |
+| Noruega Ocidental          | 51.120.216.0       |
 | Norte da África do Sul   | 102.133.152.0      |
-| Oeste da África do Sul    | 102.133.24.0       |
+| África do Sul Ocidental    | 102.133.24.0       |
 | Centro-Sul dos Estados Unidos     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | Sudeste da Ásia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | EAU Central          | 20.37.72.64        |

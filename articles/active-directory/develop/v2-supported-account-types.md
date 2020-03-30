@@ -1,5 +1,5 @@
 ---
-title: Tipos de contas com suporte-plataforma Microsoft Identity | Azure
+title: Tipos de contas suportadas - plataforma de identidade Microsoft | Azure
 description: Documentação conceitual sobre públicos-alvo e tipos de conta com suporte em aplicativos
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,15 +17,15 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: de90c81f56b6017b2d53ecbfb2c400a4c9f05d81
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262276"
 ---
 # <a name="supported-account-types"></a>Tipos de conta com suporte
 
-Este artigo explica quais tipos de contas (às vezes chamadas de públicos) têm suporte em aplicativos.
+Este artigo explica quais tipos de contas (às vezes chamadas de público) são suportadas em aplicativos.
 
 <!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
 

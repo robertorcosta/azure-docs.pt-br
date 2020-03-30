@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251031"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo de múltiplas taxas de bits de codificadores locais
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhando com canais que recebem transmissão ao vivo multibitrate de codificadores locais
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
@@ -45,13 +45,13 @@ A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, po
 > [!NOTE]
 > Este artigo aborda os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
->Para obter informações sobre codificadores locais recomendados, consulte [codificadores locais recomendados](media-services-recommended-encoders.md).
+>Para obter informações sobre os codificadores recomendados no local, consulte [Os codificadores recomendados no local](media-services-recommended-encoders.md).
 
 O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que usa um codificador ativo local para gerar fluxos RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming).
 
 ![Fluxo de trabalho ao vivo][live-overview]
 
-## <a id="scenario"></a>Cenário comum de streaming ao vivo
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Cenário comum de streaming ao vivo
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo.
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ativo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
@@ -83,9 +83,9 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 
 10. Exclua o programa (e, opcionalmente, exclua o ativo).     
 
-## <a id="channel"></a>Descrição de um canal e seus componentes relacionados
-### <a id="channel_input"></a>Configurações de entrada de canal (ingestão)
-#### <a id="ingest_protocols"></a>Protocolo de streaming de ingestão
+## <a name="description-of-a-channel-and-its-related-components"></a><a id="channel"></a>Descrição de um canal e seus componentes relacionados
+### <a name="channel-input-ingest-configurations"></a><a id="channel_input"></a>Configurações de entrada de canal (ingestão)
+#### <a name="ingest-streaming-protocol"></a><a id="ingest_protocols"></a>Protocolo de streaming de ingestão
 Os Serviços de Mídia oferecem suporte à ingestão de feeds ao vivo usando MP4 fragmentado de múltipla taxas de bits e RTMP de múltiplas taxas de bits como protocolos de streaming. Quando o protocolo de transmissão de ingestão RTMP é selecionado, dois pontos de extremidade de ingestão (entrada) são criados para o canal:
 
 * **URL principal**: especifica a URL totalmente qualificada do ponto de extremidade de ingestão de RTMP principal do canal.
@@ -114,7 +114,7 @@ Você pode obter as URLs de ingestão ao criar o canal. Para obter essas URLs, o
 
 Você tem a opção de ingerir uma transmissão ao vivo de MP4 fragmentado (Smooth Streaming) em uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. No momento, você não pode ingerir RTMP sobre SSL.
 
-#### <a id="keyframe_interval"></a>Intervalo de quadro-chave
+#### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervalo de quadro-chave
 Quando você usa um codificador ativo local para gerar um fluxo com múltiplas taxas de bits, o intervalo de quadro-chave especifica a duração de GOP (grupo de imagens), conforme usado pelo codificador externo. Após o canal receber esse fluxo de entrada, você poderá entregar sua transmissão ao vivo aos aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) e HTTP Live Streaming (HLS). Ao fazer streaming ao vivo, o HLS é sempre empacotado dinamicamente. Por padrão, os Serviços de Mídia calculam automaticamente a taxa de empacotamento de segmento HLS (fragmentos por segmento) com base no intervalo de quadros-chave que é recebido do codificador ativo.
 
 A tabela a seguir mostra como a duração do segmento é calculada:
@@ -173,7 +173,7 @@ Para excluir o conteúdo arquivado, interrompa e exclua o programa e, em seguida
 
 Mesmo após a interrupção e exclusão do programa, os usuários poderão transmitir seu conteúdo arquivado como vídeo sob demanda até você excluir o ativo. Se você quiser manter o conteúdo arquivado mas ele não está disponível para streaming, exclua o localizador de streaming.
 
-## <a id="states"></a>Estados de canal e cobrança
+## <a name="channel-states-and-billing"></a><a id="states"></a>Estados de canal e cobrança
 Os valores possíveis para o estado atual de um canal incluem:
 
 * **Parado**: este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
@@ -186,12 +186,12 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 
 | Estado de canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
-| **Iniciando** |**Iniciando** |Nenhum (estado transitório) |
-| **Executando** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |Sim |
-| **Parando** |**Parando** |Nenhum (estado transitório) |
-| **Stopped (parado)** |**Stopped (parado)** |Não |
+| **Começando** |**Começando** |Nenhum (estado transitório) |
+| **Em execução** |**Pronto** (nenhum programa em execução)<p><p>ou<p>**Streaming** (há pelo menos um programa em execução) |Sim |
+| **Parar** |**Parar** |Nenhum (estado transitório) |
+| **Parou** |**Parou** |Não |
 
-## <a id="cc_and_ads"></a>Legendagem oculta e inserção de anúncios
+## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Legendas fechadas e inserção de anúncios
 A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inserção de anúncios.
 
 | Standard | Observações |
@@ -200,7 +200,7 @@ A tabela a seguir demonstra os padrões com suporte de legendagem oculta e inser
 | TTML em ismt (faixas de texto de Smooth Streaming) |O empacotamento dinâmico dos Serviços de Mídia habilita os clientes a transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou Smooth Streaming. No entanto, se ingerir MP4 fragmentado (Smooth Streaming) com legendas em .ismt (faixas de texto de Smooth Streaming), você pode entregar o fluxo apenas a clientes de Smooth Streaming. |
 | SCTE-35 |SCTE-35 é um sistema de sinalização digital usado para a inserção de anúncios de indicação. Receptores de downstream usam o sinal para unir a publicidade ao fluxo pelo tempo alocado. SCTE-35 deve ser enviado como uma faixa esparsa no fluxo de entrada.<p><p>No momento, o único formato de fluxo de entrada com suporte que transporta sinais de anúncios é o MP4 fragmentado (Smooth Streaming). O único formato de saída com suporte também é Smooth Streaming. |
 
-## <a id="considerations"></a>Considerações
+## <a name="considerations"></a><a id="considerations"></a>Considerações
 Ao se usar um codificador ao vivo local para enviar um fluxo com múltiplas taxas de bits a um canal, as seguintes restrições são aplicáveis:
 
 * Verifique se que você tem conectividade com a Internet livre suficiente para enviar dados aos pontos de ingestão.
@@ -229,7 +229,7 @@ Confira outras considerações relacionadas ao trabalho com canais e componentes
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados
-[Codificadores locais recomendados](media-services-recommended-encoders.md)
+[Recomendado em codificadores de instalações](media-services-recommended-encoders.md)
 
 [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](../media-services-fmp4-live-ingest-overview.md)
 
