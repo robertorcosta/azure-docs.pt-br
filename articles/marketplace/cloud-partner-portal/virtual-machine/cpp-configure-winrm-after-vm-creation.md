@@ -1,19 +1,18 @@
 ---
-title: Configurar o WinRM após a criação da máquina virtual do Azure | Azure Marketplace
+title: Configure o WinRM após a criação da máquina virtual do Azure | Mercado Azure
 description: Explica como configurar o WinRM (Gerenciamento Remoto do Windows) após a criação de uma máquina de virtual hospedada no Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.author: dsindona
+ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77481367"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278137"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurar o WinRM após a criação da máquina virtual
 
@@ -25,9 +24,9 @@ Este artigo explica como configurar uma VM (máquina virtual hospedada no Azure)
 
 ## <a name="enabling-port-traffic"></a>Habilitado o tráfego da porta
 
-O protocolo WinRM via HTTPS usa a porta 5986, que não está habilitada por padrão em VMs pré-configuradas do Windows oferecidas no Azure Marketplace. Para habilitar esse protocolo, siga as etapas a seguir para adicionar uma nova regra ao NSG (Grupo de Segurança de Rede) com o [portal do Azure](https://portal.azure.com).  Para obter mais informações sobre os NSGs, confira [Grupos de Segurança](https://docs.microsoft.com/azure/virtual-network/security-overview).
+O protocolo WinRM over HTTPS usa a porta 5986, que não é habilitada por padrão em VMs Windows pré-configurados oferecidos no Azure Marketplace. Para habilitar esse protocolo, siga as etapas a seguir para adicionar uma nova regra ao NSG (Grupo de Segurança de Rede) com o [portal do Azure](https://portal.azure.com).  Para obter mais informações sobre os NSGs, confira [Grupos de Segurança](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Navegue até a folha **Máquinas virtuais >**   <*nome-da-vm*>   **> Configurações/Rede**.
+1.  Navegue até a lâmina **Máquinas virtuais >**   < *nome* >   vm **> Configurações/Rede**.
 2.  Clique no nome do NSG (neste exemplo, **testvm11002**) para exibir suas propriedades:
 
     ![Propriedades do grupo de segurança de rede](./media/nsg-properties.png)

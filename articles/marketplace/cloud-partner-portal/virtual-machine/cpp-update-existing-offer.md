@@ -1,19 +1,18 @@
 ---
-title: Atualizar uma oferta de VM existente no Azure Marketplace
+title: Atualize uma oferta de VM existente no Azure Marketplace
 description: Explica como atualizar uma oferta de VM existente no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: evansma
-ms.openlocfilehash: 1ba2abb3fbeb1d08ed780669fb94a2ef83cbfb1b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.author: dsindona
+ms.openlocfilehash: fe1397d7ad00a2eb6e9fe04d8bfa50e49839fe34
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934239"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288777"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Atualizar uma oferta de VM existente no Azure Marketplace
 
@@ -30,7 +29,7 @@ Existem várias razões comuns para você atualizar sua oferta, incluindo:
 Para ajudá-lo nessas modificações, o portal oferece os recursos **Comparar** e **Histórico**.  
 
 >[!Note]
->A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
+>O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](../../cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Alterações não permitidas na oferta de VM ou SKU
 
@@ -76,7 +75,7 @@ Para modificar a disponibilidade, use as seguintes etapas:
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  Sob **todas as ofertas** localize a oferta que você deseja atualizar.
+2.  Em **Todas as ofertas** encontre a oferta que você gostaria de atualizar.
 
 3.  Na guia **SKUs**, clique no SKU que você deseja modificar sua disponibilidade.
 
@@ -95,7 +94,7 @@ Use as etapas a seguir para disponibilizar um novo SKU para sua oferta existente
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  Sob **todas as ofertas** localize a oferta que você deseja atualizar.
+2.  Em **Todas as ofertas** encontre a oferta que você gostaria de atualizar.
 
 3.  Na guia **SKUs**, clique em **Add new SKU** e forneça um **SKU ID** no pop-up.
 
@@ -110,7 +109,7 @@ Utilize os seguintes passos para atualizar os metadados do mercado - nome da emp
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  Sob **todas as ofertas** localize a oferta que você deseja atualizar.
+2.  Em **Todas as ofertas** encontre a oferta que você gostaria de atualizar.
 
 3.  Vá para a guia **Marketplace** e siga as instruções no artigo [Publique uma máquina virtual no Azure Marketplace](./cpp-publish-offer.md) para fazer alterações nos metadados.
 
@@ -119,7 +118,7 @@ Utilize os seguintes passos para atualizar os metadados do mercado - nome da emp
 
 ### <a name="update-pricing-on-published-offers"></a>Atualizar o preço em ofertas publicadas
 
-Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamente o preço da SKU.  (No entanto, você pode criar um novo SKU na mesma oferta, excluir o SKU antigo e, em seguida, republicar sua oferta para novos clientes.)  Por outro lado, você pode diminuir o preço de uma oferta publicada usando as seguintes etapas:
+Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamente o preço da SKU.  (No entanto, você pode criar um novo SKU a mesma oferta, excluir o Antigo SKU e, em seguida, republicar sua oferta para novos clientes.)  Em contrapartida, você pode diminuir o preço de uma oferta publicada usando as seguintes etapas:
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -129,7 +128,7 @@ Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamen
 
 4.  Se você definiu o preço na GUI 1x1, poderá alterar o preço diretamente na interface do usuário. Se você definir o preço por meio da planilha de importação / exportação, só poderá diminuir os preços por meio do recurso de importação / exportação.
 
-3.  Clique em **Save** (Salvar).
+3.  Clique em **Salvar**.
 
 4.  Clique em **Publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
 
@@ -145,7 +144,7 @@ Se eles já tiverem sido cobrados pelo ciclo durante o qual ocorreu uma reduçã
 
 A partir de 1º de setembro de 2018, uma nova seção chamada **Precificação simplificada de moeda** será adicionada ao portal. A Microsoft está simplificando os negócios do Azure Marketplace, permitindo preços e coleções mais previsíveis de seus clientes em todo o mundo. Essa simplificação incluirá a redução do número de moedas nas quais faturamos seus clientes.
 
-A nova seção terá preços nessas novas moedas. Depois que todos os clientes forem migrados para essas novas moedas de liquidação, a seção de preços original será desativada e somente a seção de preços de moeda simplificada permanecerá.
+A nova seção terá preços nessas novas moedas.Depois que todos os clientes forem migrados para essas novas moedas de liquidação, a seção de preços original será desativada e somente a seção Preços simplificados de moeda permanecerá.
 
 Você terá até 1º de novembro de 2018 para definir um novo preço para as regiões em que a moeda de liquidação está mudando. Você não poderá aumentar o preço para regiões em que a moeda de liquidação não está mudando.
 

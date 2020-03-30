@@ -1,24 +1,25 @@
 ---
-title: Palavras-chave do SQL para Azure Cosmos DB
-description: Saiba mais sobre palavras-chave do SQL para Azure Cosmos DB.
+title: Palavras-chave SQL para Azure Cosmos DB
+description: Saiba mais sobre as palavras-chave SQL para Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f2da2695ec20eac9dd2636104d3314427e60d541
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246572"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498543"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
-Este artigo fornece detalhes sobre palavras-chave que podem ser usadas em Azure Cosmos DB consultas SQL.
+
+Este artigo detalha palavras-chave que podem ser usadas em consultas Azure Cosmos DB SQL.
 
 ## <a name="between"></a>BETWEEN
 
-Como no ANSI SQL, você pode usar a palavra-chave BETWEEN para expressar consultas em intervalos de cadeias de caracteres ou valores numéricos. Por exemplo, a consulta a seguir retorna todos os itens nos quais a classificação do primeiro filho é 1-5, inclusive.
+Você pode `BETWEEN` usar a palavra-chave para expressar consultas contra intervalos de strings ou valores numéricos. Por exemplo, a consulta a seguir retorna todos os itens em que a nota da primeira criança é de 1 a 5 anos, inclusive.
 
 ```sql
     SELECT *
@@ -26,21 +27,21 @@ Como no ANSI SQL, você pode usar a palavra-chave BETWEEN para expressar consult
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-Ao contrário do SQL ANSI, você também pode usar a cláusula BETWEEN na cláusula FROM, como no exemplo a seguir.
+Você também pode `BETWEEN` usar a `SELECT` palavra-chave na cláusula, como no exemplo a seguir.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 ```
 
-Na API do SQL, ao contrário do SQL ANSI, você pode expressar consultas de intervalo em Propriedades de tipos mistos. Por exemplo, `grade` pode ser um número como `5` em alguns itens e uma cadeia de caracteres como `grade4` em outros. Nesses casos, como no JavaScript, a comparação entre os dois tipos diferentes resulta em `Undefined`, portanto, o item é ignorado.
+Na API SQL, ao contrário do ANSI SQL, você pode expressar consultas de intervalo contra propriedades de tipos mistos. Por exemplo, `grade` pode ser `5` um número como em `grade4` alguns itens e uma seqüência como em outros. Nestes casos, como em JavaScript, a comparação `Undefined`entre os dois tipos diferentes resulta em , de modo que o item é ignorado.
 
 > [!TIP]
-> Para tempos de execução de consulta mais rápidos, crie uma política de indexação que usa um tipo de índice de intervalo em qualquer propriedade numérica ou caminho que a cláusula BETWEEN filtra.
+> Para tempos de execução de consulta mais rápidos, crie uma política de indexação `BETWEEN` que use um tipo de índice de intervalo em relação a quaisquer propriedades numéricas ou caminhos que a cláusula filtra.
 
 ## <a name="distinct"></a>DISTINTO
 
-A palavra-chave DISTINCT elimina duplicatas na projeção da consulta.
+A `DISTINCT` palavra-chave elimina duplicatas na projeção da consulta.
 
 Neste exemplo, a consulta projeta valores para cada sobrenome:
 
@@ -57,7 +58,7 @@ Os resultados são:
 ]
 ```
 
-Você também pode projetar objetos exclusivos. Nesse caso, o campo lastName não existe em um dos dois documentos, portanto, a consulta retorna um objeto vazio.
+Você também pode projetar objetos únicos. Neste caso, o campo lastName não existe em um dos dois documentos, então a consulta retorna um objeto vazio.
 
 ```sql
 SELECT DISTINCT f.lastName
@@ -82,7 +83,7 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
-Essa consulta projeta uma matriz que contém o especificador de cada filho com duplicatas removidas. Essa matriz tem um alias como Filhonames e projetada na consulta externa.
+Esta consulta projeta uma matriz que contém o nome dado de cada criança com duplicatas removidas. Esta matriz é aliased como ChildNames e projetada na consulta externa.
 
 Os resultados são:
 
@@ -102,7 +103,7 @@ Os resultados são:
 ]
 ```
 
-Não há suporte para consultas com uma função de sistema agregada e uma subconsulta com DISTINCT. Por exemplo, não há suporte para a seguinte consulta:
+Consultas com uma função de sistema agregado `DISTINCT` e uma subconsulta com não são suportadas. Por exemplo, a seguinte consulta não é suportada:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -110,7 +111,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Use a palavra-chave IN para verificar se um valor especificado corresponde a qualquer valor em uma lista. Por exemplo, a consulta a seguir retorna todos os itens da família em que a `id` é `WakefieldFamily` ou `AndersenFamily`.
+Use a palavra-chave IN para verificar se um valor especificado corresponde a algum valor em uma lista. Por exemplo, a consulta a seguir retorna `id` todos `WakefieldFamily` `AndersenFamily`os itens da família onde está ou .
 
 ```sql
     SELECT *
@@ -118,7 +119,7 @@ Use a palavra-chave IN para verificar se um valor especificado corresponde a qua
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 ```
 
-O exemplo a seguir retorna todos os itens em que o estado é qualquer um dos valores especificados:
+O exemplo a seguir retorna todos os itens onde o estado é qualquer um dos valores especificados:
 
 ```sql
     SELECT *
@@ -126,15 +127,15 @@ O exemplo a seguir retorna todos os itens em que o estado é qualquer um dos val
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-A API do SQL fornece suporte para [iteração em matrizes JSON](sql-query-object-array.md#Iteration), com uma nova construção adicionada por meio da palavra-chave in na fonte from.
+A API SQL fornece suporte para [iteração sobre matrizes JSON,](sql-query-object-array.md#Iteration)com uma nova construção adicionada através da palavra-chave in na fonte FROM.
 
-Se você incluir sua chave de partição no filtro de `IN`, sua consulta será filtrada automaticamente somente para as partições relevantes.
+Se você incluir sua `IN` chave de partição no filtro, sua consulta será filtrada automaticamente apenas para as partições relevantes.
 
 ## <a name="top"></a>INÍCIO
 
-A palavra-chave TOP retorna o primeiro `N` número de resultados da consulta em uma ordem indefinida. Como prática recomendada, use TOP com a cláusula ORDER BY para limitar os resultados ao primeiro `N` número de valores ordenados. Combinar essas duas cláusulas é a única maneira de indicar de forma previsível quais linhas afetam os principais.
+A palavra-chave TOP `N` retorna o primeiro número de resultados de consulta em uma ordem indefinida. Como melhor prática, use `ORDER BY` TOP com a cláusula `N` para limitar os resultados ao primeiro número de valores pedidos. A combinação dessas duas cláusulas é a única maneira de indicar previsivelmente quais linhas TOP afeta.
 
-Você pode usar TOP com um valor constante, como no exemplo a seguir, ou com um valor de variável usando consultas parametrizadas.
+Você pode usar TOP com um valor constante, como no exemplo a seguir, ou com um valor variável usando consultas parametrizadas.
 
 ```sql
     SELECT TOP 1 *
@@ -165,6 +166,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Guia de Introdução](sql-query-getting-started.md)
+- [Começando](sql-query-getting-started.md)
 - [Junções](sql-query-join.md)
 - [Subconsultas](sql-query-subquery.md)

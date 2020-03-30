@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: 837fb87d73698961ec1550b122840563d1707f8a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663191"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no Azure (versão prévia)
@@ -41,7 +41,7 @@ Este artigo apresenta as práticas recomendadas para a [criação de um arquivo 
 - Configure a solução para [fazer referência](solutions-solution-file.md#solution-resource) a regras de alerta, de modo que os usuários possam alterar a configuração delas.  Talvez eles queiram modificar a lista de destinatários, mudar o limite do alerta ou desabilitar a regra de alerta. 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Veja o passo a passo do processo básico de [projetar e criar uma solução gerenciada](solutions-creating.md).
 * Saiba como [criar um arquivo de solução](solutions-solution-file.md).
 * [Adicionar alertas e pesquisas salvas](solutions-resources-searches-alerts.md) à sua solução de gerenciamento.

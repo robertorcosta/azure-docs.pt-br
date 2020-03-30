@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: kumud
-ms.openlocfilehash: b99e5e6809a909184d775c70b56c249c11734cb9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240230"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Como atribuir vários endereços IP a máquinas virtuais usando a CLI do Azure
 
@@ -28,7 +28,7 @@ Este artigo explica como criar uma máquina virtual (VM) por meio do Modelo de i
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Criar uma VM com vários endereços IP
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Criar uma VM com vários endereços IP
 
 As etapas a seguir explicam como criar uma máquina virtual de exemplo com vários endereços IP, como descrito no cenário. Altere os valores da variável em "" e os tipos de endereço IP conforme exigido por sua implementação. 
 
@@ -164,7 +164,7 @@ Depois que a VM é criada, insira o `az network nic show --name MyNic1 --resourc
 
 Adicione os endereços IP privados ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo.
 
-## <a name="add"></a>Adicionar endereços IP a uma VM
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Adicionar endereços IP a uma VM
 
 Você pode adicionar endereços IP públicos e privados adicionais para uma interface de rede do Azure existente ao concluir as etapas a seguir. Os exemplos baseiam-se no [cenário](#scenario) descrito neste artigo.
 
@@ -176,7 +176,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
     
     Para adicionar um endereço IP privado a uma NIC, você deve criar uma configuração de IP usando o comando a seguir. O endereço IP estático deve ser um endereço não usado para a sub-rede.
 
-    ```bash
+    ```azurecli
     az network nic ip-config create \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
@@ -196,7 +196,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
     
         Sempre que você adicionar um endereço IP público em uma nova configuração de IP, também deverá adicionar um endereço IP privado, pois todas as configurações de IP devem ter um endereço IP privado. Você pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
     
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group myResourceGroup \
         --location westcentralus \
@@ -204,9 +204,9 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
         --dns-name mypublicdns3
         ```
 
-        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, insira o seguinte comando:
+        Para criar uma nova configuração IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, digite o seguinte comando:
 
-        ```bash
+        ```azurecli
         az network nic ip-config create \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -217,7 +217,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
 
     - **Associar o recurso a uma configuração de IP existente** Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tenha um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
 
-        ```bash
+        ```azurecli
         az network nic ip-config list \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -234,7 +234,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
 
         Como a coluna **PublicIpAddress** para *IpConfig-3* está em branco na saída, nenhum recurso de endereço IP público está associado a ela no momento. Você pode adicionar um recurso de endereço IP público existente como IpConfig-3 ou inserir o seguinte comando para criar um:
 
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group  myResourceGroup
         --location westcentralus \
@@ -245,7 +245,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
     
         Insira o comando a seguir para associar o recurso de endereço IP público à configuração de IP existente chamada *IPConfig-3*:
     
-        ```bash
+        ```azurecli
         az network nic ip-config update \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -255,7 +255,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
 
 3. Digite o seguinte comando para ver os endereços IP privados e os IDs de recurso de endereço IP público atribuídos à NIC:
 
-    ```bash
+    ```azurecli
     az network nic ip-config list \
     --resource-group myResourceGroup \
     --nic-name myNic1 \

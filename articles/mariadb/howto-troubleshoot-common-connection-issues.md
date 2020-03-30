@@ -1,23 +1,23 @@
 ---
-title: Solucionar problemas de conexão-banco de dados do Azure para MariaDB
-description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para MariaDB, incluindo erros transitórios que exigem novas tentativas, problemas de firewall e interrupções.
+title: Problemas de conexão - Banco de dados Azure para MariaDB
+description: Saiba como solucionar problemas de conexão no Azure Database para MariaDB, incluindo erros transitórios que requerem repetições, problemas de firewall e paralisações.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 613de96ee58d37e6270266852e513e53857a441a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d134bcd0c5f9bfde0fdb095122d54848873174be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765725"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536353"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solucionar problemas de conexão ao Banco de Dados do Azure para MariaDB
 
 Os problemas de conexão podem ser causados por uma variedade de coisas, incluindo:
 
-* Configurações de Firewall
+* Configurações de firewall
 * Tempo limite da conexão
 * Informações de logon incorretas
 * Limite máximo atingido em alguns Banco de Dados do Azure para MariaDB
@@ -47,15 +47,15 @@ Se o aplicativo persistentemente falhar ao se conectar ao Banco de Dados do Azur
 
 * Configuração do firewall: O Banco de Dados do Azure para MariaDB ou o firewall do lado do cliente está bloqueando as conexões.
 * Reconfiguração da rede no lado do cliente: um novo endereço IP ou um servidor proxy foi adicionado.
-* Erro do usuário: por exemplo, você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo ausente do *\@ServerName* no nome de usuário.
+* Erro do usuário: Por exemplo, você pode ter parâmetros de conexão mal digitados, como o nome do servidor na seqüência de conexão ou um sufixo * \@de nome de servidor* ausente no nome do usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 
-1. Configure as [regras de firewall](howto-manage-firewall-portal.md) para permitir o endereço IP do cliente. Para fins de testes temporários, configure uma regra de firewall usando 0.0.0.0 como o endereço IP inicial e usando 255.255.255.255 como o endereço IP final. Isso abrirá o servidor para todos os endereços IP. Se isso resolver seu problema de conectividade, remova essa regra e crie uma regra de firewall para um intervalo de endereçamento ou um endereço IP adequadamente limitado.
+1. Configure [regras de firewall](howto-manage-firewall-portal.md) para permitir o endereço IP do cliente. Para fins de testes temporários, configure uma regra de firewall usando 0.0.0.0 como o endereço IP inicial e usando 255.255.255.255 como o endereço IP final. Isso abrirá o servidor para todos os endereços IP. Se isso resolver seu problema de conectividade, remova essa regra e crie uma regra de firewall para um intervalo de endereçamento ou um endereço IP adequadamente limitado.
 2. Em todos os firewalls entre o cliente e a Internet, certifique-se de que a porta 3306 esteja aberta para conexões de saída.
 3. Verifique a cadeia de conexão e outras configurações de conexão. Analise [Como conectar aplicativos ao Banco de Dados do Azure para MariaDB](howto-connection-string.md).
-4. Verifique a integridade do serviço no painel. Se você acha que há uma paralisação regional, consulte [Visão geral da continuidade de negócios com o Banco de Dados do Azure para MariaDB](concepts-business-continuity.md) para conhecer as etapas da recuperação em uma nova região.
+4. Verifique a integridade do serviço no painel. Se você acha que há uma paralisação regional, consulte [Visão geral da continuidade de negócios com o Azure Database para o MariaDB](concepts-business-continuity.md) para obter etapas para recuperar para uma nova região.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Manipulação de erros de conectividade temporários para o Banco de Dados do Azure para MariaDB](concepts-connectivity.md)
+* [Manipulação de erros de conectividade transitórios para o Banco de Dados do Azure para MariaDB](concepts-connectivity.md)

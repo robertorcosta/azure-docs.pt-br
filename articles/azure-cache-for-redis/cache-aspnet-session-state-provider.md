@@ -1,17 +1,17 @@
 ---
 title: Provedor de estado de sessão ASP.NET de cache
-description: Saiba como armazenar o estado de sessão ASP.NET na memória usando o cache do Azure para Redis.
+description: Aprenda a armazenar ASP.NET Estado de Sessão na memória usando o Cache Do Azure para Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 5c9af862ca2df3d812384c0f4ab660730aece872
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25cef95e2d01012506148f03be45104e455e1fcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433552"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530267"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provedor de Estado de Sessão ASP.NET para o Cache do Azure para Redis
 
@@ -126,6 +126,11 @@ Após a execução dessas etapas, o aplicativo será configurado para usar o Pro
 
 Para saber mais sobre o estado da sessão e outras práticas recomendadas, consulte [Práticas recomendadas para o desenvolvimento na Web (Criando aplicativos de nuvem reais com o Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="third-party-session-state-providers"></a>Provedores de estado de sessão de terceiros
+
+* [Ncache](https://www.alachisoft.com/ncache/session-index.html)
+* [Incêndio apache](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
+
+## <a name="next-steps"></a>Próximas etapas
 
 Confira o [Provedor de Cache de Saída do ASP.NET para o Cache do Azure para Redis](cache-aspnet-output-cache-provider.md).

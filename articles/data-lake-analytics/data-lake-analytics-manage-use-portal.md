@@ -10,10 +10,10 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265695"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
@@ -29,8 +29,8 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 
 ### <a name="create-an-account"></a>Criar uma conta
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. Clique em **Criar um recurso** > **Intelligence + analytics** > **Data Lake Analytics**.
+1. Faça login no [portal Azure](https://portal.azure.com).
+2. Clique **em Criar um recurso** > **Intelligence + analytics** > Data Lake**Analytics**.
 3. Selecione os valores para os seguintes itens: 
    1. **Nome**: o nome da conta do Data Lake Analytics.
    2. **Assinatura**: a assinatura do Azure usada para a conta.
@@ -111,7 +111,7 @@ Use a função de desenvolvedor do Data Lake Analytics para permitir que os dese
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Adicionar usuários ou grupos de segurança a uma conta do Data Lake Analytics
 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
-2. Clique em **IAM (Controle de acesso)**  > **Adicionar atribuição de função**.
+2. Clique **em Controlar o controle de acesso (IAM)** > Adicionar**atribuição de função**.
 3. Selecione uma função.
 4. Adicione um usuário.
 5. Clique em **OK**.
@@ -150,7 +150,7 @@ Para exibir uma lista de trabalhos de U-SQL que fazem parte dos pipelines:
 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **Insights de trabalho**. A guia "Todos os trabalhos" será padronizada, mostrando trabalhos em execução, na fila e encerrados.
-3. Clique na guia **trabalhos de pipeline** . Uma lista de trabalhos de pipeline será mostrada junto com as estatísticas agregadas para cada pipeline.
+3. Clique na guia **Pipeline Jobs.** Uma lista de trabalhos de gasodutos será mostrada juntamente com estatísticas agregadas para cada pipeline.
 
 ### <a name="monitoring-recurring-jobs"></a>Monitorando trabalhos recorrentes
 Um trabalho recorrente é aquele que tem a mesma lógica de negócios, mas usa dados de entrada diferentes toda vez que é executado. Idealmente, trabalhos recorrentes devem sempre ter êxito e ter um tempo de execução relativamente estável. O monitoramento desses comportamentos ajuda a garantir que o trabalho tenha integridade. Trabalhos recorrentes são identificados usando a propriedade "Recorrente". Trabalhos agendados usando o ADF V2 terão, automaticamente, essa propriedade populada.
@@ -159,7 +159,7 @@ Para exibir uma lista de trabalhos de U-SQL que são recorrentes:
 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
 2. Clique em **Insights de trabalho**. A guia "Todos os trabalhos" será padronizada, mostrando trabalhos em execução, na fila e encerrados.
-3. Clique na guia **trabalhos recorrentes** . Uma lista de trabalhos recorrentes será mostrada junto com as estatísticas agregadas para cada trabalho recorrente.
+3. Clique na **guia Empregos Recorrentes.** Uma lista de empregos recorrentes será mostrada juntamente com estatísticas agregadas para cada trabalho recorrente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

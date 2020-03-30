@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2020
+ms.date: 3/26/2020
 ms.author: raiye
-ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f265faef4e6520f5c74fce9a13b3d81118707025
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273105"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371119"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -29,7 +29,7 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 
 
 > [!TIP]
->  Assine o [Feed RSS de atualização do SO convidado] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
+>  Assine o [RSS feed de atualização do SO convidado] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
 >
 >
 
@@ -38,9 +38,12 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 >
 >
 
-Você não tem certeza de como atualizar o SO convidado? Verifique [isso][cloud updates] .
+Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud updates].
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="march-5-2020"></a>**5 de março de 2020**
+O SO convidado de fevereiro foi lançado. 
 
 ###### <a name="january-24-2020"></a>**24 de janeiro de 2020**
 O SO convidado de janeiro foi lançado. 
@@ -51,7 +54,7 @@ O sistema operacional convidado de dezembro foi lançado.
 ###### <a name="december-5-2019"></a>**5 de dezembro de 2019**
 O SO convidado de novembro foi lançado.
 
-###### <a name="november-1-2019"></a>**1º de novembro de 2019**
+###### <a name="november-1-2019"></a>**01 de novembro de 2019**
 O SO convidado de outubro foi lançado.
 
 ###### <a name="october-7-2019"></a>**7 de outubro de 2019**
@@ -101,43 +104,45 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-6-releases"></a>Lançamentos do Family 6
 **Windows Server 2019**
 
-.NET Framework instalado: 3,5, 4.7.2
+.NET Framework instalado: 3.5, 4.7.2
 
 > [!NOTE]
-> O SDK do Windows Azure para .NET-3,0 pode ser baixado [aqui][Windows Azure SDK].
+> O SDK do Microsoft Azure para .NET 3.0 pode ser baixado [aqui][Windows Azure SDK].
 >
 >Etapas da instalação:
->1. Desinstale todas as versões mais antigas do MicrosoftAzureAuthoringTools*. msi
->2. Instalar o [SDK do Azure para .net-3,0][Windows Azure SDK]
->3. Reiniciar o computador
->4. Criar um novo projeto de serviço de nuvem e adicionar uma única função de trabalho
->5. Altere a família do sistema operacional para 6 e crie um pacote
->6. Implantar o pacote no Azure usando o portal do Azure ou o Visual Studio
+>1. Por favor, desinstale quaisquer versões mais antigas do MicrosoftAzureAuthoringTools*.msi
+>2. Instale o [Azure SDK para .NET - 3.0][Windows Azure SDK]
+>3. Reinicie sua máquina
+>4. Crie um novo projeto de Cloud Service e adicione um único função de trabalhador
+>5. Mude a Família OS para 6 e construa um pacote
+>6. Implantar o pacote no Azure usando o portal Azure ou visual studio
 >
+>A versão do Guest OS Family 6 impõe o TLS 1.2 desabilitando explicitamente o TLS 1.0 e o 1.1 e definindo um conjunto específico de suítes cifradas. Saiba [mais].
 
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.15 _202001-01  |  24 de janeiro de 2020  |  Post 6,17  |  
-| WA-GUEST-OS-6.14 _201912-01 | 8 de janeiro de 2020 | Post 6,16 |  
-|~~WA-GUEST-OS-6.13 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
-|~~WA-GUEST-OS-6.12 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-6.11 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-6.10 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019  |  
-|~~WA-GUEST-OS-6,9 _201907-0~~|26 de julho de 2019 | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-6.8 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-6.7 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-6.6 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-6.5 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-6.4 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-6.3 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-6.2 _201812-01~~ |24 de janeiro de 2019 |12 de março de 2019 |
+|  WA-GUEST-OS-6.16_202002-01  |  5 de março de 2020  |  Posto 6.18  |  
+|  WA-GUEST-OS-6.15_202001-01  |  24 de janeiro de 2020  |  Posto 6.17  |  
+|~~WA-GUEST-OS-6.14_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
+|~~WA-GUEST-OS-6.13_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-6.12_201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-6.11_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-6.10_201908-01~~| 4 de agosto de 2019 | 01 de novembro de 2019  |  
+|~~WA-GUEST-OS-6.9_201907-0~~|26 de julho de 2019 | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-6.8_201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-6.7_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-6.4_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-6.3_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-6.2_201812-01~~ |24 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 de janeiro de 2019 |5 de fevereiro de 2019 |
 
 ## <a name="family-5-releases"></a>Versões da Família 5
 **Windows Server 2016**
 
-.NET Framework instalado: 3,5, 4,6
+.NET Framework instalado: 3.5, 4.6
 
 > [!NOTE]
 > A senha de RDP para a família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
@@ -146,20 +151,21 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.39 _202001-01  |  24 de janeiro de 2020  |  Post 5,41  |  
-| WA-GUEST-OS-5.38 _201912-01 | 8 de janeiro de 2020 | Post 5,40 |  
-|~~WA-GUEST-OS-5.37 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
-|~~WA-GUEST-OS-5.36 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-5.35 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-5.34 _201908-01~~|  4 de agosto de 2019  | 1º de novembro de 2019 |  
-|~~WA-GUEST-OS-5.33 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |  
-|~~WA-GUEST-OS-5.32 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-5.31 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-5.30 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-5.29 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-5.28 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-5.27 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-5.26 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|  WA-GUEST-OS-5.40_202002-01  |  5 de março de 2020  |  Post 5.42  |  
+|  WA-GUEST-OS-5.39_202001-01  |  24 de janeiro de 2020  |  Posto 5.41  |  
+|~~WA-GUEST-OS-5.38_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
+|~~WA-GUEST-OS-5.37_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-5.36_201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-5.35_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-5.34_201908-01~~|  4 de agosto de 2019  | 01 de novembro de 2019 |  
+|~~WA-GUEST-OS-5.33_201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |  
+|~~WA-GUEST-OS-5.32_201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-5.31_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-5.28_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-5.27_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-5.26_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
@@ -167,24 +173,25 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
 
-.NET Framework instalado: 3,5, 4.5.1, 4.5.2
+.NET Framework instalado: 3.5, 4.5.1, 4.5.2
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.74 _202001-01  |  24 de janeiro de 2020  |  Post 4,76  |  
-| WA-GUEST-OS-4.73 _201912-01 | 8 de janeiro de 2020 | Post 4,75 |  
-|~~WA-GUEST-OS-4.72 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
-|~~WA-GUEST-OS-4.71 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-4.70 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-4.69 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019 |  
-|~~WA-GUEST-OS-4.68 _201907-01~~| 26 de julho de 2019  | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-4.67 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-4.66 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-4.65 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-4.64 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-4.63 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-4.62 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-4.61 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|  WA-GUEST-OS-4.75_202002-01  |  5 de março de 2020  |  Posto 4.77  |  
+|  WA-GUEST-OS-4.74_202001-01  |  24 de janeiro de 2020  |  Posto 4.76  |  
+|~~WA-GUEST-OS-4.73_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
+|~~WA-GUEST-OS-4.72_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-4.71_201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-4.70_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-4.69_201908-01~~| 4 de agosto de 2019 | 01 de novembro de 2019 |  
+|~~WA-GUEST-OS-4.68_201907-01~~| 26 de julho de 2019  | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-4.67_201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-4.66_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-4.63_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-4.62_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-4.61_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
@@ -196,20 +203,21 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.81 _202001-01  |  24 de janeiro de 2020  |  Post 3,83  |  
-| WA-GUEST-OS-3,80 _201912-01 | 8 de janeiro de 2020 | Post 3,82 |  
-|~~WA-GUEST-OS-3.79 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
-|~~WA-GUEST-OS-3.78 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-3.77 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-3.76 _201908-01~~|  4 de agosto de 2019  |  1º de novembro de 2019  |  
-|~~WA-GUEST-OS-3,75 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-3.74 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
-|~~WA-GUEST-OS-3.73 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-3.72 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-3.71 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-3.70 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-3.69 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-3.68 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|  WA-GUEST-OS-3.82_202002-01  |  5 de março de 2020  |  Posto 3.84  |  
+|  WA-GUEST-OS-3.81_202001-01  |  24 de janeiro de 2020  |  Posto 3.83  |  
+|~~WA-GUEST-OS-3.80_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
+|~~WA-GUEST-OS-3.79_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-3.78_201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-3.77_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-3.76_201908-01~~|  4 de agosto de 2019  |  01 de novembro de 2019  |  
+|~~WA-GUEST-OS-3.75_201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-3.74_201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
+|~~WA-GUEST-OS-3.73_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-3.70_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-3.69_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-3.68_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
@@ -217,33 +225,34 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework instalado: 3,5 (inclui 2,0 e 3,0), 4,5
+.NET Framework instalado: 3.5 (inclui 2.0 e 3.0), 4.5
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.94 _202001-01  |  24 de janeiro de 2020  |  Post 2,96  |  
-| WA-GUEST-OS-2,93 _201912-01 | 8 de janeiro de 2020 | Post 2,95 |  
-|~~WA-GUEST-OS-2.92 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
-|~~WA-GUEST-OS-2.91 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
-|~~WA-GUEST-OS-2.90 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-2.89 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019 |  
-|~~WA-GUEST-OS-2,88 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
-|~~WA-GUEST-OS-2.87 _201906-01~~|8 de julho de 2019 | 4 de agosto de 2019 |
-|~~WA-GUEST-OS-2.86 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
-|~~WA-GUEST-OS-2,85 _201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
-|~~WA-GUEST-OS-2.84 _201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
-|~~WA-GUEST-OS-2.83 _201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
-|~~WA-GUEST-OS-2.82 _201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
-|~~WA-GUEST-OS-2.81 _201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
+|  WA-GUEST-OS-2.95_202002-01  |  5 de março de 2020  |  Posto 2.97  |  
+|  WA-GUEST-OS-2.94_202001-01  |  24 de janeiro de 2020  |  Posto 2.96  |  
+|~~WA-GUEST-OS-2.93_201912-01~~| 8 de janeiro de 2020 | 5 de março de 2020 |  
+|~~WA-GUEST-OS-2.92_201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-2.91_201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-2.90_201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
+|~~WA-GUEST-OS-2.89_201908-01~~| 4 de agosto de 2019 | 01 de novembro de 2019 |  
+|~~WA-GUEST-OS-2.88_201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
+|~~WA-GUEST-OS-2.87_201906-01~~|8 de julho de 2019 | 4 de agosto de 2019 |
+|~~WA-GUEST-OS-2.86_201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
+|~~WA-GUEST-OS-2.83_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
+|~~WA-GUEST-OS-2.82_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
+|~~WA-GUEST-OS-2.81_201812-01~~ |7 de janeiro de 2019 |12 de março de 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 de dezembro de 2018 |5 de fevereiro de 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 de novembro de 2018 |7 de janeiro de 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
-A lista de patches que estão incluídos em cada versão mensal do sistema operacional convidado está disponível [aqui][patches].
+A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].
 
 ## <a name="sdk-support"></a>Suporte a SDK
-Embora a política de desativação do [SDK do Azure][retire policy sdk] indique que apenas as versões acima de 2,2 têm suporte, as famílias de sistemas operacionais convidados específicos permitem que você use versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
+Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
 
 | Família de SO convidado | Versões compatíveis do SDK |
 | --- | --- |
@@ -265,13 +274,13 @@ Quando a data de **validade** vence, qualquer Serviço de nuvem que ainda esteja
 As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os Serviços de Nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento.
 
 * **Guest OS family**  
-  Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
+   Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
 * **Versão do SO Convidado**  
-  Específico de uma imagem da família de sistemas operacionais convidados, além dos patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do sistema operacional convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
+  Específica de uma imagem da família de SO convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
 
     Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 * **Versão do SO convidado**  
-  Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
+   Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
 
 No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 
@@ -288,9 +297,9 @@ O Microsoft Azure está constantemente lançando atualizações. O SO convidado 
 
 Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no portal do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
 
-Para obter uma grande quantidade de informações valiosas sobre reinicializações e ponteiros para obter mais detalhes técnicos sobre as atualizações de sistema operacional convidado e host, consulte a postagem de blog do MSDN chamada [instância de função reinicia devido a atualizações do sistema operacional][restarts].
+Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de host e convidados, consulte a postagem no blog do MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][restarts].
 
-Se você atualizar manualmente o SO convidado, consulte a política de desativação do [SO convidado][retirepolicy] para obter informações adicionais.
+Se você atualizar manualmente o SO convidado, veja [Política de desativação do SO convidado][retirepolicy] para obter informações adicionais.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
@@ -317,3 +326,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
+[Mais]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 52723ca53b9156dd8e8183d92d8d4a350750c936
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7a165935e2c232167a0752272d244ce98bf6aff2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100104"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534398"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este artigo descreve como usar a CLI do Azure para implantar um banco de dados Oracle Database 12c da imagem do Azure Marketplace. Este artigo mostra a você passo a passo como instalar e configurar o Data Guard em uma VM (máquina virtual) do Azure.
 
-Antes de começar, verifique se a CLI do Azure está instalada. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Antes de começar, verifique se a CLI do Azure está instalada. Para obter mais informações, consulte o [guia de instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 ### <a name="assumptions"></a>Suposições
@@ -87,7 +87,7 @@ az vm create \
 
 Depois de criar a VM, a CLI do Azure exibe informações semelhantes ao exemplo a seguir. Observe o valor de `publicIpAddress`. Você pode usar esse endereço para acessar a VM.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -101,6 +101,7 @@ Depois de criar a VM, a CLI do Azure exibe informações semelhantes ao exemplo 
 ```
 
 Criar myVM2 (em espera):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -130,7 +131,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 O resultado deve ser semelhante à resposta a seguir:
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -159,7 +160,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
+### <a name="connect-to-the-virtual-machine"></a>Conecte-se à máquina virtual
 
 Use o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço IP pelo valor de `publicIpAddress` de sua máquina virtual.
 
@@ -198,9 +199,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 A saída deve ser semelhante à seguinte resposta:
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -263,6 +265,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
+
 Habilite o registro em log forçado e verifique se há pelo menos um arquivo de log:
 
 ```bash
@@ -279,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Ligue o Flashback (que facilita muito a recuperação) e defina STANDBY\_FILE\_MANAGEMENT como automático. Saia do SQL*Plus depois disso.
+Ligue o Flashback (o que torna a recuperação\_\_muito mais fácil) e defina o gerenciamento de arquivos de standby para auto. Saia sql*plus depois disso.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -341,11 +344,13 @@ ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
 Habilite o Data Guard Broker:
+
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
+
 Inicie o ouvinte:
 
 ```bash
@@ -429,6 +434,7 @@ $ lsnrctl start
 ### <a name="restore-the-database-to-myvm2-standby"></a>Restaure banco de dados para myVM2 (em espera)
 
 Crie o arquivo de parâmetro /tmp/initcdb1_stby.ora com o seguinte conteúdo:
+
 ```bash
 *.db_name='cdb1'
 ```
@@ -447,6 +453,7 @@ Crie um arquivo de senha:
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
+
 Inicie o banco de dados em myVM2:
 
 ```bash
@@ -464,6 +471,7 @@ $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
 Executar os seguintes comandos na RMAN:
+
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -475,11 +483,14 @@ DUPLICATE TARGET DATABASE
 ```
 
 Você verá mensagens semelhantes à seguinte quando o comando for concluído. Saia da RMAN.
-```bash
+
+```output
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
 Finished Duplicate Db at 29-JUN-17
+```
 
+```bash
 RMAN> EXIT;
 ```
 
@@ -501,7 +512,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Configurar o Data Guard Broker em myVM1 (primário)
 
-Inicie o Data Guard Manager e faça logon usando SYS e uma senha. (Não use a autenticação do SO.) Realize o que é descrito a seguir:
+Inicie o Data Guard Manager e faça logon usando SYS e uma senha. (Não use autenticação do SO.) Execute o seguinte:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -520,6 +531,7 @@ Enabled.
 ```
 
 Examine a configuração:
+
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -586,6 +598,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
+
 ## <a name="test-the-data-guard-configuration"></a>Testar as configurações do Data Guard
 
 ### <a name="switch-over-the-database-on-myvm1-primary"></a>Realizar a transição do banco de dados em myVM1 (primário)
@@ -635,6 +648,7 @@ SQL>
 ### <a name="switch-over-the-database-on-myvm2-standby"></a>Realizar a transição do banco de dados em myVM2 (em espera)
 
 Para realizar a transição, execute o seguinte em myVM2:
+
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
@@ -687,6 +701,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial: Criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
+[Tutorial: criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
 [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)

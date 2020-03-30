@@ -1,6 +1,6 @@
 ---
-title: Provisionar o dispositivo usando o atestado de chave simétrica-Azure IoT Edge
-description: Usar o atestado de chave simétrica para testar o provisionamento automático de dispositivos para Azure IoT Edge com o serviço de provisionamento de dispositivos
+title: Dispositivo de provisão usando atestado de chave simétrica - Azure IoT Edge
+description: Use atestado de chave simétrica para testar o provisionamento automático de dispositivos para a zure IoT Edge com serviço de provisionamento de dispositivos
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,28 +9,28 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3adefbdf248deaec6170037521ab65890356d184
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510882"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535911"
 ---
-# <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
+# <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando atestado de chave simétrica
 
-Dispositivos do Azure IoT Edge podem ser autoprovisionados usando o [Serviço de provisionamento de dispositivo](../iot-dps/index.yml) assim como os dispositivos que não são habilitados de borda. Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Os dispositivos Azure IoT Edge podem ser provisionados automaticamente usando o [Serviço de Provisionamento de Dispositivos,](../iot-dps/index.yml) assim como dispositivos que não estão habilitados para bordas. Se você não estiver familiarizado com o processo de provisionamento automático, revise os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
 
-Este artigo mostra como criar um registro individual de serviço de provisionamento de dispositivos usando o atestado de chave simétrica em um dispositivo IoT Edge com as seguintes etapas:
+Este artigo mostra como criar um serviço de provisionamento de dispositivos cadastramento individual usando atestado de chave simétrica em um dispositivo IoT Edge com as seguintes etapas:
 
 * Criar uma nova instância para o Serviço de Provisionamento de Dispositivos (DPS) no Hub IoT.
 * Crie um registro individual para o dispositivo.
-* Instale o IoT Edge Runtime e conecte-se ao Hub IoT.
+* Instale o tempo de execução do IoT Edge e conecte-se ao IoT Hub.
 
-O atestado de chave simétrica é uma abordagem simples para autenticar o dispositivo com uma instância do serviço de provisionamento de dispositivos. Esse método de atestado representa uma experiência de "Olá, Mundo" para desenvolvedores que são novos no provisionamento de dispositivos ou não tem requisitos de segurança rígidos. O atestado de dispositivo usando um [TPM](../iot-dps/concepts-tpm-attestation.md) ou [certificados X. 509](../iot-dps/concepts-security.md#x509-certificates) é mais seguro e deve ser usado para requisitos de segurança mais rígidos.
+O atestado de chave simétrica é uma abordagem simples para autenticar o dispositivo com uma instância do serviço de provisionamento de dispositivos. Esse método de atestado representa uma experiência de "Olá, Mundo" para desenvolvedores que são novos no provisionamento de dispositivos ou não tem requisitos de segurança rígidos. O atestado de dispositivo usando um certificado [TPM](../iot-dps/concepts-tpm-attestation.md) ou [X.509](../iot-dps/concepts-security.md#x509-certificates) é mais seguro e deve ser usado para requisitos de segurança mais rigorosos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um hub IoT ativo
+* Um Hub ioT ativo
 * Um dispositivo físico ou virtual
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT
@@ -43,42 +43,42 @@ Depois de executar o Serviço de Provisionamento de Dispositivo, copie o valor d
 
 Uma ID de registro exclusiva deve ser definida para identificar cada dispositivo. Você pode usar o endereço MAC, o número de série ou qualquer informação exclusiva do dispositivo.
 
-Neste exemplo, usamos uma combinação de um endereço MAC e um número de série que formam a seguinte cadeia de caracteres para uma ID de registro: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`.
+Neste exemplo, usamos uma combinação de um endereço MAC e um número `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`de série formando a seguinte seqüência para um ID de registro: .
 
 Crie uma ID de registro exclusiva para seu dispositivo. Os caracteres válidos são alfanuméricos minúsculos e traço ('-').
 
 ## <a name="create-a-dps-enrollment"></a>Criar um registro de DPS
 
-Use a ID de registro do dispositivo para criar um registro individual no DPS.
+Use o ID de registro do seu dispositivo para criar uma inscrição individual no DPS.
 
 Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inicial do dispositivo duplo**. No dispositivo gêmeo, você pode definir tags para agrupar dispositivos por qualquer métrica que precisar em sua solução, como região, ambiente, local ou tipo de dispositivo. Essas marcas são usadas para criar [implantações automáticas](how-to-deploy-monitor.md).
 
 > [!TIP]
-> Os registros de grupo também são possíveis ao usar o atestado de chave simétrica e envolvem as mesmas decisões que os registros individuais.
+> As matrículas em grupo também são possíveis ao utilizar atestado de chave simétrica e envolvem as mesmas decisões que as matrículas individuais.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até sua instância do serviço de provisionamento de dispositivos do Hub IOT.
+1. No [portal Azure,](https://portal.azure.com)navegue até a sua instância de Serviço de Provisionamento de Dispositivos IoT Hub.
 
 1. Em **Configurações**, selecione **Gerenciar registros**.
 
 1. Selecione **adicionar registro individual**, em seguida, conclua as seguintes etapas para configurar o registro:  
 
-   1. Para **mecanismo**, selecione **chave simétrica**.
+   1. Para **mecanismo,** selecione **Chave Simétrica**.
 
-   1. Marque a caixa de seleção **gerar chaves automaticamente** .
+   1. Selecione a caixa de seleção **de chaves de geração** automática.
 
-   1. Forneça a **ID de registro** que você criou para seu dispositivo.
+   1. Forneça o **ID de registro** que você criou para o seu dispositivo.
 
-   1. Forneça uma **ID de dispositivo do Hub IOT** para seu dispositivo, se desejar. Você pode usar IDs de dispositivo para um dispositivo individual para a implantação do módulo de destino. Se você não fornecer uma ID de dispositivo, a ID de registro será usada.
+   1. Forneça um **ID de dispositivo hub IoT** para o seu dispositivo, se quiser. Você pode usar IDs de dispositivo para um dispositivo individual para a implantação do módulo de destino. Se você não fornecer um ID do dispositivo, o iD de registro é usado.
 
-   1. Selecione **true** para declarar que o registro é para um dispositivo IOT Edge. Para um registro de grupo, todos os dispositivos devem ser IoT Edge dispositivos ou nenhum deles pode ser.
+   1. Selecione **True** para declarar que a inscrição é para um dispositivo IoT Edge. Para uma inscrição em grupo, todos os dispositivos devem ser dispositivos IoT Edge ou nenhum deles pode ser.
 
-   1. Aceite o valor padrão da política de alocação do serviço de provisionamento de dispositivos para **saber como você deseja atribuir dispositivos a hubs** ou escolha um valor diferente que seja específico para esse registro.
+   1. Aceite o valor padrão da política de alocação do Serviço de Provisionamento de Dispositivos para **saber como você deseja atribuir dispositivos a hubs** ou escolher um valor diferente específico para essa inscrição.
 
    1. Escolha o **IoT Hub** vinculado que você deseja conectar o dispositivo. Você pode escolher vários hubs e o dispositivo será atribuído a um deles de acordo com a política de alocação selecionada.
 
-   1. Escolha **como você deseja que os dados do dispositivo sejam manipulados ao reprovisionar** quando os dispositivos solicitam o provisionamento após a primeira vez.
+   1. Escolha **como deseja que os dados do dispositivo sejam tratados no reprovisionamento** quando os dispositivos solicitarem provisionamento após a primeira vez.
 
-   1. Adicionar um valor de marca para o **estado inicial do dispositivo gêmeo** se desejar. Você pode usar marcas para grupos de dispositivos de destino para a implantação do módulo. Por exemplo:
+   1. Adicionar um valor de marca para o **estado inicial do dispositivo gêmeo** se desejar. Você pode usar marcas para grupos de dispositivos de destino para a implantação do módulo. Por exemplo: 
 
       ```json
       {
@@ -91,20 +91,20 @@ Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inic
       }
       ```
 
-   1. Verifique se a **entrada habilitar** está definida como **habilitar**.
+   1. **Certifique-se de que a entrada** enable está definida como **Ativação**.
 
-   1. Clique em **Salvar**.
+   1. Selecione **Salvar**.
 
-Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Certifique-se de copiar o valor de **chave primária** do registro a ser usado ao instalar o IOT Edge Runtime ou se você pretende criar chaves de dispositivo para uso com um registro de grupo.
+Agora que existe uma inscrição para este dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Certifique-se de copiar o valor principal da **chave primária** da sua inscrição para usar ao instalar o tempo de execução do IoT Edge ou se você vai criar chaves de dispositivo para uso com uma inscrição em grupo.
 
 ## <a name="derive-a-device-key"></a>Derivar uma chave de dispositivo
 
 > [!NOTE]
-> Esta seção é necessária somente se você estiver usando um registro de grupo.
+> Esta seção só é necessária se usar uma matrícula em grupo.
 
-Cada dispositivo usa sua chave de dispositivo derivada com sua ID de registro exclusiva para executar o atestado de chave simétrica com o registro durante o provisionamento. Para gerar a chave do dispositivo, use a chave que você copiou de seu registro de DPS para calcular um [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro exclusiva para o dispositivo e converta o resultado no formato base64.
+Cada dispositivo usa sua chave de dispositivo derivada com seu ID de registro exclusivo para executar atestado de chave simétrica com a inscrição durante o provisionamento. Para gerar a chave do dispositivo, use a chave que você copiou da sua inscrição no DPS para calcular um [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) do ID de registro exclusivo para o dispositivo e converter o resultado em formato Base64.
 
-Não inclua a chave primária ou secundária do registro em seu código de dispositivo.
+Não inclua a chave primária ou secundária da sua matrícula no código do dispositivo.
 
 ### <a name="linux-workstations"></a>Estações de trabalho do Linux
 
@@ -112,7 +112,7 @@ Se estiver usando uma estação de trabalho do Linux, você poderá usar openssl
 
 Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
 
-Substitua o valor de **REG_ID** pela ID de registro do dispositivo.
+Substitua o valor do **REG_ID** pelo ID de registro do seu dispositivo.
 
 ```bash
 KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
@@ -132,7 +132,7 @@ Se estiver usando uma estação de trabalho baseada no Windows, você poderá us
 
 Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
 
-Substitua o valor de **REG_ID** pela ID de registro do dispositivo.
+Substitua o valor do **REG_ID** pelo ID de registro do seu dispositivo.
 
 ```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
@@ -155,55 +155,55 @@ O runtime do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus comp
 
 Você precisará das seguintes informações ao provisionar seu dispositivo:
 
-* O valor de **escopo da ID** de DPS
-* A **ID de registro** do dispositivo que você criou
-* A **chave primária** que você copiou do registro do DPS
+* O valor **do escopo do DPS ID**
+* O **ID de registro do** dispositivo que você criou
+* A **chave primária** que você copiou da matrícula do DPS
 
 > [!TIP]
-> Para registros de grupo, você precisa da [chave derivada](#derive-a-device-key) de cada dispositivo em vez da chave de registro de DPS.
+> Para as matrículas em grupo, você precisa da [chave derivada de](#derive-a-device-key) cada dispositivo em vez da chave de inscrição DPS.
 
 ### <a name="linux-device"></a>Dispositivo Linux
 
-Siga as instruções para a arquitetura do dispositivo. Certifique-se de configurar o runtime do IoT Edge para provisionamento automático, não manual.
+Siga as instruções para a arquitetura do seu dispositivo. Certifique-se de configurar o runtime do IoT Edge para provisionamento automático, não manual.
 
-[Instalar o tempo de execução de Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
+[Instale o tempo de execução do Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
 
-A seção no arquivo de configuração para provisionamento de chave simétrica tem esta aparência:
+A seção no arquivo de configuração para provisionamento de chaves simétricas é assim:
 
 ```yaml
 # DPS symmetric key provisioning configuration
 provisioning:
    source: "dps"
    global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "{scope_id}"
+   scope_id: "<SCOPE_ID>"
    attestation:
       method: "symmetric_key"
-      registration_id: "{registration_id}"
-      symmetric_key: "{symmetric_key}"
+      registration_id: "<REGISTRATION_ID>"
+      symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Substitua os valores de espaço reservado para `{scope_id}`, `{registration_id}`e `{symmetric_key}` pelos dados coletados anteriormente. Verifique se o **provisionamento:** linha não tem espaço em branco precedente e se os itens aninhados são recuados em dois espaços.
+Substitua os valores `<REGISTRATION_ID>`do `<SYMMETRIC_KEY>` espaço reservado para `<SCOPE_ID>`, e com os dados coletados anteriormente. Certifique-se de que o **provisionamento:** a linha não tem espaço em branco anterior e que os itens aninhados são recuados por dois espaços.
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
-Instale o IoT Edge tempo de execução no dispositivo para o qual você gerou uma chave de dispositivo derivada. Você configurará o tempo de execução de IoT Edge para o provisionamento automático, não manual.
+Instale o tempo de execução do IoT Edge no dispositivo para o qual você gerou uma chave de dispositivo derivada. Você configurará o tempo de execução do IoT Edge para provisionamento automático, não manual.
 
-Para obter informações mais detalhadas sobre como instalar o IoT Edge no Windows, incluindo pré-requisitos e instruções para tarefas como gerenciar contêineres e atualizar IoT Edge, consulte [instalar o Azure IOT Edge tempo de execução no Windows](how-to-install-iot-edge-windows.md).
+Para obter informações mais detalhadas sobre a instalação do IoT Edge no Windows, incluindo pré-requisitos e instruções para tarefas como gerenciar contêineres e atualizar o IoT Edge, consulte [Instalar o tempo de execução do Azure IoT Edge no Windows](how-to-install-iot-edge-windows.md).
 
 1. Abra uma janela do PowerShell no modo de administrador. Certifique-se de usar uma sessão AMD64 do PowerShell ao instalar o IoT Edge, não o PowerShell (x86).
 
-1. O comando **Deploy-IoTEdge** verifica se o computador Windows está em uma versão com suporte, ativa o recurso de contêineres e, em seguida, baixa o tempo de execução do Moby e o tempo de execução do IOT Edge. O padrão do comando é usar contêineres do Windows.
+1. O comando **Deploy-IoTEdge** verifica se a máquina do Windows está em uma versão suportada, ativa o recurso de contêineres e, em seguida, baixa o tempo de execução do moby e o tempo de execução do IoT Edge. O comando é padrão para usar contêineres do Windows.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-1. Neste ponto, os dispositivos IoT Core podem ser reiniciados automaticamente. Outros dispositivos Windows 10 ou Windows Server podem solicitar a reinicialização. Nesse caso, reinicie o dispositivo agora. Quando o dispositivo estiver pronto, execute o PowerShell como administrador novamente.
+1. Neste ponto, os dispositivos IoT Core podem reiniciar automaticamente. Outros dispositivos Windows 10 ou Windows Server podem solicitar que você reinicie. Se sim, reinicie o dispositivo agora. Assim que o dispositivo estiver pronto, execute o PowerShell como administrador novamente.
 
-1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando usa como padrão o provisionamento manual com contêineres do Windows, a menos que você use o sinalizador `-Dps` para usar o provisionamento automático.
+1. O comando **Initialize-IoTEdge** configura o runtime do IoT Edge em seu computador. O comando é padrão para provisionamento manual com `-Dps` contêineres do Windows, a menos que você use o sinalizador para usar o provisionamento automático.
 
-   Substitua os valores de espaço reservado para `{scope_id}`, `{registration_id}`e `{symmetric_key}` pelos dados coletados anteriormente.
+   Substitua os valores `{registration_id}`do `{symmetric_key}` espaço reservado para `{scope_id}`, e com os dados coletados anteriormente.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -222,7 +222,7 @@ Verifique o status do serviço do IoT Edge.
 systemctl status iotedge
 ```
 
-Examine os logs de serviço.
+Examine os registros de serviço.
 
 ```cmd/sh
 journalctl -u iotedge --no-pager --no-full
@@ -242,7 +242,7 @@ Verifique o status do serviço do IoT Edge.
 Get-Service iotedge
 ```
 
-Examine os logs de serviço.
+Examine os registros de serviço.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -254,8 +254,8 @@ Módulos de execução da lista.
 iotedge list
 ```
 
-Você pode verificar se o registro individual criado no serviço de provisionamento de dispositivos foi usado. Navegue até a instância do serviço de provisionamento de dispositivos no portal do Azure. Abra os detalhes de registro para o registro individual que você criou. Observe que o status do registro é **atribuído** e a ID do dispositivo é listada.
+Você pode verificar se a inscrição individual que você criou no Serviço de Provisionamento de Dispositivos foi usada. Navegue até a instância do Serviço de Provisionamento de Dispositivos no portal Azure. Abra os detalhes de inscrição para a matrícula individual que você criou. Observe que o status da inscrição é **atribuído** e o ID do dispositivo está listado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-O processo de registro do serviço de provisionamento de dispositivo permite definir a ID do dispositivo e as marcas do dispositivo gêmeo ao mesmo tempo, como provisionar o novo dispositivo. Você pode usar esses valores para dispositivos individuais ou grupos de dispositivos usando o gerenciamento automático de dispositivo de destino. Saiba como [Implantar e monitorar os módulos de IoT Edge em escala usando o portal do Azure](how-to-deploy-monitor.md) ou [usando a CLI do Azure](how-to-deploy-monitor-cli.md).
+O processo de registro do serviço de provisionamento de dispositivo permite definir a ID do dispositivo e as marcas do dispositivo gêmeo ao mesmo tempo, como provisionar o novo dispositivo. Você pode usar esses valores para dispositivos individuais ou grupos de dispositivos usando o gerenciamento automático de dispositivo de destino. Aprenda a [implantar e monitorar módulos IoT Edge em escala usando o portal Azure](how-to-deploy-monitor.md) ou usando o [Azure CLI](how-to-deploy-monitor-cli.md).

@@ -1,23 +1,23 @@
 ---
-title: Pontos de extremidade de serviço de VNet-banco de dados do Azure para MySQL
+title: Pontos finais de serviço da VNet - Banco de dados Azure para MySQL
 description: Descreve como os pontos de extremidade de serviço de VNet funcionam no servidor do Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: b9b84cb2c442e7da65da332da1a78b28c32c4de9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 3/18/2020
+ms.openlocfilehash: 4ca8fe3e217d3b4affc1bc0bda9ed193e91b2104
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537135"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
 As *regras da rede virtual* são um recurso de segurança de firewall que controla se o servidor do Banco de Dados do Azure para MySQL aceita comunicações que sejam enviadas de sub-redes particulares em redes virtuais. Este artigo explica por que o recurso de regra da rede virtual é, às vezes, a melhor opção para permitir a comunicação segura com seu servidor do Banco de Dados do Azure para MySQL.
 
-Para criar uma regra de rede virtual, primeiro deve haver uma VNet ( [rede virtual][vm-virtual-network-overview] ) e um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra a ser referenciada. A figura a seguir ilustra como um ponto de extremidade de serviço de Rede Virtual funciona com o Banco de Dados do Azure para MySQL:
+Para criar uma regra da rede virtual, deve haver primeiro uma VNet ([rede virtual][vm-virtual-network-overview]) e um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra a ser referenciada. A figura a seguir ilustra como um ponto de extremidade de serviço de Rede Virtual funciona com o Banco de Dados do Azure para MySQL:
 
 ![Exemplo de como funciona um ponto de extremidade de serviço de VNet](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
@@ -33,7 +33,7 @@ Para criar uma regra de rede virtual, primeiro deve haver uma VNet ( [rede virtu
 
 **Sub-rede:** uma rede virtual contém **sub-redes**. Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Nós de computadores que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure a segurança para permitir o acesso.
 
-**Ponto de extremidade de serviço de rede virtual:** um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo formais de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL. Essa marca de serviço também aplica-se aos serviços do Banco de Dados do Azure para MySQL e PostgreSQL. É importante observar que, ao aplicar a marca de serviço **Microsoft.Sql** a um ponto de extremidade de serviço de VNet, ela configurará o tráfego do ponto de extremidade de serviço para todos os servidores do Banco de Dados SQL do Azure, Banco de Dados do Azure para MySQL e Banco de Dados do Azure para PostgreSQL na sub-rede. 
+**Ponto final do serviço de rede virtual:** Um [ponto final de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes formais do tipo de serviço DoZure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL. Essa marca de serviço também aplica-se aos serviços do Banco de Dados do Azure para MySQL e PostgreSQL. É importante observar que, ao aplicar a marca de serviço **Microsoft.Sql** a um ponto de extremidade de serviço de VNet, ela configurará o tráfego do ponto de extremidade de serviço para todos os servidores do Banco de Dados SQL do Azure, Banco de Dados do Azure para MySQL e Banco de Dados do Azure para PostgreSQL na sub-rede. 
 
 **Regra da rede virtual:** uma regra da rede virtual para seu servidor do Banco de Dados do Azure para MySQL é uma sub-rede listada no ACL (lista de controle de acesso) do seu servidor do Banco de Dados do Azure para MySQL. Para estar no ACL do seu servidor do Banco de Dados do Azure para MySQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql**.
 
@@ -59,7 +59,7 @@ O painel de segurança de conexão tem um botão de **ON/OFF** rotulado como **P
 
 O firewall do Banco de Dados do Azure para MySQL permite que você especifique intervalos de endereços IP dos quais as comunicações são aceitas no Banco de Dados do Azure para MySQL. Essa abordagem é adequada para endereços IP estáveis que estão fora da rede privada do Azure. Mas muitos nós dentro da rede privada do Azure estão configurados com endereços IP *dinâmicos*. Endereços IP dinâmicos podem mudar, como quando sua VM é reiniciada. Seria ilusório especificar um endereço IP dinâmico em uma regra de firewall, em um ambiente de produção.
 
-Você pode recuperar a opção de IP obtendo um endereço IP *estático* para a VM. Para obter detalhes, consulte [configurar endereços IP privados para uma máquina virtual usando o portal do Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+Você pode recuperar a opção de IP obtendo um endereço IP *estático* para a VM. Para obter mais detalhes, consulte [Configurar endereços IP particulares para uma máquina virtual usando o Portal do Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e é cara quando realizada em escala. Regras da rede virtual são mais fáceis de estabelecer e gerenciar.
 
@@ -90,43 +90,43 @@ Cada regra da rede virtual aplica-se a todo o seu servidor do Banco de Dados do 
 Há uma separação de funções de segurança na administração de pontos de extremidade de serviço de rede virtual. A ação é necessária em cada uma das seguintes funções:
 
 - **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
-- **Administrador de banco de dados:** &nbsp; atualizar a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao banco de dados do Azure para o servidor MySQL.
+- **Administrador de banco de dados:** &nbsp; atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para MySQL.
 
 *Alternativa de RBAC:*
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras da rede virtual. É necessário apenas um subconjunto de seus recursos.
 
-Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rbac-what-is-813s] no Azure para criar uma única função personalizada que tem apenas o subconjunto necessário de recursos. A função personalizada pode ser usada em vez de envolver o administrador de rede ou o administrador de banco de dados. A área da superfície de sua exposição de segurança será menor se você adicionar um usuário a uma função personalizada, em vez de adicionar o usuário às outras duas principais funções de administrador.
+Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rbac-what-is-813s] no Azure para criar uma única função personalizada que tenha apenas o subconjunto necessário de recursos. A função personalizada poderia ser usada em vez de envolver o Administrador de Rede ou o Administrador do Banco de Dados. A área de superfície da sua exposição de segurança é menor se você adicionar um usuário a uma função personalizada, em vez de adicionar o usuário às outras duas principais funções de administrador.
 
 > [!NOTE]
 > Em alguns casos, o Banco de Dados do Azure para MySQL e a sub-rede da VNet estão em assinaturas diferentes. Nesses casos, você deve garantir as seguintes configurações:
 > - Ambas as assinaturas devem estar associadas ao mesmo locatário do Azure Active Directory.
 > - O usuário tem as permissões necessárias para iniciar operações, como habilitar pontos de extremidade de serviço e adicionar uma sub-rede da VNet ao servidor.
-> - Verifique se a assinatura tem o provedor de recursos **Microsoft. SQL** registrado. Para obter mais informações, consulte [Resource-Manager-Registration][resource-manager-portal]
+> - Certifique-se de que a assinatura tenha o provedor de recursos **Microsoft.Sql** registrado. Para obter mais informações, consulte [o registro do gerenciador de recursos][resource-manager-portal]
 
 ## <a name="limitations"></a>Limitações
 
 Para o Banco de Dados do Azure para MySQL, o recurso de regras da rede virtual tem as seguintes limitações:
 
-- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor que tem regras de firewall de VNet, você deve permitir que os serviços do Azure acessem o servidor no servidor.
+- Um aplicativo Web pode ser mapeado para um IP privado em uma sub-rede/rede virtual. Mesmo se os pontos de extremidade de serviço são ativados por meio da rede virtual/sub-rede determinada, as conexões do aplicativo Web para o servidor terão uma fonte IP pública Azure, não uma fonte de sub-rede/rede virtual. Para habilitar a conectividade de um aplicativo Web para um servidor com regras de firewall de VNET, você precisa Permitir que os serviços do Azure acessem o servidor no servidor.
 
 - No firewall do Banco de Dados do Azure para MySQL, cada regra da rede virtual referencia uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados do Azure para MySQL.
 
 - Cada servidor do Banco de Dados do Azure para MySQL pode ter até 128 entradas de ACL para qualquer rede virtual especificada.
 
-- As regras de rede virtual se aplicam somente a redes virtuais Azure Resource Manager; e não para redes de [modelo de implantação clássica][arm-deployment-model-568f] .
+- As regras da rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
 
 - Ativar pontos de extremidade de serviço de rede virtual para o Banco de Dados do Azure para MySQL usando a marca de serviço **Microsoft.Sql** também habilita os pontos de extremidade para todos os serviços de Banco de Dados do Azure: Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL, Banco de Dados SQL do Azure e SQL Data Warehouse do Azure.
 
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras da rede virtual não:
-    - [VPN (rede virtual privada) site a site (S2S)][vpn-gateway-indexmd-608y]
-    - Local via [ExpressRoute][expressroute-indexmd-744v]
+    - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]
+    - No local via [ExpressRoute][expressroute-indexmd-744v]
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Se sua rede estiver conectada à rede do Azure por meio do uso do [ExpressRoute][expressroute-indexmd-744v], cada circuito será configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são usados para se conectar aos serviços da Microsoft, como o Armazenamento do Azure, usando o emparelhamento público do Azure.
+Se sua rede estiver conectada à rede do Azure através do [ExpressRoute][expressroute-indexmd-744v], cada circuito é configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são usados para se conectar aos serviços da Microsoft, como o Armazenamento do Azure, usando o emparelhamento público do Azure.
 
 Para permitir a comunicação do seu circuito com o Banco de Dados do Azure para MySQL, é necessário criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do seu circuito do ExpressRoute, abra um tique de suporte com o ExpressRoute por meio do Portal do Azure.
 
@@ -137,10 +137,10 @@ Simplesmente definir uma regra de firewall não ajuda a proteger o servidor para
 Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI do Azure ou o portal.
 
 ## <a name="related-articles"></a>Artigos relacionados
-- [Redes virtuais do Azure][vm-virtual-network-overview]
-- [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
+- [Redes virtuais Azure][vm-virtual-network-overview]
+- [Pontos finais de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter artigos sobre como criar regras de VNet, consulte:
 - [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MySQL usando o portal do Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MySQL usando a CLI do Azure](howto-manage-vnet-using-cli.md)

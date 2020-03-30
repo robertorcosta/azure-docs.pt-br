@@ -1,20 +1,18 @@
 ---
 title: Web Analytics
-description: .
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+description: Este artigo fornece instruções para aprender sobre o Web Analytics e usá-lo para melhor desenvolver seus negócios.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: d47a67be157f71a30a6ae155790ed78a78fd6743
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 446e579a7205f0e785d7e940c1dbdd36cff8f370
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814657"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285326"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -55,7 +53,7 @@ Por exemplo, você pode usar: <https://appsource.microsoft.com/product/dynamics-
 
 Você pode optar por ter uma combinação de várias destas identificações de campanha para identificar melhor várias fontes conduzindo tráfego para a campanha, por exemplo, a proveniência do cliente (email, blog, fonte de mídia social, etc.).
 
-Por exemplo:
+Por exemplo: 
 
 1. Referenciador do boletim informativo: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. Referenciador do LinkedIn: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
@@ -64,9 +62,9 @@ Por exemplo:
 
 Pode haver um cenário em que suas campanhas têm uma página intermediária para a qual você está direcionando o tráfego e que, em seguida, envia os clientes para o Marketplace. É importante passar as IDs de campanha iniciais para a URL final que você envia para o Marketplace.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
-1. Funcionário de marketing compra anúncios do Google para direcionar o tráfego para a página de aterrissagem \' da empresa. Esta página de aterrissagem tem um link \"experimente meu produto\" que leva para <https://appsource.com>.
+1. Funcionário de marketing compra anúncios do Google para direcionar o tráfego para a página de aterrissagem <https://contoso.com> da empresa. Esta página de aterrissagem tem um link \"experimente meu produto\" que leva para <https://appsource.com>.
 2. Um usuário clica no anúncio e chega à página de aterrissagem de sua empresa.
     1.  URL de referência = google.com
     2.  URL da página de aterrissagem = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
@@ -95,7 +93,7 @@ De modo semelhante a como mostramos a taxa de conversão da oferta inteira, nest
 
 Semelhante ao modo como examinamos os domínios dos clientes, este gráfico permite que você veja a distribuição dos dados segundo a campanha pela qual os usuários estão chegando ao Marketplace. \_NoCampaign significa que o cliente não tinha uma ID de campanha na URL quando navegou para o Marketplace.
 
-<a name="next-steps"></a>**Next Steps**
+<a name="next-steps"></a>**Próximos passos**
 --------------
 
 Agora que você tem a capacidade de acompanhar o sucesso da oferta, queremos encorajá-lo a criar suas próprias campanhas.

@@ -1,16 +1,16 @@
 ---
-title: Implementar recursos no Azure Service Fabric atores
+title: Implementar recursos em atores de fabric de serviço azure
 description: Descreve como gravar seu próprio serviço de ator que implementa recursos de nível de serviço da mesma forma como você faria ao herdar StatefulService.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426727"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502276"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementar recursos de nível de serviço em seu serviço de ator
 
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementar o backup e a restauração de ator
 
-Um serviço de ator personalizado pode expor um método para fazer backup dos dados do ator aproveitando o ouvinte de comunicação remota já presente em `ActorService`. Para obter um exemplo, consulte [Atores de backup e restauração](service-fabric-reliable-actors-backup-and-restore.md).
+Um serviço de ator personalizado pode expor um método para fazer backup dos dados do ator aproveitando o ouvinte de comunicação remota já presente em `ActorService`. Para obter um exemplo, consulte [Atores de backup e restauração](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Ator que usa uma pilha de comunicação remota V2 (compatível com a interface)
 
@@ -211,12 +211,12 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [.NET código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
