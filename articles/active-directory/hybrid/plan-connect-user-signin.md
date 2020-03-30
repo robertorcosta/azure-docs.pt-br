@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbcc05093d801261493745c61dc5f68878d338b0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253735"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331261"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -70,14 +70,14 @@ Além disso, você também pode habilitar o logon único para usuários em compu
 
 Para obter mais informações, consulte:
 - [Autenticação de passagem](how-to-connect-pta.md)
-- [Logon Único](how-to-connect-sso.md)
+- [Logon único](how-to-connect-sso.md)
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federação que usa um farm novo ou existente com o AD FS no Windows Server 2012 R2
 Com a conexão federada, os usuários podem se conectar aos serviços baseados no Azure AD com suas senhas locais. Embora eles estejam na rede corporativa, eles nem precisam inserir suas senhas. Ao usar a opção de federação com o AD FS, é possível implantar um farm novo ou existente com o AD FS no Windows Server 2012 R2. Se você optar por especificar um farm existente, o Azure AD Connect configurará a relação de confiança entre o farm e o Azure AD, para que os usuários possam se conectar.
 
 <center>
 
-![Federação com AD FS no Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+![Federação com o AD FS no Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Implantar a federação com o AD FS no Windows Server 2012 R2
 
@@ -85,7 +85,7 @@ Se você estiver implantando um novo farm, será necessário:
 
 * Um servidor Windows Server 2012 R2 para o servidor de federação.
 * Um servidor Windows Server 2012 R2 para o proxy de aplicativo Web.
-* Um arquivo .pfx com um certificado SSL para o nome do serviço de federação pretendido. Por exemplo: fs.contoso.com.
+* Um arquivo .pfx com um certificado TLS/SSL para o nome de serviço da federação pretendido. Por exemplo: fs.contoso.com.
 
 Se você estiver implantando um novo farm ou usando um farm existente, será necessário:
 
@@ -126,7 +126,7 @@ A experiência de conexão do Azure AD depende da capacidade do Azure AD de corr
 O Azure AD Connect lista os sufixos UPN que estão definidos para os domínios e tenta correspondê-los a um domínio personalizado no Azure AD. Em seguida, ele ajuda você com a ação apropriada que precisa ser tomada.
 A página de conexão do Azure AD lista os sufixos UPN definidos para o Active Directory local e exibe o status correspondente em cada sufixo. Os valores de status podem ser um dos seguintes:
 
-| Estado | DESCRIÇÃO | Ação necessária |
+| Estado | Descrição | Ação necessária |
 |:--- |:--- |:--- |
 | Verificado |O Azure AD Connect encontrou uma correspondência de domínio verificado no Azure AD. Todos os usuários deste domínio podem se conectar usando suas credenciais locais. |Nenhuma ação é necessária. |
 | Não verificado |O Azure AD Connect encontrou uma correspondência de domínio personalizado, mas ele não é verificado. O sufixo UPN dos usuários desse domínio será alterado para o sufixo .onmicrosoft.com padrão após a sincronização, caso o domínio não seja verificado. | [Verifique o domínio personalizado no Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |

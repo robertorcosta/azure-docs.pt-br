@@ -1,19 +1,18 @@
 ---
-title: Recuperar status da oferta | Azure Marketplace
+title: Recuperar o status de oferecer | Mercado Azure
 description: API recupera o status atual da oferta.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819657"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280500"
 ---
 <a name="retrieve-offer-status"></a>Recuperar status da oferta 
 =====================
@@ -27,8 +26,8 @@ Recupera o status atual da oferta.
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador do publicador, por exemplo `Contoso`  |     Cadeia de caracteres     |
-|  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia de caracteres     |
+|  publisherId    | Identificador do editor, por exemplo `Contoso`  |     String     |
+|  offerId        | GUID que identifica exclusivamente a oferta      |     String     |
 |  api-version    | Última versão da API                        |     Data       |
 |  |  |
 
@@ -126,14 +125,14 @@ Recupera o status atual da oferta.
 |  **Nome**             |    **Descrição**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | O status da oferta. Para a lista de valores possíveis, consulte [Status da oferta](#offer-status) abaixo. |
-|  mensagens             | Matriz de mensagens associadas à oferta                                                    |
+|   da nuvem para o dispositivo             | Matriz de mensagens associadas à oferta                                                    |
 |  etapas                | Matriz das etapas que a oferta passa durante a publicação uma oferta                      |
 |  estimatedTimeFrame   | Estimativa do tempo que levaria para concluir essa etapa, em formato amigável                       |
-|  ID                   | Identificador da etapa                                                                         |
+|  id                   | Identificador da etapa                                                                         |
 |  stepName             | Nome da etapa                                                                               |
-|  Descrição          | Descrição da etapa                                                                        |
+|  descrição          | Descrição da etapa                                                                        |
 |  status               | Status da etapa. Para a lista de valores possíveis, consulte [Status da etapa](#step-status) abaixo.    |
-|  mensagens             | Matriz de mensagens relacionadas à etapa                                                          |
+|   da nuvem para o dispositivo             | Matriz de mensagens relacionadas à etapa                                                          |
 |  processPercentage    | Porcentagem de conclusão da etapa                                                              |
 |  previewLinks         | *Não implementado atualmente*                                                                    |
 |  liveLinks            | *Não implementado atualmente*                                                                    |
@@ -159,9 +158,9 @@ Recupera o status atual da oferta.
 |  NotStarted                  | A oferta é nova e não iniciada.                            |
 |  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.                 |
 |  Executando                     | O envio da oferta está sendo processado.                     |
-|  Bem-sucedido                   | O envio da oferta concluiu o processamento.               |
-|  Cancelado                    | O envio da oferta foi cancelado.                           |
-|  Falha                      | O envio da oferta falhou.                                 |
+|  Teve êxito                   | O envio da oferta concluiu o processamento.               |
+|  Canceled                    | O envio da oferta foi cancelado.                           |
+|  Falhou                      | O envio da oferta falhou.                                 |
 |  |  |
 
 
@@ -176,5 +175,5 @@ Recupera o status atual da oferta.
 |  Bloqueado                     | O etapa está bloqueada.                             |
 |  Rejeitado                    | A etapa é rejeitada.                            |
 |  Concluído                    | A etapa está concluída.                            |
-|  Cancelado                    | A etapa foi cancelada.                           |
+|  Canceled                    | A etapa foi cancelada.                           |
 |  |  |

@@ -1,6 +1,6 @@
 ---
-title: Transformação de junção no fluxo de dados de mapeamento
-description: Combinar dados de duas fontes de dados usando a transformação de junção no fluxo de dados de mapeamento Azure Data Factory
+title: Junte-se à transformação no mapeamento do fluxo de dados
+description: Combine dados de duas fontes de dados usando a transformação de adesão no fluxo de dados da Fábrica de Dados do Azure
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -8,76 +8,76 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/02/2020
-ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 32100e9cad86f12dc8111ee8a0282a515540a4db
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644742"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346603"
 ---
-# <a name="join-transformation-in-mapping-data-flow"></a>Transformação de junção no fluxo de dados de mapeamento
+# <a name="join-transformation-in-mapping-data-flow"></a>Junte-se à transformação no mapeamento do fluxo de dados
 
-Use a transformação junção para combinar dados de duas fontes ou fluxos em um fluxo de dados de mapeamento. O fluxo de saída incluirá todas as colunas de ambas as fontes correspondentes com base em uma condição de junção. 
+Use a transformação de juntar para combinar dados de duas fontes ou fluxos em um fluxo de dados de mapeamento. O fluxo de saída incluirá todas as colunas de ambas as fontes combinadas com base em uma condição de adesão. 
 
 ## <a name="join-types"></a>Tipos de junção
 
-O mapeamento de fluxos de dados atualmente dá suporte a cinco tipos de junção diferentes.
+O mapeamento de fluxos de dados atualmente suporta cinco tipos diferentes de adesão.
 
 ### <a name="inner-join"></a>Junção interna
 
-A junção interna só gera linhas que têm valores correspondentes em ambas as tabelas.
+O interior junta apenas linhas de saídas que tenham valores correspondentes em ambas as tabelas.
 
 ### <a name="left-outer"></a>Externa esquerda
 
-A junção externa esquerda retorna todas as linhas do fluxo à esquerda e os registros correspondentes do fluxo à direita. Se uma linha do fluxo à esquerda não tiver correspondência, as colunas de saída do fluxo à direita serão definidas como NULL. A saída será as linhas retornadas por uma junção interna mais as linhas não correspondentes do fluxo à esquerda.
+A junta esquerda retorna todas as linhas do fluxo esquerdo e os registros combinados do fluxo direito. Se uma linha do fluxo esquerdo não tiver correspondência, as colunas de saída do fluxo direito serão definidas como NULL. A saída será as linhas retornadas por uma junta interna mais as linhas incomparáveis do fluxo esquerdo.
 
 > [!NOTE]
-> O mecanismo do Spark usado pelos fluxos de dados ocasionalmente poderá ser possível nos produtos cartesianos em suas condições de junção. Quando esse for o caso, você poderá alternar para uma junção cruzada personalizada e inserir manualmente sua condição de junção. Isso pode resultar em um desempenho mais lento em seus fluxos de dados, pois o mecanismo de execução pode precisar calcular todas as linhas de ambos os lados da relação e, em seguida, filtrar as linhas.
+> O motor Spark usado por fluxos de dados ocasionalmente falhará devido a possíveis produtos cartesianos em suas condições de adesão. Se isso ocorrer, você pode mudar para uma inter-junta personalizada e inserir manualmente sua condição de adesão. Isso pode resultar em um desempenho mais lento nos fluxos de dados, pois o mecanismo de execução pode precisar calcular todas as linhas de ambos os lados da relação e, em seguida, filtrar linhas.
 
 ### <a name="right-outer"></a>Externa direita
 
-A junção externa direita retorna todas as linhas do fluxo à direita e os registros correspondentes do fluxo à esquerda. Se uma linha do fluxo à direita não tiver correspondência, as colunas de saída do fluxo à esquerda serão definidas como NULL. A saída será as linhas retornadas por uma junção interna mais as linhas não correspondentes do fluxo à direita.
+A junta externa direita retorna todas as linhas do fluxo direito e os registros combinados do fluxo esquerdo. Se uma linha do fluxo direito não tiver correspondência, as colunas de saída do fluxo esquerdo serão definidas como NULL. A saída será as linhas retornadas por uma junta interna mais as linhas incomparáveis do fluxo direito.
 
 ### <a name="full-outer"></a>Externa completa
 
-A junção externa completa gera todas as colunas e linhas de ambos os lados com valores nulos para colunas que não são correspondentes.
+Saídas de juntação externa completa todas as colunas e linhas de ambos os lados com valores NULL para colunas que não são compatíveis.
 
-### <a name="custom-cross-join"></a>Junção cruzada personalizada
+### <a name="custom-cross-join"></a>Adesão de cruz personalizada
 
-A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condição. Se você estiver usando uma condição que não seja de igualdade, especifique uma expressão personalizada como condição de junção cruzada. O fluxo de saída será todas as linhas que atendem à condição de junção.
+A junta cruzada produz o produto cruzado dos dois fluxos com base em uma condição. Se você estiver usando uma condição que não é igualdade, especifique uma expressão personalizada como sua condição de adesão cruzada. O fluxo de saída será de todas as linhas que atendam à condição de adesão.
 
-Você pode usar esse tipo de junção para junções não-correlacionadas e condições de ```OR```.
+Você pode usar este tipo de adesão para adesões e condições não-equi. ```OR```
 
-Se você quiser produzir explicitamente um produto cartesiano completo, use a transformação coluna derivada em cada um dos dois fluxos independentes antes da junção para criar uma chave sintética na qual corresponder. Por exemplo, crie uma nova coluna na coluna derivada em cada fluxo chamado ```SyntheticKey``` e defina-a como ```1```. Em seguida, use ```a.SyntheticKey == b.SyntheticKey``` como sua expressão de junção personalizada.
+Se você quiser produzir explicitamente um produto cartesiano completo, use a transformação da Coluna Derivada em cada um dos dois fluxos independentes antes da adesão para criar uma chave sintética para combinar. Por exemplo, crie uma nova coluna em ```SyntheticKey``` Coluna Derivada ```1```em cada fluxo chamado e defina-a igual a . Em ```a.SyntheticKey == b.SyntheticKey``` seguida, use como sua expressão de adesão personalizada.
 
 > [!NOTE]
-> Certifique-se de incluir pelo menos uma coluna de cada lado da relação esquerda e direita em uma junção cruzada personalizada. A execução de Junções cruzadas com valores estáticos em vez de colunas de cada lado resulta em verificações completas de todo o conjunto de dados, fazendo com que o fluxo do seu data seja executado inadequadamente.
+> Certifique-se de incluir pelo menos uma coluna de cada lado da sua relação esquerda e direita em uma interadeada personalizada. A execução de cross se junta a valores estáticos em vez de colunas de cada lado resulta em varreduras completas de todo o conjunto de dados, fazendo com que seu fluxo de dados seja mal executado.
 
 ## <a name="configuration"></a>Configuração
 
-1. Escolha o fluxo de dados com o qual você está ingressando no menu suspenso de **fluxo à direita** .
-1. Selecione seu **tipo de junção**
-1. Escolha em quais colunas de chave você deseja fazer a correspondência para a condição de junção. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
+1. Escolha qual fluxo de dados você está se juntando no fluxo de **dados** certo.
+1. Selecione seu **tipo de Participar**
+1. Escolha quais colunas-chave deseja combinar para participar da condição. Por padrão, o fluxo de dados busca igualdade entre uma coluna em cada fluxo. Para comparar através de um valor computado, paire sobre a coluna suspensa e **selecione Coluna Computada**.
 
-![Transformação de junção](media/data-flow/join.png "Join")
+![Participe da Transformação](media/data-flow/join.png "Join")
 
-## <a name="optimizing-join-performance"></a>Otimizando o desempenho da junção
+## <a name="optimizing-join-performance"></a>Otimização do desempenho de junta
 
-Ao contrário da junção de mesclagem em ferramentas como o SSIS, a transformação junção não é uma operação de junção de mesclagem obrigatória. As chaves de junção não exigem classificação. A operação de junção ocorre com base na operação de junção ideal no Spark, difusão ou junção no lado do mapa.
+Ao contrário da fusão de ferramentas como o SSIS, a transformação de adesão não é uma operação de fusão obrigatória. As chaves de adesão não requerem classificação. A operação de adesão ocorre com base na operação de adesão ideal no Spark, seja na transmissão ou no lado do mapa.
 
-![Transformação de junção otimizar](media/data-flow/joinoptimize.png "Otimização de junção")
+![Juntar-se transformação otimizar](media/data-flow/joinoptimize.png "Participe da Otimização")
 
-Se um ou ambos os fluxos de dados couberem na memória do nó de trabalho, otimize ainda mais seu desempenho habilitando a **difusão** na guia otimizar. Você também pode reparticionar seus dados na operação de junção para que eles se adaptem melhor à memória por trabalhador.
+Se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, melhore ainda mais o seu desempenho, habilitando o **Broadcast** na guia otimizar. Você também pode reparticionar seus dados na operação de adesão para que ele se encaixe melhor na memória por trabalhador.
 
 ## <a name="self-join"></a>Autojunção
 
-Para unir automaticamente um fluxo de dados com ele mesmo, faça um alias de um fluxo existente com uma transformação selecionar. Crie uma nova ramificação clicando no ícone de adição ao lado de uma transformação e selecionando **nova ramificação**. Adicione uma transformação selecionar para alias do fluxo original. Adicione uma transformação de junção e escolha o fluxo original como o **fluxo à esquerda** e a transformação selecionar como o **fluxo à direita**.
+Para se auto-juntar a um fluxo de dados consigo mesmo, alias um fluxo existente com uma transformação seleto. Crie uma nova ramificação clicando no ícone de adição ao lado de uma transformação e selecionando **Novo ramo**. Adicione uma transformação seleto ao alias do fluxo original. Adicione uma transformação de juntar e escolha o fluxo original como o **fluxo esquerdo** e a transformação selecionada como o **fluxo direito**.
 
-![Auto-associação](media/data-flow/selfjoin.png "Auto-associação")
+![Auto-adesão](media/data-flow/selfjoin.png "Auto-adesão")
 
-## <a name="testing-join-conditions"></a>Testando condições de junção
+## <a name="testing-join-conditions"></a>Testar condições de adesão
 
-Ao testar as transformações de junção com a visualização de dados no modo de depuração, use um pequeno conjunto de dados conhecidos. Ao fazer amostragem de linhas de um grande conjunto de grandes, você não pode prever quais linhas e chaves serão lidas para teste. O resultado é não determinístico, o que significa que suas condições de junção podem não retornar nenhuma correspondência.
+Ao testar as transformações de juntar com visualização de dados no modo de depuração, use um pequeno conjunto de dados conhecidos. Ao provar linhas de um grande conjunto de dados, você não pode prever quais linhas e chaves serão lidas para testes. O resultado não é determinista, o que significa que suas condições de adesão podem não retornar nenhuma partida.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -92,15 +92,15 @@ Ao testar as transformações de junção com a visualização de dados no modo 
     ) ~> <joinTransformationName>
 ```
 
-### <a name="inner-join-example"></a>Exemplo de junção interna
+### <a name="inner-join-example"></a>Exemplo de adesão interna
 
-O exemplo abaixo é uma transformação de junção chamada `JoinMatchedData` que usa fluxo à esquerda `TripData` e `TripFare`de fluxo à direita.  A condição de junção é a expressão `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que retorna true se as colunas `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` em cada fluxo correspondem. O parâmetro `joinType` é `'inner'`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
+O exemplo abaixo é `JoinMatchedData` uma transformação `TripData` de `TripFare`junta chamada que leva fluxo esquerdo e fluxo direito .  A condição de `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` adesão é `hack_license` `medallion`a `vendor_id`expressão `pickup_datetime` que retorna verdadeira se o , , e colunas em cada correspondência de fluxo. O `joinType` é `'inner'`. Estamos permitindo a transmissão apenas no fluxo `broadcast` esquerdo, então tem valor. `'left'`
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+No UX da Fábrica de Dados, essa transformação se parece com a imagem abaixo:
 
-![Exemplo de junção](media/data-flow/join-script1.png "Exemplo de junção")
+![Junte-se ao exemplo](media/data-flow/join-script1.png "Junte-se ao exemplo")
 
-O script de fluxo de dados para essa transformação está no trecho de código abaixo:
+O script de fluxo de dados para essa transformação está no trecho abaixo:
 
 ```
 TripData, TripFare
@@ -114,15 +114,15 @@ TripData, TripFare
     )~> JoinMatchedData
 ```
 
-### <a name="custom-cross-join-example"></a>Exemplo de junção cruzada personalizada
+### <a name="custom-cross-join-example"></a>Cruzamento personalizado juntar exemplo
 
-O exemplo abaixo é uma transformação de junção chamada `JoiningColumns` que usa fluxo à esquerda `LeftStream` e `RightStream`de fluxo à direita. Essa transformação usa dois fluxos e une todas as linhas nas quais a coluna `leftstreamcolumn` é maior que a coluna `rightstreamcolumn`. O parâmetro `joinType` é `cross`. A difusão não está habilitada `broadcast` tem valor `'none'`.
+O exemplo abaixo é `JoiningColumns` uma transformação `LeftStream` de `RightStream`junta chamada que leva fluxo esquerdo e fluxo direito . Essa transformação leva em dois fluxos `leftstreamcolumn` e une `rightstreamcolumn`todas as linhas onde a coluna é maior que a coluna. O `joinType` é `cross`. A transmissão não `broadcast` está `'none'`habilitada tem valor .
 
-No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+No UX da Fábrica de Dados, essa transformação se parece com a imagem abaixo:
 
-![Exemplo de junção](media/data-flow/join-script2.png "Exemplo de junção")
+![Junte-se ao exemplo](media/data-flow/join-script2.png "Junte-se ao exemplo")
 
-O script de fluxo de dados para essa transformação está no trecho de código abaixo:
+O script de fluxo de dados para essa transformação está no trecho abaixo:
 
 ```
 LeftStream, RightStream
@@ -133,6 +133,6 @@ LeftStream, RightStream
     )~> JoiningColumns
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Depois de unir os dados, crie uma [coluna derivada](data-flow-derived-column.md) e [coletar](data-flow-sink.md) seus dados para um armazenamento de dados de destino.
+Depois de juntar dados, crie uma [coluna derivada](data-flow-derived-column.md) e [saque](data-flow-sink.md) seus dados em um armazenamento de dados de destino.

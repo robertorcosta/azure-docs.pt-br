@@ -1,19 +1,18 @@
 ---
-title: Conformidade do GDPR | Azure Marketplace
+title: Conformidade com o GDPR | Mercado Azure
 description: Portal do Cloud Partner e GDPR.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bc43a6cb3c30638d8c3904d7ca5b004e0905f1d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f09bc60a59ff2a6e21d0cdae1917a1faed072ea4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824303"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280279"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformidade com GDPR do Portal do Cloud Partner
 ====================================
@@ -25,12 +24,12 @@ O Portal do Cloud Partner fornece informações detalhadas sobre o processamento
 <a name="discover"></a>Descobrir
 --------
 
-Portal do Cloud Partner fornece acesso a todos os seus dados na guia usuários. Você pode identificar seus dados pessoais lá. Para saber como adicionar/remover usuários, consulte nossa [documentação](./cloud-partner-portal-manage-users.md).
+O Portal do Parceiro na Nuvem dá acesso a todos os seus dados na guia Usuários. Você pode identificar seus dados pessoais lá. Para saber como adicionar/remover usuários, consulte nossa [documentação](./cloud-partner-portal-manage-users.md).
 
 <a name="manage"></a>Gerenciar
 ------
 
-Você pode gerenciar seus dados pessoais pressionando excluir na sua conta de usuário na guia usuários. Temos funções de um **proprietário** e um **colaborador** que podem ser atribuídos a cada usuário específico, e ambos podem ser atribuídos/copiados/atualizados/excluídos.
+Você pode gerenciar seus dados pessoais pressionando excluir em sua conta de usuário na guia Usuários. Temos funções de um **proprietário** e um **contribuinte** que podem ser atribuídos a cada usuário específico, e ambos podem ser atribuídos/copiados/atualizados/excluídos.
 
 <a name="consent"></a>Consentimento
 -------
