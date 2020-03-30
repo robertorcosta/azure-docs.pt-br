@@ -5,31 +5,31 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669006"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades
 
 ## <a name="overview"></a>Visão geral
 
-Alertas do log de atividades são alertas que são ativados quando ocorre um novo [evento do log de atividades](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no [log de atividades do Azure](platform-logs-overview.md), a regra de alerta será acionada. As regras de alerta do log de atividades são recursos do Azure, para que possam ser criadas usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta do log de atividades, consulte [criar e gerenciar alertas do log de atividades](alerts-activity-log.md).
+Os alertas de registro de atividade são alertas que são ativados quando ocorre um novo [evento de registro de atividade](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no registro de atividades do [Azure,](platform-logs-overview.md)a regra de alerta será acionada. As regras de alerta de registro de atividades são recursos do Azure, para que possam ser criadas usando um modelo do Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta de registro de atividades, consulte [Criar e gerenciar alertas de registro de atividades](alerts-activity-log.md).
 
 > [!NOTE]
-> **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
+> Não **é possível** criar alertas para eventos na categoria Alerta de registro de atividades.
 
 Normalmente, você cria alertas de log de atividade para receber notificações quando:
 
 * As operações específicas ocorrem nos recursos de sua assinatura do Azure, normalmente com escopo para recursos ou grupos de recursos específicos. Por exemplo, convém ser notificado quando qualquer máquina virtual em myProductionResourceGroup for excluída. Ou você pode receber uma notificação se quaisquer funções novas forem atribuídas a um usuário em sua assinatura.
 * Ocorre um evento de integridade do serviço. Os eventos de integridade de serviço incluem uma notificação de incidentes e eventos de manutenção que se aplicam aos recursos em sua assinatura.
 
-Uma analogia simples para entender as condições em que as regras de alerta podem ser criadas no log de atividades é explorar ou filtrar eventos por meio [do log de atividades em portal do Azure](activity-log-view.md#azure-portal). No log de atividades Azure Monitor, é possível filtrar ou localizar o evento necessário e, em seguida, criar um alerta usando o botão de **alerta Adicionar log de atividades** .
+Uma analogia simples para entender as condições em que as regras de alerta podem ser criadas no registro de atividades, é explorar ou filtrar eventos através do [login de atividade no portal Azure](activity-log-view.md#azure-portal). No Azure Monitor - Registro de atividades, pode-se filtrar ou encontrar o evento necessário e, em seguida, criar um alerta usando o botão **Adicionar alerta de registro de atividade.**
 
 Em ambos os casos, o alerta do log de atividades só monitorará eventos na assinatura na qual o alerta foi criado.
 
-Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON de um evento do log de atividades. Para obter mais informações, consulte [categorias no log de atividades](activity-log-view.md#categories-in-the-activity-log). Para saber mais sobre os eventos de integridade do serviço, veja [Receber alertas do log de atividades em notificações de serviço](alerts-activity-log-service-notifications.md). 
+Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON de um evento do log de atividades. Para obter mais informações, consulte [Categorias no Registro de Atividades](activity-log-view.md#categories-in-the-activity-log). Para saber mais sobre os eventos de integridade do serviço, veja [Receber alertas do log de atividades em notificações de serviço](alerts-activity-log-service-notifications.md). 
 
 Os alertas do log de atividades têm algumas opções comuns:
 
@@ -40,7 +40,7 @@ Os alertas do log de atividades têm algumas opções comuns:
     - Nível de assinatura: por exemplo, todas as máquinas virtuais em uma assinatura (ou) todos os recursos em uma assinatura
 - **Grupo de recursos**: por padrão, a regra de alerta é salva no mesmo grupo de recursos como no destino definido no escopo. O usuário também pode definir o grupo de recursos no qual a regra de alerta deve ser armazenada.
 - **Tipo de recurso**: o Resource Manager definido pelo namespace para o destino do alerta.
-- **Nome da operação**: o nome da [operação de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado para o controle de acesso baseado em função. As operações não registradas com Azure Resource Manager não podem ser usadas em uma regra de alerta do log de atividades.
+- **Nome da operação**: O nome [de operação do Gerenciador de Recursos do Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para controle de acesso baseado em função . As operações não registradas no Azure Resource Manager não podem ser usadas em uma regra de alerta de registro de atividades.
 - **Nível**: o nível de gravidade do evento (Detalhado, Informativo, Aviso, Erro ou Crítico).
 - **Status**: o status do evento, normalmente Iniciado, Falha ou Êxito.
 - **Evento iniciado por**: também conhecido como o "chamador". O endereço de email ou o identificador do Azure Active Directory do usuário que realizou a operação.
@@ -58,7 +58,7 @@ Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de açõ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Obtenha uma [visão geral dos alertas](alerts-overview.md).
+- Obtenha uma [visão geral dos alertas.](alerts-overview.md)
 - Saiba mais sobre [criar e modificar alertas do log de atividades](alerts-activity-log.md).
-- Examine o [esquema do webhook de alertas de log de atividades](activity-log-alerts-webhook.md).
-- Saiba mais sobre as [notificações de integridade do serviço](service-notifications.md).
+- Revise o [esquema de webhook](activity-log-alerts-webhook.md)de alerta de log de atividade .
+- Conheça as [notificações de saúde dos serviços](service-notifications.md).

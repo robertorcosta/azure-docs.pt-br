@@ -1,5 +1,5 @@
 ---
-title: azcopy remover | Microsoft Docs
+title: azcópia remover | Microsoft Docs
 description: Este artigo fornece informações de referência para o comando azcopy remove.
 author: normesta
 ms.service: storage
@@ -9,17 +9,17 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033991"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
-Exclua BLOBs ou arquivos de uma conta de armazenamento do Azure.
+Exclua blobs ou arquivos de uma conta de armazenamento do Azure.
 
-## <a name="synopsis"></a>Resumo
+## <a name="synopsis"></a>Sinopse
 
 ```azcopy
 azcopy remove [resourceURL] [flags]
@@ -28,43 +28,43 @@ azcopy remove [resourceURL] [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Exemplos
 
-Remova um único blob com SAS:
+Remova uma única bolha com SAS:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Remova um diretório virtual inteiro com uma SAS:
+Remova um diretório virtual inteiro com um SAS:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
 
-Remova somente os BLOBs superiores dentro de um diretório virtual, mas não seus subdiretórios:
+Remova apenas as bolhas superiores dentro de um diretório virtual, mas não seus subdiretórios:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Remova um subconjunto de BLOBs em um diretório virtual (por exemplo: somente arquivos jpg e PDF, ou se o nome do blob for "exactname"):
+Remova um subconjunto de blobs em um diretório virtual (Por exemplo: apenas arquivos jpg e pdf, ou se o nome blob é "exactName"):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include="*.jpg;*.pdf;exactName"
 ```
 
-Remova um diretório virtual inteiro, mas exclua determinados BLOBs do escopo (por exemplo: cada blob que começa com foo ou termina com bar):
+Remova um diretório virtual inteiro, mas exclua certas bolhas do escopo (Por exemplo: cada bolha que começa com foo ou termina com barra):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Remova BLOBs específicos e diretórios virtuais colocando seus caminhos relativos (não codificados em URL) em um arquivo:
+Remova blobs e diretórios virtuais específicos colocando seus caminhos relativos (NÃO codificados por URL) em um arquivo:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
@@ -75,13 +75,13 @@ file content:
 
 ```
 
-Remova um único arquivo de uma conta de armazenamento de BLOBs que tenha um namespace hierárquico (include/Exclude sem suporte).
+Remova um único arquivo de uma conta blob Storage que tenha um namespace hierárquico (include/exclua não suportado).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Remover um único diretório de uma conta de armazenamento de BLOBs que tem um namespace hierárquico (include/Exclude sem suporte):
+Remova um único diretório de uma conta blob Storage que tenha um namespace hierárquico (include/exclua não suportado):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -89,29 +89,29 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opções
 
-**--Exclude-cadeia de caracteres de caminho**      Exclua esses caminhos ao remover. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo do caminho relativo. Por exemplo: MyFolder; MyFolder/subDirName/File. pdf.
+**--exclua-caminho string**      Exclua esses caminhos ao remover. Esta opção não suporta caracteres curinga (*). Verifica o prefixo de caminho relativo. Por exemplo: myFolder;myFolder/subDirName/file.pdf.
 
-**--Exclude-Pattern** cadeia de caracteres excluir arquivos onde o nome corresponde à lista padrão. Por exemplo: *. jpg;* . PDF; exatoname
+**--excluir-padrão de** seqüência Desexcluir arquivos onde o nome corresponde à lista de padrões. Por exemplo: *.jpg;*. pdf;exactName
 
-**-h,-** ajuda ajuda para remover
+**-h,-- ajudar a** remover
 
---a cadeia de caracteres **include-path** inclui apenas esses caminhos ao remover. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo do caminho relativo. Por exemplo: MyFolder; MyFolder/subDirName/File. pdf
+**--incluir-caminho** de seqüência Inclua apenas esses caminhos ao remover. Esta opção não suporta caracteres curinga (*). Verifica o prefixo de caminho relativo. Por exemplo: myFolder;myFolder/subDirName/file.pdf
 
-**--include-** a cadeia de caracteres de padrão inclui apenas arquivos em que o nome corresponde à lista de padrões. Por exemplo: *. jpg;* . PDF; exatoname
+**--incluir-seqüência de padrões** Inclua apenas arquivos onde o nome corresponda à lista de padrões. Por exemplo: *.jpg;*. pdf;exactName
 
-**--a cadeia de caracteres de lista de arquivos** define o local de um arquivo que contém a lista de arquivos e diretórios a serem excluídos. Os caminhos relativos devem ser delimitados por quebras de linha e os caminhos não devem ser codificados em URL.
+**a seqüência de arquivos** define a localização de um arquivo que contém a lista de arquivos e diretórios a serem excluídos. Os caminhos relativos devem ser delimitados por quebras de linha, e os caminhos NÃO devem ser codificados por URL.
 
-**--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log. Os níveis disponíveis incluem: informações (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão ' INFO ') (padrão "INFO")
+**cadeia de nível de log** Defina a verbosidade de log para o arquivo log. Os níveis disponíveis incluem: INFO(todas as solicitações/respostas), AVISO (respostas lentas), ERRO (apenas solicitações com falha) e NONE (sem registros de saída). ('INFO') padrão (padrão "INFO")
 
-**--recursivo**                Examine os subdiretórios recursivamente ao sincronizar entre diretórios.
+**--recursivo**                Olhe para subdiretórios recursivamente ao sincronizar entre diretórios.
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos parentais
 
-|Opção|DESCRIÇÃO|
+|Opção|Descrição|
 |---|---|
-|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
-|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--cap-mbps uint32|Limita a taxa de transferência, em megabits por segundo. O throughput momento a momento pode variar ligeiramente da tampa. Se esta opção estiver definida como zero, ou for omitida, o throughput não será limitado.|
+|--cadeia de tipo de saída|Formato da saída do comando. As opções incluem: texto, json. O valor padrão é "texto".|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-- [azcopy](storage-ref-azcopy.md)
+- [azcópia](storage-ref-azcopy.md)

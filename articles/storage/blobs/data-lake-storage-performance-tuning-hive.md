@@ -1,6 +1,6 @@
 ---
-title: 'Ajustar o desempenho: Hive, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2 diretrizes de ajuste de desempenho do hive.
+title: 'Desempenho de sintonia: Hive, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: Diretrizes de sintonia de desempenho da colmeia Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,23 +9,23 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 66042568cede364c16302fbd85751de4113bbe0f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327579"
 ---
-# <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: Hive, & HDInsight Azure Data Lake Storage Gen2
+# <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Desempenho da sintonia: Hive, HDInsight & Azure Data Lake Storage Gen2
 
 As configurações padrão foram definidas para fornecer bom desempenho em muitos casos de uso diferentes.  Para consultas intensivas de E/S, o Hive pode ser ajustado para obter um melhor desempenho com o Azure Data Lake Storage Gen2.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do Data Lake Storage Gen2**. Para obter instruções sobre como criar uma, consulte [início rápido: criar uma conta de armazenamento Azure data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
-* **Cluster Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Confira [Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
+* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta do Data Lake Storage Gen2**. Para obter instruções sobre como criar um, consulte [Quickstart: Crie uma conta de armazenamento Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
+* **Cluster do Azure HDInsight** com acesso a uma conta do Azure Data Lake Storage Gen2. Veja [Usar o Azure Data Lake Storage Gen2 com clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **Execução do Hive no HDInsight**.  Para saber mais sobre como executar trabalhos de Hive no HDInsight, confira [Usar Hive no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen2**.  Para obter os conceitos gerais de desempenho, confira [Diretrizes de ajuste de desempenho do Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md)
+* **Diretrizes de ajuste de desempenho no Data Lake Storage Gen2**.  Para obter conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -47,7 +47,7 @@ Aqui estão as configurações mais importantes para melhorar o desempenho do Da
 
 **hive.exec.reducer.bytes.per.reducer** – esse parâmetro define o tamanho de cada redutor.  Por padrão, o tamanho de cada redutor é de 256 MB.  
 
-## <a name="guidance"></a>Diretrizes
+## <a name="guidance"></a>Orientação
 
 **Definir hive.exec.reducer.bytes.per.reducer** – o valor padrão funciona bem quando os dados são descompactados.  Para dados compactados, você deve reduzir o tamanho do redutor.  
 
@@ -55,7 +55,7 @@ Aqui estão as configurações mais importantes para melhorar o desempenho do Da
 
 As cargas de trabalho que usam muita E/S podem se beneficiar de mais paralelismo reduzindo o tamanho do contêiner do Tez. Isso proporciona ao usuário mais contêineres, o que aumenta a simultaneidade.  No entanto, algumas consultas do Hive exigem uma quantidade significativa de memória (por exemplo, MapJoin).  Se a tarefa não tiver memória suficiente, você receberá uma exceção de falta de memória durante o runtime.  Se você receber sem exceções de falta de memória, será preciso aumentá-la.   
 
-O número simultâneo de tarefas em execução ou de paralelismo será limitado pela memória YARN total.  O número de contêineres YARN ditará quantas tarefas simultâneas podem ser executadas.  Para localizar a memória YARN por nó, você pode ir para o Ambari.  Navegue até YARN e exiba a guia Configurações.  A memória YARN é exibida nesta janela.  
+O número simultâneo de tarefas em execução ou de paralelismo será limitado pela memória YARN total.  O número de contêineres YARN ditará quantas tarefas simultâneas podem ser executadas.  Para localizar a memória YARN por nó, você pode ir para o Ambari.  Navegue até O Fio e visualize a guia Configs.  A memória YARN é exibida nesta janela.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size

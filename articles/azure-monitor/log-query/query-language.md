@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
 ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669379"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
@@ -20,7 +20,7 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 
 ## <a name="getting-started"></a>Introdução
 
-- [Introdução ao Azure Monitor log Analytics](get-started-portal.md) é uma lição para escrever consultas e trabalhar com resultados no portal do Azure.
+- [Comece com o Azure Monitor Log Analytics](get-started-portal.md) é uma lição para escrever consultas e trabalhar com resultados no portal Azure.
 - [Introdução às consultas de log do Azure Monitor](get-started-queries.md) é uma lição sobre como escrever consultas usando dados de log do Azure Monitor.
 
 ## <a name="concepts"></a>Conceitos
@@ -56,6 +56,6 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 -  [SQL para consultas de log do Azure Monitor](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o SQL.
 -  [Splunk para consultas de log do Azure Monitor](splunk-cheatsheet.md) auxilia usuários que já estão familiarizados com o Splunk.
  
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Acesse a [documentação de referência completa da linguagem de consulta do Kusto](/azure/kusto/query/).

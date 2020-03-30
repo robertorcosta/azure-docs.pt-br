@@ -1,5 +1,5 @@
 ---
-title: Inteligência contra ameaças & mapa de alertas de segurança – central de segurança do Azure
+title: Inteligência de ameaças & mapa de alerta de segurança - Azure Security Center
 description: Saiba como usar a funcionalidade de mapa de alerta de segurança e inteligência contra ameaças na Central de Segurança do Azure para identificar possíveis ameaças em VMs e computadores.
 services: security-center
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: 39835d9d73adcbe474d3b70dfced313e18d1a3b3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603425"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Inteligência contra ameaças e mapa de alertas de segurança
 Este artigo ajuda você a usar o mapa de alertas da Central de Segurança do Azure e o mapa de inteligência de ameaças baseada em eventos de segurança para solucionar problemas relacionados à segurança.
 
 > [!NOTE]
-> O botão mapa de *eventos* de segurança foi desativado em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> O botão de mapa *de eventos* de segurança foi retirado em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [os recursos do Centro de Aposentadoria da Segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
 ## <a name="how-the-security-alerts-map-works"></a>Como mapear os trabalhos do mapa de alertas
@@ -60,7 +60,7 @@ Os alertas no mapa são exibidos de acordo com a localização geográfica onde 
 ## <a name="see-also"></a>Confira também
 Neste artigo, você aprendeu a usar a inteligência contra ameaças na Central de Segurança para ajudar a identificar atividades suspeitas. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
-* [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
+* [Gerencie e responda a alertas de segurança no Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
+* [Monitoramento de segurança em segurança no Azure Security Center](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
 * [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança.
+* [Guia de solução de problemas do Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança.

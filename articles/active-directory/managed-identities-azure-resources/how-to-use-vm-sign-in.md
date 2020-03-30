@@ -1,5 +1,5 @@
 ---
-title: Usar identidades gerenciadas em uma VM do Azure para entrar-Azure AD
+title: Use identidades gerenciadas em uma VM Azure para fazer login - Azure AD
 description: Instruções e exemplos passo a passo para o uso de identidades gerenciadas de VM do Azure para a entidade de serviço de recursos do Azure para login do cliente de script e acesso a recursos.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74547379"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrar 
@@ -39,7 +39,7 @@ Se você planeja usar os exemplos do Azure PowerShell ou da CLI do Azure neste a
 > - Todos os exemplos de script neste artigo presumem que o cliente de linha de comando está sendo executado em uma VM com identidades gerenciadas para recursos do Azure habilitados. Use o recurso "Conectar" da VM no Portal do Azure para conectar-se remotamente à sua VM. Para obter detalhes sobre como habilitar identidades gerenciadas para recursos do Azure em uma VM, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) ou um dos artigos variantes (usando PowerShell, CLI, um modelo ou um SDK do Azure). 
 > - Para evitar erros durante o acesso a recursos, a identidade gerenciada da VM deve receber pelo menos o acesso "Reader" no escopo apropriado (a VM ou superior) para permitir operações do Azure Resource Manager na VM. Consulte [Atribuir identidades gerenciadas para acesso de recursos do Azure a um recurso usando o portal do Azure](howto-assign-access-portal.md) para obter detalhes.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Identidades gerenciadas para recursos do Azure fornecem um [objeto principal de serviço](../develop/developer-glossary.md#service-principal-object), que é [criado ao habilitar identidades gerenciadas para recursos do Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para entrada e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
 
@@ -48,7 +48,7 @@ Identidades gerenciadas para recursos do Azure fornecem um [objeto principal de 
 
 Com as identidades gerenciadas dos recursos do Azure, seu cliente de script não precisa mais fazer nada, pois pode entrar nas identidades gerenciadas do objeto principal do serviço de recursos do Azure. 
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 
 O script a seguir demonstra como:
 
@@ -80,23 +80,23 @@ O script a seguir demonstra como:
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 
-Consulte [Serviços do Azure que oferecem suporte à autenticação do Azure AD](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de recursos que oferecem suporte ao Azure AD e que foram testados com identidades gerenciadas para recursos do Azure e seus respectivos IDs de recursos.
+Consulte [Serviços do Azure que dão suporte à autenticação do Azure AD](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de recursos que dão suporte ao Azure AS e foram testados com identidades gerenciadas para recursos do Azure e as respectivas IDs do recurso.
 
 ## <a name="error-handling-guidance"></a>Diretrizes sobre tratamento de erro 
 
 Respostas como a seguinte podem indicar que a identidade gerenciada da VM para recursos do Azure não foi configurada corretamente:
 
 - PowerShell: *Invoke-WebRequest: não é possível conectar-se ao servidor remoto*
-- CLI: *MSI: falha ao recuperar um token do `http://localhost:50342/oauth2/token` com um erro de ' HTTPConnectionPool (host = ' localhost ', Port = 50342)* 
+- CLI: *MSI: Falha ao recuperar `http://localhost:50342/oauth2/token` um token com um erro de 'HTTPConnectionPool(host='localhost', porta=50342)* 
 
 Se você receber um desses erros, retorne para a VM do Azure no [Portal do Azure](https://portal.azure.com) e:
 
 - Vá para a página **Identidade** e assegure que **Sistema atribuído** esteja definido como "Sim".
-- Vá para a página **Extensões** e verifique se as identidades gerenciadas da extensão de recursos do Azure  **(reprovação planejada para janeiro de 2019)** foram implantadas com êxito.
+- Vá para a página **Extensões** e verifique se as identidades gerenciadas da extensão de recursos do Azure ** (reprovação planejada para janeiro de 2019)** foram implantadas com êxito.
 
-Se um deles estiver incorreto, talvez seja necessário reimplementar as identidades gerenciadas dos recursos do Azure no seu recurso novamente ou solucionar a falha de implantação. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) se precisar de ajuda com a configuração da VM.
+Se um deles estiver incorreto, talvez seja necessário reimplementar as identidades gerenciadas dos recursos do Azure no seu recurso novamente ou solucionar a falha de implantação. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal Azure](qs-configure-portal-windows-vm.md) se você precisar de assistência com a configuração da VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para habilitar identidades gerenciadas para recursos do Azure em uma VM do Azure, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](qs-configure-powershell-windows-vm.md) ou [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando a CLI do Azure](qs-configure-cli-windows-vm.md)
 

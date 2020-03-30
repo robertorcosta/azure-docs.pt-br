@@ -1,14 +1,14 @@
 ---
-title: Preparar para alterar o endereço IP de saída
+title: Prepare-se para a alteração de endereço IP de saída
 description: Se seu endereço IP de saída vai ser alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671677"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de saída
@@ -27,7 +27,7 @@ Se você recebeu uma notificação de que os endereços IP de saída do seu apli
 
 Novos endereços IP de saída são mostrados no portal antes de entrarem em vigor. Quando o Azure começar a usar os novos, os antigos não serão usados. Apenas um conjunto é usado por vez, portanto entradas na lista de inclusão devem ter endereços IP antigos e novos para impedir uma interrupção quando a alternância acontece. 
 
-1.  Abra o [Portal do Azure](https://portal.azure.com).
+1.  Abra o [portal Azure.](https://portal.azure.com)
 
 2.  No menu de navegação à esquerda, selecione **Serviços de Aplicativos**.
 
@@ -39,6 +39,6 @@ Novos endereços IP de saída são mostrados no portal antes de entrarem em vigo
 
 5. Copie os endereços IP e adicione-os ao tratamento especial de tráfego de saída, como um filtro ou lista de permitidos. Não exclua os endereços IP existentes na lista.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre endereços IP no Serviço de Aplicativo do Azure, consulte [Entrada e endereços IP de saída no Serviço de Aplicativo do Azure](overview-inbound-outbound-ips.md).

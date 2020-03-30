@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671028"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
@@ -56,7 +56,7 @@ O Impact dá suporte a propriedades padrão e personalizadas, além de medidas. 
 2. Escolha “País ou região” no menu suspenso **analisar como o**
 3. Para o menu suspenso **afeta o uso do**, selecione um evento personalizado que corresponda a um elemento de interface do usuário na exibição de página que você escolheu na etapa 1.
 
-Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo como fizeram no primeiro exemplo. Em vez disso, uma visualização semelhante a um funil segmentado é apresentada. Classifique por **uso** para exibir a variação de conversão em seu evento personalizado com base no país/região.
+Neste caso, os resultados deixam de se ajustar a um modelo de eixo x contínuo como fizeram no primeiro exemplo. Em vez disso, uma visualização semelhante a um funil segmentado é apresentada. Classifique **por uso** para ver a variação de conversão para o seu evento personalizado com base no país/região.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Como a ferramenta Impact calcula essas taxas de conversão?
@@ -78,7 +78,7 @@ Em seguida, as sessões são divididas em dois tipos diferentes de _subsessões_
 
 Como o impacto acaba sendo calculado varia de acordo com a análise feita por métrica ou dimensão. Para métricas, a média de todos os _A_s em uma subsessão é calculada. Embora para dimensões o valor de cada _A_ contribua _1/N_ para o valor atribuído a _B_ em que _N_ é o número de _A_s na subsessão.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.

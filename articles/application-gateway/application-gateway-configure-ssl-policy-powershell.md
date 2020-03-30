@@ -1,5 +1,5 @@
 ---
-title: Configurar a política SSL usando o PowerShell
+title: Configure a diretiva SSL usando o PowerShell
 titleSuffix: Azure Application Gateway
 description: Esta página fornece instruções para configurar a política SSL no Gateway de Aplicativo do Azure
 services: application-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075240"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e conjuntos de codificação no Gateway de Aplicativo
@@ -116,7 +116,7 @@ O exemplo a seguir define uma política personalizada do SSL em um gateway de ap
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 deve ser selecionado ao configurar uma política SSL personalizada. O gateway de aplicativo usa esse pacote de codificação para gerenciamento de back-end. Você pode usá-lo em combinação com qualquer outro pacote, mas esse também deve ser selecionado. 
+> TLS_RSA_WITH_AES_256_CBC_SHA256 devem ser selecionados ao configurar uma diretiva SSL personalizada. O gateway de aplicativo usa esse conjunto de cifras para gerenciamento de back-end. Você pode usá-lo em combinação com qualquer outra suíte, mas este deve ser selecionado também. 
 
 ```powershell
 # get an application gateway resource

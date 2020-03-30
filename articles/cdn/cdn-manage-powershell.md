@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/20/2019
 ms.author: magattus
 ms.openlocfilehash: 476779eff41cb9ce1c0a9c79430813ce9a39e91f
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74286655"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gerenciar a CDN do Azure com o PowerShell
 O PowerShell fornece um dos métodos mais flexíveis para gerenciar os perfis e os pontos de extremidade de CDN do Azure.  Você pode usar o PowerShell interativamente ou escrevendo scripts para automatizar as tarefas de gerenciamento.  Este tutorial demonstra várias tarefas mais comuns que você pode fazer com o PowerShell para gerenciar os perfis e os pontos de extremidade de CDN do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -192,7 +192,7 @@ Else { Write-Host "No, that endpoint name is not available." }
 `New-AzCdnCustomDomain` adiciona um nome de domínio personalizado a um ponto de extremidade existente.
 
 > [!IMPORTANT]
-> Você deve configurar o CNAME com seu provedor DNS conforme descrito em [Como mapear o Domínio Personalizado para o ponto de extremidade CDN (Rede de Distribuição de Conteúdo)](cdn-map-content-to-custom-domain.md).  Você pode testar o mapeamento antes de modificar o ponto de extremidade usando `Test-AzCdnCustomDomain`.
+> Você deve configurar o CNAME com seu provedor DNS como descrito em [Como mapear o Domínio Personalizado para o ponto de extremidade CDN (Rede de Distribuição de Conteúdo)](cdn-map-content-to-custom-domain.md).  Você pode testar o mapeamento antes de modificar o ponto de extremidade usando `Test-AzCdnCustomDomain`.
 > 
 > 
 
@@ -250,8 +250,8 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Stop-AzCdnEndpoint
 Get-AzCdnProfile | Get-AzCdnEndpoint | Start-AzCdnEndpoint
 ```
 
-## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>Criando política de mecanismo de regras padrão e aplicando a um ponto de extremidade CDN existente
-`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition`e `New-AzCdnDeliveryRuleAction` podem ser usados para configurar o mecanismo de regras padrão da CDN do Azure na CDN do Azure de perfis da Microsoft. 
+## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>Criando a política do mecanismo Standard Rules e aplicando-se a um ponto final de CDN existente
+`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition`e `New-AzCdnDeliveryRuleAction` pode ser usado para configurar o mecanismo Azure CDN Standard Rules no CDN do Azure a partir de perfis da Microsoft. 
 
 ```powershell
 # Create a new http to https redirect rule
@@ -287,8 +287,8 @@ Get-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG | Get-AzC
 Remove-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 Saiba como automatizar a CDN do Azure com [.NET](cdn-app-dev-net.md) ou [Node.js](cdn-app-dev-node.md).
 
-Para saber mais sobre os recursos CDN, confira [Visão geral da CDN](cdn-overview.md).
+Para saber mais sobre os recursos CDN, consulte [Visão Geral da CDN](cdn-overview.md).
 

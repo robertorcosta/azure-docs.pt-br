@@ -1,5 +1,5 @@
 ---
-title: 'Gateway de VPN do Azure: configurar o túnel forçado-conexões site a site: clássico'
+title: 'Gateway Azure VPN: Configure o túnel forçado - conexões site-a-site: clássico'
 description: Como redirecionar ou 'forçar' todo o tráfego direcionado à Internet para sua localização local.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
 ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201570"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação clássico
@@ -20,7 +20,7 @@ O túnel forçado permite redirecionar ou "forçar" todo o tráfego direcionado 
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Este artigo o guia pela configuração de túnel forçado para redes virtuais criadas usando o modelo de implantação clássico. O túnel forçado pode ser configurado usando o PowerShell, não por meio do portal. Se você quiser configurar o túnel forçado para o modelo de implantação do Gerenciador de recursos, selecione o artigo do Resource Manager na lista suspensa a seguir:
+Este artigo o guia pela configuração de túnel forçado para redes virtuais criadas usando o modelo de implantação clássico. O túnel forçado pode ser configurado usando o PowerShell, não por meio do portal. Se você quiser configurar o tunelamento forçado para o modelo de implantação do Gerenciador de recursos, selecione o artigo do Gerenciador de recursos na seguinte lista de paradas:
 
 > [!div class="op_single_selector"]
 > * [PowerShell - clássico](vpn-gateway-about-forced-tunneling.md)
@@ -39,7 +39,7 @@ O túnel forçado no Azure é configurado por meio de UDR (rotas de definidas pe
 * Com a liberação de rotas definidas pelo usuário, você poderá criar uma tabela de roteamento para adicionar uma rota padrão e, em seguida, associar a tabela de roteamento às suas sub-redes de VNet para habilitar o túnel forçado nessas sub-redes.
 * Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
 * O túnel forçado deve ser associado a uma Rede Virtual que tem um gateway de VPN de roteamento dinâmico (e não um gateway estático).
-* O túnel forçado do ExpressRoute não é configurado por meio deste mecanismo, mas é habilitado por meio do anúncio de uma rota padrão por meio de sessões de emparelhamento via protocolo BGP do ExpressRoute. Consulte a [documentação do ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obter mais informações.
+* O túnel forçado do ExpressRoute não é configurado por meio deste mecanismo, mas é habilitado por meio do anúncio de uma rota padrão por meio de sessões de emparelhamento via protocolo BGP do ExpressRoute. Consulte a [Documentação ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) para obter mais informações.
 
 ## <a name="configuration-overview"></a>Visão geral de configuração
 No exemplo a seguir, a sub-rede Frontend não é um túnel forçado. As cargas de trabalho na sub-rede do front-end podem continuar a aceitar e a responder diretamente às solicitações de clientes da Internet. As sub-redes de Camada intermediária e Back-end são túneis forçados. As conexões de saída dessas duas sub-redes com a Internet serão forçadas ou redirecionadas de volta ao site local por meio de túneis de VPN S2S.
@@ -55,9 +55,9 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração:
 * Uma rede virtual configurada. 
 * [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="to-sign-in"></a>Para entrar
+### <a name="to-sign-in"></a>Para fazer login
 
-1. Abra o console do PowerShell com direitos elevados. Para alternar para o gerenciamento de serviços, use este comando:
+1. Abra seu console PowerShell com direitos elevados. Para mudar para o gerenciamento de serviços, use este comando:
 
    ```powershell
    azure config mode asm

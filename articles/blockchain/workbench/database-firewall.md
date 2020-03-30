@@ -1,14 +1,14 @@
 ---
-title: Configurar o firewall de banco de dados do Azure Blockchain Workbench
-description: Saiba como configurar o firewall de banco de dados do Azure Blockchain Workbench Preview para permitir que clientes e aplicativos externos se conectem.
+title: Configure o firewall do banco de dados azure Blockchain Workbench
+description: Saiba como configurar o firewall de banco de dados Azure Blockchain Workbench Preview para permitir que clientes e aplicativos externos se conectem.
 ms.date: 09/09/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: e6739b7ead9299f020465d3c50ed01826334ca76
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74325993"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurar o firewall do banco de dados do Azure Blockchain Workbench
@@ -19,7 +19,7 @@ Este artigo mostra como configurar uma regra de firewall usando o portal do Azur
 
 Para se conectar ao banco de dados em que você deseja configurar uma regra:
 
-1. Entre no portal do Azure com uma conta que tenha permissões de **proprietário** para os recursos do Azure Blockchain Workbench.
+1. Faça login no portal Dozure com uma conta que tenha permissões **do proprietário** para os recursos da Bancada de Trabalho blockchain do Azure.
 2. No painel de navegação esquerdo, selecione **Grupos de recursos**.
 3. Escolha o nome do grupo de recursos para sua implantação do Blockchain Workbench.
 4. Selecione **Tipo** para classificar a lista de recursos e, em seguida, escolha o **SQL Server**.

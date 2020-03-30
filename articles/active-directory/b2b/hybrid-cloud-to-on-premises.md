@@ -1,6 +1,6 @@
 ---
-title: Conceder aos usuários B2B acesso aos seus aplicativos locais-Azure AD
-description: Mostra como fornecer aos usuários B2B de nuvem acesso a aplicativos locais com a colaboração B2B do Azure AD.
+title: Conceda aos usuários B2B acesso aos seus aplicativos locais - Azure AD
+description: Mostra como dar aos usuários b2B da nuvem acesso a aplicativos no local com a colaboração Azure AD B2B.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 098f464b6af5f10866403e1cd1549d571d883ac1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272790"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder aos usuários B2B do Microsoft Azure AD acesso aos aplicativos locais
@@ -61,10 +61,10 @@ O diagrama a seguir fornece uma visão geral de alto nível de como o Proxy de A
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
 
-É possível gerenciar os objetos de usuário B2B local por meio das políticas de gerenciamento do ciclo de vida. Por exemplo:
+É possível gerenciar os objetos de usuário B2B local por meio das políticas de gerenciamento do ciclo de vida. Por exemplo: 
 
-- É possível configurar políticas de MFA (Autenticação Multifator) para o usuário Convidado, de modo que a MFA seja utilizada durante a autenticação do Proxy de Aplicativos. Para obter mais informações, consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md).
-- Quaisquer patrocínios, revisões de acesso, verificações de conta e etc. executadas no usuário B2B de nuvem aplicam-se aos usuários locais. Por exemplo, se o usuário de nuvem for excluído por meio de suas políticas de gerenciamento do ciclo de vida, o usuário local também será excluído pela sincronização do MIM ou por meio de sincronização de Azure AD Connect. Para obter mais informações, consulte [gerenciar o acesso de convidado com revisões de acesso do Azure ad](../governance/manage-guest-access-with-access-reviews.md).
+- É possível configurar políticas de MFA (Autenticação Multifator) para o usuário Convidado, de modo que a MFA seja utilizada durante a autenticação do Proxy de Aplicativos. Para obter mais informações, consulte [Conditional Access para usuários de colaboração B2B](conditional-access.md).
+- Quaisquer patrocínios, revisões de acesso, verificações de conta e etc. executadas no usuário B2B de nuvem aplicam-se aos usuários locais. Por exemplo, se o usuário da nuvem for excluído através de suas políticas de gerenciamento do ciclo de vida, o usuário local também será excluído pelo MIM Sync ou pela sincronização Do Azure AD Connect. Para obter mais informações, consulte [Gerenciar o acesso de hóspedes com avaliações de acesso ao Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Criar objetos de usuários convidados B2B através do MIM
 

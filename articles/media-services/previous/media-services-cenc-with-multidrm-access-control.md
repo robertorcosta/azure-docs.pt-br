@@ -15,10 +15,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162983"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure 
@@ -61,7 +61,7 @@ A tabela a seguir resume os aplicativos nativos/plataformas nativas e navegadore
 | **Plataforma cliente** | **Compatibilidade com o DRM nativo** | **Navegador/aplicativo** | **Formatos de streaming** |
 | --- | --- | --- | --- |
 | **Smart TVs, STBs de operador, STBs OTT** |Basicamente PlayReady e/ou Widevine e/ou outros |Linux, Opera, WebKit, outros |Vários formatos |
-| **Dispositivos Windows 10 (computador Windows, tablets Windows, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |DASH (para HLS, o PlayReady não é compatível)<br/><br/>DASH, Smooth Streaming (para HLS, o PlayReady não é compatível) |
+| **Dispositivos Windows 10 (Pc Windows, tablets Windows, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Plataforma Universal do Windows |DASH (para HLS, o PlayReady não é compatível)<br/><br/>DASH, Smooth Streaming (para HLS, o PlayReady não é compatível) |
 | **Dispositivos Android (telefone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), clientes OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
@@ -148,13 +148,13 @@ A tabela abaixo mostra o mapeamento.
 
 | **Bloco de construção** | **Tecnologia** |
 | --- | --- |
-| **Player** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
+| **Jogador** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IdP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
 | **STS (serviço de token de segurança)** |AD do Azure |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
 | **Origem** |Ponto de extremidade de streaming dos Serviços de Mídia |
-| **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
+| **Gestão de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 
 Em outras palavras, tanto IDP quanto STS são usados com o Azure AD. A [API do Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/) é usada para o player. Os Serviços de Mídia e o Player de Mídia são compatíveis com DASH e CENC com DRM múltiplo.
@@ -217,12 +217,12 @@ A implementação inclui as seguintes etapas:
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge ou Internet Explorer 11 no Windows 10 |Êxito |Falha |
     | **Widevine** |Chrome, Firefox, Opera |Êxito |Falha |
-    | **FairPlay** |Safari no macOS      |Êxito |Falha |
+    | **Fairplay** |Safari no macOS      |Êxito |Falha |
     | **AES-128** |Navegadores mais modernos  |Êxito |Falha |
 
 Para obter informações sobre como configurar o Azure AD para um aplicativo player do ASP.NET MVC, consulte [Integrar um aplicativo OWIN com base em MVC dos Serviços de Mídia do Azure com o Azure Active Directory e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-Para saber mais, confira [Autenticação de token JWT nos Serviços de Mídia do Azure e criptografia dinâmica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
+Para obter mais informações, consulte [a autenticação do token JWT no Azure Media Services e a criptografia dinâmica](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Para obter informações sobre o Azure AD:
 
@@ -338,7 +338,7 @@ Para registrar e configurar o aplicativo de ponteiro no Azure AD, execute as seg
 
 3. Atualize o arquivo de manifesto do aplicativo para que a propriedade groupMembershipClaims tenha o valor: "groupMembershipClaims": "All".
 
-4. No aplicativo do Azure AD que aponta para o aplicativo Web de player, na seção **Permissões para outros aplicativos**, adicione o aplicativo de recurso que foi adicionado na etapa 1. Em **Permissão delegada**, selecione **Acessar [resource_name]** . Essa opção concede permissão ao aplicativo Web para criar tokens de acesso que acessam o aplicativo de recurso. Faça isso para a versão local e a implantada do aplicativo Web se você desenvolve com Visual Studio e o Aplicativo Web do Azure.
+4. No aplicativo do Azure AD que aponta para o aplicativo Web de player, na seção **Permissões para outros aplicativos**, adicione o aplicativo de recurso que foi adicionado na etapa 1. Em **Permissão delegada**, selecione **Acessar [resource_name]**. Essa opção concede permissão ao aplicativo Web para criar tokens de acesso que acessam o aplicativo de recurso. Faça isso para a versão local e a implantada do aplicativo Web se você desenvolve com Visual Studio e o Aplicativo Web do Azure.
 
 O JWT emitido pelo Azure AD é o token de acesso usado para acessar o recurso de ponteiro.
 

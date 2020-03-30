@@ -1,5 +1,5 @@
 ---
-title: Problemas ao entrar no aplicativo de logon único federado não-Galeria
+title: Problemas ao entrar no aplicativo de assinatura único federado não-galeria
 description: Diretrizes para os problemas específicos que você pode enfrentar ao entrar em um aplicativo configurado para o logon único federado baseado em SAML com Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,22 +17,22 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cd951f0b4d2f4887630e29cbd3b0ae429b9f6f7
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77367868"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado
 
-Para solucionar os problemas de entrada abaixo, recomendamos que você siga estas sugestões para obter um diagnóstico melhor e automatizar as etapas de resolução:
+Para solucionar os problemas de login abaixo, recomendamos que você siga estas sugestões para obter um melhor diagnóstico e automatizar as etapas de resolução:
 
-- Instale a [extensão do navegador seguro meus aplicativos](access-panel-extension-problem-installing.md) para ajudar a Azure Active Directory (Azure AD) a fornecer melhor diagnóstico e resoluções ao usar a experiência de teste no portal do Azure.
-- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal do Azure. Saiba mais em [depurar aplicativos de logon único baseados em SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Instale a [extensão do navegador seguro meus aplicativos](access-panel-extension-problem-installing.md) para ajudar o Azure Active Directory (Azure AD) a fornecer melhores diagnósticos e resoluções ao usar a experiência de teste no portal Azure.
+- Reproduza o erro usando a experiência de teste na página de configuração do aplicativo no portal Azure. Saiba mais sobre [aplicativos de login único baseados em Debug SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro AADSTS70001: o aplicativo com o identificador `https://contoso.com` não foi encontrado no diretório*.
+*Erro AADSTS70001: O `https://contoso.com` aplicativo com identificador não foi encontrado no diretório*.
 
 **Possível causa**
 
@@ -40,9 +40,9 @@ O atributo que o Emissor envia do aplicativo para o Azure AD na solicitação SA
 
 **Resolução**
 
-Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Certifique-se `Issuer` de que o atributo na solicitação SAML corresponde ao valor identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro meus aplicativos, você não precisará seguir manualmente essas etapas.
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -52,17 +52,17 @@ Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do i
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-8. Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique se o valor na caixa de texto identificador corresponde ao valor do valor do identificador exibido no erro.
+8. Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique se o valor na caixa de texto identificador corresponde ao valor do identificador exibido no erro.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo. 
 
-*Erro AADSTS50011: o endereço de resposta `https://contoso.com` não corresponde aos endereços de resposta configurados para o aplicativo* 
+*Erro AADSTS50011: O `https://contoso.com` endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo* 
 
 **Possível causa** 
 
@@ -70,9 +70,9 @@ O valor de AssertionConsumerServiceURL na solicitação SAML não corresponde ao
 
 **Resolução** 
 
-Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Certifique-se `Issuer` de que o atributo na solicitação SAML corresponde ao valor identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro meus aplicativos, você não precisará seguir manualmente essas etapas.
  
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.** 
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.** 
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal. 
 
@@ -88,13 +88,13 @@ Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do i
 
 7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
-8. Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique ou atualize o valor na caixa de texto URL de resposta para corresponder ao valor de `AssertionConsumerServiceURL` na solicitação SAML.    
+8. Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique ou atualize o valor na caixa `AssertionConsumerServiceURL` de texto do URL de resposta para corresponder ao valor na solicitação SAML.    
     
-Depois de atualizar o valor da URL de resposta no Azure AD, e ele corresponder ao valor enviado pelo aplicativo na solicitação SAML, você deverá ser capaz de entrar no aplicativo.
+Depois de atualizar o valor da URL de resposta no Azure AD, e corresponder ao valor enviado pelo aplicativo na solicitação SAML, você deve ser capaz de fazer login no aplicativo.
 
 ## <a name="user-not-assigned-a-role"></a>Usuário não atribuído a uma função
 
-*Erro AADSTS50105: o usuário conectado `brian\@contoso.com` não está atribuído a uma função para o aplicativo*
+*Erro AADSTS50105: O `brian\@contoso.com` usuário assinado não é atribuído a uma função para o aplicativo*
 
 **Possível causa**
 
@@ -102,9 +102,9 @@ O usuário não teve acesso concedido para o aplicativo no Azure AD.
 
 **Resolução**
 
-Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente.
+Para atribuir um ou mais usuários diretamente a um aplicativo, siga os passos abaixo. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro meus aplicativos, você não precisará seguir manualmente essas etapas.
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -114,7 +114,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
@@ -160,35 +160,35 @@ O Azure AD não oferece suporte para a solicitação SAML enviada pelo aplicativ
 
     -   [Requisitos de protocolo SAML de logon único do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-O fornecedor do aplicativo deve validar que eles dão suporte à implementação SAML do Azure AD para logon único.
+O fornecedor de aplicativos deve validar que eles suportam a implementação do Azure AD SAML para o login único.
 
-## <a name="misconfigured-application"></a>Aplicativo configurado incorretamente
+## <a name="misconfigured-application"></a>Aplicativo mal configurado
 
-*Erro AADSTS650056: aplicativo configurado incorretamente. Isso pode ser devido a um dos seguintes: o cliente não listou nenhuma permissão nas permissões solicitadas no registro do aplicativo do cliente. Ou, o administrador não consentiu no locatário. Ou então, verifique o identificador do aplicativo na solicitação para garantir que ele corresponda ao identificador do aplicativo cliente configurado. Entre em contato com seu administrador para corrigir a configuração ou o consentimento em nome do locatário.*
+*Erro AADSTS650056: Aplicativo mal configurado. Isso pode ser devido a um dos seguintes: O cliente não listou nenhuma permissão nas permissões solicitadas no registro de solicitação do cliente. Ou, o admin não consentiu no inquilino. Ou, Verifique o identificador do aplicativo na solicitação para garantir que ele corresponda ao identificador de aplicativo cliente configurado. Entre em contato com seu admin para corrigir a configuração ou consentimento em nome do inquilino.*. .
 
 **Possível causa**
 
-O atributo `Issuer` enviado do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor do identificador configurado para o aplicativo no Azure AD.
+O `Issuer` atributo enviado do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor identificador configurado para o aplicativo no Azure AD.
 
 **Resolução**
 
-Verifique se o atributo `Issuer` na solicitação SAML corresponde ao valor do identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal do Azure com a extensão de navegador seguro meus aplicativos, não precisará seguir estas etapas manualmente:
+Certifique-se `Issuer` de que o atributo na solicitação SAML corresponde ao valor identificador configurado no Azure AD. Se você usar a [experiência de teste](../azuread-dev/howto-v1-debug-saml-sso-issues.md) no portal Azure com a Extensão do Navegador Seguro meus aplicativos, você não precisará seguir manualmente estas etapas:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador**.
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **administrador.**
 
-1.  Abra a **extensão Azure Active Directory** selecionando **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+1.  Abra a extensão do diretório ativo do **Azure** selecionando **Todos os serviços** na parte superior do menu principal de navegação à esquerda.
 
-1.  Digite **"Azure Active Directory"** na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
+1.  Digite **"Azure Active Directory"** na caixa de pesquisa do filtro e selecione o item Diretório Ativo do **Azure.**
 
-1.  Selecione **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
+1.  Selecione **aplicativos corporativos** no menu de navegação à mão esquerda do Azure Active Directory.
 
-1.  Marque **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos.
+1.  Selecione **Todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
 
-    Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos**.
+    Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos**.
 
 1.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-1.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique se o valor na caixa de texto identificador corresponde ao valor do valor do identificador exibido no erro.
+1.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Verifique se o valor na caixa de texto identificador corresponde ao valor do identificador exibido no erro.
 
 ## <a name="certificate-or-key-not-configured"></a>Chave ou certificado não configurado
 
@@ -202,7 +202,7 @@ O objeto de aplicativo está corrompido e o Azure AD não reconhece o certificad
 
 Para excluir e criar um novo certificado, siga as etapas abaixo:
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -212,7 +212,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Selecione o aplicativo para o qual você deseja configurar o logon único.
 
@@ -220,7 +220,7 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 8. clique em **Criar novo certificado** na seção **Certificado de Autenticação SAML**.
 
-9. Selecione a data de validade. Em seguida, clique em **Salvar.**
+9. Selecione a data de validade. Em seguida, clique **em Salvar.**
 
 10. Marque **Tornar o novo certificado ativo** para substituir o certificado ative. Em seguida, clique em **Salvar** na parte superior do painel e aceite para ativar o certificado de substituição.
 
@@ -228,43 +228,43 @@ Para excluir e criar um novo certificado, siga as etapas abaixo:
 
 ## <a name="saml-request-not-present-in-the-request"></a>A solicitação SAML não está presente na solicitação
 
-*Erro AADSTS750054: SAMLRequest ou SAMLResponse deve estar presente como parâmetros de cadeia de caracteres de consulta na solicitação HTTP para associação de redirecionamento SAML.*
+*Erro AADSTS750054: SAMLRequest ou SAMLResponse devem estar presentes como parâmetros de seqüência de consulta na solicitação HTTP para vinculação de redirecionamento SAML.*
 
 **Possível causa**
 
-O Azure AD não pôde identificar a solicitação SAML dentro dos parâmetros de URL na solicitação HTTP. Isso pode acontecer se o aplicativo não estiver usando a associação de redirecionamento HTTP ao enviar a solicitação SAML ao Azure AD.
+O Azure AD não pôde identificar a solicitação SAML dentro dos parâmetros de URL na solicitação HTTP. Isso pode acontecer se o aplicativo não estiver usando a vinculação http redirecionar ao enviar a solicitação SAML para o Azure AD.
 
 **Resolução**
 
-O aplicativo precisa enviar a solicitação SAML codificada para o cabeçalho Location usando a associação de redirecionamento HTTP. Para obter mais informações sobre como implementá-la, leia a seção sobre Associação de redirecionamento HTTP no [Documento de especificação de protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+O aplicativo precisa enviar a solicitação SAML codificada no cabeçalho de localização usando a vinculação http redirecionamento. Para obter mais informações sobre como implementá-la, leia a seção sobre Associação de redirecionamento HTTP no [Documento de especificação de protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
-## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>O Azure AD está enviando o token para um ponto de extremidade incorreto
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>O Azure AD está enviando o token para um ponto final incorreto
 
 **Possível causa**
 
-Durante o logon único, se a solicitação de entrada não contiver uma URL de resposta explícita (URL de serviço do consumidor de asserção), o Azure AD selecionará qualquer uma das URLs de confiança configuradas para esse aplicativo. Mesmo que o aplicativo tenha uma URL de resposta explícita configurada, o usuário pode ser redirecionado https://127.0.0.1:444. 
+Durante a login única, se a solicitação de login não contiver uma URL de resposta explícita (Url de serviço ao consumidor de afirmação), o Azure AD selecionará qualquer um dos URLs de confiança configurados para esse aplicativo. Mesmo que o aplicativo tenha uma URL de resposta explícita https://127.0.0.1:444configurada, o usuário pode ser redirecionado . 
 
 Quando o aplicativo foi adicionado como um aplicativo inexistente na galeria, o Azure Active Directory criou essa URL de resposta como um valor padrão. Esse comportamento mudou e o Azure Active Directory não adiciona mais essa URL por padrão. 
 
 **Resolução**
 
-Exclua as URLs de resposta não utilizadas configuradas para o aplicativo.
+Exclua os URLs de resposta não utilizados configurados para o aplicativo.
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como **Administrador Global** ou **Coadministrador**.
+1.  Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **administrador.**
 
-2.  Abra a **extensão Azure Active Directory** selecionando **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2.  Abra a extensão do diretório ativo do **Azure** selecionando **Todos os serviços** na parte superior do menu principal de navegação à esquerda.
 
-3.  Digite **"Azure Active Directory"** na caixa de pesquisa de filtro e selecione o item de **Azure Active Directory** .
+3.  Digite **"Azure Active Directory"** na caixa de pesquisa do filtro e selecione o item Diretório Ativo do **Azure.**
 
-4.  Selecione **aplicativos empresariais** no Azure Active Directory menu de navegação à esquerda.
+4.  Selecione **aplicativos corporativos** no menu de navegação à mão esquerda do Azure Active Directory.
 
-5.  Marque **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Selecione **Todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
 
-    Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos**.
+    Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos**.
 
 6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Na **URL de resposta (URL do serviço de consumidor de asserção)** , exclua as URLs de resposta não usadas ou padrão criadas pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Depois que o aplicativo for carregado, abra **Configuração Básica de SAML**. Na **URL de resposta (Url do Serviço de Defesa do Consumidor)**, exclua URLs de resposta não utilizadas ou padrão criadas pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

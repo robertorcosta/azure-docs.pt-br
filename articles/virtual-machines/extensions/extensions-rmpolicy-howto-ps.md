@@ -1,5 +1,5 @@
 ---
-title: Usar Azure Policy para restringir a instalação da extensão de VM
+title: Use a política do Azure para restringir a instalação de extensão de VM
 description: Use a Azure Policy para restringir as implantações de extensão.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073107"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usar a Azure Policy para restringir a instalação de extensões nas VMs do Windows
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testar a política
 
-Para testar a política, tente usar a extensão de acesso da VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension: o recurso ' myVMAccess ' não foi permitido pela política."
+Para testar a política, tente usar a extensão de acesso da VM. O seguinte deve falhar com a mensagem "Set-AzVMAccessExtension : Resource 'myVMAccess' foi desautorizado pela diretiva."
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `

@@ -4,10 +4,10 @@ description: Automatize a configuração do Application Insights para receber em
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669838"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
@@ -118,7 +118,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 
 | Grupo de métricas | Módulo de coletor |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>modo de exibição |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>exibição |[JavaScript do navegador](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Desempenho](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dependência](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Solicitação do servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -126,7 +126,7 @@ As métricas são enviadas por diferentes módulos de telemetria:
 ## <a name="webhooks"></a>Webhooks
 Você pode [automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md). O Azure ligará para um endereço web de sua escolha quando um alerta for gerado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Script para configurar o Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](powershell-azure-diagnostics.md)

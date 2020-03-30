@@ -1,6 +1,6 @@
 ---
-title: Limites do serviço de visualização pública – gêmeos digital do Azure | Microsoft Docs
-description: Saiba mais sobre o serviço de visualização pública, assinatura, instância e limites de taxa para o Azure digital gêmeos.
+title: Limites de serviço de pré-visualização pública - Azure Digital Twins | Microsoft Docs
+description: Saiba mais sobre os limites de visualização pública, assinatura, instância e taxa para os Gêmeos Digitais Do Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,17 +9,17 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370365"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
 [!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Durante a visualização pública, o Azure digital gêmeos tem a seguinte assinatura, instância e limites de taxa temporários para clientes existentes. Essas restrições existem para ajudar a simplificar o aprendizado sobre o novo serviço e seus diversos recursos e serão aumentadas ou removidas por GA (disponibilidade geral).
+Durante a visualização pública, o Azure Digital Twins tem os seguintes limites temporários de assinatura, instância e taxa para os clientes existentes. Essas restrições existem para ajudar a simplificar o aprendizado sobre o novo serviço e seus muitos recursos, e serão aumentadas ou removidas pela disponibilidade geral (GA).
 
 ## <a name="per-subscription-limits"></a>Limites por assinatura
 
@@ -52,7 +52,7 @@ Os limites de taxa de solicitação para a API de Gerenciamento dos Gêmeos Digi
 Os limites a seguir definem o número total de todas as chamadas de função definida pelo usuário feitas à sua instância de Gêmeos Digitais do Azure:
 
 - 400 chamadas de biblioteca de cliente por segundo
-- 100 **SendNotification** chamadas por segundo
+- 100 chamadas **de sendnotification** por segundo
 
 > [!NOTE]
 > As ações a seguir podem fazer com que limites de taxa adicionais sejam aplicados temporariamente:

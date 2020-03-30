@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: bdc9a8079c46a05e5045d72cd6d7b07a9a457899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0d7cc4d571ddeb0b57fd4f025b8cbf7b204f61e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456957"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Criar um balanceador de carga interno usando um modelo
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Powershell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Baixe o arquivo de parâmetros no disco local.
 3. Edite o arquivo e salve-o.
-4. Execute o cmdlet **New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
+4. Execute o **cmdlet New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -57,10 +57,10 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
 Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
+1. Se você nunca usou o Azure CLI, consulte [Instalar e Configurar o Azure CLI](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+2. Vá [https://shell.azure.com](https://shell.azure.com) para abrir o Cloud Shell em seu navegador. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
-    ```azurecli-interactive
+    ```console
     azure config mode arm
     ```
 
@@ -71,7 +71,7 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 3. Abra o arquivo de parâmetro, selecione o seu conteúdo e salve-o em um arquivo em seu computador. Para este exemplo, salvamos o arquivo de parâmetros em *parameters.json*.
 4. Execute o comando **azure group deployment create** para implantar o novo balanceador de carga interno usando o modelo e os arquivos de parâmetro baixados e modificados acima. A lista exibida após a saída explicar os parâmetros usados.
 
-    ```azurecli
+    ```console
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 

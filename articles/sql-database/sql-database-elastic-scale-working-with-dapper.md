@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 83d24d45d7628a2e02068c8757fa6568d6d3fc37
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823471"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de cliente do banco de dados elástico com Dapper
@@ -83,7 +83,7 @@ A chamada para a API [OpenConnectionForKey](https://msdn.microsoft.com/library/a
 
 o objeto do mapa do fragmento cria uma conexão para o fragmento que mantém o shardlet para a chave de fragmentação determinada. As APIs de cliente do banco de dados elástico também marca a conexão para implementar suas garantias de consistência. Uma vez que a chamada para [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de conexão do Cliente SQL regular, a chamada subsequente para o método de extensão **Execute** do Dapper segue a prática padrão do Dapper.
 
-As consultas funcionam praticamente da mesma forma — você primeiro abre a conexão usando [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) na API do cliente. Em seguida, você deve usar os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL nos objetos .NET:
+As consultas funcionam da mesma maneira - primeiro você abre a conexão usando [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) da API do cliente. Em seguida, você deve usar os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL nos objetos .NET:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1,

@@ -1,5 +1,5 @@
 ---
-title: Acesso condicional para usuários de colaboração B2B – Azure AD
+title: Acesso Condicional para usuários de colaboração B2B - Azure AD
 description: A colaboração B2B do Azure Active Directory dá suporte à autenticação multifator (MF) para acesso seletivo aos seus aplicativos corporativos
 services: active-directory
 ms.service: active-directory
@@ -12,13 +12,13 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74273007"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para usuários de colaboração B2B
+# <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso Condicional para usuários de colaboração B2B
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>Autenticação multifator para usuários B2B
 Com a colaboração B2B do Azure AD, as organizações podem aplicar políticas de MFA (autenticação multifator) para usuários B2B. Essas políticas podem ser impostas no nível do locatário, aplicativo ou usuário individual, da mesma maneira que podem ser habilitadas para membros e funcionários em tempo integral da organização. Politicas de MFA são impostas na organização do recurso.
@@ -46,7 +46,7 @@ Confira a animação abaixo para ver a experiência de resgate:
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Redefinição de MFA para usuários de colaboração B2B
 Atualmente, o administrador pode exigir que os usuários de colaboração B2B façam uma verificação novamente usando somente os seguintes cmdlets do PowerShell:
 
-1. Conectar-se ao AD do Azure
+1. Conecte-se ao AD do Azure
 
    ```
    $cred = Get-Credential
@@ -57,7 +57,7 @@ Atualmente, o administrador pode exigir que os usuários de colaboração B2B fa
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   Aqui está um exemplo:
+   Veja um exemplo:
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -87,21 +87,21 @@ Finalmente, a MFA de locatários de recursos também funciona para IDs sociais e
 
 Portanto, a recomendação para MFA para usuários B2B é sempre exigir MFA no locatário que convida. Esse requisito poderia conduzir a uma MFA dupla em alguns casos, mas sempre que acessa o locatário que convida, a experiência dos usuários finais será previsível: Sally deve se registrar na MFA com o locatário que convida.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional baseado no dispositivo, baseado no local e em risco para usuários B2B
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional baseado em dispositivos, baseado em localização e risco para usuários B2B
 
-Quando a contoso habilita políticas de acesso condicional com base no dispositivo para seus dados corporativos, o acesso é impedido de dispositivos que não são gerenciados pela contoso e não são compatíveis com as políticas de dispositivo da contoso.
+Quando a Contoso habilita políticas de acesso condicional baseadas em dispositivos para seus dados corporativos, o acesso é impedido de dispositivos que não são gerenciados pela Contoso e não estão em conformidade com as políticas de dispositivos Contoso.
 
-Se o dispositivo do usuário B2B não for gerenciado pela Contoso, o acesso de usuários B2B das organizações parceiras será bloqueado em quaisquer contextos em que essas políticas são impostas. No entanto, a Contoso pode criar listas de exclusão que contenham usuários de parceiros específicos para excluí-las da política de acesso condicional com base no dispositivo.
+Se o dispositivo do usuário B2B não for gerenciado pela Contoso, o acesso de usuários B2B das organizações parceiras será bloqueado em quaisquer contextos em que essas políticas são impostas. No entanto, o Contoso pode criar listas de exclusão contendo usuários parceiros específicos para excluí-los da política de acesso condicional baseado em dispositivos.
 
-#### <a name="mobile-application-management-policies-for-b2b"></a>Políticas de gerenciamento de aplicativo móvel para B2B
+#### <a name="mobile-application-management-policies-for-b2b"></a>Políticas de gerenciamento de aplicativos móveis para B2B
 
-As políticas de proteção de aplicativo de acesso condicional não podem ser aplicadas a usuários B2B porque a organização que está convidando não tem visibilidade da organização inicial do usuário B2B.
+As políticas de proteção de aplicativos de acesso condicional não podem ser aplicadas aos usuários B2B porque a organização convidativa não tem visibilidade sobre a organização doméstica do usuário B2B.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Acesso condicional baseado em local para B2B
+#### <a name="location-based-conditional-access-for-b2b"></a>Acesso condicional baseado em localização para B2B
 
-As políticas de acesso condicional com base no local podem ser impostas para usuários B2B se a organização que convida for capaz de criar um intervalo de endereços IP confiável que define suas organizações parceiras.
+As políticas de acesso condicional baseadas em localização podem ser aplicadas para usuários B2B se a organização convidativa for capaz de criar um intervalo de endereços IP confiável que defina suas organizações parceiras.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Acesso condicional com base em risco para B2B
+#### <a name="risk-based-conditional-access-for-b2b"></a>Acesso condicional baseado em risco para B2B
 
 Atualmente, as políticas de entrada baseadas em risco não podem ser aplicadas a usuários B2B, pois a avaliação de risco é realizada na organização inicial do usuário B2B.
 
@@ -109,6 +109,6 @@ Atualmente, as políticas de entrada baseadas em risco não podem ser aplicadas 
 
 Consulte os seguintes artigos na colaboração B2B do Azure AD:
 
-* [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
+* [O que é a colaboração Azure AD B2B?](what-is-b2b.md)
 * [Licenciamento da colaboração B2B do Azure AD](licensing-guidance.md)
 * [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](faq.md)

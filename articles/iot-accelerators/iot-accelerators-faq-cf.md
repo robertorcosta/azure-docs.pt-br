@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes da solução Connected Factory – Azure | Microsoft Docs
-description: Este artigo responde às perguntas frequentes sobre o Solution Accelerator da fábrica conectada. Ele inclui links para o repositório GitHub.
+description: Este artigo responde às perguntas freqüentes para o acelerador de soluções Connected Factory. Inclui links para o repositório gitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826270"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
@@ -68,7 +68,7 @@ Se tiver implantado a solução de www.azureiotsolutions.com, você não poderá
 1. O nome de usuário a ser usado é `docker`.
 1. A senha a ser usada depende da versão usada para implantação:
     * Para soluções implantadas com o script build.ps1 antes de 1º de junho de 2017, a senha é `Passw0rd`.
-    * Para soluções implantadas com o script build.ps1 após 1º de junho de 2017, encontre a senha no arquivo `<name of your deployment>.config.user`. A senha é armazenada na configuração **VmAdminPassword**. A senha é gerada aleatoriamente no momento da implantação, a menos que você a especifique usando o parâmetro `build.ps1` do script `-VmAdminPassword`
+    * Para soluções implantadas com o script build.ps1 após 1º de junho de 2017, encontre a senha no arquivo `<name of your deployment>.config.user`. A senha é armazenada na configuração **VmAdminPassword**. A senha é gerada aleatoriamente no momento da implantação, a menos que você a especifique usando o parâmetro `-VmAdminPassword` do script `build.ps1`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Como fazer para interromper e iniciar todos os processos do Docker na VM de simulação?
 
@@ -76,7 +76,7 @@ Se tiver implantado a solução de www.azureiotsolutions.com, você não poderá
 1. Para verificar quais contêineres estão ativos, execute `docker ps`.
 1. Para interromper todos os contêineres de simulação, execute `./stopsimulation`.
 1. Para iniciar todos os contêineres de simulação:
-    * Exporte uma variável do shell com o nome **IOTHUB_CONNECTIONSTRING**. Use o valor da configuração **IotHubOwnerConnectionString** no arquivo `<name of your deployment>.config.user`. Por exemplo:
+    * Exporte uma variável do shell com o nome **IOTHUB_CONNECTIONSTRING**. Use o valor da configuração **IotHubOwnerConnectionString** no arquivo `<name of your deployment>.config.user`. Por exemplo: 
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -121,7 +121,7 @@ Esse script precisa entrar na VM. Talvez seja necessário fornecer credenciais p
 
 O script adiciona/remove um endereço IP público da VM, caso ela ainda não tenha um e o remove. O script coloca todos os arquivos de log em um arquivo morto e baixa o arquivo morto na estação de trabalho de desenvolvimento.
 
-Como alternativa, faça logon na VM por meio do SSH e inspecione os arquivos de log em tempo de execução.
+Como alternativa, faça logon na VM por meio do SSH e inspecione os arquivos de log em runtime.
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Como verificar se a simulação está enviando dados para a nuvem?
 
@@ -148,7 +148,7 @@ Quando você implanta usando o `build.ps1`script no repositório do Connected Fa
 
 Você também pode adicionar uma chave de conta de mapas do Azure para o Acelerador de solução após a implantação. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação Connected Factory. Navegue até **configurações do aplicativo**, onde você pode encontrar uma seção **configurações do aplicativo**. Defina as **MapApiQueryKey** para o [chave da sua conta do Azure mapas](../azure-maps/how-to-manage-account-keys.md). Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Como fazer criar uma conta do Azure Maps?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Como criar uma conta do Azure Maps?
 
 Veja, [Como gerenciar sua conta e chaves do Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 
@@ -196,4 +196,4 @@ Você também pode explorar alguns dos outros recursos dos aceleradores de solu�
 
 * [Visão geral do acelerador de solução de Manutenção Preditiva](iot-accelerators-predictive-overview.md)
 * [Implantar o Acelerador de solução de fábrica Conectada](quickstart-connected-factory-deploy.md)
-* [Segurança da IoT desde o início](/azure/iot-fundamentals/iot-security-ground-up)
+* [Segurança IoT desde o início](/azure/iot-fundamentals/iot-security-ground-up)

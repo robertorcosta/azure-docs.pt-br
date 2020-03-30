@@ -1,7 +1,7 @@
 ---
-title: Referência do OData Select
+title: Referência de seleção oData
 titleSuffix: Azure Cognitive Search
-description: Sintaxe e referência de linguagem para a seleção explícita de campos a serem retornados nos resultados da pesquisa das consultas de Pesquisa Cognitiva do Azure.
+description: Sintaxe e referência de idioma para seleção explícita de campos para retornar nos resultados de pesquisa de consultas de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113106"
 ---
-# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxe de $select OData no Azure Pesquisa Cognitiva
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select sintaxe na Pesquisa Cognitiva do Azure
 
- Você pode usar o [parâmetro **$Select** OData](query-odata-filter-orderby-syntax.md) para escolher quais campos incluir nos resultados da pesquisa do Azure pesquisa cognitiva. Este artigo descreve a sintaxe de **$Select** em detalhes. Para obter mais informações gerais sobre como usar **$Select** ao apresentar os resultados da pesquisa, consulte [como trabalhar com os resultados da pesquisa no Azure pesquisa cognitiva](search-pagination-page-layout.md).
+ Você pode usar o [parâmetro OData **$select** ](query-odata-filter-orderby-syntax.md) para escolher quais campos incluir nos resultados de pesquisa da Pesquisa Cognitiva do Azure. Este artigo descreve a sintaxe de **$select** em detalhes. Para obter informações mais gerais sobre como usar **$select** ao apresentar os resultados da pesquisa, consulte [Como trabalhar com os resultados da pesquisa na Pesquisa Cognitiva do Azure](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintaxe
 
-O parâmetro **$Select** determina quais campos de cada documento são retornados no conjunto de resultados da consulta. O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para o parâmetro **$Select** :
+O **parâmetro $select** determina quais campos para cada documento são devolvidos no conjunto de resultados da consulta. O seguinte EBNF ([Formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática para o parâmetro **$select:**
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -42,26 +42,26 @@ select_expression ::= '*' | field_path(',' field_path)*
 field_path ::= identifier('/'identifier)*
 ```
 
-Um diagrama de sintaxe interativa também está disponível:
+Um diagrama interativo de sintaxe também está disponível:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxe do OData para Pesquisa Cognitiva do Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Diagrama de sintaxe OData para Pesquisa Cognitiva Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Consulte [referência de sintaxe de expressão OData para pesquisa cognitiva do Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
+> Consulte [a referência de sintaxe de expressão OData para a Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md) para a EBNF completa.
 
-O parâmetro **$Select** é fornecido em duas formas:
+O **parâmetro $select** vem em duas formas:
 
-1. Uma única estrela (`*`), indicando que todos os campos recuperáveis devem ser retornados ou
-1. Uma lista separada por vírgulas de caminhos de campo, identificando quais campos devem ser retornados.
+1. Uma única`*`estrela , indicando que todos os campos recuperáveis devem ser devolvidos, ou
+1. Uma lista separada por comma de caminhos de campo, identificando quais campos devem ser devolvidos.
 
 Ao usar o segundo formulário, você só pode especificar campos recuperáveis na lista.
 
-Se você listar um campo complexo sem especificar os subcampos explicitamente, todos os subcampos recuperáveis serão incluídos no conjunto de resultados da consulta. Por exemplo, suponha que o índice tenha um campo de `Address` com `Street`, `City`e `Country` subcampos que sejam recuperáveis. Se você especificar `Address` em **$Select**, os resultados da consulta incluirão todos os três subcampos.
+Se você listar um campo complexo sem especificar explicitamente seus subcampos, todos os subcampos recuperáveis serão incluídos no conjunto de resultados da consulta. Por exemplo, suponha `Address` que `Street` `City`seu `Country` índice tenha um campo com , e subcampos que são todos recuperáveis. Se você `Address` especificar em **$select,** os resultados da consulta incluirão todos os três subcampos.
 
 ## <a name="examples"></a>Exemplos
 
-Inclua os campos `HotelId`, `HotelName`e `Rating` de nível superior nos resultados, bem como o subcampo `City` do `Address`:
+Inclua `HotelId`os `HotelName`campos `Rating` , e de nível superior nos `City` resultados, `Address`bem como o subcampo de :
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +78,7 @@ Um resultado de exemplo pode ser assim:
 }
 ```
 
-Inclua o `HotelName` campo de nível superior nos resultados, bem como todos os subcampos de `Address`e os subcampos `Type` e `BaseRate` de cada objeto na coleção de `Rooms`:
+Inclua `HotelName` o campo de nível superior nos resultados, bem `Address`como `Type` todos `BaseRate` os subcampos de `Rooms` , e os subcampos de cada objeto na coleção:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
@@ -110,7 +110,7 @@ Um resultado de exemplo pode ser assim:
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva](search-pagination-page-layout.md)
-- [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Como trabalhar com resultados de pesquisa na Pesquisa Cognitiva do Azure](search-pagination-page-layout.md)
+- [Visão geral da linguagem de expressão oData para pesquisa cognitiva do Azure](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva Azure](search-query-odata-syntax-reference.md)
+- [Pesquisar documentos &#40;A6Azure Cognitive Search Rest API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

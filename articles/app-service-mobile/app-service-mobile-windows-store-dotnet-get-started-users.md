@@ -1,16 +1,16 @@
 ---
-title: Adicionar autenticação ao seu aplicativo UWP
-description: Saiba como usar os aplicativos móveis do serviço Azure App para autenticar usuários de seu aplicativo Plataforma Universal do Windows (UWP) com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
+title: Adicione autenticação ao seu aplicativo UWP
+description: Aprenda a usar o Azure App Service Mobile Apps para autenticar usuários do seu aplicativo Universal Windows Platform (UWP) com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 32d4313b345964a2db13d68e83f81756a4acf0d9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458929"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Adicionar autenticação ao seu aplicativo do Windows
@@ -21,29 +21,29 @@ Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplica
 
 Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve primeiro concluir o tutorial [Introdução aos Aplicativos Móveis](app-service-mobile-windows-store-dotnet-get-started.md).
 
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
 
 A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
 
-1. No [portal do Azure](https://ms.portal.azure.com), selecione sua conta.
+1. No [Portal do Azure](https://ms.portal.azure.com), selecione seu Serviço de Aplicativo.
 
 2. Clique na opção de menu **Autenticação/Autorização**.
 
 3. Em **URLs de Redirecionamento Externo Permitidas**, insira `url_scheme_of_your_app://easyauth.callback`.  O **esquema_de_URL_do_seu_aplicativo** nessa cadeia de caracteres é o esquema de URL do seu aplicativo móvel.  Ele deve seguir as especificações de URL normal para um protocolo (use somente letras e números e inicie com uma letra).  Você deve anotar a cadeia de caracteres escolhida, já que precisará ajustar o código do aplicativo móvel com o esquema de URL em vários lugares.
 
-4. Clique em **Save** (Salvar).
+4. Clique em **Salvar**.
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. Com o projeto de aplicativo da UWP configurado como projeto de inicialização, implante e execute o aplicativo; verifique se uma exceção sem tratamento com um código de status 401 (não autorizado) é gerada depois que o aplicativo é iniciado. Isso acontece porque o aplicativo tenta acessar o código do aplicativo móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar usuários antes de solicitar recursos do seu Serviço de Aplicativo.
 
-## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 1. No arquivo de projeto de aplicativo da UWP MainPage.xaml.cs, adicione o seguinte snippet de código:
    
         // Define a member variable for storing the signed-in user. 
@@ -137,7 +137,7 @@ Em seguida, você atualizará o aplicativo para autenticar usuários antes de so
 6. Abra o arquivo Package.appxmanifest, navegue até **Declarações**, na lista suspensa **Declarações Disponíveis**, selecione **Protocolo** e clique no botão **Adicionar**. Agora, configure as **Propriedades** da declaração do **Protocolo**. Em **Nome de exibição**, adicione o nome que você deseja exibir aos usuários do aplicativo. Em **Nome**, adicione o {esquema_de_URL_do_seu_aplicativo}.
 7. Pressione a tecla F5 para executar o aplicativo, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. Depois que o seu logon for bem-sucedido, o aplicativo será executado sem erros, e você poderá consultar o seu back-end e fazer atualizações nos dados.
 
-## <a name="tokens"></a>Armazenar o token de autenticação no cliente
+## <a name="store-the-authentication-token-on-the-client"></a><a name="tokens"></a>Armazenar o token de autenticação no cliente
 O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate o provedor de identidade e o Serviço de Aplicativo sempre que o aplicativo for iniciado. Além de esse método ser ineficiente, você pode se deparar com problemas relacionados ao uso caso muitos consumidores tentem iniciar o aplicativo ao mesmo tempo. Uma abordagem melhor é armazenar em cache o token de autorização retornado pelo Serviço de Aplicativo e tentar usá-lo antes de usar um logon baseado em provedor.
 
 > [!NOTE]
@@ -150,10 +150,10 @@ O exemplo anterior mostrou uma entrada padrão, que requer que o cliente contate
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
-* [Adicionar notificações por push ao aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-  Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
+* [Adicione notificações push ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md)  
+   Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
 * [Habilitar sincronização offline para seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Saiba como adicionar suporte offline em seu aplicativo usando um back-end do aplicativo móvel. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
+   Saiba como adicionar suporte offline em seu aplicativo usando um back-end do aplicativo móvel. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md

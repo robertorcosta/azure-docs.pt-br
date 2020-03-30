@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: b7d832ba375925d30a976dfde63a776b5d0742bb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593693"
 ---
-## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Baixar e instalar o binário do cliente Linkerd Linkerd
+## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Baixe e instale o linkerd linkerd client binário
 
-Em um shell baseado no PowerShell no Windows, use `Invoke-WebRequest` para baixar a versão Linkerd da seguinte maneira:
+Em um shell baseado em PowerShell no Windows, use `Invoke-WebRequest` para baixar a versão do Linkerd da seguinte forma:
 
 ```powershell
 # Specify the Linkerd version that will be leveraged throughout these instructions
@@ -23,7 +23,7 @@ $LINKERD_VERSION="stable-2.6.0"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe" -OutFile "linkerd2-cli-$LINKERD_VERSION-windows.exe"
 ```
 
-O binário de cliente do `linkerd` é executado no computador cliente e permite que você interaja com a malha do serviço Linkerd. Use os comandos a seguir para instalar o binário do Linkerd `linkerd` Client em um shell baseado no PowerShell no Windows. Esses comandos copiam o `linkerd` binário do cliente para uma pasta Linkerd e, em seguida, disponibilizam-os imediatamente (no shell atual) e permanentemente (através de reinicializações do Shell) por meio de seu `PATH`. Você não precisa de privilégios elevados (administrador) para executar esses comandos e não precisa reiniciar o Shell.
+O `linkerd` binário do cliente é executado na sua máquina cliente e permite que você interaja com a malha de serviço linkerd. Use os seguintes comandos para `linkerd` instalar o binário do cliente Linkerd em um shell baseado em PowerShell no Windows. Esses comandos `linkerd` copiam o binário do cliente para uma pasta Linkerd e, em seguida, disponibilizam-no imediatamente (no shell atual) e permanentemente (através de reinicializações de shell) através do seu `PATH`. Você não precisa de privilégios elevados (admin) para executar esses comandos e você não precisa reiniciar seu shell.
 
 ```powershell
 # Copy linkerd.exe to C:\Linkerd

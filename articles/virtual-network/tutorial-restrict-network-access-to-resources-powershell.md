@@ -1,5 +1,5 @@
 ---
-title: Restringir o acesso à rede para recursos de PaaS-Azure PowerShell
+title: Restringir o acesso à rede aos recursos do PaaS - Azure PowerShell
 description: Neste artigo, você aprenderá a limitar e restringir o acesso à rede para recursos do Azure, como o Armazenamento do Microsoft Azure e o Banco de Dados SQL do Azure, com pontos de extremidade de serviço de rede virtual usando o Microsoft Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -18,24 +18,24 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1d0cf65bb39dbda2b7451c50629ff8949c5507cb
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185531"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restrinja o acesso à rede a recursos de PaaS com pontos de extremidade de serviço de rede virtual usando PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso à rede a alguns recursos de serviço do Azure para uma sub-rede da rede virtual. Você também pode remover o acesso à Internet para os recursos. Os pontos de extremidade de serviço fornecerão conexão direta de sua rede virtual a um serviço do Azure, permitindo que você use o espaço de endereço privado da sua rede virtual para acessar os serviços do Azure compatíveis. O tráfego destinado aos recursos do Azure por meio de pontos de extremidade de serviço sempre fica na rede de backbone do Microsoft Azure. Neste artigo, você aprenderá a:
+Os pontos de extremidade de serviço de rede virtual permitem limitar o acesso à rede a alguns recursos de serviço do Azure para uma sub-rede da rede virtual. Você também pode remover o acesso à Internet para os recursos. Os pontos de extremidade de serviço fornecerão conexão direta de sua rede virtual a um serviço do Azure, permitindo que você use o espaço de endereço privado da sua rede virtual para acessar os serviços do Azure compatíveis. O tráfego destinado aos recursos do Azure por meio de pontos de extremidade de serviço sempre fica na rede de backbone do Microsoft Azure. Neste artigo, você aprenderá como:
 
 * Criar uma rede virtual com uma sub-rede
 * Adicionar uma sub-rede e habilitar um ponto de extremidade de serviço
 * Criar um recurso do Azure e permitir o acesso à rede para ele apenas de uma sub-rede
 * Implantar uma VM (máquina virtual) para cada sub-rede
 * Confirmar o acesso a um recurso por meio de uma sub-rede
-* A confirmação do acesso é negada para um recurso a partir de uma sub-rede e da internet
+* Confirmar se o acesso é negado para um recurso por meio de uma sub-rede e da Internet
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -45,7 +45,7 @@ Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Antes de criar uma rede virtual, você precisa criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup*: 
+Antes de criar uma rede virtual, será necessário criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup*: 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -61,7 +61,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Crie uma configuração de sub-rede com [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo a seguir cria uma configuração de sub-rede para uma sub-rede denominada *Pública*:
+Crie uma configuração de sub-rede com [o New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). O exemplo a seguir cria uma configuração de sub-rede para uma sub-rede denominada *Pública*:
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -70,7 +70,7 @@ $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Crie a sub-rede na rede virtual gravando a configuração de sub-rede na rede virtual com [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
+Crie a sub-rede na rede virtual escrevendo a configuração da sub-rede na rede virtual com [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -78,7 +78,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="enable-a-service-endpoint"></a>Habilitar um ponto de extremidade de serviço
 
-Você pode habilitar pontos de extremidade de serviço apenas para serviços que oferecem suporte a pontos de extremidade de serviço. Exiba serviços habilitados para ponto de extremidade de serviço disponíveis em um local do Azure com [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). O exemplo a seguir retorna uma lista de serviços habilitados para ponto de extremidade de serviço disponíveis na região *eastus*. A lista de serviços retornados aumentará ao longo do tempo, visto que mais serviços do Azure se tornam habilitados para ponto de extremidade de serviço.
+Você pode habilitar pontos de extremidade de serviço apenas para serviços que oferecem suporte a pontos de extremidade de serviço. Exibir serviços habilitados para ponto final de serviço disponíveis em um local Azure com [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). O exemplo a seguir retorna uma lista de serviços habilitados para ponto de extremidade de serviço disponíveis na região *eastus*. A lista de serviços retornados aumentará ao longo do tempo, visto que mais serviços do Azure se tornam habilitados para ponto de extremidade de serviço.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
@@ -96,9 +96,9 @@ $subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso à rede para uma sub-rede
+## <a name="restrict-network-access-for-a-subnet"></a>Restringir o acesso à rede de uma sub-rede
 
-Crie regras de segurança de grupo de segurança de rede com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). A seguinte regra permite o acesso de saída para os endereços IP públicos atribuídos ao serviço de Armazenamento do Microsoft Azure: 
+Crie regras de segurança de grupo de segurança de rede com [new-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). A seguinte regra permite o acesso de saída para os endereços IP públicos atribuídos ao serviço de Armazenamento do Microsoft Azure: 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -153,7 +153,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $rule1,$rule2,$rule3
 ```
 
-Associe o grupo de segurança de rede à sub-rede *privada* com [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) e, em seguida, grave a configuração de sub-rede na rede virtual. O exemplo a seguir associa o grupo de segurança de rede *myNsgPrivate* à sub-rede *Privada*:
+Associe o grupo de segurança da rede à sub-rede *Privada* com [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) e, em seguida, escreva a configuração da sub-rede na rede virtual. O exemplo a seguir associa o grupo de segurança de rede *myNsgPrivate* à sub-rede *Privada*:
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -166,13 +166,13 @@ Set-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-a-resource"></a>Restringir o acesso à rede a um recurso
+## <a name="restrict-network-access-to-a-resource"></a>Restringir o acesso à rede para um recurso
 
-As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste artigo inclui etapas para restringir o acesso à rede de uma conta de Armazenamento do Microsoft Azure como um exemplo.
+As etapas necessárias para restringir o acesso de rede a recursos criados por meio de serviços do Azure habilitados para pontos de extremidade do serviço variam de acordo com os serviços. Confira a documentação de serviços individuais para obter as etapas específicas para cada serviço. O restante deste artigo inclui etapas para restringir o acesso de rede para uma conta de Armazenamento do Microsoft Azure, como exemplo.
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma conta de armazenamento do Azure com [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Substitua `<replace-with-your-unique-storage-account-name>` por um nome que seja exclusivo em todos os locais do Azure, entre 3 a 24 caracteres de comprimento, usando apenas números e letras minúsculas.
+Crie uma conta de armazenamento Azure com [new-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Substitua `<replace-with-your-unique-storage-account-name>` por um nome que seja exclusivo em todos os locais do Azure, entre 3 a 24 caracteres de comprimento, usando apenas números e letras minúsculas.
 
 ```azurepowershell-interactive
 $storageAcctName = '<replace-with-your-unique-storage-account-name>'
@@ -197,19 +197,19 @@ A chave é usada para criar um compartilhamento de arquivos em uma etapa posteri
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Criar um compartilhamento de arquivos na conta de armazenamento
 
-Crie um contexto para sua conta de armazenamento e a chave com [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). O contexto encapsula o nome da conta de armazenamento e a chave da conta:
+Crie um contexto para sua conta de armazenamento e chave com [o New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). O contexto encapsula o nome da conta de armazenamento e a chave da conta:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Crie um compartilhamento de arquivos com [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+Crie um compartilhamento de arquivos com [o New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Negar todo acesso à rede para uma conta de armazenamento
 
-Por padrão, as contas de armazenamento aceitam conexões de rede de clientes em qualquer rede. Para limitar o acesso às redes selecionadas, altere a ação padrão para *negar* com [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Depois que o acesso à rede for negado, a conta de armazenamento não estará acessível em nenhuma rede.
+Por padrão, as contas de armazenamento aceitam conexões de clientes em qualquer rede. Para limitar o acesso às redes selecionadas, altere a ação padrão para *Negar* com [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Depois que o acesso à rede for negado, a conta de armazenamento não estará acessível em nenhuma rede.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet  `
@@ -218,9 +218,9 @@ Update-AzStorageAccountNetworkRuleSet  `
   -DefaultAction Deny
 ```
 
-### <a name="enable-network-access-from-a-subnet"></a>Habilitar o acesso à rede de uma sub-rede
+### <a name="enable-network-access-from-a-subnet"></a>Habilitar o acesso de rede de uma sub-rede
 
-Recupere a rede virtual criada com [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) e, em seguida, recupere o objeto de sub-rede privada em uma variável com [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+Recupere a rede virtual criada com [get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) e, em seguida, recupere o objeto de sub-rede privada em uma variável com [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $privateSubnet = Get-AzVirtualNetwork `
@@ -230,7 +230,7 @@ $privateSubnet = Get-AzVirtualNetwork `
   -Name "Private"
 ```
 
-Permita o acesso à rede para a conta de armazenamento da sub-rede *privada* com [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
+Permitir acesso de rede à conta de armazenamento da sub-rede *Privada* com [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 Add-AzStorageAccountNetworkRule `
@@ -245,7 +245,7 @@ Para testar o acesso à rede para uma conta de armazenamento, implante uma VM pa
 
 ### <a name="create-the-first-virtual-machine"></a>Criar a primeira máquina virtual
 
-Crie uma máquina virtual na sub-rede *pública* com [New-AzVM](/powershell/module/az.compute/new-azvm). Ao executar o comando a seguir, as credenciais serão solicitadas. Os valores que você inseriu são configurados como o nome de usuário e senha para a VM. A opção `-AsJob` cria a VM em segundo plano para que você possa prosseguir para a próxima etapa.
+Crie uma máquina virtual na sub-rede *Pública* com [New-AzVM](/powershell/module/az.compute/new-azvm). Ao executar o comando a seguir, as credenciais serão solicitadas. Os valores que você inseriu são configurados como o nome de usuário e senha para a VM. A opção `-AsJob` cria a VM em segundo plano para que você possa prosseguir para a próxima etapa.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -265,7 +265,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM     
 ```
 
-### <a name="create-the-second-virtual-machine"></a>Criar uma segunda máquina virtual
+### <a name="create-the-second-virtual-machine"></a>Criar a segunda máquina virtual
 
 Crie uma máquina virtual na sub-rede *Privada*:
 
@@ -307,7 +307,7 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
 ```
 
-O PowerShell retorna saídas semelhantes à seguinte saída de exemplo:
+O PowerShell retorna uma saída semelhante à seguinte saída de exemplo:
 
 ```powershell
 Name           Used (GB)     Free (GB) Provider      Root
@@ -315,7 +315,7 @@ Name           Used (GB)     Free (GB) Provider      Root
 Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
 ```
 
-O compartilhamento de arquivos do Azure mapeado com êxito para a unidade Z.
+O compartilhamento de arquivos do Azure foi mapeado com êxito para a unidade Z.
 
 Confirme se a VM não tem nenhuma conectividade de saída com nenhum outro endereço IP público:
 
@@ -323,11 +323,11 @@ Confirme se a VM não tem nenhuma conectividade de saída com nenhum outro ender
 ping bing.com
 ```
 
-Você não recebe nenhuma resposta porque o grupo de segurança de rede associado à sub-rede *Privada* não permite acesso de saída para endereços IP públicos que não sejam os endereços atribuídos ao serviço de Armazenamento do Microsoft Azure.
+Você não recebe nenhuma resposta, pois o grupo de segurança de rede associado à sub-rede *Privada* não permite acesso de saída para endereços IP públicos que não sejam os endereços atribuídos ao serviço de Armazenamento do Microsoft Azure.
 
 Feche a sessão da área de trabalho remota para a VM *myVmPrivate*.
 
-## <a name="confirm-access-is-denied-to-storage-account"></a>Confirmar que o acesso está negado para a conta de armazenamento
+## <a name="confirm-access-is-denied-to-storage-account"></a>Confirmar que o acesso é negado para a conta de armazenamento
 
 Obtenha o endereço IP público da VM *myVmPublic*:
 
@@ -352,9 +352,9 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
 ```
 
-O acesso ao compartilhamento é negado, e você recebe um erro `New-PSDrive : Access is denied`. Acesso negado porque a VM *myVmPublic* é implantada na sub-rede *Pública*. A sub-rede *Pública* não tem um ponto de extremidade de serviço habilitado para Armazenamento do Microsoft Azure, e a conta de armazenamento só permite o acesso à rede a partir da sub-rede *Privada*, não da sub-rede *Pública*.
+O acesso ao compartilhamento é negado, e você recebe um erro `New-PSDrive : Access is denied`. O acesso é negado porque a VM *myVmPublic* é implantada na sub-rede *Pública*. A sub-rede *Pública* não tem um ponto de extremidade de serviço habilitado para o Armazenamento do Microsoft Azure, e a conta de armazenamento só permite o acesso à rede por meio da sub-rede *Privada*, não da sub-rede *Pública*.
 
-Feche a sessão da área de trabalho remota para a VM *myVmPublic* VM.
+Feche a sessão da área de trabalho remota para a VM *myVmPublic*.
 
 Em seu computador, tente exibir os compartilhamentos de arquivos na conta de armazenamento com o seguinte comando:
 
@@ -364,7 +364,7 @@ Get-AzStorageFile `
   -Context $storageContext
 ```
 
-O acesso é negado e você recebe um *Get-AzStorageFile: o servidor remoto retornou um erro: (403) proibido. Código de status HTTP: 403-mensagem de erro de HTTP: esta solicitação não está autorizada a executar esse* erro de operação, pois o computador não está na sub-rede *privada* da rede virtual *MyVirtualNetwork* .
+O acesso é negado e você recebe um *Get-AzStorageFile : O servidor remoto retornou um erro: (403) Proibido. Código de status HTTP: 403 - Mensagem de erro HTTP: Esta solicitação não está autorizada a executar este* erro de operação, porque seu computador não está na sub-rede *Privada* da rede virtual *MyVirtualNetwork.*
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

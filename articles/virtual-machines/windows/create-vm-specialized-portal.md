@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Windows de um VHD especializado no portal do Azure
+title: Crie uma VM windows a partir de um VHD especializado no portal Azure
 description: Crie uma nova VM do Windows em um VHD no portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: 587acd37f465dda7e514b595f8451afe3d259dea
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74039139"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Crie uma VM a partir de um VHD usando o portal do Azure
@@ -34,7 +34,7 @@ Existem várias maneiras de criar uma máquina virtual (VM) no Azure:
 
 Não use um disco especializado, se você quiser criar várias VMs. Em vez disso, para implantações maiores, [criar uma imagem](capture-image-resource.md) e, em seguida [usar essa imagem para criar várias VMs](create-vm-generalized-managed.md).
 
-Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único instantâneo ou VHD. 
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único snapshot ou VHD. 
 
 ## <a name="copy-a-disk"></a>Copiar um disco
 
@@ -46,14 +46,14 @@ Crie um instantâneo e crie um disco a partir do instantâneo. Essa estratégia 
 4. No menu na parte superior, selecione **criar snapshot**. 
 5. Insira um **Nome** para o instantâneo.
 6. Escolha um **Grupo de Recursos** para o instantâneo. Você pode usar um grupo de recursos existente ou criar um novo.
-7. Para **Tipo de conta**, escolha entre **Armazenamento padrão (HDD)** ou **Premium (SSD)** .
+7. Para **Tipo de conta**, escolha entre **Armazenamento padrão (HDD)** ou **Premium (SSD)**.
 8. Quando terminar, selecione **criar** para criar o instantâneo.
 9. Depois que o instantâneo foi criado, selecione **criar um recurso** no menu à esquerda.
 10. Na caixa de pesquisa, digite **disco gerenciado** e, em seguida, selecione **Managed Disks** na lista.
 11. Sobre a página **Managed Disks**, selecione **criar**.
 12. Insira um **nome** para o disco.
 13. Escolha um **Grupo de Recursos** para o disco. Você pode usar um grupo de recursos existente ou criar um novo. Essa seleção também será usada como o grupo de recursos no qual você cria a VM a partir do disco.
-14. Para **Tipo de conta**, escolha entre **Armazenamento padrão (HDD)** ou **Premium (SSD)** .
+14. Para **Tipo de conta**, escolha entre **Armazenamento padrão (HDD)** ou **Premium (SSD)**.
 15. Em **tipo de fonte**, verifique se **snapshot** está selecionado.
 16. Na lista suspensa **Fonte instantâneo**, selecione o instantâneo que você deseja usar.
 17. Faça quaisquer outros ajustes conforme necessário e, em seguida, selecione **criar** para criar o disco.

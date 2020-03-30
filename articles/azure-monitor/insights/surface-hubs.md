@@ -1,5 +1,5 @@
 ---
-title: Monitorar hubs de superfície com Azure Monitor | Microsoft Docs
+title: Monitore hubs de superfície com monitor azure | Microsoft Docs
 description: Use a solução Surface Hubs para controlar a integridade dos seus Hubs de superfície e compreender como eles estão sendo usados.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662494"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorar Surface Hubs com o Azure Monitor para acompanhar sua integridade
@@ -40,7 +40,7 @@ Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho p
 O Intune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do espaço de trabalho do Log Analytics que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do Intune:
 
 1. Entre no Intune.
-2. Navegue até **configurações** > **Fontes conectadas**.
+2. Navegue até **configurações** > de**fontes conectadas**.
 3. Criar ou editar uma política com base no modelo de Surface Hub.
 4. Navegue até a seção Azure Operational Insights da política e adicione o *ID do workspace* do Log Analytics e a *Chave do workspace* à política.
 5. Salve a política.
@@ -76,6 +76,6 @@ Quando você clica no bloco Surface Hub, a integridade do dispositivo é exibida
 
 Você pode criar [alertas](../platform/alerts-overview.md) com base em pesquisas de log existentes ou personalizadas. Ao usar os dados que o Azure Monitor coleta de seu Surface Hubs, você pode procurar problemas e alertar sobre as condições que definir para seus dispositivos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Use [Consultas de log no Azure Monitor](../log-query/log-query-overview.md) para exibir dados detalhados do Surface Hub.
 * Crie [alertas](../platform/alerts-overview.md) para notificá-lo quando ocorrerem problemas com seus Surface Hubs.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 1b3ae6295a639c3d59643b106b920cb606572e0a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670569"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs II no Azure Monitor
@@ -27,7 +27,7 @@ Configurar logs do IIS no Azure Monitor a partir de [menu de configurações ava
 
 
 ## <a name="data-collection"></a>Coleta de dados
-Azure Monitor coleta entradas de log do IIS de cada agente sempre que o carimbo de data/hora do log é alterado. O log é lido a cada **5 minutos**. Se, por algum motivo, o IIS não atualizar o carimbo de data/hora antes do horário de substituição quando um novo arquivo for criado, as entradas serão coletadas após a criação do novo arquivo. A frequência da criação do novo arquivo é controlada pela configuração **agenda de substituição do arquivo de log** para o site do IIS, que é uma vez por dia por padrão. Se a configuração for por **hora**, Azure monitor coletará o log a cada hora. Se a configuração for **diária**, Azure monitor coletará o log a cada 24 horas.
+O Azure Monitor coleta entradas de registro IIS de cada agente cada vez que o carimbo de registro é alterado. O registro é lido a cada **5 minutos**. Se, por qualquer razão, o IIS não atualizar o carimbo de tempo antes da hora de rolagem quando um novo arquivo for criado, as entradas serão coletadas após a criação do novo arquivo. A freqüência de criação de novos arquivos é controlada pela configuração **Agenda de rolagem de arquivos de log** para o site IIS, que é uma vez por dia por padrão. Se a configuração for **hourly**, o Azure Monitor coleta o registro a cada hora. Se a configuração for **Diária,** o Azure Monitor coleta o registro a cada 24 horas.
 
 
 ## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
@@ -60,14 +60,14 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 ## <a name="log-queries-with-iis-logs"></a>Consultas de log com logs do IIS
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do log do IIS.
 
-| Query | Descrição |
+| Consulta | Descrição |
 |:--- |:--- |
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todos os registros de log do IIS com um status de retorno de 500. |
 | W3CIISLog &#124; summarize count() by cIP |Contagem das entradas do log do IIS por endereço IP do cliente. |
-| W3CIISLog &#124; em que csHost = = "www\.contoso.com &#124; " resumir contagem () por csUriStem |Contagem de entradas de log do IIS por URL para o host www\.contoso.com. |
+| W3CIISLog &#124; onde csHost=="www\.contoso.com" &#124; resumir contagem() por csUriStem |Contagem de entradas de log IIS por URL para o host www\.contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recebidos por cada computador com IIS. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Configure o Azure Monitor para coletar outras [fontes de dados](agent-data-sources.md) para análise.
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

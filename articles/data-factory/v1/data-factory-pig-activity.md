@@ -13,27 +13,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703204"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade Pig no Azure Data Factory
-> [!div class="op_single_selector" title1="Atividades de transformação"]
-> * [Atividade de Hive](data-factory-hive-activity.md) 
+> [!div class="op_single_selector" title1="Atividades de Transformação"]
+> * [Atividade colmeia](data-factory-hive-activity.md) 
 > * [Atividade Pig](data-factory-pig-activity.md)
-> * [Atividade MapReduce](data-factory-map-reduce.md)
-> * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Mapearreduzir a atividade](data-factory-map-reduce.md)
+> * [Atividade de streaming hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de execução em lote de aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [ transformar dados usando a atividade Pig no Data Factory ](../transform-data-using-hadoop-pig.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [ transformar dados usando a atividade Pig no Data Factory ](../transform-data-using-hadoop-pig.md).
 
 
 A atividade de Pig do HDInsight em um [pipeline](data-factory-create-pipelines.md) de Data Factory executa consultas de Pig em [seu próprio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou no cluster [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) do HDInsight baseado em Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
@@ -82,14 +82,14 @@ A atividade de Pig do HDInsight em um [pipeline](data-factory-create-pipelines.m
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| Nome |Nome da atividade |SIM |
-| Descrição |Texto que descreve qual a utilidade da atividade |Não |
-| type |HDinsightPig |SIM |
+| name |Nome da atividade |Sim |
+| descrição |Texto que descreve qual a utilidade da atividade |Não |
+| type |HDinsightPig |Sim |
 | inputs |Uma ou mais entradas consumidas pela atividade Pig |Não |
-| outputs |Uma ou mais saídas produzidas pela atividade Pig |SIM |
-| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |SIM |
+| outputs |Uma ou mais saídas produzidas pela atividade Pig |Sim |
+| linkedServiceName |Referência ao cluster HDInsight registrado como um serviço vinculado na Data Factory |Sim |
 | script |Especificar o script de Pig embutido |Não |
 | scriptPath |Armazenar o script de Pig em um armazenamento de blob do Azure e fornecer o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. As duas não podem ser usadas juntas. O nome do arquivo diferencia maiúsculas de minúsculas. |Não |
 | defines |Especificar parâmetros como pares chave/valor para referenciar dentro do script de Pig |Não |
@@ -121,10 +121,10 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 
 Para executar esse script Pig em um pipeline do Data Factory, realize as seguintes etapas:
 
-1. Criar um serviço vinculado para registrar [seu próprio cluster de cálculo HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o [cluster de cálculo HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar esse serviço vinculado de **HDInsightLinkedService**.
-2. Criar um [serviço vinculado](data-factory-azure-blob-connector.md) para configurar a conexão com o Armazenamento de Blob do Azure que está hospedando os dados. Vamos chamar esse serviço vinculado de **StorageLinkedService**.
+1. Criar um serviço vinculado para registrar [seu próprio cluster de cálculo HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou configurar o [cluster de cálculo HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vamos chamar esse serviço vinculado **de HDInsightLinkedService**.
+2. Criar um [serviço vinculado](data-factory-azure-blob-connector.md) para configurar a conexão com o Armazenamento de Blob do Azure que está hospedando os dados. Vamos chamar esse serviço vinculado **de StorageLinkedService**.
 3. Criar [conjuntos de dados](data-factory-create-datasets.md) apontando para os dados de entrada e de saída. Vamos chamar o conjunto de dados de entrada de **PigSampleIn** e o conjunto de dados de saída de **PigSampleOut**.
-4. Copie a consulta Pig em um arquivo do Armazenamento de Blobs do Azure configurado na etapa 2. Se o armazenamento do Azure que hospeda os dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado do Armazenamento do Azure separado. Confira o serviço vinculado na configuração de atividade. Use **ScriptPath** para especificar o caminho para o arquivo de script Pig e **scriptLinkedService**. 
+4. Copie a consulta Pig em um arquivo do Armazenamento de Blobs do Azure configurado na etapa 2. Se o armazenamento do Azure que hospeda os dados for diferente daquele que hospeda o arquivo de consulta, crie um serviço vinculado do Armazenamento do Azure separado. Confira o serviço vinculado na configuração de atividade. Use **scriptPath** para especificar o caminho para o arquivo de script de porco e **scriptLinkedService**. 
    
    > [!NOTE]
    > Você também pode fornecer o script Pig embutido na definição da atividade usando a propriedade **script** . No entanto, não incentivamos o uso dessa abordagem, pois os caracteres especiais no script precisam de escape e podem causar problemas de depuração. A prática recomendada é seguir a etapa 4.
@@ -210,7 +210,7 @@ Para usar os scripts Pig parametrizado, faça o seguinte:
       }
     }
     ```
-* No Script Pig, consulte os parâmetros usando ' **$parameterName**', como mostra o exemplo a seguir:
+* No Script Pig, consulte os parâmetros usando '**$parameterName**', como mostra o exemplo a seguir:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
@@ -220,8 +220,8 @@ Para usar os scripts Pig parametrizado, faça o seguinte:
     ```
 
 ## <a name="see-also"></a>Consulte também
-* [Atividade de Hive](data-factory-hive-activity.md)
-* [Atividade MapReduce](data-factory-map-reduce.md)
-* [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+* [Atividade colmeia](data-factory-hive-activity.md)
+* [Mapearreduzir a atividade](data-factory-map-reduce.md)
+* [Atividade de streaming hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

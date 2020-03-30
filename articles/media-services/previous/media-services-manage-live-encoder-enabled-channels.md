@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162524"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
@@ -28,10 +28,10 @@ ms.locfileid: "77162524"
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
 ## <a name="overview"></a>Visão geral
-No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
+No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **canal** recebe transmissões de entrada ao vivo de duas maneiras:
 
 * Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos geram os codificadores RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), HaiVision, Teradek e TriCaster.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo saída RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek e Tricaster encoders.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
@@ -57,12 +57,12 @@ A tabela a seguir mostra como os estados de Canal são mapeados para os estados 
 Para parar a cobranças adicionais do Canal, você terá de Parar o Canal por meio da API ou no Portal do Azure.
 Você é responsável por parar seus canais quando terminar com o canal de codificação ativo.  A falha ao interromper um canal de codificação resultará em cobrança contínua.
 
-### <a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
 O estado atual de um canal. Os valores possíveis incluem:
 
-* **Parado**. Esse é o estado inicial do canal após sua criação (a menos que AutoStart tenha sido selecionado no Portal). Nenhuma cobrança ocorre nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
-* **Iniciando**. O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
-* **Executando**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional. 
+* **Parado**. Este é o estado inicial do Canal após sua criação (a menos que o autostart tenha sido selecionado no portal.) Não há faturamento neste estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
+* **Começando**. O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
+* **Correndo.** O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional. 
 * **Parando**. O canal está sendo parado. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 * **Excluindo**. O canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 
@@ -85,7 +85,7 @@ O diagrama a seguir representa um fluxo de trabalho de streaming ao vivo em que 
 
 ![Fluxo de trabalho ao vivo][live-overview]
 
-## <a id="scenario"></a>Cenário comum de streaming ao vivo
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Cenário comum de transmissão ao vivo
 A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de streaming ao vivo.
 
 > [!NOTE]
@@ -93,7 +93,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 >
 > Há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças por hora. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. 
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo no local que pode produzir um **único** fluxo de bitrate em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
 
     Essa etapa também pode ser realizada após a criação do canal.
 2. Crie e inicie um Canal. 
@@ -111,7 +111,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 6. Publique o ativo associado ao programa.   
 
     >[!NOTE]
-    >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**. 
+    >Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**. 
 
 7. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 8. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
@@ -123,14 +123,14 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 > 
 > 
 
-## <a id="channel"></a>Configurações de entrada (ingestão) do canal
-### <a id="Ingest_Protocols"></a>Protocolo de streaming de ingestão
+## <a name="channels-input-ingest-configurations"></a><a id="channel"></a>Configurações de entrada (ingestão) do canal
+### <a name="ingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Protocolo de streaming de ingestão
 Se o **Tipo de codificador** está definido como **Standard**, as opções válidas são:
 
-* **RTMP**
+* **RTMP** de bitrate único
 * **MP4 fragmentado** de taxa de bits única (Smooth Streaming)
 
-#### <a id="single_bitrate_RTMP"></a>RTMP de taxa de bits única
+#### <a name="single-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP de taxa de bits única
 Considerações:
 
 * O fluxo de entrada não pode conter vídeo com múltiplas taxas de bits
@@ -146,7 +146,7 @@ Considerações:
 * Taxa de amostragem de 44,1 kHz
 * Empacotamento de ADTS estilo MPEG-2
 * Os codificadores recomendados incluem:
-* [Wirecast de Telestream](media-services-configure-wirecast-live-encoder.md)
+* [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md)
 * Flash Media Live Encoder
 
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>MP4 fragmentado de taxa de bits única (Smooth Streaming)
@@ -207,10 +207,10 @@ Um sinalizador opcional que informa o codificador ao vivo para ignorar quaisquer
 #### <a name="index"></a>Índice
 É recomendável para enviar um fluxo de transporte de programa único (SPTS). Se o fluxo de entrada contém vários programas, o codificador ao vivo no canal analisa a PMT (tabela de mapa de programa) na entrada, identifica as entradas que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 System-B ou MPEG-2 Private PES ou áudio MPEG-1 ou áudio MPEG-2, e organiza-os na ordem especificada na PMT. O índice baseado em zero, em seguida, é usado para acompanhar a enésima entrada nesse arranjo.
 
-#### <a name="language"></a>Linguagem
+#### <a name="language"></a>Idioma
 O identificador de idioma do fluxo de áudio, em conformidade com ISO 639-2, como ENG. Se não estiver presente, o padrão é UND (indefinido).
 
-### <a id="preset"></a>Predefinição do sistema
+### <a name="system-preset"></a><a id="preset"></a>Predefinição do sistema
 Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste canal. Atualmente, o único valor permitido é **Default720p** (padrão).
 
 **Default720p** codificará o vídeo nas seis camadas a seguir.
@@ -247,7 +247,7 @@ A duração, em segundos, do intervalo comercial. Isso deve ser um valor positiv
 Uma ID exclusiva para o intervalo comercial, para ser usado pelo aplicativo downstream para executar as ações apropriadas. Deve ser um número inteiro positivo. Você pode definir esse valor como qualquer inteiro positivo aleatório ou usar um sistema de upstream para acompanhar as IDs de indicação. Certifique-se normalizar quaisquer IDs para números inteiros positivos antes de enviá-las pela API.
 
 ### <a name="show-slate"></a>Mostrar slate
-Opcional. Sinaliza o codificador dinâmico para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **false**. 
+Opcional. Sinaliza o codificador dinâmico para alternar para a imagem [fixa padrão](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante um intervalo comercial e ocultar o feed de vídeo de entrada. O áudio também é desligado durante o slate. O padrão é **falso**. 
 
 A imagem usada será aquela especificada por meio da propriedade de ID do ativo de slate padrão no momento da criação do canal. O slate será estendido para ajustar-se ao tamanho da imagem de exibição. 
 
@@ -262,7 +262,7 @@ A duração do slate em segundos. Isso deve ser um valor positivo diferente de z
 ### <a name="insert-slate-on-ad-marker"></a>Inserir o slate no marcador de anúncio
 Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é verdadeiro. 
 
-### <a id="default_slate"></a>ID de ativo de slate padrão
+### <a name="default-slate-asset-id"></a><a id="default_slate"></a>ID de ativo de slate padrão
 
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo. 
 
@@ -299,12 +299,12 @@ Se desejar manter o conteúdo arquivado mas ele não está disponível para stre
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obtenção uma visualização em miniatura de uma transmissão ao vivo
 Quando a codificação ao vivo está habilitada, agora você pode obter uma visualização da transmissão ao vivo quando ela atinge o canal. Isso pode ser uma ferramenta valiosa para verificar se sua transmissão ao vivo está realmente chegando ao canal. 
 
-## <a id="states"></a>Estados de canal e como os estados são mapeados para o modo de cobrança
+## <a name="channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Estados de canal e como os estados são mapeados para o modo de cobrança
 O estado atual de um canal. Os valores possíveis incluem:
 
 * **Parado**. Este é o estado inicial do canal após sua criação. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
-* **Iniciando**. O canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
-* **Executando**. O canal é capaz de processar transmissões ao vivo.
+* **Começando**. O canal está sendo iniciado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
+* **Correndo.** O canal é capaz de processar transmissões ao vivo.
 * **Parando**. O canal está sendo parado. Nenhuma atualização ou streaming é permitido durante esse estado.
 * **Excluindo**. O canal está sendo excluído. Nenhuma atualização ou streaming é permitido durante esse estado.
 
@@ -322,12 +322,12 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 > 
 > 
 
-## <a id="Considerations"></a>Considerações
+## <a name="considerations"></a><a id="Considerations"></a>Considerações
 * Quando um Canal do tipo de codificação **Standard** perde um feed de fonte/contribuição de entrada, ele compensa isso substituindo o vídeo/áudio de origem por uma imagem fixa de erro e silêncio. O Canal continuará emitindo uma imagem fixa até que o feed de entrada/contribuição seja retomado. É recomendável que um canal ao vivo não seja deixado em tal estado por mais de 2 horas. Além desse ponto, o comportamento do canal na reconexão de entrada não será garantido, nem seu comportamento em resposta a um comando Reset. Será necessário parar o Canal, excluí-lo e criar um novo.
 * Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 * Sempre que você reconfigurar o codificador ao vivo, chame o método **Redefinir** no canal. Antes de redefinir o canal, você precisa interromper o programa. Antes de redefinir o canal, reinicie o programa.
 * Um canal pode ser interrompido somente quando estiver no estado Executando e todos os programas no canal tiverem sido interrompidos.
-* Por padrão, você pode adicionar somente 5 canais à sua conta de Serviços de Mídia. Essa é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
+* Por padrão, você pode adicionar somente 5 canais à sua conta de Serviços de Mídia. Essa é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [Cotas e Limitações](media-services-quotas-and-limitations.md).
 * Você não pode alterar o protocolo de entrada enquanto o canal ou seus programas associados estão em execução. Se você precisar de protocolos diferentes, você deve criar canais separados para cada protocolo de entrada.
 * Você será cobrado apenas quando o canal estiver no estado **Executando** . Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
 * Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. 
@@ -342,7 +342,7 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Abra um tíquete de suporte navegando até [Nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Você pode abrir um ticket de suporte navegando para [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-step"></a>Próxima etapa
 
@@ -354,7 +354,7 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados
-[Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure](media-services-overview.md)
+[Entregando eventos de transmissão ao vivo com os serviços de mídia do Azure](media-services-overview.md)
 
 [Criar canais que realizam codificação dinâmica de um fluxo com taxa de bits única para fluxo com taxa de bits adaptável com o Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 
@@ -364,7 +364,7 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
-[Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmentado MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

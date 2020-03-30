@@ -1,25 +1,25 @@
 ---
-title: Enviar por push & imagem do Docker pull
+title: Empurre & puxe a imagem de Docker
 description: Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker
 ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456364"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
 
-Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do [Docker](https://hub.docker.com), de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Você pode usar a [Interface de linha de comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [logon](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/) e outras operações no registro de contêiner.
+Um registro de contêineres do Azure armazena e gerencia imagens privadas de contêineres [Docker,](https://hub.docker.com) semelhante à maneira como o [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Você pode usar a [Interface de linha de comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [logon](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/) e outras operações no registro de contêiner.
 
 Nas etapas a seguir, você baixará uma [imagem Nginx](https://store.docker.com/images/nginx) oficial do registro do Hub do Docker público, a rotulará para seu registro de contêiner do Azure privado, enviará por push para o registro e, em seguida, efetuará pull dela do registro.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
+* **Registro de contêineres do Azure** - Crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure](container-registry-get-started-azure-cli.md).
 * **CLI do Docker** – você também deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Fazer logon em um registro
@@ -30,7 +30,7 @@ Há [várias maneiras de autenticar](container-registry-authentication.md) no re
 az acr login --name myregistry
 ```
 
-Você também pode fazer logon com o [logon do docker](https://docs.docker.com/engine/reference/commandline/login/). Por exemplo, você pode [atribuir uma entidade de serviço](container-registry-authentication.md#service-principal) ao registro para um cenário de automação. Quando você executa o comando a seguir, forneça interativamente o appID (nome de usuário) e a senha da entidade de serviço quando solicitado. Para obter práticas recomendadas gerenciar credenciais de logon, confira a referência do comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
+Você também pode fazer logon com o [logon do docker](https://docs.docker.com/engine/reference/commandline/login/). Por exemplo, você pode ter [atribuído um diretor de serviço](container-registry-authentication.md#service-principal) ao seu registro para um cenário de automação. Quando você executa o comando a seguir, forneça interativamente o appID (nome de usuário) e a senha da entidade de serviço quando solicitado. Para obter práticas recomendadas gerenciar credenciais de logon, confira a referência do comando [docker login](https://docs.docker.com/engine/reference/commandline/login/):
 
 ```
 docker login myregistry.azurecr.io
@@ -121,7 +121,7 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 
 Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, implante as imagens de contêiner do Registro para:
 
-* [AKS (Serviço de Kubernetes do Azure)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Serviço Azure Kubernetes (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Instâncias de Contêiner do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Usar identidades gerenciadas em uma VM do Azure com SDKs do Azure-Azure AD
+title: Use identidades gerenciadas em uma VM Azure com SDKs Azure - Azure AD
 description: Códigos de exemplo para usar SDKs do Azure com uma VM do Azure que gerencia identidades para recursos do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 422b4c63a86904721fc6910193ffa63a8fe46f0a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184160"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure com SDKs do Azure 
@@ -27,12 +27,12 @@ ms.locfileid: "74184160"
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Este artigo fornece uma lista de exemplos de SDK, que demonstram o uso do suporte do respectivo SDK do Azure para identidades gerenciadas para recursos do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 > [!IMPORTANT]
-> - Todos os scripts/código de exemplos neste artigo assumem que o cliente está executando em uma VM com identidades gerenciadas para recursos do Azure habilitadas. Use o recurso "Conectar" da VM no Portal do Azure para conectar-se remotamente à sua VM. Para obter detalhes sobre como habilitar identidades gerenciadas para recursos do Azure em uma VM, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) ou um dos artigos variantes (usando o PowerShell, CLI, um modelo ou um SDK do Azure). 
+> - Todos os scripts/código de exemplos neste artigo assumem que o cliente está executando em uma VM com identidades gerenciadas para recursos do Azure habilitadas. Use o recurso "Conectar" da VM no Portal do Azure para conectar-se remotamente à sua VM. Para obter detalhes sobre como habilitar identidades gerenciadas para recursos do Azure em uma VM, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md) ou um dos artigos variantes (usando PowerShell, CLI, um modelo ou um SDK do Azure). 
 
 ## <a name="sdk-code-samples"></a>Exemplos de código do SDK
 

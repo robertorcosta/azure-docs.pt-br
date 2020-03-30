@@ -1,5 +1,5 @@
 ---
-title: Criar VM de um disco especializado no Azure
+title: Crie VM a partir de um disco especializado no Azure
 description: Criar uma nova VM anexando um disco não gerenciado, no modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: d887ef2ef74bb433d6e8ae7f53cd0b77f5948303
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073341"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado em uma conta de armazenamento
@@ -102,7 +102,7 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
+Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando poderá demorar um pouco para concluir.
 
 
 ## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Opção 2: Copie o VHD de uma VM existente do Azure
@@ -119,13 +119,13 @@ Lembre-se de:
 Desaloque a VM para liberar o VHD a ser copiado. 
 
 * **Portal**: clique em **Máquinas virtuais** > **myVM** > Parar
-* **PowerShell**: use [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar (desalocar) a VM denominada **myVM** no grupo de recursos **MyResource**Group.
+* **Powershell**: Use [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) para parar (delomar) a VM chamada **myVM** no grupo de recursos **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-O **Status** da VM no Portal do Azure muda de **Parado** para **Parado (desalocado)** .
+O **Status** da VM no Portal do Azure muda de **Parado** para **Parado (desalocado)**.
 
 ### <a name="get-the-storage-account-urls"></a>Obter as URLs da conta de armazenamento
 Você precisará das URLs das contas de armazenamento de origem e de destino. As URLs serão semelhantes a: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Se você já souber os nomes da conta de armazenamento e do contêiner, basta substituir as informações entre colchetes para criar sua URL. 
@@ -133,7 +133,7 @@ Você precisará das URLs das contas de armazenamento de origem e de destino. As
 Você pode usar o Portal do Azure ou o Azure PowerShell para obter a URL:
 
 * **Portal**: Clique em **>** para **Todos os serviços** > **Contas de armazenamento** > *conta de armazenamento* > **Blobs** e seu arquivo VHD de origem provavelmente estará no contêiner **vhds**. Clique em **Propriedades** do contêiner e copie o texto rotulado como **URL**. Você precisará das URLs dos contêineres de origem e de destino. 
-* **PowerShell**: use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para obter as informações para a VM denominada **myVM** no grupo de recursos **MyResource**Group. Nos resultados, examine a seção **Perfil de armazenamento** para o **URI do VHD**. A primeira parte do URI é a URL do contêiner e a última parte é o nome do VHD do sistema operacional da VM.
+* **Powershell**: Use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para obter as informações para VM denominadas **myVM** no grupo de recursos **myResourceGroup**. Nos resultados, examine a seção **Perfil de armazenamento** para o **URI do VHD**. A primeira parte do URI é a URL do contêiner e a última parte é o nome do VHD do sistema operacional da VM.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -143,7 +143,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Localize as chaves de acesso para as contas de armazenamento de origem e destino. Para obter mais informações sobre as chaves de acesso, consulte [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 
 * **Portal**: Clique em **Todos os serviços** > **Contas de armazenamento** > *conta de armazenamento* > **Chaves de acesso**. Copie a chave rotulada como **key1**.
-* **PowerShell**: use [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) para obter a chave de armazenamento para a conta de armazenamento **mystorageaccount** no grupo de recursos **MyResource**Group. Copie a chave rotulada como **key1**.
+* **Powershell**: Use [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) para obter a chave de armazenamento da **minha conta de armazenamento** no grupo de recursos **myResourceGroup**. Copie a chave rotulada como **key1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -185,7 +185,7 @@ Transfer failed:         0
 Elapsed time:            00.00:13:07
 ```
 
-### <a name="troubleshooting"></a>Solucionando problemas
+### <a name="troubleshooting"></a>Solução de problemas
 * Ao usar o AZCopy, se você receber o erro “Falha do servidor em autenticar a solicitação”, verifique se o valor do cabeçalho Authorization está formado corretamente, incluindo a assinatura. Se estiver usando a Chave 2 ou a chave de armazenamento secundária, tente usar a chave primária ou a primeira chave de armazenamento.
 
 ## <a name="create-the-new-vm"></a>Crie a nova VM 
@@ -231,7 +231,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 Para obter mais informações sobre regras de NSGs e pontos de extremidade, veja [Abrir portas para uma VM no Azure usando PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Criar um endereço IP público e uma NIC
-Para habilitar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
+Para habilitar a comunicação com a máquina virtual na rede virtual, são necessários um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e um adaptador de rede.
 
 1. Crie o endereço IP público. Neste exemplo, o nome do endereço IP público é definido como **myIP**.
    
@@ -270,7 +270,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Adicione o disco do sistema operacional. Neste exemplo, quando o disco do sistema operacional é criado, o termo "osDisk" é anexado ao nome da VM para criar o nome do disco do sistema operacional. Este exemplo também especifica que este VHD baseado em Windows deve ser anexado à VM como o disco do sistema operacional.
+2. Adicione o disco do sistema operacional. Neste exemplo, quando o disco do SISTEMA OPERACIONAL é criado, o termo "osDisk" é anexado ao nome VM para criar o nome do disco do SISTEMA OPERACIONAL. Este exemplo também especifica que este VHD baseado em Windows deve ser anexado à VM como o disco do sistema operacional.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

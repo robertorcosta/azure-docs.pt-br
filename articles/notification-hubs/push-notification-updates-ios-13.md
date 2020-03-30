@@ -1,6 +1,6 @@
 ---
-title: Hubs de notificação do Azure-atualizações do iOS Microsoft Docs
-description: Saiba mais sobre as alterações significativas do iOS em hubs de notificação do Azure
+title: Azure Notification Hubs iOS 13 atualizações | Microsoft Docs
+description: Saiba mais sobre as mudanças no iOS 13 nos Hubs de Notificação do Azure
 author: sethmanheim
 ms.author: sethm
 ms.date: 10/16/2019
@@ -9,27 +9,27 @@ ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: 697e8ba9c9f27e8d5644e3a78950ff006290efe7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74228138"
 ---
-# <a name="azure-notification-hubs-updates-for-ios-13"></a>Atualizações dos Hubs de Notificação do Azure para o iOS 13
+# <a name="azure-notification-hubs-updates-for-ios-13"></a>Azure Notification Hubs atualiza ções para iOS 13
 
-A Apple fez recentemente algumas alterações no serviço de envio público; as alterações alinhadas principalmente com as versões do iOS 13 e do Xcode. Este artigo descreve o impacto dessas alterações nos hubs de notificação do Azure.
+A Apple fez recentemente algumas mudanças em seu serviço público de push; as mudanças estão mais alinhadas com as versões do iOS 13 e Xcode. Este artigo descreve o impacto dessas alterações nos Hubs de Notificação do Azure.
 
-## <a name="apns-push-payload-changes"></a>Alterações de conteúdo de push de APNS
+## <a name="apns-push-payload-changes"></a>APNS empurram alterações de carga útil
 
 ### <a name="apns-push-type"></a>Tipo de push APNS
 
-Agora, a Apple exige que os desenvolvedores identifiquem notificações como alertas ou notificações de segundo plano por meio do novo cabeçalho `apns-push-type` na API do APNS. De acordo com a [documentação da Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "o valor desse cabeçalho deve refletir com precisão o conteúdo da carga da notificação. Em caso de incompatibilidade ou na ausência de um cabeçalho nos sistemas necessários, os APNs podem retornar um erro, atrasar a entrega da notificação ou descartá-lo completamente."
+A Apple agora exige que os desenvolvedores identifiquem `apns-push-type` as notificações como um alerta ou notificações em segundo plano através do novo cabeçalho na API APNS. De acordo com a [documentação da Apple:](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)"O valor deste cabeçalho deve refletir com precisão o conteúdo da carga útil da sua notificação. Se houver uma incompatibilidade ou se o cabeçalho estiver faltando nos sistemas necessários, as APNs podem retornar um erro, atrasar a entrega da notificação ou solí-la completamente."
 
-Os desenvolvedores agora devem definir esse cabeçalho em aplicativos que enviam notificações por meio dos hubs de notificação do Azure. Devido a uma limitação técnica, os clientes devem usar a autenticação baseada em token para credenciais de APNS com solicitações que incluem esse atributo. Se você estiver usando a autenticação baseada em certificado para suas credenciais de APNS, será necessário alternar para o uso da autenticação baseada em token.
+Os desenvolvedores agora devem definir esse cabeçalho em aplicativos que enviam notificações através do Azure Notification Hubs. Devido a uma limitação técnica, os clientes devem usar autenticação baseada em token para credenciais APNS com solicitações que incluem esse atributo. Se você estiver usando autenticação baseada em certificado suspirar para suas credenciais APNS, você deve mudar para o uso de autenticação baseada em token.
 
-Os exemplos de código a seguir mostram como definir esse atributo de cabeçalho em solicitações de notificação enviadas por meio dos hubs de notificação do Azure.
+As amostras de código a seguir mostram como definir esse atributo de cabeçalho nas solicitações de notificação enviadas através dos Hubs de Notificação do Azure.
 
-#### <a name="template-notifications---net-sdk"></a>Notificações de modelo-SDK do .NET
+#### <a name="template-notifications---net-sdk"></a>Notificações de modelo - .NET SDK
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
@@ -40,7 +40,7 @@ notification.Headers = headers;
 await hub.SendNotificationAsync(notification);
 ```
 
-#### <a name="native-notifications---net-sdk"></a>Notificações nativas-SDK do .NET
+#### <a name="native-notifications---net-sdk"></a>Notificações nativas - .NET SDK
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
@@ -49,7 +49,7 @@ var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 
-#### <a name="direct-rest-calls"></a>Chamadas REST diretas
+#### <a name="direct-rest-calls"></a>Chamadas direct rest
 
 ```csharp
 var request = new HttpRequestMessage(method, $"<resourceUri>?api-version=2017-04");
@@ -58,13 +58,13 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-Para ajudá-lo durante essa transição, quando os hubs de notificação do Azure detectam uma notificação que não tem o conjunto de `apns-push-type`, o serviço infere o tipo de push da solicitação de notificação e define o valor automaticamente. Lembre-se de que você deve configurar os hubs de notificação do Azure para usar a autenticação baseada em token para definir o cabeçalho necessário; para obter mais informações, consulte [autenticação baseada em token (http/2) para APNS](notification-hubs-push-notification-http2-token-authentification.md).
+Para ajudá-lo durante essa transição, quando o Azure Notification `apns-push-type` Hubs detecta uma notificação que não tem o conjunto, o serviço infere o tipo de push da solicitação de notificação e define o valor automaticamente. Lembre-se de que você deve configurar os Hubs de notificação do Azure para usar a autenticação baseada em token satisfatoita para definir o cabeçalho necessário; para obter mais informações, consulte [autenticação baseada em Token (HTTP/2) para APNS](notification-hubs-push-notification-http2-token-authentification.md).
 
-## <a name="apns-priority"></a>Prioridade de APNS
+## <a name="apns-priority"></a>Prioridade da APNS
 
-Outra alteração secundária, mas uma que requer uma alteração no aplicativo de back-end que envia notificações, é o requisito de notificações em segundo plano em que o cabeçalho de `apns-priority` agora deve ser definido como 5. Muitos aplicativos definem o cabeçalho de `apns-priority` como 10 (indicando a entrega imediata) ou não os definem e obtêm o valor padrão (que também é 10).
+Outra alteração menor, mas que requer uma alteração no aplicativo backend que envia `apns-priority` notificações, é a exigência de que para notificações em segundo plano o cabeçalho deve agora ser definido como 5. Muitos aplicativos definem o `apns-priority` cabeçalho como 10 (indicando entrega imediata), ou não o definem e obtêm o valor padrão (que também é 10).
 
-Definir esse valor como 10 não é mais permitido para notificações em segundo plano e você deve definir o valor para cada solicitação. A Apple não fornecerá notificações em segundo plano se esse valor estiver ausente. Por exemplo:
+Definir esse valor como 10 não é mais permitido para notificações em segundo plano, e você deve definir o valor para cada solicitação. A Apple não fornecerá notificações em segundo plano se esse valor estiver faltando. Por exemplo: 
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
@@ -73,6 +73,6 @@ var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 
-## <a name="sdk-changes"></a>Alterações do SDK
+## <a name="sdk-changes"></a>Mudanças no SDK
 
-Durante anos, os desenvolvedores do iOS usaram o atributo `description` do `deviceToken` dados enviados ao delegado do token de push para extrair o token de push usado por um aplicativo de back-end para enviar notificações para o dispositivo. Com o Xcode 11, esse atributo `description` alterado para um formato diferente. O código existente que os desenvolvedores usavam para este atributo agora está quebrado. Atualizamos o SDK dos hubs de notificação do Azure para acomodar essa alteração. portanto, atualize o SDK usado por seus aplicativos para a versão 2.0.4 ou mais recente do [SDK do IOS dos hubs de notificação do Azure](https://github.com/Azure/azure-notificationhubs-ios).
+Durante anos, os desenvolvedores `description` do `deviceToken` iOS usaram o atributo dos dados enviados ao delegado push token para extrair o token push que um aplicativo back-end usa para enviar notificações ao dispositivo. Com o Xcode `description` 11, esse atributo mudou para um formato diferente. O código existente que os desenvolvedores usaram para este atributo está agora quebrado. Atualizamos o SDK do Azure Notification Hubs para acomodar essa alteração, por isso atualize o SDK usado por seus aplicativos para a versão 2.0.4 ou mais recente do [Azure Notification Hubs iOS SDK](https://github.com/Azure/azure-notificationhubs-ios).

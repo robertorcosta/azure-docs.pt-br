@@ -1,6 +1,6 @@
 ---
-title: Associações de certificados
-description: Explique vários tópicos relacionados a certificados em um Ambiente do Serviço de Aplicativo. Saiba como as associações de certificado funcionam nos aplicativos de locatário único em um ASE.
+title: Vinculações de certificados
+description: Explique inúmeros tópicos relacionados a certificados em um Ambiente de Serviço de Aplicativo. Saiba como as vinculações de certificados funcionam nos aplicativos de um único inquilino em um ASE.
 author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688635"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 
@@ -48,7 +48,7 @@ Se desejar criar um certificado autoassinado rapidamente para testar, você pode
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-Ao criar um certificado autoassinado, você precisará garantir que o nome da entidade tenha o formato CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
+Ao criar um cert auto-assinado, você precisará garantir que o nome do assunto tenha o formato de CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificados de aplicativo 
 
@@ -58,7 +58,7 @@ Aplicativos que são hospedados em um ASE podem usar os recursos de certificado 
 - SSL com base em IP, que só é compatível com um ASE externo.  Um ILB ASE não é compatível com SSL com base em IP.
 - Certificados hospedados no Key Vault 
 
-As instruções para carregar e gerenciar esses certificados estão disponíveis em [Adicionar um certificado SSL no serviço de Azure app](../configure-ssl-certificate.md).  Se você estiver simplesmente configurando certificados de acordo com um nome de domínio personalizado que você atribuiu ao seu aplicativo Web, essas instruções serão suficientes. Se você estiver carregando o certificado para um aplicativo Web de ILB ASE com o nome de domínio padrão, especifique o site SCM na SAN do certificado, conforme observado anteriormente. 
+As instruções para carregar e gerenciar esses certificados estão disponíveis em [Adicionar um certificado SSL no Azure App Service](../configure-ssl-certificate.md).  Se você estiver simplesmente configurando certificados de acordo com um nome de domínio personalizado que você atribuiu ao seu aplicativo Web, essas instruções serão suficientes. Se você estiver carregando o certificado para um aplicativo Web de ILB ASE com o nome de domínio padrão, especifique o site SCM na SAN do certificado, conforme observado anteriormente. 
 
 ## <a name="tls-settings"></a>Configurações de protocolo TLS 
 
@@ -78,7 +78,7 @@ Para carregar o certificado em seu aplicativo no ASE:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-O certificado ficará disponível para todos os aplicativos no mesmo Plano do Serviço de Aplicativo que definiu essa configuração. Se você precisar que ele fique disponível para aplicativos de outro Plano do Serviço de Aplicativo, será necessário repetir a operação de Configuração de Aplicativo em um aplicativo desse Plano do Serviço de Aplicativo. Para verificar se o certificado está definido, vá para o console do Kudu e emita o seguinte comando no console de depuração do PowerShell:
+O certificado ficará disponível para todos os aplicativos no mesmo Plano do Serviço de Aplicativo que definiu essa configuração. Se você precisar que ele fique disponível para aplicativos de outro Plano do Serviço de Aplicativo, será necessário repetir a operação de Configuração de Aplicativo em um aplicativo desse Plano do Serviço de Aplicativo. Para verificar se o certificado está definido, vá para o console Kudu e emita o seguinte comando no console de depuração PowerShell:
 
     dir cert:\localmachine\root
 

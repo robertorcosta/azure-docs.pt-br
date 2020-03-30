@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
 ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659887"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Criar um espaço de trabalho do Log Analytics com o Azure PowerShell
@@ -19,7 +19,7 @@ O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure 
 
 * Recursos do Azure em sua assinatura  
 * Computadores locais monitorados pelo System Center Operations Manager  
-* Coleções de dispositivos de Configuration Manager  
+* Coleções de dispositivos do Gerenciador de Configuração  
 * Dados de diagnóstico ou de log do armazenamento do Azure  
  
 Para outras fontes, como as VMs do Azure e as VMs do Windows ou do Linux em seu ambiente, veja os tópicos a seguir:
@@ -34,12 +34,12 @@ Se você não tiver uma assinatura do Azure, crie [uma conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell AZ. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial requer o módulo Azure PowerShell Az. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-workspace"></a>Criar um workspace
-Crie um espaço de trabalho com [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo do Resource Manager do computador local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. 
+Crie um espaço de trabalho com [o New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). O exemplo a seguir cria um espaço de trabalho no local *eastus* usando um modelo de Gerenciador de recursos da sua máquina local. O modelo JSON está configurado para solicitar apenas o nome do workspace e especifica um valor padrão para os outros parâmetros que provavelmente seriam usados como uma configuração padrão em seu ambiente. 
 
-Para obter informações sobre regiões com suporte, consulte [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** . 
+Para obter informações sobre regiões suportadas, consulte regiões em que [o Log Analytics está disponível](https://azure.microsoft.com/regions/services/) e procure o Azure Monitor na busca por um campo **de produtos.** 
 
 Os parâmetros a seguir definem um valor padrão:
 
@@ -110,7 +110,7 @@ Os parâmetros a seguir definem um valor padrão:
 
 2. Edite o modelo para atender às suas necessidades. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais propriedades e os valores são suportados. 
 3. Salve esse arquivo como **deploylaworkspacetemplate.json** para uma pasta local.   
-4. Você está pronto para implantar o modelo. Use os comandos a seguir da pasta que contém o modelo. Quando for solicitado um nome de espaço de trabalho, forneça um nome que seja globalmente exclusivo em todas as assinaturas do Azure.
+4. Você está pronto para implantar o modelo. Use os seguintes comandos da pasta que contém o modelo. Quando você for solicitado para um nome de espaço de trabalho, forneça um nome que seja globalmente único em todas as assinaturas do Azure.
 
     ```powershell
         New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
@@ -120,7 +120,7 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 
 ![Resultados de exemplo, quando a implantação for concluída](media/quick-create-workspace-posh/template-output-01.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Agora que já tem um workspace disponível, você pode configurar a coleta de monitoramento de telemetria, executar pesquisas de logs para analisar os dados e adicionar uma solução de gerenciamento para fornecer dados adicionais e informações analíticas.  
 
 * Para habilitar a coleta de dados de recursos do Azure com o Diagnóstico do Azure ou com o armazenamento do Azure, confira [Coletar logs e as métricas do serviço do Azure para uso no Azure Monitor](../platform/collect-azure-metrics-logs.md).  

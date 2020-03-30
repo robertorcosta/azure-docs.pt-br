@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190007"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso dos serviços externos do serviço de Gerenciamento de API do Azure
@@ -102,9 +102,9 @@ O atributo `response-variable-name` é usado para dar acesso à resposta retorna
 
 A partir do objeto de resposta, é possível recuperar o corpo e a RFC 7622 informa Gerenciamento de API que a resposta deve ser um objeto JSON e conter pelo menos uma propriedade chamada `active` que seja um valor booliano. Quando `active` é verdadeiro, o token é considerado válido.
 
-Como alternativa, se o servidor de autorização não incluir o campo "ativo" para indicar se o token é válido, use uma ferramenta como o postmaster para determinar quais propriedades estão definidas em um token válido. Por exemplo, se uma resposta de token válida contiver uma propriedade chamada "expires_in", verifique se esse nome de propriedade existe na resposta do servidor de autorização dessa forma:
+Alternativamente, se o servidor de autorização não incluir o campo "ativo" para indicar se o token é válido, use uma ferramenta como o Carteiro para determinar quais propriedades estão definidas em um token válido. Por exemplo, se uma resposta de token válida contiver uma propriedade chamada "expires_in", verifique se esse nome de propriedade existe na resposta do servidor de autorização desta forma:
 
-< quando Condition = "@ (((IResponse) contexto. Variáveis ["tokenstate"]). Body.As<JObject>(). Propriedade ("expires_in") = = NULL) ">
+<quando condição="@(((IResponse)contexto. Variáveis["tokenstate"]). Body.As().<JObject> Propriedade ("expires_in") == nulo)">
 
 ### <a name="reporting-failure"></a>Indicação de falha
 É possível usar `<choose>` para detectar se o token é inválido e, em caso afirmativo, retornar uma resposta 401.

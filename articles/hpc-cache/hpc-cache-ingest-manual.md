@@ -1,23 +1,23 @@
 ---
-title: Ingestão de dados do cache HPC do Azure-cópia manual
-description: Como usar comandos CP para mover dados para um destino de armazenamento de BLOBs no cache HPC do Azure
+title: Azure HPC Cache dataing - cópia manual
+description: Como usar comandos cp para mover dados para um alvo de armazenamento Blob no Cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168492"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestão de dados do cache HPC do Azure-método de cópia manual
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC Cache dataing - manual copy method
 
-Este artigo fornece instruções detalhadas para copiar manualmente os dados para um contêiner de armazenamento de BLOBs para uso com o cache do HPC do Azure. Ele usa operações paralelas multi-threaded para otimizar a velocidade de cópia.
+Este artigo fornece instruções detalhadas para copiar manualmente dados para um contêiner de armazenamento Blob para uso com cache Azure HPC. Ele usa operações paralelas multi-threaded para otimizar a velocidade da cópia.
 
-Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cache do Azure HPC, leia [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
+Para saber mais sobre como mover dados para o armazenamento Blob para o cache Do Azure HPC, leia [Mover dados para o armazenamento Azure Blob](hpc-cache-ingest.md).
 
 ## <a name="simple-copy-example"></a>Exemplo de cópia simples
 
@@ -33,9 +33,9 @@ cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1
 
 Depois de emitir esse comando, o comando `jobs` mostrará se os dois threads estão em execução.
 
-## <a name="copy-data-with-predictable-file-names"></a>Copiar dados com nomes de arquivo previsíveis
+## <a name="copy-data-with-predictable-file-names"></a>Copiar dados com nomes de arquivos previsíveis
 
-Se os nomes de arquivo forem previsíveis, você poderá usar expressões para criar threads de cópia paralela. 
+Se os nomes dos seus arquivos forem previsíveis, você pode usar expressões para criar segmentos de cópia paralela. 
 
 Por exemplo, se o diretório contiver 1.000 arquivos numerados consecutivamente de `0001` a `1000`, você poderá usar as expressões a seguir para criar dez threads paralelos que copiam, cada um, 100 arquivos:
 
@@ -52,9 +52,9 @@ cp /mnt/source/file8* /mnt/destination1/ & \
 cp /mnt/source/file9* /mnt/destination1/
 ```
 
-## <a name="copy-data-with-unstructured-file-names"></a>Copiar dados com nomes de arquivo não estruturados
+## <a name="copy-data-with-unstructured-file-names"></a>Copiar dados com nomes de arquivos não estruturados
 
-Se a estrutura de nomenclatura de arquivo não for previsível, você poderá agrupar arquivos por nomes de diretório. 
+Se sua estrutura de nomeação de arquivos não for previsível, você pode agrupar arquivos por nomes de diretório. 
 
 Este exemplo coleta diretórios inteiros para enviar a comandos ``cp`` executados como tarefas em segundo plano:
 
@@ -81,9 +81,9 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>Quando adicionar pontos de montagem
 
-Depois que você tiver threads paralelos suficientes indo para um único ponto de montagem do sistema de arquivos de destino, haverá um ponto em que a adição de mais threads não oferece mais taxa de transferência. (A taxa de transferência será medida em arquivos/segundo ou em bytes/segundo, dependendo do tipo de dados.) Ou pior, o excesso de threads pode, às vezes, causar uma degradação da taxa de transferência.  
+Depois de ter threads paralelos suficientes indo contra um único ponto de montagem do sistema de arquivos de destino, haverá um ponto em que adicionar mais threads não dá mais throughput. (O throughput será medido em arquivos/segundo ou bytes/segundo, dependendo do seu tipo de dados.) Ou pior, o excesso de rosca às vezes pode causar uma degradação de throughput.  
 
-Quando isso acontece, você pode adicionar pontos de montagem do lado do cliente a outros endereços de montagem de cache do Azure HPC, usando o mesmo caminho de montagem do sistema de arquivos remoto:
+Quando isso acontecer, você pode adicionar pontos de montagem do lado do cliente a outros endereços de montagem do Cache Azure HPC, usando o mesmo caminho de montagem do sistema de arquivos remoto:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>Criar manifestos de arquivista
 
-Depois de entender as abordagens acima (vários threads de cópia por destino, vários destinos por cliente, vários clientes por sistema de arquivos de origem acessível por rede), considere esta recomendação: Compilar manifestos de arquivo e usá-los com cópia comandos em vários clientes.
+Depois de entender as abordagens acima (vários threads de cópia por destino, vários destinos por cliente, vários clientes por sistema de arquivos de origem acessível à rede), considere esta recomendação: Construa manifestos de arquivos e, em seguida, use-os com cópia comandos em vários clientes.
 
 Esse cenário usa o comando ``find`` do UNIX para criar manifestos de arquivos ou diretórios:
 

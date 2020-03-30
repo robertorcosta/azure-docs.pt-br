@@ -1,7 +1,7 @@
 ---
-title: Habilidade personalizada da API Web no habilidades
+title: Habilidade personalizada da API web em skillsets
 titleSuffix: Azure Cognitive Search
-description: Estenda os recursos do Azure Pesquisa Cognitiva habilidades chamando as APIs da Web. Use a habilidade personalizada da API Web para integrar seu código personalizado.
+description: Amplie as capacidades das habilidades de pesquisa cognitiva do Azure chamando para APIs da Web. Use a habilidade de API da Web personalizada para integrar seu código personalizado.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74484117"
 ---
-# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidades da API Web personalizada em um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidade personalizada de API web em um pipeline de enriquecimento de pesquisa cognitiva do Azure
 
-A habilidade **personalizada da API Web** permite estender o enriquecimento de ai chamando para um ponto de extremidade de API Web que fornece operações personalizadas. Semelhante a habilidades internas, uma habilidade **API Web Personalizada** tem entradas e saídas. Dependendo das entradas, sua API da Web recebe uma carga JSON quando o indexador é executado e gera uma carga JSON como uma resposta, juntamente com um código de status de êxito. A resposta deve ter as saídas especificadas pela sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aprimoramento é executado.
+A habilidade **de API da Web personalizada** permite que você amplie o enriquecimento de IA chamando para um ponto final da API da Web, fornecendo operações personalizadas. Semelhante a habilidades internas, uma habilidade **API Web Personalizada** tem entradas e saídas. Dependendo das entradas, sua API da Web recebe uma carga útil JSON quando o indexador é executado e produz uma carga JSON como resposta, juntamente com um código de status de sucesso. A resposta deve ter as saídas especificadas pela sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aprimoramento é executado.
 
 A estrutura das payloads JSON é descrita mais detalhadamente abaixo neste documento.
 
@@ -34,14 +34,14 @@ Microsoft.Skills.Custom.WebApiSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| Uri | O URI da API Web para a qual o conteúdo _JSON_ será enviado. Somente o esquema do URI **https** é permitido |
+| uri | O URI da API web para a qual a carga _útil JSON_ será enviada. Somente o esquema do URI **https** é permitido |
 | httpMethod | O método a ser usado ao enviar o conteúdo. Os métodos permitidos são `PUT` ou `POST` |
 | httpHeaders | Uma coleção de pares chave-valor em que as chaves representam os nomes de cabeçalho e os valores representam valores de cabeçalho que serão enviados para sua API Web, juntamente com o conteúdo. Os seguintes cabeçalhos são proibidos de estarem nesta coleção: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| Tempo limite | (Opcional) Quando especificado, indica o tempo limite para o cliente http que fez a chamada à API. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por exemplo, `PT60S` por 60 segundos. Se não for definido, um valor padrão de 30 segundos será escolhido. O tempo limite pode ser definido como um máximo de 230 segundos e um mínimo de 1 segundo. |
+| tempo limite | (Opcional) Quando especificado, indica o tempo limite para o cliente http que fez a chamada à API. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por exemplo, `PT60S` por 60 segundos. Se não for definido, um valor padrão de 30 segundos será escolhido. O tempo limite pode ser definido para um máximo de 230 segundos e um mínimo de 1 segundo. |
 | batchSize | (Opcional) Indica quantos "registros de dados" (veja estrutura de conteúdos _JSON_ abaixo) serão enviados por chamada à API. Se não for definido, um padrão de 1.000 será escolhido. É recomendável que você faça uso desse parâmetro para alcançar um equilíbrio adequado entre a taxa de transferência de indexação e de carga em sua API |
-| degreeOfParallelism | Adicional Quando especificado, indica o número de chamadas que o indexador fará em paralelo ao ponto de extremidade que você forneceu. Você pode diminuir esse valor se o ponto de extremidade estiver falhando em muito alto de uma carga de solicitação ou o gerar se o ponto de extremidade for capaz de aceitar mais solicitações e você quiser um aumento no desempenho do indexador.  Se não estiver definido, será usado um valor padrão de 5. O degreeOfParallelism pode ser definido como um máximo de 10 e um mínimo de 1. |
+| degreeOfParallelism | (Opcional) Quando especificado, indica o número de chamadas que o indexador fará em paralelo ao ponto final que você forneceu. Você pode diminuir esse valor se o seu ponto final estiver falhando uma carga de solicitação muito alta, ou elevá-lo se o seu ponto final for capaz de aceitar mais solicitações e você gostaria de um aumento no desempenho do indexador.  Se não for definido, um valor padrão de 5 é usado. O grauDeParasm pode ser definido para um máximo de 10 e um mínimo de 1. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
@@ -137,10 +137,10 @@ Ele sempre segue estas restrições:
 
 ## <a name="sample-output-json-structure"></a>Estrutura JSON de saída de exemplo
 
-A "saída" corresponde à resposta retornada de sua API da Web. A API Web deve retornar apenas uma carga _JSON_ (verificada examinando o cabeçalho de resposta `Content-Type`) e deve atender às seguintes restrições:
+A "saída" corresponde à resposta retornada da Sua API web. A API da Web só deve retornar uma carga útil `Content-Type` _JSON_ (verificada olhando para o cabeçalho de resposta) e deve satisfazer as seguintes restrições:
 
 * Deve haver uma entidade de nível superior chamada `values`, que deve ser uma matriz de objetos.
-* O número de objetos na matriz deve ser igual ao número de objetos enviados para a API da Web.
+* O número de objetos na matriz deve ser o mesmo que o número de objetos enviados para a API da Web.
 * Cada objeto deve ter:
    * Uma propriedade `recordId`
    * Uma propriedade `data`, que é um objeto no qual os campos são aprimoramentos correspondendo aos "nomes" no `output` e cujo valor é considerado o aprimoramento.
@@ -201,8 +201,8 @@ Além de sua API Web não estar disponível ou enviar códigos de status sem êx
 
 Para casos em que a API Web não está disponível ou retorna um erro HTTP, um erro amigável com todos os detalhes disponíveis sobre o erro de HTTP será adicionado ao histórico de execução do indexador.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
-+ [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
++ [Adicione habilidade personalizada a um pipeline de enriquecimento de IA](cognitive-search-custom-skill-interface.md)
++ [Exemplo: Criar uma habilidade personalizada para o enriquecimento de IA](cognitive-search-create-custom-skill-example.md)

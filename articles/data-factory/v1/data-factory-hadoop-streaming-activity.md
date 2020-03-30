@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade de streaming do Hadoop – Azure
+title: Transformar dados usando hadoop streaming activity - Azure
 description: Saiba como usar a Atividade de Streaming do Hadoop em um Azure Data Factory para transformar dados executando programas de Streaming do Hadoop em um cluster HDInsight sob demanda ou em seu próprio cluster HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -13,32 +13,32 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703379"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Streaming do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Atividades de transformação"]
-> * [Atividade de Hive](data-factory-hive-activity.md) 
+> [!div class="op_single_selector" title1="Atividades de Transformação"]
+> * [Atividade colmeia](data-factory-hive-activity.md) 
 > * [Atividade Pig](data-factory-pig-activity.md)
-> * [Atividade MapReduce](data-factory-map-reduce.md)
-> * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Mapearreduzir a atividade](data-factory-map-reduce.md)
+> * [Atividade de streaming hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de execução em lote de aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [transformar dados usando o Hadoop Streaming Activity no Data Factory](../transform-data-using-hadoop-streaming.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [transformar dados usando o Hadoop Streaming Activity no Data Factory](../transform-data-using-hadoop-streaming.md).
 
 
 Você pode usar a atividade HDInsightStreamingActivity para invocar um trabalho de Transmissão do Hadoop de um pipeline do Azure Data Factory. O snippet de código JSON a seguir mostra a sintaxe para usar HDInsightStreamingActivity em um arquivo JSON do pipeline. 
 
-A Atividade de Streaming do HDInsight em um [pipeline](data-factory-create-pipelines.md) do Data Factory executa programas de Transmissão do Hadoop [em seu próprio cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou no cluster HDInsight [sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) baseado em Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
+O hdInsight Streaming Activity em um [pipeline](data-factory-create-pipelines.md) de Fábrica de Dados executa programas de Streaming Hadoop por [conta própria](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou demanda do cluster HDInsight baseado [em](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
 > [!NOTE] 
 > Se você estiver conhecendo o Azure Data Factory agora, leia a [Introdução ao Azure Data Factory](data-factory-introduction.md) e siga o tutorial [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md) antes de ler este artigo. 
@@ -96,13 +96,13 @@ Observe os seguintes pontos:
 
 1. Defina **linkedServiceName** para o nome do serviço vinculado que aponta para o cluster do HDInsight no qual o trabalho do MapReduce de transmissão é executado.
 2. Defina o tipo da atividade como **HDInsightStreaming**.
-3. Para a propriedade **mapper** , especifique o nome do executável do mapeador. No exemplo, cat.exe é o executável do mapeador.
+3. Para a propriedade **mapeador**, especifique o nome do executável do mapeador. No exemplo, cat.exe é o executável do mapeador.
 4. Para a propriedade **reducer** , especifique o nome do executável do redutor. No exemplo, wc.exe é o executável do redutor.
 5. Para a propriedade de tipo **input** , especifique o arquivo de entrada (incluindo o local) para o mapeador. No exemplo: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample é o contêiner de blob, example/data/Gutenberg é a pasta e davinci.txt é o blob.
 6. Para a propriedade de tipo **output** , especifique o arquivo de saída (incluindo o local) para o redutor. A saída do trabalho de Transmissão do Hadoop é gravada no local especificado para essa propriedade.
-7. Na seção **filePaths** , especifique os caminhos para os executáveis do mapeador e do redutor. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável.
+7. Na seção **filePaths**, especifique os caminhos dos executáveis do mapeador e redutor. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contêiner de blob, example/apps é a pasta e wc.exe é o executável.
 8. Para a propriedade **fileLinkedService** , especifique o serviço vinculado do Armazenamento do Azure que representa o armazenamento do Azure que contém os arquivos especificados na seção filePaths.
-9. Para a propriedade **arguments** , especifique os argumentos para o trabalho de transmissão.
+9. Para a propriedade **argumentos**, especifique os argumentos do trabalho de transmissão.
 10. A propriedade **getDebugInfo** é um elemento opcional. Quando ela é definida como Falha, os logs são baixados somente em caso de falha de execução. Quando ela é definida como Sempre, os logs sempre são baixados, não importa o status de execução.
 
 > [!NOTE]
@@ -147,7 +147,7 @@ Em seguida, você cria um serviço vinculado para vincular seu cluster do HDInsi
 }
 ```
 
-### <a name="datasets"></a>Conjuntos de dados
+### <a name="datasets"></a>Conjunto de dados
 #### <a name="output-dataset"></a>Conjunto de dados de saída
 O pipeline neste exemplo não tem entradas. Você especifica um conjunto de dados de saída para a Atividade de Transmissão do HDInsight. Esse conjunto de dados é apenas um conjunto fictício exigido para direcionar a agenda de pipeline. 
 
@@ -223,9 +223,9 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 }
 ```
 ## <a name="see-also"></a>Consulte também
-* [Atividade de Hive](data-factory-hive-activity.md)
+* [Atividade colmeia](data-factory-hive-activity.md)
 * [Atividade Pig](data-factory-pig-activity.md)
-* [Atividade MapReduce](data-factory-map-reduce.md)
+* [Mapearreduzir a atividade](data-factory-map-reduce.md)
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

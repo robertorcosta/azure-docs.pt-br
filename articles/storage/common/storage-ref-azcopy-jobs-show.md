@@ -1,6 +1,6 @@
 ---
-title: azcopy trabalhos de exibição | Microsoft Docs
-description: Este artigo fornece informações de referência para o comando azcopy Jobs show.
+title: azcopy jobs show | Microsoft Docs
+description: Este artigo fornece informações de referência para o comando azcopy jobs show.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,23 +9,23 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 7b5f566757dd77a61f252b123d0c9c1b74303fbe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034131"
 ---
 # <a name="azcopy-jobs-show"></a>azcopy jobs show
 
-Mostra informações detalhadas para a ID de trabalho fornecida.
+Mostra informações detalhadas para a determinada carteira de trabalho.
 
-## <a name="synopsis"></a>Resumo
+## <a name="synopsis"></a>Sinopse
 
-Se apenas a ID do trabalho for fornecida sem um sinalizador, o resumo do progresso do trabalho será retornado.
+Se apenas a carteira de trabalho for fornecida sem bandeira, então o resumo do progresso do trabalho é devolvido.
 
-A contagem de bytes e a porcentagem concluída que aparece quando você executa esse comando refletem somente os arquivos que são concluídos no trabalho. Eles não refletem os arquivos parcialmente concluídos.
+As contagens de byte e porcentagem completa que aparece quando você executa este comando refletem apenas arquivos que são concluídos no trabalho. Eles não refletem arquivos parcialmente concluídos.
 
-Se o sinalizador de `with-status` for definido, a lista de transferências no trabalho com o valor especificado será mostrada.
+Se `with-status` a bandeira for definida, a lista de transferências no trabalho com o valor dado será mostrada.
 
 ```azcopy
 azcopy jobs show [jobID] [flags]
@@ -34,24 +34,24 @@ azcopy jobs show [jobID] [flags]
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opções
 
-|Opção|DESCRIÇÃO|
+|Opção|Descrição|
 |--|--|
-|-h, --help|Mostra o conteúdo da ajuda para o comando show.|
-|--com-cadeia de caracteres de status|Lista somente as transferências de trabalho com esse status, valores disponíveis: iniciado, êxito, falha|
+|-h, --help|Mostra conteúdo de ajuda para o comando do show.|
+|--com-status string|Apenas liste as transferências de trabalho com este status, valores disponíveis: Iniciado, Sucesso, Falha|
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos parentais
 
-|Opção|DESCRIÇÃO|
+|Opção|Descrição|
 |---|---|
-|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
-|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--cap-mbps uint32|Limita a taxa de transferência, em megabits por segundo. O throughput momento a momento pode variar ligeiramente da tampa. Se esta opção estiver definida como zero, ou for omitida, o throughput não será limitado.|
+|--cadeia de tipo de saída|Formato da saída do comando. As opções incluem: texto, json. O valor padrão é "texto".|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-- [trabalhos do azcopy](storage-ref-azcopy-jobs.md)
+- [azcopy jobs](storage-ref-azcopy-jobs.md)

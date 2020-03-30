@@ -1,5 +1,5 @@
 ---
-title: Não é possível acessar este erro de aplicativo corporativo com o aplicativo proxy de aplicativo
+title: Não é possível acessar este erro de aplicativo corporativo com o aplicativo App Proxy
 description: Como resolver problemas comuns de acesso com aplicativos do Proxy de Aplicativo do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275461"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível Acessar este Aplicativo Corporativo" ao usar um aplicativo de Proxy de Aplicativo
@@ -37,7 +37,7 @@ Quando você vir esse erro, localize o código de status na página de erro. Ess
 
 Para localizar o código observe no texto, na parte inferior esquerda da mensagem de erro, o campo "Código de Status". Além disso, procure quaisquer dicas adicionais na parte inferior da página.
 
-![Exemplo: erro de tempo limite de gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
+![Exemplo: Erro de tempo do gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
 Para obter detalhes sobre como solucionar a causa raiz desses erros e obter mais detalhes sobre as correções sugeridas, consulte a seção correspondente abaixo.
 
@@ -64,20 +64,20 @@ Se você confirmar que o usuário está atribuído ao aplicativo no Azure, verif
 
 ## <a name="check-the-applications-internal-url"></a>Verificar a URL interna do aplicativo
 
-Como uma primeira etapa rápida, verifique novamente e corrija a URL interna, abrindo o aplicativo pelo **Aplicativos Empresariais** e, em seguida, selecionando o menu **Proxy de Aplicativo**. Verifique se a URL interna é a usada de sua rede local para acessar o aplicativo.
+Como uma primeira etapa rápida, verifique novamente e corrija a URL interna, abrindo o aplicativo pelo **Aplicativos Empresariais** e, em seguida, selecionando o menu **Proxy de Aplicativo**. Verifique se a URL interna é aquela usada na sua rede de instalações para acessar o aplicativo.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Verificar se o aplicativo está atribuído a um Grupo de Conectores de trabalho
 
 Para verificar se o aplicativo está atribuído a um Grupo de Conectores de trabalho:
 
 1. Abra o aplicativo no portal, acessando o **Azure Active Directory**, clicando em **Aplicativos Empresariais** e, em seguida, em **Todos os Aplicativos.** Abra o aplicativo e, em seguida, selecione **Proxy de aplicativo** no menu esquerdo.
-1. Analise o campo Grupo de Conectores. Se não houver conectores ativos no grupo, você verá um aviso. Se você não vir nenhum aviso, passe para verificar se todas as portas necessárias são permitidas.
+1. Analise o campo Grupo de Conectores. Se não houver conectores ativos no grupo, você verá um aviso. Se você não ver nenhum aviso, siga em frente para verificar se todas as portas necessárias são permitidas.
 1. Se o Grupo de Conectores incorreto for exibido, use o menu suspenso para selecionar o grupo correto e confirme se nenhum aviso é exibido. Se o Grupo de Conectores pretendido for exibido, clique na mensagem de aviso para abrir a página com o gerenciamento do Conector.
 1. A partir daqui, há algumas maneiras de aprofundar-se ainda mais:
 
-   - Mover um Conector ativo para o grupo: Se você tiver um Conector ativo que deveria pertencer a esse grupo e tiver linha de visão para o aplicativo back-end de destino, será possível mover o Conector para o grupo atribuído. Para fazer isso, clique no conector. No campo "Grupo de Conectores", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
-   - Baixar um novo Conector para esse grupo: Nessa página, você pode obter o link para [baixar um novo Conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o Conector em um computador com a linha direta de visão para o aplicativo de back-end. Normalmente, o conector é instalado no mesmo servidor que o aplicativo. Use o link de download do Connector para baixar de um conector no computador de destino. Em seguida, clique no Conector e use o menu suspenso "Grupo de Conectores" para certificar-se de que ele pertence ao grupo correto.
-   - Investigar um conector inativo: Se um conector mostrar como inativo, ele não conseguirá alcançar o serviço. Esse erro geralmente é devido a algumas portas exigidas sendo bloqueadas. Para resolver esse problema, vá para verificar se todas as portas necessárias são permitidas.
+   - Mover um Conector ativo para o grupo: Se você tiver um Conector ativo que deveria pertencer a esse grupo e tiver linha de visão para o aplicativo back-end de destino, será possível mover o Conector para o grupo atribuído. Para fazer isso, clique no Conector. No campo "Grupo de Conectores", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
+   - Baixar um novo Conector para esse grupo: Nessa página, você pode obter o link para [baixar um novo Conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o Conector em um computador com a linha direta de visão para o aplicativo de back-end. Normalmente, o Conector é instalado no mesmo servidor do aplicativo. Use o link de download do Connector para baixar de um conector no computador de destino. Em seguida, clique no Conector e use o menu suspenso "Grupo de Conectores" para certificar-se de que ele pertence ao grupo correto.
+   - Investigar um conector inativo: Se um conector mostrar como inativo, ele não conseguirá alcançar o serviço. Esse erro geralmente é devido a algumas portas exigidas sendo bloqueadas. Para resolver esse problema, siga em frente para verificar se todas as portas necessárias são permitidas.
 
 Após usar essas etapas para garantir que o aplicativo está atribuído a um grupo com Conectores funcionando, teste o aplicativo novamente. Se ainda não estiver funcionando, continue na próxima seção.
 
@@ -105,4 +105,4 @@ Se você pode alcançar o aplicativo do computador, pesquise problemas ou erros 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
+[Entenda os conectores proxy do aplicativo Azure AD](application-proxy-connectors.md)

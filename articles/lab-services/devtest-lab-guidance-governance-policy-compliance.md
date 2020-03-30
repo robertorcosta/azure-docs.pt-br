@@ -1,5 +1,5 @@
 ---
-title: Política da empresa e conformidade no Azure DevTest Labs
+title: Política e conformidade da empresa no Azure DevTest Labs
 description: Este artigo fornece diretrizes sobre governança da política da empresa e a conformidade para a infraestrutura do Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 81ca2a90b1940d70e170cab3f8d18144a5d5e5a8
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74560514"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Governança da infraestrutura do Azure DevTest Labs – política da empresa e conformidade
@@ -29,7 +29,7 @@ Este artigo fornece diretrizes sobre governança da política da empresa e a con
 Quando uma organização deve usar um repositório de artefatos público ou usar um repositório de artefatos privado no DevTest Labs?
 
 ### <a name="answer"></a>Resposta
-O [repositório de artefatos público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) fornece um conjunto inicial de pacotes de software que são mais comumente usados. Isso ajuda na implantação rápida sem a necessidade de investir tempo para reproduzir ferramentas de desenvolvimento e suplementos comuns. Você pode optar por implantar seu próprio repositório privado. Você pode usar um repositório público e um privado em paralelo. Você também pode optar por desabilitar o repositório público. Os critérios para implantar um repositório privado devem ser orientados pelas seguintes perguntas e considerações:
+O [repositório de artefatos público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) fornece um conjunto inicial de pacotes de software que são mais comumente usados. Ele ajuda na implantação rápida sem ter que investir tempo para reproduzir ferramentas e complementos comuns de desenvolvedores. Você pode optar por implantar seu próprio repositório privado. Você pode usar um repositório público e um privado em paralelo. Você também pode optar por desabilitar o repositório público. Os critérios para implantar um repositório privado devem ser orientados pelas seguintes perguntas e considerações:
 
 - A organização tem um requisito de ter software corporativo licenciado como parte de sua oferta do DevTest Labs? Se a resposta for sim, um repositório privado deverá ser criado.
 - A organização desenvolve software personalizado que fornece uma operação específica, que é exigida como parte do processo geral de provisionamento? Se a resposta for sim, um repositório privado deverá ser implantado.
@@ -76,5 +76,5 @@ A segunda camada de controles é aplicar um conjunto de objetos de política de 
 Por fim, restrições desse mesmo tipo precisam ser aplicadas em toda a organização, o que também teria que levar em conta todos os métodos possíveis de mídia removível ou URLs externas que pudessem aceitar uma postagem de conteúdo. Confira seu profissional de segurança para examinar e implementar uma política de segurança. Para obter mais recomendações, confira [Segurança cibernética da Microsoft](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Veja [Integração e migração de aplicativos](devtest-lab-guidance-governance-application-migration-integration.md).

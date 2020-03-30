@@ -1,19 +1,19 @@
 ---
-title: Manipular erros de associações de Azure Functions
-description: Saiba como lidar com erros de associação de Azure Functions
+title: Lidar com os erros de vinculação das funções do Azure
+description: Aprenda a lidar com erros de vinculação de funções do Azure
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/12/2019
 ms.author: cshoe
 ms.openlocfilehash: 83bef8d788d3ef8bb6f8337b8e39b195748702bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227288"
 ---
-# <a name="handle-azure-functions-binding-errors"></a>Manipular erros de associação de Azure Functions
+# <a name="handle-azure-functions-binding-errors"></a>Lidar com erros de vinculação de funções do Azure
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
-Para obter informações sobre erros retornados por serviços com suporte pelas funções, consulte a seção [códigos de erro de ligação](functions-bindings-error-pages.md#binding-error-codes) do artigo Azure Functions visão geral de tratamento de [erros](functions-bindings-error-pages.md) .  
+Para obter informações sobre erros retornados por serviços suportados por Funções, consulte a seção Códigos de [erro de vinculação](functions-bindings-error-pages.md#binding-error-codes) do artigo de visão geral do [azure Functions.](functions-bindings-error-pages.md)  

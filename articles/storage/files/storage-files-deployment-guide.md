@@ -8,10 +8,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598775"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implantar Arquivos do Azure
@@ -19,14 +19,14 @@ O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos d
 
 É altamente recomendável ler [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) antes de seguir as etapas neste artigo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tenha completado as seguintes etapas:
 
 - Criado uma conta de Armazenamento do Azure com as opções de resiliência e de criptografia desejadas, na região desejada. Para orientações passo a passo sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 - Criado um compartilhamento de arquivos do Azure com sua cota desejada na sua conta de armazenamento. Consulte [Criar um compartilhamento de arquivos](storage-how-to-create-file-share.md) para obter instruções passo a passo sobre como criar um compartilhamento de arquivos.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferir dados para Arquivos do Azure
-Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados em um arquivo do Azure por meio de vários métodos populares detalhados no [guia de planejamento](storage-files-planning.md#migration)
+Talvez você queira migrar compartilhamentos de arquivos existentes, tais como aqueles armazenados localmente, para o novo compartilhamento de Arquivos do Azure. Esta seção mostrará como mover dados para um compartilhamento de arquivos do Azure através de vários métodos populares detalhados do guia de [planejamento](storage-files-planning.md#migration)
 
 ### <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -90,7 +90,7 @@ As etapas a seguir importarão dados de uma localização local para o compartil
 ### <a name="robocopy"></a>Robocopy
 Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. Robocopy pode ser usado para transferir dados para arquivos do Azure montando o compartilhamento de arquivos localmente e, em seguida, usando a localização montada como o destino no comando Robocopy. Usar o Robocopy é bastante simples:
 
-1. [Monte o compartilhamento de Arquivos do Azure](storage-how-to-use-files-windows.md). Para otimizar o desempenho, é recomendável a montagem do compartilhamento de arquivos do Azure localmente no servidor que contém os dados. Em alguns casos, assim como quando o servidor de arquivos que serve os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável para montar o compartilhamento de arquivos do Azure em um PC. Neste exemplo, `net use` é usado na linha de comando para montar o compartilhamento de arquivos:
+1. [Monte o compartilhamento de arquivos do Azure](storage-how-to-use-files-windows.md). Para otimizar o desempenho, é recomendável a montagem do compartilhamento de arquivos do Azure localmente no servidor que contém os dados. Em alguns casos, assim como quando o servidor de arquivos que serve os dados é um dispositivo NAS, isso pode não ser possível. Nesse caso, é perfeitamente aceitável para montar o compartilhamento de arquivos do Azure em um PC. Neste exemplo, `net use` é usado na linha de comando para montar o compartilhamento de arquivos:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>

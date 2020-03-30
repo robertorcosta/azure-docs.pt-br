@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
 ms.openlocfilehash: 93180f088935531f83da785bb7a490f80909a6cd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669193"
 ---
 # <a name="azure-management---monitoring"></a>Gerenciamento do Azure - monitoramento
@@ -35,10 +35,10 @@ O monitoramento é o ato de coletar e analisar dados para determinar o desempenh
 Configurar refere-se à implantação inicial e à configuração de aplicativos e recursos, bem como sua manutenção contínua com patches e atualizações.  A automação dessas tarefas por meio de script e política permite que você elimine a redundância, minimizando o tempo e esforço e aumentando a precisão e a eficiência.  A [Automação do Azure](../automation/automation-intro.md) fornece a maior parte dos serviços para automatizar tarefas de configuração.  Além de runbooks para automatizar processos, ele fornece configuração e gerenciamento de atualizações, que auxiliam no gerenciamento de configuração por meio da política e na identificação e implantação de atualizações.
 
 ## <a name="govern"></a>Administrar
-Governança fornece mecanismos e processos para manter controle sobre seus aplicativos e recursos no Azure.  Ela envolve planejar suas iniciativas e estabelecer prioridades estratégicas.  Governança no Azure é implementada principalmente com dois serviços.  O [Azure Policy](../governance/policy/overview.md) permite que você crie, atribua e gerencie definições de política que aplicam diferentes regras e ações sobre seus recursos para que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço. O [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md) permite que você acompanhe o uso e as despesas da nuvem para seus recursos do Azure e outros provedores de nuvem, incluindo o AWS e o Google.
+Governança fornece mecanismos e processos para manter controle sobre seus aplicativos e recursos no Azure.  Ela envolve planejar suas iniciativas e estabelecer prioridades estratégicas.  Governança no Azure é implementada principalmente com dois serviços.  O [Azure Policy](../governance/policy/overview.md) permite que você crie, atribua e gerencie definições de política que aplicam diferentes regras e ações sobre seus recursos para que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço. [O Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) permite rastrear o uso e os gastos em nuvem para seus recursos do Azure e outros provedores de nuvem, incluindo AWS e Google.
 
 ## <a name="secure"></a>Seguro
-Gerenciar segurança de aplicativos, recursos e dados envolve uma combinação de avaliação de ameaças, coletando e analisando dados de segurança e garante que seus aplicativos e recursos sejam criados e configurados de forma segura.  A [Central de Segurança do Azure](../security-center/security-center-intro.md) fornece monitoramento de segurança e análise de ameaças, que inclui o gerenciamento unificado de segurança e proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida.  Leia também a [Introdução à segurança do Azure](../security/fundamentals/overview.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar com segurança os recursos do Azure.
+Gerenciar segurança de aplicativos, recursos e dados envolve uma combinação de avaliação de ameaças, coletando e analisando dados de segurança e garante que seus aplicativos e recursos sejam criados e configurados de forma segura.  O monitoramento de segurança e a análise de ameaças são fornecidos pelo [Azure Security Center,](../security-center/security-center-intro.md) que inclui gerenciamento de segurança unificado e proteção avançada contra ameaças em cargas de trabalho na nuvem híbrida.  Leia também a [Introdução à segurança do Azure](../security/fundamentals/overview.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar com segurança os recursos do Azure.
 
 
 ## <a name="protect"></a>Proteger

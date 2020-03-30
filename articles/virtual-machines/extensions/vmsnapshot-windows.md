@@ -9,18 +9,20 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: c4f5650e333c209d3b5f342c1f1c61ec1ca5cf47
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5ee3b97eb835322a0ad6c8a69c20776a243713fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250368"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415101"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão de janelas de VM instantânea para Azure Backup
 
 O Backup do Azure oferece suporte para backup de cargas de trabalho do local para nuvem e fazendo backup de recursos de nuvem para o cofre de Serviços de Recuperação. Azure Backup usa extensão de VM instantânea para levar um backup consistente de aplicativo da máquina virtual do Azure sem a necessidade de desligar a VM. Extensão de VM instantânea é publicada e suportada pela Microsoft como parte do serviço de Azure Backup. Azure Backup irá instalar a extensão como parte do primeiro backup agendado disparado após habilitar o backup. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão de VM Instantânea.
 
-## <a name="prerequisites"></a>Prerequisites
+A extensão VMSnapshot é exibida no portal Azure apenas para VMs não gerenciados.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 Para obter uma lista dos sistemas operacionais suportados, consulte [Sistemas Operacionais com suporte pelo Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -88,7 +90,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Dados sobre o estado das implantações de extensão podem ser recuperados do Portal do Azure usando a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando a CLI do Azure.
 
@@ -108,4 +110,4 @@ Informações para resolução de problemas podem ser encontradas no [Guia de so
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer ponto deste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

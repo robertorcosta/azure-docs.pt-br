@@ -1,25 +1,25 @@
 ---
 title: Adicionar autenticação para proteger chamadas para APIs personalizadas
-description: Como configurar a autenticação para melhorar a segurança de chamadas para APIs personalizadas de aplicativos lógicos do Azure
+description: Como configurar a autenticação para melhorar a segurança de chamadas para APIs personalizadas dos Aplicativos azure Logic
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191400"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas para APIs personalizadas de aplicativos lógicos do Azure
 
-Para melhorar a segurança para chamadas para suas APIs, você pode configurar a autenticação do Azure Active Directory (AD do Azure) por meio do portal do Azure para que não precise atualizar seu código. Ou você pode exigir e aplicar a autenticação por meio do seu código da API.
+Para melhorar a segurança das chamadas para suas APIs, você pode configurar a autenticação do Azure Active Directory (Azure AD) através do portal Azure para que você não precise atualizar seu código. Ou você pode exigir e aplicar a autenticação por meio do seu código da API.
 
 ## <a name="authentication-options-for-your-api"></a>Opções de autenticação para sua API
 
-Você pode melhorar a segurança para chamadas para sua API personalizada das seguintes maneiras:
+Você pode melhorar a segurança de chamadas para sua API personalizada desta maneira:
 
 * [Sem alterações de código](#no-code): proteja sua API com [Azure AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) por meio do Portal do Azure, para que você não precise atualizar o código ou reimplantar sua API.
 
@@ -46,12 +46,12 @@ Seu aplicativo lógico usa essa identidade do aplicativo do Azure AD para autent
 
 **Criar a identidade do aplicativo para seu aplicativo lógico no Portal do Azure**
 
-1. Na [portal do Azure](https://portal.azure.com "https://portal.azure.com"), escolha **Azure Active Directory**. 
+1. No [portal do Azure](https://portal.azure.com "https://portal.azure.com"), escolha **Azure Active Directory**. 
 
 2. Confirme que você está no mesmo diretório que o aplicativo Web ou aplicativo de API.
 
    > [!TIP]
-   > Para mudar de diretório, selecione seu perfil e selecione outro diretório. Ou escolha **Visão Geral** > **Mudar diretório**.
+   > Para mudar de diretório, selecione seu perfil e selecione outro diretório. Ou, escolha o diretório **'Visão geral'** > **do Switch**.
 
 3. No menu de diretório, em **Gerenciar**, escolha **Registros do aplicativo** > **Novo registro do aplicativo**.
 
@@ -99,7 +99,7 @@ Você pode executar essa tarefa por meio do Azure Resource Manager com o PowerSh
 
 1. `$SecurePassword = Read-Host -AsSecureString`
 
-1. Insira uma senha e pressione Enter.
+1. Digite uma senha e pressione Enter.
 
 1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
@@ -113,7 +113,7 @@ Se seu aplicativo Web ou aplicativo de API já estiver implantado, você poderá
 
 **Criar a identidade do aplicativo e ativar a autenticação no Portal do Azure para aplicativos implantados**
 
-1. Na [portal do Azure](https://portal.azure.com "https://portal.azure.com"), localize e selecione seu aplicativo Web ou aplicativo de API. 
+1. No [portal do Azure](https://portal.azure.com "https://portal.azure.com"), localize e selecione o aplicativo Web ou aplicativo de API. 
 
 2. Em **Configurações**, escolha **Autenticação/Autorização**. Em **Autenticação do Serviço de Aplicativo**, **Ative** a autenticação. Em **Provedores de Autenticação**, escolha **Azure Active Directory**.
 
@@ -150,7 +150,7 @@ Agora você deve encontrar a ID do cliente e a ID do locatário para a identidad
 
 **Ativar a autenticação quando implantar com um modelo do Azure Resource Manager**
 
-Você ainda precisa criar uma identidade de aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API que difere da identidade do aplicativo para seu aplicativo lógico. Para criar a identidade do aplicativo, siga as etapas anteriores na Parte 2 para o Portal do Azure. 
+Você ainda precisa criar uma identidade de aplicativo Azure AD para o seu aplicativo web ou aplicativo API que difere da identidade do aplicativo para o seu aplicativo lógico. Para criar a identidade do aplicativo, siga as etapas anteriores na Parte 2 para o Portal do Azure. 
 
 Você também pode seguir as etapas na Parte 1, mas certifique-se de usar o `https://{URL}` real do aplicativo Web ou aplicativo de API para **URL de Entrada** e **URI da ID do Aplicativo**. Nessas etapas, você precisa salvar a ID do cliente e a ID do locatário para uso no modelo de implantação do aplicativo e na Parte 3.
 
@@ -185,7 +185,7 @@ Para implantar automaticamente um aplicativo Web em branco e um aplicativo lógi
 
 O modelo anterior já tem essa seção de autorização definida, mas se você estiver criando o aplicativo lógico diretamente, precisará incluir a seção de autorização completa.
 
-Abra a definição do aplicativo lógico na exibição de código, vá para a definição da ação **http** , localize a seção **autorização** e inclua estas propriedades:
+Abra a definição do aplicativo lógico na exibição de código, vá para a definição de ação **HTTP,** encontre a seção **Autorização** e inclua essas propriedades:
 
 ```json
 {
@@ -197,7 +197,7 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 }
 ```
 
-| Propriedade | Obrigatório | DESCRIÇÃO | 
+| Propriedade | Obrigatório | Descrição | 
 | -------- | -------- | ----------- | 
 | locatário | Sim | O GUID para o locatário do Azure AD | 
 | audiência | Sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
@@ -206,7 +206,7 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 | type | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
-Por exemplo:
+Por exemplo: 
 
 ``` json
 {
@@ -238,7 +238,7 @@ Por exemplo:
 
 Para validar as solicitações recebidas do aplicativo lógico para o aplicativo Web ou aplicativo de API, você pode usar certificados do cliente. Para configurar seu código, [aprenda a configurar a autenticação mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Na seção **autorização** , inclua estas propriedades:
+Na seção **Autorização,** inclua estas propriedades:
 
 ```json
 {
@@ -248,7 +248,7 @@ Na seção **autorização** , inclua estas propriedades:
 } 
 ```
 
-| Propriedade | Obrigatório | DESCRIÇÃO |
+| Propriedade | Obrigatório | Descrição |
 | -------- | -------- | ----------- |
 | `type` | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
 | `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
@@ -261,7 +261,7 @@ Na seção **autorização** , inclua estas propriedades:
 
 Para validar solicitações de entrada de seu aplicativo lógico para o aplicativo Web ou aplicativo de API, você pode usar a autenticação básica, como um nome de usuário e senha. A autenticação básica é um padrão comum e você pode usar essa autenticação em qualquer linguagem usada para compilar seu aplicativo Web ou aplicativo de API.
 
-Na seção **autorização** , inclua estas propriedades:
+Na seção **Autorização,** inclua estas propriedades:
 
 ```json
 {
@@ -271,7 +271,7 @@ Na seção **autorização** , inclua estas propriedades:
 }
 ```
 
-| Propriedade | Obrigatório | DESCRIÇÃO | 
+| Propriedade | Obrigatório | Descrição | 
 | -------- | -------- | ----------- | 
 | type | Sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
 | Nome de Usuário | Sim | O nome de usuário que você deseja usar para autenticação | 

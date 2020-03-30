@@ -1,5 +1,5 @@
 ---
-title: Instruções de infraestrutura do Azure de exemplo
+title: Exemplo apasso da infra-estrutura do Azure
 description: Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -16,10 +16,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038557"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Passo a passo da infraestrutura do Azure de exemplo para VMs Windows
@@ -52,10 +52,10 @@ O projeto resultante deve incorporar:
 Todos os itens acima seguem estas convenções de nomenclatura:
 
 * A Adventure Works Cycles usa **[carga de trabalho de TI]-[localização]-[recurso do Azure]** como prefixo
-  * Neste exemplo, “**azos**” (Repositório Online do Azure) é o nome da carga de trabalho de TI e “**use**” (Leste dos EUA 2) é a localização
+  * Para este exemplo, "**azos**" (Azure Online Store) é o nome da carga de trabalho de TI e "**uso**" (East US 2) é o local
 * As redes virtuais usam AZOS-USE-VN **[número]**
-* Os conjuntos de disponibilidade usam azos-use-as- **[função]**
-* Os nomes de máquina virtual usam azos-use-vm- **[nomevm]**
+* Os conjuntos de disponibilidade usam azos-use-as-**[função]**
+* Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Assinaturas e contas do Azure
 A Adventure Works Cycles usa sua assinatura Enterprise, chamada Adventure Works Enterprise Subscription, para fornecer cobrança para essa carga de trabalho de TI.

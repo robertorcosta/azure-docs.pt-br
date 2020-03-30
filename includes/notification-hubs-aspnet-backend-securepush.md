@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: sethm
 ms.openlocfilehash: 7fd161c90234d45a6751f173ba3685ee8c392c87
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74260643"
 ---
 ## <a name="webapi-project"></a>Projeto WebAPI
@@ -95,4 +95,4 @@ ms.locfileid: "74260643"
 Observe que agora o método `Post` não envia uma notificação de sistema. Ele envia uma notificação bruta, que contém somente a ID de notificação, sem conteúdo sensível. Além disso, certifique-se de comentar a operação de envio para as plataformas para as quais você não tem credenciais configuradas em seu hub de notificação, já que elas resultarão em erros.
 
 1. Agora, reimplantaremos esse aplicativo em um Site do Azure para torná-lo acessível a partir de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
-2. Selecione o Site do Azure como seu destino de publicação. Entre com sua conta do Azure e selecione um site novo ou existente e anote a propriedade **URL de destino** na guia **conexão** . Iremos nos referir a essa URL como seu *ponto de extremidade de back-end* posteriormente neste tutorial. Clique em **Publicar**.
+2. Selecione o Site do Azure como seu destino de publicação. Faça login com sua conta do Azure e selecione um site existente ou novo e anote a propriedade url de **destino** na guia **Conexão.** Vamos nos referir a esta URL como seu *ponto final backend* mais tarde neste tutorial. Clique em **Publicar**.

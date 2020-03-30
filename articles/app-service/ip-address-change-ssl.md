@@ -1,14 +1,14 @@
 ---
-title: Preparar para alterar o endereço IP SSL
+title: Prepare-se para a alteração de endereço IP SSL
 description: Se seu endereço IP SSL vai ser alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 34f35eb67cada6066e35227fcd6a0eaf425ac007
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672398"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Como se preparar para uma alteração de endereço IP SSL
@@ -17,7 +17,7 @@ Se você recebeu uma notificação de que o endereço IP SSL de seu aplicativo d
 
 ## <a name="release-ssl-ip-addresses-and-assign-new-ones"></a>Liberar endereços IP SSL e atribuir novos
 
-1.  Abra o [Portal do Azure](https://portal.azure.com).
+1.  Abra o [portal Azure.](https://portal.azure.com)
 
 2.  No menu de navegação à esquerda, selecione **Serviços de Aplicativos**.
 
@@ -43,6 +43,6 @@ Se você recebeu uma notificação de que o endereço IP SSL de seu aplicativo d
 
 5. Copie o endereço IP e reconfigure o registro de domínio ou o mecanismo de IP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre endereços IP no Serviço de Aplicativo do Azure, consulte [SSL e endereços IP SSL no Serviço de Aplicativo do Azure](overview-inbound-outbound-ips.md).

@@ -1,5 +1,5 @@
 ---
-title: Configurar a política de registro de MFA-Azure Active Directory Identity Protection
+title: Configure a política de registro Do MFA - Azure Active Directory Identity Protection
 description: Saiba como configurar a política de registro de autenticação multifator do Azure AD Identity Protection.
 services: active-directory
 ms.service: active-directory
@@ -12,42 +12,42 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74382138"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Como configurar a política de registro da autenticação multifator do Azure
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registro de autenticação multifatorial do Azure
 
-Azure AD Identity Protection ajuda a gerenciar a distribuição do registro de autenticação multifator do Azure (MFA) configurando uma política de acesso condicional para exigir o registro de MFA, independentemente do aplicativo de autenticação moderno no qual você está entrando.
+O Azure AD Identity Protection ajuda você a gerenciar o lançamento do registro de Autenticação Multifatorial (MFA) do Azure, configurando uma política de Acesso Condicional para exigir o registro do MFA, não importa em qual aplicativo de autenticação moderno você está fazendo login.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>O que é a política de registro da autenticação multifator do Azure?
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>O que é a política de registro de autenticação multifatorial do Azure?
 
-A autenticação multifator do Azure fornece um meio de verificar quem você está usando mais do que apenas um nome de usuário e senha. Ele fornece uma segunda camada de segurança para entradas de usuário. Para que os usuários possam responder aos prompts do MFA, eles devem primeiro se registrar para a autenticação multifator do Azure.
+A Autenticação Multifatorial do Azure fornece um meio para verificar quem você está usando mais do que apenas um nome de usuário e senha. Ele fornece uma segunda camada de segurança para logins de usuário. Para que os usuários possam responder às solicitações do MFA, eles devem primeiro se registrar para a Autenticação Multifatorial do Azure.
 
-Recomendamos que você exija a autenticação multifator do Azure para entradas de usuário porque:
+Recomendamos que você exija a autenticação multifatorial do Azure para fazer logins de usuário porque:
 
-- Fornece autenticação forte por meio de uma variedade de opções de verificação.
-- Desempenha um papel fundamental na preparação de sua organização para a remediação automática de detecções de risco no Identity Protection.
+- Oferece autenticação forte através de uma gama de opções de verificação.
+- Desempenha um papel fundamental na preparação de sua organização para se auto-remediar a partir de detecções de risco na Proteção de Identidade.
 
-Para obter mais informações sobre a autenticação multifator do Azure, consulte [o que é a autenticação multifator do Azure?](../authentication/howto-mfa-getstarted.md)
+Para obter mais informações sobre a autenticação multifatorial do Azure, consulte [o que é autenticação multifatorial do Azure?](../authentication/howto-mfa-getstarted.md)
 
 ## <a name="policy-configuration"></a>Configuração de política
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **Security** > **identidade Protection** > **política de registro do MFA**.
-   1. Em **atribuições**
-      1. **Usuários** – escolha **todos os usuários** ou **selecione indivíduos e grupos** se limitar a distribuição.
-         1. Opcionalmente, você pode optar por excluir usuários da política.
-   1. Em **controles**
-      1. Certifique-se de que a caixa de seleção **exigir registro de MFA do Azure** esteja marcada e escolha **selecionar**.
-   1. **Impor** - **de política em**
+1. Navegue até a política de**registro MFA****de proteção** > de**identidade** > do diretório ativo do >  **Azure**.
+   1. Em **Atribuições**
+      1. **Usuários** - Escolha **todos os usuários** ou **Selecione indivíduos e grupos** se limitar sua distribuição.
+         1. Opcionalmente, você pode optar por excluir os usuários da apólice.
+   1. **Controles**
+      1. Certifique-se de que a caixa de seleção **exija que o registro do Azure MFA** seja verificado e escolha **Selecionar**.
+   1. **Impor política** - **sobre**
    1. **Salvar**
 
 ## <a name="user-experience"></a>Experiência do usuário
 
-Azure Active Directory Identity Protection solicitará que os usuários se registrem na próxima vez que entrarem de forma interativa e terão 14 dias para concluir o registro. Durante esse período de 14 dias, eles podem ignorar o registro, mas no final do período eles deverão ser registrados para que possam concluir o processo de entrada.
+O Azure Active Directory Identity Protection solicitará que seus usuários se registrem na próxima vez que fizerem login de forma interativa e terão 14 dias para concluir o registro. Durante esse período de 14 dias, eles podem contornar o registro, mas ao final do período serão obrigados a se registrar antes de completar o processo de login.
 
 Para obter uma visão geral da experiência do usuário relacionada, confira:
 
@@ -55,8 +55,8 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar as políticas de entrada e de risco do usuário](howto-identity-protection-configure-risk-policies.md)
+- [Habilite políticas de login e risco de usuário](howto-identity-protection-configure-risk-policies.md)
 
-- [Habilitar redefinição de senha de autoatendimento do Azure AD](../authentication/howto-sspr-deployment.md)
+- [Habilitar a redefinição da senha de autoatendimento do Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Habilitar a autenticação multifator do Azure](../authentication/howto-mfa-getstarted.md)
+- [Habilitar a Autenticação Multifator do Microsoft Azure](../authentication/howto-mfa-getstarted.md)
