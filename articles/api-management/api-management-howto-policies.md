@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072317"
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas do Gerenciamento de API do Azure
@@ -25,9 +25,9 @@ No Gerenciamento de API do Azure (APIM), as políticas são uma poderosa funcion
 
 As políticas são aplicadas dentro do gateway que fica entre o consumidor da API e a API gerenciada. O gateway recebe todas as solicitações e normalmente as encaminha inalteradas à API subjacente. No entanto, uma política também pode aplicar mudanças à solicitação de entrada e à resposta de saída.
 
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][Control flow] e [Definir variável][Set variable] se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas][Advanced policies] e [Expressões de política][Policy expressions].
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][Control flow] e [Definir variável][Set variable] se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas][Advanced policies] e [expressões políticas][Policy expressions].
 
-## <a name="sections"> </a>Compreendendo configuração de políticas
+## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Compreendendo configuração de políticas
 
 A definição da política é um documento XML simples que descreve uma sequência de instruções de entrada e de saída. O XML pode ser editado diretamente na janela de definição. Uma lista de instruções é fornecida à direita e as declarações aplicáveis ao escopo atual ficam habilitadas e destacadas.
 
@@ -60,13 +60,13 @@ A configuração é dividida em `inbound`, `backend`, `outbound` e `on-error`. A
 
 Se houver um erro durante o processamento de uma solicitação, quaisquer etapas restantes nas seções `inbound`, `backend` ou `outbound` serão ignoradas e a execução saltará para as instruções na seção `on-error`. Ao colocar instruções de políticas na seção `on-error`, você pode revisar o erro usando a propriedade `context.LastError`, inspecionar e personalizar a resposta de erro usando a política `set-body` e configurar o que acontece se ocorrer um erro. Há códigos de erro para obter as etapas internas e erros que podem ocorrer durante o processamento de instruções de política. Para obter mais informações, consulte [Tratamento de erros em políticas de gerenciamento de API](/azure/api-management/api-management-error-handling-policies).
 
-## <a name="scopes"> </a>Como configurar políticas
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Como configurar políticas
 
 Para obter informações sobre como configurar as políticas, confira [Definir ou editar políticas](set-edit-policies.md).
 
 ## <a name="policy-reference"></a>Referência de política
 
-Consulte a [Referência de política](api-management-policy-reference.md) para ver uma lista completa das instruções de política e suas configurações.
+Consulte a [referência de Política](api-management-policy-reference.md) para obter uma lista completa de declarações de política e suas configurações.
 
 ## <a name="policy-samples"></a>Exemplos de política
 

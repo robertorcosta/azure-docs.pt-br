@@ -1,23 +1,23 @@
 ---
-title: Criar exibições para analisar dados de log em Azure Monitor | Microsoft Docs
-description: Usando o designer de exibição no Azure Monitor, você pode criar exibições personalizadas que são exibidas na portal do Azure e conter uma variedade de visualizações nos dados no espaço de trabalho Log Analytics. Este artigo contém uma visão geral do Designer de Exibição e apresenta procedimentos para criar e editar exibições personalizadas.
+title: Crie visualizações para analisar dados de log no Azure Monitor | Microsoft Docs
+description: Ao usar o View Designer no Azure Monitor, você pode criar visualizações personalizadas que são exibidas no portal Azure e conter uma variedade de visualizações sobre dados no espaço de trabalho do Log Analytics. Este artigo contém uma visão geral do Designer de Exibição e apresenta procedimentos para criar e editar exibições personalizadas.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
 ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658482"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
-Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crie visualizações personalizadas usando o View Designer no Monitor Azure
+Ao usar o View Designer no Azure Monitor, você pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
 
 > [!IMPORTANT]
-> As exibições no Azure Monitor estão sendo desativadas e substituídas por [pastas de trabalho](workbooks-overview.md) que fornecem funcionalidade adicional. Confira [Azure monitor guia de transição do designer de exibição para pastas de trabalho](view-designer-conversion-overview.md) para obter detalhes sobre como converter suas exibições existentes em pastas de trabalho.
+> As visualizações no Monitor Azure estão sendo eliminadas e substituídas por [livros de trabalho](workbooks-overview.md) que fornecem funcionalidade adicional. Consulte [o designer de visualização do Azure Monitor para obter](view-designer-conversion-overview.md) detalhes sobre a conversão de suas visualizações existentes em livros de trabalho.
 
 Para obter mais informações sobre o Designer de Exibição, consulte:
 
@@ -26,7 +26,7 @@ Para obter mais informações sobre o Designer de Exibição, consulte:
 
 
 ## <a name="concepts"></a>Conceitos
-As exibições são exibidas na página de **visão geral** Azure Monitor no portal do Azure. Abra essa página do **Azure Monitor** menu clicando em **Mais** na seção **Insights**. Os blocos em cada exibição personalizada são exibidos em ordem alfabética e os blocos para as soluções de monitoramento são instalados no mesmo espaço de trabalho.
+As exibições são exibidas na página **Visão Geral** do Monitor do Azure no portal Azure. Abra essa página do **Azure Monitor** menu clicando em **Mais** na seção **Insights**. As telhas em cada visualização personalizada são exibidas em ordem alfabética, e as telhas para as soluções de monitoramento são instaladas no mesmo espaço de trabalho.
 
 ![Página de visão geral](media/view-designer/overview-page.png)
 
@@ -34,12 +34,12 @@ As exibições criadas com o Designer de Exibição contêm os elementos descrit
 
 | Parte | Descrição |
 |:--- |:--- |
-| Lado a lado | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
+| Blocos | São exibidos na página **Visão Geral do** Monitor do Azure. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
-| Partes de visualização | Apresente uma visualização dos dados no espaço de trabalho Log Analytics com base em uma ou mais [consultas de log](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho do Log Analytics. Você seleciona elementos na parte para executar uma consulta de log que fornece registros detalhados. |
+| Partes de visualização | Apresentar uma visualização de dados no espaço de trabalho do Log Analytics com base em uma ou mais [consultas de log](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho do Log Analytics. Você seleciona elementos na parte para executar uma consulta de log que fornece registros detalhados. |
 
 ## <a name="required-permissions"></a>Permissões necessárias
-Você precisa de pelo menos [permissões de nível de colaborador](manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho log Analytics para criar ou modificar modos de exibição. Se você não tiver essa permissão, a opção designer de exibição não será exibida no menu.
+Você precisa, pelo [menos, permissões de nível de contribuinte](manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho do Log Analytics para criar ou modificar visualizações. Se você não tiver essa permissão, a opção Exibir designer não será exibida no menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com um modo de exibição existente
@@ -49,10 +49,10 @@ As exibições que foram criadas com o Designer de Exibição exibem as opções
 
 As opções estão descritas na tabela a seguir:
 
-| {1&gt;Opção&lt;1} | Descrição |
+| Opção | Descrição |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
-| Logs      | Abre o [log Analytics](../log-query/portals.md) para analisar dados com consultas de log. |
+| Logs      | Abre o [Log Analytics](../log-query/portals.md) para analisar dados com consultas de log. |
 | Editar       | Abre a exibição no Designer de Exibição para editar o conteúdo e a configuração.  |
 | Clone      | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 | Intervalo de datas | Define um filtro de data e tempo para os dados incluídos na exibição. Este intervalo de datas é aplicado antes de quaisquer intervalos de datas definidos nas consultas na exibição.  |
@@ -95,15 +95,15 @@ As opções para trabalhar com exibições no modo de edição são descritas na
 
 ![Editar menu](media/view-designer/edit-menu.png)
 
-| {1&gt;Opção&lt;1} | Descrição |
+| Opção | Descrição |
 |:--|:--|
 | Salvar        | Salva as alterações e fecha a exibição. |
 | Cancelar      | Descarta as alterações e fecha a exibição. |
 | Excluir Exibição | Exclui a exibição. |
 | Exportação      | Exporta a exibição para um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) que você poderá importar para outro workspace. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
-| {1&gt;Importar&lt;1}      | Importa o arquivo *omsview* que foi exportado de outro workspace. Essa ação substitui a configuração da exibição existente. |
+| Importar      | Importa o arquivo *omsview* que foi exportado de outro workspace. Essa ação substitui a configuração da exibição existente. |
 | Clone       | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Adicione [Blocos](view-designer-tiles.md) ao modo de exibição personalizado.
 * Adicione as [Partes de visualização](view-designer-parts.md) à sua exibição personalizada.

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Detectar rostos em uma imagem com a API REST do Azure e Java'
+title: 'Início Rápido: Detectar faces em uma imagem com a API REST do Azure e Java'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usará a API de Detecção Facial do Azure com Java para detectar faces em uma imagem.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: d6d0a5cdf4b33ba290042627f0ceaf4cf73a375c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169320"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar faces em uma imagem usando a API REST e Java
 
 Neste início rápido, você usará a API de Detecção Facial do Azure com Java para detectar faces humanas em uma imagem.
 
@@ -251,4 +251,4 @@ Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de Detec
 Neste início rápido, você criou um aplicativo de console Java simples que usa chamadas REST à API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar os atributos deles. Agora, saiba como aproveitar mais essa funcionalidade em um aplicativo para Android.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Tutorial: Criar um aplicativo para Android para detectar e enquadrar faces](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

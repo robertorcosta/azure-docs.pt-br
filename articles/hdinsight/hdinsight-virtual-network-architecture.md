@@ -1,6 +1,6 @@
 ---
-title: Arquitetura de rede virtual do Azure HDInsight
-description: Conheça os recursos disponíveis ao criar um cluster HDInsight em uma rede virtual do Azure.
+title: Arquitetura de rede virtual Azure HDInsight
+description: Aprenda os recursos disponíveis ao criar um cluster HDInsight em uma rede virtual do Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,80 +8,80 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272143"
 ---
-# <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
+# <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual Azure HDInsight
 
-Este artigo explica os recursos que estão presentes quando você implanta um cluster HDInsight em uma rede virtual do Azure personalizada. Essas informações ajudarão você a conectar recursos locais ao cluster HDInsight no Azure. Para obter mais informações sobre redes virtuais do Azure, consulte [o que é a rede virtual do Azure?](../virtual-network/virtual-networks-overview.md).
+Este artigo explica os recursos presentes quando você implanta um cluster HDInsight em uma rede virtual personalizada do Azure. Essas informações ajudarão você a conectar recursos locais ao seu cluster HDInsight no Azure. Para obter mais informações sobre redes virtuais do Azure, consulte [O que é a Rede Virtual Do Azure?](../virtual-network/virtual-networks-overview.md).
 
-## <a name="resource-types-in-azure-hdinsight-clusters"></a>Tipos de recursos em clusters do Azure HDInsight
+## <a name="resource-types-in-azure-hdinsight-clusters"></a>Tipos de recursos em clusters Azure HDInsight
 
-Os clusters do Azure HDInsight têm diferentes tipos de máquinas virtuais ou nós. Cada tipo de nó desempenha uma função na operação do sistema. A tabela a seguir resume esses tipos de nó e suas funções no cluster.
+Os clusters Azure HDInsight têm diferentes tipos de máquinas virtuais ou nós. Cada tipo de nó desempenha um papel na operação do sistema. A tabela a seguir resume esses tipos de nós e seus papéis no cluster.
 
-| Type | DESCRIÇÃO |
+| Type | Descrição |
 | --- | --- |
-| Nó de cabeçalho |  Para todos os tipos de cluster, exceto Apache Storm, os nós de cabeçalho hospedam os processos que gerenciam a execução do aplicativo distribuído. O nó de cabeçalho também é o nó no qual você pode realizar SSH e executar aplicativos que são coordenados para serem executados nos recursos do cluster. O número de nós de cabeçalho é corrigido em dois para todos os tipos de cluster. |
-| Nó ZooKeeper | O Zookeeper coordena as tarefas entre os nós que estão fazendo o processamento de dados. Ele também faz eleição de líder do nó principal e controla qual nó principal está executando um serviço mestre específico. O número de nós ZooKeeper é corrigido em três. |
-| Nó de trabalho | Representa os nós que dão suporte à funcionalidade de processamento de dados. Os nós de trabalho podem ser adicionados ou removidos do cluster para dimensionar a capacidade de computação e gerenciar os custos. |
-| Nó de borda do servidor R | O nó de borda do servidor R representa o nó em que você pode realizar SSH e executar aplicativos que são coordenados para execução nos recursos do cluster. Um nó de borda não participa da análise de dados no cluster. Esse nó também hospeda o servidor do R Studio, permitindo que você execute o aplicativo R usando um navegador. |
-| Nó de região | Para o tipo de cluster HBase, o nó de região (também conhecido como nó de dados) executa o servidor de região. Os servidores de região servem e gerenciam uma parte dos dados gerenciados pelo HBase. Nós de região podem ser adicionados ou removidos do cluster para dimensionar a capacidade de computação e gerenciar custos.|
-| Nó Nimbus | Para o tipo de cluster Storm, o nó Nimbus fornece funcionalidade semelhante ao nó principal. O nó Nimbus atribui tarefas a outros nós em um cluster por meio de Zookeeper, que coordena a execução de topologias Storm. |
-| Nó do supervisor | Para o tipo de cluster Storm, o nó supervisor executa as instruções fornecidas pelo nó Nimbus para executar o processamento desejado. |
+| Nó de cabeçalho |  Para todos os tipos de cluster, exceto apache storm, os nós de cabeça hospedam os processos que gerenciam a execução do aplicativo distribuído. O nó principal também é o nó em que você pode entrar e executar aplicativos que são coordenados para executar os recursos do cluster. O número de nós de cabeça é fixado em dois para todos os tipos de cluster. |
+| Nó ZooKeeper | Zookeeper coordena tarefas entre os nós que estão fazendo o processamento de dados. Ele também faz a eleição líder do nó principal, e mantém o controle de qual nó de cabeça está executando um serviço mestre específico. O número de nódulos ZooKeeper é fixado em três. |
+| Nó de trabalho | Representa os nós que suportam a funcionalidade de processamento de dados. Os nós do trabalhador podem ser adicionados ou removidos do cluster para dimensionar a capacidade de computação e gerenciar os custos. |
+| Nó de borda do servidor R | O nó de borda do servidor R representa o nó em que você pode entrar e executar aplicativos que são coordenados para executar os recursos do cluster. Um nó de borda não participa da análise de dados dentro do cluster. Este nó também hospeda o R Studio Server, permitindo que você execute o aplicativo R usando um navegador. |
+| Nó da região | Para o tipo de cluster HBase, o nó de região (também chamado de Nó de dados) executa o Servidor de Região. Os servidores da região servem e gerenciam uma parte dos dados gerenciados pelo HBase. Os nós de região podem ser adicionados ou removidos do cluster para dimensionar a capacidade de computação e gerenciar os custos.|
+| Nó nimbus | Para o tipo de cluster Tempestade, o nó Nimbus fornece funcionalidade semelhante ao nó Cabeça. O nó Nimbus atribui tarefas a outros nódulos em um aglomerado através do Zookeeper, que coordena o funcionamento das topologias da tempestade. |
+| Nó de supervisor | Para o tipo de cluster Tempestade, o nó supervisor executa as instruções fornecidas pelo nó Nimbus para realizar o processamento desejado. |
 
-## <a name="resource-naming-conventions"></a>Convenções de nomenclatura de recursos
+## <a name="resource-naming-conventions"></a>Convenções de nomeação de recursos
 
-Use nomes de domínio totalmente qualificados (FQDNs) ao endereçar nós em seu cluster. Você pode obter os FQDNs para vários tipos de nó no cluster usando a [API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). 
+Por favor, use Nomes de Domínio Totalmente Qualificados (FQDNs) ao abordar os nós em seu cluster. Você pode obter os FQDNs para vários tipos de nós em seu cluster usando a [API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). 
 
-Esses FQDNs estarão no formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+Estes FQDNs serão `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`do formulário .
 
-O `<node-type-prefix>` será *HN* para cabeçalho, *WN* para nós de trabalho e *Zn* para nós Zookeeper.
+O `<node-type-prefix>` será *hn* para cabeçadas, *wn* para nódulos operários e *zn* para nódulos zookeeper.
 
-Se você precisar apenas do nome do host, use apenas a primeira parte do FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
+Se você precisar apenas do nome do host, use apenas a primeira parte do FQDN:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
-## <a name="basic-virtual-network-resources"></a>Recursos básicos da rede virtual
+## <a name="basic-virtual-network-resources"></a>Recursos básicos de rede virtual
 
-O diagrama a seguir mostra o posicionamento de nós do HDInsight e recursos de rede no Azure.
+O diagrama a seguir mostra a colocação de nós HDInsight e recursos de rede no Azure.
 
-![Diagrama de entidades do HDInsight criadas na VNET personalizada do Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+![Diagrama de entidades HDInsight criadas no VNET personalizado do Azure](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
-Os recursos padrão presentes quando o HDInsight é implantado em uma rede virtual do Azure incluem os tipos de nó de cluster mencionados na tabela anterior, bem como dispositivos de rede que dão suporte à comunicação entre a rede virtual e as redes externas.
+Os recursos padrão presentes quando o HDInsight é implantado em uma Rede Virtual Do Azure incluem os tipos de nó de cluster mencionados na tabela anterior, bem como dispositivos de rede que suportam a comunicação entre a rede virtual e redes externas.
 
-A tabela a seguir resume os nove nós de cluster que são criados quando o HDInsight é implantado em uma rede virtual do Azure personalizada.
+A tabela a seguir resume os nove nós de cluster criados quando o HDInsight é implantado em uma rede virtual personalizada do Azure.
 
 | Tipo de recurso | Número presente | Detalhes |
 | --- | --- | --- |
 |Nó de cabeçalho | dois |    |
 |Nó do ZooKeeper | três | |
-|Nó de trabalho | dois | Esse número pode variar com base na configuração e no dimensionamento do cluster. Um mínimo de três nós de trabalho é necessário para Apache Kafka.  |
-|Nó de gateway | dois | Os nós de gateway são máquinas virtuais do Azure que são criadas no Azure, mas não são visíveis em sua assinatura. Contate o suporte se você precisar reinicializar esses nós. |
+|Nó de trabalho | dois | Esse número pode variar de acordo com a configuração e o dimensionamento do cluster. Um mínimo de três nódulos operários são necessários para Apache Kafka.  |
+|Nó de gateway | dois | Nós gateway são máquinas virtuais Azure que são criadas no Azure, mas não são visíveis em sua assinatura. Suporte de contato se você precisar reiniciar esses nós. |
 
 Os seguintes recursos de rede presentes são criados automaticamente dentro da rede virtual usada com o HDInsight:
 
 | Recurso de rede | Número presente | Detalhes |
 | --- | --- | --- |
 |Balanceador de carga | três | |
-|Interfaces de Rede | alto | Esse valor se baseia em um cluster normal, em que cada nó tem sua própria interface de rede. As nove interfaces são para os dois nós de cabeçalho, três nós Zookeeper, dois nós de trabalho e dois nós de gateway mencionados na tabela anterior. |
+|Interfaces de Rede | Nove | Esse valor é baseado em um cluster normal, onde cada nó tem sua própria interface de rede. As nove interfaces são para os dois nós de cabeça, três nós de zookeeper, dois nós operianos e dois nós de gateway mencionados na tabela anterior. |
 |Endereços IP públicos | dois |    |
 
-## <a name="endpoints-for-connecting-to-hdinsight"></a>Pontos de extremidade para se conectar ao HDInsight
+## <a name="endpoints-for-connecting-to-hdinsight"></a>Pontos finais para se conectar ao HDInsight
 
-Você pode acessar o cluster HDInsight de três maneiras:
+Você pode acessar seu cluster HDInsight de três maneiras:
 
-- Um ponto de extremidade HTTPS fora da rede virtual em `CLUSTERNAME.azurehdinsight.net`.
-- Um ponto de extremidade SSH para se conectar diretamente ao cabeçalho em `CLUSTERNAME-ssh.azurehdinsight.net`.
-- Um ponto de extremidade HTTPS dentro da rede virtual `CLUSTERNAME-int.azurehdinsight.net`. Observe o "-int" nesta URL. Esse ponto de extremidade será resolvido para um IP privado nessa rede virtual e não poderá ser acessado pela Internet pública.
+- Um ponto final HTTPS fora `CLUSTERNAME.azurehdinsight.net`da rede virtual em .
+- Um ponto final ssh para conexão direta `CLUSTERNAME-ssh.azurehdinsight.net`ao cabeçada em .
+- Um ponto final HTTPS `CLUSTERNAME-int.azurehdinsight.net`dentro da rede virtual . Observe o "-int" nesta URL. Este ponto final será resolvido para um IP privado nessa rede virtual e não está acessível a partir da internet pública.
 
-Esses três pontos de extremidade são atribuídos a cada um balanceador de carga.
+Estes três pontos finais são cada um atribuído um balanceador de carga.
 
-Os endereços IP públicos também são fornecidos para os dois pontos de extremidade que permitem a conexão de fora da rede virtual.
+Endereços IP públicos também são fornecidos para os dois pontos finais que permitem a conexão de fora da rede virtual.
 
-1. Um IP público é atribuído ao balanceador de carga para o FQDN (nome de domínio totalmente qualificado) a ser usado ao se conectar ao cluster por meio da Internet `CLUSTERNAME.azurehdinsight.net`.
-1. O segundo endereço IP público é usado para o nome de domínio somente SSH `CLUSTERNAME-ssh.azurehdinsight.net`.
+1. Um IP público é atribuído ao balanceador de carga para o nome de domínio totalmente qualificado `CLUSTERNAME.azurehdinsight.net`(FQDN) para usar ao se conectar ao cluster a partir da internet .
+1. O segundo endereço IP público é usado para `CLUSTERNAME-ssh.azurehdinsight.net`o nome de domínio somente SSH .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Proteger o tráfego de entrada para clusters HDInsight em uma rede virtual com ponto de extremidade privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [Tráfego de entrada seguro para clusters HDInsight em uma rede virtual com ponto final privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

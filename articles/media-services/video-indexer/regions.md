@@ -1,7 +1,7 @@
 ---
 title: Regiões nas quais o Video Indexer está disponível – Azure
 titleSuffix: Azure Media Services
-description: Este artigo fala sobre regiões do Azure nas quais os serviços de mídia do Azure Video Indexer estão disponíveis.
+description: Este artigo fala sobre as regiões do Azure em que o Azure Media Services Video Indexer está disponível.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 6ba6f189f4290bb2751adf9b44135eeda7266ca0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892746"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382742"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Regiões do Azure nas quais existe um Video Indexer
 
@@ -23,9 +23,9 @@ As APIs do Video Indexer contêm um parâmetro **location** que deve ser definid
 
 ## <a name="locations"></a>Locais
 
-O parâmetro **location** precisa receber o nome do código da região do Azure como seu valor. Se estiver usando o Video Indexer no modo de versão prévia, você deverá colocar *"trial"* como o valor. Caso contrário, para obter o nome do código da região do Azure na qual a conta está localizada e para a qual a chamada deverá ser encaminhada, execute a seguinte linha na [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+O parâmetro **location** precisa receber o nome do código da região do Azure como seu valor. Se estiver usando o Video Indexer no modo de versão prévia, você deverá colocar *"trial"* como o valor. Caso contrário, para obter o nome do código da região do Azure na qual a conta está localizada e para a qual a chamada deverá ser encaminhada, execute a seguinte linha na [CLI do Azure](/cli/azure):
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 
@@ -44,7 +44,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
     }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Personalizar o modelo de Linguagem usando APIs](customize-language-model-with-api.md)
 - [Personalizar o modelo de Marcas usando APIs](customize-brands-model-with-api.md)

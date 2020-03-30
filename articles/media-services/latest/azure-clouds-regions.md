@@ -1,5 +1,5 @@
 ---
-title: Nuvens e regiões nas quais os serviços de mídia do Azure v3 estão disponíveis
+title: Nuvens e regiões nas quais o Azure Media Services v3 está disponível
 description: Este artigo discute as nuvens e regiões do Azure em que os Serviços de Mídia do Azure v3 estão disponíveis.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 58b5b749e81aab4d8563d09cbfd139629520531c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310554"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382963"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
 
@@ -24,7 +24,7 @@ Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do 
 
 ## <a name="feature-availability-in-azure-clouds"></a>Disponibilidade de recursos em nuvens do Azure
 
-| Recurso|Regiões Globais do Azure | Azure Governamental|Azure Alemanha|Azure China 21Vianet|
+| Recurso|Regiões Globais do Azure | Azure Government|Azure Alemanha|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | [Azure EventGrid](reacting-to-media-services-events.md) | Disponível | Não disponível | Não disponível | Não disponível |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Não disponível | Não disponível | Não disponível |
@@ -35,13 +35,13 @@ Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do 
 
 ## <a name="regionsgeographieslocations"></a>Regiões/geografias/locais
 
-[Regiões nas quais o serviço dos serviços de mídia do Azure está implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Regiões em que o serviço de mídia do Azure é implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-### <a name="region-code-name"></a>Nome do código da região 
+### <a name="region-code-name"></a>Nome do código da região
 
 Quando precisa fornecer o parâmetro de **localização**, você precisa fornecer o nome do código de região como o valor da **localização**. Para obter o nome do código da região na qual a conta está localizada e para a qual a chamada deverá ser encaminhada, execute a seguinte linha na [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 
@@ -60,29 +60,29 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
     }
 ```
 
-## <a name="endpoints"></a>Pontos de Extremidade  
+## <a name="endpoints"></a>Pontos de extremidade  
 
 É importante conhecer os pontos de extremidade a seguir ao conectar as contas de Serviços de Mídia em diferentes nuvens nacionais do Azure.
 
 ### <a name="global-azure"></a>Azure Global
 
-|Pontos de Extremidade ||
-| --- | --- | 
+|Pontos de extremidade||
+| --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Autenticação | `https://login.microsoftonline.com/` | 
+| Autenticação | `https://login.microsoftonline.com/` |
 | Público do token | `https://management.core.windows.net/` |
 
-### <a name="azure-government"></a>Azure Governamental
+### <a name="azure-government"></a>Azure Government
 
-|Pontos de Extremidade||
-| --- | --- | 
+|Pontos de extremidade||
+| --- | --- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Autenticação | `https://login.microsoftonline.us/` | 
+| Autenticação | `https://login.microsoftonline.us/` |
 | Público do token | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Alemanha
 
-| Pontos de Extremidade ||
+| Pontos de extremidade ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autenticação | `https://login.microsoftonline.de/` |
@@ -90,18 +90,18 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
-|Pontos de Extremidade||
-| --- | --- | 
+|Pontos de extremidade||
+| --- | --- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autenticação | `https://login.chinacloudapi.cn/` |
 | Público do token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Regiões azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Visão geral dos Serviços de Mídia v3](media-services-overview.md)

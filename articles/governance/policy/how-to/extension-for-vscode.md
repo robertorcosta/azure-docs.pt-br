@@ -1,163 +1,163 @@
 ---
-title: Extensão de Azure Policy para Visual Studio Code
-description: Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar aliases do Gerenciador de recursos.
+title: Extensão da Política do Azure para Visual Studio Code
+description: Aprenda a usar a extensão de política do Azure para visual studio code para procurar aliases do Resource Manager.
 ms.date: 03/07/2020
 ms.topic: how-to
 ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264668"
 ---
-# <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
+# <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da Política do Azure para o Visual Studio Code
 
-> Aplica-se a Azure Policy versão de extensão **0.0.21** e mais recente
+> Aplica-se à versão de extensão da Diretiva do Azure **0.0.21** e mais recente
 
-Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar [aliases](../concepts/definition-structure.md#aliases) e examinar recursos e políticas. Primeiro, descreveremos como instalar a extensão de Azure Policy no Visual Studio Code. Em seguida, vamos examinar como Pesquisar aliases.
+Aprenda a usar a extensão de Política do Azure para visual Studio Code para procurar [pseudônimos](../concepts/definition-structure.md#aliases) e revisar recursos e políticas. Primeiro, descreveremos como instalar a extensão de Política do Azure no Visual Studio Code. Então vamos mostrar como procurar pseudônimos.
 
-A extensão de Azure Policy para Visual Studio Code pode ser instalada em todas as plataformas com suporte no Visual Studio Code. Esse suporte inclui Windows, Linux e macOS.
+A extensão de Política do Azure para Visual Studio Code pode ser instalada em todas as plataformas suportadas pelo Visual Studio Code. Esse suporte inclui Windows, Linux e macOS.
 
 > [!NOTE]
-> As alterações feitas localmente nas políticas exibidas na extensão de Azure Policy para Visual Studio Code não são sincronizadas com o Azure.
+> As alterações feitas localmente nas políticas visualizadas na extensão de Política do Azure para o Visual Studio Code não são sincronizadas com o Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os itens a seguir são necessários para concluir as etapas neste artigo:
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
-## <a name="install-azure-policy-extension"></a>Instalar a extensão de Azure Policy
+## <a name="install-azure-policy-extension"></a>Instale a extensão da Política do Azure
 
-Depois de atender aos pré-requisitos, você pode instalar Azure Policy extensão para Visual Studio Code seguindo estas etapas:
+Depois de atender aos pré-requisitos, você pode instalar a extensão azure Policy para Visual Studio Code seguindo estas etapas:
 
 1. Abra o Visual Studio Code.
 
-1. Na barra de menus, acesse **Exibir** **extensões**de > .
+1. Na barra de menus, vá para **Exibir** > **extensões**.
 
-1. Na caixa de pesquisa, digite **Azure Policy**.
+1. Na caixa de pesquisa, **digite Azure Policy**.
 
-1. Selecione **Azure Policy** nos resultados da pesquisa e, em seguida, selecione **instalar**.
+1. Selecione **Azure Policy** nos resultados da pesquisa e, em seguida, **selecione Instalar**.
 
-1. Selecione **recarregar** quando necessário.
+1. Selecione **Recarregar** quando necessário.
 
 ## <a name="set-the-azure-environment"></a>Configurar o ambiente do Azure
 
-Para um usuário de nuvem nacional, siga estas etapas para definir o ambiente do Azure primeiro:
+Para um usuário nacional de nuvem, siga estas etapas para definir primeiro o ambiente Azure:
 
-1. Selecione **File\Preferences\Settings**.
+1. Selecione **Arquivo\Preferências\Configurações**.
 
-1. Pesquise na seguinte cadeia de caracteres: _Azure: Cloud_
+1. Pesquisar na seguinte string: _Azure: Cloud_
 
-1. Selecione a nuvem de país na lista:
+1. Selecione a nuvem de nação da lista:
 
-   ![Definir entrada de nuvem do Azure padrão para Visual Studio Code](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
+   ![Defina o login padrão da nuvem do Azure para visual studio code](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
 
-## <a name="connect-to-an-azure-account"></a>Conectar-se a uma conta do Azure
+## <a name="connect-to-an-azure-account"></a>Conecte-se a uma conta do Azure
 
-Para avaliar os recursos e os aliases de pesquisa, você deve se conectar à sua conta do Azure. Siga estas etapas para se conectar ao Azure por meio do Visual Studio Code:
+Para avaliar recursos e procurar pseudônimos, você deve se conectar à sua conta do Azure. Siga estas etapas para se conectar ao Azure a partir do Visual Studio Code:
 
-1. Entre no Azure por meio da extensão de Azure Policy ou da paleta de comandos.
+1. Faça login no Azure a partir da extensão da Política do Azure ou da Paleta de Comando.
 
-   - Extensão de Azure Policy
+   - Extensão da Política do Azure
 
-     Na extensão Azure Policy, selecione **entrar no Azure**.
+     A partir da extensão Azure Policy, **selecione Entrar no Azure**.
 
-     ![Entrada na nuvem do Azure para Visual Studio Code da extensão Azure Policy](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
+     ![Login na nuvem do Azure para visual studio code da extensão da Política do Azure](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
 
    - Paleta de Comandos
 
-     Na barra de menus, acesse **exibir** > **paleta de comandos**e insira **Azure: entrar**.
+     Na barra de menus, vá para **Exibir** > **paleta de**comando e **digite Azure: Faça login**.
 
-     ![Entrada na nuvem do Azure para Visual Studio Code da paleta de comandos](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
+     ![Login na nuvem do Azure para Visual Studio Code da Paleta de Comando](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
 
-1. Siga as instruções de entrada para entrar no Azure. Depois que você estiver conectado, o nome da sua conta do Azure será mostrado na barra de status na parte inferior da janela de Visual Studio Code.
+1. Siga o sinal nas instruções para entrar no Azure. Depois de conectado, o nome da conta do Azure é mostrado na barra de status na parte inferior da janela Visual Studio Code.
 
 ## <a name="select-subscriptions"></a>Selecione assinaturas
 
-Quando você entra pela primeira vez, somente os recursos e as políticas de assinatura padrão são carregados pela extensão de Azure Policy. Para adicionar ou remover assinaturas da exibição de recursos e políticas, siga estas etapas:
+Quando você faz login pela primeira vez, apenas os recursos e políticas de assinatura padrão são carregados pela extensão de Diretiva do Azure. Para adicionar ou remover assinaturas de exibir recursos e políticas, siga estas etapas:
 
-1. Inicie o comando de assinatura na paleta de comandos ou no rodapé da janela.
+1. Inicie o comando de assinatura na Paleta de Comando ou no rodapé da janela.
 
-   - Paleta de comandos: 
+   - Paleta de comando: 
 
-     Na barra de menus, acesse **exibir** > **paleta de comandos**e insira **Azure: selecione assinaturas**.
+     Na barra de menus, vá para **Exibir** > **paleta de**comando e **digite Azure: Selecione Assinaturas**.
 
-   - Rodapé da janela
+   - Rodapé de janela
 
-     No rodapé da janela na parte inferior da tela, selecione o segmento que corresponde ao **Azure: \<sua conta\>** .
+     No rodapé da janela na parte inferior da tela, selecione o segmento que corresponde **ao \<Azure: sua conta\>**.
 
-1. Use a caixa de filtro para localizar rapidamente as assinaturas por nome. Em seguida, verifique ou remova a verificação de cada assinatura para definir as assinaturas mostradas pela extensão de Azure Policy. Quando terminar de adicionar ou remover assinaturas a serem exibidas, selecione **OK**.
+1. Use a caixa de filtro para encontrar rapidamente assinaturas pelo nome. Em seguida, verifique ou remova a verificação de cada assinatura para definir as assinaturas mostradas pela extensão da Diretiva do Azure. Quando terminar de adicionar ou remover assinaturas para exibir, selecione **OK**.
 
-## <a name="search-for-and-view-resources"></a>Pesquisar e exibir recursos
+## <a name="search-for-and-view-resources"></a>Pesquise e visualize recursos
 
-A extensão Azure Policy lista os recursos nas assinaturas selecionadas por provedor de recursos e por grupo de recursos no painel **recursos** . O TreeView inclui os seguintes agrupamentos de recursos dentro da assinatura selecionada ou no nível da assinatura:
+A extensão a zure Policy lista recursos nas assinaturas selecionadas pelo Provedor de Recursos e por grupo de recursos no painel **Recursos.** A visão de árvore inclui os seguintes agrupamentos de recursos dentro da assinatura selecionada ou no nível de assinatura:
 
 - **Provedores de recursos**
-  - Cada provedor de recursos registrado com recursos e recursos filho relacionados que têm aliases de política
+  - Cada provedor de recursos registrado com recursos e recursos infantis relacionados que têm aliases de política
 - **Grupos de recursos**
   - Todos os recursos do grupo de recursos em que estão
 
-Por padrão, a extensão filtra a parte ' provedor de recursos ' por recursos existentes e recursos que têm aliases de política. Altere esse comportamento em **configurações** > **extensões** > **Azure Policy** para ver todos os provedores de recursos sem filtragem.
+Por padrão, a extensão filtra a parte 'Provedor de recursos' por recursos e recursos existentes que possuem aliases de diretiva. Altere esse comportamento nas **configurações** > **extensões** > **a política do Azure** para ver todos os provedores de recursos sem filtragem.
 
-Clientes com centenas ou milhares de recursos em uma única assinatura podem preferir uma maneira pesquisável de localizar seus recursos. A extensão Azure Policy torna possível pesquisar um recurso específico com as seguintes etapas:
+Clientes com centenas ou milhares de recursos em uma única assinatura podem preferir uma maneira pesquisável de localizar seus recursos. A extensão da Diretiva do Azure permite a busca de um recurso específico com as seguintes etapas:
 
-1. Inicie a interface de pesquisa na Azure Policy extensão ou na paleta de comandos.
+1. Inicie a interface de pesquisa a partir da extensão Azure Policy ou da Paleta de Comando.
 
-   - Extensão de Azure Policy
+   - Extensão da Política do Azure
 
-     Na extensão Azure Policy, passe o mouse sobre o painel **recursos** e selecione as reticências e, em seguida, selecione **Pesquisar recursos**.
+     Na extensão Azure Policy, paire sobre o painel **Recursos** e selecione a elipse e selecione **Recursos de pesquisa**.
 
-   - Paleta de comandos:
+   - Paleta de comando:
 
-     Na barra de menus, acesse **exibir** > **paleta de comandos**e insira **recursos: pesquisar recursos**.
+     Na barra de menus, vá para **Exibir** > **paleta de**comando e insira **Recursos: Recursos de pesquisa**.
 
-1. Se mais de uma assinatura for selecionada para exibição, use o filtro para selecionar qual assinatura será pesquisada.
+1. Se mais de uma assinatura for selecionada para exibição, use o filtro para selecionar qual assinatura procurar.
 
-1. Use o filtro para selecionar qual grupo de recursos a ser pesquisado faz parte da assinatura escolhida anteriormente.
+1. Use o filtro para selecionar qual grupo de recursos procurar que faça parte da assinatura escolhida anteriormente.
 
-1. Use o filtro para selecionar qual recurso Exibir. O filtro funciona tanto para o nome do recurso quanto para o tipo de recurso.
+1. Use o filtro para selecionar qual recurso exibir. O filtro funciona tanto para o nome do recurso quanto para o tipo de recurso.
 
-## <a name="discover-aliases-for-resource-properties"></a>Descobrir aliases para propriedades de recurso
+## <a name="discover-aliases-for-resource-properties"></a>Descubra aliases para propriedades de recursos
 
-Quando um recurso é selecionado, seja por meio da interface de pesquisa ou selecionando-o no modo de exibição de árvore, a extensão Azure Policy abre o arquivo JSON que representa esse recurso e todos os valores de Propriedade do Resource Manager.
+Quando um recurso é selecionado, seja através da interface de pesquisa ou selecionando-o na exibição de árvores, a extensão Azure Policy abre o arquivo JSON representando esse recurso e todos os valores de propriedade do Gerenciador de Recursos.
 
-Quando um recurso estiver aberto, passar o mouse sobre o nome ou o valor da Propriedade do Resource Manager exibirá o Azure Policy alias, se houver. Neste exemplo, o recurso é um tipo de recurso `Microsoft.Compute/virtualMachines` e a propriedade **Propriedades. storageProfile. imageReference. offer** é focalizada. Focalizar mostra os aliases correspondentes.
+Uma vez que um recurso esteja aberto, pairando sobre o nome ou valor da propriedade do Gerenciador de recursos exibe o alias de Diretiva Do Azure se existir. Neste exemplo, o recurso `Microsoft.Compute/virtualMachines` é um tipo de recurso e a propriedade **properties.storageProfile.imageReference.offer** é pairada sobre. Pairar mostra os pseudônimos correspondentes.
 
-![Azure Policy o foco da extensão mostra o alias da Propriedade do Resource Manager](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+![O hover de extensão da diretiva do Azure mostra alias de propriedade do Resource Manager](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
 
-## <a name="search-for-and-view-policies-and-assignments"></a>Pesquisar e exibir políticas e atribuições
+## <a name="search-for-and-view-policies-and-assignments"></a>Pesquisar e visualizar políticas e atribuições
 
-A extensão Azure Policy lista os tipos de política e as atribuições de política como um TreeView para as assinaturas selecionadas a serem exibidas no painel **políticas** . Clientes com centenas ou milhares de políticas ou atribuições em uma única assinatura podem preferir uma maneira pesquisável de localizar suas políticas ou atribuições. A extensão Azure Policy torna possível pesquisar uma política ou atribuição específica com as seguintes etapas:
+A extensão de diretiva do Azure lista os tipos de diretiva e as atribuições de diretiva como uma visão de árvore para as assinaturas selecionadas a serem exibidas no painel **Políticas.** Clientes com centenas ou milhares de políticas ou atribuições em uma única assinatura podem preferir uma maneira pesquisável de localizar suas políticas ou atribuições. A extensão da Diretiva do Azure permite pesquisar uma política ou atribuição específica com as seguintes etapas:
 
-1. Inicie a interface de pesquisa na Azure Policy extensão ou na paleta de comandos.
+1. Inicie a interface de pesquisa a partir da extensão Azure Policy ou da Paleta de Comando.
 
-   - Extensão de Azure Policy
+   - Extensão da Política do Azure
 
-     Na extensão Azure Policy, passe o mouse sobre o painel **políticas** e selecione as reticências e, em seguida, selecione **políticas de pesquisa**.
+     A partir da extensão Azure Policy, paire sobre o painel **Políticas** e selecione a elipse e selecione **'Políticas de pesquisa ''''''''''''''''''''''''''''''''''''''''''''''''''**
 
-   - Paleta de comandos:
+   - Paleta de comando:
 
-     Na barra de menus, acesse **exibir** > **paleta de comandos**e insira **políticas: Pesquisar políticas**.
+     Na barra de menus, vá para **Exibir** > **paleta de**comando e insira **Políticas: Políticas de pesquisa**.
 
-1. Se mais de uma assinatura for selecionada para exibição, use o filtro para selecionar qual assinatura será pesquisada.
+1. Se mais de uma assinatura for selecionada para exibição, use o filtro para selecionar qual assinatura procurar.
 
-1. Use o filtro para selecionar o tipo de política ou a atribuição a ser pesquisada que faça parte da assinatura escolhida anteriormente.
+1. Use o filtro para selecionar qual tipo de política ou atribuição para pesquisar que faz parte da assinatura escolhida anteriormente.
 
-1. Use o filtro para selecionar qual política ou exibir. O filtro funciona para _DisplayName_ para a definição de política ou atribuição de política.
+1. Use o filtro para selecionar qual política ou para exibir. O filtro funciona para _exibirNome_ para a definição de diretiva ou atribuição de diretiva.
 
-Ao selecionar uma política ou atribuição, seja por meio da interface de pesquisa ou selecionando-a no modo de exibição de árvore, a extensão de Azure Policy abre o JSON que representa a política ou atribuição e todos os seus valores de Propriedade do Resource Manager. A extensão pode validar o esquema do Azure Policy JSON aberto.
+Ao selecionar uma diretiva ou atribuição, seja através da interface de pesquisa ou selecionando-a na exibição de árvores, a extensão Azure Policy abre o JSON que representa a política ou a atribuição e todos os valores de propriedade do Gerenciador de Recursos. A extensão pode validar o esquema JSON de política azure aberta.
 
 ## <a name="sign-out"></a>Sair
 
-Na barra de menus, acesse **exibir** > **paleta de comandos**e, em seguida, insira **Azure: sair**.
+Na barra de menus, vá para **Exibir** > **paleta de**comando e, em seguida, **digite Azure: Sign Out**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
+- Revisar exemplos em [amostras de política do Azure](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).
-- Entenda como [criar políticas programaticamente](programmatically-create.md).
-- Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
-- Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Entenda como [criar políticas programáticas.](programmatically-create.md)
+- Aprenda a [remediar recursos não compatíveis.](remediate-resources.md)
+- Reveja o que é um grupo de gestão com [organize seus recursos com grupos de gerenciamento do Azure.](../../management-groups/overview.md)

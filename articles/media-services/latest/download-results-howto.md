@@ -1,5 +1,5 @@
 ---
-title: Baixar os resultados de um trabalho-serviços de mídia do Azure
+title: Baixe os resultados de um trabalho - Azure Media Services
 description: Este artigo demonstra como baixar os resultados de um trabalho.
 services: media-services
 documentationcenter: ''
@@ -11,18 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 0c81523d43fd316c3dc65cc2a5b34557f24014b5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303402"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346310"
 ---
-# <a name="download-the-results-of-a-job"></a>Baixar os resultados de um trabalho
+# <a name="download-the-results-of-a-job"></a>Baixe os resultados de um trabalho
 
-Nos serviços de mídia do Azure, ao processar seus vídeos (por exemplo, codificação ou análise), você precisa criar um [ativo](assets-concept.md) de saída para armazenar o resultado de seu [trabalho](transforms-jobs-concept.md). Em seguida, você pode baixar esses resultados em uma pasta local usando o serviço de mídia e as APIs de armazenamento. 
+No Azure Media Services, ao processar seus vídeos (por exemplo, codificação ou análise) você precisa criar um [ativo](assets-concept.md) de saída para armazenar o resultado do seu [trabalho](transforms-jobs-concept.md). Em seguida, você pode baixar esses resultados para uma pasta local usando APIs de serviço de mídia e armazenamento. 
 
 Este artigo demonstra como baixar os resultados usando SDKs Java e .NET.
+
+## <a name="prerequisites"></a>Pré-requisitos 
+
+Revisar [os ativos de gestão](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 
@@ -67,7 +71,7 @@ private static void downloadResults(MediaManager manager, String resourceGroup, 
 }
 ```
 
-Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+Veja a amostra completa do código: [CodificaçãoComMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -116,8 +120,8 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
-Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+Veja a amostra completa do código: [CodificaçãoComMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-[Criar uma entrada de trabalho de uma URL HTTPS](job-input-from-http-how-to.md).
+[Crie uma entrada de trabalho a partir de uma URL HTTPS](job-input-from-http-how-to.md).
