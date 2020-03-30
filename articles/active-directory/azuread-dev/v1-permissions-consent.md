@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: jesakowi, justhu
+ms.reviewer: jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: cde2d286be7180458d997f6db06e4ff16a993dff
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164000"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154467"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory
 
@@ -36,8 +33,8 @@ As *permissões*, também conhecidas como *escopos*, facilitam a autorização p
 
 O Microsoft Active Directory do Azure define dois tipos de permissões:
 
-* **Permissões delegadas** - são usadas por aplicativos que têm um usuário conectado presente. Para esses aplicativos, o usuário ou administrador consente as permissões solicitadas pelo aplicativo e este recebe permissão para agir como o usuário conectado na hora de fazer chamadas à API. Dependendo da API, o usuário talvez não consiga dar o consentimento diretamente; em vez disso, seria [necessário um administrador para fornecer o "consentimento do administrador"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Permissões de aplicativo** - são usadas por aplicativos executados sem um usuário conectado presente; por exemplo, aplicativos executados como serviços em segundo plano ou daemons. As permissões de aplicativo só podem ser [consentidas por administradores](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) , pois normalmente são poderosas e permitem o acesso a dados entre os limites do usuário ou dados que, de outra forma, seriam restritos aos administradores. Os usuários que são definidos como proprietários do aplicativo de recurso (ou seja, a API que publica as permissões) também têm permissão para conceder permissões de aplicativo para as APIs que eles possuem.
+* **Permissões delegadas** - são usadas por aplicativos que têm um usuário conectado presente. Para esses aplicativos, o usuário ou administrador consente as permissões solicitadas pelo aplicativo e este recebe permissão para agir como o usuário conectado na hora de fazer chamadas à API. Dependendo da API, o usuário pode não ser capaz de consentir diretamente com a API e, em vez disso, exigiria que [um administrador fornecesse "consentimento de administração".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
+* **Permissões de aplicativo** - são usadas por aplicativos executados sem um usuário conectado presente; por exemplo, aplicativos executados como serviços em segundo plano ou daemons. As permissões de aplicativos só podem ser [consentidas pelos administradores](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) porque são tipicamente poderosas e permitem o acesso a dados através dos limites do usuário ou dados que de outra forma seriam restritos aos administradores. Os usuários que são definidos como proprietários do aplicativo de recursos (ou seja, a API que publica as permissões) também podem conceder permissões de solicitação para as APIs que possuem.
 
 Permissões efetivas são as permissões que seu aplicativo terá ao fazer solicitações para uma API. 
 
@@ -46,7 +43,7 @@ Permissões efetivas são as permissões que seu aplicativo terá ao fazer solic
 * Para permissões de aplicativo, as permissões efetivas do seu aplicativo são o nível completo de privilégios indicado pela permissão. Por exemplo, um aplicativo que tenha o `User.ReadWrite.All` permissão de aplicativo pode atualizar o perfil de todos os usuários na organização.
 
 ## <a name="permission-attributes"></a>Atributos de permissão
-As permissões no AD do Azure têm um número de propriedades que ajudam, administradores ou desenvolvedores de aplicativo a tomarem decisões conscientes sobre o que a permissão concede acesso.
+As permissões no AD do Azure têm um número de propriedades que ajudam, administradores ou desenvolvedores de aplicativo a tomarem decisões conscientes sobre o que a permissão concede acesso. 
 
 > [!NOTE]
 > Você pode exibir as permissões de um aplicativo do Azure AD ou a Entidade de Serviço expõe usando o portal do Azure ou o PowerShell. Tente este script para exibir as permissões expostas pelo Microsoft Graph.
@@ -60,14 +57,14 @@ As permissões no AD do Azure têm um número de propriedades que ajudam, admini
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nome da propriedade | DESCRIÇÃO | Exemplo |
+| Nome da propriedade | Descrição | Exemplo |
 | --- | --- | --- |
 | `ID` | É um valor de GUID que identifica exclusivamente esta permissão. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indica se essa permissão está disponível para uso. | true |
 | `Type` | Indica se essa permissão requer o consentimento do usuário ou consentimento do administrador. | Usuário |
-| `AdminConsentDescription` | É uma descrição que é exibida para os administradores durante as experiências de consentimento do administrador | Permite que o aplicativo leia emails nas caixas de entrada dos usuários. |
+| `AdminConsentDescription` | É uma descrição que é exibida para os administradores durante as experiências de consentimento do administrador | Permite que o aplicativo leia emails nas caixas de entrada dos usuários.  |
 | `AdminConsentDisplayName` | É um nome fácil exibido aos administradores durante as experiências de consentimento do administrador. | Ler email de usuário |
-| `UserConsentDescription` | É uma descrição que é exibida aos usuários durante a experiência de consentimento do usuário. |  Permite que o aplicativo leia emails em sua caixa de email. |
+| `UserConsentDescription` | É uma descrição que é exibida aos usuários durante a experiência de consentimento do usuário. |  Permite que o aplicativo leia emails em sua caixa de email.  |
 | `UserConsentDisplayName` | É um nome fácil que é exibido aos usuários durante uma experiência de consentimento do usuário. | Leia seu email |
 | `Value` | É a cadeia de caracteres que é usada para identificar a permissão durante os fluxos de autorização OAuth 2.0. `Value` também pode ser combinado com a cadeia de caracteres do URI da ID do aplicativo para formar um nome totalmente qualificado de permissão. | `Mail.Read` |
 
@@ -105,7 +102,7 @@ Os aplicativos no Microsoft Azure Active Directory dependem de autorização par
   - `Permission` corresponde à ação que um usuário pode realizar em relação aos dados
   - `Modifier` é usado, opcionalmente, para descrever especializações de outra permissão
     
-    Por exemplo:
+    Por exemplo: 
   - Mail.Read - permite que os usuários leiam o email.
   - Mail.Read - permite que os usuários leiam o email.
   - Mail.ReadWrite.All - permite que um administrador ou usuário acesse todos os emails da organização.

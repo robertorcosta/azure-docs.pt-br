@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864070"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Passo a passos da execução do Processo de Ciência de Dados de Equipe
 
-Essas **orientações abrangentes** demonstram as etapas no processo de ciência de dados de equipe para cenários específicos. Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho para um **aplicativo inteligente**. As instruções passo a passo são agrupadas de acordo com a **plataforma** utilizada.
+Esses **passos abrangentes** demonstram as etapas do Processo de Ciência de Dados da Equipe para cenários específicos. Eles ilustram como combinar ferramentas de nuvem, no local e serviços em um fluxo de trabalho para um **aplicativo inteligente.** As instruções passo a passo são agrupadas de acordo com a **plataforma** utilizada.
 
 
 ## <a name="walkthrough-descriptions"></a>Descrições do passo a passo
@@ -36,11 +36,11 @@ Confira aqui descrições resumidas do que esses exemplos de passo a passo forne
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para uma discussão sobre os principais componentes do Processo de Ciência de Dados de Equipe, veja [Visão geral do Processo de Ciência de Dados de Equipe](overview.md).
 
-Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Esse ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 
+Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados da Equipe, consulte o ciclo de vida do Processo de [Ciência de Dados da Equipe](lifecycle.md). Este ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 
 
-Para obter uma visão geral, consulte [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Para obter uma visão geral, consulte [Processo de Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

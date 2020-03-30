@@ -3,23 +3,23 @@ title: Fazer backup de bancos de dados do SQL Server para o Azure
 description: Este artigo explica como fazer backup do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 7305a75852deac466028e6278fca76626d8c1820
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297468"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408753"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
-O [backup do Azure](backup-overview.md) oferece uma solução especializada baseada em fluxo para fazer backup SQL Server em execução em VMs do Azure. Essa solução se alinha com os benefícios do backup do Azure de backup sem infraestrutura, retenção de longo prazo e gerenciamento central. Além disso, ele fornece as seguintes vantagens especificamente para SQL Server:
+[O Azure Backup](backup-overview.md) oferece uma solução especializada baseada em fluxo para fazer backup do SQL Server em execução em VMs Azure. Essa solução está alinhada com os benefícios do Azure Backup de backup de infra-estrutura zero, retenção a longo prazo e gerenciamento central. Além disso, fornece as seguintes vantagens especificamente para o SQL Server:
 
-1. Backups com reconhecimento de carga de trabalho que dão suporte a todos os tipos de backup-completo, diferencial e log
-2. RPO de 15 minutos (objetivo de ponto de recuperação) com backups de log frequentes
-3. Recuperação pontual de até um segundo
+1. Backups de carga de trabalho que suportam todos os tipos de backup - completo, diferencial e log
+2. RPO de 15 min (objetivo de ponto de recuperação) com backups de log freqüentes
+3. Recuperação point-in-time até um segundo
 4. Backup e restauração de nível de banco de dados individual
 
-Para exibir os cenários de backup e restauração aos quais damos suporte hoje, consulte a [matriz de suporte](backup-azure-sql-database.md#scenario-support).
+Para visualizar os cenários de backup e restauração que apoiamos hoje, consulte a [matriz de suporte](sql-support-matrix.md#scenario-support).
 
 ## <a name="backup-process"></a>Processo de backup
 
@@ -40,82 +40,8 @@ Essa solução aproveita as APIs nativas do SQL para fazer backups dos bancos de
 Antes de começar, verifique o que está descrito abaixo:
 
 1. Garanta que você tenha uma Instância do SQL Server em execução no Azure. Você pode [criar uma Instância do SQL Server rapidamente](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) no marketplace.
-2. Examine os [recurso consideração](#feature-consideration-and-limitations) e [suporte a cenários](#scenario-support).
+2. Examine os [recurso consideração](sql-support-matrix.md#feature-consideration-and-limitations) e [suporte a cenários](sql-support-matrix.md#scenario-support).
 3. [Examine as perguntas comuns](faq-backup-sql-server.md) sobre esse cenário.
-
-## <a name="scenario-support"></a>Suporte ao cenário
-
-**Suporte** | **Detalhes**
---- | ---
-**Implantações com suporte** | Há suporte para VMs do Azure no Marketplace do SQL e VMs que não são do Marketplace (do SQL Server instaladas manualmente).
-**Áreas geográficas com suporte** | ASE (Sudeste da Austrália), AE (Leste da Austrália), Leste da Austrália, AC (Austrália Central), AC (Austrália Central 2) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), Leste do Canadá (CE)<br> Sudeste da Ásia (SEA), Leste da Ásia (EA) <br> Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Centro-Oeste dos EUA (WCUS), Oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) Centro-Norte dos EUA (NCUS) EUA Central (CUS) Centro-Sul dos EUA (SCUS) <br> INC (Índia Central), INS (Sul da Índia), Oeste da Índia <br> Oeste do Japão (JPE), Leste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Norte da Europa (NE), Oeste da Europa <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov – Arizona, US Gov – Virgínia, US Gov – Texas, Região Central do US DoD, Leste do US DoD <br> Norte da Alemanha, Centro-oeste da Alemanha <br> Norte da Suíça, Oeste da Suíça <br> França Central <br> Leste da China, Leste da China 2, Norte da China, Norte da China 2
-**Sistemas operacionais com suporte** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Não há suporte para Linux no momento.
-**Versões do SQL Server com suporte** | SQL Server 2019, SQL Server 2017, conforme detalhado na [página Pesquisar ciclo de vida de produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer e Express.
-**Versões do .NET com suporte** | .NET Framework 4.5.2 ou posterior instalado na VM
-
-## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recurso
-
-* O Backup do SQL Server pode ser configurado no portal do Azure ou **PowerShell**. Não oferecemos CLI de suporte.
-* A solução é compatível em ambos os tipos de [implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) – VMs do Azure Resource Manager e VMs clássicas.
-* VM que executa o SQL Server exige conectividade com a Internet para acessar os endereços IP públicos do Azure.
-* Não há suporte para SQL Server **FCI (instância de cluster de failover)** .
-* Não há suporte para as operações de backup e de restauração para bancos de dados de espelho e instantâneos do banco de dados.
-* Usar mais de uma solução de backup para fazer backup de sua instância do SQL Server autônoma ou do grupo de disponibilidade SQL Always On pode levar à falha de backup. Evite fazer isso.
-* Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também poderá levar à falha de backup.
-* Backup do Azure dá suporte a apenas tipos de backup Completo e Somente Cópia para banco de dados **Somente leitura**
-* Bancos de dados com um grande número de arquivos não podem ser protegidos. O número máximo de arquivos com suporte não é **~1000**.  
-* É possível fazer backup de até **~2000** bancos de dados do SQL Server em um cofre. Caso você tenha um número maior de bancos de dados, poderá criar vários cofres.
-* Você pode configurar o backup de até **50** bancos de dados de uma vez; essa restrição ajuda a otimizar cargas de backup.
-* Damos suporte a bancos de dados de até **2 TB** de tamanho; para tamanhos maiores do que os problemas de desempenho podem surgir.
-* Para ter uma noção de quantos bancos de dados podem ser protegidos por servidor, precisamos considerar fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados, etc. [Baixe](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner que fornece o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
-* No caso de grupos de disponibilidade, os backups são feitos de nós diferentes com base em alguns fatores. O comportamento de backup para um grupo de disponibilidade está resumido abaixo.
-
-### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Faça backup do comportamento no caso de grupos de disponibilidade Always On
-
-É recomendável que o backup seja configurado em apenas um nó de um grupo de disponibilidade. O backup sempre deve ser configurado na mesma região que o nó primário. Em outras palavras, você sempre precisa que o nó primário esteja presente na região na qual você está configurando o backup. Se todos os nós do AG estiverem na mesma região em que o backup está configurado, não haverá nenhuma preocupação.
-
-#### <a name="for-cross-region-ag"></a>Para grupos de disponibilidade entre regiões
-
-* Independentemente da preferência de backup, os backups não acontecerão a partir dos nós que não estão na mesma região em que o backup está configurado. Isso ocorre porque os backups entre regiões não são compatíveis. Se você tiver apenas dois nós e o nó secundário estiver na outra região; Nesse caso, os backups continuarão a acontecer a partir do nó primário (a menos que a preferência de backup seja ' somente secundária ').
-* Se ocorresse um failover em uma região diferente da região em que o backup está configurado, eles falhariam nos nós na região de failover.
-
-Dependendo da preferência de backup e os tipos de backups (completo/diferencial/log/somente cópia completos), os backups serão feitos em um nó específico (primário/secundário).
-
-* **Preferência de backup: primária**
-
-**Tipo de backup** | **Nó**
-    --- | ---
-    Completo | Primária
-    Diferencial | Primária
-    Log |  Primária
-    Completo somente de cópia |  Primária
-
-* **Preferência de backup: somente secundário**
-
-**Tipo de backup** | **Nó**
---- | ---
-Completo | Primária
-Diferencial | Primária
-Log |  Secundário
-Completo somente de cópia |  Secundário
-
-* **Preferência de backup: secundária**
-
-**Tipo de backup** | **Nó**
---- | ---
-Completo | Primária
-Diferencial | Primária
-Log |  Secundário
-Completo somente de cópia |  Secundário
-
-* **Nenhuma preferência de Backup**
-
-**Tipo de backup** | **Nó**
---- | ---
-Completo | Primária
-Diferencial | Primária
-Log |  Secundário
-Completo somente de cópia |  Secundário
 
 ## <a name="set-vm-permissions"></a>Definir permissões da VM
 
@@ -136,7 +62,7 @@ Para todas as outras versões, corrija as permissões com as seguintes etapas:
 
       ![Abra a pasta Segurança/Logons para ver as contas](./media/backup-azure-sql-database/security-login-list.png)
 
-  3. Clique com o botão direito do mouse na pasta **Logons** e selecione **Novo Logon**. Em **Logon – Novo**, selecione **Pesquisar**.
+  3. Clique com o botão direito do mouse na pasta **Logins** e selecione **Novo Login**. Em **Logon – Novo**, selecione **Pesquisar**.
 
       ![Na caixa de diálogo Logon – Novo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -183,7 +109,7 @@ Adicione logins do **NT AUTHORITY\SYSTEM** e do **NT Service\AzureWLBackupPlugin
 
 7. Clique em OK.
 8. Repita a mesma sequência de etapas (de 1 a 7 acima) para adicionar o logon de NT Service\AzureWLBackupPluginSvc à instância do SQL Server. Se o logon já existe, verifique se tem a função de servidor sysadmin e, em Status, se tem a permissão de concessão para se conectar ao mecanismo de banco de dados e faça logon como Habilitado.
-9. Depois de conceder a permissão, **redescubra os bancos** de trabalho no Portal: cofre **->** infraestrutura de backup **->** carga de trabalho na VM do Azure:
+9. Após a concessão da permissão, **redescubra DBs** no portal: Carga de trabalho de infra-estrutura **->** **->** de backup do cofre no Azure VM:
 
     ![Redescobrir bancos de dados no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

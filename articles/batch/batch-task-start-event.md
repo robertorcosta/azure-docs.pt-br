@@ -1,6 +1,6 @@
 ---
-title: Evento de início de tarefa do lote do Azure
-description: Informações de referência para evento de início de tarefa de lote. Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador.
+title: Evento de início da tarefa Azure Batch
+description: Informações de referência para o evento de início da tarefa em lote. Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: bed3749e29867298f3e8258a08448b7b094055ec
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022810"
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
@@ -47,10 +47,10 @@ ms.locfileid: "77022810"
 }
 ```
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`jobId`|String|A ID do trabalho que contém a tarefa.|
-|`id`|String|A ID da tarefa.|
+|`jobId`|String|A id do trabalho contendo a tarefa.|
+|`id`|String|A id da tarefa.|
 |`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
@@ -58,27 +58,27 @@ ms.locfileid: "77022810"
 |[`constraints`](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|
 |[`executionInfo`](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
 
-###  <a name="nodeInfo"></a> nodeInfo
+###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`poolId`|String|A ID do pool no qual a tarefa foi executada.|
-|`nodeId`|String|A ID do nó no qual a tarefa foi executada.|
+|`poolId`|String|O ID da piscina em que a tarefa foi realizada.|
+|`nodeId`|String|A id do nó em que a tarefa foi realizada.|
 
-###  <a name="multiInstanceSettings"></a> multiInstanceSettings
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>configurações de várias instâncias
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int|O número de nós de computação que a tarefa precisa.|
 
-###  <a name="constraints"></a> restrições
+###  <a name="constraints"></a><a name="constraints"></a>Restrições
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço em lotes repetirá uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas. O serviço em lotes tentará a tarefa uma vez e, em seguida, pode tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetição for 3, o lote tentará uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetição for 0, o serviço em lote não tentará repetir a tarefas.<br /><br /> Se a contagem máxima de repetição for -1, o serviço em lotes repetirá as tarefas ilimitadamente.<br /><br /> O valor padrão é 0 (sem novas tentativas).|
 
-###  <a name="executionInfo"></a> executionInfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a>Executioninfo
 
-|Nome do elemento|Tipo|Observações|
+|Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |`retryCount`|Int32|O número de vezes que a tarefa foi repetida pelo serviço em lotes. A tarefa será repetida se a saída tiver um código de saída diferente de zero, até a MaxTaskRetryCount especificada|

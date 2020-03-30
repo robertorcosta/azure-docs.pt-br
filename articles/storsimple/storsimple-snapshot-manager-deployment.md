@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75933376"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implantar o snap-in do MMC StorSimple Snapshot Manager
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O StorSimple Snapshot Manager é um snap-in do Console de Gerenciamento Microsoft (MMC) que simplifica a proteção de dados e o gerenciamento de backups em um ambiente do Microsoft Azure StorSimple. Com o StorSimple Snapshot Manager, é possível gerenciar o armazenamento em nuvem e local do Microsoft Azure StorSimple como se fosse um sistema de armazenamento totalmente integrado, simplificando assim os processos de backup e restauração e reduzindo os custos. 
 
 Este tutorial descreve os requisitos de configuração, bem como os procedimentos para instalar, remover e atualizar o StorSimple Snapshot Manager.
@@ -87,17 +87,17 @@ Use as etapas a seguir para instalar o StorSimple Snapshot Manager.
 
 #### <a name="to-install-storsimple-snapshot-manager"></a>Para instalar o StorSimple Snapshot Manager
 1. Baixe o software do StorSimple Snapshot Manager (acesse [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220) no Centro de Download da Microsoft) e salve-o localmente no host.
-2. No Explorador de Arquivos, clique com o botão direito do mouse na pasta compactada e em **Extrair todos**.
-3. Na janela **Extrair pastas compactadas (zipadas)** , na caixa **Selecione um destino e extraia os arquivos**, digite ou procure o caminho no qual gostaria de extrair o arquivo.
+2. No Explorador de Arquivos, clique com o botão direito do mouse na pasta compactada e, em seguida, clique em **Extrair tudo**.
+3. Na janela **Extrair Pastas Compactadas**, na caixa **Selecionar um destino e extrair arquivos**, digite ou navegue até o caminho no qual você deseja que o arquivo seja extraído.
    
     > [!IMPORTANT]
     > Você deve instalar o StorSimple Snapshot Manager na unidade C:.
     
-4. Marque a caixa de seleção **Mostrar arquivos extraídos ao concluir** e clique em **Extrair**.
+4. Marque a caixa de seleção **Exibir os arquivos extraídos ao concluir** e depois clique em **Extrair**.
    
     ![Extrair a caixa de diálogo de arquivos](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png) 
 5. Quando a extração estiver concluída, a pasta de destino será aberta. Clique duas vezes no ícone de instalação do aplicativo que aparece na pasta de destino.
-6. Quando a mensagem **Configuração Concluída com Êxito** aparecer, clique em **Fechar**. Você deve ver o ícone do StorSimple Snapshot Manager na área de trabalho.
+6. Quando a mensagem **Instalação Bem-sucedida** aparecer, clique em **Fechar**. Você deve ver o ícone do StorSimple Snapshot Manager na área de trabalho.
    
     ![Ícone da área de trabalho](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
 
@@ -109,19 +109,19 @@ Use as seguintes etapas para conectar o StorSimple Snapshot Manager a um disposi
    
     ![Interface do usuário do StorSimple Snapshot Manager](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
    
-   * O painel **Escopo** (o painel esquerdo) contém uma lista de nós organizados em uma estrutura de árvore. Você pode expandir alguns nós para selecionar uma exibição ou dados específicos relacionados a esse nó. Clique no ícone de seta para expandir ou recolher um nó. Clique com o botão direito do mouse em um item no painel **Escopo** para ver uma lista de ações disponíveis para o item.
-   * O painel **Resultados** (o painel central) contém informações de status detalhadas sobre o nó, sobre a exibição ou sobre os dados que você selecionou no painel **Escopo**.
-   * O painel **Ações lista** as operações que podem ser executadas no nó, na exibição ou nos dados que você selecionou no painel **Escopo**.
+   * O painel **Escopo** (esquerdo) contém uma lista de nós organizados em uma estrutura de árvore. Você pode expandir alguns nós para selecionar uma exibição ou dados específicos relacionados a esse nó. Clique no ícone de seta para expandir ou recolher um nó. Clique com o botão direito do mouse em um item no painel **Escopo** para ver uma lista das ações disponíveis para aquele item.
+   * O painel **Resultados** (central) contém informações detalhadas do status sobre o nó, exibição ou dados que você selecionou no painel **Escopo**.
+   * O painel **Ações** relaciona as operações que podem ser realizadas no nó, na exibição ou nos dados que foram selecionados no painel **Escopo**.
      
      Para obter uma descrição completa da interface do usuário do StorSimple Snapshot Manager, consulte a [Interface de usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
-2. No painel **Escopo**, clique com o botão direito do mouse no nó **Dispositivos** e clique em **Configurar um dispositivo**. A caixa de diálogo **Configurar um Dispositivo** é exibida.
+2. No painel **Escopo**, clique com o botão direito no nó **Dispositivos** e clique em **Configurar um dispositivo**. A caixa de diálogo **Configurar um Dispositivo** é aberta.
    
     ![Configurar um dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
 3. Na caixa de listagem **Dispositivo** , selecione o endereço IP do dispositivo ou dispositivo virtual do Microsoft Azure StorSimple. Na caixa de texto **Senha**, digite a senha do StorSimple Snapshot Manager que você criou para o dispositivo no portal do Azure. Clique em **OK**.
 4. O StorSimple Snapshot Manager procura o dispositivo que você identificou. Se o dispositivo estiver disponível, o StorSimple Snapshot Manager adiciona uma conexão. Você pode [verificar a conexão com o dispositivo](#to-verify-the-connection) para confirmar se a conexão foi adicionada com êxito.
    
-    Se o dispositivo estiver indisponível por algum motivo, o StorSimple Snapshot Manager retorna uma mensagem de erro. Clique em **OK** para fechar a mensagem de erro e clique em **Cancelar** para fechar a caixa de diálogo **Configurar um Dispositivo**.
-5. Ao conectar-se a um dispositivo, o StorSimple Snapshot Manager importa cada grupo de volumes configurado para esse dispositivo, desde que o grupo de volumes tenha backups associados. Grupos de volumes que não têm backups associados não são importados. Além disso, as políticas de backup que foram criadas para um grupo de volumes não são importadas. Para ver os grupos importados, clique com o botão direito do mouse no nó de **Grupos de volume** mais alto no painel **Escopo** e clique em **Alternar grupos importados**.
+    Se o dispositivo estiver indisponível por algum motivo, o StorSimple Snapshot Manager retorna uma mensagem de erro. Clique em **OK** para fechar a mensagem de erro, depois clique em **Cancelar** para fechar a caixa de diálogo **Configurar um dispositivo**.
+5. Ao conectar-se a um dispositivo, o StorSimple Snapshot Manager importa cada grupo de volumes configurado para esse dispositivo, desde que o grupo de volumes tenha backups associados. Grupos de volumes que não têm backups associados não são importados. Além disso, as políticas de backup que foram criadas para um grupo de volumes não são importadas. Para ver os grupos importados, clique com o botão direito do mouse no nó da extremidade superior de **Grupos de Volumes** no painel **Escopo** e clique em **Alternar grupos importados**.
 
 ### <a name="step-3-verify-the-connection-to-the-device"></a>Etapa 3: Verificar a conexão com o dispositivo
 Use as etapas a seguir para verificar se o StorSimple Snapshot Manager está conectado ao dispositivo StorSimple.
@@ -130,7 +130,7 @@ Use as etapas a seguir para verificar se o StorSimple Snapshot Manager está con
 1. No painel **Escopo**, clique no nó **Dispositivos**.
    
     ![Status do dispositivo StorSimple Snapshot Manager](./media/storsimple-snapshot-manager-deployment/HCS_SSM_Device_status.png) 
-2. Verifique o painel **Resultados** : 
+2. Verifique o painel **Resultados**: 
    
    * Se um indicador verde aparecer no ícone de dispositivo e **Disponível** aparecer na coluna **Status**, o dispositivo está conectado. 
    * Se um indicador vermelho aparecer no ícone do dispositivo e Indisponível aparecer na coluna **Status** , o dispositivo não está conectado. 
@@ -151,16 +151,16 @@ Siga essas etapas se você estiver atualizando ou reinstalando o StorSimple Snap
 Use as etapas a seguir para desinstalar o StorSimple Snapshot Manager.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>Para desinstalar o StorSimple Snapshot Manager
-1. No computador host, abra o **Painel de Controle**, clique em **Programas** e clique em **Programas e Recursos**.
+1. No computador host, abra o **Painel de Controle**, clique em **Programas** e, em seguida, clique em **Programas e Recursos**.
 2. No painel esquerdo, clique em **Desinstalar ou alterar um programa**.
-3. Clique com o botão direito do mouse em **StorSimple Snapshot Manager** e clique em **Desinstalar**.
-4. Isso abre o programa de instalação do StorSimple Snapshot Manager. Clique em **Modificar Configuração** e clique em **Desinstalar**.
+3. Clique com o botão direito do mouse em **Gerenciador de Instantâneo StorSimple** e, em seguida, clique em **Desinstalar**.
+4. Isso abre o programa de instalação do StorSimple Snapshot Manager. Clique em **Modificar Configuração** e, em seguida, clique em **Desinstalar**.
    
    > [!NOTE]
-   > Se houver algum processo do MMC em execução em segundo plano, como o StorSimple Snapshot Manager ou o Gerenciamento de Disco, a desinstalação falhará e você receberá uma mensagem para fechar todas as instâncias do MMC antes de tentar desinstalar o programa. Selecione **Fechar aplicativos automaticamente e tentar reiniciá-los após a conclusão da instalação** e clique em **OK**.
+   > Se houver algum processo do MMC em execução em segundo plano, como o StorSimple Snapshot Manager ou o Gerenciamento de Disco, a desinstalação falhará e você receberá uma mensagem para fechar todas as instâncias do MMC antes de tentar desinstalar o programa. Selecione **Fechar automaticamente os aplicativos e tentar reiniciá-los depois que a configuração for concluída** e, em seguida, clique em **OK**.
    > 
    > 
-5. Quando o processo de desinstalação for concluído, uma mensagem **Configuração concluída com êxito** é exibida. Clique em **fechar**
+5. Quando o processo de desinstalação for concluído, a mensagem **Configuração Bem-sucedida** será exibida. Clique em **Fechar**.
 
 ### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Etapa 2: Fazer backup do banco de dados do StorSimple Snapshot Manager
 Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorSimple Snapshot Manager.
@@ -170,8 +170,8 @@ Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorS
    
    1. Inicie o Gerenciador do Servidor.
    2. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
-   3. Na página **Serviços**, selecione **Serviço de Gerenciamento Microsoft StorSimple**.
-   4. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Parar o serviço**.
+   3. No painel **Serviços**, selecione **Serviço de Gerenciamento do Microsoft StorSimple**.
+   4. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Parar o serviço**.
       
         ![Interrompa o serviço Gerenciador de Dispositivos StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 2. Navegue para C:\ProgramData\Microsoft\StorSimple\BACatalog. 
@@ -185,8 +185,8 @@ Use as etapas a seguir para criar e salvar uma cópia do banco de dados do StorS
 4. Reinicie o Serviço de Gerenciamento do Microsoft StorSimple: 
    
    1. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
-   2. Na página **Serviços**, selecione o **Microsoft StorSimple Management Service**.
-   3. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Reiniciar o serviço**. 
+   2. No painel **Serviços**, selecione **Serviço de Gerenciamento do Microsoft StorSimple**.
+   3. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Reiniciar o serviço**. 
 
 ### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Etapa 3: Reinstalar o StorSimple Snapshot Manager e restaurar o banco de dados
 Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um novo StorSimple Snapshot Manager](#install-a-new-storsimple-snapshot-manager). Em seguida, use o procedimento a seguir para restaurar o banco de dados do StorSimple Snapshot Manager.
@@ -196,8 +196,8 @@ Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um no
    
    1. Inicie o Gerenciador do Servidor.
    2. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
-   3. Na página **Serviços**, selecione **Serviço de Gerenciamento Microsoft StorSimple**.
-   4. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Parar o serviço**.
+   3. No painel **Serviços**, selecione **Serviço de Gerenciamento do Microsoft StorSimple**.
+   4. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Parar o serviço**.
 2. Navegue para C:\ProgramData\Microsoft\StorSimple\BACatalog.
    
    > [!NOTE]
@@ -208,10 +208,10 @@ Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um no
 4. Reinicie o Serviço de Gerenciamento do Microsoft StorSimple: 
    
    1. No Painel do Gerenciador do Servidor, no menu **Ferramentas**, selecione **Serviços**.
-   2. Na página **Serviços**, selecione **Serviço de Gerenciamento Microsoft StorSimple**.
-   3. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Reiniciar o serviço**.
+   2. No painel **Serviços**, selecione **Serviço de Gerenciamento do Microsoft StorSimple**.
+   3. No painel direito, em **Serviço de Gerenciamento do Microsoft StorSimple**, clique em **Reiniciar o serviço**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre o StorSimple Snapshot Manager, acesse [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 * Para saber mais sobre a interface do usuário do StorSimple Snapshot Manager, acesse a [Interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Para saber mais sobre como usar o StorSimple Snapshot Manager, acesse [Usar o StorSimple Snapshot Manager para administrar sua solução de StorSimple](storsimple-snapshot-manager-admin.md).

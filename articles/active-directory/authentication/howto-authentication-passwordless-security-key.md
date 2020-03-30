@@ -1,6 +1,6 @@
 ---
-title: Sinal de chave de segurança sem senha (visualização)-Azure Active Directory
-description: Habilitar a entrada de chave de segurança sem senha no Azure AD usando as chaves de segurança do FIDO2 (versão prévia)
+title: Login de chave de segurança sem senha (visualização) - Azure Active Directory
+description: Habilite o login da chave de segurança sem senha no Azure AD usando chaves de segurança FIDO2 (visualização)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,100 +11,100 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: e088d239a91edeff34ecd1a7dc5be7a9f8628da3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263888"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129155"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (versão prévia)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilite o login de chave de segurança sem senha (visualização)
 
-Para empresas que usam senhas hoje e têm um ambiente de PC compartilhado, as chaves de segurança fornecem uma maneira simples para os trabalhadores autenticarem sem inserir um nome de usuário ou senha. As chaves de segurança fornecem produtividade aprimorada para os trabalhadores e têm mais segurança.
+Para empresas que usam senhas hoje e têm um ambiente de PC compartilhado, as chaves de segurança fornecem uma maneira perfeita para os trabalhadores autenticarem sem digitar um nome de usuário ou senha. As chaves de segurança proporcionam maior produtividade para os trabalhadores e têm melhor segurança.
 
-Este documento se concentra na habilitação da autenticação com senha baseada em chave de segurança. No final deste artigo, você poderá entrar em aplicativos baseados na Web com sua conta do Azure AD usando uma chave de segurança FIDO2.
+Este documento se concentra em habilitar a autenticação sem senha baseada em chave de segurança. No final deste artigo, você poderá fazer login em aplicativos baseados na Web com sua conta Azure AD usando uma chave de segurança FIDO2.
 
 |     |
 | --- |
-| As chaves de segurança do FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| As chaves de segurança FIDO2 são um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="requirements"></a>Requisitos
 
 - [Autenticação Multifator do Azure](howto-mfa-getstarted.md)
-- [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
-- [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
-- Webauthn requer o Windows 10 versão 1809 ou superior * *
+- [Visualização combinada de registro de informações de segurança](concept-registration-mfa-sspr-combined.md)
+- Chaves de [segurança FIDO2 compatíveis](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN requer windows 10 versão 1809 ou superior**
 
-Para usar as chaves de segurança para fazer logon em serviços e aplicativos Web, você deve ter um navegador que ofereça suporte ao protocolo webauthn. Entre eles estão o Microsoft Edge, o Chrome, o Firefox e o Safari.
+Para usar as chaves de segurança para fazer login em aplicativos e serviços da Web, você deve ter um navegador que suporte o protocolo WebAuthN. Estes incluem Microsoft Edge, Chrome, Firefox e Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para visualização
 
-Dispositivos ingressados no Azure AD com os quais você faz o piloto devem executar o Windows 10 versão 1809 ou superior. A melhor experiência é no Windows 10 versão 1903 ou superior.
+O Azure AD juntou-se aos dispositivos com os que você pilota devem executar o Windows 10 versão 1809 ou superior. A melhor experiência está no Windows 10 versão 1903 ou superior.
 
-Dispositivos ingressados no Azure AD híbrido devem executar o Windows 10 Insider Build 18945 ou mais recente.
+Os dispositivos azure ad híbridos devem executar o Windows 10 Insider Build 18945 ou mais novo.
 
-## <a name="enable-passwordless-authentication-method"></a>Habilitar método de autenticação com senha
+## <a name="enable-passwordless-authentication-method"></a>Habilite o método de autenticação sem senha
 
-### <a name="enable-the-combined-registration-experience"></a>Habilitar a experiência de registro combinado
+### <a name="enable-the-combined-registration-experience"></a>Habilite a experiência de registro combinada
 
-Os recursos de registro para métodos de autenticação com senha contam com a visualização de registro combinada. Siga as etapas no artigo [habilitar o registro de informações de segurança combinadas (versão prévia)](howto-registration-mfa-sspr-combined.md)para habilitar a visualização de registro combinado.
+Os recursos de registro para métodos de autenticação sem senha dependem da visualização combinada do registro. Siga as etapas do artigo [Habilite o registro combinado de informações de segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para habilitar a visualização combinada do registro.
 
-### <a name="enable-fido2-security-key-method"></a>Habilitar o método de chave de segurança FIDO2
+### <a name="enable-fido2-security-key-method"></a>Habilite o método-chave de segurança FIDO2
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory** > **segurança** > **métodos de autenticação** > **diretiva de método de autenticação (versão prévia)** .
-1. Na chave de **segurança**do método FIDO2, escolha as seguintes opções:
-   1. **Habilitar** -Sim ou não
-   1. **Destino** -todos os usuários ou Selecionar usuários
+1. Faça login no [portal Azure](https://portal.azure.com).
+1. Procurar os**Security** > **métodos** > de autenticação do método de autenticação do diretório ativo do >  **Azure****(Preview)**.
+1. No método **FIDO2 Security Key,** escolha as seguintes opções:
+   1. **Habilitar** - Sim ou Não
+   1. **Destino** - Todos os usuários ou usuários selecionados
 1. **Salve** a configuração.
 
-## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registro de usuário e gerenciamento de chaves de segurança FIDO2
+## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registro e gerenciamento de chaves de segurança FIDO2
 
-1. Navegue até [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
-1. Entrar se ainda não estiver.
-1. Clique em **informações de segurança**.
-   1. Se o usuário já tiver pelo menos um método de autenticação multifator do Azure registrado, ele poderá registrar imediatamente uma chave de segurança FIDO2.
-   1. Se eles não tiverem pelo menos um método de autenticação multifator do Azure registrado, eles deverão adicionar um.
-1. Adicione uma chave de segurança do FIDO2 clicando em **Adicionar método** e escolhendo **chave de segurança**.
-1. Escolha **dispositivo USB** ou **dispositivo NFC**.
-1. Prepare sua chave e escolha **Avançar**.
-1. Uma caixa será exibida e solicitará que o usuário crie/Insira um PIN para sua chave de segurança e, em seguida, execute o gesto necessário para a chave, biométrica ou toque.
-1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em **Próximo**.
-1. Clique em **concluído** para concluir o processo.
+1. Navegue [https://myprofile.microsoft.com](https://myprofile.microsoft.com)para .
+1. Faça login se ainda não.
+1. Clique **em Informações de Segurança**.
+   1. Se o usuário já tiver pelo menos um método de autenticação multifatorial do Azure registrado, ele poderá registrar imediatamente uma chave de segurança FIDO2.
+   1. Se eles não tiverem pelo menos um método de autenticação multifatorial do Azure registrado, eles devem adicionar um.
+1. Adicione uma chave fido2 de segurança clicando em **Adicionar método** e escolhendo **a tecla Segurança**.
+1. Escolha **dispositivo USB** ou dispositivo **NFC**.
+1. Tenha sua chave pronta e escolha **Next**.
+1. Uma caixa aparecerá e pedirá ao usuário para criar/inserir um PIN para sua chave de segurança e, em seguida, executar o gesto necessário para a chave, biométrica ou toque.
+1. O usuário será devolvido à experiência de registro combinado e solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual se tiver múltiplos. Clique em **Avançar**.
+1. Clique **em Concluído** para concluir o processo.
 
-## <a name="sign-in-with-passwordless-credential"></a>Entrar com credencial sem senha
+## <a name="sign-in-with-passwordless-credential"></a>Faça login com credencial sem senha
 
-No exemplo abaixo, um usuário já provisionou sua chave de segurança FIDO2. O usuário pode optar por entrar na Web com sua chave de segurança FIDO2 dentro de um navegador com suporte no Windows 10 versão 1809 ou superior.
+No exemplo abaixo, um usuário já provisionou sua chave de segurança FIDO2. O usuário pode optar por entrar na web com sua chave de segurança FIDO2 dentro de um navegador suportado na versão 1809 do Windows 10 ou superior.
 
-![Entrada de chave de segurança Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
+![Login de chave de segurança do Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
-## <a name="troubleshooting-and-feedback"></a>Solução de problemas e comentários
+## <a name="troubleshooting-and-feedback"></a>Solução de problemas e feedback
 
-Se você quiser compartilhar comentários ou encontrar problemas ao visualizar esse recurso, compartilhe por meio do aplicativo Hub de comentários do Windows usando as seguintes etapas:
+Se você quiser compartilhar feedback ou encontrar problemas durante a visualização deste recurso, compartilhe através do aplicativo Windows Feedback Hub usando as seguintes etapas:
 
-1. Inicie o **Hub de comentários** e verifique se você está conectado.
-1. Envie comentários sob a seguinte categorização:
-   - Categoria: segurança e privacidade
+1. Inicie **o Feedback Hub** e certifique-se de que você está conectado.
+1. Enviar feedback a seguinte categorização:
+   - Categoria: Segurança e Privacidade
    - Subcategoria: FIDO
 1. Para capturar logs, use a opção para **recriar meu problema**
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="security-key-provisioning"></a>Provisionamento de chave de segurança
+### <a name="security-key-provisioning"></a>Provisionamento de chaves de segurança
 
-O provisionamento e desprovisionamento de chaves de segurança do administrador não estão disponíveis na visualização pública.
+O provisionamento e o desprovisionamento das chaves de segurança do administrador não estão disponíveis na visualização pública.
 
-### <a name="upn-changes"></a>Alterações de UPN
+### <a name="upn-changes"></a>Alterações da UPN
 
-Estamos trabalhando para dar suporte a um recurso que permita a alteração de UPN em dispositivos ingressados no Azure AD híbrido e no Azure AD. Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar a alteração. A resolução é redefinir o dispositivo e o usuário precisa registrá-lo novamente.
+Estamos trabalhando no suporte a um recurso que permite que a UPN mude no Ad híbrido Azure aderido e a adesão ao Azure AD. Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para explicar a alteração. A resolução é redefinir o dispositivo e o usuário tem que recadastrar.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Entrada da chave de segurança do FIDO2 do Windows 10](howto-authentication-passwordless-security-key-windows.md)
+[Chave de segurança FIDO2 Windows 10 entrar](howto-authentication-passwordless-security-key-windows.md)
 
-[Habilitar a autenticação FIDO2 para recursos locais](howto-authentication-passwordless-security-key-on-premises.md)
+[Habilite a autenticação FIDO2 para recursos locais](howto-authentication-passwordless-security-key-on-premises.md)
 
-[Saiba mais sobre o registro de dispositivo](../devices/overview.md)
+[Saiba mais sobre o registro de dispositivos](../devices/overview.md)
 
-[Saiba mais sobre a autenticação multifator do Azure](../authentication/howto-mfa-getstarted.md)
+[Saiba mais sobre a Autenticação Multifator do Azure](../authentication/howto-mfa-getstarted.md)

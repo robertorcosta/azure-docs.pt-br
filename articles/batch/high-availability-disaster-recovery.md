@@ -1,6 +1,6 @@
 ---
-title: Alta disponibilidade e recuperação de desastre-lote do Azure
-description: Saiba como projetar seu aplicativo do lote para uma interrupção regional. As cargas de trabalho devem fazer failover para outra região ou ser divididas entre duas ou mais regiões.
+title: Alta disponibilidade e recuperação de desastres - Azure Batch
+description: Saiba como projetar seu aplicativo Batch para uma paralisação regional. As cargas de trabalho devem ser divididas em outra região ou divididas entre duas ou mais regiões.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: labrenne
 ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77026074"
 ---
 # <a name="design-your-application-for-high-availability"></a>Projetar aplicativo para a alta disponibilidade
@@ -47,7 +47,7 @@ Considere os seguintes pontos ao projetar uma solução que pode fazer failover:
 - No aplicativo que está chamando Lote, armazenamento e quaisquer outros serviços, alterne facilmente clientes ou carga para a região diferente.
 - Uma prática recomendada para garantir o sucesso de um failover é mudar com frequência para uma região alternativa como parte da operação normal. Por exemplo, com duas implantações em regiões separadas, mude para a região alternativa todos os meses.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como criar contas do lote com o [portal do Azure](batch-account-create-portal.md), o [CLI do Azure](cli-samples.md), o [PowerShell](batch-powershell-cmdlets-get-started.md)ou a API de [Gerenciamento do lote](batch-management-dotnet.md).
+- Saiba mais sobre a criação de contas em lote com o [portal Azure,](batch-account-create-portal.md)o [Azure CLI,](cli-samples.md) [powerShell](batch-powershell-cmdlets-get-started.md)ou a [API de gerenciamento de lotes.](batch-management-dotnet.md)
 - Cotas padrão estão associadas a uma conta do Lote. [Este artigo](batch-quota-limit.md) detalha os valores de cota padrão e descreve como as cotas podem ser aumentadas.

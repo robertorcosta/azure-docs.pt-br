@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 6b5aa4f409b8c2f5a9125ab01e8587f4ac9c4ee5
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75945141"
 ---
 ## <a name="create-a-project-zip-file"></a>Criar um projeto de arquivo zip
@@ -25,7 +25,7 @@ Em uma janela do terminal local, navegue até o diretório raiz do projeto do ap
 
 Esse diretório deve conter o arquivo de entrada no seu aplicativo Web, como _index.html_, _index.php_ e _app.js_. Além disso, é possível conter arquivos de gerenciamento de pacotes como _project.json_, _composer.json_, _package.json_, _bower.json_ e _requirements.txt_.
 
-A menos que você queira que o serviço de aplicativo execute a automação de implantação para você, execute todas as tarefas de compilação (por exemplo, `npm`, `bower`, `gulp`, `composer`e `pip`) e certifique-se de ter todos os arquivos necessários para executar o aplicativo. Esta etapa será necessária se você quiser [executar o pacote diretamente](../articles/app-service/deploy-run-package.md).
+A menos que você queira que o App Service execute a `npm` `bower`automação `gulp` `composer`de implantação para você, execute todas as tarefas de compilação (por exemplo, , , e ) e `pip`certifique-se de que você tem todos os arquivos necessários para executar o aplicativo. Esta etapa é necessária se você quiser [executar seu pacote diretamente](../articles/app-service/deploy-run-package.md).
 
 Criar um arquivo zip de tudo em seu projeto. O comando a seguir usa a ferramenta padrão em seu terminal:
 

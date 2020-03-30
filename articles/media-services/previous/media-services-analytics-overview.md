@@ -16,10 +16,10 @@ ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069618"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análise de Mídia na plataforma de Serviços de Mídia 
@@ -27,7 +27,7 @@ ms.locfileid: "77069618"
 ## <a name="retirement-plans"></a>Planos de aposentadoria
 
 > [!IMPORTANT]
-> Alguns processadores de mídia estão sendo desativados. Para obter as datas de desativação e mais informações, consulte o tópico [componentes herdados](legacy-components.md) . 
+> Alguns processadores de mídia estão sendo aposentados. Para obter as datas de aposentadoria e mais informações, consulte o tópico [componentes legados.](legacy-components.md) 
 
 ## <a name="overview"></a>Visão geral
 
@@ -46,13 +46,13 @@ O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JS
 ## <a name="media-analytics-services"></a>Serviços de Análise de Mídia
 
 ### <a name="indexer"></a>Indexador
-Com o Azure Media Indexer, você pode tornar o conteúdo pesquisável e gerar faixas de legendagem. Para obter informações detalhadas e exemplos, consulte [indexando arquivos de mídia com Azure Media indexer](media-services-index-content.md).
+Com o Azure Media Indexer, você pode tornar o conteúdo pesquisável e gerar faixas de legendagem. Para obter informações detalhadas e exemplos, consulte [Indexando arquivos de mídia com indexador de mídia do Azure](media-services-index-content.md).
 
 ### <a name="motion-detector"></a>Detector de Movimento
-É possível usar o Motion Detector para detectar movimento em um vídeo com segundo plano fixo. Isso torna possível verificar se há falsos positivos em eventos de movimento detectados por câmeras de vigilância. Para obter informações detalhadas e exemplos, consulte [Detecção de movimento para Análise de Mídia do Azure](media-services-motion-detection.md).
+É possível usar o Motion Detector para detectar movimento em um vídeo com segundo plano fixo. Isso torna possível verificar se há falsos positivos em eventos de movimento detectados por câmeras de vigilância. Para obter informações detalhadas e exemplos, consulte [Detecção de movimento para Azure Media Analytics](media-services-motion-detection.md).
 
 ### <a name="face-detector"></a>Detector Facial
-Usando o Face Detector, é possível detectar as faces das pessoas e suas emoções, incluindo felicidade, tristeza e surpresa. Isso tem várias aplicações úteis na indústria, descritas abaixo, incluindo agregar e analisar reações de pessoas participando de um evento. Para obter informações detalhadas e exemplos, consulte [Detecção facial e de emoções da Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
+Usando o Face Detector, é possível detectar as faces das pessoas e suas emoções, incluindo felicidade, tristeza e surpresa. Isso tem várias aplicações úteis na indústria, descritas abaixo, incluindo agregar e analisar reações de pessoas participando de um evento. Para obter informações detalhadas e exemplos, consulte [detecção de rosto e emoção para o Azure Media Analytics](media-services-face-and-emotion-detection.md).
 
 ### <a name="video-summarization"></a>Resumo de vídeo
 O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de snippets interessantes do vídeo de origem. Essa habilidade é útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração. Para obter informações detalhadas e exemplos, consulte [Usar Azure Media Video Thumbnails para criar um resumo de vídeo](media-services-video-summarization.md).
@@ -67,7 +67,7 @@ O Content Moderator do Azure possibilita usar a moderação auxiliada por comput
 ## <a name="common-scenarios"></a>Cenários comuns
 A Análise de Mídia pode ajudar as organizações e empresas a obter novas informações de vídeos e gerenciar grandes volumes de conteúdo de vídeo com mais eficácia. Veja os diversos cenários a seguir:
 
-* **Call centers**. Mesmo com o advento da mídia social, os call centers de clientes ainda recebem um grande percentual de transações de serviço de atendimento ao cliente. Codificado nesses dados de áudio há uma grande quantidade de informações do cliente que podem ser analisadas para alcançar uma satisfação do cliente ainda maior. Usando o Indexador de Mídia, as organizações podem extrair texto e criar índices de pesquisa e painéis. Em seguida, elas podem extrair inteligência sobre reclamações comuns, fontes de reclamações e outros dados relevantes.
+* **Call centers.** Mesmo com o advento da mídia social, os call centers de clientes ainda recebem um grande percentual de transações de serviço de atendimento ao cliente. Codificado nesses dados de áudio há uma grande quantidade de informações do cliente que podem ser analisadas para alcançar uma satisfação do cliente ainda maior. Usando o Indexador de Mídia, as organizações podem extrair texto e criar índices de pesquisa e painéis. Em seguida, elas podem extrair inteligência sobre reclamações comuns, fontes de reclamações e outros dados relevantes.
 * **Moderação de conteúdo gerado pelo usuário**. Desde os meios de comunicação até as delegacias de polícia, muitas organizações têm portais voltados ao público que aceitam mídia gerada pelo usuário, como vídeos e imagens. O volume de conteúdo pode ter picos devido a eventos inesperados. Nesses cenários, fica difícil conduzir uma revisão manual eficaz do conteúdo em relação à adequação. Os clientes podem contar com o serviço de moderação de conteúdo para se concentrar no conteúdo apropriado.
 
 ## <a name="media-analytics-media-processors"></a>Processadores de mídia da Análise de Mídia

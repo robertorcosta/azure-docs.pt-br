@@ -1,24 +1,24 @@
 ---
-title: Definir ordem de implantação para recursos
+title: Definir ordem de implantação de recursos
 description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos sejam implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: ffd6d6c65a1cbe9578b5f9162d29f3238e27ea71
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207682"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153277"
 ---
-# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implantação dos recursos em modelos do Azure Resource Manager
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Defina a ordem de implantação de recursos em modelos ARM
 
-Ao implantar um recurso, talvez seja necessário ter certeza de que existem outros recursos antes de implantá-los. Por exemplo, você precisa de um SQL Server antes de implantar um banco de dados SQL. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**.
+Ao implantar um recurso, você pode precisar garantir que outros recursos existam antes de ser implantado. Por exemplo, você precisa de um servidor SQL antes de implantar um banco de dados SQL. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**.
 
 O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Você só precisa definir as dependências para recursos que são implantados no mesmo modelo.
 
 ## <a name="dependson"></a>dependsOn
 
-No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor é uma lista separada por vírgulas de nomes de recursos. A lista pode incluir recursos que são [implantados condicionalmente](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
+No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor é uma lista separada por comma de nomes de recursos. A lista pode incluir recursos que são [condicionalmente implantados](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, o Azure Resource Manager remove-o automaticamente das dependências necessárias.
 
 O exemplo a seguir mostra um conjunto de escala de máquina virtual que depende de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados no exemplo a seguir, mas precisam ser existe em outro lugar no modelo.
 
@@ -55,7 +55,7 @@ Embora você talvez queira usar o dependsOn para mapear as relações entre os s
 
 ## <a name="child-resources"></a>Recursos filho
 
-A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que uma dependência de implantação implícita não é criada entre um recurso filho e o recurso pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
+A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante notar que uma dependência implícita de implantação não é criada entre um recurso filho e o recurso pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
 
 Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
 
