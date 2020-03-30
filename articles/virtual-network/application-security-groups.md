@@ -1,7 +1,7 @@
 ---
-title: Visão geral dos grupos de segurança de aplicativo do Azure
+title: Visão geral dos grupos de segurança do aplicativo Azure
 titlesuffix: Azure Virtual Network
-description: Saiba mais sobre o uso de grupos de segurança de aplicativo.
+description: Saiba mais sobre o uso de grupos de segurança de aplicativos.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,10 +14,10 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274704"
 ---
 # <a name="application-security-groups"></a>Grupos de segurança do aplicativo
@@ -32,15 +32,15 @@ Na figura anterior, *NIC1* e *NIC2* são membros do grupo de segurança de aplic
 
 Essa regra é necessária para permitir o tráfego da Internet para os servidores Web. Como o tráfego de entrada da Internet é negado pela regra de segurança padrão **DenyAllInbound**, nenhuma regra adicional é necessária para os grupos de segurança do aplicativo *AsgLogic* ou *AsgDb*.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | Permitir |
+| 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
 ## <a name="deny-database-all"></a>Deny-Database-All
 
 Já que a regra de segurança padrão **AllowVNetInBound** permite toda a comunicação entre recursos na mesma rede virtual, essa regra é necessária para negar o tráfego de todos os recursos.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Qualquer | Negar |
 
@@ -48,9 +48,9 @@ Já que a regra de segurança padrão **AllowVNetInBound** permite toda a comuni
 
 Essa regra permite o tráfego do grupo de segurança de aplicativo *AsgLogic* para o grupo de segurança de aplicativo *AsgDb*. A prioridade para essa regra é mais alta do que a prioridade para a regra *Deny-Database-All*. Como resultado, essa regra é processada antes da regra *Deny-Database-All* e, portanto, o tráfego do grupo de segurança de aplicativo *AsgLogic* é permitido enquanto todos os outros tráfegos são bloqueados.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Permitir |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 As regras que especificam um grupo de segurança de aplicativo como origem ou destino são aplicadas apenas aos adaptadores de rede que são membros do grupo de segurança de aplicativo. Se o adaptador de rede não for membro de um grupo de segurança de aplicativo, a regra não será aplicada ao adaptador de rede, mesmo que o grupo de segurança de rede esteja associado à sub-rede.
 
@@ -64,6 +64,6 @@ Os grupos de segurança do aplicativo têm as seguintes restrições:
 > [!TIP]
 > Para minimizar o número de regras de segurança necessárias e a necessidade de alterar as regras, planeje os grupos de segurança do aplicativo que serão necessários e crie regras usando marcas de serviço ou grupos de segurança de aplicativo em vez de endereços IP individuais ou intervalos de endereços IP, sempre que possível.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Aprenda a [Criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

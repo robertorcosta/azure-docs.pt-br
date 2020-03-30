@@ -1,6 +1,6 @@
 ---
 title: Desempenho do Phoenix no Azure HDInsight
-description: Práticas recomendadas para otimizar o desempenho de Apache Phoenix para clusters do Azure HDInsight
+description: Práticas recomendadas para otimizar o desempenho do Apache Phoenix para clusters Azure HDInsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552637"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Práticas recomendadas de desempenho do Apache Phoenix
@@ -27,20 +27,20 @@ O design de esquema de uma tabela do Phoenix inclui design de chave primária, d
 
 ### <a name="primary-key-design"></a>Design de chave primária
 
-A chave primária definida em uma tabela no Phoenix determina como os dados são armazenados dentro do rowkey da tabela subjacente do HBase. No HBase, a única maneira de acessar uma linha específica é com o rowkey. Além disso, os dados armazenados em uma tabela do HBase são classificados pelo rowkey. O Phoenix cria o valor RowKey concatenando os valores de cada uma das colunas na linha, na ordem em que eles são definidos na chave primária.
+A chave primária definida em uma tabela no Phoenix determina como os dados são armazenados dentro do rowkey da tabela subjacente do HBase. No HBase, a única maneira de acessar uma linha específica é com o rowkey. Além disso, os dados armazenados em uma tabela do HBase são classificados pelo rowkey. Phoenix constrói o valor da chave de linha concatenando os valores de cada uma das colunas na linha, na ordem em que são definidos na chave primária.
 
 Por exemplo, uma tabela para contatos tem o nome, sobrenome, número de telefone e endereço, todos na mesma família de colunas. Você pode definir uma chave primária com base em um número de sequência crescente:
 
 |rowkey|       address|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
-|  1\.000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 No entanto, se você consultar com frequência por lastName, esta chave primária pode não ser bem executada, porque cada consulta requer uma verificação de tabela completa para ler o valor de cada lastName. Em vez disso, você pode definir uma chave primária nas colunas lastName, firstName e número do seguro social. Esta última coluna é para evitar a ambiguidade de dois residentes no mesmo endereço com o mesmo nome, como pai e filho.
 
 |rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  1\.000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Com essa nova chave primária, chaves de linhas geradas pelo Phoenix seriam:
@@ -72,7 +72,7 @@ Além disso, se determinadas colunas tendem a ser acessadas em conjunto, coloque
 
 ### <a name="column-design"></a>Design da coluna
 
-* Mantenha as colunas VARCHAR em cerca de 1 MB devido aos custos de e/s de colunas grandes. Ao processar consultas, o HBase materializa células por completo antes de enviá-las para o cliente, que as recebe por completo antes de repassá-las ao código do aplicativo.
+* Mantenha as colunas VARCHAR abaixo de 1 MB devido aos custos de I/O de colunas grandes. Ao processar consultas, o HBase materializa células por completo antes de enviá-las para o cliente, que as recebe por completo antes de repassá-las ao código do aplicativo.
 * Armazene valores de coluna usando um formato compacto como protobuf, Avro, msgpack ou BSON. JSON não é recomendado, pois é maior.
 * Considere compactar os dados antes de armazenar para reduzir a latência e custos de E/S.
 
@@ -153,7 +153,7 @@ Em [SQLLine](http://sqlline.sourceforge.net/), use EXPLAIN seguido por sua consu
 
 Por exemplo, digamos que você tenha uma tabela chamada VOOS que armazena informações de atrasos de voo.
 
-Para selecionar todos os vôos com um traço de linha de `19805`, em que a linha de entrada é um campo que não está na chave primária ou em qualquer índice:
+Para selecionar todos os voos com `19805`uma companhia aérea de , onde airlineid é um campo que não está na chave primária ou em qualquer índice:
 
     select * from "FLIGHTS" where airlineid = '19805';
 
@@ -208,15 +208,15 @@ As diretrizes a seguir descrevem alguns padrões comuns.
 
 ### <a name="read-heavy-workloads"></a>Cargas de trabalho com uso intenso de leitura
 
-Para casos de uso intensivo de leitura, verifique se você está usando índices. Além disso, para economizar em sobrecarga de tempo de leitura, considere a criação de índices abrangidos.
+Para casos de uso pesado, certifique-se de que está usando índices. Além disso, para economizar em sobrecarga de tempo de leitura, considere a criação de índices abrangidos.
 
 ### <a name="write-heavy-workloads"></a>Cargas de trabalho com uso intenso de gravação
 
-Para cargas de trabalho com excesso de gravação em que a chave primária está aumentando de forma monotônico, crie buckets Salt para ajudar a evitar pontos de interrupções de gravação, às custas da taxa de transferência de leitura geral, devido às verificações adicionais necessárias. Além disso, ao usar UPSERT para gravar um grande número de registros, desative a confirmação automática e armazene os registros em lote.
+Para cargas de trabalho pesadas em gravação, onde a chave principal está monotonicamente aumentando, crie baldes de sal para ajudar a evitar a gravação de hotspots, em detrimento do throughput geral de leitura devido às varreduras adicionais necessárias. Além disso, ao usar UPSERT para gravar um grande número de registros, desative a confirmação automática e armazene os registros em lote.
 
 ### <a name="bulk-deletes"></a>Exclusões em massa
 
-Ao excluir um conjunto de dados grande, ative a confirmação automática antes de emitir a consulta de exclusão, para que o cliente não precise se lembrar das chaves de linha de todas as linhas excluídas. A confirmação automática impede que o cliente armazene as linhas afetadas buffer com DELETE, de forma que o Phoenix possa excluí-las diretamente nos servidores regionais sem a despesa de retorná-los para o cliente.
+Ao excluir um grande conjunto de dados, ative o autoCommit antes de emitir a consulta DELETE, para que o cliente não precise lembrar as teclas de linha de todas as linhas excluídas. A confirmação automática impede que o cliente armazene as linhas afetadas buffer com DELETE, de forma que o Phoenix possa excluí-las diretamente nos servidores regionais sem a despesa de retorná-los para o cliente.
 
 ### <a name="immutable-and-append-only"></a>Imutável e somente acréscimo
 
@@ -226,7 +226,7 @@ Se seu cenário favorece a velocidade de gravação na integridade dos dados, co
 
 Para obter mais detalhes sobre esta e outras opções, consulte [Gramática do Apache Phoenix](https://phoenix.apache.org/language/index.html#options).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Guia de ajuste do Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Índices Secundários](https://phoenix.apache.org/secondary_indexing.html)

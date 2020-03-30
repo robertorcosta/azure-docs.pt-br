@@ -1,5 +1,5 @@
 ---
-title: Configurar o PostgreSQL em uma VM Linux
+title: Configurar postgreSQL em um VM Linux
 description: Saiba como instalar e configurar o PostgreSQL em uma máquina virtual Linux no Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75747806"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
@@ -63,7 +63,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Se você quiser compilar tudo que possa ser compilado, incluindo a documentação (páginas HTML e Man) e módulos adicionais (`contrib`), execute o seguinte comando em vez disso:
+5. Se você quiser construir tudo o que pode ser construído, incluindo a`contrib`documentação (HTML e páginas de homem) e módulos adicionais (), execute o seguinte comando em vez disso:
    
         # gmake install-world
    
@@ -230,7 +230,7 @@ Isso exclui todas as informações na linha "John". A saída é:
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Atualizar dados em uma tabela
-Use o seguinte comando para atualizar dados em uma tabela. Para isso, arenoso confirmou que eles estão participando, portanto, alteraremos o RSVP de "N" para "Y":
+Use o seguinte comando para atualizar dados em uma tabela. Para este, Sandy confirmou que eles estão presentes, então vamos mudar o RSVP de "N" para "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

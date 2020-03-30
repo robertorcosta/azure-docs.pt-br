@@ -1,6 +1,6 @@
 ---
 title: Mascaramento de dados dinâmicos
-description: A máscara de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios para o banco de dados SQL e o Azure Synapse
+description: A mascaração dinâmica de dados limita a exposição de dados confidenciais, mascarando-os a usuários não privilegiados para banco de dados SQL e Synapse Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -14,13 +14,13 @@ ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synpase
 ms.openlocfilehash: e5b281d59245d8fbd32b18f4ac5fe577fc7ff309
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78192907"
 ---
-# <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Mascaramento de dados dinâmicos para o Azure Synapse
+# <a name="dynamic-data-masking-for-azure-sql-database-and-azure-synapse-analytics"></a>Mascaramento dinâmico de dados para banco de dados SQL do Azure e Análise sinapse do Azure
 
 A máscara de dados dinâmicos do Banco de Dados SQL limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios. 
 
@@ -30,7 +30,7 @@ Por exemplo, um representante de serviço em um centro de chamada pode identific
 
 ## <a name="dynamic-data-masking-basics"></a>Noções básicas de mascaramento de dados dinâmicos
 
-É possível configurar uma política de máscara de dados dinâmicos no Portal do Azure selecionando a operação máscara de dados dinâmicos na folha de configuração do Banco de Dados SQL ou na folha de configurações. Este recurso não pode ser definido usando o portal para o Azure Synapse (use o PowerShell ou a API REST)
+É possível configurar uma política de máscara de dados dinâmicos no Portal do Azure selecionando a operação máscara de dados dinâmicos na folha de configuração do Banco de Dados SQL ou na folha de configurações. Este recurso não pode ser definido usando portal para Azure Synapse (Use Powershell ou Rest API)
 
 ### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmico
 
@@ -44,7 +44,7 @@ A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do
 
 | Função de mascaramento | Lógica de mascaramento |
 | --- | --- |
-| **Default** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos Xs se o tamanho do campo tiver menos de quatro caracteres para os tipos de dados da cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para os tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para SQL variant, o valor padrão do tipo atual é usado.<br/>• For XML, o documento \<mascarado/> será usado.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
+| **Padrão** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Use XXXX ou menos Xs se o tamanho do campo tiver menos de quatro caracteres para os tipos de dados da cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Use um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para os tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para SQL variant, o valor padrão do tipo atual é usado.<br/>• Para XML \<é utilizado o documento mascarado/>.<br/>• Use um valor vazio para tipos de dados especiais (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types). |
 | **Cartão de crédito** |**Método de mascaramento que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **Email** |**Método de mascaramento que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo da cadeia de caracteres constante na forma de um endereço de email.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** |**Método de mascaramento que gera um número aleatório** de acordo com os limites selecionados e os tipos de dados reais. Se os limites designados forem iguais, a função de mascaramento será um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
@@ -56,7 +56,7 @@ A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do
 
 O mecanismo de recomendações DDM sinaliza determinados campos do banco de dados como potencialmente confidenciais, que podem ser bons candidatos para mascaramento. Na folha Mascaramento de Dados Dinâmicos no portal, você verá as colunas recomendadas para seu banco de dados. Basta clicar em **Adicionar Máscara** para uma ou mais colunas e em **Salvar** para aplicar uma máscara a esses campos.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurar o mascaramento de dados dinâmicos para seu banco usando cmdlets do PowerShell
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configure dados dinâmicos mascarando seu banco de dados usando cmdlets PowerShell
 
 Confira [Cmdlets do Banco de Dados SQL do Azure](https://docs.microsoft.com/powershell/module/az.sql).
 

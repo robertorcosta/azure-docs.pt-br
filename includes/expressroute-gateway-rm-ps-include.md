@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 922ac7eb6cb9676af65700a6a2fe7fbae35a0dc5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172455"
 ---
 As etapas para essa tarefa usam uma VNet com base nos valores na lista de referência de configuração a seguir. Nomes e configurações adicionais também são descritos nesta lista. Não usamos essa lista diretamente em nenhuma uma das etapas, embora adicionemos variáveis com base nos valores contidos nessa lista. É possível fazer uma cópia da lista para usá-la como referência, substituindo os valores pelos seus próprios.
@@ -22,7 +22,7 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 * Grupo de recursos = “TestRG”
 * Nome de Subnet1 = “FrontEnd” 
 * Espaço de endereço de sub-rede1 = "192.168.1.0/24"
-* Nome da sub-rede do gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
+* Nome da Sub-rede do Gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
 * Espaço de endereço da Sub-Rede do Gateway = “192.168.200.0/26”
 * Região = “Leste dos EUA”
 * Nome do Gateway = “GW”

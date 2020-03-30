@@ -11,17 +11,17 @@ ms.date: 08/04/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ffa25eec9c4b668f428d8e8b5a780a5fe4625a2c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188878"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir estruturas confiáveis com a Estrutura de Experiência de Identidade do Azure AD B2C
 
 As políticas personalizadas do Azure AD B2C (Azure Active Directory B2C) que usam a Identity Experience Framework fornecem um serviço centralizado à sua organização. Esse serviço reduz a complexidade da federação de identidade em uma grande comunidade de interesse. A complexidade é reduzida para uma relação de confiança única e uma troca única de metadados.
 
-Azure AD B2C políticas personalizadas usam a estrutura de experiência de identidade para permitir que você responda às seguintes perguntas:
+As políticas personalizadas do Azure AD B2C usam o Identity Experience Framework para permitir que você responda às seguintes perguntas:
 
 - Quais são as políticas jurídicas, de segurança, de privacidade e de proteção de dados que devem ser cumpridas?
 - Quem são os contatos e quais são os processos para se tornar um participante autorizado?
@@ -45,16 +45,16 @@ Conforme o número de consumidores e provedores de informações de identidade d
 ### <a name="what-a-trust-framework-specification-defines"></a>O que uma especificação de Estrutura Confiável define
 As TFs são a base do modelo de estrutura confiável da OIX (Open Identity Exchange), em que cada comunidade de interesse é governada por uma especificação determinada de TF. Tal especificação TF define:
 
-- **As métricas de segurança e privacidade para a comunidade de interesse com a definição de:**
+- **As métricas de segurança e privacidade para a comunidade relevante com a definição de:**
     - LOA (níveis de garantia) que são oferecidos/exigidos pelos participantes, ou seja, um conjunto ordenado de classificações de segurança para a autenticidade das informações de identidade digital.
     - LOP (Níveis de proteção) que são oferecidos/exigidos pelos participantes; por exemplo, um conjunto ordenado de classificações de confiança para a proteção das informações de identidade digital que são manipuladas por participantes da comunidade de interesse.
 
 - **A descrição das informações de identidade digital que são oferecidas/exigidas pelos participantes**.
 
-- **As políticas técnicas para produção e consumo de informações de identidade digital e, portanto, para medir LOA e LOP. Essas políticas escritas normalmente incluem as seguintes categorias de políticas:**
+- **As políticas técnicas de produção e consumo de informações de identidade digital e, assim, para medição de LOA e LOP. Essas políticas escritas geralmente incluem as seguintes categorias de políticas:**
     - Políticas de verificação de identidade, por exemplo: *Qual é o nível de avaliação das informações de uma pessoa?*
     - Políticas de segurança, por exemplo: *Qual é o nível de proteção de confidencialidade e integridade das informações?*
-    - Políticas de privacidade, por exemplo: *Qual controle um usuário tem sobre PII (informações pessoais identificáveis)* ?
+    - Políticas de privacidade, por exemplo: *Qual controle um usuário tem sobre PII (informações pessoais identificáveis)*?
     - Políticas de persistência, por exemplo: *Se um provedor interromper as operações, como funcionará a continuidade e a proteção de PII?*
 
 - **Os perfis técnicos para produção e consumo de informações de identidade digital. Esses perfis incluem:**

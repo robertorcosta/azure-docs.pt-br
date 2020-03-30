@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673221"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Blob
 Há duas maneiras de autenticar o aplicativo para acessar os serviços de Armazenamento:
 
-* Chave compartilhada: Usar a chave compartilhada somente para testes
-* Assinatura de acesso compartilhado (SAS): Use a SAS para aplicativos de produção
+* Chave compartilhada: usar a chave compartilhada somente para fins de teste
+* SAS (Assinatura de Acesso Compartilhado): use a SAS para aplicativos de produção
 
 ### <a name="shared-key"></a>Chave compartilhada
 A autenticação de Chave Compartilhada significa que o aplicativo usará seu nome da conta e chave de conta para acessar os serviços de Armazenamento. Para mostrar rapidamente como usar essa biblioteca, vamos usar a autenticação de Chave Compartilhada nesta introdução.
@@ -49,5 +49,5 @@ O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft 
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Você pode aprender mais sobre SAS e práticas recomendadas para usar SAS fazendo check-out [assinaturas de acesso compartilhado: Noções básicas sobre o modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Saiba mais sobre a SAS e as práticas recomendadas sobre o uso do SAS consultando [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

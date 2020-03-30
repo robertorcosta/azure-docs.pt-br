@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: tomfitz
 ms.openlocfilehash: 3dbb88d53a961e277e102d7eec580309951c73b6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651209"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Trabalhar com recursos no grupo de recursos gerenciado do aplicativo gerenciado do Azure
@@ -89,7 +89,7 @@ A atribuição de política é exibida no portal.
 
 ![Exibir atribuição de política](./media/update-managed-resources/assignment.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados](overview.md).
 * Para obter os projetos de exemplo, consulte [Projetos de exemplo para aplicativos gerenciados do Azure](sample-projects.md).

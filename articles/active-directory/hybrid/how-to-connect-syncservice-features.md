@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300529"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
@@ -96,7 +96,7 @@ Historicamente, atualizações do atributo UserPrincipalName usando o serviço d
 
 Para obter mais detalhes, consulte [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou ID de logon alternativo](https://support.microsoft.com/kb/2523192).
 
-Habilitar esse recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização de hash de senha ou a autenticação de passagem.
+A ativação desse recurso permite que o mecanismo de sincronização atualize o usuárioPrincipalName quando ele é alterado no local e você usa sincronização de hash de senha ou autenticação de passagem.
 
 O recurso fica ativado por padrão para diretórios recém-criados do Azure AD. Você pode ver se este recurso está habilitado executando:  
 
@@ -112,7 +112,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Depois de habilitar esse recurso, os valores existentes de userPrincipalName permanecerão os mesmos. Na próxima alteração do atributo userPrincipalName local, a sincronização delta normal dos usuários atualizará o UPN.  
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172373"
 ---
 Exiba também as métricas para monitorar o desempenho do dispositivo e, em alguns casos, para solução de problemas do dispositivo.
@@ -29,12 +29,12 @@ Execute as etapas a seguir no portal do Azure para criar um gráfico para as mé
 
 3. Na lista suspensa, selecione uma métrica para monitorar seu dispositivo. As métricas podem ser **Métricas de capacidade** ou **Métricas de transação**. As métricas de capacidade estão relacionadas à capacidade do dispositivo. As métricas de transação estão relacionadas a operações de leitura e gravação no Armazenamento do Azure.
 
-    |Métricas de capacidade                     |DESCRIÇÃO  |
+    |Métricas de capacidade                     |Descrição  |
     |-------------------------------------|-------------|
     |**Capacidade disponível**               | Refere-se ao tamanho dos dados que podem ser gravados no dispositivo. Em outras palavras, essa é a capacidade que pode ser disponibilizada no dispositivo. <br></br>Libere a capacidade do dispositivo excluindo a cópia local dos arquivos que têm uma cópia no dispositivo, bem como na nuvem.        |
     |**Capacidade total**                   | Refere-se ao total de bytes no dispositivo no qual os dados serão gravados. Isso também é chamado de tamanho total do cache local. <br></br> Agora você pode aumentar a capacidade de um dispositivo virtual existente adicionando um disco de dados. Adicione um disco de dados por meio do gerenciamento do hipervisor à VM e, em seguida, reinicie a VM. O pool de armazenamento local do dispositivo de gateway será expandido para acomodar o disco de dados recém-adicionado. <br></br>Para obter mais informações, acesse [Adicionar um disco rígido a uma máquina virtual do Hyper-V](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
     
-    |Métricas de transação              | DESCRIÇÃO         |
+    |Métricas de transação              | Descrição         |
     |-------------------------------------|---------|
     |**Bytes carregados na nuvem (dispositivo)**    | Soma de todos os bytes carregados em todos os compartilhamentos no dispositivo        |
     |**Bytes carregados na nuvem (compartilhamento)**     | Bytes carregados por compartilhamento. Isso pode ser: <br></br> Méd., que é a (Soma de todos os bytes carregados por compartilhamento/Número de compartilhamentos)  <br></br>Máx., que é o número máximo de bytes carregados de um compartilhamento <br></br>Mín., que é o número mínimo de bytes carregados de um compartilhamento      |

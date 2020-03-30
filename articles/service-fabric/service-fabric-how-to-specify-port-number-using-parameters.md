@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609852"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Como especificar o número da porta de um serviço usando parâmetros no Service Fabric
@@ -81,7 +81,7 @@ Neste exemplo, você poderá definir o número da porta para a API Web do asp.ne
 
 Ao publicar seu aplicativo do Visual Studio usando o perfil de publicação Cloud.xml, o serviço será configurado para usar a porta 80. Se você implantar o aplicativo sem especificar o parâmetro MyWebAPI_PortNumber, o serviço usará a porta 8080.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre alguns dos principais conceitos que são discutidos neste artigo, veja os artigos sobre [Gerenciar aplicativos de vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
 
 Para obter informações sobre outras funcionalidades de gerenciamento de aplicativo disponíveis no Visual Studio, confira [Gerenciar seus aplicativos do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).

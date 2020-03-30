@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
 ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78305054"
 ---
 ## <a name="configure-the-data-source"></a>Configurar a fonte de dados
 
-Execute as etapas a seguir para configurar o Azure Data Explorer como uma fonte de dados para sua ferramenta de painel. Abordaremos essas etapas com mais detalhes nesta seção:
+Você executa as seguintes etapas para configurar o Azure Data Explorer como uma fonte de dados para sua ferramenta de dashboard. Abordaremos essas etapas com mais detalhes nesta seção:
 
-1. Crie uma entidade de serviço do Azure AD (Azure Active Directory). A entidade de serviço é usada pela ferramenta de painel para acessar o serviço de Data Explorer do Azure.
+1. Crie uma entidade de serviço do Azure AD (Azure Active Directory). O principal de serviço é usado pela ferramenta dashboard para acessar o serviço Azure Data Explorer.
 
 1. Adicione a entidade de serviço do Azure AD à função *visualizadores* no banco de dados do Azure Data Explorer.
 
-1. Especifique suas propriedades de conexão da ferramenta de painel com base nas informações da entidade de serviço do Azure AD e teste a conexão.
+1. Especifique as propriedades de conexão da ferramenta de painel com base nas informações do diretor de serviço do Azure AD e teste a conexão.
 
 ### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
@@ -31,7 +31,7 @@ Execute as etapas a seguir para configurar o Azure Data Explorer como uma fonte 
 
     1. Na seção [Atribuir o aplicativo a uma função](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application), atribua um tipo de função **Leitor** ao cluster do Azure Data Explorer.
 
-    1. Na seção [obter valores para entrar](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) , copie os três valores de propriedade abordados nas etapas: **ID do diretório** (ID do locatário), **ID do aplicativo**e **senha**.
+    1. Na [seção Obter para assinatura na](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) seção, copie os três valores de propriedade abordados nas etapas: **ID do diretório** (ID do inquilino), **ID do aplicativo**e **Senha**.
 
 1. No portal do Azure, selecione **Assinaturas** e copie a ID da assinatura na qual você criou a entidade de serviço.
 
@@ -91,7 +91,7 @@ Agora que você tem uma entidade de serviço, adicione-a à função *visualizad
 
     ![Adicionar permissões de banco de dados](media/data-explorer-configure-data-source/add-permission.png)
 
-1. Pesquise a entidade de serviço que você criou. Selecione a entidade de serviço e, em seguida **Selecionar**.
+1. Procure o diretor de serviço que você criou. Selecione a entidade de serviço e, em seguida **Selecionar**.
 
     ![Gerenciar permissões no portal do Azure](media/data-explorer-configure-data-source/new-principals.png)
 
@@ -103,7 +103,7 @@ Agora que você tem uma entidade de serviço, adicione-a à função *visualizad
 
 1. No portal do Azure, acesse o cluster do Azure Data Explorer e selecione **Consultar**.
 
-    ![Query](media/data-explorer-configure-data-source/query.png)
+    ![Consulta](media/data-explorer-configure-data-source/query.png)
 
 1. Execute o seguinte comando na janela de consulta. Use a ID de aplicativo e o ID de locatário do portal do Azure ou CLI.
 

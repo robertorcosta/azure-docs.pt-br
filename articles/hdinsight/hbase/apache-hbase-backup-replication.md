@@ -1,6 +1,6 @@
 ---
-title: Backup & replicação para Apache HBase, Phoenix – Azure HDInsight
-description: Configurar o backup e a replicação para o Apache HBase e o Apache Phoenix no Azure HDInsight
+title: Backup & replicação para Apache HBase, Phoenix - Azure HDInsight
+description: Configurar backup e replicação para Apache HBase e Apache Phoenix no Azure HDInsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495940"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix no HDInsight
@@ -44,7 +44,7 @@ O HBase no HDInsight usa o armazenamento padrão selecionado ao criar o cluster,
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* No Azure Data Lake Storage, a pasta `hbase` reside no caminho raiz que você especificou ao provisionar um cluster. Normalmente, esse caminho raiz tem uma pasta `clusters`, com uma subpasta nomeada de acordo com o seu cluster do HDInsight:
+* No Azure Data Lake `hbase` Storage, a pasta reside o caminho raiz especificado ao provisionar um cluster. Normalmente, esse caminho raiz tem uma pasta `clusters`, com uma subpasta nomeada de acordo com o seu cluster do HDInsight:
 
     ```
     /clusters/<clusterName>/hbase
@@ -60,19 +60,19 @@ Depois de excluir o cluster, você pode deixar os dados no local ou copiar os da
 
 ## <a name="export-then-import"></a>Exportar e importar
 
-No cluster HDInsight de origem, use o [Utilitário de exportação](https://hbase.apache.org/book.html#export) (incluído com o HBase) para exportar dados de uma tabela de origem para o armazenamento anexado padrão. Em seguida, você pode copiar a pasta exportada para o local de armazenamento de destino e executar o [Utilitário de importação](https://hbase.apache.org/book.html#import) no cluster de destino do HDInsight.
+No cluster HDInsight de origem, use o [utilitário Export](https://hbase.apache.org/book.html#export) (incluído no HBase) para exportar dados de uma tabela de origem para o armazenamento conectado padrão. Em seguida, você pode copiar a pasta exportada para o local de armazenamento de destino e executar o [utilitário Importação](https://hbase.apache.org/book.html#import) no cluster HDInsight de destino.
 
-Para exportar dados de tabela, primeiro SSH no nó principal do seu cluster HDInsight de origem e, em seguida, execute o seguinte comando de `hbase`:
+Para exportar dados da tabela, primeiro SSH no nó principal do `hbase` cluster HDInsight de origem e, em seguida, execute o seguinte comando:
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-O diretório de exportação ainda não deve existir. O nome da tabela diferencia maiúsculas de minúsculas.
+O diretório de exportação ainda não deve existir. O nome da mesa é sensível a maiúsculas e minúsculas.
 
-Para importar dados de tabela, use o SSH no nó principal do cluster HDInsight de destino e, em seguida, execute o seguinte comando de `hbase`:
+Para importar dados da tabela, SSH no nó principal do cluster `hbase` HDInsight de destino e, em seguida, execute o seguinte comando:
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
 
-A tabela já deve existir.
+A mesa já deve existir.
 
 Especifique o caminho completo de exportação para o armazenamento padrão ou para qualquer uma das opções de armazenamento anexadas. Por exemplo, no Armazenamento do Microsoft Azure:
 
@@ -94,7 +94,7 @@ Observe que você precisa especificar o número de versões de cada linha para e
 
 ## <a name="copy-tables"></a>Copiar tabelas
 
-O [utilitário copyTable](https://hbase.apache.org/book.html#copy.table) copia dados de uma tabela de origem, linha por linha, para uma tabela de destino existente com o mesmo esquema que a origem. A tabela de destino pode estar no mesmo cluster ou em um cluster do HBase diferente. Os nomes de tabela diferenciam maiúsculas de minúsculas.
+O [utilitário CopyTable](https://hbase.apache.org/book.html#copy.table) copia dados de uma tabela de origem, linha por linha, para uma tabela de destino existente com o mesmo esquema que a fonte. A tabela de destino pode estar no mesmo cluster ou em um cluster do HBase diferente. Os nomes das mesas são sensíveis a maiúsculas e minúsculas.
 
 Para usar CopyTable dentro de um cluster, execute o SSH no nó principal do seu cluster do HDInsight de origem e, em seguida, execute este comando `hbase`:
 
@@ -130,7 +130,7 @@ OmCopyTable examina o conteúdo da tabela de origem inteiro que será copiado na
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Coletar manualmente a lista do quorum do Apache ZooKeeper
 
-Quando ambos os clusters do HDInsight estão na mesma rede virtual, conforme descrito anteriormente, a resolução de nomes de host internos é automática. Para usar Copiartable para clusters HDInsight em duas redes virtuais separadas conectadas por um gateway de VPN, você precisará fornecer os endereços IP do host dos nós Zookeeper no quorum.
+Quando ambos os clusters do HDInsight estão na mesma rede virtual, conforme descrito anteriormente, a resolução de nomes de host internos é automática. Para usar o CopyTable para clusters HDInsight em duas redes virtuais separadas conectadas por um Gateway VPN, você precisará fornecer os endereços IP host dos nós do Zookeeper no quórum.
 
 Para obter os nomes do host do quorum, execute o comando de ondulação a seguir:
 
@@ -160,7 +160,7 @@ Em nosso exemplo:
 
 ## <a name="snapshots"></a>Instantâneos
 
-Os [instantâneos](https://hbase.apache.org/book.html#ops.snapshots) permitem que você faça um backup pontual dos dados em seu armazenamento do HBase. Instantâneos têm sobrecarga mínima e conclusão dentro de segundos, porque uma operação de instantâneo é efetivamente uma operação de metadados capturando os nomes de todos os arquivos no armazenamento nesse momento. No momento de um instantâneo, nenhum dado real é copiado. Instantâneos dependem da natureza imutável dos dados armazenados em HDFS, onde as atualizações, inserções e exclusões são todas representadas como novos dados. Você pode restaurar (*clonar*) um instantâneo no mesmo cluster ou exportar um instantâneo para outro cluster.
+[Os snapshots](https://hbase.apache.org/book.html#ops.snapshots) permitem que você faça um backup point-in-time de dados em seu armazenamento de dados HBase. Instantâneos têm sobrecarga mínima e conclusão dentro de segundos, porque uma operação de instantâneo é efetivamente uma operação de metadados capturando os nomes de todos os arquivos no armazenamento nesse momento. No momento de um instantâneo, nenhum dado real é copiado. Instantâneos dependem da natureza imutável dos dados armazenados em HDFS, onde as atualizações, inserções e exclusões são todas representadas como novos dados. Você pode restaurar (*clonar*) um instantâneo no mesmo cluster ou exportar um instantâneo para outro cluster.
 
 Para criar um instantâneo, execute o SSH no nó principal do seu cluster do HBase no HDInsight e inicie o shell `hbase`:
 
@@ -190,11 +190,11 @@ O `<hdfsHBaseLocation>` pode ser qualquer um dos locais de armazenamento acessí
 
 Depois de o instantâneo ser exportado, execute o SSH no nó principal do cluster de destino e restaure o instantâneo usando o comando restore_snapshot, conforme descrito anteriormente.
 
-Os instantâneos fornecem um backup completo de uma tabela no momento do comando `snapshot`. Os instantâneos não fornecem a capacidade de executar instantâneos incrementais por janelas de tempo, nem para especificar subconjuntos de famílias de colunas a serem incluídas no instantâneo.
+Os instantâneos fornecem um backup completo de uma tabela no momento do comando `snapshot`. Os snapshots não fornecem a capacidade de executar instantâneos incrementais por janelas de tempo, nem de especificar subconjuntos de colunas que as famílias incluem no snapshot.
 
 ## <a name="replication"></a>Replicação
 
-A [replicação do HBase](https://hbase.apache.org/book.html#_cluster_replication) envia automaticamente as transações de um cluster de origem para um cluster de destino, usando um mecanismo assíncrono com sobrecarga mínima no cluster de origem. No HDInsight, você pode configurar a replicação entre os clusters, onde:
+[A replicação do HBase](https://hbase.apache.org/book.html#_cluster_replication) empurra automaticamente as transações de um cluster de origem para um cluster de destino, usando um mecanismo assíncrono com sobrecarga mínima no cluster de origem. No HDInsight, você pode configurar a replicação entre os clusters, onde:
 
 * Os clusters de origem e destino estão na mesma rede virtual.
 * Os clusters de origem e destinos estão em diferentes redes virtuais conectadas por um gateway de VPN, mas ambos os clusters existem no mesmo local geográfico.
@@ -211,7 +211,7 @@ As etapas gerais para configurar a replicação são:
 
 Para habilitar a replicação no HDInsight, aplique uma Ação de Script ao seu cluster do HDInsight de origem em execução. Para obter uma explicação da habilitação da replicação no seu cluster, ou para fazer experiências com replicação nos clusters de exemplo criados em redes virtuais usando modelos de gerenciamento de recursos do Azure, consulte [Configurar replicação do Apache HBase](apache-hbase-replication.md). Esse artigo também inclui instruções para habilitar a replicação de metadados de Phoenix.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configure a replicação do Apache HBase](apache-hbase-replication.md)
-* [Trabalhando com o utilitário de importação e exportação do HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Trabalhando com o Utilitário de Importação e Exportação HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)

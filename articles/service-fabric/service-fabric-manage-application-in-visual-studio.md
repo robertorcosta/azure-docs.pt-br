@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.openlocfilehash: d6734f5da0fb7e5c9052b26b55b2d90b068bdbbf
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614325"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usar o Visual Studio para simplificar a escrita e o gerenciamento de seus aplicativos do Service Fabric
@@ -71,7 +71,7 @@ Você pode executar operações de gerenciamento de cluster básico no Visual St
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Modelo de aplicativo da Malha do Serviço](service-fabric-application-model.md)
 * [Implantação de aplicativo da Malha do Serviço](service-fabric-deploy-remove-applications.md)
 * [Gerenciando parâmetros do aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)

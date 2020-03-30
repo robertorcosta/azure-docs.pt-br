@@ -1,7 +1,7 @@
 ---
-title: Emparelhamento de Internet-perguntas frequentes
+title: Peering na Internet - PERGUNTAS FREQUENTES
 titleSuffix: Azure
-description: Emparelhamento de Internet-perguntas frequentes
+description: Peering na Internet - PERGUNTAS FREQUENTES
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,28 +9,28 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775492"
 ---
-# <a name="internet-peering---faqs"></a>Emparelhamento de Internet-perguntas frequentes
+# <a name="internet-peering---faqs"></a>Peering na Internet - PERGUNTAS FREQUENTES
 
-Você pode examinar as informações abaixo para perguntas gerais.
+Você pode revisar as informações abaixo para perguntas gerais.
 
-**Qual é a diferença entre o serviço de emparelhamento e emparelhamento da Internet?**
+**Qual é a diferença entre peering de Internet e Peering Service?**
 
-O serviço de emparelhamento é um serviço que pretende fornecer conectividade IP pública de nível empresarial à Microsoft para seus clientes corporativos. A Internet de nível empresarial inclui conectividade por meio de ISPs que têm conectividade de alta taxa de transferência à Microsoft e redundância para uma conectividade de alta disponibilidade. Além disso, o tráfego do usuário é otimizado para latência para o Microsoft Edge mais próximo. O serviço de emparelhamento se baseia na conectividade de emparelhamento com a operadora do parceiro. A conectividade de emparelhamento com o parceiro deve ser o emparelhamento direto em oposição ao emparelhamento do Exchange. O emparelhamento direto deve ter redundância local e geográfica.
+Peering Service é um serviço que pretende fornecer conectividade IP pública de nível corporativo à Microsoft para seus clientes corporativos. A Internet de nível corporativo inclui conectividade através de ISPs que têm alta conectividade de throughput com a Microsoft e redundância para uma conectividade HA. Além disso, o tráfego do usuário é otimizado para latência para o Microsoft Edge mais próximo. Peering Service baseia-se na conectividade de peering com a operadora parceira. A conectividade de peering com o parceiro deve ser de peering direto em oposição ao peering do Exchange. Peering direto deve ter redundância local e geo-redundância.
 
-**O que é o emparelhamento herdado?**
+**O que é o legado olhando?**
 
-A conexão de emparelhamento configurada usando Azure PowerShell é gerenciada como um recurso do Azure. As conexões de emparelhamento configuradas no passado são armazenadas em nosso sistema como emparelhamento herdado, que você pode optar por converter para gerenciar como um recurso do Azure.
+A conexão de peering configurada usando o Azure PowerShell é gerenciada como um recurso do Azure. As conexões de peering configuradas no passado são armazenadas em nosso sistema como peering legado que você pode optar por converter para gerenciar como um recurso do Azure.
 
-**Quando New-AzPeeringDirectConnectionObject é chamado, quais endereços IP são fornecidos à Microsoft e aos dispositivos de mesmo nível?**
+**Quando o New-AzPeeringDirectConnectionObject é chamado, quais endereços IP são dados aos dispositivos Microsoft e Peer?**
 
-Ao chamar o cmdlet New-AzPeeringDirectConnectionObject, um endereço/31 (a. b. c. d/31) ou um endereço/30 (a. b. c. d/30) é inserido. O primeiro endereço IP (a. b. c. d + 0) é fornecido ao dispositivo do par e o segundo endereço IP (a. b. c. d + 1) é fornecido ao dispositivo da Microsoft.
+Ao ligar para o cmdlet New-AzPeeringDirectConnectionObject, um endereço /31 (a.b.c.d/31) ou um endereço /30 (a.b.c.d/30) é inserido. O primeiro endereço IP (a.b.c.d+0) é dado ao dispositivo do Peer e o segundo endereço IP (a.b.c.d+1) é dado ao dispositivo Microsoft.
 
-**O que são os parâmetros MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 no cmdlet New-AzPeeringDirectConnectionObject?**
+**O que é maxprefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 parâmetros em New-AzPeeringDirectConnectionObject cmdlet?**
 
-Os parâmetros MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 representam o número máximo de prefixos IPv4 e IPv6 que o ponto deseja que a Microsoft aceite. Esses parâmetros podem ser modificados a qualquer momento.
+Os parâmetros MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 representam o número máximo de prefixos IPv4 e IPv6 que um Peer quer que a Microsoft aceite. Esses parâmetros podem ser modificados a qualquer momento.

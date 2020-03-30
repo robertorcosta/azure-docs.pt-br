@@ -1,7 +1,7 @@
 ---
-title: Exemplos de transformação de declarações StringCollection para políticas personalizadas
+title: StringCollection reivindica exemplos de transformação para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de declarações StringCollection para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: StringCollection reivindica exemplos de transformação para o esquema IEF (Identity Experience Framework, estrutura de experiência de identidade) do Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,27 +12,27 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186770"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de declarações StringCollection
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações de coleção de cadeia de caracteres do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para o uso das transformações de reivindicações de coleta de strings do esquema Identity Experience Framework no Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Adiciona uma declaração de cadeia de caracteres a uma nova declaração de StringCollection de valores exclusivos.
+Adiciona uma reivindicação de string a uma nova reivindicação de string de valores exclusivos.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
 | InputClaim | collection | stringCollection | [Opcional] Se especificada, a transformação de declarações copiará os itens desta coleção e adicionará o item ao final da declaração da coleção de saída. |
-| OutputClaim | collection | stringCollection | O ClaimType que é produzido após essa transformação de declarações foi invocado, com o valor especificado na declaração de entrada. |
+| OutputClaim | collection | stringCollection | O Tipo de Reclamação que é produzido após essa transformação de sinistros foi invocado, com o valor especificado na reivindicação de entrada. |
 
 Use essa transformação de declaração para adicionar uma cadeia de caracteres a uma stringCollection nova ou existente. Ele é normalmente usado em um perfil técnico do **AAD-UserWriteUsingAlternativeSecurityId**. Antes que uma nova conta social seja criada, a transformação da declaração **CreateOtherMailsFromEmail** lê o ClaimType e adiciona o valor ao ClaimType **otherMails**.
 
@@ -53,14 +53,14 @@ A transformação de declarações a seguir adiciona o ClaimType **email** ao Cl
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **collection**: ["someone@outlook.com"]
-  - **item**: "admin@contoso.com"
+  - **coleção:**["someone@outlook.com"]
+  - **item**:admin@contoso.com" "
 - Declarações de saída:
-  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **coleção:**["someone@outlook.comadmin@contoso.com", ""
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Adiciona um parâmetro de cadeia de caracteres a uma nova declaração StringCollection de valores exclusivos.
+Adiciona um parâmetro de string a uma nova reivindicação de string de valores exclusivos.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
@@ -87,11 +87,11 @@ Use essa transformação de declaração para adicionar um valor de cadeia de ca
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **collection**: ["someone@outlook.com"]
+  - **coleção:**["someone@outlook.com"]
 - Parâmetros de entrada
-  - **item**: "admin@contoso.com"
+  - **item**:admin@contoso.com" "
 - Declarações de saída:
-  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **coleção:**["someone@outlook.comadmin@contoso.com", ""
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -118,23 +118,23 @@ O exemplo a seguir lê a declaração **otherMails** e retorna o primeiro item p
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **collection**: ["someone@outlook.com", "someone@contoso.com"]
+  - **coleção:**["someone@outlook.comsomeone@contoso.com", ""
 - Declarações de saída:
-  - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**:someone@outlook.com" "
 
 
-## <a name="stringcollectioncontains"></a>StringCollectionContains
+## <a name="stringcollectioncontains"></a>StringCollectioncontém
 
-Verifica se um tipo de declaração StringCollection contém um elemento
+Verifica se um tipo de reclamação stringcollection contém um elemento
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | stringCollection | O tipo de declaração que deve ser pesquisada. |
-|InputParameter|item|string|O valor a ser pesquisado.|
+| InputClaim | InputClaim | stringCollection | O tipo de sinistro que deve ser pesquisado. |
+|InputParameter|item|string|O valor para pesquisar.|
 |InputParameter|ignoreCase|string|Especifica se essa comparação deve ignorar maiúsculas e minúsculas das cadeias de caracteres que estão sendo comparadas.|
-| OutputClaim | outputClaim | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. Um indicador booliano se a coleção contiver uma cadeia de caracteres desse tipo |
+| OutputClaim | outputClaim | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. Um indicador booleano se a coleção contém tal string |
 
-O exemplo a seguir verifica se o tipo de declaração `roles` StringCollection contém o valor de **admin**.
+O exemplo a `roles` seguir verifica se o tipo de reclamação stringCollection contém o valor do **admin**.
 
 ```XML
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
@@ -154,9 +154,9 @@ O exemplo a seguir verifica se o tipo de declaração `roles` StringCollection c
 - Declarações de entrada:
     - **inputClaim**: ["leitor", "autor", "admin"]
 - Parâmetros de entrada:
-    - **Item**: "admin"
-    - **IgnoreCase**: "true"
+    - **item**: "Admin"
+    - **ignorarCase**: "verdadeiro"
 - Declarações de saída:
-    - **outputClaim**: "verdadeiro"
+    - **saídaReclamação:**"verdadeiro"
 
 

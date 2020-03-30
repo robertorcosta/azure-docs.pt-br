@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: f65220a04a709bae5a6892bfd4105195cee35741
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978427"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurando a Ferramenta de Importação/Exportação do Azure
@@ -247,11 +247,11 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Preparação de discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Preparando discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Visualização do uso da unidade para um trabalho de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [Revisão do status do trabalho com arquivos de log de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparação de um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Reparando um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Solução de problemas da ferramenta de importação/exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)

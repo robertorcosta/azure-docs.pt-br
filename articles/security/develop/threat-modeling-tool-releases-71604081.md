@@ -1,5 +1,5 @@
 ---
-title: Versão de Microsoft Threat Modeling Tool 4/9/2019
+title: Microsoft Threat Modeling Tool lançamento 4/9/2019
 titleSuffix: Azure
 description: Documentando as notas sobre a versão da Threat Modeling Tool
 author: jegeib
@@ -9,43 +9,43 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 59d385ba7de5bf7bceae4dc8ddadbca813046094
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269723"
 ---
-# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versão de atualização do Threat Modeling Tool 7.1.60408.1-4/9/2019
+# <a name="threat-modeling-tool-update-release-71604081---492019"></a>Atualização da ferramenta de modelagem de ameaças 7.1.60408.1 - 4/9/2019
 
-A versão 7.1.60408.1 do Microsoft Threat Modeling Tool (TMT) foi lançada em abril de 9 2019 e contém as seguintes alterações:
+A versão 7.1.60408.1 da Ferramenta de Modelagem de Ameaças da Microsoft (TMT) foi lançada em 9 de abril de 2019 e contém as seguintes alterações:
 
-- Novos estênceis para Azure Key Vault e o Gerenciador de tráfego do Azure
-- O número de versão do TMT agora é mostrado na tela inicial
-- Links de suporte foram atualizados
+- Novos Stencils para Azure Key Vault e Azure Traffic Manager
+- O número da versão TMT agora é mostrado na tela inicial
+- Os links de suporte foram atualizados
 - Correções de bug
 
 ## <a name="feature-changes"></a>Alterações de recurso
 
-### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Novos estênceis para Azure Key Vault e o Gerenciador de tráfego do Azure
+### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Novos Stencils para Azure Key Vault e Azure Traffic Manager
 
-![Azure Key Vault estêncil](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Estêncil do cofre da chave azure](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
-Novos estênceis e ameaças para Azure Key Vault e o Gerenciador de tráfego do Azure foram adicionados ao conjunto de estênceis do Azure. Ao abrir modelos com base no conjunto do estêncil do Azure, os usuários serão solicitados a atualizar o modelo associado ao modelo. A atualização de um modelo baseado no conjunto de estênceis do Azure também pode ser iniciada manualmente usando o comando "aplicar modelo" no menu "arquivo" e reaplicando o arquivo. tb7 mais recente dos serviços de nuvem do Azure.
+Novos estêncil e ameaças para o Azure Key Vault e o Azure Traffic Manager foram adicionados ao conjunto de estêncil Azure. Ao abrir modelos baseados no conjunto de estêncil Azure, os usuários serão solicitados a atualizar o modelo associado ao modelo. A atualização de um modelo baseado no conjunto de estêncil Azure também pode ser iniciada manualmente usando o comando "Aplicar modelo" no menu "Arquivo" e reaplicando o arquivo Azure Cloud Services.tb7 mais recente.
 
-### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>O número de versão do TMT agora é mostrado na tela inicial
+### <a name="tmt-version-number-is-now-shown-on-the-home-screen"></a>O número da versão TMT agora é mostrado na tela inicial
 
-A versão do cliente do Threat Modeling Tool agora é mostrada na tela inicial do aplicativo do para facilitar o acesso.
+A versão cliente da Ferramenta de Modelagem de Ameaças agora é mostrada na tela inicial do aplicativo para facilitar o acesso.
 
-![Azure Key Vault estêncil](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Estêncil do cofre da chave azure](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
-### <a name="support-links-have-been-updated"></a>Links de suporte foram atualizados
+### <a name="support-links-have-been-updated"></a>Os links de suporte foram atualizados
 
-Todos os links de suporte dentro da ferramenta foram atualizados para direcionar os usuários para [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) em vez de um fórum do MSDN.
+Todos os links de suporte dentro da [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) ferramenta foram atualizados para direcionar os usuários ao invés de um fórum MSDN.
 
 ## <a name="system-requirements"></a>Requisitos do sistema
 
 - Sistemas operacionais com suporte
-  - [Atualização de Aniversário do Microsoft Windows 10 ou posterior](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)
+  - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
 - Versão necessária do .NET
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
 - Requisitos adicionais
@@ -55,6 +55,6 @@ Todos os links de suporte dentro da ferramenta foram atualizados para direcionar
 
 - A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Baixe a versão mais recente da [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

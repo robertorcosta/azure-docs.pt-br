@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: 968ebe89de65de5fa49e56a90a1bc92109a16861
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75613747"
 ---
 >[!Note]
->Se você estiver interessado em exibir ou excluir dados pessoais, examine as diretrizes da Microsoft no site [Solicitações de entidades de dados do Windows para o RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests). Se você estiver procurando informações gerais sobre RGPD, confira a [seção RGPD do Portal de Confiança do Serviço](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Se você estiver interessado em visualizar ou excluir dados pessoais, por favor, revise a orientação da Microsoft nas [Solicitações de Assunto de Dados do Windows para o site do GDPR.](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests) Se você está procurando informações gerais sobre o GDPR, consulte a [seção GDPR do portal Service Trust](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

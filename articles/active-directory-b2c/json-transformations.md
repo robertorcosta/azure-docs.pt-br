@@ -1,7 +1,7 @@
 ---
-title: Exemplos de transformação de declarações JSON para políticas personalizadas
+title: JSON reivindica exemplos de transformação para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de declarações JSON para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: A JSON reivindica exemplos de transformação para o esquema IEF (Identity Experience Framework, estrutura de experiência de identidade) do Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,29 +12,29 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187586"
 ---
 # <a name="json-claims-transformations"></a>Transformações de declarações JSON
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações JSON do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para o uso das transformações de reivindicações JSON do esquema Identity Experience Framework no Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
-## <a name="generatejson"></a>GenerateJson
+## <a name="generatejson"></a>Gerar Json
 
-Use valores de declaração ou constantes para gerar uma cadeia de caracteres JSON. A cadeia de caracteres de caminho após a notação de ponto é usada para indicar onde inserir os dados em uma cadeia de caracteres JSON. Após a divisão por pontos, todos os inteiros são interpretados como o índice de uma matriz JSON e não inteiros são interpretados como o índice de um objeto JSON.
+Use valores de reivindicação ou constantes para gerar uma seqüência json. A seqüência de caminho após a notação de ponto é usada para indicar onde inserir os dados em uma seqüência JSON. Após a divisão por dosts, quaisquer inteiros são interpretados como o índice de uma matriz JSON e os não-inteiros são interpretados como o índice de um objeto JSON.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Qualquer cadeia de caracteres após a notação de ponto | string | O JsonPath do JSON em que o valor da declaração será inserido. |
-| InputParameter | Qualquer cadeia de caracteres após a notação de ponto | string | O JsonPath do JSON em que o valor da cadeia de caracteres constante será inserido. |
-| OutputClaim | outputClaim | string | A cadeia de caracteres JSON gerada. |
+| InputClaim | Qualquer notação de nota de nota de seqüência seguindo | string | O JsonPath do JSON onde o valor da reivindicação será inserido. |
+| InputParameter | Qualquer notação de nota de nota de seqüência seguindo | string | O JsonPath do JSON onde o valor constante da seqüência será inserido. |
+| OutputClaim | outputClaim | string | A seqüência JSON gerada. |
 
-O exemplo a seguir gera uma cadeia de caracteres JSON com base no valor de declaração de "email" e "OTP", bem como cadeias de caracteres constantes.
+O exemplo a seguir gera uma seqüência JSON baseada no valor de reclamação de "email" e "otp", bem como strings constantes.
 
 ```XML
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
@@ -55,15 +55,15 @@ O exemplo a seguir gera uma cadeia de caracteres JSON com base no valor de decla
 
 ### <a name="example"></a>Exemplo
 
-A transformação declarações a seguir gera uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada para SendGrid (um provedor de email de terceiros). A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os números na notação de ponto implicam matrizes. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters.
+As seguintes reivindicações de transformação de saídas uma reivindicação de seqüência JSON que será o corpo da solicitação enviada ao SendGrid (um provedor de e-mail de terceiros). A estrutura do objeto JSON é definida pelos IDs na notação de nota dos Parâmetros de Entrada e dos Tipos de Declaração de Transformação das Alegações de Entrada. Os números na notação de dot implicam matrizes. Os valores vêm dos valores do InputClaims e das propriedades "Valor" dos InputParameters.
 
-- Declarações de entrada:
-  - **email**, personalizações de tipo de Declaração **de transformação. 0. para. 0. email**: "someone@example.com"
-  - **OTP**, as personalizações de tipo de declaração de transformação **. 0. dynamic_template_data. OTP** "346349"
+- Reivindicações de entrada:
+  - **e-mail**, personalizações do tipo de solicitaçãosomeone@example.comde **transformação.0.to.0.email**: " "
+  - **otp**, personalizações do tipo de reivindicação **de transformação.0.dynamic_template_data.otp** "346349"
 - Parâmetro de entrada:
-  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **de. email**: "service@contoso.com"
-  - **personalizações. 0. assunto** "código de verificação de email da conta contoso"
+  - **template_id**: "d-4c56ffb40fa648b1aa682283df94f60"
+  - **de.email:**service@contoso.com"
+  - **personalizações.0.subject** "Código de verificação de e-mail da conta Contoso"
 - Declaração de saída:
   - **requestBody**: valor JSON
 
@@ -123,7 +123,7 @@ No exemplo a seguir, a transformação de declarações extraiu o elemento `emai
 - Parâmetro de entrada:
     - **claimToExtract**: emailAddress
 - Declarações de saída:
-  - **extractedClaim**: someone@example.com
+  - **extractedClaim**:someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -174,7 +174,7 @@ No exemplo a seguir, a transformação de declarações extrai as declarações 
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Declarações de saída:
-  - **email**: "someone@example.com"
+  - **e-mail**: "someone@example.com"
   - **displayName**: "Someone"
   - **membershipNum**: 6353399
   - **active**: true
@@ -248,9 +248,9 @@ No exemplo a seguir, a transformação de declarações extrai o primeiro elemen
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+  - **entradaJsonClaim**:someone@example.com[" ", "Alguém", 6353399]
 - Declarações de saída:
-  - **extractedClaim**: someone@example.com
+  - **extractedClaim**:someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

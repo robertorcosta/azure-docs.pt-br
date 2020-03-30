@@ -1,5 +1,5 @@
 ---
-title: Configurar a entrada com uma conta do Google usando políticas personalizadas
+title: Configure o login com uma conta do Google usando políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta do Google no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
@@ -12,19 +12,19 @@ ms.date: 09/20/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8d02c86a1ff330aa4003299e1494a164089d8470
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188215"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Google usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários com uma conta do Google usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C).
+Este artigo mostra como ativar o login para usuários com uma conta do Google usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua as etapas em [Introdução às políticas personalizadas no Active Directory B2C](custom-policy-get-started.md).
 - Se você ainda não tiver uma conta do Google, crie uma em [Criar sua Conta do Google](https://accounts.google.com/SignUp).
@@ -39,17 +39,17 @@ Para habilitar a entrada para usuários de uma conta do Google, você precisa cr
 4. Selecione **Configurar tela de consentimento**.
 5. Selecione ou especifique um **endereço de Email** válido, forneça um **Nome do produto** mostrado aos usuários, insira `b2clogin.com` em **Domínios autorizados** e, em seguida, clique em **Salvar**.
 6. Em **Tipo de aplicativo**, selecione **Aplicativo Web**.
-7. Insira um **Nome** para seu aplicativo.
+7. Digite um **nome** para sua inscrição.
 8. **Origens JavaScript autorizadas**, insira `https://your-tenant-name.b2clogin.com` e, em **URIs de redirecionamento autorizados**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Substitua nome-do-seu-locatário pelo nome do seu locatário. Todas as letras que você usar ao inserir o nome do locatário precisarão ser minúsculas, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C.
 8. Clique em **Criar**.
-9. Copie os valores de **ID do cliente** e **Segredo do cliente**. Você precisará de ambos para configurar o Google como um provedor de identidade no seu locatário. Segredo do cliente é uma credencial de segurança importante.
+9. Copie os valores do **Customer ID** e **do Client secret**. Você precisará de ambos para configurar o Google como um provedor de identidade no seu locatário. Segredo do cliente é uma credencial de segurança importante.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave de política
 
 Você precisa armazenar o segredo do cliente que registrou anteriormente no seu locatário do Azure AD B2C.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
+1. Faça login no [portal Azure](https://portal.azure.com/).
+2. Certifique-se de que está usando o diretório que contém seu inquilino Azure AD B2C. Selecione o filtro **de assinatura Diretório +** no menu superior e escolha o diretório que contém o inquilino.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
 5. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
@@ -148,19 +148,19 @@ O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de id
 Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação destina-se a que o Azure AD B2C se comunique com a conta do Google para receber um token.
 
 1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
-2. Adicione o seguinte elemento **ClaimsExchange** , certificando-se de usar o mesmo valor para ID que você usou para **TargetClaimsExchangeId**:
+2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que você use o mesmo valor para ID que você usou para **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
 
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico que você criou anteriormente. Por exemplo, `Google-OAuth`.
+    Atualize o valor do **TechnicalProfileReferenceId** para o ID do perfil técnico que você criou anteriormente. Por exemplo, `Google-OAuth`.
 
 3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
 
-A comunicação com Azure AD B2C ocorre por meio de um aplicativo que você registra em seu locatário B2C. Esta seção lista etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
+A comunicação com o Azure AD B2C ocorre através de um aplicativo que você registra no seu inquilino B2C. Esta seção lista etapas opcionais que você pode concluir para criar um aplicativo de teste, caso ainda não tenha feito isso.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171868"
 ---
 Nesta etapa, você pode criar uma regra de firewall para abrir a porta de investigação para o ponto de extremidade com balanceamento de carga (59999 conforme especificado anteriormente), e outra regra para abrir a porta do ouvinte do grupo de disponibilidade. Como você criou o ponto de extremidade com balanceamento de carga nas VMs que contêm réplicas do grupo de disponibilidade, você precisa abrir a porta de investigação e a porta do ouvinte nasVMs.
 
 1. Em VMs que hospedam réplicas, inicie o **Firewall do Windows com segurança avançada**.
 
-2. Clique em **Regras de entrada** e, em seguida, clique em **Nova Regra**.
+2. Clique com o botão direito do mouse em **Regras de Entrada** e clique em **Nova Regra**.
 
 3. Na página **Tipo de regra**, selecione **Porta** e clique em **Avançar**.
 

@@ -1,13 +1,13 @@
 ---
 title: Trabalhando com Reliable Collections
-description: Conheça as práticas recomendadas para trabalhar com coleções confiáveis em um aplicativo Service Fabric do Azure.
+description: Aprenda as melhores práticas para trabalhar com coleções confiáveis dentro de um aplicativo de malha de serviço do Azure.
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645966"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
@@ -132,7 +132,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir tipos de dados imutáveis para evitar erro do programador
-O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). Você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para download em https://nuget.org. Também recomendamos lacrar suas classes e fazer com que os campos sejam somente leitura sempre que possível.
+O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). Você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para download a partir de https://nuget.org. Também recomendamos selar suas aulas e tornar os campos somente leitura sempre que possível.
 
 O tipo de UserInfo abaixo demonstra como definir um tipo imutável tirando proveito das recomendações mencionadas anteriormente.
 
@@ -196,15 +196,15 @@ Além disso, o código de serviço é atualizado em um domínio de atualização
 
 > [!WARNING]
 > Embora seja possível modificar o esquema de uma chave, você deve garantir que o código hash da chave e algoritmos igual a sejam estáveis. Se você alterar como algum desses algoritmos funciona, não será mais possível pesquisar a chave no dicionário confiável.
-> As cadeias de caracteres do .NET podem ser usadas como uma chave, mas usam a própria cadeia de caracteres como a chave – não usam o resultado de String. GetHashCode como a chave.
+> As strings .NET podem ser usadas como uma chave, mas usar a string em si como chave - não use o resultado de String.GetHashCode como a chave.
 
-Como alternativa, você pode executar o que é normalmente conhecido como uma atualização de fase 2. Com uma atualização de duas fases, você atualiza seu serviço de v1 para v2: v2 contém o código que sabe como lidar com a nova alteração de esquema, mas esse código não é executado. Quando o código V2 lê dados V1, ele opera nele e grava dados de V1. Em seguida, depois que a atualização for concluída em todos os domínios de atualização, você pode sinalizar de alguma forma para as instâncias V2 em execução que a atualização for concluída. (Uma maneira de sinalizar isso é distribuir uma atualização de configuração; isso é o que faz isso uma atualização de duas fases.) Agora, as instâncias v2 podem ler dados v1, convertê-los em dados v2, operar nele e escrevê-los como dados v2. Quando outras instâncias lerem dados V2, elas não precisarão convertê-lo, elas simplesmente os operam e gravam dados V2.
+Como alternativa, você pode executar o que é normalmente conhecido como uma atualização de fase 2. Com um upgrade bifásico, você atualiza seu serviço de V1 para V2: V2 contém o código que sabe como lidar com a nova alteração de esquema, mas este código não é executado. Quando o código V2 lê dados V1, ele opera nele e grava dados de V1. Em seguida, depois que a atualização for concluída em todos os domínios de atualização, você pode sinalizar de alguma forma para as instâncias V2 em execução que a atualização for concluída. (Uma maneira de sinalizar isso é implementar um upgrade de configuração; é isso que torna isso um upgrade bifásico.) Agora, as instâncias V2 podem ler dados V1, convertê-los em dados V2, operá-los e escrevê-los como dados V2. Quando outras instâncias lerem dados V2, elas não precisarão convertê-lo, elas simplesmente os operam e gravam dados V2.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber como criar contratos de dados compatíveis com versões futuras, confira [Contratos de dados compatíveis com versões futuras](https://msdn.microsoft.com/library/ms731083.aspx)
+Para saber como criar contratos de dados compatíveis com o encaminhamento, consulte [Contratos de dados compatíveis com o futuro](https://msdn.microsoft.com/library/ms731083.aspx)
 
-Para conhecer as melhores práticas de contratos de dados de controle de versão, confira [Controle de versão de contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx)
+Para aprender as melhores práticas sobre a versão de contratos de dados, consulte [Versão de contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx)
 
-Para saber como implementar contratos de dados tolerantes a versões, confira [Retornos de Chamada de Serialização Tolerantes a Versões](https://msdn.microsoft.com/library/ms733734.aspx)
+Para saber como implementar contratos de dados tolerantes à versão, consulte [Callbacks de serialização tolerantes à versão](https://msdn.microsoft.com/library/ms733734.aspx)
 
-Para saber como fornecer uma estrutura de dados interoperável em várias versões, confira [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+Para saber como fornecer uma estrutura de dados que pode interoperar em várias versões, consulte [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)

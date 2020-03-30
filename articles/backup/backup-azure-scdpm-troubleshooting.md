@@ -4,10 +4,10 @@ description: Neste artigo, descubra soluções para problemas que você pode enc
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75664760"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Solucionar Problemas do System Center Data Protection Manager
@@ -58,7 +58,7 @@ Para resolver esse problema, faça o seguinte:
 
 - Verifique se você está usando a versão mais recente do agente de Backup do Azure.
 - Verifique se há conectividade (rede/firewall/proxy) entre o servidor do Data Protection Manager e o servidor protegido.
-- Se você estiver protegendo um SQL Server, verifique se a propriedade **Propriedades de Logon** > **NT AUTHORITY\SYSTEM** mostra a configuração **sysadmin** habilitada.
+- Se você estiver protegendo um servidor SQL, certifique-se de que a propriedade NT**AUTHORITY\SYSTEM** de **propriedades** > de login mostra a configuração **sysadmin** ativada.
 
 ## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Erro: servidor não registrado conforme especificado no arquivo de credencial de cofre
 

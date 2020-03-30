@@ -1,5 +1,5 @@
 ---
-title: Definir um perfil técnico de transformação de declarações
+title: Defina um perfil técnico de transformação de Sinistros
 titleSuffix: Azure AD B2C
 description: Definir um perfil técnico de transformação de Declarações em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189779"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de transformação de declarações em uma política personalizada no Azure Active Directory B2C
@@ -26,7 +26,7 @@ Um perfil técnico de transformação de declarações permite que você chame t
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo usado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+O atributo **Nome** do elemento **Protocolo** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo usado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 O exemplo a seguir mostra um perfil técnico de transformação de declarações:
 
@@ -82,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-O perfil técnico da transformação de declarações permite que você execute uma transformação de declarações em qualquer etapa da orquestração do percurso do usuário. No exemplo a seguir, a etapa de orquestração chama um dos perfis técnicos de desvinculação, como **UnLink-Facebook-OAUTH**. Esse perfil técnico chama o perfil técnico da transformação de declarações **RemoveAlternativeSecurityIdByIdentityProvider**, que gera uma nova declaração **AlternativeSecurityIds2** que contém a lista de identidades sociais do usuário, enquanto remove a identidade do Facebook das coleções.
+O perfil técnico da transformação de declarações permite que você execute uma transformação de declarações em qualquer etapa da orquestração do percurso do usuário. No exemplo a seguir, a etapa de orquestração chama um dos perfis técnicos de desvinculação, como **UnLink-Facebook-OAUTH**. Esse perfil técnico chama o perfil técnico de transformação de sinistros **removeAlternativeSecurityIdByIdentityProvider**, que gera uma nova alegação **AlternativeSecurityIds2** que contém a lista de identidades sociais do usuário, enquanto remove a identidade do Facebook das coleções.
 
 ```XML
 <UserJourney Id="AccountUnLink">
@@ -102,9 +102,9 @@ O perfil técnico da transformação de declarações permite que você execute 
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina isso como `true`. |
+| IncludeClaimResolveingInClaimshandling  | Não | Para reclamações de entrada e saída, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores `true`possíveis: `false`  , ou (padrão). Se você quiser usar um resolver sinistros no `true`perfil técnico, defina isso como . |
 
 ## <a name="use-a-validation-technical-profile"></a>Usar o perfil técnico de validação
 

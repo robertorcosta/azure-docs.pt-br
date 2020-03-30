@@ -1,5 +1,5 @@
 ---
-title: Regras de roteamento com base no caminho de URL usando a CLI-Aplicativo Azure gateway
+title: Regras de roteamento baseadas em caminho susceita do URL usando o CLI - Azure Application Gateway
 description: Saiba como criar regras de roteamento com base em caminhos de URL para um gateway de aplicativo e conjunto de dimensionamento de máquina virtual usando a CLI do Azure.
 services: application-gateway
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 5f75ae1104297c461584e061f5a94aecd987caad
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246778"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Criar um gateway de aplicativo com regras de roteamento com base em caminhos de URL usando a CLI do Azure
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -229,11 +229,11 @@ az network public-ip show \
 
 ![Testar a URL de base no gateway de aplicativo](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Altere a URL para `http://<ip-address>:8080/video/test.html` para o final da URL base e você verá algo semelhante ao exemplo a seguir:
+Altere a `http://<ip-address>:8080/video/test.html` URL para o final da URL base e você deve ver algo como o seguinte exemplo:
 
 ![Testar a URL de imagens no gateway de aplicativo](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Altere a URL para `http://<ip-address>:8080/video/test.html` e você verá algo parecido com o exemplo a seguir.
+Altere a `http://<ip-address>:8080/video/test.html` URL para e você deve ver algo como o exemplo a seguir.
 
 ![Testar a URL de vídeo no gateway de aplicativo](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

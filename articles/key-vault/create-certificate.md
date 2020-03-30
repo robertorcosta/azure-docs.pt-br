@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: c27cde85952ca6d982accddad59eceae76e3f1e8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194450"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
@@ -32,7 +32,7 @@ As descrições a seguir correspondem às etapas indicadas em verde no diagrama 
 1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.
 2. O Key Vault devolve ao seu aplicativo uma Solicitação de Assinatura de Certificado (CSR)
 3. O aplicativo passa a CSR à sua autoridade de certificação escolhida.
-4. A AC escolhida responde com um certificado X509.
+4. A CA escolhida responde com um Certificado X509.
 5. Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
 -   **Criar um certificado com um provedor de emissor conhecido:** esse método requer que você faça uma tarefa única de criação de um objeto de emissor. Depois que um objeto de emissor é criado no cofre de chaves, seu nome pode ser referenciado na política do certificado do KV. Uma solicitação para criar um certificado do KV criará um par de chaves no cofre e se comunicará com o serviço do provedor de emissor usando as informações no objeto de emissor referenciado para obter um certificado x509. O certificado x509 é recuperado do serviço de emissor e é mesclado com o par de chaves para concluir a criação do certificado do KV.  
@@ -42,10 +42,10 @@ As descrições a seguir correspondem às etapas indicadas em verde no diagrama 
 As descrições a seguir correspondem às etapas indicadas em verde no diagrama anterior.
 
 1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.
-2. Key Vault envia uma solicitação de certificado TLS/SSL para a autoridade de certificação.
+2. O Key Vault envia uma solicitação de certificado TLS/SSL para a CA.
 3. Seu aplicativo faz a apuração, em um processo de loop e espera, para seu Key Vault para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault recebe a resposta da autoridade de certificação com o certificado x509.
-4. A autoridade de certificação responde à solicitação de certificado TLS/SSL de Key Vault com um certificado TLS/SSL X. 509.
-5. A nova criação de certificado é concluída com a fusão do certificado TLS/SSL X. 509 para a autoridade de certificação.
+4. A CA responde à solicitação de certificado TLS/SSL do Key Vault com um certificado TLS/SSL X.509.
+5. Sua nova criação de certificados é concluída com a fusão do certificado TLS/SSL X.509 para a CA.
 
 ## <a name="asynchronous-process"></a>Processamento assíncrono
 A criação do certificado do KV é um processo assíncrono. Esta operação criará uma solicitação de certificado do KV e retornará um código de status http 202 (Aceito). O status da solicitação pode ser acompanhado consultando o objeto pendente criado por essa operação. O URI completo do objeto pendente é retornado no cabeçalho de LOCALIZAÇÃO.  
@@ -91,6 +91,6 @@ Observe que quando um pedido é feito com o provedor do emissor, ele pode aceita
 
  Autorização: Requer a permissão certificados/criar.
 
-## <a name="see-also"></a>Consulte Também
- - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
+## <a name="see-also"></a>Consulte também
+ - [Sobre Chaves, Segredos e Certificados](about-keys-secrets-and-certificates.md)
  - [Monitorar e gerenciar a criação de certificados](create-certificate-scenarios.md)

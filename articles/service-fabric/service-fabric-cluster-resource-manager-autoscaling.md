@@ -1,15 +1,15 @@
 ---
-title: Contêineres e serviços de dimensionamento automático do Azure Service Fabric
+title: Serviço azure serviço auto scaling serviços e contêineres
 description: O Azure Service Fabric permite que você defina políticas de dimensionamento automático para serviços e contêineres.
 author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.openlocfilehash: 3660ece7add8f279292340aae9ab445b682fe045
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452077"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
@@ -40,7 +40,7 @@ Atualmente, há dois mecanismos compatíveis com o dimensionamento automático. 
 O primeiro tipo de gatilho é baseado na carga de instâncias em uma partição de serviço sem estado. Cargas de métricas são primeiro suavizadas para obter a carga de cada instância de uma partição e, em seguida, é calculada a média desses valores em todas as instâncias da partição. Há três fatores que determinam quando o serviço será dimensionado:
 
 * _Limite inferior de carga_ é um valor que determina quando o serviço será **reduzido horizontalmente**. Se a carga média de todas as instâncias das partições for menor do que esse valor, o serviço será reduzido horizontalmente.
-* _Limite de carga superior_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as instâncias da partição for maior que esse valor, o serviço será escalado horizontalmente.
+* _Limite de carga superior_ é um valor que determina quando o serviço será **dimensionado**. Se a carga média de todas as instâncias da partição for maior que esse valor, o serviço será dimensionado.
 * _Intervalo de escala_ determina a frequência na qual o gatilho será verificado. Depois que o gatilho for verificado, se for necessário escalar, o mecanismo será aplicado. Se não for necessário escalar, nenhuma ação será tomada. Em ambos os casos, o gatilho não será verificado novamente antes do intervalo de escala expirar novamente.
 
 Esse gatilho pode ser usado somente com os serviços sem estado (contêineres sem estado ou serviços do Service Fabric). Nos casos que um serviço tiver várias partições, o gatilho será avaliado separadamente para cada partição, e cada partição terá o mecanismo especificado aplicado independentemente. Portanto, nesse caso, é possível que algumas das partições do serviço sejam escaladas horizontalmente, reduzidas horizontalmente e outras não serão dimensionadas de forma nenhuma, tudo ao mesmo tempo e dependendo da carga.
@@ -110,7 +110,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 O segundo gatilho se baseia na carga de todas as partições de um serviço. Cargas de métricas são primeiro suavizadas para obter a carga para cada réplica ou uma instância de uma partição. Para os serviços com estado, a carga da partição é considerada a carga da réplica primária, enquanto para serviços sem estado, a carga da partição é a carga média de todas as instâncias da partição. A média desses valores é calculada em todas as partições do serviço, e esse valor é usado para disparar o dimensionamento automático. O mesmo ocorre no mecanismo anterior, há três fatores que determinam quando o serviço será escalado:
 
 * _Limite inferior de carga_ é um valor que determina quando o serviço será **reduzido horizontalmente**. Se a carga média de todas as partições do serviço for menor do que esse valor, o serviço será reduzido horizontalmente.
-* _Limite de carga superior_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as partições do serviço for maior que esse valor, o serviço será escalado horizontalmente.
+* _Limite de carga superior_ é um valor que determina quando o serviço será **dimensionado**. Se a carga média de todas as partições do serviço for maior que esse valor, então o serviço será dimensionado.
 * _Intervalo de escala_ determina a frequência na qual o gatilho será verificado. Depois que o gatilho for verificado, se for necessário escalar, o mecanismo será aplicado. Se não for necessário escalar, nenhuma ação será tomada. Em ambos os casos, o gatilho não será verificado novamente antes do intervalo de escala expirar novamente.
 
 Esse gatilho pode ser usado com serviços com e sem estado. O único mecanismo que pode ser usado com esse gatilho é AddRemoveIncrementalNamedPartitionScalingMechanism. Quando o serviço é escalado horizontalmente, uma nova partição é adicionada, e quando o serviço é reduzido horizontalmente, uma das partições existentes é removida. Há restrições que serão verificadas quando o serviço for criado ou atualizado e a criação/atualização de serviço falhará se essas condições não forem atendidas:
@@ -198,5 +198,5 @@ Para habilitar o serviço do Monitor de Recursos, o dimensionamento ocorre com b
 Existem duas métricas que representam os recursos físicos reais. Um deles é servicefabric:/_CpuCores, que representa o uso real da CPU (portanto, 0,5 representa meio núcleo) e o outro é servicefabric:/_MemoryInMB que representa o uso de memória em MBs.
 O ResourceMonitorService é responsável por controlar o uso da CPU e da memória dos serviços do usuário. Esse serviço aplicará a média móvel ponderada para contabilizar possíveis picos de curta duração. O monitoramento de recursos é compatível com aplicativos dentro e fora de contêineres no Windows e para os que estão dentro de contêineres no Linux. O dimensionamento automático de recursos é habilitado somente para serviços ativados no [modelo de processo exclusivo](service-fabric-hosting-model.md#exclusive-process-model).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [escalabilidade de aplicativo](service-fabric-concepts-scalability.md).

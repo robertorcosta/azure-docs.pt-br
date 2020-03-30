@@ -1,15 +1,15 @@
 ---
-title: Monitoramento de desempenho com o Windows Diagnóstico do Azure
+title: Monitoramento de desempenho com o Windows Azure Diagnostics
 description: Use o Diagnóstico do Microsoft Azure para coletar contadores de desempenho para os clusters do Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609902"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoramento de desempenho com a extensão de Diagnóstico do Microsoft Azure do Windows
@@ -189,9 +189,9 @@ Aqui está um exemplo de configuração com o contador para o *Tempo Total do Pr
     New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-1. Quando a atualização terminar de ser executada (leva de 15 a 45 minutos, dependendo da primeira implantação e do tamanho do grupo de recursos), o WAD deve coletar os contadores de desempenho e enviá-los para a tabela denominada WADPerformanceCountersTable na conta de armazenamento associada seu cluster. Consulte seus contadores de desempenho no Application Insights ao [adicionar o coletor de IA ao modelo do Gerenciador de Recursos](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
+1. Quando a atualização terminar de ser executada (leva de 15 a 45 minutos, dependendo da primeira implantação e do tamanho do grupo de recursos), o WAD deve coletar os contadores de desempenho e enviá-los para a tabela denominada WADPerformanceCountersTable na conta de armazenamento associada seu cluster. Consulte seus contadores de desempenho no Application Insights [adicionando o Sink de IA ao modelo resource manager](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Colete mais contadores de desempenho para o cluster. Consulte [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista de contadores que você deve coletar.
 * [Use monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para fazer outras modificações em seu `WadCfg`, incluindo a configuração de contas de armazenamento adicionais para as quais enviar dados de diagnóstico.
-* Visite o [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verifique se a sintaxe está correta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) criar um modelo a partir do zero e verificar se a sintaxe está correta.
+* Visite o [construtor WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) para construir um modelo do zero e certifique-se de que sua sintaxe está correta. (parahttps://azure.github.io/azure-diagnostics-tools/config-builder/) construir um modelo do zero e certificar-se de que sua sintaxe está correta.

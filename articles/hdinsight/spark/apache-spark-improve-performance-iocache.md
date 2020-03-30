@@ -1,5 +1,5 @@
 ---
-title: Desempenho de Apache Spark-cache de e/s do Azure HDInsight (versão prévia)
+title: Desempenho do Apache Spark - Cache Azure HDInsight IO (Visualização)
 description: Saiba mais sobre o Cache de E/S do Azure HDInsight e sobre como usá-lo para melhorar o desempenho do Apache Spark.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75494994"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhore o desempenho das cargas de trabalho apache spark usando o cache Azure HDInsight IO
 
 O Cache de E/S é um serviço de cache de dados para o Azure HDInsight que melhora o desempenho de trabalhos do Apache Spark. O cache de E/S também funciona com [Apache TEZ](https://tez.apache.org/) e [Apache Hive](https://hive.apache.org/) cargas de trabalho, que podem ser executadas nos clusters [Apache Spark](https://spark.apache.org/). O Cache de E/S usa um componente de cache de software livre chamado RubiX. O RubiX é um cache de disco local para uso com mecanismos de análise de big data que acessam dados de sistemas de armazenamento de nuvem. O RubiX é exclusivo entre os sistemas de cache porque usa unidades de estado sólido (SSDs) em vez de reservar memória operacional para fins de cache. O serviço de Cache de E/S é iniciado e gerencia Servidores de Metadados do RubiX nó de trabalho do cluster. Ele também configura todos os serviços do cluster para uso transparente do cache do RubiX.
 
@@ -22,7 +22,7 @@ A maioria dos SSDs fornece mais de 1 GB por segundo de largura de banda. Essa la
 
 > [!Note]  
 > Atualmente, o Cache de E/S usa o RubiX como um componente de cache, mas isso pode mudar em futuras versões do serviço. Use interfaces de Cache de E/S e não obtenha qualquer dependência diretamente na implementação do RubiX.
->O cache de e/s só tem suporte no armazenamento de BLOBs do Azure no momento.
+>O Cache IO só é suportado com o Armazenamento Azure BLOB neste momento.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Benefícios do Cache de E/S do Azure HDInsight
 
@@ -32,15 +32,15 @@ Você não precisa fazer nenhuma alteração em seus trabalhos do Spark para ver
 
 ## <a name="getting-started"></a>Introdução
 
-O Cache de E/S do Azure HDInsight está desativado por padrão na versão prévia. O Cache de E/S está disponível em clusters Spark do Azure HDInsight 3.6+, que executam o Apache Spark 2.3.  Para ativar o cache de e/s no HDInsight 4,0, execute as seguintes etapas:
+O Cache de E/S do Azure HDInsight está desativado por padrão na versão prévia. O Cache de E/S está disponível em clusters Spark do Azure HDInsight 3.6+, que executam o Apache Spark 2.3.  Para ativar o Cache io no HDInsight 4.0, faça as seguintes etapas:
 
-1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
+1. A partir de um `https://CLUSTERNAME.azurehdinsight.net`navegador `CLUSTERNAME` da Web, navegue até , onde está o nome do seu cluster.
 
 1. Selecione o serviço **Cache de E/S** à esquerda.
 
-1. Selecione **ações** (**ações de serviço** no HDI 3,6) e **ative**.
+1. Selecione **Ações** (**Ações de Serviço** em HDI 3.6) e **Ativar**.
 
-    ![Habilitando o serviço de cache de e/s no Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Habilitando o serviço de cache de e/s no Ambari")
+    ![Ativando o serviço de cache IO em Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Ativando o serviço de cache IO em Ambari")
 
 1. Confirme a reinicialização de todos os serviços afetados no cluster.
 
@@ -63,17 +63,17 @@ Você pode receber erros de espaço em disco ao executar trabalhos do Spark depo
 
 1. Altere o valor na caixa.
 
-    ![Editar porcentagem de total do cache de e/s](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Editar porcentagem de total do cache de e/s")
+    ![Editar a porcentagem de plenitude do cache do IO](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Editar a porcentagem de plenitude do cache do IO")
 
 1. Selecione **Salvar** no canto superior direito.
 
-1. Selecione **Reiniciar** > **Reiniciar Todos os Afetados**.
+1. Selecione **Reiniciar** > **todos os afetados**.
 
-    ![O Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
+    ![Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reinicie todos os afetados")
 
 1. Selecione **Confirmar Reiniciar Tudo**.
 
-Se isso não funcionar, desabilite o cache de e/s.
+Se isso não funcionar, desabilite o Cache de IO.
 
 ## <a name="next-steps"></a>Próximas etapas
 

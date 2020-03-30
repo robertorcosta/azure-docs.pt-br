@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: gwallace
 ms.openlocfilehash: 4b49a9b391eeca2d2e249b171d99f231bda6fdff
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329112"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um Certificado de Gerenciamento de Serviços do Azure
@@ -51,5 +51,5 @@ Após criar um certificado de gerenciamento (arquivo .cer somente com a chave p�
 
     ![Configurações](./media/azure-api-management-certs/certificate_details.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Agora que você tem um certificado de gerenciamento associado a uma assinatura, você pode (depois de ter instalado localmente o certificado correspondente) conectar-se programaticamente à [API REST do modelo de implantação clássico](/azure/?pivot=sdkstools) e automatizar os diversos recursos do Azure que também estão associados à assinatura.

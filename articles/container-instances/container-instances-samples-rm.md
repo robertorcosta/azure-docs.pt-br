@@ -1,48 +1,48 @@
 ---
 title: Exemplos de modelo do Azure Resource Manager
-description: Localizar exemplos de modelo de Azure Resource Manager para implantar instâncias de contêiner do Azure em diferentes configurações
+description: Encontre amostras de modelo do Azure Resource Manager para implantar instâncias de contêiner do Azure em diferentes configurações
 ms.topic: article
 ms.date: 03/07/2019
 ms.openlocfilehash: a8f3c81c539562a3c56e4822cf6e4df77d04928f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981659"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos do Azure Resource Manager para Instâncias de Contêiner do Azure
 
 Os seguintes modelos de exemplo implantam instâncias de contêiner em várias configurações.
 
-Para opções de implantação, consulte a [Implantação](#deployment). Se você quiser criar seus próprios modelos, o modelo de referência do modelo do Azure instâncias de contêiner do [Resource Manager][ref] detalhes e as propriedades disponíveis.
+Para opções de implantação, consulte a [Implantação](#deployment). Se você quiser criar seus próprios modelos, a referência de modelo do Gerenciador de Recursos das [Instâncias de Contêiner do Azure][ref] detalha o formato do moelo e as propriedades disponíveis.
 
 ## <a name="sample-templates"></a>Modelos de exemplo
 
 | | |
 |-|-|
 | **Aplicativos** ||
-| [WordPress][app-wp] | Cria um site do WordPress e seu banco de dados MySQL em um grupo de contêineres. O conteúdo do site WordPress e o banco de dados MySQL persistem em um compartilhamento do Azure Files. Também cria um gateway de aplicativo para expor o acesso à rede pública ao WordPress. |
-| [MS NAV com SQL Server e IIS][app-nav] | Implanta um único contêiner do Windows com um ambiente Dynamics NAV autossuficiente totalmente equipado / Dynamics 365 Business Central. |
+| [Wordpress][app-wp] | Cria um site wordpress e seu banco de dados MySQL em um grupo de contêineres. O conteúdo do site WordPress e o banco de dados MySQL persistem em um compartilhamento do Azure Files. Também cria um gateway de aplicativo para expor o acesso da rede pública ao WordPress. |
+| [NAV MS com SQL Server e IIS][app-nav] | Implanta um único contêiner do Windows com um ambiente Dynamics NAV autossuficiente totalmente equipado / Dynamics 365 Business Central. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Implanta dois contêineres do Linux que compartilham um volume emptyDir. |
 | [gitRepo][vol-gitrepo] | Implanta um contêiner do Linux que clona um repositório GitHub e monta-o como um volume. |
-| [secret][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
+| [Segredo][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume de segredo. |
 | **Rede** ||
-| [Contêiner de UDP exposto][net-udp] | Implanta um contêiner do Windows ou Linux que expõe uma porta UDP. |
-| [Contêiner do Linux com IP público][net-publicip] | Implanta um único contêiner do Linux acessível por meio de um IP público. |
-| [Implantar um grupo de contêineres com uma rede virtual (versão prévia)][net-vnet] | Implanta uma nova rede virtual, sub-rede, perfil de rede e grupo de contêineres. |
+| [Contêiner expostos de UDP][net-udp] | Implanta um contêiner do Windows ou Linux que expõe uma porta UDP. |
+| [Contêiner do Linux com o IP público][net-publicip] | Implanta um único contêiner do Linux acessível por meio de um IP público. |
+| [Implantar um grupo de contêineres com uma rede virtual (visualização)][net-vnet] | Implanta uma nova rede virtual, sub-rede, perfil de rede e grupo de contêineres. |
 | **Recursos do Azure** ||
-| [Criar conta de armazenamento do Azure e compartilhamento de arquivos][az-files] | Usa a CLI do Azure em uma instância de contêiner para criar uma conta de armazenamento e um compartilhamento do Azure Files.
+| [Criar uma conta de Armazenamento do Microsoft Azure e o compartilhamento de arquivos][az-files] | Usa a CLI do Azure em uma instância de contêiner para criar uma conta de armazenamento e um compartilhamento do Azure Files.
 
 ## <a name="deployment"></a>Implantação
 
 Você tem várias opções para a implantação de recursos com os modelos do Gerenciador de Recursos:
 
-[CLI do Azure][deploy-cli]
+[Azure CLI][deploy-cli]
 
-[PowerShell do Azure][deploy-powershell]
+[Azure PowerShell][deploy-powershell]
 
-[Azure portal][deploy-portal]
+[Portal Azure][deploy-portal]
 
 [REST API][deploy-rest]
 

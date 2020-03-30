@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172336"
 ---
 O trabalho produz um arquivo de saída JSON que contém metadados sobre as faces detectadas e controladas. Os metadados incluem coordenadas que indicam o local das faces, bem como um número de identificação da face indicando o acompanhamento dessa pessoa. Os números de identificação de face estão sujeitos à redefinição em circunstâncias nas quais a face frontal é perdida ou sobreposta no quadro, resultando na atribuição de várias IDs às mesmas pessoas.
@@ -17,7 +17,7 @@ O JSON de saída contém os seguintes elementos:
 
 ### <a name="root-json-elements"></a>Elementos raiz JSON
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | --- | --- |
 | version |Refere-se à versão da API de Vídeo. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
@@ -28,11 +28,11 @@ O JSON de saída contém os seguintes elementos:
 
 ### <a name="fragments-json-elements"></a>Elementos JSON de fragmentos
 
-|Elemento|DESCRIÇÃO|
+|Elemento|Descrição|
 |---|---|
 | start |A hora de início do primeiro evento em "tiques". |
 | duration |A duração do fragmento, em “tiques”. |
-| index | (Aplicável somente ao Azure Media Redactor) define o índice do quadro do evento atual. |
+| índice | (Aplicável somente ao Azure Media Redactor) define o índice do quadro do evento atual. |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |
 | events |Cada evento contém as faces detectadas e acompanhadas dentro desse período. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é composta por 0 ou mais eventos que ocorreram nesse ponto no tempo. Um colchete vazio [] significa que nenhuma face foi detectada. |
 | id |A ID da face que está sendo acompanhada. Esse número pode mudar inadvertidamente se uma face se tornar indetectável. Uma certa pessoa deve ter a mesma ID durante todo o vídeo geral, mas isso não pode ser garantido devido a limitações no algoritmo de detecção (oclusão etc.). |

@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172432"
 ---
-## <a name="create-client"></a>Criar uma conexão de cliente
+## <a name="create-a-client-connection"></a><a name="create-client"></a>Crie uma conexão com o cliente
 Crie uma conexão de cliente por meio da criação de um objeto `WindowsAzure.MobileServiceClient` .  Substitua `appUrl` pela URL de seu Aplicativo Móvel.
 
 ```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="table-reference"></a>Trabalhar com tabelas
-Para acessar ou atualizar dados, crie uma referência à tabela de back-end. Substitua `tableName` pelo nome de sua tabela
+## <a name="work-with-tables"></a><a name="table-reference"></a>Trabalhe com tabelas
+Para acessar ou atualizar dados, crie uma referência à tabela de back-end. Substitua `tableName` pelo nome da sua tabela
 
 ```javascript
 var table = client.getTable(tableName);
@@ -28,14 +28,14 @@ var table = client.getTable(tableName);
 Depois que tiver uma referência de tabela, será possível trabalhar ainda mais com sua tabela:
 
 * [Consultar uma tabela](#querying)
-  * [Filtrando dados](#table-filter)
+  * [Filtrar dados](#table-filter)
   * [Paginando pelos dados](#table-paging)
-  * [Classificando dados](#sorting-data)
+  * [Classificar dados](#sorting-data)
 * [Inserindo dados](#inserting)
 * [Modificando dados](#modifying)
-* [Excluindo dados](#deleting)
+* [Exclusão de dados](#deleting)
 
-### <a name="querying"></a>Como: Consultar uma referência de tabela
+### <a name="how-to-query-a-table-reference"></a><a name="querying"></a>Como: Consultar uma referência de tabela
 Depois que você tiver uma referência de tabela, será possível usá-la para consultar dados no servidor.  As consultas são feitas em uma linguagem "parecida com LINQ".
 Para retornar todos os dados da tabela, use o seguinte código:
 
@@ -69,7 +69,7 @@ A função de sucesso é chamada com os resultados.  Não use `for (var i in res
 
 Para obter mais informações sobre a sintaxe Query, confira a [documentação do objeto Query].
 
-#### <a name="table-filter"></a>Filtragem de dados no servidor
+#### <a name="filtering-data-on-the-server"></a><a name="table-filter"></a>Filtrando dados no servidor
 É possível usar uma cláusula `where` na referência de tabela:
 
 ```javascript
@@ -92,7 +92,7 @@ table
     .then(success, failure);
 ```
 
-#### <a name="table-paging"></a>Paginando pelos dados
+#### <a name="paging-through-data"></a><a name="table-paging"></a>Paginando através de dados
 Utilize os métodos `take()` e `skip()`.  Por exemplo, se você quiser dividir a tabela em registros de 100 linhas:
 
 ```javascript
@@ -120,7 +120,7 @@ O método `.includeTotalCount()` é usado para adicionar um campo totalCount ao 
 
 Depois, você pode usar a variável de páginas e alguns botões da interface de usuário para fornecer uma lista de páginas; use `loadPage()` para carregar os novos registros de cada página.  Implemente cache para agilizar o acesso a registros que já foram carregados.
 
-#### <a name="sorting-data"></a>Como: Retornar dados classificados
+#### <a name="how-to-return-sorted-data"></a><a name="sorting-data"></a>Como: retornar dados classificados
 Use os métodos de consulta `.orderBy()` ou `.orderByDescending()`:
 
 ```javascript
@@ -132,7 +132,7 @@ table
 
 Para obter mais informações sobre o objeto Query, confira a [documentação do objeto Query].
 
-### <a name="inserting"></a>Como: Inserir dados
+### <a name="how-to-insert-data"></a><a name="inserting"></a>Como: Inserir dados
 Crie um objeto JavaScript com a data adequada e chame `table.insert()` de maneira assíncrona:
 
 ```javascript
@@ -152,7 +152,7 @@ Após a inserção bem-sucedida, o item inserido retorna com os campos adicionai
 
 O SDK de Node.js Server dos Aplicativos Móveis do Azure dá suporte ao esquema dinâmico para fins de desenvolvimento.  O esquema Dinâmico permite que você adicione colunas à tabela, especificando-as em uma operação de inserção ou atualização.  Recomendamos que você desative o esquema antes de mover seu aplicativo para produção.
 
-### <a name="modifying"></a>Como: Modificar dados
+### <a name="how-to-modify-data"></a><a name="modifying"></a>Como modificar dados
 Assim como o método `.insert()`, você deve criar um objeto de atualização e, em seguida, chamar `.update()`.  O objeto de atualização deve conter a ID do registro a ser atualizada. Essa ID é obtida ao ler o registro ou ao chamar `.insert()`.
 
 ```javascript
@@ -168,7 +168,7 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Como: Excluir dados
+### <a name="how-to-delete-data"></a><a name="deleting"></a>Como: Excluir dados
 Chame o método `.del()` para excluir um registro.  Passe a ID em uma referência de objeto:
 
 ```javascript

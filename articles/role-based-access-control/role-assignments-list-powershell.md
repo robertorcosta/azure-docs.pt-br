@@ -1,6 +1,6 @@
 ---
-title: Listar atribuições de função usando o RBAC e Azure PowerShell do Azure
-description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso do RBAC (controle de acesso baseado em função) do Azure e Azure PowerShell.
+title: Listar atribuições de função usando OZure RBAC e O Azure PowerShell
+description: Saiba como determinar quais recursos usuários, grupos, diretores de serviço ou identidades gerenciadas têm acesso ao controle de acesso baseado em função (RBAC) e PowerShell do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,28 +15,28 @@ ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931146"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Listar atribuições de função usando o RBAC e Azure PowerShell do Azure
+# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Listar atribuições de função usando OZure RBAC e O Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] este artigo descreve como listar atribuições de função usando Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de função usando o Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
+> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa [o gerenciamento de recursos delegado do Azure,](../lighthouse/concepts/azure-delegated-resource-management.md)as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [PowerShell em Azure cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-role-assignments-for-the-current-subscription"></a>Listar atribuições de função para a assinatura atual
 
-A maneira mais fácil de obter uma lista de todas as atribuições de função na assinatura atual (incluindo as atribuições de função herdadas dos grupos raiz e de gerenciamento) é usar [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) sem nenhum parâmetro.
+A maneira mais fácil de obter uma lista de todas as atribuições de função na assinatura atual (incluindo atribuições de função herdadas de grupos raiz e gerenciamento) é usar [get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) sem quaisquer parâmetros.
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -70,7 +70,7 @@ CanDelegate        : False
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Listar atribuições de função de um usuário
 
-Para listar todas as atribuições de função em um escopo de assinatura, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Para obter a ID da assinatura, você pode encontrá-la na folha **assinaturas** no portal do Azure ou pode usar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
+Para listar todas as atribuições de função em um escopo de assinatura, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Para obter o ID de assinatura, você pode encontrá-lo na lâmina **assinaturas** no portal Azure ou você pode usar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -132,7 +132,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 
 ## <a name="list-role-assignments-for-a-management-group"></a>Listar as atribuições de função para um grupo de gerenciamento
 
-Para listar todas as atribuições de função em um escopo do grupo de gerenciamento, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Para obter a ID do grupo de gerenciamento, você pode encontrá-la na folha **grupos de gerenciamento** no portal do Azure ou pode usar [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+Para listar todas as atribuições de função em um escopo de grupo de gerenciamento, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). Para obter o ID do grupo de gerenciamento, você pode encontrá-lo na lâmina **de grupos de gerenciamento** no portal Azure ou usar o [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -152,9 +152,9 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de função para uma identidade gerenciada
 
-1. Obtenha a ID de objeto da identidade gerenciada atribuída pelo sistema ou pelo usuário. 
+1. Obtenha o ID do objeto da identidade gerenciada atribuída pelo sistema ou atribuída pelo usuário. 
 
-    Para obter a ID de objeto de uma identidade gerenciada atribuída pelo usuário, você pode usar [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+    Para obter o ID do objeto de uma identidade gerenciada atribuída pelo usuário, você pode usar [o Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
     ```azurepowershell
     Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
@@ -166,6 +166,6 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
     Get-AzRoleAssignment -ObjectId <objectid>
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função usando o Azure RBAC e Azure PowerShell](role-assignments-powershell.md)
+- [Adicionar ou remover atribuições de função usando o Azure RBAC e o Azure PowerShell](role-assignments-powershell.md)

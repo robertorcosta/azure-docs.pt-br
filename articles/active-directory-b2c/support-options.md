@@ -11,26 +11,26 @@ ms.date: 12/06/2016
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5195241003b1ce4ea505002e2cc3c10410e6cde1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183713"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: solicitações de suporte a arquivo
-Você pode arquivar solicitações de suporte para Azure Active Directory B2C (Azure AD B2C) no portal do Azure usando as seguintes etapas:
+Você pode arquivar solicitações de suporte para o Azure Active Directory B2C (Azure AD B2C) no portal Azure usando as seguintes etapas:
 
 1. Alterne do locatário B2C para outro que tenha uma assinatura do Azure associada a ele. Normalmente, o segundo é o locatário de funcionário ou o locatário padrão criado quando você se inscreveu para uma assinatura do Azure. Para saber mais, consulte [como uma assinatura do Azure está relacionada ao Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-    ![portal do Azure com seleção de locatário realçada](./media/support-options/support-switch-dir.png)
+    ![Portal Azure com seleção de inquilinos em destaque](./media/support-options/support-switch-dir.png)
 
 1. Depois de alternar os locatários, clique em **Ajuda + suporte**.
 
-    ![Bloco de ajuda + suporte realçado em portal do Azure](./media/support-options/support-support.png)
+    ![Ajuda + Suporte em destaque no portal Azure](./media/support-options/support-support.png)
 
 1. Clique em **Nova solicitação de suporte**.
 
-    ![Novo bloco de solicitação de suporte realçado em portal do Azure](./media/support-options/support-new.png)
+    ![Nova telha de solicitação de suporte destacada no portal Azure](./media/support-options/support-new.png)
 
 1. Na folha **Fundamentos**, use esses detalhes e clique em **Próximo**.
 
@@ -39,7 +39,7 @@ Você pode arquivar solicitações de suporte para Azure Active Directory B2C (A
     * O **Serviço** é **Active Directory**.
     * Escolha o **Plano de suporte**apropriado. Se não tiver um, inscreva-se para ter um [aqui](https://azure.microsoft.com/support/plans/).
 
-     ![Página noções básicas com o botão Avançar realçado em portal do Azure](./media/support-options/support-basics.png)
+     ![Página básica com botão Next destacado no portal Azure](./media/support-options/support-basics.png)
 
 1. Na folha **Problema**, use esses detalhes e clique em **Próximo**.
 
@@ -50,11 +50,11 @@ Você pode arquivar solicitações de suporte para Azure Active Directory B2C (A
     * No campo **Período** , forneça a data e a hora (incluindo o fuso horário) de quando o problema ocorreu.
     * Em **Upload do arquivo**, carregue todas as capturas de tela e arquivos que você acha que ajudariam na resolução do problema.
 
-     ![Página do problema com o botão Avançar realçado em portal do Azure](./media/support-options/support-problem.png)
+     ![Página de problema com botão Next destacada no portal Azure](./media/support-options/support-problem.png)
 
 1. Na folha **Informações de contato** , adicione suas informações de contato. Clique em **Criar**.
 
-    ![Página de informações de contato com o botão criar realçado no portal](./media/support-options/support-contact.png)
+    ![Página de informações de contato com botão Criar destacado no portal](./media/support-options/support-contact.png)
 
 1. Depois de enviar a solicitação de suporte, você pode monitorá-lo clicando em **Ajuda + suporte** no quadro inicial, então, em **Gerenciar solicitações de suporte**.
 
@@ -65,4 +65,4 @@ Se tiver ignorado a etapa 2 descrita acima e tentar criar uma solicitação de s
 > [!IMPORTANT]
 > Não tente se inscrever em uma nova assinatura do Azure em seu locatário B2C.
 
-![Você não tem um erro de assinatura exibido no portal do Azure](./media/support-options/support-no-sub.png)
+![Você não tem um erro de assinatura exibido no portal Azure](./media/support-options/support-no-sub.png)

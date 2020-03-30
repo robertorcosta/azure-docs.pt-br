@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172358"
 ---
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "67172358"
 > * [Node.js no Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [DevKit do IoT do MXChip](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
-Neste tutorial, você implementará um dispositivo **Resfriador** que envia a seguinte telemetria para o [acelerador de solução](../articles/iot-accelerators/about-iot-accelerators.md) de Monitoramento Remoto:
+Neste tutorial, você implementa um dispositivo **Chiller** que envia a seguinte telemetria para o [acelerador de soluções](../articles/iot-accelerators/about-iot-accelerators.md)de monitoramento remoto :
 
 * Temperatura
 * Pressão
@@ -37,7 +37,7 @@ O dispositivo de exemplo também:
 * Responde às ações disparadas da página **Dispositivos** na solução.
 * Responde às alterações de configuração da página **Dispositivos** na solução.
 
-Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -45,9 +45,9 @@ Antes de escrever qualquer código para o dispositivo, implante o acelerador de 
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implantar o acelerador de solução de Monitoramento Remoto
 
-O dispositivo **Resfriador** criado neste tutorial envia os dados para uma instância do acelerador de solução de [Monitoramento Remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Caso ainda não tenha provisionado o acelerador de solução de monitoramento remoto em sua conta do Azure, confira [Implantar o acelerador de solução de monitoramento remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
+O dispositivo **Chiller** que você cria neste tutorial envia dados para uma instância do acelerador de soluções de [monitoramento remoto.](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) Se você ainda não provisionou o acelerador de soluções de monitoramento remoto em sua conta Do Azure, consulte [Implantar o acelerador de soluções de monitoramento remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
-Quando o processo de implantação para a solução de Monitoramento Remoto for concluído, clique em **Inicialização** para abrir o painel da solução em seu navegador.
+Quando o processo de implantação da solução de monitoramento remoto terminar, clique em **Iniciar** para abrir o painel de solução no seu navegador.
 
 ![O painel da solução](media/iot-suite-selector-connecting/dashboard.png)
 
@@ -58,9 +58,9 @@ Quando o processo de implantação para a solução de Monitoramento Remoto for 
 
 Para que um dispositivo se conecte ao acelerador de solução, ele precisa se identificar para o Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão do dispositivo contendo essas credenciais, quando você adicionar o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
 
-Para adicionar um dispositivo à sua solução de monitoramento remoto, conclua as etapas a seguir sobre o **Device Explorer** página na solução:
+Para adicionar um dispositivo à sua solução de monitoramento remoto, complete as seguintes etapas na página **do Explorador de dispositivos** na solução:
 
-1. Escolher **+ novo dispositivo**e, em seguida, escolha **Real** como o **tipo de dispositivo**:
+1. Escolha **+ Novo dispositivo**e escolha **Real** como o tipo **de dispositivo**:
 
     ![Adicionar um dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 

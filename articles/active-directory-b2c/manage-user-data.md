@@ -12,21 +12,21 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e245b58449ab773914fc60be056082b82f05035a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184478"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerenciar dados dos usuários no Azure Active Directory B2C
 
- Este artigo discute como você pode gerenciar os dados do usuário em Azure Active Directory B2C (Azure AD B2C) usando as operações fornecidas pela [API do Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). Gerenciamento de dados de usuário inclui excluindo ou exportando dados de logs de auditoria.
+ Este artigo discute como você pode gerenciar os dados do usuário no Azure Active Directory B2C (Azure AD B2C) usando as operações fornecidas pela [API do Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). Gerenciamento de dados de usuário inclui excluindo ou exportando dados de logs de auditoria.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Excluir dados de usuário
 
-Os dados de usuário são armazenados no diretório do Azure AD B2C e nos logs de auditoria. Todos os dados de auditoria de usuário são mantidos por 7 dias em Azure AD B2C. Se você quiser excluir os dados do usuário dentro desse período de 7 dias, poderá usar a operação [excluir um usuário](https://docs.microsoft.com/graph/api/user-delete) . É necessária uma operação de exclusão para cada um dos locatários do Azure AD B2C onde os dados podem residir.
+Os dados de usuário são armazenados no diretório do Azure AD B2C e nos logs de auditoria. Todos os dados de auditoria do usuário são retidos por 7 dias no Azure AD B2C. Se você quiser excluir dados do usuário dentro desse período de 7 dias, você pode usar a [operação Excluir um usuário.](https://docs.microsoft.com/graph/api/user-delete) É necessária uma operação de exclusão para cada um dos locatários do Azure AD B2C onde os dados podem residir.
 
 A cada usuário no Azure AD B2C é atribuído uma ID de objeto. A ID de objeto fornece um identificador não ambíguo usado para excluir dados de usuário no Azure AD B2C. Dependendo da arquitetura, a ID de objeto pode ser um identificador de correlação útil em outros serviços, como finanças, marketing e bancos de dados de gerenciamento de relacionamento com o cliente.
 
@@ -37,7 +37,7 @@ O exemplo a seguir mostra um fluxo de exclusão de dados possível:
 1. O usuário faz logon e seleciona **Excluir meus dados**.
 2. O aplicativo oferece uma opção para excluir os dados dentro de uma seção de administração do aplicativo.
 3. O aplicativo força uma autenticação do Azure AD B2C. B2C do Azure Active Directory fornece um token com a ID de objeto do usuário de volta para o aplicativo.
-4. O token é recebido pelo aplicativo e a ID do objeto é usada para excluir os dados do usuário por meio de uma chamada para a API do Microsoft Graph. A API Microsoft Graph exclui os dados do usuário e retorna um código de status de 200 OK.
+4. O token é recebido pelo aplicativo, e o ID do objeto é usado para excluir os dados do usuário através de uma chamada para a API do Microsoft Graph. A API do Microsoft Graph exclui os dados do usuário e retorna um código de status de 200 OK.
 5. O aplicativo orquestra a exclusão dos dados de usuário em outros sistemas organizacionais conforme necessário usando a ID de objeto ou outros identificadores.
 6. O aplicativo confirma a exclusão dos dados e fornece as próximas etapas para o usuário.
 
@@ -53,8 +53,8 @@ Os dados de usuário do Azure AD B2C são limitados a:
 No exemplo a seguir de uma exportação de fluxo de dados, as etapas descritas como sendo executadas pelo aplicativo também podem ser executadas por um processo de back-end ou por um usuário com uma função de administrador no Diretório:
 
 1. O usuário entra no alicativo. O Azure AD B2C impõe a autenticação com autorização multifator do Azure se necessário.
-2. O aplicativo usa as credenciais do usuário para chamar uma Microsoft Graph operação da API para recuperar os atributos do usuário. A API de Microsoft Graph fornece os dados de atributo no formato JSON. Dependendo do esquema, você pode configurar o conteúdo do token de identificação para incluir todos os dados pessoais de um usuário.
-3. O aplicativo recupera a atividade de auditoria do usuário. A API de Microsoft Graph fornece os dados de evento para o aplicativo.
+2. O aplicativo usa as credenciais do usuário para chamar uma operação de API do Microsoft Graph para recuperar os atributos do usuário. A API do Microsoft Graph fornece os dados de atributos no formato JSON. Dependendo do esquema, você pode configurar o conteúdo do token de identificação para incluir todos os dados pessoais de um usuário.
+3. O aplicativo recupera a atividade de auditoria do usuário. A API do Microsoft Graph fornece os dados do evento para o aplicativo.
 4. O aplicativo agrega os dados e os torna disponíveis para o usuário.
 
 ## <a name="next-steps"></a>Próximas etapas

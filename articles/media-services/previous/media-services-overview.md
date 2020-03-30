@@ -1,6 +1,6 @@
 ---
 title: Visão geral dos Serviços de Mídia do Azure | Microsoft Docs
-description: Os Serviços de Mídia do Microsoft Azure tratam-se de uma plataforma extensível baseada em nuvem que permite aos desenvolvedores compilar aplicativos de gerenciamento e entrega de mídia escalonável. Este artigo fornece uma visão geral dos serviços de mídia do Azure.
+description: Os Serviços de Mídia do Microsoft Azure tratam-se de uma plataforma extensível baseada em nuvem que permite aos desenvolvedores compilar aplicativos de gerenciamento e entrega de mídia escalonável. Este artigo dá uma visão geral dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2d6287a89c7816c30cf26978859c07dba0251d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197497"
 ---
 # <a name="azure-media-services-overview"></a>Visão geral dos Serviços de Mídia do Azure 
 
-> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Mídia que você está usando:"]
 > * [Versão 3](../latest/media-services-overview.md)
 > * [Versão 2](media-services-overview.md)
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 O AMS (Serviços de Mídia do Microsoft Azure) trata-se de uma plataforma extensível baseada em nuvem que permite aos desenvolvedores compilar aplicativos de gerenciamento e entrega de mídia escalonável. Os serviços de mídia se baseiam em APIs REST que permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
@@ -36,22 +36,22 @@ Você pode compilar fluxos de trabalho de ponta a ponta usando totalmente os ser
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, privacidade e segurança
 
-Como lembrete importante, você deve obedecer a todas as leis aplicáveis em seu uso dos serviços de mídia do Azure e não pode usar os serviços de mídia ou qualquer serviço do Azure de uma maneira que viole os direitos de outras pessoas ou que possam ser prejudiciais a outros.
+Como um lembrete importante, você deve cumprir todas as leis aplicáveis no uso do Azure Media Services, e você não pode usar serviços de mídia ou qualquer serviço Azure de uma maneira que viole os direitos dos outros, ou que possa ser prejudicial para outros.
 
-Antes de carregar qualquer vídeo/imagem nos serviços de mídia, você deve ter todos os direitos adequados para usar o vídeo/imagem, incluindo, quando exigido por lei, todos os condados necessários de indivíduos (se houver) no vídeo/imagem, para uso, processamento e armazenamento de seus dados nos serviços de mídia e no Azure. Algumas jurisdições podem impor requisitos legais especiais para a coleta, processamento online e armazenamento de determinadas categorias de dados, como dados biométricos. Antes de usar os serviços de mídia e o Azure para o processamento e o armazenamento de quaisquer dados sujeitos a requisitos legais especiais, você deve garantir a conformidade com quaisquer requisitos legais que possam se aplicar a você.
+Antes de enviar qualquer vídeo/imagem para os Serviços de Mídia, você deve ter todos os direitos adequados para usar o vídeo/imagem, incluindo, quando exigido por lei, todos os consentimentos necessários de indivíduos (se houver) no vídeo/imagem, para o uso, processamento e armazenamento de seus dados em Serviços de Mídia e Azure. Algumas jurisdições podem impor requisitos legais especiais para a coleta, processamento on-line e armazenamento de determinadas categorias de dados, como dados biométricos. Antes de usar os Serviços de Mídia e o Azure para o processamento e armazenamento de quaisquer dados sujeitos a requisitos legais especiais, você deve garantir o cumprimento de quaisquer requisitos legais que possam se aplicar a Você.
 
-Para saber mais sobre conformidade, privacidade e segurança nos serviços de mídia, visite a [central de confiabilidade](https://www.microsoft.com/trust-center/?rtc=1)da Microsoft. Para as obrigações de privacidade da Microsoft, a manipulação de dados e as práticas de retenção, incluindo como excluir seus dados, examine a [política de privacidade](https://privacy.microsoft.com/PrivacyStatement)da Microsoft, os [termos de serviços online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") e o [adendo de processamento de dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Usando os serviços de mídia, você concorda em estar associado ao OST, ao DPA e à declaração de privacidade.
+Para saber mais sobre conformidade, privacidade e segurança nos Serviços de Mídia, visite o Microsoft [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). Para as obrigações de privacidade da Microsoft, práticas de tratamento e retenção de dados, incluindo como excluir seus dados, por favor, revise a [Declaração](https://privacy.microsoft.com/PrivacyStatement)de Privacidade da Microsoft, os Termos de [Serviços Online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") e [OAddendum de Processamento de Dados](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ao usar os Serviços de Mídia, você concorda em estar vinculado ao OST, DPA e pela Declaração de Privacidade.
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 
-* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com).
+* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com).
 * Uma conta de Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-portal-create-account.md).
 * (Opcional) Configure o ambiente de desenvolvimento. Escolha .NET ou API REST para seu ambiente de desenvolvimento. Para obter mais informações, veja [Configurar ambiente](media-services-dotnet-how-to-use.md).
 
     Além disso, saiba como [conectar-se programaticamente à API do AMS](media-services-use-aad-auth-to-access-ams-api.md).
-* Um ponto de extremidade de streaming padrão ou premium em estado iniciado.  Para obter mais informações, consulte [Gerenciando pontos de extremidade de streaming](media-services-portal-manage-streaming-endpoints.md)
+* Um ponto de extremidade de streaming padrão ou premium em estado iniciado.  Para obter mais informações, consulte [Gerenciando pontos finais de streaming](media-services-portal-manage-streaming-endpoints.md)
 
 ## <a name="sdks-and-tools"></a>SDKs e ferramentas
 
@@ -59,15 +59,15 @@ Para compilar soluções de serviços de mídia, você pode usar:
 
 * [API REST dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Um dos SDKs de cliente disponíveis:
-    * SDK dos serviços de mídia do Azure para .NET
+    * Azure Media Services SDK para .NET
     
         * [Pacote NuGet](https://www.nuget.org/packages/windowsazure.mediaservices/)
         * [Código-fonte do GitHub](https://github.com/Azure/azure-sdk-for-media-services)
-    * [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java),
+    * [Azure SDK para Java,](https://github.com/Azure/azure-sdk-for-java)
     * [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php),
     * [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS).
 * Ferramentas existentes:
-    * [Azure portal](https://portal.azure.com/)
+    * [Portal Azure](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) ([AMSE] Gerenciador de Serviços de Mídia do Azure é um aplicativo Winforms/C# para Windows)
 
 > [!NOTE]

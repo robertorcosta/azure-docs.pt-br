@@ -1,25 +1,25 @@
 ---
-title: Variáveis de ambiente de Service Fabric do Azure
+title: Variáveis do ambiente azure Service Fabric
 description: Saiba mais sobre variáveis de ambiente no Azure Service Fabric. Contém uma referência de uma lista completa de variáveis e seus usos.
 author: mikkelhegn
 ms.topic: reference
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645677"
 ---
 # <a name="service-fabric-environment-variables"></a>Variáveis de ambiente do Service Fabric
 
 O Service Fabric tem variáveis de ambiente internas definidas para cada instância de serviço. A lista completa de variáveis de ambiente está abaixo:
 
-| Variável de ambiente                         | Description                                                            | Exemplo                                                              |
+| Variável de ambiente                         | Descrição                                                            | Exemplo                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | O nome do uri da malha do aplicativo                                 | fabric:/MyApplication                                                |
-| Fabric_CodePackageName                       | O nome do pacote de código ao qual pertence o processo              | Codificar                                                                 |
+| Fabric_CodePackageName                       | O nome do pacote de código ao qual pertence o processo              | Código                                                                 |
 | Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | O endereço ip ou FQDN do ponto de extremidade                                 | 10.0.0.1                                                     |
 | Fabric\_Endpoint\_*ServiceEndpointName*              | Número da porta do ponto de extremidade                                  | 8234                                                                 |
 | Fabric_Folder_App_Log                        | Pasta de logs                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |

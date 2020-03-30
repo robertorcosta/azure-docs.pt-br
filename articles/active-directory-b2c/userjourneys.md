@@ -11,10 +11,10 @@ ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78227005"
 ---
 # <a name="userjourneys"></a>UserJourneys
@@ -23,7 +23,7 @@ ms.locfileid: "78227005"
 
 Percursos do usuário especificam caminhos explícitos por meio dos quais uma política permite que um aplicativo de terceira parte confiável obtenhas as declarações desejadas para um usuário. O usuário passa por esses caminhos para recuperar as declarações que devem ser apresentadas para a terceira parte confiável. Em outras palavras, os percursos do usuário definem a lógica de negócios pela qual o usuário final passa conforme o Framework de Experiência de Identidade do Azure AD B2C processa a solicitação.
 
-Esses percursos do usuário podem ser considerados como modelos disponíveis para atender à principal necessidade das várias partes confiáveis da comunidade de interesse. Os percursos do usuário facilitam a definição da parte de terceiros de uma política. Uma política pode definir vários percursos do usuário. Cada percurso do usuário é uma sequência de etapas de orquestração.
+Essas jornadas de usuário podem ser consideradas como modelos disponíveis para satisfazer a necessidade central das várias partes que dependem da comunidade de interesse. As viagens dos usuários facilitam a definição da parte que depende de uma política. Uma política pode definir vários percursos do usuário. Cada percurso do usuário é uma sequência de etapas de orquestração.
 
 Para definir os percursos do usuário com suporte da política, um elemento **UserJourneys** é adicionado sob o elemento de nível superior do arquivo de política.
 
@@ -37,7 +37,7 @@ O elemento **UserJourney** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador de um percurso do usuário que pode ser usado para referenciá-lo de outros elementos na política. O elemento **DefaultUserJourney** da [política de terceira parte confiável](relyingparty.md) aponta para esse atributo. |
+| ID | Sim | Um identificador de um percurso do usuário que pode ser usado para referenciá-lo de outros elementos na política. O elemento **DefaultUserJourney** da [política de terceira parte confiável](relyingparty.md) aponta para esse atributo. |
 
 O elemento **UserJourney** contém os seguintes elementos:
 
@@ -49,7 +49,7 @@ O elemento **UserJourney** contém os seguintes elementos:
 
 Um percurso do usuário é representado como uma sequência de orquestração que deve ser seguida para ter uma transação bem-sucedida. Se alguma delas falhar, a transação falhará. Essas etapas de orquestração fazem referência aos blocos de construção e aos provedores de declarações permitidos no arquivo de política. Qualquer etapa de orquestração responsável por mostrar ou renderizar uma experiência do usuário também tem uma referência ao identificador de definição do conteúdo correspondente.
 
-As etapas de orquestração podem ser executadas condicionalmente com base nas pré-condições definidas no elemento da etapa de orquestração. Por exemplo, você pode verificar para executar uma etapa de orquestração somente se houver declarações específicas ou se uma declaração for igual ou não para o valor especificado.
+Os passos de orquestração podem ser executados condicionalmente com base em pré-condições definidas no elemento passo de orquestração. Por exemplo, você pode verificar se executar uma etapa de orquestração somente se houver uma reclamação específica ou se uma reivindicação for igual ou não ao valor especificado.
 
 Para especificar a lista ordenada de etapas de orquestração, um elemento **OrchestrationSteps** é adicionado como parte da política. Este elemento é obrigatório.
 
@@ -64,8 +64,8 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Order` | Sim | A ordem das etapas de orquestração. |
-| `Type` | Sim | O tipo da etapa de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** – indica que a etapa de orquestração apresenta vários provedores de declarações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** – indica que a etapa de orquestração apresenta uma conexão de provedor social combinada e uma página de entrada de conta local.</li><li>**ClaimsExchange** – indica que a etapa de orquestração troca declarações com um provedor de declarações.</li><li>**Getreivindicações** – indica que a etapa de orquestração lê as declarações de entrada.</li><li>**SendClaims** – indica que a etapa de orquestração envia as declarações à terceira parte confiável com um token emitido por um emissor de declarações.</li></ul> |
-| ContentDefinitionReferenceId | Não | O identificador da [definição de conteúdo](contentdefinitions.md) associada com esta etapa de orquestração. Geralmente, o identificador de referência da definição de conteúdo é definido no perfil técnico autodeclarado. No entanto, há alguns casos em que o Azure AD B2C precisa exibir algo sem um perfil técnico. Há dois exemplos – se o tipo da etapa de orquestração for um dos seguintes: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, Azure AD B2C precisará exibir a seleção do provedor de identidade sem ter um perfil técnico. |
+| `Type` | Sim | O tipo da etapa de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** – indica que a etapa de orquestração apresenta vários provedores de declarações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** – indica que a etapa de orquestração apresenta uma conexão de provedor social combinada e uma página de entrada de conta local.</li><li>**ClaimsExchange** – indica que a etapa de orquestração troca declarações com um provedor de declarações.</li><li>**GetClaims** - Indica que a etapa de orquestração lê as reivindicações de entrada.</li><li>**SendClaims** – indica que a etapa de orquestração envia as declarações à terceira parte confiável com um token emitido por um emissor de declarações.</li></ul> |
+| ContentDefinitionReferenceId | Não | O identificador da [definição de conteúdo](contentdefinitions.md) associada com esta etapa de orquestração. Geralmente, o identificador de referência da definição de conteúdo é definido no perfil técnico autodeclarado. No entanto, há alguns casos em que o Azure AD B2C precisa exibir algo sem um perfil técnico. Há dois exemplos - se o tipo de etapa de `ClaimsProviderSelection` `CombinedSignInAndSignUp`orquestração é um dos seguintes: ou , Azure AD B2C precisa exibir a seleção do provedor de identidade sem ter um perfil técnico. |
 | CpimIssuerTechnicalProfileReferenceId | Não | O tipo da etapa de orquestração é `SendClaims`. Esta propriedade define o identificador do perfil técnico do provedor de declarações que emite o token para a terceira parte confiável.  Se ausente, nenhum token de terceira parte confiável será criado. |
 
 
@@ -88,19 +88,19 @@ O elemento **Preconditions** contém o seguinte elemento:
 
 #### <a name="precondition"></a>Pré-condição
 
-O elemento de **pré-condição** contém os seguintes atributos:
+O elemento **PréCondição** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de verificação ou consulta ser executada para essa pré-condição. O valor poderá ser **ClaimsExist**, que especifica que as ações deverão ser executadas se as declarações especificadas existirem no conjunto de declarações do usuário atual, ou **ClaimEquals**, que especifica que as ações deverão ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. |
-| `ExecuteActionsIf` | Sim | Use um teste de true ou false para decidir se as ações na pré-condição devem ser executadas. |
+| `ExecuteActionsIf` | Sim | Use um teste de verdadeiro ou falso para decidir se as ações na pré-condição devem ser executadas. |
 
 O elemento **Precondition** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| {1&gt;Valor&lt;1} | 1:n | Um ClaimTypeReferenceId a ser consultado. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
-| Ação | 1:1 | A ação que deverá ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for true. Se o valor de `Action` estiver definido como `SkipThisOrchestrationStep`, o `OrchestrationStep` associado não deverá ser executado. |
+| Valor | 1:n | Um ClaimTypeReferenceId a ser consultado. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
+| Ação | 1:1 | A ação que deverá ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for verdadeira. Se o valor de `Action` estiver definido como `SkipThisOrchestrationStep`, o `OrchestrationStep` associado não deverá ser executado. |
 
 #### <a name="preconditions-examples"></a>Exemplos de pré-condições
 
@@ -121,7 +121,7 @@ As pré-condições a seguir verificam se o objectId do usuário existe. No perc
 </OrchestrationStep>
 ```
 
-As pré-condições a seguir verificam se o usuário se conectou usando uma conta social. É feita uma tentativa de encontrar a conta do usuário no diretório. Se o usuário entrar ou se inscrever com uma conta local, ignore esta etapa de orquestração.
+As pré-condições a seguir verificam se o usuário se conectou usando uma conta social. É feita uma tentativa de encontrar a conta do usuário no diretório. Se o usuário fizer o sinal ou assinar com uma conta local, pule essa etapa de orquestração.
 
 ```XML
 <OrchestrationStep Order="3" Type="ClaimsExchange">
@@ -138,7 +138,7 @@ As pré-condições a seguir verificam se o usuário se conectou usando uma cont
 </OrchestrationStep>
 ```
 
-As pré-condições podem verificar várias pré-condições. O exemplo a seguir verifica se 'objectId' ou 'email' existe. Se a primeira condição for verdadeira, a jornada pulará para a próxima etapa de orquestração.
+As pré-condições podem verificar várias pré-condições. O exemplo a seguir verifica se 'objectId' ou 'email' existe. Se a primeira condição for verdadeira, a jornada pula para o próximo passo de orquestração.
 
 ```XML
 <OrchestrationStep Order="4" Type="ClaimsExchange">
@@ -172,7 +172,7 @@ O elemento **ClaimsProviderSelections** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| DisplayOption| Não | Controla o comportamento de um caso em que uma única seleção de provedor de declarações está disponível. Valores possíveis: `DoNotShowSingleProvider` (padrão), o usuário é redirecionado imediatamente para o provedor de identidade federada. Ou `ShowSingleProvider` Azure AD B2C apresenta a página de entrada com a seleção de provedor de identidade única. Para usar esse atributo, a [versão de definição de conteúdo](page-layout.md) deve ser `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` e acima.|
+| Opção de exibição| Não | Controla o comportamento de um caso em que uma única seleção de provedor de sinistros está disponível. Valores `DoNotShowSingleProvider` possíveis: (padrão) , o usuário é redirecionado imediatamente para o provedor de identidade federado. Ou `ShowSingleProvider` o Azure AD B2C apresenta a página de login com a seleção de provedor de identidade única. Para usar este atributo, a `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` versão de definição de [conteúdo](page-layout.md) deve ser e acima.|
 
 O elemento **ClaimsProviderSelection** contém os seguintes atributos:
 
@@ -183,7 +183,7 @@ O elemento **ClaimsProviderSelection** contém os seguintes atributos:
 
 ### <a name="claimsproviderselection-example"></a>Exemplo de ClaimsProviderSelection
 
-Na etapa de orquestração a seguir, o usuário pode optar por entrar com o Facebook, LinkedIn, Twitter, Google ou uma conta local. Se o usuário selecionar um dos provedores de identidade social, a segunda etapa de orquestração será executada com a troca de declaração selecionada especificada no atributo `TargetClaimsExchangeId`. A segunda etapa de orquestração redireciona o usuário para o provedor de identidade social para concluir o processo de conexão. Se o usuário optar por se conectar com a conta local, o Azure AD B2C permanecerá na mesma etapa de orquestração (a mesma página de conexão ou de entrada) e ignorará a segunda etapa de orquestração.
+Na etapa seguinte de orquestração, o usuário pode optar por fazer login com facebook, LinkedIn, Twitter, Google ou uma conta local. Se o usuário selecionar um dos provedores de identidade social, a segunda etapa de orquestração será executada com a troca de declaração selecionada especificada no atributo `TargetClaimsExchangeId`. A segunda etapa de orquestração redireciona o usuário para o provedor de identidade social para concluir o processo de conexão. Se o usuário optar por se conectar com a conta local, o Azure AD B2C permanecerá na mesma etapa de orquestração (a mesma página de conexão ou de entrada) e ignorará a segunda etapa de orquestração.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
@@ -230,5 +230,5 @@ O elemento **ClaimsExchange** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador da etapa de troca de declarações. O identificador é usado para referenciar a troca de declarações para uma etapa da seleção do provedor de declarações na política. |
+| ID | Sim | Um identificador da etapa de troca de declarações. O identificador é usado para referenciar a troca de declarações para uma etapa da seleção do provedor de declarações na política. |
 | TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que deve ser executado. |

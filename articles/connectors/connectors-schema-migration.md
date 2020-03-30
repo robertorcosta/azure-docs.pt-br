@@ -1,16 +1,16 @@
 ---
 title: Migrar aplicativos para o esquema mais recente
-description: Como migrar definições JSON de fluxo de trabalho do aplicativo lógico para a versão mais recente do esquema da linguagem de definição de fluxo de trabalho
+description: Como migrar as definições jSON do fluxo de trabalho do aplicativo lógico para a versão mais recente do esquema de definição de idioma do workflow
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 ms.openlocfilehash: cef0fcb990cd2c5c6583822d4dc4c6993c52eac2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666781"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrar os aplicativos lógicos para a última versão do esquema
@@ -38,6 +38,6 @@ Aqui estão algumas práticas recomendadas para migrar os aplicativos lógicos p
 
 * Após concluir a migração, comece a atualizar os aplicativos lógicos para usar as [APIs gerenciadas](../connectors/apis-list.md) sempre que possível. Por exemplo, comece a usar o Dropbox v2 em todos os lugares em que você usa o DropBox v1.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [migrar manualmente os aplicativos lógicos](../logic-apps/logic-apps-schema-2015-08-01.md)

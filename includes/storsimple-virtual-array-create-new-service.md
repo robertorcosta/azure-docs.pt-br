@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 4ba5c8b69776b39d8a6640744b0c24600f3a0d5b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172109"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
@@ -31,7 +31,7 @@ ms.locfileid: "67172109"
 
     3.  Para **Grupo de recursos**, selecione um grupo de recursos existente ou crie um novo. Para obter mais informações, veja [Grupos de recursos do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4.  Fornecer um **Local** para o serviço. Veja [Regiões do Azure](https://azure.microsoft.com/regions/#services) para saber mais sobre quais serviços estão disponíveis em qual região. Em geral, escolha uma **Localização** próxima à região geográfica onde quer implantar o seu dispositivo. Você talvez queira considerar o seguinte:
+    4.  Forneça um **Local** para seu serviço. Veja [Regiões do Azure](https://azure.microsoft.com/regions/#services) para saber mais sobre quais serviços estão disponíveis em qual região. Em geral, escolha uma **Localização** próxima à região geográfica onde quer implantar o seu dispositivo. Você talvez queira considerar o seguinte:
 
         -   Se você tiver cargas de trabalho existentes no Azure que também planeja implantar com seu dispositivo StorSimple, recomendamos o uso daquele datacenter.
 
@@ -47,6 +47,6 @@ ms.locfileid: "67172109"
 
         ![Criar novo serviço](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
-Você é direcionado para a página inicial **Serviço**. A criação do serviço leva alguns minutos. Depois que o serviço foi criado com êxito, você será notificado adequadamente e o status do serviço será alterado para **Ativo**.
+Você é direcionado para a página inicial **Serviço**. A criação do serviço leva alguns minutos. Depois que o serviço for criado com sucesso, você receberá a devida notificação e o status do serviço será alterado para **Ativo**.
 
 

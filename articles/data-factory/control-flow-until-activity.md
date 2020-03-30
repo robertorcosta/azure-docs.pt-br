@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440365"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Atividade Until no Azure Data Factory
@@ -51,7 +51,7 @@ A atividade Until fornece a mesma funcionalidade que uma estrutura de loop do-un
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Description | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 name | Nome da atividade `Until`. | String | Sim
 type | Deve ser definido como **Until**. | String | Sim
@@ -285,7 +285,7 @@ while ($True) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade de Condição Se](control-flow-if-condition-activity.md)
@@ -293,4 +293,4 @@ Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade web](control-flow-web-activity.md)

@@ -1,15 +1,15 @@
 ---
-title: Migrar do SDK do Java para o Maven
+title: Migrar de Java SDK para Maven
 description: Atualize aplicativos Java mais antigos que costumavam usar o SDK de Java do Service Fabric para buscar as dependências de Java do Service Fabric do Maven. Depois de concluir esta instalação, os seus aplicativos Java mais antigos poderiam ser compilados.
 author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: rapatchi
 ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609801"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualize seu aplicativo Java de Service Fabric anterior para buscar bibliotecas Java do Maven
@@ -79,7 +79,7 @@ Suporte do Serviço sem Estado do Service Fabric para seu aplicativo.
   }
   ```
 
-### <a name="others"></a>Diversos
+### <a name="others"></a>Outras pessoas
 #### <a name="transport"></a>Transporte
 
 Suporte da camada de transporte para aplicativo Java do Service Fabric. Você não precisa adicionar explicitamente essa dependência aos seus aplicativos Reliable Actor ou Service, a menos que programe na camada de transporte.
@@ -158,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
+Agora, para buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 ```
 repositories {
         mavenCentral()
@@ -232,7 +232,7 @@ dependencies {
 .
 .
 ```
-Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
+Agora, para buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 ```
 repositories {
     mavenCentral()
@@ -304,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
+Agora, para buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 ```
 repositories {
     mavenCentral()
@@ -404,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
+Agora, para buscar as dependências de Maven, o **atualizado** ``build.gradle`` teria as partes correspondentes da seguinte forma -
 ```
 repositories {
     mavenCentral()
@@ -464,7 +464,7 @@ task copyDeps<< {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o plug-in Service Fabric para o Eclipse](service-fabric-get-started-eclipse.md)

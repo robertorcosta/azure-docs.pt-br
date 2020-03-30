@@ -1,5 +1,5 @@
 ---
-title: Roteando eventos e mensagens – Azure digital gêmeos | Microsoft Docs
+title: Roteamento de eventos e mensagens - Azure Digital Twins | Microsoft Docs
 description: Visão geral de roteamento de eventos e mensagens de pontos de extremidade de serviço com os Gêmeos Digitais do Azure
 ms.author: alinast
 author: alinamstanciu
@@ -9,19 +9,19 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75862349"
 ---
-# <a name="routing-iot-events-and-messages"></a>Roteando eventos e mensagens de IoT
+# <a name="routing-iot-events-and-messages"></a>Roteamento de eventos e mensagens de IoT
 
-Internet das Coisas soluções muitas vezes une vários serviços poderosos que incluem armazenamento, análise e muito mais. Este artigo descreve como conectar os aplicativos Gêmeos Digitais do Azure aos serviços analíticos, AI e de armazenamento do Azure para fornecer insight e funcionalidades mais profundas.
+As soluções de Internet das Coisas geralmente unem vários serviços poderosos que incluem armazenamento, análise e muito mais. Este artigo descreve como conectar os aplicativos Gêmeos Digitais do Azure aos serviços analíticos, AI e de armazenamento do Azure para fornecer insight e funcionalidades mais profundas.
 
 ## <a name="route-types"></a>Tipos de rota  
 
-O Azure digital gêmeos oferece duas maneiras de conectar eventos de IoT com outros serviços do Azure ou aplicativos de negócios:
+O Azure Digital Twins oferece duas maneiras de conectar eventos de IoT com outros serviços ou aplicativos de negócios do Azure:
 
 * **Roteamento de eventos do Twins do Azure Digital**: um objeto no gráfico espacial que muda, dados de telemetria recebidos ou uma função definida pelo usuário que cria uma notificação com base em condições predefinidas pode acionar eventos do Gêmeos Digitais do Azure. Os usuários podem enviar esses eventos para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) ou [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
 
@@ -29,7 +29,7 @@ O Azure digital gêmeos oferece duas maneiras de conectar eventos de IoT com out
 
 Os usuários podem especificar um ou mais pontos de extremidade de saída para enviar eventos ou encaminhar mensagens. Eventos e mensagens serão enviados aos pontos de extremidade de acordo com essas preferências de roteamentos predefinidas. Em outras palavras, os usuários podem especificar um determinado ponto de extremidade para receber eventos de operação de gráfico, outro para receber eventos de telemetria de dispositivo e assim por diante.
 
-[![o roteamento de eventos do Azure digital gêmeos](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[![Roteamento de eventos do Gêmeos Digitais do Azure](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 Roteamento para Hubs de Eventos mantém a ordem na qual as mensagens de telemetria são enviadas. Então eles chegam ao ponto final na mesma sequência em que foram originalmente recebidos. 
 
@@ -40,7 +40,7 @@ A Grade de Eventos e o Barramento de Serviço do Microsoft Azure não garantem q
 O serviço de Gêmeos Digitais do Azure atualmente tem suporte para os seguintes **EndpointTypes**:
 
 * **Hubs de eventos do Azure** é o ponto de extremidade de cadeia de caracteres de conexão de Hubs de eventos.
-* **Barramento de serviço do Azure** é o ponto de extremidade de cadeia de caracteres de conexão do barramento de serviço.
+* **ServiceBus** é o ponto final da string de conexão Service Bus.
 * **Grade de Eventos do Azure** é o ponto de extremidade de cadeia de caracteres de conexão de grade de eventos.
 
 O recurso de Gêmeos Digitais do Azure atualmente tem suporte para os seguintes **EventTypes** que serão enviados para o ponto de extremidade escolhido:
@@ -53,7 +53,7 @@ O recurso de Gêmeos Digitais do Azure atualmente tem suporte para os seguintes 
 
 > [!IMPORTANT]  
 > Nem todos os **EndpointTypes** dão suporte a todos **EventTypes**.
-> Examine a tabela a seguir para obter os **EventTypes** permitidos para cada **ponto de extremidade**.
+> Revise a tabela a seguir para os **Tipos de eventos** permitidos para cada **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,10 +62,10 @@ O recurso de Gêmeos Digitais do Azure atualmente tem suporte para os seguintes 
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->Para obter mais informações sobre como criar pontos de extremidade e exemplos de esquema de eventos, leia a [saída e os pontos de extremidade](how-to-egress-endpoints.md).
+>Para obter mais informações sobre como criar pontos finais e exemplos de esquemas de eventos, leia [Egress e endpoints](how-to-egress-endpoints.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre os limites de visualização do Azure digital gêmeos, leia [limites de serviço de visualização pública](concepts-service-limits.md).
+- Para saber mais sobre os limites de visualização do Azure Digital Twins, leia [os limites de serviço de pré-visualização pública](concepts-service-limits.md).
 
-- Para experimentar um exemplo de gêmeos digital do Azure, leia o guia de [início rápido para localizar as salas disponíveis](quickstart-view-occupancy-dotnet.md).
+- Para experimentar uma amostra de Azure Digital Twins, leia o [quickstart para encontrar quartos disponíveis](quickstart-view-occupancy-dotnet.md).

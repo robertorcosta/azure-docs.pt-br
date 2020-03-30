@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172001"
 ---
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 
 2. Na lista à esquerda, selecione **Todos os serviços**.
 
@@ -39,7 +39,7 @@ ms.locfileid: "67172001"
 
     * Pode ser útil ter o valor baixo terminado com **0,0** e o valor alto terminado com **0,255**.
 
-11. Clique em **Salvar**.
+11. Selecione **Salvar**.
 
 <!-- Image references. -->
 

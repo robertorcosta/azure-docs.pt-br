@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de failback em recuperação de desastre de VM VMware com Azure Site Recovery
+title: Falha na solução de problemas na recuperação de desastres da VMware VM com a recuperação do site do Azure
 description: Este artigo descreve maneiras de solucionar problemas de failback e reprotecção durante a recuperação de desastres de VMs do VMware para o Azure com o Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75498095"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Resolver problemas de failback no local do Azure
@@ -73,7 +73,7 @@ Para resolver o problema:
 
 Para resolver o problema:
 
-Para proteger uma VM de failover, a VM do Azure deve estar executando para que o Serviço de Mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se o computador estiver em uma rede incorreta ou não estiver em execução (não respondendo ou desligando), o servidor de configuração não poderá acessar o serviço de mobilidade na VM para iniciar a nova proteção.
+Para proteger uma VM de failover, a VM do Azure deve estar executando para que o Serviço de Mobilidade registre-se no servidor de configuração local e possa iniciar a replicação comunicando-se com o servidor de processo. Se a máquina estiver em uma rede incorreta ou não estiver funcionando (não respondendo ou desligando), o servidor de configuração não poderá acessar o Serviço de Mobilidade na VM para iniciar a reproteção.
 
 * Reinicie a VM para que possa começar a comunicar-se de volta no local.
 * Reinicie o trabalho de nova proteção depois de iniciar a máquina virtual do Azure.

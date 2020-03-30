@@ -1,7 +1,7 @@
 ---
-title: Verificar declarações com controles de exibição
+title: Verificar reclamações com controles de exibição
 titleSuffix: Azure AD B2C
-description: Saiba como usar Azure AD B2C controles de exibição para verificar as declarações nos percursos do usuário fornecidos por suas políticas personalizadas.
+description: Saiba como usar os controles de exibição Azure AD B2C para verificar as reclamações nas jornadas de usuário fornecidas por suas políticas personalizadas.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,46 +12,46 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188776"
 ---
 # <a name="verification-display-control"></a>Controle de exibição de verificação
 
-Use um [controle de exibição](display-controls.md) de verificação para verificar uma declaração, por exemplo, um endereço de email ou número de telefone, com um código de verificação enviado ao usuário.
+Use um [controle de exibição](display-controls.md) de verificação para verificar uma reclamação, por exemplo, um endereço de e-mail ou número de telefone, com um código de verificação enviado ao usuário.
 
-## <a name="verificationcontrol-actions"></a>Ações de VerificationControl
+## <a name="verificationcontrol-actions"></a>VerificaçãoAções de controle
 
 O controle de exibição de verificação consiste em duas etapas (ações):
 
-1. Solicite um destino do usuário, como um endereço de email ou número de telefone, ao qual o código de verificação deve ser enviado. Quando o usuário seleciona o botão **enviar código** , a **ação SendCode** do controle de exibição de verificação é executada. A **ação SendCode** gera um código, constrói o conteúdo a ser enviado e o envia para o usuário. O valor do endereço pode ser preenchido previamente e servir como uma autenticação de dois fatores.
+1. Solicite um destino do usuário, como um endereço de e-mail ou número de telefone, para o qual o código de verificação deve ser enviado. Quando o usuário seleciona o botão **Enviar código,** a **Ação De Envio** do controle de exibição de verificação é executada. O **SendCode Action** gera um código, constrói o conteúdo a ser enviado e envia-o ao usuário. O valor do endereço pode ser pré-preenchido e servir como uma autenticação de segundo fator.
 
     ![Página de exemplo para enviar ação de código](media/display-control-verification/display-control-verification-email-action-01.png)
 
-1. Depois que o código tiver sido enviado, o usuário lê a mensagem, insere o código de verificação no controle fornecido pelo controle de exibição e seleciona **verificar código**. Ao selecionar **verificar código**, a **ação VerifyCode** é executada para verificar o código associado ao endereço. Se o usuário selecionar **Enviar novo código**, a primeira ação será executada novamente.
+1. Depois que o código é enviado, o usuário lê a mensagem, insere o código de verificação no controle fornecido pelo controle de exibição e **seleciona Verificar Código**. Ao selecionar **Código de Verificação,** a **Ação VerifyCode** é executada para verificar o código associado ao endereço. Se o usuário selecionar **Enviar novo código,** a primeira ação será executada novamente.
 
-    ![Página de exemplo para verificar a ação de código](media/display-control-verification/display-control-verification-email-action-02.png)
+    ![Página de exemplo para verificar ação de código](media/display-control-verification/display-control-verification-email-action-02.png)
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="verificationcontrol-required-elements"></a>Elementos necessários do VerificationControl
+## <a name="verificationcontrol-required-elements"></a>VerificaçãoControle elementos necessários
 
 O **VerificationControl** deve conter os seguintes elementos:
 
-- O tipo do `DisplayControl` é `VerificationControl`.
+- O tipo `DisplayControl` de `VerificationControl`é.
 - `DisplayClaims`
-  - **Enviar para** -uma ou mais declarações especificando para onde enviar o código de verificação. Por exemplo, *email* ou *código do país* e *número de telefone*.
-  - **Código de verificação** -a declaração de código de verificação que o usuário fornece depois que o código foi enviado. Essa declaração deve ser definida conforme necessário e o `ControlClaimType` deve ser definido como `VerificationCode`.
-- Declaração de saída (opcional) a ser retornada para a página autodeclarada após o usuário concluir o processo de verificação. Por exemplo, *email* ou *código do país* e *número de telefone*. O perfil técnico autodeclarado usa as declarações para persistir os dados ou emergir as declarações de saída para a próxima etapa de orquestração.
+  - **Enviar para** - Uma ou mais reivindicações especificando para onde enviar o código de verificação. Por exemplo, *e-mail* ou *código de país* e número de *telefone*.
+  - **Código de verificação** - O código de verificação afirma que o usuário fornece após o código ter sido enviado. Esta reivindicação deve ser definida `ControlClaimType` conforme necessário, `VerificationCode`e a deve ser definida como .
+- Reivindicação de saída (opcional) a ser devolvida à página auto-afirmada após o usuário concluir o processo de verificação. Por exemplo, *e-mail* ou *código de país* e número de *telefone*. O perfil técnico auto-afirmado usa as reivindicações para persistir os dados ou borbulhar as reivindicações de saída para a próxima etapa de orquestração.
 - Dois `Action`s com os seguintes nomes:
-  - **SendCode** – envia um código para o usuário. Essa ação geralmente contém dois perfis técnicos de validação, para gerar um código e enviá-lo.
-  - **VerifyCode** -verifica o código. Essa ação geralmente contém um único perfil técnico de validação.
+  - **SendCode** - Envia um código para o usuário. Esta ação geralmente contém dois perfis técnicos de validação, para gerar um código e enviá-lo.
+  - **VerifyCode** - Verifica o código. Esta ação geralmente contém um único perfil técnico de validação.
 
-No exemplo a seguir, uma caixa de texto de **email** é exibida na página. Quando o usuário insere seu endereço de email e seleciona **SendCode**, a ação **SendCode** é disparada no back-end Azure ad B2C.
+No exemplo abaixo, uma caixa de **texto de e-mail** é exibida na página. Quando o usuário insere seu endereço de e-mail e seleciona **SendCode,** a ação **SendCode** é acionada no back-end Ad B2C do Azure.
 
-Em seguida, o usuário insere o **verificationCode** e seleciona **VerifyCode** para disparar a ação **VerifyCode** no back-end. Se todas as validações forem aprovadas, o **VerificationControl** será considerado concluído e o usuário poderá continuar para a próxima etapa.
+Em seguida, o usuário insere a **verificaçãoCódigo** e seleciona **VerifyCode** para ativar a ação **VerifyCode** no back-end. Se todas as validações passarem, o **Controle de Verificação** será considerado completo e o usuário poderá continuar até a próxima etapa.
 
 ```XML
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">

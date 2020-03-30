@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 3/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1248063c1b4c1b1e124ff671797450dd5c1b8727
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185813"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050163"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação? 
 
@@ -40,94 +40,116 @@ O sistema de autenticação altera e adiciona recursos em uma base contínua par
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 
-Nenhum agendado neste momento.  Veja abaixo as alterações que estão no ou que estão chegando à produção. 
+Nenhum agendado neste momento.  Veja abaixo as mudanças que estão dentro ou chegando à produção. 
 
-## <a name="february-2020"></a>Fevereiro de 2020 
+## <a name="march-2020"></a>março de 2020 
 
-### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Fragmentos vazios serão anexados a cada redirecionamento HTTP do ponto de extremidade de logon. 
+### <a name="user-passwords-will-be-restricted-to-256-characters"></a>As senhas de usuário serão restritas a 256 caracteres.
 
-**Data de efetivação**: 8 de fevereiro de 2020
+**Data de vigência**: 13 de março de 2020
 
 **Pontos de extremidade afetados**: v1.0 e v2.0
 
-**Protocolo afetado**: fluxos OAuth e OIDC que usam response_type = Query – isso abrange o [fluxo do código de autorização](v2-oauth2-auth-code-flow.md) em alguns casos e o [fluxo implícito](v2-oauth2-implicit-grant-flow.md). 
+**Protocolo impactado**: Todos os fluxos de usuário. 
 
-Quando uma resposta de autenticação é enviada do login.microsoftonline.com para um aplicativo via redirecionamento HTTP, o serviço acrescentará um fragmento vazio à URL de resposta.  Isso impede uma classe de ataques de redirecionamento, garantindo que o navegador apague qualquer fragmento existente na solicitação de autenticação.  Nenhum aplicativo deve ter uma dependência desse comportamento. 
+Os usuários com senhas com mais de 256 caracteres que fazem login diretamente no Azure AD (em oposição a um IDP federado como o ADFS) não poderão entrar a partir de 13 de março de 2020 e serão solicitados a redefinir sua senha.  Os admins podem receber solicitações para ajudar a redefinir a senha dos usuários. 
+
+O erro nos logs de login será AADSTS 50052: InvalidPasswordExceedsMaxLength
+
+Mensagem:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+
+Remediação:
+
+O usuário não pode fazer login porque sua senha excede o comprimento máximo permitido. Eles devem entrar em contato com o seu admin para redefinir a senha. Se o SSPR estiver habilitado para o inquilino, ele poderá redefinir sua senha seguindo o link "Esqueci sua senha".
+
+
+
+## <a name="february-2020"></a>Fevereiro de 2020 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Fragmentos vazios serão anexados a cada redirecionamento HTTP do ponto final de login. 
+
+**Data de vigência**: 8 de fevereiro de 2020
+
+**Pontos de extremidade afetados**: v1.0 e v2.0
+
+**Protocolo impactado**: Fluxos OAuth e OIDC que usam response_type=consulta - isso abrange o fluxo de [código de autorização](v2-oauth2-auth-code-flow.md) em alguns casos, e o fluxo [implícito](v2-oauth2-implicit-grant-flow.md). 
+
+Quando uma resposta de autenticação é enviada de login.microsoftonline.com para um aplicativo via redirecionamento HTTP, o serviço anexará um fragmento vazio à URL de resposta.  Isso evita uma classe de ataques de redirecionamento, garantindo que o navegador elimine qualquer fragmento existente na solicitação de autenticação.  Nenhum aplicativo deve ter uma dependência desse comportamento. 
 
 
 ## <a name="august-2019"></a>Agosto de 2019
 
-### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>A semântica do formulário de POSTAgem será imposta mais estritamente espaços e aspas será ignorada
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Semântica pós-forma será aplicada mais estritamente - espaços e citações serão ignorados
 
-**Data de efetivação**: 2 de setembro de 2019
+**Data de vigência**: 2 de setembro de 2019
 
 **Pontos de extremidade afetados**: v1.0 e v2.0
 
-**Protocolo afetado**: a postagem em qualquer lugar é usada ([credenciais do cliente](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), resgate de [código de autorização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [obo](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e resgate de [token de atualização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Protocolo impactado**: Em qualquer lugar usado[(credenciais do cliente,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) [resgate de código de autorização,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) [ROPC,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e [resgate de tokens de atualização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
 
-A partir da semana de 9/2, as solicitações de autenticação que usam o método POST serão validadas usando padrões de HTTP mais estritos.  Especificamente, espaços e aspas duplas (") não serão mais removidos dos valores do formulário de solicitação. Não se espera que essas alterações interrompam os clientes existentes e garantirão que as solicitações enviadas ao Azure AD sejam manipuladas de forma confiável a cada vez. No futuro (veja acima), planejamos rejeitar ainda mais parâmetros duplicados e ignorar a BOM em solicitações. 
+A partir da semana de 02/09, as solicitações de autenticação que utilizam o método POST serão validadas usando padrões HTTP mais rigorosos.  Especificamente, espaços e aspas duplas (") não serão mais removidos dos valores do formulário de solicitação. Essas alterações não devem quebrar nenhum cliente existente e garantirão que as solicitações enviadas ao Azure AD sejam tratadas de forma confiável todas as vezes. No futuro (ver acima) planejamos rejeitar adicionalmente parâmetros duplicados e ignorar o BOM dentro das solicitações. 
 
 Exemplo:
 
-Hoje, `?e=    "f"&g=h` é analisada de forma idêntica como `?e=f&g=h`-so `e` == `f`.  Com essa alteração, agora ela seria analisada para que `e` == `    "f"`-é improvável que seja um argumento válido, e a solicitação agora falharia. 
+Hoje, `?e=    "f"&g=h` é analisado de `?e=f&g=h` forma idêntica `e`  ==  `f`como - assim .  Com essa mudança, seria agora analisado de `e`  ==  `    "f"` modo que - este é improvável ser um argumento válido, e o pedido agora fracassaria. 
 
 
 ## <a name="july-2019"></a>Julho de 2019
 
-### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Tokens somente de aplicativo para aplicativos de locatário único só serão emitidos se o aplicativo cliente existir no locatário de recursos
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Os tokens somente de aplicativos para aplicativos de inquilino único só são emitidos se o aplicativo cliente existir no inquilino de recursos
 
-**Data de efetivação**: 26 de julho de 2019
+**Data de vigência**: 26 de julho de 2019
 
-**Pontos de extremidade afetados**: [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Pontos finais impactados**: [Tanto v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) quanto [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
-**Protocolo afetado**: [credenciais de cliente (tokens somente de aplicativo)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protocolo impactado:** [Credenciais do cliente (tokens somente para aplicativos)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-Uma alteração de segurança entrou em 26 de julho que altera a maneira como os tokens somente de aplicativo (por meio da concessão de credenciais de cliente) são emitidos. Anteriormente, os aplicativos eram autorizados a obter tokens para chamar qualquer outro aplicativo, independentemente da presença no locatário ou das funções consentidas para esse aplicativo.  Esse comportamento foi atualizado para que, para recursos (às vezes chamados de APIs da Web) definido como um único locatário (o padrão), o aplicativo cliente deve existir dentro do locatário do recurso.  Observe que o consentimento existente entre o cliente e a API ainda não é necessário, e os aplicativos ainda devem estar fazendo suas próprias verificações de autorização para garantir que uma declaração de `roles` esteja presente e contenha o valor esperado para a API.
+Uma mudança de segurança entrou em operação em 26 de julho, que altera a forma como os tokens somente de aplicativos (através da concessão de credenciais do cliente) são emitidos. Anteriormente, os aplicativos eram autorizados a obter tokens para chamar qualquer outro aplicativo, independentemente da presença no inquilino ou funções consentiu para esse aplicativo.  Esse comportamento foi atualizado para que, para que os recursos (às vezes chamados de APIs da Web) definidos como inquilino único (o padrão), o aplicativo cliente deve existir dentro do inquilino de recursos.  Observe que o consentimento existente entre o cliente e a API ainda não é necessário, `roles` e os aplicativos ainda devem estar fazendo suas próprias verificações de autorização para garantir que uma reclamação esteja presente e contenha o valor esperado para a API.
 
-A mensagem de erro para este cenário declara atualmente: 
+A mensagem de erro para este cenário atualmente afirma: 
 
 `The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
 
-Para corrigir esse problema, use a experiência de consentimento do administrador para criar a entidade de serviço do aplicativo cliente em seu locatário ou crie-a manualmente.  Esse requisito garante que o locatário tenha concedido a permissão do aplicativo para operar dentro do locatário.  
+Para remediar esse problema, use a experiência de Consentimento De Dum para criar o principal de serviço de solicitação do cliente em seu inquilino ou criá-lo manualmente.  Essa exigência garante que o inquilino tenha dado permissão ao aplicativo para operar dentro do inquilino.  
 
 #### <a name="example-request"></a>Solicitação de exemplo
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` neste exemplo, o locatário (autoridade) do recurso é contoso.com, o aplicativo de recurso é um aplicativo de locatário único chamado `gateway.contoso.com/api` para o locatário da Contoso e o aplicativo cliente é `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  Se o aplicativo cliente tiver uma entidade de serviço dentro de Contoso.com, essa solicitação poderá continuar.  No entanto, se isso não acontecer, a solicitação falhará com o erro acima.  
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`Neste exemplo, o inquilino de recursos (autoridade) é contoso.com, o `gateway.contoso.com/api` aplicativo de recursos é um `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`aplicativo de inquilino único chamado para o inquilino contoso, e o aplicativo cliente é .  Se o aplicativo do cliente tiver um principal de serviço dentro de Contoso.com, essa solicitação pode continuar.  Se isso não funcionar, no entanto, a solicitação falhará com o erro acima.  
 
-No entanto, se o aplicativo de gateway da Contoso fosse de vários locatários, a solicitação continuaria independentemente do aplicativo cliente ter uma entidade de serviço em Contoso.com.  
+Se o aplicativo de gateway Contoso fosse um aplicativo multi-inquilino, no entanto, a solicitação continuaria independentemente do aplicativo cliente ter um principal de serviço dentro Contoso.com.  
 
-### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>URIs de redirecionamento agora podem conter parâmetros de cadeia de caracteres de consulta
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Uris de redirecionamento agora podem conter parâmetros de seqüência de consulta
 
-**Data de efetivação**: 22 de julho de 2019
+**Data de vigência**: 22 de julho de 2019
 
 **Pontos de extremidade afetados**: v1.0 e v2.0
 
-**Protocolo afetado**: todos os fluxos
+**Protocolo impactado**: Todos os fluxos
 
-Por [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), os aplicativos do Azure ad agora podem registrar e usar URIs de redirecionamento (resposta) com parâmetros de consulta estáticos (como https://contoso.com/oauth2?idp=microsoft) para solicitações do OAuth 2,0.  URIs de redirecionamento dinâmico ainda são proibidos, pois representam um risco de segurança, e isso não pode ser usado para reter informações de estado em uma solicitação de autenticação-para isso, use o parâmetro `state`.
+Por [RFC 6749,](https://tools.ietf.org/html/rfc6749#section-3.1.2)os aplicativos Azure AD agora podem se registrar e usar URIs de redirecionamento (resposta) com parâmetros de consulta estática (como `https://contoso.com/oauth2?idp=microsoft`) para solicitações OAuth 2.0.  Uris de redirecionamento dinâmico ainda são proibidos, pois representam um risco de segurança, e isso `state` não pode ser usado para reter informações de estado através de uma solicitação de autenticação - para isso, use o parâmetro.
 
-O parâmetro de consulta estática está sujeito à correspondência de cadeia de caracteres para URIs de redirecionamento como qualquer outra parte do URI de redirecionamento-se nenhuma cadeia de caracteres estiver registrada que corresponda à redirect_uri decodificada por URI, a solicitação será rejeitada.  Se o URI for encontrado no registro do aplicativo, a cadeia de caracteres inteira será usada para redirecionar o usuário, incluindo o parâmetro de consulta estática. 
+O parâmetro de consulta estática está sujeito à correspondência de seqüência de strings para redirecionar URIs como qualquer outra parte do URI de redirecionamento - se nenhuma seqüência for registrada que corresponda ao redirect_uri decodificado uri, então a solicitação será rejeitada.  Se o URI for encontrado no registro do aplicativo, toda a seqüência será usada para redirecionar o usuário, incluindo o parâmetro de consulta estática. 
 
-Observe que, neste momento (fim de julho de 2019), o UX de registro de aplicativo no portal do Azure ainda bloqueia parâmetros de consulta.  No entanto, você pode editar o manifesto do aplicativo manualmente para adicionar parâmetros de consulta e testá-lo em seu aplicativo.  
+Observe que neste momento (final de julho de 2019), o ux de registro de aplicativo no portal Azure ainda bloqueia os parâmetros de consulta.  No entanto, você pode editar o manifesto do aplicativo manualmente para adicionar parâmetros de consulta e testá-lo em seu aplicativo.  
 
 
 ## <a name="march-2019"></a>Março de 2019
 
-### <a name="looping-clients-will-be-interrupted"></a>Os clientes de loop serão interrompidos
+### <a name="looping-clients-will-be-interrupted"></a>Os clientes de looping serão interrompidos
 
-**Data de efetivação**: 25 de março de 2019
+**Data de vigência**: 25 de março de 2019
 
 **Pontos de extremidade afetados**: v1.0 e v2.0
 
-**Protocolo afetado**: todos os fluxos
+**Protocolo impactado**: Todos os fluxos
 
-Às vezes, os aplicativos cliente podem se comportar, emitindo centenas da mesma solicitação de logon em um curto período de tempo.  Essas solicitações podem ou não ser bem-sucedidas, mas todas contribuem para a má experiência do usuário e cargas de trabalho aumentadas para o IDP, aumentando a latência para todos os usuários e reduzindo a disponibilidade do IDP.  Esses aplicativos estão operando fora dos limites de uso normal e devem ser atualizados para se comportarem corretamente.  
+Os aplicativos clientes às vezes podem se comportar mal, emitindo centenas da mesma solicitação de login em um curto período de tempo.  Essas solicitações podem ou não ser bem sucedidas, mas todas contribuem para a baixa experiência do usuário e cargas de trabalho aumentadas para o IDP, aumentando a latência para todos os usuários e reduzindo a disponibilidade do IDP.  Essas aplicações estão operando fora dos limites de uso normal, e devem ser atualizadas para se comportarem corretamente.  
 
-Os clientes que emitirem solicitações duplicadas várias vezes receberão um erro de `invalid_grant`: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+Os clientes que emitirem solicitações duplicadas várias vezes serão enviados um `invalid_grant` erro: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
 
-A maioria dos clientes não precisará alterar o comportamento para evitar esse erro.  Somente clientes mal configurados (aqueles sem cache de token ou aqueles que exibem loops de prompt já) serão afetados por esse erro.  Os clientes são acompanhados em uma base por instância localmente (via cookie) nos seguintes fatores:
+A maioria dos clientes não precisará mudar de comportamento para evitar esse erro.  Apenas clientes mal configurados (aqueles sem cache de token ou aqueles que já exibem loops imediatos) serão impactados por esse erro.  Os clientes são rastreados por instância localmente (via cookie) sobre os seguintes fatores:
 
-* Dica de usuário, se houver
+* Dica do usuário, se houver
 
 * Escopos ou recursos sendo solicitados
 
@@ -137,9 +159,9 @@ A maioria dos clientes não precisará alterar o comportamento para evitar esse 
 
 * Tipo e modo de resposta
 
-Os aplicativos que fazem várias solicitações (15 +) em um curto período de tempo (5 minutos) receberão um erro `invalid_grant` explicando que eles estão em loop.  Os tokens que estão sendo solicitados têm tempos de vida de vida longa suficiente (10 minutos no mínimo, 60 minutos por padrão), portanto, solicitações repetidas nesse período de tempo são desnecessárias.  
+Os aplicativos que fizerem várias solicitações (15+) em `invalid_grant` um curto período de tempo (5 minutos) receberão um erro explicando que estão em looping.  Os tokens solicitados têm vida útil suficientemente longa (mínimo de 10 minutos, 60 minutos por padrão), de modo que solicitações repetidas durante esse período de tempo são desnecessárias.  
 
-Todos os aplicativos devem lidar `invalid_grant` mostrando um prompt interativo, em vez de solicitar silenciosamente um token.  Para evitar esse erro, os clientes devem garantir que eles estejam armazenando em cache corretamente os tokens recebidos.
+Todos os `invalid_grant` aplicativos devem lidar mostrando um prompt interativo, em vez de solicitar silenciosamente um token.  Para evitar esse erro, os clientes devem garantir que estão registrando corretamente os tokens que recebem.
 
 
 ## <a name="october-2018"></a>Outubro de 2018
@@ -166,7 +188,7 @@ Para obter mais informações sobre tokens de atualização, consulte [Atualiza�
 
 **Pontos de extremidade afetados**: v1.0 e v2.0
 
-**Protocolos afetados**: fluxo implícito e [fluxo em nome de](v2-oauth2-on-behalf-of-flow.md)
+**Protocolos impactados**: Fluxo implícito e [em nome do fluxo](v2-oauth2-on-behalf-of-flow.md)
 
 Após 1 de maio de 2018, os id_tokens não podem ser usados como a declaração em um Fluxo OBO para novos aplicativos. Em vez disso, é necessário usar tokens de acesso para proteger as APIs, até mesmo entre um cliente e a camada intermediária do mesmo aplicativo. Os aplicativos registrados antes de 1º de maio de 2018 continuarão funcionando e poderão trocar id_tokens por um token de acesso, no entanto, esse padrão não é considerado uma melhor prática.
 

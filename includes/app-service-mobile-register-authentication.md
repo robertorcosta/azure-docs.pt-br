@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172414"
 ---
 Primeiro, é necessário registrar seu aplicativo em um site do provedor de identidade. Em seguida, você definirá as credenciais geradas pelo provedor no back-end dos Aplicativos Móveis.

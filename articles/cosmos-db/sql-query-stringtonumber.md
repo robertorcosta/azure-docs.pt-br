@@ -1,5 +1,5 @@
 ---
-title: StringToNumber na linguagem de consulta Azure Cosmos DB
+title: StringToNumber no idioma de consulta do Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL StringToNumber no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78296415"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
- Retorna a expressão convertida em um número. Se a expressão não puder ser convertida, retornará indefinido.  
+ Retorna a expressão traduzida para um número. Se a expressão não puder ser traduzida, retorna indefinida.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,17 +26,17 @@ StringToNumber(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de cadeia de caracteres a ser analisada como uma expressão de número JSON. Os números em JSON devem ser um número inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)  
+   É uma expressão de string a ser analisado como uma expressão número JSON. Os números em JSON devem ser um inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, consulte [json.org](https://json.org/)  
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Retorna uma expressão de número ou indefinido.  
+  Retorna uma expressão Número ou indefinida.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como `StringToNumber` se comporta entre diferentes tipos. 
+  O exemplo a `StringToNumber` seguir mostra como se comporta entre diferentes tipos. 
 
-O espaço em branco é permitido somente antes ou depois do número.
+O espaço em branco só é permitido antes ou depois do número.
 
 ```sql
 SELECT 
@@ -52,7 +52,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-Em JSON, um número válido deve ser um número inteiro ou um ponto flutuante.
+Em JSON, um número válido deve ser inteiro ou um número de ponto flutuante.
 
 ```sql
 SELECT   
@@ -65,7 +65,7 @@ SELECT
 {{}}
 ```  
 
-A expressão passada será analisada como uma expressão numérica; essas entradas não são avaliadas como número de tipo e, portanto, retornam indefinidamente. 
+A expressão passada será analisado como uma expressão número; essas entradas não avaliam o número de digitados e, portanto, retornam indefinidas. 
 
 ```sql
 SELECT 
@@ -85,10 +85,10 @@ SELECT
 
 ## <a name="remarks"></a>Comentários
 
-Essa função do sistema não usará o índice.
+Esta função do sistema não utilizará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de string Azure Cosmos DB](sql-query-string-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

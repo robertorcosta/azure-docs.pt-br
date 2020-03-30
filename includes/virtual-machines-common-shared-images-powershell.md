@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,17 +9,17 @@ ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: bae66078a1bcb1d80f0798b1d501598fa785fb80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66241220"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell [https://shell.azure.com/powershell](https://shell.azure.com/powershell)em uma guia de navegador separada indo para . Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
 
 ## <a name="get-the-managed-image"></a>Obter a imagem gerenciada
@@ -34,7 +34,7 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
-Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços. Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
+Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços. Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
 
 Crie uma galeria de imagens usando [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *myGalleryRG*.
 
@@ -51,9 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-Definições de imagem criar um agrupamento lógico de imagens. Eles são usados para gerenciar informações sobre as versões de imagem que são criados dentro deles. Nomes de definição de imagem podem ser compostos por períodos, dígitos, pontos, traços e letras maiusculas ou minúsculas. Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Definições de imagem criam um agrupamento lógico para imagens. Eles são usados para gerenciar informações sobre as versões de imagem que são criadas dentro delas. Os nomes de definição de imagem podem ser compostos de letras maiúsculas ou minúsculas, dígitos, pontilhados, traços e períodos. Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [Definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Criar a definição de imagem usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem da galeria é denominada *myGalleryImage*.
+Crie a definição de imagem usando [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem da galeria é denominada *myGalleryImage*.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -71,11 +71,11 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
-Criar uma versão de imagem de uma imagem gerenciada usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Crie uma versão de imagem a partir de uma imagem gerenciada usando [new-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
 
-Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher as regiões de destino para replicação, lembre-se de que você também terá que incluir o *origem* região como um destino para replicação.
+Neste exemplo, a versão da imagem é *1.0.0* e ela é replicado para os datacenters *Centro-Oeste dos EUA* e *Centro-Sul dos EUA*. Ao escolher regiões-alvo para replicação, lembre-se de que você também precisa incluir a região *de origem* como um alvo para replicação.
 
 
 ```azurepowershell-interactive
@@ -101,15 +101,15 @@ $job.State
 ```
 
 > [!NOTE]
-> Você precisa esperar para a versão da imagem concluir completamente que está sendo criado e replicadas antes de você pode usar a mesma imagem gerenciada para criar outra versão da imagem. 
+> Você precisa esperar que a versão da imagem termine completamente de ser construída e replicada antes de poder usar a mesma imagem gerenciada para criar outra versão de imagem. 
 >
-> Você também pode armazenar a versão de imagem no [armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` quando você cria a versão da imagem.
+> Você também pode armazenar sua versão de `-StorageAccountType Standard_ZRS` imagem no Zone Redundant [Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando quando você cria a versão de imagem.
 >
 
 
-## <a name="share-the-gallery"></a>Compartilhar a Galeria
+## <a name="share-the-gallery"></a>Compartilhe a galeria
 
-É recomendável que você compartilhe o acesso no nível da Galeria de imagem. Usar um endereço de email e o [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet para obter a ID de objeto para o usuário e, em seguida, use [New AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para ter acesso à Galeria. Substitua o email de exemplo, alinne_montes@contoso.com neste exemplo, com suas próprias informações.
+Recomendamos que você compartilhe o acesso ao nível da galeria de imagens. Use um endereço de e-mail e o cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para obter o ID do objeto para o usuário e, em seguida, use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para dar-lhes acesso à galeria. Substitua o alinne_montes@contoso.com e-mail de exemplo, neste exemplo, por suas próprias informações.
 
 ```azurepowershell-interactive
 # Get the object ID for the user

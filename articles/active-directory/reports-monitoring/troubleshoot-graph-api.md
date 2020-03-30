@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d1fb4f49e4f9ad41f971d869873200e6180b5cd
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399289"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Solucionar erros na API de relatório do Azure Active Directory
@@ -44,11 +44,11 @@ Se essa mensagem de erro for exibida quando você tentar acessar os logs de audi
 
 Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja em execução com o conjunto certo de permissões. 
 
-### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Erro: o aplicativo não tem a permissão "ler todos os dados de log de auditoria" da API Microsoft Graph
+### <a name="error-application-missing-microsoft-graph-api-read-all-audit-log-data-permission"></a>Erro: API do Microsoft Graph ausente 'Leia todos os dados do registro de auditoria'
 
 Siga as etapas nos [Pré-requisitos para acessar a API de relatório do Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md) para garantir que seu aplicativo esteja em execução com o conjunto certo de permissões. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-[Usar a referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
-[Usar a referência de API de relatório de atividades de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+[Use a referência](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit)
+da API de auditoria[Use a referência de API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) do relatório de atividade de login

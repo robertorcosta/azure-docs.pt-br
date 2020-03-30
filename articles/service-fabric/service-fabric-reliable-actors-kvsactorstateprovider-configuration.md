@@ -1,15 +1,15 @@
 ---
-title: Alterar configurações de KVSActorStateProvider
+title: Alterar configurações do KVSActorStateProvider
 description: Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo KVSActorStateProvider.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609767"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider
@@ -48,7 +48,7 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 | RetryInterval |Segundos |5 |Período de tempo após o qual o replicador transmite novamente uma mensagem caso não receba uma confirmação para uma operação. |
 | MaxReplicationMessageSize |Bytes |50 MB |Tamanho máximo de dados de replicação que podem ser transmitidos em uma única mensagem. |
 | MaxPrimaryReplicationQueueSize |Número de operações |1024 |Número máximo de operações na fila principal. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2. |
-| MaxSecondaryReplicationQueueSize |Número de operações |2\.048 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
+| MaxSecondaryReplicationQueueSize |Número de operações |2.048 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
 
 ## <a name="store-configuration"></a>Configuração de armazenamento
 As configurações de armazenamento servem para configurar o armazenamento local que é usado para manter o estado que está sendo replicado.

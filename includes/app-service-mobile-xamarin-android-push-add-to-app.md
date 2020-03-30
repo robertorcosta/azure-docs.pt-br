@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172429"
 ---
 1. Crie uma nova classe no projeto chamado `ToDoBroadcastReceiver`.
@@ -49,7 +49,7 @@ ms.locfileid: "67172429"
     }
     ```
 
-    No código acima, você deve substituir *`<PROJECT_NUMBER>`* pelo número do projeto atribuído pelo Google ao provisionar o aplicativo no portal do desenvolvedor do Google. 
+    No código acima, você *`<PROJECT_NUMBER>`* deve substituir com o número do projeto atribuído pelo Google quando você provisionou seu aplicativo no portal de desenvolvedores do Google. 
 
 5. No arquivo de projeto ToDoBroadcastReceiver.cs, adicione o código a seguir, que define a classe **PushHandlerService** :
 
@@ -66,7 +66,7 @@ ms.locfileid: "67172429"
     Observe que essa classe deriva de **GcmServiceBase** e que o atributo **Service** deve ser aplicado a essa classe.
 
     > [!NOTE]
-    > A classe **GcmServiceBase** implementa os métodos **OnRegistered()** , **OnUnRegistered()** , **OnMessage()** e **OnError()** . Você deve substituir esses métodos na classe **PushHandlerService** .
+    > A classe **GcmServiceBase** implementa os métodos **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** e **OnError()**. Você deve substituir esses métodos na classe **PushHandlerService** .
 
 6. Adicione o código a seguir à classe **PushHandlerService** que substitui o manipulador de eventos **OnRegistered**.
 
@@ -109,7 +109,7 @@ ms.locfileid: "67172429"
     }
     ```
 
-    Esse método usa a ID de registro retornada do GCM para registrar-se no Azure para notificações por push. Marcas só podem ser adicionadas ao registro depois que ele é criado. Para obter mais informações, confira [Como: Adicionar marcas à instalação de um dispositivo para habilitar o envio por push para marcas](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Esse método usa a ID de registro retornada do GCM para registrar-se no Azure para notificações por push. Marcas só podem ser adicionadas ao registro depois que ele é criado. Para obter mais informações, veja [Como: adicionar marcas à instalação de um dispositivo para habilitar o envio por push para marcas](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Substitua o método **OnMessage** no **PushHandlerService** pelo código a seguir:
 

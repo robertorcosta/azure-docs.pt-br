@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172437"
 ---
 Devido ao desenvolvimento contínuo, a versão do SDK do Android instalada no Android Studio pode não corresponder à versão no código. O SDK do Android referenciado neste tutorial é a versão 26, a mais recente no momento desta edição. O número da versão pode aumentar à medida que aparecem novas versões do SDK e é recomendável usar a versão mais recente disponível.
@@ -20,9 +20,9 @@ Dois sintomas da incompatibilidade de versão são:
 
 Se um deles for exibido, a versão do SDK do Android instalado no Android Studio poderá não coincidir com o destino do SDK do projeto baixado. Para verificar a versão, faça as seguintes alterações:
 
-1. No Android Studio, clique em **Ferramentas** > **Android** > **Gerenciador de SDK**. Se você não tiver instalado a versão mais recente da plataforma do SDK, clique para instalá-la. Anote o número da versão.
+1. No Android Studio, clique em **Ferramentas** > **Android** > **SDK Manager**. Se você não tiver instalado a versão mais recente da plataforma do SDK, clique para instalá-la. Anote o número da versão.
 
-2. Na guia **Gerenciador de Projetos**, em **Scripts Gradle**, abra o arquivo **build.gradle (módulo: aplicativo)** . Verifique se **compileSdkVersion** e **targetSdkVersion** estão definidos para a versão do SDK mais recente instalada. O `build.gradle` pode ter esta aparência:
+2. Na guia **Gerenciador de Projetos**, em **Scripts Gradle**, abra o arquivo **build.gradle (módulo: aplicativo)**. Verifique se **compileSdkVersion** e **targetSdkVersion** estão definidos para a versão do SDK mais recente instalada. O `build.gradle` pode ter esta aparência:
 
     ```gradle
     android {

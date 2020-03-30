@@ -1,5 +1,5 @@
 ---
-title: Versão de Microsoft Threat Modeling Tool 1/29/2019
+title: Microsoft Threat Modeling Tool lançamento 29/01/2019
 titleSuffix: Azure
 description: Documentando as notas sobre a versão da Threat Modeling Tool
 author: jegeib
@@ -9,17 +9,17 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/25/2019
 ms.openlocfilehash: 7d0be8d7243331264c10a407e3d78370ea798928
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269766"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Versão 7.1.60126.1 de atualização da Threat Modeling Tool – 29/01/2019
 
 A versão 7.1.60126.1 do Microsoft Threat Modeling Tool foi lançada em 29 de janeiro de 2019 e contêm as seguintes alterações:
 
-- A versão mínima necessária do .NET foi aumentada para o [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
+- A versão mínima necessária do .NET foi aumentada para [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - A versão mínima exigida do Windows foi aumentada para a [Atualização de Aniversário do Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) devido à dependência do .NET.
 - Um recurso de alternância de validação de modelo foi adicionado ao menu Opções da ferramenta.
 - Vários links nas Propriedades da Ameaça foram atualizados.
@@ -30,7 +30,7 @@ A versão 7.1.60126.1 do Microsoft Threat Modeling Tool foi lançada em 29 de ja
 
 ### <a name="model-validation-option"></a>Opção de validação de modelo
 
-Com base nos comentários dos clientes, foi adicionada uma opção à ferramenta para habilitar ou desabilitar a validação do modelo. Anteriormente, se o modelo usava um único fluxo de dados unidirecional entre dois objetos, você pode ter recebido uma mensagem de erro no quadro mensagens informando: ObjectName requer pelo menos um ' any '. Desabilitar a validação do modelo impedirá que esses avisos apareçam na exibição.
+Com base nos comentários dos clientes, foi adicionada uma opção à ferramenta para habilitar ou desabilitar a validação do modelo. Anteriormente, se o seu modelo usou um único fluxo de dados unidirecional entre dois objetos, você pode ter recebido uma mensagem de erro no quadro Mensagens afirmando: ObjectsName requer pelo menos um 'Qualquer'. Desabilitar a validação do modelo impedirá que esses avisos apareçam na exibição.
 
 A opção de ativar e desativar a validação de modelo pode ser encontrada no menu Arquivo -> Configurações -> Opções. O valor padrão dessa configuração é Desabilitado.
 
@@ -39,7 +39,7 @@ A opção de ativar e desativar a validação de modelo pode ser encontrada no m
 ## <a name="system-requirements"></a>Requisitos do sistema
 
 - Sistemas operacionais com suporte
-  - [Atualização de Aniversário do Microsoft Windows 10 ou posterior](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)
+  - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
 - Versão necessária do .NET
   - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
 - Requisitos adicionais
@@ -61,6 +61,6 @@ Os usuários do Windows 10 Enterprise LTSB (versão 1507) que instalaram a atual
 
 - A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Baixe a versão mais recente da [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

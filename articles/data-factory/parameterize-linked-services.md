@@ -11,17 +11,17 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: acc7284eb607d20ca1d62b478d802be56048bc6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440105"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços vinculados no Azure Data Factory
 
 Agora é possível parametrizar um serviço vinculado e passar valores dinâmicos em tempo de execução. Por exemplo, se você quiser conectar diferentes bancos de dados no mesmo servidor do Banco de Dados SQL do Azure poderá parametrizar o nome do banco de dados na definição de serviço vinculado. Isso evita a necessidade de criar um serviço vinculado para cada banco de dados no servidor do banco de dados SQL do Azure. Também é possível parametrizar outras propriedades na definição de serviço vinculado - por exemplo, *Nome de usuário.*
 
-Você pode usar a interface do usuário do Data Factory no portal do Azure ou uma interface de programação para parametrizar os serviços vinculados.
+Você pode usar a Interface do Usuário da Fábrica de Dados no portal Azure ou uma interface de programação para parametrizar serviços vinculados.
 
 > [!TIP]
 > É recomendável não parametrizar senhas ou segredos. Armazene todas as cadeias de conexão no Azure Key Vault e defina o *Nome secreto*.
@@ -33,8 +33,8 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 ## <a name="supported-data-stores"></a>Armazenamento de dados com suporte
 
 Atualmente, há suporte para parametrização do serviço vinculado na interface do usuário do Data Factory no portal do Azure para os seguintes armazenamentos de dados. Para todos os outros armazenamentos de dados, é possível parametrizar o serviço vinculado selecionando o ícone de **Código** na guia **Conexões** e usando o editor JSON.
-- Banco de dados SQL do Azure
-- Azure SQL Data Warehouse
+- Banco de Dados SQL do Azure
+- SQL Data Warehouse do Azure
 - SQL Server
 - Oracle
 - Cosmos DB

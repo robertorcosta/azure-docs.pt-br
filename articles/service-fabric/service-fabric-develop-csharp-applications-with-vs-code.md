@@ -1,15 +1,15 @@
 ---
-title: Desenvolva aplicativos .NET Core com Visual Studio Code
+title: Desenvolver aplicações .NET Core com Visual Studio Code
 description: Este artigo mostra como compilar, implantar e depurar aplicativos do Microsoft Azure Service Fabric .Net Core usando o Visual Studio Code.
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614516"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos C# do Microsoft Azure Service Fabric com o Visual Studio Code
@@ -57,26 +57,26 @@ O aplicativo agora deve aparecer no seu workspace do Visual Studio Code.
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Implantar um aplicativo no cluster local
 Após a compilação do aplicativo, você pode implantá-lo no cluster local. 
 
-1. Da **Paleta de Comandos**, selecione o **Service Fabric: comando implantar o aplicativo (Localhost)** . A saída do processo de instalação é enviada para o terminal integrado.
+1. Da **Paleta de Comandos**, selecione o **Service Fabric: comando implantar o aplicativo (Localhost)**. A saída do processo de instalação é enviada para o terminal integrado.
 
    ![Implantar o comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Quando a implantação for concluída, inicie um navegador e abra Service Fabric Explorer: http:\//localhost: 19080/Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
+4. Quando a implantação estiver concluída, inicie um navegador\/e abra o Service Fabric Explorer: http: /localhost:19080/Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
    ![Aplicativo de serviço de contador no Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Depois de verificar se o aplicativo está em execução, inicie um navegador e abra esta página: http:\//localhost: 31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
+4. Depois de verificar se o aplicativo está sendo executado, inicie\/um navegador e abra esta página: http: /localhost:31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
 
    ![Aplicativo de serviço de contador no navegador](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
-## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publicar o aplicativo em um cluster de Service Fabric do Azure
-Juntamente com a implantação do aplicativo no cluster local, você também pode publicar o aplicativo em um cluster remoto Service Fabric do Azure. 
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publique o aplicativo em um cluster de malha de serviço do Azure
+Além de implantar o aplicativo no cluster local, você também pode publicar o aplicativo em um cluster remoto de malha de serviço do Azure. 
 
-1. Verifique se você criou seu aplicativo usando as instruções acima. Atualize o arquivo de configuração gerado `Cloud.json` com os detalhes do cluster remoto no qual você deseja publicar.
+1. Certifique-se de que você construiu sua aplicação usando as instruções acima. Atualize o `Cloud.json` arquivo de configuração gerado com os detalhes do cluster remoto para o que deseja publicar.
 
-2. Na **paleta de comandos**, selecione o **comando Service Fabric: publicar aplicativo**. A saída do processo de instalação é enviada para o terminal integrado.
+2. Na **paleta de comando,** selecione o **comando Malha de serviço: Publicar aplicativo**. A saída do processo de instalação é enviada para o terminal integrado.
 
-   ![Comando publicar aplicativo no VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+   ![Publicar comando de aplicativo em código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
 3. Quando a implantação for concluída, inicie um navegador e abra o Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
@@ -93,7 +93,7 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
 
    ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Abra Service Fabric Explorer em um navegador: http:\//localhost: 19080/Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
+3. Abrir o Service Fabric Explorer\/em um navegador: http: /localhost:19080/Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
 
    ![Nó principal para CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
@@ -111,7 +111,7 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
        
 7. Quando você terminar a depuração, você pode usar o **Service Fabric: remover o comando do aplicativo** para remover o aplicativo CounterService do seu cluster local. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [desenvolver aplicativos Microsoft Azure Service Fabric Java com Visual Studio Code](./service-fabric-develop-java-applications-with-vs-code.md).
 

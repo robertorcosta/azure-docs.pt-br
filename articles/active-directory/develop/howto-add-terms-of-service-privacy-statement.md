@@ -1,5 +1,5 @@
 ---
-title: Termos de serviço e política de privacidade para aplicativos | Azure
+title: Termos de Serviço e declaração de privacidade para aplicativos | Azure
 description: Saiba como você pode configurar os termos de declaração de privacidade e de serviço de aplicativo registrado para usar o AD do Azure.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300002"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar termos de serviço e declaração de privacidade para um aplicativo
 
 Os desenvolvedores que criam e gerenciar aplicativos que se integram ao Azure Active Directory (AD do Azure) e contas da Microsoft devem incluir links para os termos do aplicativo de serviço e declarações de privacidade. Os termos de serviço e a declaração de privacidade são revelados aos usuários por meio da experiência de consentimento do usuário. Eles ajudam seus usuários a saberem que podem confiar em seu aplicativo. Os termos da declaração de privacidade e de serviço são especialmente importantes para aplicativos de multilocação voltadas para o usuário – aplicativos que são usados por vários diretórios ou estão disponíveis para qualquer conta da Microsoft.
 
@@ -41,7 +41,7 @@ Antes de adicionar links aos termos de serviço e aos documentos da declaração
 
 | Diretriz     | Descrição                           |
 |---------------|---------------------------------------|
-| Formato        | URL Válida                             |
+| Formatar        | URL Válida                             |
 | Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
 | Comprimento máximo    | 2048 caracteres                       |
 
@@ -51,22 +51,22 @@ Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-stat
 
 Quando os termos de serviço e a declaração de privacidade estiverem prontos, você poderá adicionar links para esses documentos no seu aplicativo usando um destes métodos:
 
-* [ através do portal do Azure ](#azure-portal)
+* [Através do portal Azure](#azure-portal)
 * [ Usando o objeto de aplicativo JSON ](#app-object-json)
-* [Usando a API de Microsoft Graph](#msgraph-rest-api)
+* [Usando a API do Microsoft Graph](#msgraph-rest-api)
 
-### <a name="azure-portal"></a>Usando o portal do Azure
-Siga estas etapas na portal do Azure.
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Usando o portal Azure
+Siga estas etapas no portal Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 2. Navegue até a seção **Registros de aplicativo** e selecione seu aplicativo.
-3. Abra o painel de **identidade visual** .
+3. Abra o painel **branding.**
 4. Preencha os campos da **URL de termos de serviço** e **Política de privacidade**.
 5. Salve suas alterações.
 
-    ![As propriedades do aplicativo contêm termos de serviço e URLs de política de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![As propriedades do aplicativo contêm termos de serviço e urls de declaração de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="app-object-json"></a> Usando o objeto de aplicativo JSON
+### <a name="using-the-app-object-json"></a><a name="app-object-json"></a> Usando o objeto de aplicativo JSON 
 
 Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usar o editor de manifesto no Portal do Azure ou no Portal de Registro do Aplicativo para incluir links para os termos de serviço e a declaração de privacidade do seu aplicativo.
 
@@ -77,9 +77,9 @@ Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usa
     }
 ```
 
-### <a name="msgraph-rest-api"></a>Usando a API de Microsoft Graph
+### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>Usando a API do Microsoft Graph
 
-Para atualizar todos os seus aplicativos programaticamente, você pode usar a API de Microsoft Graph para atualizar todos os seus aplicativos para incluir links para os documentos de termos de serviço e de política de privacidade.
+Para atualizar programáticamente todos os seus aplicativos, você pode usar a API do Microsoft Graph para atualizar todos os seus aplicativos para incluir links para os termos de serviço e documentos de declaração de privacidade.
 
 ```
 PATCH https://graph.microsoft.com/v1.0/applications/{application id}
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 
 > [!NOTE]
 > * Tenha cuidado para não sobrescrever quaisquer valores preexistentes atribuídos a qualquer um desses campos: `supportUrl`, `marketingUrl` e `logoUrl`
-> * A API Microsoft Graph só funciona quando você entra com uma conta do Azure AD. Contas pessoais da Microsoft não são suportadas.
+> * A API do Microsoft Graph só funciona quando você faz login com uma conta AD do Azure. Contas pessoais da Microsoft não são suportadas.

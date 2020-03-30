@@ -1,15 +1,15 @@
 ---
-title: Alterar configurações de FabricTransport
-description: Saiba como definir as configurações de comunicação do ator do Azure Service Fabric para diferentes configurações de ator.
+title: Alterar configurações de transporte de malha
+description: Saiba como configurar as configurações de comunicação do ator azure Service Fabric para diferentes configurações do ator.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: 182b35194a647f5de706f9ada07b8e9db51bb4c2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645575"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Definir as configurações de FabricTransport para os Reliable Actors

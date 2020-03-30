@@ -11,15 +11,15 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c11bc48742c398d2048a236c7d00af044971f845
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78185600"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos dos usuários no Azure Active Directory B2C
 
-A estrutura de política extensível da Azure Active Directory B2C (Azure AD B2C) é a força principal do serviço. As políticas descrevem em detalhe experiências de identidade, tais como inscrição, entrada ou edição de perfil. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos dos usuários**.
+O quadro de política extensível do Azure Active Directory B2C (Azure AD B2C) é a força central do serviço. As políticas descrevem em detalhe experiências de identidade, tais como inscrição, entrada ou edição de perfil. Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos dos usuários**.
 
 ## <a name="what-are-user-flows"></a>O que são fluxos dos usuários?
 
@@ -81,8 +81,8 @@ Um endereço de email pode ser exigido como parte de um fluxo de usuário. Se o 
 
 Não há garantia de que o endereço de email seja verificado em nenhum desses casos. Um administrador de locatários pode desabilitar a verificação de email nas políticas básicas para contas locais. Mesmo se a verificação de endereço de email estiver habilitada, endereços não serão verificados se eles vierem de um provedor de identidade social e não tiverem sido alterados.
 
-Somente as propriedades **otherMails** e **signInNames** são expostas por meio da API Microsoft Graph. O endereço de email na propriedade de detalhe de autenticação forte não está disponível.
+Apenas as **outras propriedades Mails** e **signInNames** são expostas através da API do Microsoft Graph. O endereço de email na propriedade de detalhe de autenticação forte não está disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para criar os fluxos de usuário recomendados, siga as instruções em [tutorial: criar um fluxo de usuário](tutorial-create-user-flows.md).
+Para criar os fluxos de usuário recomendados, siga as instruções no [Tutorial: Crie um fluxo de usuário](tutorial-create-user-flows.md).

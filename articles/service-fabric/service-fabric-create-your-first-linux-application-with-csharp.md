@@ -1,16 +1,16 @@
 ---
-title: Criar seu primeiro aplicativo de Service Fabric do Azure no Linux usandoC#
+title: 'Crie seu primeiro aplicativo Azure Service Fabric no Linux usando C #'
 description: Saiba como criar e implantar um aplicativo do Service Fabric usando C# e .NET Core 2.0.
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458130"
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>Crie seu primeiro aplicativo do Azure Service Fabric
+# <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Java - Linux (versão prévia)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux (versão prévia)](service-fabric-create-your-first-linux-application-with-csharp.md)
@@ -97,7 +97,7 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 
 1. Execute o script usando o utilitário de inspeção para ver a saída do serviço de ator.
 
-   No caso do MAC OS X, você precisa copiar a pasta myactorsvcTestClient para o mesmo local dentro do contêiner executando os seguintes comandos adicionais.
+   No caso do MAC OS X, você precisa copiar a pasta myactorsvcTestClient no mesmo local dentro do contêiner, executando os seguintes comandos adicionais.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home
@@ -120,10 +120,10 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute `yo azuresfcsharp:AddService`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Interação com os clusters do Service Fabric usando a CLI do Service Fabric](service-fabric-cli.md)
-* Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
+* Conheça as [opções de suporte ao Service Fabric](service-fabric-support.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->

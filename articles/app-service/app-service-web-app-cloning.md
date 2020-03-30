@@ -1,15 +1,15 @@
 ---
 title: Clonar aplicativo com o PowerShell
-description: Saiba como clonar o seu Serviço de Aplicativo para um novo aplicativo usando o PowerShell. Uma variedade de cenários de clonagem é abordada, incluindo A integração do Gerenciador de tráfego.
+description: Saiba como clonar o seu Serviço de Aplicativo para um novo aplicativo usando o PowerShell. Uma variedade de cenários de clonagem são cobertos, incluindo a integração do Traffic Manager.
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
 ms.custom: seodec18
 ms.openlocfilehash: e7ad45ea4cb1049ed7eeb454162e23e81ed35019
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255198"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o Azure PowerShell
@@ -18,10 +18,10 @@ ms.locfileid: "78255198"
 
 Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, uma nova opção foi adicionada ao `New-AzWebApp` que lhe permite clonar um aplicativo de Serviço existente como um aplicativo recém-criado em uma região diferente ou na mesma região. Essa opção permitirá que os clientes implantem vários aplicativos em diferentes regiões de forma rápida e fácil.
 
-A clonagem de aplicativo tem suporte para planos de serviço de aplicativo padrão, Premium, Premium V2 e isolados. O novo recurso usa as mesmas limitações que o recurso de Backup de Serviço de Aplicativo; veja [Fazer backup de um aplicativo no Serviço de Aplicativo do Azure](manage-backup.md).
+A clonagem de aplicativos é suportada para planos de serviço padrão, premium, premium V2 e aplicativos isolados. O novo recurso usa as mesmas limitações que o recurso de Backup de Serviço de Aplicativo; veja [Fazer backup de um aplicativo no Serviço de Aplicativo do Azure](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonagem de um aplicativo existente
-Cenário: um aplicativo existente na região do Sul EUA Central e você deseja clonar o conteúdo para um novo aplicativo na região do Norte EUA Central. Isso pode ser feito usando a versão do cmdlet do PowerShell do Azure Resource Manager para criar um novo aplicativo com a opção `-SourceWebApp`.
+Cenário: Um aplicativo existente na região do Centro-Sul dos EUA, e você deseja clonar o conteúdo para um novo aplicativo na região do Centro-Norte dos EUA. Isso pode ser feito usando a versão do cmdlet do PowerShell do Azure Resource Manager para criar um novo aplicativo com a opção `-SourceWebApp`.
 
 Se soubermos o nome do grupo de recursos que contém o aplicativo de origem, poderemos usar o seguinte comando do PowerShell para obter as informações do aplicativo de origem (nesse caso, o nome é `source-webapp`):
 
@@ -35,13 +35,13 @@ Para criar um novo plano do Serviço de Aplicativo, podemos usar comando `New-Az
 New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-Usando o comando `New-AzWebApp`, você pode criar o novo aplicativo na região do Norte EUA Central e associá-lo a um plano do serviço de aplicativo existente. Além disso, você pode usar o mesmo grupo de recursos do aplicativo de origem ou definir um novo grupo de recursos, como mostrado no comando a seguir:
+Usando `New-AzWebApp` o comando, você pode criar o novo aplicativo na região do Centro Norte dos EUA e vinculá-lo a um Plano de Serviço de Aplicativo existente. Além disso, você pode usar o mesmo grupo de recursos do aplicativo de origem ou definir um novo grupo de recursos, como mostrado no comando a seguir:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Para clonar um aplicativo existente, incluindo todos os slots de implantação associados, você precisa usar o parâmetro `IncludeSourceWebAppSlots`.  Observe que o parâmetro `IncludeSourceWebAppSlots` só tem suporte para clonagem de um aplicativo inteiro, incluindo todos os seus slots. O comando do PowerShell a seguir demonstra o uso desse parâmetro com o comando `New-AzWebApp`:
+Para clonar um aplicativo existente, incluindo todos os slots de implantação associados, você precisa usar o parâmetro `IncludeSourceWebAppSlots`.  Observe que `IncludeSourceWebAppSlots` o parâmetro só é suportado para clonar um aplicativo inteiro, incluindo todos os seus slots. O comando do PowerShell a seguir demonstra o uso desse parâmetro com o comando `New-AzWebApp`:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
@@ -54,7 +54,7 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonagem de um aplicativo existente como um Ambiente do Serviço de Aplicativo
-Cenário: um aplicativo existente na região do Sul EUA Central e você deseja clonar o conteúdo para um novo aplicativo em um Ambiente do Serviço de Aplicativo (ASE) existente.
+Cenário: Um aplicativo existente na região do Centro-Sul dos EUA, e você deseja clonar o conteúdo para um novo aplicativo para um Ambiente de Serviço de Aplicativo (ASE) existente.
 
 Se soubermos o nome do grupo de recursos que contém o aplicativo de origem, poderemos usar o seguinte comando do PowerShell para obter as informações do aplicativo de origem (nesse caso, o nome é `source-webapp`):
 
@@ -71,7 +71,7 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 O parâmetro `Location` é necessário devido ao legado, mas é ignorado quando você criar o aplicativo em um ASE. 
 
 ## <a name="cloning-an-existing-app-slot"></a>Clonagem de um slot de aplicativo existente
-Cenário: você deseja clonar um slot de implantação existente de um aplicativo para um novo aplicativo ou um novo slot. O novo aplicativo pode estar na mesma região que o slot original do aplicativo ou em uma região diferente.
+Cenário: Você deseja clonar um slot de implantação existente de um aplicativo para um novo aplicativo ou um novo slot. O novo aplicativo pode estar na mesma região que o slot original do aplicativo ou em uma região diferente.
 
 Se soubermos o nome do grupo de recursos que contém o aplicativo de origem, poderemos usar o seguinte comando do PowerShell para obter as informações do slot do aplicativo de origem (nesse caso, o nome `source-appslot`) está vinculado a `source-app`:
 
@@ -89,14 +89,14 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 Criar aplicativos de várias regiões e configurar o Azure Traffic Manager para rotear o tráfego para todos esses aplicativos é um cenário importante para garantir que os aplicativos de clientes sejam altamente disponíveis. Ao clonar um aplicativo existente, você tem a opção de conectar ambos os aplicativos a um perfil novo ou existente do gerenciador de tráfego. Somente a versão do Azure Resource Manager de gerenciador de tráfego recebe suporte.
 
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Criando um novo perfil do Gerenciador de Tráfego durante a clonagem de um aplicativo
-Cenário: você deseja clonar um aplicativo para outra região, enquanto configura um Azure Resource Manager perfil do Gerenciador de tráfego que inclui ambos os aplicativos. O comando a seguir demonstra como criar um clone do aplicativo de origem como um novo aplicativo ao configurar um novo perfil do Gerenciador de Tráfego:
+Cenário: Você deseja clonar um aplicativo para outra região, enquanto configura um perfil de gerenciador de tráfego do Azure Resource Manager que inclui ambos os aplicativos. O comando a seguir demonstra como criar um clone do aplicativo de origem como um novo aplicativo ao configurar um novo perfil do Gerenciador de Tráfego:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Adicionando novos aplicativos clonados a um perfil existente do Gerenciador de Tráfego
-Cenário: você já tem um Azure Resource Manager perfil do Gerenciador de tráfego e deseja adicionar ambos os aplicativos como pontos de extremidade. Para fazer isso, primeiro é necessário montar o ID existente de perfil do gerenciador de tráfego. É necessário a ID de assinatura, o nome do grupo de recursos e o nome de perfil do gerenciador de tráfego existente.
+Cenário: Você já tem um perfil de gerenciador de recursos do Azure e deseja adicionar ambos os aplicativos como pontos finais. Para fazer isso, primeiro é necessário montar o ID existente de perfil do gerenciador de tráfego. É necessário a ID de assinatura, o nome do grupo de recursos e o nome de perfil do gerenciador de tráfego existente.
 
 ```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
@@ -120,7 +120,7 @@ Estas são as restrições conhecidas da clonagem de aplicativos:
 * As regras de TiP não são clonadas
 * O conteúdo do banco de dados não é clonado
 * Os endereços IP de saída são alterados em caso de clonagem para uma unidade de escala diferente
-* Não disponível para aplicativos do Linux
+* Não disponível para Aplicativos Linux
 
 ### <a name="references"></a>Referências
 * [Clonagem de Serviço de Aplicativo](app-service-web-app-cloning.md)

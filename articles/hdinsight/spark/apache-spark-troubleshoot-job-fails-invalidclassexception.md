@@ -1,6 +1,6 @@
 ---
-title: Erro de InvalidClassException da Apache Spark-Azure HDInsight
-description: Apache Spark trabalho falha com InvalidClassException, incompatibilidade de versão de classe, no Azure HDInsight
+title: Erro invalidClassException do Apache Spark - Azure HDInsight
+description: O trabalho do Apache Spark falha com o InvalidClassException, incompatível com a versão de classe, no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,19 +8,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: be50f8716835b0842f854842e5340b0bb8594136
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894360"
 ---
-# <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Apache Spark trabalho falha com InvalidClassException, incompatibilidade de versão de classe, no Azure HDInsight
+# <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>O trabalho do Apache Spark falha com o InvalidClassException, incompatível com a versão de classe, no Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
+Este artigo descreve etapas de solução de problemas e possíveis resoluções para problemas ao usar componentes Apache Spark em clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Você tenta criar um trabalho de Apache Spark em um cluster Spark 2. x. Ele falha com um erro semelhante ao seguinte:
+Você tenta criar um trabalho apache spark em um cluster Spark 2.x. Falha com um erro semelhante ao seguinte:
 
 ```
 18/09/18 09:32:26 WARN TaskSetManager: Lost task 0.0 in stage 1.0 (TID 1, wn7-dev-co.2zyfbddadfih0xdq0cdja4g.ax.internal.cloudapp.net, executor 4): java.io.InvalidClassException:
@@ -34,21 +34,21 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>Causa
 
-Esse erro pode ser causado pela adição de um jar adicional à configuração do `spark.yarn.jars`, especificamente um jar sombreado que inclui uma versão diferente do pacote `commons-lang3` e apresenta uma incompatibilidade de classe. Por padrão, o Spark 2.1/2/3 usa a versão 3,5 de `commons-lang3`.
+Este erro pode ser causado pela `spark.yarn.jars` adição de um frasco adicional à configuração, especificamente um frasco sombreado que inclui uma versão diferente do `commons-lang3` pacote e introduz uma incompatibilidade de classe. Por padrão, o Spark 2.1/2/3 `commons-lang3`usa a versão 3.5 de .
 
 > [!TIP]
-> Para sombrear uma biblioteca, coloque seu conteúdo em seu próprio jar, alterando seu pacote. Isso é diferente de empacotar a biblioteca, que está colocando a biblioteca em seu próprio jar sem reempacotar.
+> Para sombrear uma biblioteca é colocar seu conteúdo em seu próprio frasco, mudando seu pacote. Isso difere da embalagem da biblioteca, que é colocar a biblioteca em seu próprio frasco sem reembalagem.
 
 ## <a name="resolution"></a>Resolução
 
-Remova o jar ou recompile o jar personalizado (AzureLogAppender) e use o [plug-in Maven-Shad-plugin](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) para realocar classes.
+Remova o frasco ou recompile o frasco personalizado (AzureLogAppender) e use [o plugin maven-shade](https://maven.apache.org/plugins/maven-shade-plugin/examples/class-relocation.html) para realocar classes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através [do Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se você precisar de mais ajuda, você pode enviar uma solicitação de suporte do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o centro **de suporte Ajuda +.** Para obter informações mais detalhadas, consulte [Como criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e suporte ao faturamento está incluído na assinatura do Microsoft Azure, e o suporte técnico é fornecido através de um dos Planos de Suporte do [Azure](https://azure.microsoft.com/support/plans/).

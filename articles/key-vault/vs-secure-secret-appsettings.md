@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
 ms.openlocfilehash: 6bbadd0deb1b7b6fe1056ed7bb47dc3e666a7b9c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197701"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações de aplicativo secretas para um aplicativo Web
@@ -22,11 +22,11 @@ ms.locfileid: "78197701"
 ## <a name="overview"></a>Visão geral
 Este artigo descreve como salvar com segurança os parâmetros secretos de configuração de aplicativos para aplicativos do Azure.
 
-Tradicionalmente, todas as definições de configuração de aplicativos Web são salvas em arquivos de configuração, como Web. config. Essa prática leva a verificar as configurações secretas, como credenciais de nuvem, para sistemas de controle do código-fonte público, como o GitHub. Enquanto isso, pode ser difícil seguir a melhor prática de segurança devido à sobrecarga necessária para mudar o código-fonte e redefinir as configurações de desenvolvimento.
+Tradicionalmente, todas as configurações de configuração do aplicativo web são salvas em arquivos de configuração, como Web.config. Essa prática leva à verificação de configurações secretas, como credenciais da Nuvem para sistemas públicos de controle de fontes como o GitHub. Enquanto isso, pode ser difícil seguir a melhor prática de segurança devido à sobrecarga necessária para mudar o código-fonte e redefinir as configurações de desenvolvimento.
 
-Para garantir que o processo de desenvolvimento seja seguro, as bibliotecas de ferramentas e estruturas são criadas para salvar as configurações de segredo do aplicativo com segurança, com pouca ou nenhuma alteração de código-fonte.
+Para garantir que o processo de desenvolvimento seja seguro, as bibliotecas de ferramentas e estruturas são criadas para salvar as configurações secretas do aplicativo com segurança com alteração mínima ou nenhuma de código-fonte.
 
-## <a name="aspnet-and-net-core-applications"></a>Aplicativos ASP.NET e .NET Core
+## <a name="aspnet-and-net-core-applications"></a>ASP.NET e .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Salvar configurações secretas no repositório de segredo do usuário que está fora da pasta de controle do código-fonte
 Se você estiver fazendo um protótipo rápido ou não tiver acesso à Internet, comece a mover suas configurações secretas da pasta de controle do código-fonte para o repositório de segredo do usuário. O repositório de segredo do usuário é um arquivo salvo na pasta do criador de perfil de usuário, para que segredos não sejam verificados no controle do código-fonte. O diagrama a seguir demonstra como funciona o [segredo do usuário](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio).
@@ -43,16 +43,16 @@ Se você estiver desenvolvendo um projeto e precisar compartilhar com segurança
     ![Criar Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
 2. Conceder acesso a você e aos membros da equipe para o Key Vault. Se você tiver uma equipe grande, crie um [grupo do Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) e adicione a esse grupo de segurança acesso ao Key Vault. No menu suspenso *Permissões do Segredo*, marque *Obter* e *Listar* em *Operações de Gerenciamento de Segredos*.
-Se você já tiver criado seu aplicativo Web, conceda ao aplicativo Web acesso ao Key Vault para que ele possa acessar o cofre de chaves sem armazenar a configuração secreta em arquivos ou configurações do aplicativo. Pesquise seu aplicativo Web por seu nome e adicione-o da mesma maneira que você concede acesso aos usuários.
+Se você já tiver seu aplicativo web criado, conceda ao aplicativo web acesso ao Key Vault para que ele possa acessar o cofre de chaves sem armazenar configuração secreta em Configurações de aplicativos ou arquivos. Pesquise seu aplicativo web pelo seu nome e adicione-o da mesma maneira que você concede aos usuários acesso.
 
     ![Adicionar Política de acesso ao Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Adicione seu segredo a Key Vault no portal do Azure. Para definições de configuração aninhadas, substitua ':' por '-' para que o nome de segredo do Key Vault seja válido. ':' não pode ser usado no nome de um segredo do Key Vault.
+3. Adicione seu segredo ao Key Vault no portal Azure. Para definições de configuração aninhadas, substitua ':' por '-' para que o nome de segredo do Key Vault seja válido. ':' não pode ser usado no nome de um segredo do Key Vault.
 
     ![Adicionar segredo do Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE]
-    > Antes do Visual Studio 2017 V 15.6, nós usamos para recomendar a instalação da extensão de autenticação dos serviços do Azure para Visual Studio. Mas ele foi preterido agora, já que a funcionalidade está integrada no Visual Studio. Portanto, se você estiver em uma versão mais antiga do Visual Studio 2017, sugerimos que você atualize para pelo menos VS 2017 15,6 ou superior para que você possa usar essa funcionalidade nativamente e acessar o cofre de chaves usando a própria identidade de entrada do Visual Studio.
+    > Antes do Visual Studio 2017 V15.6, costumávamos recomendar a instalação da extensão de Autenticação de Serviços Azure para o Visual Studio. Mas agora é preterido, pois a funcionalidade está integrada dentro do Visual Studio. Portanto, se você estiver em uma versão mais antiga do visual Studio 2017, sugerimos que você atualize para pelo menos VS 2017 15.6 ou mais para que você possa usar essa funcionalidade nativamente e acessar o Key-vault usando o próprio Visual Studio sign-in Identity.
     >
 
 4. Adicione os seguintes pacotes NuGet ao seu projeto:
@@ -129,7 +129,7 @@ Se você estiver escrevendo um protótipo rápido e não quiser provisionar recu
     </configBuilders>
     ```
 
-4. Especifique se a seção appSettings está usando o construtor de configuração secreta. Verifique se há uma entrada para a configuração secreta com um valor fictício.
+4. Especifique se a seção appSettings está usando o construtor de configuração secreta. Certifique-se de que há uma entrada para a configuração secreta com um valor de boneco.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -151,7 +151,7 @@ Siga as instruções da seção do ASP.NET Core para configurar um Key Vault par
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Defina Key Vault Construtor de configuração em Web. config. Coloque esta seção antes da seção *appSettings* . Substitua *vaultName* para ser o nome do Key Vault se o Key Vault no Azure público ou URI completo se você estiver usando a nuvem soberana.
+2. Defina o construtor de configuração key vault no Web.config. Coloque esta seção antes da seção *'Configurações de aplicativos'.* Substitua *vaultName* para ser o nome do Key Vault se o Key Vault no Azure público ou URI completo se você estiver usando a nuvem soberana.
 
     ```xml
     <configSections>

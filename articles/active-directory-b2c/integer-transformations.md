@@ -1,7 +1,7 @@
 ---
-title: Exemplos de transformação de declarações de inteiros para políticas personalizadas
+title: Integer reivindica exemplos de transformação para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de declarações de inteiro para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: A Integer reivindica exemplos de transformação para o esquema IEF (Identity Experience Framework, estrutura de experiência de identidade) do Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187671"
 ---
 # <a name="integer-claims-transformations"></a>Transformações de declarações de inteiros
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações de inteiro do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para o uso das transformações de reivindicações inteiras do esquema Identity Experience Framework no Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="convertnumbertostringclaim"></a>ConvertNumberToStringClaim
 

@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Windows zoneada-Azure PowerShell
+title: Criar um Windows VM zoneado - Azure PowerShell
 description: Crie uma máquina virtual do Windows em uma zona de Disponibilidade com o Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: 5cecc6e43dfeda3838ae52fdd0c028a7739ff227
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75497951"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Crie uma máquina virtual do Windows em uma zona de Disponibilidade com o PowerShell
@@ -175,6 +175,6 @@ Tags               : {}
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a criar uma VM em uma zona de disponibilidade. Saiba mais sobre a [disponibilidade](availability.md) de VMs do Azure.
+Neste artigo, você aprendeu a criar uma VM em uma zona de disponibilidade. Saiba mais sobre [a disponibilidade](availability.md) para VMs Azure.

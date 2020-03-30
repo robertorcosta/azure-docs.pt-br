@@ -1,5 +1,5 @@
 ---
-title: Usar a biblioteca .NET do executor em massa do grafo com a API Azure Cosmos DB Gremlin
+title: Use a biblioteca .NET do executor em massa do gráfico com a API AZURE Cosmos DB Gremlin
 description: Saiba como usar a biblioteca bulk executor para importar dados gráficos em massa para um contêiner da API Gremlin do Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442177"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Usar a biblioteca .NET bulk executor do grafo para executar operações em massa na API Gremlin do Azure Cosmos DB
@@ -115,7 +115,7 @@ e.AddProperty("customProperty", "value");
 
 ### <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2019 com a carga de trabalho de desenvolvimento do Azure. Comece usando a versão gratuita do [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/).
-* Uma assinatura do Azure. Crie [uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Como alternativa, é possível criar uma conta de banco de dados do Cosmos sem uma assinatura do Azure com [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/).
+* Uma assinatura do Azure. Você pode criar [uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Como alternativa, é possível criar uma conta de banco de dados do Cosmos sem uma assinatura do Azure com [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/).
 * Um banco de dados da API Gremlin do Azure Cosmos DB com uma **coleção ilimitada**. Esse guia apresenta a introdução à [API Gremlin do Azure Cosmos DB no .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Git. Para mais informações, confira a [página Downloads do Git](https://git-scm.com/downloads).
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Esse repositório contém o exemplo GraphBulkExecutor com os seguintes arquivos:
 
-Arquivo|Description
+Arquivo|Descrição
 ---|---
 `App.config`|É aqui que o aplicativo e os parâmetros específicos do banco de dados são especificados. Primeiro, esse arquivo precisa ser modificado para se conectar ao banco de dados de destino e às coleções.
 `Program.cs`| Esse arquivo contém a lógica por trás da criação da coleção `DocumentClient`, do tratamento das limpezas e do envio das solicitações do bulk executor.
@@ -136,7 +136,7 @@ Arquivo|Description
 
 No arquivo `App.config`, os itens a seguir são os valores de configuração que podem ser fornecidos:
 
-Configuração|Description
+Configuração|Descrição
 ---|---
 `EndPointUrl`|Este é **seu ponto de extremidade do SDK do .NET**, localizado na folha Visão geral de sua conta do banco de dados da API Gremlin do Azure Cosmos DB. O identificador tem o formato: `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Essa é a Chave Primária ou Secundária listada em sua conta do Azure Cosmos DB. Saiba mais sobre [Como proteger o acesso aos dados do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
@@ -154,7 +154,7 @@ Configuração|Description
 2. Execute o aplicativo. Isso irá chamar `BulkImportAsync` duas vezes, uma vez para importar os vértices e outra para importar as bordas. Se qualquer um dos objetos gerar um erro quando forem inseridos, eles serão adicionados a `.\BadVertices.txt` ou `.\BadEdges.txt`.
 3. Avalie os resultados consultando o banco de dados do gráfico. Se a opção `ShouldCleanupOnFinish` estiver definida como true, o banco de dados será automaticamente excluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre os detalhes do pacote NuGet e as notas sobre a versão da biblioteca .NET do executor em massa, confira [Detalhes do SDK do executor em massa](sql-api-sdk-bulk-executor-dot-net.md). 
 * Confira as [Dicas de desempenho](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) para otimizar ainda mais o uso do bulk executor.
 * Examine o [artigo de referência BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) para ver mais detalhes sobre as classes e métodos definidos nesse namespace.

@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b33977ca5184ea07b5651be18e3a132d30ce4b39
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75966064"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Orientação de recuperação de desastre para dados no Azure Data Lake Storage Gen1
 
 O Armazenamento de Data Lake do Azure Gen1 fornece armazenamento redundante localmente (LRS). Portanto, os dados da sua conta do Data Lake Storage Gen1 são resilientes a falhas transitórias de hardware em um datacenter por meio de réplicas automatizadas. Isso garante durabilidade e alta disponibilidade, atendendo ao SLA do Data Lake Storage Gen1. Este artigo fornece diretrizes de como proteger ainda mais seus dados contra as raras interrupções de toda a região ou contra exclusões acidentais.
 
-## <a name="disaster-recovery-guidance"></a>Diretrizes de recuperação de desastres
+## <a name="disaster-recovery-guidance"></a>Guia de recuperação de desastres
 É essencial para todos os clientes preparar seu próprio plano de recuperação de desastre. Leia as informações neste artigo para criar seu plano de recuperação de desastres. Aqui estão alguns recursos que podem ajudar você a criar seu próprio plano.
 
 * [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
@@ -41,7 +41,7 @@ Para evitar a exclusão acidental, recomendamos que você primeiro defina as pol
 
 As organizações também podem habilitar o [log de diagnóstico](data-lake-store-diagnostic-logs.md) para sua conta do Data Lake Storage Gen1 coletar trilhas de auditoria de acesso a dados que forneçam informações sobre quem pode ter excluído ou atualizado um arquivo.
 
-## <a name="next-steps"></a>Próximos passos
-* [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Comece com o Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
 

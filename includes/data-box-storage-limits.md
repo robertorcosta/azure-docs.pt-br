@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 036e99a193d539bdcb204b5b062de261c30dffc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66244610"
 ---
 Esta seção descreve os limites de serviço de Armazenamento do Azure e as convenções de nomenclatura necessárias para Arquivos do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável ao serviço Data Box. Examine os limites de armazenamento com cuidado e siga todas as recomendações.
@@ -20,4 +20,4 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 - [Convenções de blobs de páginas e blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Se houver quaisquer arquivos ou diretórios que excedem os limites de serviço de armazenamento do Azure, ou não estão em conformidade com as convenções de nomenclatura de arquivos/BLOBs do Azure, em seguida, esses arquivos ou diretórios não são incluídos no armazenamento do Azure por meio do serviço Data Box.
+> Se houver arquivos ou diretórios que excedam os limites de serviço do Azure Storage ou não estejam em conformidade com as convenções de nomeação do Azure Files/Blob, esses arquivos ou diretórios não serão ingeridos no Armazenamento Azure através do serviço Data Box.

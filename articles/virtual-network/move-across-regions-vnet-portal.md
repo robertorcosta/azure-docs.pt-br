@@ -1,51 +1,51 @@
 ---
-title: Mova uma rede virtual do Azure para outra região do Azure usando o portal do Azure.
-description: Mova uma rede virtual do Azure de uma região do Azure para outra usando um modelo do Resource Manager e o portal do Azure.
+title: Mova uma rede virtual Do Azure para outra região do Azure usando o portal Azure.
+description: Mova uma rede virtual do Azure de uma região do Azure para outra usando um modelo de Gerenciador de Recursos e o portal Azure.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75640781"
 ---
-# <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Mover uma rede virtual do Azure para outra região usando o portal do Azure
+# <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Mova uma rede virtual do Azure para outra região usando o portal Azure
 
-Há vários cenários para mover uma rede virtual do Azure existente de uma região para outra. Por exemplo, talvez você queira criar uma rede virtual com a mesma configuração para teste e disponibilidade como sua rede virtual existente. Ou talvez você queira mover uma rede virtual de produção para outra região como parte de seu planejamento de recuperação de desastre.
+Existem vários cenários para mover uma rede virtual Azure existente de uma região para outra. Por exemplo, você pode querer criar uma rede virtual com a mesma configuração para testes e disponibilidade que sua rede virtual existente. Ou você pode querer mover uma rede virtual de produção para outra região como parte do seu planejamento de recuperação de desastres.
 
-Você pode usar um modelo de Azure Resource Manager para concluir a movimentação da rede virtual para outra região. Você faz isso exportando a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo na nova região. Para obter mais informações sobre modelos do Resource Manager, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Você pode usar um modelo do Azure Resource Manager para concluir a mudança da rede virtual para outra região. Você faz isso exportando a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo para a nova região. Para obter mais informações sobre modelos do Gerenciador de recursos, consulte [Quickstart: Crie e implante modelos do Azure Resource Manager usando o portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Verifique se sua rede virtual está na região do Azure da qual você deseja mover.
+- Certifique-se de que sua rede virtual está na região do Azure da qual você deseja se mudar.
 
-- Para exportar uma rede virtual e implantar um modelo para criar uma rede virtual em outra região, você precisa ter a função de colaborador de rede ou superior.
+- Para exportar uma rede virtual e implantar um modelo para criar uma rede virtual em outra região, você precisa ter a função contribuinte de rede ou superior.
 
-- Os emparelhamentos de rede virtual não serão recriados, e eles falharão se ainda estiverem presentes no modelo. Antes de exportar o modelo, você precisa remover os pares de rede virtual. Em seguida, você pode reestabelecer esses itens após a movimentação da rede virtual.
+- Os peerings de rede virtuais não serão recriados e falharão se ainda estiverem presentes no modelo. Antes de exportar o modelo, você tem que remover quaisquer pares de rede virtuais. Em seguida, você pode restabelecendo-os após a movimentação da rede virtual.
 
-- Identifique o layout de rede de origem e todos os recursos que você está usando atualmente. Esse layout inclui, mas não se limita a balanceadores de carga, NSGs (grupos de segurança de rede) e IPs públicos.
+- Identifique o layout de rede de origem e todos os recursos que você está usando atualmente. Esse layout inclui, mas não se limita a balanceadores de carga, grupos de segurança de rede (NSGs) e IPs públicos.
 
-- Verifique se sua assinatura do Azure permite que você crie redes virtuais na região de destino. Para habilitar a cota necessária, contate o suporte.
+- Verifique se sua assinatura do Azure permite criar redes virtuais na região de destino. Para habilitar a cota necessária, entre em contato com o suporte.
 
-- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de redes virtuais para esse processo. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que sua assinatura tenha recursos suficientes para suportar a adição de redes virtuais para este processo. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
-## <a name="prepare-for-the-move"></a>Preparar para a movimentação
-Nesta seção, você prepara a rede virtual para a movimentação usando um modelo do Resource Manager. Em seguida, mova a rede virtual para a região de destino usando o portal do Azure.
+## <a name="prepare-for-the-move"></a>Preparem-se para a mudança.
+Nesta seção, você prepara a rede virtual para a mudança usando um modelo de Gerenciador de recursos. Em seguida, você move a rede virtual para a região alvo usando o portal Azure.
 
-Para exportar a rede virtual e implantar a rede virtual de destino usando o portal do Azure, faça o seguinte:
+Para exportar a rede virtual e implantar a rede virtual de destino usando o portal Azure, faça o seguinte:
 
-1. Entre no [portal do Azure](https://portal.azure.com)e, em seguida, selecione **grupos de recursos**.
-1. Localize o grupo de recursos que contém a rede virtual de origem e, em seguida, selecione-o.
-1. Selecione **configurações** > **modelo de exportação**.
-1. No painel **Exportar modelo** , selecione **implantar**.
-1. Para abrir o arquivo *Parameters. JSON* em seu editor online, selecione **modelo** > **Editar parâmetros**.
-1. Para editar o parâmetro do nome da rede virtual, altere a propriedade **Value** em **parâmetros**:
+1. Faça login no [portal Azure](https://portal.azure.com)e selecione **Grupos de recursos**.
+1. Localize o grupo de recursos que contém a rede virtual de origem e, em seguida, selecione-a.
+1. Selecione**Modelo de exportação de** **configurações** > .
+1. No painel **modelo Exportar,** selecione **Implantar**.
+1. Para abrir o arquivo *parameters.json* em seu editor on-line, selecione **Parâmetros de** > **edição de modelos**.
+1. Para editar o parâmetro do nome da rede virtual, altere a propriedade **de valor** **parâmetros:**
 
     ```json
     {
@@ -59,13 +59,13 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
     }
     ```
 
-1. No editor, altere o valor nome da rede virtual de origem no editor para um nome que você deseja para a rede virtual de destino. Certifique-se de colocar o nome entre aspas.
+1. No editor, altere o valor do nome da rede virtual de origem no editor para um nome que você deseja para a rede virtual de destino. Certifique-se de colocar o nome entre aspas.
 
-1. Selecione **salvar** no editor.
+1. Selecione **Salvar** no editor.
 
-1. Para abrir o arquivo *Template. JSON* no editor online, selecione **modelo** > **Editar modelo**.
+1. Para abrir o arquivo *template.json* no editor on-line, selecione Template**Edit .de** **modelo** > .
 
-1. No editor online, para editar a região de destino onde a rede virtual será movida, altere a propriedade **local** em **recursos**:
+1. No editor on-line, para editar a região de destino para onde a rede virtual será movida, altere a propriedade de **localização** em **recursos**:
 
     ```json
     "resources": [
@@ -85,11 +85,11 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
     ```
 
-1. Para obter códigos de localização de região, confira [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/). O código de uma região é o nome da região, sem espaços (por exemplo, **EUA Central** = **centralus**).
+1. Para obter códigos de localização da região, consulte [Azure Localizações](https://azure.microsoft.com/global-infrastructure/locations/). O código para uma região é o nome da região, sem espaços (por exemplo, **Central US** = **centralus**).
 
-1. Adicional Você também pode alterar outros parâmetros no modelo, dependendo de seus requisitos:
+1. (Opcional) Você também pode alterar outros parâmetros no modelo, dependendo de seus requisitos:
 
-    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando **os recursos** > seção **addressSpace** e alterando a propriedade **addressPrefixes** :
+    * **Espaço de endereço**: Antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando a seção **recursos** > **addressSpace** e alterando a propriedade **AddressPrefixes:**
 
         ```json
                 "resources": [
@@ -109,7 +109,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
         ```
 
-    * **Sub-rede**: você pode alterar ou adicionar o nome da sub-rede e o espaço de endereço da sub-rede alterando a seção **sub-redes** do modelo. Você pode alterar o nome da sub-rede alterando a propriedade **Name** . E você pode alterar o espaço de endereço de sub-rede alterando a propriedade **addressPrefix** :
+    * **Sub-rede**: Você pode alterar ou adicionar ao nome da sub-rede e ao espaço de endereço da sub-rede alterando a seção de **sub-redes** do modelo. Você pode alterar o nome da sub-rede alterando a propriedade **de nome.** E você pode alterar o espaço de endereço da sub-rede alterando a propriedade **addressPrefix:**
 
         ```json
                 "subnets": [
@@ -140,7 +140,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
                 ]
         ```
 
-        Para alterar o prefixo de endereço no arquivo *Template. JSON* , edite-o em dois locais: no código da seção anterior e na seção **tipo** do código a seguir. Altere a propriedade **addressPrefix** no código a seguir para corresponder à propriedade **addressPrefix** no código da seção anterior.
+        Para alterar o prefixo de endereço no arquivo *template.json,* edite-o em dois lugares: no código na seção anterior e na seção de **tipo** do código a seguir. Alterar a propriedade **addressPrefix** no código a seguir para corresponder à propriedade **addressPrefix** no código na seção anterior.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -176,38 +176,38 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
          ]
         ```
 
-1. No editor online, selecione **salvar**.
+1. No editor on-line, **selecione Salvar**.
 
-1. Para escolher a assinatura na qual a rede virtual de destino será implantada, selecione **noções básicas** > **assinatura**.
+1. Para escolher a assinatura onde a rede virtual de destino será implantada, selecione**Assinatura** **Básica** > .
 
-1. Para escolher o grupo de recursos em que a rede virtual de destino será implantada, selecione **noções básicas** > **grupo de recursos**. 
+1. Para escolher o grupo de recursos onde a rede virtual de destino será implantada, selecione **O** > **grupo Recursos básicos**. 
 
-    Se você precisar criar um novo grupo de recursos para a rede virtual de destino, selecione **criar novo**. Certifique-se de que o nome não seja o mesmo que o nome do grupo de recursos de origem na rede virtual existente.
+    Se você precisar criar um novo grupo de recursos para a rede virtual de destino, selecione **Criar novo**. Certifique-se de que o nome não é o mesmo que o nome do grupo de recursos de origem na rede virtual existente.
 
-1. Verifique se o **local** **básico** > está definido como o local de destino onde você deseja que a rede virtual seja implantada.
+1. Verifique se **a localização básica** > **Location** está definida para o local de destino onde deseja que a rede virtual seja implantada.
 
-1. Em **configurações**, verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros.
+1. Em **Configurações,** verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros.
 
-1. Marque a caixa de seleção **termos e condições** .
+1. Selecione a caixa **de seleção Termos e Condições.**
 
-1. Para implantar a rede virtual de destino, selecione **comprar**.
+1. Para implantar a rede virtual de destino, selecione **Comprar**.
 
-## <a name="delete-the-target-virtual-network"></a>Excluir a rede virtual de destino
+## <a name="delete-the-target-virtual-network"></a>Exclua a rede virtual de destino
 
 Para descartar a rede virtual de destino, você exclui o grupo de recursos que contém a rede virtual de destino. Para fazer isso:
-1. No painel portal do Azure, selecione o grupo de recursos.
-1. Na parte superior do painel **visão geral** , selecione **excluir**.
+1. No painel do portal Azure, selecione o grupo de recursos.
+1. Na parte superior do painel **Visão Geral,** selecione **Excluir**.
 
 ## <a name="clean-up"></a>Limpar
 
-Para confirmar as alterações e concluir a movimentação da rede virtual, exclua a rede virtual de origem ou o grupo de recursos. Para fazer isso:
-1. No painel portal do Azure, selecione a rede virtual ou o grupo de recursos.
-1. Na parte superior de cada painel, selecione **excluir**.
+Para cometer as alterações e concluir o movimento da rede virtual, você exclui a rede virtual de origem ou o grupo de recursos. Para fazer isso:
+1. No painel do portal Azure, selecione a rede virtual ou o grupo de recursos.
+1. Na parte superior de cada painel, selecione **Excluir**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você moveu uma rede virtual do Azure de uma região para outra usando o portal do Azure e, em seguida, limpou os recursos de origem desnecessários. Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte:
+Neste tutorial, você moveu uma rede virtual Do Azure de uma região para outra usando o portal Azure e, em seguida, limpou os recursos de origem desnecessários. Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres no Azure, consulte:
 
 
 - [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover máquinas virtuais do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mova máquinas virtuais do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

@@ -1,6 +1,6 @@
 ---
-title: Métricas de retransmissão do Azure no Azure Monitor | Microsoft Docs
-description: Este artigo fornece informações sobre como você pode usar Azure Monitor para monitorar o estado da retransmissão do Azure.
+title: Métricas do Azure Relay no Monitor Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como você pode usar o Azure Monitor para monitorar o estado do Azure Relay.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273130"
 ---
-# <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de retransmissão do Azure no Azure Monitor 
+# <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas do Azure Relay no Monitor Azure 
 As métricas da Retransmissão do Azure fornecem o estado dos recursos na sua assinatura do Azure. Com um amplo conjunto de dados de métricas, você pode avaliar a integridade geral dos seus recursos de retransmissão não apenas no nível de namespace, mas também no nível de entidade. Essas estatísticas podem ser importantes, pois elas ajudam você a monitorar o estado da Retransmissão do Azure. As métricas também podem ajudar a solucionar problemas de causa raiz sem a necessidade de entrar em contato com o suporte do Azure.
 
 O Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre os diferentes serviços do Azure. Para obter mais informações, consulte [Monitoramento no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e o exemplo [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub.
@@ -47,7 +47,7 @@ Para métricas com suporte para dimensões, você deve filtrar pelo valor da dim
 
 ## <a name="billing"></a>Cobrança
 
-O uso de métricas no Azure Monitor atualmente é gratuito durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado por logs de Azure Monitor se transmitir dados de métricas para Azure Monitor logs para análise avançada.
+O uso de métricas no Azure Monitor atualmente é gratuito durante a versão prévia. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também é cobrado pelos registros do Azure Monitor se você transmitir dados de métricas para logs do Monitor do Azure para análise avançada.
 
 As métricas a seguir oferecem uma visão geral da integridade do seu serviço. 
 
@@ -68,8 +68,8 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 |SenderConnections-ServerError |O número de erros de servidor em conexões de remetente durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerConnections-TotalRequests |O número total de conexões de ouvinte durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |SenderConnections-TotalRequests |As solicitações de conexão feitas por remetentes durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ActiveConnections |O número de conexões ativas. Esse valor é um valor de ponto no tempo.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ActiveListeners |O número de ouvintes ativos. Esse valor é um valor de ponto no tempo.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveConnections |O número de conexões ativas. Esse valor é um valor point-in-time.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveListeners |O número de ouvintes ativos. Esse valor é um valor point-in-time.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerDisconnects |O número de ouvintes desconectados durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |SenderDisconnects |O número de remetentes desconectados durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
@@ -87,7 +87,7 @@ A Retransmissão do Azure dá suporte às seguintes dimensões para métricas no
 | ------------------- | ----------------- |
 |EntityName| A Retransmissão do Azure dá suporte a entidades de mensagens no namespace.|
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte [Visão geral do Monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171963"
 ---
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>Para instalar o Adaptador StorSimple para SharePoint
@@ -20,12 +20,12 @@ ms.locfileid: "67171963"
 4. Na página de configuração de instalação do Adaptador StorSimple para SharePoint, selecione um local de instalação, digite o endereço IP para a interface de rede DATA 0 no dispositivo StorSimple e clique em **Avançar**. 
    
     ![Página de configuração de instalação do adaptador StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
-5. Na página de confirmação de instalação, clique em **Instalar**.
+5. Na página de confirmação da instalação, clique em **Instalar**.
    
     ![Página de confirmação de instalação do adaptador StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png) 
-6. Clique em **Concluir** para fechar o Assistente de Instalação.
+6. Clique em **Concluir** para fechar o Assistente para instalação.
    
     ![Página de instalação concluída do adaptador StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
 7. Abra a página de Administração Central do SharePoint. Você deve ver um grupo de Configuração do StorSimple que contém os links do Adaptador StorSimple para SharePoint.
-8. Vá para a etapa seguinte: [Configurar o RBS](#configure-rbs).
+8. Vá para a próxima etapa: [Configurar RBS](#configure-rbs).
 

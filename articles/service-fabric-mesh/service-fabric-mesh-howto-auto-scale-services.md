@@ -1,5 +1,5 @@
 ---
-title: Dimensionar automaticamente um aplicativo em execução na malha de Service Fabric do Azure
+title: Dimensione automaticamente um aplicativo em execução na malha de malha de malha de malha de malha de serviço do Azure
 description: Saiba como configurar políticas de dimensionamento automático para os serviços de um aplicativo de Malha do Service Fabric.
 author: dkkapur
 ms.topic: conceptual
@@ -7,14 +7,14 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75461982"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Criar políticas de dimensionamento automático para um aplicativo de Malha do Service Fabric
-Uma das principais vantagens da implantação de aplicativos em Service Fabric malha é a capacidade de você facilmente dimensionar seus serviços para dentro ou para fora. Isso deve ser usado para lidar com quantidades diferentes de carga em seus serviços ou para melhorar a disponibilidade. Você pode realizar manualmente a expansão ou redução horizontal de seus serviços ou definir políticas de dimensionamento automático.
+Uma das principais vantagens de implantar aplicativos no Service Fabric Mesh é a capacidade de você facilmente dimensionar seus serviços dentro ou fora. Isso deve ser usado para lidar com quantidades variadas de carga em seus serviços ou melhorar a disponibilidade. Você pode realizar manualmente a expansão ou redução horizontal de seus serviços ou definir políticas de dimensionamento automático.
 
 O [dimensionamento automático](service-fabric-mesh-scalability.md#autoscaling-service-instances) permite que você dimensione dinamicamente o número de suas instâncias de serviço (dimensionamento horizontal). O dimensionamento automático fornece grande elasticidade e permite o provisionamento ou remoção de instâncias de serviço com base na utilização de CPU ou de memória.
 
@@ -114,5 +114,5 @@ application:
           ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba como [dimensionar manualmente um serviço](service-fabric-mesh-tutorial-template-scale-services.md)

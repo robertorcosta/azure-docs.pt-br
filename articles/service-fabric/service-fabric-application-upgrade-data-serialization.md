@@ -5,10 +5,10 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: 7dc60c28b56982f82c1ac90db55ac752977ea2d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457487"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Como a serialização de dados afeta a atualização de um aplicativo
@@ -43,14 +43,14 @@ As duas versões do formato de dados e código devem ser compatíveis uma com a 
 
 O Contrato de Dados é a solução recomendada para garantir que seus dados sejam compatíveis. Ele possui regras de versão bem definidas para adição, remoção e alteração de campos. Ele também tem suporte para lidar com campos desconhecidos, conectando-se ao processo de serialização e desserialização e lidando com a herança de classe. Para saber mais, confira [Usando o contrato de dados](https://msdn.microsoft.com/library/ms733127.aspx).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
-[Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
+[Atualizar seu aplicativo Usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você através de uma atualização de aplicativo usando o PowerShell.
 
-Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
+Controle como o aplicativo atualiza usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
 
-Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
+Aprenda a usar funcionalidades avançadas ao atualizar seu aplicativo, referindo-se a [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
-Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+Corrija problemas comuns em atualizações de aplicativos, referindo-se às etapas em [Upgrades de aplicativos de solução de problemas](service-fabric-application-upgrade-troubleshooting.md).
 

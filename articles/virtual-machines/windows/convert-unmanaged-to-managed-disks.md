@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.openlocfilehash: 8c180cfc597c0ade27b1fe8cca5a8751176ea12e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75460120"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não gerenciados em Managed Disks
@@ -28,7 +28,7 @@ Se você tiver VMs (máquinas virtuais) do Windows existentes que usam discos n�
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* Os VHDs originais e a conta de armazenamento usados pela VM antes da conversão não são excluídos. Eles continuam a incorrer em encargos. Para evitar ser cobrado por esses artefatos, exclua os blobs VHD originais depois de verificar que a conversão foi concluída. Se você precisar encontrar esses discos desanexados para excluí-los, consulte nosso artigo [Localizar e excluir discos gerenciados e não geridos do Azure desconectados](find-unattached-disks.md).
+* Os VHDs originais e a conta de armazenamento usados pela VM antes da conversão não são excluídos. Eles continuam a incorrer em encargos. Para evitar ser cobrado por esses artefatos, exclua os blobs VHD originais depois de verificar que a conversão foi concluída. Se você precisar encontrar esses discos não conectados para excluí-los, consulte nosso artigo [Encontrar e excluir discos gerenciados e não gerenciados do Azure não conectados](find-unattached-disks.md).
 
 
 ## <a name="convert-single-instance-vms"></a>Converter VMs de instância única
@@ -94,7 +94,7 @@ Antes de converter, verifique se todas as extensões de VM estão no estado 'Pro
 
 Também é possível converter discos não gerenciados em discos gerenciados usando o portal do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 2. Selecione a VM na lista de VMs no portal.
 3. Na folha da VM, selecione **Discos** no menu.
 4. Na parte superior da folha **Discos**, selecione **Migrar para discos gerenciados**.
@@ -102,7 +102,7 @@ Também é possível converter discos não gerenciados em discos gerenciados usa
 
 A VM será interrompida e reiniciada após a conclusão da migração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Converter Managed Disks padrão em premium](convert-disk-storage.md)
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67171968"
 ---
 > [!NOTE] 
@@ -18,7 +18,7 @@ ms.locfileid: "67171968"
 
 1. Vá para o serviço Gerenciador de Dispositivos StorSimple e navegue até **Gerenciamento > Contêineres de volume**.
 
-2. Na lista tabular de contêineres de volume, selecione o contêiner de volume que você deseja modificar. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e clique na guia **Contêineres de Volume**.
+2. Na lista tabular de contêineres de volume, selecione o contêiner de volume que você deseja modificar. Na página **Dispositivos**, selecione o dispositivo, dê um clique duplo nele e, em seguida, clique na guia **Contêineres de volume**.
 
 2. Na listagem de tabela dos contêineres de volume, selecione o contêiner de volume que você deseja modificar. Na folha que será aberta, clique em **Modificar** na barra de comandos.
 
@@ -31,7 +31,7 @@ ms.locfileid: "67171968"
        ![Alterar configuração de largura de banda](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
    2.  Clique em **OK**.
-4. Na próxima página da caixa de diálogo **Modificar Contêiner de Volume** :
+4. Na próxima página da caixa de diálogo **Modificar Contêiner de Volume**:
    
    1. Na lista suspensa, escolha um modelo existente de largura de banda.
    2. Examine as configurações de agendamento para o modelo de largura de banda especificado.

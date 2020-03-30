@@ -16,27 +16,27 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443875"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 
-A [segurança operacional do Azure](/azure/security/fundamentals/operational-security) refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. É uma estrutura que incorpora o conhecimento adquirido por uma variedade de funcionalidades que são exclusivas à Microsoft. Essas funcionalidades incluem o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e um entendimento profundo do cenário de ameaças à segurança cibernética.
+A segurança operacional do [Azure](/azure/security/fundamentals/operational-security) refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. É uma estrutura que incorpora o conhecimento adquirido por uma variedade de funcionalidades que são exclusivas à Microsoft. Essas funcionalidades incluem o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e um entendimento profundo do cenário de ameaças à segurança cibernética.
 
 ## <a name="azure-management-services"></a>Serviços de gerenciamento do Azure
 
 Uma equipe de operações de TI é responsável por gerenciar a infraestrutura do datacenter, os aplicativos e os dados, incluindo a estabilidade e a segurança desses sistemas. No entanto, a obtenção de informações de segurança em ambientes de TI cada vez mais complexos geralmente exige que as empresas reúnam dados de vários sistemas de gerenciamento e segurança.
 
-[Microsoft Azure logs de monitoramento](/azure/operations-management-suite/operations-management-suite-overview) é uma solução de gerenciamento de ti baseada em nuvem que ajuda você a gerenciar e proteger sua infraestrutura local e na nuvem. Sua funcionalidade central é proporcionada pelos serviços executados no Azure descritos a seguir. O Azure inclui vários serviços que ajudam a gerenciar e proteger a infraestrutura de nuvem e local. Cada serviço fornece uma função de gerenciamento específica. Você pode combinar serviços para obter diferentes cenários de gerenciamento. 
+[O Microsoft Azure Monitor logs](/azure/operations-management-suite/operations-management-suite-overview) é uma solução de gerenciamento de TI baseada em nuvem que ajuda você a gerenciar e proteger sua infra-estrutura local e na nuvem. Sua funcionalidade central é proporcionada pelos serviços executados no Azure descritos a seguir. O Azure inclui vários serviços que ajudam a gerenciar e proteger a infraestrutura de nuvem e local. Cada serviço fornece uma função de gerenciamento específica. Você pode combinar serviços para obter diferentes cenários de gerenciamento. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 O [Azure Monitor](/azure/azure-monitor/overview) coleta dados de fontes gerenciadas em armazenamentos de dados centrais. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos por meio da API. Depois de coletados, os dados ficam disponíveis para alertas, análise e exportação.
 
-Consolide os dados de uma variedade de fontes e combine os dados de seus serviços do Azure com o ambiente local existente. Os logs de Azure Monitor também separam claramente a coleta dos dados da ação executada nesses dados, para que todas as ações estejam disponíveis para todos os tipos de dados.
+Consolide os dados de uma variedade de fontes e combine os dados de seus serviços do Azure com o ambiente local existente. Os registros do Monitor do Azure também separam claramente a coleta dos dados das ações tomadas sobre esses dados, para que todas as ações estejam disponíveis para todos os tipos de dados.
 
 ### <a name="automation"></a>Automação
 
@@ -50,7 +50,7 @@ O Backup do Azure oferece componentes que você pode baixar e implantar no compu
 
 Para obter mais informações, veja a [tabela de componentes do Backup do Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Recuperação de site
+### <a name="site-recovery"></a>Site Recovery
 
 O [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) fornece continuidade dos negócios por meio da orquestração da replicação de máquinas virtuais e computadores físicos locais no Azure ou em um site secundário. Caso o site primário não esteja disponível, faça failover para o local secundário, de modo que os usuários possam continuar trabalhando. Faça failback quando os sistemas voltarem a funcionar corretamente. Use a Central de Segurança do Azure para executar uma detecção de ameaças mais inteligente e eficaz.
 
@@ -64,7 +64,7 @@ O [Azure AD (Azure Active Directory)](/azure/active-directory/active-directory-e
 
 O Azure AD também inclui um pacote completo de [funcionalidades de gerenciamento de identidades](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), incluindo as seguintes:
 
-- [Autenticação multifator](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Autenticação multifatorial](/azure/multi-factor-authentication/multi-factor-authentication)
 - [Gerenciamento de senhas de autoatendimento](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gerenciamento de grupo de autoatendimento](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gerenciamento de contas com privilégios](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -73,11 +73,11 @@ O Azure AD também inclui um pacote completo de [funcionalidades de gerenciament
 - [Auditoria avançada](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Monitoramento e alertas de segurança](/azure/operations-management-suite/oms-security-responding-alerts)
 
-Com o Azure Active Directory, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm as mesmas funcionalidades de gerenciamento de identidades e de acesso. Isso permite que você reduza significativamente os custos operacionais.
+Com o Azure Active Directory, os aplicativos que você publica para seus parceiros e clientes (comerciais ou consumidores) têm as mesmas funcionalidades de gerenciamento de identidades e de acesso.  Isso permite que você reduza significativamente os custos operacionais.
 
 ## <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A [Central de Segurança do Azure](/azure/security-center/security-center-intro) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle da segurança de seus recursos do Azure. Fornece monitoramento de segurança integrada e gerenciamento de política em suas assinaturas. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
+[O Azure Security Center](/azure/security-center/security-center-intro) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade (e controle sobre) a segurança de seus recursos do Azure. Fornece monitoramento de segurança integrada e gerenciamento de política em suas assinaturas. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
 
 [Proteja os dados de VM (máquina virtual)](/azure/security-center/security-center-linux-virtual-machine) no Azure proporcionando visibilidade das configurações de segurança da máquina virtual e monitorando as ameaças. A Central de Segurança pode monitorar as máquinas virtuais para:
 
@@ -94,7 +94,7 @@ A Central de Segurança avalia a configuração de seus recursos para identifica
 >[!Note]
 >Confira [Permissões na Central de Segurança do Azure](/azure/security-center/security-center-permissions) para saber mais sobre as funções e as ações permitidas na Central de Segurança.
 
-A Central de Segurança usa o Microsoft Monitoring Agent. Esse é o mesmo agente usado pelo serviço de Azure Monitor. Os dados coletados desse agente são armazenados em um [workspace](/azure/log-analytics/log-analytics-manage-access) existente do Log Analytics associado à sua assinatura do Azure ou a um novo workspace, levando em conta a geolocalização da VM.
+A Central de Segurança usa o Microsoft Monitoring Agent. Este é o mesmo agente que o serviço Azure Monitor usa. Os dados coletados desse agente são armazenados em um [workspace](/azure/log-analytics/log-analytics-manage-access) existente do Log Analytics associado à sua assinatura do Azure ou a um novo workspace, levando em conta a geolocalização da VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -169,7 +169,7 @@ O Blueprints é uma maneira declarativa de orquestrar a implantação de vários
 - Modelos do Azure Resource Manager
 - Grupos de recursos
 
-## <a name="devops"></a>Operações de Desenvolvimento
+## <a name="devops"></a>DevOps
 
 Antes do desenvolvimento de aplicativo de [DevOps (Operações de Desenvolvedor)](https://www.visualstudio.com/learn/what-is-devops/), as equipes eram responsáveis por reunir os requisitos comerciais de um programa de software e escrever o código. Em seguida, uma equipe separada de garantia de qualidade testava o programa em um ambiente de desenvolvimento isolado. Se os requisitos fossem atendidos, a equipe de garantia de qualidade liberaria o código para ser implantado pelas operações. As equipes de implantação eram ainda fragmentadas em grupos como rede e banco de dados. Sempre que um programa de software era passado para uma equipe independente, isso gerava gargalos.
 
@@ -187,10 +187,10 @@ Os profissionais de DevOps experientes adotam várias das práticas a seguir. Es
 - A [IaC (Infraestrutura como Código)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática que permite a automação e validação da criação e desmontagem de redes e máquinas virtuais para ajudar a fornecer plataformas de hospedagem de aplicativos seguras e estáveis.
 - A arquitetura de [microsserviços](https://www.visualstudio.com/learn/what-are-microservices/) é usada para isolar casos de uso de negócios em serviços menores reutilizáveis.  Essa arquitetura oferece eficiência e escalabilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a solução de Segurança e Auditoria, consulte os seguintes artigos:
 
 - [Segurança e conformidade](https://azure.microsoft.com/overview/trusted-cloud/)
-- [Central de Segurança do Azure](/azure/security-center/security-center-intro)
+- [Centro de Segurança Azure](/azure/security-center/security-center-intro)
 - [Azure Monitor](/azure/azure-monitor/overview)

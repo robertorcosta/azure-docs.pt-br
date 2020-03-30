@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199488"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usar a criptografia comum dinâmica PlayReady e/ou Widevine
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).   > Nenhum novo recursos ou funcionalidade está sendo adicionado ao Media Services v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 ## <a name="overview"></a>Visão geral
@@ -41,7 +41,7 @@ Você também pode usar os seguintes parceiros dos Serviços de Mídia para ajud
 
 Para saber mais, veja: integração ao [Axinom](media-services-axinom-integration.md) e ao [castLabs](media-services-castlabs-integration.md).
 
-Os serviços de mídia oferecem suporte a várias maneiras de autorizar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). 
+Os serviços de mídia oferecem suporte a várias maneiras de autorizar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia suportam tokens nos formatos [Simples Token web](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). 
 
 Para saber mais, veja [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
@@ -98,17 +98,17 @@ Com a criptografia dinâmica, você cria um ativo que contenha um conjunto de ar
 
 Para obter instruções sobre como codificar, veja [Codificar um ativo usando o Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Crie uma chave de conteúdo e associe-a ao ativo codificado
 Nos Serviços de Mídia, a chave de conteúdo contém a chave com a qual você deseja criptografar um ativo.
 
 Para saber mais, consute [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Configurar a política de autorização da chave de conteúdo
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configure a política de autorização da chave de conteúdo
 Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. Você deve configurar a política de autorização da chave de conteúdo. O cliente (player) deve estar em conformidade com a política antes de a chave ser entregue ao cliente. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token.
 
 Para saber mais, veja [Configurar uma política de autorização da chave de conteúdo](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Configurar uma política de entrega de ativos
+## <a name="configure-an-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurar uma política de entrega de ativos
 Configure a política de entrega para seu ativo. Algumas coisas incluídas na configuração de política de entrega de ativos são:
 
 * A URL de aquisição de licença de DRM.
@@ -117,7 +117,7 @@ Configure a política de entrega para seu ativo. Algumas coisas incluídas na co
 
 Para obter mais informações, consulte [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Criar um localizador de streaming OnDemand para obter uma URL de streaming
+## <a name="create-an-ondemand-streaming-locator-to-get-a-streaming-url"></a><a id="create_locator"></a>Criar um localizador de streaming OnDemand para obter uma URL de streaming
 Você precisa fornecer ao seu usuário a URL de streaming para Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]
@@ -620,6 +620,6 @@ namespace DynamicEncryptionWithDRM
 
 * [Use o CENC com DRM múltiplo e controle de acesso](media-services-cenc-with-multidrm-access-control.md)
 * [Configurar o empacotamento Widevine com os Serviços de Mídia](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [Introdução ao SDK do cliente Java para os serviços de mídia do Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* [Introdução ao SDK de cliente Java para Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
 * Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowsAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 

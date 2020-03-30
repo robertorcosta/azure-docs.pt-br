@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d36d2be59010c47348a8e196b28d87e5b967868e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171793"
 ---
-### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Etapa 1: Navegue até o gateway de rede virtual
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Etapa 1 – Navegar para o gateway de rede virtual
 
 1. No [portal do Azure](https://portal.azure.com), navegue até **Todos os recursos**. 
 2. Para abrir a página do gateway de rede virtual, navegue até o gateway de rede virtual que você deseja excluir e clique nele.

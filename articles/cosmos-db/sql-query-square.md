@@ -1,6 +1,6 @@
 ---
-title: QUADRADO em Azure Cosmos DB linguagem de consulta
-description: Saiba mais sobre a função do sistema SQL QUADRAda no Azure Cosmos DB.
+title: QUADRADO no azure Cosmos DB linguagem de consulta
+description: Saiba mais sobre a função do sistema SQL SQUARE no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303436"
 ---
 # <a name="square-azure-cosmos-db"></a>QUADRADO (Azure Cosmos DB)
@@ -48,10 +48,10 @@ SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3
 
 ## <a name="remarks"></a>Comentários
 
-Essa função do sistema não usará o índice.
+Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

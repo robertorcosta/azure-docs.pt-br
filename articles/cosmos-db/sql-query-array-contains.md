@@ -1,6 +1,6 @@
 ---
-title: ARRAY_CONTAINS na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre como a matriz contém a função do sistema SQL em Azure Cosmos DB retorna um valor booleano que indica se a matriz contém o valor especificado
+title: ARRAY_CONTAINS no idioma de consulta do Azure Cosmos DB
+description: Saiba como o Array contém a função do sistema SQL no Azure Cosmos DB retorna um Booleano indicando se a matriz contém o valor especificado
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 47fe20888aa546e414b268b30c2e03580750a040
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303470"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
@@ -28,11 +28,11 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 *arr_expr*  
    É a expressão de matriz a ser pesquisada.  
   
-*expr*  
+*Expr*  
    É a expressão a ser encontrada.  
 
 *bool_expr*  
-   É uma expressão booliana. Se for avaliada como ' true ' e se o valor de pesquisa especificado for um objeto, o comando verificará se há uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se ele for avaliado como ' false ', o comando verificará se há uma correspondência completa de todos os objetos dentro da matriz. O valor padrão, se não especificado, é false. 
+   É uma expressão booleana. Se ele avaliar como 'verdadeiro' e se o valor de pesquisa especificado for um objeto, o comando será verificado para uma correspondência parcial (o objeto de pesquisa é um subconjunto de um dos objetos). Se ele avaliar como 'falso', o comando verifica se há uma correspondência completa de todos os objetos dentro da matriz. O valor padrão, se não especificado, é false. 
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -40,7 +40,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir como verificar a associação em uma matriz usando `ARRAY_CONTAINS`.  
+  O exemplo a seguir de como `ARRAY_CONTAINS`verificar a adesão em uma matriz usando .  
   
 ```sql
 SELECT   
@@ -75,10 +75,10 @@ SELECT
 
 ## <a name="remarks"></a>Comentários
 
-Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+Esta função do sistema beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções de matriz Azure Cosmos DB](sql-query-array-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

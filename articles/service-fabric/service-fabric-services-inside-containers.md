@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
 ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75466177"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric no Windows
@@ -111,7 +111,7 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
    ```
 
 > [!NOTE] 
-> Por padrão, os aplicativos Service Fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto de extremidade que aceita solicitações específicas do aplicativo. Considere desabilitar esse acesso quando o aplicativo hospedar código não confiável. Para obter mais informações, consulte [práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Para desabilitar o acesso ao Service Fabric Runtime, adicione a configuração a seguir na seção políticas do manifesto do aplicativo correspondente ao manifesto do serviço importado, da seguinte maneira:
+> Por padrão, os aplicativos Service Fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto final aceitando solicitações específicas do aplicativo. Considere desativar esse acesso quando o aplicativo hospeda código não confiável. Para obter mais informações, consulte [as práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Para desativar o acesso ao tempo de execução do Service Fabric, adicione a seguinte configuração na seção Políticas do manifesto de aplicativo correspondente ao manifesto de serviço importado, da seguinte forma:
 >
 ```xml
   <Policies>
@@ -137,6 +137,6 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
 
 Agora você deve ter um aplicativo do Service Fabric em contêineres executando seu cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-get-started-containers.md).
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.

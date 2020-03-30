@@ -1,6 +1,6 @@
 ---
-title: Adicionar entidade de serviço à função de administrador de Azure Analysis Services | Microsoft Docs
-description: Saiba como adicionar uma entidade de serviço de automação à função de administrador do Azure Analysis Services Server
+title: Adicionar o principal de serviço ao papel de administrador do Azure Analysis Services | Microsoft Docs
+description: Saiba como adicionar um principal de serviço de automação à função de administrador do servidor azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -9,28 +9,28 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298081"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
- Para automatizar tarefas do PowerShell autônomas, uma entidade de serviço deve ter privilégios de **administrador do servidor** no servidor do Analysis Services sendo gerenciado. Este artigo descreve como adicionar uma entidade de serviço à função de administradores do servidor em um servidor do AS do Azure. Você pode fazer isso usando SQL Server Management Studio ou um modelo do Resource Manager.
+ Para automatizar tarefas do PowerShell autônomas, uma entidade de serviço deve ter privilégios de **administrador do servidor** no servidor do Analysis Services sendo gerenciado. Este artigo descreve como adicionar uma entidade de serviço à função de administradores do servidor em um servidor do AS do Azure. Você pode fazer isso usando o SQL Server Management Studio ou um modelo de Gerenciador de Recursos.
 
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de concluir essa tarefa, você deverá ter uma entidade de serviço registrado no Azure Active Directory.
 
-[Criar entidade de serviço - Portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar o principal de serviço - Portal Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar entidade de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="using-sql-server-management-studio"></a>Como usar o SQL Server Management Studio.
 
-Você pode configurar administradores de servidor usando o SQL Server Management Studio (SSMS). Para concluir essa tarefa, você deve ter permissões de [administrador do servidor](analysis-services-server-admins.md) no servidor do AS do Azure. 
+Você pode configurar administradores de servidores usando o SSMS (SSMS) de gerenciamento de servidores sql. Para concluir essa tarefa, você deve ter permissões de [administrador do servidor](analysis-services-server-admins.md) no servidor do AS do Azure. 
 
 1. No SSMS, conecte o servidor do AS do Azure.
-2. Em **Propriedades do Servidor** > **Segurança**, clique em **Adicionar**.
+2. Na **segurança de propriedades** > **do servidor,** clique **em Adicionar**.
 3. Em **Selecionar Usuário ou Grupo**, procure o aplicativo registrado pelo nome, selecione e clique em**Adicionar**.
 
     ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
@@ -39,14 +39,14 @@ Você pode configurar administradores de servidor usando o SQL Server Management
     
     ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
-## <a name="using-a-resource-manager-template"></a>Usar um modelo do Resource Manager
+## <a name="using-a-resource-manager-template"></a>Usando um modelo de gerenciador de recursos
 
-Você também pode configurar os administradores de servidor implantando o servidor de Analysis Services usando um modelo de Azure Resource Manager. A identidade que executa a implantação deve pertencer à função de **colaborador** para o recurso no [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md).
+Você também pode configurar os administradores do servidor implantando o servidor Serviços de Análise usando um modelo do Azure Resource Manager. A identidade em execução da implantação deve pertencer à função **Contribuinte** para o recurso no [RBAC (Azure Role-Based Access Control, controle de acesso baseado em função)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
-> A entidade de serviço deve ser adicionada usando o formato `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
+> O principal de serviço deve `app:{service-principal-client-id}@{azure-ad-tenant-id}`ser adicionado usando o formato .
 
-O modelo do Resource Manager a seguir implanta um servidor de Analysis Services com uma entidade de serviço especificada adicionada à função de administrador de Analysis Services:
+O modelo do Gerenciador de recursos a seguir implanta um servidor de serviços de análise com um principal de serviço especificado adicionado à função Deadministração de Serviços de Análise:
 
 ```json
 {
@@ -96,21 +96,21 @@ O modelo do Resource Manager a seguir implanta um servidor de Analysis Services 
 
 ## <a name="using-managed-identities"></a>Usando identidades gerenciadas
 
-Uma identidade gerenciada também pode ser adicionada à lista de administradores de Analysis Services. Por exemplo, você pode ter um [aplicativo lógico com uma identidade gerenciada atribuída pelo sistema](../logic-apps/create-managed-service-identity.md)e deseja conceder a ele a capacidade de administrar seu servidor de Analysis Services.
+Uma identidade gerenciada também pode ser adicionada à lista de administração de serviços de análise. Por exemplo, você pode ter um [App Lógico com uma identidade gerenciada atribuída ao sistema](../logic-apps/create-managed-service-identity.md)e deseja conceder a ele a capacidade de administrar seu servidor de Serviços de Análise.
 
-Na maioria das partes do portal do Azure e das APIs, as identidades gerenciadas são identificadas usando sua ID de objeto de entidade de serviço. No entanto, Analysis Services exige que eles sejam identificados usando sua ID do cliente. Para obter a ID do cliente para uma entidade de serviço, você pode usar o CLI do Azure:
+Na maioria das partes do portal azure e APIs, as identidades gerenciadas são identificadas usando seu ID de objeto principal de serviço. No entanto, os Serviços de Análise exigem que eles sejam identificados usando seu ID do cliente. Para obter o ID do cliente para um diretor de serviço, você pode usar o Azure CLI:
 
 ```bash
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
 ```
 
-Como alternativa, você pode usar o PowerShell:
+Alternativamente, você pode usar o PowerShell:
 
 ```powershell
 (Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
 ```
 
-Você pode usar essa ID de cliente em conjunto com a ID de locatário para adicionar a identidade gerenciada à lista de administradores de Analysis Services, conforme descrito acima.
+Em seguida, você pode usar esse ID do cliente em conjunto com o ID do inquilino para adicionar a identidade gerenciada à lista de administração de serviços de análise, conforme descrito acima.
 
 ## <a name="related-information"></a>Informações relacionadas
 

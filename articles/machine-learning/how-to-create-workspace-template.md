@@ -1,7 +1,7 @@
 ---
-title: Criar um espaço de trabalho com Azure Resource Manager modelo
+title: Crie um espaço de trabalho com o modelo do Azure Resource Manager
 titleSuffix: Azure Machine Learning
-description: Saiba como usar um modelo de Azure Resource Manager para criar um novo espaço de trabalho Azure Machine Learning.
+description: Aprenda a usar um modelo do Azure Resource Manager para criar um novo espaço de trabalho de aprendizado de máquina do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,30 @@ author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: 9403cc05ed5b31f3b76c16c4232506e2ddc5da2d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402910"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
 
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Azure Resource Manager para criar um espaço de trabalho para Azure Machine Learning
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo do Azure Resource Manager para criar um espaço de trabalho para o Azure Machine Learning
 
-Neste artigo, você aprende várias maneiras de criar um espaço de trabalho do Azure Machine Learning usando modelos de Azure Resource Manager. Um modelo do Resource Manager facilita a criação de recursos como uma operação única e coordenada. Um modelo é um documento JSON que define os recursos necessários para uma implantação. Além disso, pode especificar os parâmetros de implantação. Os parâmetros são usados para fornecer valores de entrada ao usar o modelo.
+Neste artigo, você aprende várias maneiras de criar um espaço de trabalho de aprendizado de máquina do Azure usando modelos do Azure Resource Manager. Um modelo do Resource Manager facilita a criação de recursos como uma operação única e coordenada. Um modelo é um documento JSON que define os recursos necessários para uma implantação. Além disso, pode especificar os parâmetros de implantação. Os parâmetros são usados para fornecer valores de entrada ao usar o modelo.
 
 Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma **assinatura do Azure.** Se você não tiver um, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) ou da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 
-O seguinte modelo do Resource Manager pode ser usado para criar um espaço de trabalho Azure Machine Learning e recursos do Azure associados:
+O modelo do Gerenciador de recursos a seguir pode ser usado para criar um espaço de trabalho de aprendizado de máquina do Azure e recursos associados do Azure:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -58,14 +58,14 @@ O modelo de exemplo tem dois parâmetros:
 * O **nome do workspace** é o nome amigável do workspace do Azure Machine Learning.
 
     > [!NOTE]
-    > O nome do espaço de trabalho não diferencia maiúsculas de minúsculas.
+    > O nome do espaço de trabalho é insensível ao caso.
 
     Os nomes dos outros serviços são gerados aleatoriamente.
 
 > [!TIP]
-> Embora o modelo associado a este documento crie um novo registro de contêiner do Azure, você também pode criar um novo espaço de trabalho sem criar um registro de contêiner. Uma será criada quando você executar uma operação que requer um registro de contêiner. Por exemplo, treinar ou implantar um modelo.
+> Embora o modelo associado a este documento crie um novo Registro de Contêineres do Azure, você também pode criar um novo espaço de trabalho sem criar um registro de contêiner. Um será criado quando você executar uma operação que requer um registro de contêiner. Por exemplo, treinar ou implantar um modelo.
 >
-> Você também pode fazer referência a um registro de contêiner ou conta de armazenamento existente no modelo Azure Resource Manager, em vez de criar um novo.
+> Você também pode referenciar um registro de contêiner ou uma conta de armazenamento existente no modelo do Azure Resource Manager, em vez de criar uma nova.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -79,9 +79,9 @@ Para obter mais informações sobre modelos, consulte os artigos a seguir:
 
 O modelo de exemplo a seguir demonstra como criar um espaço de trabalho com três configurações:
 
-* Habilitar configurações de alta confidencialidade para o espaço de trabalho
-* Habilitar a criptografia para o espaço de trabalho
-* Usa um Azure Key Vault existente
+* Habilite configurações de alta confidencialidade para o espaço de trabalho
+* Habilite a criptografia para o espaço de trabalho
+* Usa um cofre de chaves azure existente
 
 ```json
 {
@@ -263,13 +263,13 @@ O modelo de exemplo a seguir demonstra como criar um espaço de trabalho com tr�
 }
 ```
 
-Para obter a ID do Key Vault e o URI de chave necessário para esse modelo, você pode usar o CLI do Azure. O comando a seguir é um exemplo de como usar o CLI do Azure para obter a ID de recurso Key Vault e o URI:
+Para obter o ID do Key Vault e a chave URI necessária por este modelo, você pode usar o Cli do Azure. O comando a seguir é um exemplo de usar o Azure CLI para obter o ID de recurso do Key Vault e o URI:
 
 ```azurecli-interactive
 az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
 ```
 
-Esse comando retorna um valor semelhante ao texto a seguir. O primeiro valor é a ID e o segundo é o URI:
+Este comando retorna um valor semelhante ao texto a seguir. O primeiro valor é o ID e o segundo é o URI:
 
 ```text
 [
@@ -283,10 +283,10 @@ Esse comando retorna um valor semelhante ao texto a seguir. O primeiro valor é 
 1. Siga as etapas em [Implantar recursos do modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Ao acessar a tela __Editar modelo__, cole o modelo deste documento.
 1. Selecione __Salvar__ para usar o modelo. Forneça as informações a seguir e concorde com os termos e condições listados:
 
-   * Assinatura: selecione a assinatura do Azure a ser usada para esses recursos.
-   * Grupo de recursos: selecione ou crie um grupo de recursos para conter os serviços.
-   * Nome do espaço de trabalho: o nome a ser usado para o espaço de trabalho Azure Machine Learning que será criado. O nome do workspace deverá ter entre 3 e 33 caracteres. E o nome poderá conter apenas caracteres alfanuméricos e '-'.
-   * Local: selecione o local onde os recursos serão criados.
+   * Assinatura: Selecione a assinatura do Azure para usar para esses recursos.
+   * Grupo de recursos: Selecione ou crie um grupo de recursos para conter os serviços.
+   * Nome do espaço de trabalho: O nome a ser usado para o espaço de trabalho Azure Machine Learning que será criado. O nome do workspace deverá ter entre 3 e 33 caracteres. E o nome poderá conter apenas caracteres alfanuméricos e '-'.
+   * Localização: Selecione o local onde os recursos serão criados.
 
 Para obter mais informações, consulte [Implantar recursos de modelo personalizado](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -318,33 +318,33 @@ az group deployment create \
 
 Para obter mais informações, consulte [Implantar recursos com modelos do Resource Manager e da CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) e [implantar modelo do Resource Manager privado com o token SAS e a CLI do Azure](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="resource-provider-errors"></a>Erros do provedor de recursos
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Política de acesso de Azure Key Vault e modelos de Azure Resource Manager
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Política de acesso do Azure Key Vault e modelos do Azure Resource Manager
 
-Quando você usa um modelo de Azure Resource Manager para criar o espaço de trabalho e os recursos associados (incluindo Azure Key Vault), várias vezes. Por exemplo, usando o modelo várias vezes com os mesmos parâmetros como parte de um pipeline de implantação e integração contínua.
+Quando você usa um modelo do Azure Resource Manager para criar o espaço de trabalho e os recursos associados (incluindo o Azure Key Vault), várias vezes. Por exemplo, usar o modelo várias vezes com os mesmos parâmetros como parte de um pipeline de integração e implantação contínua.
 
-A maioria das operações de criação de recursos por meio de modelos é idempotente, mas Key Vault limpa as políticas de acesso toda vez que o modelo é usado. Limpar as políticas de acesso interrompe o acesso ao Key Vault para qualquer espaço de trabalho existente que o esteja usando. Por exemplo, parar/criar funcionalidades de Azure Notebooks VM pode falhar.  
+A maioria das operações de criação de recursos através de modelos são impotentes, mas o Key Vault limpa as políticas de acesso cada vez que o modelo é usado. A eliminação das políticas de acesso interrompe o acesso ao Key Vault para qualquer espaço de trabalho existente que o esteja usando. Por exemplo, stop/create funcionalidades de Notebooks Azure VM podem falhar.  
 
 Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
 * Não implante o modelo mais de uma vez para os mesmos parâmetros. Ou exclua os recursos existentes antes de usar o modelo para recriá-los.
 
-* Examine as políticas de acesso do Key Vault e use essas políticas para definir a propriedade `accessPolicies` do modelo. Para exibir as políticas de acesso, use o seguinte comando de CLI do Azure:
+* Examine as políticas de acesso do Key `accessPolicies` Vault e use essas políticas para definir a propriedade do modelo. Para visualizar as políticas de acesso, use o seguinte comando Azure CLI:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Para obter mais informações sobre como usar a seção `accessPolicies` do modelo, consulte a [referência do objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Para obter mais `accessPolicies` informações sobre o uso da seção do modelo, consulte a referência do [objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
-* Verifique se o recurso de Key Vault já existe. Se tiver, não a recrie por meio do modelo. Por exemplo, para usar o Key Vault existente em vez de criar um novo, faça as seguintes alterações no modelo:
+* Verifique se o recurso Key Vault já existe. Se isso acontecer, não recrie-o através do modelo. Por exemplo, para usar o Key Vault existente em vez de criar um novo, faça as seguintes alterações no modelo:
 
-    * **Adicione** um parâmetro que aceite a ID de um recurso de Key Vault existente:
+    * **Adicionar** um parâmetro que aceite o ID de um recurso existente do Key Vault:
 
         ```json
         "keyVaultId":{
@@ -355,7 +355,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
         }
       ```
 
-    * **Remova** a seção que cria um recurso de Key Vault:
+    * **Remova** a seção que cria um recurso do Key Vault:
 
         ```json
         {
@@ -375,7 +375,7 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
         },
         ```
 
-    * **Remova** a linha de `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` da seção `dependsOn` do espaço de trabalho. Além disso, **altere** a entrada `keyVault` na seção `properties` do espaço de trabalho para fazer referência ao parâmetro `keyVaultId`:
+    * **Remova** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` a linha `dependsOn` da seção do espaço de trabalho. Também **altere** `keyVault` a `properties` entrada na seção `keyVaultId` do espaço de trabalho para fazer referência ao parâmetro:
 
         ```json
         {
@@ -403,9 +403,9 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
         }
         ```
 
-    Após essas alterações, você pode especificar a ID do recurso de Key Vault existente ao executar o modelo. Em seguida, o modelo reutilizará a Key Vault definindo a propriedade `keyVault` do espaço de trabalho como sua ID.
+    Após essas alterações, você pode especificar o ID do recurso Key Vault existente ao executar o modelo. Em seguida, o modelo reutilizará `keyVault` o Cofre de Chaves definindo a propriedade do espaço de trabalho para seu ID.
 
-    Para obter a ID do Key Vault, você pode fazer referência à saída da execução do modelo original ou usar o CLI do Azure. O comando a seguir é um exemplo de como usar o CLI do Azure para obter a ID de recurso de Key Vault:
+    Para obter o ID do Key Vault, você pode referenciar a saída do modelo original executado ou usar o Cli Do Zure. O comando a seguir é um exemplo de usar o Azure CLI para obter o ID de recurso do Key Vault:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
@@ -419,5 +419,5 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Implantar recursos com modelos do Resource Manager e API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
-* [Criar e implantar grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Implante recursos com modelos do Gerenciador de recursos e API REST do Gerenciador de recursos](../azure-resource-manager/templates/deploy-rest.md).
+* [Criação e implantação de grupos de recursos do Azure através do Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

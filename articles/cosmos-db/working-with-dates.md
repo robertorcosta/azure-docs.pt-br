@@ -1,16 +1,16 @@
 ---
 title: Trabalhando com datas no Azure Cosmos DB
-description: Saiba como armazenar, indexar e consultar objetos de data e hora no Azure Cosmos DB
+description: Saiba como armazenar, indexar e consultar objetos DataTime no Azure Cosmos DB
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: 92fa35fbe8e5eef4dbdc8b6c47a9055affd449a5
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273198"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhando com datas no Azure Cosmos DB
@@ -21,7 +21,7 @@ Além dos tipos básicos, muitos aplicativos precisam do tipo DateTime para repr
 
 ## <a name="storing-datetimes"></a>Armazenando DateTimes
 
-Azure Cosmos DB dá suporte a tipos JSON como-String, Number, Boolean, NULL, array, Object. Ele não dá suporte diretamente a um tipo DateTime. Atualmente, Azure Cosmos DB não dá suporte à localização de datas. Portanto, você precisa armazenar DateTimes como cadeias de caracteres. O formato recomendado para cadeias de caracteres DateTime no Azure Cosmos DB é `YYYY-MM-DDThh:mm:ss.sssZ` que segue o padrão ISO 8601 UTC. É recomendável armazenar todas as datas em Azure Cosmos DB como UTC. Converter as cadeias de caracteres de data para esse formato permitirá a classificação de datas modo lexicográfico. Se as datas não-UTC forem armazenadas, a lógica deverá ser tratada no lado do cliente. Para converter um DateTime local em UTC, o deslocamento deve ser conhecido/armazenado como uma propriedade no JSON e o cliente pode usar o deslocamento para calcular o valor DateTime UTC.
+O Azure Cosmos DB suporta tipos JSON como - string, number, booleano, null, array, object. Ele não suporta diretamente um tipo DateTime. Atualmente, o Azure Cosmos DB não suporta a localização de datas. Então, você precisa armazenar DateTimes como strings. O formato recomendado para strings DateTime no Azure Cosmos DB é `YYYY-MM-DDThh:mm:ss.sssZ` o que segue o padrão ISO 8601 UTC. Recomenda-se armazenar todas as datas no Azure Cosmos DB como UTC. A conversão das seqüências de datas para este formato permitirá classificar as datas lexicograficamente. Se as datas não UTC forem armazenadas, a lógica deve ser tratada no lado do cliente. Para converter um DateTime local em UTC, a compensação deve ser conhecida/armazenada como uma propriedade no JSON e o cliente pode usar a compensação para calcular o valor UTC DateTime.
 
 A maioria dos aplicativos pode usar a representação de cadeia de caracteres padrão para DateTime pelos seguintes motivos:
 
@@ -67,27 +67,27 @@ Como alternativa, você pode armazenar DateTimes como carimbos de data/hora do U
 
 ## <a name="querying-datetimes-in-linq"></a>Consultando DateTimes no LINQ
 
-O SDK do .NET para SQL dá suporte automaticamente à consulta de dados armazenados no Azure Cosmos DB via LINQ. Por exemplo, o trecho a seguir mostra uma consulta LINQ que filtra os pedidos que foram enviados nos últimos três dias:
+O SDK do .NET para SQL dá suporte automaticamente à consulta de dados armazenados no Azure Cosmos DB via LINQ. Por exemplo, o seguinte trecho mostra uma consulta LINQ que filtra pedidos enviados nos últimos três dias:
 
 ```csharp
     IQueryable<Order> orders = container.GetItemLinqQueryable<Order>(allowSynchronousQueryExecution: true).Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
 ```
 
-Traduzido para a seguinte instrução SQL e executado em Azure Cosmos DB:
+Traduzido para a seguinte declaração SQL e executado no Azure Cosmos DB:
 
 ```sql
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 ```
 
-Você pode aprender mais sobre a linguagem de consulta SQL do Azure Cosmos DB e o provedor do LINQ ao [consultar Cosmos DB no LINQ](sql-query-linq-to-sql.md).
+Você pode aprender mais sobre a linguagem de consulta SQL do Azure Cosmos DB e o provedor LINQ no [Querying Cosmos DB em LINQ](sql-query-linq-to-sql.md).
 
 ## <a name="indexing-datetimes-for-range-queries"></a>Indexando DateTimes para consultas de intervalo
 
-As consultas são comuns com valores DateTime. Para executar essas consultas com eficiência, você deve ter um índice definido em todas as propriedades no filtro da consulta.
+Consultas são comuns com valores de DateTime. Para executar essas consultas de forma eficiente, você deve ter um índice definido em quaisquer propriedades no filtro da consulta.
 
 Saiba mais sobre como configurar as políticas de indexação em [Políticas de indexação do Azure Cosmos DB](index-policy.md). 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Baixe e execute os [Exemplos de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Saiba mais sobre [consultas SQL](sql-query-getting-started.md)

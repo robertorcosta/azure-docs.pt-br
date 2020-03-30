@@ -1,27 +1,27 @@
 ---
-title: Montar o volume secreto no grupo de contêineres
+title: Monte volume secreto para grupo de contêineres
 description: Saiba como montar um volume secreto para armazenar informações confidenciais de acesso pelas instâncias de contêiner
 ms.topic: article
 ms.date: 07/19/2018
 ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78249944"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montar um volume secreto em Instâncias de Contêiner do Azure
 
 Use um volume *secreto* para fornecer informações confidenciais aos contêineres em um grupo de contêineres. O volume *secreto* armazena os segredos em arquivos no volume, permanecendo acessíveis pelos contêineres no grupo de contêineres. Armazenando segredos em um volume *secreto*, é possível evitar adicionar dados confidenciais, como chaves SSH ou credenciais de banco de dados, ao código do aplicativo.
 
-Todos os volumes *secretos* são apoiados pelo [tmpfs][tmpfs], um sistema de arquivos com suporte de RAM; seu conteúdo nunca é gravado no armazenamento não volátil.
+O backup de todos os volumes *secretos* é feito por [tmpfs][tmpfs], um sistema de arquivos com suporte de RAM. O conteúdo jamais é gravado em armazenamento não volátil.
 
 > [!NOTE]
-> Volumes *secretos* são atualmente restritos a contêineres do Linux. Saiba como passar variáveis de ambiente seguras para contêineres do Windows e do Linux em [Definir variáveis de ambiente](container-instances-environment-variables.md). Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças da plataforma atual na [visão geral](container-instances-overview.md#linux-and-windows-containers).
+> Volumes *secretos* são atualmente restritos a contêineres do Linux. Saiba como passar variáveis de ambiente seguras para contêineres do Windows e do Linux em [Definir variáveis de ambiente](container-instances-environment-variables.md). Enquanto estamos trabalhando para trazer todos os recursos para os contêineres do Windows, você pode encontrar diferenças atuais da plataforma na [visão geral](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Montar um volume secreto - CLI do Azure
 
-Para implantar um contêiner com um ou mais segredos usando o CLI do Azure, inclua os parâmetros `--secrets` e `--secrets-mount-path` no comando [AZ container Create][az-container-create] . Este exemplo monta um volume *secreto* que consiste em dois segredos, "mysecret1" e "mysecret2", em `/mnt/secrets`:
+Para implantar um contêiner com um ou mais segredos usando a CLI do Azure, inclua os parâmetros `--secrets` e `--secrets-mount-path` no comando [az container create][az-container-create]. Este exemplo monta um volume *secreto* que consiste em dois segredos, "mysecret1" e "mysecret2", em `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -32,7 +32,7 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-A saída do seguinte [AZ container exec][az-container-exec] mostra a abertura de um shell no contêiner em execução, listando os arquivos dentro do volume secreto e exibindo seu conteúdo:
+A seguinte saída [az container exec][az-container-exec] mostra a abertura de um shell no contêiner em execução, listando os arquivos dentro do volume secreto e, em seguida, exibindo o conteúdo:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
@@ -87,7 +87,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Para implantar com o modelo YAML, salve o YAML anterior em um arquivo chamado `deploy-aci.yaml`e execute o comando [AZ container Create][az-container-create] com o parâmetro `--file`:
+Para implantar com o modelo YAML, salve o YAML anterior em um arquivo nomeado `deploy-aci.yaml` e, em seguida, execute o comando [az container create][az-container-create] com o parâmetro `--file`:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -107,7 +107,7 @@ O seguinte modelo do Resource Manager define um grupo de contêineres com um con
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arquivo chamado `deploy-aci.json`e execute o comando [AZ Group Deployment Create][az-group-deployment-create] com o parâmetro `--template-file`:
+Para implantar com o modelo do Resource Manager, salve o JSON anterior em um arquivo nomeado `deploy-aci.json` e, em seguida, execute o comando [az group deployment create][az-group-deployment-create] com o parâmetro `--template-file`:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

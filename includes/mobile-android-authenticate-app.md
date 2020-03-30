@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172609"
 ---
 1. Abra o projeto no Android Studio.
@@ -27,7 +27,7 @@ ms.locfileid: "67172609"
     import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
     ```
 
-3. Adicione o método a seguir à classe **ToDoActivity** :
+3. Adicione o seguinte método à classe **ToDoActivity:**
 
     ```java
     // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
@@ -62,7 +62,7 @@ ms.locfileid: "67172609"
     Esse código cria um novo método para manipular o processo de autenticação. Um diálogo exibe a ID do usuário autenticado. Você só pode continuar em uma autenticação bem-sucedida.
 
     > [!NOTE]
-    > Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado para o **login** método a um dos seguintes valores: _MicrosoftAccount_, _Facebook_, _Twitter_, ou _windowsazureactivedirectory_.
+    > Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado ao método **login** para um dos valores a seguir: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
 
 4. No método **OnCreate**, adicione a linha de código a seguir após o código que cria uma instância do objeto `MobileServiceClient`.
 
@@ -72,7 +72,7 @@ ms.locfileid: "67172609"
 
     Essa chamada inicia o processo de autenticação.
 
-5. Mova o código restante após `authenticate();` no método **OnCreate** para um novo método **CreateTable**:
+5. Mova o código `authenticate();` restante depois no método **onCriar** para um novo método **createTable:**
 
     ```java
     private void createTable() {

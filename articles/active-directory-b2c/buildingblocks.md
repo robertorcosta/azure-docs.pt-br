@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189864"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
@@ -72,10 +72,10 @@ O elemento **BuildingBlocks** contém os seguintes elementos que precisam ser es
   - Criando uma cadeia de caracteres aleatória usando o gerador de número aleatório.
   - Formatando uma declaração de acordo com a cadeia de caracteres de formato fornecida. Essa transformação usa o método C# `String.Format`.
 
-- InputValidation-esse elemento permite que você execute agregações booleanas que são semelhantes a *and* e *or*.
+- Validação de entrada - Este elemento permite que você realize agregações booleanas que sejam semelhantes *e ou* *.*
 
 - [ContentDefinitions](contentdefinitions.md) – contém URLs de modelos HTML5 a serem usado em seu percurso do usuário. Em uma política personalizada, uma definição de conteúdo define o URI da página HTML5 que é usado para uma etapa especificada no percurso do usuário. Por exemplo, a redefinição de senha de entrada ou de inscrição ou páginas de erro. Você pode modificar a aparência substituindo o LoadUri pelo arquivo HTML5. Ou você pode criar definições de conteúdo de acordo com suas necessidades. Esse elemento pode conter uma referência de recursos localizados usando uma ID de localização.
 
 - [Localização](localization.md) – permite que você dê suporte a vários idiomas. O suporte de localização nas políticas permite que você configure a lista de idiomas com suporte em uma política e escolha um idioma padrão. Também há suporte para coleções e cadeias de caracteres específicas a um idioma.
 
-- [DisplayControls](display-controls.md) – define os controles a serem exibidos em uma página. Os controles de exibição têm funcionalidade especial e interagem com perfis técnicos de validação de back-end. Os controles de exibição estão atualmente em **Visualização**.
+- [DisplayControls](display-controls.md) - Define os controles a serem exibidos em uma página. Os controles de exibição têm funcionalidade especial e interagem com perfis técnicos de validação back-end. Os controles de exibição estão atualmente em **pré-visualização**.

@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171758"
 ---
-### <a name="noconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - sem conexão de gateway
+### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - sem conexão de gateway
 
 #### <a name="to-add-additional-address-prefixes"></a>Para adicionar prefixos de endereço adicional:
 
@@ -30,7 +30,7 @@ ms.locfileid: "67171758"
 3. Clique em **Remover**.
 4. Para salvar suas configurações, clique em **Salvar** .
 
-### <a name="withconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - conexão de gateway existente
+### <a name="to-modify-local-network-gateway-ip-address-prefixes---existing-gateway-connection"></a><a name="withconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - conexão de gateway existente
 
 Se você possui uma conexão de gateway e deseja adicionar ou remover os prefixos do endereço IP contidos no gateway de rede local, você precisará executar as etapas a seguir nessa ordem. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar prefixos de endereço IP, você não precisa excluir o gateway de VPN. Você precisa apenas remover a conexão.
 
@@ -51,7 +51,7 @@ Para adicionar prefixos de endereço adicional:
 Para remover os prefixo de endereço:
 
 1. No recurso Gateway de Rede Local, na seção **Configurações**, clique em **Configuração**.
-2. Clique em **...** na linha que contém o prefixo que você deseja remover.
+2. Clique no **...** na linha contendo o prefixo que você deseja remover.
 3. Clique em **Remover**.
 4. Para salvar suas configurações, clique em **Salvar** .
 

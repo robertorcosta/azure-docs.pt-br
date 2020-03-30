@@ -1,6 +1,6 @@
 ---
-title: Obter atividade de metadados no Azure Data Factory
-description: Saiba como usar a atividade obter metadados em um pipeline de Data Factory.
+title: Obtenha atividade de metadados na fábrica de dados do Azure
+description: Saiba como usar a atividade Get Metadata em um pipeline de Fábrica de Dados.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,30 +13,30 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: jingwang
 ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250269"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
+# <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na fábrica de dados do Azure
 
-Você pode usar a atividade obter metadados para recuperar os metadados de quaisquer dados em Azure Data Factory. Você pode usar essa atividade nos seguintes cenários:
+Você pode usar a atividade Get Metadata para recuperar os metadados de quaisquer dados na Fábrica de Dados do Azure. Você pode usar essa atividade nos seguintes cenários:
 
-- Valide os metadados de quaisquer dados.
-- Disparar um pipeline quando os dados estiverem prontos/disponíveis.
+- Valide os metadados de qualquer dado.
+- Acione um pipeline quando os dados estão prontos/disponíveis.
 
 A seguinte funcionalidade está disponível no fluxo de controle:
 
-- Você pode usar a saída da atividade obter metadados em expressões condicionais para executar a validação.
-- Você pode disparar um pipeline quando uma condição é satisfeita por meio do until loop.
+- Você pode usar a saída da atividade Get Metadata em expressões condicionais para realizar a validação.
+- Você pode acionar um pipeline quando uma condição é satisfeita via Do Until looping.
 
 ## <a name="capabilities"></a>Funcionalidades
 
-A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é 2 MB.
+A atividade Get Metadata toma um conjunto de dados como entrada e retorna informações de metadados como saída. Atualmente, os seguintes conectores e metadados recuperáveis correspondentes são suportados. O tamanho máximo dos metadados retornados é de 2 MB.
 
 >[!NOTE]
->Se você executar a atividade obter metadados em um tempo de execução de integração auto-hospedado, os recursos mais recentes terão suporte na versão 3,6 ou posterior.
+>Se você executar a atividade Get Metadata em um tempo de execução de integração auto-hospedado, os recursos mais recentes serão suportados na versão 3.6 ou posterior.
 
 ### <a name="supported-connectors"></a>Conectores com suporte
 
@@ -50,50 +50,50 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Arquivos do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| [Sistema de Arquivos](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Sistema de arquivos](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
+| [Ftp](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
-- Para o Amazon S3 e o Google Cloud Storage, `lastModified` se aplica ao Bucket e à chave, mas não à pasta virtual, e `exists` se aplica ao Bucket e à chave, mas não ao prefixo ou à pasta virtual.
-- Para o armazenamento de BLOBs do Azure, `lastModified` se aplica ao contêiner e ao blob, mas não à pasta virtual.
-- `lastModified` filtro atualmente se aplica ao filtro de itens filho, mas não ao próprio arquivo/pasta especificado.
-- O filtro de curingas em pastas/arquivos não tem suporte para a atividade obter metadados.
+- Para Amazon S3 e `lastModified` Google Cloud Storage, aplica-se ao balde e `exists` à chave, mas não à pasta virtual, e aplica-se ao balde e à chave, mas não ao prefixo ou pasta virtual.
+- Para armazenamento Azure `lastModified` Blob, aplica-se ao recipiente e à bolha, mas não à pasta virtual.
+- `lastModified`o filtro atualmente se aplica a itens de filtragem de crianças, mas não à pasta/arquivo especificado em si.
+- O filtro curinga em pastas/arquivos não é suportado para a atividade Get Metadata.
 
 **Banco de dados relacional**
 
 | Conector/metadados | estrutura | ColumnCount | exists |
 |:--- |:--- |:--- |:--- |
-| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
-| [Instância Gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
-| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [Banco de dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
+| [Instância gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### <a name="metadata-options"></a>Opções de metadados
 
-Você pode especificar os seguintes tipos de metadados na lista de campos de atividade obter metadados para recuperar as informações correspondentes:
+Você pode especificar os seguintes tipos de metadados na lista de campo de atividade Get Metadata para recuperar as informações correspondentes:
 
-| Tipo de Metadados | DESCRIÇÃO |
+| Tipo de Metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do arquivo ou pasta. |
-| itemType | Tipo do arquivo ou pasta. O valor retornado é `File` ou `Folder`. |
-| tamanho | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
+| itemType | Tipo do arquivo ou pasta. O valor `File` devolvido `Folder`é ou . |
+| tamanho | Tamanho do arquivo, em bytes. Aplicável apenas aos arquivos. |
 | criado | O datetime da última modificação do arquivo ou da pasta. |
 | lastModified | O datetime da última modificação do arquivo ou da pasta. |
-| childItems | Lista de subpastas e arquivos na pasta especificada. Aplicável somente a pastas. Valor retornado é uma lista do nome e do tipo de cada item filho. |
-| contentMD5 | MD5 do arquivo. Aplicável somente a arquivos. |
-| estrutura | Estrutura de dados do arquivo ou tabela de banco de dado relacional. Valor retornado é uma lista de nomes de coluna e tipos de coluna. |
-| ColumnCount | Número de colunas no arquivo ou na tabela relacional. |
-| exists| Se existe um arquivo, uma pasta ou uma tabela. Observe que, se `exists` for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
+| childItems | Lista de subpastas e arquivos na pasta dada. Aplicável apenas a pastas. Valor devolvido é uma lista do nome e tipo de cada item filho. |
+| contentMD5 | MD5 do arquivo. Aplicável apenas aos arquivos. |
+| estrutura | Estrutura de dados do arquivo ou tabela de banco de dados relacional. Valor retornado é uma lista de nomes de colunas e tipos de coluna. |
+| ColumnCount | Número de colunas no arquivo ou tabela relacional. |
+| exists| Se existe um arquivo, pasta ou tabela. Observe que `exists` se for especificado na lista de campo Obter metadados, a atividade não falhará mesmo se o arquivo, pasta ou tabela não existirem. Em `exists: false` vez disso, é devolvido na saída. |
 
 >[!TIP]
->Quando desejar validar a existência de um arquivo, pasta ou tabela, especifique `exists` na lista campo de atividade obter metadados. Em seguida, você pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campos, a atividade obter metadados falhará se o objeto não for encontrado.
+>Quando você quiser validar que existe um arquivo, pasta ou tabela, especifique `exists` na lista de campos de atividade Get Metadata. Em seguida, `exists: true/false` você pode verificar o resultado na saída de atividade. Se `exists` não for especificado na lista de campos, a atividade Obter metadados falhará se o objeto não for encontrado.
 
 >[!NOTE]
->Quando você obtém metadados de repositórios de arquivos e configura `modifiedDatetimeStart` ou `modifiedDatetimeEnd`, a `childItems` na saída incluirá somente os arquivos no caminho fornecido que têm uma hora da última modificação dentro do intervalo especificado. No não incluirá itens em subpastas.
+>Quando você receber metadados de `modifiedDatetimeStart` armazenamentos de arquivos e configurar ou , `modifiedDatetimeEnd`a `childItems` saída in incluirá apenas arquivos no caminho dado que têm um último tempo modificado dentro do intervalo especificado. Não incluirá itens em subpastas.
 
 ## <a name="syntax"></a>Sintaxe
 
-**Atividade de obtenção de metadados**
+**Obtenha atividade de metadados**
 
 ```json
 {
@@ -133,18 +133,18 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Atualmente, a atividade obter metadados pode retornar os seguintes tipos de informações de metadados:
+Atualmente, a atividade Get Metadata pode retornar os seguintes tipos de informações de metadados:
 
-Propriedade | DESCRIÇÃO | Obrigatório
+Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-fieldList | Os tipos de informações de metadados necessários. Para obter detalhes sobre os metadados com suporte, consulte a seção [Opções de metadados](#metadata-options) deste artigo. | Sim 
-dataset | O conjunto de uma referência cujos metadados serão recuperados pela atividade obter metadados. Consulte a seção de [recursos](#capabilities) para obter informações sobre os conectores com suporte. Consulte os tópicos específicos do conector para obter detalhes sobre a sintaxe do conjunto de informações. | Sim
-formatSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
-storeSettings | Aplicar ao usar o tipo de conjunto de banco de forma. | Não
+fieldList | Os tipos de informações de metadados necessárias. Para obter detalhes sobre metadados suportados, consulte a seção [de opções de metadados](#metadata-options) deste artigo. | Sim 
+dataset | O conjunto de dados de referência cujos metadados devem ser recuperados pela atividade Get Metadata. Consulte a seção [Recursos](#capabilities) para obter informações sobre conectores suportados. Consulte os tópicos específicos do conector para obter detalhes da sintaxe do conjunto de dados. | Sim
+Formatsettings | Aplique ao usar o conjunto de dados do tipo de formato. | Não
+configurações de armazenamento | Aplique ao usar o conjunto de dados do tipo de formato. | Não
 
 ## <a name="sample-output"></a>Saída de exemplo
 
-Os resultados de obter metadados são mostrados na saída da atividade. A seguir estão dois exemplos que mostram opções de metadados extensivas. Para usar os resultados em uma atividade subsequente, use este padrão: `@{activity('MyGetMetadataActivity').output.itemName}`.
+Os resultados do Get Metadata são mostrados na saída de atividade. A seguir estão duas amostras mostrando extensas opções de metadados. Para utilizar os resultados em uma atividade `@{activity('MyGetMetadataActivity').output.itemName}`subseqüente, use este padrão: .
 
 ### <a name="get-a-files-metadata"></a>Obter metadados de um arquivo
 
@@ -194,9 +194,9 @@ Os resultados de obter metadados são mostrados na saída da atividade. A seguir
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre outras atividades de fluxo de controle com suporte pelo Data Factory:
+Conheça outras atividades de fluxo de controle suportadas pela Data Factory:
 
-- [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar atividade de pipeline](control-flow-execute-pipeline-activity.md)
 - [Atividade ForEach](control-flow-for-each-activity.md)
-- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Atividade de procurar](control-flow-lookup-activity.md)
 - [Atividade da Web](control-flow-web-activity.md)

@@ -1,18 +1,18 @@
 ---
-title: Tutorial de atualização do aplicativo Service Fabric
+title: Tutorial de atualização de aplicativos do Service Fabric
 description: Este artigo descreve a experiência de implantação de um Aplicativo do Service Fabric, a alteração do código e a distribuição de uma atualização usando o Visual Studio.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464831"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização do aplicativo Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
-> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -30,9 +30,9 @@ A seleção de **Publicar** exibe um pop-up, e você pode definir o **Perfil de 
 
 ![Publicar um aplicativo do Service Fabric][image2]
 
-Agora, clique em **Publicar** na caixa de diálogo. Você pode usar o [Gerenciador do Service Fabric para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que pode ser acessado digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) na barra de endereços do navegador.  Você deve ver 10 objetos visuais flutuantes na tela.
+Agora, clique em **Publicar** na caixa de diálogo. Você pode usar o [Gerenciador do Service Fabric para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço web [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) que você pode ir digitando na barra de endereços do seu navegador.  Você deve ver 10 objetos visuais flutuantes na tela.
 
-**OBSERVAÇÃO:** se estiver implantando no perfil `Cloud.xml` (Azure Service Fabric), o aplicativo deverá estar disponível em **http://{NomeDoServiceFabric}.{Region}.cloudapp.azure.com:8081/visualobjects/** . Verifique se você tem `8081/TCP` configurado no Balanceador de Carga (localize o Balanceador de Carga no mesmo grupo de recursos que a instância do Service Fabric).
+**OBSERVAÇÃO:** se estiver implantando no perfil `Cloud.xml` (Azure Service Fabric), o aplicativo deverá estar disponível em **http://{NomeDoServiceFabric}.{Region}.cloudapp.azure.com:8081/visualobjects/**. Verifique se você tem `8081/TCP` configurado no Balanceador de Carga (localize o Balanceador de Carga no mesmo grupo de recursos que a instância do Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: atualizar o exemplo de Objetos Visuais
 Você pode notar que a com a versão implantada na Etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais possam girar.
@@ -62,8 +62,8 @@ Em alguns minutos, todos os domínios de atualização devem estar atualizados (
 
 Convém tentar alterar as versões e mudar da versão 2.0.0 para a versão 3.0.0 como um exercício, ou até mesmo da versão 2.0.0 de volta para a versão 1.0.0. Teste as possibilidades com políticas de integridade e tempos limite para ficar familiarizado com eles. Ao implantar em um cluster do Azure em vez de um cluster local, os parâmetros usados podem ter diferentes. É recomendável que você defina os tempos limite forma prudente.
 
-## <a name="next-steps"></a>Próximos passos
-[Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
+## <a name="next-steps"></a>Próximas etapas
+[Atualizar seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você através de uma atualização de aplicativo usando o PowerShell.
 
 Controle como seu aplicativo é atualizado usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
 

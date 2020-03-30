@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76020998"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
@@ -19,7 +19,7 @@ ms.locfileid: "76020998"
 
     ![Criar Gerenciador de Dispositivo StorSimple](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    Procure _StorSimple Físico_. Selecione e clique em **Série de Dispositivos Físicos StorSimple** e então clique em **Criar**. Como alternativa, no portal do Azure, clique em **+** e, em **Armazenamento**, clique em **Série de Dispositivos Físicos StorSimple**.
+    Procure _StorSimple Físico_. Selecione e clique em **Série de Dispositivos Físicos StorSimple** e então clique em **Criar**. Alternativamente, no portal Azure clique **+** e, em seguida, em **Armazenamento,** clique em **StorSimple Physical Device Series**.
 
     ![Criar Gerenciador de Dispositivo StorSimple](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
@@ -31,12 +31,12 @@ ms.locfileid: "76020998"
 
    3. Para **Grupo de recursos**, **Usar existente** ou **Criar novo** grupo. Para obter mais informações, veja [Grupos de recursos do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-   4. Fornecer um **Local** para o serviço. Em geral, escolha um local próximo à região geográfica onde quer implantar os seus serviços. Você talvez queira considerar o seguinte:
+   4. Forneça um **Local** para seu serviço. Em geral, escolha um local próximo à região geográfica onde quer implantar os seus serviços. Você talvez queira considerar o seguinte:
 
       * Se você tiver cargas de trabalho existentes no Azure que também planeja implantar com seu dispositivo StorSimple, use aquele datacenter.
       * Seu serviço Gerenciador de Dispositivos StorSimple e o Armazenamento do Azure podem estar em dois locais separados. Nesse caso, é necessário criar a conta de armazenamento do Azure e do StorSimple Device Manager separadamente. Para criar uma conta de armazenamento do Azure, acesse o serviço Armazenamento do Azure no Portal do Azure e siga as etapas em [Criar uma conta de Armazenamento do Azure](../articles/storage/common/storage-account-create.md). Após criar essa conta, adicione-a ao serviço StorSimple Device Manager seguindo as etapas em [Configurar uma nova conta de armazenamento para o serviço](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
 
-   5. Selecione **Criar uma nova conta de armazenamento** para criar automaticamente uma conta de armazenamento com o serviço. Especifique um nome para essa conta de armazenamento. Se você precisar de seus dados em um local diferente, desmarque essa caixa.
+   5. Selecione **Criar uma nova conta de armazenamento** para criar uma conta de armazenamento com o serviço automaticamente. Especifique um nome para essa conta de armazenamento. Se você precisar de seus dados em um local diferente, desmarque essa caixa.
 
    6. Marque **Fixar no painel** caso você deseje um link rápido para esse serviço em seu painel.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67171863"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Abrir portas TCP no firewall do Windows para a instância padrão do Mecanismo de Banco de Dados
@@ -16,7 +16,7 @@ ms.locfileid: "67171863"
 2. Uma vez conectado na tela inicial, digite **WF. msc**e pressione ENTER.
    
     ![Iniciar o Programa de Firewall](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
-3. No **Firewall do Windows com Segurança Avançada**, no painel esquerdo, clique com o botão direito do mouse em **Regras de Entrada** e, em seguida, clique em **Nova Regra** no painel de ações.
+3. No painel esquerdo do **Firewall do Windows com Segurança Avançada**, clique com o botão direito do mouse em **Regras de Entrada** e clique em **Nova Regra** no painel de ação.
    
     ![Nova Regra](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
 4. Na caixa de diálogo **Assistente para Nova Regra de Entrada**, em **Tipo de Regra**, selecione **Porta** e clique em **Avançar**.
@@ -26,12 +26,12 @@ ms.locfileid: "67171863"
 6. Clique em **Avançar**.
 7. Na caixa de diálogo **Ação**, selecione **Permitir a conexão** e clique em **Avançar**.
    
-    **Observação de segurança:** Selecionando **permitir a conexão se ela for segura** pode fornecer segurança adicional. Selecione essa opção se você desejar configurar opções de segurança adicionais em seu ambiente.
+    **Observação sobre segurança:** a seleção de **Permitir a conexão se for segura** pode fornecer segurança adicional. Selecione essa opção se você desejar configurar opções de segurança adicionais em seu ambiente.
    
     ![Permitir Conexões](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
-8. Na caixa de diálogo **Perfil**, selecione **Público**, **Privado** e **Domínio**. Em seguida, clique em **Próximo**.
+8. Na caixa de diálogo **Perfil**, selecione **Público**, **Privado** e **Domínio**. Em seguida, clique em **Avançar**.
    
-    **Observação de segurança:**  Selecionando **pública** permite o acesso pela internet. Sempre que possível, selecione um perfil mais restritivo.
+    **Observação sobre segurança:** a seleção de **Público** permite acesso pela internet. Sempre que possível, selecione um perfil mais restritivo.
    
     ![Perfil Público](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. Na caixa de diálogo **Nome**, digite um nome e uma descrição para essa regra, e clique em **Concluir**.
@@ -55,10 +55,10 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 1. Enquanto estiver conectado à máquina virtual, na página inicial, digite **SQL Server Management Studio** e clique no ícone selecionado.
    
     Na primeira vez que você abrir o Management Studio ele deve criar o ambiente do Management Studio dos usuários. Isso pode demorar alguns instantes.
-2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor** . Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar ao Mecanismo de Banco de Dados com o Pesquisador de Objetos (em vez do nome de máquina virtual, você também pode usar **(local)** ou um único ponto como o **Nome do servidor**). Selecione **autenticação do Windows**e deixe ***your_VM_name\your_local_administrator*** no **nome de usuário** caixa. Clique em **Conectar**.
+2. O Management Studio apresenta a caixa de diálogo **Conectar ao Servidor** . Na caixa **Nome do servidor**, digite o nome da máquina virtual para conectar ao Mecanismo de Banco de Dados com o Pesquisador de Objetos (em vez do nome de máquina virtual, você também pode usar **(local)** ou um único ponto como o **Nome do servidor**). Selecione **autenticação do Windows**e deixe ***your_VM_name\your_local_administrator*** na caixa **Nome do Usuário.** Clique em **Conectar**.
    
     ![Conectar-se ao servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
-3. No SQL Server Management Studio Object Explorer, clique com o botão direito do mouse no nome da instância do SQL Server (o nome da máquina virtual) e, em seguida, clique em **Propriedades**.
+3. No Pesquisador de Objetos do SQL Server Management Studio, clique com o botão direito do mouse no nome da instância do SQL Server (o nome da máquina virtual) e, depois, clique em **Propriedades**.
    
     ![Propriedades do servidor](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
 4. Na página **Segurança**, em **Autenticação do servidor**, selecione **Modo de Autenticação do SQL Server e do Windows** e clique em **OK**.
@@ -74,14 +74,14 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve criar pelo menos um logon de autenticação do SQL Server.
 
 1. No SQL Server Management Studio Object Explorer, expanda a pasta da instância do servidor na qual você deseja criar o novo logon.
-2. Clique com o botão direito do mouse na pasta **Segurança**, aponte para **Novo** e selecione **Logon...** .
+2. Clique com o botão direito do mouse na pasta **Segurança,** aponte para **Novo**e selecione **Login...**.
    
     ![Novo Logon](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. Na caixa de diálogo **Logon - Novo**, na página **Geral**, digite o nome do novo usuário na caixa **Nome de logon**.
 4. Selecione **Autenticação do SQL Server**.
-5. Na caixa **Senha** , digite uma senha para o novo usuário. Insira novamente essa senha na caixa **Confirmar Senha** .
+5. Na caixa **Senha**, digite uma senha para o novo usuário. Digite essa senha novamente na caixa **Confirmar Senha**.
 6. Selecione as opções de aplicação de senha necessárias (**Aplicar política de senha**, **Aplicar expiração de senha** e **O usuário deve alterar a senha no próximo logon**). Se você estiver usando esse logon por conta própria, não será preciso exigir uma alteração de senha no próximo logon.
-7. Na lista **Banco de Dados Padrão** , selecione um banco de dados padrão para o logon. **mestre** é o padrão para essa opção. Se você ainda não tiver criado um usuário de banco de dados, mantenha essa definição como **mestre**.
+7. Na lista **Banco de dados padrão** , selecione um banco de dados padrão para o logon. **mestre** é o padrão para essa opção. Se você ainda não tiver criado um usuário de banco de dados, mantenha essa definição como **mestre**.
    
     ![Propriedades de Logon](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 8. Se esse for o primeiro logon que você está criando, talvez você queira designá-lo como um administrador do SQL Server. Em caso afirmativo, na página **Funções de Servidor**, marque **sysadmin**.

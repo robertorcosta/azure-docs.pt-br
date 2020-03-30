@@ -1,6 +1,6 @@
 ---
-title: Mensagens EDI do processo em lote como um grupo
-description: Enviar e receber mensagens EDI como lotes, grupos ou coleções usando o processamento em lotes em aplicativos lógicos do Azure
+title: Processo em lote mensagens EDI como um grupo
+description: Envie e receba mensagens EDI como lotes, grupos ou coleções usando processamento em lote em Aplicativos de Lógica do Azure
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
@@ -8,15 +8,15 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666662"
 ---
-# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Trocar mensagens EDI como lotes ou grupos entre parceiros comerciais em aplicativos lógicos do Azure
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Troque mensagens EDI como lotes ou grupos entre parceiros comerciais no Azure Logic Apps
 
-Em cenários de B2B (entre empresas), os parceiros geralmente trocam mensagens em grupos ou em *lotes*. Ao compilar uma solução de envio em lote com Aplicativos Lógicos, você pode enviar mensagens para parceiros comerciais e processar essas mensagens juntas em lotes. Este artigo mostra como processar mensagens de EDI em lotes, usando X12 como exemplo, criando um aplicativo lógico "remetente do lote" e um aplicativo lógico "receptor do lote". 
+Nos cenários business to business (B2B), os parceiros muitas vezes trocam mensagens em grupos ou *lotes.* Ao compilar uma solução de envio em lote com Aplicativos Lógicos, você pode enviar mensagens para parceiros comerciais e processar essas mensagens juntas em lotes. Este artigo mostra como processar mensagens de EDI em lotes, usando X12 como exemplo, criando um aplicativo lógico "remetente do lote" e um aplicativo lógico "receptor do lote". 
 
 O envio de mensagens em lotes do X12 funciona como o envio em lote de outras mensagens, isto é, você usa um gatilho de lote que coleta mensagens em um lote e uma ação em lote que envia mensagens para o lote. Além disso, o envio em lote do X12 inclui uma etapa de codificação do X12 antes que as mensagens sejam enviadas para o parceiro comercial ou outro destino. Para saber mais sobre a ação e o disparador de lote, consulte [Mensagens do processo em lote](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
@@ -34,7 +34,7 @@ Certifique-se de que o receptor do lote e o remetente do lote compartilham a mes
 
 Para seguir este exemplo, você precisa destes itens:
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura, você pode [começar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -71,7 +71,7 @@ Para esse receptor do lote, você especifica o modo de lote, nome, critérios de
    | **Critérios de liberação** | Baseado em contagem de mensagens, Baseado no agendamento | Disponível apenas com o modo de lote **Embutido** | 
    | **Contagem de mensagens** | 10 | Disponível apenas com critérios de liberação **Baseados em contagem de mensagens** | 
    | **Intervalo** | 10 | Disponível apenas com critérios de liberação **Baseados no agendamento** | 
-   | **Frequência** | minute | Disponível apenas com critérios de liberação **Baseados no agendamento** | 
+   | **Freqüência** | minute | Disponível apenas com critérios de liberação **Baseados no agendamento** | 
    ||| 
 
    ![Fornecer detalhes do gatilho de lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -93,7 +93,7 @@ Para esse receptor do lote, você especifica o modo de lote, nome, critérios de
 
    4. Configure essas propriedades para a ação do codificador de lote:
 
-      | Propriedade | Description |
+      | Propriedade | Descrição |
       |----------|-------------|
       | **Nome do contrato do X12** | Abra a lista e selecione o contrato existente. <p>Se a lista estiver vazia, certifique-se de [vincular o aplicativo lógico à conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) que tiver o contrato desejado. | 
       | **BatchName** | Clique dentro dessa caixa e, após a exibição da lista de conteúdo dinâmico, selecione o token do **Nome do Lote**. | 
@@ -123,11 +123,11 @@ Para certificar-se de que o receptor do lote funciona conforme o esperado, você
 
 3. Configure as propriedades para a ação HTTP:
 
-   | Propriedade | Description | 
+   | Propriedade | Descrição | 
    |----------|-------------|
    | **Método** | Nessa lista, selecione **POST**. | 
    | **Uri** | Gere um URI para o compartimento de solicitação e, em seguida, insira esse URI nessa caixa. | 
-   | **Corpo** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token do **Corpo**, que aparece na seção, **Codificar em lote por nome de contrato**. <p>Se você não visualizar o token do **Corpo**, próximo a **Codificar em lote por nome de contrato** , selecione **Ver mais**. | 
+   | **Corpo** | Clique dentro dessa caixa e, depois que a lista de conteúdo dinâmico for exibida, selecione o token do **Corpo**, que aparece na seção, **Codificar em lote por nome de contrato**. <p>Se você não visualizar o token do **Corpo**, próximo a **Codificar em lote por nome de contrato **, selecione **Ver mais**. | 
    ||| 
 
    ![Forneça detalhes da ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
@@ -173,7 +173,7 @@ Agora crie um ou mais aplicativos lógicos que enviem mensagens ao aplicativo l�
 
 4. Defina as propriedades do remetente do lote.
 
-   | Propriedade | Description | 
+   | Propriedade | Descrição | 
    |----------|-------------| 
    | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: o nome do lote é validado no runtime e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você quer enviar, que é o token do **Corpo** neste exemplo | 
@@ -191,6 +191,6 @@ Agora crie um ou mais aplicativos lógicos que enviem mensagens ao aplicativo l�
 
 Para testar a solução de envio em lote, poste mensagens X12 no aplicativo lógico do remetente do lote a partir do [Postman](https://www.getpostman.com/postman) ou de uma ferramenta semelhante. Em breve, você começará a receber mensagens X12 no compartimento de solicitações, a cada 10 minutos ou em lotes de 10, todos com a mesma chave de partição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Processar mensagens como lotes](../logic-apps/logic-apps-batch-process-send-receive-messages.md) 
