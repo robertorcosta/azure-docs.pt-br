@@ -4,10 +4,10 @@ description: Use as APIs REST do Azure para obter os eventos de integridade para
 ms.topic: conceptual
 ms.date: 06/06/2017
 ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77653994"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obter Resource Health usando a API REST 
@@ -30,8 +30,8 @@ Os cabeçalhos a seguir são necessários:
 
 |Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*|Obrigatórios. Defina como `application/json`.|  
-|*Authorization:*|Obrigatórios. Defina como um [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |  
+|*Tipo de conteúdo:*|Obrigatórios. Defina como `application/json`.|  
+|*Autorização:*|Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 

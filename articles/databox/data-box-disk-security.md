@@ -1,6 +1,6 @@
 ---
-title: Recursos de segurança do Microsoft Azure Disco do Data Box | Microsoft Docs em dados
-description: Descreve os recursos de segurança implementados para Disco do Azure Data Box, uma solução de nuvem que permite transferir grandes quantidades de dados para o Azure
+title: Recursos de segurança de disco da Caixa de Dados do Microsoft Azure | Microsoft Docs em dados
+description: Descreve os recursos de segurança implementados para o Azure Data Box Disk, uma solução em nuvem que permite transferir grandes quantidades de dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117280"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box Disk
@@ -26,7 +26,7 @@ A solução Microsoft Azure Data Box consiste em quatro componentes principais q
 - **Serviço do Azure Data Box hospedado no Azure** - o serviço de gerenciamento que você usa para criar o pedido do disco, configurar os discos e, em seguida, controlar o pedido até a conclusão.
 - **Data Box Disks** - os discos físicos que são enviados para você para importar seus dados locais para o Azure. 
 - **Clientes/hosts conectados aos discos** - os clientes em sua infraestrutura que se conectam ao Data Box Disk por USB e contêm dados que precisam ser protegidos.
-- **Armazenamento em nuvem** – O local na nuvem do Azure onde os dados são armazenados. Isso geralmente é a conta de armazenamento vinculada ao recurso do Azure Data Box que você criou.
+- **Armazenamento em nuvem** – O local na nuvem do Azure em que os dados ficam armazenados. Isso geralmente é a conta de armazenamento vinculada ao recurso do Azure Data Box que você criou.
 
 O diagrama a seguir indica o fluxo de dados através da solução do Azure Data Box Disk do local para o Azure.
 
@@ -74,11 +74,11 @@ O Azure Data Box Disk reúne e exibe informações pessoais nas seguintes instâ
   - Número de telefone
   - Email
   - Endereço
-  - Cidade
+  - City
   - CEP/Código postal
   - Estado
   - Região/País/Região
-  - ID da unidade
+  - ID da Unidade
   - Número da conta da operadora
   - Enviar número de controle
 
@@ -89,7 +89,7 @@ O Azure Data Box Disk reúne e exibe informações pessoais nas seguintes instâ
 Para mais informações, revise a Política de Privacidade da Microsoft na [Central de Confiabilidade](https://www.microsoft.com/trustcenter).
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine os [requisitos do Data Box Disk](data-box-disk-system-requirements.md).
 - Entenda os [limites do Data Box Disk](data-box-disk-limits.md).

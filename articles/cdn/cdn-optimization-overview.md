@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: da8f17da9225da1d2b92bd8515d645bce9a1bbaa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252110"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de distribuição de conteúdo
 
-Quando você distribui conteúdo para um público global grande, é essencial garantir a distribuição otimizada do conteúdo. A [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) pode otimizar a experiência de distribuição de acordo com o tipo de conteúdo existente. O conteúdo pode ser um site, uma transmissão ao vivo, um vídeo ou um arquivo grande para download. Quando você cria um ponto de extremidade CDN, você especifica um cenário na opção **Otimizado para**. Sua escolha determina qual otimização é aplicada ao conteúdo distribuído do ponto de extremidade CDN.
+Quando você distribui conteúdo para um público global grande, é essencial garantir a distribuição otimizada do conteúdo. [O CDN (Azure Content Delivery Network, rede de entrega de conteúdo)](cdn-overview.md) pode otimizar a experiência de entrega com base no tipo de conteúdo que você tem. O conteúdo pode ser um site, uma transmissão ao vivo, um vídeo ou um arquivo grande para download. Quando você cria um ponto de extremidade CDN, você especifica um cenário na opção **Otimizado para**. Sua escolha determina qual otimização é aplicada ao conteúdo distribuído do ponto de extremidade CDN.
 
 As opções de otimização foram projetadas para usar os comportamentos de melhores práticas, a fim de melhorar o desempenho de distribuição de conteúdo e obter um melhor descarregamento da origem. Suas escolhas de cenário afetam o desempenho modificando as configurações de cache parcial, o agrupamento de objeto e a política de repetição de falha da origem. 
 
@@ -36,27 +36,27 @@ Este artigo fornece uma visão geral dos diversos recursos de otimização e qua
 
 Os perfis da **CDN do Azure Standard da Microsoft** são compatíveis com as otimizações a seguir:
 
-* [Entrega na Web geral](#general-web-delivery). Essa otimização também é usada para streaming de mídia e download de arquivos grandes.
+* [Entrega web geral](#general-web-delivery). Essa otimização também é usada para streaming de mídia e download de arquivos grandes.
 
 > [!NOTE]
-> A aceleração de site dinâmica da Microsoft é oferecida por meio do [serviço de porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> A aceleração dinâmica do site da Microsoft é oferecida via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 Os perfis da **CDN do Azure Standard da Verizon** e da **CDN do Azure Premium da Verizon** são compatíveis com as otimizações a seguir:
 
-* [Entrega na Web geral](#general-web-delivery). Essa otimização também é usada para streaming de mídia e download de arquivos grandes.
+* [Entrega web geral](#general-web-delivery). Essa otimização também é usada para streaming de mídia e download de arquivos grandes.
 
 * [Aceleração de site dinâmica](#dynamic-site-acceleration) 
 
 
 Os perfis da **CDN do Azure Standard da Akamai** são compatíveis com as otimizações a seguir:
 
-* [Entrega na Web geral ](#general-web-delivery) 
+* [Distribuição na Web geral](#general-web-delivery) 
 
 * [Streaming de mídia geral](#general-media-streaming)
 
-* [Streaming de mídia de vídeo sob demanda](#video-on-demand-media-streaming)
+* [Streaming de mídia de vídeo por demanda](#video-on-demand-media-streaming)
 
-* [Download de arquivo grande](#large-file-download)
+* [Download de arquivos grandes](#large-file-download)
 
 * [Aceleração de site dinâmica](#dynamic-site-acceleration) 
 
@@ -70,7 +70,7 @@ Quando você criar um ponto de extremidade de CDN, selecione um tipo de otimiza�
 
     ![Seleção de ponto de extremidade](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Em CONFIGURAÇÕES, selecione **Otimização**. Em seguida, selecione um tipo na lista suspensa **Otimizado para**.
+2. Em CONFIGURAÇÕES, selecione **Otimização**. Em seguida, selecione um tipo na lista **otimizada para** a lista de paradas.
 
     ![Otimização e seleção de tipo](./media/cdn-optimization-overview/02_Select.png)
 
@@ -95,7 +95,7 @@ O streaming de mídia é sensível ao tempo, pois os pacotes que chegam tarde no
 
 Esse cenário é comum para clientes do serviço de mídia do Azure. Quando você usa os Serviços de Mídia do Azure, você pode obter um único ponto de extremidade de streaming, que pode ser usado para streaming sob demanda e ao vivo. Neste cenário, os clientes não precisam alternar para outro ponto de extremidade quando alteram de streaming sob demanda para ao vivo. A otimização de streaming de mídia geral dá suporte a esse tipo de cenário.
 
-Para **a CDN Standard do Azure da Microsoft**, **a CDN Standard do Azure da Verizon**, e  **CDN Standard do Azure da Verizon**, use o tipo de otimização de entrega da web geral para entregar conteúdo de mídia de streaming geral.
+Para **a CDN Standard do Azure da Microsoft**, **a CDN Standard do Azure da Verizon**, e ** CDN Standard do Azure da Verizon**, use o tipo de otimização de entrega da web geral para entregar conteúdo de mídia de streaming geral.
 
 Para obter mais informações sobre a otimização de streaming de mídia, consulte [Otimização de streaming de mídia](cdn-media-streaming-optimization.md).
 
@@ -108,7 +108,7 @@ Para os perfis da **CDN do Azure Standard da Microsoft**, **CDN do Azure Standar
 Para obter mais informações sobre a otimização de streaming de mídia, consulte [Otimização de streaming de mídia](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
-> Se o ponto de extremidade da CDN fornecer principalmente o conteúdo de vídeo por demanda, use esse tipo de otimização. A principal diferença entre esse tipo de otimização e o tipo de otimização de streaming de mídia geral é o tempo limite de repetição de conexão. O tempo limite é muito mais curto para trabalhar com cenários de transmissão ao vivo.
+> Se o ponto de extremidade da CDN fornecer principalmente o conteúdo de vídeo por demanda, use esse tipo de otimização. A principal diferença entre esse tipo de otimização e o tipo geral de otimização de streaming de mídia é o tempo de repetição da conexão. O tempo de intervalo é muito mais curto para trabalhar com cenários de transmissão ao vivo.
 >
 
 ### <a name="large-file-download"></a>Download de arquivos grandes
@@ -124,7 +124,7 @@ Para saber mais sobre a otimização de arquivos grandes, consulte [Otimização
  A DSA (aceleração de site dinâmica) está disponível para os perfis da **CDN do Azure Standard da Akamai**, **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**. Essa otimização envolve um valor adicional para ser usado; para obter mais informações, consulte [Preço da Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> A aceleração de site dinâmico da Microsoft é oferecida por meio [do serviço de porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) , que é um serviço de [anycast](https://en.wikipedia.org/wiki/Anycast) global que aproveita a rede global privada da Microsoft para fornecer suas cargas de trabalho de aplicativo.
+> A aceleração dinâmica do site da Microsoft é oferecida através do [Azure Front Door Service,](https://docs.microsoft.com/azure/frontdoor/front-door-overview) que é um serviço global [de qualquer elenco](https://en.wikipedia.org/wiki/Anycast) aproveitando a rede global privada da Microsoft para fornecer cargas de trabalho de aplicativos.
 
 A DSA inclui várias técnicas que trazem benefícios para a latência e o desempenho do conteúdo dinâmico. As técnicas incluem otimização de rota e de rede, otimização de TCP e muito mais. 
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267905"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco em um dispositivo StorSimple da série 8000
@@ -46,14 +46,14 @@ Este procedimento explica como os bloqueios antiviolação em seu dispositivo St
    
     **Figura 1** Bloqueio antiviolação ativado
    
-   | Rótulo | DESCRIÇÃO |
+   | Rótulo | Descrição |
    |:--- |:--- |
    | 1 |Abertura do indicador |
    | 2 |Bloqueio antiviolação |
 2. Gire a chave no sentido anti-horário até que o indicador vermelho não esteja visível na abertura acima da chave.
 3. Remova a chave.
    
-    ![Unidade de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![ Unidade de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Figura 2** Unidade de disco desbloqueada
 4. A unidade de disco agora pode ser removida.
@@ -100,10 +100,10 @@ Após uma falha de unidade em seu dispositivo StorSimple e depois que você remo
    
     ![Deslizando o disco para dentro do suporte da unidade de disco](./media/storsimple-disk-drive-replacement/IC741045.png)
    
-    **Figura 6** Deslizando o suporte da unidade para dentro do chassi
+    **Figura 6**  Deslizando o carregador de acionamento para dentro do chassi
 3. Com o suporte da unidade inserido, feche a alça do suporte enquanto continua a empurrar o suporte da unidade para dentro do chassi, até que a alça se encaixe na posição travada.
 4. Use a chave de bloqueio que foi fornecida pela Microsoft (chave de fenda Torx à prova de violações) para prender a alça do suporte no lugar girando os parafusos um quarto de volta no sentido horário.
-5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o Portal do Azure e navegue para **Configurações do dispositivo** > **Integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
+5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o portal Dozure e navegue até **as configurações** > do**dispositivo Hardware health**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
 
    
    > [!NOTE]

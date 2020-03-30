@@ -4,10 +4,10 @@ description: Este artigo fornece uma introdução à atualização de um aplicat
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259039"
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicativos do Service Fabric
@@ -49,7 +49,7 @@ Quando uma atualização de aplicativo é revertida, os parâmetros de serviço 
 > A definição de configuração do cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) deverá ser *true* para habilitar as regras 2) e 3) acima (atualização e exclusão do serviço padrão). Esse recurso tem suporte a partir do Microsoft Service Fabric versão 5.5.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Atualizando vários aplicativos com pontos de extremidade HTTPS
-Você precisa ter cuidado para não usar a **mesma porta** para instâncias diferentes do mesmo aplicativo quando estiver usando HTTP**S**. O motivo é que o Service Fabric não será capaz de fazer upgrade do certificado para uma das instâncias do aplicativo. Por exemplo, se o aplicativo 1 ou o aplicativo 2 deseja fazer upgrade do seu cert 1 cert 2. Quando o upgrade é feito, o Service Fabric pode apagar o registro cert 1 com o http.sys, embora o outro aplicativo ainda o está usando. Para evitar isso, o Service Fabric detecta se já há em outra instância do aplicativo registrada na porta com o certificado (devido ao http. sys) e faz a operação falhar.
+Você precisa ter cuidado para não usar a **mesma porta** para diferentes instâncias do mesmo aplicativo ao usar HTTP**S**. O motivo é que o Service Fabric não será capaz de fazer upgrade do certificado para uma das instâncias do aplicativo. Por exemplo, se o aplicativo 1 ou o aplicativo 2 deseja fazer upgrade do seu cert 1 cert 2. Quando o upgrade é feito, o Service Fabric pode apagar o registro cert 1 com o http.sys, embora o outro aplicativo ainda o está usando. Para evitar isso, o Service Fabric detecta se já há em outra instância do aplicativo registrada na porta com o certificado (devido ao http. sys) e faz a operação falhar.
 
 Portanto, o Service Fabric não suporta a atualização de dois serviços diferentes usando **a mesma porta** em instâncias de aplicativo diferentes. Em outras palavras, você não pode usar o mesmo certificado em serviços diferentes na mesma porta. Se você precisa ter um certificado compartilhado na mesma porta, precisa garantir que os serviços sejam colocados em computadores diferentes com restrições de posicionamento. Ou, considere o uso de portas dinâmicas do Service Fabric, se possível, para cada serviço em cada instância do aplicativo. 
 
@@ -65,12 +65,12 @@ O fluxograma após este parágrafo pode ajudar na compreensão do processo de at
 
 [A atualização do seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você na atualização de um aplicativo usando o PowerShell.
 
-Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
+Controle como o aplicativo atualiza usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
 
-Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
+Torne os upgrades de aplicativos compatíveis, aprendendo como usar [serialização de dados.](service-fabric-application-upgrade-data-serialization.md)
 
-Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
+Aprenda a usar funcionalidades avançadas ao atualizar seu aplicativo, referindo-se a [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
-Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+Corrija problemas comuns em atualizações de aplicativos, referindo-se às etapas em [Upgrades de aplicativos de solução de problemas](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png

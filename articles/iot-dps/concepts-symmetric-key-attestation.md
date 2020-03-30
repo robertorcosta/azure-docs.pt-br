@@ -1,6 +1,6 @@
 ---
 title: Serviço de Provisionamento de Dispositivos no Hub IoT do Azure – atestado de chave simétrica
-description: Este artigo fornece uma visão geral conceitual do atestado de chave simétrica usando o DPS (serviço de provisionamento de dispositivos IoT).
+description: Este artigo fornece uma visão geral conceitual do atestado de chave simétrica usando o Serviço de Provisionamento de Dispositivos IoT (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271506"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
@@ -46,7 +46,7 @@ Os tokens SAS têm o seguinte formato:
 
 Estes são os componentes de cada token:
 
-| Valor | DESCRIÇÃO |
+| Valor | Descrição |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256. Para registros individuais, essa assinatura é produzida usando a chave simétrica (primária ou secundária) para realizar o hash. Para grupos de registro, uma chave derivada da chave do grupo de registro é usada para executar o hash. O hash é executado em uma mensagem no formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: a chave precisa ser decodificada da base64 antes de ser usada para executar o cálculo de HMAC-SHA256. Além disso, o resultado da assinatura precisa ser codificada como URL. |
 | {resourceURI} |O URI do ponto de extremidade de registro que pode ser acessado com esse token, começando com a ID do escopo da instância do serviço de provisionamento de dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |

@@ -1,6 +1,6 @@
 ---
-title: Contêiner do perfil do FSLogix de armazenamento área de trabalho virtual do Windows – Azure
-description: Opções para armazenar seu perfil de FSLogix de área de trabalho virtual do Windows no armazenamento do Azure.
+title: Contêiner de perfil FSLogix de armazenamento Windows Virtual Desktop - Azure
+description: Opções para armazenar seu perfil FSLogix de desktop virtual do Windows no Azure Storage.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,52 +9,52 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 71ba24784dee7771acbe19bf0261c7dc02478b24
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127526"
 ---
-# <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows
+# <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para contêineres de perfil FSLogix no Windows Virtual Desktop
 
-O Azure oferece várias soluções de armazenamento que você pode usar para armazenar seu contêiner de perfil do FSLogix. Este artigo compara as soluções de armazenamento oferecidas pelo Azure para contêineres de perfil de usuário FSLogix de área de trabalho virtual do Windows.
+O Azure oferece várias soluções de armazenamento que você pode usar para armazenar seu contêiner de perfil FSLogix. Este artigo compara as soluções de armazenamento que o Azure oferece para contêineres de perfil de usuário do Windows Virtual Desktop FSLogix.
 
-A área de trabalho virtual do Windows oferece contêineres de perfil de FSLogix como a solução de perfil de usuário recomendada. O FSLogix é projetado para perfis de roaming em ambientes de computação remota, como área de trabalho virtual do Windows. Ao entrar, esse contêiner é dinamicamente anexado ao ambiente de computação usando um VHD (disco rígido virtual) com suporte nativo e um VHDX (disco rígido virtual) do Hyper-V. O perfil do usuário fica imediatamente disponível e aparece no sistema exatamente como um perfil de usuário nativo.
+O Windows Virtual Desktop oferece os contêineres de perfil FSLogix como a solução recomendada de perfil de usuário. O FSLogix foi projetado para vagar perfis em ambientes de computação remota, como o Windows Virtual Desktop. No login, este contêiner é conectado dinamicamente ao ambiente de computação usando um Disco Rígido Virtual (VHD) com suporte nativo e um Disco Rígido Virtual Hyper-V (VHDX). O perfil do usuário está disponível imediatamente e aparece no sistema exatamente como um perfil de usuário nativo.
 
-As tabelas a seguir comparam as soluções de armazenamento ofertas de armazenamento do Azure para perfis de usuário de contêiner do Windows Virtual Desktop FSLogix.
+As tabelas a seguir comparam as soluções de armazenamento que o Azure Storage oferece para os perfis de usuários de contêineres do perfil Windows Virtual Desktop FSLogix.
 
 ## <a name="azure-platform-details"></a>Detalhes da plataforma Azure
 
 |Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de armazenamento Diretos|
 |--------|-----------|------------------|---------------------|
-|Caso de uso|Propósito geral|Ultra desempenho ou migração do NetApp local|Plataforma cruzada|
-|Serviço de plataforma|Sim, solução nativa do Azure|Sim, solução nativa do Azure|Não, autogerenciado|
+|Caso de uso|Propósito geral|Ultra desempenho ou migração do NetApp no local|Multiplataforma|
+|Serviço de plataforma|Sim, solução nativa do Azure|Sim, solução nativa do Azure|Não, auto-gerido|
 |Disponibilidade regional|Todas as regiões|[Selecionar regiões](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Todas as regiões|
-|Redundância|Localmente redundante/com redundância de zona/redundância geográfica|Localmente redundante|Localmente redundante/com redundância de zona/redundância geográfica|
-|Camadas e desempenho|Standard<br>Premium<br>Até máx. de 100 mil IOPS por compartilhamento com 5 GBps por compartilhamento em aproximadamente 3 ms de latência|Standard<br>Premium<br>Altíssima<br>Até 320K (16K) IOPS com 4,5 GBps por volume em aproximadamente 1 ms de latência|HDD Standard: até 500 de IOPS por disco limites<br>SSD Standard: até 4K IOPS por disco limites<br>SSD Premium: limites de até 20 mil IOPS por disco<br>Recomendamos discos Premium para Espaços de Armazenamento Diretos|
-|Capacity|100 TiB por compartilhamento|100 TiB por volume, até 12,5 PiB por assinatura|Máximo de 32 TiB por disco|
-|Infraestrutura necessária|Tamanho mínimo de compartilhamento 1 GiB|Pool mínimo de capacidade 4 TiB, tamanho mínimo de volume 100 GiB|Duas VMs no Azure IaaS (+ testemunha de nuvem) ou pelo menos três VMs sem e custos para discos|
-|Protocolos|SMB 2.1/3. e REST|NFSv3, NFSv 4.1 (visualização), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
+|Redundância|Localmente redundante/zona-redundante/geo-redundante|Localmente redundante|Localmente redundante/zona-redundante/geo-redundante|
+|Níveis e desempenho|Standard<br>Premium<br>Até o máximo 100k IOPS por ação com 5 GBps por ação a cerca de 3 ms latência|Standard<br>Premium<br>Ultra<br>IOPS de até 320k (16K) com 4,5 GBps por volume a cerca de 1 ms de latência|HDD padrão: até 500 limites de IOPS por disco<br>SSD padrão: até 4k limites de IOPS por disco<br>SSD premium: até 20k limites de IOPS por disco<br>Recomendamos discos Premium para espaços de armazenamento direto|
+|Capacity|100 TiB por ação|100 TiB por volume, até 12,5 PiB por assinatura|Máximo de 32 TiB por disco|
+|Infra-estrutura necessária|Tamanho mínimo de ação 1 GiB|Piscina de capacidade mínima 4 TiB, tamanho do volume min 100 GiB|Duas VMs no Azure IaaS (+ Cloud Witness) ou pelo menos três VMs sem e custos para discos|
+|Protocolos|SMB 2.1/3. e REST|NFSv3, NFSv4.1 (visualização), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
 
-## <a name="azure-management-details"></a>Detalhes de gerenciamento do Azure
+## <a name="azure-management-details"></a>Detalhes da gestão do Azure
 
 |Recursos|Arquivos do Azure|Azure NetApp Files|Espaços de armazenamento Diretos|
 |--------|-----------|------------------|---------------------|
-|Acesso|Nuvem, local e híbrido (sincronização de arquivos do Azure)|Nuvem, local (via ExpressRoute)|Nuvem, local|
-|Backup|Integração de instantâneo do backup do Azure|Instantâneos de Azure NetApp Files|Integração de instantâneo do backup do Azure|
-|Segurança e conformidade|[Todos os certificados com suporte do Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO concluído|[Todos os certificados com suporte do Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Integração do Microsoft Azure Active Directory|[Active Directory e Azure Active Directory Domain Services nativos](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Somente suporte nativo Active Directory ou Azure Active Directory Domain Services|
+|Acesso|Nuvem, local e híbrido (sincronização de arquivos Azure)|Nuvem, no local (via ExpressRoute)|Nuvem, no local|
+|Backup|Integração de instantâneo de backup do Azure|Instantâneos de arquivos do Azure NetApp|Integração de instantâneo de backup do Azure|
+|Segurança e conformidade|[Todos os certificados suportados pelo Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO concluída|[Todos os certificados suportados pelo Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
+|Integração do Microsoft Azure Active Directory|[Diretório ativo nativo e serviços de domínio de diretório ativo do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Serviços de domínio do diretório ativo do Azure e diretório ativo nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|O Native Active Directory ou o Azure Active Directory Domain Services são suportados apenas|
 
-Depois de escolher o método de armazenamento, confira [preços da área de trabalho virtual do Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/) para obter informações sobre nossos planos de preços.
+Depois de escolher seu método de armazenamento, confira os preços do [Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) para obter informações sobre nossos planos de preços.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre contêineres de perfil do FSLogix, discos de perfil do usuário e outras tecnologias de perfil de usuário, consulte a tabela em [contêineres de perfil do FSLogix e arquivos do Azure](fslogix-containers-azure-files.md).
+Para saber mais sobre os contêineres de perfil do FSLogix, os discos de perfil do usuário e outras tecnologias de perfil do usuário, consulte a tabela em [contêineres de perfil FSLogix e arquivos Azure](fslogix-containers-azure-files.md).
 
-Se você estiver pronto para criar seus próprios contêineres de perfil do FSLogix, comece com um destes tutoriais:
+Se você estiver pronto para criar seus próprios contêineres de perfil FSLogix, comece com um desses tutoriais:
 
-- [Introdução aos contêineres de perfil do FSLogix nos arquivos do Azure na área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
-- [Criar um contêiner de perfil do FSLogix para um pool de hosts usando os arquivos do Azure NetApp](create-fslogix-profile-container.md)
-- As instruções em [implantar um servidor de arquivos de escalabilidade horizontal de dois nós espaços de armazenamento diretos para o armazenamento UPD no Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) também se aplicam quando você usa um contêiner de perfil FSLogix em vez de um disco de perfil de usuário
+- [Começando com os contêineres de perfil FSLogix em Arquivos Azure no Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Crie um contêiner de perfil FSLogix para um pool de hostusando arquivos do Azure NetApp](create-fslogix-profile-container.md)
+- As instruções em Implantar um servidor de arquivos de escala direta de [dois nós Para armazenamento em UPD no Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) também se aplicam quando você usa um contêiner de perfil FSLogix em vez de um disco de perfil do usuário
 
-Você também pode começar desde o início e configurar sua própria solução de área de trabalho virtual do Windows em [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
+Você também pode começar desde o início e configurar sua própria solução de Área de Trabalho Virtual do Windows no [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).

@@ -1,5 +1,5 @@
 ---
-title: Comece com a identidade do módulo do Hub IoT do Azure & módulo "/".
+title: Comece com a identidade do módulo Azure IoT Hub & módulo gêmeo (Node.js)
 description: Saiba como criar a identidade do módulo e atualizar o módulo gêmeo usando SDKs de IoT para Node.js.
 author: wesmc7777
 manager: philmea
@@ -10,13 +10,13 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.openlocfilehash: bf80925a2dc5c6d06ba14fe1c0d72a2fc1f88d51
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953863"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Introdução à identidade do módulo do Hub IoT e ao módulo "". js "
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Comece com a identidade do módulo IoT Hub e o módulo gêmeo (Node.js)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
@@ -32,17 +32,17 @@ Ao fim deste tutorial, você terá dois aplicativos do Node.js:
 > [!NOTE]
 > Para obter informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução, veja [SDKs de IoT do Azure](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Node. js versão 10.0. x ou posterior. [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node. js para este tutorial no Windows ou no Linux.
+* Node.js versão 10.0.x ou posterior. [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 
-* Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+## <a name="get-the-iot-hub-connection-string"></a>Obtenha a seqüência de conexão do hub IoT
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
@@ -50,13 +50,13 @@ Ao fim deste tutorial, você terá dois aplicativos do Node.js:
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade do dispositivo e uma identidade do módulo no Hub IoT
 
-Nesta seção, você criará um aplicativo Node.js que cria uma identidade do dispositivo e uma identidade do módulo no registro de identidade no Hub IoT. Um dispositivo ou módulo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção "registro de identidade" do [Guia do desenvolvedor do Hub IOT](iot-hub-devguide-identity-registry.md). Quando você executa esse aplicativo de console, ele gera ID e chave exclusivas para o dispositivo e o módulo. O dispositivo e o módulo usam esses valores para se identificar ao enviar mensagens de dispositivo para nuvem para o Hub IoT. As IDs diferenciam minúsculas e maiúsculas.
+Nesta seção, você criará um aplicativo Node.js que cria uma identidade do dispositivo e uma identidade do módulo no registro de identidade no Hub IoT. Um dispositivo ou módulo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção "Registro de identidade" do [Guia do Desenvolvedor do Hub IoT](iot-hub-devguide-identity-registry.md). Quando você executa esse aplicativo de console, ele gera ID e chave exclusivas para o dispositivo e o módulo. O dispositivo e o módulo usam esses valores para se identificar ao enviar mensagens de dispositivo para nuvem para o Hub IoT. As IDs diferenciam minúsculas e maiúsculas.
 
 1. Crie um diretório para manter o código.
 
 2. Dentro desse diretório, primeiro execute **npm init -y** para criar um package.json vazio com os padrões. Esse é o arquivo de projeto do código.
 
-3. Execute **NPM install-S Azure-iothub\@modules-Preview** para instalar o SDK do serviço dentro do subdiretório **node_modules** .
+3. Executar **npm instalar -S azure-iothub\@modules-preview** para instalar o SDK de serviço dentro do subdiretório **node_modules.**
 
     > [!NOTE]
     > O nome do subdiretório node_modules usa o módulo word para significar "uma biblioteca de nós". Este termo não está relacionado com módulos do Hub IoT.
@@ -118,7 +118,7 @@ Nesta seção, você criará um aplicativo Node.js que cria uma identidade do di
 
     ```
 
-Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e uma identidade do módulo com a ID **myFirstModule** no dispositivo **myFirstDevice**. (Se essa ID de módulo já existir no registro de identidade, o código simplesmente recuperará as informações de módulo existentes.) Em seguida, o aplicativo exibe a chave primária para essa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao Hub IoT.
+Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e uma identidade do módulo com a ID **myFirstModule** no dispositivo **myFirstDevice**. (Se esse ID do módulo já existir no registro de identidade, o código simplesmente recupera as informações do módulo existentes.) Em seguida, o aplicativo exibe a chave principal para essa identidade. Você usa essa chave no aplicativo de módulo simulado para se conectar ao Hub IoT.
 
 Execute isso usando o nó add.js. Ele fornecerá uma cadeia de conexão para a identidade do dispositivo e outra para a identidade do módulo.
 
@@ -129,11 +129,11 @@ Execute isso usando o nó add.js. Ele fornecerá uma cadeia de conexão para a i
 
 Nesta seção, você criará um aplicativo Node.js no dispositivo simulado que atualiza as propriedades relatadas do módulo gêmeo.
 
-1. **Obtenha a cadeia de conexão do módulo** --entre no [portal do Azure](https://portal.azure.com/). Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
+1. **Obtenha sua seqüência de conexão do módulo** -- Faça login no [portal Azure](https://portal.azure.com/). Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
 
    ![Detalhes do módulo do Portal do Azure](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Da mesma forma que você fez na etapa anterior, crie um diretório para o código do dispositivo e use NPM para inicializá-lo e instalar o SDK do dispositivo (**NPM install-S Azure-IOT-Device-amqp\@modules-Preview**).
+2. Semelhante ao que você fez na etapa acima, crie um diretório para o código do seu dispositivo e use o NPM para inicializá-lo e instale o dispositivo SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
    > O comando npm install pode parecer lento. Seja paciente, pois está baixando muitos códigos do repositório de pacotes.
@@ -198,7 +198,7 @@ Nesta seção, você criará um aplicativo Node.js no dispositivo simulado que a
    F:\temp\module_twin>node twin.js
    ```
 
-   Em seguida, você verá:
+   Você verá então:
 
    ```console
    client opened

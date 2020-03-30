@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258935"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
@@ -18,7 +18,7 @@ A interface de linha de comando do Azure Service Fabric (CLI) é um utilitário 
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes da instalação, verifique se seu ambiente tem o Python e o pip instalados. Para saber mais, veja a [documentação de início rápido do pip](https://pip.pypa.io/en/latest/quickstart/) e a [documentação de instalação do Python](https://wiki.python.org/moin/BeginnersGuide/Download) oficial.
 
@@ -30,7 +30,7 @@ A CLI do Service Fabric serve para dar suporte à versão de runtime mais recent
 
 | Versão da CLI   | versão do runtime com suporte |
 |---------------|---------------------------|
-| Mais recente (~ = 9)  | Mais recente (~=7)              |
+| Mais recente (~=9)  | Mais recente (~=7)              |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |

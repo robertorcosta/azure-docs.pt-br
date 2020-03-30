@@ -1,7 +1,7 @@
 ---
-title: Caso de uso da análise de sentimentos
+title: Caso de uso de análise de sentimento
 titleSuffix: ML Studio (classic) - Azure
-description: Como criar modelos de análise de texto no Azure Machine Learning Studio (clássico) usando módulos para o pré-processamento de texto, N-gramas ou hash de recurso
+description: Como criar modelos de análise de texto no Azure Machine Learning Studio (clássico) usando módulos para pré-processamento de texto, N-grams ou hashing de recursos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,17 +11,17 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2018
 ms.openlocfilehash: 89fc5196977f53e040e1a6553b46ca57f39b18b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217893"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Criar um modelo de análise de sentimentos no Azure Machine Learning Studio (clássico)
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Crie um modelo de análise de sentimentos no Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Você pode usar Azure Machine Learning Studio (clássico) para criar e colocar em operação modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
+Você pode usar o Azure Machine Learning Studio (clássico) para construir e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
 
 Em um experimento de análise de texto, geralmente, você pode:
 
@@ -31,7 +31,7 @@ Em um experimento de análise de texto, geralmente, você pode:
 4. Pontuar e validar o modelo
 5. Implantar o modelo na produção
 
-Neste tutorial, você aprende essas etapas à medida que percorremos um modelo de análise de sentimentos usando o conjunto de registros do Amazon Book Reviews (consulte este documento de pesquisa "biografias, Bollywood, caixas de entrada e misturadores: adaptação de domínio para classificação de sentimentos" por John Blitzer, Mark Dredze e Fernando Pereira; Associação de linguísticos computacionais (ACL), 2007.) Esse conjunto de informações consiste em pontuações de revisão (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
+Neste tutorial, você aprende essas etapas enquanto caminhamos por um modelo de análise de sentimento usando o conjunto de dados amazon book reviews (veja este artigo de pesquisa "Biografias, Bollywood, Boom-boxes e Blenders: Domain Adaptation for Sentiment Classification" de John Blitzer, Mark Dredze e Fernando Pereira; Associação de Linguística Computacional (ACL), 2007.) Este conjunto de dados consiste em pontuações de revisão (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
 
 Você pode encontrar os experimentos abordados neste tutorial na Galeria de IA do Azure:
 

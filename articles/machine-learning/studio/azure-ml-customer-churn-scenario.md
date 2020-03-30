@@ -1,7 +1,7 @@
 ---
 title: Analisar a rotatividade de clientes
 titleSuffix: ML Studio (classic) - Azure
-description: Estudo de caso do desenvolvimento de um modelo integrado para analisar e pontuar a rotatividade de clientes usando Azure Machine Learning Studio (clássico).
+description: Estudo de caso de desenvolvimento de um modelo integrado para análise e pontuação de churn de clientes usando o Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,21 +11,21 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: 4cf918abae51ca330054ef86e57095d29a21a37a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204521"
 ---
-# <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analisar a rotatividade de clientes usando Azure Machine Learning Studio (clássico)
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analisar o Customer Churn usando o Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 ## <a name="overview"></a>Visão geral
-Este artigo apresenta uma implementação de referência de um projeto de análise de rotatividade de clientes criado usando Azure Machine Learning Studio (clássico). Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
+Este artigo apresenta uma implementação de referência de um projeto de análise de churn de clientes que é construído usando o Azure Machine Learning Studio (clássico). Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
 
 ### <a name="acknowledgements"></a>Confirmações
-Esse experimento foi desenvolvido e testado pela Serge Bergeron, cientista de dados principal da Microsoft e Roger Barga, anteriormente gerente de produto para Microsoft Azure Machine Learning Studio (clássico). A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
+Este experimento foi desenvolvido e testado por Serge Berger, cientista de dados principal da Microsoft, e Roger Barga, ex-gerente de produto do Microsoft Azure Machine Learning Studio (clássico). A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
 
 > [!NOTE]
 > Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de variação, confira o [Modelo de variação de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](https://gallery.azure.ai/)
@@ -73,29 +73,29 @@ Uma adição interessante nesse caso é a análise de big data. As empresas de t
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implementando o arquétipo de modelagem no Machine Learning Studio (clássico)
-Dado o problema descrito acima, qual é a melhor maneira de implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, demonstraremos como isso é feito usando Azure Machine Learning Studio (clássico).  
+## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implementação do arquétipo de modelagem no Machine Learning Studio (clássico)
+Dado o problema descrito acima, qual é a melhor maneira de implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, vamos demonstrar como conseguimos isso usando o Azure Machine Learning Studio (clássico).  
 
 A abordagem multimodelo é essencial ao projetar um arquétipo global para variação. Até mesmo a parte de pontuação (preditiva) da abordagem deve ser multimodelo.  
 
-O diagrama a seguir mostra o protótipo que criamos, que emprega quatro algoritmos de pontuação no Machine Learning Studio (clássico) para prever a rotatividade. O motivo para usar uma abordagem multimodelo não é somente criar um classificador de conjunto para aumentar a precisão, mas também proteger contra over-fitting e aprimorar a seleção prescritiva de recursos.  
+O diagrama a seguir mostra o protótipo que criamos, que emprega quatro algoritmos de pontuação no Machine Learning Studio (clássico) para prever churn. O motivo para usar uma abordagem multimodelo não é somente criar um classificador de conjunto para aumentar a precisão, mas também proteger contra over-fitting e aprimorar a seleção prescritiva de recursos.  
 
-![Captura de tela descrevendo um espaço de trabalho complexo do estúdio (clássico) com muitos módulos interconectados](./media/azure-ml-customer-churn-scenario/churn-3.png)
+![Captura de tela representando um complexo espaço de trabalho studio (clássico) com muitos módulos interconectados](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figura 5: Protótipo de uma abordagem de modelagem de variação*  
 
-As seções a seguir fornecem mais detalhes sobre o modelo de Pontuação de protótipo que implementamos usando Machine Learning Studio (clássico).  
+As seções a seguir fornecem mais detalhes sobre o modelo de pontuação de protótipos que implementamos usando machine learning studio (clássico).  
 
 ### <a name="data-selection-and-preparation"></a>Seleção e preparação de dados
 Os dados usados para criar os modelos e atribuir pontuação aos clientes foram obtidos por meio de uma solução vertical de CRM, com os dados ofuscados para proteger a privacidade dos clientes. Os dados contém informações sobre 8.000 assinaturas nos EUA e combinam três fontes: dados de provisionamento (metadados de assinatura), dados de atividade (uso do sistema) e dados de atendimento ao cliente. Os dados não incluem informações relacionadas à empresa sobre os clientes. Por exemplo, não inclui metadados de fidelidade ou pontuação de crédito.  
 
 Para simplificar, os processos de ETL e limpeza dos dados estão fora do escopo porque presumimos que a preparação dos dados já foi realizada em outra instância.
 
-A seleção de recursos para modelagem baseia-se na importância preliminar da pontuação do conjunto de prognosticadores, incluídos no processo que usa o módulo de floresta aleatório. Para a implementação no Machine Learning Studio (clássico), calculamos a média, mediana e os intervalos dos recursos representativos. Por exemplo, adicionamos agregações aos dados qualitativos, tais como os valores mínimo e máximo para a atividade do usuário.
+A seleção de recursos para modelagem baseia-se na importância preliminar da pontuação do conjunto de prognosticadores, incluídos no processo que usa o módulo de floresta aleatório. Para a implementação no Machine Learning Studio (clássico), calculamos as médias, medianas e faixas para recursos representativos. Por exemplo, adicionamos agregações aos dados qualitativos, tais como os valores mínimo e máximo para a atividade do usuário.
 
 Também capturamos informações temporais para os últimos seis meses. Analisamos dados por um ano e estabelecemos que mesmo que houvesse tendências estatisticamente significativas, o efeito sobre a variação é bastante reduzido depois de seis meses.  
 
-O ponto mais importante é que todo o processo, incluindo ETL, seleção de recursos e modelagem, foi implementado em Machine Learning Studio (clássico), usando fontes de dados no Microsoft Azure.   
+O ponto mais importante é que todo o processo, incluindo ETL, seleção de recursos e modelagem foi implementado no Machine Learning Studio (clássico), usando fontes de dados no Microsoft Azure.   
 
 Os diagramas a seguir ilustram os dados que foram usados.  
 
@@ -127,18 +127,18 @@ O diagrama a seguir ilustra uma parte da superfície de design do teste, que ind
 
 ![Captura de tela de uma pequena seção da tela do teste do Studio](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
-*Figura 8: criando modelos no Machine Learning Studio (clássico)*  
+*Figura 8: Criação de modelos no Machine Learning Studio (clássico)*  
 
 ### <a name="scoring-methods"></a>Métodos de pontuação
 Pontuamos quatro modelos usando um conjunto de dados de treinamento rotulado.  
 
-Também enviamos o conjunto de dados para um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12. Medimos a exatidão do modelo SAS e todos os quatro modelos Machine Learning Studio (clássico).  
+Também enviamos o conjunto de dados para um modelo comparável criado usando a edição de área de trabalho do SAS Enterprise Miner 12. Medimos a precisão do modelo SAS e de todos os quatro modelos machine learning studio (clássicos).  
 
 ## <a name="results"></a>Resultados
 Nesta seção, apresentamos nossas descobertas sobre a precisão dos modelos, com base no conjunto de dados de pontuação.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Precisão e exatidão da pontuação
-Em geral, a implementação no Azure Machine Learning Studio (clássico) está atrás da SAS em precisão em cerca de 10-15% (área sob a curva ou AUC).  
+Geralmente, a implementação no Azure Machine Learning Studio (clássico) está por trás do SAS em precisão de cerca de 10-15% (Área Curva ou AUC).  
 
 No entanto, a métrica mais importante na variação é a taxa de classificação incorreta, ou seja, dos maiores N variantes previstos pelo classificador, quais deles **não** variaram de fato e ainda assim receberam tratamento especial? O diagrama a seguir compara essa taxa de classificação incorreta em todos os modelos:  
 
@@ -155,9 +155,9 @@ A AUC é usada como uma medida de valor para algoritmos diferentes (ou sistemas 
 Comparamos as taxas de erro na classificação no conjunto de dados em questão usando os dados de CRM de aproximadamente 8.000 assinaturas.  
 
 * A taxa de erro na classificação da SAS foi de 10 a 15%.
-* A taxa de classificação innormal de Machine Learning Studio (clássica) foi de 15-20% para os principais índices de 200-300.  
+* A taxa de classificação de erro do Machine Learning Studio (clássico) foi de 15-20% para os 200-300 churners top 200-300.  
 
-Na indústria de telecomunicações, é importante tratar somente daqueles clientes que apresentam o maior risco de variação, oferecendo a eles um serviço de concierge ou outro tratamento especial. Nesse sentido, a implementação Machine Learning Studio (clássica) alcança os resultados em relação ao modelo SAS.  
+Na indústria de telecomunicações, é importante tratar somente daqueles clientes que apresentam o maior risco de variação, oferecendo a eles um serviço de concierge ou outro tratamento especial. Nesse sentido, a implementação do Machine Learning Studio (clássico) alcança resultados em comparação com o modelo SAS.  
 
 Pelo mesmo token, a exatidão é mais importante que a precisão, porque estamos interessados, principalmente, em classificar corretamente os índices de variação em potencial.  
 
@@ -175,7 +175,7 @@ O gráfico a seguir exibe os resultados brutos de pontuação usando o protótip
 *Figura 11: Características do modelo de árvore de decisão aprimorado*
 
 ## <a name="performance-comparison"></a>Comparação de desempenho
-Comparamos a velocidade na qual os dados foram pontuados usando os modelos Machine Learning Studio (clássico) e um modelo comparável criado usando a edição de desktop do SAS Enterprise Miner 12,1.  
+Comparamos a velocidade com que os dados foram pontuados usando os modelos Machine Learning Studio (clássico) e um modelo comparável criado usando a edição desktop do SAS Enterprise Miner 12.1.  
 
 A tabela a seguir resume o desempenho dos algoritmos:  
 
@@ -185,15 +185,15 @@ A tabela a seguir resume o desempenho dos algoritmos:
 | --- | --- | --- | --- |
 | Modelo médio |O melhor modelo |Subdesempenhando |Modelo médio |
 
-Os modelos hospedados no Machine Learning Studio (clássico) de SAS de 15-25% em velocidade de execução, mas a precisão era em grande parte do par.  
+Os modelos hospedados no Machine Learning Studio (clássico) superaram o SAS em 15-25% pela velocidade de execução, mas a precisão foi em grande parte no par.  
 
 ## <a name="discussion-and-recommendations"></a>Discussão e recomendações
 Na indústria de telecomunicações, diversas práticas surgiram para analisar a variação, incluindo:  
 
 * As métricas se derivam de quatro categorias essenciais:
-  * **Entidade (por exemplo, uma assinatura)** . Provisione informações básicas sobre a assinatura e/ou cliente sujeito à variação.
+  * **Entidade (por exemplo, uma assinatura)**. Provisione informações básicas sobre a assinatura e/ou cliente sujeito à variação.
   * **Atividade**. Obter todas as informações de uso possíveis relacionadas à entidade, por exemplo, o número de logons.
-  * **Atendimento ao cliente**. Colete informações por meio dos logs de suporte do cliente para indicar se a assinatura teve problemas ou interações com o atendimento ao cliente.
+  * **Suporte ao cliente**. Colete informações por meio dos logs de suporte do cliente para indicar se a assinatura teve problemas ou interações com o atendimento ao cliente.
   * **Dados empresariais e de concorrência**. Obter todas as informações possíveis sobre o cliente (por exemplo, ele pode estar indisponível ou ser difícil de rastrear).
 * Use a importância como critério para acelerar a seleção de recursos. Isso implica que o modelo de árvore de decisão aprimorado sempre é uma abordagem promissora.  
 
@@ -201,22 +201,22 @@ O uso das quatro categorias cria a ilusão de que uma simples abordagem *determi
 
 Essa observação importante muitas vezes é ignorada pela empresa, que geralmente prefere uma abordagem orientada por Business Intelligence para a análise, principalmente porque é algo mais fácil de vender e permite automação simples.  
 
-No entanto, a promessa de análise de autoatendimento usando Machine Learning Studio (clássico) é que as quatro categorias de informações, classificadas por divisão ou departamento, se tornam uma fonte valiosa para o aprendizado de máquina sobre a rotatividade.  
+No entanto, a promessa de autoatendimento de análise usando machine learning studio (clássico) é que as quatro categorias de informações, classificadas por divisão ou departamento, se tornam uma fonte valiosa para aprendizado de máquina sobre churn.  
 
-Outro recurso empolgante em Azure Machine Learning Studio (clássico) é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. É um diferencial importante do Azure Machine Learning Studio (clássico) no mercado.  
+Outra capacidade interessante que vem no Azure Machine Learning Studio (clássico) é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. É um importante diferencial do Azure Machine Learning Studio (clássico) no mercado.  
 
 Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.
   
 
 ## <a name="conclusion"></a>Conclusão
-Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de Pontuação e o implementamos usando Azure Machine Learning Studio (clássico). Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
+Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de pontuação e o implementamos usando o Azure Machine Learning Studio (clássico). Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
 
  
 
 ## <a name="references"></a>Referências
-[1] análise preditiva: além das previsões, W. McKnight, gerenciamento de informações, julho/agosto de 2011, p. 18-20.  
+[1] Análise Preditiva: Além das Previsões, W. McKnight, Gerenciamento de Informações, Julho/Agosto de 2011, p.18-20.  
 
-[2] artigo da Wikipédia: [precisão e precisão](https://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Artigo da Wikipédia: [Precisão e precisão](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 

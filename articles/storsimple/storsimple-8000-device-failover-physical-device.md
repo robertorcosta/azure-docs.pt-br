@@ -1,5 +1,5 @@
 ---
-title: Failover, recuperação de desastre para outro dispositivo StorSimple 8000
+title: Failover, recuperação de desastres para outro dispositivo StorSimple 8000
 description: Saiba como fazer o failover do dispositivo físico StorSimple da série 8000 para outro dispositivo físico.
 services: storsimple
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 9e4e890ab5491e46ffe5ea0e1c168d168f9cc729
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77468602"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Fazer failover para um dispositivo físico StorSimple da série 8000
@@ -32,7 +32,7 @@ Para saber mais sobre o failover de dispositivo e como ele é usado para recuper
 Para fazer failover de um dispositivo físico StorSimple para um Dispositivo de Nuvem StorSimple, acesse [Fazer failover para um Dispositivo de Nuvem StorSimple](storsimple-8000-device-failover-cloud-appliance.md). Para fazer failover de um dispositivo físico para ele próprio, acesse [Fazer failover para o mesmo dispositivo físico StorSimple](storsimple-8000-device-failover-same-device.md).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Não deixe de revisar as considerações de failover de dispositivo. Para obter mais informações, acesse [Considerações comuns para failover de dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
 

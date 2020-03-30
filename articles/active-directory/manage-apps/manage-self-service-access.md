@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/23/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbeb25f1190754b4264cfbab9d8a03a6b65c4dff
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bcccc64e0c766164a06932e9b65a4459816f9deb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895960"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409109"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicativo de autoatendimento
 
-Antes que seus usuários possam descobrir por conta própria aplicativos de seu painel de acesso, você precisa habilitar o **Acesso de aplicativo de autoatendimento** a todos os aplicativos que você quiser permitir que os usuários descubram e solicitem acesso por conta própria. Essa funcionalidade está disponível para aplicativos que foram adicionados da [Galeria do Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), o [Azure proxy de aplicativo do AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) ou foram adicionados por meio do [consentimento do usuário ou do administrador](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
+Antes que seus usuários possam se autodescobrir aplicativos a partir de seu painel de acesso My Apps, você precisa habilitar o acesso de **aplicativos de autoatendimento** a quaisquer aplicativos aos quais você deseja permitir que os usuários se autodescubram e solicitem acesso. Esta funcionalidade está disponível para aplicativos que foram adicionados da [Azure AD Gallery](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) ou foram adicionados via consentimento do usuário ou [administrador](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
 
 Esse recurso é uma ótima maneira de economizar tempo e dinheiro como um grupo de TI e é altamente recomendável como parte de uma implantação de aplicativos moderna com o Azure Active Directory.
 
 Usando esse recurso, você pode:
 
--   Permitir que os usuários descubram aplicativos por conta própria no [Painel de Acesso do Aplicativo](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
+-   Deixe os usuários se auto-descobrirem aplicativos do painel de [acesso Meus Aplicativos](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
 
 -   Adicione esses usuários a um grupo pré-configurado para que você possa ver quem solicitou acesso, remover o acesso e gerenciar as funções atribuídas a eles.
 
@@ -44,51 +44,39 @@ Usando esse recurso, você pode:
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Habilite o acesso do aplicativo de autoatendimento para permitir que os usuários encontrem seus próprios aplicativos
 
-O acesso de aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários descubram aplicativos por conta própria e, ainda, permitir que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para Aplicativos de logon único com senha, diretamente de seus painéis de acesso.
+O acesso a aplicativos de autoatendimento é uma ótima maneira de permitir que os usuários autodescubram aplicativos e, opcionalmente, permitem que o grupo de negócios aprove o acesso a esses aplicativos. Para o login único de senha nos aplicativos, você também pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários a partir de seus próprios painéis de acesso My Apps.
 
 Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga as etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Faça login no [portal Azure](https://portal.azure.com) como administrador global.
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Selecione **O Diretório Ativo do Azure**. No menu de navegação à esquerda, selecione **aplicativos Enterprise**.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3. Selecione o aplicativo na lista. Se você não ver o aplicativo, comece a digitar seu nome na caixa de pesquisa. Ou use os controles do filtro para selecionar o tipo de aplicativo, status ou visibilidade e, em seguida, **selecione Aplicar**.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4. No menu de navegação à esquerda, selecione **Self-service**.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5. Para habilitar o acesso de aplicativos de autoatendimento a este aplicativo, coloque o controle de alternância **Permitir aos usuários solicitar acesso a esse aplicativo?** na posição **Sim.**
 
-    * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
-
-6.  Selecione na lista o aplicativo ao qual você deseja habilitar o acesso do autoatendimento.
-
-7.  Após o carregamento do aplicativo, clique em **Autoatendimento** no menu de navegação esquerdo do aplicativo.
-
-8.  Para habilitar o acesso de aplicativos de autoatendimento a este aplicativo, coloque o controle de alternância **Permitir aos usuários solicitar acesso a esse aplicativo?** na posição **Sim.**
-
-9.  Em seguida, para selecionar o grupo ao qual os usuários que solicitam acesso a esse aplicativo devem ser adicionados, clique no seletor ao lado do rótulo **A qual grupo os usuários atribuídos devem ser adicionados?** e selecione um grupo.
+6. Ao lado de qual grupo deve ser **Select group**adicionado aos **usuários atribuídos?** Escolha um grupo e clique em **Selecionar**. Quando a solicitação de um usuário for aprovada, ela será adicionada a esse grupo. Ao visualizar a adesão deste grupo, você poderá ver quem teve acesso ao aplicativo por meio do acesso ao autoatendimento.
   
     > [!NOTE]
-    > Grupos sincronizados do local não têm suporte para serem utilizados no grupo ao qual os usuários que solicitam acesso a esse aplicativo devem ser adicionados.
-  
-10. **Opcional:** se quiser exigir uma aprovação de negócios antes que os usuários tenham permissão de acesso, coloque o controle de alternância **Exigir aprovação antes de conceder acesso a esse aplicativo?** na posição **Sim**.
+    > Essa configuração não suporta grupos sincronizados a partir de locais.
 
-11. **Opcional: somente para aplicativos que usam logon único com senha,** se quiser permitir que os aprovadores de negócios especifiquem as senhas que são enviadas para esse aplicativo aos usuários aprovados, coloque o controle de alternância **Permitir que os aprovadores definam senhas do usuário para este aplicativo?** na posição **Sim**.
+7. **Opcional:** Para exigir a aprovação dos negócios antes que os usuários tenham acesso, **Yes**defina a **aprovação de Exigir antes de conceder acesso a este aplicativo?**
 
-12. **Opcional:** para especificar os aprovadores de negócios que têm permissão para aprovar o acesso ao aplicativo, clique no seletor ao lado do rótulo **Quem tem permissão para aprovar o acesso a esse aplicativo?** para selecionar até 10 aprovadores de negócios individuais.
+8. **Opcional: Para aplicativos que usam somente o login único de senha,** para permitir que os aprovadores de negócios especifiquem as senhas enviadas para este **Yes**aplicativo para usuários aprovados, defina os **aprovadores de Permitir que definam as senhas do usuário para este aplicativo?**
 
-     > [!NOTE]
-     > Não há suporte para grupos.
-     >
-     >
+9. **Opcional:** Para especificar os aprovadores de negócios que podem aprovar o acesso a este aplicativo, **Select approvers**ao lado **de Quem pode aprovar o acesso a este aplicativo?** Em seguida, clique em **Selecionar**.
 
-13. **Opcional:** **para aplicativos que expõem funções**, se quiser atribuir usuários aprovados de autoatendimento a uma função, clique no seletor ao lado de **A que função os usuários devem ser atribuídos neste aplicativo?** para selecionar a função a que esses usuários devem ser atribuídos.
+    >[!NOTE]
+    >Não há suporte para grupos. Você pode selecionar até 10 aprovadores individuais de negócios. Se você especificar vários aprovadores, qualquer aprovador único pode aprovar uma solicitação de acesso.
 
-14. Clique no botão **Salvar** na parte superior da folha para terminar.
+10. **Opcional:** **Para aplicativos que expõem funções,** atribuir usuários aprovados por autoatendimento a uma função, ao lado **Select Role**da função para qual função os usuários devem **ser atribuídos neste aplicativo?** Em seguida, clique em **Selecionar**.
 
-Após você concluir a configuração do aplicativo de autoatendimento, os usuários poderão navegar para seu [Painel de Acesso do Aplicativo](https://myapps.microsoft.com/) e clicar no botão **+Adicionar** para encontrar os aplicativos aos quais você habilitou o acesso de autoatendimento. Aprovadores de negócios também recebem uma notificação em seu [Painel de Acesso do Aplicativo](https://myapps.microsoft.com/). Você pode habilitar um email que notifica a eles quando um usuário solicitar acesso a um aplicativo que requer sua aprovação. 
+11. Clique no botão **Salvar** na parte superior do painel para concluir.
 
-Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o que significa que, se você especificar vários aprovadores, qualquer aprovador individual poderá aprovar o acesso ao aplicativo.
+Depois de concluir a configuração do aplicativo self-service, os usuários podem navegar até o [painel de acesso meus aplicativos](https://myapps.microsoft.com/) e clicar no botão Adicionar aplicativos de **autoatendimento** para encontrar os aplicativos habilitados com acesso a autoatendimento. Os aprovadores de negócios também veem uma notificação em seu [painel de acesso Meus Aplicativos](https://myapps.microsoft.com/). Você pode habilitar um email que notifica a eles quando um usuário solicitar acesso a um aplicativo que requer sua aprovação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](../users-groups-roles/groups-self-service-management.md)

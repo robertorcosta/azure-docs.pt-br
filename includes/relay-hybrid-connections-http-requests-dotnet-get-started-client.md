@@ -9,17 +9,17 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: ce29cd03de46e1d93d7f1f28f9f5184cd59a57e7
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79199776"
 ---
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
 Se você tiver desabilitado a opção "Exige Autorização do Cliente" ao criar a Retransmissão, poderá enviar solicitações para a URL de Conexões Híbridas com qualquer navegador. Para acessar os pontos de extremidade protegidos, você precisa criar e passar um token no cabeçalho `ServiceBusAuthorization`, que é mostrado aqui.
 
-N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framework)** .
+N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framework)**.
 
 ### <a name="add-the-relay-nuget-package"></a>Adicione o pacote NuGet de retransmissão
 

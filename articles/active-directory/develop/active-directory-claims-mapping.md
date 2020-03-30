@@ -1,5 +1,5 @@
 ---
-title: Personalizar declarações do aplicativo de locatário do Azure AD (PowerShell)
+title: Personalizar as reivindicações do aplicativo de inquilino azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Esta página descreve o mapeamento de declarações no Azure Active Directory.
 services: active-directory
@@ -14,10 +14,10 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263186"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
@@ -44,7 +44,7 @@ Uma política de mapeamento de declarações é um tipo de objeto de **Política
 
 Há determinados conjuntos de declarações que definem como e quando elas são usadas em tokens.
 
-| Conjunto de declarações | DESCRIÇÃO |
+| Conjunto de declarações | Descrição |
 |---|---|
 | Conjunto de declarações de núcleo | Estão presentes em todos os tokens, independentemente da política. Essas declarações também são consideradas restritas e não podem ser modificadas. |
 | Conjunto de declarações básicas | Inclui as declarações que são emitidas por padrão para os tokens (além do conjunto de declarações principais). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
@@ -284,7 +284,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
 
-| Fonte | ID | DESCRIÇÃO |
+| Fonte | ID | Descrição |
 |-----|-----|-----|
 | Usuário | sobrenome | Nome da família |
 | Usuário | givenname | Nome |
@@ -293,15 +293,15 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | mail | Endereço de Email |
 | Usuário | userprincipalname | Nome UPN |
 | Usuário | department|department|
-| Usuário | onpremisessamaccountname | Nome da conta SAM local |
+| Usuário | onpremisessamaccountname | Nome da conta SAM no local |
 | Usuário | netbiosname| Nome NetBios |
 | Usuário | dnsdomainname | Nome de Domínio DNS |
-| Usuário | onpremisesecurityidentifier | Identificador de segurança local |
+| Usuário | onpremisesecurityidentifier | Identificador de segurança no local |
 | Usuário | companyname| Nome da Organização |
 | Usuário | streetaddress | Endereço |
 | Usuário | postalcode | Código postal |
 | Usuário | preferredlanguange | Idioma preferencial |
-| Usuário | onpremisesuserprincipalname | UPN local |
+| Usuário | onpremisesuserprincipalname | UPN no local |
 | Usuário | mailNickname | Apelido de email |
 | Usuário | extensionattribute1 | Atributo de extensão 1 |
 | Usuário | extensionattribute2 | Atributo de extensão 2 |
@@ -358,7 +358,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
 
-|TransformationMethod|Entrada esperada|Saída esperada|DESCRIÇÃO|
+|TransformationMethod|Entrada esperada|Saída esperada|Descrição|
 |-----|-----|-----|-----|
 |Join|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver nenhum sinal \@ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
@@ -384,7 +384,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
 
-|Fonte|ID|DESCRIÇÃO|
+|Fonte|ID|Descrição|
 |-----|-----|-----|
 | Usuário | mail|Endereço de Email|
 | Usuário | userprincipalname|Nome UPN|
@@ -415,9 +415,9 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para seu objeto de aplicativo. Para obter mais informações sobre esse Azure PowerShell cmdlet, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar `new-azureadapplicationkeycredential` o cmdlet Azure PowerShell para criar uma credencial de chave simétrica para o objeto do Aplicativo. Para obter mais informações sobre este cmdlet Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Os aplicativos que têm o mapeamento de declarações habilitado devem validar suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados do OpenID Connect que você deve usar: 
+Os aplicativos que têm o mapeamento de sinistros `appid={client_id}` ativado devem validar suas chaves de assinatura de token, anexando-se às suas [solicitações de metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados OpenID Connect que você deve usar: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -435,13 +435,13 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
-#### <a name="prerequisites"></a>Prerequisites
+#### <a name="prerequisites"></a>Pré-requisitos
 
-Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você é um novo usuário do Azure AD, recomendamos que [aprenda como obter um locatário do Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.
+Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você é novo no Azure AD, recomendamos que você [aprenda sobre como obter um inquilino Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com esses exemplos.
 
 Para começar, execute uma destas etapas:
 
-1. Baixe a versão mais recente da [Visualização pública do módulo do Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Baixe a versão pública mais recente [do Azure AD PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Execute o comando Connect para entrar em sua conta do administrador do Azure AD. Execute esse comando sempre que você iniciar uma nova sessão.
 
    ``` powershell
@@ -453,7 +453,7 @@ Para começar, execute uma destas etapas:
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para omitir as declarações básicas de tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: Crie e atribua uma política para omitir as reivindicações básicas de tokens emitidos a um diretor de serviço
 
 Neste exemplo, você cria uma política que remove o conjunto de declarações básicas de tokens emitidos para entidades de serviço vinculadas.
 
@@ -469,7 +469,7 @@ Neste exemplo, você cria uma política que remove o conjunto de declarações b
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço.
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar a API de Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre na sua conta do Azure AD.
+   1. Para ver todos os diretores de serviços da sua organização, você pode [consultar a API do Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)faça login na sua conta Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
@@ -493,7 +493,7 @@ Neste exemplo, você cria uma política que adiciona EmployeeID e TenantCountry 
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar a API de Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre na sua conta do Azure AD.
+   1. Para ver todos os diretores de serviços da sua organização, você pode [consultar a API do Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)faça login na sua conta Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
@@ -517,7 +517,7 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
       Get-AzureADPolicy
       ```
 1. Atribuir a política à entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar a API de Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre na sua conta do Azure AD.
+   1. Para ver todos os diretores de serviços da sua organização, você pode [consultar a API do Microsoft Graph](/graph/traverse-the-graph). Ou, no [Microsoft Graph Explorer,](https://developer.microsoft.com/graph/graph-explorer)faça login na sua conta Azure AD.
    2. Quando você tiver a ObjectId de sua entidade de serviço, execute o seguinte comando: 
      
       ``` powershell
@@ -526,4 +526,4 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
 
 ## <a name="see-also"></a>Confira também
 
-Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, consulte [como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)
+Para saber como personalizar reclamações emitidas no token SAML através do portal Azure, consulte [Como: Personalizar reivindicações emitidas no token SAML para aplicativos corporativos](active-directory-saml-claims-customization.md)

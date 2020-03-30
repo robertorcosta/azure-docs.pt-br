@@ -1,5 +1,5 @@
 ---
-title: 'Configurar conexões coexistentes de VPN do ExpressRoute e S2S: clássico'
+title: 'Configure conexões coexistentes expressRoute e S2S VPN: clássica'
 description: Este artigo o orienta na configuração do ExpressRoute e de uma conexão VPN Site a Site que pode coexistir para o modelo de implantação clássico.
 documentationcenter: na
 services: expressroute
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: charwen
 ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272923"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar as conexões coexistentes do ExpressRoute e do Site a Site (clássico)
@@ -81,7 +81,7 @@ Há dois conjuntos de procedimentos diferentes para configurar as conexões de m
 
 [!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
-## <a name="new"></a>Para criar uma nova rede virtual e conexões coexistentes
+## <a name="to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Para criar uma nova rede virtual e conexões coexistentes
 Este procedimento orientará você na criação de uma Rede Virtual, bem como na criação das conexões site a site e de ExpressRoute que coexistirão.
 
 1. Você precisará instalar a versão mais recente dos cmdlets do Azure PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções. 
@@ -187,7 +187,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="add"></a>Para configurar conexões coexistentes para uma VNet já existente
+## <a name="to-configure-coexisting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Para configurar conexões coexistentes para uma VNet já existente
 Se você tiver uma rede virtual existente, verifique o tamanho da sub-rede do gateway. Se a sub-rede do gateway é /28 ou /29, você deve primeiro excluir o gateway da rede virtual e aumentar o tamanho de sub-rede do gateway. As etapas nesta seção mostram como fazer isso.
 
 Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada vio ExpressRoute, você pode ignorar as etapas abaixo e ir para a ["Etapa 6: criar um gateway de VPN Site a Site"](#vpngw) na seção anterior.

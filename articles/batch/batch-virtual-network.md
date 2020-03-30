@@ -10,10 +10,10 @@ ms.date: 04/10/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247742"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
@@ -24,7 +24,7 @@ Quando você cria um pool do Lote do Azure, você pode provisionar o pool em uma
 
 Um pool do Lote do Azure tem configurações que permitem que os nós de computação se comuniquem entre si - por exemplo, para executar tarefas de várias instâncias. Essas configurações não exigem uma rede virtual separada. No entanto, por padrão, os nós não podem se comunicar com máquinas virtuais que não fazem parte do pool do Lote, como um servidor de licença ou um servidor de arquivos. Para permitir que nós de computação do pool se comuniquem de forma segura com outras máquinas virtuais, ou com uma rede local, você pode provisionar o pool em uma sub-rede de uma rede virtual do Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Autenticação**. Para usar uma rede virtual do Azure, a API do cliente do Lote deverá usar a autenticação do Azure Active Directory (AD). O suporte ao Lote do Azure para o Azure AD está documentado em [Autenticar soluções do serviço Lote com o Active Directory](batch-aad-auth.md). 
 
@@ -56,7 +56,7 @@ Você pode ter requisitos em sua organização para redirecionar (forçar) o tr�
 
 Para garantir que seus nós de computação do pool do Lote do Azure funcionam em uma rede virtual com túnel forçado habilitado, você deve adicionar as seguintes [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
 
-* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para saber como obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço no local](../virtual-network/service-tags-overview.md)
+* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para saber como obter a lista de endereços IP do serviço Batch, consulte [tags de serviço no local](../virtual-network/service-tags-overview.md)
 
 * Certifique-se de que o tráfego de saída no Armazenamento do Azure (especificamente, as URLs da forma `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) não está bloqueado por meio de seu dispositivo de rede local.
 

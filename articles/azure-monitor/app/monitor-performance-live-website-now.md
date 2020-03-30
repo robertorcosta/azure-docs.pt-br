@@ -4,36 +4,36 @@ description: Monitore o desempenho do site sem implantá-lo novamente. Funciona 
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670042"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
+# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicativos web de instrumentos em tempo de execução com o App Insights Codeless Attach
 
 > [!IMPORTANT]
-> O Status Monitor não é mais recomendado para uso. Ele foi substituído pelo agente de Application Insights de Azure Monitor (anteriormente denominado Status Monitor v2). Consulte nossa documentação para [implantações de servidor local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou [máquinas virtuais do Azure e implantações do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> O Monitor de Status não é mais recomendado para uso. Ele foi substituído pelo Azure Monitor Application Insights Agent (anteriormente chamado de Monitor de Status v2). Consulte nossa documentação para [implantações de servidores no local](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou implantações de conjuntos de configurações de máquinavirtual e máquina virtual do [Azure.](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps)
 
 Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. É necessário ter uma assinatura do [Microsoft Azure](https://azure.com) .
 
 O Status Monitor é usado para instrumentar um aplicativo .NET hospedado no IIS seja localmente ou em uma VM.
 
-- Se seu aplicativo for implantado na VM do Azure ou no conjunto de dimensionamento de máquinas virtuais do Azure, siga [estas instruções](azure-vm-vmss-apps.md).
+- Se o aplicativo for implantado no conjunto de escalas de máquinas virtuais Azure VM ou Azure, siga [estas instruções](azure-vm-vmss-apps.md).
 - Se o aplicativo é implantado para os Serviços de Aplicativos do Azure, siga [estas instruções](azure-web-apps.md).
 - Se o aplicativo é implantado em uma VM do Azure, você pode alternar no monitoramento do Application Insights usando o painel de controle do Azure.
-- (Também há artigos separados sobre instrumentação de [serviços de nuvem do Azure](../../azure-monitor/app/cloudservices.md).)
+- (Há também artigos separados sobre a instrumentação [do Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Captura de tela dos gráficos de visão geral do App Insights contendo informações sobre solicitações com falha, tempo de resposta do servidor e solicitações do servidor](./media/monitor-performance-live-website-now/overview-graphs.png)
 
 Você tem duas opções de rotas para aplicar o Application Insights nos aplicativos Web .NET:
 
-* **Tempo de compilação:** [adicione o SDK do Application insights][greenbrown] ao código do aplicativo Web.
+* **Tempo de compilação:** [Adicionar o SDK do Application Insights][greenbrown] ao código do aplicativo Web.
 * **Tempo de execução:** instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
 
 > [!NOTE]
-> Se você usar a instrumentação de tempo de compilação, a instrumentação de tempo de execução não funcionará mesmo se estiver ativada.
+> Se você usar instrumentação de tempo de construção, a instrumentação de tempo de execução não funcionará mesmo que esteja ligada.
 
 Aqui está um resumo do que você tem com cada rota:
 
@@ -43,7 +43,7 @@ Aqui está um resumo do que você tem com cada rota:
 | [Exceções mais detalhadas](../../azure-monitor/app/asp-net-exceptions.md) | |Sim |
 | [Diagnóstico de dependência](../../azure-monitor/app/asp-net-dependencies.md) |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
 | [Contadores de desempenho do sistema](../../azure-monitor/app/performance-counters.md) |Sim |Sim |
-| [API para telemetria personalizada][api] |Sim |Não |
+| [API de telemetria personalizada][api] |Sim |Não |
 | [Integração do log de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) |Sim |Não |
 | [Exibição da página e dados do usuário](../../azure-monitor/app/javascript.md) |Sim |Não |
 | É necessário recompilar o código |Sim | Não |
@@ -58,7 +58,7 @@ Se seu aplicativo estiver hospedado em um servidor do IIS, habilite o Applicatio
 2. Se o Application Insights Status Monitor ainda não estiver instalado, [baixe e execute o instalador](#download)
 3. No Monitor de Status, selecione o aplicativo Web ou o site que você deseja monitorar. Entre com suas credenciais do Azure.
 
-    Configure o recurso onde você deseja ver os resultados no portal do Application Insights. (Normalmente, é melhor criar um novo recurso. Selecione um recurso existente se você já tiver [testes da Web][availability] ou [monitoramento de cliente][client] para este aplicativo.) 
+    Configure o recurso onde você deseja ver os resultados no portal do Application Insights. (Normalmente, é melhor criar um novo recurso. Selecione um recurso existente se você já tiver [testes da web][availability] ou [monitoramento de cliente][client] para esse aplicativo). 
 
     ![Escolha um aplicativo e um recurso.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -74,7 +74,7 @@ Habilitar o Application Insights adiciona DLLs e applicationinsights.config ao s
 
 ## <a name="when-you-re-publish-your-app-re-enable-application-insights"></a>Quando você publicar novamente seu aplicativo, habilite novamente o Application Insights
 
-Antes de publicar novamente seu aplicativo, considere [adicionar Application insights ao código no Visual Studio][greenbrown]. Você obterá uma telemetria mais detalhada e a capacidade de escrever telemetria personalizada.
+Antes de publicar novamente seu aplicativo, considere [adicionar Application Insights ao código no Visual Studio][greenbrown]. Você obterá uma telemetria mais detalhada e a capacidade de escrever telemetria personalizada.
 
 Se você deseja publicar novamente sem adicionar Application Insights no código, lembre-se de que o processo de implantação pode excluir as DLLs e applicationinsights.config do site publicado. Portanto:
 
@@ -84,7 +84,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas 
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -128,7 +128,7 @@ Para consertar, atualize seu web.config:
 </dependentAssembly>
 ```
 
-Estamos acompanhando esse problema [aqui](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+Estamos acompanhando esse problema [aqui.](https://github.com/Microsoft/ApplicationInsights-Home/issues/301)
 
 
 ### <a name="application-diagnostic-messages"></a>Mensagens de diagnóstico de aplicativo
@@ -144,7 +144,7 @@ Estamos acompanhando esse problema [aqui](https://github.com/Microsoft/Applicati
 * Para produzir logs detalhados, modifique o arquivo de configuração: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e adicione `<add key="TraceLevel" value="All" />` ao `appsettings`.
 Em seguida, reinicie o monitor de status.
 
-* Como Status Monitor é um aplicativo .NET, você também pode habilitar [o rastreamento do .net adicionando o diagnóstico apropriado ao arquivo de configuração](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários, pode ser útil ver o que está acontecendo no nível da rede [Configurando o rastreamento de rede](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+* Como o Monitor de Status é um aplicativo .NET, você também pode habilitar [o rastreamento .net adicionando os diagnósticos apropriados ao arquivo de configuração](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários pode ser útil ver o que está acontecendo no nível da [rede, configurando rastreamento de rede](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
 ### <a name="insufficient-permissions"></a>Permissões insuficientes
   
@@ -170,9 +170,9 @@ Exclua qualquer um destes arquivos encontrados no diretório do aplicativo:
 
 ### <a name="additional-troubleshooting"></a>Solução de problemas adicionais
 
-* Consulte [solução de problemas][qna]adicional.
+* Confira [Solução de problemas][qna] adicional.
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos do Sistema
 Suporte de sistema operacional para Application Insights Status Monitor no servidor:
 
 * Windows Server 2008
@@ -181,7 +181,7 @@ Suporte de sistema operacional para Application Insights Status Monitor no servi
 * Windows Server 2012 R2
 * Windows Server 2016
 
-com o SP mais recente e o .NET Framework 4,5 (Status Monitor é criado nesta versão da estrutura)
+com o SP mais recente e o .NET Framework 4.5 (o Monitor de Status é construído nesta versão do framework)
 
 No lado do cliente, Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
 
@@ -238,7 +238,7 @@ Saiba quais aplicativos estão sendo monitorados:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: o nome de um aplicativo Web no IIS.
-* `-InstrumentationKey` (opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
+* `-InstrumentationKey`(Opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
 * Este cmdlet:
   * Atualiza o aplicativo nomeado para a versão do SDK baixado mais recentemente para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
   * Se você fornecer uma chave de instrumentação, o aplicativo nomeado será reconfigurado para enviar telemetria para o recurso com essa chave. (Funciona se `SdkState != Disabled`)
@@ -247,7 +247,7 @@ Saiba quais aplicativos estão sendo monitorados:
 
 * Baixa o SDK mais recente do Application Insights para o servidor.
 
-## <a name="questions"></a>Perguntas sobre o Status Monitor
+## <a name="questions-about-status-monitor"></a><a name="questions"></a>Perguntas sobre o Status Monitor
 
 ### <a name="what-is-status-monitor"></a>O que é o Status Monitor?
 
@@ -275,7 +275,7 @@ Quando você seleciona um aplicativo web para o Status Monitor para instrumentar
 
 Agora, o Status Monitor só pode instalar as versões 2.3 ou 2.4 do SDK do Application Insights. 
 
-O SDK do Application Insights versão 2,4 é a [última versão para dar suporte ao .net 4,0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) , que foi o [EOL de janeiro de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Portanto, a partir de agora Status Monitor pode ser usado para instrumentar um aplicativo .NET 4,0. 
+O Application Insights SDK Versão 2.4 é a [última versão a suportar .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) que foi [EOL janeiro de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Portanto, a partir de agora o Monitor de Status pode ser usado para instrumentar uma aplicação .NET 4.0. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>É necessário executar o Status Monitor sempre que eu atualizar o aplicativo?
 
@@ -304,25 +304,25 @@ Para aplicativos já instrumentados em tempo de compilação:
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="download"></a>Baixar o Status Monitor
+## <a name="download-status-monitor"></a><a name="download"></a>Baixar o Status Monitor
 
-- Usar o novo [módulo do PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
-- Baixe e execute o [instalador do Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648)
+- Use o novo [Módulo PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
+- Baixe e execute o [instalador do Monitor de Status](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Ou execute o [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) e pesquise o Application Insights Status Monitor.
 
-## <a name="next"></a>Próximas etapas
+## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 
 Exiba sua telemetria:
 
 * [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso
-* [Pesquisar eventos e logs][diagnostic] para diagnosticar problemas
+* [Pesquise eventos e logs][diagnostic] para diagnosticar problemas
 * [Analise](../../azure-monitor/app/analytics.md) para obter mais consultas avançadas
 
 Adicione mais telemetria:
 
-* [Crie testes da Web][availability] para garantir que seu site permaneça ativo.
-* [Adicione telemetria de cliente Web][usage] para ver exceções do código de página da Web e para permitir que você insira chamadas de rastreamento.
-* [Adicione Application insights SDK ao seu código][greenbrown] para que você possa inserir chamadas de rastreamento e log
+* [Crie testes na Web][availability] para ter a certeza de que seu site continua ativo.
+* [Adicione telemetria de cliente Web][usage] para ver exceções de código de página Web e permitir que você insira rastreamento de chamadas.
+* [Adicione SDK do Application Insights ao seu código][greenbrown] para que você possa inserir o rastreamento de chamadas de log
 
 <!--Link references-->
 

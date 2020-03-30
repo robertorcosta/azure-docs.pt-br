@@ -1,6 +1,6 @@
 ---
-title: Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs – armazenamento do Azure
-description: Uma lista de verificação de práticas comprovadas para uso com o armazenamento de BLOBs no desenvolvimento de aplicativos de alto desempenho.
+title: Lista de verificação de desempenho e escalabilidade para armazenamento Blob - Armazenamento Azure
+description: Uma lista de verificação de práticas comprovadas para uso com armazenamento Blob no desenvolvimento de aplicativos de alto desempenho.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,35 +9,35 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255425"
 ---
-# <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs
+# <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Blobs
 
-A Microsoft desenvolveu várias práticas comprovadas para o desenvolvimento de aplicativos de alto desempenho com o armazenamento de BLOBs. Essa lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente ao criar seu aplicativo e durante todo o processo.
+A Microsoft desenvolveu uma série de práticas comprovadas para o desenvolvimento de aplicativos de alto desempenho com armazenamento Blob. Essa lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente ao criar seu aplicativo e durante todo o processo.
 
-O Armazenamento do Azure tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de escalabilidade e desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) e [escalabilidade e metas de desempenho para o armazenamento de BLOBs](scalability-targets.md).
+O Armazenamento do Azure tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre os alvos de escalabilidade do Azure Storage, consulte [metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) e metas de [escalabilidade e desempenho para armazenamento Blob](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de verificação
 
-Este artigo organiza as práticas comprovadas de desempenho em uma lista de verificação que você pode seguir ao desenvolver seu aplicativo de armazenamento de BLOBs.
+Este artigo organiza práticas comprovadas para desempenho em uma lista de verificação que você pode seguir enquanto desenvolve seu aplicativo de armazenamento Blob.
 
 | Concluído | Categoria | Consideração de design |
 | --- | --- | --- |
 | &nbsp; |Metas de escalabilidade |[Você pode criar seu aplicativo para usar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Metas de escalabilidade |[Você está evitando se aproximar dos limites de capacidade e de transação?](#capacity-and-transaction-targets) |
-| &nbsp; |Metas de escalabilidade |[Um grande número de clientes está acessando um único blob simultaneamente?](#multiple-clients-accessing-a-single-blob-concurrently) |
-| &nbsp; |Metas de escalabilidade |[Seu aplicativo permanece dentro das metas de escalabilidade de um único blob?](#bandwidth-and-operations-per-blob) |
+| &nbsp; |Metas de escalabilidade |[Um grande número de clientes está acessando uma única bolha simultaneamente?](#multiple-clients-accessing-a-single-blob-concurrently) |
+| &nbsp; |Metas de escalabilidade |[Sua aplicação está dentro das metas de escalabilidade para uma única bolha?](#bandwidth-and-operations-per-blob) |
 | &nbsp; |Particionamento |[A convenção de nomenclatura foi projetada para permitir melhor balanceamento de carga?](#partitioning) |
 | &nbsp; |Rede |[Os dispositivos cliente têm largura de banda suficiente e baixa latência para alcançar o desempenho necessário?](#throughput) |
 | &nbsp; |Rede |[Os dispositivos cliente têm um link de rede de alta qualidade?](#link-quality) |
 | &nbsp; |Rede |[O aplicativo cliente está na mesma região que a conta de armazenamento?](#location) |
-| &nbsp; |Acesso direto do cliente |[Você está usando SAS (assinaturas de acesso compartilhado) e CORS (compartilhamento de recursos entre origens) para habilitar o acesso direto ao Armazenamento do Azure?](#sas-and-cors) |
-| &nbsp; |Cache |[O aplicativo armazena em cache os dados que são frequentemente acessados e raramente alterados?](#reading-data) |
-| &nbsp; |Cache |[O aplicativo faz atualizações em lote armazenando-as no cliente e, em seguida, carregando-as em conjuntos maiores?](#uploading-data-in-batches) |
+| &nbsp; |Acesso direto ao cliente |[Você está usando SAS (assinaturas de acesso compartilhado) e CORS (compartilhamento de recursos entre origens) para habilitar o acesso direto ao Armazenamento do Azure?](#sas-and-cors) |
+| &nbsp; |Cache |[O cache de dados do aplicativo é freqüentemente acessado e raramente alterado?](#reading-data) |
+| &nbsp; |Cache |[O loteamento do aplicativo está sendo atualizado, filmando-os no cliente e, em seguida, carregando-os em conjuntos maiores?](#uploading-data-in-batches) |
 | &nbsp; |Configuração do .NET |[Você está usando o .NET Core 2.1 ou posterior para obter um desempenho ideal?](#use-net-core) |
 | &nbsp; |Configuração do .NET |[Você configurou seu cliente para usar uma quantidade suficiente de conexões simultâneas?](#increase-default-connection-limit) |
 | &nbsp; |Configuração do .NET |[Para aplicativos .NET, você configurou o .NET para usar um número suficiente de threads?](#increase-minimum-number-of-threads) |
@@ -45,14 +45,14 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Ferramentas |[Você está usando as últimas versões das bibliotecas de cliente e ferramentas fornecidas pela Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Novas tentativas |[Você está usando uma política de repetição com uma retirada exponencial para limitar erros e tempos limite?](#timeout-and-server-busy-errors) |
 | &nbsp; |Novas tentativas |[Seu aplicativo evita novas tentativas para erros que não admitem novas tentativas?](#non-retryable-errors) |
-| &nbsp; |Copiando BLOBs |[Você está copiando BLOBs da maneira mais eficiente?](#blob-copy-apis) |
-| &nbsp; |Copiando BLOBs |[Você está usando a versão mais recente do AzCopy para operações de cópia em massa?](#use-azcopy) |
-| &nbsp; |Copiando BLOBs |[Você está usando a família de Azure Data Box para importar grandes volumes de dados?](#use-azure-data-box) |
+| &nbsp; |Copiando bolhas |[Você está copiando bolhas da maneira mais eficiente?](#blob-copy-apis) |
+| &nbsp; |Copiando bolhas |[Você está usando a versão mais recente do AzCopy para operações de cópia em massa?](#use-azcopy) |
+| &nbsp; |Copiando bolhas |[Você está usando a família Azure Data Box para importar grandes volumes de dados?](#use-azure-data-box) |
 | &nbsp; |Distribuição de conteúdo |[Você usa um CDN para distribuir conteúdo?](#content-distribution) |
-| &nbsp; |Usar metadados |[Você armazena os metadados sobre blobs usados com frequência?](#use-metadata) |
+| &nbsp; |Use metadados |[Você armazena os metadados sobre blobs usados com frequência?](#use-metadata) |
 | &nbsp; |Carregando rapidamente |[Ao tentar carregar um blob rapidamente, você carrega blocos paralelamente?](#upload-one-large-blob-quickly) |
 | &nbsp; |Carregando rapidamente |[Ao tentar carregar muitos blobs rapidamente, você carrega blocos paralelamente?](#upload-many-blobs-quickly) |
-| &nbsp; |Tipo de BLOB |[Você usa blobs de página ou de bloco quando necessário?](#choose-the-correct-type-of-blob) |
+| &nbsp; |Tipo de blob |[Você usa blobs de página ou de bloco quando necessário?](#choose-the-correct-type-of-blob) |
 
 ## <a name="scalability-targets"></a>Metas de escalabilidade
 
@@ -62,58 +62,58 @@ Para obter mais informações sobre metas de escalabilidade para o serviço Fila
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
-Se você estiver se aproximando do número máximo de contas de armazenamento permitidas para uma combinação de assinatura/região específica, avalie seu cenário e determine se alguma das condições a seguir se aplica:
+Se você estiver se aproximando do número máximo de contas de armazenamento permitidas para uma determinada combinação de assinatura/região, avalie seu cenário e determine se alguma das seguintes condições se aplica:
 
-- Você está usando contas de armazenamento para armazenar discos não gerenciados e adicionar esses discos às suas VMs (máquinas virtuais)? Para este cenário, a Microsoft recomenda o uso de discos gerenciados. O Managed disks é dimensionado para você automaticamente e sem a necessidade de criar e gerenciar contas de armazenamento individuais. Para obter mais informações, consulte [introdução aos Managed disks do Azure](../../virtual-machines/windows/managed-disks-overview.md)
-- Você está usando uma conta de armazenamento por cliente, para fins de isolamento de dados? Para este cenário, a Microsoft recomenda usar um contêiner de BLOB para cada cliente, em vez de uma conta de armazenamento inteira. O armazenamento do Azure agora permite que você atribua funções RBAC (controle de acesso baseado em função) em uma base por contêiner. Para obter mais informações, confira [Conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](../common/storage-auth-aad-rbac-portal.md).
-- Você está usando várias contas de armazenamento para fragmentar para aumentar a entrada, a saída, as operações de e/s por segundo (IOPS) ou a capacidade? Nesse cenário, a Microsoft recomenda que você use maiores limites para contas de armazenamento a fim de reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar maiores limites para sua conta de armazenamento. Para obter mais informações, confira [Anunciar contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+- Você está usando contas de armazenamento para armazenar discos não gerenciados e adicionar esses discos às suas máquinas virtuais (VMs)? Para este cenário, a Microsoft recomenda o uso de discos gerenciados. Escala de discos gerenciados para você automaticamente e sem a necessidade de criar e gerenciar contas de armazenamento individuais. Para obter mais informações, consulte [Introdução aos discos gerenciados do Azure](../../virtual-machines/windows/managed-disks-overview.md)
+- Você está usando uma conta de armazenamento por cliente, para fins de isolamento de dados? Para este cenário, a Microsoft recomenda o uso de um recipiente blob para cada cliente, em vez de uma conta de armazenamento inteira. O Azure Storage agora permite atribuir funções de controle de acesso (RBAC) baseada em função em uma base por contêiner. Para obter mais informações, confira [Conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](../common/storage-auth-aad-rbac-portal.md).
+- Você está usando várias contas de armazenamento para aumentar a entrada, saída, operações de I/O por segundo (IOPS) ou capacidade? Nesse cenário, a Microsoft recomenda que você use maiores limites para contas de armazenamento a fim de reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar maiores limites para sua conta de armazenamento. Para obter mais informações, confira [Anunciar contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Metas de capacidade e de transação
 
 Se seu aplicativo estiver lidando com metas de escalabilidade de uma única conta de armazenamento, você pode adotar uma destas abordagens:  
 
-- Se o seu aplicativo atingir o destino da transação, considere o uso de contas de armazenamento de blobs de blocos, que são otimizadas para altas taxas de transação e latência baixa e consistente. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+- Se o aplicativo atingir a meta de transação, considere usar contas de armazenamento blob de bloco, que são otimizadas para altas taxas de transação e baixa e consistente latência. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 - Repensar a carga de trabalho que faz com que o aplicativo se aproxime da meta de escalabilidade ou a ultrapasse. Você pode alterar o aplicativo para que ele use menos largura de banda, menos capacidade ou menos transações?
 - Se o aplicativo ultrapassar uma das metas de escalabilidade propositalmente, crie diversas contas de armazenamento e particione os dados do seu aplicativo nessas contas. Se você usar esse padrão, crie o aplicativo de forma que seja possível adicionar mais contas de armazenamento posteriormente, para balancear a carga. O único custo das contas de armazenamento é o uso dos dados armazenados, das transações feitas ou dos dados transferidos.
 - Se o aplicativo estiver atingindo as metas de largura de banda, considere compactar os dados no cliente para reduzir a largura de banda necessária para enviar os dados para o Armazenamento do Azure.
     Embora a compactação de dados possa economizar largura de banda e melhorar o desempenho de rede, ela também pode ter efeitos negativos sobre o desempenho. Avalie o impacto de desempenho dos requisitos de processamento adicionais para compactação e descompactação de dados no lado do cliente. Tenha em mente que armazenar dados compactados pode dificultar a solução de problemas, porque pode ser mais desafiador exibir os dados usando ferramentas padrão.
 - Se o aplicativo estiver se aproximando das metas de escalabilidade, verifique se você está usando uma retirada exponencial para novas tentativas. É melhor tentar evitar alcançar as metas de escalabilidade implementando as recomendações descritas neste artigo. No entanto, usar uma retirada exponencial para novas tentativas impedirá que seu aplicativo tente novamente com rapidez, o que poderia piorar a limitação. Para obter mais informações, confira a seção intitulada [Erros de Tempo Limite e Servidor Ocupado](#timeout-and-server-busy-errors).
 
-### <a name="multiple-clients-accessing-a-single-blob-concurrently"></a>Vários clientes acessando um único blob simultaneamente
+### <a name="multiple-clients-accessing-a-single-blob-concurrently"></a>Vários clientes acessando uma única bolha simultaneamente
 
-Se você tiver um grande número de clientes acessando um único blob simultaneamente, você precisará considerar as metas de escalabilidade por blob e por conta de armazenamento. O número exato de clientes que podem acessar um único blob variará dependendo de fatores como o número de clientes que solicitam o blob simultaneamente, o tamanho do blob e as condições de rede.
+Se você tiver um grande número de clientes acessando uma única bolha simultaneamente, você precisará considerar tanto por blob quanto por metas de escalabilidade da conta de armazenamento. O número exato de clientes que podem acessar uma única bolha vai variar dependendo de fatores como o número de clientes que solicitam a bolha simultaneamente, o tamanho da bolha e as condições da rede.
 
-Se o blob puder ser distribuído por meio de uma CDN, como imagens ou vídeos servidos de um site, você poderá usar uma CDN. Para obter mais informações, consulte a seção intitulada [distribuição de conteúdo](#content-distribution).
+Se a bolha pode ser distribuída através de um CDN, como imagens ou vídeos servidos a partir de um site, então você pode usar um CDN. Para obter mais informações, consulte a seção intitulada [Distribuição de conteúdo](#content-distribution).
 
-Em outros cenários, como simulações científicas em que os dados são confidenciais, você tem duas opções. A primeira é escalonar o acesso de sua carga de trabalho, de modo que o blob seja acessado durante um período de tempo vs sendo acessado simultaneamente. Como alternativa, você pode copiar temporariamente o blob para várias contas de armazenamento para aumentar o total de IOPS por blob e entre contas de armazenamento. Os resultados variam dependendo do comportamento do seu aplicativo, portanto, certifique-se de testar padrões de simultaneidade durante o design.
+Em outros cenários, como simulações científicas onde os dados são confidenciais, você tem duas opções. A primeira é escalonar o acesso da sua carga de trabalho de tal forma que a bolha seja acessada durante um período de tempo versus ser acessada simultaneamente. Alternativamente, você pode copiar temporariamente o blob para várias contas de armazenamento para aumentar o Total de IOPS por blob e através de contas de armazenamento. Os resultados variam dependendo do comportamento do seu aplicativo, por isso não deixe de testar padrões de concorrência durante o projeto.
 
-### <a name="bandwidth-and-operations-per-blob"></a>Largura de banda e operações por blob
+### <a name="bandwidth-and-operations-per-blob"></a>Largura de banda e operações por bolha
 
-Um único blob dá suporte a até 500 solicitações por segundo. Se você tiver vários clientes que precisam ler o mesmo BLOB e você pode exceder esse limite, considere usar uma conta de armazenamento de blob de blocos. Uma conta de armazenamento de blobs de blocos fornece uma taxa de solicitação mais alta ou operações de e/s por segundo (IOPS).
+Uma única bolha suporta até 500 solicitações por segundo. Se você tem vários clientes que precisam ler a mesma bolha e você pode exceder esse limite, então considere usar uma conta de armazenamento blob de bloco. Uma conta de armazenamento blob de bloco fornece uma taxa de solicitação mais alta, ou operações de I/O por segundo (IOPS).
 
-Você também pode usar uma CDN (rede de distribuição de conteúdo), como a CDN do Azure, para distribuir operações no BLOB. Para obter mais informações sobre a CDN do Azure, consulte [visão geral da CDN do Azure](../../cdn/cdn-overview.md).  
+Você também pode usar uma rede de entrega de conteúdo (CDN) como o Azure CDN para distribuir operações na bolha. Para obter mais informações sobre o Azure CDN, consulte [a visão geral do Azure CDN](../../cdn/cdn-overview.md).  
 
 ## <a name="partitioning"></a>Particionamento
 
-Entender como o armazenamento do Azure particiona seus dados de blob é útil para melhorar o desempenho. O armazenamento do Azure pode servir dados em uma única partição mais rapidamente do que os dados que abrangem várias partições. Ao nomear seus BLOBs adequadamente, você pode melhorar a eficiência das solicitações de leitura.
+Entender como o Azure Storage particiona seus dados blob é útil para melhorar o desempenho. O Azure Storage pode servir dados em uma única partição mais rapidamente do que dados que abrangem várias partições. Ao nomear suas bolhas apropriadamente, você pode melhorar a eficiência das solicitações de leitura.
 
-O armazenamento de BLOBs usa um esquema de particionamento baseado em intervalo para dimensionamento e balanceamento de carga. Cada blob tem uma chave de partição composta pelo nome completo do blob (conta + contêiner + BLOB). A chave de partição é usada para particionar dados de BLOB em intervalos. Os intervalos são então balanceados por carga no armazenamento de BLOBs.
+O armazenamento Blob usa um esquema de particionamento baseado em intervalo para dimensionamento e balanceamento de carga. Cada bolha tem uma chave de partição composta pelo nome blob completo (account+container+blob). A chave de partição é usada para particionar dados blob em intervalos. As faixas são então balanceadas de carga através do armazenamento Blob.
 
-O particionamento baseado em intervalo significa que as convenções de nomenclatura que usam a ordenação lexical (por exemplo, *mypayroll*, *myperformance*, *MyEmployees*etc.) ou carimbos de data/hora (*log20160101*, *log20160102*, *log20160102*, etc.) têm mais probabilidade de resultar nas partições que estão sendo colocalizadas no mesmo servidor de partição. , até que o aumento da carga exija que eles sejam divididos em intervalos menores. A colocalização de BLOBs no mesmo servidor de partição melhora o desempenho, portanto, uma parte importante do aprimoramento de desempenho envolve nomear blobs de forma a organizá-los com mais eficiência.
+Particionamento baseado em intervalo significa que convenções de nomeação que usam pedidos léxicos (por exemplo, *mypayroll*, *myperformance,* *myemployees,* etc.) ou carimbos de tempo *(log20160101*, *log20160102,* *log20160102,* etc.) são mais propensos a resultar na co-localização das partições no mesmo servidor de partição. , até que a carga aumentada exija que elas sejam divididas em intervalos menores. A co-localização de blobs no mesmo servidor de partição melhora o desempenho, de modo que uma parte importante do aprimoramento de desempenho envolve nomear blobs de uma maneira que os organize de forma mais eficaz.
 
-Por exemplo, todos os blobs em um contêiner podem ser servidos por um único servidor até que a carga nesses blobs exija mais rebalanceamento dos intervalos de partição. Da mesma forma, um grupo de contas levemente carregadas com seus nomes organizados em ordem lexical pode ser servido por um único servidor até que a carga em uma ou todas essas contas exija que eles sejam divididos em vários servidores de partição.
+Por exemplo, todos os blobs em um contêiner podem ser servidos por um único servidor até que a carga nesses blobs exija mais rebalanceamento dos intervalos de partição. Da mesma forma, um grupo de contas levemente carregadas com seus nomes organizados em ordem léxica pode ser servido por um único servidor até que a carga em uma ou todas essas contas exija que elas sejam divididas em vários servidores de partição.
 
-Cada operação de balanceamento de carga pode afetar a latência das chamadas de armazenamento durante a operação. A capacidade do serviço de lidar com uma intermitência repentina de tráfego para uma partição é limitada pela escalabilidade de um único servidor de partição até que a operação de balanceamento de carga seja iniciada e rebalancee o intervalo de chaves de partição.
+Cada operação de balanceamento de carga pode afetar a latência das chamadas de armazenamento durante a operação. A capacidade do serviço de lidar com uma súbita explosão de tráfego para uma partição é limitada pela escalabilidade de um único servidor de partição até que a operação de balanceamento de carga seja inicializada e reequilibre o intervalo da chave de partição.
 
 Você pode seguir algumas práticas recomendadas para reduzir a frequência de tais operações.  
 
-- Se possível, use o BLOB ou os tamanhos de bloco maiores que 4 MiB para contas de armazenamento Standard e superior a 256 KiB para contas de armazenamento Premium. Os tamanhos maiores de BLOB ou bloco ativam automaticamente blobs de blocos de alta taxa de transferência. Os blobs de blocos de alta taxa de transferência fornecem ingestão de alto desempenho que não é afetada pela nomenclatura de partição.
-- Examine a Convenção de nomenclatura usada para contas, contêineres, BLOBs, tabelas e filas. Considere a possibilidade de prefixar nomes de conta, contêiner ou BLOB com um hash de três dígitos usando uma função de hash que melhor atenda às suas necessidades.
-- Se você organizar seus dados usando carimbos de data/hora ou identificadores numéricos, certifique-se de que você não está usando um padrão de tráfego somente de acréscimo (ou somente preceder). Esses padrões não são adequados para um sistema de particionamento baseado em intervalo. Esses padrões podem levar a todo o tráfego indo para uma única partição e limitar o sistema de balanceamento de carga com eficiência.
+- Se possível, use blob ou tamanhos de bloco maiores que 4 MiB para contas de armazenamento padrão e maiores que 256 KiB para contas de armazenamento premium. Tamanhos maiores ou tamanhos de bloco ativam automaticamente bolhas de bloco de alta throughput. Blobs de bloco de alta taxa de throughput fornecem ingestão de alto desempenho que não é afetada pela nomeação de partição.
+- Examine a convenção de nomeação que você usa para contas, contêineres, blobs, tabelas e filas. Considere prefixar nomes de conta, contêiner ou blob com um hash de três dígitos usando uma função de hash que melhor se adapte às suas necessidades.
+- Se você organizar seus dados usando carimbos de tempo ou identificadores numéricos, certifique-se de que não está usando um padrão de tráfego somente apêndice (ou somente preparatório). Esses padrões não são adequados para um sistema de particionamento baseado em intervalo. Esses padrões podem levar a que todo o tráfego vá para uma única partição e limite o sistema de efetivamente carregar o balanceamento.
 
-    Por exemplo, se você tiver operações diárias que usam um blob com um carimbo de data/hora como *aaaammdd*, todo o tráfego dessa operação diária será direcionado para um único BLOB, que é servido por um único servidor de partição. Considere se os limites por blob e os limites por partição atendem às suas necessidades e considere dividir essa operação em vários BLOBs, se necessário. Da mesma forma, se você armazenar dados de série temporal em suas tabelas, todo o tráfego poderá ser direcionado para a última parte do namespace de chave. Se você estiver usando IDs numéricas, Prefixe a ID com um hash de três dígitos. Se você estiver usando carimbos de hora, Prefixe o carimbo de data/hora com o valor de segundos, por exemplo, *ssaaaammdd*. Se seu aplicativo executa rotineiramente as operações de listagem e consulta, escolha uma função de hash que limitará o número de consultas. Em alguns casos, um prefixo aleatório pode ser suficiente.
+    Por exemplo, se você tem operações diárias que usam uma bolha com um carimbo de data e hora, como *yyyymmdd,* então todo o tráfego para essa operação diária é direcionado para uma única bolha, que é servida por um único servidor de partição. Considere se os limites por bolha e limites por partição atendem às suas necessidades e considere dividir essa operação em várias bolhas, se necessário. Da mesma forma, se você armazenar dados de séries tempoem em suas tabelas, todo o tráfego pode ser direcionado para a última parte do namespace da chave. Se você estiver usando IDs numéricos, prefixe o ID com um hash de três dígitos. Se você estiver usando carimbos de tempo, prefixe o carimbo de tempo com o valor de segundos, por exemplo, *ssyyymmdd*. Se o aplicativo realizar rotineiramente operações de listagem e consulta, escolha uma função de hashing que limitará o número de consultas. Em alguns casos, um prefixo aleatório pode ser suficiente.
   
-- Para obter mais informações sobre o esquema de particionamento usado no armazenamento do Azure, consulte [armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com consistência forte](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+- Para obter mais informações sobre o esquema de particionamento usado no Armazenamento Azure, consulte [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ## <a name="networking"></a>Rede
 
@@ -137,7 +137,7 @@ Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melh
 
 Se os aplicativos cliente acessarem o Armazenamento do Azure, mas não estiverem hospedados no Azure, como aplicativos de dispositivo móvel ou serviços corporativos locais, a localização da conta de armazenamento em uma região próxima a esses clientes poderá reduzir a latência. Se os clientes estiverem amplamente distribuídos (por exemplo, alguns na América do Norte e outros na Europa), considere usar uma conta de armazenamento por região. A implementação dessa solução é mais fácil se os dados armazenados pelo aplicativo são específicos aos usuários e se não é necessário replicar os dados entre as contas de armazenamento.
 
-Para uma ampla distribuição de conteúdo de BLOB, use uma rede de entrega de conteúdo, como a CDN do Azure. Para obter mais informações, confira [CDN do Azure](../../cdn/cdn-overview.md).  
+Para uma ampla distribuição de conteúdo blob, use uma rede de entrega de conteúdo, como o Azure CDN. Para obter mais informações, confira [CDN do Azure](../../cdn/cdn-overview.md).  
 
 ## <a name="sas-and-cors"></a>SAS e CORS
 
@@ -153,23 +153,23 @@ SAS e CORS podem ajudar você a evitar uma carga desnecessária em seu aplicativ
 
 ## <a name="caching"></a>Cache
 
-O Caching desempenha um papel importante no desempenho. As seções a seguir abordam as práticas recomendadas de cache.
+Caching desempenha um papel importante na performance. As seções a seguir discutem as melhores práticas de cache.
 
-### <a name="reading-data"></a>Lendo dados
+### <a name="reading-data"></a>Leitura de dados
 
-Em geral, a leitura de dados uma vez é preferível para lê-lo duas vezes. Considere o exemplo de um aplicativo Web que recuperou um blob de MiB 50 do armazenamento do Azure para servir como conteúdo para um usuário. O ideal é que o aplicativo armazene em cache o blob localmente em disco e, em seguida, recupere a versão armazenada em cache para solicitações subsequentes do usuário.
+Em geral, a leitura de dados uma vez é preferível a lê-los duas vezes. Considere o exemplo de um aplicativo web que recuperou uma bolha de 50 MiB do Azure Storage para servir como conteúdo para um usuário. Idealmente, o aplicativo armazena o blob localmente em disco e, em seguida, recupera a versão armazenada em cache para solicitações subsequentes do usuário.
 
-Uma maneira de evitar a recuperação de um blob se ele não foi modificado desde que ele foi armazenado em cache é qualificar a operação GET com um cabeçalho condicional para o tempo de modificação. Se a hora da última modificação for posterior à hora em que o blob foi armazenado em cache, o blob será recuperado e armazenado em cache novamente. Caso contrário, o blob armazenado em cache é recuperado para um desempenho ideal.
+Uma maneira de evitar recuperar uma bolha se ela não tiver sido modificada desde que foi armazenada em cache é qualificar a operação GET com um cabeçalho condicional para o tempo de modificação. Se o último tempo modificado for após o tempo em que a bolha foi armazenada em cache, então a bolha será recuperada e rearmazenada em cache. Caso contrário, a bolha armazenada em cache é recuperada para um desempenho ideal.
 
-Você também pode optar por projetar seu aplicativo para assumir que o blob permanece inalterado por um curto período depois de recuperá-lo. Nesse caso, o aplicativo não precisa verificar se o blob foi modificado durante esse intervalo.
+Você também pode decidir projetar seu aplicativo para assumir que a bolha permanece inalterada por um curto período após recuperá-la. Neste caso, a aplicação não precisa verificar se a bolha foi modificada durante esse intervalo.
 
-Dados de configuração, dados de pesquisa e outros dados frequentemente usados pelo aplicativo são bons candidatos para cache.  
+Dados de configuração, dados de pesquisa e outros dados que são frequentemente usados pelo aplicativo são bons candidatos ao cache.  
 
-Para obter mais informações sobre como usar cabeçalhos condicionais, consulte [especificando cabeçalhos condicionais para operações de serviço blob](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
+Para obter mais informações sobre o uso de cabeçalhos condicionais, consulte [Especificar cabeçalhos condicionais para operações de serviço Blob](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
 
-### <a name="uploading-data-in-batches"></a>Carregando dados em lotes
+### <a name="uploading-data-in-batches"></a>Upload de dados em lotes
 
-Em alguns cenários, você pode agregar dados localmente e, em seguida, carregá-los periodicamente em um lote em vez de carregar cada parte dos dados imediatamente. Por exemplo, suponha que um aplicativo Web mantenha um arquivo de log de atividades. O aplicativo pode carregar detalhes de cada atividade à medida que ela acontece com uma tabela (que requer muitas operações de armazenamento) ou pode salvar detalhes da atividade em um arquivo de log local e, em seguida, carregar periodicamente todos os detalhes da atividade como um arquivo delimitado em um blob. Se cada entrada de log tiver 1 KB de tamanho, você poderá carregar milhares de entradas em uma única transação. Uma única transação dá suporte ao carregamento de um blob de até 64 MiB de tamanho. O desenvolvedor de aplicativos deve criar a possibilidade de falhas de carregamento ou de dispositivo cliente. Se os dados da atividade precisarem ser baixados por um intervalo de tempo em vez de uma única atividade, o uso do armazenamento de blob é recomendado em relação ao armazenamento de tabelas.
+Em alguns cenários, você pode agregar dados localmente e, em seguida, carregá-los periodicamente em um lote em vez de carregar cada pedaço de dados imediatamente. Por exemplo, suponha que um aplicativo web mantenha um arquivo de registro de atividades. O aplicativo pode carregar detalhes de cada atividade como acontece com uma tabela (que requer muitas operações de armazenamento), ou pode salvar detalhes de atividade em um arquivo de log local e, em seguida, carregar periodicamente todos os detalhes da atividade como um arquivo delimitado para uma bolha. Se cada entrada de log tiver 1 KB de tamanho, você poderá carregar milhares de entradas em uma única transação. Uma única transação suporta o upload de uma bolha de até 64 MiB de tamanho. O desenvolvedor do aplicativo deve projetar para a possibilidade de dispositivo cliente ou falhas de upload. Se os dados de atividade precisarem ser baixados por um intervalo de tempo em vez de uma única atividade, então o uso do armazenamento Blob é recomendado sobre o armazenamento da Tabela.
 
 ## <a name="net-configuration"></a>Configuração do .NET
 
@@ -186,7 +186,7 @@ Para saber mais sobre os aprimoramentos de desempenho no .NET Core, confira as s
 
 ### <a name="increase-default-connection-limit"></a>Aumentar limite de conexão padrão
 
-No .NET, o código a seguir aumenta o limite de conexão padrão (que geralmente é dois em um ambiente de cliente ou dez em um ambiente de servidor) para 100. Normalmente, você deve definir o valor para aproximadamente igual ao número de threads utilizados pelo seu aplicativo. Defina o limite da conexão antes de abrir conexões.
+Em .NET, o código a seguir aumenta o limite de conexão padrão (que geralmente é dois em um ambiente cliente ou dez em um ambiente de servidor) para 100. Normalmente, você deve definir o valor para aproximadamente igual ao número de threads utilizados pelo seu aplicativo. Defina o limite da conexão antes de abrir conexões.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -194,7 +194,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Para outras linguagens de programação, consulte a documentação para determinar como definir o limite de conexão.  
 
-Para obter mais informações, consulte a postagem no blog [Serviços Web: conexões simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para obter mais informações, consulte o blog post [Web Services: Conexões Simultâneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de threads
 
@@ -230,61 +230,61 @@ As bibliotecas de cliente manipulam as novas tentativas com um reconhecimento de
 
 Para obter mais informações sobre os códigos de erro do Armazenamento do Azure, confira [Status e códigos de erro](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="copying-and-moving-blobs"></a>Copiando e movendo BLOBs
+## <a name="copying-and-moving-blobs"></a>Copiando e movendo bolhas
 
-O armazenamento do Azure fornece uma série de soluções para copiar e mover BLOBs em uma conta de armazenamento, entre contas de armazenamento e entre sistemas locais e a nuvem. Esta seção descreve algumas dessas opções em termos de seus efeitos sobre o desempenho. Para obter informações sobre como transferir dados de ou para o armazenamento de blobs de forma eficiente, consulte [escolher uma solução do Azure para transferência de dados](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+O Azure Storage fornece uma série de soluções para copiar e mover bolhas dentro de uma conta de armazenamento, entre contas de armazenamento e entre sistemas locais e a nuvem. Esta seção descreve algumas dessas opções em termos de seus efeitos sobre o desempenho. Para obter informações sobre a transferência eficiente de dados para ou a partir do armazenamento Blob, consulte [Escolha uma solução Azure para transferência de dados](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="blob-copy-apis"></a>APIs de cópia de BLOB
+### <a name="blob-copy-apis"></a>APIs de cópia blob
 
-Para copiar BLOBs entre contas de armazenamento, use a operação [colocar bloco de URL](/rest/api/storageservices/put-block-from-url) . Esta operação copia dados de forma síncrona de qualquer origem de URL para um blob de blocos. O uso da operação de `Put Block from URL` pode reduzir significativamente a largura de banda necessária quando você está migrando dados entre contas de armazenamento. Como a operação de cópia ocorre no lado do serviço, você não precisa baixar e carregar os dados novamente.
+Para copiar blobs em contas de armazenamento, use a operação ['Bloquear bloco de url'.](/rest/api/storageservices/put-block-from-url) Esta operação copia os dados sincronizadamente de qualquer fonte de URL em uma bolha de bloco. O `Put Block from URL` uso da operação pode reduzir significativamente a largura de banda necessária quando você está migrando dados através de contas de armazenamento. Como a operação de cópia ocorre no lado do serviço, você não precisa baixar e recarregar os dados.
 
-Para copiar dados dentro da mesma conta de armazenamento, use a operação de [cópia de blob](/rest/api/storageservices/Copy-Blob) . A cópia de dados dentro da mesma conta de armazenamento normalmente é concluída rapidamente.  
+Para copiar dados dentro da mesma conta de armazenamento, use a operação [Copiar Blob.](/rest/api/storageservices/Copy-Blob) A cópia de dados dentro da mesma conta de armazenamento é normalmente concluída rapidamente.  
 
 ### <a name="use-azcopy"></a>Usar o AzCopy
 
-O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência em massa de BLOBs para, de e entre contas de armazenamento. O AzCopy é otimizado para esse cenário e pode alcançar altas taxas de transferência. A versão 10 do AzCopy usa a operação `Put Block From URL` para copiar dados de blob entre contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o armazenamento do Azure usando o AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).  
+O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência em massa de blobs para, a partir e através de contas de armazenamento. O AzCopy é otimizado para este cenário e pode alcançar altas taxas de transferência. A versão 10 do `Put Block From URL` AzCopy usa a operação para copiar dados blob em contas de armazenamento. Para obter mais informações, consulte [Copiar ou mover dados para o Azure Storage usando o AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
 
-### <a name="use-azure-data-box"></a>Usar Azure Data Box
+### <a name="use-azure-data-box"></a>Use a caixa de dados do Azure
 
-Para importar grandes volumes de dados para o armazenamento de BLOBs, considere usar a família de Azure Data Box para transferências offline. Os dispositivos Data Box fornecidos pela Microsoft são uma boa opção para mover grandes quantidades de dados para o Azure quando você está limitado por tempo, disponibilidade de rede ou custos. Para obter mais informações, consulte a [documentação do Azure data Box](/azure/databox/).
+Para importar grandes volumes de dados para o armazenamento Blob, considere usar a família Azure Data Box para transferências offline. Os dispositivos Data Box fornecidos pela Microsoft são uma boa escolha para mover grandes quantidades de dados para o Azure quando você está limitado por tempo, disponibilidade de rede ou custos. Para obter mais informações, consulte a documentação do [Azure DataBox](/azure/databox/).
 
 ## <a name="content-distribution"></a>Distribuição de conteúdo
 
-Às vezes, um aplicativo precisa fornecer o mesmo conteúdo a muitos usuários (por exemplo, um vídeo de demonstração do produto usado na home page de um site), localizado em qualquer região ou em várias regiões. Nesse cenário, use uma CDN (rede de distribuição de conteúdo), como a CDN do Azure, para distribuir o conteúdo do blob geograficamente. Diferente das contas de armazenamento do Azure que existem em uma única região e não podem fornecer conteúdos com baixa latência a outras regiões, a CDN do Azure usa servidores em diversos data centers pelo mundo. Além disso, uma CDN geralmente tem limites de saída muito maiores do que as contas de armazenamento individuais.  
+Às vezes, um aplicativo precisa servir o mesmo conteúdo para muitos usuários (por exemplo, um vídeo de demonstração de produto usado na página inicial de um site), localizado nas mesmas ou várias regiões. Neste cenário, use uma CDN (Content Delivery Network, rede de entrega de conteúdo) como o Azure CDN para distribuir conteúdo blob geograficamente. Diferente das contas de armazenamento do Azure que existem em uma única região e não podem fornecer conteúdos com baixa latência a outras regiões, a CDN do Azure usa servidores em diversos data centers pelo mundo. Além disso, uma CDN geralmente tem limites de saída muito maiores do que as contas de armazenamento individuais.  
 
 Para obter mais informações, confira [CDN do Azure](../../cdn/cdn-overview.md).
 
-## <a name="use-metadata"></a>Usar metadados
+## <a name="use-metadata"></a>Use metadados
 
-O serviço blob dá suporte a solicitações HEAD, que podem incluir propriedades de BLOB ou metadados. Por exemplo, se seu aplicativo precisar de dados EXIF (formato de imagem exchangável) de uma foto, ele poderá recuperar a foto e extraí-la. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo carregar a foto. Em seguida, você pode recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD. Recuperar somente metadados e não o conteúdo completo do blob salva uma largura de banda significativa e reduz o tempo de processamento necessário para extrair os dados EXIF. Tenha em mente que 8 KiB de metadados podem ser armazenados por blob.  
+O serviço Blob suporta solicitações HEAD, que podem incluir propriedades blob ou metadados. Por exemplo, se o seu aplicativo precisar dos dados Exif (formato de imagem exchangable) de uma foto, ele pode recuperar a foto e extraí-la. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados Exif nos metadados da bolha quando o aplicativo carrega a foto. Em seguida, você pode recuperar os dados Exif em metadados usando apenas uma solicitação HEAD. Recuperar apenas metadados e não o conteúdo completo da bolha economiza largura de banda significativa e reduz o tempo de processamento necessário para extrair os dados do Exif. Tenha em mente que 8 KiB de metadados podem ser armazenados por bolha.  
 
-## <a name="upload-blobs-quickly"></a>Carregar BLOBs rapidamente
+## <a name="upload-blobs-quickly"></a>Upload de bolhas rapidamente
 
-Para carregar os BLOBs rapidamente, primeiro determine se você estará carregando um ou vários BLOBs. Use as informações abaixo para identificar o método de uso correto de acordo com o seu cenário.  
+Para carregar bolhas rapidamente, primeiro determine se você estará carregando uma bolha ou muitas. Use as informações abaixo para identificar o método de uso correto de acordo com o seu cenário.  
 
-### <a name="upload-one-large-blob-quickly"></a>Carregar um blob grande rapidamente
+### <a name="upload-one-large-blob-quickly"></a>Carregue uma bolha grande rapidamente
 
-Para carregar um único blob grande rapidamente, um aplicativo cliente pode carregar seus blocos ou páginas em paralelo, sendo atento às metas de escalabilidade para BLOBs individuais e a conta de armazenamento como um todo. As bibliotecas de cliente de armazenamento do Azure dão suporte ao carregamento em paralelo. Por exemplo, você pode usar as propriedades a seguir para especificar o número de solicitações simultâneas permitidas no .NET ou Java. As bibliotecas de cliente para outros idiomas com suporte fornecem opções semelhantes.
+Para carregar uma única bolha grande rapidamente, um aplicativo cliente pode carregar seus blocos ou páginas em paralelo, tendo em conta as metas de escalabilidade para bolhas individuais e a conta de armazenamento como um todo. As bibliotecas de clientes do Azure Storage suportam o upload em paralelo. Por exemplo, você pode usar as seguintes propriedades para especificar o número de solicitações simultâneas permitidas em .NET ou Java. Bibliotecas de clientes para outros idiomas suportados oferecem opções semelhantes.
 
-- Para .NET, defina a propriedade [BlobRequestOptions. ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount) .
-- Para Java/Android, chame o método [BlobRequestOptions. setConcurrentRequestCount (inteiro final concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount) .
+- Para .NET, defina a propriedade [BlobRequestOptions.ParallelOperationThreadCount.](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)
+- Para Java/Android, ligue para o método [BlobRequestOptions.setConcurrentRequestCount (final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount)
 
-### <a name="upload-many-blobs-quickly"></a>Carregar vários BLOBs rapidamente
+### <a name="upload-many-blobs-quickly"></a>Carregar muitas bolhas rapidamente
 
-Para carregar diversos blobs com rapidez, carregue-os paralelamente. O carregamento em paralelo é mais rápido do que carregar BLOBs únicos por vez com carregamentos de bloco paralelos porque ele espalha o carregamento entre várias partições do serviço de armazenamento. O AzCopy executa carregamentos em paralelo por padrão e é recomendado para esse cenário. Para obter mais informações, consulte Introdução [ao AzCopy](../common/storage-use-azcopy-v10.md).  
+Para carregar diversos blobs com rapidez, carregue-os paralelamente. O upload em paralelo é mais rápido do que carregar bolhas únicas de cada vez com uploads de blocos paralelos porque ele espalha o upload através de várias partições do serviço de armazenamento. AzCopy executa os carregamentos em paralelo por padrão e é a opção recomendada nesse caso. Para obter mais informações, consulte [Comece com o AzCopy](../common/storage-use-azcopy-v10.md).  
 
-## <a name="choose-the-correct-type-of-blob"></a>Escolha o tipo correto de BLOB
+## <a name="choose-the-correct-type-of-blob"></a>Escolha o tipo correto de bolha
 
-O armazenamento do Azure dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. Em um determinado cenário de uso, o tipo de blob escolhido afeta o desempenho e a escalabilidade da solução.
+O Azure Storage suporta bolhas de bloco, bolhas de apêndice e bolhas de página. Em um determinado cenário de uso, o tipo de blob escolhido afeta o desempenho e a escalabilidade da solução.
 
-Blobs de blocos são apropriados quando você deseja carregar grandes quantidades de dados com eficiência. Por exemplo, um aplicativo cliente que carrega fotos ou vídeo no armazenamento de BLOBs direcionaria blobs de blocos.
+Os blobs de bloco são apropriados quando você deseja carregar grandes quantidades de dados de forma eficiente. Por exemplo, um aplicativo cliente que envia fotos ou vídeos para o armazenamento Blob teria como alvo blobs de bloco.
 
-Os blobs de acréscimo são semelhantes aos blobs de blocos, pois são compostos por blocos. Quando você modifica um blob de acréscimo, os blocos são adicionados somente ao final do blob. Os blobs de acréscimo são úteis para cenários como registro em log, quando um aplicativo precisa adicionar dados a um blob existente.
+As bolhas de apêndice são semelhantes às bolhas de bloco, pois são compostas de blocos. Quando você modifica uma bolha de apêndice, os blocos são adicionados apenas ao fim da bolha. Blobs de apêndice são úteis para cenários como registro, quando um aplicativo precisa adicionar dados a uma bolha existente.
 
-Os blobs de páginas são apropriados se o aplicativo precisar executar gravações aleatórias nos dados. Por exemplo, os discos de máquina virtual do Azure são armazenados como BLOBs de página. Para obter mais informações, consulte [noções básicas sobre blobs de blocos, blobs de acréscimo e blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
+Blobs de página são apropriados se o aplicativo precisar executar gravações aleatórias nos dados. Por exemplo, os discos da máquina virtual do Azure são armazenados como blobs de página. Para obter mais informações, consulte [Entendendo bolhas de bloco, bolhas de apêndice e bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Metas de escalabilidade e desempenho do Armazenamento de Blobs](scalability-targets.md)
+- [Metas de escalabilidade e desempenho para armazenamento Blob](scalability-targets.md)
 - [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

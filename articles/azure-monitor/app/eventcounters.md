@@ -1,28 +1,28 @@
 ---
-title: Contadores de eventos em Application Insights | Microsoft Docs
-description: Monitore o sistema e o .NET Core EventCounters personalizado no Application Insights.
+title: Contadores de eventos em Insights de Aplicativos | Microsoft Docs
+description: Monitore o sistema e os eventos principais .NET/.NET personalizados no Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 2094c012e86131073fc66be4f2ac2fb2e81ef4c1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663582"
 ---
-# <a name="eventcounters-introduction"></a>Introdução ao EventCounters
+# <a name="eventcounters-introduction"></a>Introdução eventCounters
 
-`EventCounter` é o mecanismo .NET/.NET Core para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento fornece uma visão geral de `EventCounters` e exemplos sobre como publicá-los e consumi-los. EventCounters têm suporte em todas as plataformas de sistema operacional: Windows, Linux e macOS. Pode ser pensado como um equivalente de plataforma cruzada para os [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) que só tem suporte em sistemas Windows.
+`EventCounter`é o mecanismo .NET/.NET Core para publicar e consumir contadores ou estatísticas. [Este](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) documento dá uma `EventCounters` visão geral e exemplos de como publicá-los e consumi-los. EventCounters são suportados em todas as plataformas de SO - Windows, Linux e macOS. Ele pode ser considerado como um equivalente multiplataforma para os [Contadores de Desempenho](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) que só é suportado em sistemas Windows.
 
-Embora os usuários possam publicar qualquer `EventCounters` personalizada para atender às suas necessidades, o tempo de execução do .NET Core 3,0 publica um conjunto desses contadores por padrão. O documento examinará as etapas necessárias para coletar e exibir `EventCounters` (definido pelo sistema ou definido pelo usuário) no Aplicativo Azure insights.
+Embora os usuários `EventCounters` possam publicar qualquer costume para atender às suas necessidades, o tempo de execução do .NET Core 3.0 publica um conjunto desses contadores por padrão. O documento percorrerá as etapas `EventCounters` necessárias para coletar e visualizar (sistema definido ou definido pelo usuário) no Azure Application Insights.
 
-## <a name="using-application-insights-to-collect-eventcounters"></a>Usando Application Insights para coletar EventCounters
+## <a name="using-application-insights-to-collect-eventcounters"></a>Usando insights de aplicativos para coletar contadores de eventos
 
-Application Insights oferece suporte à coleta de `EventCounters` com seu `EventCounterCollectionModule`, que faz parte do pacote NuGet recém-lançado [Microsoft. ApplicationInsights. EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). o `EventCounterCollectionModule` é habilitado automaticamente ao usar [AspNetCore](asp-net-core.md) ou [WorkerService](worker-service.md). `EventCounterCollectionModule` coleta contadores com uma frequência de coleta não configurável de 60 segundos. Não há permissões especiais necessárias para coletar EventCounters.
+O Application Insights `EventCounters` suporta `EventCounterCollectionModule`a coleta com o seu , que faz parte do recém-lançado pacote nuget [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule`é ativado automaticamente ao usar [o AspNetCore](asp-net-core.md) ou [o WorkerService](worker-service.md). `EventCounterCollectionModule`coleta contadores com uma frequência de coleta não configurável de 60 segundos. Não há permissões especiais necessárias para coletar EventCounters.
 
 ## <a name="default-counters-collected"></a>Contadores padrão coletados
 
-Para aplicativos em execução no .NET Core 3,0, os contadores a seguir são coletados automaticamente pelo SDK. O nome dos contadores estará no formato "categoria | Counter ".
+Para aplicativos em execução no .NET Core 3.0, os seguintes contadores são coletados automaticamente pelo SDK. O nome dos contadores será da forma "Categoria| Contador".
 
 |Categoria | Contador|
 |---------------|-------|
@@ -51,11 +51,11 @@ Para aplicativos em execução no .NET Core 3,0, os contadores a seguir são col
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
-> Os contadores da categoria Microsoft. AspNetCore. Hosting são adicionados somente em aplicativos ASP.NET Core.
+> Contadores da categoria Microsoft.AspNetCore.Hosting só são adicionados em ASP.NET Principais Aplicativos.
 
-## <a name="customizing-counters-to-be-collected"></a>Personalizando os contadores a serem coletados
+## <a name="customizing-counters-to-be-collected"></a>Personalização de contadores a serem coletados
 
-O exemplo a seguir mostra como adicionar/remover contadores. Essa personalização seria feita no método `ConfigureServices` do seu aplicativo depois que Application Insights coleção de telemetria é habilitada usando `AddApplicationInsightsTelemetry()` ou `AddApplicationInsightsWorkerService()`. Veja a seguir um exemplo de código de um aplicativo ASP.NET Core. Para outros tipos de aplicativos, consulte [este](worker-service.md#configuring-or-removing-default-telemetrymodules) documento.
+O exemplo a seguir mostra como adicionar/remover contadores. Essa personalização seria feita `ConfigureServices` no método do seu aplicativo depois que a coleta `AddApplicationInsightsTelemetry()` `AddApplicationInsightsWorkerService()`de telemetria do Application Insights estiver ativada usando ou . A seguir está um código de exemplo de um aplicativo ASP.NET Core. Para outros tipos de aplicações, consulte [este](worker-service.md#configuring-or-removing-default-telemetrymodules) documento.
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;
@@ -89,27 +89,27 @@ O exemplo a seguir mostra como adicionar/remover contadores. Essa personalizaç�
     }
 ```
 
-## <a name="event-counters-in-metric-explorer"></a>Contadores de eventos no Gerenciador de métricas
+## <a name="event-counters-in-metric-explorer"></a>Contadores de eventos no Metric Explorer
 
-Para exibir as métricas do EventCounter no [Gerenciador de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), selecione Application insights recurso e escolha métricas baseadas em log como namespace de métrica. Em seguida, as métricas EventCounter são exibidas em categoria personalizada.
+Para exibir as métricas eventCounter no [Metric Explorer,](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)selecione o recurso Application Insights e escolha métricas baseadas em Log como espaço de nome métrico. Em seguida, as métricas EventCounter são exibidas na categoria Personalizado.
 
 > [!div class="mx-imgBorder"]
-> ![contadores de eventos relatados no Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
+> ![Contadores de eventos relatados no Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
-## <a name="event-counters-in-analytics"></a>Contadores de eventos no Analytics
+## <a name="event-counters-in-analytics"></a>Contadores de eventos em Analytics
 
-Você também pode pesquisar e exibir relatórios de contador de eventos no [Analytics](../../azure-monitor/app/analytics.md), na tabela **customMetrics** .
+Você também pode pesquisar e exibir relatórios de contador de eventos no [Analytics,](../../azure-monitor/app/analytics.md)na tabela **customMetrics.**
 
-Por exemplo, execute a consulta a seguir para ver quais contadores são coletados e estão disponíveis para consulta:
+Por exemplo, execute a seguinte consulta para ver quais contadores são coletados e disponíveis para consulta:
 
 ```Kusto
 customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![contadores de eventos relatados no Application Insights](./media/event-counters/analytics-event-counters.png)
+> ![Contadores de eventos relatados no Application Insights](./media/event-counters/analytics-event-counters.png)
 
-Para obter um gráfico de um contador específico (por exemplo: `ThreadPool Completed Work Item Count`) no período recente, execute a consulta a seguir.
+Para obter um gráfico de um `ThreadPool Completed Work Item Count`contador específico (por exemplo: ) durante o período recente, execute a seguinte consulta.
 
 ```Kusto
 customMetrics 
@@ -119,33 +119,33 @@ customMetrics
 | render timechart
 ```
 > [!div class="mx-imgBorder"]
-> ![chat de um único contador no Application Insights](./media/event-counters/analytics-completeditems-counters.png)
+> ![Chat de um único contador no Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
-Assim como outras telemetrias, o **customMetrics** também tem uma coluna `cloud_RoleInstance` que indica a identidade da instância do servidor host na qual seu aplicativo está sendo executado. A consulta acima mostra o valor do contador por instância e pode ser usada para comparar o desempenho de diferentes instâncias de servidor.
+Como outras telemetrias, a `cloud_RoleInstance` **customMetrics** também tem uma coluna que indica a identidade da instância do servidor host em que seu aplicativo está sendo executado. A consulta acima mostra o contravalor por instância e pode ser usada para comparar o desempenho de diferentes instâncias do servidor.
 
 ## <a name="alerts"></a>Alertas
-Assim como outras métricas, você pode [definir um alerta](../../azure-monitor/app/alerts.md) para avisá-lo se um contador de eventos ficar fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
+Como outras métricas, você pode [definir um alerta](../../azure-monitor/app/alerts.md) para avisá-lo se um contador de eventos estiver fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="can-i-see-eventcounters-in-live-metrics"></a>Posso ver EventCounters em métricas ao vivo?
+### <a name="can-i-see-eventcounters-in-live-metrics"></a>Posso ver EventCounters em Métricas ao vivo?
 
-As métricas ao vivo não mostram EventCounters a partir de hoje. Use o Gerenciador de métricas ou a análise para ver a telemetria.
+Métricas ao vivo não mostram EventCounters a partir de hoje. Use O Metric Explorer ou o Analytics para ver a telemetria.
 
-### <a name="which-platforms-can-i-see-the-default-list-of-net-core-30-counters"></a>Quais plataformas posso ver a lista padrão de contadores do .NET Core 3,0?
+### <a name="which-platforms-can-i-see-the-default-list-of-net-core-30-counters"></a>Quais plataformas posso ver a lista padrão de contadores .NET Core 3.0?
 
-O EventCounter não exige nenhuma permissão especial e tem suporte em todas as plataformas o .NET Core 3,0 tem suporte. Isso inclui:
+EventCounter não requer permissões especiais e é suportado em todas as plataformas .NET Core 3.0 é suportado. Isso inclui:
 
-* **Sistema operacional**: Windows, Linux ou MacOS.
-* **Método de hospedagem**: em processo ou fora do processo.
-* **Método de implantação**: dependente da estrutura ou independente.
-* **Servidor Web**: IIS (servidor de informações da Internet) ou Kestrel.
-* **Plataforma de hospedagem**: o recurso de aplicativos Web do serviço de Azure app, VM do Azure, Docker, serviço kubernetes do Azure (AKs) e assim por diante.
+* **Sistema operacional**: Windows, Linux ou macOS.
+* **Método de hospedagem**: Em processo ou fora de processo.
+* **Método de implantação**: Quadro dependente ou autônomo.
+* **Servidor web**: IIS (Internet Information Server) ou Kestrel.
+* **Plataforma de hospedagem**: O recurso Web Apps do Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), e assim por diante.
 
-### <a name="i-have-enabled-application-insights-from-azure-web-app-portal-but-i-cant-see-eventcounters"></a>Habilitei Application Insights do portal do aplicativo Web do Azure. Mas não consigo ver EventCounters.?
+### <a name="i-have-enabled-application-insights-from-azure-web-app-portal-but-i-cant-see-eventcounters"></a>Habilitei o Application Insights do Portal do Aplicativo Web do Azure. Mas eu não posso ver EventCounters.?
 
- [Application insights extensão](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) para ASP.NET Core ainda não dá suporte a esse recurso. Este documento será atualizado quando houver suporte para esse recurso.
+ [A extensão do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) para ASP.NET Core ainda não suporta esse recurso. Este documento será atualizado quando esse recurso for suportado.
 
-## <a name="next"></a>Próximas etapas
+## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 
 * [Acompanhamento de dependência](../../azure-monitor/app/asp-net-dependencies.md)

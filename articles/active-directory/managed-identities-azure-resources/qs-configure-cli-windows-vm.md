@@ -1,5 +1,5 @@
 ---
-title: Configurar identidades gerenciadas na VM do Azure usando o CLI do Azure-Azure AD
+title: Configure identidades gerenciadas no Azure VM usando a Cli azure - Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas atribuídas ao usuário e ao sistema em uma VM do Azure usando a CLI do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2efaceefc53b3c0b5dfd899baf9fd30fdf9a76
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244141"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando a CLI do Azure
@@ -33,9 +33,9 @@ Neste artigo, usando a CLI do Azure, você aprenderá como executar as seguintes
 - Habilitar e desabilitar a identidade gerenciada atribuída pelo sistema em uma VM do Azure
 - Adicionar e remover uma identidade gerenciada atribuída pelo usuário em uma VM do Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para executar os exemplos de script da CLI, você tem três opções:
     - Usar o [Azure Cloud Shell](../../cloud-shell/overview.md) no Portal do Azure (confira a próxima seção).
@@ -130,7 +130,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM durante sua cria�
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   A resposta contém detalhes para a identidade gerenciada atribuída ao usuário criada, semelhante à seguinte. O valor da ID de recurso atribuído à identidade gerenciada atribuída pelo usuário é usado na etapa a seguir.
+   A resposta contém detalhes para a identidade gerenciada atribuída ao usuário criada, semelhante à seguinte. O valor de ID de recurso atribuído à identidade gerenciada atribuída pelo usuário é usado na etapa seguinte.
 
    ```json
    {

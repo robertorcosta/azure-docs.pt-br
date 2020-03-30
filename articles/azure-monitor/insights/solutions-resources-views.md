@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663038"
 ---
 # <a name="views-in-management-solutions-preview"></a>Exibições em soluções de gerenciamento (versão prévia)
@@ -18,14 +18,14 @@ ms.locfileid: "77663038"
 > Esta é uma documentação preliminar para criar soluções de gerenciamento que estão atualmente em versão prévia. Os esquemas descritos a seguir estão sujeitos a alterações.    
 
 
-As [Soluções de gerenciamento](solutions.md) normalmente incluem uma ou mais exibições para visualizar dados.  Este artigo descreve como exportar uma exibição criada pelo [Designer de Exibição](../../azure-monitor/platform/view-designer.md) e incluí-la em uma solução de gerenciamento.  
+[As soluções de](solutions.md) gerenciamento normalmente incluem uma ou mais visualizações para visualizar dados.  Este artigo descreve como exportar uma visão criada pelo [View Designer](../../azure-monitor/platform/view-designer.md) e incluí-la em uma solução de gerenciamento.  
 
 > [!NOTE]
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns a soluções de gerenciamento e descritos em [Projetar e compilar uma solução de gerenciamento no Azure](solutions-creating.md)
 >
 >
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já esteja familiarizado com o modo para [criar uma solução de gerenciamento](solutions-creating.md) e com a estrutura de um arquivo de solução.
 
 ## <a name="overview"></a>Visão geral
@@ -86,7 +86,7 @@ Todos os recursos do Log Analytics definidos em um modelo do Resource Manager t�
 
  A tabela a seguir especifica as versões de API de Log Analytics para modos de exibição em workspaces herdados e atualizados: 
 
-| Versão do workspace | Versão da API | Query |
+| Versão do workspace | Versão da API | Consulta |
 |:---|:---|:---|
 | v1 (herdado)   | 2015-11-01-preview | Formato herdado.<br> Exemplo: Type=Event EventLevelName = Erro  |
 | v2 (atualizado) | 2015-11-01-preview | Formato herdado.  Convertido para o formato atualizado na instalação.<br> Exemplo: Type=Event EventLevelName = Erro<br>Convertido para: Event &#124; onde EventLevelName == “Erro”  |
@@ -96,7 +96,7 @@ Todos os recursos do Log Analytics definidos em um modelo do Resource Manager t�
 ## <a name="add-the-view-details"></a>Adicionar os detalhes de exibição
 O recurso de exibição no arquivo de exibição exportado terá dois elementos no elemento **properties** chamados **Dashboard** e **OverviewTile**, que terão a configuração detalhada da exibição.  Copie esses dois elementos e seus conteúdos no elemento **properties** do recurso de exibição em seu arquivo de solução.
 
-## <a name="example"></a>{1&gt;Exemplo&lt;1}
+## <a name="example"></a>Exemplo
 Por exemplo, a amostra a seguir apresenta um arquivo de solução simples com uma exibição.  As reticências (...) são mostradas para os conteúdos de **Dashboard** e **OverviewTile** por motivos de espaço.
 
     {
@@ -179,6 +179,6 @@ Por exemplo, a amostra a seguir apresenta um arquivo de solução simples com um
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Conheça os detalhes completos de criação das [soluções de gerenciamento](solutions-creating.md).
 * Incluir os [runbooks de automação na solução de gerenciamento](solutions-resources-automation.md).

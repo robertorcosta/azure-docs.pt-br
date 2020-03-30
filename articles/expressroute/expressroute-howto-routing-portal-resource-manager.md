@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: configurar o emparelhamento'
-description: Este artigo documenta as etapas para criar e provisionar o emparelhamento privado e o Microsoft ExpressRoute. Este artigo também demonstra como verificar o status, atualizar ou excluir emparelhamentos de um circuito.
+title: 'Azure ExpressRoute: Configure peering'
+description: Este artigo documenta as etapas para criar e provisionar o peering privado e o peering da Microsoft. Este artigo também demonstra como verificar o status, atualizar ou excluir peerings para um circuito.
 services: expressroute
 author: mialdrid
 ms.service: expressroute
@@ -8,33 +8,33 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: mialdrid
 ms.openlocfilehash: 18d2db18e9880028c60b4b545c3628f4a9cb4703
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264785"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute
 
-Este artigo ajuda você a criar e gerenciar a configuração de roteamento para um circuito de ExpressRoute Azure Resource Manager (ARM), usando o portal do Azure. Você também pode verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Se quiser usar um método diferente para trabalhar com seu circuito, selecione um artigo na lista a seguir:
+Este artigo ajuda você a criar e gerenciar a configuração de roteamento para um circuito ExpressRoute do Azure Resource Manager (ARM), usando o portal Azure. Você também pode verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Se quiser usar um método diferente para trabalhar com seu circuito, selecione um artigo na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-routing-arm.md)
-> * [CLI do Azure](howto-routing-cli.md)
-> * [Emparelhamento público](about-public-peering.md)
+> * [Portal Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Powershell](expressroute-howto-routing-arm.md)
+> * [Azure CLI](howto-routing-cli.md)
+> * [Peering público](about-public-peering.md)
 > * [Vídeo – Emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vídeo – Emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-Você pode configurar emparelhamento privado e emparelhamento da Microsoft para um circuito do ExpressRoute (o emparelhamento público do Azure é preterido para novos circuitos). Os emparelhamentos podem ser configurados em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre o emparelhamento público, consulte [emparelhamento público do ExpressRoute](about-public-peering.md).
+Você pode configurar peering privado e Microsoft peering para um circuito ExpressRoute (peering público do Azure é preterido para novos circuitos). Os peerings podem ser configurados em qualquer ordem que você escolher. No entanto, você deve concluir a configuração de um emparelhamento por vez. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre peering público, consulte [O peering público ExpressRoute](about-public-peering.md).
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 
 * Verifique se você leu a página de [pré-requisitos](expressroute-prerequisites.md), a página de [requisitos do roteamento](expressroute-routing.md) e a página [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
-* Você deve ter um circuito do ExpressRoute ativo. Antes de continuar, siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e para que o circuito seja habilitado pelo provedor de conectividade. Para configurar o emparelhamento, o circuito do ExpressRoute deve estar em um estado provisionado e habilitado. 
-* Se você planeja usar um hash de chave compartilhada/MD5, certifique-se de usá-lo em ambos os lados do túnel e limitar o número de caracteres alfanuméricos a um máximo de 25. Não há suporte para caracteres especiais. 
+* Você deve ter um circuito do ExpressRoute ativo. Antes de continuar, siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e para que o circuito seja habilitado pelo provedor de conectividade. Para configurar peering(s), o circuito ExpressRoute deve estar em um estado provisionado e habilitado. 
+* Se você planeja usar uma chave compartilhada/hash MD5, certifique-se de usá-lo em ambos os lados do túnel e limitar o número de caracteres alfanuméricos a um máximo de 25. Personagens especiais não são suportados. 
 
 Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que ofereça serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você. 
 
@@ -43,7 +43,7 @@ Estas instruções se aplicam apenas a circuitos criados com provedores de servi
 > 
 > 
 
-## <a name="msft"></a>Emparelhamento da Microsoft
+## <a name="microsoft-peering"></a><a name="msft"></a>Peering da Microsoft
 
 Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento da Microsoft para um circuito do ExpressRoute.
 
@@ -54,15 +54,15 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 ### <a name="to-create-microsoft-peering"></a>Criar emparelhamento da Microsoft
 
-1. Configure o circuito do ExpressRoute. Verifique o **status do provedor** para garantir que o circuito seja totalmente provisionado pelo provedor de conectividade antes de continuar.
+1. Configure o circuito do ExpressRoute. Verifique o status do **Provedor** para garantir que o circuito esteja totalmente provisionado pelo provedor de conectividade antes de continuar.
 
-   Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento da Microsoft. Nesse caso, você não precisará seguir as instruções listadas nas próximas seções. No entanto, se o provedor de conectividade não gerenciar o roteamento para você, depois de criar o circuito, prossiga com estas etapas.
+   Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento da Microsoft. Nesse caso, você não precisará seguir as instruções listadas nas próximas seções. No entanto, se o seu provedor de conectividade não gerenciar o roteamento para você, depois de criar seu circuito, proceda com essas etapas.
 
-   **Status do provedor de circuito: não provisionado**
+   **Circuito - Status do provedor: Não provisionado**
 
     [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
-   **Status do provedor de circuito: provisionado**
+   **Circuito - Status do provedor: Provisionado**
 
    [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. Configurar o emparelhamento da Microsoft para o circuito. Você precisa ter as seguintes informações antes de continuar:
@@ -77,43 +77,43 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
    * **Opcional –** Um hash MD5 se você optar por usar um.
 3. Você pode selecionar o emparelhamento que deseja configurar, conforme mostrado no exemplo a seguir. Selecione a linha de emparelhamento da Microsoft.
 
-   [![Selecionar a linha de emparelhamento da Microsoft](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Selecionar a linha de emparelhamento da Microsoft")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
-4. Configure o emparelhamento da Microsoft. **Salve** a configuração depois de especificar todos os parâmetros. A imagem a seguir mostra uma configuração de exemplo:
+   [![Selecione a linha de peering da Microsoft](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Selecione a linha de peering da Microsoft")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
+4. Configure o emparelhamento da Microsoft. **Salve** a configuração depois de ter especificado todos os parâmetros. A imagem a seguir mostra uma configuração de exemplo:
 
    ![Configurar o emparelhamento da Microsoft](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
 
 > [!IMPORTANT]
-> A Microsoft verifica se os ' prefixos públicos publicados ' e ' peer ASN ' (ou ' cliente ASN ') especificados estão atribuídos a você no registro de roteamento da Internet. Se você estiver obtendo os prefixos públicos de outra entidade e se a atribuição não for registrada com o registro de roteamento, a validação automática não será concluída e exigirá validação manual. Se a validação automática falhar, você verá a mensagem "validação necessária". 
+> A Microsoft verifica se os 'prefixos públicos anunciados' e 'Peer ASN' (ou 'Customer ASN') são atribuídos a você no Registro de Roteamento da Internet. Se você estiver recebendo os prefixos públicos de outra entidade e se a atribuição não for registrada no registro de roteamento, a validação automática não será concluída e exigirá validação manual. Se a validação automática falhar, você verá a mensagem 'Validação necessária'. 
 >
-> Se você vir a mensagem "validação necessária", colete os documentos que mostram os prefixos públicos são atribuídos à sua organização pela entidade que está listada como o proprietário dos prefixos no registro de roteamento e envie esses documentos para validação manual por abrindo um tíquete de suporte, conforme mostrado abaixo. 
+> Se você vir a mensagem 'Validação necessária', colete os documentos que mostram os prefixos públicos são atribuídos à sua organização pela entidade que está listada como a proprietária dos prefixos no registro de roteamento e envie esses documentos para validação manual por abrindo um bilhete de suporte, como mostrado abaixo. 
 >
 
-   Se o circuito chegar a um estado de "validação necessária", você deverá abrir um tíquete de suporte para mostrar a prova de propriedade dos prefixos para nossa equipe de suporte. Você pode abrir um tíquete de suporte diretamente no portal, conforme mostrado no exemplo a seguir:
+   Se o seu circuito chegar a um estado de 'Validação necessária', você deve abrir um bilhete de suporte para mostrar o comprovante de propriedade dos prefixos para nossa equipe de suporte. Você pode abrir um tíquete de suporte diretamente no portal, conforme mostrado no exemplo a seguir:
 
-   ![Validação necessária-tíquete de suporte](./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png)
+   ![Validação necessária - bilhete de suporte](./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png)
 
-5. Depois que a configuração for aceita com êxito, você verá algo semelhante à imagem a seguir:
+5. Depois que a configuração for aceita com sucesso, você verá algo semelhante à seguinte imagem:
 
-   ![Status de emparelhamento: configurado](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Status de emparelhamento: configurado")]
+   ![Status de peering: Configurado](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Status de peering: Configurado")]
 
-### <a name="getmsft"></a>Para exibir detalhes de emparelhamento da Microsoft
+### <a name="to-view-microsoft-peering-details"></a><a name="getmsft"></a>Para exibir detalhes de emparelhamento da Microsoft
 
-Você pode exibir as propriedades do emparelhamento da Microsoft selecionando a linha para o emparelhamento.
+Você pode visualizar as propriedades do peering da Microsoft selecionando a linha para o peering.
 
-[![Exibir Propriedades de emparelhamento da Microsoft](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "Exibir propriedades")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
-### <a name="updatemsft"></a>Para atualizar a configuração de emparelhamento da Microsoft
+[![Ver propriedades de peering da Microsoft](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "Exibir propriedades")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
+### <a name="to-update-microsoft-peering-configuration"></a><a name="updatemsft"></a>Atualizar a configuração de emparelhamento da Microsoft
 
-Você pode selecionar a linha para o emparelhamento que deseja modificar e, em seguida, modificar as propriedades de emparelhamento e salvar suas modificações.
+Você pode selecionar a linha para o peering que deseja modificar e, em seguida, modificar as propriedades de peering e salvar suas modificações.
 
-![Selecionar linha de emparelhamento](./media/expressroute-howto-routing-portal-resource-manager/update-peering-m.png)
+![Selecione a linha de peering](./media/expressroute-howto-routing-portal-resource-manager/update-peering-m.png)
 
-### <a name="deletemsft"></a>Para excluir emparelhamento da Microsoft
+### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Excluir emparelhamento da Microsoft
 
-Você pode remover a configuração de emparelhamento clicando no ícone excluir, conforme mostrado na imagem a seguir:
+Você pode remover sua configuração de peering clicando no ícone de exclusão, como mostrado na imagem a seguir:
 
-![Excluir emparelhamento](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
+![Excluir peering](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
-## <a name="private"></a>Emparelhamento privado do Azure
+## <a name="azure-private-peering"></a><a name="private"></a>Emparelhamento privado do Azure
 
 Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento privado do Azure para um circuito do ExpressRoute.
 
@@ -121,13 +121,13 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 1. Configure o circuito do ExpressRoute. Verifique se o circuito foi totalmente provisionado pelo provedor de conectividade antes de continuar. 
 
-   Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento privado do Azure. Nesse caso, você não precisará seguir as instruções listadas nas próximas seções. No entanto, se seu provedor de conectividade não gerenciar o roteamento para você, depois de criar o circuito, prossiga com as próximas etapas.
+   Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento privado do Azure. Nesse caso, você não precisará seguir as instruções listadas nas próximas seções. No entanto, se o seu provedor de conectividade não gerenciar o roteamento para você, depois de criar seu circuito, proceda com os próximos passos.
 
-   **Status do provedor de circuito: não provisionado**
+   **Circuito - Status do provedor: Não provisionado**
 
    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
-   **Status do provedor de circuito: provisionado**
+   **Circuito - Status do provedor: Provisionado**
 
    [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
@@ -137,31 +137,31 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
    * Uma sub-rede /30 para o link secundário. A sub-rede não deve fazer parte de nenhum espaço de endereçamento reservado para redes virtuais. Dessa sub-rede, você atribuirá o primeiro endereço IP utilizável ao seu roteador já que a Microsoft usa o segundo IP utilizável para seu roteador.
    * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN. Para os links Primário e Secundário, você deve usar a mesma ID de VLAN.
    * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes. Você pode usar um número de AS privado para esse emparelhamento, exceto pelos números de 65515 a 65520, inclusive.
-   * Você deve anunciar as rotas do seu roteador de borda local para o Azure por meio do BGP ao configurar o emparelhamento privado.
+   * Você deve anunciar as rotas do seu roteador edge no local para o Azure via BGP quando configurar o peering privado.
    * **Opcional –** Um hash MD5 se você optar por usar um.
-3. Selecione a linha de emparelhamento privado do Azure, conforme mostrado no exemplo a seguir:
+3. Selecione a linha de peering privada do Azure, conforme mostrado no exemplo a seguir:
 
-   [![Selecionar a linha de emparelhamento privado](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Selecionar a linha de emparelhamento privado")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
-4. Configure o emparelhamento privado. **Salve** a configuração depois de especificar todos os parâmetros.
+   [![Selecione a linha de peering privada](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Selecione a linha de peering privada")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+4. Configure o emparelhamento privado. **Salve** a configuração depois de ter especificado todos os parâmetros.
 
    ![configurar o emparelhamento privado](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
 5. Depois que a configuração é aceita com êxito, você vê algo semelhante ao exemplo a seguir:
 
-   ![emparelhamento privado salvo](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
+   ![salvou peering privado](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
-### <a name="getprivate"></a>Para exibir detalhes sobre o emparelhamento privado do Azure
+### <a name="to-view-azure-private-peering-details"></a><a name="getprivate"></a>Para exibir detalhes sobre o emparelhamento privado do Azure
 
 Você pode exibir as propriedades de emparelhamento privado do Azure selecionando o emparelhamento.
 
-[![Exibir Propriedades de emparelhamento privado](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "Exibir Propriedades de emparelhamento privado")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
+[![Exibir propriedades de peering privado](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "Exibir propriedades de peering privado")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
-### <a name="updateprivate"></a>Para atualizar a configuração de emparelhamento privado do Azure
+### <a name="to-update-azure-private-peering-configuration"></a><a name="updateprivate"></a>Atualizar a configuração de emparelhamento privado do Azure
 
-Você pode selecionar a linha para emparelhamento e modificar as propriedades de emparelhamento. Após a atualização, salve as alterações.
+Você pode selecionar a linha para emparelhamento e modificar as propriedades de emparelhamento. Depois de atualizar, salve suas alterações.
 
 ![atualizar emparelhamento privado](./media/expressroute-howto-routing-portal-resource-manager/update-peering-p.png)
 
-### <a name="deleteprivate"></a>Para excluir um emparelhamento privado do Azure
+### <a name="to-delete-azure-private-peering"></a><a name="deleteprivate"></a>Excluir um emparelhamento privado do Azure
 
 Você pode remover a configuração de emparelhamento selecionando o ícone Excluir, conforme mostrado na imagem a seguir:
 
@@ -175,7 +175,7 @@ Você pode remover a configuração de emparelhamento selecionando o ícone Excl
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa será [Vincular uma Rede Virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
+Próximo passo, [vincular um VNet a um circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Para saber mais sobre fluxos de trabalho do ExpressRoute, confira [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).
 * Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md).
 * Para saber mais sobre redes virtuais, confira [Visão geral da rede virtual](../virtual-network/virtual-networks-overview.md).

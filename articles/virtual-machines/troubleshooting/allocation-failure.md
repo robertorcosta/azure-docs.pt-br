@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484393"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure
@@ -25,11 +25,11 @@ Quando você cria uma VM (máquina virtual), reinicia VMs paradas (desalocadas) 
 
 **Código de erro**: AllocationFailed ou ZonalAllocationFailed
 
-**Mensagem de erro**: "Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre como melhorar a probabilidade de êxito de alocação em https:\//aka.ms/allocation-guidance "
+**Mensagem de erro**: "Falha na alocação. Não temos capacidade suficiente para o tamanho de VM solicitado nesta região. Leia mais sobre como melhorar a\/probabilidade de sucesso de alocação em https: /aka.ms/allocation-guidance"
 
 Este artigo explica as causas de algumas das falhas de alocação mais comuns e sugere possíveis correções.
 
-Se o problema do Azure não for resolvido neste artigo, visite os [Fóruns do Azure no MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou usando @AzureSupport no Twitter. Além disso, você pode registrar uma solicitação de suporte do Azure selecionando Obter suporte no site de [suporte do Azure](https://azure.microsoft.com/support/options/).
+Se o seu problema do Azure não for abordado neste artigo, visite os [fóruns do Azure no MSDN e no Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou usando @AzureSupport no Twitter. Além disso, você pode registrar uma solicitação de suporte do Azure selecionando Obter suporte no site de [suporte do Azure](https://azure.microsoft.com/support/options/).
 
 Até o tipo de VM preferencial estar disponível em sua região preferida, aconselhamos que os clientes que encontrarem problemas de implantação considerem a diretriz na tabela a seguir como uma solução alternativa. 
 
@@ -79,7 +79,7 @@ Se você estiver usando zonas de disponibilidade, tente outra zona dentro da reg
 
 Se sua solicitação de alocação for grande (mais de 500 núcleos), consulte o guia nas seções a seguir para dividir a solicitação em implantações menores.
 
-Tente [reimplantar a VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). Reimplantar a VM aloca a VM para um novo cluster dentro da região.
+Tente [reimplantar o VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/redeploy-to-new-node-windows). A reimplantação da VM aloca a VM para um novo cluster dentro da região.
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Falhas de alocação para tamanhos de VM mais antigos (Av1, Dv1, DSv1, D15v2, DS15v2 etc.)
 

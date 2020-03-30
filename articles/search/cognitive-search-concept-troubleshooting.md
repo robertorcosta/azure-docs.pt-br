@@ -1,7 +1,7 @@
 ---
-title: Dicas para design de enriquecimento de ia
+title: Dicas para o design de enriquecimento de IA
 titleSuffix: Azure Cognitive Search
-description: Dicas e solução de problemas para configurar pipelines de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Dicas e solução de problemas para configurar pipelines de enriquecimento de IA na Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245480"
 ---
-# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para o enriquecimento de ia no Azure Pesquisa Cognitiva
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para enriquecimento de IA na Pesquisa Cognitiva do Azure
 
-Este artigo contém uma lista de dicas e truques para manter você mudando à medida que começar a usar os recursos de enriquecimento de ia no Azure Pesquisa Cognitiva. 
+Este artigo contém uma lista de dicas e truques para mantê-lo em movimento à medida que você começa com recursos de enriquecimento de IA na Pesquisa Cognitiva do Azure. 
 
-Se você ainda não fez isso, percorra o [tutorial: saiba como chamar APIs de enriquecimento de ai](cognitive-search-quickstart-blob.md) para praticar na aplicação de aprimoramentos de ai a uma fonte de dados de BLOB.
+Se você ainda não fez isso, passe pelo [Tutorial: Aprenda a chamar APIs de enriquecimento de IA](cognitive-search-quickstart-blob.md) para prática na aplicação de enriquecimentos de IA a uma fonte de dados blob.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Dica 1: comece com um conjunto de dados pequeno
 A melhor maneira de encontrar problemas rapidamente é aumentar a velocidade com que você pode corrigi-los. A melhor maneira de reduzir o tempo de indexação é reduzindo o número de documentos a serem indexados. 
@@ -30,7 +30,7 @@ Execute seu documento de amostra no pipeline de ponta a ponta e verifique se os 
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Dica 2: verifique se as credenciais da fonte de dados estão corretas
 A conexão da fonte de dados não é validada até que você defina um indexador que a utiliza. Se encontrar erros indicando que o indexador não pode acessar os dados, verifique se:
-- Sua cadeia de conexão está correta. Especialmente quando você estiver criando tokens SAS, certifique-se de usar o formato esperado pelo Azure Pesquisa Cognitiva. Consulte a seção [Como especificar credenciais](
+- Sua cadeia de conexão está correta. Especialmente quando você estiver criando tokens SAS, certifique-se de usar o formato esperado pelo Azure Cognitive Search. Consulte a seção [Como especificar credenciais](
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) para saber mais sobre os diferentes formatos compatíveis.
 - O nome do contêiner no indexador está correto.
 
@@ -81,7 +81,7 @@ Adicione um campo ```enriched``` como parte da definição do índice para fins 
 
 A falta de conteúdo pode ser resultado da remoção de documentos durante a indexação. As camadas Básica e Gratuita têm limites baixos de tamanho do documento. Qualquer arquivo que ultrapassar o limite será removido durante a indexação. Você pode verificar se há documentos removidos no portal do Azure. No painel do serviço de pesquisa, clique duas vezes no bloco Indexadores. Examine a proporção de documentos indexados com êxito. Se ela não for de 100%, você poderá clicar nela para obter mais detalhes. 
 
-Se o problema estiver relacionado ao tamanho do arquivo, você poderá ver um erro como este: "o blob \<nome-do-arquivo >" tem o tamanho de \<tamanho do arquivo > bytes, o que excede o tamanho máximo para a extração de documentos para a camada de serviço atual. " Para obter mais informações sobre os limites de indexador, confira [Limites de serviço](search-limits-quotas-capacity.md).
+Se o problema estiver relacionado ao tamanho do arquivo, você \<pode ver um erro como \<este: "O nome do arquivo blob>" tem o tamanho dos bytes> tamanho do arquivo, que excede o tamanho máximo para extração de documento para o seu nível de serviço atual." Para obter mais informações sobre os limites de indexador, confira [Limites de serviço](search-limits-quotas-capacity.md).
 
 Um segundo motivo para o conteúdo não aparecer pode ser a presença de erros de mapeamento de entrada/saída. Por exemplo, o nome da saída de destino é "People", mas o nome do campo de índice é "people", com letras minúsculas. O sistema pode retornar mensagens de êxito 201 para todo o pipeline, o que levará você a achar que a indexação foi bem-sucedida, quando na verdade um campo está vazio. 
 
@@ -91,10 +91,10 @@ A análise de imagem faz uso intensivo de computação até mesmo em casos simpl
 
 O tempo de execução máximo varia por camada: vários minutos na Camada gratuita, indexação de 24 horas nas camadas faturáveis. Se o processamento não for concluído em um período de 24 horas para o processamento sob demanda, use uma agenda para que o indexador retome o processamento de onde parou. 
 
-Para indexadores agendados, a indexação é retomada de acordo com a agenda no último documento bem-sucedido. Com o uso de um agenda recorrente, o indexador pode percorrer a lista de pendências de imagem ao longo de várias horas ou vários dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de agendamento, consulte [etapa 3: criar-um-indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou ver [como agendar indexadores para o Azure pesquisa cognitiva](search-howto-schedule-indexers.md).
+Para indexadores agendados, a indexação é retomada de acordo com a agenda no último documento bem-sucedido. Com o uso de um agenda recorrente, o indexador pode percorrer a lista de pendências de imagem ao longo de várias horas ou vários dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de horários, consulte [Passo 3: Crie-um-indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou consulte [Como agendar indexadores para a Pesquisa Cognitiva Do Azure](search-howto-schedule-indexers.md).
 
 > [!NOTE]
-> Se um indexador for definido como um determinado agendamento, mas falhar repetidamente no mesmo documento repetidamente cada vez que for executado, o indexador começará a ser executado em um intervalo menos frequente (até o máximo de pelo menos uma vez a cada 24 horas) até que ele faça com que o progresso seja agado com êxito no.  Se acreditar que você corrigiu qualquer problema que estava fazendo com que o indexador fosse paralisado em um determinado ponto, você poderá executar uma execução sob demanda do indexador e, se isso fizer o progresso com êxito, o indexador retornará ao seu intervalo de agendamento definido novamente.
+> Se um indexador é definido para um determinado cronograma, mas falha repetidamente no mesmo documento repetidamente cada vez que ele é executado, o indexador começará a funcionar em um intervalo menos freqüente (até o máximo de pelo menos uma vez a cada 24 horas) até que ele faça progressos com sucesso Novamente.  Se você acredita que corrigiu qualquer problema que estava fazendo com que o indexador ficasse preso em um determinado ponto, você pode realizar uma corrida demanda do indexador, e se isso fizer progressos com sucesso, o indexador voltará ao seu intervalo de horário definido novamente.
 
 Para a indexação baseada em portal (conforme descrita no guia de início rápido), escolher a opção "Executar uma vez" do indexador limita o processamento a 1 hora (`"maxRunTime": "PT1H"`). Você talvez queira estender a janela de processamento para um período mais longo.
 
@@ -104,8 +104,8 @@ Para a [indexação paralela](search-howto-large-index.md), coloque os dados em 
 Para obter mais informações, consulte [Indexando grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Confira também
-+ [Início rápido: criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: aprender sobre APIs REST de rericação de AI](cognitive-search-tutorial-blob.md)
++ [Quickstart: Crie um pipeline de enriquecimento de IA no portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Aprenda APIs de enriquecimento de IA](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials) (Especificando credenciais de fonte de dados)
 + [Indexando grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

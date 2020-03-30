@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255126"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
@@ -29,30 +29,30 @@ O recurso pai de um compartilhamento de arquivo do Azure é uma conta de armazen
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> A utilização da conta de armazenamento de uso geral de outros serviços de armazenamento afeta os compartilhamentos de arquivos do Azure em sua conta de armazenamento. Por exemplo, se você atingir a capacidade máxima da conta de armazenamento com o armazenamento de Blobs do Azure, você não poderá criar novos arquivos em seu compartilhamento de arquivo do Azure, mesmo se o compartilhamento de arquivo do Azure estiver abaixo do tamanho máximo do compartilhamento.
+> A utilização da conta de armazenamento de propósito geral de outros serviços de armazenamento afeta os compartilhamentos de arquivos do Azure em sua conta de armazenamento. Por exemplo, se você atingir a capacidade máxima da conta de armazenamento com o armazenamento de Blobs do Azure, você não poderá criar novos arquivos em seu compartilhamento de arquivo do Azure, mesmo se o compartilhamento de arquivo do Azure estiver abaixo do tamanho máximo do compartilhamento.
 
 ## <a name="azure-files-scale-targets"></a>Destinos de escala de Arquivos do Azure
 
-Há três categorias de limitações a serem consideradas para os arquivos do Azure: contas de armazenamento, compartilhamentos e arquivos.
+Existem três categorias de limitações a considerar para arquivos do Azure: contas de armazenamento, compartilhamentos e arquivos.
 
-Por exemplo: com compartilhamentos de arquivos premium, um único compartilhamento pode atingir 100.000 IOPS e um único arquivo pode ser dimensionado para até 5.000 IOPS. Portanto, se você tiver três arquivos em um único compartilhamento, o máximo de IOPS que você pode obter desse compartilhamento é 15.000.
+Por exemplo: Com ações de arquivo premium, uma única ação pode alcançar 100.000 IOPS e um único arquivo pode escalar até 5.000 IOPS. Então, se você tem três arquivos em uma parte, o IOPS máximo que você pode obter a partir desse compartilhamento é de 15.000.
 
-### <a name="standard-storage-account-limits"></a>Limites de conta de armazenamento Standard
+### <a name="standard-storage-account-limits"></a>Limites padrão da conta de armazenamento
 
-Consulte a seção [destinos de escala da conta de armazenamento do Azure](#azure-storage-account-scale-targets) para esses limites.
+Consulte a seção de metas de metas da conta de [armazenamento do Azure](#azure-storage-account-scale-targets) para esses limites.
 
-### <a name="premium-filestorage-account-limits"></a>Limites da conta de armazenamento Premium
+### <a name="premium-filestorage-account-limits"></a>Limites da conta de armazenamento de arquivos premium
 
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Os limites da conta de armazenamento são aplicados a todos os compartilhamentos. O dimensionamento até o máximo para contas de armazenamento de filebackup só será atingível se houver apenas um compartilhamento por conta de armazenamento de File.
+> Os limites da conta de armazenamento se aplicam a todas as ações. O dimensionamento até o máximo para contas de armazenamento de arquivos só é alcançável se houver apenas um compartilhamento por conta de Armazenamento de Arquivos.
 
-### <a name="file-share-and-file-scale-targets"></a>Destinos de escala de arquivo e compartilhamento de arquivos
+### <a name="file-share-and-file-scale-targets"></a>Metas de compartilhamento de arquivos e escala de arquivos
 
 > [!NOTE]
-> Compartilhamentos de arquivos padrão maiores que 5 TiB têm certas limitações e restrições regionais.
-> Para obter uma lista de limitações, informações regionais e instruções para habilitar esses tamanhos maiores de compartilhamento de arquivos, consulte a seção [integrado a compartilhamentos de arquivos maiores](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) do guia de planejamento.
+> As ações de arquivo padrão maiores que 5 TiB têm certas limitações e restrições regionais.
+> Para obter uma lista de limitações, informações regionais e instruções para habilitar esses tamanhos maiores de compartilhamento de arquivos, consulte a seção [Onboard para compartilhamentos](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) de arquivos maiores do guia de planejamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -86,12 +86,12 @@ Para ajudá-lo a planejar a implantação para cada um dos estágios, abaixo sã
 | Provisionamento inicial de uso único  |  |
 |-|-|
 | Número de objetos | 25 milhões de objetos |
-| Tamanho do conjunto de dados| ~ 4,7 TiB |
-| Tamanho médio de arquivo | ~ 200 KiB (maior arquivo: 100 GiB) |
+| Tamanho do conjunto de dados| ~4.7 TiB |
+| Tamanho médio de arquivo | ~200 Kib (Maior arquivo: 100 GiB) |
 | Carregue a taxa de transferência | 20 objetos por segundo por grupo de sincronização |
 | Fazer o download do Namespace * | 400 objetos por segundo |
 
-\* Quando um novo ponto de extremidade do servidor é criado, o agente do Azure File Sync não faz o download de nenhum conteúdo do arquivo. Sincronizar primeiro namespace completo e, em seguida, os gatilhos em segundo plano Lembre-se de fazer o download dos arquivos, em sua totalidade ou, se camadas na nuvem está habilitado para a política de camadas de nuvem definido no ponto de extremidade do servidor.
+* Quando um novo ponto de extremidade do servidor é criado, o agente do Azure File Sync não faz o download de nenhum conteúdo do arquivo. Sincronizar primeiro namespace completo e, em seguida, os gatilhos em segundo plano Lembre-se de fazer o download dos arquivos, em sua totalidade ou, se camadas na nuvem está habilitado para a política de camadas de nuvem definido no ponto de extremidade do servidor.
 
 | Sincronização contínua  |   |
 |-|--|
@@ -114,4 +114,4 @@ Como um guia geral para sua implantação, você deve manter alguns pontos em me
 ## <a name="see-also"></a>Confira também
 
 - [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Planejamento para uma implantação do Azure File Sync](storage-sync-files-planning.md)

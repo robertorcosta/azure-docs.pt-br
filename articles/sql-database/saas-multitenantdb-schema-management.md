@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o esquema em um aplicativo multilocatário
+title: Gerenciar esquema em um aplicativo multilocatário
 description: Gerenciar o esquema para vários locatários em um aplicativo multilocatário que usa o Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269192"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerenciar o esquema em um aplicativo SaaS que usa bancos de dados SQL multilocatários fragmentados
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá a:
 > * Atualizar dados de referência em todos os bancos de dados de locatário.
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - O aplicativo de banco de dados multilocatário Wingtip Tickets já deve estar implantado:
     - Para obter instruções, consulte o primeiro tutorial, que apresenta o aplicativo de banco de dados multilocatário SaaS Wingtip Tickets:<br />[Implantar e explorar um aplicativo multilocatário fragmentado que usa o Banco de dados SQL do Azure](saas-multitenantdb-get-started-deploy.md).
@@ -49,10 +49,10 @@ Neste tutorial, você aprenderá a:
 
 - A última versão do SQL Server Management Studio (SSMS) deve estar instalada. [Baixar e Instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-- O Azure PowerShell deve estar instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+- O Azure PowerShell deve estar instalado. Para obter detalhes, consulte [Como começar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Este tutorial usa recursos do serviço do Banco de Dados SQL do Azure que estão em uma versão prévia limitada ([trabalhos de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Se você quiser fazer este tutorial, forneça sua ID de assinatura para *SaaSFeedback\@Microsoft.com* com Subject = trabalhos elásticos Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, portanto, entre em contato com *SaaSFeedback\@Microsoft.com* para questões ou suporte relacionados.
+> Este tutorial usa recursos do serviço do Banco de Dados SQL do Azure que estão em uma versão prévia limitada ([trabalhos de Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Se você deseja fazer este tutorial, forneça seu ID de assinatura ao *\@SaaSFeedback microsoft.com* com a visualização de submete/Elastic Jobs. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Esta visualização é limitada, então entre em contato com *a\@SaaSFeedback microsoft.com* para perguntas relacionadas ou suporte.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gerenciamento de esquema de SaaS
 
@@ -74,7 +74,7 @@ Os scripts e o código-fonte do aplicativo de Banco de Dados Multilocatário Saa
 
 Este tutorial exige que você use o PowerShell para criar o banco de dados de agente de trabalho e o agente de trabalho. Assim como o banco de dados MSDB usado pelo SQL Agent, um agente de trabalho usa um banco de dados SQL do Azure para armazenar definições de trabalho, status de trabalho e histórico. Depois que o agente de trabalho é criado, você pode criar e monitorar trabalhos imediatamente.
 
-1. **No ISE do PowerShell**, abra …*Learning Modules\\Schema Management\\\\Demo-SchemaManagement.ps1*.
+1. Em **PowerShell ISE,** aberto *... Módulos de aprendizagem\\Esquemamanagement Demo-SchemaManagement.ps1 .\\ \\*
 2. Pressione **F5** para executar o script.
 
 O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1* para criar um banco de dados denominado _jobagent_ no servidor de catálogo. O script cria o agente de trabalho, passando o banco de dados _jobagent_ como um parâmetro.
@@ -83,12 +83,12 @@ O script *Demo-SchemaManagement.ps1* chama o script *Deploy-SchemaManagement.ps1
 
 #### <a name="prepare"></a>Preparar
 
-Cada banco de dados de locatários inclui um conjunto de tipos de local na tabela **VenueTypes**. Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implanta uma atualização em todos os bancos de dados para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
+O banco de dados de cada inquilino inclui um conjunto de tipos de local na tabela **VenueTypes.** Cada tipo de local define os tipos de eventos que podem ser hospedados em um local. Esses tipos de local correspondem às imagens de tela de fundo que você vê no aplicativo de eventos de locatário.  Neste exercício, você implanta uma atualização em todos os bancos de dados para adicionar dois tipos de local: *Motorcycle Racing* e *Swimming Club*.
 
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados.
 
 1. Abra o SSMS e conecte-se ao servidor *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Para confirmar se o *Motorcycle de corrida* e o *clube nadare* **não estão** atualmente incluídos, navegue até o banco de dados *contosoconcerthall* no servidor do *tenants1-DPT-&lt;&gt;do usuário* e consulte a tabela *VenueTypes* .
+1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados *contosoconcerthall* do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes*.
 
 
 
@@ -108,7 +108,7 @@ Para criar um novo trabalho, você usa um conjunto de trabalhos que os procedime
 
 5. Conecte-se ao banco de dados _jobagent_ no servidor de catálogo.
 
-6. No SSMS, abra o arquivo *…\\Learning Modules\\Schema Management\\DeployReferenceData.sql*.
+6. No SSMS, abra o *arquivo... Módulos\\de aprendizagem\\Gerenciamento de esquemas DeployReferenceData.sql \\*.
 
 7. Modifique a instrução: defina @User = &lt;user&gt; e substitua o valor User usado quando você implantou o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets.
 
@@ -124,16 +124,16 @@ Observe os seguintes itens no script *DeployReferenceData.sql*:
     - Um tipo de membro de destino *server*.
         - Este é o servidor *tenants1-mt-&lt;user&gt;* que contém os bancos de dados de locatários.
         - A inclusão do servidor inclui os bancos de dados de locatário que existem no momento em que o trabalho é executado.
-    - Um tipo de membro de destino *database* para o banco de dados final (*basetenantdb*) que reside no servidor *catalog-mt-&lt;user&gt;* ,
+    - Um tipo de membro de destino *database* para o banco de dados final (*basetenantdb*) que reside no servidor *catalog-mt-&lt;user&gt;*,
     - Um tipo de membro de destino *database* para incluir o banco de dados *adhocreporting* que é usado em um tutorial posterior.
 
-- **sp\_add\_job** cria um trabalho chamado *Reference Data Deployment*.
+- **sp\_\_adicionar trabalho** cria um trabalho chamado *Implantação de Dados de Referência*.
 
 - **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar a tabela de referência, VenueTypes.
 
 - As exibições restantes no script exibem a existência dos objetos e monitoram a execução do trabalho. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído. O trabalho atualiza o banco de dados de locatários e atualiza os dois outros bancos de dados que contêm a tabela de referência.
 
-No SSMS, navegue até o banco de dados de locatário no servidor *tenants1-mt-&lt;user&gt;* . Consulta a tabela *VenueTypes* para confirmar que *Motorcycle Racing* e *Swimming Club* ainda não foram adicionados à tabela. A contagem total de tipos de local deve ter aumentado em duas unidades.
+No SSMS, navegue até o banco de dados de locatário no servidor *tenants1-mt-&lt;user&gt;*. Consulta a tabela *VenueTypes* para confirmar que *Motorcycle Racing* e *Swimming Club* ainda não foram adicionados à tabela. A contagem total de tipos de local deve ter aumentado em duas unidades.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar um trabalho para gerenciar o índice da tabela de referência
 
@@ -141,7 +141,7 @@ Este exercício cria um trabalho para recriar o índice de chave primária da ta
 
 1. No SSMS, conecte-se ao banco de dados _jobagent_ no servidor *catalog-mt-&lt;user&gt;.database.windows.net*.
 
-2. No SSMS, abra *...\\Learning Modules\\Schema Management\\OnlineReindex.sql*.
+2. Em SSMS, abra *... Módulos de aprendizagem\\Schema Management OnlineReindex.sql .\\ \\*
 
 3. Pressione **F5** para executar o script.
 
@@ -149,9 +149,9 @@ Este exercício cria um trabalho para recriar o índice de chave primária da ta
 
 Observe os seguintes itens no script *OnlineReindex.sql*:
 
-* **sp\_add\_job** cria um novo trabalho chamado *Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885*.
+* **sp\_\_adicionar emprego** cria um novo trabalho chamado *Online Reindex\_\_PK\_\_VenueTyp 265E44FD7FD4C885*.
 
-* **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar o índice.
+* **sp\_\_adicionar jobstep** cria a etapa de trabalho contendo texto de comando T-SQL para atualizar o índice.
 
 * As exibições restantes na execução do trabalho no monitor de script. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído com êxito em todos os membros do grupo de destino.
 
@@ -171,5 +171,5 @@ Neste tutorial, você aprendeu a:
 > * Atualizar dados de referência em todos os bancos de dados de locatário
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário
 
-Em seguida, experimente o [tutorial de relatórios ad hoc](saas-multitenantdb-adhoc-reporting.md) para explorar a execução de consultas distribuídas em bancos de dados de locatário.
+Em seguida, tente o [tutorial de relatórios Ad hoc](saas-multitenantdb-adhoc-reporting.md) para explorar a execução de consultas distribuídas em bancos de dados de inquilinos.
 

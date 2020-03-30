@@ -16,10 +16,10 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243153"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar do AWS (Amazon Web Services) e outras plataformas para o Managed Disks no Azure
@@ -28,10 +28,10 @@ Você pode carregar arquivos VHD do AWS ou soluções de virtualização locais 
 
 Você pode carregar VHDs especializados e generalizados. 
 - **VHD generalizado** – teve todas as informações da sua conta pessoal removidas usando o Sysprep. 
-- **VHD especializado** – mantém as contas de usuário, aplicativos e outros dados de estado de sua VM original. 
+- **VHD especializado** - mantém as contas de usuário, aplicativos e outros dados de estado da sua VM original. 
 
 > [!IMPORTANT]
-> Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Antes de carregar qualquer VHD para o Azure, você deve seguir [Prepare um Windows VHD ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
@@ -46,7 +46,7 @@ Você pode carregar VHDs especializados e generalizados.
 ## <a name="overview-of-managed-disks"></a>Visão geral do Managed Disks
 
 O Azure Managed Disks simplifica o gerenciamento de VM, eliminando a necessidade de gerenciar contas de armazenamento. O Managed Disks também fornece melhor confiabilidade de VMs em um conjunto de disponibilidade. Isso garante um isolamento suficiente dos discos de VMs diferentes em um conjunto de disponibilidade a fim de evitar um ponto único de falha. Ele coloca automaticamente os discos de VMs diferentes em um conjunto de disponibilidade em unidades de escala (carimbos) de armazenamentos diferentes, o que limita o impacto de falhas em uma única unidade de escala de armazenamento causadas por falhas de hardware e de software.
-Com base em suas necessidades, você pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, confira nosso artigo [Selecionar um tipo de disco](disks-types.md).
+Com base em suas necessidades, você pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponíveis, consulte nosso artigo [Selecione um tipo de disco](disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Como planejar a migração para os Managed Disks
 
@@ -65,17 +65,17 @@ Examine as características de desempenho das máquinas virtuais que funcionam c
 
 ### <a name="disk-sizes"></a>Tamanhos do disco
 
-**Managed Disks Premium**
+**Discos gerenciados premium**
 
 Há sete tipos de discos gerenciados premium que podem ser usados com sua VM e cada um tem IOPs e limites de taxa de transferência específicos. Leve em consideração esses limites ao escolher o tipo de disco Premium para sua VM com base nas necessidades de seu aplicativo em termos de capacidade, desempenho, escalabilidade e cargas de pico.
 
 | Tipo de discos premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Tamanho do disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5\.000              | 7500              | 7500              | 
+| IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5.000              | 7500              | 7500              | 
 | Taxa de transferência por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
-**Managed Disks Standard**
+**Discos gerenciados padrão**
 
 Há sete tipos de discos gerenciados standard que podem ser usados com sua VM. Cada um deles tem uma capacidade diferente, mas com os mesmos limites de taxa de transferência e IOPS. Escolha o tipo de discos gerenciados Standard com base nas necessidades de capacidade do seu aplicativo.
 
@@ -87,9 +87,9 @@ Há sete tipos de discos gerenciados standard que podem ser usados com sua VM. C
 
 ### <a name="disk-caching-policy"></a>Política de cache de disco 
 
-**Managed Disks Premium**
+**Discos gerenciados premium**
 
-Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.
+Por padrão, a política de cache de disco é *somente leitura* para todos os discos de dados Premium e *Read-Write* para o disco do sistema operacional Premium conectado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo.
 
 ### <a name="pricing"></a>Preços
 
@@ -98,4 +98,4 @@ Confira os [preços dos Managed Disks](https://azure.microsoft.com/pricing/detai
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Antes de carregar qualquer VHD para o Azure, você deve seguir [Prepare um Windows VHD ou VHDX para carregar no Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

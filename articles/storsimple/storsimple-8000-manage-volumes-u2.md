@@ -1,5 +1,5 @@
 ---
-title: Gerenciar volumes do StorSimple (atualização 3)
+title: Gerenciar volumes StorSimple (Atualização 3)
 description: Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254762"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar volumes (Atualização 3 e posterior)
@@ -98,7 +98,7 @@ Você [criou um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-crea
 
     2. Na lista suspensa, selecione o contêiner de volume em que você precisa adicionar um volume.
 
-    3.  Digite uma **Nome** para o seu volume. Depois que o volume é criado, não é possível renomear o volume.
+    3.  Digite um **Nome** para seu volume. Depois que o volume é criado, não é possível renomear o volume.
 
     4. Na lista suspensa, selecione o **Tipo** para o seu volume. Para cargas de trabalho que exigem garantias locais, menos latências e um melhor desempenho, selecione um volume **Fixado localmente** . Para todos os outros dados, selecione um volume **Em camadas** . Se estiver usando esse volume para dados de arquivamento, marque **Usar este volume para dados de arquivamento acessados com menos frequência**.
       
@@ -106,7 +106,7 @@ Você [criou um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-crea
        
        Um volume fixado localmente é provisionado estaticamente e garante que os dados primários no volume permanecem como locais para o dispositivo e não são divulgados na nuvem.  Se você criar um volume fixado localmente, o dispositivo verificará o espaço disponível nas camadas locais para provisionar o volume do tamanho solicitado. A operação de criação de um volume fixado localmente pode envolver a perda de dados existentes do dispositivo para a nuvem e o tempo necessário para criar o volume pode ser longo. O tempo total depende do tamanho do volume provisionado, da largura de banda disponível e dos dados no dispositivo.
 
-    5. Especifique o **Capacidade Provisionada** para o seu volume. Anote a capacidade disponível com base no tipo de volume selecionado. O tamanho do volume especificado não deve exceder o espaço disponível.
+    5. Especifique a **Capacidade provisionada** para seu volume. Anote a capacidade disponível com base no tipo de volume selecionado. O tamanho do volume especificado não deve exceder o espaço disponível.
       
        É possível provisionar volumes fixados localmente de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB. Como o espaço local no dispositivo é necessário para hospedar o conjunto de trabalho de volumes em camadas, a criação de volumes fixados localmente afetará o espaço disponível para o provisionamento de volumes em camadas. Portanto, se você criar um volume fixado localmente, o espaço disponível para a criação de volumes em camadas será reduzido. Da mesma forma, se um volume em camadas é criado, o espaço disponível para a criação de volumes localmente fixados será reduzido.
       
@@ -114,7 +114,7 @@ Você [criou um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-crea
 
     6. No campo **Hosts conectados**, clique na seta. Na folha **Hosts conectados**, escolha um ACR existente ou adicione um novo ACR. Se você escolher um novo ACR, forneça um **Nome** para o ACR, o **IQN** (Nome Qualificado do iSCSI) do host do Windows. Se você não tiver o IQN, confira Obter o IQN de um host do Windows Server. Clique em **Criar**. Será criado um volume com as configurações especificadas.
 
-        ![Clique em Criar.](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Clique em Criar. ](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 
 O seu novo volume agora está pronto para uso.
 
@@ -152,20 +152,20 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
    
    1. O **Nome** do volume não pode ser editado.
    2. Converta o **Tipo** de fixado localmente para em camadas ou de em camadas para fixado localmente (consulte [Alterar o tipo de volume](#change-the-volume-type) para obter mais informações).
-   3. Aumentar a **Capacidade Provisionada**. A **Capacidade Provisionada** só pode ser aumentada. Não é possível reduzir um volume depois que ele é criado.
+   3. Aumente a **Capacidade Provisionada**. A **Capacidade Provisionada** só pode ser aumentada. Não é possível reduzir um volume depois que ele é criado.
    4. Em **Hosts conectados**, você pode modificar o ACR. Para modificar um ACR, o volume deve estar offline.
 
        ![Examinar o impacto de colocar um volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-5. Clique em **Salvar** para salvar as alterações. Quando solicitado a confirmar, clique em **Sim**. O portal do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
+5. Clique em **Salvar** para salvar as alterações. Quando solicitada a confirmação, clique em **Sim**. O portal do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
 
     ![Examinar o impacto de colocar um volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
 7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
    
-   1. Acesse **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
+   1. Vá para **gerenciamento de** ->disco de gerenciamento**de computador .**
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
    4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]
@@ -295,7 +295,7 @@ Conclua as seguintes etapas para excluir um volume.
    > [!NOTE]
    > Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O Serviço do Gerenciador de Dispositivos do StorSimple atualiza o espaço local disponível periodicamente. Sugerimos que você aguarde alguns minutos antes de tentar criar o novo volume.
    >
-   > Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
+   >  Além disso, se você excluir um volume afixado localmente e depois excluir outro volume afixado localmente imediatamente, os trabalhos de exclusão de volumes serão executados sequencialmente. O primeiro trabalho de exclusão de volume deve terminar antes de começar o próximo trabalho de exclusão de volume.
 
 ## <a name="monitor-a-volume"></a>Monitorar um volume
 

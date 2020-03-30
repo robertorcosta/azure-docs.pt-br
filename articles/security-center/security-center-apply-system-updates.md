@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604560"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema na Central de Segurança do Azure
@@ -62,23 +62,23 @@ Neste exemplo, usaremos **Computação**.
 
    ![Atualização de segurança ausente][3]
 
-4. Selecione o ícone **Pesquisar** na faixa de opções superior.  Uma consulta de pesquisa de logs de Azure Monitor é aberta e filtrada para os computadores que não têm a atualização.
+4. Selecione o ícone **Pesquisar** na faixa de opções superior.  Uma consulta de pesquisa do Azure Monitor abre-se filtrada para os computadores que faltam à atualização.
 
-   ![Pesquisa de logs de Azure Monitor][4]
+   ![Pesquisa de logs do Azure Monitor][4]
 
 5. Selecione um computador da lista para obter mais informações. Outro resultado da pesquisa é aberto com informações filtradas para esse computador.
 
-    ![Pesquisa de logs de Azure Monitor][5]
+    ![Pesquisa de logs do Azure Monitor][5]
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
+* [Definindo políticas de segurança no Azure Security Center](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Gerenciamento de recomendações de segurança no Azure Security Center](security-center-recommendations.md) -- Saiba como as recomendações ajudam você a proteger seus recursos do Azure.
+* [Monitoramento de segurança no Azure Security Center](security-center-monitoring.md) -- Saiba como monitorar a saúde de seus recursos do Azure.
+* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) -- Saiba como gerenciar e responder a alertas de segurança.
 * [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
-* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+* [Blog do Azure Security](https://blogs.msdn.com/b/azuresecurity/) -- Encontre posts no blog sobre segurança e conformidade do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/missing-system-updates.png

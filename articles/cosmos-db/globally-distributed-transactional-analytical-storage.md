@@ -1,6 +1,6 @@
 ---
-title: Armazenamento distribuído globalmente transacional e analítico (no modo de visualização particular) para contêineres Cosmos do Azure
-description: Saiba mais sobre armazenamento transacional e analítico e suas opções de configuração para contêineres de Cosmos do Azure.
+title: Armazenamento transacional e analítico distribuído globalmente (em pré-visualização privada) para contêineres Azure Cosmos
+description: Saiba mais sobre armazenamento transacional e analítico e suas opções de configuração para contêineres Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,65 +8,65 @@ ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623391"
 ---
-# <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Armazenamento analítico e transacional distribuído globalmente para contêineres de Cosmos do Azure
+# <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Armazenamento transacional e analítico distribuído globalmente para contêineres Azure Cosmos
 
-O contêiner Cosmos do Azure é apoiado internamente por dois mecanismos de armazenamento – mecanismo de armazenamento transacional e um mecanismo de armazenamento analítico atualizável (em versão prévia privada). Ambos os mecanismos de armazenamento são estruturados em log e otimizados para gravação para atualizações mais rápidas. No entanto, cada um deles é codificado de forma diferente:
+O contêiner Azure Cosmos é apoiado internamente por dois motores de armazenamento - motor de armazenamento transacional e um mecanismo de armazenamento analítico updatable (em visualização privada). Ambos os mecanismos de armazenamento são estruturados por log e otimizados para gravação para atualizações mais rápidas. No entanto, cada um deles é codificado de forma diferente:
 
-* **Mecanismo de armazenamento transacional** – ele é codificado em formato orientado a linha para leituras e consultas transacionais rápidas.
+* **Mecanismo de armazenamento transacional** – É codificado em formato orientado a linha para leituras e consultas transacionais rápidas.
 
-* **Mecanismo de armazenamento analítico** -ele é codificado no formato colunar para consultas e verificações analíticas rápidas.
+* **Mecanismo de armazenamento analítico** - É codificado em formato columnar para consultas e varreduras analíticas rápidas.
 
-![Mecanismos de armazenamento e mapeamento de API de Azure Cosmos DB](./media/globally-distributed-transactional-analytical-storage/storage-engines-api-mapping.png)
+![Motores de armazenamento e mapeamento da API Azure Cosmos DB](./media/globally-distributed-transactional-analytical-storage/storage-engines-api-mapping.png)
 
-O mecanismo de armazenamento transacional tem o respaldo do SSDs local, enquanto o armazenamento analítico é armazenado em um armazenamento de SSD fora do cluster de baixo custo. A tabela a seguir captura as diferenças notáveis entre o armazenamento transacional e o de análise.
+O mecanismo de armazenamento transacional é apoiado por SSDs locais, enquanto o armazenamento analítico é armazenado em um armazenamento SSD off-cluster barato. A tabela a seguir captura as diferenças notáveis entre o armazenamento transacional e o analítico.
 
 
 |Recurso  |Armazenamento transacional  |Armazenamento analítico |
 |---------|---------|---------|
-|Armazenamento máximo por um contêiner Cosmos do Azure |   Ilimitado      |    Ilimitado     |
+|Armazenamento máximo por um contêiner Azure Cosmos |   Ilimitado      |    Ilimitado     |
 |Armazenamento máximo por uma chave de partição lógica   |   20 GB      |   Ilimitado      |
-|Codificação de armazenamento  |   Orientado por linha, usando um formato interno.   |   Orientado por coluna, usando o formato Apache parquet. |
-|Localidade de armazenamento |   Armazenamento replicado apoiado por SSDs local/dentro do cluster. |  Armazenamento replicado apoiado por SSDs de baixo custo remoto/fora do cluster.       |
-|Durabilidade  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
-|APIs que acessam os dados  |   SQL, MongoDB, Cassandra, Gremlin, tabelas e etcd.       | Apache Spark         |
-|Retenção (tempo de vida ou TTL)   |  Orientado por política, configurado no contêiner Cosmos do Azure usando a propriedade `DefaultTimeToLive`.       |   Orientado por política, configurado no contêiner Cosmos do Azure usando a propriedade `ColumnStoreTimeToLive`.      |
-|Preço por GB    |   Confira a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   Confira a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
-|Preço para transações de armazenamento    |  Confira a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   Confira a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|Codificação de armazenamento  |   Orientado a linhas, usando um formato interno.   |   Orientado a colunas, usando o formato Apache Parquet. |
+|Localidade de armazenamento |   Armazenamento replicado com backup de SSDs locais/intra-cluster. |  Armazenamento replicado com suporte por SSDs remotos/off-cluster baratos.       |
+|Durabilidade  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |
+|APIs que acessam os dados  |   SQL, MongoDB, Cassandra, Gremlin, Tables, etc.       | Apache Spark         |
+|Retenção (Tempo de vida ou TTL)   |  Orientado por políticas, configurado no contêiner Azure Cosmos usando a `DefaultTimeToLive` propriedade.       |   Orientado por políticas, configurado no contêiner Azure Cosmos usando a `ColumnStoreTimeToLive` propriedade.      |
+|Preço por GB    |   Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|Preço para transações de armazenamento    |  Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 
-## <a name="benefits-of-transactional-and-analytical-storage"></a>Benefícios do armazenamento analítico e transacional
+## <a name="benefits-of-transactional-and-analytical-storage"></a>Benefícios do armazenamento transacional e analítico
 
-### <a name="no-etl-operations"></a>Nenhuma operação de ETL
+### <a name="no-etl-operations"></a>Sem operações de ETL
 
-Pipelines analíticos tradicionais são complexos com vários estágios, cada um exigindo operações de ETL (extração de transformação e carregamento) de e para as camadas de computação e armazenamento. Isso resulta em arquiteturas de processamento de dados complexas. Isso significa altos custos para vários estágios de armazenamento e computação e alta latência devido a grandes volumes de dados transferidos entre vários estágios de armazenamento e computação.  
+Os gasodutos analíticos tradicionais são complexos com vários estágios cada um exigindo operações De extract-transform-load (ETL) de e para os níveis de computação e armazenamento. Resulta em arquiteturas complexas de processamento de dados. O que significa altos custos para múltiplos estágios de armazenamento e computação, e alta latência devido a grandes volumes de dados transferidos entre vários estágios de armazenamento e computação.  
 
-Não há sobrecarga de executar operações de ETL com Azure Cosmos DB. Cada contêiner Cosmos do Azure é apoiado por mecanismos de armazenamento transacionais e analíticos, e a transferência de dados entre o mecanismo de armazenamento transacional e analítico é feita no mecanismo de banco de dados e sem nenhum salto de rede. A latência e o custo resultantes são significativamente menores em comparação com as soluções analíticas tradicionais. E você obtém um único sistema de armazenamento distribuído globalmente para cargas de trabalho transacionais e analíticas.  
+Não há sobrecarga de realização de operações ETL com o Azure Cosmos DB. Cada contêiner Do Azure Cosmos é apoiado por mecanismos de armazenamento transacionais e analíticos, e a transferência de dados entre o mecanismo de armazenamento transacional e analítico é feita dentro do mecanismo de banco de dados, e sem qualquer saltador de rede. A latência e o custo resultantes são significativamente menores em comparação com as soluções analíticas tradicionais. E você recebe um único sistema de armazenamento distribuído globalmente para cargas de trabalho transacionais e analíticas.  
 
-### <a name="store-multiple-versions-update-and-query-the-analytical-storage"></a>Armazenar várias versões, atualizar e consultar o armazenamento analítico
+### <a name="store-multiple-versions-update-and-query-the-analytical-storage"></a>Armazene várias versões, atualize e consulte o armazenamento analítico
 
-O armazenamento analítico é totalmente atualizável e contém o histórico de versão completo de todas as atualizações transacionais ocorridas no contêiner Cosmos do Azure.
+O armazenamento analítico é totalmente updatable, e contém o histórico completo da versão de todas as atualizações transacionais que ocorreram no contêiner Azure Cosmos.
 
-Qualquer atualização feita ao armazenamento transacional é garantida para ser visível para o armazenamento analítico dentro de 30 segundos. 
+Qualquer atualização feita no armazenamento transacional é garantida para ser visível ao armazenamento analítico dentro de 30 segundos. 
 
-### <a name="globally-distributed-multi-master-analytical-storage"></a>Armazenamento analítico de vários mestres, distribuído globalmente
+### <a name="globally-distributed-multi-master-analytical-storage"></a>Armazenamento analítico distribuído globalmente e multimestre
 
-Se sua conta do Azure Cosmos estiver no escopo de uma única região, os dados armazenados (em armazenamento transacional e analítico) nos contêineres também serão delimitados para uma única região. Por outro lado, se a conta do Azure Cosmos for distribuída globalmente, os dados armazenados nos contêineres também serão distribuídos globalmente.
+Se a conta do Azure Cosmos for escopo para uma única região, os dados armazenados (em armazenamento transacional e analítico) nos contêineres também são escopo para uma única região. Por outro lado, se a conta do Azure Cosmos for distribuída globalmente, os dados armazenados nos contêineres também são distribuídos globalmente.
 
-Para contas do Azure Cosmos configuradas com várias regiões de gravação, as gravações no contêiner (para o armazenamento transacional e o de análise) são sempre executadas na região local e, portanto, são rápidas.
+Para contas Do Azure Cosmos configuradas com várias regiões de gravação, as gravações no contêiner (tanto para o armazenamento transacional quanto para o armazenamento analítico) são sempre realizadas na região local e, portanto, são rápidas.
 
-Para contas de Cosmos único ou de várias regiões do Azure, independentemente de se uma única região de gravação (mestre único) ou várias regiões de gravação (também conhecidas como vários mestres), as leituras/consultas analíticas e transacionais são executadas localmente na região especificada.
+Para contas azure Cosmos de uma única ou várias regiões, independentemente se a região de gravação única (único mestre) ou várias regiões de gravação (também conhecidas como multi-master), tanto leituras/consultas transacionais quanto analíticas são realizadas localmente na determinada região.
 
-### <a name="performance-isolation-between-transactional-and-analytical-workloads"></a>Isolamento de desempenho entre cargas de trabalho transacionais e analíticas
+### <a name="performance-isolation-between-transactional-and-analytical-workloads"></a>Isolamento de desempenho entre cargas transacionais e analíticas
 
-Em uma determinada região, as cargas de trabalho transacionais operam no armazenamento transacional/de linha do contêiner. Por outro lado, as cargas de trabalho analíticas operam em relação ao armazenamento analítico/de coluna do contêiner. Os dois mecanismos de armazenamento operam de forma independente e fornecem isolamento de desempenho estrito entre as cargas de trabalho.
+Em uma determinada região, as cargas de trabalho transacionais operam contra o armazenamento transacional/linha do contêiner. Por outro lado, as cargas de trabalho analíticas operam contra o armazenamento analítico/coluna do seu contêiner. Os dois motores de armazenamento operam de forma independente e proporcionam um isolamento rigoroso de desempenho entre as cargas de trabalho.
 
-As cargas de trabalho transacionais consomem a taxa de transferência provisionada (RUs). Ao contrário das cargas de trabalho transacionais, a taxa de transferência das cargas de trabalho analíticas é baseada no consumo real. As cargas de trabalho analíticas consomem recursos sob demanda.
+As cargas transacionais consomem o throughput provisionado (RUs). Ao contrário das cargas de trabalho transacionais, o throughput de cargas de trabalho analíticas é baseado no consumo real. As cargas de trabalho analíticas consomem recursos demanda.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Vida útil em Azure Cosmos DB](time-to-live.md)
+* [Vida útil no Azure Cosmos DB](time-to-live.md)

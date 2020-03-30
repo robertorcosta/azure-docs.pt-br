@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre para um aplicativo do SharePoint de várias camadas usando o Azure Site Recovery
+title: Recuperação de desastres para um aplicativo SharePoint de vários níveis usando o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastres para um aplicativo do SharePoint de várias camadas usando os recursos do Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74706373"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastres usando o Azure Site Recovery
 
-Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve em detalhes como proteger um aplicativo SharePoint usando [o Azure Site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O Microsoft SharePoint é um aplicativo avançado que pode ajudar um grupo ou departamento a organizar, colaborar com e compartilhar informações. O SharePoint pode fornecer portais de intranet, gerenciamento de arquivos e documentos, colaboração, redes sociais, extranets, sites, Enterprise Search e business intelligence. Ele também tem integração de sistemas, integração de processos e funcionalidades de automação de fluxo de trabalho. Normalmente, as organizações o consideram um aplicativo de camada 1, suscetível a tempo de inatividade e perda de dados.
 
@@ -29,7 +29,7 @@ Uma boa solução de recuperação de desastre deve permitir a modelagem de plan
 
 Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure Site Recovery](site-recovery-overview.md). Este artigo abordará as práticas recomendadas para a replicação de um aplicativo do SharePoint no Azure, como você pode fazer uma análise de recuperação de desastre e como é possível realizar o failover do aplicativo no Azure.
 
-Você pode assistir ao vídeo abaixo sobre como recuperar um aplicativo de várias camadas para o Azure.
+Você pode assistir ao vídeo abaixo sobre a recuperação de um aplicativo multi-nível para o Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -56,16 +56,16 @@ O SharePoint pode ser implantado em um ou mais servidores usando topologias em c
 
 ## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
-Site Recovery é independente de aplicativo e deve funcionar com qualquer versão do SharePoint em execução em um computador com suporte. Para criar este artigo, usamos as máquinas virtuais VMware com o Windows Server 2012 R2 Enterprise. Foram usados o SharePoint 2013 Enterprise edition e o SQL Server 2014 Enterprise edition.
+A recuperação do site é agnóstica de aplicativos e deve funcionar com qualquer versão do SharePoint em execução em uma máquina suportada. Para criar este artigo, usamos as máquinas virtuais VMware com o Windows Server 2012 R2 Enterprise. Foram usados o SharePoint 2013 Enterprise edition e o SQL Server 2014 Enterprise edition.
 
 ### <a name="source-and-target"></a>Origem e destino
 
-**Cenário** | **Para um site secundário** | **Para o Azure**
+**Cenário** | **Para um site secundário** | **Para Azure**
 --- | --- | ---
-**Hyper-V** | SIM | SIM
-**VMware** | SIM | SIM
-**Servidor físico** | SIM | SIM
-**Azure** | ND | SIM
+**Hyper-V** | Sim | Sim
+**Vmware** | Sim | Sim
+**Servidor físico** | Sim | Sim
+**Azure** | NA | Sim
 
 
 ### <a name="things-to-keep-in-mind"></a>Algumas coisas que se deve manter em mente
@@ -86,7 +86,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replic
 
 ## <a name="networking-configuration"></a>Configuração de rede
 
-### <a name="network-properties"></a>Propriedades da rede
+### <a name="network-properties"></a>Propriedades de rede
 
 * Para as VMs de camada da Web e de Aplicativo, defina configurações de rede no Portal do Azure para que as VMs sejam anexadas à rede de DR correta após o failover.
 
@@ -102,7 +102,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replic
 Para sites voltados para a Internet, [crie um perfil do Gerenciador de Tráfego do tipo 'Prioridade'](../traffic-manager/traffic-manager-create-profile.md) na assinatura do Azure. Em seguida, configure seu perfil do Gerenciador de Tráfego e de DNS da maneira descrita a seguir.
 
 
-| **Onde** | **Origem** | **Destino**|
+| **Onde** | **Fonte** | **Destino**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gerenciador de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS local | sharepointonprem.contoso.com | IP público no farm local |
@@ -189,7 +189,7 @@ Siga [este guia](site-recovery-test-failover-to-azure.md) fazer um failover de t
 
 Para obter diretrizes sobre como fazer failover de teste do AD e DNS, consulte o documento [Considerações sobre failover de teste para o AD e DNS](site-recovery-active-directory.md#test-failover-considerations).
 
-Para obter orientação sobre como fazer failover de teste para grupos de disponibilidade AlwaysOn do SQL, consulte [executando o aplicativo de recuperação de desastre com Azure site Recovery e fazendo failover de teste](site-recovery-sql.md#disaster-recovery-of-an-application) .
+Para obter orientações sobre como fazer failover de teste para grupos de disponibilidade SQL Always ON, consulte [O Execute Application DR com Azure Site Recovery e faça o teste failover](site-recovery-sql.md#disaster-recovery-of-an-application) document.
 
 ## <a name="doing-a-failover"></a>Executar um failover
 Siga [estas diretrizes](site-recovery-failover.md) para fazer um failover.
@@ -199,5 +199,5 @@ Siga [estas diretrizes](site-recovery-failover.md) para fazer um failover.
 3.  Clique em 'Failover'.
 4.  Selecione o ponto de recuperação para iniciar o processo de failover.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre [replicar outros aplicativos](site-recovery-workload.md) usando o Site Recovery.

@@ -1,19 +1,19 @@
 ---
-title: Proteger um cluster de Service Fabric do Azure
+title: Proteja um cluster de malha de serviço azure
 description: Saiba mais sobre cenários de segurança para um cluster do Azure Service Fabric e as diversas tecnologias que você pode usar para implementá-los.
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258675"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 
-Um cluster do Azure Service Fabric é um recurso que pertence a você. É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. É possível criar um cluster não seguro, no entanto, se o cluster expõe pontos de extremidade de gerenciamento para a Internet pública, os usuários anônimos podem se conectar a ele. Clusters desprotegidos não são compatíveis com cargas de trabalho de produção. 
+Um cluster do Azure Service Fabric é um recurso que pertence a você. É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. É possível criar um cluster não seguro, no entanto, se o cluster expõe os pontos finais de gerenciamento à internet pública, os usuários anônimos podem se conectar a ele. Clusters desprotegidos não são compatíveis com cargas de trabalho de produção. 
 
 Este artigo é uma visão geral dos cenários de segurança para clusters do Azure e clusters autônomos, bem como das diversas tecnologias que você pode usar para implementá-los:
 
@@ -53,7 +53,7 @@ Os clusters em execução no Azure e clusters autônomos em execução no Window
 
 ### <a name="client-to-node-certificate-security"></a>Segurança de certificado de cliente para nó
 
-Configure a segurança de certificado de cliente para nó durante a criação do cluster por meio do Portal do Azure, do uso de um modelo do Resource Manager ou do uso de um modelo JSON autônomo. Para criar o certificado, especifique um certificado do cliente administrador e/ou um certificado do cliente do usuário. Como melhor prática, os certificados do cliente administrador e certificados do cliente de usuário que você especificar deverão ser diferentes dos certificados primários e secundários que você especificar para a [segurança de nó para nó](#node-to-node-security). Os certificados de cluster têm os mesmos direitos que os certificados de administrador de cliente. No entanto, eles devem ser usados apenas pelo cluster e não por usuários administrativos como uma prática recomendada de segurança.
+Configure a segurança de certificado de cliente para nó durante a criação do cluster por meio do Portal do Azure, do uso de um modelo do Resource Manager ou do uso de um modelo JSON autônomo. Para criar o certificado, especifique um certificado do cliente administrador e/ou um certificado do cliente do usuário. Como melhor prática, os certificados do cliente administrador e certificados do cliente de usuário que você especificar deverão ser diferentes dos certificados primários e secundários que você especificar para a [segurança de nó para nó](#node-to-node-security). Os certificados de cluster têm os mesmos direitos que os certificados de administrador do cliente. No entanto, eles devem ser usados apenas por cluster e não por usuários administrativos como uma prática recomendada de segurança.
 
 Clientes que se conectam ao cluster usando o certificado de administrador têm acesso completo aos recursos de gerenciamento. Clientes que se conectam ao cluster usando o certificado de cliente de usuário somente leitura têm somente acesso de leitura aos recursos de gerenciamento. Esses certificados são usados para o RBAC descrito posteriormente neste artigo.
 
@@ -63,9 +63,9 @@ Para saber como configurar a segurança de certificado em um cluster para um clu
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Segurança do Azure Active Directory de cliente para nó no Azure
 
-O Azure AD permite que as organizações (conhecidas como locatários) gerenciem o acesso dos usuários aos aplicativos. Os aplicativos são divididos entre os que têm IU de entrada na Web e os que têm experiência de cliente nativa. Se você ainda não criou um locatário, comece lendo [como obter um locatário Azure Active Directory][active-directory-howto-tenant].
+O Azure AD permite que as organizações (conhecidas como locatários) gerenciem o acesso dos usuários aos aplicativos. Os aplicativos são divididos entre os que têm IU de entrada na Web e os que têm experiência de cliente nativa. Se você ainda não criou um locatário, comece lendo [Como obter um locatário do Active Directory do Azure][active-directory-howto-tenant].
 
-Um cluster do Service Fabric oferece vários pontos de entrada para a funcionalidade de gerenciamento, incluindo o [Service Fabric Explorer][service-fabric-visualizing-your-cluster] e o [Visual Studio][service-fabric-manage-application-in-visual-studio] baseados na Web. Como resultado, você criará dois aplicativos do Azure AD para controlar o acesso ao cluster, um aplicativo Web e um aplicativo nativo.
+Os clusters do Service Fabric oferecem vários pontos de entrada para a funcionalidade de gerenciamento, incluindo o [Service Fabric Explorer][service-fabric-visualizing-your-cluster] online o [Visual Studio][service-fabric-manage-application-in-visual-studio]. Como resultado, você criará dois aplicativos do Azure AD para controlar o acesso ao cluster, um aplicativo Web e um aplicativo nativo.
 
 Para clusters em execução no Azure, você também pode proteger o acesso aos pontos de extremidade de gerenciamento usando o Azure AD (Azure Active Directory). Para aprender como criar os artefatos necessários do Azure AD e como preenchê-los ao criar o cluster, consulte [Configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
@@ -90,7 +90,7 @@ Defina as funções de cliente de Administrador e de Usuário quando criar o clu
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 e Service Fabric
 
-Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Você usa [Key Vault](../key-vault/key-vault-overview.md) para gerenciar certificados para clusters do Service Fabric no Azure.
+Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Use o [Key Vault](../key-vault/key-vault-overview.md) para gerenciar certificados de clusters do Service Fabric no Azure.
 
 Algumas coisas importantes a considerar:
 
@@ -113,10 +113,10 @@ O certificado deve atender aos seguintes requisitos:
 
 Algumas outras coisas a considerar:
 
-* O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Normalmente, a inicialização é **CN** (para *nome comum*); por exemplo, **CN = www\.contoso.com**.
+* O campo **Entidade** pode ter vários valores. Cada valor é prefixado com uma inicialização para indicar o tipo de valor. Normalmente, a inicialização é **CN** (para *nome comum);* por exemplo, **CN\.= www contoso.com**.
 * O campo **Entidade** pode ficar em branco.
-* Se o campo opcional **Nome Alternativo da Entidade** estiver populado, ele deverá conter o nome comum do certificado e também uma entrada por SAN. Eles são inseridos como valores de **Nome DNS**. Para saber como gerar certificados que têm SANs, consulte [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](https://support.microsoft.com/kb/931351).
-* O valor do campo **Finalidades Pretendidas** do certificado deve incluir um valor apropriado, como **Autenticação do Servidor** ou **Autenticação do Cliente**.
+* Se o campo opcional **Nome Alternativo da Entidade** estiver populado, ele deverá conter o nome comum do certificado e também uma entrada por SAN. Estes são inseridos como valores **de nome DNS.** Para saber como gerar certificados que têm SANs, consulte [Como adicionar um nome alternativo da entidade a um certificado LDAP seguro](https://support.microsoft.com/kb/931351).
+* O valor do campo **Propósitos Pretendidos** do certificado deve incluir um valor apropriado, como **autenticação do servidor** ou **autenticação do cliente.**
 
 ### <a name="application-certificates-optional"></a>Certificados de aplicativo (opcionais)
 
@@ -139,7 +139,7 @@ Por padrão, o certificado de cluster tem privilégios de cliente do administrad
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um cluster no Azure usando um modelo do Resource Manager](service-fabric-cluster-creation-via-arm.md)
-* [Criar um cluster usando o Portal do Azure](service-fabric-cluster-creation-via-portal.md)
+* [Criar um cluster usando o portal do Azure](service-fabric-cluster-creation-via-portal.md)
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

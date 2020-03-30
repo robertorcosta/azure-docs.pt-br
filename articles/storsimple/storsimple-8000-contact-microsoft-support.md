@@ -1,5 +1,5 @@
 ---
-title: Criar tíquete de suporte ou caso para a série StorSimple 8000
+title: Criar bilhete de suporte ou case para a série StorSimple 8000
 description: Saiba como registrar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple da série 8000.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254983"
 ---
 # <a name="contact-microsoft-support"></a>Contatar o Suporte da Microsoft
@@ -37,7 +37,7 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
    1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
    2. O tipo de **Assinatura**, **Serviço** e o **Recurso** (serviço de Gerenciador de Dispositivos StorSimple) atuais são automaticamente escolhidos. 
    3. Selecione um **Plano de suporte** na lista suspensa se você tiver vários planos associados à sua assinatura. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
-   4. Clique em **Próximo**.
+   4. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
@@ -49,14 +49,14 @@ Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/)
     4. Forneça a data de início e a hora para o problema.
     5. Em **Upload do arquivo**, clique no ícone de pasta para procurar o pacote de suporte.
     6. Marque **Compartilhar informações de diagnóstico**.
-    7. Clique em **Próximo**.
+    7. Clique em **Avançar**.
 
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. Na folha **Nova solicitação de suporte**, clique em **Etapa 3 Informações de contato**. Na folha **Informações de contato**, execute as seguintes etapas:
 
    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
-   2. Nas informações de contato, forneça seu nome, email, contato opcional, país/região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
+   2. Nas informações de contato, forneça seu nome, e-mail, contato opcional, país/região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
    3. Clique em **Criar**.
    
        ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
@@ -92,7 +92,7 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, execute as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. Na sessão que será aberta, pressione a tecla **Enter** para obter um prompt de comando.
-3. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
+3. No menu do console serial, selecione a opção 1, **Log in com acesso completo**.
 4. No prompt, digite a seguinte senha:
    
     `Password1`

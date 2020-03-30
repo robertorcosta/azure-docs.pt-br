@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251148"
 ---
 # <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET 
 > [!div class="op_single_selector"]
-> * [REST](media-services-rest-create-contentkey.md)
+> * [Resto](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
@@ -70,7 +70,7 @@ Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo d
     }
 ```
 
-## <a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
+## <a name="create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
 O snippet de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope. Em seguida, associa a chave com o ativo especificado.
 
 ```csharp
@@ -108,7 +108,7 @@ call
 ```
 
 
-## <a id="common_contentkey"></a>Criar um tipo comum de ContentKey
+## <a name="create-common-type-contentkey"></a><a id="common_contentkey"></a>Criar um tipo comum de ContentKey
 O snippet de código a seguir cria uma chave de conteúdo do tipo de criptografia comum. Em seguida, associa a chave com o ativo especificado.
 
 ```csharp

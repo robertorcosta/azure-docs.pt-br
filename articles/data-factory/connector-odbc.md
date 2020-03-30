@@ -1,5 +1,5 @@
 ---
-title: Copiar dados de fontes ODBC usando Azure Data Factory
+title: Copiar dados de fontes ODBC usando a Fábrica de Dados do Azure
 description: Saiba como copiar dados de fontes OData para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.openlocfilehash: 6513cfc5432e969fc53aa72b075af194a064d178
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244362"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando o Azure Data Factory
@@ -27,21 +27,21 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector ODBC tem suporte para as seguintes atividades:
+Este conector ODBC é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procurar](control-flow-lookup-activity.md)
 
 Você pode copiar dados de uma fonte ODBC para qualquer armazenamento de dados de coletor com suporte ou copiar de qualquer armazenamento de dados de origem com suporte para um coletor ODBC. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Especificamente, este conector ODBC dá suporte à cópia de dados de/para **quaisquer armazenamentos de dados compatíveis com ODBC** usando a autenticação **Básica** ou **Anônima**. Um **driver ODBC de 64 bits** é necessário.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar esse conector ODBC, você precisa:
 
-- Configurar um Integration Runtime auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
-- Instale o driver ODBC de 64 bits para o armazenamento de dados no computador Integration Runtime.
+- Configurar um Integration Runtime auto-hospedado. Consulte [o artigo 'Executtime de integração'.](create-self-hosted-integration-runtime.md)
+- Instale o driver ODBC de 64 bits para o armazenamento de dados na máquina Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -53,13 +53,13 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do ODBC:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Odbc** | Sim |
-| connectionString | A cadeia de conexão, exceto a parte de credencial. Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do Integration Runtime com o `"DSN=<name of the DSN on IR machine>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente).<br>Você também pode colocar uma senha em Azure Key Vault e efetuar pull do `password` configuração fora da cadeia de conexão. Consulte [armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
+| connectionString | A cadeia de conexão, exceto a parte de credencial. Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do Integration Runtime com o `"DSN=<name of the DSN on IR machine>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente).<br>Você também pode colocar uma senha no Azure Key Vault e puxar a `password` configuração para fora da seqüência de conexão.Consulte as [credenciais da Loja no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC.<br/>Os valores permitidos são: **Básica** e **Anônima**. | Sim |
 | userName | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não |
-| password | Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| password | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
 | credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marque esse campo como uma SecureString. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
 
@@ -112,13 +112,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do ODBC:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados ODBC.
+Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados ODBC.
 
-Para copiar dados de/para o armazenamento de dados compatível com ODBC, há suporte para as seguintes propriedades:
+Para copiar dados do armazenamento de dados compatível com ODBC, as seguintes propriedades são suportadas:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **odbctable** | Sim |
+| type | A propriedade do tipo do conjunto de dados deve ser definida como: **OdbcTable** | Sim |
 | tableName | Nome da tabela no repositório de dados ODBC. | Não para fonte (se "query" na fonte da atividade for especificada);<br/>Sim para coletor |
 
 **Exemplo**
@@ -140,7 +140,7 @@ Para copiar dados de/para o armazenamento de dados compatível com ODBC, há sup
 }
 ```
 
-Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo no futuro.
+Se você `RelationalTable` estava usando conjunto de dados digitado, ele ainda é suportado como está, enquanto você é sugerido para usar o novo daqui para frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
@@ -148,11 +148,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="odbc-as-source"></a>ODBC como fonte
 
-Para copiar dados do armazenamento de dados compatível com ODBC, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados do armazenamento de dados compatível com ODBC, as seguintes propriedades são suportadas na seção **origem da** atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **odbcname** | Sim |
+| type | A propriedade tipo da fonte de atividade de cópia deve ser definida como: **OdbcSource** | Sim |
 | Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -187,16 +187,16 @@ Para copiar dados do armazenamento de dados compatível com ODBC, as propriedade
 ]
 ```
 
-Se você estivesse usando `RelationalSource` fonte tipada, ainda há suporte no estado em que se encontra, enquanto você é sugerido para usar o novo no futuro.
+Se você `RelationalSource` estava usando fonte digitada, ela ainda é suportada como está, enquanto você é sugerido para usar a nova daqui para frente.
 
 ### <a name="odbc-as-sink"></a>ODBC como coletor
 
-Para copiar dados para um armazenamento de dados compatível com ODBC, defina o tipo de coletor na atividade de cópia como **OdbcSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
+Para copiar dados para um armazenamento de dados compatível com ODBC, defina o tipo de coletor na atividade de cópia como **OdbcSink**. As seguintes propriedades são suportadas na seção **de socedção de** atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **BlobSink** | Sim |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período.  Exemplo: "00:30:00" (30 minutos). |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 0 – detectado automaticamente) |
 | preCopyScript |Especifica uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no armazenamento de dados em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |
 
@@ -273,9 +273,9 @@ Crie um serviço vinculado de ODBC para vincular um armazenamento de dados SAP H
 
 Leia o artigo desde o início para uma visão geral detalhada do uso de armazenamentos de dados ODBC como armazenamentos de dados de origem/coletor em uma operação de cópia.
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="troubleshoot-connectivity-issues"></a>Solucionar problemas de conectividade
@@ -283,7 +283,7 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 Para solucionar problemas de conexão, use a guia **Diagnósticos** do **Gerenciador de configuração do Integration Runtime**.
 
 1. Inicie o **Gerenciador de configuração do Integration Runtime**.
-2. Alterne para a guia **Diagnóstico** .
+2. Mude para a guia **Diagnósticos.**
 3. Na seção "Testar Conexão", selecione o **tipo** do armazenamento de dados (serviço vinculado).
 4. Especifique a **cadeia de conexão** usada para se conectar ao armazenamento de dados, escolha a **autenticação** e digite o **nome de usuário**, a **senha** e/ou as **credenciais**.
 5. Clique em **Testar Conexão** para testar a conexão com o armazenamento de dados.

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213953"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos estendidos no Banco de Dados SQL
@@ -31,14 +31,14 @@ Este tópico explica como a implementação de eventos estendidos no Banco de Da
 
 Informações adicionais sobre eventos estendidos, para Banco de Dados SQL do Azure e Microsoft SQL Server, estão disponíveis em:
 
-- [Início Rápido: eventos estendidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
-- [Eventos estendidos](https://msdn.microsoft.com/library/bb630282.aspx)
+- [Início rápido: Eventos estendidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Eventos Estendidos](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tópico pressupõe que você já tem algum conhecimento de:
 
-- [Serviço do Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/)
+- [Serviço de banco de dados Azure SQL](https://azure.microsoft.com/services/sql-database/).
 - [Eventos estendidos](https://msdn.microsoft.com/library/bb630282.aspx) no Microsoft SQL Server.
 
 - A maior parte da nossa documentação sobre eventos estendidos se aplica ao SQL Server e ao Banco de Dados SQL.
@@ -81,7 +81,7 @@ Os tópicos relacionados fornecem dois exemplos de código:
 
 O recurso de eventos estendidos recebe suporte de várias [exibições do catálogo](https://msdn.microsoft.com/library/ms174365.aspx). As exibições do catálogo mostram *metadados ou definições* de sessões de eventos criadas pelo usuário no banco de dados atual. As exibições não retornam informações sobre as instâncias de sessões de eventos ativas.
 
-| Nome da<br/>exibição do catálogo | DESCRIÇÃO |
+| Nome da<br/>exibição do catálogo | Descrição |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Retorna uma linha para cada ação em cada evento de uma sessão de eventos. |
 | **sys.database_event_session_events** |Retorna uma linha para cada evento em uma sessão de eventos. |
@@ -89,13 +89,13 @@ O recurso de eventos estendidos recebe suporte de várias [exibições do catál
 | **sys.database_event_session_targets** |Retorna uma linha para cada destino de evento em uma sessão de evento. |
 | **sys.database_event_sessions** |Retorna uma linha para cada sessão de eventos no banco de dados do Banco de Dados SQL. |
 
-No Microsoft SQL Server, exibições do catálogo semelhantes têm nomes que incluem *.server\_* em vez de *.database\_* . O nome padrão é **sys.server_event_%** .
+No Microsoft SQL Server, exibições do catálogo semelhantes têm nomes que incluem *.server\_* em vez de *.database\_*. O nome padrão é **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
 
 O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)](https://msdn.microsoft.com/library/bb677293.aspx) que dão suporte a eventos estendidos. DMVs mostram as sessões de evento *ativas* .
 
-| Nome da DMV | DESCRIÇÃO |
+| Nome da DMV | Descrição |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações da sessão de evento. |
 | **sys.dm_xe_database_session_events** |Retorna informações sobre os eventos da sessão. |
@@ -103,7 +103,7 @@ O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)
 | **sys.dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
 | **sys.dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
 
-No Microsoft SQL Server, as exibições de catálogo semelhantes recebem um nome sem a parte *\_database*, por exemplo:
+No Microsoft SQL Server, visualizações * \_* semelhantes do catálogo são nomeadas sem a parte do banco de dados do nome, tais como:
 
 - **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions**.
 
@@ -190,7 +190,7 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 
 ## <a name="related-links"></a>Links relacionados
 
-- [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md).
+- [Usando o Azure PowerShell com armazenamento Azure](../storage/common/storage-powershell-guide-full.md).
 - [Cmdlets do Armazenamento do Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
 - [Como usar o Armazenamento de blob do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)

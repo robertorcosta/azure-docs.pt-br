@@ -1,6 +1,6 @@
 ---
-title: Usar um modelo para implantar VMs de ponto do Azure (versão prévia)
-description: Saiba como usar um modelo para implantar VMs pontuais para economizar custos.
+title: Use um modelo para implantar VMs do Azure Spot (Preview)
+description: Aprenda a usar um modelo para implantar VMs Spot para economizar custos.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,29 +15,29 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082788"
 ---
-# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs Spot usando um modelo do Resource Manager
+# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs spot usando um modelo de gerenciador de recursos
 
-O uso de [VMs pontuais](spot-vms.md) permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
+O uso [de VMs Spot](spot-vms.md) permite que você aproveite nossa capacidade não utilizada com uma economia significativa de custos. A qualquer momento em que o Azure precisar da capacidade de volta, a infra-estrutura do Azure despejará VMs spot. Portanto, as VMs spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lote, ambientes de dev/teste, grandes cargas de trabalho de computação e muito mais.
 
-Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+Os preços das VMs spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços da VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1`, a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível. Para obter mais informações sobre como definir o preço máximo, consulte [VMs pontuais – preços](spot-vms.md#pricing).
+Você tem opção de definir um preço máximo que você está disposto a pagar, por hora, para a VM. O preço máximo de um VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, `0.98765`o valor seria um preço máximo de US$ 0,98765 por hora. Se você definir o `-1`preço máximo para ser, a VM não será despejada com base no preço. O preço da VM será o preço atual para spot ou o preço de uma VM padrão, que seja menor, desde que haja capacidade e cota disponíveis. Para obter mais informações sobre como definir o preço máximo, consulte [Spot VMs - Pricing](spot-vms.md#pricing).
 
 > [!IMPORTANT]
-> Atualmente, as instâncias especiais estão em visualização pública.
+> As instâncias spot estão atualmente em visualização pública.
 > Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 ## <a name="use-a-template"></a>Como usar um modelo
 
-Para implantações de modelo Spot, use`"apiVersion": "2019-03-01"` ou posterior. Adicione as propriedades `priority`, `evictionPolicy` e `billingProfile` ao seu modelo:
+Para implantações de`"apiVersion": "2019-03-01"` modelo spot, use ou posteriormente. Adicione `priority`as `evictionPolicy` `billingProfile` propriedades e propriedades do modelo:
 
 ```json
 "priority": "Spot",
@@ -47,7 +47,7 @@ Para implantações de modelo Spot, use`"apiVersion": "2019-03-01"` ou posterior
 }
 ```
 
-Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot. Substitua os nomes de recursos pelos seus próprios e `<password>` com uma senha para a conta de administrador local na VM.
+Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot. Substitua os nomes dos `<password>` recursos por seus próprios e por uma senha para a conta do administrador local na VM.
 
 ```json
 {
@@ -184,8 +184,8 @@ Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot
 }
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md) ou a [CLI do Azure](spot-cli.md).
+Você também pode criar uma VM spot usando [o Azure PowerShell](../windows/spot-powershell.md) ou o [Azure CLI](spot-cli.md).
 
-Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você encontrar um erro, consulte [Códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

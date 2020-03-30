@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 607379f8645226a031646376df9ca18f4d3164bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267788"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para gerenciar políticas de backup
@@ -38,7 +38,7 @@ A folha **Política de backup** do dispositivo StorSimple permite gerenciar pol�
 
 A listagem tabular das políticas de backup também permite filtrar as políticas de backup existentes por um ou mais dos seguintes campos:
 
-* **Nome da política** – o nome associado à política. Os diferentes tipos de políticas incluem:
+* **Nome da política** – O nome associado à política. Os diferentes tipos de políticas incluem:
 
   * Políticas agendadas, que são criadas explicitamente pelo usuário.
   * Políticas importadas, que foram originalmente criadas no Gerenciador de Instantâneos do StorSimple. Elas têm uma marca que descreve o host do Gerenciador de Instantâneos do StorSimple do qual as políticas foram importadas.
@@ -46,13 +46,13 @@ A listagem tabular das políticas de backup também permite filtrar as política
   > [!NOTE]
   > Políticas de backup automáticas ou padrão não estão mais habilitadas no momento da criação do volume.
 
-* **Último backup bem-sucedido** – a data e hora do último backup bem-sucedido realizado com essa política.
+* **Último backup bem-sucedido** – A data e hora do último backup bem-sucedido feito com esta política.
 
-* **Próximo backup** – a data e hora do próximo backup agendado que será iniciado por essa política.
+* **Próximo backup** – A data e hora do próximo backup agendado que será iniciado por essa política.
 
-* **Volumes** – os volumes associados à política. Todos os volumes associados a uma política de backup são agrupados quando os backups são criados.
+* **Volumes** – Os volumes associados à sua política de backup. Todos os volumes associados a uma política de backup são agrupados quando os backups são criados.
 
-* **Agendas** – o número de agendamentos associados à política de backup.
+* **Agendamentos** – O número de agendamentos associados à política de backup.
 
 As operações usadas com frequência que podem ser executadas nas políticas de backup são:
 

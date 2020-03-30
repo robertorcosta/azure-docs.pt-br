@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562047"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento de funções nas Funções Duráveis – Exemplo se sequência Hello
@@ -22,24 +22,24 @@ Encadeamento de funções é o padrão de executar uma sequência de funções e
 
 Este artigo explica as seguintes funções no aplicativo de exemplo:
 
-* `E1_HelloSequence`: uma [função de orquestrador](durable-functions-bindings.md#orchestration-trigger) que chama `E1_SayHello` várias vezes em uma sequência. Ela armazena as saídas das chamadas `E1_SayHello` e registra os resultados.
-* `E1_SayHello`: uma [função de atividade](durable-functions-bindings.md#activity-trigger) que precede uma cadeia de caracteres com "Olá".
-* `HttpStart`: uma função disparada por HTTP que inicia uma instância do orquestrador.
+* `E1_HelloSequence`: Uma [função orquestradora](durable-functions-bindings.md#orchestration-trigger) que liga `E1_SayHello` várias vezes em uma seqüência. Ela armazena as saídas das chamadas `E1_SayHello` e registra os resultados.
+* `E1_SayHello`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que prepara uma corda com "Olá".
+* `HttpStart`: Uma função acionada HTTP que inicia uma instância do orquestrador.
 
-### <a name="e1_hellosequence-orchestrator-function"></a>E1_HelloSequence função de orquestrador
+### <a name="e1_hellosequence-orchestrator-function"></a>E1_HelloSequence função orquestradora
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=13-25)]
 
-Todas as funções de orquestração em C# devem ter um parâmetro do tipo `DurableOrchestrationContext`, que existe no assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Esse objeto de contexto permite chamar outras funções de *atividade* e passar parâmetros de entrada usando seu método `CallActivityAsync`.
+Todas as funções de orquestração em C# devem ter um parâmetro do tipo `DurableOrchestrationContext`, que existe no assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Este objeto de contexto permite que você chame outras funções de *atividade* e passe parâmetros de entrada usando seu `CallActivityAsync` método.
 
 O código chama `E1_SayHello` três vezes seguidas com valores de parâmetros diferentes. O valor retornado de cada chamada é adicionado à lista `outputs`, que é retornada ao final da função.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 > [!NOTE]
-> Durable Functions de JavaScript estão disponíveis apenas para o Functions 2,0 Runtime.
+> As funções duráveis JavaScript estão disponíveis apenas para o tempo de execução functions 2.0.
 
 #### <a name="functionjson"></a>function.json
 
@@ -50,41 +50,41 @@ Se você usa o Visual Studio Code ou o portal do Azure para desenvolvimento, est
 O importante é o tipo de associação de `orchestrationTrigger`. Todas as funções de orquestrador devem usar esse tipo de gatilho.
 
 > [!WARNING]
-> Para obedecer a regra de "não fazer E/S" das funções de orquestrador, não use nenhuma associação de entrada ou saída ao usar a associação de gatilho `orchestrationTrigger`.  Se outras associações de entrada ou de saída forem necessárias, elas deverão ser usadas no contexto das funções `activityTrigger`, que são chamadas pelo orquestrador. Para obter mais informações, consulte o artigo [restrições de código de função do Orchestrator](durable-functions-code-constraints.md) .
+> Para obedecer a regra de "não fazer E/S" das funções de orquestrador, não use nenhuma associação de entrada ou saída ao usar a associação de gatilho `orchestrationTrigger`.  Se outras associações de entrada ou de saída forem necessárias, elas deverão ser usadas no contexto das funções `activityTrigger`, que são chamadas pelo orquestrador. Para obter mais informações, consulte o artigo de restrições de [código de função do orquestrador.](durable-functions-code-constraints.md)
 
 #### <a name="indexjs"></a>index.js
 
-Esta é a função:
+Aqui está a função:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Todas as funções de orquestração de JavaScript devem incluir o [módulo `durable-functions`](https://www.npmjs.com/package/durable-functions). É uma biblioteca que permite que você escreva Durable Functions em JavaScript. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
+Todas as funções de orquestração JavaScript devem incluir o [ `durable-functions` módulo](https://www.npmjs.com/package/durable-functions). É uma biblioteca que permite que você escreva Funções Duráveis em JavaScript. Há três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
 
-1. A função é uma [função de gerador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript).
-2. A função é encapsulada em uma chamada para o método `durable-functions` do módulo `orchestrator` (aqui `df`).
+1. A função é uma [função geradora.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript). .
+2. A função é encapsulada em uma chamada para o método `orchestrator` do módulo `durable-functions` (aqui `df`).
 3. A função deve ser síncrona. Como o método "orchestrator" lida com a chamada "context.done", a função deve simplesmente "return".
 
-O objeto `context` contém um objeto de contexto de orquestração durável `df` que permite chamar outras funções de *atividade* e passar parâmetros de entrada usando seu método `callActivity`. O código chama `E1_SayHello` três vezes em sequência com valores de parâmetros diferentes, usando `yield` para indicar que a execução deve aguardar as chamadas de função de atividade assíncrona serem retornadas. O valor de retorno de cada chamada é adicionado à matriz de `outputs`, que é retornada ao final da função.
+O `context` objeto `df` contém um objeto de contexto de orquestração durável que `callActivity` permite chamar outras funções de *atividade* e passar parâmetros de entrada usando seu método. O código chama `E1_SayHello` três vezes em sequência com valores de parâmetros diferentes, usando `yield` para indicar que a execução deve aguardar as chamadas de função de atividade assíncrona serem retornadas. O valor de retorno de `outputs` cada chamada é adicionado à matriz, que é devolvida no final da função.
 
 ---
 
-### <a name="e1_sayhello-activity-function"></a>Função de atividade de E1_SayHello
+### <a name="e1_sayhello-activity-function"></a>função de atividade E1_SayHello
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=27-32)]
 
-As atividades usam o atributo `ActivityTrigger`. Use o `IDurableActivityContext` fornecido para executar ações relacionadas à atividade, como acessar o valor de entrada usando `GetInput<T>`.
+As atividades usam o atributo. `ActivityTrigger` Use o `IDurableActivityContext` fornecido para realizar ações relacionadas à atividade, como acessar o valor de entrada usando `GetInput<T>`.
 
 A implementação de `E1_SayHello` é uma operação de formatação de cadeia de caracteres relativamente simples.
 
-Em vez de associar a um `IDurableActivityContext`, você pode associar diretamente ao tipo que é passado para a função de atividade. Por exemplo:
+Em vez de `IDurableActivityContext`vincular a um, você pode vincular diretamente ao tipo que é passado para a função de atividade. Por exemplo: 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.JSON
+#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.json
 
 O arquivo *function.json* da função de atividade `E1_SayHello` é semelhante ao de `E1_HelloSequence`, exceto por usar um tipo de associação `activityTrigger` em vez de um tipo de associação `orchestrationTrigger`.
 
@@ -103,35 +103,35 @@ Ao contrário de uma função de orquestração de JavaScript, uma função de a
 
 ---
 
-### <a name="httpstart-client-function"></a>Função de cliente HttpStart
+### <a name="httpstart-client-function"></a>Função do cliente HttpStart
 
-Você pode iniciar uma instância da função de orquestrador usando uma função de cliente. Você usará a função disparada por HTTP `HttpStart` para iniciar instâncias do `E1_HelloSequence`.
+Você pode iniciar uma instância de função orquestradora usando uma função cliente. Você usará `HttpStart` a função acionada HTTP `E1_HelloSequence`para iniciar instâncias de .
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs?range=13-30)]
 
-Para interagir com orquestradores, a função deve incluir uma associação de entrada `DurableClient`. Você usa o cliente para iniciar uma orquestração. Ele também pode ajudá-lo a retornar uma resposta HTTP contendo URLs para verificar o status da nova orquestração.
+Para interagir com os orquestradores, `DurableClient` a função deve incluir uma ligação de entrada. Você usa o cliente para iniciar uma orquestração. Ele também pode ajudá-lo a retornar uma resposta HTTP contendo URLs para verificar o status da nova orquestração.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-#### <a name="httpstartfunctionjson"></a>HttpStart/function. JSON
+#### <a name="httpstartfunctionjson"></a>HttpStart/function.json
 
 [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json?highlight=16-20)]
 
-Para interagir com orquestradores, a função deve incluir uma associação de entrada `durableClient`.
+Para interagir com os orquestradores, `durableClient` a função deve incluir uma ligação de entrada.
 
-#### <a name="httpstartindexjs"></a>HttpStart/index. js
+#### <a name="httpstartindexjs"></a>HttpStart/index.js
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-Use `df.getClient` para obter um objeto `DurableOrchestrationClient`. Você usa o cliente para iniciar uma orquestração. Ele também pode ajudá-lo a retornar uma resposta HTTP contendo URLs para verificar o status da nova orquestração.
+Use `df.getClient` para `DurableOrchestrationClient` obter um objeto. Você usa o cliente para iniciar uma orquestração. Ele também pode ajudá-lo a retornar uma resposta HTTP contendo URLs para verificar o status da nova orquestração.
 
 ---
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Para executar a orquestração de `E1_HelloSequence`, envie a seguinte solicitação HTTP POST para a função `HttpStart`.
+Para executar `E1_HelloSequence` a orquestração, envie a `HttpStart` seguinte solicitação HTTP POST para a função.
 
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
@@ -174,7 +174,7 @@ Como você pode ver, o `runtimeStatus` da instância é *Concluído* e o `output
 > [!NOTE]
 > Você pode implementar uma lógica inicial semelhante a outros tipos de gatilho, como `queueTrigger`, `eventHubTrigger` ou `timerTrigger`.
 
-Examine os logs de execução da função. A função `E1_HelloSequence` iniciada e concluída várias vezes devido ao comportamento de reprodução descrito no tópico de [confiabilidade da orquestração](durable-functions-orchestrations.md#reliability) . Por outro lado, houve apenas três execuções de `E1_SayHello`, uma vez que as execuções dessas funções não são repetidas.
+Examine os logs de execução da função. A `E1_HelloSequence` função começou e foi concluída várias vezes devido ao comportamento de repetição descrito no tópico de confiabilidade da [orquestração.](durable-functions-orchestrations.md#reliability) Por outro lado, houve apenas três execuções de `E1_SayHello`, uma vez que as execuções dessas funções não são repetidas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

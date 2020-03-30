@@ -1,5 +1,5 @@
 ---
-title: Implantar seu dispositivo StorSimple 8000 Series no portal do Azure
+title: Implante seu dispositivo da série StorSimple 8000 no portal Azure
 description: Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple série 8000 executando a Atualização 3 e posteriores, e o serviço do Gerenciador de Dispositivos StorSimple.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267944"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implantar o dispositivo StorSimple no local (Atualização 3 e posteriores)
@@ -28,15 +28,15 @@ As informações nesses tutoriais pressupõem que você revisou as precauções 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você leia a lista de verificação de configuração antes de começar. O processo de implantação e configuração pode levar algum tempo para ser concluído.
 
 > [!NOTE]
-> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da série 7000, acesse: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
+> As informações de implantação do StorSimple publicadas no site do Microsoft Azure se aplicam apenas aos dispositivos da série StorSimple 8000. Para obter informações completas sobre os dispositivos da [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)série 7000, acesse: . Para obter informações de implantação da série 7000, consulte o [Guia de Início Rápido do Sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
 ## <a name="deployment-steps"></a>Etapas de implantação.
 Execute estas etapas necessárias para configurar o dispositivo StorSimple e conectá-lo ao serviço do gerenciador de dispositivos StorSimple. Além das etapas necessárias, há etapas e procedimentos opcionais que talvez sejam necessários durante a implantação. As instruções passo a passo de implantação indicam quando você deve executar cada uma destas etapas opcionais.
 
-| Etapa | DESCRIÇÃO |
+| Etapa | Descrição |
 | --- | --- |
-| **PRÉ-REQUISITOS** |Eles precisam ser concluídos na preparação para a próxima implantação. |
+| **Pré-requisitos** |Eles precisam ser concluídos na preparação para a próxima implantação. |
 | [Lista de verificação da configuração da implantação](#deployment-configuration-checklist) |Use essa lista de verificação para coletar e registrar informações antes e durante a implantação. |
 | [Pré-requisitos de implantação](#deployment-prerequisites) |Eles validam se o ambiente está pronto para implantação. |
 |  | |
@@ -51,10 +51,10 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 | [Etapa 8: Fazer um backup](#step-8-take-a-backup) |Configure a política de backup para proteger seus dados |
 |  | |
 | **OUTROS PROCEDIMENTOS** |Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
-| [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) | |
-| [Use o PuTTY para conectar-se ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) | |
-| [Obter o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host) | |
-| [Criar um backup manual](#create-a-manual-backup) | |
+| [Configure uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) | |
+| [Use PuTTY para se conectar ao console serial do dispositivo](#use-putty-to-connect-to-the-device-serial-console) | |
+| [Obtenha o IQN de um host do Windows Server](#get-the-iqn-of-a-windows-server-host) | |
+| [Crie um backup manual](#create-a-manual-backup) | |
 
 
 ## <a name="deployment-configuration-checklist"></a>Lista de verificação da configuração da implantação
@@ -153,7 +153,7 @@ Se você decidir não configurar o MPIO, execute as etapas a seguir para montar,
 [!INCLUDE [storsimple-8000-mount-initialize-format-volume](../../includes/storsimple-8000-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>Etapa 8: Fazer um backup
-Backups oferecem proteção pontual de volumes e melhoram a capacidade de recuperação, minimizando os tempos de restauração. Você pode executar dois tipos de backup em seu dispositivo StorSimple: instantâneos locais e instantâneos em nuvem. Cada um desses tipos de backup pode ser **Agendado** ou **Manual**.
+Backups oferecem proteção pontual de volumes e melhoram a capacidade de recuperação, minimizando os tempos de restauração. Você pode executar dois tipos de backup em seu dispositivo StorSimple: instantâneos locais e instantâneos em nuvem. Cada um destes tipos de backup pode ser **Agendado** ou **Manual**.
 
 Execute as etapas a seguir no portal do Azure para criar um backup agendado.
 

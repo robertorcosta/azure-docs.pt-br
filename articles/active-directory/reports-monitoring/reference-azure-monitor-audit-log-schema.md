@@ -1,9 +1,9 @@
 ---
-title: Interpretar o Azure Active Directory esquema de log de auditoria no Azure Monitor | Microsoft Docs
-description: Descrever o esquema de log de auditoria do Azure AD para uso no Azure Monitor
+title: Interprete o esquema de log de auditoria do Azure Active Directory no Monitor Do Azure | Microsoft Docs
+description: Descreva o esquema de log de auditoria do Azure AD para uso no Monitor Azure
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68987949"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de logs de auditoria do Microsoft Azure Active Directory no Azure Monitor (visualização)
@@ -160,9 +160,9 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | durationMs |  Esse campo não é mapeado e você pode ignorar esse campo com segurança. |
 | callerIpAddress | Endereço IP do cliente que fez a solicitação. | 
 | correlationId | GUID opcional passado pelo cliente. Isso pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil ao rastrear logs que abrangem os serviços. |
-| identity | A identidade do token que foi apresentada ao fazer a solicitação. A identidade pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
-| nível | O tipo de mensagem. Para logs de auditoria, o nível será sempre *informativo*. |
-| localização | Local do datacenter. |
+| identidade | A identidade do token que foi apresentada ao fazer a solicitação. A identidade pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
+| level | O tipo de mensagem. Para logs de auditoria, o nível será sempre *informativo*. |
+| local | Local do datacenter. |
 | properties | Lista as propriedades suportadas relacionadas a um log de auditoria. Para obter mais informações, confira a próxima seção. | 
 
 <br>
@@ -171,13 +171,13 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 |---------------|-------------|
 | AuditEventCategory | Tipo de evento de auditoria. Pode ser *Gerenciamento de Usuários*, *Gerenciamento de Aplicativos* ou outro tipo.|
 | Tipo de identidade | O tipo pode ser *Aplicativo* ou *Usuário*. |
-| Tipo de Operação | O tipo pode ser *Adicionar*, *Atualizar*, *Excluir*. ou *Outros*. |
-| Tipo de Recurso de Destino | Especifica o tipo de recurso de destino no qual a operação foi executada. O tipo pode ser *Aplicativo*, *Usuário*, *Função*, *Política* | 
+| Tipo de operação | O tipo pode ser *Adicionar*, *Atualizar*, *Excluir*. ou *Outros*. |
+| Tipo de recurso de destino | Especifica o tipo de recurso de destino no qual a operação foi executada. O tipo pode ser *Aplicativo*, *Usuário*, *Função*, *Política* | 
 | Nome do recurso de destino | Nome do recurso de destino. Isso pode ser um nome de aplicativo, um nome de função, um nome principal de usuário ou um nome principal de serviço. |
 | additionalTargets | Lista quaisquer propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e os novos valores são listados em *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Interpretar o esquema de logs de entrada no Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interprete o esquema de logs de login no Monitor Azure](reference-azure-monitor-sign-ins-log-schema.md)
 * [Logs de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Perguntas frequentes e problemas conhecidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

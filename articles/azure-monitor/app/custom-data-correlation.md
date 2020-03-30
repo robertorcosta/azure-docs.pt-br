@@ -1,21 +1,21 @@
 ---
 title: Azure Application Insights | Microsoft Docs
-description: Correlacione os dados de Application Insights a outros conjuntos de dados, como tabelas de dados de pesquisa ou de enriquecimento, e dados personalizados e não Application Insights.
+description: Correlacionar dados do Application Insights para outros conjuntos de dados, como enriquecimento de dados ou tabelas de pesquisa, fontes de dados não-application Insights e dados personalizados.
 ms.topic: conceptual
 author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 121e4699bd6a72f6865d3a6ffdef58c1b3806047
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082754"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionando os dados do Application Insights com fontes de dados personalizadas
 
-O Application Insights coleta vários tipos de dados diferentes: exceções, rastreamentos, exibições de página e outros. Embora isso seja muitas vezes suficiente para investigar o desempenho, a confiabilidade e o uso do aplicativo, há casos em que é útil correlacionar os dados armazenados no Application Insights a outros conjuntos de dados completamente personalizados.
+O Application Insights coleta vários tipos de dados diferentes: exceções, rastreamentos, exibições de página e outros. Embora isso seja muitas vezes suficiente para investigar o desempenho, a confiabilidade e o uso do seu aplicativo, há casos em que é útil correlacionar os dados armazenados no Application Insights com outros conjuntos de dados completamente personalizados.
 
 Algumas situações em que é recomendável ter dados personalizados incluem:
 
@@ -25,27 +25,27 @@ Algumas situações em que é recomendável ter dados personalizados incluem:
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Como correlacionar dados personalizados com os dados do Application Insights 
 
-Como o Application Insights tem suporte da avançada plataforma de logs do Azure Monitor, podemos usar toda a potência do Azure Monitor para ingerir os dados. Em seguida, escreveremos consultas usando o operador "Join" que correlacionará esses dados personalizados com os dados disponíveis nos logs de Azure Monitor. 
+Como o Application Insights tem suporte da avançada plataforma de logs do Azure Monitor, podemos usar toda a potência do Azure Monitor para ingerir os dados. Em seguida, escreveremos consultas usando o operador "join" que correlacionará esses dados personalizados com os dados disponíveis para nós nos registros do Monitor do Azure. 
 
 ## <a name="ingesting-data"></a>Ingerindo dados
 
 Nesta seção, veremos como inserir seus dados nos logs do Azure Monitor.
 
-Se você ainda não tiver um, provisione um novo espaço de trabalho Log Analytics seguindo [estas instruções](../learn/quick-collect-azurevm.md) por meio de e incluindo a etapa "criar um espaço de trabalho".
+Se você ainda não tiver um, disponibilize um novo espaço de trabalho do Log Analytics seguindo [essas instruções](../learn/quick-collect-azurevm.md) e incluindo a etapa "criar um espaço de trabalho".
 
 Para começar a enviar dados de log para o Azure Monitor. Existem várias opções:
 
-- Para um mecanismo síncrono, você pode chamar diretamente a [API do coletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) ou usar nosso conector de aplicativo lógico – basta procurar "Azure log Analytics" e selecionar a opção "enviar dados":
+- Para um mecanismo síncrono, você pode ligar diretamente para a [API de coletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) ou usar nosso conector Logic App – basta procurar "Azure Log Analytics" e escolher a opção "Enviar dados":
 
   ![Captura de tela de escolha e ação](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- Para uma opção assíncrona, use a API do Coletor de Dados para criar um pipeline de processamento. Confira [este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) para obter detalhes.
+- Para uma opção assíncrona, use a API do Coletor de Dados para criar um pipeline de processamento. Veja [este artigo](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) para mais detalhes.
 
 ## <a name="correlating-data"></a>Correlacionando dados
 
 O Application Insights se baseia na plataforma de logs do Azure Monitor. Portanto, podemos usar [junções entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) para correlacionar os dados ingeridos no Azure Monitor com nossos dados do Application Insights.
 
-Por exemplo, podemos ingerir nosso inventário de laboratório e locais em uma tabela chamada "LabLocations_CL" em um espaço de trabalho de Log Analytics chamado "myLA". Se quiséssemos examinar nossas solicitações rastreadas em Application Insights aplicativo chamado "myAI" e correlacionar os nomes dos computadores que forneceram as solicitações para os locais desses computadores armazenados na tabela personalizada mencionada anteriormente, podemos executar a consulta a seguir de o contexto Application Insights ou Azure Monitor:
+Por exemplo, podemos ingerir nosso inventário de laboratório e localizações em uma tabela chamada "LabLocations_CL" em um espaço de trabalho do Log Analytics chamado "myLA". Se, em seguida, quiséssemos rever nossas solicitações rastreadas no aplicativo Application Insights chamado "myAI" e correlacionar os nomes das máquinas que serviam as solicitações para os locais dessas máquinas armazenadas na tabela personalizada mencionada anteriormente, podemos executar a seguinte consulta de tanto o contexto do Application Insights quanto do Monitor do Azure:
 
 ```
 app('myAI').requests
@@ -55,7 +55,7 @@ app('myAI').requests
 ) on $left.cloud_RoleInstance == $right.Computer
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Veja a referência da [API do Coletor de Dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
 - Para obter mais informações sobre [junções entre recursos](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

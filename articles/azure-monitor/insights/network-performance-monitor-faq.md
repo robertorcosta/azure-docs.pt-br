@@ -1,16 +1,16 @@
 ---
 title: Perguntas frequentes - Solução de Monitor de Desempenho de Rede no Azure | Microsoft Docs
-description: Este artigo captura as perguntas frequentes sobre Monitor de Desempenho de Rede no Azure. O Monitor de Desempenho de Rede (NPM) ajuda a monitorar o desempenho de suas redes quase em tempo real e detectar e localizar afunilamentos de desempenho de rede.
+description: Este artigo captura as perguntas mais frequentes sobre o Network Performance Monitor no Azure. O NPM (Network Performance Monitor, monitora o desempenho de suas redes em tempo real e detecta e localiza gargalos de desempenho da rede).
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096218"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas da Solução do Monitor de Desempenho de Rede
@@ -19,7 +19,7 @@ ms.locfileid: "79096218"
 
 Este artigo captura as perguntas frequentes (FAQs) sobre o Monitor de Desempenho de Rede (NPM) no Azure
 
-[O Monitor de Desempenho de Rede](/azure/networking/network-monitoring-overview) é uma solução [de monitoramento de rede híbirada](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) baseado em nuvem que ajuda a monitorar o desempenho de rede entre vários pontos em sua infraestrutura de rede. Também ajuda a monitorar a conectividade de rede para [serviços e pontos de extremidade do aplicativo e a](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) e [monitorar o desempenho do Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[O Network Performance Monitor](/azure/networking/network-monitoring-overview) é uma solução de monitoramento de [rede híbrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) baseada em nuvem que ajuda a monitorar o desempenho da rede entre vários pontos da infra-estrutura de rede. Também ajuda a monitorar a conectividade de rede para [serviços e pontos de extremidade do aplicativo e a](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) e [monitorar o desempenho do Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 O Monitor de Desempenho de Rede detecta problemas de tráfego de rede, como blackholing, erros de roteamento e problemas que os métodos de monitoramento de rede convencionais não são capazes de detectar. A solução gera alertas e notifica como e quando um limite é ultrapassado para um link de rede. Ela também garante a detecção oportuna de problemas de desempenho de rede e localiza a origem do problema para determinado segmento de rede ou dispositivo. 
 
@@ -30,24 +30,24 @@ Mais informações sobre os diversos recursos de suporte do [Monitor de Desempen
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de plataforma para os nós a serem usados para monitorar pelo NPM?
 Abaixo estão os requisitos de plataforma das várias funcionalidades do NPM:
 
-- Os recursos do monitor de conectividade do serviço e do monitor de desempenho do NPM dão suporte a sistemas operacionais Windows Server e Windows desktops/cliente. As versões do sistema operacional do Windows Server com suporte são 2008 SP1 ou posterior. As versões de desktop/cliente do Windows com suporte são Windows 10, Windows 8.1, Windows 8 e Windows 7. 
+- Os recursos do Monitor de Desempenho e do Monitor de Conectividade de Serviço do NPM suportam tanto o servidor Windows quanto os sistemas operacionais windows desktop/client. As versões do sistema operacional do servidor Windows suportadas são 2008 SP1 ou posterior. As versões suportadas por windows desktops/clientes suportados são Windows 10, Windows 8.1, Windows 8 e Windows 7. 
 - Funcionalidade do Monitor do ExpressRoute do NPM dá suporte a apenas ao sistema operacional do servidor do Windows (2008 SP1) ou posterior.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Posso usar máquinas Linux como o monitoramento de nós no NPM?
-No momento, a capacidade de monitorar redes usando nós baseados em Linux está em versão prévia. Entre em contato para seu gerente de conta para saber mais. Agentes do Linux fornecem a capacidade de monitoramento para o recurso de Monitor de desempenho do NPM e não estão disponíveis para os recursos do Monitor de conectividade do serviço e Monitor do ExpressRoute
+A capacidade de monitorar redes usando nós baseados em Linux está atualmente em visualização. Entre em contato para seu gerente de conta para saber mais. Agentes do Linux fornecem a capacidade de monitoramento para o recurso de Monitor de desempenho do NPM e não estão disponíveis para os recursos do Monitor de conectividade do serviço e Monitor do ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de plataforma para os nós a serem usados para monitorar pelo NPM?
-Para executar a solução NPM nas VMs para monitorar redes do nó, os nós devem ter pelo menos de 500 MB de memória e um núcleo. Você não precisa usar nós separados para executar o NPM. A solução pode ser executada em nós que têm outras cargas de trabalho em execução nele. A solução tem a capacidade de interromper o processo de monitoramento se usar mais de 5% da CPU.
+Para executar a solução NPM nas VMs para monitorar redes do nó, os nós devem ter pelo menos de 500 MB de memória e um núcleo. Você não precisa usar nós separados para executar o NPM. A solução pode ser executada em nós que têm outras cargas de trabalho em execução nele. A solução tem a capacidade de interromper o processo de monitoramento se usar mais de 5% de CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Para usar o NPM, devo conectar Meus nós como o agente direto ou por meio do Operations Manager do Centro do Sistema?
-O monitor de desempenho e os recursos do monitor de conectividade de serviço dão suporte a nós [conectados como agentes diretos](../../azure-monitor/platform/agent-windows.md) e [conectados por meio de Operations Manager](../../azure-monitor/platform/om-agents.md).
+Tanto os recursos do Monitor de Desempenho quanto do Monitor de Conectividade de Serviço suportam nós [conectados como Agentes Diretos](../../azure-monitor/platform/agent-windows.md) e [conectados através do Operations Manager](../../azure-monitor/platform/om-agents.md).
 
-Para o recurso de Monitor do ExpressRoute, os nós do Azure devem estar conectados como agentes diretos somente. Não há suporte para os nós do Azure, que são conectados por meio do Operations Manager. Para nós locais, os nós conectados como agentes diretos e por meio de Operations Manager têm suporte para monitorar um circuito de ExpressRoute.
+Para o recurso de Monitor do ExpressRoute, os nós do Azure devem estar conectados como agentes diretos somente. Não há suporte para os nós do Azure, que são conectados por meio do Operations Manager. Para nós no local, os nós conectados como Agentes Diretos e através do Gerente de Operações são suportados para monitorar um circuito ExpressRoute.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Qual protocolo entre TCP e ICMP deve ser escolhido para o monitoramento?
-Se você estiver monitorando sua rede usando nós baseados no Windows Server, recomendamos o uso de TCP como o protocolo de monitoramento, pois ele fornece maior precisão. 
+Se você estiver monitorando sua rede usando nós baseados em servidor do Windows, recomendamos que você use o TCP como protocolo de monitoramento, pois fornece melhor precisão. 
 
-O ICMP é recomendado para nós baseados no sistema operacional Windows / desktops cliente. Essa plataforma não permite que dados TCP sejam enviados por soquetes brutos, que o NPM usa para descobrir a topologia de rede.
+O ICMP é recomendado para nós baseados no sistema operacional Windows / desktops cliente. Essa plataforma não permite que os dados TCP sejam enviados por soquetes brutos, que o NPM usa para descobrir topologia de rede.
 
 Você pode obter mais detalhes sobre as vantagens relativas de cada protocolo [aqui](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -65,8 +65,8 @@ O script configura apenas o firewall do windows localmente. Se você tiver o fir
 ### <a name="how-many-agents-should-i-use"></a>Quantas agentes devo usar?
 Você deve usar pelo menos um agente para cada sub-rede que deseja monitorar.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual é o número máximo de agentes que posso usar ou que eu vejo o erro ".... Você atingiu seu limite de configuração "?
-O NPM limita o número de IPs a 5000 IPs por workspace. Se um nó tiver ambos os endereços IPv4 e IPv6, isso contará como 2 IPs para esse nó. Portanto, esse limite de 5000 IPs determinaria o limite superior do número de agentes. Você pode excluir os agentes inativos da guia Nós no NPM >> Configurar. O NPM também mantém o histórico de todos os IPs que já foram atribuídos à VM que hospeda o agente e cada um é contado como um IP separado, contribuindo para esse limite superior de 5000 IPs. Para liberar IPs para seu espaço de trabalho, você pode usar a página nós para excluir os IPs que não estão em uso.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Qual é o número máximo de agentes que posso usar ou vejo erro".... você atingiu seu limite de configuração"?
+O NPM limita o número de IPs a 5000 IPs por workspace. Se um nó tiver ambos os endereços IPv4 e IPv6, isso contará como 2 IPs para esse nó. Portanto, esse limite de 5000 IPs determinaria o limite superior do número de agentes. Você pode excluir os agentes inativos da guia Nós no NPM >> Configurar. O NPM também mantém o histórico de todos os IPs que já foram atribuídos à VM que hospeda o agente e cada um é contado como IP separado contribuindo para esse limite superior de 5000 IPs. Para liberar IPs para o seu espaço de trabalho, você pode usar a página Nós para excluir os IPs que não estão em uso.
 
 ## <a name="monitoring"></a>Monitoramento
 
@@ -97,7 +97,7 @@ NPM usa um mecanismo probabilístico para atribuir as probabilidades de falha pa
 ### <a name="how-can-i-create-alerts-in-npm"></a>Como criar alertas no NPM?
 Consulte a [seção de alertas na documentação do](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) para obter instruções passo a passo.
 
-### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quais são as consultas de Log Analytics padrão para alertas
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quais são as consultas padrão do Log Analytics para alertas
 Consulta do monitor de desempenho
 
     NetworkMonitoring 
@@ -110,7 +110,7 @@ Consulta do monitor de conectividade de serviço
      | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
      | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
     
-Consultas do monitor do ExpressRoute: consulta de circuitos
+Consultas do monitor ExpressRoute: consulta de circuitos
 
     NetworkMonitoring
     | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
@@ -145,19 +145,19 @@ Uso de largura de banda é o total de largura de banda de entrada e saída. Ele 
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>Podemos obter informações de largura de banda de entrada e saída para o ExpressRoute?
 Valores de entrada e saídas para a largura de banda primária e secundária podem ser capturados.
 
-Para informações de nível de emparelhamento MS, use a consulta abaixo mencionada na pesquisa de logs
+Para obter informações de nível de peering de MS, use a consulta abaixo mencionada no Log Search
 
     NetworkMonitoring 
      | where SubType == "ERMSPeeringUtilization"
      | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
     
-Para obter informações de nível de emparelhamento privado, use a consulta abaixo mencionada na pesquisa de logs
+Para obter informações de nível de peering privados, use a consulta abaixo mencionada no Log Search
 
     NetworkMonitoring 
      | where SubType == "ERVNetConnectionUtilization"
      | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-Para informações de nível de circuito, use a consulta abaixo mencionada na pesquisa de logs
+Para obter informações sobre o nível do circuito, use a consulta abaixo mencionada no Log Search
 
     NetworkMonitoring 
         | where SubType == "ERCircuitTotalUtilization"
@@ -172,10 +172,10 @@ NPM pode monitorar a conectividade para serviços em qualquer parte do mundo, de
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quais regiões têm suporte para o Monitor do ExpressRoute do NPM?
 O NPM pode monitorar seus circuitos do ExpressRoute localizados em qualquer região do Azure. Para carregar no NPM, você precisará de um espaço de trabalho do Log Analytics que deve ser hospedado em uma das [regiões com suporte](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Por que alguns dos saltos são marcos como não identificados na exibição da topologia de rede?
-O NPM usa uma versão modificada do rastreamento de rotas para descobrir a topologia do agente de origem para o destino. Um salto não identificado representa que o salto de rede não respondeu à solicitação de rastreamento de rotas do agente de origem. Se três saltos de rede consecutivos não responderem aos traceroute do agente, a solução marcará os saltos sem resposta como não sendo identificados e não tentará descobrir mais saltos.
+O NPM usa uma versão modificada do rastreamento de rotas para descobrir a topologia do agente de origem para o destino. Um salto não identificado representa que o salto de rede não respondeu à solicitação de rastreamento de rotas do agente de origem. Se três saltos de rede consecutivos não responderem à rota de rastreamento do agente, a solução marca os lúpulos não responsivos como não identificados e não tenta descobrir mais saltos.
 
 Um salto não pode responder a um rastreamento de rotas em um ou mais dos cenários abaixo:
 
@@ -183,27 +183,27 @@ Um salto não pode responder a um rastreamento de rotas em um ou mais dos cenár
 * Os dispositivos de rede não estão permitindo o tráfego ICMP_TTL_EXCEEDED.
 * Um firewall está bloqueando a resposta ICMP_TTL_EXCEEDED do dispositivo de rede.
 
-Quando qualquer um dos pontos de extremidade está no Azure, os traceroute mostram saltos não identificados, pois a infraestrutura do Azure não revela a identidade para os traceroute. 
+Quando qualquer um dos pontos finais está no Azure, traceroute aparece hops não identificados, pois a Azure Infrastructure não revela identidade para traceroute. 
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Obtenho alertas para testes não íntegros, mas não vejo os valores altos no grafo de perda e latência do NPM. Como fazer verificar o que não está íntegro?
-O NPM emitirá um alerta se a latência de ponta a ponta entre a origem e o destino cruzar o limite de qualquer caminho entre eles. Algumas redes têm vários caminhos conectando a mesma origem e destino. NPM gera um alerta é que qualquer caminho não está íntegro. A perda e a latência vistas nos grafos são o valor médio de todos os caminhos, portanto, ele pode não mostrar o valor exato de um único caminho. Para entender onde o limite foi violado, procure a coluna "subtipo" no alerta. Se o problema for causado por um caminho, o valor do subtipo será NetworkPath (para testes do monitor de desempenho), EndpointPath (para testes do monitor de conectividade de serviço) e ExpressRoutePath (para testes do monitor ExpressRotue). 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Recebo alertas para testes insalubres, mas não vejo os altos valores no gráfico de perda e latência do NPM. Como verifico o que é insalubre?
+O NPM levanta um alerta se a latência final entre a origem e o destino cruzar o limiar para qualquer caminho entre eles. Algumas redes têm vários caminhos conectando a mesma fonte e destino. NPM levanta um alerta é que qualquer caminho é insalubre. A perda e latência observada nos gráficos é o valor médio de todos os caminhos, portanto pode não mostrar o valor exato de um único caminho. Para entender onde o limite foi violado, procure a coluna "SubType" no alerta. Se o problema for causado por um caminho, o valor do SubType será NetworkPath (para testes do Monitor de Desempenho), EndpointPath (para testes do Monitor de Conectividade de Serviço) e ExpressRoutePath (para testes do Monitor ExpressRotue). 
 
-A consulta de exemplo para localizar o caminho não está íntegra:
+A consulta de amostra para encontrar é caminho não é saudável:
 
     NetworkMonitoring 
     | where ( SubType == "ExpressRoutePath")
     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
     | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
 
-### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>Por que meu teste mostra não íntegro, mas a topologia não 
-O NPM monitora a perda, a latência e a topologia de ponta a ponta em intervalos diferentes. A perda e a latência são medidas uma vez a cada 5 segundos e agregadas a cada três minutos (para o monitor de desempenho e monitor de rota expressa) enquanto a topologia é calculada usando traceroute uma vez a cada 10 minutos. Por exemplo, entre 3:44 e 4:04, a topologia pode ser atualizada três vezes (3:44, 3:54, 4:04), mas a perda e a latência são atualizadas cerca de sete vezes (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). A topologia gerada em 3:54 será renderizada para a perda e a latência calculadas às 3:56, 3:59 e 4:02. Suponha que você receba um alerta de que o circuito ER não estava íntegro em 3:59. Faça logon no NPM e tente definir o tempo de topologia como 3:59. NPM renderizará a topologia gerada em 3:54. Para entender a última topologia conhecida de sua rede, compare os campos timeprocessod (tempo em que a perda e a latência foram calculadas) e TracerouteCompletedTime (hora em que a topologia foi calculada). 
+### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>Por que meu teste mostra insalubre, mas a topologia não 
+O NPM monitora a perda, latência e topologia de ponta a ponta em intervalos diferentes. A perda e a latência são medidas uma vez a cada 5 segundos e agregadas a cada três minutos (para monitor de desempenho e monitor de rota expressa), enquanto a topologia é calculada usando traceroute uma vez a cada 10 minutos. Por exemplo, entre 3:44 e 4:04, a topologia pode ser atualizada três vezes (3:44, 3:54, 4:04), mas perda e latência são atualizadas cerca de sete vezes (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). A topologia gerada às 3:54 será feita para a perda e latência que é calculada às 3:56, 3:59 e 4:02. Suponha que você receba um alerta de que seu circuito de emergência não estava saudável às 3:59. Você faz logon no NPM e tenta definir o horário da topologia para 3:59. O NPM renderizará a topologia gerada às 3:54. Para entender a última topologia conhecida da sua rede, compare os campos TimeProcessed (tempo em que a perda e latência foi calculada) e TracerouteCompletedTime (tempo em que a topologia foi calculada). 
 
 ### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>Qual é a diferença entre os campos E2EMedianLatency e AvgHopLatencyList na tabela NetworkMonitoring
-E2EMedianLatency é a latência atualizada a cada três minutos após a agregação dos resultados de testes de ping TCP, enquanto o AvgHopLatencyList é atualizado a cada 10 minutos com base em traceroute. Para entender a hora exata em que o E2EMedianLatency foi calculado, use o campo tempo processado. Para entender a hora exata em que os traceroutes foram concluídos e atualizados AvgHopLatencyList, use o campo TracerouteCompletedTime
+E2EMedianLatency é a latência atualizada a cada três minutos após agregação dos resultados dos testes de ping tcp, enquanto avgHopLatencyList é atualizada a cada 10 minutos com base em traceroute. Para entender o tempo exato em que o E2EMedianLatency foi calculado, use o campo TimeProcessed. Para entender a hora exata em que a traceroute foi concluída e atualizada do AvgHopLatencyList, use o campo TracerouteCompletedTime
 
-### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Por que os números de latência de salto por salto são diferentes de HopLatencyValues 
-HopLatencyValues são de origem para ponto de extremidade.
-Por exemplo: Hops-A, B, C. AvgHopLatency-10, 15, 20. Isso significa origem para uma latência = 10, latência de origem para B = 15 e a latência de origem para C é 20. A interface do usuário calculará A latência de salto-B como 5 na topologia
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Por que os números de latência hop-by-hop diferem dos Valores de HopLatency 
+HopLatencyValues são fonte para endpoint.
+Por exemplo: Hops - A,B,C. AvgHopLatency - 10,15,20. Isso significa fonte para latência A = 10, fonte de latência B = 15 e fonte de latência C é 20. UI vai calcular latência de lúpulo A-B como 5 na topologia
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>A solução mostra 100% de perda, mas há conectividade entre a origem e o destino
 Isso pode acontecer se o firewall do host ou o firewall intermediário (firewall de rede ou NSG do Azure) está bloqueando a comunicação entre o agente de origem e destino pela porta que está sendo usada para monitoramento pelo NPM (por padrão a porta é 8084, a menos que o cliente tenha mudado isso).
@@ -271,6 +271,6 @@ Você pode exibir o status de integridade de nós que estão sendo usados para m
 ### <a name="can-npm-report-latency-numbers-in-microseconds"></a>O NPM pode relatar os números de latência em microssegundos?
 O NPM arredonda os números de latência na interface do usuário e, em milissegundos. Os mesmos dados são armazenados em uma granularidade maior (às vezes, até quatro decimais).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o Monitor de desempenho de rede consultando [Solução de Monitor de Desempenho de Rede no Azure](../../azure-monitor/insights/network-performance-monitor.md).

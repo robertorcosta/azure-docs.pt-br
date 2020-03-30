@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670212"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Usar funções nas consultas de log no Azure Monitor
@@ -19,11 +19,11 @@ Para usar uma consulta de log com outra consulta, você pode salvá-la como uma 
 
 ## <a name="create-a-function"></a>Criar uma função
 
-Crie uma função com Log Analytics na portal do Azure clicando em **salvar** e, em seguida, fornecendo as informações na tabela a seguir.
+Crie uma função com o Log Analytics no portal Azure clicando em **Salvar** e, em seguida, fornecendo as informações na tabela a seguir.
 
 | Configuração | Descrição |
 |:---|:---|
-| {1&gt;Nome&lt;1}           | Nome de exibição para a consulta no **Gerenciador de consultas**. |
+| Nome           | Nome de exibição para a consulta no **Gerenciador de consultas**. |
 | Salvar como        | Função |
 | Alias da função | Nome curto para usar a função em outras consultas. Não pode conter espaços e deve ser exclusivo. |
 | Categoria       | Uma categoria para organizar consultas salvas e funções na **Explorador de consultas**. |
@@ -37,7 +37,7 @@ Crie uma função com Log Analytics na portal do Azure clicando em **salvar** e,
 ## <a name="use-a-function"></a>Use uma função
 Use uma função, incluindo seu alias em outra consulta. Pode ser usado como qualquer outra tabela.
 
-## <a name="example"></a>{1&gt;Exemplo&lt;1}
+## <a name="example"></a>Exemplo
 A consulta padrão a seguir retorna todas as atualizações de segurança faltantes relatadas no último dia. Salve essa consulta como função com o alias _security_updates_last_day_. 
 
 ```Kusto
@@ -53,10 +53,10 @@ Criar outra consulta e referência na função _security_updates_last_day_ ao pr
 security_updates_last_day | where Title contains "SQL"
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Confira outras lições para escrever consultas de log no Azure Monitor:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações da cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)

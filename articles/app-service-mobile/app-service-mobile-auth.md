@@ -1,20 +1,20 @@
 ---
 title: Autenticação e autorização
-description: Referência conceitual e visão geral do recurso de autenticação/autorização para Azure App serviço, especificamente para aplicativos móveis.
+description: Referência conceitual e visão geral do recurso Autenticação / Autorização para O Serviço de Aplicativos Azure, especificamente para aplicativos móveis.
 ms.topic: article
 ms.date: 10/01/2016
 ms.openlocfilehash: 4a9ef62178b9a58fa8703413a09114a617d1d239
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459456"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticação e autorização no Serviço de Aplicativo do Azure para aplicativos móveis
 
 Este artigo descreve como a autenticação e a autorização funcionam ao desenvolver aplicativos móveis nativos com um back-end do Serviço de Aplicativo. O Serviço de Aplicativo fornece autenticação e autorização integradas para que os aplicativos móveis possam conectar usuários sem alterar nenhum código no Serviço de Aplicativo. Ele fornece uma maneira fácil de proteger o aplicativo e trabalhar com dados por usuário. 
 
-Este artigo concentra-se no desenvolvimento de aplicativos para dispositivos móveis. Para começar rapidamente com a autenticação e autorização do serviço de aplicativo para seu aplicativo móvel, consulte um dos tutoriais a seguir [Adicionar autenticação ao aplicativo IOS][iOS] (ou [Xamarin.Android], [Windows], [Xamarin.iOS], Xamarin. [Android], [Xamarin.Forms]ou [Cordova]). 
+Este artigo concentra-se no desenvolvimento de aplicativos para dispositivos móveis. Para início rápido com autenticação e autorização do Serviço de Aplicativo para o aplicativo móvel, consulte um dos seguintes tutoriais [Adicionar autenticação ao aplicativo iOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] ou [Cordova]). 
 
 Para obter informações sobre como a autenticação e a autorização funcionam no Serviço de Aplicativo, consulte [Autenticação e autorização no Serviço de Aplicativo do Azure](../app-service/overview-authentication-authorization.md).
 
@@ -48,18 +48,18 @@ Para obter mais informações sobre o fluxo de autenticação, consulte [Fluxo d
 Os tutoriais a seguir mostram como adicionar autenticação aos clientes móveis usando o [fluxo direcionado ao servidor](../app-service/overview-authentication-authorization.md#authentication-flow):
 
 * [Adicione autenticação ao seu aplicativo do iOS][iOS]
-* [Adicionar autenticação ao seu aplicativo Android][Android]
-* [Adicionar autenticação ao seu aplicativo do Windows][Windows]
+* [Adicione autenticação ao seu aplicativo para Android][Android]
+* [Adicionar autenticação ao seu aplicativo windows][Windows]
 * [Adicionar autenticação ao aplicativo Xamarin.iOS][Xamarin.iOS]
 * [Adicione autenticação ao aplicativo Xamarin.Android][Xamarin.Android]
-* [Adicionar autenticação ao aplicativo Xamarin. Forms][Xamarin.Forms]
-* [Adicionar autenticação ao seu aplicativo Cordova][Cordova]
+* [Adicionar autenticação ao aplicativo Xamarin.Forms][Xamarin.Forms]
+* [Adicione autenticação ao seu aplicativo Cordova][Cordova]
 
 Use os recursos a seguir se quiser usar o [fluxo direcionado ao cliente](../app-service/overview-authentication-authorization.md#authentication-flow) para o Azure Active Directory:
 
-* [Usar o Biblioteca de Autenticação do Active Directory para iOS][ADAL-iOS]
-* [Usar o Biblioteca de Autenticação do Active Directory para Android][ADAL-Android]
-* [Usar o Biblioteca de Autenticação do Active Directory para Windows e Xamarin][ADAL-dotnet]
+* [Use a Biblioteca de Autenticação do Active Directory para iOS][ADAL-iOS]
+* [Use a Biblioteca de Autenticação do Active Directory para Android][ADAL-Android]
+* [Use a Biblioteca de Autenticação do Active Directory para Windows e Xamarin][ADAL-dotnet]
 
 Use os recursos a seguir se quiser usar o [fluxo direcionado ao cliente](../app-service/overview-authentication-authorization.md#authentication-flow) para o Facebook:
 

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138528"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
@@ -79,15 +79,15 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
 7. Defina uma cláusula selecionando um **Nome do Atributo** de origem, um **Operador** e um **Valor do Atributo** para corresponder. Há suporte para os seguintes operadores:
 
-   a. **EQUALS**. A cláusula retornará "true" se o atributo avaliado corresponder exatamente ao valor da cadeia de caracteres de entrada (diferencia maiúsculas de minúsculas).
+   a. **IGUAIS**. A cláusula retornará "true" se o atributo avaliado corresponder exatamente ao valor da cadeia de caracteres de entrada (diferencia maiúsculas de minúsculas).
 
-   b. **NOT EQUALS**. A cláusula retornará "true" se o atributo avaliado não corresponder ao valor da cadeia de caracteres de entrada (diferencia maiúsculas de minúsculas).
+   b. **NÃO IGUAIS**. A cláusula retornará "true" se o atributo avaliado não corresponder ao valor da cadeia de caracteres de entrada (diferencia maiúsculas de minúsculas).
 
    c. **IS TRUE**. A cláusula retornará "true" se o atributo avaliado contiver um valor booliano de true.
 
    d. **IS FALSE**. A cláusula retornará "true" se o atributo avaliado contiver um valor booliano de false.
 
-   e. **IS NULL**. A cláusula retornará "true" se o atributo avaliado estiver vazio.
+   e. **É NULO.** A cláusula retornará "true" se o atributo avaliado estiver vazio.
 
    f. **IS NOT NULL**. A cláusula retornará "true" se o atributo avaliado não estiver vazio.
 
@@ -95,16 +95,16 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
    h. **NOT REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
    
-   i. **Greater_Than.** A cláusula retornará "true" se o atributo avaliado for maior que o valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0, 1, 2,...]. 
+   i. **Greater_Than.** A cláusula retorna "verdadeira" se o atributo avaliado for maior que o valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0,1,2,...]. 
    
-   j. **Greater_Than_OR_EQUALS.** A cláusula retornará "true" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0, 1, 2,...]. 
+   j. **Greater_Than_OR_EQUALS.** A cláusula retorna "verdadeira" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0,1,2,...]. 
    
-   k. **Incluir.** A cláusula retornará "true" se o atributo avaliado contiver o valor da cadeia de caracteres (diferencia maiúsculas de minúsculas), conforme descrito [aqui](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Inclui.** A cláusula retorna "true" se o atributo avaliado contiver o valor da seqüência (sensível ao caso) conforme descrito [aqui](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
-> - O filtro IsMemberOf não tem suporte no momento.
-> - EQUALs e NOT EQUALs não têm suporte para atributos de valores múltiplos
+> - O filtro IsMemberOf não é suportado no momento.
+> - EQUALS e NOT EQUALS não são suportados para atributos multi-valor
 
 9. Opcionalmente, repita as etapas 7 e 8 para adicionar mais cláusulas de escopo.
 
@@ -117,19 +117,19 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 13. Selecione **Salvar** na tela de **Mapeamento de Atributo**. 
 
 >[!IMPORTANT] 
-> Salvar um novo filtro de escopo dispara uma nova sincronização completa para o aplicativo, onde todos os usuários no sistema de origem são avaliados novamente em relação ao novo filtro de escopo. Se um usuário no aplicativo estava anteriormente no escopo de provisionamento, mas sair do escopo, sua conta será desabilitada ou desprovisionada no aplicativo. Para substituir esse comportamento padrão, consulte [ignorar a exclusão de contas de usuário que saem do escopo](../app-provisioning/skip-out-of-scope-deletions.md).
+> Salvar um novo filtro de escopo dispara uma nova sincronização completa para o aplicativo, onde todos os usuários no sistema de origem são avaliados novamente em relação ao novo filtro de escopo. Se um usuário no aplicativo estava anteriormente no escopo de provisionamento, mas sair do escopo, sua conta será desabilitada ou desprovisionada no aplicativo. Para substituir esse comportamento padrão, consulte a [exclusão de Skip para contas de usuário que saem do escopo](../app-provisioning/skip-out-of-scope-deletions.md).
 
 
 ## <a name="common-scoping-filters"></a>Filtros de escopo comuns
-| Atributo de Destino| Operador | Valor | DESCRIÇÃO|
+| Atributo de Destino| Operador | Valor | Descrição|
 |----|----|----|----|
-|userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
-|userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
-|department|EQUALS|sales|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
-|workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |Todos os usuários com userPrincipal que tem o domínio @domain.com estarão no escopo para provisionamento|
+|userPrincipalName|NÃO REGEX MATCH|.\*@domain.com|Todos os usuários com userPrincipal que tem o domínio @domain.com estarão fora do escopo para provisionamento|
+|department|EQUALS|vendas|Todos os usuários do departamento de vendas estão em escopo para provisionamento|
+|workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com IDs de trabalhadores entre 1000000 e 200000 estão em escopo para o provisionamento.|
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](../app-provisioning/user-provisioning.md)
+* [Automatize o provisionamento e o desprovisionamento do usuário para aplicativos SaaS](../app-provisioning/user-provisioning.md)
 * [Personalizar mapeamentos de atributos para provisionamento do usuário](../app-provisioning/customize-application-attributes.md)
 * [Escrever expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
 * [Notificações de provisionamento de conta](../app-provisioning/user-provisioning.md)

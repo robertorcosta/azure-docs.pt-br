@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
 ms.openlocfilehash: 318576e9b5c5b32bbc993ea16494c938b74bd2f4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77200054"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
-A [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece uma rede segura e privada para seus recursos do Azure e locais. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual.
+[A Rede Virtual Azure](../virtual-network/virtual-networks-overview.md) fornece rede privada e segura para seus recursos azure e no local. Implantando grupos de contêineres em uma rede virtual do Azure, os contêineres podem se comunicar com segurança com outros recursos na rede virtual.
 
 Os grupos de contêineres implantados em uma rede virtual do Azure permitem cenários como:
 
@@ -24,7 +24,7 @@ Os grupos de contêineres implantados em uma rede virtual do Azure permitem cen�
 * Comunicação de contêiner com recursos locais por meio de um [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 > [!IMPORTANT]
-> As implantações de grupo de contêineres em uma rede virtual estão geralmente disponíveis para cargas de trabalho de produção somente nas seguintes regiões: **leste dos EUA, sul EUA Central e oeste dos EUA 2**. Em outras regiões em que o recurso está disponível, as implantações de rede virtual estão atualmente em versão prévia, com disponibilidade geral planejada em um futuro próximo. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. 
+> As implantações de grupos de contêineres em uma rede virtual estão geralmente disponíveis para cargas de trabalho de produção apenas nas seguintes regiões: **Leste dos EUA, Centro-Sul dos EUA e Oeste dos EUA 2**. Em outras regiões onde o recurso está disponível, as implantações de rede virtual estão atualmente em pré-visualização, com disponibilidade geral planejada em um futuro próximo. As visualizações são disponibilizadas para você com a condição de que você concorde com os [termos de uso suplementar][terms-of-use]. 
 
 
 ## <a name="virtual-network-deployment-limitations"></a>Limitações da implantação na rede virtual
@@ -33,8 +33,8 @@ Algumas limitações se aplicam ao implantar grupos de contêineres em uma rede 
 
 * Para implantar grupos de contêineres em uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remova todos os recursos existentes de uma sub-rede existente antes de implantar grupos de contêineres nela ou crie uma nova sub-rede.
 * Você não pode usar uma [identidade gerenciada](container-instances-managed-identity.md) em um grupo de contêineres implantado em uma rede virtual.
-* Você não pode habilitar uma investigação de [vida](container-instances-liveness-probe.md) ou [investigação de preparação](container-instances-readiness-probe.md) em um grupo de contêineres implantado em uma rede virtual.
-* Devido aos recursos de rede adicionais envolvidos, a implantação de um grupo de contêineres em uma rede virtual normalmente é mais lenta do que a implantação de uma instância de contêiner padrão.
+* Você não pode habilitar um [teste de vida](container-instances-liveness-probe.md) ou teste de [prontidão](container-instances-readiness-probe.md) em um grupo de contêineres implantado em uma rede virtual.
+* Devido aos recursos adicionais de rede envolvidos, a implantação de um grupo de contêineres em uma rede virtual é tipicamente mais lenta do que a implantação de uma instância padrão de contêiner.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -42,14 +42,14 @@ Limites de recursos de contêineres podem ser diferente dos limites para as inst
 
 ### <a name="unsupported-networking-scenarios"></a>Cenários de rede sem suporte 
 
-* Não há suporte para **Azure Load Balancer** colocar uma Azure Load Balancer na frente das instâncias de contêiner em um grupo de contêineres de rede
-* **Emparelhamento de rede virtual**
-  * O emparelhamento VNet não funcionará para ACI se a rede à qual a VNet ACI está emparelhando usar um espaço IP público. A rede emparelhada precisa de um espaço IP privado RFC 1918 para que o emparelhamento VNet funcione. 
-  * Você só pode emparelhar sua VNet com uma outra VNet
-* **Roteamento de tráfego de rede virtual** -as rotas personalizadas não podem ser configuradas em lugar de IPS públicos. As rotas podem ser configuradas no espaço IP privado da sub-rede delegada na qual os recursos de ACI são implantados 
-* **Grupos de segurança de rede** – as regras de segurança de saída no NSGs aplicadas a uma sub-rede delegada para instâncias de contêiner do Azure não são impostas no momento 
-* **Rótulo de IP público ou DNS** -grupos de contêineres implantados em uma rede virtual atualmente não dão suporte à exposição de contêineres diretamente à Internet com um endereço IP público ou um nome de domínio totalmente qualificado
-* **Resolução de nome interno** -a resolução de nomes para recursos do Azure na rede virtual por meio do DNS do Azure interno não é suportada
+* **Azure Load Balancer** - Colocar um Balanceador de Carga Azure na frente de instâncias de contêineres em um grupo de contêineres em rede não é suportado
+* **Peering de rede virtual**
+  * O peering VNet não funcionará para a ACI se a rede que o ACI VNet está olhando para usar um espaço IP público. A rede peered precisa de um espaço IP privado RFC 1918 para que o VNet peering funcione. 
+  * Você só pode espiar seu VNet para outro VNet
+* **Roteamento de tráfego de rede virtual** - Rotas personalizadas não podem ser configuradas em torno de IPs públicos. As rotas podem ser configuradas dentro do espaço IP privado da sub-rede delegada na qual os recursos da ACI são implantados 
+* **Grupos de segurança de** rede - As regras de segurança de saída em NSGs aplicadas a uma sub-rede delegada ao Azure Container Instances não são aplicadas atualmente 
+* **Selo IP público ou DNS** - Grupos de contêineres implantados em uma rede virtual não suportam atualmente expor contêineres diretamente à internet com um endereço IP público ou um nome de domínio totalmente qualificado
+* **Resolução de nome interno** - A resolução de nomes para recursos do Azure na rede virtual através do DNS interno do Azure não é suportada
 
 A **exclusão de recursos de rede** requer [etapas adicionais](#delete-network-resources) depois da implantação de grupos de contêineres na rede virtual.
 
@@ -69,9 +69,9 @@ A sub-rede que você usa para grupos de contêineres poderá conter somente grup
 
 ### <a name="network-profile"></a>Perfil de rede
 
-Um perfil de rede é um modelo de configuração de rede para recursos do Azure. Ele especifica determinadas propriedades de rede para o recurso; por exemplo, a sub-rede na qual ele deve ser implantado. Quando você usa pela primeira vez o comando [AZ container Create][az-container-create] para implantar um grupo de contêineres em uma sub-rede (e, portanto, em uma rede virtual), o Azure cria um perfil de rede para você. Em seguida, você pode usar esse perfil de rede para implantações futuras na sub-rede. 
+Um perfil de rede é um modelo de configuração de rede para recursos do Azure. Ele especifica determinadas propriedades de rede para o recurso; por exemplo, a sub-rede na qual ele deve ser implantado. Quando você usa o comando [az container create][az-container-create] pela primeira vez para implantar um grupo de contêiner em uma sub-rede (e, portanto, em uma rede virtual), o Azure cria um perfil de rede para você. Em seguida, você pode usar esse perfil de rede para implantações futuras na sub-rede. 
 
-Para usar um modelo do Resource Manager, um arquivo YAML ou um método programático para implantar um grupo de contêiner em uma sub-rede, é necessário fornecer o ID completo do recurso do Gerenciador de Recursos de um perfil de rede. Você pode usar um perfil criado anteriormente usando [AZ container Create][az-container-create]ou criar um perfil usando um modelo do Resource Manager (consulte [exemplo de modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) e [referência](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Para obter a ID de um perfil criado anteriormente, use o comando [AZ Network Profile List][az-network-profile-list] . 
+Para usar um modelo do Resource Manager, um arquivo YAML ou um método programático para implantar um grupo de contêiner em uma sub-rede, é necessário fornecer o ID completo do recurso do Gerenciador de Recursos de um perfil de rede. Você pode usar um perfil criado anteriormente usando o [az contêiner create][az-container-create] ou criar um perfil usando um modelo do Resource Manager (consulte [exemplo de modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) e [referência](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Para obter o ID de um perfil criado anteriormente, use o comando [lista de perfis de rede az][az-network-profile-list]. 
 
 No diagrama a seguir, vários grupos de contêineres foram implantados em uma sub-rede delegada a Instâncias de Contêiner do Azure. Depois de implantar um grupo de contêineres em uma sub-rede, você pode implantar grupos de contêineres adicionais nela especificando o mesmo perfil de rede.
 
@@ -79,11 +79,11 @@ No diagrama a seguir, vários grupos de contêineres foram implantados em uma su
 
 ## <a name="deployment-scenarios"></a>Cenários de implantação
 
-Você pode usar [AZ container Create][az-container-create] para implantar grupos de contêineres em uma nova rede virtual e permitir que o Azure crie os recursos de rede necessários para você ou implante em uma rede virtual existente. 
+Você pode usar o [az container create][az-container-create] para implantar grupos de contêineres em uma nova rede virtual e permitir que o Azure crie os recursos de rede necessários para você ou implante em uma rede virtual existente. 
 
 ### <a name="new-virtual-network"></a>Nova rede virtual
 
-Para implantar em uma nova rede virtual e fazer com que o Azure crie os recursos de rede para você automaticamente, especifique o seguinte ao executar a [criação de contêiner AZ][az-container-create]:
+Para implantar em uma nova rede virtual e fazer o Azure criar os recursos de rede para você automaticamente, especifique o seguinte quando executar [az container create][az-container-create]:
 
 * Nome da rede virtual
 * Prefixo do endereço da rede virtual no formato CIDR
@@ -98,11 +98,11 @@ Depois de implantar seu primeiro grupo de contêineres com esse método, você p
 
 Para implantar um grupo de contêineres em uma rede virtual existente:
 
-1. Crie uma sub-rede em sua rede virtual existente, use uma sub-rede existente na qual um grupo de contêineres já esteja implantado ou use uma sub-rede existente vazia de *todos os* outros recursos
-1. Implante um grupo de contêineres com [AZ container Create][az-container-create] e especifique um dos seguintes:
+1. Crie uma sub-rede dentro de sua rede virtual existente, use uma sub-rede existente na qual um grupo de contêineres já esteja implantado ou use uma sub-rede existente esvaziada de *todos os* outros recursos
+1. Implante um grupo de contêineres com [az container create][az-container-create] e especifique um dos itens a seguir:
    * Nome da rede virtual e nome da sub-rede
    * ID de recurso de rede virtual e ID de recurso de sub-rede, que permite usar uma rede virtual de um grupo de recursos diferente
-   * Nome ou ID do perfil de rede, que você pode obter usando [AZ Network Profile List][az-network-profile-list]
+   * Nome ou ID do perfil de rede, que você pode obter usando [lista de perfis de rede az][az-network-profile-list]
 
 Depois de implantar um grupo de contêineres em uma sub-rede existente pela primeira vez, o Azure delega essa sub-rede às Instâncias de Contêiner do Azure. Você não poderá mais implantar recursos além de grupos de contêineres nessa sub-rede.
 
@@ -114,7 +114,7 @@ As seções a seguir descrevem como implantar grupos de contêineres em uma rede
 
 Primeiramente, implante um grupo de contêineres e especifique os parâmetros para uma nova rede virtual e sub-rede. Quando você especifica esses parâmetros, o Azure cria a rede virtual e a sub-rede, delega a sub-rede para Instâncias de Contêiner do Azure e também cria um perfil de rede. Depois que esses recursos são criados, seu grupo de contêineres é implantado na sub-rede.
 
-Execute o comando [AZ container Create][az-container-create] a seguir que especifica as configurações para uma nova rede virtual e sub-rede. Você precisa fornecer o nome de um grupo de recursos que foi criado em uma região em que as implantações de grupo de contêineres em uma rede virtual estão [disponíveis](#virtual-network-deployment-limitations). Este comando implanta o contêiner público do Microsoft [ACI-HelloWorld][aci-helloworld] que executa um pequeno servidor Web node. js que serve uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
+Execute o comando [az container create][az-container-create], que especifica as configurações para uma nova rede virtual e sub-rede. Você precisa fornecer o nome de um grupo de recursos criado em uma região onde estão [disponíveis](#virtual-network-deployment-limitations)implantações de grupos de contêineres em uma rede virtual . Este comando implanta o contêiner [aci-helloworld][aci-helloworld] público da Microsoft que executa um pequeno servidor web Node.js servindo uma página web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
 
 ```azurecli
 az container create \
@@ -179,7 +179,7 @@ A saída de log deve mostrar que `wget` conseguiu se conectar e baixar o arquivo
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>Implantar em uma rede virtual existente – YAML
 
-Você também pode implantar um grupo de contêineres em uma rede virtual existente usando um arquivo YAML, um modelo do Resource Manager ou outro método programático, como com o SDK do Python. Para implantar em uma sub-rede em uma rede virtual, você pode especificar várias propriedades adicionais no YAML:
+Você também pode implantar um grupo de contêineres em uma rede virtual existente usando um arquivo YAML, um modelo de Gerenciador de recursos ou outro método programático, como com o Python SDK. Para implantar em uma sub-rede em uma rede virtual, você pode especificar várias propriedades adicionais no YAML:
 
 * `ipAddress`: as configurações de endereço IP para o grupo de contêineres.
   * `ports`: as portas a serem abertas, se houver.
@@ -187,7 +187,7 @@ Você também pode implantar um grupo de contêineres em uma rede virtual existe
 * `networkProfile`: especifica as configurações de rede, como a rede virtual e a sub-rede para um recurso do Azure.
   * `id`: a ID de recurso completa do Resource Manager do `networkProfile`.
 
-Para implantar um grupo de contêineres em uma rede virtual com um arquivo YAML, primeiramente você precisa obter a ID do perfil de rede. Execute o comando [AZ Network Profile List][az-network-profile-list] , especificando o nome do grupo de recursos que contém sua rede virtual e a sub-rede delegada.
+Para implantar um grupo de contêineres em uma rede virtual com um arquivo YAML, primeiramente você precisa obter a ID do perfil de rede. Execute o comando [az network profile list][az-network-profile-list], especificando o nome do grupo de recursos que contém sua rede virtual e a sub-rede delegada.
 
 ``` azurecli
 az network profile list --resource-group myResourceGroup --query [0].id --output tsv
@@ -231,13 +231,13 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Implante o grupo de contêineres com o comando [AZ container Create][az-container-create] , especificando o nome do arquivo YAML para o parâmetro `--file`:
+Implante o grupo de contêineres com o comando [az container create][az-container-create], especificando o nome do arquivo YAML para o parâmetro `--file`:
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
 ```
 
-Depois que a implantação for concluída, execute o comando [AZ container show][az-container-show] para exibir seu status:
+Depois que a implantação for concluída, execute o comando [az container show][az-container-show] para exibir seu status:
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
@@ -246,7 +246,7 @@ Name              ResourceGroup    Status    Image                              
 appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="delete-container-instances"></a>Excluir instâncias de contêiner
 
@@ -260,9 +260,9 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### <a name="delete-network-resources"></a>Excluir recursos de rede
 
-Esse recurso atualmente requer vários comandos adicionais para excluir os recursos de rede que você criou anteriormente. Se você usou os comandos de exemplo nas seções anteriores deste artigo para criar sua rede virtual e sub-rede, pode usar o script a seguir para excluir esses recursos de rede. O script pressupõe que o grupo de recursos contém uma única rede virtual com um único perfil de rede.
+Esse recurso atualmente requer vários comandos adicionais para excluir os recursos de rede que você criou anteriormente. Se você usou os comandos de exemplo nas seções anteriores deste artigo para criar sua rede virtual e sub-rede, pode usar o script a seguir para excluir esses recursos de rede. O script pressupõe que seu grupo de recursos contenha uma única rede virtual com um único perfil de rede.
 
-Antes de executar o script, defina a variável `RES_GROUP` como o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser excluídas. Atualize o nome da rede virtual se você não usou o nome `aci-vnet` sugerido anteriormente. O script é formatado para o shell do Bash. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, você precisará ajustar a atribuição de variável e os acessadores adequadamente.
+Antes de executar o script, defina a variável `RES_GROUP` como o nome do grupo de recursos que contém a rede virtual e a sub-rede que devem ser excluídas. Atualize o nome da rede virtual `aci-vnet` se você não usou o nome sugerido anteriormente. O script é formatado para o shell do Bash. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, você precisará ajustar a atribuição de variável e os acessadores adequadamente.
 
 > [!WARNING]
 > Esse script exclui recursos! Ele exclui a rede virtual e todas as sub-redes que ela contém. Certifique-se de que você não precisa mais de *qualquer* um dos recursos na rede virtual, incluindo todas as sub-redes que ela contém, antes de executar esse script. Depois de excluídos, **esses recursos são irrecuperáveis**.
@@ -292,8 +292,8 @@ Vários recursos de rede virtual e funcionalidades foram discutidos neste artigo
 
 * [Rede virtual](../virtual-network/manage-virtual-network.md)
 * [Sub-rede](../virtual-network/virtual-network-manage-subnet.md)
-* [Pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md)
-* [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+* [Pontos finais de serviço](../virtual-network/virtual-network-service-endpoints-overview.md)
+* [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 <!-- IMAGES -->

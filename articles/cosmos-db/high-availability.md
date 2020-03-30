@@ -8,10 +8,10 @@ ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247417"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
@@ -20,17 +20,17 @@ O Azure Cosmos DB replica de forma transparente seus dados em todas as regiões 
 
 ![Particionamento físico](./media/high-availability/cosmosdb-data-redundancy.png)
 
-- Os dados em contêineres cosmos são [particionados horizontalmente](partitioning-overview.md).
+- Os dados nos contêineres cosmos são [horizontalmente particionados](partitioning-overview.md).
 
 - Dentro de cada região, toda partição é protegida por um conjunto de réplicas com todas as gravações replicadas e confirmadas permanentemente pela maioria das réplicas. As réplicas são distribuídas em até 10 a 20 domínios de falha.
 
 - Em todas as regiões, cada partição é replicada. Cada região contém todas as partições de dados de um contêiner do Cosmos e pode aceitar gravações e fornecer leituras.  
 
-Se sua conta do cosmos for distribuída entre *n* regiões do Azure, haverá pelo menos *n* x 4 cópias de todos os seus dados. Além de fornecer acesso a dados de baixa latência e aumentar a taxa de transferência de gravação/leitura entre as regiões associadas à sua conta do cosmos, ter mais regiões (mais altas *N*) melhora ainda mais a disponibilidade.  
+Se sua conta Cosmos for distribuída em regiões *do N* Azure, haverá pelo menos *N* x 4 cópias de todos os seus dados. Além de fornecer acesso a dados de baixa latência e dimensionamento do throughput de gravação/leitura em todas as regiões associadas à sua conta Cosmos, ter mais regiões *(N*mais altas ) melhora ainda mais a disponibilidade.  
 
 ## <a name="slas-for-availability"></a>SLAs de disponibilidade
 
-Como um banco de dados distribuído globalmente, o Cosmos DB fornece SLAs abrangentes que englobam a taxa de transferência, a latência no 99º percentil, a coerência e a alta disponibilidade. A tabela abaixo mostra as garantias de alta disponibilidade fornecidas pelo Cosmos DB para contas de uma e várias regiões. Para alta disponibilidade, sempre configure suas contas do cosmos para ter várias regiões de gravação.
+Como um banco de dados distribuído globalmente, o Cosmos DB fornece SLAs abrangentes que englobam a taxa de transferência, a latência no 99º percentil, a coerência e a alta disponibilidade. A tabela abaixo mostra as garantias de alta disponibilidade fornecidas pelo Cosmos DB para contas de uma e várias regiões. Para alta disponibilidade, configure sempre suas contas Cosmos para ter várias regiões de gravação.
 
 |Tipo de operação  | Região única |Várias regiões (gravações de região única)|Várias regiões (gravações de várias regiões) |
 |---------|---------|---------|-------|
@@ -38,44 +38,44 @@ Como um banco de dados distribuído globalmente, o Cosmos DB fornece SLAs abrang
 |Leituras     | 99,99    |99,999  |99,999|
 
 > [!NOTE]
-> Na prática, a disponibilidade de gravação real para desatualização limitada, sessão, prefixo consistente e modelos de consistência eventual é significativamente maior do que os SLAs publicados. A disponibilidade de leitura real para todos os níveis de coerência é significativamente mais alta do que os SLAs publicados.
+> Na prática, a disponibilidade real de gravação para obsoletos, sessões, prefixo consistente e eventuais modelos de consistência é significativamente maior do que os SLAs publicados. A disponibilidade de leitura real para todos os níveis de coerência é significativamente mais alta do que os SLAs publicados.
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>Alta disponibilidade com Cosmos DB em caso de interrupções regionais
 
-Interrupções regionais não são incomuns e o Azure Cosmos DB garante que seu banco de dados esteja sempre altamente disponível. Os detalhes a seguir capturam Cosmos DB comportamento durante uma interrupção, dependendo da configuração da sua conta do Cosmos:
+Interrupções regionais não são incomuns e o Azure Cosmos DB garante que seu banco de dados esteja sempre altamente disponível. Os detalhes a seguir capturam o comportamento do Cosmos DB durante uma paralisação, dependendo da configuração da sua conta Cosmos:
 
 - Com o Cosmos DB, antes que uma operação de gravação seja confirmada para o cliente, os dados serão confirmados por um quorum de réplicas dentro da região que aceitará as operações de gravação.
 
 - Contas de várias regiões configuradas com várias regiões de gravação estarão altamente disponíveis para leituras e gravações. Failovers regionais são instantâneos e não exigem nenhuma alteração do aplicativo.
 
-- Contas de uma única região poderão perder disponibilidade após uma indisponibilidade regional. É sempre recomendável configurar **pelo menos duas regiões** (preferencialmente, pelo menos duas regiões de gravação) com sua conta do cosmos para garantir a alta disponibilidade em todos os momentos.
+- Contas de uma única região poderão perder disponibilidade após uma indisponibilidade regional. É sempre recomendável configurar **pelo menos duas regiões** (de preferência, pelo menos duas regiões de gravação) com sua conta Cosmos para garantir alta disponibilidade em todos os momentos.
 
-- **Contas de várias regiões com uma região de gravação única (interrupção da região de gravação):**
-  - Durante uma interrupção da região de gravação, a conta Cosmos promoverá automaticamente uma região secundária para ser a nova região de gravação primária quando **habilitar o failover automático** for configurado na conta do Azure Cosmos. Quando habilitado, o failover ocorrerá em outra região na ordem de prioridade de região que você especificou.
-  - Os clientes também podem optar por usar o **failover manual** e monitorar suas próprias URL de ponto de extremidade de gravação Cosmos usando um agente criado por si só. Para clientes com necessidades de monitoramento de integridade complexas e sofisticadas, isso pode proporcionar um RTO reduzido caso ocorra uma falha na região de gravação.
-  - Quando a região afetada anteriormente estiver novamente online, todos os dados de gravação que não foram replicados quando a região falharem serão disponibilizados por meio do [feed de conflitos](how-to-manage-conflicts.md#read-from-conflict-feed). Os aplicativos podem ler o feed de conflitos, resolver os conflitos com base na lógica específica do aplicativo e gravar os dados atualizados de volta no contêiner Cosmos do Azure, conforme apropriado.
-  - Depois que a região de gravação anteriormente afetada se recupera, ela fica automaticamente disponível como uma região de leitura. Você pode alternar de volta para a região recuperada como a região de gravação. Você pode alternar as regiões usando [CLI do Azure ou portal do Azure](how-to-manage-database-account.md#manual-failover). Não há **perda de dados ou disponibilidade** antes, durante ou depois que você alterna a região de gravação e seu aplicativo continua a ser altamente disponível.
+- **Contas de várias regiões com uma região de gravação única (paralisação da região de gravação):**
+  - Durante uma paralisação da região de gravação, a conta Cosmos promoverá automaticamente uma região secundária para ser a nova região de gravação primária quando **ativar failover automático** é configurado na conta Do Azure Cosmos. Quando ativado, o failover ocorrerá para outra região na ordem de prioridade da região especificada.
+  - Os clientes também podem optar por usar **failover manual** e monitorar suas URLs de ponto final de gravação cosmos usando um agente construído por si mesmos. Para clientes com necessidades complexas e sofisticadas de monitoramento de saúde, isso pode proporcionar rto reduzido caso ocorra uma falha na região de gravação.
+  - Quando a região anteriormente impactada voltar a funcionar, todos os dados de gravação que não foram replicados quando a região falhou, são disponibilizados através do [feed de conflitos](how-to-manage-conflicts.md#read-from-conflict-feed). Os aplicativos podem ler o feed de conflitos, resolver os conflitos com base na lógica específica do aplicativo e gravar os dados atualizados de volta ao contêiner Azure Cosmos conforme apropriado.
+  - Depois que a região de gravação anteriormente afetada se recupera, ela fica automaticamente disponível como uma região de leitura. Você pode voltar para a região recuperada como a região de gravação. Você pode alternar as regiões usando [o Azure CLI ou o portal Azure](how-to-manage-database-account.md#manual-failover). Não **há perda de dados ou disponibilidade** antes, durante ou depois de alternar a região de gravação e seu aplicativo continua altamente disponível.
 
-- **Contas de várias regiões com uma região de gravação única (interrupção da região de leitura):**
+- **Contas de várias regiões com uma região de gravação única (leia paralisação da região):**
   - Durante uma interrupção de região de leitura, essas contas permanecerão altamente disponíveis para leituras e gravações.
-  - A região afetada é desconectada automaticamente e será marcada como offline. Os [SDKs de Azure Cosmos DB](sql-api-sdk-dotnet.md) redirecionarão as chamadas de leitura para a próxima região disponível na lista de regiões preferenciais.
+  - A região impactada é automaticamente desconectada e será marcada offline. Os [SDKs Azure Cosmos DB](sql-api-sdk-dotnet.md) redirecionarão as chamadas de leitura para a próxima região disponível na lista de regiões preferidas.
   - Se nenhuma das regiões na lista de regiões preferenciais estiver disponível, as chamadas retornarão automaticamente à região de gravação atual.
   - Não é necessária nenhuma alteração no código do aplicativo para lidar com a interrupção da região de leitura. Por fim, quando a região afetada ficar online novamente, a região de leitura afetada anteriormente será automaticamente sincronizada com a região de gravação atual e estará disponível novamente para fornecer solicitações de leitura.
-  - Leituras subsequentes são redirecionadas para a região recuperada sem exigir nenhuma alteração ao código do aplicativo. Durante o failover e a rejunção de uma região com falha anteriormente, as garantias de consistência de leitura continuam a ser respeitadas pelo Cosmos DB.
+  - Leituras subsequentes são redirecionadas para a região recuperada sem exigir nenhuma alteração ao código do aplicativo. Durante o failover e a rejunção de uma região anteriormente fracassada, as garantias de consistência de leitura continuam a ser honradas pelo Cosmos DB.
 
-- Mesmo em um evento raro e infeliz quando a região do Azure for permanentemente irrecuperável, não haverá perda de dados se sua conta de Cosmos de várias regiões estiver configurada com consistência *forte* . No caso de uma região de gravação permanentemente irrecuperável, uma conta Cosmos de várias regiões configurada com consistência de desatualização limitada, a janela potencial de perda de dados é restrita à janela de desatualização (*k* ou *T*) em que k = 100.000 atualizações e T = 5 minutos. Para os níveis de sessão, de prefixo consistente e de consistência eventual, a janela potencial de perda de dados é restrita a um máximo de 15 minutos. Para obter mais informações sobre os destinos RTO e RPO para Azure Cosmos DB, consulte [níveis de consistência e durabilidade de dados](consistency-levels-tradeoffs.md#rto)
+- Mesmo em um evento raro e infeliz quando a região do Azure é permanentemente irrecuperável, não há perda de dados se sua conta Cosmos de várias regiões estiver configurada com *forte* consistência. No caso de uma região de gravação permanentemente irrecuperável, uma conta Cosmos de várias regiões configurada com consistência de staleness delimitado, a janela de perda de dados potencial é restrita à janela de obsoleto *(K* ou *T)* onde K=100.000 atualizações e T=5 minutos. Para níveis de sessão, prefixo consistente e eventual consistência, a janela de perda de dados potencial é restrita a um máximo de 15 minutos. Para obter mais informações sobre os alvos RTO e RPO para o Azure Cosmos DB, consulte [níveis de consistência e durabilidade dos dados](consistency-levels-tradeoffs.md#rto)
 
-## <a name="availability-zone-support"></a>Suporte à zona de disponibilidade
+## <a name="availability-zone-support"></a>Suporte à Zona de Disponibilidade
 
-Além da resiliência entre regiões, agora você pode habilitar a **redundância de zona** ao selecionar uma região para associar ao banco de dados Cosmos do Azure.
+Além da resiliência entre as regiões, agora você pode habilitar **a redundância de região** ao selecionar uma região para se associar ao seu banco de dados Do Azure Cosmos.
 
-Com o suporte à zona de disponibilidade, Azure Cosmos DB garantirá que as réplicas sejam colocadas em várias zonas em uma determinada região para fornecer alta disponibilidade e resiliência durante falhas zonais. Não há nenhuma alteração na latência e outros SLAs nessa configuração. No caso de uma falha de zona única, a redundância de zona fornece durabilidade total de dados com RPO = 0 e disponibilidade com RTO = 0.
+Com o suporte à Zona de Disponibilidade, o Azure Cosmos DB garantirá que as réplicas sejam colocadas em várias regiões dentro de uma determinada região para fornecer alta disponibilidade e resiliência durante falhas zonais. Não há alterações na latência e em outros SLAs nesta configuração. No caso de uma falha de uma única zona, a redundância da zona fornece durabilidade total dos dados com RPO=0 e disponibilidade com RTO=0.
 
-A redundância de zona é uma *funcionalidade suplementar* para o recurso de [replicação de vários mestres](how-to-multi-master.md) . A redundância de zona sozinha não pode ser confiável para atingir a resiliência regional. Por exemplo, no caso de interrupções regionais ou acesso de baixa latência em todas as regiões, é aconselhável ter várias regiões de gravação além da redundância de zona.
+A redundância de região é uma *capacidade suplementar* para o recurso [de replicação multi-master.](how-to-multi-master.md) A redundância da zona, por si só, não pode ser confiada para alcançar a resiliência regional. Por exemplo, no caso de paralisações regionais ou baixo acesso à latência em todas as regiões, é aconselhável ter várias regiões de gravação, além de redundância de zona.
 
-Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, você pode aceitar a redundância de zona sem custo adicional. Caso contrário, consulte a observação abaixo sobre os preços do suporte à redundância de zona. Você pode habilitar a redundância de zona em uma região existente da sua conta do Azure Cosmos removendo a região e adicionando-a novamente com a redundância de zona habilitada.
+Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, você pode optar pela redundância de zona sem custo adicional. Caso contrário, consulte a nota abaixo sobre os preços para suporte à redundância de zona. Você pode habilitar a redundância de região em uma região existente de sua conta Do Azure Cosmos removendo a região e adicionando-a de volta com a redundância de região ativada.
 
-Esse recurso está disponível nas seguintes regiões do Azure:
+Este recurso está disponível nas seguintes regiões do Azure:
 
 - Sul do Reino Unido
 
@@ -92,27 +92,27 @@ Esse recurso está disponível nas seguintes regiões do Azure:
 - Oeste dos EUA 2
 
 > [!NOTE]
-> A habilitação de Zonas de Disponibilidade para uma única conta do Azure Cosmos de região resultará em encargos equivalentes à adição de uma região adicional à sua conta. Para obter detalhes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o custo de [várias regiões em artigos Azure Cosmos DB](optimize-cost-regions.md) .
+> Habilitar zonas de disponibilidade para uma única região A conta Do Azure Cosmos resultará em encargos equivalentes a adicionar uma região adicional à sua conta. Para obter detalhes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o custo de várias regiões nos artigos do [Azure Cosmos DB.](optimize-cost-regions.md)
 
-A tabela a seguir resume a capacidade de alta disponibilidade de várias configurações de conta:
+A tabela a seguir resume a capacidade de alta disponibilidade de várias configurações da conta:
 
-|KPI  |Região única sem Zonas de Disponibilidade (não AZ)  |Região única com Zonas de Disponibilidade (AZ)  |Gravações de várias regiões com Zonas de Disponibilidade (AZ, 2 regiões) – configuração mais recomendada |
+|KPI  |Região única sem Zonas de Disponibilidade (Não-AZ)  |Região única com Zonas de Disponibilidade (AZ)  |Gravações multi-regiões com Zonas de Disponibilidade (AZ, 2 regiões) – Configuração mais recomendada |
 |---------|---------|---------|---------|
 |SLA de disponibilidade de gravação | 99,99% | 99,99% | 99,999% |
-|SLA de leitura de disponibilidade  | 99,99% | 99,99% | 99,999% |
-|Price | Taxa de cobrança de região única | Taxa de cobrança da zona de disponibilidade de região única | Taxa de cobrança de várias regiões |
-|Falhas de zona – perda de dados | Perda de dados | Sem perda de dados | Sem perda de dados |
-|Falhas de zona – disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade |
-|Latência de leitura | Entre regiões | Entre regiões | Baixo |
-|Latência de gravação | Entre regiões | Entre regiões | Baixo |
-|Interrupção regional – perda de dados | Perda de dados |  Perda de dados | Perda de dados <br/><br/> Ao usar a consistência de desatualização limitada com vários mestres e mais de uma região, a perda de dados é limitada à desatualização limitada configurada em sua conta <br /><br />Você pode evitar a perda de dados durante uma interrupção regional Configurando uma forte consistência com várias regiões. Essa opção vem com compensações que afetam a disponibilidade e o desempenho. Ele pode ser configurado somente em contas configuradas para gravações de região única. |
-|Interrupção regional – disponibilidade | Perda de disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade |
-|Produtividade | Taxa de transferência provisionada X RU/s | Taxa de transferência provisionada X RU/s | taxa de transferência provisionada de 2 RU/s <br/><br/> Esse modo de configuração requer duas vezes a quantidade de taxa de transferência quando comparado a uma única região com Zonas de Disponibilidade porque há duas regiões. |
+|Leia a disponibilidade de SLA  | 99,99% | 99,99% | 99,999% |
+|Price | Taxa de faturamento de uma única região | Taxa de faturamento da Zona de Disponibilidade de região única | Taxa de faturamento multi-região |
+|Falhas na zona – perda de dados | Perda de dados | Sem perda de dados | Sem perda de dados |
+|Falhas na região – disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade |
+|Leia latência | Região transversal | Região transversal | Baixo |
+|Escrever latência | Região transversal | Região transversal | Baixo |
+|Paralisação regional – perda de dados | Perda de dados |  Perda de dados | Perda de dados <br/><br/> Ao usar a consistência de obsoleto limitado com multi mestre e mais de uma região, a perda de dados é limitada à obsoleto limitado configurada em sua conta <br /><br />Você pode evitar a perda de dados durante uma paralisação regional configurando forte consistência com várias regiões. Essa opção vem com trade-offs que afetam a disponibilidade e o desempenho. Ele só pode ser configurado em contas configuradas para gravações de uma região única. |
+|Paralisação regional – disponibilidade | Perda de disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade |
+|Produtividade | X RU/s provisionado throughput | X RU/s provisionado throughput | 2X RU/s provisionado throughput <br/><br/> Este modo de configuração requer o dobro da quantidade de throughput quando comparado a uma única região com Zonas de Disponibilidade porque existem duas regiões. |
 
 > [!NOTE]
-> Para habilitar o suporte à zona de disponibilidade para uma conta do Azure Cosmos de várias regiões, a conta deve ter gravações de vários mestres habilitadas.
+> Para habilitar o suporte à Zona de Disponibilidade para uma conta Azure Cosmos de várias regiões, a conta deve ter gravações multi-master ativadas.
 
-Você pode habilitar a redundância de zona ao adicionar uma região a contas novas ou existentes do Azure Cosmos. Para habilitar a redundância de zona em sua conta do Azure Cosmos, você deve definir o sinalizador `isZoneRedundant` como `true` para um local específico. Você pode definir esse sinalizador dentro da propriedade Locations. Por exemplo, o seguinte trecho do PowerShell habilita a redundância de zona para a região "sudeste asiático":
+Você pode habilitar a redundância de região ao adicionar uma região a contas azure Cosmos novas ou existentes. Para habilitar a redundância de região em sua conta `isZoneRedundant` do `true` Azure Cosmos, você deve definir o sinalizador para um local específico. Você pode definir esta bandeira dentro da propriedade de locais. Por exemplo, o seguinte trecho de powershell permite a redundância da zona para a região do "Sudeste Asiático":
 
 ```powershell
 $locations = @(
@@ -121,7 +121,7 @@ $locations = @(
 )
 ```
 
-O comando a seguir mostra como habilitar a redundância de zona para as regiões "Eastus" e "WestUS2":
+O comando a seguir mostra como ativar a redundância de zona para as regiões "EastUS" e "WestUS2":
 
 ```azurecli-interactive
 az cosmosdb create \
@@ -133,19 +133,19 @@ az cosmosdb create \
   --locations regionName=WestUS2 failoverPriority=1 isZoneRedundant=True
 ```
 
-Você pode habilitar Zonas de Disponibilidade usando portal do Azure ao criar uma conta do Azure Cosmos. Ao criar uma conta, certifique-se de habilitar a **redundância geográfica**, as **gravações de várias regiões**e escolher uma região onde zonas de disponibilidade têm suporte:
+Você pode habilitar Zonas de Disponibilidade usando o portal Azure ao criar uma conta do Azure Cosmos. Ao criar uma conta, **certifique-se de**ativar a geo-redundância , **Gravações multi-regiões**e escolher uma região onde as Zonas de Disponibilidade são suportadas:
 
-![Habilitar Zonas de Disponibilidade usando portal do Azure](./media/high-availability/enable-availability-zones-using-portal.png) 
+![Habilitar zonas de disponibilidade usando o portal Azure](./media/high-availability/enable-availability-zones-using-portal.png) 
 
 ## <a name="building-highly-available-applications"></a>Criando aplicativos altamente disponíveis
 
-- Para garantir a alta disponibilidade de leitura e gravação, configure sua conta do Cosmos para abranger pelo menos duas regiões com várias regiões de gravação. Essa configuração fornecerá a mais alta disponibilidade, a menor latência e a melhor escalabilidade para leituras e gravações apoiadas por SLAs. Para saber mais, confira como [configurar sua conta do Cosmos com várias regiões de gravação](tutorial-global-distribution-sql-api.md).
+- Para garantir a alta disponibilidade de leitura e gravação, configure sua conta do Cosmos para abranger pelo menos duas regiões com várias regiões de gravação. Essa configuração fornecerá a maior disponibilidade, menor latência e melhor escalabilidade para leituras e gravações apoiadas por SLAs. Para saber mais, confira como [configurar sua conta do Cosmos com várias regiões de gravação](tutorial-global-distribution-sql-api.md).
 
 - Para contas do Cosmos de várias regiões configuradas com uma única região de gravação, [habilite o failover automático usando a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#automatic-failover). Depois de habilitar o failover automático, sempre que houver um desastre regional, o Cosmos DB fará o failover da sua conta automaticamente.  
 
-- Mesmo se a conta do Cosmos estiver altamente disponível, seu aplicativo poderá não ser corretamente projetado para permanecer altamente disponível. Para testar a alta disponibilidade de ponta a ponta de seu aplicativo, como parte do teste de aplicativo ou de recuperação de desastres (DR), Desabilite temporariamente o failover automático da conta, invoque o [failover manual usando CLI do Azure ou portal do Azure](how-to-manage-database-account.md#manual-failover)e, em seguida, monitore o failover do aplicativo. Uma vez concluído, você pode fazer failover para a região primária e restaurar o failover automático para a conta.
+- Mesmo se a conta do Cosmos estiver altamente disponível, seu aplicativo poderá não ser corretamente projetado para permanecer altamente disponível. Para testar a alta disponibilidade de ponta a ponta do seu aplicativo, como parte dos testes de aplicativos ou das brocas de recuperação de desastres (DR), desabilite temporariamente o failover automático para a conta, invoque o [failover manual usando o portal Azure CLI ou Azure](how-to-manage-database-account.md#manual-failover)e monitore o failover do aplicativo. Uma vez concluído, você pode falhar de volta para a região principal e restaurar failover automático para a conta.
 
-- Em um ambiente de banco de dados distribuído globalmente, há uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma interrupção em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação). Para ver o RTO e o RPO do Azure Cosmos DB, confira [Níveis de consistência e durabilidade dos dados](consistency-levels-tradeoffs.md#rto)
+- Dentro de um ambiente de banco de dados distribuído globalmente, há uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma paralisação em toda a região. À medida que você vai desenvolvendo o plano de continuidade dos negócios, precisará saber qual é o tempo máximo aceitável antes que o aplicativo se recupere completamente após um evento de interrupção. O tempo necessário para o aplicativo se recuperar totalmente é conhecido como RTO (objetivo de tempo de recuperação). Também é necessário saber o período máximo de atualizações de dados recentes que o aplicativo pode perder sem maiores problemas durante a recuperação após um evento de interrupção. O período de tempo de atualizações que você pode perder é conhecido como RPO (objetivo de ponto de recuperação). Para ver o RTO e o RPO do Azure Cosmos DB, confira [Níveis de consistência e durabilidade dos dados](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -153,6 +153,6 @@ Em seguida, você poderá ler os artigos a seguir:
 
 - [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
 - [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
-- [Distribuição global – nos bastidores](global-dist-under-the-hood.md)
-- [Níveis de coerência no Azure Cosmos DB](consistency-levels.md)
-- [Como configurar sua conta do cosmos com várias regiões de gravação](how-to-multi-master.md)
+- [Distribuição global - nos bastidores](global-dist-under-the-hood.md)
+- [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
+- [Como configurar sua conta Cosmos com várias regiões de gravação](how-to-multi-master.md)

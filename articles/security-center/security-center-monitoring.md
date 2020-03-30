@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603778"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Fortaleça sua postura de segurança com a Central de Segurança do Azure
@@ -34,7 +34,7 @@ Você pode ver o estado de segurança de seus recursos e quaisquer problemas por
 - Para monitorar seus recursos de rede, como máquinas virtuais, grupos de segurança de rede e endpoints, e receber recomendações para melhorar sua segurança, consulte [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md) para obter mais informações. 
 - Para monitorar seus dados e recursos de armazenamento, como servidores SQL e contas de armazenamento, e receber recomendações para melhorar a segurança, consulte [Protegendo o serviço e os dados do Azure SQL na Central de Segurança do Azure](security-center-sql-service-recommendations.md) para obter mais informações. 
 - Para monitorar seus recursos de identidade e acesso, incluindo permissões de conta e MFA e receber recomendações para melhorar a segurança, consulte [monitorar a identidade e acesso na Central de segurança do Azure](security-center-identity-access.md) para obter mais informações. 
-- Para monitorar o acesso just-in-time aos seus recursos, consulte [gerenciar o acesso à máquina virtual usando o just-in-time](security-center-just-in-time.md) para obter mais informações. 
+- Para monitorar o acesso just-in-time aos seus recursos, consulte Gerenciar o acesso à [máquina virtual usando just-in-time](security-center-just-in-time.md) para obter mais informações. 
 
 
 Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).

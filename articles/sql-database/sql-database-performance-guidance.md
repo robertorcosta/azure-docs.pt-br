@@ -1,6 +1,6 @@
 ---
-title: Diretrizes de ajuste de desempenho para aplicativos e bancos de dados
-description: Saiba mais sobre como ajustar bancos de dados e aplicativos de banco de dados para desempenho no banco de dados SQL do Azure.
+title: Orientação de ajuste de desempenho para aplicativos e bancos de dados
+description: Saiba mais sobre o ajuste de aplicativos de banco de dados e bancos de dados para desempenho no Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,13 +12,13 @@ ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
 ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255945"
 ---
-# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Ajuste os aplicativos e bancos de dados para desempenho no banco de dados SQL do Azure
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Ajuste aplicativos e bancos de dados para desempenho no Banco de Dados SQL do Azure
 
 Depois de identificar um problema de desempenho que você está enfrentando com o Banco de Dados SQL, este artigo foi desenvolvido para ajudá-lo a:
 
@@ -35,19 +35,19 @@ No SQL Server local tradicional, o processo de planejamento de capacidade inicia
 
 Embora as camadas de serviço do Banco de Dados SQL do Azure sejam projetadas para melhorar a estabilidade e a previsibilidade de desempenho de um aplicativo, algumas práticas recomendadas podem ajudar a ajustar seu aplicativo para aproveitar melhor os recursos de um tamanho da computação. Embora vários aplicativos apresentem ganhos de desempenho significativos simplesmente passando para um tamanho da computação ou camada de serviço superior, outros precisam de ajustes adicionais para se beneficiarem de um nível de serviço mais elevado. Para melhorar o desempenho, considere realizar ajustes adicionais em aplicativos que têm estas características:
 
-- **Aplicativos com desempenho lento devido a comportamento "com ruídos"**
+- **Aplicativos que têm desempenho lento por causa do comportamento "tagarela"**
 
-  Aplicativos barulhentos geram um excesso de operações de acesso a dados sensíveis à latência de rede. Pode ser necessário modificar esses tipos de aplicativos para reduzir o número de operações de acesso a dados no banco de dados SQL. Por exemplo, você pode melhorar o desempenho do aplicativo usando técnicas como o envio em lote de consultas ad hoc ou a movimentação das consultas para procedimentos armazenados. Para obter mais informações, consulte [Consultas em lote](#batch-queries).
+  Aplicativos barulhentos geram um excesso de operações de acesso a dados sensíveis à latência de rede. Pode ser necessário modificar esses tipos de aplicativos para reduzir o número de operações de acesso a dados no banco de dados SQL. Por exemplo, você pode melhorar o desempenho do aplicativo usando técnicas como fazer consultas ad hoc em lote ou mover as consultas para procedimentos armazenados. Para obter mais informações, consulte [Consultas em lote](#batch-queries).
 
-- **Bancos de dados com uma carga de trabalho intensiva que não pode ter suporte por um único computador inteiro**
+- **Bancos de dados com uma carga de trabalho intensiva que não pode ser suportada por uma única máquina**
 
    Bancos de dados que ultrapassam os recursos do maior tamanho da computação Premium podem se beneficiar de escalar horizontalmente a carga de trabalho. Para obter mais informações, consulte [Fragmentação entre banco de dados](#cross-database-sharding) e [Particionamento funcional](#functional-partitioning).
 
-- **Aplicativos com consultas de qualidade inferior**
+- **Aplicativos que têm consultas sub-ótimas**
 
   Aplicativos que têm consultas mal ajustadas, especialmente aqueles na camada de acesso a dados, podem não se beneficiar de um tamanho maior da computação. Isso inclui consultas sem uma cláusula WHERE, com índices ausentes ou com estatísticas desatualizadas. Esses aplicativos se beneficiam de técnicas de ajuste de desempenho de consulta padrão. Para obter mais informações, consulte [Índices ausentes](#identifying-and-adding-missing-indexes) e [Ajuste e dicas de consulta](#query-tuning-and-hinting).
 
-- **Aplicativos com design de acesso a dados de qualidade inferior**
+- **Aplicativos que têm design de acesso de dados abaixo do ideal**
 
    Aplicativos com problemas de simultaneidade de acesso a dados intrínsecos, por exemplo, deadlock, talvez não se beneficiem de um tamanho da computação maior. Considere reduzir as viagens de ida e volta ao Banco de Dados SQL do Azure armazenando em cache os dados no lado do cliente usando o serviço de Caching do Azure ou outras tecnologias de cache. Consulte [Cache da camada de aplicativo](#application-tier-caching).
 
@@ -234,7 +234,7 @@ Se uma carga de trabalho tem um conjunto de consultas repetidas, normalmente faz
 
 ### <a name="very-large-database-architectures"></a>Arquiteturas de banco de dados muito grandes
 
-Antes do lançamento da camada de serviço de [hiperescala](sql-database-service-tier-hyperscale.md) para bancos de dados individuais no banco de dados SQL do Azure, os clientes usaram para atingir os limites de capacidade para bancos de dados individual. Esses limites de capacidade ainda existem para bancos de dados em pool em pools elásticos e banco de dados de instância em instâncias gerenciadas. As duas seções a seguir discutem duas opções para a solução de problemas com bancos de dados muito grandes no Azure SQL Database quando você não pode usar a camada de serviço de hiperescala.
+Antes do lançamento do nível de serviço [Hyperscale](sql-database-service-tier-hyperscale.md) para bancos de dados únicos no Banco de Dados SQL do Azure, os clientes costumavam atingir limites de capacidade para bancos de dados individuais. Esses limites de capacidade ainda existem para bancos de dados agrupados em pools elásticos e banco de dados de instâncias em instâncias gerenciadas. As duas seções a seguir discutem duas opções para resolver problemas com bancos de dados muito grandes no Banco de Dados SQL do Azure quando você não pode usar o nível de serviço Hyperscale.
 
 ### <a name="cross-database-sharding"></a>Fragmentação entre bancos de dados
 

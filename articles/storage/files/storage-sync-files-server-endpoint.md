@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255100"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor de Sincronização de Arquivos do Azure
@@ -21,7 +21,7 @@ Um *ponto de extremidade do servidor* representa uma localização específica e
 
 Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter informações sobre como implantar a Sincronização de Arquivos do Azure de ponta a ponta.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para criar um ponto de extremidade do servidor, primeiro você deve garantir que os seguintes critérios sejam atendidos: 
 - O servidor tem o agente de Sincronização de Arquivo do Azure instalado e foi registrado. As instruções para instalar o Agente de Sincronização de Arquivos do Azure podem ser encontradas no artigo [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md). 
 - Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Consulte [Como implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md) para obter detalhes sobre como implantar um Serviço de Sincronização de Armazenamento. 
@@ -54,11 +54,11 @@ Para garantir que todos os arquivos em camadas são recuperados antes de remover
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
-A especificação de `-Order CloudTieringPolicy` irá lembrar os arquivos modificados mais recentemente primeiro.
-Outros parâmetros opcionais, mas úteis a serem considerados, são:
-* `-ThreadCount` determina a quantidade de arquivos que podem ser recuperados em paralelo.
-* `-PerFileRetryCount`determina com que frequência uma recall será tentada de um arquivo bloqueado no momento.
-* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre as tentativas de repetição para recuperar e deve ser sempre usada em combinação com o parâmetro anterior.
+Especificar `-Order CloudTieringPolicy` recordará os arquivos modificados mais recentemente primeiro.
+Outros parâmetros opcionais, mas úteis a considerar são:
+* `-ThreadCount`determina quantos arquivos podem ser recuperados em paralelo.
+* `-PerFileRetryCount`determina com que frequência um recall será tentado de um arquivo que está atualmente bloqueado.
+* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre tentar novamente para recordar tentativas e deve ser sempre usado em combinação com o parâmetro anterior.
 
 > [!Note]  
 > Se o volume local que hospeda o servidor não tiver espaço livre suficiente para realizar o recall de todos os dados em camadas, o cmdlet `Invoke-StorageSyncFileRecall` falha.  
@@ -73,5 +73,5 @@ Para remover o ponto de extremidade do servidor:
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivos do Azure](storage-sync-files-server-registration.md)
-- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Planejamento para uma implantação do Azure File Sync](storage-sync-files-planning.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

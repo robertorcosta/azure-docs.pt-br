@@ -1,5 +1,5 @@
 ---
-title: Gerenciar dados de Galeria de IA do Azure
+title: Gerenciar dados da AI Gallery do Azure
 titleSuffix: ML Studio (classic) - Azure
 description: Você pode exportar e excluir seus dados de usuário do produto da Galeria de IA do Azure usando a interface ou a API de Catálogo da Galeria de IA. Este artigo mostra como fazer isso.
 services: machine-learning
@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204538"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Exibir e excluir dados de usuário do produto da Galeria de IA do Azure
@@ -61,7 +61,7 @@ Para obter um token de acesso, você precisa inspecionar o `DataLabAccessToken` 
 2.    Clique na imagem de perfil no canto superior direito e, em seguida, no nome da conta para carregar a página do seu perfil.
 3.    Abra o painel Ferramentas para Desenvolvedores do navegador pressionando F12, selecione a guia Rede e atualize a página. 
 4. Filtre solicitações na cadeia de caracteres *catálogo* digitando na caixa de texto Filtro.
-5.    Em solicitações para a URL `https://catalog.cortanaanalytics.com/entities`, localize uma solicitação GET e selecione a guia *cabeçalhos* . Role para baixo até a seção *cabeçalhos de solicitação* .
+5.    Nas solicitações `https://catalog.cortanaanalytics.com/entities`à URL, encontre uma solicitação GET e selecione a guia *Cabeçalhos.* Role até a seção *Cabeçalhos de* solicitação.
 6.    Sob o cabeçalho `DataLabAccessToken` está o token alfanumérico. Para ajudar a manter seus dados protegidos, não compartilhe este token.
 
 ### <a name="view-user-information"></a>Exibir informações do usuário
@@ -86,7 +86,7 @@ Para exibir as entidades publicadas, visite a URL a seguir, substituindo `[Autho
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-Por exemplo:
+Por exemplo: 
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 

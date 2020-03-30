@@ -1,5 +1,5 @@
 ---
-title: Configurar identidades gerenciadas usando o portal do Azure-Azure AD
+title: Configure identidades gerenciadas usando o portal Azure - Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o portal do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75971dbd35a6b29306bc87988423ab662a343705
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266657"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure
@@ -30,7 +30,7 @@ As identidades gerenciadas dos recursos do Azure fornecem aos serviços do Azure
 
 Neste artigo, você aprende como habilitar e desabilitar identidades gerenciadas atribuídas ao usuário e ao sistema para uma VM (Máquina Virtual) do Azure, usando o portal do Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md).
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.

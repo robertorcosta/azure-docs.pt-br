@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77608718"
 ---
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
@@ -30,7 +30,7 @@ Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é i
 Saiba como:
 
 - [Instalar e configurar o Ansible no Linux para usar com o Azure](../articles/ansible/ansible-install-configure.md).
-- [Crie uma máquina virtual do Linux](../articles/ansible/ansible-create-vm.md).
+- [Crie uma máquina virtual Linux](../articles/ansible/ansible-create-vm.md).
 - [Gerencie uma máquina virtual do Linux](../articles/ansible/ansible-manage-linux-vm.md).
 
 
@@ -110,7 +110,7 @@ A Automação do Azure também oferece um serviço de DSC (Configuração de Est
 
 Saiba como:
 
-- [Criar um runbook do PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
+- [Crie um runbook PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
 - [Usar Hybrid Runbook Worker para gerenciar recursos locais](../articles/automation/automation-hybrid-runbook-worker.md).
 - [Usar o DSC de Automação do Azure](../articles/automation/automation-dsc-getting-started.md).
 

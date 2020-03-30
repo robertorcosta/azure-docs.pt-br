@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 176cd9b0bf72a123bc644ebc27ee0e091aa54e97
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245181"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure:
 
-* **Endereços IP públicos**: usados para comunicação com a Internet, incluindo serviços do Azure voltados para o público.
-* **Endereços IP privados**: usados para comunicação em uma VNet (rede virtual) do Azure e na sua rede local quando você usa um gateway de VPN ou circuito de ExpressRoute para estender sua rede para o Azure.
+* **Endereços IP públicos**: Usado para comunicação com a Internet, incluindo serviços públicos do Azure.
+* **Endereços IP privados**: Usado para comunicação dentro de uma rede virtual Azure (VNet) e sua rede local, quando você usa um gateway VPN ou circuito ExpressRoute para estender sua rede ao Azure.
 
 Você também pode criar um intervalo contíguo de endereços IP públicos estáticos por meio de um prefixo IP público. [Saiba mais sobre um prefixo IP público.](public-ip-address-prefix.md)
 
@@ -75,14 +75,14 @@ Endereços IP públicos do SKU Padrão são:
 - Sempre use o método de alocação estática.
 - Ter um fluxo originado de entrada ajustável tempo limite de ociosidade de fluxo originado de entrada ajustável de 4 a 30 minutos, com um padrão de 4 minutos, e um tempo limite de ociosidade de fluxo originado de saída fixo de 4 minutos.
 - São seguros por padrão e fechados para o tráfego de entrada. É necessário definir explicitamente uma lista de permissões do tráfego de entrada permitido com um [grupo de segurança de rede](security-overview.md#network-security-groups).
-- Atribuído a interfaces de rede, balanceadores de carga públicos padrão ou gateways de aplicativo. Para obter mais informações sobre o Standard Load Balancer, veja [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Atribuído a interfaces de rede, Balanceadores de carga públicos padrão ou Gateways de aplicativos. Para obter mais informações sobre o Standard Load Balancer, veja [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zona redundante por padrão e, opcionalmente, zonal (pode ser criadas como zonais e garantidas em uma zona de disponibilidade específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
 > A comunicação de entrada com o recurso de SKU Standard falha até que você crie e associe um [grupo de segurança de rede](security-overview.md#network-security-groups) e permita explicitamente o tráfego de entrada desejado.
 
 > [!NOTE]
-> Somente endereços IP públicos com SKU básico estão disponíveis ao usar o [serviço de metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). Não há suporte para o SKU Standard.
+> Apenas endereços IP públicos com SKU básico estão disponíveis ao usar [o IMDS do serviço de metadados de instância](../virtual-machines/windows/instance-metadata-service.md). O Padrão SKU não é suportado.
 
 ### <a name="allocation-method"></a>Método de alocação
 
@@ -106,14 +106,14 @@ Os endereços IP públicos estáticos são comumente usados nas seguintes situa�
 >
 
 ### <a name="dns-hostname-resolution"></a>Resolução de nome de host DNS
-Você pode especificar um rótulo de nome de domínio DNS para um recurso IP público que cria um mapeamento para *domainnamelabel*.*location*.cloudapp.azure.com para o endereço IP público nos servidores DNS gerenciados pelo Azure. Por exemplo, se você criar um recurso IP público com **contoso** como um *domainnamelabel* no **local** do Azure no *Oeste dos EUA*, o nome de domínio totalmente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** será resolvido para o endereço IP público do recurso.
+Você pode especificar um rótulo de nome de domínio DNS para um recurso IP público, que cria um mapeamento para *nome de domínio*. *localização*.cloudapp.azure.com para o endereço IP público nos servidores DNS gerenciados pelo Azure. Por exemplo, se você criar um recurso IP público com **contoso** como um *domainnamelabel* no *local* do Azure no **Oeste dos EUA**, o nome de domínio totalmente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** será resolvido para o endereço IP público do recurso.
 
 > [!IMPORTANT]
 > Cada rótulo de nome do domínio criado deve ser exclusivo dentro de seu local do Azure.  
 >
 
-### <a name="dns-best-practices"></a>Práticas recomendadas de DNS
-Se você precisar migrar para uma região diferente, não poderá migrar o FQDN do seu endereço IP público. Como prática recomendada, você pode usar o FQDN para criar um registro CNAME de domínio personalizado apontando para o endereço IP público no Azure. Se você precisar mudar para um IP público diferente, será necessária uma atualização para o registro CNAME em vez de atualizar manualmente o FQDN para o novo endereço. Você pode usar o [DNS do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou um provedor DNS externo para seu registro DNS. 
+### <a name="dns-best-practices"></a>Melhores Práticas do DNS
+Se você precisar migrar para uma região diferente, não poderá migrar o FQDN do seu endereço IP público. Como uma prática recomendada, você pode usar o FQDN para criar um registro CNAME de domínio personalizado apontando para o endereço IP público no Azure. Se você precisar mudar para um IP público diferente, ele exigirá uma atualização para o registro CNAME em vez de ter que atualizar manualmente o FQDN para o novo endereço. Você pode usar [o Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou um provedor dns externo para o seu Registro DNS. 
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -129,7 +129,7 @@ Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc
 
 ### <a name="application-gateways"></a>Application gateways
 
-Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você só pode atribuir um endereço IP público básico *dinâmico* a uma configuração de front-end do gateway de aplicativo v1 e apenas um endereço de SKU padrão *estático* para uma configuração de front-end v2.
+Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. Você só pode atribuir um endereço IP público público *dinâmico* a uma configuração front-end do gateway de aplicativo V1 e apenas um endereço SKU *padrão estático* para uma configuração front-end V2.
 
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP público pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
@@ -152,7 +152,7 @@ No modelo de implantação do Azure Resource Manager, um endereço IP privado é
 
 ### <a name="allocation-method"></a>Método de alocação
 
-Um endereço IP privado é alocado no intervalo de endereços de sub-rede da rede virtual em que um recurso é implantado. O Azure reserva os primeiros quatro endereços em cada intervalo de endereços de sub-rede, de modo que os endereços não podem ser atribuídos a recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, os endereços 10.0.0.0-10.0.0.3 e 10.0.255.255 não poderão ser atribuídos aos recursos. Endereços IP no intervalo de endereços da sub-rede só podem ser atribuídos a um recurso por vez. 
+Um endereço IP privado é alocado no intervalo de endereços de sub-rede da rede virtual em que um recurso é implantado. O Azure reserva os primeiros quatro endereços em cada intervalo de endereços de sub-rede, de modo que os endereços não podem ser atribuídos a recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, os endereços 10.0.0.0-10.0.3 e 10.0.255.255 não poderão ser atribuídos aos recursos. Endereços IP no intervalo de endereços da sub-rede só podem ser atribuídos a um recurso por vez. 
 
 Há dois métodos para alocar um endereço IP privado:
 

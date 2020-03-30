@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565733"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
@@ -31,12 +31,12 @@ Para obter informações sobre o suporte a legendagem oculta e anúncios em víd
 > 
 > 
 
-## <a id="insert_ads_into_media"></a>Inserir anúncios em sua mídia
+## <a name="inserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Inserir anúncios em sua mídia
 Os Serviços de Mídia do Azure dão suporte à inserção de anúncios por meio da Plataforma de Mídia do Windows: Player Frameworks. As estruturas de player com suporte a anúncios estão disponíveis para dispositivos com Windows 8, Silverlight, Windows Phone 8 e iOS. Cada estrutura de player contém código de exemplo que mostra como implementar um aplicativo de player. Há três tipos diferentes de anúncios que podem ser inseridos na sua lista de mídias:
 
 * **Lineares** – anúncios em tela cheia que pausam o vídeo principal.
 * **Não lineares** – anúncios de sobreposição que são exibidos quando o vídeo principal está sendo reproduzido, geralmente um logotipo ou outra imagem estática colocada no player.
-* **Complementares** – anúncios que são exibidos fora do player.
+* **Companheiro** – anúncios que são exibidos fora do player.
 
 Os anúncios podem ser inseridos em qualquer ponto na linha do tempo do vídeo principal. Você deve indicar ao player quando reproduzir o anúncio e quais anúncios devem ser reproduzidos. Isso é feito usando um conjunto de arquivos padrão baseados em XML: VAST (Video Ad Service Template), VMAP (Digital Video Multiple Ad Playlist), MAST (Media Abstract Sequencing Template) e VPAID (Digital Video Player Ad Interface Definition). Os arquivos VAST especificam quais anúncios devem ser exibidos. Os arquivos VMAP especificam quando reproduzir diversos anúncios e contêm XML VAST. Os arquivos MAST são outra maneira de sequenciar anúncios que também podem conter XML VAST. Os arquivos VPAID definem uma interface entre o player de vídeo e o anúncio ou o servidor de anúncios.
 
@@ -586,7 +586,7 @@ Esse exemplo utiliza o VmapSchedulerPlugin para agendar anúncios usando um arqu
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementando um iOS Video Player com suporte para anúncios
-A Plataforma de Mídia da Microsoft: Player Framework para iOS contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos do [Framework do Player de Mídia do Azure](https://github.com/Azure/azure-media-player-framework). A página do GitHub tem um link para um wiki que contém informações adicionais sobre a estrutura do Player e uma introdução ao exemplo do Player: [player de mídia do Azure wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+A Plataforma de Mídia da Microsoft: Player Framework para iOS contém uma coleção de aplicativos de exemplo que mostra como implementar um aplicativo de player de vídeo usando a estrutura. Você pode baixar o Player Framework e os exemplos do [Framework do Player de Mídia do Azure](https://github.com/Azure/azure-media-player-framework). A página do GitHub tem um link para uma Wiki que contém informações adicionais sobre a estrutura do jogador e uma introdução à amostra do jogador: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Agendando anúncios com VMAP
 O exemplo a seguir mostra como agendar anúncios usando um arquivo VMAP.

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253605"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Active Directory do Azure
@@ -28,7 +28,7 @@ Este tópico lista os atributos que são sincronizados pela sincronização do A
 Os atributos são agrupados pelos aplicativos relacionados do AD do Azure.
 
 ## <a name="attributes-to-synchronize"></a>Atributos para sincronizar
-Uma pergunta comum é *qual é a lista de atributos mínimos para sincronizar*. A abordagem padrão e recomendada é manter os atributos padrão para que uma GAL (Lista de Endereços Global) completa possa ser construída na nuvem e obter todos os recursos nas cargas de trabalho do Office 365. Em alguns casos, há alguns atributos que sua organização não deseja sincronizar com a nuvem, já que eles contêm dados confidenciais ou PII (Informações de identificação pessoal), como neste exemplo:  
+Uma pergunta comum é *qual é a lista de atributos mínimos para sincronizar*. A abordagem padrão e recomendada é manter os atributos padrão para que uma GAL (Lista de Endereços Global) completa possa ser construída na nuvem e obter todos os recursos nas cargas de trabalho do Office 365. Em alguns casos, há alguns atributos que sua organização não deseja sincronizar com a nuvem, já que eles contêm dados confidenciais ou PII (Informações de identificação pessoal), como neste exemplo:   
 ![atributos incorretos](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
 Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles que poderiam conter dados confidenciais ou PII e que não podem ser sincronizados. Então, desmarque-os durante a instalação usando o [aplicativo Azure AD e a filtragem de atributos](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
@@ -48,7 +48,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | pwdLastSet |X |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 |samAccountName|X| |
 | sourceAnchor |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -168,7 +168,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | userSMIMECertificates |X |X | | |
@@ -251,12 +251,12 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | título |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário
+| usageLocation |X | | |propriedade mecânica. País/região do usuário
 . Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>Equipes e Skype for Business Online
+## <a name="teams-and-skype-for-business-online"></a>Equipes e Skype para Negócios Online
 | Nome do atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
@@ -300,7 +300,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
@@ -316,7 +316,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | proxyAddresses |X |X |X |propriedade mecânica. Usado pelo AD do Azure. Contém todos os endereços de email secundários para o usuário. |
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |Este UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="intune"></a>Intune
@@ -334,7 +334,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -366,7 +366,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="3rd-party-applications"></a>aplicativos de terceira parte
@@ -393,7 +393,7 @@ Esse é um conjunto de atributos que poderão ser usados se o diretório do Azur
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="windows-10"></a>Windows 10
@@ -430,7 +430,7 @@ Esses atributos para o **usuário** são adicionais aos outros aplicativos que v
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Habilitar UM (Unificação de Mensagens) – Caixa postal online: usado pela integração do Microsoft Lync Server para indicar ao Lync Server local que o usuário tem caixa postal nos serviços online. |
-| msExchUserHoldPolicies| Ms-Exch-UserHoldPolicies |X | | |Retenção de Litígio: permite que os serviços de nuvem determinem quais usuários estão em Retenção de Litígio. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Retenção de Litígio: permite que os serviços de nuvem determinem quais usuários estão em Retenção de Litígio. |
 | proxyAddresses| proxyAddresses |X |X |X |Somente o endereço x500 do Exchange Online é inserido. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permite que uma caixa de correio do Exchange Online obtenha direitos de SendOnBehalfTo para usuários com caixa de correio do Exchange local. Exige o Azure AD Connect, build 1.1.552.0 ou posterior. |
 
@@ -473,4 +473,4 @@ Os objetos do dispositivo são criados no Active Directory. Esses objetos podem 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

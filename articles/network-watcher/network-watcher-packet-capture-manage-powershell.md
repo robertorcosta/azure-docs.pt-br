@@ -1,5 +1,5 @@
 ---
-title: Gerenciar capturas de pacote-Azure PowerShell
+title: Gerenciar capturas de pacotes - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar o recurso de captura de pacotes do Observador de Rede usando o PowerShell
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 06263f85f7d6ad6cc80724baab01124833498739
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79129643"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o PowerShell
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
-> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
+> - [Portal Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Powershell](network-watcher-packet-capture-manage-powershell.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
 
 Captura de pacote do Observador de Rede permite que você crie sessões de captura para controlar o tráfego em uma máquina virtual. Os filtros são fornecidos para a sessão de captura garantir que somente o tráfego que você deseja capturar. Captura de pacote ajuda a diagnosticar problemas de rede reativo e proativo. Outros usos incluem a coleta de estatísticas de rede, obter informações sobre as invasões de rede, para depurar comunicações cliente-servidor e muito mais. Por poder remotamente disparar a captura de pacote, esse recurso alivia a carga da execução de uma captura de pacote e manualmente no computador desejado, o que economiza tempo.
@@ -32,7 +32,7 @@ Captura de pacote do Observador de Rede permite que você crie sessões de captu
 Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão atualmente disponíveis para captura de pacote.
 
 - [**Iniciar uma captura de pacote**](#start-a-packet-capture)
-- [**Parar uma captura de pacote**](#stop-a-packet-capture)
+- [**Parar uma captura de pacotes**](#stop-a-packet-capture)
 - [**Excluir uma captura de pacote**](#delete-a-packet-capture)
 - [**Baixar uma captura de pacote**](#download-a-packet-capture)
 
@@ -274,7 +274,7 @@ Se uma conta de armazenamento for especificada, os arquivos de captura de pacote
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 
