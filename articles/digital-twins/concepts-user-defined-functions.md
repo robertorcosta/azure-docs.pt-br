@@ -1,5 +1,5 @@
 ---
-title: Processamento de dados e funções definidas pelo usuário – gêmeos digital do Azure | Microsoft Docs
+title: Processamento de dados e funções definidas pelo usuário - Azure Digital Twins| Microsoft Docs
 description: Visão geral do processamento de dados, dos correspondentes e das funções definidas pelo usuário com os Gêmeos Digitais do Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265175"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo usuário
@@ -23,7 +23,7 @@ O recurso Gêmeos Digitais do Azure oferece funcionalidades de computação avan
 
 Depois que os dispositivos enviam dados de telemetria para o Azure Digital Twins, os desenvolvedores podem processar dados em quatro fases: *validar*, *corresponder*, *computar*, e *despachar*.
 
-[![o fluxo de processamento de dados do Azure digital gêmeos](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[![Fluxo de processamento de dados gêmeos Digital do Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. A fase de validação transforma a mensagem de telemetria recebida em um formato de objeto de transferência de dados [comumente entendido](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5). Essa fase também executa validação de dispositivo e sensor.
 1. A fase corresponder localiza as funções definidas pelo usuário a serem executadas. Os correspondentes predefinidos descobrirão as funções definidas pelo usuário com base em informações de dispositivo, sensor e espaço da mensagem de telemetria de entrada.
@@ -32,9 +32,9 @@ Depois que os dispositivos enviam dados de telemetria para o Azure Digital Twins
 
 ## <a name="data-processing-objects"></a>Objetos de processamento de dados
 
-O processamento de dados no Gêmeos Digitais do Azure consiste na definição de três objetos: *correspondentes*, *funções definidas pelo usuário* e *atribuições de funções*.
+O processamento de dados no Azure Digital Twins consiste na definição de três objetos: *matchers,* *funções definidas pelo usuário*e *atribuições de funções*.
 
-[![objetos de processamento de dados do Azure digital gêmeos](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[![Objetos de processamento de dados dos Gêmeos Digitais do Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Correspondências
 
@@ -44,7 +44,7 @@ Correspondentes definem um conjunto de condições que avaliam quais ações oco
 - Tendo `01` em sua porta
 - Que pertencem a dispositivos com a chave de propriedade estendida **Fabricante** definido para o valor da cadeia de caracteres de escape`\"Contoso\"`
 - Que pertencem aos espaços do tipo especificado pela cadeia de caracteres com escape `\"Venue\"`
-- Que são descendentes do **spaceid** pai `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Quais são descendentes do pai **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
@@ -104,7 +104,7 @@ As funções definidas pelo usuário podem ser gravadas no JavaScript. Os métod
 - Crie uma notificação quando determinadas condições forem atendidas para uma leitura de sensor de entrada.
 - Anexe metadados de grafo à leitura do sensor antes de enviar uma notificação do sensor.
 
-Para obter mais informações, leia [como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
+Para obter mais informações, leia [Como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Exemplos
 
@@ -114,7 +114,7 @@ O [repositório GitHub para a amostra C# dos Gêmeos Digitais](https://github.co
 
 ### <a name="role-assignment"></a>Atribuição de função
 
-As ações de uma função definida pelo usuário estão sujeitas a controle de [acesso baseado em função](./security-role-based-access-control.md) de Gêmeos Digitais para proteger os dados dentro do serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o gráfico espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e a permissão para *CIAR*, *LER*, *ATUALIZAR*, ou *EXCLUIR* dados de gráfico em um determinado espaço. Um nível da função definido pelo usuário de acesso é verificado quando a função definida pelo usuário solicita o gráfico de dados ou tenta efetuar uma ação. Para obter mais informações, leia [controle de acesso baseado em função](./security-create-manage-role-assignments.md).
+As ações de uma função definida pelo usuário estão sujeitas a controle de [acesso baseado em função](./security-role-based-access-control.md) de Gêmeos Digitais para proteger os dados dentro do serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o gráfico espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e a permissão para *CIAR*, *LER*, *ATUALIZAR*, ou *EXCLUIR* dados de gráfico em um determinado espaço. Um nível da função definido pelo usuário de acesso é verificado quando a função definida pelo usuário solicita o gráfico de dados ou tenta efetuar uma ação. Para obter mais informações, leia [o controle de acesso baseado em função](./security-create-manage-role-assignments.md).
 
 É possível uma correspondência disparar uma função definida pelo usuário que não tenha atribuições de função. Nesse caso, a função definida pelo usuário não consegue ler nenhum dado do gráfico.
 

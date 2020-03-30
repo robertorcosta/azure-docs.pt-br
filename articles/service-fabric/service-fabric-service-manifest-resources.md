@@ -1,13 +1,13 @@
 ---
-title: Especificando Service Fabric pontos de extremidade de serviço
+title: Especificando pontos finais de serviço de malha de serviço
 description: Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282153"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
@@ -18,9 +18,9 @@ O manifesto do serviço permite que os recursos usados pelo serviço sejam decla
 Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas do aplicativo quando uma porta não é explicitamente especificada. Por exemplo, examine o ponto de extremidade *ServiceEndpoint1* especificado no snippet de manifesto fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas do serviço em execução em nós diferentes do cluster podem receber números de porta diferentes, enquanto as réplicas do mesmo serviço em execução no mesmo nó compartilham a porta. As réplicas de serviço podem usar essas portas conforme a necessidade para replicação e escuta de solicitações de clientes.
 
 > [!WARNING] 
-> As portas estáticas de design não devem se sobrepor ao intervalo de portas de aplicativo especificado em ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo de portas do aplicativo, caso contrário, isso resultará em conflitos de porta. Com a versão 6.5 CU2, emitiremos um **aviso de integridade** quando detectarmos esse conflito, mas permitirá que a implantação continue em sincronia com o comportamento 6,5 enviado. No entanto, poderemos impedir a implantação do aplicativo nas próximas versões principais.
+> Por design, as portas estáticas não devem se sobrepor à faixa de porta de aplicativo especificada no ClusterManifest. Se você especificar uma porta estática, atribua-a fora do intervalo da porta de aplicação, caso contrário, resultará em conflitos de porta. Com a liberação 6.5CU2 emitiremos um **Aviso de Saúde** quando detectarmos tal conflito, mas deixamos a implantação continuar em sincronia com o comportamento 6.5 enviado. No entanto, podemos impedir a implantação do aplicativo das próximas grandes versões.
 >
-> Com a versão 7,0, emiteremos um **aviso de integridade** quando detectamos que o uso do intervalo de portas do aplicativo vai além de HostingConfig:: ApplicationPortExhaustThresholdPercentage (padrão 80%).
+> Com a versão 7.0, emitiremos um **Aviso de Saúde** quando detectarmos o uso da faixa de porta de aplicativo vai além do HostingConfig::ApplicationPortExhaustThresholdPercentage (padrão 80%).
 >
 
 ```xml
@@ -187,7 +187,7 @@ Nos Parâmetros, adicione o seguinte:
   </Parameters>
 ```
 
-Ao implantar o aplicativo, você poderá transmitir esses valores como ApplicationParameters.  Por exemplo:
+Ao implantar o aplicativo, você poderá transmitir esses valores como ApplicationParameters.  Por exemplo: 
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -195,7 +195,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Observação: se os valores fornecidos para o ApplicationParameters estiverem vazios, volte para o valor padrão fornecido no ServiceManifest para o EndPointName correspondente.
 
-Por exemplo:
+Por exemplo: 
 
 Se estiver no ServiceManifest especificado
 
@@ -209,4 +209,4 @@ Se estiver no ServiceManifest especificado
 
 E o valor de Port1 e Protocol1 para parâmetros do Aplicativo for nulo ou vazio. A porta ainda é decidida pelo ServiceFabric. E o protocolo será tcp.
 
-Vamos supor que você especifica um valor incorreto. Assim como para a porta, você especificou um valor de cadeia de caracteres "foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: o parâmetro de substituição com o nome ' ServiceEndpoint1 ', atributo ' Port1 ' na seção ' ResourceOverrides ' é inválido. O valor especificado é 'Foo', e exige 'int'.
+Vamos supor que você especifica um valor incorreto. Como para Port você especificou um valor de string "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro : O parâmetro de substituição com o nome 'ServiceEndpoint1' atributo 'Port1' na seção 'ResourceOverrides' é inválido. O valor especificado é 'Foo', e exige 'int'.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2d93099f0f76f173cc7e77ab7f24f27d1560835
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 16a5e0bb3e50e3a90951572e8d2847d379c1b114
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267515"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297640"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor de arquivos por meio do portal do Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -70,8 +70,8 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
 6. Na página **Configurações do dispositivo** :
    
    1. Atribua um **Nome** exclusivo ao seu dispositivo. Esse nome pode ter de 1 a 15 caracteres e pode conter letras, números e hifens.
-   2. Clique no ícone **do**Servidor de arquivos![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) para o **Tipo** de dispositivo que você está criando. Um servidor de arquivos permitirá que você crie pastas compartilhadas.
-   3. Como o dispositivo é um servidor de arquivos, você precisará ingressar o dispositivo em um domínio. Insira um **Nome de domínio**.
+   2. Clique no ícone ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) do **Servidor de arquivos** para o **Tipo** de dispositivo que você está criando. Um servidor de arquivos permitirá que você crie pastas compartilhadas.
+   3. Como o dispositivo é um servidor de arquivos, você precisará ingressar o dispositivo em um domínio. Digite um **nome de domínio**.
    4. Clique em **Aplicar**.
 7. Uma caixa de diálogo aparecerá. Insira suas credenciais de domínio no formato especificado. Clique no ícone de verificação. As credenciais de domínio são verificadas. Você verá uma mensagem de erro se as credenciais estiverem incorretas.
    
@@ -100,7 +100,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
     
     Na página **Configurações de hora** :
     
-    1. Na lista suspensa, selecione o **Fuso horário** com base na localização geográfica na qual o dispositivo está sendo implantado. O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
+    1. Na lista de paradas, selecione o **fuso horário** com base na localização geográfica em que o dispositivo está sendo implantado. O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
     2. Especifique um **Servidor NTP primário** para seu dispositivo ou aceite o valor padrão de time.windows.com. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet.
     3. Opcionalmente, especifique um **Servidor NTP secundário** para o dispositivo.
     4. Clique em **Aplicar**. Isso validará e aplicará as configurações de hora definidas.
@@ -109,7 +109,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
     1. Insira a **Chave de registro do serviço** que você obteve na [Etapa 2: obter a chave de registro do serviço](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para a StorSimple Virtual Array.
     2. Se esse for o primeiro dispositivo registrado nesse serviço, você verá a **Chave de criptografia de dados de serviço**. Copie essa chave e salve-a em um local seguro. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador de Dispositivos StorSimple. 
        
-       Se não for o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a chave de criptografia de dados de serviço. Para obter mais informações, consulte obter a [chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
+       Se não for o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a chave de criptografia de dados de serviço. Para obter mais informações, consulte a [chave de criptografia de dados](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) de serviço em sua ui web local.
     3. Clique em **Registrar**. Isso reiniciará o dispositivo. Talvez seja necessário aguardar de 2 a 3 minutos até que o dispositivo seja registrado com êxito. Depois que o dispositivo for reiniciado, você será levado à página de entrada.
        
        ![](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
@@ -124,7 +124,7 @@ Use as instruções passo a passo a seguir para preparar e configurar sua Matriz
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para concluir a configuração obrigatória do dispositivo.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Para configurar o dispositivo como servidor de arquivos
-1. Vá para o serviço Gerenciador de Dispositivos do StorSimple e vá para **Gerenciamento > Dispositivos**. Na folha **Dispositivos** , selecione o dispositivo que você acabou de criar. Este dispositivo deve ser mostrado como **Pronto para configurar**.
+1. Vá para o serviço StorSimple Device Manager e, em seguida, vá para **Gerenciamento > Dispositivos**. Na folha **Dispositivos** , selecione o dispositivo que você acabou de criar. Este dispositivo deve ser mostrado como **Pronto para configurar**.
    
    ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Clique no dispositivo e você verá uma mensagem de cabeçalho indicando que o dispositivo está pronto para a instalação.
@@ -138,7 +138,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
     
    3. Uma chave AES de 256 bits é ser usada com a chave de criptografia definida pelo usuário. Especifique uma chave de 32 caracteres e, em seguida, insira novamente a chave para confirmá-la. Registre a chave em um aplicativo de gerenciamento de chaves para referência futura.
     
-   4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Verifique se a conta de armazenamento que você usa dá suporte a blobs de blocos. Não há suporte para BLOBs de páginas.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Clique em **Definir configurações necessárias** para especificar as credenciais de conta de armazenamento a serem usadas com o dispositivo. Clique em **adicionar novo** se não houver nenhuma credencial de conta de armazenamento configurada. **Certifique-se de que a conta de armazenamento que você usa suporta bolhas de bloco. Bolhas de página não são suportadas.** Para obter mais informações sobre [blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configurar um servidor de arquivos](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Na folha **Adicionar credenciais de uma conta de armazenamento**, faça o seguinte: 
@@ -149,7 +149,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
     
     3. O local será preenchido automaticamente com base na conta de armazenamento especificada. 
     
-    4. Habilite o SSL para garantir um canal de comunicação de rede seguro entre o dispositivo e a nuvem.
+    4. Habilite o TLS para garantir um canal de comunicação de rede seguro entre o dispositivo e a nuvem.
     
     5. Clique em **Adicionar** para adicionar essa credencial de conta de armazenamento. 
    
@@ -173,7 +173,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para criar um compartilhamento.
 
 #### <a name="to-create-a-share"></a>Para criar um compartilhamento
-1. Selecione o dispositivo de servidor de arquivos configurado na etapa anterior e clique em **...**  (ou clique com o botão direito do mouse). No menu de contexto, selecione **Adicionar compartilhamento**. Como alternativa, você pode clicar em **+ Adicionar Compartilhamento** na barra de comandos do dispositivo.
+1. Selecione o dispositivo de servidor de arquivos configurado na etapa anterior e clique em **... ** (ou clique com o botão direito do mouse). No menu de contexto, selecione **Adicionar compartilhamento**. Como alternativa, você pode clicar em **+ Adicionar Compartilhamento** na barra de comandos do dispositivo.
    
    ![Adicionar um compartilhamento](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Especifique as configurações de compartilhamento a seguir:
@@ -185,7 +185,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
    3. Um **Tipo** para o compartilhamento. O tipo pode ser **Em camadas** ou **Localmente afixado**, sendo que Em camadas é o padrão. Para cargas de trabalho que exigem garantias locais, menos latências e um melhor desempenho, selecione um compartilhamento **Fixado localmente** . Para todos os outros dados, selecione um compartilhamento **Em camadas** .
       Um compartilhamento fixado localmente é provisionado estaticamente e garante que os dados primários no compartilhamento permaneçam como locais para o dispositivo e não sejam divulgados na nuvem. Um compartilhamento em camadas, por outro lado, é provisionado dinamicamente. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, você não poderá provisionar um compartilhamento em camadas.
    
-   4. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários em *john\@formato contoso.com* . É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
+   4. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou do grupo de usuários no formato *\@John contoso.com.* É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
    
    5. Clique em **Adicionar** para criar o compartilhamento. 
     
@@ -212,5 +212,5 @@ Agora, você precisará conectar-se a um ou mais compartilhamentos que você cri
 3. Agora você pode adicionar arquivos a esses compartilhamentos e fazer um backup.
 
 ## <a name="next-steps"></a>Próximas etapas
-Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Aprenda a usar a interface do web local para [administrar seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

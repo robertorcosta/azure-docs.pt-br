@@ -1,6 +1,6 @@
 ---
 title: Gerenciar entidades dos Serviços de Mídia com REST | Microsoft Docs
-description: Este artigo demonstra como gerenciar entidades de serviços de mídia com a API REST.
+description: Este artigo demonstra como gerenciar entidades de Serviços de Mídia com a API REST.
 author: juliako
 manager: femila
 editor: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a03bc24b689df342be40536c26149a7611fc5176
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283310"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gerenciar entidades dos Serviços de Mídia com REST  
 
 > [!div class="op_single_selector"]
-> * [REST](media-services-rest-manage-entities.md)
+> * [Resto](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
@@ -38,7 +38,7 @@ Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure
 
 ## <a name="considerations"></a>Considerações  
 
-Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
 

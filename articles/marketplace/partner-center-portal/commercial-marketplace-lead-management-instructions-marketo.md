@@ -1,25 +1,24 @@
 ---
-title: Configurar gerenciamento de leads no Marketo | Azure Marketplace
-description: Configure o gerenciamento de leads para clientes do Marketo para o Azure Marketplace.
-services: Azure, Marketplace, commercial marketplace, Partner Center
+title: Configure gestão de lead no Marketo | Mercado Azure
+description: Configure a gestão de líderes para os clientes do mercado Azure.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: evansma
-ms.openlocfilehash: 8d13e8c3aeabf6d3fdea80ffddbae47b80adc139
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 35d57d117f6308863965ffd789c0e28bedd0f301
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812129"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281503"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurar o gerenciamento de cliente potencial no Marketo
 
-Este artigo descreve como configurar seu sistema CRM do Marketo para processar os leads de vendas da oferta do Marketplace.
+Este artigo descreve como configurar seu sistema de CRM Marketo para processar leads de vendas a partir de sua oferta de marketplace.
 
-## <a name="set-up-your-marketo-crm-system"></a>Configurar seu sistema de CRM do Marketo
+## <a name="set-up-your-marketo-crm-system"></a>Configure seu sistema de CRM Marketo
 
 1. Entre no Marketo.
 2. Selecione **Design Studio**.
@@ -36,7 +35,7 @@ Este artigo descreve como configurar seu sistema CRM do Marketo para processar o
 
 6.  Aprovar e fechar.
 
-7. Na guia *MarketplaceLeadBacked* , selecione **código de inserção**. 
+7. Na guia *MarketplaceLeadBacked,* selecione **Embed Code**. 
 
     ![Código de inserção](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-6.png)
 
@@ -47,33 +46,33 @@ Este artigo descreve como configurar seu sistema CRM do Marketo para processar o
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
 
-9. Copie os valores para os campos abaixo mostrados no formulário de código de inserção. Você usará esses valores para configurar sua oferta para receber leads na próxima etapa. Use o próximo exemplo como guia para obter as IDs que você precisa no exemplo do Código de Inserção.
+9. Copie os valores para os campos abaixo mostrados no formulário Código de incorporar. Você usará esses valores para configurar sua oferta para receber leads na próxima etapa. Use o próximo exemplo como guia para obter as IDs que você precisa no exemplo do Código de Inserção.
 
     - ID do servidor = **ys12**
-    - ID de Munchkin = **123-PQR-789**
-    - ID do formulário = **1179**
+    - ID munchkin = **123-PQR-789**
+    - ID do Formulário = **1179**
 
     **Outra maneira de descobrir esses valores**
 
-    - A ID do servidor é encontrada na URL da sua instância do Marketo, por exemplo, "`serverID.marketo.com`".
-    - Obtenha a ID do munching da sua assinatura acessando o menu do administrador > Munchkin no campo "ID da conta do Munchkin" ou na primeira parte do subdomínio do host da API REST do Marketo: `https://{Munchkin ID}.mktorest.com`.
-    - ID de formulário é a ID do formulário de código de inserção criado na etapa 7 para rotear clientes potenciais de nosso Marketplace.
+    - O ID do servidor é encontrado na URL da`serverID.marketo.com`sua instância marketo, por exemplo, ".
+    - Obtenha o ID de mastigação da sua assinatura indo ao seu menu De administração>Munchkin no campo "Munchkin Account ID", ou a partir da primeira parte do seu subdomínio de host da API Marketo REST: `https://{Munchkin ID}.mktorest.com`.
+    - O Form ID é o ID do formulário Embed Code que você criou na etapa 7 para rodar leads do nosso marketplace.
 
-## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configurar sua oferta para enviar clientes potenciais ao Marketo
+## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configure sua oferta para enviar leads para o Marketo
 
-Quando você estiver pronto para configurar as informações de gerenciamento de Lead para sua oferta no portal de publicação, siga as etapas abaixo: 
+Quando estiver pronto para configurar as informações de gerenciamento de chumbo para sua oferta no portal de publicação, siga as etapas abaixo: 
 
-1. Navegue até a página de **instalação da oferta** para sua oferta.
-1. Selecione **conectar** na seção Gerenciamento de leads. 
+1. Navegue até a página **de configuração oferta** para obter sua oferta.
+1. Selecione **Conectar** na seção Gerenciamento de líderes. 
 
-    ![Gerenciamento de Lead-conectar](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    ![Gerenciamento de chumbo - Conectar](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
-1. Na janela pop-up detalhes da conexão, selecione **marketo** para o destino do cliente potencial.
+1. Na janela pop-up de detalhes da Conexão, **selecione Marketo** para o Destino Principal.
 
-    ![Escolher um destino de cliente potencial](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
+    ![Escolha um destino de chumbo](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-4. Forneça a **ID do servidor**, a **ID da conta do MUNCHING**e a **ID do formulário**.
+4. Forneça o **ID**do servidor, **o ID da conta**de Munching e **o ID do Formulário.**
 
     >[!Note]
-    >Você deve concluir a configuração do restante da oferta e publicá-la antes de receber clientes potenciais para a oferta. 
+    >Você deve terminar de configurar o resto da oferta e publicá-la antes de receber leads para a oferta. 
 

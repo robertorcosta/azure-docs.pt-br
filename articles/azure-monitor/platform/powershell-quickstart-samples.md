@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274314"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
@@ -20,7 +20,7 @@ Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a aces
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="set-up-powershell"></a>Configurar o PowerShell
-Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para saber mais, consulte [Como instalar e configurar o PowerShell](/powershell/azure/overview).
+Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para obter mais informações, [consulte Como instalar e configurar o PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemplos neste artigo
 Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Monitor. Você também pode ver a lista completa de cmdlets do PowerShell do Azure Monitor em [Cmdlets do Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
@@ -38,7 +38,7 @@ Você verá uma tela de entrada. Quando entrar, sua Conta, sua TenantID e a ID d
 Get-AzSubscription
 ```
 
-Para ver seu contexto de trabalho (em que assinatura seus comandos são executados), use o seguinte comando:
+Para ver o seu contexto de trabalho (contra qual assinatura seus comandos são executados), use o seguinte comando:
 
 ```powershell
 Get-AzContext
@@ -51,7 +51,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Recuperar o log de atividade para uma assinatura
-Use o cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) .  A seguir, temos alguns exemplos comuns. O log de atividades contém os últimos 90 dias de operações. O uso de datas antes dessa hora resulta em uma mensagem de erro.  
+Use o [cmdlet Get-AzLog.](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog)  A seguir, temos alguns exemplos comuns. O Diário de Atividades realiza os últimos 90 dias de operações. O uso de datas antes desse horário resulta em uma mensagem de erro.  
 
 Veja qual é a data/hora atual para verificar quais horários usar nos comandos abaixo:
 ```powershell
@@ -97,7 +97,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` dá suporte a muitos outros parâmetros. Para saber mais, consulte a referência `Get-AzLog` .
 
 > [!NOTE]
-> `Get-AzLog` fornece apenas 15 dias de histórico. O uso do parâmetro **-MaxRecords** permite consultar os últimos N eventos, além de 15 dias. Para eventos de acesso que ocorreram há mais 15 dias, use a API REST ou o SDK (exemplo em C# usando o SDK). Se você não incluir **StartTime**, o valor padrão será **EndTime** menos uma hora. Se você não incluir **EndTime**, o valor padrão será a hora atual. Todas as horas estão no padrão UTC.
+> `Get-AzLog` fornece apenas 15 dias de histórico. Usando o parâmetro **-MaxRecords** permite consultar os últimos eventos N, além de 15 dias. Para eventos de acesso que ocorreram há mais 15 dias, use a API REST ou o SDK (exemplo em C# usando o SDK). Se você não incluir **StartTime**, o valor padrão será **EndTime** menos uma hora. Se você não incluir **EndTime**, o valor padrão será a hora atual. Todas as horas estão no padrão UTC.
 > 
 > 
 

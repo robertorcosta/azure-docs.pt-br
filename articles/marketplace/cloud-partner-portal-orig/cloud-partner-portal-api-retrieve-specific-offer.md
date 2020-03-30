@@ -1,19 +1,18 @@
 ---
-title: Recuperar uma API de oferta específica | Azure Marketplace
+title: Recupere uma API de oferta específica | Mercado Azure
 description: A API recupera a oferta especificada no namespace do editor.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a83b664bb770a88f3c4c13a672655e736a46ca75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827341"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280449"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperar uma oferta específica
 =========================
@@ -41,9 +40,9 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 
 | **Nome**    | **Descrição**                                                                          | **Tipo de dados** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Po exemplo, Contoso                                                        | Cadeia de caracteres        |
-| offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia de caracteres        |
-| version     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Número inteiro       |
+| publisherId | publisherId. Po exemplo, Contoso                                                        | String        |
+| offerId     | Guid que identifica exclusivamente a oferta.                                                 | String        |
+| version     | Versão da oferta que está sendo recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer       |
 | slotId      | O slot do qual a oferta deve ser recuperada pode ser um dos a seguir:      <br/>  - `Draft` (padrão) recupera a versão da oferta atualmente no rascunho.  <br/>  -  `Preview` recupera a versão da oferta atualmente na visualização.     <br/>  -  `Production` recupera a versão da oferta atualmente em produção.          |      enum |
 | api-version | Última versão da API                                                                    | Data          |
 |  |  |  |
@@ -200,7 +199,7 @@ Também é possível recuperar uma versão específica da oferta, recuperar a of
 |  NotStarted                 | A oferta é nova e não iniciada.              |
 |  WaitingForPublisherReview  | A oferta aguarda aprovação do editor.      |
 |  Executando                    | O envio da oferta está sendo processado.          |
-|  Bem-sucedido                  | O envio da oferta concluiu o processamento.    |
-|  Cancelado                   | O envio da oferta foi cancelado.                |
-|  Falha                     | O envio da oferta falhou.                      |
+|  Teve êxito                  | O envio da oferta concluiu o processamento.    |
+|  Canceled                   | O envio da oferta foi cancelado.                |
+|  Falhou                     | O envio da oferta falhou.                      |
 |  |  |

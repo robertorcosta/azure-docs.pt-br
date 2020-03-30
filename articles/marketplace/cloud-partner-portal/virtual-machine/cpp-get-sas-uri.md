@@ -1,19 +1,18 @@
 ---
-title: Obter o URI da assinatura de acesso compartilhado para sua imagem VM baseada em Microsoft Azure | Azure Marketplace
+title: Obtenha uri de assinatura de acesso compartilhado para sua imagem VM baseada no Microsoft Azure | Mercado Azure
 description: Explica como obter o URI de assinatura de acesso compartilhado (SAS) para a sua imagem VM.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: cb6f1772c7c6f9abd268a8cb58550b253f095dbf
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.author: dsindona
+ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132449"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277796"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha o URI de assinatura de acesso compartilhado para suas imagens VM
 
@@ -30,18 +29,17 @@ Ao gerar URI SAS para seus VHDs, atenda aos seguintes requisitos:
 
 A URL de SAS pode ser gerada de duas maneiras comuns usando as seguintes ferramentas:
 
--   Microsoft Storage Explorer - ferramenta gráfica disponível para Windows, macOS e Linux
--   CLI do Azure - recomendado para ambientes de integração contínua ou automatizada e sistemas operacionais Windows
-
+- Microsoft Storage Explorer - ferramenta gráfica disponível para Windows, macOS e Linux
+- CLI do Azure - recomendado para ambientes de integração contínua ou automatizada e sistemas operacionais Windows
 
 ### <a name="azure-cli"></a>CLI do Azure
 
 Use as etapas a seguir para gerar um URI de SAS com a CLI do Azure.
 
-1. Fazer o download e instalar o [CLI do Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  As versões estão disponíveis Windows. macOS e várias distribuições do Linux.
+1. Fazer o download e instalar o [CLI do Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). As versões estão disponíveis Windows. macOS e várias distribuições do Linux.
 2. Crie um arquivo PowerShell (`.ps1` extensão de arquivo), copie o código a seguir, em seguida, salvá-o localmente.
 
-   ``` powershell
+   ```azurecli-interactive
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
 
@@ -54,8 +52,8 @@ Use as etapas a seguir para gerar um URI de SAS com a CLI do Azure.
 
    O exemplo a seguir mostra os valores de parâmetro adequado (no momento da redação deste artigo).
 
-   ``` powershell
-       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```azurecli-interactive
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
    ```
 
 4. Salve as alterações para este script do PowerShell.
@@ -82,7 +80,6 @@ Use as etapas a seguir para gerar um URI de SAS com a CLI do Azure.
 
 Repita essas etapas para cada VHD em SKUs do qual você planeja publicar.
 
-
 ### <a name="microsoft-storage-explorer"></a>Microsoft Storage Explorer
 
 Use as etapas a seguir para gerar um URI de SAS com o Gerenciador de Armazenamento do Microsoft Azure.
@@ -98,7 +95,7 @@ Use as etapas a seguir para gerar um URI de SAS com o Gerenciador de Armazenamen
 6. A caixa de diálogo **Assinatura de Acesso Compartilhado** é exibida. Insira os valores dos campos a seguir:
    - **Hora de início** - Data de início de permissão para acesso VHD. Forneça uma data que é um dia antes da data atual.
    - **Hora de expiração** - data de expiração de permissão para acesso ao VHD.  Forneça uma data de pelo menos três semanas após a data atual.
-   - **Permissões** - Selecione o `Read` e `List` permissões.
+   - ** Permissões** - Selecione o `Read` e `List` permissões.
 
      ![Caixa de diálogo SAS no Gerenciador do Azure](./media/publishvm_035.png)
 
@@ -119,16 +116,15 @@ Use as etapas a seguir para gerar um URI de SAS com o Gerenciador de Armazenamen
 
 Repita essas etapas para cada VHD em SKUs do qual você planeja publicar.
 
-
 ## <a name="verify-the-sas-uri"></a>Verifique o URI SAS
 
 Revise e verifique se que cada URI SAS gerado usando a seguinte lista de verificação.  Verifique se:
-- O URI está no formato:       `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
+
+- O URI é do `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + formulário:`<sas-connection-string>`
 - O URI contém seu nome de arquivo de imagem do VHD, incluindo a extensão de nome de arquivo ". vhd".
 - Em direção à parte central do URI, `sp=rl` é exibida. Essa cadeia de caracteres indica que o acesso `Read` e `List` é especificado.
 - Após esse ponto, `sr=c` também será exibido. Essa cadeia de caracteres indica que o acesso de nível de contêiner é especificado.
 - Copie e cole o URI em um navegador para começar a fazer o download do blob associado.  (você pode cancelar a operação antes que o download seja concluído)
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

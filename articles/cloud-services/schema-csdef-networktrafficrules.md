@@ -1,5 +1,6 @@
 ---
-title: Esquema de Def. NetworkTrafficRules do Azure Cloud Services | Microsoft Docs
+title: Azure Cloud Services Def. NetworkTrafficRules Schema | Microsoft Docs
+description: Saiba mais sobre o NetworkTrafficRules, que limita as funções que podem acessar os pontos finais internos de uma função. Ele combina com funções em um arquivo de definição de serviço.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -12,12 +13,12 @@ ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: e6d156810b9fdee69ddac122eec06db7267ddf36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449032"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534721"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definição dos Serviços de Nuvem do Azure
 O nó `NetworkTrafficRules` é um elemento opcional no arquivo de definição de serviço que especifica como as funções comunicam-se entre si. Ele limita quais funções podem acessar os pontos de extremidade internos da função específica. O `NetworkTrafficRules` não é um elemento autônomo; ele é combinado com duas ou mais funções em um arquivo de definição de serviço.
@@ -51,9 +52,9 @@ O nó `NetworkTrafficRules` do arquivo de definição de serviço inclui estes e
 
 [Elemento NetworkTrafficRules](#NetworkTrafficRules)
 
-[Elemento OnlyAllowTrafficTo](#OnlyAllowTrafficTo)
+[OnlyAllowTrafficTo Element](#OnlyAllowTrafficTo)
 
-[Elemento Destinations](#Destinations)
+[Elemento destinos](#Destinations)
 
 [Elemento RoleEndpoint](#RoleEndpoint)
 
@@ -63,19 +64,19 @@ Elemento AllowAllTraffic
 
 [Elemento FromRole](#FromRole)
 
-##  <a name="NetworkTrafficRules"></a> NetworkTrafficRules Element
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>Elemento NetworkTrafficRules
 O elemento `NetworkTrafficRules` especifica quais funções podem se comunicar com qual ponto de extremidade em outra função. Um serviço pode conter uma definição `NetworkTrafficRules`.
 
-##  <a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
 O elemento `OnlyAllowTrafficTo` descreve uma coleção de pontos de extremidade de destino e as funções que podem se comunicar com eles. É possível especificar vários nós `OnlyAllowTrafficTo`.
 
-##  <a name="Destinations"></a> Elemento Destinations
+##  <a name="destinations-element"></a><a name="Destinations"></a> Elemento Destinations
 O elemento `Destinations` descreve uma coleção de RoleEndpoints com a qual é possível se comunicar.
 
-##  <a name="RoleEndpoint"></a> Elemento RoleEndpoint
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>Elemento RoleEndpoint
 O elemento `RoleEndpoint` descreve um ponto de extremidade em uma função com a qual ele permite comunicações. Será possível especificar vários elementos `RoleEndpoint` se houver mais de um ponto de extremidade na função.
 
-| Atributo      | Tipo     | Description |
+| Atributo      | Type     | Descrição |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Obrigatórios. O nome do ponto de extremidade com o qual permitir o tráfego.|
 | `roleName`     | `string` | Obrigatórios. O nome da função web com a qual permitir a comunicação.|
@@ -83,21 +84,21 @@ O elemento `RoleEndpoint` descreve um ponto de extremidade em uma função com a
 ## <a name="allowalltraffic-element"></a>Elemento AllowAllTraffic
 O elemento `AllowAllTraffic` é uma regra que permite que todas as funções se comuniquem com os pontos de extremidade definidos no nó `Destinations`.
 
-##  <a name="WhenSource"></a> Elemento WhenSource
+##  <a name="whensource-element"></a><a name="WhenSource"></a>Elemento WhenSource
 O elemento `WhenSource` descreve uma coleção de funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`.
 
-| Atributo | Tipo     | Description |
+| Atributo | Type     | Descrição |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obrigatórios. Especifica a regra a ser aplicada ao permitir comunicações. No momento, o único valor válido é `AnyRule`.|
   
-##  <a name="FromRole"></a> Elemento FromRole
+##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole Element
 O elemento `FromRole` especifica as funções que podem se comunicar com os pontos de extremidade definidos no nó `Destinations`. Será possível especificar vários elementos `FromRole` se houver mais de uma função que pode se comunicar com os pontos de extremidade.
 
-| Atributo  | Tipo     | Description |
+| Atributo  | Type     | Descrição |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Obrigatórios. O nome da função da qual permitir a comunicação.|
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Consulte também
 [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md)
 
 

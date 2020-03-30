@@ -19,14 +19,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261561"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
-A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre como monitorar Azure AD Connect (sincronização) com Azure AD Connect Health, consulte [usando o Azure ad Connect Health para sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre como monitorar Active Directory Domain Services com Azure AD Connect Health, consulte [usando Azure ad Connect Health com AD DS](how-to-connect-health-adds.md).
+A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre o monitoramento do Azure AD Connect (Sync) com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health for Sync](how-to-connect-health-sync.md). Além disso, para obter informações sobre o monitoramento dos serviços de domínio do Active Directory com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com AD DS](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Alertas do AD FS
 A seção de Alertas do Azure AD Connect Health fornece a lista de alertas ativos. Cada alerta inclui informações relevantes, etapas de resolução e links para documentação relacionada.
@@ -59,7 +59,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 | Local de rede | Agrupa o total de solicitações com base no local de rede do usuário. Pode ser qualquer intranet ou extranet. Esse agrupamento é útil para saber qual é a porcentagem do tráfego que está vindo da intranet em comparação com a extranet. |
 
 
-**Métrica: Total de solicitações com falha** – O número total de solicitações com falha processadas pelo serviço de federação. (Essa métrica só está disponível no AD FS para o Windows Server 2012 R2)
+**Métrica: Total de solicitações com falha** – O número total de solicitações com falha processadas pelo serviço de federação.  (Essa métrica só está disponível no AD FS para o Windows Server 2012 R2)
 
 |Group By | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
@@ -108,7 +108,7 @@ O grafo fornece as seguintes informações:
 
 O relatório fornece as seguintes informações:
 
-| Item do relatório | DESCRIÇÃO |
+| Item do relatório | Descrição |
 | --- | --- |
 | Id de Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
 | Tentativas com falha |Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente. |
@@ -121,5 +121,5 @@ O relatório fornece as seguintes informações:
 ## <a name="related-links"></a>Links relacionados
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Relatório de IP arriscado](how-to-connect-health-adfs-risky-ip.md)
+* [Relatório IP arriscado](how-to-connect-health-adfs-risky-ip.md)
 

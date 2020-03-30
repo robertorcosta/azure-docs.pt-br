@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284727"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um Hub IoT usando o portal do Azure
@@ -50,15 +50,15 @@ Clique em **Adicionar** para abrir a folha **Adicionar uma política de acesso c
 
 ![Captura de tela mostrando a adição de uma política de acesso compartilhado](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* As políticas **Leitura do Registro** e **Gravação do Registro** concedem direitos de acesso de leitura e de gravação registro de identidade. Essas permissões são usadas pelos serviços de nuvem de back-end para gerenciar identidades de dispositivo. A escolha da opção de gravação escolhe automaticamente a opção de leitura.
+* As políticas **Leitura do Registro** e **Gravação do Registro** concedem direitos de acesso de leitura e de gravação registro de identidade. Essas permissões são usadas por serviços de nuvem back-end para gerenciar identidades de dispositivos. A escolha da opção de gravação escolhe automaticamente a opção de leitura.
 
-* A política de **conexão de serviço** concede permissão para acessar pontos de extremidade de serviço. Essa permissão é usada pelos serviços de nuvem de back-end para enviar e receber mensagens de dispositivos, bem como para atualizar e ler dados de dispositivo e do módulo.
+* A **política de conexão de serviço** concede permissão para acessar pontos finais de serviço. Essa permissão é usada por serviços de nuvem back-end para enviar e receber mensagens de dispositivos, bem como para atualizar e ler dados gêmeos do dispositivo e do módulo.
 
-* A política **Conectar dispositivo** concede permissões para enviar e receber mensagens usando os pontos de extremidade do lado do dispositivo do Hub IoT. Essa permissão é usada pelos dispositivos para enviar e receber mensagens de um hub IoT, atualizar e ler os dados do dispositivo e do módulo e executar carregamentos de arquivos.
+* A política **Conectar dispositivo** concede permissões para enviar e receber mensagens usando os pontos de extremidade do lado do dispositivo do Hub IoT. Essa permissão é usada por dispositivos para enviar e receber mensagens de um hub de IoT, atualizar e ler dados gêmeos do dispositivo e do módulo e executar uploads de arquivos.
 
 Clique em **Criar** para adicionar essa política recém-criada à lista existente.
 
-Para obter informações mais detalhadas sobre o acesso concedido por permissões específicas, consulte [permissões do Hub IOT](./iot-hub-devguide-security.md#iot-hub-permissions).
+Para obter informações mais detalhadas sobre o acesso concedido por permissões específicas, consulte [permissões do IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
 
@@ -94,13 +94,13 @@ Clique em **Salvar** para salvar a regra de roteamento. Você retorna ao painel 
 
 ### <a name="custom-endpoints"></a>Pontos de extremidade personalizados
 
-Clique na guia **pontos de extremidade personalizados** . Você verá todos os pontos de extremidade personalizados já criados. Daqui, você pode adicionar novos pontos de extremidade ou excluir pontos de extremidade existentes. 
+Clique na **guia Pontos finais personalizados.** Você vê quaisquer pontos finais personalizados já criados. Daqui, você pode adicionar novos pontos de extremidade ou excluir pontos de extremidade existentes. 
 
 > [!NOTE]
 > Se você excluir uma rota, não serão excluídos os pontos de extremidade atribuídos a ela. Para excluir um ponto de extremidade, clique na guia Pontos de extremidade personalizados, selecione o ponto de extremidade que você deseja excluir e clique em Excluir.
 >
 
-Você pode ler mais sobre pontos de extremidade personalizados em [Referência - Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md).
+Você pode ler mais sobre pontos de extremidade personalizados em [Referência — Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md).
 
 Você pode definir até 10 pontos de extremidade personalizados para o Hub IoT. 
 
@@ -123,5 +123,5 @@ Para excluir um hub IoT, localize o hub IoT que você deseja excluir e, em segui
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Roteamento de mensagem com o Hub IoT](tutorial-routing.md)
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)

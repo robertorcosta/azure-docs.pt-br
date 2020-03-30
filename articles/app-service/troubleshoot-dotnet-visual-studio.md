@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
 ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280047"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo no Serviço de Aplicativo do Azure usando o Visual Studio
@@ -29,11 +29,11 @@ O que você aprenderá:
 Se você tiver o Visual Studio Ultimate, também é possível utilizar o [IntelliTrace](/visualstudio/debugger/intellitrace) para depuração. O IntelliTrace não é abordado neste tutorial.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>Pré-requisitos
-Este tutorial funciona com o ambiente de desenvolvimento, projeto Web e aplicativo do Serviço de Aplicativo que você configurou em [Criar um aplicativo ASP.NET no Serviço de Aplicativo do Azure](app-service-web-get-started-dotnet-framework.md). Para as seções de trabalhos Web, você precisará do aplicativo criado em introdução [ao SDK do Azure WebJobs][GetStartedWJ].
+Este tutorial funciona com o ambiente de desenvolvimento, projeto Web e aplicativo do Serviço de Aplicativo que você configurou em [Criar um aplicativo ASP.NET no Serviço de Aplicativo do Azure](app-service-web-get-started-dotnet-framework.md). Para as seções do WebJobs, você precisará do aplicativo que você criou na [Introdução ao SDK do Azure WebJobs][GetStartedWJ].
 
 Os exemplos de código mostrados neste tutorial são para um aplicativo Web MVC em C#, mas os procedimentos para solução de problemas são os mesmos para aplicativos em Visual Basic e Web Forms.
 
-O tutorial pressupõe que você esteja usando o Visual Studio 2019. 
+O tutorial pressupõe que você está usando o Visual Studio 2019. 
 
 O recurso de logs de streaming funciona apenas para aplicativos que tenham como alvo o .NET Framework 4 ou posterior.
 
@@ -61,14 +61,14 @@ O Visual Studio fornece acesso a um subconjunto das funções de gerenciamento d
 
     Neste tutorial, você usará os menus suspensos de log e rastreamento. Você também usará a depuração remota, mas utilizará um método diferente para habilitá-la.
 
-    Para saber mais sobre as caixas Configurações do Aplicativo e Cadeias de Conexão nessa janela, confira [Serviço de Aplicativo do Azure: como as cadeias de caracteres do aplicativo e as cadeias de conexão funcionam](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Para obter informações sobre as configurações do aplicativo e as strings de conexão nesta janela, consulte [O Serviço do Aplicativo Azure: Como as strings de aplicativos e as strings de conexão funcionam](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Se desejar executar uma tarefa de gerenciamento do aplicativo que não possa ser concluída nessa janela, clique em **Abrir no Portal de Gerenciamento** para abrir uma janela do navegador para o portal do Azure.
 
 ## <a name="access-app-files-in-server-explorer"></a><a name="remoteview"></a>Acessar arquivos de aplicativo no Gerenciador de Servidores
 Você tipicamente implanta um projeto Web com o `customErrors`sinalizador no arquivo Web.config definido como `On` ou `RemoteOnly`, o que significa que você não receberá uma mensagem de erro útil quando algo dá errado. Para muitos erros, tudo o que você recebe é uma página como uma das páginas a seguir:
 
-**Erro de servidor no aplicativo '/':**
+**Erro do servidor no aplicativo '/':**
 
 ![Página de erro inútil](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
@@ -127,7 +127,7 @@ Esta seção mostra como depurar remotamente usando o projeto que você criou em
 
 1. [Defina um ponto de interrupção](https://docs.microsoft.com/visualstudio/debugger/) na linha `ViewBag.Message`.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e clique em **Publicar**.
+1. No **Solution Explorer,** clique com o botão direito do mouse no projeto e clique **em Publicar**.
 
 1. Na lista suspensa de **Perfil**, selecione o mesmo perfil que você usou em [Criar um aplicativo ASP.NET no Serviço de Aplicativo do Azure](app-service-web-get-started-dotnet-framework.md). Em seguida, clique em Configurações.
 
@@ -172,7 +172,7 @@ Os recursos mostrados nesta seção só estão disponíveis no Visual Studio 201
 
 A depuração remota só funciona com Trabalhos Web contínuos. Trabalhos Web agendados e sob demanda não oferecem suporte a depuração.
 
-1. Abra o projeto Web que você criou em introdução [ao SDK do Azure WebJobs][GetStartedWJ].
+1. Abra o projeto Web que você criou na [Introdução ao SDK do Azure WebJobs][GetStartedWJ].
 
 2. No projeto ContosoAdsWebJob, abra *Functions.cs*.
 
@@ -250,12 +250,12 @@ Um aplicativo ASP.NET executado em um aplicativo do Serviço de Aplicativo pode 
 
 * **Logs de rastreamento de aplicativos**<br/>
   O aplicativo cria esses logs chamando métodos da classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) .
-* **Logs do servidor Web**<br/>
+* **Logs de servidor web**<br/>
   O servidor web cria uma entrada no log para cada solicitação HTTP ao aplicativo.
 * **Logs de mensagens de erro detalhadas**<br/>
   O servidor Web cria uma página HTML com algumas informações adicionais para solicitações HTTP com falha (solicitações que resultam em um código de status 400 ou superior).
 * **Logs de rastreamento de solicitações com falha**<br/>
-  O servidor Web cria um arquivo XML com informações de rastreamento detalhadas para solicitações HTTP com falha. O servidor Web também fornece um arquivo XSL para formatar o XML em um navegador.
+   O servidor Web cria um arquivo XML com informações de rastreamento detalhadas para solicitações HTTP com falha. O servidor Web também fornece um arquivo XSL para formatar o XML em um navegador.
 
 Como o registro em log afeta o desempenho do aplicativo, o Azure oferece a possibilidade de habilitar ou desabilitar cada tipo de log conforme necessário. Para logs de aplicativo, você pode especificar que apenas os logs acima de um determinado nível de gravidade devem ser gravados. Por padrão, quando você cria um novo aplicativo, todo o registro em log está desabilitado.
 
@@ -271,7 +271,7 @@ Nesta seção, você executará as seguintes tarefas:
 Para saber mais sobre como criar logs de aplicativo em Trabalhos Web, confira [Como trabalhar com o armazenamento de fila do Azure utilizando o SDK de Trabalhos Web: como gravar logs](https://github.com/Azure/azure-webjobs-sdk/wiki). As instruções a seguir para exibir logs e controlar como eles são armazenados no Azure também se aplicam a logs de aplicativos criados por Trabalhos Web.
 
 ### <a name="add-tracing-statements-to-the-application"></a>Adicionar instruções de rastreamento ao aplicativo
-1. Abra *Controllers\HomeController.cs* e substitua os métodos `Index`, `About` e `Contact` pelo seguinte código para adicionar instruções `Trace` e uma instrução `using` para `System.Diagnostics`:
+1. *Abrir controladores\HomeController.cs*e `Index`substituir `About`os `Contact` métodos e métodos com `Trace` o `using` seguinte `System.Diagnostics`código para adicionar instruções e uma instrução para:
 
     ```csharp
     public ActionResult Index()
@@ -337,7 +337,7 @@ O `WebPageTraceListener` permite exibir a saída do rastreamento navegando até 
     ```
 
 1. Pressione CTRL+F5 para executar o aplicativo.
-1. Na barra de endereços da janela do navegador, adicione *trace. axd* à URL e pressione Enter (a URL é semelhante a `http://localhost:53370/trace.axd`).
+1. Na barra de endereços da janela do navegador, adicione *trace.axd* à URL `http://localhost:53370/trace.axd`e, em seguida, pressione Enter (a URL é semelhante a ).
 1. Na página de **Rastreamento do aplicativo**, clique em **Exibir detalhes** na primeira linha (não a linha BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -366,7 +366,7 @@ O `WebPageTraceListener` permite exibir a saída do rastreamento navegando até 
     ![Exibir Logs de Streaming no menu de contexto](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
 4. Na janela do navegador que mostra a home page do aplicativo, clique em **Contato**.
 
-    Em alguns segundos, a saída do rastreamento em nível de erro adicionado ao método `Contact` é exibida na janela **Saída** .
+    Em poucos segundos, a saída do rastreamento de `Contact` nível de erro adicionado ao método aparece na janela **Saída.**
 
     ![Rastreamento de erro na janela Saída](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
@@ -442,7 +442,7 @@ Os logs detalhados de erro fornecem algumas informações adicionais sobre solic
 
 4. Na barra de endereços da janela do navegador, adicione um caractere extra à URL para provocar um erro 404 (por exemplo, `http://localhost:53370/Home/Contactx`) e pressione Enter.
 
-    Após vários segundos, o log detalhado de erros é exibido na janela **Saída** do Visual Studio.
+    Após vários segundos, o registro de erro detalhado aparece na janela **Saída do Visual** Studio.
 
     ![Log detalhado de erros - janela Saída](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
 
@@ -567,7 +567,7 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 
 3. No Visual Studio, na guia **Configuração** da janela **Aplicativo Web do Azure**, clique em **Abrir no Portal de Gerenciamento**.
 
-4. Na página [](https://portal.azure.com) **configurações** de portal do Azure para seu aplicativo, clique em **credenciais de implantação**e insira um novo nome de usuário e senha.
+4. Na página [Configurações do ](https://portal.azure.com) **portal do Azure** do seu aplicativo, clique em **Credenciais de implantação** e insira um novo nome de usuário e uma senha.
 
     ![Novo nome de usuário e senha FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -577,7 +577,7 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 
 5. Em uma nova janela do navegador, vá para a URL mostrada em **Nome do host FTP** ou **Nome do host FTPS** na página **Visão geral** do seu aplicativo.
 
-6. Entre usando as credenciais de FTP que você criou anteriormente (incluindo o prefixo do nome do aplicativo para o nome de usuário).
+6. Faça login usando as credenciais FTP que você criou anteriormente (incluindo o prefixo de nome do aplicativo para o nome de usuário).
 
     O navegador mostra a pasta raiz do aplicativo.
 
@@ -599,7 +599,7 @@ Você pode exibir os logs de rastreamento de solicitação com falha em um naveg
 
     ![Rastreamento de solicitação com falha no navegador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Próximas etapas
+## <a name="next-steps"></a><a name="nextsteps"></a>Próximos passos
 Você viu como o Visual Studio facilita a exibição de logs criados por um aplicativo do Serviço de Aplicativo. As seguintes seções fornecem links para mais recursos sobre tópicos relacionados:
 
 * Solução de problemas do Serviço de Aplicativo
@@ -620,7 +620,7 @@ Para saber mais sobre como solucionar problemas de aplicativos no Serviço de Ap
 Para obter ajuda com uma pergunta específica de solução de problemas, inicie um thread em um dos seguintes fóruns:
 
 * [O fórum do Azure no site do ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [O fórum do Azure no Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [O fórum Azure sobre o Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Depurando no Visual Studio
@@ -640,15 +640,15 @@ Se o aplicativo usar uma API Web do Azure ou um back-end de Serviços Móveis e 
 Não existem introduções completas e atualizadas para rastreamento do ASP.NET disponíveis na Internet. O melhor a fazer é começar com materiais introdutórios antigos escritos para formulários da Web porque o MVC ainda não existia e complementar isso com postagens em blog mais recentes focalizadas em problemas específicas. Alguns bons locais para começar são os seguintes recursos:
 
 * [Monitoramento e telemetria (Compilando aplicativos de nuvem do mundo real com o Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-  Capítulo do livro eletrônico com recomendações para rastreamento em aplicativos de nuvem do Azure.
+   Capítulo do livro eletrônico com recomendações para rastreamento em aplicativos de nuvem do Azure.
 * [Rastreamento do ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-  Antigo, mas ainda é um bom recurso para obter uma introdução básica sobre o assunto.
+   Antigo, mas ainda é um bom recurso para obter uma introdução básica sobre o assunto.
 * [Ouvintes de rastreamento](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informações sobre ouvintes de rastreamento, mas não menciona o [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Passo a passo: integrando o rastreamento do ASP.NET com rastreamento do System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [Passo a passo: Integrando o rastreamento do ASP.NET com rastreamento do System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Esse artigo também é antigo, mas inclui algumas informações adicionais que o artigo introdutório não cobre.
 * [Rastreamento em exibições do Razor do ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Além do rastreamento em exibições do Razor, a postagem também explica como criar um filtro de erros para registrar em log todas as exceções não tratadas em um aplicativo MVC. Para obter informações sobre como registrar em log exceções não tratadas em um aplicativo de formulários da Web, consulte o exemplo do Global.asax em [Concluir exemplo para manipuladores de erro](/previous-versions/bb397417(v=vs.140)) no MSDN. No MVC ou em Formulários da Web, para registrar certas exceções em log, mas deixar o tratamento da estrutura padrão cuidar deles, você poderá capturar e relançar como no exemplo a seguir:
+   Além do rastreamento em exibições do Razor, a postagem também explica como criar um filtro de erros para registrar em log todas as exceções não tratadas em um aplicativo MVC. Para obter informações sobre como registrar em log exceções não tratadas em um aplicativo de formulários da Web, consulte o exemplo do Global.asax em [Concluir exemplo para manipuladores de erro](/previous-versions/bb397417(v=vs.140)) no MSDN. No MVC ou em Formulários da Web, para registrar certas exceções em log, mas deixar o tratamento da estrutura padrão cuidar deles, você poderá capturar e relançar como no exemplo a seguir:
 
     ```csharp
     try
@@ -663,9 +663,9 @@ Não existem introduções completas e atualizadas para rastreamento do ASP.NET 
     ```
 
 * [Registro em log de rastreamento do diagnóstico de streaming na linha de comando do Azure (mais Glimpse!)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  Como usar a linha de comando para fazer o que este tutorial mostra no Visual Studio. [Glimpse (a página pode estar em inglês)](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos ASP.NET.
+   Como usar a linha de comando para fazer o que este tutorial mostra no Visual Studio. [Glimpse (a página pode estar em inglês)](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos ASP.NET.
 * [Usando diagnóstico e registro em log de Aplicativos Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Logs de streaming dos Aplicativos Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-  Vídeos de Scott Hanselman e David Ebbo.
+   Vídeos de Scott Hanselman e David Ebbo.
 
 Para o registro em log de erros, uma alternativa para escrever seu próprio código de rastreamento é usar uma estrutura de registros em log de software livre, como o [ELMAH](https://nuget.org/packages/elmah/). Para obter mais informações, consulte as [postagens no blog de Scott Hanselman sobre o ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
@@ -676,13 +676,13 @@ Para obter mais informações sobre como analisar logs de servidor web, consulte
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log* ).
-* [Solucionando problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-  Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
+* [Solução de problemas de desempenho do IIS ou erros de aplicativo usando logParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+   Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de status HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisando logs de rastreamento de solicitação com falha
-O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicitação com falha](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) que pode ser útil para entender como usar esses logs. No entanto, essa documentação se concentra principalmente na configuração do rastreamento de solicitação com falha no IIS, o que você não pode fazer em Serviço de Aplicativo do Azure.
+O site da Microsoft TechNet inclui uma seção [de rastreamento de solicitações com falha,](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) que pode ser útil para entender como usar esses logs. No entanto, essa documentação se concentra principalmente na configuração do rastreamento de solicitação com falha no IIS, o que você não pode fazer em Serviço de Aplicativo do Azure.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

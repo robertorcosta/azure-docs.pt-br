@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267684"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para modificar a configuração do dispositivo StorSimple
@@ -46,8 +46,8 @@ Um dispositivo StorSimple conectado ao serviço do Gerenciador de Dispositivos d
 
 * **8600** – Indica o modelo do dispositivo.
 * **SHX** – Indica o site de produção.
-* **0991003** - Indica um produto específico.
-* **G44HT**- Os últimos cinco dígitos são aumentados para criar números de série exclusivos. Isso pode não ser um conjunto sequencial.
+* **0991003** – Indica um produto específico.
+* **G44HT** – Os últimos cinco dígitos são incrementados para criar os números de série exclusivos. Isso pode não ser um conjunto sequencial.
 
 ## <a name="modify-device-description"></a>Modificar a descrição do dispositivo
 
@@ -65,7 +65,7 @@ O dispositivo deve sincronizar a hora para autenticar com seu provedor de servi�
 
  Selecione seu fuso horário na lista suspensa. É possível especificar até dois servidores NTP (protocolo NTP):
 
- - **Servidor NTP primário** – A configuração é necessária e é especificada quando você usa o Windows PowerShell para StorSimple para configurar seu dispositivo. É possível especificar o **time.windows.com** padrão do Windows Server como o servidor NTP. É possível exibir a configuração do servidor NTP primário por meio do Portal do Azure, mas é necessário usar a interface do Windows PowerShell para alterá-la. Use o cmdlet `Set-HcsNTPClientServerAddress` para modificar o servidor NTP primário do seu dispositivo. Para obter mais informações, procure o cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) em syntax.
+ - **Servidor NTP primário** – A configuração é necessária e é especificada quando você usa o Windows PowerShell para StorSimple para configurar seu dispositivo. Você também pode especificar o Windows Server padrão **time.windows.com** como seu servidor NTP. É possível exibir a configuração do servidor NTP primário por meio do Portal do Azure, mas é necessário usar a interface do Windows PowerShell para alterá-la. Use o cmdlet `Set-HcsNTPClientServerAddress` para modificar o servidor NTP primário do seu dispositivo. Para obter mais informações, procure o cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) em syntax.
 
 - **Servidor NTP secundário** – A configuração é opcional. É possível usar o portal para configurar um servidor NTP secundário.
 
@@ -129,8 +129,8 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
     É recomendável isolar o tráfego iSCSI do tráfego do armazenamento em nuvem. Também observe que, se o host estiver na mesma sub-rede que o dispositivo, não será preciso atribuir um gateway; no entanto, se o host estiver em uma sub-rede diferente de seu dispositivo, será preciso atribuir um gateway.
 * **Endereço IP** – Quando você configurar qualquer um dos adaptadores de rede, será necessário configurar um VIP (IP virtual). Ele poderá ser IPv4 ou IPv6 ou ambos. As famílias de endereço IPv4 e IPv6 são compatíveis com as interfaces de rede do dispositivo. Ao usar o IPv4, especifique um endereço IP de 32 bits (*xxx.xxx.xxx.xxx*) em notação de ponto decimal. Ao usar o IPv6, basta fornecer um prefixo de quatro dígitos, e um endereço de 128 bits será gerado automaticamente para a interface de rede do dispositivo com base nesse prefixo.
 * **Sub-rede** – Refere-se à máscara de sub-rede e é configurada por meio da interface do Windows PowerShell.
-* **Gateway** – Este é o gateway padrão que deve ser usado por esta interface quando ele tenta se comunicar com nós que não estão no mesmo espaço do endereço IP (sub-rede). O gateway padrão deve estar no mesmo espaço do endereço (sub-rede) que a interface do endereço IP, conforme determinado pela máscara de sub-rede.
-* **Endereço IP fixo** – Este campo está disponível apenas enquanto você configura a interface DATA 0. Para operações como atualizações ou solução de problemas do dispositivo, talvez seja necessário conectar diretamente ao controlador do dispositivo. O endereço IP fixo pode ser usado para acessar o controlador ativo e passivo no dispositivo.
+* **Gateway** – Este é o gateway padrão que deve ser usado por esta interface quando tenta se comunicar com nós que não estão no mesmo espaço do endereço IP (sub-rede). O gateway padrão deve estar no mesmo espaço do endereço (sub-rede) que a interface do endereço IP, conforme determinado pela máscara de sub-rede.
+* **Endereço IP fixo** – Esse campo está disponível somente ao configurar a interface DATA 0. Para operações como atualizações ou solução de problemas do dispositivo, talvez seja necessário conectar diretamente ao controlador do dispositivo. O endereço IP fixo pode ser usado para acessar o controlador ativo e passivo no dispositivo.
 
 > [!NOTE]
 > * Para garantir a operação correta, verifique a velocidade da interface e o duplex no comutador ao qual cada interface de dispositivo está conectada. As interfaces de comutador devem negociar com Gigabit Ethernet (1000 Mbps) ou serem configuradas para ela e devem ser full duplex. Interfaces que operam em velocidades menores ou em half-duplex causarão problemas de desempenho.

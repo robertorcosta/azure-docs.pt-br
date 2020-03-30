@@ -1,22 +1,22 @@
 ---
-title: Automatizar a implantação de recursos do aplicativo de funções no Azure
+title: Automatize a implantação de recursos do aplicativo de função para o Azure
 description: Aprenda a criar um modelo do Azure Resource Manager que implanta o aplicativo de funções.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276888"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
 Você pode usar um modelo do Azure Resource Manager para implantar um aplicativo de funções. Este artigo descreve os recursos e os parâmetros necessários para fazer isso. Talvez seja necessário implantar recursos adicionais, dependendo dos [gatilhos e associações](functions-triggers-bindings.md) em seu aplicativo de funções.
 
-Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
+Para obter mais informações sobre a criação de modelos, consulte [Os modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Para modelos de exemplo, consulte:
 - [Aplicativo de funções no Plano de Consumo]
@@ -24,19 +24,19 @@ Para modelos de exemplo, consulte:
 
 ## <a name="required-resources"></a>Recursos necessários
 
-Uma implantação Azure Functions normalmente consiste nesses recursos:
+Uma implantação de Funções do Azure geralmente consiste nesses recursos:
 
 | Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Uma conta de [Armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |   |
+| Uma [conta de armazenamento azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Armazenamento/armazenamentoContas](/azure/templates/microsoft.storage/storageaccounts) |   |
+| Um componente [de insights de aplicativos](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/componentes](/azure/templates/microsoft.insights/components)         |   |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1</sup> Um plano de hospedagem só é necessário quando você opta por executar seu aplicativo de funções em um [plano Premium](./functions-premium-plan.md) (em versão prévia) ou em um [plano do serviço de aplicativo](../app-service/overview-hosting-plans.md).
+<sup>1</sup> Um plano de hospedagem só é necessário quando você optar por executar seu aplicativo de função em um [plano Premium](./functions-premium-plan.md) (em pré-visualização) ou em um plano de serviço [de aplicativo](../app-service/overview-hosting-plans.md).
 
 > [!TIP]
-> Embora não seja necessário, é altamente recomendável que você configure Application Insights para seu aplicativo.
+> Embora não seja necessário, é fortemente recomendável que você configure insights de aplicativos para o seu aplicativo.
 
 <a name="storage"></a>
 ### <a name="storage-account"></a>Conta de armazenamento
@@ -77,7 +77,7 @@ Essas propriedades são especificadas na coleção `appSettings` no objeto `site
 
 ### <a name="application-insights"></a>Application Insights
 
-Application Insights é recomendado para monitorar seus aplicativos de funções. O recurso Application Insights é definido com o tipo **Microsoft. insights/Components** e o tipo **Web**:
+O Application Insights é recomendado para monitorar seus aplicativos de função. O recurso Application Insights é definido com o tipo **Microsoft.Insights/componentes** e o tipo **web**:
 
 ```json
         {
@@ -96,7 +96,7 @@ Application Insights é recomendado para monitorar seus aplicativos de funções
         },
 ```
 
-Além disso, a chave de instrumentação precisa ser fornecida ao aplicativo de funções usando a configuração `APPINSIGHTS_INSTRUMENTATIONKEY` aplicativo. Essa propriedade é especificada na coleção de `appSettings` no objeto `siteConfig`:
+Além disso, a chave de instrumentação precisa ser `APPINSIGHTS_INSTRUMENTATIONKEY` fornecida ao aplicativo de função usando a configuração do aplicativo. Esta propriedade é especificada `appSettings` na `siteConfig` coleção no objeto:
 
 ```json
 "appSettings": [
@@ -111,12 +111,12 @@ Além disso, a chave de instrumentação precisa ser fornecida ao aplicativo de 
 
 A definição do plano de hospedagem varia e pode ser uma das seguintes:
 * [Plano de consumo](#consumption) (padrão)
-* [Plano Premium](#premium) (em versão prévia)
-* [Plano do Serviço de Aplicativo](#app-service-plan)
+* [Plano premium](#premium) (em pré-visualização)
+* [Plano de serviço de aplicativos](#app-service-plan)
 
 ### <a name="function-app"></a>Aplicativo de funções
 
-O recurso de aplicativo de funções é definido usando um recurso do tipo **Microsoft. Web/sites e o** tipo **functionapp**:
+O recurso do aplicativo de função é definido usando um recurso do tipo **Microsoft.Web/sites** e kind **functionapp**:
 
 ```json
 {
@@ -133,18 +133,18 @@ O recurso de aplicativo de funções é definido usando um recurso do tipo **Mic
 ```
 
 > [!IMPORTANT]
-> Se você estiver definindo explicitamente um plano de hospedagem, um item adicional será necessário na matriz de dependências: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+> Se você estiver definindo explicitamente um plano de hospedagem, um item adicional será necessário na matriz dependsOn:`"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
 
-Um aplicativo de funções deve incluir estas configurações de aplicativo:
+Um aplicativo de função deve incluir essas configurações do aplicativo:
 
-| Nome da configuração                 | DESCRIÇÃO                                                                               | Valores de exemplo                        |
+| Nome da configuração                 | Descrição                                                                               | Valores de exemplo                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | Uma cadeia de conexão para uma conta de armazenamento que o tempo de execução do Functions usa para a fila interna | Consulte a [conta de armazenamento](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | A versão do Azure Functions Runtime                                                | `~2`                                  |
+| AzureWebJobsStorage          | Uma seqüência de conexão para uma conta de armazenamento que o tempo de execução Functions usa para filas internas | Ver [conta de armazenamento](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | A versão do tempo de execução do Azure Functions                                                | `~2`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | A pilha de idiomas a ser usada para funções neste aplicativo                                   | `dotnet`, `node`, `java`, `python` ou `powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | Necessário apenas se estiver usando a pilha de idiomas `node`, especifica a versão a ser usada              | `10.14.1`                             |
+| WEBSITE_NODE_DEFAULT_VERSION | Só é necessário `node` se usar a pilha de idiomas, especificar a versão a ser usada              | `10.14.1`                             |
 
-Essas propriedades são especificadas na coleção de `appSettings` na propriedade `siteConfig`:
+Essas propriedades são especificadas `appSettings` na `siteConfig` coleção da propriedade:
 
 ```json
 "properties": {
@@ -175,15 +175,15 @@ Essas propriedades são especificadas na coleção de `appSettings` na proprieda
 
 ## <a name="deploy-on-consumption-plan"></a>Implantar no plano de consumo
 
-O plano de consumo automaticamente aloca poder de computação quando seu código está em execução, dimensiona horizontalmente conforme necessário para lidar com a carga e, em seguida, é dimensionado quando o código não está em execução. Você não precisa pagar por VMs ociosas e não precisa reservar a capacidade com antecedência. Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md#consumption-plan).
+O plano Consumo aloca automaticamente o poder de computação quando seu código está em execução, dimensiona conforme necessário para lidar com a carga e, em seguida, dimensiona quando o código não está em execução. Você não tem que pagar por VMs ociosos, e você não tem que reservar capacidade com antecedência. Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md#consumption-plan).
 
 Para um exemplo de modelo do Azure Resource Manager, consulte [Aplicativo de funções no Plano de Consumo].
 
 ### <a name="create-a-consumption-plan"></a>Criar um Plano de Consumo
 
-Um plano de consumo não precisa ser definido. Uma será criada automaticamente ou selecionada em uma base por região quando você criar o recurso do aplicativo de funções em si.
+Um plano de consumo não precisa ser definido. Um deles será criado ou selecionado automaticamente por região quando você criar o próprio recurso do aplicativo de função.
 
-O plano de consumo é um tipo especial de recurso "ServerFarm". Para o Windows, você pode especificá-lo usando o valor `Dynamic` para as propriedades `computeMode` e `sku`:
+O plano de Consumo é um tipo especial de recurso "serverfarm". Para o Windows, você pode `Dynamic` especá-lo usando o valor para as `computeMode` propriedades e: `sku`
 
 ```json
 {  
@@ -206,15 +206,15 @@ O plano de consumo é um tipo especial de recurso "ServerFarm". Para o Windows, 
 ```
 
 > [!NOTE]
-> O plano de consumo não pode ser explicitamente definido para Linux. Ele será criado automaticamente.
+> O plano de consumo não pode ser explicitamente definido para o Linux. Ele será criado automaticamente.
 
-Se você definir explicitamente seu plano de consumo, será necessário definir a propriedade `serverFarmId` no aplicativo para que ele aponte para a ID de recurso do plano. Você deve garantir que o aplicativo de funções também tenha uma configuração `dependsOn` para o plano.
+Se você definir explicitamente o seu plano de `serverFarmId` consumo, você precisará definir a propriedade no aplicativo para que ele aponte para o ID de recurso do plano. Você deve garantir que o `dependsOn` aplicativo de função tenha uma configuração para o plano também.
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
 #### <a name="windows"></a>Windows
 
-No Windows, um plano de consumo requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
+No Windows, um plano de consumo requer duas `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` `WEBSITE_CONTENTSHARE`configurações adicionais na configuração do site: e . Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
 
 ```json
 {
@@ -261,7 +261,7 @@ No Windows, um plano de consumo requer duas configurações adicionais na config
 
 #### <a name="linux"></a>Linux
 
-No Linux, o aplicativo de funções deve ter seu `kind` definido como `functionapp,linux`e deve ter a propriedade `reserved` definida como `true`:
+No Linux, o aplicativo `kind` de `functionapp,linux`função deve ter `reserved` o seu `true`definido para , e ele deve ter a propriedade definida como :
 
 ```json
 {
@@ -305,11 +305,11 @@ No Linux, o aplicativo de funções deve ter seu `kind` definido como `functiona
 
 ## <a name="deploy-on-premium-plan"></a>Implantar no plano Premium
 
-O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui recursos dedicados e recursos adicionais. Para saber mais, confira [Azure Functions plano Premium](./functions-premium-plan.md).
+O plano Premium oferece o mesmo dimensionamento do plano de consumo, mas inclui recursos dedicados e recursos adicionais. Para saber mais, consulte [O Plano Premium de Funções do Azure](./functions-premium-plan.md).
 
 ### <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especificá-lo usando `EP1`, `EP2`ou `EP3` para o valor da propriedade `Name` no objeto de [Descrição](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)de `sku`.
+Um plano Premium é um tipo especial de recurso "serverfarm". Você pode especá-lo `EP3` usando `Name` ou `EP1` `EP2`para `sku` o valor da propriedade no [objeto de descrição](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -334,7 +334,7 @@ Um plano Premium é um tipo especial de recurso "ServerFarm". Você pode especif
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Um aplicativo de funções em um plano Premium deve ter a propriedade `serverFarmId` definida como a ID de recurso do plano criado anteriormente. Além disso, um plano Premium requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
+Um aplicativo de função em `serverFarmId` um plano Premium deve ter a propriedade definida para o ID de recurso do plano criado anteriormente. Além disso, um plano Premium requer duas configurações adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Essas propriedades configuram a conta de armazenamento e o caminho do arquivo em que o código e as configurações do aplicativo de funções estão armazenados.
 
 ```json
 {
@@ -384,7 +384,7 @@ Um aplicativo de funções em um plano Premium deve ter a propriedade `serverFar
 
 <a name="app-service-plan"></a>
 
-## <a name="deploy-on-app-service-plan"></a>Implantar no plano do serviço de aplicativo
+## <a name="deploy-on-app-service-plan"></a>Implantar no plano de serviço de aplicativos
 
 No Plano do Serviço de Aplicativo, seus aplicativos de funções são executados em VMs dedicadas, em SKUs Basic, Standard e Premium, assim como os aplicativos Web. Para obter detalhes sobre como o plano do Serviço de Aplicativo funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/overview-hosting-plans.md).
 
@@ -392,7 +392,7 @@ Para um exemplo de modelo do Azure Resource Manager, consulte [Aplicativo de fun
 
 ### <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
-Um plano do serviço de aplicativo é definido por um recurso "ServerFarm".
+Um plano de Serviço de Aplicativo é definido por um recurso "serverfarm".
 
 ```json
 {
@@ -410,7 +410,7 @@ Um plano do serviço de aplicativo é definido por um recurso "ServerFarm".
 }
 ```
 
-Para executar seu aplicativo no Linux, você também deve definir o `kind` como `Linux`:
+Para executar seu aplicativo no Linux, `kind` `Linux`você também deve definir o :
 
 ```json
 {
@@ -431,7 +431,7 @@ Para executar seu aplicativo no Linux, você também deve definir o `kind` como 
 
 ### <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Um aplicativo de funções em um plano do serviço de aplicativo deve ter a propriedade `serverFarmId` definida como a ID de recurso do plano criado anteriormente.
+Um aplicativo de função em um `serverFarmId` plano de Serviço de Aplicativo deve ter a propriedade definida para o ID de recurso do plano criado anteriormente.
 
 ```json
 {
@@ -470,7 +470,7 @@ Um aplicativo de funções em um plano do serviço de aplicativo deve ter a prop
 }
 ```
 
-Os aplicativos do Linux também devem incluir uma propriedade `linuxFxVersion` em `siteConfig`. Se você estiver apenas implantando o código, o valor para isso será determinado pela pilha de tempo de execução desejada:
+Os aplicativos Linux `linuxFxVersion` também `siteConfig`devem incluir uma propriedade em . Se você estiver apenas implantando código, o valor para isso é determinado pela pilha de tempo de execução desejada:
 
 | Pilha            | Valor de exemplo                                         |
 |------------------|-------------------------------------------------------|
@@ -516,7 +516,7 @@ Os aplicativos do Linux também devem incluir uma propriedade `linuxFxVersion` e
 }
 ```
 
-Se você estiver [implantando uma imagem de contêiner personalizada](./functions-create-function-linux-custom-image.md), deverá especificá-la com `linuxFxVersion` e incluir a configuração que permite que a imagem seja puxada, como em [aplicativo Web para contêineres](/azure/app-service/containers). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false`, já que o conteúdo do aplicativo é fornecido no próprio contêiner:
+Se você estiver [implantando uma imagem de contêiner personalizada,](./functions-create-function-linux-custom-image.md)você deve especá-la com `linuxFxVersion` e incluir configuração que permita que sua imagem seja puxada, como no Web App for [Containers](/azure/app-service/containers). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` para `false`, uma vez que o conteúdo do seu aplicativo é fornecido no próprio contêiner:
 
 ```json
 {
@@ -572,12 +572,12 @@ Se você estiver [implantando uma imagem de contêiner personalizada](./function
 }
 ```
 
-## <a name="customizing-a-deployment"></a>Personalizando uma implantação
+## <a name="customizing-a-deployment"></a>Personalização de uma implantação
 
-Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua implantação, incluindo configurações do aplicativo e opções de controle do código-fonte. Você também pode optar por remover o recurso filho **sourcecontrols** e usar uma outra [opção de implantação](functions-continuous-deployment.md).
+Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua implantação, incluindo configurações do aplicativo e opções de controle do código-fonte. Você também pode optar por remover o recurso filho **do sourcecontrols** e usar uma opção de [implantação](functions-continuous-deployment.md) diferente.
 
 > [!IMPORTANT]
-> Para implantar seu aplicativo com êxito usando o Azure Resource Manager, é importante entender como os recursos são implantados no Azure. No exemplo a seguir, as configurações de nível superior são aplicadas usando **siteConfig**. É importante definir essas configurações em um nível superior porque transmitem informações para o mecanismo de implantação e de runtime do Functions. Informações de nível superior são necessárias antes do recurso filho **sourcecontrols/web** ser aplicado. Embora seja possível definir essas configurações no recurso de **config/appSettings** de nível filho, em alguns casos, seu aplicativo de funções deve ser implantado *antes que* **config/appSettings** seja aplicado. Por exemplo, quando você está usado funções com [aplicativos lógicos](../logic-apps/index.yml), as funções são uma dependência de outro recurso.
+> Para implantar seu aplicativo com êxito usando o Azure Resource Manager, é importante entender como os recursos são implantados no Azure. No exemplo a seguir, as configurações de nível superior são aplicadas usando **siteConfig**. É importante definir essas configurações em um nível superior porque transmitem informações para o mecanismo de implantação e de runtime do Functions. Informações de nível superior são necessárias antes do recurso filho **sourcecontrols/web** ser aplicado. Embora seja possível definir essas configurações no nível de recurso filho **config/appSettings**, em alguns casos, o aplicativo de funções deve ser implantado *antes de * **config/appSettings** ser aplicado. Por exemplo, quando você está usado funções com [aplicativos lógicos](../logic-apps/index.yml), as funções são uma dependência de outro recurso.
 
 ```json
 {
@@ -641,15 +641,15 @@ Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua
 }
 ```
 > [!TIP]
-> Este modelo usa o valor das configurações do aplicativo [Projeto](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file), que determina o diretório-base cujo mecanismo de implantação de funções (Kudu) procura o código implantável. Em nosso repositório, nossas funções estão em uma subpasta da pasta **src**. Assim, no exemplo anterior, definimos o valor de configurações do aplicativo para `src`. Se as funções estão na raiz do seu repositório, ou se não está implantando do controle de origem, você pode remover esse valor de configurações do aplicativo.
+> Este modelo usa o valor de configurações do aplicativo [Project,](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) que define o diretório base no qual o mecanismo de implantação functions (Kudu) procura um código implantável. Em nosso repositório, nossas funções estão em uma subpasta da pasta **src**. Assim, no exemplo anterior, definimos o valor de configurações do aplicativo para `src`. Se as funções estão na raiz do seu repositório, ou se não está implantando do controle de origem, você pode remover esse valor de configurações do aplicativo.
 
 ## <a name="deploy-your-template"></a>Implantar o modelo
 
 Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
-* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-* [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Powershell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Portal Azure](../azure-resource-manager/templates/deploy-portal.md)
 * [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure
@@ -670,7 +670,7 @@ Este é um exemplo que usa HTML:
 
 ### <a name="deploy-using-powershell"></a>Implantar usando o PowerShell
 
-Os comandos do PowerShell a seguir criam um grupo de recursos e implantam um modelo que cria um aplicativo de funções com seus recursos necessários. Para executar localmente, você deve ter o [Azure PowerShell](/powershell/azure/install-az-ps) instalado. Execute [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) para entrar.
+Os seguintes comandos do PowerShell criam um grupo de recursos e implantam um modelo que cria um aplicativo de função com seus recursos necessários. Para ser executado localmente, você deve ter [o Azure PowerShell](/powershell/azure/install-az-ps) instalado. Corra [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) para entrar.
 
 ```powershell
 # Register Resource Providers if they're not already registered
@@ -687,15 +687,15 @@ $TemplateParams = @{"appName" = "<function-app-name>"}
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
-Para testar essa implantação, você pode usar um [modelo como este](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) que cria um aplicativo de funções no Windows em um plano de consumo. Substitua `<function-app-name>` por um nome exclusivo para seu aplicativo de funções.
+Para testar essa implantação, você pode usar um [modelo como este](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) que cria um aplicativo de função no Windows em um plano de consumo. Substitua por `<function-app-name>` um nome exclusivo para o seu aplicativo de função.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como desenvolver e configurar o Azure Functions.
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Como definir configurações do aplicativo de funções do Azure](functions-how-to-use-azure-function-app-settings.md)
-* [Como criar a sua primeira função do Azure](functions-create-first-azure-function.md)
+* [Como configurar as configurações do aplicativo de função Azure](functions-how-to-use-azure-function-app-settings.md)
+* [Criar sua primeira função do Azure](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 

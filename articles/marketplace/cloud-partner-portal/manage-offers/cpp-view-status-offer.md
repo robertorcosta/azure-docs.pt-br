@@ -1,29 +1,28 @@
 ---
-title: Exibir o status das ofertas do Marketplace | Azure Marketplace
+title: Veja o status das ofertas de marketplace | Mercado Azure
 description: Exibir o status das ofertas nos Marketplaces do Azure e do AppSource usando o Portal do Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pabutler
-ms.openlocfilehash: e58670d37e01bb6e453b73e42a87e42e890d10d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 0cbe6a45ba205f32a764bdadb021dc0dcf5bf0cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826697"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275961"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Exibir o status de publicação de ofertas do Azure Marketplace e do AppSource
 
 Depois de criar uma oferta e especialmente durante o processo de publicação, você pode exibir o status de sua oferta no Portal do Cloud Partner.  Em geral, o status de publicação está disponível nas páginas [**Todas as Ofertas**](../portal-tour/cpp-all-offers-page.md) e [**Aprovações**](../portal-tour/cpp-approvals-page.md) do portal.  Um dos indicadores de status a seguir deve ser exibido para cada oferta.  
 
-|            Status              |   DESCRIÇÃO                                                           |
+|            Status              |   Descrição                                                           |
 |            ------              |   -----------                                                           |
 | **-**                          | A oferta foi criada mas o processo de publicação não foi iniciado.            |
 | **Publicação em andamento**        | A oferta está passando pelas etapas do processo de publicação.   |
-| **Falha ao publicar**             | Um problema crítico foi descoberto durante a validação ou análise pela Microsoft. |
+| **Publicar falhou**             | Um problema crítico foi descoberto durante a validação ou análise pela Microsoft. |
 | **Publicação cancelada**           | O publicador cancelou a processo de publicação da oferta.  Esse estado não retira uma oferta existente da lista no Marketplace. | 
 | **Aguardando saída do publicador** | A oferta foi revisada pela Microsoft e agora aguarda uma verificação final pelo publicador. |
 | **Removida da lista**                   | Uma oferta publicada anteriormente no marketplace foi removida.      | 
@@ -40,7 +39,7 @@ O exemplo a seguir mostra a guia **Status** para um serviço de consultoria, mos
 
 ![Guia de Status para consultar o erro de exibição do serviço](./media/consulting-service-error.png)
 
-O status final de exemplo de um aplicativo do Azure mostra um problema crítico de revisão da Microsoft.  Ele contém um link ativo para o item DevOps do Azure que contém informações detalhadas sobre esse problema de revisão.  Para obter mais informações, confira [Publicar oferta de aplicativo do Azure](cpp-publish-offer.md).
+O status final de exemplo de um aplicativo do Azure mostra um problema crítico de revisão da Microsoft.  Ele contém um link quente para o item Azure DevOps que contém informações detalhadas sobre este problema de revisão.  Para obter mais informações, confira [Publicar oferta de aplicativo do Azure](cpp-publish-offer.md).
 
 ![Guia de Status para um aplicativo do Azure mostrando o problema de revisão](../azure-applications/media/status-tab-ms-review.png)
 

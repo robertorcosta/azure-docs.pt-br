@@ -1,24 +1,24 @@
 ---
-title: Comprar um nome de domínio personalizado
-description: Saiba como comprar um domínio do serviço de aplicativo e usá-lo como um domínio personalizado para o serviço de Azure App de aplicativo.
+title: Compre um nome de domínio personalizado
+description: Aprenda a comprar um domínio do App Service e use-o como um domínio personalizado para o seu aplicativo Azure App Service.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259273"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para Serviço de Aplicativo do Azure
 
-Os domínios do serviço de aplicativo são domínios de nível superior que são gerenciados diretamente no Azure. Eles facilitam o gerenciamento de domínios personalizados para [Serviço de Aplicativo do Azure](overview.md). Este tutorial mostra como comprar um domínio de Serviço de Aplicativo e atribuir nomes DNS ao Serviço de Aplicativo do Azure.
+Os domínios do App Service são domínios de alto nível que são gerenciados diretamente no Azure. Eles facilitam o gerenciamento de domínios personalizados para [Serviço de Aplicativo do Azure](overview.md). Este tutorial mostra como comprar um domínio de Serviço de Aplicativo e atribuir nomes DNS ao Serviço de Aplicativo do Azure.
 
 Para a VM do Azure ou Armazenamento do Azure, consulte [Atribuir o domínio do Serviço de Aplicativo para a VM Azure ou o Armazenamento do Azure](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -45,7 +45,7 @@ A página de gerenciamento do aplicativo do Serviço de Aplicativo é exibida.
 
 ### <a name="check-the-pricing-tier"></a>Verifique o tipo de preço
 
-No painel de navegação à esquerda da página do aplicativo, role até a seção **Configurações** e selecione **Escalar verticalmente (plano do Serviço de Aplicativo)** .
+No painel de navegação à esquerda da página do aplicativo, role até a seção **Configurações** e selecione **Escalar verticalmente (plano do Serviço de Aplicativo)**.
 
 ![Menu Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -70,7 +70,7 @@ Quando você receber a notificação a seguir, a operação de escala terá sido
 ## <a name="buy-the-domain"></a>Comprar o domínio
 
 ### <a name="pricing-information"></a>Informações sobre preços
-Para obter informações sobre preços em domínios de serviço Azure App, visite a [página de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/) e role para baixo até domínio do serviço de aplicativo.
+Para obter informações sobre os domínios de serviço do aplicativo Azure, visite a [página de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/) e role até o App Service Domain.
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 Abra o [portal do Azure](https://portal.azure.com/) e entre com sua conta do Azure.
@@ -106,7 +106,7 @@ Clique em **Informações de Contato** e preencha o formulário de informações
 
 Em seguida, selecione as opções desejadas para seu domínio. Consulte a tabela a seguir para obter explicações:
 
-| Configuração | Valor sugerido | DESCRIÇÃO |
+| Configuração | Valor sugerido | Descrição |
 |-|-|-|
 |Proteção de privacidade | Habilitar | Escolha "Proteção de privacidade," que está incluído no preço de compra _gratuitamente_. Alguns domínios de nível superior são gerenciados pelo registradores que não dão suporte à proteção de privacidade e eles são listados na página **Proteção de privacidade**. |
 | Atribuir nomes de host padrão | **www** e **\@** | Se você quiser, selecione as associações de nome do host desejadas. Quando a operação de compra de domínio for concluída, o aplicativo poderá ser acessado nos nomes do host selecionados. Se o aplicativo estiver atrás do [Gerenciador de Tráfego do Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), você não verá a opção para atribuir o domínio raiz (@) porque o Gerenciador de Tráfego não dá suporte a registros A. Você pode fazer alterações às atribuições de nome do host após a compra de domínio ser concluída. |
@@ -116,7 +116,7 @@ Em seguida, selecione as opções desejadas para seu domínio. Consulte a tabela
 Clique em **Termos Legais** para examinar os termos e os encargos, clique em **Comprar**.
 
 > [!NOTE]
-> Os domínios do serviço de aplicativo usam GoDaddy para o registro de domínio e o DNS do Azure para hospedar os domínios. Além da taxa de registro de domínio, encargos de uso do DNS do Azure se aplicam. Para obter informações, consulte [Preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
+> Os domínios do serviço de aplicativos usam o GoDaddy para registro de domínios e o Azure DNS para hospedar os domínios. Além da taxa de registro de domínio, encargos de uso do DNS do Azure se aplicam. Para obter informações, consulte [Preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -137,18 +137,18 @@ Você também verá os nomes de host selecionados na página **Domínios persona
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Um rótulo **não seguro** para seu domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a associação SSL, consulte [proteger um nome DNS personalizado com uma associação SSL no serviço Azure app](configure-ssl-bindings.md).
+> Um rótulo **Não Seguro** para seu domínio personalizado significa que ele ainda não está vinculado a um certificado SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a vinculação SSL, consulte [Proteger um nome DNS personalizado com uma vinculação SSL no Azure App Service](configure-ssl-bindings.md).
 >
 
-Para testar os nomes de host, navegue até os nomes de host listados no navegador. No exemplo na captura de tela anterior, tente navegar até _kontoso.net_ e _www\.kontoso.net_.
+Para testar os nomes de host, navegue até os nomes de host listados no navegador. No exemplo da captura de tela anterior, tente navegar para _kontoso.net_ e _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Atribuir nomes do host ao aplicativo
 
-Se você optar por não atribuir um ou mais nomes de host padrão ao seu aplicativo durante o processo de compra, ou se precisar atribuir um nome de host não listado, você poderá atribuir um nome de host a qualquer momento.
+Se você optar por não atribuir um ou mais nomes de host padrão ao seu aplicativo durante o processo de compra ou se precisar atribuir um nome de host não listado, você pode atribuir um nome de host a qualquer momento.
 
 Além disso, é possível atribuir nomes do host no Domínio do Serviço de Aplicativo a qualquer outro aplicativo. As etapas dependem se o Domínio do Serviço de Aplicativo e o aplicativo pertencerem à mesma assinatura.
 
-- Assinatura diferente: mapeie registros DNS personalizados do domínio do serviço de aplicativo para o aplicativo, como um domínio comprado externamente. Para obter informações sobre como adicionar nomes DNS personalizados a um Domínio do Serviço de Aplicativo, consulte [Gerenciar registros de DNS personalizados](#custom). Para mapear um domínio comprado externo para um aplicativo, consulte [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md). 
+- Assinatura diferente: Mapeie registros de DNS personalizados do Domínio do Serviço de Aplicativo para o aplicativo como um domínio comprado externamente. Para obter informações sobre como adicionar nomes DNS personalizados a um Domínio do Serviço de Aplicativo, consulte [Gerenciar registros de DNS personalizados](#custom). Para mapear um domínio comprado externo para um aplicativo, consulte [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md). 
 - Mesma assinatura: use as etapas a seguir.
 
 ### <a name="launch-add-hostname"></a>Inicializar adição de nome do host
@@ -168,10 +168,10 @@ Certifique-se de que seu domínio adquirido esteja listado na seção **Domínio
 Selecione **Adicionar nome do host**.
 
 ### <a name="configure-hostname"></a>Configurar nome do host
-Na caixa de diálogo **Adicionar nome do host**, digite o nome de domínio totalmente qualificado do Domínio do Serviço de Aplicativo ou qualquer subdomínio. Por exemplo:
+Na caixa de diálogo **Adicionar nome do host**, digite o nome de domínio totalmente qualificado do Domínio do Serviço de Aplicativo ou qualquer subdomínio. Por exemplo: 
 
 - kontoso.net
-- \.da Web kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 Quando terminar, selecione **Validar**. O tipo de registro de nome do host é selecionado automaticamente para você.
@@ -199,7 +199,7 @@ O domínio Serviço de Aplicativo que você comprou é válido por um ano a part
 
 Se você deseja desativar a renovação automática ou se quiser renovar manualmente seu domínio, siga as etapas aqui.
 
-Na guia **Serviços de Aplicativos**, clique no nome do aplicativo, selecione **Configurações** e, em seguida, selecione **Domínios personalizados**.
+Na guia Serviços do **aplicativo,** clique no nome do aplicativo, selecione **Configurações**e selecione **Domínios personalizados**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -211,21 +211,21 @@ No painel de navegação esquerdo do domínio, selecione **Renovação de domín
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Para renovar manualmente seu domínio, selecione **Renovar domínio**. No entanto, esse botão não estará ativo até [90 dias antes da expiração do domínio](#when-domain-expires).
+Para renovar manualmente seu domínio, selecione **Renovar domínio**. No entanto, este botão não está ativo até [90 dias antes do vencimento do domínio](#when-domain-expires).
 
-Se a renovação do seu domínio for bem-sucedida, você receberá uma notificação por email dentro de 24 horas.
+Se a renovação do seu domínio for bem sucedida, você receberá uma notificação por e-mail dentro de 24 horas.
 
 ## <a name="when-domain-expires"></a>Quando o domínio expirar
 
-O Azure lida com domínios do serviço de aplicativo expirados ou expirados da seguinte maneira:
+O Azure lida com domínios de serviço de aplicativo expirados ou expirados da seguinte forma:
 
-* Se a renovação automática estiver desabilitada: 90 dias antes da expiração do domínio, um email de notificação de renovação será enviado a você e o botão **renovar domínio** será ativado no Portal.
-* Se a renovação automática estiver habilitada: no dia após a data de expiração do domínio, o Azure tentará cobrar pela renovação do nome de domínio.
-* Se ocorrer um erro durante a renovação automática (por exemplo, se o cartão no arquivo estiver expirado) ou se a renovação automática estiver desabilitada e você permitir que o domínio expire, o Azure o notificará sobre a expiração do domínio e os parques do seu nome de domínio. Você pode [renovar manualmente](#renew-the-domain) seu domínio.
-* No dia 4 e 12 dias após a expiração, o Azure envia emails de notificação adicionais. Você pode [renovar manualmente](#renew-the-domain) seu domínio.
-* No dia 19 após a expiração, seu domínio permanece em espera, mas se torna sujeito a uma taxa de resgate. Você pode chamar o atendimento ao cliente para renovar seu nome de domínio, sujeito a qualquer taxa de renovação e resgate aplicável.
-* No 25º dia após a expiração, o Azure coloca seu domínio para o leilão com um serviço de serviços de leilões do setor de nome de domínio. Você pode chamar o atendimento ao cliente para renovar seu nome de domínio, sujeito a qualquer taxa de renovação e resgate aplicável.
-* No dia 30 após a expiração, você não poderá mais resgatar seu domínio.
+* Se a renovação automática for desativada: 90 dias antes do vencimento do domínio, um e-mail de notificação de renovação é enviado para você e o botão **Renovar domínio** é ativado no portal.
+* Se a renovação automática estiver ativada: No dia seguinte à data de expiração do domínio, o Azure tentará faturar pela renovação do nome de domínio.
+* Se ocorrer um erro durante a renovação automática (por exemplo, seu cartão no arquivo estiver expirado) ou se a renovação automática estiver desativada e você permitir que o domínio expire, o Azure notifica você sobre o vencimento do domínio e estaciona seu nome de domínio. Você pode [renovar manualmente](#renew-the-domain) seu domínio.
+* Nos dias 4 e 12, dias após o vencimento, o Azure envia e-mails adicionais de notificação. Você pode [renovar manualmente](#renew-the-domain) seu domínio.
+* No 19º dia após o vencimento, seu domínio permanece em espera, mas fica sujeito a uma taxa de resgate. Você pode ligar para o suporte ao cliente para renovar seu nome de domínio, sujeito a quaisquer taxas de renovação e resgate aplicáveis.
+* No 25º dia após o vencimento, o Azure coloca seu domínio em leilão com um serviço de leilão da indústria de nomes de domínio. Você pode ligar para o suporte ao cliente para renovar seu nome de domínio, sujeito a quaisquer taxas de renovação e resgate aplicáveis.
+* No 30º dia após o vencimento, você não é mais capaz de resgatar seu domínio.
 
 <a name="custom"></a>
 
@@ -235,7 +235,7 @@ No Azure, os registros DNS para um Domínio do Serviço de Aplicativo são geren
 
 ### <a name="open-app-service-domain"></a>Abrir o Domínio do Serviço de Aplicativo
 
-No Portal do Azure, no menu esquerdo, selecione **Todos os serviços** > **Domínios do Serviço de Aplicativo**.
+No portal Azure, no menu esquerdo, selecione **Todos os domínios** > de serviço de aplicativos de serviço**satisumos**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -255,7 +255,7 @@ Depois de comprar o Domínio do Serviço de Aplicativo, você tem cinco dias par
 
 ### <a name="open-app-service-domain"></a>Abrir o Domínio do Serviço de Aplicativo
 
-No Portal do Azure, no menu esquerdo, selecione **Todos os serviços** > **Domínios do Serviço de Aplicativo**.
+No portal Azure, no menu esquerdo, selecione **Todos os domínios** > de serviço de aplicativos de serviço**satisumos**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -269,7 +269,7 @@ No menu da esquerda do domínio, selecione **Associações de nome do host**. As
 
 Você não pode excluir o Domínio de Serviço de Aplicativo até que todas as associações de nome de host sejam excluídas.
 
-Exclua cada associação de nome do host selecionando **…**  > **Excluir**. Depois que todas as associações forem excluídas, selecione **Salvar**.
+Exclua cada vinculação do nome do host selecionando **...**  >  **Excluir**. Depois que todas as associações forem excluídas, selecione **Salvar**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 

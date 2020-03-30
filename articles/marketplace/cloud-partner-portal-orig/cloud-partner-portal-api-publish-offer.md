@@ -1,19 +1,18 @@
 ---
-title: Publicar uma oferta | Azure Marketplace
+title: Publicar uma oferta | Mercado Azure
 description: API para publicar a oferta especificada.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280517"
 ---
 <a name="publish-an-offer"></a>Publicar uma oferta
 ================
@@ -27,9 +26,9 @@ Inicia o processo de publicação da oferta especificada. Essa ligação é uma 
 
 |  **Nome**      |    **Descrição**                               |  **Tipo de dados** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador do publicador, por exemplo `contoso`      |   Cadeia de caracteres       |
-|  offerId       | Identificador da oferta                                 |   Cadeia de caracteres       |
-|  api-version   | Versão mais recente da API                        |   Data         |
+|  publisherId   | Identificador do editor, por exemplo `contoso`      |   String       |
+|  offerId       | Identificador da oferta                                 |   String       |
+|  api-version   | Última versão da API                        |   Data         |
 |  |  |
 
 
@@ -82,7 +81,7 @@ Inicia o processo de publicação da oferta especificada. Essa ligação é uma 
 
 | **Código** |  **Descrição**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted` – A solicitação foi aceita com êxito. A resposta contém um local que pode ser usado para rastrear a operação iniciada. |
+| 202   | `Accepted` – a solicitação foi aceita com êxito. A resposta contém um local que pode ser usado para rastrear a operação iniciada. |
 | 400   | `Bad/Malformed request` – O corpo da resposta de erro pode fornecer mais informações.                                                               |
 | 422   | `Un-processable entity` – Indica que a entidade a ser publicada apresentou falha na validação.                                                        |
 | 404   | `Not found` – A entidade especificada pelo cliente não existe.                                                                              |

@@ -4,10 +4,10 @@ description: O Azure Service Fabric aceita o formato do Docker Compose para faci
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282452"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (Versão prévia)
@@ -127,8 +127,8 @@ Configure o cluster para impor limites de recursos, conforme descrito na [Govern
 ### <a name="ports-section"></a>Seção Portas
 
 Especifique o protocolo http ou https na seção Portas que será usada pelo ouvinte de serviço do Service Fabric. Isso garantirá que o protocolo de ponto de extremidade seja publicado corretamente com o serviço de nomenclatura para permitir que o proxy inverso encaminhe as solicitações:
-* Para rotear para serviços do Service Fabric Compose não seguros, especifique **/http**. Por exemplo, – **“80:80/http”** .
-* Para rotear para serviços do Service Fabric Compose seguros, especifique **/https**. Por exemplo, – **“443:443/https”** .
+* Para rotear para serviços do Service Fabric Compose não seguros, especifique **/http**. Por exemplo, – **“80:80/http”**.
+* Para rotear para serviços do Service Fabric Compose seguros, especifique **/https**. Por exemplo, – **“443:443/https”**.
 
 > [!NOTE]
 > A sintaxe de seção das Portas /http e /https é específica para o Service Fabric registrar a URL correta do ouvinte do Service Fabric.  Se a sintaxe do arquivo do Docker Compose for validada programaticamente, poderá provocar um erro de validação.
@@ -152,5 +152,5 @@ Embora esse modelo ofereça flexibilidade, também estamos planejando dar suport
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia sobre o [modelo de aplicativo do Service Fabric](service-fabric-application-model.md)
+* Leia o [modelo](service-fabric-application-model.md) de aplicativo service fabric
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

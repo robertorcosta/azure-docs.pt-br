@@ -1,20 +1,18 @@
 ---
-title: Práticas recomendadas de marketing do Test Drive | Azure Marketplace
-description: Testar práticas recomendadas de marketing para Publicadores
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+title: Práticas recomendadas de marketing de test drive | Mercado Azure
+description: Práticas recomendadas de marketing do Test Drive para editores
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 177b4bd804ad878c8f983eefcd54399d1a72ba19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 3520e2c16f9a0c891db0d641fa7c9b811cac7b10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824536"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278239"
 ---
 <a name="test-drive-marketing-and-best-practices"></a>Marketing e práticas recomendadas do test drive
 =======================================

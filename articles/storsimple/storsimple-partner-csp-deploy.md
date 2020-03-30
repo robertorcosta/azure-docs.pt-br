@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77466902"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
@@ -29,7 +29,7 @@ Matriz de StorSimple Virtual pode ser implantado pelos parceiros de provedor de 
 
 Este artigo descreve como um parceiro CSP pode adicionar um cliente ou uma nova assinatura para um cliente existente e, em seguida, crie um serviço para implantar uma matriz Virtual StorSimple no CSP.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
@@ -89,7 +89,7 @@ Em alguns casos, você pode ter um cliente existente e você precisa adicionar u
 
     ![Adicionar nova assinatura](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. Depois de uma nova assinatura for criada, clique em  **<-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
+6. Depois de uma nova assinatura for criada, clique em ** <-- Clientes** no painel esquerdo para voltar para a página de **Clientes**. Pesquisa do cliente para o qual você acabou de criar uma assinatura. Clique no **Nome da empresa** para fazer drill down nos detalhes.
 
     ![Procurar o cliente](./media/storsimple-partner-csp-deploy/image6.png)  
 

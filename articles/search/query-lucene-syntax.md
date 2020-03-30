@@ -1,7 +1,7 @@
 ---
 title: Sintaxe de consulta Lucene
 titleSuffix: Azure Cognitive Search
-description: Referência para a sintaxe de consulta Lucene completa, conforme usada no Azure Pesquisa Cognitiva para curinga, pesquisa difusa, RegEx e outras construções de consulta avançadas.
+description: Referência para a sintaxe completa da consulta Lucene, como usado na Pesquisa Cognitiva do Azure para curinga, pesquisa difusa, RegEx e outros construtos avançados de consulta.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,18 +20,18 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283128"
 ---
-# <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
+# <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta de Lucene em Azure Cognitive Search
 
-Você pode escrever consultas no Azure Pesquisa Cognitiva com base na sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) avançada para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas no Azure pesquisa cognitiva por meio de expressões `$filter`. 
+Você pode escrever consultas contra o Azure Cognitive Search com base na rica sintaxe [de Parser lucene query](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formulários de consulta especializada: curinga, pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe de Parser de Consulta de Lucene é [implementada intacta na Busca Cognitiva do Azure,](search-lucene-query-architecture.md)com exceção das pesquisas de *alcance* que são construídas na Busca Cognitiva do Azure através de `$filter` expressões. 
 
 > [!NOTE]
-> A sintaxe Lucene completa é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API de [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter](search-filters.md) dessa API. Essas sintaxes diferentes têm suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
+> A sintaxe completa de Lucene é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API documentos de [pesquisa,](https://docs.microsoft.com/rest/api/searchservice/search-documents) para não ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o [parâmetro $filter](search-filters.md) dessa API. Essas diferentes sintaxes têm suas próprias regras para construir consultas, escapar de strings, e assim por diante.
 
 ## <a name="how-to-invoke-full-parsing"></a>Como invocar a análise completa
 
@@ -60,12 +60,12 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para criar consultas no Azure pesquisa cognitiva](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingente total dos parâmetros de consulta, consulte [Pesquisar &#40;documentos&#41;Azure pesquisa cognitiva API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Para exemplos adicionais, consulte [exemplos de sintaxe de consulta de Lucene para construir consultas na Pesquisa Cognitiva do Azure](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingente completo de parâmetros de consulta, consulte Documentos de [pesquisa &#40;Aa6 Cognitive Search Rest API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  O Azure Pesquisa Cognitiva também dá suporte à [sintaxe de consulta simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada para pesquisa de palavra-chave direta.  
+>  O Azure Cognitive Search também suporta [a Sintaxe de Consulta Simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada para pesquisa direta de palavras-chave.  
 
-##  <a name="bkmk_syntax"></a> Conceitos básicos da sintaxe  
+##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Conceitos básicos da sintaxe  
  Os conceitos básicos de sintaxe a seguir se aplicam a todas as consultas que usam a sintaxe do Lucene.  
 
 ### <a name="operator-evaluation-in-context"></a>Avaliação de operador no contexto
@@ -83,11 +83,11 @@ O exemplo acima usa o til (~), mas o mesmo princípio se aplica a todos os opera
  Os caracteres especiais devem ser substituídos para ser usados como parte do texto da pesquisa. Você também poderá permitir a saída deles prefixando-os com uma barra invertida (\\). Os caracteres especiais que precisam ter a saída permitida incluem o seguinte:  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Por exemplo, para escapar de um caractere curinga, use \\\*.
+ Por exemplo, para escapar de \\ \*um personagem curinga, use .
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Codificação de caracteres reservados e não seguros em URLs
 
- Verifique se todos os caracteres reservados e não seguros estão codificados em uma URL. Por exemplo, '#' é um caractere que não é seguro por ser um identificador de fragmento/âncora em uma URL. O caractere deverá ser codificado como `%23` se for usado em uma URL. ' & ' e ' = ' são exemplos de caracteres reservados à medida que delimitam parâmetros e especificam valores na Pesquisa Cognitiva do Azure. Consulte [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) para obter mais detalhes.
+ Verifique se todos os caracteres reservados e não seguros estão codificados em uma URL. Por exemplo, '#' é um caractere que não é seguro por ser um identificador de fragmento/âncora em uma URL. O caractere deverá ser codificado como `%23` se for usado em uma URL. '&' e '=' são exemplos de caracteres reservados à medida que delimitam parâmetros e especificam valores na Pesquisa Cognitiva do Azure. Consulte [RFC1738: Url (Uniform Resource Locators, localizadores de recursos uniformes)](https://www.ietf.org/rfc/rfc1738.txt) para obter mais detalhes.
 
  Os caracteres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os caracteres reservados são `; / ? : @ = + &`.
 
@@ -97,9 +97,9 @@ O exemplo acima usa o til (~), mas o mesmo princípio se aplica a todos os opera
 O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi||pool))` pesquisa o campo "comodidadesDoHotel" para "academia" e "wifi" ou "academia" e "piscina".  
 
 ### <a name="searchmode-parameter-considerations"></a>Considerações sobre parâmetros de SearchMode  
- O impacto de `searchMode` em consultas, conforme descrito em [sintaxe de consulta simples no Azure pesquisa cognitiva](query-simple-syntax.md), aplica-se igualmente à sintaxe de consulta Lucene. Ou seja, `searchMode` em conjunto com operadores NOT pode levar a resultados de consulta que podem parecer incomuns se você não for claro nas implicações sobre como definir o parâmetro. Se você mantiver o padrão, `searchMode=any`, e usar um operador NOT, a operação será computada como uma ação OR, de modo que "Nova Iorque" NOT "Seattle" retornará todas as cidades que não sejam Seattle.  
+ O impacto `searchMode` das consultas, conforme descrito na [sintaxe de consulta simples no Azure Cognitive Search,](query-simple-syntax.md)aplica-se igualmente à sintaxe de consulta lucene. Ou seja, `searchMode` em conjunto com operadores NOT pode levar a resultados de consulta que podem parecer incomuns se você não for claro nas implicações sobre como definir o parâmetro. Se você mantiver o padrão, `searchMode=any`, e usar um operador NOT, a operação será computada como uma ação OR, de modo que "Nova Iorque" NOT "Seattle" retornará todas as cidades que não sejam Seattle.  
 
-##  <a name="bkmk_boolean"></a>Operadores boolianos (e, ou, não) 
+##  <a name="boolean-operators-and-or-not"></a><a name="bkmk_boolean"></a>Operadores booleanos (E, OU, NÃO) 
  Sempre especifique operadores boolianos de texto (AND, OR, NOT) com tudo em maiúsculas.  
 
 ### <a name="or-operator-or-or-"></a>Operador OR `OR` ou `||`
@@ -119,14 +119,14 @@ Usar `searchMode=any` aumenta o cancelamento de consultas, incluindo mais result
 
 Usar `searchMode=all` aumenta a precisão de consultas, incluindo menos resultados e, por padrão, será interpretado como "AND NOT". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo `luxury`. Isso é, indiscutivelmente, um comportamento mais intuitivo para o operador -. Portanto, considere escolher `searchMode=all` em vez de `searchMode=any` se quiser otimizar pesquisas por precisão em vez de recuperá-las, *além disso* seus usuários frequentemente usam o operador `-` nas pesquisas.
 
-##  <a name="bkmk_querysizelimits"></a> Limitações de tamanho de consulta  
- Há um limite para o tamanho das consultas que você pode enviar para o Azure Pesquisa Cognitiva. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
+##  <a name="query-size-limitations"></a><a name="bkmk_querysizelimits"></a> Limitações de tamanho de consulta  
+ Há um limite para o tamanho das consultas que você pode enviar para a Pesquisa Cognitiva do Azure. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
 
-##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Classificar consultas de caractere curinga e regex
- O Azure Pesquisa Cognitiva usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
+##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Classificar consultas de caractere curinga e regex
+ O Azure Cognitive Search usa pontuação baseada em freqüência[(TF-IDF)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
 
-##  <a name="bkmk_fields"></a>Pesquisa em campo  
-Você pode definir uma operação de pesquisa em campo com a sintaxe `fieldName:searchExpression`, em que a expressão de pesquisa pode ser uma única palavra ou frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
+##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Pesquisa em campo  
+Você pode definir uma operação `fieldName:searchExpression` de pesquisa em campo com a sintaxe, onde a expressão de pesquisa pode ser uma única palavra ou uma frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores booleanos. Alguns exemplos incluem o seguinte:  
 
 - gênero:jazz NÃO histórico  
 
@@ -137,33 +137,33 @@ Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de
 O campo especificado em `fieldName:searchExpression` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
 
 > [!NOTE]
-> Ao usar expressões de pesquisa em campo, você não precisa usar o parâmetro `searchFields` porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá usar o parâmetro `searchFields` se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico e o restante pode se aplicar a vários campos. Por exemplo, o `search=genre:jazz NOT history&searchFields=description` de consulta corresponderia `jazz` apenas ao campo `genre`, enquanto ele corresponderia `NOT history` com o campo `description`. O nome do campo fornecido em `fieldName:searchExpression` sempre tem precedência sobre o parâmetro `searchFields`, que é o motivo neste exemplo, não precisamos incluir `genre` no parâmetro `searchFields`.
+> Ao usar expressões de pesquisa em campo, `searchFields` você não precisa usar o parâmetro porque cada expressão de pesquisa em campo tem um nome de campo explicitamente especificado. No entanto, você `searchFields` ainda pode usar o parâmetro se quiser executar uma consulta onde algumas partes são escopo para um campo específico, e o resto pode se aplicar a vários campos. Por exemplo, a `search=genre:jazz NOT history&searchFields=description` consulta `jazz` corresponderia `genre` apenas ao campo, enquanto corresponderia `NOT history` ao `description` campo. O nome de `fieldName:searchExpression` campo fornecido sempre `searchFields` tem precedência sobre o parâmetro, razão `genre` pela `searchFields` qual, neste exemplo, não precisamos incluir no parâmetro.
 
-##  <a name="bkmk_fuzzy"></a> Pesquisa difusa  
+##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Pesquisa difusa  
  Uma pesquisa difusa encontra correspondências em termos com uma construção semelhante. De acordo com a [documentação do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), as pesquisas imprecisas se baseiam na [distância de Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). A pesquisa difusa pode expandir um termo até o máximo de 50 termos que atendem aos critérios de distância. 
 
  Para fazer uma pesquisa difusa, use o símbolo til "~" no final de uma única palavra com um parâmetro opcional, um número entre 0 e 2 (padrão), que especifica a distância de edição. Por exemplo, "mar~" ou "mar~1" retornaria "mar", "amar" e "maré".
 
- A pesquisa difusa só pode ser aplicada a termos, não a frases, mas você pode acrescentar o til a cada termo individualmente em um nome ou frase de várias partes. Por exemplo, "Unviersty ~ de ~" Wshington ~ "corresponderia em" University de Washington ".
+ A pesquisa fuzzy só pode ser aplicada a termos, não frases, mas você pode anexar o tilde a cada termo individualmente em um nome ou frase de várias partes. Por exemplo, "Unviersty~ de~ "Wshington~" combinaria com "University of Washington".
  
 
-##  <a name="bkmk_proximity"></a> Pesquisa por proximidade  
+##  <a name="proximity-search"></a><a name="bkmk_proximity"></a>Pesquisa de proximidade  
  As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, `"hotel airport"~5` encontrará os termos "hotel" e "aeroporto" em cinco palavras uma da outra em um documento.  
 
 
-##  <a name="bkmk_termboost"></a> Aumento de termos  
+##  <a name="term-boosting"></a><a name="bkmk_termboost"></a> Aumento de termos  
  O aumento de termos refere-se ao aumento da classificação de um documento caso ele contenha o termo aumentado, em relação aos documentos que não contêm o termo. Isso é diferente dos perfis de pontuação, já que os perfis de pontuação aumentam determinados campos, em vez de termos específicos.  
 
 O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontuação que aumente as correspondências em um determinado campo, como *gênero* no [exemplo de índice de loja de música](index-add-scoring-profiles.md#bkmk_ex). O aumento de termos pode ser usado para melhorar a posição de determinados termos de pesquisa. Por exemplo, `rock^2 electronic` aumentará os documentos que contêm os termos de pesquisa no campo gênero, à frente de outros campos pesquisáveis no índice. Além disso, os documentos com o termo de pesquisa *rock* serão mais bem classificados do que o outro termo de pesquisa *eletrônico* como resultado do valor de aumento de termo (2).  
 
  Para aumentar um termo, use o sinal de interpolação, "^", com um fator de aumento (um número) no final do termo que você está pesquisando. Você também pode aumentar as frases. Quanto maior o fator de aumento, mais relevante será o termo em relação a outros termos de pesquisa. Por padrão, o fator de aumento é 1. Embora o fator de aumento deva ser positivo, ele pode ser menor do que 1 (por exemplo, 0,20).  
 
-##  <a name="bkmk_regex"></a> Pesquisa com expressão regular  
+##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Pesquisa com expressão regular  
  Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Por exemplo, para localizar documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`.  As pesquisas com expressões regulares são comparadas com palavras individuais.   
 
-##  <a name="bkmk_wildcard"></a> Pesquisa com curinga  
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Pesquisa com curinga  
  Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.  
 
  Por exemplo, para localizar documentos que contêm as palavras com o prefixo "anota", como "anotações" ou "bloco de anotações", especifique "anota*".  
@@ -176,4 +176,4 @@ O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontu
 
 + [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Sintaxe de expressão OData para filtros e classificação](query-odata-filter-orderby-syntax.md)   
-+ [Sintaxe de consulta simples no Azure Pesquisa Cognitiva](query-simple-syntax.md)   
++ [Sintaxe de consulta simples na Pesquisa Cognitiva do Azure](query-simple-syntax.md)   

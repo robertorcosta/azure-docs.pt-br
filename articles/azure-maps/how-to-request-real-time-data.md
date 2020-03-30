@@ -1,59 +1,59 @@
 ---
 title: Solicitar dados de trânsito em tempo real | Mapas do Microsoft Azure
-description: Solicite dados em tempo real usando o serviço de mobilidade do Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+description: Solicite dados em tempo real usando o Serviço de Mobilidade do Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9710366bdb7d8e86c8abb54b29b8dde3cc315692
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: d3145181a863bf8188dd0b0bb52cd2efc662ce2f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335477"
 ---
-# <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Solicitar dados em tempo real usando o serviço de mobilidade do Azure Maps
+# <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Solicite dados em tempo real usando o Serviço de Mobilidade do Azure Maps
 
-Este artigo mostra como usar o [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService) do Azure Maps para solicitar dados de trânsito em tempo real.
+Este artigo mostra como usar o Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) para solicitar dados de trânsito em tempo real.
 
 Neste artigo, você aprenderá a:
 
 
- * Solicitar as próximas entradas em tempo real para todas as linhas que chegam em uma determinada parada
- * Solicitar informações em tempo real para uma determinada estação de encaixe de bicicletas.
+ * Solicite as próximas chegadas em tempo real para todas as linhas que chegam a uma determinada parada
+ * Solicite informações em tempo real para uma determinada estação de acoplamento de bicicleta.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Primeiro, você precisa ter uma conta do Azure Maps e uma chave de assinatura para fazer chamadas para as APIs de trânsito público do Azure Maps. Para obter informações, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma conta do Azure Maps. Siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
+Primeiro você precisa ter uma conta do Azure Maps e uma chave de assinatura para fazer quaisquer chamadas para as APIs de transporte público do Azure Maps. Para obter informações, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma conta do Azure Maps. Siga os passos para obter a [chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave principal da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 
 Este artigo usa o [aplicativo Postman](https://www.getpostman.com/apps) para criar chamadas REST. Você pode usar qualquer ambiente de desenvolvimento de API que você preferir.
 
 
-## <a name="request-real-time-arrivals-for-a-stop"></a>Solicitar entradas em tempo real para uma parada
+## <a name="request-real-time-arrivals-for-a-stop"></a>Solicite chegadas em tempo real para uma parada
 
-Para solicitar dados de chegada em tempo real de uma parada de trânsito público em particular, você precisará fazer a solicitação para a [API de entradas em tempo real](https://aka.ms/AzureMapsMobilityRealTimeArrivals) do [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService)do Azure Maps. Você precisará de **metroID** e **StopId** para concluir a solicitação. Para saber mais sobre como solicitar esses parâmetros, consulte nosso guia sobre como [solicitar rotas de trânsito públicas](https://aka.ms/AMapsHowToGuidePublicTransitRouting). 
+Para solicitar dados de chegadas em tempo real de uma determinada parada de transporte público, você precisará solicitar a API de [Chegadas em Tempo Real](https://aka.ms/AzureMapsMobilityRealTimeArrivals) do Serviço de [Mobilidade](https://aka.ms/AzureMapsMobilityService)do Azure Maps. Você precisará do **metroID** e **stopID** para completar a solicitação. Para saber mais sobre como solicitar esses parâmetros, consulte nosso guia sobre como [solicitar rotas de transporte público.](https://aka.ms/AMapsHowToGuidePublicTransitRouting) 
 
-Vamos usar "522" como nossa ID metro, que é a ID do metro para a área "Seattle – Tacoma – Bellevue, WA". Use "522---2060603" como a ID de parada, essa parada de barramento está em "ne 24 St & 162nd ave ne, Bellevue WA". Para solicitar os próximos cinco dados de chegada em tempo real, para todas as próximas entradas ao vivo neste ponto de interrupção, conclua as seguintes etapas:
+Vamos usar "522" como nosso metro ID, que é a id metro para a área "Seattle-Tacoma-Bellevue, WA". Use "522---2060603" como ponto de parada, este ponto de ônibus é em "Ne 24th St & 162nd Ave Ne, Bellevue WA". Para solicitar os próximos cinco dados de chegada em tempo real, para todas as próximas chegadas ao vivo nesta parada, complete as seguintes etapas:
 
-1. Abra o aplicativo do postmaster e vamos criar uma coleção para armazenar as solicitações. Próximo à parte superior do aplicativo do postmaster, selecione **novo**. Na janela **criar nova** , selecione **coleção**.  Nomeie a coleção e selecione o botão **criar** .
+1. Abra o aplicativo Carteiro e crie uma coleção para armazenar as solicitações. Perto do topo do aplicativo Carteiro, selecione **Novo**. Na **janela Criar nova** janela, selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.**
 
-2. Para criar a solicitação, selecione **novo** novamente. Na janela **criar nova** , selecione **solicitação**. Insira um **nome de solicitação** para a solicitação. Selecione a coleção que você criou na etapa anterior, como o local no qual salvar a solicitação. Em seguida, selecione **Salvar**.
+2. Para criar a solicitação, selecione **Novo** novamente. Na **janela Criar nova** janela, selecione **'Solicitar'.** Digite um **nome de solicitação** para a solicitação. Selecione a coleção criada na etapa anterior, como o local em que salvar a solicitação. Em seguida, **selecione Salvar**.
 
-    ![Criar uma solicitação no postmaster](./media/how-to-request-transit-data/postman-new.png)
+    ![Crie uma solicitação no Carteiro](./media/how-to-request-transit-data/postman-new.png)
 
-3. Selecione o método http **Get** na guia Construtor e insira a URL a seguir para criar uma solicitação get. Substitua `{subscription-key}`, pela chave primária do Azure Maps.
+3. Selecione o método **GET** HTTP na guia construtor e digite a SEGUINTE URL para criar uma solicitação GET. Substitua `{subscription-key}`, com a tecla principal do Azure Maps.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
-4. Após uma solicitação bem-sucedida, você receberá a resposta a seguir.  Observe que o parâmetro ' ScheduleType ' define se o tempo de chegada estimado é baseado em dados em tempo real ou estáticos.
+4. Após uma solicitação bem sucedida, você receberá a seguinte resposta.  Observe que o parâmetro 'scheduleType' define se o tempo estimado de chegada é baseado em dados estáticos ou em tempo real.
 
     ```JSON
     {
@@ -119,26 +119,26 @@ Vamos usar "522" como nossa ID metro, que é a ID do metro para a área "Seattle
     ```
 
 
-## <a name="real-time-data-for-bike-docking-station"></a>Dados em tempo real para estação de encaixe de bicicletas
+## <a name="real-time-data-for-bike-docking-station"></a>Dados em tempo real para estação de acoplamento de bicicletas
 
-A [API obter](https://aka.ms/AzureMapsMobilityTransitDock) informações de encaixe de trânsito permite que os usuários solicitem informações estáticas e em tempo real. Por exemplo, os usuários podem solicitar informações de disponibilidade e vaga para uma bicicleta ou uma estação de encaixe motocicleta. A [API obter informações de encaixe de trânsito](https://aka.ms/AzureMapsMobilityTransitDock) também faz parte do [serviço de mobilidade](https://aka.ms/AzureMapsMobilityService)do Azure Maps.
+A [API Get Transit Dock Info](https://aka.ms/AzureMapsMobilityTransitDock) permite que os usuários solicitem informações estáticas e em tempo real. Por exemplo, os usuários podem solicitar informações de disponibilidade e vaga para uma bicicleta ou uma estação de acoplamento de scooter. A [API Get Transit Dock Info](https://aka.ms/AzureMapsMobilityTransitDock) também faz parte do Serviço de [Mobilidade](https://aka.ms/AzureMapsMobilityService)do Azure Maps.
 
-Para fazer uma solicitação para a [API obter informações de encaixe de trânsito](https://aka.ms/AzureMapsMobilityTransitDock), você precisará do **dockid** para essa estação. Você pode obter a ID de encaixe fazendo uma solicitação de pesquisa para a [API Get de trânsito próximo](https://aka.ms/AzureMapsMobilityNearbyTransit) com o parâmetro **objecttype** atribuído a "bikeDock". Siga as etapas abaixo para obter dados em tempo real de uma estação de encaixe para bicicletas.
+Para fazer uma solicitação à [API Get Transit Dock Info,](https://aka.ms/AzureMapsMobilityTransitDock)você precisará do **dockId** para aquela estação. Você pode obter o ID do dock fazendo uma solicitação de pesquisa para a [API Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) com o parâmetro **objectType** atribuído a "bikeDock". Siga os passos abaixo para obter dados em tempo real de uma estação de acoplamento para bicicletas.
 
 
-### <a name="get-dock-id"></a>Obter ID do Dock
+### <a name="get-dock-id"></a>Obter id dock
 
-Para obter **dockid**, siga as etapas abaixo para fazer uma solicitação para a API Get de trânsito próximo:
+Para obter **dockID,** siga as etapas abaixo para fazer uma solicitação à API Get Nearby Transit:
 
-1. No postmaster, clique em **nova solicitação** | **solicitação get** e nomeie-a como **obter ID de encaixe**.
+1. Em Carteiro, clique em **Nova solicitação** | **OBTENHA solicitação** e nomeá-lo Obter dock **ID**.
 
-2.  Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação a seguir e clique em **Enviar**.
+2.  Na guia Construtor, selecione o método **GET** HTTP, digite o URL da solicitação a seguir e clique em **Enviar**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock
     ```
 
-3. Após uma solicitação bem-sucedida, você receberá a resposta a seguir. Observe que agora temos a **ID** na resposta, que pode ser usada posteriormente como um parâmetro de consulta na solicitação para a API obter informações de encaixe de trânsito.
+3. Após uma solicitação bem sucedida, você receberá a seguinte resposta. Observe que agora temos o **id** na resposta, que pode ser usado posteriormente como um parâmetro de consulta na solicitação para a API Get Transit Dock Info.
 
     ```JSON
     {
@@ -175,19 +175,19 @@ Para obter **dockid**, siga as etapas abaixo para fazer uma solicitação para a
     ```
 
 
-### <a name="get-real-time-bike-dock-status"></a>Obter status de encaixe de bicicletas em tempo real
+### <a name="get-real-time-bike-dock-status"></a>Obtenha status de doca de bicicleta em tempo real
 
-Siga as etapas abaixo para fazer uma solicitação para a API obter informações de encaixe de trânsito para obter dados em tempo real para o Dock selecionado.
+Siga as etapas abaixo para fazer uma solicitação à API Get Transit Dock Info para obter dados em tempo real para o dock selecionado.
 
-1. No postmaster, clique em **nova solicitação** | **solicitação get** e nomeie- **a como obter dados de encaixe em tempo real**.
+1. Em Carteiro, clique em **Nova solicitação** | **OBTENHA** e nomeie-a Obter dados **de doca em tempo real**.
 
-2.  Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação a seguir e clique em **Enviar**.
+2.  Na guia Construtor, selecione o método **GET** HTTP, digite o URL da solicitação a seguir e clique em **Enviar**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/dock/json?subscription-key={subscription-key}&api-version=1.0&query=121---4640799
     ```
 
-3. Após uma solicitação bem-sucedida, você receberá uma resposta da seguinte estrutura:
+3. Após uma solicitação bem sucedida, você receberá uma resposta da seguinte estrutura:
 
     ```JSON
     {
@@ -208,12 +208,12 @@ Siga as etapas abaixo para fazer uma solicitação para a API obter informaçõe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como solicitar dados de trânsito usando o serviço de mobilidade:
+Saiba como solicitar dados de trânsito usando o Serviço de Mobilidade:
 
 > [!div class="nextstepaction"]
 > [Como solicitar dados de trânsito](how-to-request-transit-data.md)
 
-Explore a documentação da API do serviço de mobilidade do Azure Maps:
+Explorar a documentação da API do Azure Maps Mobility Service:
 
 > [!div class="nextstepaction"]
-> [Documentação da API do serviço de mobilidade](https://aka.ms/AzureMapsMobilityService)
+> [Documentação da API do Serviço de Mobilidade](https://aka.ms/AzureMapsMobilityService)

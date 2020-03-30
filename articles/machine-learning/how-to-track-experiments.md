@@ -1,7 +1,7 @@
 ---
-title: Log ML experimentos & métricas
+title: Experimentos de Log ML & métricas
 titleSuffix: Azure Machine Learning
-description: Monitore seus experimentos do Azure ML e monitore as métricas de execução para aprimorar o processo de criação de modelo. Adicione o registro em log ao script de treinamento e exiba os resultados registrados de uma execução.  Use execute. log, Run. start_logging ou ScriptRunConfig.
+description: Monitore seus experimentos do Azure ML e monitore métricas de execução para melhorar o processo de criação do modelo. Adicione o login ao seu script de treinamento e visualize os resultados registrados de uma corrida.  Use run.log, Run.start_logging ou ScriptRunConfig.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79296958"
 ---
-# <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitorar execuções e métricas de experimento do Azure ML
+# <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitora as corridas e métricas do experimento Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Aprimore o processo de criação de modelo rastreando suas experiências e monitorando métricas de execução. Neste artigo, saiba como adicionar o código de registro em log ao script de treinamento, enviar uma execução de experimento, monitorar a execução e inspecionar os resultados em Azure Machine Learning.
+Melhore o processo de criação do modelo rastreando seus experimentos e monitorando métricas de execução. Neste artigo, aprenda a adicionar código de registro ao seu script de treinamento, envie uma execução de experimentos, monitore que seja executado e inspecione os resultados no Azure Machine Learning.
 
 > [!NOTE]
-> Azure Machine Learning também pode registrar informações de outras fontes durante o treinamento, como execuções automatizadas do Machine Learning ou o contêiner do Docker que executa o trabalho de treinamento. Esses logs não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles podem ser capazes de usar esses logs durante a solução de problemas.
+> O Azure Machine Learning também pode registrar informações de outras fontes durante o treinamento, como corridas automatizadas de aprendizado de máquina ou o contêiner Docker que executa o trabalho de treinamento. Esses registros não estão documentados. Se você encontrar problemas e entrar em contato com o suporte da Microsoft, eles poderão usar esses logs durante a solução de problemas.
 
 > [!TIP]
-> As informações neste documento são basicamente para cientistas de dados e desenvolvedores que desejam monitorar o processo de treinamento de modelo. Se você for um administrador interessado em monitorar o uso de recursos e eventos do Azure Machine Learning, como cotas, execuções de treinamento concluídas ou implantações de modelo concluídas, consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md).
+> As informações deste documento são principalmente para cientistas de dados e desenvolvedores que desejam monitorar o processo de treinamento do modelo. Se você é um administrador interessado em monitorar o uso de recursos e eventos do Azure Machine learning, como cotas, corridas de treinamento concluídas ou implantações de modelos concluídas, consulte Monitorando o Aprendizado de [Máquina do Azure](monitor-azure-machine-learning.md).
 
 ## <a name="available-metrics-to-track"></a>Métricas disponíveis para acompanhar
 
@@ -47,7 +47,7 @@ As métricas a seguir podem ser adicionadas a uma execução durante o treinamen
 > [!NOTE]
 > Métricas para escalares, listas, linhas e tabelas podem ter o tipo: flutuante, inteiro ou cadeia de caracteres.
 
-## <a name="choose-a-logging-option"></a>Escolha uma opção de log
+## <a name="choose-a-logging-option"></a>Escolha uma opção de registro
 
 Se você quiser acompanhar ou monitorar seu experimento, deverá adicionar código para iniciar o log ao enviar a execução. Estas são maneiras de disparar o envio de execução:
 * __Run.start_logging__ – adicione funções de registro em log ao seu script de treinamento e inicie uma sessão de registro em log interativa no experimento especificado. **start_logging** cria uma execução interativa para uso em cenários como blocos de anotações. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento.
@@ -56,83 +56,83 @@ Se você quiser acompanhar ou monitorar seu experimento, deverá adicionar códi
 ## <a name="set-up-the-workspace"></a>Configurar o workspace
 Antes de adicionar o registro em log e enviar um experimento, você deve configurar o workspace.
 
-1. Carregar o workspace. Para saber mais sobre como definir a configuração do espaço de trabalho, consulte [arquivo de configuração do espaço de trabalho](how-to-configure-environment.md#workspace).
+1. Carregar o workspace. Para saber mais sobre como definir a configuração do espaço de trabalho, consulte [o arquivo de configuração do espaço de trabalho](how-to-configure-environment.md#workspace).
 
-[! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? Name = load_ws)]
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_ws)]
 
 
 ## <a name="option-1-use-start_logging"></a>Opção 1: Usar start_logging
 
 **start_logging** cria uma execução interativa para uso em cenários como blocos de anotações. Qualquer métrica registrada em log durante a sessão é adicionada ao registro de execução no experimento.
 
-O exemplo a seguir treina um modelo simples de sklearn Ridge localmente em um Jupyter Notebook local. Para saber mais sobre como enviar experimentos para ambientes diferentes, confira [Configurar destinos de computação para treinamento de modelo com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets).
+O exemplo a seguir treina um modelo simples de sklearn Ridge localmente em um Jupyter Notebook local. Para saber mais sobre como submeter experimentos a diferentes ambientes, consulte [Configurar metas de computação para treinamento de modelos com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets).
 
 ### <a name="load-the-data"></a>Carregar os dados
 
-Este exemplo usa o conjunto de informações diabetes, um pequeno conjunto de informações conhecido que vem com scikit-learn. Esta célula carrega o conjunto de e divide-o em conjuntos de treinamento e teste aleatórios.
+Este exemplo usa o conjunto de dados de diabetes, um conjunto de dados bem conhecido que vem com scikit-learn. Esta célula carrega o conjunto de dados e o divide em conjuntos de treinamento e testes aleatórios.
 
-[! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? Name = load_data)]
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_data)]
 
-### <a name="add-tracking"></a>Adicionar controle
-Adicione o acompanhamento de experimento usando o SDK do Azure Machine Learning e carregue um modelo persistente no registro de execução do experimento. O código a seguir adiciona marcas, logs e carrega um arquivo de modelo para a execução do experimento.
+### <a name="add-tracking"></a>Adicionar rastreamento
+Adicione o rastreamento de experimentos usando o Azure Machine Learning SDK e carregue um modelo persistente no registro de execução do experimento. O código a seguir adiciona marcas, logs e carrega um arquivo de modelo para a execução do experimento.
 
-[! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? Name = create_experiment)]
+[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
 O script termina com ```run.complete()```, que marca a execução como concluída.  Normalmente, essa função é usada em cenários interativos de notebook.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Opção 2: Usar ScriptRunConfig
 
-[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) é uma classe para configurar as configurações para execuções de script. Com essa opção, você pode adicionar código de monitoramento para ser notificado da conclusão ou obter um widget visual para monitorar.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) é uma classe para configurar configurações para execução de scripts. Com essa opção, você pode adicionar código de monitoramento para ser notificado da conclusão ou obter um widget visual para monitorar.
 
 Este exemplo expande o modelo básico do sklearn Ridge acima. Ele faz uma limpeza simples de parâmetro dos valores alfa do modelo para capturar métricas e modelos treinados nas execuções sob o experimento. O exemplo é executado localmente em um ambiente gerenciado pelo usuário. 
 
 1. Crie um script de treinamento `train.py`.
 
-   [! Code-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 2. O script `train.py` referencia `mylib.py`, o que permite que você obtenha a lista de valores alfa para usar no modelo ridge.
 
-   [! Code-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
+   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
 3. Configure um ambiente local gerenciado pelo usuário.
 
-   [! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = user_managed_env)]
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=user_managed_env)]
 
 
 4. Envie o script ```train.py``` para execução no ambiente gerenciado pelo usuário. Toda essa pasta de script é enviada para treinamento, incluindo o arquivo ```mylib.py```.
 
-   [! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = src)] [! Notebook-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = Run)]
+   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
 
 
 
-## <a name="manage-a-run"></a>Gerenciar uma execução
+## <a name="manage-a-run"></a>Gerenciar uma corrida
 
-O artigo [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md) destaca Azure Machine Learning fluxos de trabalho específicos sobre como gerenciar seus experimentos.
+O [programa Iniciar, monitorar e cancelar o treinamento executa](how-to-manage-runs.md) artigos que destacam fluxos de trabalho específicos do Azure Machine Learning para gerenciar seus experimentos.
 
 ## <a name="view-run-details"></a>Exibir detalhes de execução
 
-### <a name="view-activequeued-runs-from-the-browser"></a>Exibir execuções ativas/em fila no navegador
+### <a name="view-activequeued-runs-from-the-browser"></a>Exibir executas ativas/enfileiradas do navegador
 
-Os destinos de computação usados para treinar modelos são um recurso compartilhado. Assim, eles podem ter várias execuções em fila ou ativas em um determinado momento. Para ver as execuções de um destino de computação específico do seu navegador, use as seguintes etapas:
+Os alvos de computação usados para treinar modelos são um recurso compartilhado. Como tal, eles podem ter várias corridas enfileiradas ou ativas em um determinado momento. Para ver as corridas para um destino de computação específico do seu navegador, use as seguintes etapas:
 
-1. No [Azure Machine Learning Studio](https://ml.azure.com/), selecione seu espaço de trabalho e, em seguida, selecione __computação__ no lado esquerdo da página.
+1. No [estúdio Azure Machine Learning,](https://ml.azure.com/)selecione seu espaço de trabalho e __selecione Computação__ do lado esquerdo da página.
 
-1. Selecione __clusters de treinamento__ para exibir uma lista de destinos de computação usados para treinamento. Em seguida, selecione o cluster.
+1. Selecione __Clusters de treinamento__ para exibir uma lista de alvos de computação usados para treinamento. Em seguida, selecione o cluster.
 
     ![Selecione o cluster de treinamento](./media/how-to-track-experiments/select-training-compute.png)
 
-1. Selecione __execuções__. A lista de execuções que usam esse cluster é exibida. Para exibir detalhes de uma execução específica, use o link na coluna __executar__ . Para exibir detalhes do experimento, use o link na coluna __experimento__ .
+1. Selecione __Executa.__ A lista de executores que usam este cluster é exibida. Para exibir detalhes de uma execução específica, use o link na coluna __Executar.__ Para ver detalhes do experimento, use o link na coluna __Experimento.__
 
-    ![Selecionar execuções para o cluster de treinamento](./media/how-to-track-experiments/show-runs-for-compute.png)
+    ![Selecione corridas para cluster de treinamento](./media/how-to-track-experiments/show-runs-for-compute.png)
     
     > [!TIP]
-    > Uma execução pode conter execuções filhas, portanto um trabalho de treinamento pode resultar em várias entradas.
+    > Uma corrida pode conter corridas de crianças, de modo que um trabalho de treinamento pode resultar em múltiplas entradas.
 
-Quando uma execução for concluída, ela não será mais exibida nesta página. Para exibir informações sobre execuções concluídas, visite a seção __experimentos__ do estúdio e selecione o experimento e execute. Para obter mais informações, consulte a seção [métricas de execução de consulta](#queryrunmetrics) .
+Uma vez que uma execução é concluída, ela não é mais exibida nesta página. Para visualizar informações sobre corridas __concluídas,__ visite a seção Experimentos do estúdio e selecione o experimento e execute. Para obter mais informações, consulte a seção ['Executar métricas' de consulta.](#queryrunmetrics)
 
-### <a name="monitor-run-with-jupyter-notebook-widget"></a>Monitor executar com o widget do Jupyter Notebook
-Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução com um [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
+### <a name="monitor-run-with-jupyter-notebook-widget"></a>Monitor executado com widget de notebook Jupyter
+Quando você usa o método **ScriptRunConfig** para enviar corridas, você pode assistir o progresso da execução com um [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
 
 1. Exiba o widget do Jupyter enquanto aguarda a execução ser concluída.
 
@@ -143,13 +143,13 @@ Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observ
 
    ![Captura de tela do widget do Jupyter Notebook](./media/how-to-track-experiments/run-details-widget.png)
 
-   Você também pode obter um link para a mesma exibição em seu espaço de trabalho.
+   Você também pode obter um link para o mesmo display em seu espaço de trabalho.
 
    ```python
    print(run.get_portal_url())
    ```
 
-2. **[Para execuções automatizadas do aprendizado de máquina]**  Para acessar os gráficos a partir de uma execução anterior. Substitua `<<experiment_name>>` pelo nome de experimento apropriado:
+2. **[Para execuções automatizadas do aprendizado de máquina] ** Para acessar os gráficos a partir de uma execução anterior. Substitua pelo `<<experiment_name>>` nome do experimento apropriado:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -164,7 +164,7 @@ Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observ
    ![Widget do notebook Jupyter para Machine Learning automatizado](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-Para exibir mais detalhes de um pipeline, clique no pipeline que você gostaria de explorar na tabela e os gráficos serão renderizados em um pop-up do Azure Machine Learning Studio.
+Para ver mais detalhes de um clique de pipeline no Pipeline, você gostaria de explorar na tabela, e os gráficos renderizarão em um pop-up do estúdio Azure Machine Learning.
 
 ### <a name="get-log-results-upon-completion"></a>Obter resultados de log após a conclusão
 
@@ -177,19 +177,19 @@ O treinamento e o monitoramento do modelo ocorrem em segundo plano para que voc�
 Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Agora você pode obter todas as métricas registradas no exemplo anterior para determinar o melhor modelo.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>Exibir o experimento em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com)
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>Veja o experimento em seu espaço de trabalho no [estúdio Azure Machine Learning](https://ml.azure.com)
 
-Quando a execução de um experimento estiver concluída, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico do [Azure Machine Learning Studio](https://ml.azure.com).
+Quando a execução de um experimento estiver concluída, você poderá navegar até o registro de execução do experimento gravado. Você pode acessar o histórico do [estúdio Azure Machine Learning](https://ml.azure.com).
 
-Navegue até a guia experimentos e selecione seu experimento. Você é levado para o painel Executar teste, no qual você pode ver as métricas e os gráficos acompanhados que são registrados para cada execução. Neste caso, registramos em log MSE e os valores alfa.
+Navegue até a guia Experimentos e selecione seu experimento. Você é levado para o painel de execução do experimento, onde você pode ver métricas e gráficos rastreados que são registrados para cada execução. Neste caso, registramos em log MSE e os valores alfa.
 
-  ![Detalhes da execução no Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
+  ![Executar detalhes no estúdio Azure Machine Learning](./media/how-to-track-experiments/experiment-dashboard.png)
 
-Você pode fazer uma busca detalhada em uma execução específica para exibir suas saídas ou logs ou baixar o instantâneo do teste enviado para que você possa compartilhar a pasta experimento com outras pessoas.
+Você pode detalhar até uma execução específica para visualizar suas saídas ou logs, ou baixar o instantâneo do experimento que você enviou para que você possa compartilhar a pasta do experimento com outras pessoas.
 
 ### <a name="viewing-charts-in-run-details"></a>Exibindo gráficos nos detalhes de execução
 
-Há várias maneiras de usar as APIs de log para registrar diferentes tipos de métricas durante uma execução e exibi-las como gráficos no Azure Machine Learning Studio.
+Existem várias maneiras de usar as APIs de registro para gravar diferentes tipos de métricas durante uma execução e visualizá-las como gráficos no estúdio Azure Machine Learning.
 
 |Valor conectado|Código de exemplo| Visualizar no portal|
 |----|----|----|
@@ -203,7 +203,7 @@ Há várias maneiras de usar as APIs de log para registrar diferentes tipos de m
 Os seguintes blocos de anotações demonstram conceitos neste artigo:
 * [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [como usar-azureml/Track-and-monitor-experimentos/log-API](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
+* [como usar-azureml/track-and-monitor-experimentos/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

@@ -1,18 +1,18 @@
 ---
-title: Solicitações de dados do cliente para dispositivos do Hub IoT do Azure
-description: A maioria dos dispositivos gerenciados no Hub IoT do Azure não é pessoal, mas alguns são. Este artigo fala sobre os administradores que podem exportar ou excluir dados pessoais de um dispositivo.
+title: Solicitações de dados de clientes para dispositivos Azure IoT Hub
+description: A maioria dos dispositivos gerenciados no Azure IoT Hub não são pessoais, mas alguns são. Este artigo fala sobre os admins serem capazes de exportar ou excluir dados pessoais de um dispositivo.
 author: robinsh
 ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 29b3ed46ffe7f2236fc63d65ed49385b29b1a08a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a05fbf6e1908f88014cd8da99fafb875de033f45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889477"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499324"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -36,17 +36,17 @@ Se você usar o recurso de integração do Azure Monitor do serviço Hub IoT do 
 
 Os administradores de locatários podem usar a folha de dispositivos de IoT da extensão do Hub IoT do Azure no portal do Azure para excluir um dispositivo, o que exclui os dados associados a esse dispositivo.
 
-Também é possível executar operações de exclusão para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - excluir dispositivo](/rest/api/iothub/service/deletedevice).
+Também é possível executar operações de exclusão para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - excluir dispositivo](/rest/api/iothub/service/registrymanager/deletedevice).
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
-Os administradores de locatários podem utilizar copiar e colar no painel dispositivos IoT da extensão do Hub IoT do Azure no portal do Azure para exportar dados associados a um dispositivo.
+Os administradores de inquilinos podem utilizar cópia e colar no painel de dispositivos IoT da extensão Azure IoT Hub no portal Azure para exportar dados associados a um dispositivo.
 
-Também é possível executar operações de exportação para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - obter dispositivo](/rest/api/iothub/service/getdevice).
+Também é possível executar operações de exportação para dispositivos usando APIs REST. Para obter mais informações, consulte [Serviço - obter dispositivo](/rest/api/iothub/service/registrymanager/getdevice).
 
 > [!NOTE]
 > Quando você usa os serviços corporativos da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Alguns logs gerados pelo sistema do Hub IoT do Azure não são acessíveis nem exportáveis por administradores de locatários. Esses logs constituem ações reais conduzidas no serviço e dados de diagnóstico relacionados a dispositivos individuais.
 
 ## <a name="links-to-additional-documentation"></a>Links para documentação adicional
 
-A documentação completa das APIs de Serviço do Hub IoT do Azure está localizada em [APIs de Serviço do Hub IoT](https://docs.microsoft.com/rest/api/iothub/service).
+A documentação completa das APIs de Serviço do Hub IoT do Azure está localizada em [APIs de Serviço do Hub IoT](https://docs.microsoft.com/rest/api/iothub/service/configuration).

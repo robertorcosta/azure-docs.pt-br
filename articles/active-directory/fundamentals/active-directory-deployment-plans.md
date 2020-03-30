@@ -13,86 +13,86 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262211"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
-Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD)? Os planos de implantação do Azure AD orientam você pelo valor de negócios, considerações de planejamento e procedimentos operacionais necessários para implantar com êxito recursos comuns do Azure AD.
+Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD) ? Os planos de implantação do Azure AD o investigam sobre o valor do negócio, as considerações de planejamento e os procedimentos operacionais necessários para implantar com sucesso os recursos comuns do Azure AD.
 
-Em qualquer uma das páginas do plano, use a funcionalidade imprimir para PDF do navegador para criar uma versão offline atualizada da documentação.
-## <a name="include-the-right-stakeholders"></a>Incluir os participantes certos
+Em qualquer uma das páginas do plano, use o recurso Print to PDF do seu navegador para criar uma versão off-line atualizada da documentação.
+## <a name="include-the-right-stakeholders"></a>Inclua as partes interessadas certas
 
-Ao iniciar o planejamento da implantação para um novo recurso, é importante incluir os principais acionistas em sua organização. Recomendamos que você identifique e documente a pessoa ou as pessoas que atendem a cada uma das funções a seguir e trabalhe com elas para determinar seu envolvimento no projeto.  
+Ao iniciar seu planejamento de implantação para um novo recurso, é importante incluir os principais stakeholders em toda a sua organização. Recomendamos que você identifique e documente a pessoa ou as pessoas que cumprem cada uma das seguintes funções, e trabalhe com elas para determinar seu envolvimento no projeto.  
 
-As funções podem incluir o seguinte 
+Os papéis podem incluir o seguinte 
 
-|Função |DESCRIÇÃO |
+|Função |Descrição |
 |-|-|
-|Usuário final|Um grupo representativo de usuários para os quais a funcionalidade será implementada. Geralmente, visualiza as alterações em um programa piloto.
-|Gerente de suporte de ti|O departamento de ti oferece suporte à organização que pode fornecer informações sobre a compatibilidade dessa mudança de uma perspectiva de assistência técnica.  
-|Arquiteto de identidade ou administrador global do Azure|Representante da equipe de gerenciamento de identidades responsável pela definição de como essa alteração é alinhada com a infra-estrutura principal de gerenciamento de identidades em sua organização.|
-|Proprietário da empresa do aplicativo |O proprietário geral da empresa dos aplicativos afetados, que podem incluir o gerenciamento de acesso.  Também pode fornecer informações sobre a experiência do usuário e a utilidade dessa alteração da perspectiva de um usuário final.
-|Proprietário da segurança|Um representante da equipe de segurança que pode se desconectar que o plano atenderá aos requisitos de segurança de sua organização.|
-|Gerenciador de conformidade|A pessoa na sua organização responsável por garantir a conformidade com requisitos corporativos, industriais ou governamentais.|
+|Usuário final|Um grupo representativo de usuários para o qual o recurso será implementado. Muitas vezes visualiza as mudanças em um programa piloto.
+|Gerente de suporte de TI|Representante da organização de suporte de TI que pode fornecer informações sobre a suportabilidade dessa mudança a partir de uma perspectiva de helpdesk.  
+|Arquiteto de identidade ou administrador global do Azure|Representante da equipe de gerenciamento de identidade responsável por definir como essa mudança está alinhada com a infra-estrutura principal de gerenciamento de identidade em sua organização.|
+|Proprietário de negócios de aplicativos |O proprietário geral do negócio dos aplicativos afetados, que pode incluir o gerenciamento do acesso.Também pode fornecer informações sobre a experiência do usuário e a utilidade dessa mudança a partir da perspectiva de um usuário final.
+|Proprietário de Segurança|Um representante da equipe de segurança que pode assinar que o plano atenderá aos requisitos de segurança da sua organização.|
+|Gerenciador de conformidade|A pessoa dentro de sua organização responsável por garantir o cumprimento das exigências corporativas, industriais ou governamentais.|
 
 **Os níveis de envolvimento podem incluir:**
 
-- **R**esponsible para implementar o plano e o resultado do projeto 
+- **R**esponsible para a implementação de plano de projeto e resultado 
 
-- **Um**pproval do plano e do resultado do projeto 
+- **Um**pproval de plano de projeto e resultado 
 
-- **C**para o plano e o resultado do projeto 
+- **C**ontributor para projeto plano e resultado 
 
-- **Eu**nformed o plano e o resultado do projeto
+- **Eu**não meforno do plano de projeto e do resultado
 
 
-## <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto
-Um piloto permite que você teste com um pequeno grupo antes de ativar um recurso para todos. Certifique-se de que, como parte de seu teste, cada caso de uso em sua organização seja totalmente testado. É melhor ter como alvo um grupo específico de usuários piloto antes de redistribuir para sua organização como um todo.
+## <a name="best-practices-for-a-pilot"></a>Melhores práticas para um piloto
+Um piloto permite que você teste com um pequeno grupo antes de ligar uma capacidade para todos. Certifique-se de que, como parte de seus testes, cada caso de uso dentro de sua organização seja completamente testado. É melhor atingir um grupo específico de usuários piloto antes de passar isso para sua organização como um todo.
 
-Na sua primeira onda, destinada a ti, usabilidade e outros usuários apropriados que podem testar e fornecer comentários. Esses comentários devem ser usados para desenvolver ainda mais as comunicações e as instruções que você envia para os usuários e fornecer informações sobre os tipos de problemas que sua equipe de suporte pode ver. 
+Na sua primeira onda, direcione a TI, a usabilidade e outros usuários apropriados que podem testar e fornecer feedback. Esse feedback deve ser usado para desenvolver ainda mais as comunicações e instruções enviadas aos seus usuários e para fornecer insights sobre os tipos de problemas que sua equipe de suporte pode ver. 
 
-Ampliar a distribuição para grupos maiores de usuários deve ser executado aumentando o escopo dos grupos de destino. Isso pode ser feito por meio de [Associação de grupo dinâmico](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)ou adicionando usuários manualmente aos grupos de destino.
+A ampliação da implantação para grupos maiores de usuários deve ser realizada aumentando o escopo dos grupos direcionados. Isso pode ser feito através da [adesão dinâmica do grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)ou adicionando manualmente os usuários ao grupo-alvo( s).
 
 
 ## <a name="deploy-authentication"></a>Implantar autenticação
 
-| Recurso | DESCRIÇÃO|
+| Recurso | Descrição|
 | -| -|
-| [Autenticação Multifator](https://aka.ms/deploymentplans/mfa)| A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de entrada simples. |
-| [Acesso condicional](https://aka.ms/deploymentplans/ca)| Com o acesso condicional, você pode implementar decisões de controle de acesso automatizadas para quem pode acessar seus aplicativos de nuvem, com base em condições. |
-| [Redefinição de senha de autoatendimento](https://aka.ms/deploymentplans/sspr)| A redefinição de senha de autoatendimento ajuda os usuários a redefinir suas senhas sem a intervenção do administrador, quando e onde eles precisam. |
-| [Sem senha](https://aka.ms/deploymentplans/passwordless) | Implementar a autenticação com senha usando o aplicativo Microsoft Authenticator ou as chaves de segurança FIDO2 em sua organização |
+| [Autenticação Multifator](https://aka.ms/deploymentplans/mfa)| A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um simples processo de login. |
+| [Acesso Condicional](https://aka.ms/deploymentplans/ca)| Com o Conditional Access, você pode implementar decisões automatizadas de controle de acesso para quem pode acessar seus aplicativos na nuvem, com base nas condições. |
+| [Redefinição de senha de autoatendimento](https://aka.ms/deploymentplans/sspr)| A redefinição da senha de autoatendimento ajuda seus usuários a redefinir suas senhas sem intervenção do administrador, quando e onde eles precisam. |
+| [Sem senha](https://aka.ms/deploymentplans/passwordless) | Implemente autenticação sem senha usando o aplicativo Microsoft Authenticator ou as chaves FIDO2 Security em sua organização |
 
 ## <a name="deploy-application-management"></a>Implantar o gerenciamento de aplicativos
 
-| Recurso | DESCRIÇÃO|
+| Recurso | Descrição|
 | -| - |
-| [Logon Único](https://aka.ms/deploymentplans/sso)| O logon único ajuda os usuários a acessar os aplicativos e recursos de que precisam para fazer negócios ao entrar apenas uma vez. Depois que eles tiverem entrado, eles poderão ir de Microsoft Office para o SalesForce para o box para aplicativos internos sem precisar inserir as credenciais uma segunda vez. |
-| [Painel de acesso](https://aka.ms/deploymentplans/accesspanel)| Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Habilite-os a serem mais produtivos com recursos de autoatendimento, como solicitar acesso a aplicativos e grupos ou gerenciar o acesso a recursos em nome de outros. |
+| [Logon único](https://aka.ms/deploymentplans/sso)| O logon único ajuda seus usuários a acessar os aplicativos e recursos de que precisam para fazer negócios enquanto fazem login apenas uma vez. Depois de fazerem o registro, eles podem ir do Microsoft Office ao SalesForce to Box para aplicativos internos sem serem obrigados a inserir credenciais uma segunda vez. |
+| [Painel de acesso](https://aka.ms/deploymentplans/accesspanel)| Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Permitir que eles sejam mais produtivos com recursos de autoatendimento, como solicitar acesso a aplicativos e grupos ou gerenciar o acesso a recursos em nome de terceiros. |
 
 
 ## <a name="deploy-hybrid-scenarios"></a>Implantar cenários híbridos
 
-| Recurso | DESCRIÇÃO|
+| Recurso | Descrição|
 | -| -|
-| [ADFS para sincronização de hash de senha](https://aka.ms/deploymentplans/adfs2phs)| Com a sincronização de hash de senha, os hashes de senhas de usuário são sincronizados do Active Directory local para o Azure AD, permitindo que o Azure AD autentique usuários sem interação com o Active Directory local |
-| [ADFS para autenticação de passagem](https://aka.ms/deploymentplans/adfs2pta)| A autenticação de passagem do Azure AD ajuda os usuários a entrar em aplicativos locais e baseados em nuvem usando as mesmas senhas. Esse recurso fornece aos usuários uma experiência melhor-uma senha a menos para lembrar e reduz os custos de assistência técnica de ti, pois os usuários têm menos probabilidade de se esquecer de como entrar. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local. |
-| [Proxy de Aplicativo do Azure AD](https://aka.ms/deploymentplans/appproxy)| Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e nos aplicativos corporativos locais. O proxy de aplicativo do Azure AD permite esse acesso robusto sem dispendiosos e complexas redes virtuais privadas (VPNs) ou zonas desmilitarizadas (DMZs). |
-| [SSO contínuo](../hybrid/how-to-connect-sso-quick-start.md)| O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos dispositivos corporativos conectados à sua rede corporativa. Com esse recurso, os usuários não precisarão digitar suas senhas para entrar no Azure AD e, em geral, não precisarão inserir seus nomes de usuário. Esse recurso fornece aos usuários autorizados acesso fácil aos seus aplicativos baseados em nuvem sem a necessidade de componentes locais adicionais. |
+| [ADFS para sincronização de hash de senha](https://aka.ms/deploymentplans/adfs2phs)| Com a sincronização do Hash password, os hashes das senhas de usuário são sincronizados do Active Directory on-premises para o Azure AD, permitindo que o Azure AD autentique usuários sem interação com o Active Directory no local |
+| [ADFS para autenticação de passagem](https://aka.ms/deploymentplans/adfs2pta)| A autenticação de passagem do AD do Azure ajuda seus usuários a entrar em aplicativos no local e na nuvem usando as mesmas senhas. Esse recurso oferece aos usuários uma experiência melhor - uma senha a menos para lembrar - e reduz os custos do helpdesk de TI porque os usuários são menos propensos a esquecer como fazer login. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local. |
+| [Proxy de Aplicativo do Azure AD](https://aka.ms/deploymentplans/appproxy)| Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e aplicativos corporativos no local. O proxy do Aplicativo Azure AD permite esse acesso robusto sem vpns (vpns) ou zonas desmilitarizadas (DMZs) de redes virtuais caras e complexas. |
+| [SSO contínuo](../hybrid/how-to-connect-sso-quick-start.md)| O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos dispositivos corporativos conectados à sua rede corporativa. Com esse recurso, os usuários não precisarão digitar suas senhas para fazer login no Azure AD e geralmente não precisarão inserir seus nomes de usuário. Esse recurso fornece aos usuários autorizados acesso fácil aos seus aplicativos baseados na nuvem sem precisar de componentes adicionais no local. |
 
-## <a name="deploy-user-provisioning"></a>Implantar provisionamento de usuário
+## <a name="deploy-user-provisioning"></a>Implantar provisionamento de usuários
 
-| Recurso | DESCRIÇÃO|
+| Recurso | Descrição|
 | -| -|
 | [Provisionamento do usuário](https://aka.ms/deploymentplans/userprovisioning)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
-| [Provisionamento de usuário de RH na nuvem](https://aka.ms/deploymentplans/cloudhr)| O provisionamento de usuário de RH na nuvem para Active Directory cria uma base para governança de identidade contínua e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa. Usando esse recurso com seu produto de RH de nuvem, como workday ou Successfactors, você pode gerenciar o ciclo de vida de identidade de funcionários e trabalhos contingentes Configurando regras que mapeiam processos de movimentação de União-movimento (como novo contratação, término, Transferência) para ações de provisionamento de ti (como criar, habilitar, desabilitar) |
+| [Provisionamento de usuários de RH na nuvem](https://aka.ms/deploymentplans/cloudhr)| O provisionamento de usuários de RH em nuvem para o Active Directory cria uma base para a governança contínua da identidade e melhora a qualidade dos processos de negócios que dependem de dados de identidade autorizados. Usando esse recurso com seu produto de RH na nuvem, como Workday ou Successfactors, você pode gerenciar perfeitamente o ciclo de vida da identidade de funcionários e funcionários contingentes, configurando regras que mapeiam processos do Joiner-Mover-Leaver (como New Hire, Terminate, Transferir) para ações de provisionamento de TI (como Criar, Habilitar, Desativar) |
 
 ## <a name="deploy-governance-and-reporting"></a>Implantar governança e relatórios
 
-| Recurso | DESCRIÇÃO|
+| Recurso | Descrição|
 | -| -|
-| [Privileged Identity Management](https://aka.ms/deploymentplans/pim)| O Azure AD Privileged Identity Management (PIM) ajuda você a gerenciar funções administrativas com privilégios entre o Azure AD, recursos do Azure e outros Serviços Online da Microsoft. O PIM fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades maliciosas de funções com privilégios em tempo real. |
-| [Relatórios e monitoramento](https://aka.ms/deploymentplans/reporting)| O design de sua solução de monitoramento e relatório do Azure AD depende dos seus requisitos legais, de segurança e operacionais, bem como do ambiente e dos processos existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação certa. |
+| [Gestão privilegiada de identidade](https://aka.ms/deploymentplans/pim)| O Azure AD Privileged Identity Management (PIM) ajuda você a gerenciar funções administrativas com privilégios entre o Azure AD, recursos do Azure e outros Serviços Online da Microsoft. O PIM fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades maliciosas de funções com privilégios em tempo real. |
+| [Relatórios e Monitoramento](https://aka.ms/deploymentplans/reporting)| O projeto da solução de emissão e monitoramento de relatórios e monitoramento do Azure AD depende de seus requisitos legais, de segurança e operacionais, bem como do ambiente e dos processos existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação correta. |

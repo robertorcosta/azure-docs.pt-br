@@ -1,20 +1,18 @@
 ---
 title: Habilitar uma listagem do Microsoft AppSource e Azure Marketplace usando o Azure Active Directory | Azure
 description: Habilitar o tipo de listagem usando o Microsoft Azure Active Directory no Microsoft Azure Marketplace e no AppSource para editores de serviços e aplicativos.
-services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pabutler
-ms.openlocfilehash: 9423263270313659017b16a5e34511e7ef385af5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286312"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilite uma listagem do AppSource e do Marketplace usando o Active Directory do Azure
 
@@ -83,11 +81,11 @@ Se você for novo no usando o logon único federado do Azure AD, siga estas etap
 Use o Azure AD para oferecer suporte a uma das seguintes ações:
 
 - Adicionar usuários convidados ao seu diretório por meio do [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Configurar manualmente avaliações para clientes usando o **entre em contato comigo** opção de publicação.
+- Configure manualmente os testes para os clientes usando a opção de publicação **Contact Me.**
 - Desenvolva um test drive por cliente.
 - Crie um aplicativo de demonstração de exemplo multilocatário que usa SSO.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Certifique-se de que você [registrado no Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Consulte [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações sobre como criar ou concluir sua oferta.
+- Veja [como criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações sobre como criar ou concluir sua oferta.

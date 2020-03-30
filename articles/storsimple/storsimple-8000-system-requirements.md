@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267658"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297716"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Requisitos de software, de alta disponibilidade e de rede do StorSimple série 8000
 
@@ -81,7 +81,7 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 <sup>3</sup> Os IPs fixos do controlador no dispositivo StorSimple devem ser roteáveis e conseguir se conectarem à Internet diretamente ou pelo proxy Web configurado. Os endereços IP fixos são usados para atender às atualizações do dispositivo e para a coleta de lixo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple e a coleta de lixo não funcionará adequadamente.
 
 > [!IMPORTANT]
-> Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
+> Certifique-se de que o firewall não modifique ou descriptografe qualquer tráfego TLS entre o dispositivo StorSimple e o Azure.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
@@ -233,7 +233,7 @@ O modelo do dispositivo StorSimple 8600 inclui um compartimento EBOD (Extended B
 * Verifique se ambos os módulos do controlador de compartimento EBOD, os cabos SAS e todos os discos rígidos estão sempre instalados.
 * Se um módulo do controlador de compartimento EBOD falhar, solicite uma substituição imediatamente.
 * Se um módulo do controlador de compartimento EBOD falhar, certifique-se de que o outro módulo do controlador esteja ativo antes de substituir o módulo com falha. Para verificar se um controlador está ativo, vá para [Identificar o controlador ativo em seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante uma substituição do módulo do controlador EBOD, monitore continuamente o status do componente no serviço StorSimple Device Manager acessando **Monitorar** > **Integridade de hardware**.
+* Durante a substituição do módulo do controlador EBOD, monitore continuamente o status do componente no serviço StorSimple Device Manager acessando **a** > saúde**do Monitor Hardware**.
 * Se um cabo SAS falha ou exigir substituição (o Suporte da Microsoft deve participar dessa decisão), remova apenas o cabo SAS que exige a substituição.
 * Não remova simultaneamente os dois cabos SAS do sistema em nenhum momento.
 
@@ -241,7 +241,7 @@ O modelo do dispositivo StorSimple 8600 inclui um compartimento EBOD (Extended B
 
 Leia com atenção essas práticas recomendadas para garantir a alta disponibilidade dos hosts conectados ao dispositivo StorSimple.
 
-* Configure o StorSimple com [configurações de cluster de servidor de arquivos de dois nós][1]. Ao remover os pontos individuais de falha e criando redundância no lado do host, a solução inteira se torna altamente disponível.
+* Defina o StorSimple com as [configurações de cluster de servidores de arquivos com dois nós][1]. Ao remover os pontos individuais de falha e criando redundância no lado do host, a solução inteira se torna altamente disponível.
 * Use compartilhamentos CA (disponíveis continuamente) disponíveis no Windows Server 2012 (SMB 3.0) para alta disponibilidade durante o failover dos controladores de armazenamento. Para obter informações adicionais sobre a configuração de clusters de servidor de arquivos e compartilhamentos Disponíveis Continuamente com o Windows Server 2012, consulte esta [demonstração em vídeo](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
 ## <a name="next-steps"></a>Próximas etapas

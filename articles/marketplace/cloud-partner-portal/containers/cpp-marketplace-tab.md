@@ -1,19 +1,18 @@
 ---
-title: Configurações do Marketplace para uma imagem de contêineres do Azure | Azure Marketplace
+title: Configurações de mercado para uma imagem de Contêineres Azure | Mercado Azure
 description: Definir configurações do mercado para um contêiner do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 8d7c930f3adcfb4b4d092cc909bf4468ced3271f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e272a95c5eb7d00b7c2169acb820ec8e4e8d9614
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823202"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280041"
 ---
 # <a name="container-marketplace-tab"></a>Guia de Mercado de contêineres
 
@@ -27,10 +26,10 @@ Nesta seção, você insere as informações gerais sobre sua oferta do Azure Ma
 
 A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obrigatórios são indicados por um asterisco (*).
 
-|    Campo                  |       DESCRIÇÃO                                                            |
+|    Campo                  |       Descrição                                                            |
 |  ---------                |     ---------------                                                          |
 | **Título\***                 | Título da oferta. Ele será exibido com destaque no marketplace.  O comprimento máximo é de 50 caracteres. |
-| **\* de resumo**               | Breve resumo da oferta. O comprimento máximo é de 100 caracteres. |
+| **Resumo\***               | Breve resumo da oferta. O comprimento máximo é de 100 caracteres. |
 | **Resumo longo\***          | Mais Resumo da oferta (embora pudesse ser igual a **resumo**).  O comprimento máximo é de 256 caracteres. |
 | **Descrição\***           | Descrição da oferta.  O comprimento máximo é de 3000 caracteres, suporta formatação HTML simples.
 | **Identificador de marketing**  | Um URL exclusivo para associar a essa oferta, que normalmente inclui sua organização e o nome da solução. O comprimento máximo é de 50 caracteres.   |

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79296720"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classes – Azure Lab Services
@@ -67,5 +67,5 @@ Para obter informações detalhadas sobre como configurar esse tipo de laborató
 Veja os artigos a seguir:
 
 - [Configurar um laboratório voltado para o aprendizado profundo em processamento em idioma natural usando o Azure Lab Services](class-type-deep-learning-natural-processing.md)
-- [Script de shell no Linux](class-type-shell-scripting-linux.md)
+- [Script de Shell no Linux](class-type-shell-scripting-linux.md)
 - [Hacking ético](class-type-ethical-hacking.md)

@@ -1,146 +1,262 @@
 ---
-title: Trocas de declarações da API REST como validação
+title: AAPI REST reivindica trocas como validação
 titleSuffix: Azure AD B2C
-description: Uma explicação sobre como criar uma jornada de usuário Azure AD B2C que interage com os serviços RESTful.
+description: Um passo a passo para criar uma jornada de usuário Azure AD B2C que interage com os serviços RESTful.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7100498d99068941bcd7ca48b6cbcaa271fbb095
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189065"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330829"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Passo a passo: Integre as trocas de reclamações da API REST em sua jornada de usuário Azure AD B2C para validar a entrada do usuário
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A IEF (Estrutura de Experiência de Identidade) subjacente ao Azure AD B2C (Azure Active Directory B2C) permite que o desenvolvedor de identidade integre uma interação com uma API RESTful em um percurso do usuário.
+O IEF (Identity Experience Framework, estrutura de experiência de identidade) que sustenta o Azure Active Directory B2C (Azure AD B2C) permite que os desenvolvedores de identidade integrem uma interação com uma API RESTful em uma jornada do usuário.  No final deste passo a passo, você poderá criar uma jornada de usuário Azure AD B2C que interage com [os serviços RESTful](custom-policy-rest-api-intro.md) para validar a entrada do usuário.
 
-Ao final deste passo a passo, você estará apto a criar um percurso do usuário do Azure AD B2C que interage com serviços RESTful.
+Neste cenário, adicionaremos a capacidade de os usuários inserirem um número de fidelidade na página de inscrição Azure AD B2C. Vamos validar se essa combinação de e-mail e número de fidelidade é mapeada para um código promocional enviando esses dados para uma API REST. Se a API REST encontrar um código promocional para este usuário, ele será devolvido ao Azure AD B2C. Finalmente, o código promocional será inserido nas reivindicações do token para o aplicativo consumir.
 
-A IEF envia dados em declarações e recebe dados de volta em declarações. A interação com a API:
+Você também pode criar a interação como uma etapa de orquestração. Isso é adequado quando a API REST não estará validando dados na tela e sempre retornará reclamações. Para obter mais informações, consulte [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](custom-policy-rest-api-claims-exchange.md).
 
-- Pode ser criada como uma troca de declarações da API REST ou como um perfil de validação, que ocorre em uma etapa de orquestração.
-- Normalmente valida a entrada do usuário. Se o valor do usuário for rejeitado, o usuário poderá tentar inserir um valor válido novamente com a oportunidade de retornar uma mensagem de erro.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você também pode criar a interação como uma etapa de orquestração. Para obter mais informações, consulte [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](custom-policy-rest-api-claims-exchange.md).
+- Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-get-started.md). Você deve ter uma política personalizada funcional para inscrição e conexão com contas locais.
+- Saiba como integrar as trocas de [reclamações da API REST em sua política personalizada Azure AD B2C](custom-policy-rest-api-intro.md).
 
-No exemplo de perfil de validação, usaremos o percurso do usuário de edição de perfil no arquivo de starter pack ProfileEdit.xml.
+## <a name="prepare-a-rest-api-endpoint"></a>Prepare um ponto final da API REST
 
-Podemos verificar que o nome fornecido pelo usuário na edição de perfil não faz parte de uma lista de exclusões.
+Para este passo a passo, você deve ter uma API REST que valida se um endereço de e-mail está registrado em seu sistema back-end com um ID de fidelidade. Se registrado, a API REST deve retornar um código de promoção de registro, que o cliente pode usar para comprar mercadorias dentro de seu aplicativo. Caso contrário, a API REST deve retornar uma mensagem de erro HTTP 409: "O ID de fidelidade '{loyalty ID}' não está associado ao endereço de e-mail '{email}'."
 
-## <a name="prerequisites"></a>Prerequisites
+O código JSON a seguir ilustra os dados que o Azure AD B2C enviará para o ponto final da API REST. 
 
-- Um locatário do Azure AD B2C configurado para concluir uma inscrição/entrada de conta local, conforme descrito em [Introdução](custom-policy-get-started.md).
-- Um ponto de extremidade de API REST com o qual se irá interagir. Para este passo a passo, criamos um site de demonstração chamado [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) com um serviço de API REST.
-
-## <a name="step-1-prepare-the-rest-api-function"></a>Etapa 1: preparar a função da API REST
-
-> [!NOTE]
-> A configuração das funções da API REST está fora do escopo deste artigo. O [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fornece um kit de ferramentas excelente para criar serviços RESTful na nuvem.
-
-Criamos uma função do Azure que recebe uma declaração esperada como `playerTag`. A função valida se essa declaração existe. Você pode acessar o código completo de função do Azure no [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
-
-```csharp
-if (requestContentAsJObject.playerTag == null)
+```json
 {
-  return request.CreateResponse(HttpStatusCode.BadRequest);
+    "email": "User email address",
+    "language": "Current UI language",
+    "loyaltyId": "User loyalty ID"
 }
-
-var playerTag = ((string) requestContentAsJObject.playerTag).ToLower();
-
-if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcottonmarcus")
-{
-  return request.CreateResponse<ResponseContent>(
-    HttpStatusCode.Conflict,
-    new ResponseContent
-    {
-      version = "1.0.0",
-      status = (int) HttpStatusCode.Conflict,
-      userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
-    },
-    new JsonMediaTypeFormatter(),
-    "application/json");
-}
-
-return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-O IEF espera a declaração `userMessage` retornada pela função do Azure. Essa declaração será apresentada como uma cadeia de caracteres para o usuário se a validação falhar, como quando um status de conflito 409 é retornado no exemplo anterior.
+Uma vez que sua API REST valide os dados, ela deve retornar um HTTP 200 (Ok), com os seguintes dados JSON:
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Etapa 2: Configurar a troca de declarações da API RESTful como um perfil técnico no arquivo TrustFrameworkExtensions.xml
+```json
+{
+    "promoCode": "24534"
+}
+```
 
-Um perfil técnico é a configuração completa da troca desejada com o serviço RESTful. Abra o arquivo TrustFrameworkExtensions.xml e adicione o seguinte snippet de código XML dentro do elemento `<ClaimsProviders>`.
+Se a validação falhar, a API REST deve retornar um `userMessage` HTTP 409 (Conflito), com o elemento JSON. A IEF `userMessage` espera a alegação de que a API REST retorna. Esta reclamação será apresentada como uma string para o usuário se a validação falhar.
 
-> [!NOTE]
-> No XML a seguir, o provedor RESTful `Version=1.0.0.0` é descrito como o protocolo. Considere-o como a função que interagirá com o serviço externo. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+```json
+{
+    "version": "1.0.1",
+    "status": 409,
+    "userMessage": "LoyaltyId ID '1234' is not associated with 'david@contoso.com' email address."
+}
+```
+
+A configuração do ponto final da API REST está fora do escopo deste artigo. Criamos uma amostra [de Funções Azure.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Você pode acessar o código completo de função Azure no [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+
+## <a name="define-claims"></a>Definir reivindicações
+
+Uma reclamação fornece armazenamento temporário de dados durante a execução de uma diretiva Azure AD B2C. Você pode declarar reivindicações dentro da seção [de sinistros.](claimsschema.md) 
+
+1. Abra o arquivo de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
+1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
+1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
+1. Adicione as seguintes reivindicações ao elemento **ClaimsSchema.**  
+
+```xml
+<ClaimType Id="loyaltyId">
+  <DisplayName>Your loyalty ID</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+<ClaimType Id="promoCode">
+  <DisplayName>Your promo code</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>Paragraph</UserInputType>
+</ClaimType>
+  <ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## <a name="configure-the-restful-api-technical-profile"></a>Configure o perfil técnico da API RESTful 
+
+Um [perfil técnico tranquilo](restful-technical-profile.md) fornece suporte para interseção ao seu próprio serviço RESTful. O Azure AD B2C envia dados para `InputClaims` o serviço RESTful em uma coleta e recebe dados de volta em uma `OutputClaims` coleta. Encontre o elemento **Provedores de Sinistros** e adicione um novo provedor de sinistros da seguinte forma:
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
-        <TechnicalProfile Id="AzureFunctions-CheckPlayerTagWebHook">
-            <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
-                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
-                <Item Key="SendClaimsIn">Body</Item>
-                <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
-                <Item Key="AuthenticationType">None</Item>
-                <!-- REMOVE the following line in production environments -->
-                <Item Key="AllowInsecureAuthInProduction">true</Item>
-            </Metadata>
-            <InputClaims>
-                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
-            </InputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-        </TechnicalProfile>
-        <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
-            <ValidationTechnicalProfiles>
-                <ValidationTechnicalProfile ReferenceId="AzureFunctions-CheckPlayerTagWebHook" />
-            </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-    </TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-ValidateProfile">
+      <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <!-- Claims sent to your REST API -->
+        <InputClaim ClaimTypeReferenceId="loyaltyId" />
+        <InputClaim ClaimTypeReferenceId="email" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Claims parsed from your REST API -->
+        <OutputClaim ClaimTypeReferenceId="promoCode" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
-O elemento `InputClaims` define as declarações que serão enviadas pela IEF para o serviço REST. Neste exemplo, o conteúdo da declaração `givenName` será enviado para o serviço REST como `playerTag`. Neste exemplo, o IEF não espera declarações novamente. Em vez disso, ele aguarda uma resposta do serviço REST e age de acordo com os códigos de status recebidos.
+Neste exemplo, `userLanguage` o será enviado para `lang` o serviço REST como dentro da carga útil JSON. O valor `userLanguage` da declaração contém o ID de linguagem de usuário atual. Para obter mais informações, consulte [a reivindicação resolver](claim-resolver-overview.md).
 
-Os comentários acima `AuthenticationType` e `AllowInsecureAuthInProduction` especificam as alterações que você deve fazer ao mudar para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [proteger APIs RESTful com autenticação básica](secure-rest-api-dotnet-basic-auth.md) e [proteger APIs RESTful com autenticação de certificado](secure-rest-api-dotnet-certificate-auth.md).
+Os comentários `AuthenticationType` `AllowInsecureAuthInProduction` acima e especificar alterações que você deve fazer quando você se move para um ambiente de produção. Para saber como proteger suas APIs RESTful para produção, consulte [API Secure RESTful](secure-rest-api.md).
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Etapa 3: Incluir a troca de declarações do serviço RESTful no perfil técnico autodeclarado no qual você deseja validar a entrada do usuário
+## <a name="validate-the-user-input"></a>Validar a entrada do usuário
 
-O uso mais comum da etapa de validação é na interação com um usuário. Todas as interações nas quais o usuário deve fornecer uma entrada são *perfis técnicos autodeclarados*. Para este exemplo, adicionaremos essa validação ao perfil técnico Self-Asserted-ProfileUpdate. Esse é o perfil técnico utilizado pelo arquivo de política de RP (terceira parte confiável) `Profile Edit`.
+Para obter o número de fidelidade do usuário durante a inscrição, você deve permitir que o usuário insira esses dados na tela. Adicione a reivindicação de saída **de fidelId** à página de inscrição adicionando-a `OutputClaims` ao elemento da seção de perfil técnico de inscrição existente. Especifique toda a lista de reivindicações de saída para controlar a ordem que as reivindicações são apresentadas na tela.  
 
-Para adicionar a troca de declarações ao perfil técnico autodeclarado:
+Adicione a referência do perfil técnico de validação ao `REST-ValidateProfile`perfil técnico de inscrição, que chama de . O novo perfil técnico de validação será `<ValidationTechnicalProfiles>` adicionado ao topo da coleção definida na política base. Esse comportamento significa que somente após a validação bem-sucedida, o Azure AD B2C passa a criar a conta no diretório.   
 
-1. Abra o arquivo TrustFrameworkBase.xml e pesquise `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. Examine a configuração desse perfil técnico. Observe como a troca com o usuário é definida como declarações que serão solicitadas ao usuário (declarações de entrada) e declarações esperadas novamente do provedor autodeclarado (declarações de saída).
-3. Pesquise `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`e observe que esse perfil é invocado como a etapa de orquestração 5 do `<UserJourney Id="ProfileEdit">`.
+1. Localize o elemento **ClaimsProviders**. Adicione um novo provedor de sinistros da seguinte forma:
 
-## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Etapa 4: Carregar e testar o arquivo de política de RP de edição de perfil
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Local Account</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surName"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile" />
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Self Asserted</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SelfAsserted-Social">
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="email" />
+          </InputClaims>
+            <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
 
-1. Carregue a nova versão do arquivo TrustFrameworkExtensions.xml.
-2. Use **Executar agora** para testar o arquivo de política de edição do perfil RP.
-3. Teste a validação fornecendo um dos nomes existentes (por exemplo, mcvinny) no campo **Nome Fornecido**. Se tudo estiver configurado corretamente, você deverá receber uma mensagem que notifica o usuário de que a marcação de player já está sendo usada.
+## <a name="include-a-claim-in-the-token"></a>Inclua uma reivindicação no token 
+
+Para devolver a reivindicação de código promocional ao aplicativo de <em> `SocialAndLocalAccounts/` </em> parte que depende, adicione uma reivindicação de saída ao arquivo. A reivindicação de saída permitirá que a reivindicação seja adicionada ao token após uma jornada de usuário bem-sucedida e será enviada para o aplicativo. Modifique o elemento de perfil técnico dentro `promoCode` da seção de parte de dependência para adicionar o como uma reivindicação de saída.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="promoCode" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+## <a name="test-the-custom-policy"></a>Teste a política personalizada
+
+1. Faça login no [portal Azure](https://portal.azure.com).
+1. Certifique-se de que está usando o diretório que contém o inquilino Azure AD selecionando o filtro **de assinatura Diretório +** no menu superior e escolhendo o diretório que contém o inquilino Azure AD.
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
+1. Selecione **Estrutura de Experiência de Identidade**.
+1. Selecione **'Enviar diretiva personalizada'** e, em seguida, faça upload dos arquivos de diretiva que você alterou: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
+1. Selecione a política de inscrição ou de entrada carregada e clique no botão **Executar agora**.
+1. Você deverá conseguir se inscrever usando um endereço de email.
+1. Clique no link **Inscreva-se agora.**
+1. No **ID de sua lealdade,** tipo 1234, e clique em **Continuar**. Neste ponto, você deve receber uma mensagem de erro de validação.
+1. Mude para outro valor e clique **em Continuar**.
+1. O token enviado de volta ao seu aplicativo inclui a declaração `promoCode`.
+
+```json
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584295703,
+  "nbf": 1584292103,
+  "ver": "1.0",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
+  "nonce": "defaultNonce",
+  "iat": 1584292103,
+  "auth_time": 1584292103,
+  "name": "Emily Smith",
+  "email": "emily@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "promoCode": "84362"
+  ...
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Modificar a edição de perfil e o registro de usuário para coletar informações adicionais dos usuários](custom-policy-custom-attributes.md)
-
-[Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](custom-policy-rest-api-claims-exchange.md)
-
-[Referência: perfil técnico RESTful](restful-technical-profile.md)
-
 Para saber como proteger suas APIs, consulte os seguintes artigos:
 
-* [Proteja sua API RESTful com a autenticação básica (nome de usuário e senha)](secure-rest-api-dotnet-basic-auth.md)
-* [Proteja sua API RESTful com certificados de cliente](secure-rest-api-dotnet-certificate-auth.md)
+- [Passo a passo: integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como uma etapa de orquestração](custom-policy-rest-api-claims-exchange.md)
+- [Proteja sua API RESTful](secure-rest-api.md)
+- [Referência: Perfil técnico RESTful](restful-technical-profile.md)

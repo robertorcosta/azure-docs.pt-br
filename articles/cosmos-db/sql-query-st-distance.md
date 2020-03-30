@@ -1,21 +1,21 @@
 ---
-title: ST_DISTANCE na linguagem de consulta Azure Cosmos DB
+title: ST_DISTANCE no idioma de consulta do Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL ST_DISTANCE no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 972712d37c146ce288c49af7832919946f5503cd
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297111"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537288"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
- Retorna a distância entre as duas expressões de ponto geojson, polígono, MultiPolygon ou LineString. Para saber mais, consulte o artigo [dados geoespaciais e locais geojson](sql-query-geospatial-intro.md) .
+ Retorna a distância entre as duas expressões GeoJSON Point, Polygon, MultiPolygon ou LineString. Para saber mais, consulte o artigo [de dados de localização Geoespacial e GeoJSON.](sql-query-geospatial-intro.md)
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -34,7 +34,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra como retornar todos os documentos da família que estão dentro de 30 km do local especificado usando a função interna `ST_DISTANCE`. .  
+  O exemplo a seguir mostra como devolver todos os documentos familiares `ST_DISTANCE` que estão dentro de 30 km do local especificado usando a função incorporada. .  
   
 ```sql
 SELECT f.id
@@ -52,10 +52,10 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## <a name="remarks"></a>Comentários
 
-Essa função de sistema se beneficiará de um [índice geoespacial](index-policy.md#spatial-indexes).
+Esta função do sistema beneficiará de um [índice geoespacial.](index-policy.md#spatial-indexes)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções espaciais Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

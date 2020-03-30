@@ -1,7 +1,7 @@
 ---
-title: Analisar arquivos de áudio e vídeo
+title: Analisar arquivos de vídeo e áudio
 titleSuffix: Azure Media Services
-description: Saiba como analisar o conteúdo de áudio e vídeo usando o AudioAnalyzerPreset e o VideoAnalyzerPreset nos serviços de mídia do Azure.
+description: Saiba como analisar o conteúdo de áudio e vídeo usando AudioAnalyzerPreset e VideoAnalyzerPreset no Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269881"
 ---
-# <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com os serviços de mídia do Azure
+# <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com o Azure Media Services
 
-Os serviços de mídia do Azure v3 permitem que você extraia informações de seus arquivos de vídeo e áudio com Video Indexer. Este artigo descreve as predefinições do analisador de serviços de mídia v3 usadas para extrair essas informações. Se você quiser informações mais detalhadas, use o Video Indexer diretamente. Para entender quando usar as predefinições do Video Indexer vs. do Media Services Analyzer, confira o [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+O Azure Media Services v3 permite extrair insights de seus arquivos de vídeo e áudio com o Indexador de Vídeo. Este artigo descreve as predefinições do analisador v3 do Media Services usadas para extrair esses insights. Se você quiser informações mais detalhadas, use o Video Indexer diretamente. Para entender quando usar o analisador de vídeo indexador vs. media services predefinições, confira o [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-Para analisar seu conteúdo usando as predefinições dos serviços de mídia v3, você cria uma **transformação** e envia um **trabalho** que usa uma dessas predefinições: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) ou **AudioAnalyzerPreset**. Para obter um tutorial que demonstra como usar o **VideoAnalyzerPreset**, consulte [analisar vídeos com os serviços de mídia do Azure](analyze-videos-tutorial-with-api.md).
+Para analisar seu conteúdo usando predefinições v3 do Media Services, você cria uma **Transformação** e envia um **Trabalho** que usa uma dessas predefinições: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) ou **AudioAnalyzerPreset**. Para obter um tutorial que demonstre como usar **o VideoAnalyzerPreset,** consulte [Analisar vídeos com o Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Ao usar as predefinições do Video ou Audio Analyzer, use o portal do Azure para definir sua conta como 10 Unidades Reservada para Mídia S3. Para saber mais, confira [Processamento de mídia de escala](media-reserved-units-cli-how-to.md).
@@ -38,36 +38,36 @@ O Serviços de Mídia do Microsoft Azure atualmente suporta as seguintes predefi
 
 |**Nome da predefinição**|**Cenário**|**Detalhes**|
 |---|---|---|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisar áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio que contenha fala em um único idioma. É possível especificar o idioma o conteúdo de áudio na entrada usando o formato BCP-47 de 'marca de idioma-região'. Os idiomas com suporte são Inglês (' en-US ' e ' en-GB '), espanhol (' es-ES ' e ' es-MX '), francês (' fr-FR '), italiano (' it-IT '), japonês (' ja-JP '), Português (' pt-BR '), chinês (' ZH-CN '), alemão (' de-DE '), árabe (' ar-ex ' e ' ar-SY '), russo (' ru-RU '), Híndi (' hi-IN ') e coreano (' ko-KR ').<br/><br/> Se o idioma não for especificado ou definido como nulo, a detecção automática de idioma escolherá o primeiro idioma detectado e continuará com o idioma selecionado durante o arquivo. O recurso de detecção automática de idioma suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não dá suporte à alternância dinâmica entre os idiomas após a detecção do primeiro idioma. O recurso de detecção automática de idioma funciona melhor com gravações de áudio com fala claramente discernível. Se a detecção automática de idioma falhar ao localizar o idioma, a transcrição retornará para o inglês.|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisar áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio que contenha fala em um único idioma. É possível especificar o idioma o conteúdo de áudio na entrada usando o formato BCP-47 de 'marca de idioma-região'. Os idiomas suportados são inglês ('en-US' e 'en-GB'), espanhol ('es-ES' e 'es-MX'), francês ('fr-FR'), italiano ('it-IT'), japonês ('ja-JP'), português ('pt-BR'), chinês ('zh-CN'), alemão ('de-DE'), árabe ('ar-EG' e 'ar-SY'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru-RU'), russo ('ru Hindi ('hi-IN'), e coreano ('ko-KR').<br/><br/> Se o idioma não for especificado ou definido como nulo, a detecção automática do idioma escolhe o primeiro idioma detectado e continua com o idioma selecionado durante a duração do arquivo. O recurso de detecção automática de idioma suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não suporta a troca dinamicamente entre idiomas depois que a primeira língua é detectada. O recurso de detecção automática de idioma funciona melhor com gravações de áudio com fala claramente discernível. Se a detecção automática do idioma não encontrar o idioma, a transcrição volta para o inglês.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analisar áudio e vídeo|Extraia insights (metadados avançados) de áudio e vídeo e gere um arquivo no formato JSON. É possível especificar se deseja extrair apenas insights de áudio ao processar um arquivo de vídeo. Para obter mais informações, consulte [Analisar vídeo](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detectando rostos presentes em vídeo|Descreve as configurações a serem usadas ao analisar um vídeo para detectar todas as faces presentes.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detectando rostos presentes em vídeo|Descreve as configurações a serem usadas ao analisar um vídeo para detectar todos os rostos presentes.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
 A predefinição permite extrair vários insights de áudio de um arquivo de áudio ou vídeo. A saída inclui um arquivo JSON (com todas as informações) e um arquivo VTT para a transcrição do áudio. Essa predefinição aceita uma propriedade que especifica o idioma do arquivo de entrada na forma de uma cadeia de caracteres [BCP47](https://tools.ietf.org/html/bcp47). As informações de áudio incluem:
 
-* **Transcrição de áudio**: uma transcrição das palavras faladas com carimbos de data/hora. Há suporte para vários idiomas.
-* **Indexação do viva-voz**: um mapeamento dos alto-falantes e as palavras faladas correspondentes.
-* **Análise de sentimentos de fala**: a saída da análise de sentimentos realizada na transcrição de áudio.
-* **Palavras-** chave: palavras-chave que são extraídas da transcrição de áudio.
+* **Transcrição de áudio**: Uma transcrição das palavras faladas com carimbos de data e hora. Vários idiomas são suportados.
+* **Indexação do alto-falante**: Um mapeamento dos alto-falantes e das palavras faladas correspondentes.
+* **Análise do sentimento da**fala : A saída da análise de sentimento realizada na transcrição do áudio.
+* **Palavras-chave**: Palavras-chave que são extraídas da transcrição de áudio.
 
 ### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
 A predefinição permite extrair vários insights de áudio e vídeo de um arquivo de vídeo. A saída inclui um arquivo JSON (com todas as informações) e um arquivo VTT para a transcrição do vídeo, e uma coleção de miniaturas. Essa predefinição também aceita uma cadeia de caracteres [BCP47](https://tools.ietf.org/html/bcp47) (que representa o idioma do vídeo) como propriedade. As informações de vídeos incluem todas as informações de áudio mencionadas acima, e os itens adicionais a seguir:
 
-* **Acompanhamento de face**: o tempo durante o qual as faces estão presentes no vídeo. Cada face tem uma ID facial e uma coleção correspondente de miniaturas.
-* **Texto visual**: o texto que é detectado por meio do reconhecimento óptico de caracteres. O texto é um carimbo de data/hora e também é usado para extrair palavras-chave (além da transcrição de áudio).
-* **Quadros-chave**: uma coleção de quadros-chave extraídos do vídeo.
-* **Moderação de conteúdo Visual**: a parte dos vídeos sinalizados como adulto ou erótico por natureza.
-* **Anotação**: um resultado da anotação dos vídeos com base em um modelo de objeto predefinido
+* **Rastreamento facial**: O tempo durante o qual os rostos estão presentes no vídeo. Cada rosto tem um face ID e uma coleção correspondente de miniaturas.
+* **Texto visual**: O texto detectado através do reconhecimento óptico de caracteres. O texto é carimbado e também usado para extrair palavras-chave (além da transcrição de áudio).
+* **Quadros-chave**: Uma coleção de quadros-chave extraídos do vídeo.
+* **Moderação de conteúdo visual**: A parte dos vídeos sinalizados como adultos ou picantes na natureza.
+* **Anotação**: Resultado da anotação dos vídeos com base em um modelo de objeto pré-definido
 
 ## <a name="insightsjson-elements"></a>Elementos insights.json
 
-A saída inclui um arquivo JSON (insights. JSON) com todas as informações encontradas no vídeo ou áudio. O JSON pode conter os seguintes elementos:
+A saída inclui um arquivo JSON (insights.json) com todos os insights encontrados no vídeo ou áudio. O JSON pode conter os seguintes elementos:
 
 ### <a name="transcript"></a>transcript
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
 |text|A própria transcrição.|
@@ -105,7 +105,7 @@ Exemplo:
 
 ### <a name="ocr"></a>ocr
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
 |text|O texto de OCR.|
@@ -148,19 +148,19 @@ Exemplo:
 
 ### <a name="faces"></a>faces
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID da face.|
-|name|O nome da face. Pode ser ' desconhecido #0 ', um celebridade identificado ou uma pessoa treinada para o cliente.|
+|name|O nome da face. Pode ser 'Desconhecido #0', uma celebridade identificada, ou uma pessoa treinada por clientes.|
 |confidence|A confiança de identificação da face.|
 |descrição|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura dessa face.|
-|knownPersonId|A ID interna (se for uma pessoa conhecida).|
-|referenceId|A ID do Bing (se for um celebridade do Bing).|
+|knownPersonId|O ID interno (se for uma pessoa conhecida).|
+|referenceId|O Bing ID (se for uma celebridade do Bing).|
 |referenceType|No momento, apenas Bing.|
-|título|O título (se for um celebridade — por exemplo, "CEO da Microsoft").|
-|imageUrl|A URL da imagem, se for um celebridade.|
-|instances|Instâncias em que a face apareceu no intervalo de tempo determinado. Cada ocorrência também tem uma thumbnailsId. |
+|título|O título (se for uma celebridade — por exemplo, "CEO da Microsoft").|
+|imageUrl|A URL da imagem, se for uma celebridade.|
+|instances|Casos em que o rosto apareceu no intervalo de tempo dado. Cada ocorrência também tem uma thumbnailsId. |
 
 ```json
 "faces": [{
@@ -193,7 +193,7 @@ Exemplo:
 
 ### <a name="shots"></a>shots
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID da captura.|
 |keyFrames|Uma lista com os quadros-chave dentro da captura (cada um tem uma ID e uma lista de intervalos de tempo de instâncias). As instâncias de frames principais têm um campo thumbnailId com o ID de miniatura da keyFrame.|
@@ -250,12 +250,12 @@ Exemplo:
 
 ### <a name="statistics"></a>estatísticas
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por alto-falante.|
 |SpeakerNumberOfFragments|A quantidade de fragmentos que o orador tem em um vídeo.|
-|SpeakerLongestMonolog|O mais longo monólogo do orador. Se o palestrante tiver silêncios dentro do monolog, ele será incluído. O silêncio no início e no final do monólogo é removido.|
+|SpeakerLongestMonolog|O mais longo monólogo do orador. Se o orador tem silêncios dentro do monólogo está incluído. O silêncio no início e no final do monólogo é removido.|
 |SpeakerTalkToListenRatio|O cálculo é baseado no tempo gasto no monólogo do locutor (sem o silêncio intermediário) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
 
 
@@ -263,7 +263,7 @@ Exemplo:
 
 Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Neutro/Negativo). Por exemplo, 0-0.1, 0.1-0.2.
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID do sentimento.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - Neutral/positivo/negativo|
@@ -298,7 +298,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="labels"></a>rótulos
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID do rótulo.|
 |name|O nome do rótulo (por exemplo, "Computador", "TV").|
@@ -356,7 +356,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 ### <a name="keywords"></a>palavras-chave
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
 |text|O texto da palavra-chave.|
@@ -403,11 +403,11 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-O bloco visualContentModeration contém intervalos de tempo que o Video Indexer encontrou para potencialmente ter conteúdo adulto. Se visualContentModeration estiver vazio, não haverá nenhum conteúdo adulto identificado.
+O bloco visualContentModeration contém intervalos de tempo que o Video Indexer encontrou para potencialmente ter conteúdo adulto. Se o visualContentModeração está vazio, não há conteúdo adulto que foi identificado.
 
-Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários podem enviar uma solicitação para uma revisão humana do conteúdo; nesse caso, o atributo `IsAdult` conterá o resultado da revisão humana.
+Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis apenas para visualização privada. Os usuários podem enviar uma solicitação para uma revisão `IsAdult` humana do conteúdo, nesse caso o atributo conterá o resultado da revisão humana.
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |id|A ID de moderação de conteúdo visual.|
 |adultScore|A pontuação de conteúdo adulta (do moderador de conteúdo).|

@@ -1,6 +1,6 @@
 ---
-title: Guia de início rápido do Azure Cloud Shell-PowerShell
-description: Saiba como usar o PowerShell em seu navegador com Azure Cloud Shell.
+title: Azure Cloud Shell Quickstart - PowerShell
+description: Aprenda a usar o PowerShell no seu navegador com o Azure Cloud Shell.
 author: maertendmsft
 ms.author: damaerte
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
 ms.openlocfilehash: 72261989b7cee9d2251eb18b36431ec807b0e874
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273001"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Início rápido do PowerShell no Azure Cloud Shell
@@ -140,7 +140,7 @@ Com a cadeia de conexão, você pode usar o comando a seguir para montar o compa
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 ```
 
-Para obter detalhes, consulte [montar um compartilhamento de arquivos do Azure e acessar o compartilhamento no Windows][azmount].
+Para obter detalhes, consulte [Como montar um compartilhamento de arquivos do Azure e acessá-lo no Windows][azmount].
 
 Você também pode navegar pelos diretórios no compartilhamento de arquivos do Azure da seguinte maneira:
 
@@ -290,7 +290,7 @@ Como alternativa, você pode sempre usar `Get-Command *az* -Module Az.*` para de
 
 ## <a name="install-custom-modules"></a>Instalar módulos personalizados
 
-Você pode executar `Install-Module` para instalar os módulos do [Galeria do PowerShell][gallery].
+Você pode executar `Install-Module` para instalar módulos da [Galeria do PowerShell][gallery].
 
 ## <a name="get-help"></a>Get-Help
 
@@ -328,11 +328,11 @@ Na próxima vez que utilizar o PowerShell no Cloud Shell, o arquivo `helloworld.
 Você pode personalizar seu ambiente do PowerShell criando perfis do PowerShell - `profile.ps1` (ou `Microsoft.PowerShell_profile.ps1`).
 Salve-o em `$profile.CurrentUserAllHosts` (ou `$profile.CurrentUserAllHosts`), de modo que ele pode ser carregado em cada PowerShell na sessão do Cloud Shell.
 
-Para saber como criar um perfil, consulte [about Profiles][profile].
+Para saber como criar um perfil, consulte [Sobre perfis][profile].
 
 ## <a name="use-git"></a>Usar o Git
 
-Para clonar um repositório git no Cloud Shell, você precisa criar um [token de acesso pessoal][githubtoken] e usá-lo como o nome de usuário. Quando tiver seu token, faça um clone do repositório da seguinte maneira:
+Para clonar um repo do Git no Cloud Shell, você precisa criar um [token de acesso pessoal][githubtoken] e usá-lo como nome de usuário. Quando tiver seu token, faça um clone do repositório da seguinte maneira:
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

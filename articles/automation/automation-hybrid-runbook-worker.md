@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278864"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
@@ -20,7 +20,7 @@ A imagem a seguir ilustra essa funcionalidade:
 
 ![Visão geral do Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation.png)
 
-Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido que você especifica ao instalar o agente. Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade. Cada computador pode hospedar um Hybrid Worker relatórios para uma conta de automação.
+Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido que você especifica ao instalar o agente. Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade. Cada máquina pode hospedar um Trabalhador Híbrido reportando-se a uma conta de automação.
 
 Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Cada operador no grupo de sonda de automação do Azure para ver se todos os trabalhos estão disponíveis. Se um trabalho estiver disponível, o primeiro funcionário a obter o trabalho o fará. O tempo de processamento da fila de trabalhos depende do perfil de hardware do Hybrid worker e a carga. Você não pode especificar um trabalhador específico. Hybrid Runbook Workers não compartilham muitos dos limites que têm áreas restritas do Azure. Eles não têm os mesmos limites de espaço em disco, memória ou soquetes de rede. Hybrid Runbook Workers são limitadas apenas pelos recursos em Hybrid Runbook Worker em si. Além disso, Hybrid Runbook Workers não compartilham o limite de tempo de 180 minutos [justo](automation-runbook-execution.md#fair-share)que as áreas restritas do Azure fazem. Para saber mais sobre os limites de serviço para áreas restritas do Azure e o Hybrid Runbook Workers, consulte a página [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de trabalho.
 
@@ -32,7 +32,7 @@ Para instalar e configurar um Windows Hybrid Runbook Worker, você pode usar doi
 
 |Sistema operacional  |Tipos de implantação  |
 |---------|---------|
-|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [Powershell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Você pode remover um ou mais trabalhadores de runbook híbridos de um grupo ou 
 
 ### <a name="windows"></a>Windows
 
-Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir ‑ {1}. Use a opção **-Verbose** para obter um log detalhado do processo de remoção.
+Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir ‑ . Use a opção **-Verbose** para obter um log detalhado do processo de remoção.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
@@ -81,7 +81,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de cada computador que seja membro do grupo usando o procedimento mostrado anteriormente. Em seguida, execute as seguintes etapas para remover o grupo:
 
 1. Abra a conta de Automação no Portal do Azure.
-2. Em **Automação de Processo**, selecione **Grupos de trabalho híbrido**. Selecione o grupo que você deseja excluir. A página de propriedades desse grupo é exibida.
+2. Em **Automação de Processos,** selecione **grupos de trabalhadores híbridos**. Selecione o grupo que você deseja excluir. A página de propriedades desse grupo é exibida.
 
    ![Página Propriedades](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -91,15 +91,15 @@ Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de
 
    Esse processo pode levar vários segundos para terminar. Você pode acompanhar o progresso em **Notificações** no menu.
 
-## <a name="network-planning"></a>Configurar sua rede
+## <a name="configure-your-network"></a><a name="network-planning"></a>Configurar sua rede
 
 ### <a name="hybrid-worker-role"></a>Função de trabalhador híbrido
 
-Para que o Hybrid Runbook Worker se conecte e se registre na automação do Azure, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso está no topo das [portas e URLs necessárias para Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) se conectar a logs de Azure monitor.
+Para que o Trabalhador do Runbook Híbrido se conecte e se registre com a Automação Azure, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso está em cima das [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o Microsoft Monitoring Agent se conecte aos logs do Monitor do Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Se você usar um servidor proxy para comunicação entre o agente e o serviço de automação do Azure, verifique se os recursos apropriados estão acessíveis. O tempo limite para solicitações da Hybrid Runbook Worker e dos serviços de automação é de 30 segundos. Após 3 tentativas, a solicitação falhará. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do Log Analytics como um proxy, verifique se ele está configurado para hybrid workers. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Se você usar um servidor proxy para comunicação entre o agente e o serviço de automação do Azure, certifique-se de que os recursos apropriados estão acessíveis. O tempo de intervalo para solicitações do Hybrid Runbook Worker e dos serviços de Automação é de 30 segundos. Após 3 tentativas, o pedido falhará. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do Log Analytics como um proxy, verifique se ele está configurado para hybrid workers. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Worker se comunicar com a Automação do Azure:
 
@@ -112,7 +112,7 @@ A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Work
 
 Se você tiver uma conta de Automação do Azure definida para uma região específica, você pode restringir a comunicação para esse centro de dados regional. A tabela a seguir fornece o registro DNS para cada região:
 
-| **Região** | **Registro DNS** |
+| **Região** | **Registro de DNS** |
 | --- | --- |
 | Centro-Oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Centro-Sul dos Estados Unidos |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

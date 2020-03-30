@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274535"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
@@ -33,7 +33,7 @@ Com o ITSMC, você pode:
 -  Criar itens de trabalho na ferramenta de ITSM, com base nos alertas do Azure (alertas de métricas, alertas do Log de Atividades e alertas do Log Analytics).
 -  Opcionalmente, você pode sincronizar seu incidente e alterar os dados de solicitação na ferramenta de ITSM para um espaço de trabalho do Azure Log Analytics.
 
-Leia mais sobre os [termos legais e a política de privacidade](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
+Leia mais sobre os [termos legais e a política de privacidade.](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9)
 
 Comece usando o Conector ITSM usando as seguintes etapas:
 
@@ -57,7 +57,7 @@ Antes de criar uma conexão, é necessário adicionar a Solução Conector ITSM.
 3. Na seção **Workspace do OMS**, selecione o espaço de trabalho do Azure Log Analytics no qual deseja instalar a solução.
    >[!NOTE]
    > * Como parte da transição do Microsoft Operations Management Suite (OMS) em andamento para o Azure Monitor, os Workspaces do OMS agora são conhecidos como workspaces do Log Analytics.
-   > * O Conector ITSM só pode ser instalado nos espaços de trabalho Log Analytics nas seguintes regiões: leste dos EUA, oeste dos EUA 2, Sul EUA Central, Oeste EUA Central, centro-Canadá, Europa Ocidental, sul do Reino Unido, Sudeste Asiático, leste do Japão, Índia central, Austrália oriental.
+   > * O Conector ITSM só pode ser instalado em espaços de trabalho da Log Analytics nas seguintes regiões: Leste dos EUA, US$ 4, Centro-Sul dos EUA, Centro-Oeste dos EUA, Canadá Central, Europa Ocidental, Sul do Reino Unido, Sudeste Asiático, Japão Oriental, Índia Central, Sudeste da Austrália.
 
 4. Na seção **Configurações de Workspace do OMS**, selecione o ResourceGroup em que deseja criar o recurso de solução.
 
@@ -67,7 +67,7 @@ Antes de criar uma conexão, é necessário adicionar a Solução Conector ITSM.
 
 5. Clique em **Criar**.
 
-Quando o recurso de solução é implantado, uma notificação é exibida na parte superior direita da janela.
+Quando o recurso de solução é implantado, uma notificação aparece no canto superior direito da janela.
 
 
 ## <a name="creating-an-itsm--connection"></a>Criando uma conexão de ITSM
@@ -76,7 +76,7 @@ Depois de instalar a solução, crie uma conexão.
 
 Para criar uma conexão, você precisará preparar a ferramenta de ITSM para permitir a conexão da solução Conector ITSM.  
 
-Dependendo do produto de ITSM ao qual você está se conectando, use as seguintes etapas:
+Dependendo do produto ITSM ao que você está se conectando, use as seguintes etapas:
 
 - [SCSM (System Center Service Manager)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -85,7 +85,7 @@ Dependendo do produto de ITSM ao qual você está se conectando, use as seguinte
 
 Depois de preparar as ferramentas de ITSM, siga as etapas abaixo para criar uma conexão:
 
-1. Acesse **Todos os Recursos** e procure **ServiceDesk(YourWorkspaceName)** .
+1. Acesse **Todos os Recursos** e procure **ServiceDesk(YourWorkspaceName)**.
 2. Em **FONTES DE DADOS DO WORKSPACE** no painel esquerdo, clique em **Conexões de ITSM**.
    ![Conexões de ITSM](media/itsmc-overview/itsm-connections.png)
 
@@ -171,10 +171,10 @@ As informações a seguir mostram exemplos dos dados coletados pelo ITSMC:
 >
 > Dependendo do tipo de item de trabalho importado para o Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
-**Item de trabalho:** **incidentes**  
+**Item de trabalho:** **Incidentes**  
 ServiceDeskWorkItemType_s="Incident"
 
-**Fields**
+**Campos**
 
 - ServiceDeskConnectionName
 - ID da Central de Serviços
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Atribuído a
 - Categoria
 - Title
-- DESCRIÇÃO
+- Descrição
 - Data de criação
 - Data de fechamento
 - Data de resolução
@@ -198,11 +198,11 @@ ServiceDeskWorkItemType_s="Incident"
 - Computador
 
 
-**Item de trabalho:** **solicitações de alteração**
+**Item de trabalho:** **Solicitações de alteração**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**Fields**
+**Campos**
 - ServiceDeskConnectionName
 - ID da Central de Serviços
 - Criado por
@@ -228,7 +228,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de término prevista
 - Data de início do trabalho
 - Data de término do trabalho
-- DESCRIÇÃO
+- Descrição
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
@@ -275,7 +275,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
-| Description_s | DESCRIÇÃO |
+| Description_s | Descrição |
 | Computador  | Item de Configuração |
 
 
@@ -285,11 +285,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - Verifique se você digitou corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
    - verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
    - Para conexões do Service Manager,  
-   - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+   - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão é estabelecida com sucesso com a máquina on premises Service Manager, visite a URL do aplicativo web conforme detalhado na documentação para fazer a [conexão híbrida.](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)  
 
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow, às vezes, entram em suspensão quando ficam ociosas por um longo período. Caso contrário, relate o problema.
 3. Se os alertas do Log Analytics são disparados mas os itens de trabalho não são criados no produto de ITSM ou se os itens de configuração não são criados/vinculados aos itens de trabalho ou para obter qualquer outra informação genérica, procure nos seguintes locais:
-   -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como ERROR para obter mais informações.
+   -  ITSMC: A solução mostra um resumo de conexões/itens de trabalho/computadores etc. Clique no bloco mostrando **status do conector,** o que leva você a **fazer pesquisa de log** com a consulta relevante. Examine os registros de log com LogType_S como ERROR para obter mais informações.
    - Página **Pesquisa de Log**: exiba os erros ou as informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas de implantação do aplicativo Web do Service Manager
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>Fale conosco
 
-Em caso de dúvidas ou comentários sobre o Conector de Gerenciamento de Serviço de TI, entre em contato conosco pelo email [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
+Para quaisquer dúvidas ou comentários no Conector de [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)Gerenciamento de Serviços de TI, entre em contato conosco em .
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-connections.md).

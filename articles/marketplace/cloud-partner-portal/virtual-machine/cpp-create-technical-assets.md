@@ -1,25 +1,24 @@
 ---
-title: Criar ativos técnicos para uma oferta de máquina virtual para o Azure Marketplace
+title: Crie ativos técnicos para uma oferta de máquina virtual para o Azure Marketplace
 description: Explica como criar os recursos técnicos para uma oferta de máquina virtual no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: pabutler
-ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824502"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278017"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Criar recursos técnicos para uma oferta de máquina virtual
 
 Esta seção irá guiá-lo na criação e configuração dos recursos técnicos para uma oferta de VM (máquina virtual) do Azure Marketplace.  Uma VM contém dois componentes: o VHD (disco rígido virtual) da solução e os discos de dados associados opcionais.  
 
-- *VHDs (discos rígidos virtuais)* , contendo o sistema operacional e a solução que você implantará com a oferta do Azure Marketplace. O processo de preparação de VHD será diferente dependendo se é uma VM baseada em Linux, baseada em Windows ou em uma VM personalizada.
+- *VHDs (discos rígidos virtuais)*, contendo o sistema operacional e a solução que você implantará com a oferta do Azure Marketplace. O processo de preparação de VHD será diferente dependendo se é uma VM baseada em Linux, baseada em Windows ou em uma VM personalizada.
 - *Discos de dados* representam armazenamento dedicado e persistente para uma máquina virtual. *Não* use a solução de VHD (por exemplo, a unidade) `C:` para armazenar informações persistentes.
 
 Uma imagem de VM contém um disco de sistema operacional e zero ou mais discos de dados. É necessário um VHD por disco. Mesmo discos de dados em branco exigem a criação de um VHD.
@@ -29,13 +28,13 @@ Uma imagem de VM contém um disco de sistema operacional e zero ou mais discos d
 > Independentemente de qual sistema operacional que você usa, adicione apenas o número mínimo de discos de dados necessários para a SKU. Os clientes não podem remover discos que fazem parte de uma imagem no momento da implantação, mas podem sempre adicionar discos durante ou após a implantação. 
 
 > [!IMPORTANT]
-> *Não altere a contagem de discos em uma nova versão da imagem.* Se você precisar reconfigurar os discos de Dados da imagem, defina um novo SKU. A publicação de uma nova versão de imagem com diferentes contagens de disco terá o potencial de quebrar a nova implantação com base na nova versão de imagem em casos de escalonamento automático, implantações automáticas de soluções por meio de modelos do Azure Resource Manager e outros cenários.
+> *Não altere a contagem de discos em uma nova versão da imagem.*  Se você precisar reconfigurar os discos de Dados da imagem, defina um novo SKU. A publicação de uma nova versão de imagem com diferentes contagens de disco terá o potencial de quebrar a nova implantação com base na nova versão de imagem em casos de escalonamento automático, implantações automáticas de soluções por meio de modelos do Azure Resource Manager e outros cenários.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
 
-Projetar, criar e testar esses ativos leva tempo e exige conhecimento técnico da plataforma Azure e das tecnologias usadas para criar a oferta. Além do seu domínio de solução, sua equipe de engenharia deve ter conhecimento das seguintes tecnologias da Microsoft: 
+Projetar, construir e testar esses ativos leva tempo e requer conhecimento técnico tanto da plataforma Azure quanto das tecnologias usadas para construir a oferta. Além do domínio da solução, sua equipe de engenharia deve ter conhecimento das seguintes tecnologias da Microsoft: 
 -   Noções básicas sobre os [Serviços do Azure](https://azure.microsoft.com/services/) 
 -   Como [projetar e arquitetar aplicativos do Azure](https://azure.microsoft.com/solutions/architecture/)
 -   Conhecimento prático de [Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/), [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/?filter=storage) e [Rede do Azure](https://azure.microsoft.com/services/?filter=networking)
@@ -46,13 +45,13 @@ Projetar, criar e testar esses ativos leva tempo e exige conhecimento técnico d
 ## <a name="suggested-tools"></a>Ferramentas sugeridas 
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar VHDs e VMs:
--   [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
--   [CLI do Azure](https://docs.microsoft.com/cli/azure)
+-   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao ambiente de desenvolvimento: 
 
--   [Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
+-   [Explorador de armazenamento azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Código visual do estúdio](https://code.visualstudio.com/)
     *   Extensão: [Ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Extensão: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   Extensão: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)

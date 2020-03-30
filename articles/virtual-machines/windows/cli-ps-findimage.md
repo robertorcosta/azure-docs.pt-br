@@ -1,5 +1,5 @@
 ---
-title: Selecionar imagens de VM do Windows no Azure
+title: Selecione imagens do Windows VM no Azure
 description: Use o Azure PowerShell para determinar o editor, a oferta, a SKU e a versão das imagens da VM do Marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266800"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Encontre imagens de VMs do Windows no Azure Marketplace com o Azure PowerShell
@@ -121,7 +121,7 @@ advantys
 ...
 ```
 
-Para o editor *MicrosoftWindowsServer*:
+Para o editor do *MicrosoftWindowsServer:*
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -212,7 +212,7 @@ DataDiskImages   : []
 
 ```
 
-O exemplo abaixo mostra um comando semelhante para a imagem da *Máquina Virtual de Ciência de Dados - Windows 2016*, que possui as seguintes `PurchasePlan` propriedades: `name`, `product` e `publisher`. Algumas imagens também têm um `promotion code` propriedade. Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e ativar a implantação programática.
+O exemplo abaixo mostra um comando semelhante para a *imagem Data Science Virtual Machine - Windows 2016,* que tem `PurchasePlan` as seguintes propriedades: `name`, `product`e `publisher`. Algumas imagens também têm um `promotion code` propriedade. Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e ativar a implantação programática.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"

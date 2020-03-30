@@ -1,15 +1,15 @@
 ---
-title: Escalabilidade dos serviços de Service Fabric
-description: Saiba mais sobre o dimensionamento no Azure Service Fabric e as várias técnicas usadas para dimensionar aplicativos.
+title: Escalabilidade de serviços da Malha do Serviço
+description: Aprenda sobre dimensionamento no Azure Service Fabric e as várias técnicas usadas para dimensionar aplicativos.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282556"
 ---
 # <a name="scaling-in-service-fabric"></a>Dimensionamento no Service Fabric
@@ -63,13 +63,13 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Dimensionamento criando ou removendo novos serviços nomeados
 Uma instância de serviço nomeada é uma instância específica de um tipo de serviço (consulte [Ciclo de vida do aplicativo do Service Fabric](service-fabric-application-lifecycle.md)) dentro de uma instância de aplicativo nomeada no cluster. 
 
-Novas instâncias de serviço nomeadas podem ser criadas (ou removidas) conforme os serviços ficarem mais ou menos ocupados. Isso permite que as solicitações sejam disseminadas em mais instâncias de serviço, geralmente permitindo que a carga nos serviços existentes diminua. Ao criar serviços, o Gerenciador de Recursos de Cluster do Service Fabric coloca os serviços do cluster de maneira distribuída. As decisões exatas são governadas pelas [métricas](service-fabric-cluster-resource-manager-metrics.md) no cluster e por outras regras de posicionamento. Os serviços podem ser criados de várias maneiras diferentes, mas as mais comuns são por meio de ações administrativas, como alguém chamar [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) ou o código chamar [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` pode ser chamado até mesmo de dentro de outros serviços em execução no cluster.
+Novas instâncias de serviço nomeadas podem ser criadas (ou removidas) conforme os serviços ficarem mais ou menos ocupados. Isso permite que as solicitações sejam disseminadas em mais instâncias de serviço, geralmente permitindo que a carga nos serviços existentes diminua. Ao criar serviços, o Gerenciador de Recursos de Cluster do Service Fabric coloca os serviços do cluster de maneira distribuída. As decisões exatas são governadas pelas [métricas](service-fabric-cluster-resource-manager-metrics.md) no cluster e por outras regras de posicionamento. Os serviços podem ser criados de várias maneiras diferentes, mas as mais comuns são, seja por ações administrativas como alguém ligando, [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)ou por chamada de [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)código. `CreateServiceAsync` pode ser chamado até mesmo de dentro de outros serviços em execução no cluster.
 
 A criação de serviços de forma dinâmica pode ser usada em todo tipo de cenário e é um padrão comum. Por exemplo, considere um serviço com estado que representa um fluxo de trabalho específico. Chamadas que representam trabalho aparecerão nesse serviço e o serviço executará as etapas do fluxo de trabalho e registrará o andamento. 
 
 Como você dimensionaria esse serviço específico? O serviço pode ser multilocatário de alguma forma e pode aceitar chamadas e disparar etapas para muitas instâncias diferentes do mesmo fluxo de trabalho, tudo ao mesmo tempo. No entanto, isso pode tornar o código mais complexo, pois agora ele precisa se preocupar com muitas instâncias diferentes do mesmo fluxo de trabalho, todas elas em estágios diferentes e de clientes diferentes. Além disso, lidar com vários fluxos de trabalho ao mesmo tempo não resolve o problema de escala. Isso ocorre porque, em algum momento, esse serviço consumirá recursos demais para caber em um determinado computador. Muitos serviços que não foram criados para esse padrão também apresentam dificuldades devido a algum gargalo ou lentidão inerente em seu código. Esses tipos de problemas fazem com que o serviço não funcione tão bem quando o número de fluxos de trabalho simultâneos que ele está acompanhando aumenta.  
 
-Uma solução é criar uma instância desse serviço para cada instância diferente do fluxo de trabalho que você deseja acompanhar. Esse é um ótimo padrão e funciona se o serviço é com ou sem estado. Para que esse padrão funcione, geralmente há outro serviço que atua como um "Serviço de gerenciador de carga de trabalho". A função desse serviço é receber solicitações e encaminhar essas solicitações para outros serviços. O gerenciador pode criar dinamicamente uma instância do serviço de carga de trabalho quando receber a mensagem e, em seguida, passar solicitações para esses serviços. O serviço de gerenciador também pode receber retornos de chamada quando um determinado serviço de fluxo de trabalho concluir seu trabalho. Quando receber esses retornos de chamada, o gerenciador pode excluir essa instância do serviço de fluxo de trabalho ou deixá-la se mais chamadas forem esperadas. 
+Uma solução é criar uma instância deste serviço para cada instância diferente do fluxo de trabalho que você deseja rastrear. Este é um grande padrão e funciona se o serviço é apátrida ou imponente. Para que esse padrão funcione, geralmente há outro serviço que atua como um "Serviço de gerenciador de carga de trabalho". A função desse serviço é receber solicitações e encaminhar essas solicitações para outros serviços. O gerenciador pode criar dinamicamente uma instância do serviço de carga de trabalho quando receber a mensagem e, em seguida, passar solicitações para esses serviços. O serviço de gerenciador também pode receber retornos de chamada quando um determinado serviço de fluxo de trabalho concluir seu trabalho. Quando receber esses retornos de chamada, o gerenciador pode excluir essa instância do serviço de fluxo de trabalho ou deixá-la se mais chamadas forem esperadas. 
 
 Versões avançadas desse tipo de gerenciador podem até mesmo criar pools dos serviços que gerencia. O pool ajuda a garantir que, quando uma nova solicitação for recebida, ela não precise aguardar o serviço para ser executada. Em vez disso, o gerenciador pode apenas escolher um serviço de fluxo de trabalho que não esteja ocupado no pool ou pode encaminhar aleatoriamente. Manter um pool de serviços disponível torna a manipulação de novas solicitações mais rápida, pois é menos provável que a solicitação precise aguardar um novo serviço para ser executada. A criação de novos serviços é rápida, mas não é gratuita ou instantânea. O pool ajuda a minimizar o tempo que a solicitação precisa aguardar antes de ser atendida. Frequentemente, você verá esse padrão de gerenciador e pool quando os tempos de resposta forem a prioridade. Enfileirar a solicitação e criar o serviço em segundo plano e, _em seguida_, transmiti-lo também é um padrão popular de gerenciador, assim como a criação e a exclusão de serviços com base no acompanhamento da quantidade de trabalho que o serviço tem pendente no momento. 
 
@@ -94,14 +94,14 @@ Considere um serviço que usa um esquema de particionamento de intervalo com uma
 
 <center>
 
-![o layout de partição com três nós](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+![Layout de partição com três nós](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Se você aumentar o número de nós, o Service Fabric moverá algumas das réplicas existentes nele. Por exemplo, digamos que o número de nós aumente para quatro e que as réplicas sejam redistribuídas. Agora, o serviço tem três réplicas em execução em cada nó, cada um pertencente a diferentes partições. Isso permite uma melhor utilização dos recursos, desde que o novo nó não seja frio. Normalmente, isso também melhora o desempenho, porque cada serviço tem mais recursos disponíveis para ele.
 
 <center>
 
-![o layout de partição com quatro nós](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+![Layout de partição com quatro nós](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Dimensionamento usando métricas e o Gerenciador de Recursos de Cluster do Service Fabric
@@ -115,7 +115,7 @@ Para obter mais informações, consulte [dimensionamento do cluster](service-fab
 
 ## <a name="choosing-a-platform"></a>Escolhendo uma plataforma
 
-Devido a diferenças de implementação entre sistemas operacionais, optar por usar Service Fabric com Windows ou Linux pode ser uma parte vital do dimensionamento de seu aplicativo. Uma barreira potencial é o modo como o log de preparação é executado. Service Fabric no Windows usa um driver de kernel para um log um por computador, compartilhado entre réplicas de serviço com estado. Esse log pesa em aproximadamente 8 GB. O Linux, por outro lado, usa um log de preparo de 256 MB para cada réplica, tornando-o menos ideal para aplicativos que desejam maximizar o número de réplicas de serviço leves em execução em um determinado nó. Essas diferenças em requisitos de armazenamento temporários podem informar a plataforma desejada para Service Fabric implantação de cluster.
+Devido às diferenças de implementação entre sistemas operacionais, optar por usar o Service Fabric com Windows ou Linux pode ser uma parte vital da escalação do seu aplicativo. Uma barreira em potencial é a forma como o registro encenado é realizado. O Service Fabric no Windows usa um driver de kernel para um log de uma máquina, compartilhado entre réplicas de serviço sépica. Este registro pesa cerca de 8 GB. O Linux, por outro lado, usa um log de preparação de 256 MB para cada réplica, tornando-o menos ideal para aplicativos que desejam maximizar o número de réplicas de serviço leves em execução em um determinado nó. Essas diferenças nos requisitos temporários de armazenamento poderiam potencialmente informar a plataforma desejada para a implantação do cluster Service Fabric.
 
 ## <a name="putting-it-all-together"></a>Juntando as peças
 Vamos reunir tudo o que discutimos aqui e aplicar a um exemplo. Considere o seguinte serviço: você está tentando criar um serviço que atue como um catálogo de endereços, mantendo nomes e informações de contato. 
@@ -127,7 +127,7 @@ Mas por que mesmo tentar escolher um único esquema de partição para todos os 
 Ao criar algo para ser dimensionado, considere o seguinte padrão dinâmico. Talvez seja necessário adaptá-lo à sua situação:
 
 1. Em vez de tentar escolher um esquema de particionamento para todos antecipadamente, crie um "serviço de gerenciador".
-2. O trabalho do serviço de gerenciador é examinar as informações do cliente quando ele se inscreve no serviço. Depois, dependendo dessas informações, o serviço de gerenciador cria uma instância de seu serviço de armazenamento de contatos _real_ _apenas para esse cliente_. Se ele precisar de uma configuração específica, de isolamento ou de atualizações, você também poderá optar por criar uma instância de Aplicativo para esse cliente. 
+2. O trabalho do serviço de gerenciador é examinar as informações do cliente quando ele se inscreve no serviço. Depois, dependendo dessas informações, o serviço de gerenciador cria uma instância de seu serviço de armazenamento de contatos _real__apenas para esse cliente_. Se ele precisar de uma configuração específica, de isolamento ou de atualizações, você também poderá optar por criar uma instância de Aplicativo para esse cliente. 
 
 Esse padrão de criação dinâmica traz muitos benefícios:
 
