@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: e478c005ade1320a7a45449c59a1fca49ba7f147
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73519106"
 ---
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você deseja implementar seu próprio projeto de classificação de imagens (ou experimentar um projeto de [detecção de objeto](../csharp-tutorial-od.md) em vez disso), você talvez queira excluir o projeto de identificação de árvore deste exemplo. Uma avaliação gratuita permite dois projetos de Visão Personalizada.
 

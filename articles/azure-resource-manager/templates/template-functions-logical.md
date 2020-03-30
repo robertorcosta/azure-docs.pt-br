@@ -1,24 +1,24 @@
 ---
-title: Funções de modelo – lógica
+title: Funções de modelo - lógica
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248678"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156303"
 ---
-# <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
+# <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
-O Resource Manager fornece várias funções para fazer comparações em seus modelos.
+O Resource Manager fornece várias funções para fazer comparações em seus modelos ARM (Azure Resource Manager).
 
-* [and](#and)
+* [E](#and)
 * [bool](#bool)
 * [if](#if)
-* [not](#not)
-* [or](#or)
+* [Não](#not)
+* [Ou](#or)
 
 ## <a name="and"></a>e
 
@@ -26,9 +26,9 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 
 Verifica se todos os valores de parâmetros são verdadeiros.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -78,9 +78,9 @@ O resultado do exemplo anterior é:
 
 Converte o parâmetro em um booliano.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
@@ -132,9 +132,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | condition |Sim |booleano |O valor para verificar se é verdadeiro ou falso. |
 | trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
@@ -146,7 +146,7 @@ Retorna o segundo parâmetro quando o primeiro parâmetro é **True**; caso cont
 
 ### <a name="remarks"></a>Comentários
 
-Quando a condição for **verdadeira**, somente o valor verdadeiro será avaliado. Quando a condição for **falsa**, somente o valor false será avaliado. Com a função **If** , você pode incluir expressões que são apenas condicionalmente válidas. Por exemplo, você pode fazer referência a um recurso que existe sob uma condição, mas não sob a outra condição. Um exemplo de expressões de avaliação condicional é mostrado na seção a seguir.
+Quando a condição é **Verdadeira,** apenas o valor verdadeiro é avaliado. Quando a condição é **falsa,** apenas o valor falso é avaliado. Com a função **if,** você pode incluir expressões que só são condicionadas. Por exemplo, você pode referenciar um recurso que existe uma condição, mas não a outra condição. Um exemplo de avaliação condicional das expressões é mostrado na seção a seguir.
 
 ### <a name="examples"></a>Exemplos
 
@@ -183,7 +183,7 @@ O resultado do exemplo anterior é:
 | noOutput | String | não |
 | objectOutput | Objeto | { "test": "value1" } |
 
-O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar essa função com expressões que são apenas condicionalmente válidas.
+O [modelo a seguir](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) mostra como usar essa função com expressões que são apenas condicionadas.
 
 ```json
 {
@@ -237,9 +237,9 @@ O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/depl
 
 Converte o valor booliano em seu valor oposto.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O valor a ser convertido. |
 
@@ -309,9 +309,9 @@ O resultado do exemplo anterior é:
 
 Verifica se qualquer valor do parâmetro é verdadeiro.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |booleano |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |booleano |O segundo valor para verificar se é verdadeiro. |
@@ -357,8 +357,8 @@ O resultado do exemplo anterior é:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
+* Para obter uma descrição das seções em um modelo do Azure Resource Manager, consulte [Os modelos do Azure Resource Manager](template-syntax.md).
+* Para mesclar vários modelos, consulte [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
 * Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
 

@@ -1,5 +1,5 @@
 ---
-title: SKUs de gateway de VPN de rede virtual do Azure herdadas
+title: Gateway VPN da rede virtual Legacy Azure
 description: Como trabalhar com as SKUs do gateway de rede virtual antigas; Basic, Standard e de Alto desempenho.
 services: vpn-gateway
 author: cherylmc
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279384"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabalhar com SKUs de gateway de rede virtual (SKUs herdadas)
 
 Este artigo contém informações sobre as SKUs de gateway de rede virtual herdadas (antigas). As SKUs herdadas ainda funcionam em ambos os modelos de implantação de gateways de VPN que já foram criados. Os gateways de VPN clássicos continuam a usar as SKUs herdadas, para os gateways existentes e para os novos gateways. Ao criar novos gateways de VPN do Resource Manager, use as novas SKUs de gateway. Para saber mais sobre os novo SKUs, veja [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
 
-## <a name="gwsku"></a>SKUs do Gateway
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs do Gateway
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-Você pode exibir os preços do gateway herdado na seção **gateways de rede virtual** , que está localizada na [página de preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+Você pode visualizar os preços legados do gateway na seção **Virtual Network Gateways,** que está localizada na [página de preços ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
-## <a name="agg"></a>Taxa de transferência agregada estimada por SKU
+## <a name="estimated-aggregate-throughput-by-sku"></a><a name="agg"></a>Taxa de transferência agregada estimada por SKU
 
 [!INCLUDE [Aggregated throughput by legacy SKU](../../includes/vpn-gateway-table-gwtype-legacy-aggtput-include.md)]
 
-## <a name="config"></a>Configurações com suporte pelo tipo de SKU e de VPN
+## <a name="supported-configurations-by-sku-and-vpn-type"></a><a name="config"></a>Configurações com suporte pelo tipo de SKU e de VPN
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Redimensionar um gateway
+## <a name="resize-a-gateway"></a><a name="resize"></a>Redimensionar um gateway
 
 Você pode redimensionar sua gateway para uma SKU de gateway dentro da mesma família de SKUs. Por exemplo, se você tiver uma SKU Standard, poderá redimensionar para uma SKU HighPerformance. No entanto, você não pode redimensionar seu gateway de VPN entre as SKUs antigas e as novas famílias de SKU. Por exemplo, você não pode ir de uma SKU padrão para uma SKU VpnGw2, ou de uma SKU Básica para VpnGw1.
 
@@ -47,15 +47,15 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 Você também pode redimensionar um gateway no portal do Azure.
 
-### <a name="classicresize"></a>Clássico
+### <a name="classic"></a><a name="classicresize"></a>Clássico
 
-Para redimensionar um gateway para o modelo de implantação clássico, você deve usar os cmdlets do PowerShell de gerenciamento de serviços. Use o seguinte comando:
+Para redimensionar um gateway para o modelo clássico de implantação, você deve usar os cmdlets PowerShell de gerenciamento de serviço. Use o seguinte comando:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-## <a name="change"></a>Alterar para as novas SKUs de gateway
+## <a name="change-to-the-new-gateway-skus"></a><a name="change"></a>Alterar para as novas SKUs de gateway
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 

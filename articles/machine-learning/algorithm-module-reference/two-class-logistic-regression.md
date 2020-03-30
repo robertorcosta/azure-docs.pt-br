@@ -1,7 +1,7 @@
 ---
-title: 'Regressão logística de duas classes: referência de módulo'
+title: 'Regressão logística de duas classes: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo regressão logística de duas classes no Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados.
+description: Aprenda a usar o módulo de regressão logística de duas classes no Azure Machine Learning para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,45 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: b1afd99a569de96e9075b4b5b6eff902abd8642e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7eb1ad00c3c947c3ed6d4ca450bddc0956a08d71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916754"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455818"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no azure Machine Learning designer (visualização).
 
-Use este módulo para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados. 
+Use este módulo para criar um modelo de regressão logística que possa ser usado para prever dois (e apenas dois) resultados. 
 
-A regressão logística é uma técnica estatística conhecida que é usada para modelar muitos tipos de problemas. Esse algoritmo é um método de *aprendizado supervisionado* ;  Portanto, você deve fornecer um conjunto de um DataSet que já contém os resultados para treinar o modelo.  
+A regressão logística é uma técnica estatística bem conhecida que é usada para modelar muitos tipos de problemas. Este algoritmo é um método *de aprendizagem supervisionado;*  portanto, você deve fornecer um conjunto de dados que já contém os resultados para treinar o modelo.  
 
 ### <a name="about-logistic-regression"></a>Sobre a regressão logística  
 
-A regressão logística é um método bem conhecido em estatísticas que é usado para prever a probabilidade de um resultado e é especialmente popular para tarefas de classificação. O algoritmo prevê a probabilidade de ocorrência de um evento ajustando dados a uma função logística.
+A regressão logística é um método bem conhecido em estatísticas que é usado para prever a probabilidade de um desfecho, e é especialmente popular para tarefas de classificação. O algoritmo prevê a probabilidade de ocorrência de um evento, encaixando dados em uma função logística.
   
-Neste módulo, o algoritmo de classificação é otimizado para dicotômicas ou variáveis binárias. Se você precisar classificar vários resultados, use o módulo [regressão logística multiclasse](./multiclass-logistic-regression.md) .
+Neste módulo, o algoritmo de classificação é otimizado para variáveis dicotômicas ou binárias. se você precisar classificar vários resultados, use o módulo [de regressão logística multiclasse.](./multiclass-logistic-regression.md)
 
 ##  <a name="how-to-configure"></a>Como configurar  
 
-Para treinar esse modelo, você deve fornecer um conjunto de um DataSet que contenha um rótulo ou uma coluna de classe. Como esse módulo destina-se a problemas de duas classes, o rótulo ou a coluna de classe deve conter exatamente dois valores. 
+Para treinar este modelo, você deve fornecer um conjunto de dados que contenha uma etiqueta ou coluna de classe. Como este módulo é destinado a problemas de duas classes, a etiqueta ou coluna de classe deve conter exatamente dois valores. 
 
-Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "Sim" ou "não". Ou, pode ser [risco de crédito], com os valores possíveis de "alto" ou "baixo". 
+Por exemplo, a coluna de rótulos pode ser [Votada] com possíveis valores de "Sim" ou "Não". Ou, pode ser [Risco de Crédito], com possíveis valores de "Alto" ou "Baixo". 
   
-1.  Adicione o módulo **regressão logística de duas classes** ao seu pipeline.  
+1.  Adicione o módulo **de regressão logística de duas classes** ao seu pipeline.  
   
-2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
+2.  Especifique como deseja que o modelo seja treinado, definindo a opção **Criar modo treinador.**  
   
-    -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro Único**: Se você souber como deseja configurar o modelo, você pode fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros**: Se você não tiver certeza dos melhores parâmetros, você pode encontrar os parâmetros ideais usando o módulo [Tune Model Hyperparameters.](tune-model-hyperparameters.md) Você fornece algumas faixas de valores, e o treinador itera sobre várias combinações das configurações para determinar a combinação de valores que produz o melhor resultado.
   
-3.  Para a **tolerância de otimização**, especifique um valor de limite a ser usado ao otimizar o modelo. Se a melhoria entre as iterações cair abaixo do limite especificado, o algoritmo será considerado convergido em uma solução e o treinamento será interrompido.  
+3.  Para **tolerância de otimização,** especifique um valor limite a ser usado ao otimizar o modelo. Se a melhoria entre as iterações ficar abaixo do limite especificado, o algoritmo é considerado convergente em uma solução, e o treinamento pára.  
   
-4.  Para peso de **regularização L1** e **peso de regularização L2**, digite um valor a ser usado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.  
-     A *regularização* é um método para evitar o superajuste por meio da penalização de modelos com valores de coeficiente extremo. A regularização funciona adicionando a penalidade associada aos valores de coeficiente ao erro da hipótese. Assim, um modelo preciso com valores de coeficiente extremo seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria penalizado menos.  
+4.  Para **o peso de regularização L1** e peso de **regularização L2,** digite um valor a ser utilizado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.  
+     *A regularização* é um método de prevenção de superajustamento, penalizando modelos com valores de coeficiente extremo. A regularização funciona adicionando a penalidade que está associada aos valores de coeficiente ao erro da hipótese. Assim, um modelo preciso com valores de coeficiente extremo seria mais penalizado, mas um modelo menos preciso com valores mais conservadores seria penalizado menos.  
   
      As regularizações L1 e L2 têm efeitos e usos diferentes.  
   
@@ -55,36 +55,36 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
   
     -   Por outro lado, a regularização L2 é preferível para dados que não são esparsos.  
   
-     Esse algoritmo dá suporte a uma combinação linear de valores de regularização L1 e L2: ou seja, se <code>x = L1</code> e <code>y = L2</code>, <code>ax + by = c</code> definirá o intervalo linear dos termos de regularização.  
+     Este algoritmo suporta uma combinação linear de valores de regularização <code>x = L1</code> <code>y = L2</code>L1 <code>ax + by = c</code> e L2: isto é, se e , então define o vão linear dos termos de regularização.  
   
     > [!NOTE]
-    >  Quer saber mais sobre a regularização de L1 e L2? O artigo a seguir fornece uma discussão de como a regularização L1 e L2 é diferente e como elas afetam o ajuste de modelo, com exemplos de código para a regressão logística e modelos de rede neural: a [regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Quer saber mais sobre a regularização l1 e L2? O artigo a seguir fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como elas afetam o encaixe do modelo, com amostras de código para regressão logística e modelos de rede neural: [Regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
-    > Combinações lineares diferentes de termos de L1 e L2 foram desenvolvedas para modelos de regressão logística: por exemplo, [regularização de rede elástica](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerimos que você referencie essas combinações para definir uma combinação linear que seja efetiva em seu modelo.
+    > Diferentes combinações lineares dos termos L1 e L2 foram concebidas para modelos de regressão logística: por exemplo, [regularização líquida elástica](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerimos que você faça referência a essas combinações para definir uma combinação linear que seja eficaz em seu modelo.
       
-5.  Para o **tamanho da memória para l-BFGS**, especifique a quantidade de memória a ser usada para a otimização de *l-BFGS* .  
+5.  Para **o tamanho da memória para L-BFGS,** especifique a quantidade de memória a ser usada para otimização *L-BFGS.*  
   
      L-BFGS significa "memória limitada Broyden-Fletcher-Goldfarb-Shanno". É um algoritmo de otimização que é conhecido por estimativa de parâmetro. Esse parâmetro indica o número de posições anteriores e gradientes a armazenar o cálculo da próxima etapa.  
   
      Esse parâmetro de otimização limita a quantidade de memória usada para calcular a próxima etapa e direção. Quando você especifica menos memória, o treinamento é mais rápido, mas menos preciso.  
   
-6.  Para **semente de número aleatório**, digite um valor inteiro. Definir um valor de semente é importante se você quiser que os resultados sejam reproduzidos em várias execuções do mesmo pipeline.  
+6.  Para **sementes de número aleatório, digite**um valor inteiro. Definir um valor de semente é importante se você quiser que os resultados sejam reprodutíveis ao longo de várias corridas do mesmo pipeline.  
   
   
-8. Adicione um conjunto de um DataSet marcado ao pipeline e conecte um dos [módulos de treinamento](module-reference.md).  
+8. Adicione um conjunto de dados marcado ao pipeline e conecte um dos [módulos](module-reference.md)de treinamento .  
   
-    -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](./train-model.md) .  
+    -   Se você definir **Criar modo de treinador** para Um **Parâmetro,** use o módulo [Modelo de Trem.](./train-model.md)  
   
-9. Execute o pipeline.  
+9. Envie o oleoduto.  
   
 ## <a name="results"></a>Resultados
 
-Após a conclusão do treinamento:
+Após o treinamento ser concluído:
  
   
-+ Para fazer previsões sobre novos dados, use o modelo treinado e novos dados como entrada para o módulo [modelo de Pontuação](./score-model.md) . 
++ Para fazer previsões sobre novos dados, use o modelo treinado e novos dados como entrada para o módulo [Score Model.](./score-model.md) 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

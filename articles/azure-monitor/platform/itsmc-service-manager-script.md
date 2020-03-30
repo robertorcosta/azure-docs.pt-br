@@ -1,17 +1,17 @@
 ---
-title: Script automatizado para criar o aplicativo Web Service Manager para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure | Microsoft Docs
+title: Criar um aplicativo web para conector de gerenciamento de serviços
 description: Crie um aplicativo Web Service Manager usando um script automatizado para se conectar ao Conector de Gerenciamento de Serviços de TI no Azure e monitorar e gerenciar de maneira centralizada os itens de trabalho ITSM.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: f224e58905e2989caf16259e383726595c0206d5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: decb674c2b55b93a81169c540ee04713bdf2799e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672184"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054847"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web Service Manager usando o script automatizado
 
@@ -21,7 +21,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da assinatura do Azure
 - Nome do grupo de recursos
-- Local
+- Location
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de usuário e senha)
 - Prefixo de nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
@@ -32,7 +32,7 @@ Salve os valores. Você precisará deles quando criar uma conexão com o Conecto
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
  Windows Management Framework 5.0 ou posterior.
 O Windows 10 tem 5.1 por padrão. Você pode baixar a estrutura [aqui](https://www.microsoft.com/download/details.aspx?id=50395):

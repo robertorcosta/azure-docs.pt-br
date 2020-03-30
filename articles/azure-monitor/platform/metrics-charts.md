@@ -1,52 +1,52 @@
 ---
 title: Recursos avançados do Azure Metrics Explorer
-description: Saiba mais sobre os recursos avançados do Azure Monitor Metrics Explorer
+description: Conheça os recursos avançados do Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248782"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371594"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Azure Metrics Explorer
 
 > [!NOTE]
-> Este artigo pressupõe que você esteja familiarizado com os recursos básicos do Metrics Explorer. Se você for um novo usuário e quiser saber como criar seu primeiro gráfico de métrica, consulte [introdução ao Azure Metrics Explorer](metrics-getting-started.md).
+> Este artigo pressupõe que você está familiarizado com as características básicas do Metrics Explorer. Se você é um novo usuário e quer aprender como criar seu primeiro gráfico métrico, consulte [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
-[Métricas no Azure Monitor](data-platform-metrics.md) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Enquanto as métricas personalizadas são enviadas ao Azure por seus aplicativos usando a [api Application insights para métricas e eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extensão WAD (Windows diagnóstico do Azure)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)ou por [Azure monitor API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+[Métricas no Azure Monitor](data-platform-metrics.md) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Considerando que métricas personalizadas são enviadas ao Azure por seus aplicativos usando a [API application Insights para eventos e métricas personalizadas,](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) [extensão do Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)ou pela [API do Azure Monitor REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar exibições com várias métricas e gráficos
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Crie visualizações com várias métricas e gráficos
 
-Você pode criar gráficos que plotam várias linhas de métricas ou mostrar vários gráficos de métrica de uma só vez. Essa funcionalidade permite que você:
+Você pode criar gráficos que traçam várias linhas métricas ou mostram vários gráficos métricos ao mesmo tempo. Essa funcionalidade permite que você:
 
-- Correlacione as métricas relacionadas no mesmo grafo para ver como um valor está relacionado a outro
-- Exibir métricas com diferentes unidades de medida no próximo proximidade
-- Agregue visualmente e compare métricas de vários recursos
+- correlacionar métricas relacionadas no mesmo gráfico para ver como um valor está relacionado a outro
+- exibir métricas com diferentes unidades de medida em proximidade
+- visualmente agregar e comparar métricas de múltiplos recursos
 
-Por exemplo, se você tiver 5 contas de armazenamento e quiser saber quanto espaço total é consumido entre elas, você pode criar um gráfico de área (empilhado) que mostra a pessoa e a soma de todos os valores em determinados pontos no tempo.
+Por exemplo, se você tem 5 contas de armazenamento e quer saber quanto espaço total é consumido entre elas, você pode criar um gráfico de área (empilhado) que mostra o indivíduo e a soma de todos os valores em determinados pontos no tempo.
 
-### <a name="multiple-metrics-on-the-same-chart"></a>Várias métricas no mesmo gráfico
+### <a name="multiple-metrics-on-the-same-chart"></a>Múltiplas métricas no mesmo gráfico
 
-Primeiro, [crie um novo gráfico](metrics-getting-started.md#create-your-first-metric-chart). Clique em **Adicionar métrica** e repita as etapas para adicionar outra métrica no mesmo gráfico.
+Primeiro, [crie um novo gráfico.](metrics-getting-started.md#create-your-first-metric-chart) Clique **em Adicionar métrica** e repita as etapas para adicionar outra métrica no mesmo gráfico.
 
    > [!NOTE]
    > Normalmente, você não deseja ter métricas com diferentes unidades de medida (ou seja, “milissegundos” e “quilobytes”) ou com uma escala consideravelmente diferente em um gráfico. Em vez disso, considere o uso de vários gráficos. Clique no botão Adicionar Gráfico para criar vários gráficos no Metrics Explorer.
 
-### <a name="multiple-charts"></a>Vários gráficos
+### <a name="multiple-charts"></a>Múltiplos gráficos
 
-Clique em **Adicionar gráfico** e crie outro gráfico com uma métrica diferente.
+Clique no **gráfico Adicionar** e criar outro gráfico com uma métrica diferente.
 
-### <a name="order-or-delete-multiple-charts"></a>Ordenar ou excluir vários gráficos
+### <a name="order-or-delete-multiple-charts"></a>Encomendar ou excluir vários gráficos
 
-Para ordenar ou excluir vários gráficos, clique no símbolo de reticências ( **...** ) para abrir o menu do gráfico e escolha o item de menu apropriado de **mover para cima**, **mover para baixo**ou **excluir**.
+Para encomendar ou excluir vários gráficos, clique no símbolo ellipses **(...** ) para abrir o menu do gráfico e escolha o item de menu apropriado de **Mover para cima,** **Mover para baixo**ou **Excluir**.
 
 ## <a name="apply-filters-to-charts"></a>Aplicar filtros a gráficos
 
@@ -72,7 +72,7 @@ Aplique filtros aos gráficos que mostram métricas com dimensões. Por exemplo,
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Aplicar divisão a um gráfico
+## <a name="apply-splitting-to-a-chart"></a>Aplicar divisão em um gráfico
 
 Divida uma métrica pela dimensão para visualizar uma comparação de diferentes segmentos da métrica em relação um ao outro e identificar os segmentos distantes de uma dimensão.
 
@@ -81,7 +81,7 @@ Divida uma métrica pela dimensão para visualizar uma comparação de diferente
 1. Clique em **Aplica-se a divisão** acima do gráfico.
  
    > [!NOTE]
-   > A divisão não pode ser usada com gráficos com várias métricas. Além disso, você pode ter vários filtros, mas apenas uma dimensão de divisão aplicada a um único gráfico.
+   > A divisão não pode ser usada com gráficos que tenham várias métricas. Além disso, você pode ter vários filtros, mas apenas uma dimensão de divisão aplicada a um único gráfico.
 
 2. Escolha uma dimensão na qual você deseja segmentar o gráfico:
 
@@ -111,6 +111,19 @@ Para controlar o intervalo do eixo y, use o menu do gráfico "…" e selecione *
 > [!WARNING]
 > Bloquear os limites do eixo y para que os gráficos que acompanham várias contagens ou somas por um período (e, portanto, usam agregações máximas, mínimas, soma e contagem) geralmente requer especificar uma granularidade de tempo fixo, em vez de contar com os padrões automáticos. Isso é necessário porque os valores em gráficos mudam quando a granularidade de tempo é modificada automaticamente pelo usuário redimensionando a janela do navegador ou passando de uma resolução de tela para outra. A alteração de granularidade de tempo resultante afeta o visual do gráfico, invalidando a seleção atual do intervalo do eixo y.
 
+## <a name="change-colors-of-chart-lines"></a>Alterar cores de linhas de gráficos
+
+Depois de configurar os gráficos, as linhas de gráfico são automaticamente atribuídas a uma cor de uma paleta padrão. Você pode mudar essas cores.
+
+Para alterar a cor de uma linha de gráfico, clique na barra colorida na legenda que corresponde ao gráfico. A caixa de diálogo do seletor de cores será aberta. Use o seletor de cores para configurar a cor da linha.
+
+Depois que as cores do gráfico forem configuradas, elas permanecerão assim quando você fixar o gráfico em um painel de instrumentos. A seção a seguir mostra como fixar um gráfico.
+
+> [!NOTE]
+> Devido às restrições do nosso cronograma de lançamento e publicação, mudar as cores das linhas de gráfico requer temporariamente [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true)passar um parâmetro especial **?feature.colorpicker=true** ao iniciar o portal Azure . Essa limitação será removida em breve. 
+
+![imagem de métrica](./media/metrics-charts/018.png)
+
 ## <a name="pin-charts-to-dashboards"></a>Fixar gráficos em painéis
 
 Depois de configurar os gráficos, talvez você deseje adicioná-los aos painéis, de modo que você possa exibi-los novamente, possivelmente, no contexto de outra telemetria de monitoramento ou compartilhá-los com sua equipe.
@@ -135,7 +148,7 @@ Você será levado para o painel de criação de regra de alerta com as dimensõ
 
 Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métrica.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 *Não vejo dados no gráfico.*
 

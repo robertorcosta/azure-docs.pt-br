@@ -3,16 +3,16 @@ title: Recursos, funções e controle de acesso no Azure Application Insights | 
 description: Proprietários, colaboradores e leitores de percepções de sua organização.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 617134c523148e713f7d34b46e0fbf6ae862591f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671521"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473125"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
 
-Você pode controlar quem tem acesso de leitura e atualização aos seus dados no Azure [Application insights][start], usando o [controle de acesso baseado em função no Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+Você pode controlar quem tem acesso de leitura e atualização a seus dados no [Application Insights do Azure][start] usando o [Controle de acesso baseado em função no Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Atribua acesso aos usuários no **grupo de recursos ou assinatura** ao qual o recurso do aplicativo pertence, não no próprio recurso. Atribua a função **Colaborador de componente do Application Insights** . Isso garante o controle uniforme de acesso a testes na Web e alertas, juntamente com o recurso do aplicativo. [Saiba mais](#access).
@@ -26,20 +26,20 @@ Primeiro, algumas definições:
 
 * **Recurso** ‒ uma instância de um serviço do Microsoft Azure. O recurso do Application Insights coleta, analisa e exibe os dados de telemetria enviados de seu aplicativo.  Outros tipos de recursos do Azure incluem aplicativos Web, bancos de dados e VMs.
   
-    Para ver seus recursos, abra o [portal do Azure][portal], entre e clique em todos os recursos. Para encontrar um recurso, digite uma parte de seu nome no campo de filtro.
+    Para ver seus recursos, abra o [portal Azure,][portal]faça login e clique em Todos os Recursos. Para encontrar um recurso, digite uma parte de seu nome no campo de filtro.
   
     ![Lista de recursos do Azure](./media/resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Grupo de recursos**][group] -cada recurso pertence a um grupo. Um grupo é uma maneira conveniente de gerenciar recursos relacionados, particularmente para controle de acesso. Por exemplo, em um grupo de recursos, você pode colocar um aplicativo Web, um recurso do Application Insights para monitorar o aplicativo e um Recurso de armazenamento para manter os dados exportados.
+* [**Grupo de recursos**][group] ‒ cada recurso pertence a um grupo. Um grupo é uma maneira conveniente de gerenciar recursos relacionados, particularmente para controle de acesso. Por exemplo, em um grupo de recursos, você pode colocar um aplicativo Web, um recurso do Application Insights para monitorar o aplicativo e um Recurso de armazenamento para manter os dados exportados.
 
 * [**Assinatura**](https://portal.azure.com) - para usar o Application Insights ou outros recursos do Azure, entre em uma assinatura do Azure. Cada grupo de recursos pertence a uma assinatura do Azure, em que você escolhe o pacote de preços e, se for uma assinatura de organização, escolhe os membros e suas permissões de acesso.
-* [**Conta Microsoft**][account] -o nome de usuário e a senha que você usa para entrar em assinaturas do Microsoft Azure, Xbox Live, Outlook.com e outros serviços da Microsoft.
+* [**Conta da Microsoft**][account] - o nome de usuário e a senha que você usa para entrar nas assinaturas do Microsoft Azure, no XBox Live, no Outlook.com e em outros serviços da Microsoft.
 
-## <a name="access"></a> Controlar o acesso no grupo de recursos
+## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Controlar o acesso no grupo de recursos
 
-É importante entender que, além do recurso criado para seu aplicativo, também há recursos ocultos separados para alertas e testes na Web. Eles são anexados ao mesmo [grupo de recursos](#resource-group) que o recurso de Application insights. Você também pode colocar outros serviços do Azure nele, como sites ou armazenamento.
+É importante entender que, além do recurso criado para seu aplicativo, também há recursos ocultos separados para alertas e testes na Web. Eles são anexados ao mesmo [grupo de recursos](#resource-group) que seu recurso Application Insights. Você também pode colocar outros serviços do Azure nele, como sites ou armazenamento.
 
 Portanto, para controlar o acesso a esses recursos, é recomendável:
 
@@ -50,7 +50,7 @@ Portanto, para controlar o acesso a esses recursos, é recomendável:
 
 Você deve ter direitos de Proprietário para a assinatura ou o grupo de recursos.
 
-O usuário deve ter uma [conta da Microsoft][account]ou acesso à sua [conta organizacional da Microsoft](../../active-directory/fundamentals/sign-up-organization.md). Você pode fornecer acesso a indivíduos e também a grupos de usuários definidos no Azure Active Directory.
+O usuário deve ter uma [conta da Microsoft][account] ou acesso à sua [conta organizacional da Microsoft](../../active-directory/fundamentals/sign-up-organization.md). Você pode fornecer acesso a indivíduos e também a grupos de usuários definidos no Azure Active Directory.
 
 #### <a name="navigate-to-resource-group-or-directly-to-the-resource-itself"></a>Navegue até o grupo de recursos ou diretamente ao próprio recurso
 
@@ -76,7 +76,7 @@ Quando aplicável, vincular a documentação de referência oficial associada.
 | --- | --- |
 | [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Pode alterar qualquer item, incluindo o acesso do usuário. |
 | [Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Pode editar qualquer coisa, incluindo todos os recursos. |
-| [Colaborador do Componente do Insights do Aplicativo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |É possível editar recursos, testes da web e alertas do Application Insights. |
+| [Contribuinte do componente de insights do aplicativo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Pode editar recursos do Application Insights. |
 | [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Pode exibir, mas não alterar nada. |
 | [Depurador de Instantâneos do Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Concede ao usuário permissão para usar os recursos do Depurador de Captura Instantânea do Application Insights. Observe que essa função não está incluída nas funções Owner e Contributor. |
 | Colaborador do Gerenciamento de Liberação do Azure Service Deploy | Função de contribuição para a implantação de serviços por meio do Azure Service Deploy. |
@@ -85,7 +85,7 @@ Quando aplicável, vincular a documentação de referência oficial associada.
 | [Colaborador do Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure.  |
 | [Leitor do Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. |
 | masterreader | Permite que um usuário visualize tudo, mas não faça alterações. |
-| [Colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Pode ler todos os dados de monitoramento e atualizar as configurações de monitoramento. |
+| [Colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Pode ler todos os dados de monitoramento e atualizar as configurações de monitoramento.|
 | [Publicador de Métricas de Monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Permite publicar métricas em relação aos recursos do Azure. |
 | [Leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Pode ler todos os dados de monitoramento. |
 | Colaborador da Política de Recursos (Versão prévia) | Os usuários preenchidos da EA, com direitos para criar / modificar a política de recursos, criam tickets de suporte e leem recursos / hierarquias.  |

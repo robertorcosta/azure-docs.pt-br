@@ -4,7 +4,6 @@ description: Como usar os recursos do SDK do ADAL para habilitar o Logon Único 
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,12 +14,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 00ec2d328265e8d301b9f54b9a6a2013072f1ed4
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ROBOTS: NOINDEX
+ms.openlocfilehash: 082cbb931c9dae60b39f9ee5323337bf051fb56d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154773"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como habilitar o SSO entre aplicativos no iOS usando a ADAL
 
@@ -39,11 +39,11 @@ Estas instruções se aplicam a:
 * Azure Active Directory B2B
 * Acesso condicional ao Azure Active Directory
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Estas instruções pressupõem que você sabe como:
 
-* Provisionar seu aplicativo usando o portal herdado para o Azure AD. Para obter mais informações, consulte [registrar um aplicativo](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
+* Provisionar seu aplicativo usando o portal herdado para o Azure AD. Para obter mais informações, consulte [Registrar um aplicativo](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Integrar seu aplicativo com o [SDK do Azure AD para iOS](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Conceitos de logon único
@@ -109,7 +109,7 @@ Se um agente compatível for instalado no dispositivo, como o aplicativo Microso
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Como podemos garantir que o aplicativo é válido
 
-A necessidade de garantir a identidade de um aplicativo que chama o agente é crucial para a segurança que fornecemos nos logons assistidos do agente. O iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no runtime, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. O modo como os desenvolvedores devem criar esse URI de redirecionamento é abordado com detalhes logo abaixo. Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
+A necessidade de garantir a identidade de um aplicativo que chama o corretor é crucial para a segurança que fornecemos em logins assistidos por corretores. O iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no runtime, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. O modo como os desenvolvedores devem criar esse URI de redirecionamento é abordado com detalhes logo abaixo. Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
 
 **O desenvolvedor tem a opção de definir se o SDK chama o agente ou usa o fluxo não assistido por agente.** No entanto, se o desenvolvedor optar por não usar o fluxo assistido por agente, perderá o benefício de usar as credenciais de SSO que o usuário já pode ter adicionado ao dispositivo e isso impedirá que o aplicativo seja usado com recursos empresariais fornecidos pela Microsoft aos seus clientes, como o Acesso Condicional, funcionalidades de gerenciamento do Intune e autenticação baseada em certificado.
 
@@ -164,7 +164,7 @@ Para SSO não assistido por agente entre aplicativos, os SDKs gerenciam grande p
 
 Para habilitar o SSO entre aplicativos que você possui, é necessário fazer o seguinte:
 
-1. Verifique se todos os seus aplicativos usam a mesma ID de cliente ou ID do aplicativo.
+1. Certifique-se de que todos os seus aplicativos usem o mesmo ID do cliente ou id do aplicativo.
 2. Certifique-se de que todos os aplicativos compartilhem o mesmo certificado de assinatura da Apple para que você possa compartilhar os conjuntos de chaves.
 3. Solicite o mesmo direito de conjunto de chaves para cada um dos seus aplicativos.
 4. Conte aos SDKs sobre o conjunto de chaves compartilhado que você deseja usar.
@@ -230,7 +230,7 @@ Quando os direitos estiverem configurados corretamente, você deverá ver um arq
 </plist>
 ```
 
-Depois de ter o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e você estiver pronto para usar o SSO, informe ao SDK de identidade sobre seu conjunto de chaves usando a seguinte configuração em seu `ADAuthenticationSettings` com a seguinte configuração:
+Uma vez que você tenha o direito do chaveiro ativado em cada um de seus aplicativos e esteja pronto para usar `ADAuthenticationSettings` o SSO, informe o SDK de identidade sobre o seu chaveiro usando a seguinte configuração na sua configuração com a seguinte configuração:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -243,7 +243,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ativar o SSO assistido por agente
 
-A capacidade de um aplicativo usar qualquer agente instalado no dispositivo está **desativada por padrão**. Para usar seu aplicativo com o agente, você deve fazer algumas configurações adicionais e adicionar algum código ao seu aplicativo.
+A capacidade de um aplicativo usar qualquer corretor instalado no dispositivo é **desatada por padrão**. Para usar seu aplicativo com o agente, você deve fazer algumas configurações adicionais e adicionar algum código ao seu aplicativo.
 
 Execute estas etapas:
 
@@ -309,7 +309,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Etapa 4: adicione um parâmetro de configuração ao aplicativo
 
-O ADAL usa – canOpenURL: para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. Você precisará adicionar "msauth" à seção LSApplicationQueriesSchemes de seu `info.plist file`.
+O ADAL usa – canOpenURL: para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. Você precisará adicionar "msauth" à seção LSApplicationQueriesSchemes do seu `info.plist file`.
 
 ```
     <key>LSApplicationQueriesSchemes</key>

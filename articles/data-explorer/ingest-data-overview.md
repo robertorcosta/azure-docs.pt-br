@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246390"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
@@ -26,7 +26,7 @@ O serviço de gerenciamento de dados do Azure Data Explorer, que é responsável
 
 1. **Envio em lote**: dados em lote que fluem para o mesmo banco de dados e tabela para otimizar a produtividade da ingestão do lote.
 
-1. **Validação**: validação preliminar e conversão de formato, se necessário.
+1. **Validação**: Validação preliminar e conversão de formato, se necessário.
 
 1. **Manipulação de dados**: correspondência de esquema, organização, indexação, codificação e compactação dos dados.
 
@@ -52,7 +52,7 @@ O Azure Data Explorer atualmente dá suporte ao seguinte:
 
 ### <a name="ingestion-using-integration-services"></a>Ingestão usando os serviços de integração
 
-* Azure Data Factory (ADF), um serviço de integração de dados totalmente gerenciado para cargas de trabalho analíticas no Azure, para copiar dados de e para o Azure Data Explorer usando [formatos e armazenamentos de dados com suporte](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Para obter mais informações, consulte [copiar dados de Azure data Factory para o Azure data Explorer](/azure/data-explorer/data-factory-load-data).
+* A Azure Data Factory (ADF), um serviço de integração de dados totalmente gerenciado para cargas de trabalho analíticas no Azure, para copiar dados de e para o Azure Data Explorer usando [armazenamentos e formatos de dados suportados](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Para obter mais informações, consulte [Copiar dados da Fábrica de Dados do Azure para o Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
 
 ### <a name="programmatic-ingestion"></a>Ingestão programática
 
@@ -64,7 +64,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 * [SDK do Python](/azure/kusto/api/python/kusto-python-client-library)
 
-* [SDK .NET](/azure/kusto/api/netfx/about-the-sdk)
+* [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
 
 * [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
@@ -80,7 +80,7 @@ O Kusto oferece um SDK cliente que pode ser usado para ingerir e consultar dados
 
 * Ingestão de dados direta no mecanismo do Azure Data Explorer (mais apropriada para exploração e criação de protótipos):
 
-  * **Ingestão embutida**: o comando Control (. ingestão embutida) contendo dados em banda destina-se a fins de teste ad hoc.
+  * **Ingestão inline**: comando de controle (.ingerir inline) contendo dados em banda destina-se a fins de teste ad hoc.
 
   * **Ingestão de consulta**: o comando de controle (.set, .set-or-append, .set-or-replace) que aponta para os resultados da consulta é usado para a geração de relatórios ou tabelas temporárias pequenas.
 
@@ -113,13 +113,13 @@ Antes de iniciar a ingestão de dados, você deve se perguntar o seguinte.
 * Quais são os requisitos de latência? 
 * Um dos pipelines de ingestão gerenciados existentes pode ser usado? 
 
-Para organizações com uma infraestrutura existente baseada em um serviço de mensagens como hub de eventos e Hub IoT, o uso de um conector é provavelmente a solução mais apropriada. A ingestão na fila é apropriada para grandes volumes de dados.
+Para organizações com uma infra-estrutura existente baseada em um serviço de mensagens como Event Hub e IoT Hub, usar um conector é provavelmente a solução mais apropriada. A ingestão na fila é apropriada para grandes volumes de dados.
 
 ## <a name="supported-data-formats"></a>Formatos de dados com suporte
 
 Para todos os métodos de ingestão diferentes da ingestão de consulta, formate os dados de modo que o Azure Data Explorer possa analisá-los. 
-* Os formatos de dados com suporte são: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separados por linha, várias linhas), Avro, Orc e parquet. 
-* Dá suporte à compactação ZIP e GZIP.
+* Os formatos de dados suportados são: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (line-separated, multi-line), Avro, Orc e Parquet. 
+* Suporta compactação ZIP e GZIP.
 
 > [!NOTE]
 > Quando os dados estão sendo ingeridos, os tipos de dados são inferidos com base nas colunas da tabela de destino. Se um registro estiver incompleto ou um campo não puder ser analisado como o tipo de dados necessário, as colunas da tabela correspondentes serão preenchidas com valores nulos.
@@ -145,16 +145,16 @@ O mapeamento de esquema ajuda a associar os campos de dados de origem às coluna
 > [Ingerir dados usando a assinatura de Grade de Eventos no Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados do Kafka no Azure Data Explorer](ingest-data-kafka.md)
+> [Ingerir dados de Kafka no Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
 > [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados usando a biblioteca do Node do Azure Data Explorer](node-ingest-data.md)
+> [Ingerir dados usando a biblioteca Dode do Explorador de Dados do Azure](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
+> [Ingerir dados usando o SDK do .NET Standard do Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md)
+> [ingerir dados do Logstash para o Azure Data Explorer](ingest-data-logstash.md)

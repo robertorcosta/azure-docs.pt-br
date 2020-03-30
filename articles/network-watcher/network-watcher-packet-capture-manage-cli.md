@@ -12,29 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f83fb2377f2db1deaed453131a61e26677b3d87d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 7a69610d1ac176354a9d7e388a12ccc7f064d848
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896389"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382708"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gerenciar as capturas de pacote com o Observador de Rede do Azure usando a CLI do Azure
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
-> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
+> - [Portal Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Powershell](network-watcher-packet-capture-manage-powershell.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
 
 Captura de pacote do Observador de Rede permite que você crie sessões de captura para controlar o tráfego em uma máquina virtual. Os filtros são fornecidos para a sessão de captura garantir que somente o tráfego que você deseja capturar. Captura de pacote ajuda a diagnosticar problemas de rede reativo e proativo. Outros usos incluem a coleta de estatísticas de rede, obter informações sobre as invasões de rede, para depurar comunicações cliente-servidor e muito mais. Por poder remotamente disparar a captura de pacote, esse recurso alivia a carga da execução de uma captura de pacote e manualmente no computador desejado, o que economiza tempo.
 
-Para executar as etapas deste artigo, será necessário [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (CLI do Azure)](/cli/azure/install-azure-cli).
+Para executar as etapas neste artigo, você precisa [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (Azure CLI)](/cli/azure/install-azure-cli).
 
 Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão atualmente disponíveis para captura de pacote.
 
 - [**Iniciar uma captura de pacote**](#start-a-packet-capture)
-- [**Parar uma captura de pacote**](#stop-a-packet-capture)
+- [**Parar uma captura de pacotes**](#stop-a-packet-capture)
 - [**Excluir uma captura de pacote**](#delete-a-packet-capture)
 - [**Baixar uma captura de pacote**](#download-a-packet-capture)
 
@@ -52,31 +52,33 @@ Este artigo pressupõe que você tenha os seguintes recursos:
 
 ### <a name="step-1"></a>Etapa 1
 
-Execute o comando `az vm extension set` para instalar o agente de captura de pacote na máquina virtual convidada.
+Execute `az vm extension set` o comando para instalar o agente de captura de pacotes na máquina virtual convidada.
 
 Para máquinas virtuais do Windows:
 
-```azurecli
+```azurecli-interactive
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentWindows --version 1.4
 ```
 
 Para máquinas virtuais Linux:
 
-```azurecli
+```azurecli-interactive
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux --version 1.4
 ```
 
 ### <a name="step-2"></a>Etapa 2
 
-Para garantir que o agente esteja instalado, execute o comando `vm extension show` e passe-o para o grupo de recursos e o nome da máquina virtual. Verifique a lista resultante para garantir que o agente está instalado.
+Para garantir que o agente esteja `vm extension show` instalado, execute o comando e passe-o pelo grupo de recursos e pelo nome da máquina virtual. Verifique a lista resultante para garantir que o agente está instalado.
 
 Para máquinas virtuais do Windows:
-```azurecli
+
+```azurecli-interactive
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
 Para máquinas virtuais Linux:
-```azurecli
+
+```azurecli-interactive
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name AzureNetworkWatcherExtension
 ```
 
@@ -106,24 +108,23 @@ O exemplo a seguir é um exemplo de resposta de execução`az vm extension show`
 
 Depois que as etapas anteriores forem concluídas, o agente de captura de pacote está instalado na máquina virtual.
 
-
 ### <a name="step-1"></a>Etapa 1
 
 Recupere uma conta de armazenamento. Essa conta de armazenamento é usada para armazenar o arquivo de captura de pacote.
 
-```azurecli
+```azurecli-interactive
 az storage account list
 ```
 
 ### <a name="step-2"></a>Etapa 2
 
-Neste ponto, você está pronto para criar uma captura de pacote.  Primeiro, vamos examinar os parâmetros que talvez você queira configurar. Os filtros são um desses parâmetros que podem ser usados para limitar os dados armazenados pela captura de pacotes. O exemplo a seguir configura uma captura de pacote com vários filtros.  Os três primeiros filtros coletam tráfego de saída TCP apenas de IP local 10.0.0.3 para portas de destino de 20, 80 e 443.  O último filtro coleta apenas o tráfego UDP.
+Neste ponto, você está pronto para criar uma captura de pacote.  Primeiro, vamos examinar os parâmetros que você pode querer configurar. Os filtros são um desses parâmetros que podem ser usados para limitar os dados armazenados pela captura do pacote. O exemplo a seguir configura uma captura de pacote com vários filtros.  Os três primeiros filtros coletam tráfego de saída TCP apenas de IP local 10.0.0.3 para portas de destino de 20, 80 e 443.  O último filtro coleta apenas o tráfego UDP.
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-O exemplo a seguir é a saída esperada da execução do comando `az network watcher packet-capture create`.
+O exemplo a seguir é `az network watcher packet-capture create` a saída esperada de executar o comando.
 
 ```json
 {
@@ -178,13 +179,13 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>Obter uma captura de pacote
 
-Executar o comando `az network watcher packet-capture show-status`, recupera o status de uma captura de pacote em execução no momento ou concluído.
+Executando `az network watcher packet-capture show-status` o comando, recupera o status de uma captura de pacote em execução no momento ou concluída.
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-O exemplo a seguir é a saída do comando `az network watcher packet-capture show-status`. O exemplo a seguir ilustra o momento em que a captura é Stopped, com um StopReason de TimeExceeded. 
+O exemplo a seguir `az network watcher packet-capture show-status` é a saída do comando. O exemplo a seguir ilustra o momento em que a captura é Stopped, com um StopReason de TimeExceeded.
 
 ```
 {
@@ -203,18 +204,18 @@ cketCaptures/packetCaptureName",
 
 ## <a name="stop-a-packet-capture"></a>Parar uma captura de pacotes
 
-Ao executar o comando `az network watcher packet-capture stop`, se uma sessão de captura estiver em andamento, ela será interrompida.
+Ao executar `az network watcher packet-capture stop` o comando, se uma sessão de captura estiver em andamento, ela será interrompida.
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> O comando não retorna nenhuma resposta quando executado em uma sessão de captura atualmente em execução ou em uma sessão existente que já foi interrompida.
+> O comando não retorna nenhuma resposta quando executado em uma sessão de captura em execução ou em uma sessão existente que já parou.
 
 ## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 
-```azurecli
+```azurecli-interactive
 az network watcher packet-capture delete --name packetCaptureName --location westcentralus
 ```
 
@@ -231,7 +232,7 @@ Se uma conta de armazenamento for especificada, os arquivos de captura de pacote
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 

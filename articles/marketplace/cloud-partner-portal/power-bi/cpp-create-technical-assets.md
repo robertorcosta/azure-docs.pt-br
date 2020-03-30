@@ -1,19 +1,18 @@
 ---
-title: Criar ativos técnicos para uma oferta de aplicativo Power BI | Azure Marketplace
+title: Criar ativos técnicos para uma oferta de Power BI App | Mercado Azure
 description: Lista dos ativos técnicos necessários para publicar uma oferta de Aplicativo do Power BI no Microsoft AppSource Marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pabutler
-ms.openlocfilehash: 2d0ae48b7314b63f2863e238fd38d0351546502d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: df0708ff964595181d00d8402f1162e0832c70eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817919"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286363"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>Criar ativos técnicos para uma oferta de Aplicativo do Power BI
 

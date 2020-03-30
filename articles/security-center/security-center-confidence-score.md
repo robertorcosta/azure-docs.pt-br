@@ -1,6 +1,6 @@
 ---
 title: Pontuação de confiança na Central de Segurança do Azure | Microsoft Docs
-description: A central de segurança gera pontuações de confiança para ajudar sua equipe a determinar se uma ameaça é legítima e como fazer a triagem e priorizar alertas.
+description: O Security Center gera pontuações de confiança para ajudar sua equipe a determinar se uma ameaça é legítima e como triagem e priorizar alertas.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
 ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604374"
 ---
-# <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (visualização)
+# <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (Visualização)
 
 A Central de Segurança do Azure fornece visibilidade dos recursos que você executa no Azure e emite alertas quando detecta possíveis problemas. Com o aumento do volume de alertas, tratar os alertas individualmente pode ser um desafio para a equipe de operações de segurança. Nesse caso, torna-se necessário priorizar quais alertas devem ser investigados. A investigação dos alertas pode ser complexa e demorada, assim, como resultado, alguns alertas podem ser ignorados.
 
-A pontuação de confiança (atualmente em visualização) na central de segurança pode ajudar sua equipe a fazer a triagem e priorizar alertas. A Central de Segurança aplica automaticamente as práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece insights significativos na forma de uma pontuação de confiança.
+A pontuação de confiança (atualmente em pré-visualização) no Security Center pode ajudar sua equipe a triagem e priorizar alertas. A Central de Segurança aplica automaticamente as práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece insights significativos na forma de uma pontuação de confiança.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Como a pontuação de confiança é disparada
 

@@ -1,5 +1,5 @@
 ---
-title: Mover dados do Amazon redshift usando Azure Data Factory
+title: Mova dados da Amazon Redshift usando a Fábrica de Dados do Azure
 description: Saiba como mover dados do Amazon Redshift usando a atividade de cópia do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260521"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
@@ -34,7 +34,7 @@ Atualmente, o Data Factory dá suporte apenas à movimentação de dados do Amaz
 > [!TIP]
 > Para obter o melhor desempenho ao copiar grandes quantidades de dados do Amazon Redshift, considere o uso de comando **UNLOAD** do Redshift interno por meio do Amazon S3 (Serviço de Armazenamento Simples). Para obter detalhes, consulte [Usar UNLOAD para copiar dados do Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 * Se estiver movendo dados para um repositório de dados local, instale o [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) em um computador local. Conceder acesso a um gateway para o cluster do Amazon Redshift usando o endereço IP do computador local. Para obter instruções, consulte [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorizar acesso ao cluster).
 * Para mover dados para um armazenamento de dados do Azure, consulte o [Endereço IP de computação e intervalos do SQL que são usados pelos datacenters do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -43,7 +43,7 @@ Você pode criar um pipeline com uma atividade de cópia para mover dados de uma
 
 A maneira mais fácil de criar um pipeline é usando o Assistente de Cópia do Azure Data Factory. Para obter um rápido passo a passo sobre como criar um pipeline usando o Assistente de Cópia, confira o [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
 
-Você também pode criar um pipeline usando o Visual Studio, Azure PowerShell ou outras ferramentas. Modelos do Azure Resource Manager, a API do .NET ou a API REST também pode ser usada para criar o pipeline. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode criar um pipeline usando o Visual Studio, o Azure PowerShell ou outras ferramentas. Modelos do Azure Resource Manager, a API do .NET ou a API REST também pode ser usada para criar o pipeline. Para obter instruções passo a passo para criar um pipeline com uma atividade de cópia, consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -51,7 +51,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 2. Criar conjuntos de dados para representar dados de entrada e saída para a operação de cópia.
 3. Criar um pipeline com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída.
 
-Ao usar o Assistente de Cópia, as definições de JSON para essas entidades do Data Factory são criadas automaticamente. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. O exemplo de JSON: copiar dados do Amazon redshift para o armazenamento de BLOBs do Azure mostra as definições de JSON para as entidades de Data Factory que são usadas para copiar dados de um armazenamento de dados do Amazon redshift.
+Ao usar o Assistente de Cópia, as definições de JSON para essas entidades do Data Factory são criadas automaticamente. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. O Exemplo de JSON: copiar dados do Amazon Redshift para o Armazenamento de Blobs do Azure mostra as definições de JSON para as entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados do Amazon Redshift.
 
 As seções que se seguem descrevem as propriedades de JSON que são usadas para definir as entidades do Data Factory para o Amazon Redshift.
 
@@ -59,14 +59,14 @@ As seções que se seguem descrevem as propriedades de JSON que são usadas para
 
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Amazon Redshift.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
-| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
-| **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
-| **database** |O nome do banco de dados do Amazon Redshift. |Sim |
-| **username** |O nome de usuário que tem acesso ao banco de dados. |Sim |
-| **password** |A senha para a conta de usuário. |Sim |
+| **type** |Essa propriedade deve ser definida como: **AmazonRedshift**. |Sim |
+| **Servidor** |O endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
+| **Porta** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
+| **Database** |O nome do banco de dados do Amazon Redshift. |Sim |
+| **Username** |O nome de usuário que tem acesso ao banco de dados. |Sim |
+| **senha** |A senha para a conta de usuário. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -74,9 +74,9 @@ Para obter uma lista das seções e propriedades disponíveis para definir os co
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório. **A seção typeProperties** de um conjunto de dados do tipo **RelationalTable**, que inclui o conjunto de dados do Amazon Redshift, tem as propriedades a seguir:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tableName** |O nome da tabela no banco de dados do Amazon Redshift ao qual o serviço vinculado se refere. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
+| **Tablename** |O nome da tabela no banco de dados do Amazon Redshift ao qual o serviço vinculado se refere. |Não (se a propriedade **query** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da Atividade de Cópia
 
@@ -84,18 +84,18 @@ Para obter uma lista das seções e propriedades disponíveis para definir as at
 
 Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**, as seguintes propriedades estão disponíveis na seção **typeProperties**:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **query** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
+| **Consulta** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 | **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **UNLOAD** do Redshift. | Não |
 | **s3LinkedServiceName** | O Amazon S3 para usar como um repositório provisório. O serviço vinculado é especificado usando um nome do Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 | **bucketName** | Indica o bucket do Amazon S3 a ser usado para armazenar os dados provisórios. Se essa propriedade não for fornecida, a atividade de cópia gerará um bucket automaticamente. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 
 Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amazon Redshift, com a propriedade a seguir na seção **typeProperties**. Observe que esse tipo de origem não dá suporte para o comando **UNLOAD** do Redshift.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **query** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
+| **Consulta** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Usar UNLOAD para copiar dados do Amazon Redshift
 
@@ -144,8 +144,8 @@ O exemplo tem as seguintes entidades de data factory:
 
 * Um serviço vinculado do tipo [AmazonRedshift](#linked-service-properties)
 * Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](#dataset-properties)
-* Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
+* Um [conjunto](data-factory-create-datasets.md) de dados de entrada do tipo [RelationalTable](#dataset-properties)
+* Um [conjunto](data-factory-create-datasets.md) de dados de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
 * Um [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que usa as propriedades [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 O exemplo copia dados de um resultado de consulta no Amazon Redshift para um blob do Azure a cada hora. As propriedades JSON que são usadas no exemplo são descritas nas seções que seguem as definições de entidade.
@@ -170,7 +170,7 @@ O exemplo copia dados de um resultado de consulta no Amazon Redshift para um blo
 }
 ```
 
-**Serviço vinculado do armazenamento de Blob do Azure**
+**Serviço vinculado ao armazenamento Azure Blob**
 
 ```json
 {
@@ -205,7 +205,7 @@ A propriedade **external** é definida como “true” para informar ao serviço
 }
 ```
 
-**Conjunto de dados de saída de Blob do Azure**
+**Conjunto de dados de saída do Azure Blob**
 
 Os dados são gravados em um novo blob de hora em hora pela definição da propriedade **frequency** como "Hour" e a propriedade **interval** como 1. A propriedade **folderPath** para o blob é avaliada dinamicamente. O valor da propriedade se baseia na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e hora da hora de início.
 

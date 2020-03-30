@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70073414"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Assinaturas no Gerenciamento de API do Azure
@@ -41,7 +41,7 @@ As assinaturas podem ser associadas a vários escopos: produto, todas as APIs ou
 
 ### <a name="subscriptions-for-a-product"></a>Assinaturas para um produto
 
-Tradicionalmente, as assinaturas no Gerenciamento de API sempre foram associadas a um único escopo do [produto da API](api-management-terminology.md). Os desenvolvedores podem encontrar a lista de produtos no Portal do Desenvolvedor. Dessa forma, eles podem enviar solicitações de assinatura para os produtos que desejam usar. Depois que uma solicitação de assinatura é aprovada, seja automaticamente ou por editores de API, o desenvolvedor pode usar as chaves nela para acessar todas as APIs do produto. No momento, o portal do desenvolvedor mostra apenas as assinaturas de escopo do produto na seção perfil do usuário. 
+Tradicionalmente, as assinaturas no Gerenciamento de API sempre foram associadas a um único escopo do [produto da API](api-management-terminology.md). Os desenvolvedores podem encontrar a lista de produtos no Portal do Desenvolvedor. Dessa forma, eles podem enviar solicitações de assinatura para os produtos que desejam usar. Depois que uma solicitação de assinatura é aprovada, automaticamente ou por editores de API, o desenvolvedor pode usar as chaves nele para acessar todas as APIs do produto. Atualmente, o portal do desenvolvedor só mostra as assinaturas do escopo do produto na seção perfil do usuário. 
 
 ![Assinaturas de produto](./media/api-management-subscriptions/product-subscription.png)
 
@@ -55,13 +55,13 @@ Quando introduzimos o nível de [Consumo](https://aka.ms/apimconsumptionblog) do
 
 - Em segundo lugar, o Gerenciamento de API agora permite assinaturas **independentes**. Não é mais necessário que as assinaturas sejam associadas a uma conta de desenvolvedor. Esse recurso é útil em cenários em que muitos desenvolvedores ou muitas equipes compartilham uma assinatura.
 
-- Por fim, os editores de API agora podem [criar assinaturas](api-management-howto-create-subscriptions.md) diretamente no Portal do Azure:
+- Finalmente, os editores de API agora podem [criar assinaturas](api-management-howto-create-subscriptions.md) diretamente no portal do Azure:
 
     ![Assinaturas flexíveis](./media/api-management-subscriptions/flexible-subscription.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre o Gerenciamento de API:
 
-+ Conheça outros [conceitos](api-management-terminology.md) no Gerenciamento de API.
-+ Siga nossos [tutoriais](import-and-publish.md) para saber mais sobre o Gerenciamento de API.
-+ Verifique nossa [página de perguntas Frequentes](api-management-faq.md) para perguntas comuns.
++ Aprenda outros [conceitos](api-management-terminology.md) em Gestão de API.
++ Siga [nossos tutoriais](import-and-publish.md) para saber mais sobre gerenciamento de API.
++ Verifique nossa [página de perguntas frequentes](api-management-faq.md) para perguntas comuns.

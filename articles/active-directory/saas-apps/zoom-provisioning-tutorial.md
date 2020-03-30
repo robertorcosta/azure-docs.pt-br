@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o zoom para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente as contas de usuário para aplicar zoom.
+title: 'Tutorial: Configure zoom para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como provisionar e desprovisionar automaticamente contas de usuários do Azure AD para zoom.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -14,77 +14,82 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: jeedes
-ms.openlocfilehash: cd832a9dfec4680222d2c985f49aba499a56aaac
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.author: Zhchia
+ms.openlocfilehash: 94c261da0c935cb7a41dde768069099b4e5ed251
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062725"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384068"
 ---
-# <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: configurar o zoom para o provisionamento automático de usuário
+# <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configure zoom para provisionamento automático do usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas em zoom e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para aplicar zoom.
+Este tutorial descreve as etapas que você precisa executar tanto no Zoom quanto no Azure Active Directory (Azure AD) para configurar o provisionamento automático do usuário. Quando configurado, o Azure AD fornece automaticamente e desprovisiona usuários e grupos para [zoom](https://zoom.us/pricing/) usando o serviço de provisionamento Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
->
-> Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="capabilities-supported"></a>Recursos suportados
+> [!div class="checklist"]
+> * Criar usuários no Zoom
+> * Remova os usuários no Zoom quando eles não precisarem mais de acesso
+> * Mantenha os atributos do usuário sincronizados entre o Azure AD e o Zoom
+> * [Único login no](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-tutorial) Zoom (recomendado)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* Um locatário do Azure AD
-* [Um locatário de zoom](https://zoom.us/pricing)
-* Uma conta de usuário em zoom com permissões de administrador
+* [Um inquilino do Azure AD.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+* Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar provisionamento (por exemplo, administrador de aplicativos, administrador de aplicativos na nuvem, proprietário de aplicativos ou administrador global). 
+* [Um inquilino zoom](https://zoom.us/pricing).
+* Uma conta de usuário no Zoom com permissões de administração.
 
-## <a name="add-zoom-from-the-gallery"></a>Adicionar zoom da Galeria
+## <a name="step-1-plan-your-provisioning-deployment"></a>Etapa 1. Planeje sua implantação de provisionamento
+1. Saiba [como funciona o serviço de provisionamento.](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+2. Determine quem estará no [escopo para provisionamento.](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)
+3. Determine quais dados [a mapear entre o Azure AD e o Zoom](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Antes de configurar o zoom para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o zoom da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configure zoom para suportar provisionamento com a Azure AD
 
-**Para adicionar o zoom da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+1. Faça login no seu [zoom admin console](https://zoom.us/signin). Navegue até **o > Zoom Avançado para Desenvolvedores** no painel de navegação esquerdo.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+    ![Integrações de Zoom](media/zoom-provisioning-tutorial/zoom01.png)
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+2. Navegue para **Gerenciar** no canto superior direito da página. 
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+    ![Instalação de zoom](media/zoom-provisioning-tutorial/zoom02.png)
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+3. Navegue até o aplicativo Azure AD criado. 
+    
+    ![Zoom App](media/zoom-provisioning-tutorial/zoom03.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+4. Selecione **Credenciais de aplicativo** no painel de navegação à esquerda.
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
+    ![Zoom App](media/zoom-provisioning-tutorial/zoom04.png)
 
-4. Na caixa de pesquisa, digite **zoom**, selecione **zoom** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+5. Copie e salve o **Token JWT**. Esse valor será inserido no campo **Token Secreto** na guia Provisionamento do aplicativo Zoom no portal Azure. Se você precisar de um novo token sem expiração, você precisará reconfigurar o tempo de expiração que gerará automaticamente um novo token. 
 
-    ![Ampliar a lista de resultados](common/search-new-app.png)
+    ![Instalação de zoom](media/zoom-provisioning-tutorial/zoom05.png)
 
-## <a name="assign-users-to-zoom"></a>Atribuir usuários ao zoom
+## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar zoom na galeria de aplicativos do Azure AD
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Adicione zoom da galeria de aplicativos Azure AD para começar a gerenciar o provisionamento para zoom. Se você tiver configurado anteriormente zoom para SSO, você pode usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo separado ao testar a integração inicialmente. Saiba mais sobre como adicionar um aplicativo na galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao zoom. Depois de decidir, você pode atribuir esses usuários e/ou grupos para aplicar zoom seguindo as instruções aqui:
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo para provisionamento 
 
-* [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+O serviço de provisionamento Azure AD permite que você escopo que será provisionado com base na atribuição para o aplicativo e ou com base em atributos do usuário /grupo. Se você optar por escopo de quem será provisionado para o seu aplicativo com base na atribuição, você pode usar as [seguintes etapas](../manage-apps/assign-user-or-group-access-portal.md) para atribuir usuários e grupos ao aplicativo. Se você optar por escopo que será provisionado com base apenas em atributos do usuário ou grupo, você pode usar um filtro de escopo como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-### <a name="important-tips-for-assigning-users-to-zoom"></a>Dicas importantes para atribuir usuários ao zoom
+* Ao atribuir usuários e grupos ao Zoom, você deve selecionar uma função diferente **do Acesso Padrão**. Os usuários com a função Default Access são excluídos do provisionamento e serão marcados como não efetivamente habilitados nos registros de provisionamento. Se a única função disponível no aplicativo for a função de acesso padrão, você pode [atualizar o manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
 
-* É recomendável que um único usuário do Azure AD seja atribuído ao zoom para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* Comece pequeno. Teste com um pequeno conjunto de usuários e grupos antes de ser lançado para todos. Quando o escopo para provisionamento é definido para usuários e grupos atribuídos, você pode controlá-lo atribuindo um ou dois usuários ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, você pode especificar um [filtro de escopo baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Ao atribuir um usuário ao zoom, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
-## <a name="configure-automatic-user-provisioning-to-zoom"></a>Configurar o provisionamento automático de usuário para aplicar zoom 
+## <a name="step-5-configure-automatic-user-provisioning-to-zoom"></a>Etapa 5. Configure o provisionamento automático do usuário para zoom 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários ou grupos com zoom com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você através das etapas para configurar o serviço de provisionamento Azure AD para criar, atualizar e desativar usuários e/ou grupos no TestApp com base em atribuições de usuário e/ou grupo no Azure AD.
 
-> [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para zoom, seguindo as instruções fornecidas no tutorial de [zoom de logon único](zoom-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
+### <a name="to-configure-automatic-user-provisioning-for-zoom-in-azure-ad"></a>Para configurar o provisionamento automático do usuário para zoom no Azure AD:
 
-### <a name="configure-automatic-user-provisioning-for-zoom-in-azure-ad"></a>Configurar o provisionamento automático de usuário para zoom no Azure AD
-
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Faça login no [portal Azure](https://portal.azure.com). Selecione **Aplicativos Corporativos**e selecione **Todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -94,79 +99,66 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia de provisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **modo de provisionamento** como **automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://api.zoom.us/scim` na **URL do locatário**. Para recuperar o **token secreto** de sua conta de zoom, siga o passo a passos conforme descrito na etapa 6.
+5. Na seção **Credenciais de Admin,** insira `https://api.zoom.us/scim` **url de inquilino**. Insira o valor **do Token JWT** recuperado anteriormente no **Secret Token**. Clique **em Conexão de teste** para garantir que o Azure AD possa se conectar ao Zoom. Se a conexão falhar, certifique-se de que sua conta Zoom tenha permissões de administração e tente novamente.
 
-6. Entre no console do [administrador de zoom](https://zoom.us/signin). Navegue até **Advanced > zoom para desenvolvedores** no painel de navegação esquerdo.
+    ![Provisionamento de zoom](./media/zoom-provisioning-tutorial/provisioning.png)
 
-    ![Ampliar integrações](media/zoom-provisioning-tutorial/zoom01.png)
-
-    Navegue até **gerenciar** no canto superior direito da página. 
-
-    ![Instalação de zoom](media/zoom-provisioning-tutorial/zoom02.png)
-
-    Navegue até seu aplicativo do Azure AD criado. 
-    
-    ![Aplicativo de zoom](media/zoom-provisioning-tutorial/zoom03.png)
-
-    Selecione **credenciais do aplicativo** no painel de navegação à esquerda.
-
-    ![Aplicativo de zoom](media/zoom-provisioning-tutorial/zoom04.png)
-
-    Recupere o valor do token JWT mostrado abaixo e insira-o no campo **token secreto** no Azure AD. Se você precisar de um novo token sem expiração, será necessário reconfigurar o tempo de expiração que gerará automaticamente um novo token. 
-
-    ![Instalação de zoom](media/zoom-provisioning-tutorial/zoom05.png)
-
-7. Ao preencher os campos mostrados na etapa 5, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao zoom. Se a conexão falhar, verifique se sua conta de zoom tem permissões de administrador e tente novamente.
-
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
-
-8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
+6. No campo **E-mail de notificação,** digite o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e selecione a **Notificação enviar um e-mail quando ocorrer uma falha** na caixa de seleção.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-9. Clique em **Save** (Salvar).
+7. Selecione **Salvar**.
 
-10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para aplicar zoom**.
+8. Na seção **Mapeamentos,** selecione **Sincronizar usuários do diretório ativo do Azure para ampliar**.
 
-    ![Aplicar zoom aos mapeamentos de usuário](media/zoom-provisioning-tutorial/zoom-user-mapping.png)
+9. Revise os atributos do usuário sincronizados do Azure AD para o Zoom na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades correspondentes** são usados para corresponder às contas de usuário no Zoom para operações de atualização. Se você optar por alterar o [atributo de destino correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)você precisará garantir que a API zoom suporte aos usuários filtrantes com base nesse atributo. Selecione o botão **Salvar** para confirmar as alterações.
 
-11. Examine os atributos de usuário que são sincronizados do Azure AD para ampliar a seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário em zoom para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
-    
-     ![Aplicar zoom aos mapeamentos de usuário](media/zoom-provisioning-tutorial/zoom-user-attributes.png)
+   |Atributo|Type|
+   |---|---|
+   |userName|String|
+   |ativo|Boolean|
+   |name.givenName|String|
+   |name.familyName|String|
+   |e-mails[tipo eq "trabalho"]|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento do Azure AD para zoom, altere o **status de provisionamento** para **ativado** na seção **configurações** .
-    
+11. Para habilitar o serviço de provisionamento Azure AD para Zoom, altere o **status de provisionamento** para **ativado** na seção **Configurações.**
+
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você deseja provisionar para aplicar zoom escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os usuários e/ou grupos que você gostaria de provisionar para zoom escolhendo os valores desejados no **Escopo** na seção **Configurações.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para provisionar, clique em **Salvar**.
+13. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no zoom.
+Esta operação inicia o ciclo inicial de sincronização de todos os usuários e grupos definidos no **Escopo** na seção **Configurações.** O ciclo inicial leva mais tempo para ser executado do que os ciclos subseqüentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento Azure AD esteja sendo executado. 
 
-Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Etapa 6. Monitorar a implantação
+Depois de configurar o provisionamento, use os seguintes recursos para monitorar sua implantação:
+
+1. Use os [registros de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com sucesso ou sem sucesso
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e quão perto está da conclusão
+3. Se a configuração de provisionamento parecer estar em um estado insalubre, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)  
 
 ## <a name="connector-limitations"></a>Limitações do conector
-
-* O zoom não oferece suporte ao provisionamento de grupos.
+* O Zoom só permite um máximo de 9.999 usuários básicos hoje.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
