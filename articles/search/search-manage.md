@@ -1,7 +1,7 @@
 ---
-title: Administração de serviço no portal
+title: Administração de serviços no portal
 titleSuffix: Azure Cognitive Search
-description: Gerenciar um serviço de Pesquisa Cognitiva do Azure, um serviço de pesquisa de nuvem hospedado no Microsoft Azure, usando o portal do Azure.
+description: Gerencie um serviço de pesquisa cognitiva do Azure, um serviço de pesquisa em nuvem hospedado no Microsoft Azure, usando o portal Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,30 +10,30 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282920"
 ---
-# <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
+# <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviços para pesquisa cognitiva do Azure no portal Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](search-manage-powershell.md)
+> * [Powershell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-O Azure Pesquisa Cognitiva é um serviço de pesquisa baseado em nuvem totalmente gerenciado usado para criar uma experiência de pesquisa avançada em aplicativos personalizados. Este artigo aborda as tarefas de administração de serviços que você pode executar no [Portal do Azure](https://portal.azure.com) para um serviço de pesquisa já provisionado. A administração de serviços é leve por design, limitada às seguintes tarefas:
+O Azure Cognitive Search é um serviço de pesquisa totalmente gerenciado e baseado em nuvem usado para construir uma rica experiência de pesquisa em aplicativos personalizados. Este artigo aborda as tarefas de administração de serviços que você pode executar no [Portal do Azure](https://portal.azure.com) para um serviço de pesquisa já provisionado. A administração de serviços é leve por design, limitada às seguintes tarefas:
 
 > [!div class="checklist"]
 > * Gerencie o acesso às *chaves-api* usadas para acesso de leitura ou gravação ao seu serviço.
 > * Ajuste a capacidade de serviço, alterando a alocação de partições e réplicas.
 > * Monitorar o uso de recursos, em relação aos limites máximos da sua camada de serviço.
 
-Observe que *atualização* não está listado como uma tarefa administrativa. Já que os recursos são alocados quando o serviço for fornecido, a mudança para uma camada diferente exige um novo serviço. Para obter detalhes, consulte [criar um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md).
+Observe que *atualização* não está listado como uma tarefa administrativa. Já que os recursos são alocados quando o serviço for fornecido, a mudança para uma camada diferente exige um novo serviço. Para obter detalhes, consulte [Criar um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md).
 
-Você pode monitorar o volume de consulta e outras métricas e usar essas informações para ajustar seu serviço para tempos de resposta mais rápidos. Para obter mais informações, confira [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
+Você pode monitorar o volume de consulta e outras métricas e usar esses insights para ajustar seu serviço para tempos de resposta mais rápidos. Para obter mais informações, confira [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -42,12 +42,12 @@ O provisionamento ou encerramento do serviço em si podem ser feitos por um admi
 
 Em um serviço, qualquer pessoa com acesso à URL do serviço e uma chave de API de administração tem acesso de leitura-gravação para o serviço. Acesso de leitura-gravação fornece a capacidade de adicionar, excluir ou modificar objetos de servidor, incluindo chaves de API, índices, indexadores, fontes de dados, agendas e atribuições de função, conforme implementados por meio de [funções definidas pelo RBAC](search-security-rbac.md).
 
-Toda a interação do usuário com o Azure Pesquisa Cognitiva se enquadra em um destes modos: acesso de leitura/gravação ao serviço (direitos de administrador) ou acesso somente leitura ao serviço (direitos de consulta). Para obter mais informações, consulte [Gerenciar as chaves de api](search-security-api-keys.md).
+Toda a interação do usuário com o Azure Cognitive Search está dentro de um desses modos: acesso de leitura e gravação ao serviço (direitos de administrador) ou acesso somente à leitura ao serviço (direitos de consulta). Para obter mais informações, consulte [Gerenciar as chaves de api](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
 ## <a name="logging-and-system-information"></a>Log e informações do sistema
-O Azure Pesquisa Cognitiva não expõe arquivos de log para um serviço individual por meio do portal ou interfaces programáticas. Na camada básica e acima, a Microsoft monitora todos os serviços de Pesquisa Cognitiva do Azure para 99,9% de disponibilidade por SLA (contratos de nível de serviço). Se o serviço estiver lento ou a taxa de transferência de solicitação estiver abaixo dos limites de SLA, as equipes de suporte analisam os arquivos de log disponíveis para resolver o problema.
+O Azure Cognitive Search não expõe arquivos de log para um serviço individual, seja através do portal ou interfaces programáticas. No nível Básico e acima, a Microsoft monitora todos os serviços de Pesquisa Cognitiva do Azure para obter 99,9% de disponibilidade por contratos de nível de serviço (SLA). Se o serviço estiver lento ou a taxa de transferência de solicitação estiver abaixo dos limites de SLA, as equipes de suporte analisam os arquivos de log disponíveis para resolver o problema.
 
 Em termos de informações gerais sobre o serviço, você pode obter informações das seguintes maneiras:
 
@@ -58,28 +58,28 @@ Em termos de informações gerais sobre o serviço, você pode obter informaçõ
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Monitorar o uso de recursos
-No painel, o monitoramento de recursos é limitado às informações mostradas no painel de serviço e a algumas métricas que você pode obter ao consultar o serviço. No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo. Você pode provisionar recursos externos, como o monitoramento do Azure, se desejar capturar e persistir eventos registrados. Para obter mais informações, consulte [monitorando pesquisa cognitiva do Azure](search-monitor-usage.md).
+No painel, o monitoramento de recursos é limitado às informações mostradas no painel de serviço e a algumas métricas que você pode obter ao consultar o serviço. No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo. Você pode provisionar recursos externos, como monitoramento do Azure, se quiser capturar e persistir eventos registrados. Para obter mais informações, consulte [Monitorando a pesquisa cognitiva do Azure](search-monitor-usage.md).
 
-Usando a API REST do serviço de pesquisa, você pode obter uma contagem de documentos e índices programaticamente: 
+Usando o serviço de pesquisa REST API, você pode obter uma contagem de documentos e índices de forma programática: 
 
 * [Obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Contar documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Recuperação de desastre e interrupções de serviço
 
-Embora possamos recuperar seus dados, o Azure Pesquisa Cognitiva não fornece um failover instantâneo do serviço se houver uma interrupção no nível do cluster ou do data center. Se um cluster falhar no datacenter, a equipe de operações detectará e trabalhará para restaurar o serviço. Você experimentará o tempo de inatividade durante a restauração do serviço, mas poderá solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Embora possamos salvar seus dados, o Azure Cognitive Search não fornece failover instantâneo do serviço se houver uma paralisação no nível de cluster ou data center. Se um cluster falhar no datacenter, a equipe de operações detectará e trabalhará para restaurar o serviço. Você experimentará o tempo de inatividade durante a restauração do serviço, mas poderá solicitar créditos de serviço para compensar a indisponibilidade do serviço de acordo com o [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
 Se o serviço contínuo for necessário em caso de falhas catastróficas fora do controle da Microsoft, você poderá [provisionar um serviço adicional](search-create-service-portal.md) em outra região e implementar uma estratégia de replicação geográfica para garantir que os índices seja totalmente redundantes em todos os serviços.
 
-Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos à geografia utilizando a mesma fonte de dados. Dois serviços em diferentes regiões, cada um executando um indexador, poderiam indexar a mesma fonte de dados para obter a redundância geográfica. Se você estiver indexando de fontes de dados que também são com redundância geográfica, lembre-se de que os indexadores do Azure Pesquisa Cognitiva só podem executar a indexação incremental (mesclar atualizações de documentos novos, modificados ou excluídos) de réplicas primárias. Em um evento de failover, verifique se você apontou novamente o indexador para a nova réplica primária. 
+Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos à geografia utilizando a mesma fonte de dados. Dois serviços em diferentes regiões, cada um executando um indexador, poderiam indexar a mesma fonte de dados para obter a redundância geográfica. Se você estiver indexando a partir de fontes de dados que também são geo-redundantes, esteja ciente de que os indexadores de pesquisa cognitiva do Azure só podem realizar indexação incremental (mesclando atualizações de documentos novos, modificados ou excluídos) a partir de réplicas primárias. Em um evento de failover, verifique se você apontou novamente o indexador para a nova réplica primária. 
 
-Se você não usar indexadores, você usará o código do aplicativo para enviar objetos e dados por push para diferentes serviços de pesquisa em paralelo. Para obter mais informações, consulte [desempenho e otimização no Azure pesquisa cognitiva](search-performance-optimization.md).
+Se você não usar indexadores, você usará o código do aplicativo para enviar objetos e dados por push para diferentes serviços de pesquisa em paralelo. Para obter mais informações, consulte [Desempenho e otimização na Pesquisa Cognitiva do Azure](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Backup e restauração
 
-Como o Azure Pesquisa Cognitiva não é uma solução de armazenamento de dados principal, não fornecemos um mecanismo formal para backup e restauração de autoatendimento. No entanto, você pode usar o código de exemplo **index-backup-restore** neste [repositório de exemplo do Azure pesquisa cognitiva .net](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup da definição de índice e do instantâneo para uma série de arquivos JSON e, em seguida, usar esses arquivos para restaurar o índice, se necessário. Essa ferramenta também pode mover índices entre as camadas de serviço.
+Como o Azure Cognitive Search não é uma solução primária de armazenamento de dados, não fornecemos um mecanismo formal para backup e restauração de autoatendimento. No entanto, você pode usar o código de amostra **de restauração de backup de índice** neste [repo de amostra Azure Cognitive Search .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) para fazer backup da sua definição de índice e instantâneo para uma série de arquivos JSON e, em seguida, usar esses arquivos para restaurar o índice, se necessário. Esta ferramenta também pode mover índices entre os níveis de serviço.
 
-Caso contrário, o código do aplicativo usado para criar e popular um índice é a opção de restauração de fato se você excluir um índice por engano. Para recompilar um índice, exclua-o (supondo que ele exista), recrie o índice no serviço e recarregue-o recuperando dados do armazenamento de dados primário.
+Caso contrário, o código de aplicativo usado para criar e povoar um índice é a opção de restauração de fato se você excluir um índice por engano. Para recompilar um índice, exclua-o (supondo que ele exista), recrie o índice no serviço e recarregue-o recuperando dados do armazenamento de dados primário.
 
 <a id="scale"></a>
 

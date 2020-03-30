@@ -1,16 +1,16 @@
 ---
 title: Implantar conteúdo usando FTP/S
-description: Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP ou FTPS. Melhorar a segurança do site desabilitando o FTP não criptografado.
+description: Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP ou FTPS. Melhore a segurança do site desativando FTP não criptografado.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266007"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S
@@ -21,38 +21,38 @@ O ponto de extremidade FTP/S para seu aplicativo já está ativo. Nenhuma config
 
 ## <a name="open-ftp-dashboard"></a>Abrir o painel FTP
 
-1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos**.
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **Serviços de Aplicativos.**
 
-    ![Pesquise serviços de aplicativos.](media/app-service-continuous-deployment/search-for-app-services.png)
+    ![Procure serviços de App.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-2. Selecione o aplicativo Web que você deseja implantar.
+2. Selecione o aplicativo web que deseja implantar.
 
     ![Selecione seu aplicativo.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Selecione **central de implantação** > **painel**de > **FTP** .
+3. Selecione O painel**FTP** >  **do Centro** > **de Implantação**.
 
     ![Abrir o painel FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>Obter informações de conexão de FTP
 
-No painel de FTP, selecione **copiar** para copiar o ponto de extremidade de FTPS e as credenciais do aplicativo.
+No painel FTP, selecione **Copiar** para copiar o ponto final do FTPS e as credenciais do aplicativo.
 
 ![Copiar informações de FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 É recomendável que você use as **Credenciais do Aplicativo** para implantar seu aplicativo porque ele é exclusivo para cada aplicativo. No entanto, se você clicar em **Credenciais do Usuário**, poderá definir as credenciais de nível de usuário a serem usadas para logon do FTP/S em todos os aplicativos do Serviço de Aplicativo em sua assinatura.
 
 > [!NOTE]
-> A autenticação em um ponto de extremidade de FTP/FTPS usando credenciais de nível de usuário exige um nome de usuário no seguinte formato: 
+> Autenticação em um ponto final FTP/FTPS usando credenciais de nível de usuário requer um nome de usuário no seguinte formato: 
 >
 >`<app-name>\<user-name>`
 >
-> Como as credenciais de nível de usuário são vinculadas ao usuário e não a um recurso específico, o nome de usuários deve estar nesse formato para direcionar a ação de entrada para o ponto de extremidade do aplicativo certo.
+> Uma vez que as credenciais de nível de usuário estão vinculadas ao usuário e não a um recurso específico, o nome de usuário deve estar neste formato para direcionar a ação de login para o ponto final do aplicativo certo.
 >
 
 ## <a name="deploy-files-to-azure"></a>Implantar arquivos no Azure
 
 1. Do seu cliente de FTP (por exemplo, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) ou [WinSCP](https://winscp.net/index.php)), use as informações de conexão que você reuniu para se conectar ao seu aplicativo.
-2. Copie seus arquivos e a respectiva estrutura de diretórios para o diretório [ **/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o diretório **/site/wwwroot/App_Data/Jobs/** para Trabalhos Web).
+2. Copie seus arquivos e a respectiva estrutura de diretórios para o diretório [**/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o diretório **/site/wwwroot/App_Data/Jobs/** para Trabalhos Web).
 3. Navegue até a URL do aplicativo para verificar se ele está sendo executado corretamente. 
 
 > [!NOTE] 
@@ -69,9 +69,9 @@ No painel de FTP, selecione **copiar** para copiar o ponto de extremidade de FTP
 
 Para maior segurança, você deve permitir somente FTP por SSL. Você também pode desabilitar FTP e FTPS se não usa a implantação de FTP.
 
-Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione **configuração** > **configurações gerais** no painel de navegação esquerdo.
+Na página de recursos do seu aplicativo no [portal Azure,](https://portal.azure.com)selecione **Configuração** > **geral de configuração** a partir da navegação à esquerda.
 
-Para desabilitar o FTP não criptografado, selecione **FTPS somente** no **estado do FTP**. Para desabilitar totalmente o FTP e a FTPS, selecione **desabilitado**. Ao terminar, clique em **Salvar**. Se estiver usando **apenas FTPS**, você deve impor o TLS 1,2 ou superior navegando até a folha **configurações de TLS/SSL** do seu aplicativo Web. Não há suporte para TLS 1.0 e 1.1 com **FTPS Apenas**.
+Para desativar o FTP não criptografado, selecione **FTPS somente** no **estado FTP**. Para desativar totalmente o FTP e o FTPS, **selecione Disabled**. Ao terminar, clique em **Salvar**. Se usar **somente FTPS,** você deve impor o TLS 1.2 ou superior navegando até a lâmina de **configurações TLS/SSL** do seu aplicativo web. Não há suporte para TLS 1.0 e 1.1 com **FTPS Apenas**.
 
 ![Desabilitar FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -86,7 +86,7 @@ Para implantação de FTP usando o [Azure PowerShell](/cli/azure), veja [Carrega
 ## <a name="troubleshoot-ftp-deployment"></a>Solucionar problemas de implantação de FTP
 
 - [Como soluciono problemas de implantação de FTP?](#how-can-i-troubleshoot-ftp-deployment)
-- [Não consigo fazer o FTP e publicar meu código. Como posso resolver o problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Eu não sou capaz de FTP e publicar meu código. Como posso resolver o problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [Como faço para me conectar ao FTP no Serviço de Aplicativo do Azure por meio do modo passivo?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Como soluciono problemas de implantação de FTP?

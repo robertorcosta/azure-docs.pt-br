@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275172"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
@@ -25,8 +25,8 @@ As soluções de gerenciamento no Azure são implementadas como [modelos do Reso
 
 É possível usar qualquer editor de texto para trabalhar com arquivos de solução, mas recomendamos aproveitar os recursos fornecidos no Visual Studio ou no Visual Studio Code, conforme descrito nos próximos artigos.
 
-- [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
-- [Trabalhando com Modelos do Azure Resource Manager no Visual Studio Code](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [Criação e implantação de grupos de recurso do Azure por meio do Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [Trabalhando com modelos do Azure Resource Manager no Visual Studio Code](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -43,7 +43,7 @@ A estrutura básica de um arquivo de solução de gerenciamento é a mesma que u
        "outputs": {  }
     }
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 [Parâmetros](../../azure-resource-manager/templates/template-syntax.md#parameters) são valores que exige dos usuários quando eles instalam a solução de gerenciamento.  Eles são parâmetros padrão que todas as soluções terão; além disso, você pode adicionar parâmetros adicionais conforme necessário para sua solução específica.  O modo como os usuários fornecerão valores de parâmetro quando instalarem sua solução dependerá do parâmetro específico e do modo como a solução estiver sendo instalada.
 
 Quando um usuário instala a solução de gerenciamento por meio do [Azure Marketplace](solutions.md#install-a-monitoring-solution) ou dos Modelos de Início Rápido do Azure, será solicitado que ele selecione uma Conta de automação e um [Espaço de Trabalho do Log Analytics](solutions.md#log-analytics-workspace-and-automation-account).  Eles são usados para preencher os valores de cada um dos parâmetros padrão.  Não é solicitado que o usuário forneça diretamente os valores dos parâmetros padrão, mas será solicitado que ele forneça valores para eventuais parâmetros adicionais.
@@ -61,7 +61,7 @@ Um parâmetro de exemplo é mostrado abaixo.
 
 A tabela a seguir descreve os atributos de um parâmetro.
 
-| Atributo | DESCRIÇÃO |
+| Atributo | Descrição |
 |:--- |:--- |
 | type |Tipo de dados para o parâmetro. O controle de entrada exibido para o usuário depende do tipo de dados.<br><br>bool – Caixa suspensa<br>cadeia de caracteres – caixa de texto<br>int – Caixa de texto<br>securestring – Campo de senha<br> |
 | category |Categoria opcional para o parâmetro.  Parâmetros na mesma categoria são agrupados. |
@@ -76,7 +76,7 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 >
 >
 
-| Parâmetro | Type | DESCRIÇÃO |
+| Parâmetro | Type | Descrição |
 |:--- |:--- |:--- |
 | accountName |string |Nome da conta de Automação do Azure. |
 | pricingTier |string |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
@@ -122,9 +122,9 @@ A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar
     }
 
 
-Consulte os valores de parâmetro em outros elementos da solução com a sintaxe **parameters('nome do parâmetro')** .  Por exemplo, para acessar o nome do workspace, você usaria **parameters('workspaceName')**
+Consulte os valores de parâmetro em outros elementos da solução com a sintaxe **parameters('nome do parâmetro')**.  Por exemplo, para acessar o nome do espaço de trabalho, você usaria **parâmetros ('workspaceName')**
 
-## <a name="variables"></a>variáveis
+## <a name="variables"></a>Variáveis
 [Variáveis](../../azure-resource-manager/templates/template-syntax.md#variables) são valores que serão usados no restante da solução de gerenciamento.  Esses valores não são expostos ao usuário que instala a solução.  Eles se destinam a fornecer ao autor um único local onde ele pode gerenciar os valores que podem ser usados várias vezes em toda a solução. É necessário colocar os valores específicos à solução em variáveis, em vez de embuti-los em código no elemento **resources**.  Isso torna o código mais legível e permite que você altere esses valores facilmente em versões posteriores.
 
 A seguir está um exemplo de um elemento **variables** com parâmetros típicos usado em soluções.
@@ -137,7 +137,7 @@ A seguir está um exemplo de um elemento **variables** com parâmetros típicos 
         "AutomationApiVersion": "2015-10-31"
     },
 
-Você consulta os valores de variáveis por toda a solução com a sintaxe **variables('nome da variável')** .  Por exemplo, para acessar a variável SolutionName, você usará **variables('SolutionName')** .
+Você consulta os valores de variáveis por toda a solução com a sintaxe **variables('nome da variável')**.  Por exemplo, para acessar a variável SolutionName, você usaria **variáveis ('SolutionName')**.
 
 Você também pode definir variáveis complexas que têm vários conjuntos de valores.  Elas são particularmente úteis em soluções de gerenciamento, quando você estiver definindo várias propriedades para diferentes tipos de recursos.  Por exemplo, é possível reestruturar as variáveis da solução mostradas acima, conforme indicado a seguir.
 
@@ -204,9 +204,9 @@ O recurso da solução deve ter uma [dependência](../../azure-resource-manager/
 ### <a name="properties"></a>Propriedades
 O recurso da solução tem as propriedades na tabela a seguir.  Isso inclui os recursos referenciados e contidos pela solução que define como os recursos são gerenciados após a instalação da solução.  Cada recurso na solução deve ser listado na propriedade **referencedResources** ou **containedResources**.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
-| workspaceResourceId |ID do espaço de trabalho Log Analytics no formato *\<ID do grupo de recursos >/providers/Microsoft.OperationalInsights/workspaces/\<nome do espaço de trabalho\>* . |
+| workspaceResourceId |ID do espaço de trabalho do Log Analytics no formulário * \<ID do Grupo\<de Recursos\>>/provedores/Microsoft.OperationalInsights/workspaces/ Nome do espaço de trabalho*. |
 | referencedResources |Lista de recursos na solução que não deverão ser removidos quando a solução for removida. |
 | containedResources |Lista de recursos na solução que deverão ser removidos quando a solução for removida. |
 
@@ -215,7 +215,7 @@ O exemplo acima é uma solução com um runbook, um cronograma e uma exibição.
 ### <a name="plan"></a>Plano
 A entidade **plano** do recurso da solução tem as propriedades na tabela a seguir.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | name |O nome da solução. |
 | version |Versão da solução conforme determinado pelo autor. |

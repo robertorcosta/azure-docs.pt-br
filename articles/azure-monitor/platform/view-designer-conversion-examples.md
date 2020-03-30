@@ -1,5 +1,5 @@
 ---
-title: Exemplos de conversão do designer de exibição para pastas de trabalho Azure Monitor
+title: Azure Monitor visualiza designer para exemplos de conversão de livros de trabalho
 description: ''
 author: austonli
 ms.author: aul
@@ -7,19 +7,19 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: b50d8cfa4731c487997e2bf431a9c71eff08f5d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274158"
 ---
-# <a name="view-designer-conversion-examples"></a>Exemplos de conversão do designer de exibição
+# <a name="view-designer-conversion-examples"></a>Ver exemplos de conversão de designers
 
-Para replicar a pasta de trabalho com guias do designer de exibição, copie e cole o código a seguir no editor avançado, indicado pelo símbolo de </> na barra de ferramentas
+Para replicar a pasta de trabalho do designer de exibição, copie e cole o seguinte código no editor Avançado, denotado pelo símbolo </> na barra de ferramentas
 
-![Barra de ferramentas Editor Avançado](media/view-designer-conversion-examples/toolbar.png)
+![Barra de ferramentas do editor avançado](media/view-designer-conversion-examples/toolbar.png)
 
-Os usuários podem precisar atualizar suas configurações de consulta e assinaturas para seus próprios recursos acessíveis
+Os usuários podem ter que atualizar suas configurações de consulta e assinaturas para seus próprios recursos acessíveis
 
 ## <a name="vertical"></a>Vertical
 
@@ -337,7 +337,7 @@ Os usuários podem precisar atualizar suas configurações de consulta e assinat
 }
 ```
 
-## <a name="tabbed"></a>Com guias 
+## <a name="tabbed"></a>Tabulado 
 
 ```Json
 {

@@ -9,10 +9,10 @@ ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 5bab70b6b023a4e6510e32368d407a38388cde2f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256062"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
@@ -23,7 +23,7 @@ O armazenamento do Azure é uma solução de armazenamento em nuvem da Microsoft
 - **Proteger.** Todos os dados gravados no Armazenamento do Azure são criptografados pelo serviço. O Armazenamento do Azure oferece um controle refinado sobre quem possui acesso aos seus dados.
 - **Escalonável.** O Armazenamento do Azure foi concebido para ser altamente escalonável e atender às necessidades de desempenho e armazenamento de dados dos aplicativos atuais.
 - **Gerenciado.** O Microsoft Azure lida com a manutenção, com atualizações e com questões críticas de hardware para você.
-- **Acessível.** Os dados no Armazenamento do Azure são acessíveis de qualquer lugar no mundo por HTTP ou HTTPS. A Microsoft fornece bibliotecas de cliente para o armazenamento do Azure em uma variedade de linguagens, incluindo .NET, Java, Node. js, Python, PHP, Ruby, Go e outros, bem como uma API REST madura. O Armazenamento do Azure oferece suporte para scripts no Azure PowerShell ou na CLI do Azure. E o Portal do Azure e o Gerenciador de Armazenamento do Azure oferecem soluções visualmente fáceis para o trabalho com os seus dados.  
+- **Acessível.** Os dados no Armazenamento do Azure são acessíveis de qualquer lugar no mundo por HTTP ou HTTPS. A Microsoft fornece bibliotecas de clientes para armazenamento Azure em uma variedade de idiomas, incluindo .NET, Java, Node.js, Python, PHP, Ruby, Go e outros, bem como uma API rest madura. O Armazenamento do Azure oferece suporte para scripts no Azure PowerShell ou na CLI do Azure. E o Portal do Azure e o Gerenciador de Armazenamento do Azure oferecem soluções visualmente fáceis para o trabalho com os seus dados.  
 
 ## <a name="azure-storage-services"></a>Serviços do Armazenamento do Azure
 
@@ -74,21 +74,21 @@ Para obter mais informações sobre Arquivos do Azure, consulte [Introdução ao
 
 O serviço Fila do Azure é usado para armazenar e recuperar mensagens. A fila de mensagens pode ser de até 64 KB de tamanho e uma fila pode conter milhões de mensagens. Filas são geralmente usadas para armazenar as listas de mensagens a serem processadas de forma assíncrona.
 
-Por exemplo, digamos que você deseja que seus clientes possam carregar imagens e você deseja criar miniaturas para cada imagem. Você pode fazer com que o cliente aguarde que você crie miniaturas ao carregar as imagens. Uma alternativa seria usar uma fila. Quando o cliente concluir o carregamento, grave uma mensagem na fila. Em seguida, faça com que uma Função do Azure recupere a mensagem da fila e crie as miniaturas. Cada uma das partes desse processamento pode ser dimensionada separadamente oferecendo mais controle durante o ajuste para seu uso.
+Por exemplo, digamos que você deseja que seus clientes possam carregar imagens e você deseja criar miniaturas para cada imagem. Você pode fazer com que o cliente aguarde que você crie miniaturas ao carregar as imagens. Uma alternativa seria usar uma fila. Quando o cliente terminar seu upload, escreva uma mensagem para a fila. Em seguida, faça com que uma Função do Azure recupere a mensagem da fila e crie as miniaturas. Cada uma das partes desse processamento pode ser dimensionada separadamente oferecendo mais controle durante o ajuste para seu uso.
 
 Para obter mais informações sobre Filas do Azure, consulte [Introdução às Filas do Azure](../queues/storage-queues-introduction.md).
 
 ## <a name="table-storage"></a>Armazenamento de tabela
 
-O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira [API de Tabela do Azure Cosmos DB](https://aka.ms/premiumtables).
+O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira a [API de tabela do Azure Cosmos DB](https://aka.ms/premiumtables).
 
 Para saber mais informações sobre o armazenamento de tabelas, consulte [Visão geral do armazenamento de Tabelas do Azure](../tables/table-storage-overview.md).
 
 ## <a name="disk-storage"></a>Armazenamento em disco
 
-Um disco gerenciado do Azure é um disco rígido virtual (VHD). Você pode pensar nisso como um disco físico em um servidor local, mas virtualizado. Os discos gerenciados do Azure são armazenados como blobs de página, que são um objeto de armazenamento de E/S aleatório no Azure. Chamamos um disco gerenciado "Managed" porque ele é uma abstração em blobs de página, contêineres de BLOB e contas de armazenamento do Azure. Com discos gerenciados, tudo o que você precisa fazer é provisionar o disco e o Azure cuidará do resto.
+Um disco gerenciado do Azure é um disco rígido virtual (VHD). Você pode pensar nisso como um disco físico em um servidor local, mas virtualizado. Os discos gerenciados do Azure são armazenados como blobs de página, que são um objeto de armazenamento de E/S aleatório no Azure. Chamamos um disco gerenciado de 'gerenciado' porque é uma abstração sobre blobs de página, recipientes blob e contas de armazenamento DoZure. Com discos gerenciados, tudo o que você precisa fazer é provisionar o disco e o Azure cuidará do resto.
 
-Para obter mais informações sobre discos gerenciados, consulte [introdução aos Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Para obter mais informações sobre discos gerenciados, consulte [Introdução aos discos gerenciados do Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 
@@ -96,15 +96,15 @@ Para obter mais informações sobre discos gerenciados, consulte [introdução a
 
 Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md).
 
-## <a name="securing-access-to-storage-accounts"></a>Protegendo o acesso a contas de armazenamento
+## <a name="securing-access-to-storage-accounts"></a>Garantir acesso a contas de armazenamento
 
-Cada solicitação para o armazenamento do Azure deve ser autorizada. O armazenamento do Azure dá suporte aos seguintes métodos de autorização:
+Todas as solicitações ao Azure Storage devem ser autorizadas. O Azure Storage suporta os seguintes métodos de autorização:
 
-- **Integração do Azure Active Directory (Azure AD) para dados de BLOB e fila.** O armazenamento do Azure dá suporte à autenticação e autorização com o Azure AD para os serviços BLOB e fila por meio do controle de acesso baseado em função (RBAC). A autorização de solicitações com o Azure AD é recomendada para segurança superior e facilidade de uso. Para obter mais informações, consulte [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md).
-- **Autorização do Azure AD sobre SMB para arquivos do Azure (versão prévia).** Os arquivos do Azure oferecem suporte à autorização baseada em identidade sobre SMB (protocolo de mensagem de servidor) por meio de Azure Active Directory Domain Services. Suas VMs (máquinas virtuais) do Windows ingressadas no domínio podem acessar compartilhamentos de arquivos do Azure usando as credenciais do Azure AD. Para obter mais informações, consulte [visão geral da autorização de Azure Active Directory sobre SMB para arquivos do Azure (versão prévia)](../files/storage-files-active-directory-overview.md).
-- **Autorização com chave compartilhada.** Os serviços Azure Storage Blob, fila e tabela e arquivos do Azure dão suporte à autorização com chave compartilhada. um cliente que usa a autorização de chave compartilhada passa um cabeçalho com cada solicitação que é assinada usando a chave de acesso da conta de armazenamento. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
-- **Autorização usando SAS (assinaturas de acesso compartilhado).** Uma SAS (assinatura de acesso compartilhado) é uma cadeia de caracteres que contém um token de segurança que pode ser anexado ao URI para um recurso de armazenamento. O token de segurança encapsula restrições como permissões e o intervalo de acesso. Para obter mais informações, consulte [usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md).
-- **Acesso anônimo a contêineres e blobs.** Um contêiner e seus BLOBs podem estar publicamente disponíveis. Quando você especifica que um contêiner ou BLOB é público, qualquer pessoa pode lê-lo anonimamente; nenhuma autenticação é necessária. Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md)
+- **Integração do Azure Active Directory (Azure AD) para dados de blob e fila.** O Azure Storage suporta autenticação e autorização com o Azure AD para os serviços Blob e Queue via RBAC (Role-based Access Control). Recomenda-se solicitar pedidos autorizados com o Azure AD para maior segurança e facilidade de uso. Para obter mais informações, consulte [Autorizar o acesso a blobs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md).
+- **Autorização do Azure AD sobre SMB para Arquivos Azure (visualização).** O Azure Files suporta autorização baseada em identidade sobre SMB (Server Message Block) através dos Serviços de Domínio do Diretório Ativo do Azure. As VMs (máquinas virtuais) do Windows ingressadas no domínio podem acessar os compartilhamentos de arquivos do Azure usando as credenciais do Azure AD. Para obter mais informações, consulte [Visão geral da autorização do Azure Active Directory sobre smb para arquivos Azure (visualização)](../files/storage-files-active-directory-overview.md).
+- **Autorização com chave compartilhada.** Os serviços de blob, fila e tabela do Azure e a autorização de suporte a arquivos Do zure com a Chave Compartilhada.Um cliente que usa a autorização de chave compartilhada passa um cabeçalho com cada solicitação assinada usando a chave de acesso da conta de armazenamento. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Autorização utilizando assinaturas de acesso compartilhado (SAS).** Uma assinatura de acesso compartilhado (SAS) é uma string contendo um token de segurança que pode ser anexado ao URI para um recurso de armazenamento. O token de segurança encapsula restrições como permissões e o intervalo de acesso. Para obter mais informações, consulte [O uso de Assinaturas de Acesso Compartilhado (SAS).](storage-sas-overview.md)
+- **Acesso anônimo a contêineres e bolhas.** Um contêiner e suas bolhas podem estar disponíveis publicamente. Quando você especifica que um contêiner ou bolha é público, qualquer pessoa pode lê-lo anonimamente; nenhuma autenticação é necessária. Para obter mais informações, consulte [Gerenciar acesso de leitura anônima a contêineres e blobs](../blobs/storage-manage-access-to-resources.md)
 
 ## <a name="encryption"></a>Criptografia
 
@@ -112,15 +112,15 @@ Há dois tipos básicos de criptografia disponíveis para os serviços de Armaze
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
-A criptografia de armazenamento do Azure protege e protege seus dados para atender aos compromissos de segurança e conformidade da organização. O armazenamento do Azure criptografa automaticamente todos os dados antes de persistir para a conta de armazenamento e descriptografá-los antes da recuperação. Os processos de criptografia, descriptografia e gerenciamento de chaves são totalmente transparentes para os usuários. Os clientes também podem optar por gerenciar suas próprias chaves usando Azure Key Vault. Para obter mais informações, consulte [criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md).
+A criptografia do Azure Storage protege e protege seus dados para atender aos seus compromissos de segurança organizacional e conformidade. O Azure Storage criptografa automaticamente todos os dados antes de persistir na conta de armazenamento e descriptografá-los antes da recuperação. Os processos de criptografia, descriptografia e gerenciamento de chaves são totalmente transparentes para os usuários. Os clientes também podem optar por gerenciar suas próprias chaves usando o Azure Key Vault. Para obter mais informações, consulte [a criptografia de armazenamento do Azure para obter dados em repouso](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Criptografia do cliente
 
-As bibliotecas de cliente de armazenamento do Azure fornecem métodos para criptografar dados da biblioteca de cliente antes de enviá-los pela rede e descriptografar a resposta. Os dados criptografados por meio da criptografia do lado do cliente também são criptografados em repouso pelo armazenamento do Azure. Para obter mais informações sobre criptografia do lado do cliente, consulte [criptografia do lado do cliente com .net para o armazenamento do Azure](storage-client-side-encryption.md).
+As bibliotecas de clientes do Azure Storage fornecem métodos para criptografar dados da biblioteca cliente antes de enviá-los através do fio e descriptografar a resposta. Os dados criptografados via criptografia do lado do cliente também são criptografados em repouso pelo Azure Storage. Para obter mais informações sobre criptografia do lado do cliente, consulte [a criptografia do lado do cliente com o .NET for Azure Storage](storage-client-side-encryption.md).
 
 ## <a name="redundancy"></a>Redundância
 
-Para garantir que seus dados sejam duráveis, o armazenamento do Azure armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância.
+Para garantir que seus dados sejam duráveis, o Azure Storage armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
@@ -138,14 +138,14 @@ Os recursos do Armazenamento do Azure podem ser acessados por qualquer linguagem
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Bibliotecas de referência e API de dados do Armazenamento do Azure
 
-- [API REST de Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/)
-- [Biblioteca de cliente de armazenamento do Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Biblioteca de cliente de armazenamento do Azure para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteca de cliente de armazenamento do Azure para node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
-- [Biblioteca de cliente de armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python)
-- [Biblioteca de cliente de armazenamento do Azure para PHP](https://github.com/Azure/azure-storage-php)
-- [Biblioteca de cliente de armazenamento do Azure para Ruby](https://github.com/Azure/azure-storage-ruby)
-- [Biblioteca de cliente de armazenamento do Azure paraC++](https://github.com/Azure/azure-storage-cpp)
+- [API de descanso de armazenamento azure](https://docs.microsoft.com/rest/api/storageservices/)
+- [Biblioteca cliente do Azure Storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+- [Biblioteca cliente do Azure Storage para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
+- [Biblioteca de clientes do Azure Storage para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Biblioteca cliente do Azure Storage para Python](https://github.com/Azure/azure-storage-python)
+- [Biblioteca cliente do Azure Storage para PHP](https://github.com/Azure/azure-storage-php)
+- [Biblioteca cliente do Azure Storage para Ruby](https://github.com/Azure/azure-storage-ruby)
+- [Biblioteca cliente do Azure Storage para C++](https://github.com/Azure/azure-storage-cpp)
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Bibliotecas de referência e API de gerenciamento do Armazenamento do Azure
 

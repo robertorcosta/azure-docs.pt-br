@@ -1,15 +1,15 @@
 ---
-title: Exemplos de manifesto de aplicativo de Reliable Services
+title: Exemplos de manifesto de aplicativos de serviços confiáveis
 description: Saiba como definir as configurações do aplicativo e do manifesto do serviço para um aplicativo Reliable Services do Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: f40e54f5260f827f0b18c833d23d1f57b5ebc3a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282348"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de aplicativo de Reliable Services e manifesto do serviço
@@ -17,9 +17,9 @@ A seguir estão exemplos dos manifestos de aplicativo e serviço para um aplicat
 
 Os seguintes recursos são mostrados:
 
-|Manifesto|Recursos|
+|Manifest|Recursos|
 |---|---|
-|[Manifesto do aplicativo](#application-manifest)| [governança de recursos](service-fabric-resource-governance.md), [executar um serviço como uma conta do administrador local](service-fabric-application-runas-security.md), [aplicar uma política padrão a todos os pacotes de código de serviço](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [criar entidades de usuário e grupo](service-fabric-application-runas-security.md), compartilhar um pacote de dados entre instâncias de serviço, [substituir pontos de extremidade de serviço](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
+|[Manifesto de aplicação](#application-manifest)| [governança de recursos](service-fabric-resource-governance.md), [executar um serviço como uma conta do administrador local](service-fabric-application-runas-security.md), [aplicar uma política padrão a todos os pacotes de código de serviço](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [criar entidades de usuário e grupo](service-fabric-application-runas-security.md), compartilhar um pacote de dados entre instâncias de serviço, [substituir pontos de extremidade de serviço](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
 |Manifesto do serviço FrontEndService| [Executar um script na inicialização do serviço](service-fabric-run-script-at-service-startup.md), [definir um ponto de extremidade HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
 |Manifesto do serviço BackEndService| [Declarar um pacote de configuração](service-fabric-application-and-service-manifests.md), [declarar um pacote de dados](service-fabric-application-and-service-manifests.md), [configurar um ponto de extremidade](service-fabric-service-manifest-resources.md)| 
 

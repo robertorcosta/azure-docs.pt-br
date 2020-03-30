@@ -1,15 +1,15 @@
 ---
-title: Configurar um ambiente de desenvolvimento do Windows para Service Fabric malha
+title: Configure um ambiente de dev do Windows para malha de malha de malha de malha de malha de malha de malha de serviço
 description: Configure seu ambiente de desenvolvimento do Windows para que você possa criar um aplicativo de malha do Service Fabric e implante-o na malha do Azure Service Fabric.
 author: dkkapur
 ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: a674047722d4deca02d8f4d38a0826e479065037
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259195"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurar seu ambiente de desenvolvimento do Windows para compilar aplicativos de Malha do Service Fabric
@@ -27,32 +27,32 @@ E uma das seguintes versões do Windows:
 * Windows Server versão 1709
 * Windows Server versão 1803
 
-As instruções a seguir o ajudarão a obter tudo instalado com base na versão do Windows que você está executando.
+As instruções a seguir ajudarão você a instalar tudo com base na versão do Windows que você está executando.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="visual-studio"></a>Visual Studio
 
-O Visual Studio 2017 ou posterior é necessário para implantar Service Fabric aplicativos de malha. [Instale a versão 15.6.0][download-visual-studio] ou superior e habilite as seguintes cargas de trabalho:
+Visual Studio 2017 ou posterior é necessário para implantar aplicativos de malha de malha de malha de malha de malha de serviço. [Instale a versão 15.6.0][download-visual-studio] ou uma versão posterior e habilite as cargas de trabalho a seguir:
 
 * Desenvolvimento Web e ASP.NET
 * Desenvolvimento do Azure
 
 ## <a name="install-docker"></a>Instalar o Docker
 
-Se você já tem o Docker instalado, verifique se você tem a versão mais recente. O Docker pode solicitar a você quando uma nova versão estiver fora, mas verificar manualmente para garantir que você tenha a versão mais recente.
+Se você já tem o Docker instalado, verifique se você tem a versão mais recente. O Docker pode solicitar quando uma nova versão for retirada, mas verifique manualmente para garantir que você tenha a versão mais recente.
 
 #### <a name="install-docker-on-windows-10"></a>Instalar o Docker no Windows 10
 
-Baixe e instale a versão mais recente da [Community Edition para Windows][download-docker] para dar suporte aos aplicativos Service Fabric em contêineres usados pela malha Service Fabric.
+Baixe e instale a versão mais recente do [Docker Community Edition para Windows][download-docker] para dar suporte a aplicativos do Service Fabric em contêineres usados pela Malha do Service Fabric.
 
 Durante a instalação, selecione **Usar contêineres do Windows em vez de contêineres do Linux** quando for solicitado.
 
-Se o Hyper-V não estiver habilitado no seu computador, o instalador do Docker oferecerá para habilitá-lo. Clique em **OK** para fazê-lo se solicitado.
+Se o Hyper-V não estiver habilitado na sua máquina, o instalador do Docker oferecerá para habilitá-lo. Clique em **OK** para fazê-lo se solicitado.
 
 #### <a name="install-docker-on-windows-server-2016"></a>Instalar o Docker no Windows Server 2016
 
-Se a função do Hyper-V não estiver habilitada, abra o PowerShell como administrador e execute o seguinte comando para instalar o Hyper-V e reinicie o computador. Para obter mais informações, consulte [Docker Enterprise Edition para Windows Server][download-docker-server].
+Se a função do Hyper-V não estiver habilitada, abra o PowerShell como administrador e execute o seguinte comando para instalar o Hyper-V e reinicie o computador. Para saber mais, confira a [Edição Docker Enterprise para Windows Server][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
@@ -72,8 +72,8 @@ Install-WindowsFeature Containers
 
 Instale o runtime da Malha do Service Fabric, o SDK e as ferramentas na ordem a seguir.
 
-1. Instale o [SDK do Service Fabric mesh][download-sdkmesh] usando Web Platform Installer. Isso instalará também o runtime e o SDK do Microsoft Azure Service Fabric.
-2. Instale a [extensão das ferramentas de malha de Service Fabric do Visual Studio (versão prévia)][download-tools] do Visual Studio Marketplace.
+1. Instale o [SDK da malha do Service Fabric][download-sdkmesh] usando o Web Platform Installer. Isso instalará também o runtime e o SDK do Microsoft Azure Service Fabric.
+2. Instale a [extensão de Ferramentas da Malha do Service Fabric do Visual Studio (versão prévia)][download-tools] do Visual Studio Marketplace.
 
 ## <a name="build-a-cluster"></a>Criar um cluster
 
@@ -85,9 +85,9 @@ Instale o runtime da Malha do Service Fabric, o SDK e as ferramentas na ordem a 
 > Se estiver desenvolvendo em um computador com a atualização Windows Fall Creators Update (versão 1709), você só poderá usar imagens do docker do Windows versão 1709.
 > Se estiver desenvolvendo no computador com a atualização de 10 de abril de 2018 do Windows (versão 1803), você poderá usar imagens do Docker do Windows versão 1709 ou 1803.
 
-Se você estiver usando o Visual Studio, poderá ignorar esta seção porque o Visual Studio criará um cluster local para você, se você não tiver um.
+Se você estiver usando o Visual Studio, você pode pular esta seção porque o Visual Studio criará um cluster local para você se você não tiver um.
 
-Para obter o melhor desempenho de depuração quando você estiver criando e executando um único aplicativo de Service Fabric de cada vez, crie um cluster de desenvolvimento local de nó único. Se você estiver executando vários aplicativos por vez, crie um cluster de desenvolvimento local de cinco nós. O cluster precisa estar em execução sempre que você implanta ou depura um projeto de Malha do Service Fabric.
+Para obter o melhor desempenho de depuração quando você estiver criando e executando um único aplicativo Service Fabric por vez, crie um cluster de desenvolvimento local de nó único. Se você estiver executando vários aplicativos ao mesmo tempo, crie um cluster de desenvolvimento local de cinco nós. O cluster precisa estar em execução sempre que você implanta ou depura um projeto de Malha do Service Fabric.
 
 Depois de instalar o runtime, os SDKs, as ferramentas do Visual Studio, Docker e estar com o Docker funcionando, crie um cluster de desenvolvimento.
 

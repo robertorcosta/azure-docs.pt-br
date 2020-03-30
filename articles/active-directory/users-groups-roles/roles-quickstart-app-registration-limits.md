@@ -1,6 +1,6 @@
 ---
-title: Remover limites na criação de registros de aplicativo-Azure AD | Microsoft Docs
-description: Atribuir uma função personalizada para conceder registros de aplicativo irrestrito no Azure AD Active Directory
+title: Remover limites na criação de registros de aplicativos - Azure AD | Microsoft Docs
+description: Atribua uma função personalizada para conceder registros irrestritos de aplicativos no Azure AD Active Directory
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,61 +14,61 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7acd76ff45f783f614b2a1d3f0d5c10d800a1ea9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77559038"
 ---
-# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Início rápido: conceder permissão para criar registros de aplicativo ilimitados
+# <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Quickstart: Permissão de concessão para criar registros ilimitados de aplicativos
 
-Neste guia de início rápido, você criará uma função personalizada com permissão para criar um número ilimitado de registros de aplicativo e, em seguida, atribuir essa função a um usuário. O usuário atribuído pode usar o portal do Azure AD, o PowerShell do Azure AD ou a API Microsoft Graph para criar registros de aplicativo. Diferentemente da função de desenvolvedor de aplicativo interna, essa função personalizada concede a capacidade de criar um número ilimitado de registros de aplicativo. A função de desenvolvedor de aplicativos concede a capacidade, mas o número total de objetos criados é limitado a 250 para evitar atingir [a cota de objetos de todo o diretório](directory-service-limits-restrictions.md).
+Neste quickstart, você criará uma função personalizada com permissão para criar um número ilimitado de registros de aplicativos e, em seguida, atribuirá essa função a um usuário. O usuário designado pode então usar o portal Azure AD, Azure AD PowerShell ou Microsoft Graph API para criar registros de aplicativos. Ao contrário da função de desenvolvedor de aplicativos incorporado, essa função personalizada concede a capacidade de criar um número ilimitado de registros de aplicativos. A função Desenvolvedor de aplicativos concede a capacidade, mas o número total de objetos criados é limitado a 250 para evitar atingir [a cota de objetos em todo o diretório](directory-service-limits-restrictions.md).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-A função menos privilegiada necessária para criar e atribuir funções personalizadas do Azure AD é o administrador de função com privilégios.
+A função menos privilegiada necessária para criar e atribuir funções personalizadas do Azure AD é o administrador de funções privilegiadas.
 
-## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Criar uma nova função personalizada usando o portal do AD do Azure
+## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Crie uma nova função personalizada usando o portal Azure AD
 
-1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) com permissões de administrador de função com privilégios ou de administrador global na organização do Azure AD.
-1. Selecione **Azure Active Directory**, selecione **funções e administradores**e, em seguida, selecione **nova função personalizada**.
+1. Faça login no centro de administração [azure AD](https://aad.portal.azure.com) com permissões de administrador privileged Role ou Global administrador na organização Azure AD.
+1. Selecione **O Diretório Ativo do Azure,** selecione **Funções e administradores**e selecione **Nova função personalizada**.
 
-    ![Criar ou editar funções da página funções e administradores](./media/roles-create-custom/new-custom-role.png)
+    ![Criar ou editar funções a partir da página Funções e administradores](./media/roles-create-custom/new-custom-role.png)
 
-1. Na guia **noções básicas** , forneça "criador de registro do aplicativo" para o nome da função e "pode criar um número ilimitado de registros do aplicativo" para a descrição da função e, em seguida, selecione **Avançar**.
+1. Na guia **Noções** Básicas, forneça "Criador de Registro de Aplicativo" para o nome da função e "Pode criar um número ilimitado de registros de aplicativos" para a descrição da função e, em seguida, selecione **Next**.
 
-    ![forneça um nome e uma descrição para uma função personalizada na guia noções básicas](./media/roles-quickstart-app-registration-limits/basics-tab.png)
+    ![fornecer um nome e descrição para uma função personalizada na guia Basics](./media/roles-quickstart-app-registration-limits/basics-tab.png)
 
-1. Na guia **permissões** , digite "Microsoft. Directory/Applications/Create" na caixa de pesquisa e marque as caixas de seleção ao lado das permissões desejadas e, em seguida, selecione **Avançar**.
+1. Na guia **Permissões,** digite "microsoft.directory/applications/create" na caixa de pesquisa e selecione as caixas de seleção ao lado das permissões desejadas e selecione **Next**.
 
-    ![Selecione as permissões para uma função personalizada na guia permissões](./media/roles-quickstart-app-registration-limits/permissions-tab.png)
+    ![Selecione as permissões para uma função personalizada na guia Permissões](./media/roles-quickstart-app-registration-limits/permissions-tab.png)
 
-1. Na guia **revisar + criar** , examine as permissões e selecione **criar**.
+1. Na **guia 'Revisar + criar',** revise as permissões e selecione **Criar**.
 
-### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Atribuir a função a um usuário usando o portal do Azure AD
+### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Atribuir a função a um usuário usando o portal Azure AD
 
-1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) com permissões de administrador de função com privilégios ou de administrador global em sua organização do Azure AD.
-1. Selecione **Azure Active Directory** e, em seguida, selecione **funções e administradores**.
-1. Selecione a função criador de registro de aplicativo e selecione **Adicionar atribuição**.
-1. Selecione o usuário desejado e clique em **selecionar** para adicionar o usuário à função.
+1. Faça login no centro de administração [do Azure AD](https://aad.portal.azure.com) com permissões de administrador de funções privilegiadas ou administrador global em sua organização Azure AD.
+1. Selecione **o Diretório Ativo do Azure** e selecione **Funções e administradores**.
+1. Selecione a função Criador de registro de aplicativo e selecione **Adicionar atribuição**.
+1. Selecione o usuário desejado e clique **em Selecionar** para adicionar o usuário à função.
 
-Feito! Neste guia de início rápido, você criou com êxito uma função personalizada com permissão para criar um número ilimitado de registros de aplicativo e, em seguida, atribuir essa função a um usuário.
+Feito! Neste quickstart, você criou com sucesso uma função personalizada com permissão para criar um número ilimitado de registros de aplicativos e, em seguida, atribuir essa função a um usuário.
 
 > [!TIP]
-> Para atribuir a função a um aplicativo usando o portal do AD do Azure, insira o nome do aplicativo na caixa de pesquisa da página de atribuição. Os aplicativos não são mostrados na lista por padrão, mas são retornados nos resultados da pesquisa.
+> Para atribuir a função a um aplicativo usando o portal Azure AD, digite o nome do aplicativo na caixa de pesquisa da página de atribuição. Os aplicativos não são mostrados na lista por padrão, mas são retornados nos resultados da pesquisa.
 
-### <a name="app-registration-permissions"></a>Permissões de registro do aplicativo
+### <a name="app-registration-permissions"></a>Permissões de registro de aplicativos
 
-Há duas permissões disponíveis para conceder a capacidade de criar registros de aplicativo, cada um com um comportamento diferente.
+Existem duas permissões disponíveis para a concessão da capacidade de criar registros de aplicativos, cada uma com comportamento diferente.
 
-- Microsoft. Directory/Applications/createAsOwner: a atribuição desses resultados de permissão no criador que está sendo adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado será contado na cota de objetos criados do 250 do criador.
-- Microsoft. Directory/applicationPolicies/Create: a atribuição desses resultados de permissão no criador não será adicionada como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado não contará na cota de objetos criados do 250 do criador. Use essa permissão com cuidado, pois não há nada impedindo que o destinatário crie registros de aplicativo até que a cota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, essa permissão terá precedência.
+- microsoft.directory/applications/createAsProprietário: Atribuir essa permissão resulta na adição do criador como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado contará com a cota de 250 objetos criados pelo criador.
+- microsoft.directory/applicationPolicies/create: Atribuir essa permissão resulta em que o criador não será adicionado como o primeiro proprietário do registro do aplicativo criado, e o registro do aplicativo criado não contará com a cota de 250 objetos criados pelo criador. Use essa permissão com cuidado, pois não há nada que impeça o cessionário de criar registros de aplicativos até que a cota de nível de diretório seja atingida. Se ambas as permissões forem atribuídas, essa permissão prevalecerá.
 
-## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Criar uma função personalizada usando o PowerShell do Azure AD
+## <a name="create-a-custom-role-using-azure-ad-powershell"></a>Crie uma função personalizada usando o Azure AD PowerShell
 
-Crie uma nova função usando o seguinte script do PowerShell:
+Crie uma nova função usando o seguinte script PowerShell:
 
 ``` PowerShell
 # Basic role information
@@ -89,17 +89,17 @@ $rolePermissions = $rolePermission
 $customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Atribuir a função personalizada usando o PowerShell do Azure AD
+### <a name="assign-the-custom-role-using-azure-ad-powershell"></a>Atribuir a função personalizada usando o Azure AD PowerShell
 
-#### <a name="prepare-powershell"></a>Preparar o PowerShell
+#### <a name="prepare-powershell"></a>Prepare PowerShell
 
-Primeiro, instale o módulo do PowerShell do Azure AD do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de visualização do PowerShell do Azure AD usando o seguinte comando:
+Primeiro, instale o módulo Azure AD PowerShell na [Galeria PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Em seguida, importe o módulo de visualização Azure AD PowerShell, usando o seguinte comando:
 
 ```powershell
 import-module azureadpreview
 ```
 
-Para verificar se o módulo está pronto para uso, corresponda à versão retornada pelo seguinte comando para aquele listado aqui:
+Para verificar se o módulo está pronto para uso, combine a versão retornada pelo seguinte comando ao listado aqui:
 
 ```powershell
 get-module azureadpreview
@@ -110,7 +110,7 @@ get-module azureadpreview
 
 #### <a name="assign-the-custom-role"></a>Atribuir a função personalizada
 
-Atribua a função usando o script do PowerShell abaixo:
+Atribuir a função usando o script powershell abaixo:
 
 ``` PowerShell
 # Basic role information
@@ -131,7 +131,7 @@ $rolePermissions = $rolePermission
 $customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="create-a-custom-role-using-microsoft-graph-api"></a>Criar uma função personalizada usando Microsoft Graph API
+### <a name="create-a-custom-role-using-microsoft-graph-api"></a>Crie uma função personalizada usando a API do Microsoft Graph
 
 Solicitação HTTP para criar a função personalizada.
 
@@ -166,9 +166,9 @@ Corpo
 }
 ```
 
-### <a name="assign-the-custom-role-using-microsoft-graph-api"></a>Atribuir a função personalizada usando Microsoft Graph API
+### <a name="assign-the-custom-role-using-microsoft-graph-api"></a>Atribuir a função personalizada usando a API do Microsoft Graph
 
-A atribuição de função combina uma ID de entidade de segurança (que pode ser um usuário ou uma entidade de serviço), uma ID de função (função) e um escopo de recursos do Azure AD.
+A atribuição de função combina um ID principal de segurança (que pode ser um usuário ou principal de serviço), uma ID de definição de função (função) e um escopo de recurso Azure AD.
 
 Solicitação HTTP para atribuir uma função personalizada.
 

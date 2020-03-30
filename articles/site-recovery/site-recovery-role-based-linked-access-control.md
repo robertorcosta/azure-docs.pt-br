@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o controle de acesso baseado em função do Azure no Azure Site Recovery
+title: Gerenciar o controle de acesso baseado em função do Azure na recuperação do site do Azure
 description: Este artigo descreve como aplicar o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 04/08/2019
@@ -7,15 +7,15 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257570"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de recuperação do site com controle de acesso baseado em função (RBAC)
 
-O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode separar as responsabilidades dentro de sua equipe e conceder somente permissões de acesso específicas aos usuários conforme necessário para executar trabalhos específicos.
+O RBAC (Azure Role-based Access Control, controle de acesso baseado em função do Azure) permite o gerenciamento de acesso com grãos finos para o Azure. Usando o RBAC, você pode separar as responsabilidades dentro de sua equipe e conceder somente permissões de acesso específicas aos usuários conforme necessário para executar trabalhos específicos.
 
 O Azure Site Recovery fornece 3 funções internas para controlar as operações de gerenciamento do Site Recovery. Saiba mais sobre as [funções internas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
@@ -39,7 +39,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 >Certifique-se de que as permissões relevantes sejam adicionadas pelo modelo de implantação (Resource Manager/Clássico) usado para implantação de recursos.
 
 > [!NOTE]
-> Se você estiver habilitando a replicação para uma VM do Azure e quiser permitir que Site Recovery gerencie atualizações e, ao mesmo tempo, habilitar a replicação, convém criar uma nova conta de automação, caso em que você precisaria de permissão para criar uma conta de automação na mesma assinatura como o cofre também.
+> Se você está habilitando a replicação de uma VM do Azure e deseja permitir que o Site Recovery gerencie atualizações, então, ao ativar a replicação, você também pode querer criar uma nova conta de Automação, nesse caso, você precisaria de permissão para criar uma conta de automação no mesmo assinatura como o cofre também.
 
 | **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ Considere usar as [funções internas](../role-based-access-control/built-in-rol
 ## <a name="next-steps"></a>Próximas etapas
 * [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
 * Saiba como gerenciar o acesso com:
-  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
+  * [Powershell](../role-based-access-control/role-assignments-powershell.md)
+  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Solução de problemas de Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): obtenha sugestões para corrigir problemas comuns.

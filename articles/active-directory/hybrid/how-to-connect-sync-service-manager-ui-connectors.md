@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261041"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Usando conectores com o Azure AD Connect Sync Service Manager
@@ -35,7 +35,7 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 | --- | --- |
 | Criar |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
 | Propriedades |Usado para filtragem de domínio e de UO. |
-| [Delete (excluir)](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
+| [Excluir](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
 | [Configurar perfis de execução](#configure-run-profiles) |Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados. |
 | Executar |Usado para iniciar uma execução única de um perfil. |
 | Stop |Interrompe um Conector que, atualmente, executa um perfil. |
@@ -67,7 +67,7 @@ A ação de espaço do conector de pesquisa é útil para encontrar objetos e so
 
 Comece selecionando um **escopo**. É possível pesquisar com base nos dados (RDN, DN, Âncora, Subárvore) ou no estado do objeto (todas as outras opções).  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Por exemplo, se fizer uma pesquisa em Subárvore, você obterá todos os objetos em uma UO.  
+ Por exemplo, se fizer uma pesquisa em Subárvore, você obterá todos os objetos em uma UO.  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Nessa grade, é possível selecionar um objeto, selecionar **propriedades** e [segui-lo](tshoot-connect-object-not-syncing.md) do espaço conector de origem, passando pelo metaverso, até o espaço conector de destino.
 
@@ -86,7 +86,7 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 3. Selecione o Conector do AD que está configurado para usar a conta do AD DS.
 4. Em Ações, selecione **Propriedades**.
 5. Na caixa de diálogo pop-up, selecione Conectar-se à Floresta do Active Directory:
-6. O nome da floresta indica o AD local correspondente.
+6. O nome da Floresta indica o correspondente no local AD.
 7. O Nome de usuário indica a conta do AD DS usada para sincronização.
 8. Insira a nova senha da conta do AD DS na caixa de texto ![Utilitário de Chave de Criptografia de Sincronização do Azure AD Connect](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png) da Senha
 9. Clique em OK para salvar a nova senha e reinicie o Serviço de Sincronização para remover a senha antiga do cache de memória.
@@ -96,4 +96,4 @@ Para resolver o problema, atualize a conta de usuário do AD DS usando o seguint
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](how-to-connect-sync-whatis.md) .
 
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

@@ -1,6 +1,6 @@
 ---
 title: Formatos e codecs Media Encoder Standard - Azure
-description: Este artigo fornece uma visão geral dos codecs e formatos de Media Encoder Standard.
+description: Este artigo fornece uma visão geral dos formatos e codecs padrão do Media Encoder.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,22 +15,22 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251018"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 
-> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Mídia que você está usando:"]
 > * [Versão 2](media-services-media-encoder-standard-formats.md)
 > * [Versão 3](../latest/media-encoder-standard-formats.md)
 
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia padrão.
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
-| Formatos de arquivo (extensões de arquivo) | Suportado |
+| Formatos de arquivo (extensões de arquivo) | Com suporte |
 | --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
@@ -59,7 +59,7 @@ ou
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Suportado |
+| Codecs de vídeo de entrada | Com suporte |
 | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
@@ -82,14 +82,14 @@ ou
 | HEVC/H.265| Main e Main 10 (&#42;) Profiles<br/>Suporte a Main 10 Profile é necessário para conteúdo 4:2:0 de 8 bits. |
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Suportado |
+| Codecs de áudio de entrada | Com suporte |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |
 | MP3 (MPEG-1 Audio Layer 3) |Sim |
 | Áudio do Windows Media |Sim |
 | WAV/PCM |Sim |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
+| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (multitaxa adaptável) |Sim |

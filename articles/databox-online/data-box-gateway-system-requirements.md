@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260183"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Gateway do Azure Data Box requisitos do sistema
+# <a name="azure-data-box-gateway-system-requirements"></a>Requisitos do sistema Azure Data Box Gateway
 
 Este artigo descreve os requisitos de sistema importantes para a solução Gateway do Microsoft Azure Data Box e para os clientes que se conectam ao Azure Data Box Gateway. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Gateway e consulte-as, quando necessário, durante a implantação e a subsequente operação.
 
@@ -29,7 +29,7 @@ Os requisitos de sistema para o dispositivo virtual Data Box Gateway incluem:
 
 O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguintes recursos para provisionar seu dispositivo virtual:
 
-| Especificações                                          | DESCRIÇÃO              |
+| Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Processadores virtuais (núcleos)   | Mínimo de 4 |
 | Memória  | Mínimo de 8 GB|
@@ -85,7 +85,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-azure-government"></a>Padrões de URL para o Azure governamental
+### <a name="url-patterns-for-azure-government"></a>Padrões de URL para o governo azure
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 

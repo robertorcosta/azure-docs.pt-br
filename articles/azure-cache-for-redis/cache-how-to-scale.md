@@ -1,16 +1,16 @@
 ---
 title: Como dimensionar o Cache Redis do Azure
-description: Saiba como dimensionar seu cache do Azure para instâncias Redis usando o portal do Azure e ferramentas como Azure PowerShell e CLI do Azure.
+description: Aprenda a dimensionar seu Cache Do Azure para instâncias Redis usando o portal Azure e ferramentas como O Zure PowerShell e Azure CLI.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
 ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277993"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o Cache Redis do Azure
@@ -64,7 +64,7 @@ Além de dimensionar as instâncias do cache no Portal do Azure, você pode dime
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
+Você pode dimensionar o cache do Azure para instâncias Redis com o PowerShell `Sku`usando `ShardCount` o cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando as `Size`propriedades são modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -166,7 +166,7 @@ Se uma operação de dimensionamento falhar, o serviço tentará reverter a oper
 
 
 ### <a name="how-long-does-scaling-take"></a>Quanto tempo o dimensionamento leva?
-O tempo de dimensionamento depende da quantidade de dados no cache, com grandes quantidades de dados que levam mais tempo para serem concluídos. O dimensionamento leva aproximadamente 20 minutos. Para caches clusterizados, o dimensionamento leva aproximadamente 20 minutos por fragmento.
+O tempo de dimensionamento depende de quantos dados estão no cache, com quantidades maiores de dados levando mais tempo para serem concluídas. O dimensionamento leva aproximadamente 20 minutos. Para caches agrupados, o dimensionamento leva aproximadamente 20 minutos por fragmento.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Como saber quando o dimensionamento é concluído?
 No portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.

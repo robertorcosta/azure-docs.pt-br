@@ -1,20 +1,20 @@
 ---
-title: Fazer backup de um banco de dados SAP HANA no Azure com o backup do Azure
-description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de backup do Azure.
+title: Faça backup de um banco de dados SAP HANA para o Azure com backup do Azure
+description: Neste artigo, aprenda a fazer backup de um banco de dados SAP HANA para máquinas virtuais Do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: deedd4d2553b3b06f76f698fdb2425a8d3878d23
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248054"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
-Os bancos de dados do SAP HANA são cargas de trabalho críticas que exigem um RPO (objetivo de ponto de recuperação) baixo e retenção de longo prazo. Você pode fazer backup de bancos de dados SAP HANA em execução em VMs (máquinas virtuais) do Azure usando o [backup do Azure](backup-overview.md).
+Os bancos de dados SAP HANA são cargas de trabalho críticas que requerem um RPO (Objetivo de ponto de recuperação baixo) e retenção a longo prazo. Você pode fazer backup de bancos de dados SAP HANA em execução em máquinas virtuais (VMs) do [Azure usando o Azure Backup](backup-overview.md).
 
-Este artigo mostra como fazer backup de SAP HANA bancos de dados que estão em execução em VMs do Azure para um cofre dos serviços de recuperação de backup do Azure.
+Este artigo mostra como fazer backup de bancos de dados SAP HANA que estão sendo executados em VMs Azure para um cofre de Serviços de Recuperação de Backup do Azure.
 
 Neste artigo, você aprenderá a:
 > [!div class="checklist"]
@@ -22,15 +22,15 @@ Neste artigo, você aprenderá a:
 > * Criar e configurar um cofre
 > * Descobrir bancos de dados
 > * Configurar backups
-> * Executar um trabalho de backup sob demanda
+> * Execute um trabalho de backup demanda
 
 >[!NOTE]
->A **exclusão reversível para o SQL Server na VM do Azure e a exclusão reversível para SAP Hana em cargas de trabalho de VM do Azure** agora está disponível na versão prévia.<br>
->Para se inscrever na versão prévia, escreva para nós em AskAzureBackupTeam@microsoft.com
+>**Exclusão suave para servidor SQL no Azure VM e soft delete for SAP HANA in Azure VM workloads** now available in preview.<br>
+>Para se inscrever para a pré-visualização, escreva para nós emAskAzureBackupTeam@microsoft.com
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e o [que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) seções para configurar o banco de dados para backup.
+Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) para configurar o banco de dados para backup.
 
 ### <a name="set-up-network-connectivity"></a>Configurar a conectividade de rede
 
@@ -78,7 +78,7 @@ Para criar uma regra usando o PowerShell:
 
 **Permitir o acesso usando marcas do Firewall do Azure**. Se estiver usando o Firewall do Azure, crie uma regra de aplicativo usando a marca de [FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) do AzureBackup. Isso permite o acesso de saída ao Backup do Azure.
 
-**Implantar um servidor proxy HTTP para rotear o tráfego**. Quando você faz backup de um banco de dados do SAP HANA em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento ao Backup do Azure e dados ao Armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. As extensões são o único componente que está configurado para acesso à Internet pública.
+**Implante um servidor proxy HTTP para direcionar o tráfego**. Quando você faz backup de um banco de dados do SAP HANA em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento ao Backup do Azure e dados ao Armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. As extensões são o único componente que está configurado para acesso à Internet pública.
 
 As opções de conectividade incluem as seguintes vantagens e desvantagens:
 
@@ -89,7 +89,7 @@ Usar marcas de serviço do NSG | Mais fácil de ser gerenciada, pois as alteraç
 Usar marcas de FQDN do Firewall do Azure | Mais fácil de ser gerenciada, pois os FQDNs necessários são gerenciados automaticamente | Pode ser usada somente com o Firewall do Azure
 Usar um proxy HTTP | É permitido o controle granular no proxy das URLs de armazenamento <br/><br/> Único ponto de acesso à Internet para VMs <br/><br/> Não está sujeita a alterações de endereços IP do Azure | Custos adicionais para execução de uma VM com o software de proxy
 
-#### <a name="private-endpoints"></a>Pontos de extremidade privados
+#### <a name="private-endpoints"></a>Pontos finais privados
 
 [!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
@@ -97,36 +97,36 @@ Usar um proxy HTTP | É permitido o controle granular no proxy das URLs de armaz
 
 ## <a name="discover-the-databases"></a>Descobrir os bancos de dados
 
-1. No cofre, em **Introdução**, clique em **Backup**. Em **Em que local sua carga de trabalho é executada?** , selecione **SAP HANA em VM do Azure**.
+1. No cofre, em **Introdução**, clique em **Backup**. Em **Em que local sua carga de trabalho é executada?**, selecione **SAP HANA em VM do Azure**.
 2. Clique em **Iniciar Descoberta**. Isso inicia a descoberta de VMs do Linux desprotegidas na região do cofre.
 
-   * Após a descoberta, as VMs desprotegidas aparecem no portal, listadas por nome e grupo de recursos.
-   * Se uma VM não estiver listada como esperado, verifique se ela já foi submetida a backup em um cofre.
-   * Várias VMs podem ter o mesmo nome, mas pertencem a grupos de recursos diferentes.
+   * Após a descoberta, VMs desprotegidos aparecem no portal, listados por nome e grupo de recursos.
+   * Se uma VM não estiver listada como esperado, verifique se já está em backup em um cofre.
+   * Várias VMs podem ter o mesmo nome, mas pertencem a diferentes grupos de recursos.
 
 3. Em **Selecionar Máquinas Virtuais**, clique no link para baixar o script que fornece permissões para que o serviço de Backup do Azure acesse as VMs SAP HANA para descoberta de banco de dados.
-4. Execute o script em cada VM que hospeda SAP HANA bancos de dados dos quais você deseja fazer backup.
-5. Depois de executar o script nas VMs, em **selecionar máquinas virtuais**, selecione as VMs. Em seguida, clique em **Descobrir BDs**.
+4. Execute o script em cada VM hospedando bancos de dados SAP HANA que você deseja fazer backup.
+5. Depois de executar o script nas VMs, em **Selecionar Máquinas Virtuais,** selecione as VMs. Em seguida, clique em **Descobrir BDs**.
 6. O Backup do Azure descobre todos os bancos de dados do SAP HANA na VM. Durante a descoberta, o Backup do Azure registra a VM com o cofre e instala uma extensão na VM. Nenhum agente é instalado no banco de dados.
 
-    ![Descobrir bancos de dados SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
+    ![Descubra os bancos de dados SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
 
 ## <a name="configure-backup"></a>Configurar o backup  
 
-Agora, habilite o backup.
+Agora habilite o backup.
 
-1. Na etapa 2, clique em **Configurar backup**.
+1. Na etapa 2, clique **em Configurar backup**.
 
     ![Configurar backup](./media/backup-azure-sap-hana-database/configure-backup.png)
-2. Em **selecionar itens para fazer backup**, selecione todos os bancos de dados que você deseja proteger > **OK**.
+2. Em **Selecionar itens para fazer backup,** selecione todos os bancos de dados que deseja proteger > **OK**.
 
     ![Selecionar itens para fazer backup](./media/backup-azure-sap-hana-database/select-items.png)
-3. Em **política de backup** > **escolha política de backup**, crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
+3. Em **Política de backup** > **Escolha a diretiva de backup,** crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
 
     ![Escolher política de backup](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. Depois de criar a política, no menu **backup** , clique em **habilitar backup**.
+4. Depois de criar a diretiva, no menu **Backup,** clique **em Ativar backup**.
 
-    ![Habilitar backup](./media/backup-azure-sap-hana-database/enable-backup.png)
+    ![Habilite o backup](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Acompanhe o progresso da configuração de backup na área de **Notificações** do portal.
 
 ### <a name="create-a-backup-policy"></a>Criar uma política de backup
@@ -140,18 +140,18 @@ Especifique as configurações de política da seguinte maneira:
 
 1. Em **Nome da política**, insira um nome para a nova política.
 
-   ![Inserir nome da política](./media/backup-azure-sap-hana-database/policy-name.png)
+   ![Digite o nome da política](./media/backup-azure-sap-hana-database/policy-name.png)
 2. Em **Política de Backup Completo**, selecione uma **Frequência de Backup** escolhendo **Diária** ou **Semanal**.
-   * **Diário**: selecione a hora e o fuso horário em que o trabalho de backup começa.
-       * Você deve executar um backup completo. Você não pode desativar essa opção.
+   * **Diário**: Selecione a hora e o fuso horário em que o trabalho de backup começa.
+       * Você deve executar um backup completo. Você não pode desligar essa opção.
        * Clique em **Backup Completo** para exibir a política.
        * Você não pode criar backups diferenciais para backups diários completos.
-   * **Semanal**: selecione o dia da semana, hora e fuso horário em que o trabalho de backup é executado.
+   * **Semanal**: Selecione o dia da semana, hora e fuso horário em que o trabalho de backup é executado.
 
-   ![Selecionar frequência de backup](./media/backup-azure-sap-hana-database/backup-frequency.png)
+   ![Selecione a freqüência de backup](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
 3. Em **Período de Retenção**, defina as configurações de retenção para o backup completo.
-    * Por padrão, todas as opções são selecionadas. Desmarque os limites de período de retenção que você não deseja usar e defina os que você faz.
+    * Por padrão, todas as opções são selecionadas. Limpe todos os limites de faixa de retenção que você não deseja usar e defina aqueles que você faz.
     * O período de retenção mínimo para qualquer tipo de backup (completo/diferencial/log) é de sete dias.
     * Os pontos de recuperação são marcados para retenção com base em seu intervalo de retenção. Por exemplo, se você selecionar um backup completo diário, apenas um backup completo será disparado a cada dia.
     * O backup para um dia específico é marcado e mantido com base na configuração e no período de retenção semanal.
@@ -170,8 +170,8 @@ Especifique as configurações de política da seguinte maneira:
 
 7. Clique em **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
 8. Selecione **Backup de Log** para adicionar uma política de backup de log transacional.
-    * Em **backup de log**, selecione **habilitar**.  Isso não pode ser desabilitado, pois o SAP HANA gerencia todos os backups de log.
-    * Defina a frequência e os controles de retenção.
+    * Em **Log Backup,** selecione **Ativar**.  Isso não pode ser desabilitado, pois o SAP HANA gerencia todos os backups de log.
+    * Defina os controles de freqüência e retenção.
 
     > [!NOTE]
     > Os backups de log só começam a fluir depois que um backup completo bem-sucedido é concluído.
@@ -180,33 +180,33 @@ Especifique as configurações de política da seguinte maneira:
 10. Depois de terminar de definir a política de backup, clique em **OK**.
 
 > [!NOTE]
-> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, os logs diferenciais diários e de 2 horas. Todos eles são mantidos por 30 dias. No entanto, a semana completa pode ser realmente limpa/excluída somente depois que o próximo backup completo estiver disponível, ou seja, após 30 a 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse total ocorre antes do próximo agendamento completo, em novembro de 22. Até que esse log esteja disponível até dec 22, o 16º total de novembro não poderá ser excluído. Portanto, o 16º 16 de novembro é mantido até dec 22.
+> Cada backup de log é acorrentado ao backup completo anterior para formar uma cadeia de recuperação. Este backup completo será mantido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é retido por um período extra para garantir que todos os registros possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, diferencial diário e registros de 2 horas. Todos eles estão retidos por 30 dias. Mas, a inteira semanal pode ser realmente limpa/excluída somente após o próximo backup completo estar disponível, ou seja, depois de 30 + 7 dias. Um backup semanal completo acontece em 16 de novembro. De acordo com a política de retenção, ela deve ser mantida até 16 de dezembro. O último backup de log para este completo acontece antes do próximo programado completo, em 22 de novembro. Até o dia 22 de dezembro, o 16 de novembro completo não poderá ser excluído. Assim, o 16 de Novembro completo é mantido até 22 de dezembro.
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 
-Os backups são executados de acordo com o agendamento da política. Você pode executar um backup sob demanda da seguinte maneira:
+Os backups são executados de acordo com o cronograma da apólice. Você pode executar um backup demanda da seguinte forma:
 
 1. No menu do cofre, clique em **Itens de backup**.
-2. Em **itens de backup**, selecione a VM que executa o banco de dados SAP Hana e clique em **fazer backup agora**.
-3. Em **fazer backup agora**, use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser retido. Em seguida, clique em **OK**.
-4. Monitorar as notificações do portal. Você pode monitorar o andamento do trabalho no painel do cofre > **Trabalhos de Backup** > **Em Andamento**. Dependendo do tamanho do banco de dados, a criação do backup inicial pode demorar um pouco.
+2. Em **Itens de backup,** selecione a VM executando o banco de dados SAP HANA e clique **em Backup agora**.
+3. Em **Backup Now,** use o controle de calendário para selecionar o último dia em que o ponto de recuperação deve ser mantido. Em seguida, clique em **OK**.
+4. Monitorar as notificações do portal. Você pode monitorar o progresso do trabalho no painel do cofre > **backup jobs** > **em andamento**. Dependendo do tamanho do seu banco de dados, a criação do backup inicial pode demorar um pouco.
 
-## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Executar o backup do SAP HANA Studio em um banco de dados com o backup do Azure habilitado
+## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Execute o backup do SAP HANA Studio em um banco de dados com o Azure Backup ativado
 
-Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dados cujo backup está sendo feito com o backup do Azure, faça o seguinte:
+Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dados que está sendo feito backup com o Azure Backup, faça o seguinte:
 
-1. Aguarde até que os backups completos ou de log do banco de dados sejam concluídos. Verifique o status no SAP HANA Studio/cockpit.
-2. Desabilite os backups de log e defina o catálogo de backup para o sistema de arquivos para o banco de dados relevante.
-3. Para fazer isso, clique duas vezes em systemdb **configuração** de >  > selecionar **filtro de > de banco de dados (log)** .
-4. Defina **enable_auto_log_backup** como **não**.
-5. Defina **log_backup_using_backint** como **false**.
+1. Aguarde os backups completos ou logpara o banco de dados terminar. Verifique o status no SAP HANA Studio / Cockpit.
+2. Desabilite backups de log e defina o catálogo de backup para o sistema de arquivos para banco de dados relevante.
+3. Para fazer isso, clique duas vezes em **Systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
+4. Definir **enable_auto_log_backup** para **No**.
+5. Definir **log_backup_using_backint** para **Falso**.
 6. Faça um backup completo sob demanda do banco de dados.
-7. Aguarde até que o backup completo e o backup do catálogo sejam concluídos.
-8. Reverter as configurações anteriores para as do Azure:
-    * Defina **enable_auto_log_backup** como **Sim**.
-    * Defina **log_backup_using_backint** como **true**.
+7. Aguarde o backup completo e o backup do catálogo para terminar.
+8. Reverter as configurações anteriores de volta para aquelas para o Azure:
+    * Definir **enable_auto_log_backup** para **Sim**.
+    * Definir **log_backup_using_backint** para **True**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [restaurar bancos de dados do SAP HANA em execução em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Saiba como [gerenciar SAP Hana bancos de dados cujo backup é feito usando o backup do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Saiba como [gerenciar bancos de dados SAP HANA que são backup usando o Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

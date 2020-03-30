@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254281"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solucionar problemas de saídas do Azure Stream Analytics
@@ -22,7 +22,7 @@ Esta página descreve problemas comuns com conexões de saída e como solucioná
 ## <a name="output-not-produced-by-job"></a>Saída não produzida pelo trabalho
 1.  Verifique a conectividade com as saídas usando o botão **Testar Conexão** para cada uma das saídas.
 
-2.  Examine as [**métricas de monitoramento**](stream-analytics-monitoring.md) na guia **Monitor** . Como os valores são agregados, as métricas são atrasadas em alguns minutos.
+2.  Veja [**as métricas de monitoramento**](stream-analytics-monitoring.md) na guia **Monitor.** Como os valores são agregados, as métricas são atrasadas em poucos minutos.
     - Se os Eventos de Entrada forem > 0, o trabalho poderá ler os dados de entrada. Se os Eventos de Entrada não forem > 0:
       - Para ver se a fonte de dados tem dados válidos, verifique-a usando o [Gerenciador do Barramento de Serviço](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a). Essa seleção se aplica se o trabalho está usando o Hub de Eventos como entrada.
       - Verifique se o formato de serialização de dados e a codificação de dados são como esperado.
@@ -90,18 +90,18 @@ Observe as observações a seguir ao configurar IGNORE_DUP_KEY para vários tipo
 * É possível definir a opção IGNORE_DUP_KEY utilizando ALTER INDEX para um índice exclusivo, que é diferente da restrição PRIMARY KEY/UNIQUE e criada utilizando a definição CREATE INDEX ou INDEX.  
 * IGNORE_DUP_KEY não é aplicável para índices de repositório de coluna porque não é possível impor a exclusividade desses índices.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Os nomes de coluna são minúsculos por Azure Stream Analytics
-Ao usar o nível de compatibilidade original (1,0), Azure Stream Analytics usado para alterar nomes de coluna para letras minúsculas. Esse comportamento foi corrigido em níveis de compatibilidade posteriores. Para preservar o caso, aconselhamos os clientes a migrar para o nível de compatibilidade 1,1 e posterior. Você pode encontrar mais informações sobre o [nível de compatibilidade para trabalhos de Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Os nomes das colunas são minúsculos pelo Azure Stream Analytics
+Ao usar o nível de compatibilidade original (1.0), o Azure Stream Analytics costumava alterar nomes de colunas para minúsculas. Esse comportamento foi corrigido em níveis posteriores de compatibilidade. Para preservar o caso, aconselhamos os clientes a passar para o nível de compatibilidade 1.1 e posterior. Você pode encontrar mais informações sobre [o nível de compatibilidade para trabalhos do Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Para obter mais assistência, experimente [nosso fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
+* [Comece a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

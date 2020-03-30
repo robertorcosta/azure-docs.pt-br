@@ -1,25 +1,23 @@
 ---
 title: Habilitar compartilhamento de cliente potencial no Microsoft Azure Marketplace | Azure
 description: Saiba como habilitar o compartilhamento de clientes potenciais no Microsoft Azure Marketplace e AppSource para editores de serviço e aplicativos.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: 4475f6aecb0fe80cd20138eb885b79b6e7e82208
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 09282f3a54eeded52c63fab6bfe13528eaace48a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818677"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286295"
 ---
 # <a name="enable-lead-sharing"></a>Habilitar compartilhamento de cliente potencial
 Garantir que o gerenciamento de clientes potenciais está habilitado para sua listagem no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com) ou no [Microsoft AppSource](https://appsource.microsoft.com) pode ajudá-lo a receber informações de contato dos públicos a seguir:
 
-| Vitrine | Público-alvo |
+| Vitrine | Público |
 |:--- |:--- |
 | AppSource | Clientes comerciais |
 | Azure Marketplace | Todos os clientes |
@@ -55,4 +53,4 @@ Os clientes potenciais nas vitrines do Marketplace são diferentes dos clientes 
 Para obter mais informações sobre como acessar o programa de Venda Conjunta, consulte [Promover seu negócio com a Microsoft](./promote-your-business-with-microsoft.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Revise o [guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+Examine o [Guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).

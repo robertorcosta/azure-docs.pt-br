@@ -1,7 +1,7 @@
 ---
-title: Configurar uma cadeia de conexão
+title: Configure uma seqüência de conexão
 titleSuffix: Azure Storage
-description: Configure uma cadeia de conexão para uma conta de Armazenamento do Azure. Uma cadeia de conexão contém as informações necessárias para autorizar o acesso a uma conta de armazenamento de seu aplicativo em tempo de execução usando a autorização de chave compartilhada.
+description: Configure uma cadeia de conexão para uma conta de Armazenamento do Azure. Uma seqüência de conexões contém as informações necessárias para autorizar o acesso a uma conta de armazenamento de seu aplicativo em tempo de execução usando a autorização de chave compartilhada.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,15 +11,15 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268347"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar cadeias de conexão do Armazenamento do Azure
 
-Uma cadeia de conexão inclui as informações de autorização necessárias para que seu aplicativo acesse dados em uma conta de armazenamento do Azure em tempo de execução usando a autorização de chave compartilhada. Você pode configurar cadeias de conexão para:
+Uma seqüência de conexões inclui as informações de autorização necessárias para que seu aplicativo acesse dados em uma conta do Azure Storage em tempo de execução usando a autorização de chave compartilhada. Você pode configurar cadeias de conexão para:
 
 * Conecte-se ao emulador de armazenamento do Azure.
 * Acesse uma conta de armazenamento no Azure.
@@ -27,15 +27,15 @@ Uma cadeia de conexão inclui as informações de autorização necessárias par
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-## <a name="view-and-copy-a-connection-string"></a>Exibir e copiar uma cadeia de conexão
+## <a name="view-and-copy-a-connection-string"></a>Exibir e copiar uma seqüência de conexão
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
-## <a name="store-a-connection-string"></a>Armazenar uma cadeia de conexão
+## <a name="store-a-connection-string"></a>Armazene uma seqüência de conexão
 
 Seu aplicativo precisara acessar a cadeia de conexão no runtime para autorizar as solicitações feitas para o Armazenamento do Microsoft Azure. Você tem várias opções diferentes para armazenar a cadeia de conexão:
 
-* Você pode armazenar a cadeia de conexão em uma variável de ambiente.
+* Você pode armazenar sua seqüência de conexão em uma variável de ambiente.
 * Um aplicativo em execução na área de trabalho ou em um dispositivo pode armazenar a cadeia de conexão em um arquivo **app.config** ou **web.config**. Adicione a cadeia de conexão à seção **AppSettings** nesses arquivos.
 * Um aplicativo em execução em um serviço de nuvem do Azure pode armazenar a cadeia de conexão no [arquivo de esquema (.cscfg) de configuração de serviço do Azure](https://msdn.microsoft.com/library/ee758710.aspx). Adicionar a cadeia de conexão à seção **ConfigurationSettings** do arquivo de configuração de serviço.
 
@@ -43,13 +43,13 @@ Armazenar a cadeia de conexão em um arquivo de configuração facilita a atuali
 
 Você pode usar o [Gerenciador de Configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para acessar a cadeia de conexão no runtime, independentemente do local em que seu aplicativo esteja sendo executado.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configurar uma cadeia de conexão para o emulador de armazenamento
+## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configure uma seqüência de conexão para o emulador de armazenamento
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Consulte [Usar o emulador do Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md) para obter mais informações sobre o emulador de armazenamento.
 
-## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configurar uma cadeia de conexão para uma conta de armazenamento do Azure
+## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configure uma seqüência de conexão para uma conta de armazenamento Do Zure
 
 Para criar uma cadeia de conexão para sua conta de Armazenamento do Azure, use o formato de cadeia de conexão a seguir. Indique se você deseja se conectar à conta de armazenamento por meio de HTTPS (recomendado) ou HTTP, substitua `myAccountName` pelo nome da sua conta de armazenamento e substitua `myAccountKey` pela chave de acesso da sua conta:
 
@@ -62,7 +62,7 @@ Por exemplo, a cadeia de conexão pode parecer com o seguinte:
 Embora o Armazenamento do Azure dê suporte a HTTP e HTTPS em uma cadeia de conexão, *usar HTTPS é altamente recomendável*.
 
 > [!TIP]
-> Você pode encontrar as cadeias de conexão da conta de armazenamento no [Portal do Azure](https://portal.azure.com). Navegue até **CONFIGURAÇÕES** > **Chaves de acesso** na folha de menu da sua conta de armazenamento para ver as cadeias de conexão tanto para a chave de acesso primária quanto para a secundária.
+> Você pode encontrar as cadeias de conexão da conta de armazenamento no [Portal do Azure](https://portal.azure.com). Navegue até **CONFIGURAÇÕES** > **As teclas de acesso** na lâmina de menu da sua conta de armazenamento para ver as seqüências de conexão para as teclas de acesso primárias e secundárias.
 >
 
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>Criar uma cadeia de conexão usando uma assinatura de acesso compartilhado
@@ -118,7 +118,7 @@ Se você tiver mapeado um ponto de extremidade de armazenamento para um domínio
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Criar uma cadeia de conexão com um sufixo de ponto de extremidade
 
-Para criar uma cadeia de conexão para um serviço de armazenamento em regiões ou instâncias com sufixos de ponto de extremidade diferentes, como para o Azure China 21Vianet ou Azure governamental, use o seguinte formato de cadeia de conexão. Indique se deseja se conectar à conta de armazenamento por meio de HTTP ou HTTPS (recomendado), substitua `myAccountName` pelo nome da sua conta de armazenamento, substitua `myAccountKey` pela chave de acesso da sua conta e substitua `mySuffix` pelo sufixo do URI:
+Para criar uma seqüência de conexão para um serviço de armazenamento em regiões ou instâncias com diferentes sufixos de ponto final, como para o Azure China 21Vianet ou O Governo Azure, use o seguinte formato de string de conexão. Indique se deseja se conectar à conta de armazenamento por meio de HTTP ou HTTPS (recomendado), substitua `myAccountName` pelo nome da sua conta de armazenamento, substitua `myAccountKey` pela chave de acesso da sua conta e substitua `mySuffix` pelo sufixo do URI:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -127,7 +127,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Aqui está um exemplo de cadeia de conexão para serviços de armazenamento na 21Vianet do Azure na China:
+Aqui está uma seqüência de conexão de exemplo para serviços de armazenamento no Azure China 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;
@@ -142,6 +142,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usar o emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
+* [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
 * [Gerenciadores do Armazenamento do Azure](storage-explorers.md)
 * [Usando SAS (Assinatura de Acesso Compartilhado)](storage-sas-overview.md)

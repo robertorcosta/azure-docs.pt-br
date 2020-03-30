@@ -1,15 +1,15 @@
 ---
-title: Gerenciador de recursos de cluster-integração de gerenciamento
+title: Cluster Resource Manager - Integração gerencial
 description: Uma visão geral dos pontos de integração entre o Gerenciador de Recursos de Cluster e o Gerenciamento do Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258740"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
@@ -68,7 +68,7 @@ Veja o que a mensagem de integridade está nos dizendo:
 2. No momento, a restrição de distribuição Domínio de Atualização está sendo violada. Isso significa que um determinado Domínio de Atualização tem mais réplicas desta partição do que deveria.
 3. Qual nó contém a réplica que está causando a violação. Nesse caso, é o nó com o nome "Node.8"
 4. Se uma atualização estiver ocorrendo no momento para essa partição ("Atualmente em Atualização - falso")
-5. A política de distribuição para esse serviço: "Política de Distribuição -- Empacotamento". Isso é regido pela [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)de `RequireDomainDistribution`. "Empacotamento" indica que, nesse caso, DomainDistribution _não_ era necessária, portanto sabemos que a política de posicionamento não era especificada para esse serviço. 
+5. A política de distribuição para esse serviço: "Política de Distribuição -- Empacotamento". Isso é controlado pela  [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) do `RequireDomainDistribution`. "Empacotamento" indica que, nesse caso, DomainDistribution _não_ era necessária, portanto sabemos que a política de posicionamento não era especificada para esse serviço. 
 6. Quando o relatório ocorreu (10/08/2015 19:13:02)
 
 Informações sobre como isso gera alertas que são disparados na produção, para que você saiba que algo deu errado. Também são usadas para detectar e impedir atualizações inválidas. Nesse caso, queremos ver se conseguimos descobrir por que o Resource Manager precisou empacotar as réplicas no Domínio de Atualização. Normalmente, o empacotamento é temporário, pois os nós em outros Domínios de Atualização estavam inativos, por exemplo.
@@ -93,7 +93,7 @@ Vamos falar sobre cada uma das diferentes restrições nesses relatórios de int
 ## <a name="blocklisting-nodes"></a>Incluir os nós em lista de bloqueio
 Outra mensagem de integridade reportada pelo Gerenciador de Recursos de Cluster é quando os nós são incluídos em uma lista de bloqueio. Você pode pensar na inclusão em uma lista de bloqueio como uma restrição temporária aplicada automaticamente a você. Os nós são incluídos na lista de bloqueio quando sofrem falhas repetidas ao iniciar instâncias desse tipo de serviço. Os nós são incluídos em uma lista de bloqueio de acordo com o tipo de serviço. Um nó pode ser incluído em uma lista de bloqueio para um tipo de serviço, mas não outro. 
 
-Você verá a inclusão em uma lista de bloqueio ocorrer com frequência durante o desenvolvimento: alguns bugs fazem com que o host de serviço falhe na inicialização. O Service Fabric tenta criar o host de serviço algumas vezes, e a falha continua ocorrendo. Após algumas tentativas, o nó é incluído em uma lista de bloqueio, e o Gerenciador de Recursos de Cluster tentará criar o serviço em outro lugar. Se essa falha continuar acontecendo em vários nós, talvez todos os nós válidos no cluster acabem bloqueados. O inclusão na lista também pode remover tantos nós que não suficientes podem iniciar o serviço com êxito para atender à escala desejada. Normalmente, você verá erros ou avisos adicionais do Gerenciador de Recursos de Cluster, indicando que o serviço está abaixo da contagem desejada de réplicas ou de instâncias, bem como mensagens de integridade indicando o motivo da falha que está gerando a inclusão na lista de bloqueio.
+Você verá a inclusão em uma lista de bloqueio ocorrer com frequência durante o desenvolvimento: alguns bugs fazem com que o host de serviço falhe na inicialização. O Service Fabric tenta criar o host de serviço algumas vezes, e a falha continua ocorrendo. Após algumas tentativas, o nó é incluído em uma lista de bloqueio, e o Gerenciador de Recursos de Cluster tentará criar o serviço em outro lugar. Se essa falha continuar acontecendo em vários nós, talvez todos os nós válidos no cluster acabem bloqueados. A lista de bloqueios também pode remover tantos nós que não o suficiente pode iniciar o serviço com sucesso para atender à escala desejada. Normalmente, você verá erros ou avisos adicionais do Gerenciador de Recursos de Cluster, indicando que o serviço está abaixo da contagem desejada de réplicas ou de instâncias, bem como mensagens de integridade indicando o motivo da falha que está gerando a inclusão na lista de bloqueio.
 
 A inclusão na lista de bloqueio não é uma condição permanente. Após alguns minutos, o nó é removido da lista de bloqueios, e o Service Fabric pode ativar novamente os serviços nesse nó. Se os serviços continuarem falhando, o nó será incluído na lista de bloqueio para esse tipo de serviço novamente. 
 
@@ -174,12 +174,12 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Restrições de domínio de falha e de atualização
 O Gerenciador de Recursos de Cluster deseja manter os serviços distribuídos entre domínios de falha e de atualização. Ele simula isso como uma restrição dentro do mecanismo do Gerenciador de Recursos de Cluster. Para saber mais sobre como eles são usados e o comportamento específico, confira o artigo na [configuração de cluster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-O Gerenciador de Recursos de Cluster pode precisar empacotar algumas réplicas em um domínio de atualização para lidar com atualizações, falhas ou outras violações de restrição. O empacotamento dentro de domínios de falha ou de atualização normalmente ocorre somente quando há várias falhas ou outra variação no sistema que impede o posicionamento correto. Se desejar impedir a compactação mesmo durante essas situações, você poderá utilizar a [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. Observe que isso pode afetar a disponibilidade e a confiabilidade do serviço como um efeito colateral, portanto, considere com cuidado.
+O Gerenciador de Recursos de Cluster pode precisar empacotar algumas réplicas em um domínio de atualização para lidar com atualizações, falhas ou outras violações de restrição. O empacotamento dentro de domínios de falha ou de atualização normalmente ocorre somente quando há várias falhas ou outra variação no sistema que impede o posicionamento correto. Se você quiser evitar o empacotamento mesmo durante essas situações, você pode utilizar a  [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) do `RequireDomainDistribution`. Observe que isso pode afetar a disponibilidade e a confiabilidade do serviço como um efeito colateral, portanto, considere com cuidado.
 
 Se o ambiente estiver configurado corretamente, todas as restrições serão totalmente respeitadas, mesmo durante as atualizações. O mais importante é que o Gerenciador de Recursos de Cluster esteja observando suas restrições. Ao detectar uma violação, ele imediatamente informa e tenta corrigir o problema.
 
 ## <a name="the-preferred-location-constraint"></a>A restrição do local preferencial
-A restrição PreferredLocation é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. O Gerenciador de Recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, após a conclusão das atualizações, as réplicas retornem aos seus locais inicias. Outro uso da restrição PreferredLocation destina-se à [`PreferredPrimaryDomain` política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) do. Ambos são otimizações e, então, a restrição PreferredLocation é a única restrição definida como "Otimização" por padrão.
+A restrição PreferredLocation é um pouco diferente, pois tem dois usos diferentes. Uma utilização dessa restrição ocorre durante as atualizações de aplicativo. O Gerenciador de Recursos de Cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, após a conclusão das atualizações, as réplicas retornem aos seus locais inicias. O outro uso da restrição PreferredLocation é para a [ `PreferredPrimaryDomain` política de colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Ambos são otimizações e, então, a restrição PreferredLocation é a única restrição definida como "Otimização" por padrão.
 
 ## <a name="upgrades"></a>Atualizações
 O Cluster Resource Manager também ajuda durante atualizações de aplicativos e clusters, quando então ele tem dois trabalhos:

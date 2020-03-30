@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas para recursos do Azure com Azure PowerShell
-description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com RBAC (controle de acesso baseado em função) para recursos do Azure usando Azure PowerShell.
+title: Crie ou atualize funções personalizadas para recursos do Azure com o Azure PowerShell
+description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com o RBAC (Role-Based Access Control, controle de acesso baseado em função) para recursos do Azure usando o Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,25 +11,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 52057477fdba9757be2737c223d569b9e9a3e749
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 3c72e04ff7a08fecc2ef352a5879898c4c6d41c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137449"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062270"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando Azure PowerShell
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Crie ou atualize funções personalizadas para recursos do Azure usando o Azure PowerShell
 
-Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando Azure PowerShell.
+> [!IMPORTANT]
+> A adição `AssignableScopes` de um grupo de gerenciamento está atualmente em pré-visualização.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [tutorial: criar uma função personalizada para recursos do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md).
+Se as [funções incorporadas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando o Azure PowerShell.
+
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: Crie uma função personalizada para os recursos do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar funções personalizadas, você precisará:
 
@@ -69,12 +74,12 @@ Virtual Machine Operator     True
 
 Se a assinatura selecionada não estiver no `AssignableScopes` da função, a função personalizada não será listada.
 
-## <a name="list-a-custom-role-definition"></a>Listar uma definição de função personalizada
+## <a name="list-a-custom-role-definition"></a>Liste uma definição de função personalizada
 
-Para listar uma definição de função personalizada, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Esse é o mesmo comando que você usa para uma função interna.
+Para listar uma definição de função personalizada, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Este é o mesmo comando que você usa para uma função incorporada.
 
 ```azurepowershell
-Get-AzRoleDefinition <role name> | ConvertTo-Json
+Get-AzRoleDefinition <role_name> | ConvertTo-Json
 ```
 
 ```Example
@@ -109,7 +114,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 O exemplo a seguir lista apenas as ações da função:
 
 ```azurepowershell
-(Get-AzRoleDefinition <role name>).Actions
+(Get-AzRoleDefinition <role_name>).Actions
 ```
 
 ```Example
@@ -297,6 +302,42 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
+O exemplo a seguir `AssignableScopes` adiciona um grupo de gerenciamento à função personalizada do *Operador de Máquina Virtual.* A adição `AssignableScopes` de um grupo de gerenciamento está atualmente em pré-visualização.
+
+```azurepowershell
+Get-AzManagementGroup
+
+$role = Get-AzRoleDefinition "Virtual Machine Operator"
+$role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/{groupId1}")
+Set-AzRoleDefinition -Role $role
+```
+
+```Example
+PS C:\> Get-AzManagementGroup
+
+Id          : /providers/Microsoft.Management/managementGroups/marketing-group
+Type        : /providers/Microsoft.Management/managementGroups
+Name        : marketing-group
+TenantId    : 99999999-9999-9999-9999-999999999999
+DisplayName : Marketing group
+
+PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.AssignableScopes.Add("/providers/Microsoft.Management/managementGroups/marketing-group")
+PS C:\> Set-AzRoleDefinition -Role $role
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111,
+                   /subscriptions/22222222-2222-2222-2222-222222222222,
+                   /providers/Microsoft.Management/managementGroups/marketing-group}
+```
+
 ### <a name="update-a-custom-role-with-a-json-template"></a>Atualizar função personalizada com o modelo JSON
 
 Usando o modelo JSON anterior, você pode facilmente modificar uma função personalizada existente para adicionar ou remover ações. Atualize o modelo JSON e adicione a ação de leitura para rede, conforme mostrado no exemplo a seguir. As definições listadas no modelo não são aplicadas de forma cumulativa a uma definição existente, o que significa que a função aparece exatamente como especificada no modelo. Você também precisa atualizar o campo de ID com a ID da função. Se não tiver certeza de qual é esse valor, é possível usar o cmdlet [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) para obter essa informação.
@@ -358,8 +399,8 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: criar uma função personalizada para recursos do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Crie uma função personalizada para os recursos do Azure usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Operações do provedor de recursos do Azure Resource Manager](resource-provider-operations.md)

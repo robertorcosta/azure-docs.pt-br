@@ -1,5 +1,5 @@
 ---
-title: Configurar Key Vault para VMs do Windows no Azure Resource Manager
+title: Configure o Key Vault para VMs do Windows no Azure Resource Manager
 description: Como configurar um Cofre de Chaves para uso com uma máquina virtual do Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 ms.openlocfilehash: a64163da1dee2bceb567436dc18ba0fa5274cfcb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243140"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurar o Cofre de Chaves para máquinas virtuais no Azure Resource Manager
@@ -51,7 +51,7 @@ Para a CLI, você precisa criar o cofre de chaves antes de atribuir a política 
 
     az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
     
-Em seguida, para habilitar Key Vault para uso com a implantação de modelo, execute o seguinte comando:
+Em seguida, para habilitar o Key Vault para uso com a implantação do modelo, execute o seguinte comando:
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
@@ -70,4 +70,4 @@ Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` co
       }
     }
 
-Para saber outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chave](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+Para outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chaves](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).

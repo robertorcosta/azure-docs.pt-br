@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79201018"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
@@ -41,10 +41,10 @@ Eles incluem:
 A computação na nuvem exige novos paradigmas de segurança que não são familiares para muitos usuários do aplicativo, administradores de banco de dados e programadores. Como resultado, algumas organizações hesitam implementar uma infraestrutura de nuvem para o gerenciamento de dados devido a supostos riscos de segurança. No entanto, grande parte dessa preocupação pode ser atenuada por meio de uma melhor compreensão dos recursos de segurança do Microsoft Azure e do Banco de Dados SQL do Microsoft Azure.
 
 ## <a name="checklist"></a>Lista de verificação
-É recomendável que você leia o artigo [Práticas recomendadas de segurança do banco de dados do Azure](database-best-practices.md) antes de examinar esta lista de verificação. Você poderá tirar o máximo proveito desta lista de verificação depois de entender as práticas recomendadas. Você pode usar essa lista de verificação para certificar-se de que você resolveu os problemas importantes na segurança de banco de dados do Azure.
+É recomendável que você leia o artigo [Práticas recomendadas de segurança do banco de dados do Azure](database-best-practices.md) antes de examinar esta lista de verificação. Você poderá tirar o máximo proveito desta lista de verificação depois de entender as práticas recomendadas. Em seguida, você pode usar esta lista de verificação para ter certeza de que você abordou os problemas importantes na segurança do banco de dados do Azure.
 
 
-|Categoria da lista de verificação| DESCRIÇÃO|
+|Categoria da lista de verificação| Descrição|
 | ------------ | -------- |
 |**Proteger dados**||
 | <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) em TLS (Transport Layer Security).</li></ul> |

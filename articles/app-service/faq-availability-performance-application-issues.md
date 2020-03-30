@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre desempenho do aplicativo
-description: Obtenha respostas para perguntas frequentes sobre problemas de disponibilidade, desempenho e aplicativos no serviço Azure App.
+title: Perguntas frequentes sobre o desempenho do aplicativo
+description: Obtenha respostas para perguntas frequentes sobre disponibilidade, desempenho e problemas de aplicativos no Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -10,16 +10,16 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259858"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
 > [!NOTE]
-> Algumas das diretrizes a seguir podem funcionar apenas nos serviços de aplicativos do Windows ou do Linux. Por exemplo, os serviços de aplicativos do Linux são executados no modo de 64 bits por padrão.
+> Algumas das diretrizes abaixo só podem funcionar no Windows ou Linux App Services. Por exemplo, os Serviços de Aplicativos Linux são executados no modo de 64 bits por padrão.
 >
 
 Este artigo apresenta respostas para perguntas frequentes (FAQs) sobre problemas de desempenho de aplicativo da [funcionalidade Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/web/).
@@ -32,11 +32,11 @@ Vários fatores podem contribuir para diminuir o desempenho do aplicativo. Para 
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Como solucionar problemas de um cenário de alto consumo de CPU?
 
-Em alguns cenários de alto consumo de CPU, seu aplicativo pode exigir realmente mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, o alto consumo de CPU pode ser causado por um loop ou uma prática de codificação incorretos. Obter informações sobre o que está causando o aumento de consumo da CPU é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo para alto consumo de CPU para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Em alguns cenários de alto consumo de CPU, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, o alto consumo de CPU pode ser causado por um loop ou uma prática de codificação incorretos. Obter informações sobre o que está causando o aumento de consumo da CPU é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo para alto consumo de CPU para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Como solucionar problemas de um cenário de alto consumo de memória?
 
-Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação. Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória. Obter informações sobre o que está disparando o alto consumo de memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória.Obter informações sobre o que está causando o aumento de consumo da memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Como automatizar a Aplicativos Web do Serviço de Aplicativo usando o PowerShell?
 
@@ -47,7 +47,7 @@ Você pode usar os cmdlets do PowerShell para gerenciar e manter os aplicativos 
 Para exibir logs de eventos do aplicativo web:
 
 1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. No menu, selecione **Console de depuração** > **CMD**.
+2. No menu, selecione **Debug Console** > **CMD**.
 3. Abra a pasta **LogFiles**.
 4. Para exibir logs de eventos, selecione o ícone de lápis ao lado de **eventlog.xml**.
 5. Para baixar os logs, execute o cmdlet do PowerShell `Save-AzureWebSiteLog -Name webappname`.
@@ -59,7 +59,7 @@ Para capturar um despejo de memória do modo de usuário do seu aplicativo web:
 1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Selecione o menu **Process Explorer**.
 3. Clique com botão direito no processo **w3wp.exe** ou no seu processo WebJob.
-4. Selecione **Baixar o despejo de memória** > **Despejo completo**.
+4. Selecione **Baixar Despejo de** > Memória**Full Dump**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Como exibir informações de nível de processo para meu aplicativo web?
 
@@ -93,7 +93,7 @@ Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um
 
 1. No portal do Azure, vá para seu aplicativo web.
 2. Selecionar **configuração**
-3. Selecione **configurações gerais**.
+3. Selecione **Configurações gerais**.
 4. Para **Sempre Ativo**, selecione **On**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Como ativar o rastreamento de solicitação com falha?
@@ -101,9 +101,9 @@ Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um
 Para ativar o rastreamento de solicitação com falha:
 
 1. No portal do Azure, vá para seu aplicativo web.
-3. Selecione **Todas as configurações** > **Logs de diagnóstico**.
+3. Selecione Todos os**registros de diagnóstico de** **configurações** > .
 4. Para **Rastreamento de solicitação com falha**, selecione **On**.
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 6. Na folha de aplicativo Web, selecione **Ferramentas**.
 7. Selecione **Visual Studio Online**.
 8. Se a configuração não estiver **On**, selecione **On**.
@@ -143,7 +143,7 @@ Para ativar o rastreamento de solicitação com falha:
     ```
 13. Para baixar os rastreamentos de solicitação com falha, no [portal](https://portal.azure.com), vá para seu site.
 15. Selecione **Ferramentas** > **Kudu** > **Go**.
-18. No menu, selecione **Console de depuração** > **CMD**.
+18. No menu, selecione **Debug Console** > **CMD**.
 19. Selecione a pasta **LogFiles** e, em seguida, selecione a pasta com um nome que começa com **W3SVC**.
 20. Para ver o arquivo XML, selecione o ícone de lápis.
 
@@ -174,7 +174,7 @@ Esse problema foi corrigido no Kestrel versão 1.0.2. Esta versão está incluí
 
 Se você usar o recurso de Cache Local do Serviço de Aplicativo, a estrutura de pasta de arquivos de log e das pastas de dados para a instância do Serviço de Aplicativo serão afetados. Quando o Cache Local é usado, as subpastas são criadas nas pastas de dados e arquivos de log de armazenamento. As subpastas usam padrão de nomenclatura "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM na qual o aplicativo Web está executando ou foi executado.
 
-Para determinar se você está usando o cache local, verifique a guia **configurações do aplicativo** do serviço de aplicativo. Se o cache local estiver sendo usado, a configuração do aplicativo `WEBSITE_LOCAL_CACHE_OPTION` será definida como `Always`.
+Para determinar se você está usando cache local, verifique a guia **de configurações do aplicativo.** Se o cache local estiver `WEBSITE_LOCAL_CACHE_OPTION` sendo usado, a configuração do aplicativo será definida como `Always`.
 
 Se você não estiver usando o Cache Local e estiver enfrentando esse problema, envie uma solicitação de suporte.
 

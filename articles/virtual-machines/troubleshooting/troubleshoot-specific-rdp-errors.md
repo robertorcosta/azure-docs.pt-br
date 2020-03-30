@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266865"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solucionar problemas de mensagens de erro específicas ao RDP para uma VM do Windows no Azure
@@ -69,7 +69,7 @@ A parte do endereço desse arquivo RDP tem:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada.
 Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
 
-Quando seu nome de usuário estiver no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\User1), a parte *SecurityAuthority* será o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formulário Nome de*Usuário* *SecurityAuthority*\\(exemplo: CORP\User1), a parte *SecurityAuthority* é o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis:
 
@@ -84,8 +84,8 @@ Causa: a VM de destino não pôde validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-* Para contas locais, use a sintaxe *NomeDoComputador*\\*NomeDeUsuário* (exemplo: SQL1\Admin4798).
-* Para contas de domínio, use a sintaxe *NomeDeDomínio*\\*NomeDeUsuário* (exemplo: CONTOSO\fabiopena).
+* Para contas locais, use a sintaxe*UserName* *do ComputadorName*\\(exemplo: SQL1\Admin4798).
+* Para contas de domínio, use a sintaxe *DomainName*\\*UserName* (exemplo: CONTOSO\peterodman).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também será convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída.
 

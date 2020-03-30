@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Linux no Azure com várias NICs
+title: Crie um VM Linux no Azure com vários NICs
 description: Saiba como criar uma VM Linux com várias NICs anexadas usando a CLI do Azure ou modelos do Resource Manager.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267177"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com várias placas de adaptador de rede
@@ -25,7 +25,7 @@ Instale a [CLI do Azure](/cli/azure/install-az-cli2) mais recente do Azure e fa�
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *mystorageaccount* e *myVM*.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus:*
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -169,7 +169,7 @@ Os modelos do Azure Resource Manager usam arquivos JSON declarativos para defini
 
 Leia mais sobre a [criação de várias instâncias usando *copiar*](../../resource-group-create-multiple.md). 
 
-Você também pode usar um `copyIndex()` para, em seguida, acrescentar um número a um nome de recurso, que permite criar `myNic1`, `myNic2`, etc. Veja a seguir um exemplo de acréscimo do valor de índice:
+Você também pode `copyIndex()` usar um para, em seguida, anexar um `myNic1` `myNic2`número a um nome de recurso, o que permite que você crie , , etc. O seguinte mostra um exemplo de anexação do valor do índice:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

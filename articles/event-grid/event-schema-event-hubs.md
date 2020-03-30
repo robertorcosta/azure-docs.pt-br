@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561821"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos da Grade de Eventos do Azure para hubs de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos de hubs de evento. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de hubs de evento.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem do evento dos Hubs de eventos](event-sources.md#event-hubs).
 
@@ -57,23 +57,23 @@ Este exemplo de evento mostra o esquema de um evento dos Hubs de Eventos gerado 
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
-| data | object | Dados de evento de hub de eventos. |
+| data | objeto | Dados de evento de hub de eventos. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
 | metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | fileUrl | string | O caminho para o arquivo de captura. |
-| fileType | string | O tipo de arquivo para o arquivo de captura. |
+| FileType | string | O tipo de arquivo para o arquivo de captura. |
 | partitionId | string | A ID de fragmento. |
 | sizeInBytes | inteiro | Tamanho do arquivo. |
 | eventCount | inteiro | O número de eventos no arquivo. |

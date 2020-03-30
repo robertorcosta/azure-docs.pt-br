@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272117"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conecte-se ao Apache Kafka no HDInsight por meio de uma rede virtual do Azure
@@ -56,9 +56,9 @@ O HDInsight não permite a conexão direta ao Kafka pela Internet pública. Em v
      > * Cada cliente deve se conectar usando um cliente de software VPN.
      > * O cliente VPN não passa solicitações de resolução de nome para a rede virtual, então você deve usar endereçamento IP para se comunicar com o Kafka. A comunicação de IP requer configuração adicional no cluster Kafka.
 
-Para obter mais informações sobre como usar o HDInsight em uma rede virtual, consulte [planejar uma rede virtual para clusters do Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
+Para obter mais informações sobre como usar o HDInsight em uma rede virtual, consulte [Planejar uma rede virtual para clusters Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
-## <a id="on-premises"></a> Conecte-se ao Apache Kafka a partir de uma rede local
+## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> Conecte-se ao Apache Kafka a partir de uma rede local
 
 Para criar um cluster Kafka que se comunique com a rede local, siga as etapas no documento [Conectar o HDInsight à rede local](./../connect-on-premises-network.md).
 
@@ -74,7 +74,7 @@ Essas etapas criam a configuração a seguir:
 
 Para verificar se um cliente Kafka pode se conectar ao cluster local, use as etapas na seção [Exemplo: cliente do Python](#python-client).
 
-## <a id="vpnclient"></a> Conectar-se ao Apache Kafka com um cliente VPN
+## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a> Conectar-se ao Apache Kafka com um cliente VPN
 
 Use as etapas nesta seção para criar a seguinte configuração:
 
@@ -85,7 +85,7 @@ Use as etapas nesta seção para criar a seguinte configuração:
 
 1. Siga as etapas no documento [Trabalhando com certificados autoassinados para conexões de ponto a site](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md). Esse documento cria os certificados necessários para o gateway.
 
-2. Abra um prompt do PowerShell e use o seguinte código para entrar em sua assinatura do Azure:
+2. Abra um prompt do PowerShell e use o seguinte código para fazer login na sua assinatura do Azure:
 
     ```powershell
     Connect-AzAccount
@@ -242,7 +242,7 @@ Use as etapas nesta seção para criar a seguinte configuração:
 
 Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes Kafka aos clientes. Essa configuração não funciona com o cliente de software VPN, pois não é possível usar a resolução de nomes para entidades na rede virtual. Para essa configuração, use as seguintes etapas para configurar o Kafka a fim de anunciar endereços IP no lugar de nomes de domínio:
 
-1. Usando um navegador da Web, acesse `https://CLUSTERNAME.azurehdinsight.net`. Substitua `CLUSTERNAME` pelo nome do Kafka no cluster HDInsight.
+1. Usando um navegador da Web, acesse `https://CLUSTERNAME.azurehdinsight.net`. Substitua pelo `CLUSTERNAME` nome do grupo Kafka no HDInsight.
 
     Quando solicitado, use o nome de usuário e a senha HTTPS para o cluster. A Interface de Usuário Ambari Web para o cluster é exibida.
 
@@ -274,7 +274,7 @@ Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes Kafka aos
 
 8. Para salvar as alterações de configuração, use o botão __Salvar__. Digite uma mensagem de texto que descreva as alterações. Selecione __OK__ assim que as alterações tiverem sido salvas.
 
-    ![Salvar configuração do Apache Ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    ![Configuração de salvamento apache ambari](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. Para evitar erros ao reiniciar o Kafka, use o botão __Ações de Serviço__ e selecione __Ativar o Modo de Manutenção__. Selecione OK para concluir essa operação.
 
@@ -290,7 +290,7 @@ Por padrão, o Apache Zookeeper retorna o nome de domínio dos agentes Kafka aos
 
 Para se conectar ao gateway de VPN, use a seção __Conectar ao Azure__ do documento [Configurar uma conexão Ponto a Site](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect).
 
-## <a id="python-client"></a> Exemplo: cliente do Python
+## <a name="example-python-client"></a><a id="python-client"></a> Exemplo: cliente do Python
 
 Para validar a conectividade com o Kafka, use as etapas a seguir para criar e executar um produtor e consumidor de Python:
 
@@ -368,7 +368,7 @@ Para validar a conectividade com o Kafka, use as etapas a seguir para criar e ex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como usar o HDInsight com uma rede virtual, consulte o documento [planejar a implantação de uma rede virtual para clusters do Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) .
+Para obter mais informações sobre como usar o HDInsight com uma rede virtual, consulte o Plano de implantação de uma rede virtual para o documento [de clusters Azure HDInsight.](../hdinsight-plan-virtual-network-deployment.md)
 
 Para saber mais sobre como criar uma Rede Virtual do Azure com o gateway de VPN Ponto a Site, confira os seguintes documentos:
 

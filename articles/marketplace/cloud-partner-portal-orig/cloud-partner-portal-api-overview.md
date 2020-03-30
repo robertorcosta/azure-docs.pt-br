@@ -1,19 +1,18 @@
 ---
-title: Referência de API de Portal do Cloud Partner | Azure Marketplace
+title: Referência de API do Portal parceiro em nuvem | Mercado Azure
 description: Descrição dos pré-requisitos a serem usados e lista de operações de API do Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 296c667876807bdd05a6281de461df76207b5490
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288539"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Referência de API do Portal do Cloud Partner
 ==================================
@@ -54,12 +53,12 @@ Essa referência detalha as APIs para executar as seguintes tarefas comuns.
 
 ### <a name="publish-an-app"></a>Publicar um aplicativo
 
--   [Entrar no ar](./cloud-partner-portal-api-go-live.md)
+-   [Vá ao vivo](./cloud-partner-portal-api-go-live.md)
 
 ### <a name="other-tasks"></a>Outras tarefas
 
 -   [Definir preços para ofertas de máquinas virtuais](./cloud-partner-portal-api-setting-price.md)
 
-### <a name="troubleshooting"></a>Solucionar problemas
+### <a name="troubleshooting"></a>Solução de problemas
 
 -   [Solucionando problemas de erros de autenticação](./cloud-partner-portal-api-troubleshooting-authentication-errors.md)

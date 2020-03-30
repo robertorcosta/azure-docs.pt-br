@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72598325"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure  
 
-Esta página da Comunidade dos serviços de mídia do Azure (AMS) discute diferentes maneiras pelas quais você pode obter atualizações sobre o AMS. Você também pode exibir novos vídeos e podcasts, fazer perguntas e fornecer comentários.   
+Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as diferentes maneiras em que você pode obter atualizações sobre o AMS. Você também pode ver novos vídeos e podcasts, fazer perguntas e comentários.   
 
 ## <a name="videos-and-podcasts"></a>Vídeos e Podcasts
 
@@ -40,24 +40,24 @@ Esta página da Comunidade dos serviços de mídia do Azure (AMS) discute difere
 
 ### <a name="twitter"></a>Twitter
 
-Use o [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) identificador do Twitter para entrar em contato conosco ou seguir as atualizações no Twitter. Use o identificador do twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar suporte no Twitter.  
+Use [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) a alça do twitter para entrar em contato conosco ou siga as atualizações no Twitter. Você pode [@AzureSupport](https://twitter.com/azuresupport) usar a alça do twitter para solicitar suporte no Twitter.  
 
 ### <a name="online-forums"></a>Fóruns online
 
 Os fóruns a seguir podem ser usados para fazer perguntas sobre produtos e recursos atuais.
 
-Atualmente, o MSDN é o fórum da comunidade principal da equipe de serviços de mídia.
+Atualmente, o MSDN é o principal fórum da comunidade da equipe dos Serviços de Mídia.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![Msdn](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-A equipe também monitora as perguntas marcadas em Stack Overflow com ' Azure-Media-Services '.
+A equipe também monitora perguntas marcadas com 'azure-media-services' no Stack Overflow.
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[![Stackoverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Você pode abrir um ticket de suporte navegando para [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Visão geral](media-services-overview.md)

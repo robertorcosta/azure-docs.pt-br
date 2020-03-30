@@ -1,6 +1,6 @@
 ---
 title: Controle de manutenção
-description: Saiba como controlar quando a manutenção é aplicada às suas VMs do Azure usando o controle de manutenção.
+description: Saiba como controlar quando a manutenção é aplicada às Suas VMs do Azure usando o Controle de Manutenção.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
@@ -8,41 +8,41 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
 ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250173"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Visualização: controlar as atualizações com o controle de manutenção e o CLI do Azure
+# <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Visualização: Atualizações de controle com controle de manutenção e o Cli do Azure
 
-Gerenciar atualizações de plataforma, que não exigem uma reinicialização, usando o controle de manutenção. O Azure frequentemente atualiza sua infraestrutura para melhorar a confiabilidade, desempenho, segurança ou lançamento de novos recursos. A maioria das atualizações é transparente para os usuários. Algumas cargas de trabalho confidenciais, como jogos, streaming de mídia e transações financeiras, não podem tolerar até poucos segundos de uma VM congelando ou desconectando para manutenção. O controle de manutenção oferece a opção de aguardar atualizações de plataforma e aplicá-las em uma janela sem interrupção de 35 dias. 
+Gerenciar atualizações de plataforma, que não requerem uma reinicialização, usando o controle de manutenção. O Azure atualiza frequentemente sua infra-estrutura para melhorar a confiabilidade, o desempenho, a segurança ou lançar novos recursos. A maioria das atualizações são transparentes para os usuários. Algumas cargas de trabalho sensíveis, como jogos, streaming de mídia e transações financeiras, não podem tolerar nem mesmo alguns segundos de uma VM congelando ou desconectando para manutenção. O controle de manutenção lhe dá a opção de esperar pelas atualizações da plataforma e aplicá-las dentro de uma janela de rolamento de 35 dias. 
 
-O controle de manutenção permite que você decida quando aplicar atualizações às VMs isoladas e aos hosts dedicados do Azure.
+O controle de manutenção permite que você decida quando aplicar atualizações às suas VMs isoladas e hosts dedicados do Azure.
 
 Com o controle de manutenção, você pode:
 - Atualizações em lote em um pacote de atualização.
 - Aguarde até 35 dias para aplicar atualizações. 
-- Automatize as atualizações de plataforma para sua janela de manutenção usando Azure Functions.
-- As configurações de manutenção funcionam em assinaturas e grupos de recursos. 
+- Automatize as atualizações da plataforma para sua janela de manutenção usando funções do Azure.
+- As configurações de manutenção funcionam entre assinaturas e grupos de recursos. 
 
 > [!IMPORTANT]
-> O controle de manutenção está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O Controle de Manutenção está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 ## <a name="limitations"></a>Limitações
 
-- As VMs devem estar em um [host dedicado](./linux/dedicated-hosts.md)ou ser criadas usando um [tamanho de VM isolado](./linux/isolation.md).
+- As VMs devem estar em um [host dedicado](./linux/dedicated-hosts.md)ou serem criadas usando um tamanho [de VM isolado](./linux/isolation.md).
 - Após 35 dias, uma atualização será aplicada automaticamente.
-- O usuário deve ter acesso de **colaborador de recurso** .
+- O usuário deve ter acesso **ao Contribuinte de Recursos.**
 
 
-## <a name="install-the-maintenance-extension"></a>Instalar a extensão de manutenção
+## <a name="install-the-maintenance-extension"></a>Instale a extensão de manutenção
 
-Se você optar por instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) localmente, precisará da versão 2.0.76 ou posterior.
+Se você optar por instalar o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) localmente, você precisará da versão 2.0.76 ou posterior.
 
-Instale a extensão CLI do `maintenance` Preview localmente ou em Cloud Shell. 
+Instale `maintenance` a extensão CLI de visualização localmente ou no Cloud Shell. 
 
 ```azurecli-interactive
 az extension add -n maintenance
@@ -51,7 +51,7 @@ az extension add -n maintenance
 
 ## <a name="create-a-maintenance-configuration"></a>Criar uma configuração de manutenção
 
-Use `az maintenance configuration create` para criar uma configuração de manutenção. Este exemplo cria uma configuração de manutenção chamada *myconfig* com escopo para o host. 
+Use `az maintenance configuration create` para criar uma configuração de manutenção. Este exemplo cria uma configuração de manutenção chamada *myConfig* escopo para o host. 
 
 ```azurecli-interactive
 az group create \
@@ -64,13 +64,13 @@ az maintenance configuration create \
    --location  eastus
 ```
 
-Copie a ID de configuração da saída para usar mais tarde.
+Copie o ID de configuração da saída para usar mais tarde.
 
-O uso de `--maintenanceScope host` garante que a configuração de manutenção seja usada para controlar atualizações no host.
+O `--maintenanceScope host` uso garante que a configuração de manutenção seja usada para controlar as atualizações do host.
 
-Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, receberá um erro. Os nomes de configuração devem ser exclusivos para sua assinatura.
+Se você tentar criar uma configuração com o mesmo nome, mas em um local diferente, você terá um erro. Os nomes de configuração devem ser exclusivos da sua assinatura.
 
-Você pode consultar as configurações de manutenção disponíveis usando `az maintenance configuration list`.
+Você pode consultar as configurações `az maintenance configuration list`de manutenção disponíveis usando .
 
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
@@ -78,11 +78,11 @@ az maintenance configuration list --query "[].{Name:name, ID:id}" -o table
 
 ## <a name="assign-the-configuration"></a>Atribuir a configuração
 
-Use `az maintenance assignment create` para atribuir a configuração à VM isolada ou ao host dedicado do Azure.
+Use `az maintenance assignment create` para atribuir a configuração ao seu VM isolado ou host dedicado do Azure.
 
-### <a name="isolated-vm"></a>VM isolada
+### <a name="isolated-vm"></a>VM isolado
 
-Aplique a configuração a uma VM usando a ID da configuração. Especifique `--resource-type virtualMachines` e forneça o nome da VM para `--resource-name`e o grupo de recursos para a VM em `--resource-group`e o local da VM para `--location`. 
+Aplique a configuração em um VM usando o ID da configuração. Especificar `--resource-type virtualMachines` e fornecer o nome `--resource-name`da VM para , e `--resource-group`o grupo de recursos `--location`para a VM em , e a localização da VM para . 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -97,9 +97,9 @@ az maintenance assignment create \
 
 ### <a name="dedicated-host"></a>Host dedicado
 
-Para aplicar uma configuração a um host dedicado, você precisa incluir `--resource-type hosts`, `--resource-parent-name` com o nome do grupo de hosts e `--resource-parent-type hostGroups`. 
+Para aplicar uma configuração a um host `--resource-type hosts` `--resource-parent-name` dedicado, você precisa incluir `--resource-parent-type hostGroups`, com o nome do grupo host, e . 
 
-O parâmetro `--resource-id` é a ID do host. Você pode usar [AZ VM host Get-Instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view) para obter a ID do host dedicado.
+O parâmetro `--resource-id` é o ID do hospedeiro. Você pode usar [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) para obter o ID do seu host dedicado.
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -114,11 +114,11 @@ az maintenance assignment create \
    --resource-parent-type hostGroups 
 ```
 
-## <a name="check-configuration"></a>Verificar configuração
+## <a name="check-configuration"></a>Verificar a configuração
 
-Você pode verificar se a configuração foi aplicada corretamente ou verificar qual configuração está aplicada no momento usando `az maintenance assignment list`.
+Você pode verificar se a configuração foi aplicada corretamente ou verificar `az maintenance assignment list`qual configuração é aplicada atualmente usando .
 
-### <a name="isolated-vm"></a>VM isolada
+### <a name="isolated-vm"></a>VM isolado
 
 ```azurecli-interactive
 az maintenance assignment list \
@@ -145,13 +145,13 @@ az maintenance assignment list \
 ```
 
 
-## <a name="check-for-pending-updates"></a>Verificar se há atualizações pendentes
+## <a name="check-for-pending-updates"></a>Verifique se há atualizações pendentes
 
-Use `az maintenance update list` para ver se há atualizações pendentes. Update--Subscription para ser a ID da assinatura que contém a VM.
+Use `az maintenance update list` para ver se há atualizações pendentes. Atualizar --assinatura para ser o ID da assinatura que contém a VM.
 
-Se não houver nenhuma atualização, o comando retornará uma mensagem de erro, que conterá o texto: `Resource not found...StatusCode: 404`.
+Se não houver atualizações, o comando retornará uma mensagem `Resource not found...StatusCode: 404`de erro, que conterá o texto: .
 
-Se houver atualizações, apenas uma será retornada, mesmo se houver várias atualizações pendentes. Os dados desta atualização serão retornados em um objeto:
+Se houver atualizações, apenas uma será devolvida, mesmo que haja várias atualizações pendentes. Os dados desta atualização serão devolvidos em um objeto:
 
 ```text
 [
@@ -166,9 +166,9 @@ Se houver atualizações, apenas uma será retornada, mesmo se houver várias at
 ]
   ```
 
-### <a name="isolated-vm"></a>VM isolada
+### <a name="isolated-vm"></a>VM isolado
 
-Verifique se há atualizações pendentes para uma VM isolada. Neste exemplo, a saída é formatada como uma tabela para facilitar a leitura.
+Verifique se há atualizações pendentes para uma VM isolada. Neste exemplo, a saída é formatada como uma tabela de legibilidade.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -181,7 +181,7 @@ az maintenance update list \
 
 ### <a name="dedicated-host"></a>Host dedicado
 
-Para verificar se há atualizações pendentes para um host dedicado. Neste exemplo, a saída é formatada como uma tabela para facilitar a leitura. Substitua os valores dos recursos pelos seus próprios.
+Para verificar se há atualizações pendentes para um host dedicado. Neste exemplo, a saída é formatada como uma tabela de legibilidade. Substitua os valores dos recursos pelos seus.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -197,9 +197,9 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>Aplicar atualizações
 
-Use `az maintenance apply update` para aplicar atualizações pendentes. Em caso de sucesso, esse comando retornará JSON contendo os detalhes da atualização.
+Use `az maintenance apply update` para aplicar atualizações pendentes. Com o sucesso, este comando retornará JSON contendo os detalhes da atualização.
 
-### <a name="isolated-vm"></a>VM isolada
+### <a name="isolated-vm"></a>VM isolado
 
 Crie uma solicitação para aplicar atualizações a uma VM isolada.
 
@@ -215,7 +215,7 @@ az maintenance applyupdate create \
 
 ### <a name="dedicated-host"></a>Host dedicado
 
-Aplicar atualizações a um host dedicado.
+Aplique atualizações a um host dedicado.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
@@ -228,11 +228,11 @@ az maintenance applyupdate create \
    --resource-parent-type hostGroups
 ```
 
-## <a name="check-the-status-of-applying-updates"></a>Verificar o status da aplicação de atualizações 
+## <a name="check-the-status-of-applying-updates"></a>Verifique o status da aplicação de atualizações 
 
-Você pode verificar o progresso das atualizações usando `az maintenance applyupdate get`. 
+Você pode verificar o andamento das `az maintenance applyupdate get`atualizações usando . 
 
-Você pode usar `default` como o nome da atualização para ver os resultados da última atualização ou substituir `myUpdateName` pelo nome da atualização que foi retornada quando você executou `az maintenance applyupdate create`.
+Você pode `default` usar como nome de atualização para ver `myUpdateName` os resultados da última atualização ou `az maintenance applyupdate create`substituir pelo nome da atualização que foi devolvida quando você foi executado .
 
 ```text
 Status         : Completed
@@ -244,9 +244,9 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime será a hora em que a atualização foi concluída, iniciada por você ou pela plataforma caso a janela de automanutenção não tenha sido usada. Se nunca houvesse uma atualização aplicada por meio do controle de manutenção, o valor padrão será exibido.
+LastUpdateTime será o momento em que a atualização foi concluída, iniciada por você ou pela plataforma no caso de janela de auto-manutenção não ter sido usada. Se nunca houve uma atualização aplicada através do controle de manutenção, ela mostrará o valor padrão.
 
-### <a name="isolated-vm"></a>VM isolada
+### <a name="isolated-vm"></a>VM isolado
 
 ```azurecli-interactive
 az maintenance applyupdate get \
@@ -274,7 +274,7 @@ az maintenance applyupdate get \
 ```
 
 
-## <a name="delete-a-maintenance-configuration"></a>Excluir uma configuração de manutenção
+## <a name="delete-a-maintenance-configuration"></a>Exclua uma configuração de manutenção
 
 Use `az maintenance configuration delete` para excluir uma configuração de manutenção. A exclusão da configuração remove o controle de manutenção dos recursos associados.
 
@@ -286,4 +286,4 @@ az maintenance configuration delete \
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, consulte [manutenção e atualizações](maintenance-and-updates.md).
+Para saber mais, consulte [Manutenção e atualizações](maintenance-and-updates.md).

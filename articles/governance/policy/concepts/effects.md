@@ -1,61 +1,61 @@
 ---
 title: Entender como funcionam os efeitos
-description: As definições de Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
-ms.date: 11/04/2019
+description: As definições de Diretiva do Azure têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
+ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 631c941173a500a4159a37c7c31107b9a6eab872
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79281178"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239977"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
 Cada definição de política no Azure Policy tem um único efeito. Esse efeito determina o que acontece quando a regra de política é avaliada para correspondência. Os efeitos se comportam de modo diferente caso sejam para um novo recurso, um recurso atualizado ou um recurso existente.
 
-Atualmente, há suporte para esses efeitos em uma definição de política:
+Esses efeitos são atualmente suportados em uma definição de política:
 
 - [Acrescentar](#append)
 - [Auditoria](#audit)
-- [AuditIfNotExists](#auditifnotexists)
-- [Deny](#deny)
+- [AuditIfNotExiste](#auditifnotexists)
+- [Negar](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Desabilitado](#disabled)
+- [Desativado](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (visualização)
 - [EnforceRegoPolicy](#enforceregopolicy) (visualização)
 - [Modificar](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
 
-As solicitações para criar ou atualizar um recurso por meio de Azure Resource Manager são avaliadas por Azure Policy primeiro. Azure Policy cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. O Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança criados de Azure Policy.
+Solicitações para criar ou atualizar um recurso por meio do Azure Resource Manager são avaliadas primeiro pelo Azure Policy. A Diretiva Do Azure cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. A Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso evita o processamento desnecessário por um Provedor de Recursos quando um recurso não atende aos controles de governança projetados da Azure Policy.
 
 - **Desabilitado** é marcado primeiro para determinar se a regra de política deve ser avaliada.
-- **Acréscimo** e **modificação** são então avaliados. Como o pode alterar a solicitação, uma alteração feita pode impedir o disparo de um efeito de auditoria ou negação.
+- **O apêndice** e **o Modify** são então avaliados. Uma vez que qualquer um poderia alterar a solicitação, uma alteração feita pode impedir uma auditoria ou negar o efeito de acionar.
 - **Negar** é avaliada. Ao avaliar o efeito negar antes da auditoria, evita-se o log duplo de um recurso indesejado.
 - **Audit** é avaliado antes de a solicitação ir para o provedor de recursos.
 
 Depois que o provedor de recursos retorna um código de êxito, **AuditIfNotExists** e **DeployIfNotExists** fazem a avaliação para determinar se é necessário fazer registro em log para aumentar a conformidade.
 
-No momento, não há nenhuma ordem de avaliação para os efeitos **EnforceOPAConstraint** ou **EnforceRegoPolicy** .
+Atualmente, não há nenhuma ordem de avaliação para os efeitos **EnforceOPAConstraint** ou **EnforceReGoPolicy.**
 
 ## <a name="disabled"></a>Desabilitado
 
 Esse efeito é útil para testar situações ou quando a definição de política tiver parametrizado o efeito. Essa flexibilidade possibilita desabilitar uma única atribuição em vez de desabilitar todas as atribuições da política.
 
-Uma alternativa ao efeito desabilitado é **imposiçãomode** , que é definida na atribuição de política.
-Quando **imposiçãomode** é _desabilitada_, os recursos ainda são avaliados. Registro em log, como logs de atividade, e o efeito de política não ocorre. Para obter mais informações, consulte [atribuição de política – modo de imposição](./assignment-structure.md#enforcement-mode).
+Uma alternativa ao efeito Disabled é o **EnforcementMode,** que é definido na atribuição de políticas.
+Quando **o enforcementMode** é _desativado,_ os recursos ainda são avaliados. O registro, como registros de atividades, e o efeito de política não ocorrem. Para obter mais informações, consulte [a atribuição de políticas - modo de aplicação](./assignment-structure.md#enforcement-mode).
 
 ## <a name="append"></a>Acrescentar
 
-O efeito acrescentar é usado para adicionar outros campos ao recurso solicitado durante a criação ou atualização. Um exemplo comum é especificar os IPs permitidos para um recurso de armazenamento.
+O efeito acrescentar é usado para adicionar outros campos ao recurso solicitado durante a criação ou atualização. Um exemplo comum é especificar IPs permitidos para um recurso de armazenamento.
 
 > [!IMPORTANT]
-> Append destina-se a uso com propriedades sem marca. Embora Append possa adicionar marcas a um recurso durante uma solicitação de criação ou atualização, é recomendável usar o efeito [Modificar](#modify) para marcas em vez disso.
+> O apêndice destina-se a ser usado com propriedades não-tag. Embora o Apêndice possa adicionar tags a um recurso durante uma solicitação de criação ou atualização, recomenda-se usar o efeito [Modificar](#modify) para tags.
 
 ### <a name="append-evaluation"></a>Avaliação de acréscimo
 
-Append é avaliado antes que a solicitação seja processada por um provedor de recursos durante a criação ou a atualização de um recurso. O efeito append adiciona o campos ao recurso quando a condição **if** da regra de política for atendida. Se o efeito append substituir um valor na solicitação original por um valor diferente, ele atuará como um efeito Negar e rejeitará a solicitação. Para acrescentar um novo valor a uma matriz existente, use a versão **[\*]** do alias.
+Append é avaliado antes que a solicitação seja processada por um provedor de recursos durante a criação ou a atualização de um recurso. O efeito append adiciona o campos ao recurso quando a condição **if** da regra de política for atendida. Se o efeito append substituir um valor na solicitação original por um valor diferente, ele atuará como um efeito Negar e rejeitará a solicitação. Para anexar um novo valor a uma matriz existente, use a versão **[\*]** do alias.
 
 Quando uma definição de política usando o efeito append é executada como parte de um ciclo de avaliação, ela não faz alterações em recursos já existentes. Em vez disso, ela marca qualquer recurso que atende a condição **se** como não conforme.
 
@@ -65,7 +65,7 @@ Um efeito acrescentar tem apenas uma matriz **detalhes**, que é necessária. Co
 
 ### <a name="append-examples"></a>Exemplos de acréscimo
 
-Exemplo 1: par de **campo/valor** único usando um [alias](definition-structure.md#aliases) não **[\*]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Quando o alias não **[\*]** é uma matriz, o efeito acrescenta o **valor** como a matriz inteira. Se já existir a matriz, ocorre um evento de negação como resultado do conflito.
+Exemplo 1: Um único par **de campo/valor** usando um [alias](definition-structure.md#aliases) **não-\*[ ]** com um **valor** de matriz para definir regras IP em uma conta de armazenamento. Quando o alias não-**\*[ ]** é uma matriz, o efeito anexa o **valor** como toda a matriz. Se já existir a matriz, ocorre um evento de negação como resultado do conflito.
 
 ```json
 "then": {
@@ -80,7 +80,7 @@ Exemplo 1: par de **campo/valor** único usando um [alias](definition-structure.
 }
 ```
 
-Exemplo 2: par de **campo/valor** único usando um [alias](definition-structure.md#aliases) **[\*]** com um **valor** de matriz para definir regras de IP em uma conta de armazenamento. Ao usar o alias **[\*]** , o efeito acrescenta o **valor** a uma matriz potencialmente já existente. Se a matriz ainda não existir, ela será criada.
+Exemplo 2: Um único par **de campo/valor** usando um [alias](definition-structure.md#aliases) **\*com** um **valor** de matriz para definir regras IP em uma conta de armazenamento. Usando o **\*alias []** o efeito anexa o **valor** a uma matriz potencialmente pré-existente. Se a matriz ainda não existir, ela será criada.
 
 ```json
 "then": {
@@ -97,42 +97,42 @@ Exemplo 2: par de **campo/valor** único usando um [alias](definition-structure.
 
 ## <a name="modify"></a>Modificar
 
-Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é A atualização de marcas em recursos como costCenter. Uma política de modificação sempre deve ter `mode` definido como _indexado_ , a menos que o recurso de destino seja um grupo de recursos. Os recursos não compatíveis existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer quantidade de operações.
+Modify é usado para adicionar, atualizar ou remover tags em um recurso durante a criação ou atualização. Um exemplo comum é atualizar tags em recursos como costCenter. Uma diretiva Modificar `mode` sempre deve ter sido definida _como Indexada,_ a menos que o recurso de destino seja um grupo de recursos. Os recursos não compatíveis existentes podem ser remediados com uma [tarefa de remediação](../how-to/remediate-resources.md). Uma única regra modificar pode ter qualquer número de operações.
 
 > [!IMPORTANT]
-> No momento, Modify é usado apenas com marcas. Se você estiver gerenciando marcas, é recomendável usar modificar em vez de acrescentar como modificar fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, o acréscimo é recomendado se você não conseguir criar uma identidade gerenciada.
+> Atualmente, modificar é apenas para uso com tags. Se você estiver gerenciando tags, recomenda-se usar Modificar em vez de Anexar como Modificar fornece tipos de operação adicionais e a capacidade de remediar os recursos existentes. No entanto, o Apêndice é recomendado se você não for capaz de criar uma identidade gerenciada.
 
 ### <a name="modify-evaluation"></a>Modificar avaliação
 
-Modify avalia antes que a solicitação seja processada por um provedor de recursos durante a criação ou atualização de um recurso. Modifique adiciona ou atualiza marcas em um recurso quando a condição **se** da regra de política for atendida.
+Modificar avaliações antes que a solicitação seja processada por um Provedor de Recursos durante a criação ou atualização de um recurso. Modificar adiciona ou atualiza tags em um recurso quando a condição **se** da regra de diretiva for atendida.
 
-Quando uma definição de política que usa o efeito modificar é executada como parte de um ciclo de avaliação, ela não faz alterações nos recursos que já existem. Em vez disso, ela marca qualquer recurso que atende a condição **se** como não conforme.
+Quando uma definição de diretiva usando o efeito Modificar é executada como parte de um ciclo de avaliação, ela não faz alterações nos recursos que já existem. Em vez disso, ela marca qualquer recurso que atende a condição **se** como não conforme.
 
 ### <a name="modify-properties"></a>Modificar propriedades
 
-A propriedade **Details** do efeito modificar tem todas as subpropriedades que definem as permissões necessárias para a correção e as **operações** usadas para adicionar, atualizar ou remover valores de marca.
+A propriedade **details** do efeito Modificar tem todas as subpropriedades que definem as permissões necessárias para a remediação e as **operações** usadas para adicionar, atualizar ou remover valores de tag.
 
 - **roleDefinitionIds** [obrigatório]
   - Essa propriedade deve incluir uma matriz de cadeias de caracteres que correspondem à ID de controle de acesso baseado em função que pode ser acessada pela assinatura. Para obter mais informações, confira [correção – configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
-  - A função definida deve incluir todas as operações concedidas à função [colaborador](../../../role-based-access-control/built-in-roles.md#contributor) .
-- **operações** [obrigatório]
-  - Uma matriz de todas as operações de marca a serem concluídas em recursos correspondentes.
+  - O papel definido deve incluir todas as operações concedidas à função [contribuinte.](../../../role-based-access-control/built-in-roles.md#contributor)
+- **operações** [necessárias]
+  - Uma matriz de todas as operações de tag a serem concluídas em recursos correspondentes.
   - Propriedades:
-    - **operação** [obrigatório]
-      - Define a ação a ser tomada em um recurso correspondente. As opções são: _addOrReplace_, _Adicionar_, _remover_. _Adicionar_ se comporta de forma semelhante ao efeito de [acréscimo](#append) .
-    - **campo** [obrigatório]
-      - A marca a ser adicionada, substituída ou removida. Os nomes de marca devem aderir à mesma convenção de nomenclatura para outros [campos](./definition-structure.md#fields).
+    - **operação** [necessária]
+      - Define que ação tomar em um recurso correspondente. As opções são: _addOrReplace,_ _Add,_ _Remove_. _Adicionar_ comporta-se semelhante ao efeito [Apêndice.](#append)
+    - **campo** [necessário]
+      - A tag para adicionar, substituir ou remover. Os nomes das marcas devem aderir à mesma convenção de nomeação para outros [campos](./definition-structure.md#fields).
     - **valor** (opcional)
-      - O valor para o qual definir a marca.
-      - Essa propriedade será necessária se a **operação** for _addOrReplace_ ou _Add_.
+      - O valor para definir a tag.
+      - Esta propriedade é necessária se **a operação** for _adicionarOrReplace_ ou _Add_.
 
 ### <a name="modify-operations"></a>Modificar operações
 
-A matriz de propriedades de **operações** torna possível alterar várias marcas de diferentes maneiras de uma única definição de política. Cada operação é composta de propriedades de **operação**, **campo**e **valor** . A operação determina o que a tarefa de correção faz nas marcas, o campo determina qual marca é alterada e o valor define a nova configuração para essa marca. O exemplo a seguir faz as seguintes alterações de marca:
+O array de propriedade de **operações** permite alterar várias tags de diferentes maneiras a partir de uma única definição de política. Cada operação é composta por propriedades de **operação,** **campo**e **valor.** A operação determina o que a tarefa de remediação faz com as tags, o campo determina qual tag é alterada e o valor define a nova configuração para essa tag. O exemplo abaixo faz as seguintes alterações de tag:
 
-- Define a marca de `environment` como "Test", mesmo que ela já exista com um valor diferente.
-- Remove a marca `TempResource`.
-- Define a marca de `Dept` como o parâmetro de política _deptname_ configurado na atribuição de política.
+- Define `environment` a tag como "Teste", mesmo que ela já exista com um valor diferente.
+- Remove a `TempResource`tag .
+- Define `Dept` a marca para o parâmetro de política _DeptName_ configurado na atribuição de diretiva.
 
 ```json
 "details": {
@@ -156,17 +156,17 @@ A matriz de propriedades de **operações** torna possível alterar várias marc
 }
 ```
 
-A propriedade **Operation** tem as seguintes opções:
+A propriedade **de operação** tem as seguintes opções:
 
-|Operação |DESCRIÇÃO |
+|Operação |Descrição |
 |-|-|
-|addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
-|Adicionar |Adiciona a marca e o valor definidos ao recurso. |
-|Remover |Remove a marca definida do recurso. |
+|adicionarOrSubstituir |Adiciona a tag e o valor definidos ao recurso, mesmo que a tag já exista com um valor diferente. |
+|Adicionar |Adiciona a tag e o valor definidos ao recurso. |
+|Remover |Remove a tag definida do recurso. |
 
 ### <a name="modify-examples"></a>Modificar exemplos
 
-Exemplo 1: adicionar a marca de `environment` e substituir as marcas de `environment` existentes por "Test":
+Exemplo 1: `environment` Adicione a tag `environment` e substitua as tags existentes por "Teste":
 
 ```json
 "then": {
@@ -186,7 +186,7 @@ Exemplo 1: adicionar a marca de `environment` e substituir as marcas de `environ
 }
 ```
 
-Exemplo 2: Remova a marca de `env` e adicione a marca de `environment` ou substitua as marcas de `environment` existentes por um valor com parâmetros:
+Exemplo 2: `env` Remova a `environment` tag e adicione `environment` a tag ou substitua as tags existentes por um valor parametrizado:
 
 ```json
 "then": {
@@ -240,7 +240,7 @@ Audit é usado para criar um evento de aviso no log de atividades ao avaliar um 
 
 ### <a name="audit-evaluation"></a>Avaliação de auditoria
 
-Audit é o último efeito verificado por Azure Policy durante a criação ou a atualização de um recurso. Azure Policy, em seguida, envia o recurso para o provedor de recursos. Audit funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação. Azure Policy adiciona uma operação de `Microsoft.Authorization/policies/audit/action` ao log de atividades e marca o recurso como sem conformidade.
+A auditoria é o último efeito verificado pela Azure Policy durante a criação ou atualização de um recurso. Em seguida, a Diretiva Azure envia o recurso para o Provedor de Recursos. Audit funciona da mesma forma para uma solicitação de recurso e um ciclo de avaliação. A Diretiva Do `Microsoft.Authorization/policies/audit/action` Azure adiciona uma operação ao registro de atividades e marca o recurso como não compatível.
 
 ### <a name="audit-properties"></a>Propriedades de auditoria
 
@@ -262,7 +262,7 @@ O efeito AuditIfNotExists habilita a auditoria em recursos que correspondem à c
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação de AuditIfNotExists
 
-O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de recurso e ter retornado um código de status de êxito. A auditoria ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros. Azure Policy adiciona uma operação de `Microsoft.Authorization/policies/audit/action` ao log de atividades da mesma maneira que o efeito de auditoria. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
+O efeito AuditIfNotExists é executado depois de um provedor de recursos ter tratado uma solicitação de criação ou atualização de recurso e ter retornado um código de status de êxito. A auditoria ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros. A Azure `Microsoft.Authorization/policies/audit/action` Policy adiciona uma operação ao registro de atividades da mesma forma que o efeito de auditoria. Quando disparado, o recurso que atendeu à condição **se** é o recurso marcado como não compatível.
 
 ### <a name="auditifnotexists-properties"></a>Propriedades de AuditIfNotExists
 
@@ -270,10 +270,10 @@ A propriedade **detalhes** dos efeitos AuditIfNotExists tem todas as subpropried
 
 - **Tipo** [obrigatório]
   - Especifica o tipo do recurso relacionado a ser correspondido.
-  - Se **Details. Type** for um tipo de recurso sob o recurso **If** Condition, a política consultará os recursos desse **tipo** dentro do escopo do recurso avaliado. Caso contrário, as consultas de política dentro do mesmo grupo de recursos que o recurso avaliado.
+  - Se **details.type** for um tipo de recurso abaixo do recurso **if** condition, a política consulta recursos desse **tipo** no âmbito do recurso avaliado. Caso contrário, as consultas de diretiva dentro do mesmo grupo de recursos do recurso avaliado.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** forem correspondentes, o **nome** será _necessário_ e deverá ser `[field('name')]`. No entanto, um efeito de [auditoria](#audit) deve ser considerado em vez disso.
+  - Quando a condição valoriza para **if.field.type** e **então.details.type** match, então **Nome** torna-se _necessário_ e deve ser `[field('name')]`. No entanto, um efeito [de auditoria](#audit) deve ser considerado em vez disso.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -324,28 +324,28 @@ Exemplo: avalia máquinas virtuais para determinar se a extensão antimalware ex
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-Semelhante a AuditIfNotExists, uma definição de política DeployIfNotExists executa uma implantação de modelo quando a condição é atendida.
+Semelhante ao AuditIfNotExists, uma definição de diretiva DeployIfNot executa uma implantação de modelo quando a condição é atendida.
 
 > [!NOTE]
 > [Modelos aninhados](../../../azure-resource-manager/templates/linked-templates.md#nested-template) são compatíveis com **deployIfNotExists**, mas [modelos vinculados](../../../azure-resource-manager/templates/linked-templates.md#linked-template) não são compatíveis atualmente.
 
 ### <a name="deployifnotexists-evaluation"></a>Avaliação de DeployIfNotExists
 
-DeployIfNotExists é executado cerca de 15 minutos depois que um provedor de recursos tratou de uma solicitação de criação ou atualização de recurso e retornou um código de status de êxito. Uma implantação de modelo ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros.
+O DeployIfNotexiste é executado cerca de 15 minutos depois que um provedor de recursos lidou com uma solicitação de criação ou atualização de recursos e retornou um código de status de sucesso. Uma implantação de modelo ocorre quando não existem recursos relacionados ou se os recursos definidos por **ExistenceCondition** não são avaliados como verdadeiros.
 A duração da implantação depende da complexidade dos recursos incluídos no modelo.
 
-Durante um ciclo de avaliação, as definições de política com um efeito DeployIfNotExists que correspondam a recursos são marcadas como não conformes, mas nenhuma ação é realizada no recurso.
+Durante um ciclo de avaliação, as definições de política com um efeito DeployIfNotExists que correspondam a recursos são marcadas como não conformes, mas nenhuma ação é realizada no recurso. Os recursos não compatíveis existentes podem ser remediados com uma [tarefa de remediação](../how-to/remediate-resources.md).
 
 ### <a name="deployifnotexists-properties"></a>Propriedades de DeployIfNotExists
 
-A propriedade **Details** do efeito DeployIfNotExists tem todas as subpropriedades que definem os recursos relacionados para corresponder e a implantação de modelo a ser executada.
+A propriedade **detalhes** do efeito DeployIfNotExists tem todas as subpropriedades que definem os recursos relacionados a corresponder e a implantação do modelo a ser executada.
 
 - **Tipo** [obrigatório]
   - Especifica o tipo do recurso relacionado a ser correspondido.
   - Começa tentando buscar um recurso sob o recurso de condição **se**, depois consulta dentro do mesmo grupo de recursos como o recurso de condição **se**.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** forem correspondentes, o **nome** será _necessário_ e deverá ser `[field('name')]`.
+  - Quando a condição valoriza para **if.field.type** e **então.details.type** match, então **Nome** torna-se _necessário_ e deve ser `[field('name')]`.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -430,32 +430,32 @@ Exemplo: avalia os bancos de dados do SQL Server para determinar se transparentD
 }
 ```
 
-## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
+## <a name="enforceopaconstraint"></a>Restrição de AplicaçãoOPA
 
-Esse efeito é usado com um *modo* de definição de política de `Microsoft.Kubernetes.Data`. Ele é usado para passar regras de controle de admissão do gatekeeper v3 definidas com a [estrutura de restrição Opa](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) para abrir o OPA ( [agente de política](https://www.openpolicyagent.org/) ) para clusters kubernetes autogerenciados no Azure.
+Este efeito é usado *mode* com `Microsoft.Kubernetes.Data`um modo de definição de política de . Ele é usado para passar as regras de controle de admissão gatekeeper v3 definidas com [o OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) to Open Policy [Agent](https://www.openpolicyagent.org/) (OPA) para clusters Kubernetes no Azure.
 
 > [!NOTE]
-> [Azure Policy para o mecanismo AKs](aks-engine.md) está em visualização pública e só dá suporte a definições de políticas internas.
+> [A Diretiva do Azure para Kubernetes](aks-engine.md) está no Preview e só suporta definições de políticas incorporadas.
 
-### <a name="enforceopaconstraint-evaluation"></a>Avaliação do EnforceOPAConstraint
+### <a name="enforceopaconstraint-evaluation"></a>Avaliação de restrição de EnforceOPA
 
-O controlador de admissão do agente de política aberto avalia qualquer nova solicitação no cluster em tempo real.
-A cada 5 minutos, uma verificação completa do cluster é concluída e os resultados relatados para Azure Policy.
+O controlador de admissão do Agente de Política Aberta avalia qualquer nova solicitação no cluster em tempo real.
+A cada 15 minutos, uma varredura completa do cluster é concluída e os resultados relatados à Política Do Azure.
 
-### <a name="enforceopaconstraint-properties"></a>Propriedades de EnforceOPAConstraint
+### <a name="enforceopaconstraint-properties"></a>Propriedades EnforceOPAConstraint
 
-A propriedade **Details** do efeito EnforceOPAConstraint tem as subpropriedades que descrevem a regra de controle de admissão do gatekeeper v3.
+A propriedade de **detalhes** do efeito EnforceOPAConstraint tem as subpropriedades que descrevem a regra de controle de admissão Gatekeeper v3.
 
-- **constrainttemplate** [obrigatório]
-  - O modelo de restrição CustomResourceDefinition (CRD) que define novas restrições. O modelo define a lógica Rego, o esquema de restrição e os parâmetros de restrição que são passados por meio de **valores** de Azure Policy.
-- **restrição** [obrigatório]
-  - A implementação de CRD do modelo de restrição. Usa parâmetros passados por meio de **valores** como `{{ .Values.<valuename> }}`. No exemplo a seguir, seria `{{ .Values.cpuLimit }}` e `{{ .Values.memoryLimit }}`.
+- **modelo de restrição** [necessário]
+  - O modelo de restrição CustomResourceDefinition (CRD) que define novas restrições. O modelo define a lógica rego, o esquema de restrição e os parâmetros de restrição que são passados através de **valores** da Política Azure.
+- **restrição** [necessária]
+  - A implementação do CRD do modelo De restrição. Utiliza parâmetros passados através de **valores** como `{{ .Values.<valuename> }}`. No exemplo abaixo, isso `{{ .Values.cpuLimit }}` `{{ .Values.memoryLimit }}`seria e .
 - **valores** [opcional]
-  - Define quaisquer parâmetros e valores a serem passados para a restrição. Cada valor deve existir no modelo de restrição CRD.
+  - Define quaisquer parâmetros e valores para passar para a Restrição. Cada valor deve existir no modelo de restrição CRD.
 
-### <a name="enforceregopolicy-example"></a>Exemplo de EnforceRegoPolicy
+### <a name="enforceopaconstraint-example"></a>Exemplo de restrição de EnforceOPA
 
-Exemplo: regra de controle de admissão do gatekeeper V3 para definir limites de recursos de memória e CPU do contêiner no mecanismo de AKS.
+Exemplo: Regra de controle de admissão gatekeeper v3 para definir os limites de recursos de CPU e memória do contêiner no Kubernetes.
 
 ```json
 "if": {
@@ -486,32 +486,32 @@ Exemplo: regra de controle de admissão do gatekeeper V3 para definir limites de
 }
 ```
 
-## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+## <a name="enforceregopolicy"></a>Política de ExecuçãoRego
 
-Esse efeito é usado com um *modo* de definição de política de `Microsoft.ContainerService.Data`. Ele é usado para passar as regras de controle de admissão do gatekeeper v2 definidas com [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para abrir o OPA ( [agente de política](https://www.openpolicyagent.org/) ) no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
+Este efeito é usado *mode* com `Microsoft.ContainerService.Data`um modo de definição de política de . Ele é usado para passar gatekeeper v2 regras de controle de admissão definidas com [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) no [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy para AKs](rego-for-aks.md) está em visualização limitada e só dá suporte a definições de políticas internas
+> [!IMPORTANT]
+> [A Diretiva do Azure para Kubernetes](rego-for-aks.md) está no Preview e só suporta definições de políticas incorporadas. As políticas incorporadas estão na categoria **Kubernetes.** O efeito **EnforceRegoPolicy** e as políticas relacionadas da categoria **kubernetes service** estão sendo _preteridos_. Em vez disso, use o efeito [EnforceOPAConstraint](#enforceopaconstraint) atualizado.
 
-### <a name="enforceregopolicy-evaluation"></a>Avaliação do EnforceRegoPolicy
+### <a name="enforceregopolicy-evaluation"></a>Avaliação da EnforceRegoPolicy
 
-O controlador de admissão do agente de política aberto avalia qualquer nova solicitação no cluster em tempo real.
-A cada 5 minutos, uma verificação completa do cluster é concluída e os resultados relatados para Azure Policy.
+O controlador de admissão do Agente de Política Aberta avalia qualquer nova solicitação no cluster em tempo real.
+A cada 5 minutos, uma varredura completa do cluster é concluída e os resultados reportados à Política Do Azure.
 
-### <a name="enforceregopolicy-properties"></a>Propriedades de EnforceRegoPolicy
+### <a name="enforceregopolicy-properties"></a>Propriedades EnforceRePolicy
 
-A propriedade **Details** do efeito EnforceRegoPolicy tem as subpropriedades que descrevem a regra de controle de admissão do gatekeeper v2.
+A propriedade de **detalhes** do efeito EnforceRegoPolicy tem as subpropriedades que descrevem a regra de controle de admissão Gatekeeper v2.
 
-- **PolicyId** [obrigatório]
-  - Um nome exclusivo passado como um parâmetro para a regra de controle de admissão rego.
-- **política** [obrigatório]
-  - Especifica o URI da regra de controle de admissão rego.
-- **políticaparameters** [opcional]
-  - Define quaisquer parâmetros e valores a serem passados para a política rego.
+- **policyId** [obrigatório]
+  - Um nome único passou como parâmetro para a regra de controle de admissão de Rego.
+- **política** [necessária]
+  - Especifica o URI da regra de controle de admissão Rego.
+- **policyParâmetros** [opcional]
+  - Define quaisquer parâmetros e valores para passar para a política de rego.
 
 ### <a name="enforceregopolicy-example"></a>Exemplo de EnforceRegoPolicy
 
-Exemplo: regra de controle de admissão do gatekeeper v2 para permitir apenas as imagens de contêiner especificadas em AKS.
+Exemplo: Regra de controle de admissão gatekeeper v2 para permitir apenas as imagens de contêiner especificadas no AKS.
 
 ```json
 "if": {
@@ -540,7 +540,7 @@ Exemplo: regra de controle de admissão do gatekeeper v2 para permitir apenas as
 
 ## <a name="layering-policies"></a>Políticas de camadas
 
-Um recurso pode ser afetado por várias atribuições. Essas atribuições podem estar no mesmo escopo ou em escopos diferentes. Também é provável que cada uma dessas atribuições tenha um efeito diferente definido. A condição e o efeito de cada política são avaliados independentemente. Por exemplo:
+Um recurso pode ser afetado por várias atribuições. Essas atribuições podem estar no mesmo escopo ou em escopos diferentes. Também é provável que cada uma dessas atribuições tenha um efeito diferente definido. A condição e o efeito de cada política são avaliados independentemente. Por exemplo: 
 
 - Política 1
   - Restringe o local do recurso para 'westus'
@@ -569,9 +569,9 @@ Cada atribuição é avaliada individualmente. Assim, não existe chance de um r
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
+- Revisar exemplos em [amostras de política do Azure](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).
-- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
+- Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)
 - Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
-- Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
-- Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Aprenda a [remediar recursos não compatíveis.](../how-to/remediate-resources.md)
+- Reveja o que é um grupo de gestão com [organize seus recursos com grupos de gerenciamento do Azure.](../../management-groups/overview.md)

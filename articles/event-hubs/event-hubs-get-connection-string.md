@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264928"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de conexão dos Hubs de Eventos
@@ -37,14 +37,14 @@ Um exemplo de cadeia de conexão pode parecer com `Endpoint=sb://dummynamespace.
 Este artigo orienta você pelas diversas maneiras de obter a cadeia de conexão.
 
 ## <a name="get-connection-string-from-the-portal"></a>Obter a cadeia de conexão do portal
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Faça login no [portal Azure](https://portal.azure.com). 
 2. Selecione **Todos os serviços** no menu esquerdo de navegação. 
 3. Selecione **Hubs de Eventos** na seção **Análise**. 
 4. Na lista de hubs de eventos, selecione seu hub de eventos.
 6. Na página **Namespace de Hubs de Eventos**, selecione **Políticas de Acesso Compartilhado** no menu à esquerda.
 
     ![Item de menu Políticas de Acesso Compartilhado](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Selecione uma **política de acesso compartilhado** na lista de políticas. O padrão é chamado: **RootManageSharedAccessPolicy**. Você pode adicionar uma política com permissões apropriadas (leitura, gravação) e usar essa política. 
+7. Selecione uma **política de acesso compartilhado** na lista de políticas. O padrão é nomeado: **RootManageSharedAccessPolicy**. Você pode adicionar uma política com permissões apropriadas (leitura, gravação) e usar essa política. 
 
     ![Políticas de acesso compartilhado de hubs de eventos](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. Selecione o botão **Copiar** ao lado do campo **Chave primária da cadeia de conexão**. 
@@ -55,7 +55,7 @@ Este artigo orienta você pelas diversas maneiras de obter a cadeia de conexão.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode usar o [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a cadeia de conexão para o nome de política/regra específico, conforme mostrado abaixo:
+Você pode usar o [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a seqüência de conexão para o nome de política/regra específico, conforme mostrado abaixo:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -68,7 +68,7 @@ Use o seguinte para obter a cadeia de conexão para o namespace:
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-Ou você pode usar o seguinte para obter a cadeia de conexão para uma entidade do EventHub:
+Ou você pode usar o seguinte para obter a seqüência de conexões de uma entidade EventHub:
 
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
@@ -80,5 +80,5 @@ Para obter mais informações sobre os comandos da CLI do Azure para Hubs de Eve
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Crie um Hub de Eventos](event-hubs-create.md)

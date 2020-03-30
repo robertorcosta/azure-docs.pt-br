@@ -1,15 +1,15 @@
 ---
-title: Simular falhas nos microserviços do Azure
+title: Simular falhas nos microsserviços do Azure
 description: Este artigo fala sobre as ações da Possibilidade de Teste encontradas na Malha de Serviço do Microsoft Azure.
 author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282036"
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
@@ -28,7 +28,7 @@ As ações da Possibilidade de Teste são classificadas em dois blocos principai
 Para validação de melhor qualidade, execute a carga de trabalho de serviço e comercial enquanto estiver induzindo várias falhas normais e anormais. Falhas anormais utilizam cenários em que o processo de serviço é interrompido abruptamente no meio de algum fluxo de trabalho. Isso testa o caminho de recuperação assim que a réplica do serviço é restaurada pelo Service Fabric. Isso ajudará na consistência dos dados de teste e a verificar se o estado do serviço é mantido corretamente após as falhas. O outro conjunto de falhas (falhas normais) testa se o serviço reage corretamente à movimentação das réplicas pelo Service Fabric. Isso testa o tratamento de cancelamento no método RunAsync. O serviço precisa verificar se o token de cancelamento que está sendo definido salva seu estado e encerra o método RunAsync corretamente.
 
 ## <a name="testability-actions-list"></a>Lista de ações da Possibilidade de Teste
-| Ação | DESCRIÇÃO | API gerenciada | Cmdlet do PowerShell | Falhas normais/anormais |
+| Ação | Descrição | API gerenciada | Cmdlet do PowerShell | Falhas normais/anormais |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Remove todo o estado de teste do cluster em caso de desligamento repentino do driver de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvokeDataLoss |Induz a perda de dados em uma partição de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |

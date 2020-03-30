@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259572"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
@@ -64,14 +64,14 @@ O processo de instalação é o seguinte:
 3. Crie o emparelhamento entre os namespaces primário e secundário para obter o ***alias***.
 
     >[!NOTE] 
-    > Se você tiver [migrado seu namespace standard do barramento de serviço do Azure para o barramento de serviço Premium do Azure](service-bus-migrate-standard-premium.md), deverá usar o alias pré-existente (ou seja, sua cadeia de conexão de namespace padrão do barramento de serviço) para criar a configuração de recuperação de desastre por meio do **PS/CLI** ou da **API REST**.
+    > Se você [migrou o seu namespace padrão de barramento de serviço do Azure para o Azure Service Bus Premium,](service-bus-migrate-standard-premium.md)então você deve usar o alias pré-existente (ou seja, sua seqüência de conexão de namespace padrão do bus de serviço) para criar a configuração de recuperação de desastres através da **API PS/CLI** ou **REST**.
     >
     >
-    > Isso ocorre porque, durante a migração, sua cadeia de conexão de namespace padrão do barramento de serviço do Azure/nome DNS em si se torna um alias para o namespace Premium do barramento de serviço do Azure.
+    > Isso porque, durante a migração, o nome de namespace padrão do Azure Service Bus/DNS se torna um alias para o seu namespace Azure Service Bus Premium.
     >
-    > Seus aplicativos cliente devem utilizar esse alias (ou seja, a cadeia de conexão de namespace padrão do barramento de serviço do Azure) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre foi configurado.
+    > Seus aplicativos clientedevem utilizar esse alias (ou seja, a seqüência de namespace padrão do Azure Service Bus) para se conectar ao namespace Premium onde o emparelhamento de recuperação de desastres foi configurado.
     >
-    > Se você usar o portal para configurar a configuração de recuperação de desastre, o portal abstrairá essa limitação de você.
+    > Se você usar o Portal para configurar a configuração de recuperação de desastres, então o portal irá abstrair essa ressalva de você.
 
 
 4. Use o ***alias*** obtido na etapa 3 para conectar os aplicativos clientes ao namespace primário habilitado para recuperação de desastre geográfico. Inicialmente, o alias aponta para o namespace primário.
@@ -157,7 +157,7 @@ Para saber mais sobre as mensagens do Barramento de Serviço, confira os artigos
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* [API REST](/rest/api/servicebus/) 
+* [API de descanso](/rest/api/servicebus/) 
 
 [1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png

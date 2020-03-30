@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o esquema em um aplicativo de locatário único
+title: Gerenciar esquema em um aplicativo de um único inquilino
 description: Gerenciar o Esquema para vários locatários em um aplicativo de locatário único que usa o Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
 ms.openlocfilehash: b6802d97b964b8863f6c2fce0cebfe16782b46fe
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269205"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o Banco de Dados SQL do Azure
@@ -38,7 +38,7 @@ Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-
 
 * O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e Instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+* A última versão do SQL Server Management Studio (SSMS) está instalada. [Baixar e instalar SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
 > Este tutorial usa funcionalidades do serviço do Banco de Dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você deseja fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com o assunto = Elastic Jobs Preview. Após receber a confirmação de que sua assinatura foi habilitada, [baixe e instale as versões de pré-lançamento mais recentes dos cmdlets de trabalhos](https://github.com/jaredmoo/azure-powershell/releases). Esta é uma versão prévia limitada, então contate SaaSFeedback@microsoft.com para conferir perguntas relacionadas ou para obter suporte.
@@ -77,7 +77,7 @@ No aplicativo Wingtip Tickets, cada banco de dados do locatário inclui um conju
 Primeiro, revise os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um banco de dados de locatário no SSMS (SQL Server Management Studio) e verifique a tabela VenueTypes.  Você também pode consultar essa tabela no Editor de consultas no portal do Azure, acessado pela página do banco de dados. 
 
 1. Abra o SSMS e conecte-se ao servidor *tenants1-dpt-&lt;user&gt;.database.windows.net*
-1. Para confirmar se o *Motorcycle de corrida* e o *clube nadare* **não estão** atualmente incluídos, navegue até o banco de dados _contosoconcerthall_ no servidor do *tenants1-DPT-&lt;&gt;do usuário* e consulte a tabela *VenueTypes* .
+1. Para confirmar que *Motorcycle Racing* e *Swimming Club* **não estão** na lista de resultados, navegue até o banco de dados _contosoconcerthall_ do servidor *tenants1-dpt-&lt;usuário&gt;* e consulte a tabela *VenueTypes*.
 
 Agora vamos criar um trabalho para atualizar a tabela *VenueTypes* em todos os bancos de dados de locatário a fim de adicionar os novos tipos de local.
 
@@ -95,7 +95,7 @@ Observe os seguintes elementos no script *DeployReferenceData.sql*:
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar a tabela de referência, VenueTypes.
 * As exibições restantes no script exibem a existência dos objetos e monitoram a execução do trabalho. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído em todos os bancos de dados de destino.
 
-Quando o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o servidor *contosoconcerthall* banco de dados de *tenants1-dpt -&lt;user&gt;* e consulta a tabela *VenueTypes*.  Verifique se a *corrida Motorcycle* e o *clube nadare* **estão** presentes agora.
+Quando o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o servidor *contosoconcerthall* banco de dados de *tenants1-dpt -&lt;user&gt;* e consulta a tabela *VenueTypes*.  Verifique se *Motorcycle Racing* e *Swimming Club* **estão** presentes agora.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar um trabalho para gerenciar o índice da tabela de referência
@@ -105,12 +105,12 @@ Este exercício usa um trabalho para recriar o índice de chave primária da tab
 Crie um trabalho usando os mesmos trabalhos dos procedimentos armazenados do "sistema".
 
 1. Abra o SSMS e conecte-se ao servidor _catalog-dpt-&lt;user&gt;.database.windows.net_
-1. Abra o arquivo _...\\Módulos de aprendizado\\Gerenciamento de esquema\\OnlineReindex.sql_
+1. Abra o _arquivo... Módulos de aprendizagem\\Schema Management OnlineReindex.sql\\ \\_
 1. Clique com o botão direito do mouse, selecione Conexão e conecte-se ao servidor _catalog-dpt-&lt;user&gt;.database.windows.net_, se ainda não estiver conectado
 1. Verifique se você está conectado ao banco de dados _jobaccount_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script _OnlineReindex.sql_:
-* **sp\_add\_job** cria um novo trabalho chamado “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”
+* **sp\_\_adicionar emprego** cria um novo trabalho\_\_chamado "Online Reindex PK VenueTyp\_\_265E44FD7FD4C885"
 * **sp\_add\_jobstep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar o índice
 * As exibições restantes na execução do trabalho no monitor de script. Use essas consultas para examinar o valor do status na coluna **lifecycle** para determinar quando o trabalho foi concluído com êxito em todos os membros do grupo de destino.
 
@@ -126,10 +126,10 @@ Neste tutorial, você aprendeu a:
 > * Atualizar dados de referência em todos os bancos de dados de locatário
 > * Criar um índice em uma tabela em todos os bancos de dados de locatário
 
-Em seguida, experimente o [tutorial de relatórios ad hoc](saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas em bancos de dados de locatário.
+Em seguida, tente o [tutorial de relatórios Ad hoc](saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas em bancos de dados de inquilinos.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam a implantação do aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que se baseiam na implantação do aplicativo Wingtip Tickets SaaS Por Inquilino](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Gerenciando bancos de dados de nuvem com escalonamento horizontal](elastic-jobs-overview.md)

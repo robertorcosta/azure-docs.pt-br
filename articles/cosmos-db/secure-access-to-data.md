@@ -7,15 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251811"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 
-Este artigo fornece uma visão geral de como proteger o acesso aos dados armazenados no [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+Este artigo fornece uma visão geral da garantia de acesso aos dados armazenados no [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer acesso aos seus dados e recursos. 
 
@@ -62,7 +62,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-## Tokens de recurso<a id="resource-tokens"></a>
+## <a name="resource-tokens"></a>Tokens de recursos<a id="resource-tokens"></a>
 
 Os tokens de recurso fornecem acesso aos recursos do aplicativo em um banco de dados. Tokens de recurso:
 
@@ -70,7 +70,7 @@ Os tokens de recurso fornecem acesso aos recursos do aplicativo em um banco de d
 - São criados quando um [usuário](#users) recebe [permissões](#permissions) para um recurso específico.
 - São recriados quando um recurso de permissão recebe uma ação de uma chamada POST, GET ou PUT.
 - Use um token de recurso de hash construído especificamente para o usuário, o recurso e a permissão.
-- São associados a um período de validade personalizável. O intervalo de tempo válido padrão é de uma hora. O tempo de vida do token, no entanto, pode ser especificado explicitamente, até o máximo de cinco horas.
+- São associados a um período de validade personalizável. O prazo de tempo válido padrão é de uma hora. O tempo de vida do token, no entanto, pode ser especificado explicitamente, até o máximo de cinco horas.
 - Fornecem uma alternativa segura para o fornecimento da chave mestra.
 - Permitem aos clientes ler, gravar e excluir recursos da conta do Cosmos DB de acordo com as permissões que receberam.
 
@@ -91,13 +91,13 @@ Este é um padrão de design típico no qual tokens de recurso podem ser solicit
 
     ![Fluxo de trabalho dos tokens de recurso do Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-A geração e o gerenciamento do token de recurso são manipulados pelas bibliotecas de cliente nativas do Cosmos DB; no entanto, se você usar a REST, deverá construir os cabeçalhos de solicitação/autenticação. Para obter mais informações sobre como criar cabeçalhos de autenticação para REST, consulte [controle de acesso em Cosmos DB recursos](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código-fonte para nosso SDK do [.net](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) ou SDK do [node. js](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+A geração e o gerenciamento do token de recurso são manipulados pelas bibliotecas de cliente nativas do Cosmos DB; no entanto, se você usar a REST, deverá construir os cabeçalhos de solicitação/autenticação. Para obter mais informações sobre a criação de cabeçalhos de autenticação para REST, consulte [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) ou o código-fonte do nosso [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) ou [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Para obter um exemplo de um serviço de camada intermediária usado para gerar, ou tokens de recurso do agente, confira o [aplicativo ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## Podem<a id="users"></a>
+## <a name="users"></a>Usuários<a id="users"></a>
 
-Azure Cosmos DB usuários estão associados a um banco de dados Cosmos.  Cada banco de dados pode conter nenhum ou mais usuários do Cosmos DB. O exemplo de código a seguir mostra como criar um usuário Cosmos DB usando o [Azure Cosmos DB SDK do .net v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
+Os usuários do Azure Cosmos DB estão associados a um banco de dados Cosmos.  Cada banco de dados pode conter nenhum ou mais usuários do Cosmos DB. A amostra de código a seguir mostra como criar um usuário do Cosmos DB usando o [Azure Cosmos DB .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
 ```csharp
 //Create a user.
@@ -107,17 +107,17 @@ User user = await database.CreateUserAsync("User 1");
 ```
 
 > [!NOTE]
-> Cada usuário Cosmos DB tem um método ReadAsync () que pode ser usado para recuperar a lista de [permissões](#permissions) associadas ao usuário.
+> Cada usuário do Cosmos DB tem um método ReadAsync() que pode ser usado para recuperar a lista de [permissões associadas](#permissions) ao usuário.
 
-## Permissões<a id="permissions"></a>
+## <a name="permissions"></a>Permissões<a id="permissions"></a>
 
-Um recurso de permissão é associado a um usuário e atribuído no contêiner, bem como no nível de chave de partição. Cada usuário pode conter zero ou mais permissões. Um recurso de permissão fornece acesso a um token de segurança que o usuário precisa ao tentar acessar um contêiner ou dados específicos em uma chave de partição específica. Há dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
+Um recurso de permissão é associado a um usuário e atribuído no contêiner, bem como nível de chave de partição. Cada usuário pode conter zero ou mais permissões. Um recurso de permissão fornece acesso a um token de segurança que o usuário precisa ao tentar acessar um contêiner ou dados específicos em uma chave de partição específica. Há dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
 
 - Tudo: o usuário tem permissão total com relação ao recurso.
 - Leitura: O usuário pode apenas ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
 
 > [!NOTE]
-> Para executar procedimentos armazenados, o usuário deve ter a permissão All no contêiner no qual o procedimento armazenado será executado.
+> Para executar os procedimentos armazenados, o usuário deve ter a permissão All no recipiente no qual o procedimento armazenado será executado.
 
 ### <a name="code-sample-to-create-permission"></a>Exemplo de código para criar permissão
 
@@ -134,9 +134,9 @@ user.CreatePermissionAsync(
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 
-### <a name="code-sample-to-read-permission-for-user"></a>Exemplo de código para ler permissão para o usuário
+### <a name="code-sample-to-read-permission-for-user"></a>Amostra de código para ler permissão para usuário
 
-O trecho de código a seguir mostra como recuperar a permissão associada ao usuário criado acima e criar uma instância de um novo CosmosClient em nome do usuário, com escopo para uma única chave de partição.
+O trecho de código a seguir mostra como recuperar a permissão associada ao usuário criado acima e instanciar um novo CosmosClient em nome do usuário, escopo para uma única chave de partição.
 
 ```csharp
 //Read a permission, create user client session.
@@ -155,7 +155,7 @@ Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de us
 4. Na caixa **Atribuir acesso à caixa**, selecione **Usuário, grupo ou aplicativo do Microsoft Azure Active Directory**.
 5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
     O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 A entidade agora poderá ler recursos do Azure Cosmos DB.
 
@@ -167,6 +167,6 @@ O Azure Cosmos DB permite que você pesquise, selecione, modifique e exclua todo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre a segurança do banco de dados Cosmos, consulte [segurança do banco de dados do cosmos DB](database-security.md).
+- Para saber mais sobre a segurança do banco de dados cosmos, consulte [a segurança do banco de dados Cosmos DB](database-security.md).
 - Para saber como construir tokens de autorização do Azure Cosmos DB, consulte [Controle de Acesso em recursos do Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
-- Exemplos de gerenciamento de usuário com usuários e permissões, [exemplos de gerenciamento de usuários do .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
+- Amostras de gerenciamento de usuários com usuários e permissões, amostras de [gerenciamento de usuários .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)

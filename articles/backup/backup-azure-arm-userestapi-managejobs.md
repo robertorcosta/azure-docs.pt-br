@@ -1,23 +1,23 @@
 ---
 title: Gerenciar trabalhos de backup usando a API REST
-description: Neste artigo, saiba como rastrear e gerenciar trabalhos de backup e restauração do backup do Azure usando a API REST.
+description: Neste artigo, saiba como rastrear e gerenciar backup e restaurar trabalhos do Azure Backup usando a API REST.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273521"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe as tarefas de backup e restauração usando a API REST
 
-O serviço de backup do Azure dispara trabalhos que são executados em segundo plano em vários cenários, como o disparo de backup, operações de restauração, desabilitando o backup. Esses trabalhos podem ser rastreados usando seus IDs.
+O serviço de backup do Azure aciona trabalhos executados em segundo plano em vários cenários, como ativar backup, restaurar operações e desativar backup. Esses trabalhos podem ser rastreados usando seus IDs.
 
 ## <a name="fetch-job-information-from-operations"></a>Buscar informações de trabalho de operações
 
-Uma operação como o acionamento de backup sempre retornará um jobID. Por exemplo: a resposta final de uma [operação de API REST de backup de gatilho](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
+Uma operação como o acionamento de backup sempre retornará um jobID. Por exemplo: A resposta final de uma operação de [API REST de backup de gatilho](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
 
 ```http
 {
@@ -45,7 +45,7 @@ O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o cam
 
 ### <a name="response"></a>Resposta
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

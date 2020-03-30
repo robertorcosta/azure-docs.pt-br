@@ -1,19 +1,18 @@
 ---
-title: Unidade de teste do aplicativo lógico | Azure Marketplace
+title: Logic App Test Drive | Mercado Azure
 description: Explica como criar o Test Drive que se conecta com uma instância do Dynamics AX/CRM ou com qualquer outro recurso fora do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 87170344f7467770829cbd8ba7d8936a9e39c0cc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 766f893d71ca0830fe8b69c50145603c6544cc3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824594"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278375"
 ---
 <a name="logic-app-test-drive"></a>Test Drive de Aplicativo Lógico
 ====================
@@ -23,16 +22,16 @@ Este artigo é voltado a editores que têm sua oferta no AppSource e que desejam
 <a name="how-to-build-a-logic-app-test-drive"></a>Como criar um Test Drive de Aplicativo Lógico
 -----------------------------------
 
-A documentação do test drive para Test Drives de Aplicativo Lógico ainda está no GitHub no momento para [Operações](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Participação do Cliente](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app). Acesse para ler mais.
+A documentação do Test Drive para logic app test drives ainda está no GitHub para [operações](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [engajamento do cliente,](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)vá lá para ler mais.
 
 <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 ---------------------------
 
-Agora que você compilou seu Test Drive, esta seção mostra cada um dos campos necessários para conseguir publicá-lo.
+Agora que o seu Test Drive foi criado, esta seção explicará cada um dos campos necessários para publicá-lo com êxito.
 
 ![Habilitar o recurso de Test Drive](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-O primeiro campo e mais importante é alternar se você deseja que o teste do formulário com todos os campos obrigatórios seja apresentado para você preencher. Quando você seleciona **não,** o formulário fica desabilitado e, se você republicar com a unidade de teste desabilitada, sua unidade de teste será removida da produção.
+O primeiro e mais importante campo é alternar se você quer testar o formulário com todos os campos necessários são apresentados para você preencher. Quando você seleciona **Não,** o formulário fica desativado e se você republicar com a Unidade de Teste desativada, sua Unidade de Teste será removida da produção.
 
 *Observação*: se houver Test Drives ativamente usados por usuários, eles continuarão sendo executados até a sessão expirar.
 
@@ -42,14 +41,14 @@ A próxima seção para preencher são os detalhes sobre sua oferta de Test Driv
 
 ![Detalhes do Test Drive](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrição –** *[Campo Obrigatório]* É onde você escreve a descrição principal daquilo que consta no seu Test Drive. O cliente virá aqui para ler sobre os cenários que seu Test Drive cobrirá em relação ao produto. 
+**Descrição –** *[Campo Obrigatório]* É onde você escreve a descrição principal daquilo que consta no seu Test Drive. O cliente usará este recurso para ler sobre os cenários relacionados ao produto, incluídos no seu Test Drive. 
 
 **Manual do Usuário –** *[Campo Obrigatório]* Trata-se do passo a passo detalhado da sua experiência de Test Drive. O cliente vai abri-lo e poderá ver exatamente o que você deseja que ele faça durante seu Test Drive. É importante que o conteúdo seja fácil de entender e seguir! Deve ser um arquivo .pdf.
 
 **Vídeo de Demonstração do Test Drive –** \[Recomendado\] De modo semelhante ao Manual do Usuário, é melhor incluir um tutorial em vídeo da sua experiência com o Test Drive. O cliente vai assisti-lo antes ou durante o Test Drive e poderá ver exatamente o que você deseja que ele faça durante seu Test Drive. É importante que o conteúdo seja fácil de entender e seguir!
 
 - **Nome** – Título do vídeo
-- **Link** – Deve ser uma URL inserida do YouTube ou Vimeo. Segue um exemplo de como obter a URL inserida:
+- **Link** – Deve ser uma URL inserida do YouTube ou Vimeo. A seguir há um exemplo de como obter a URL inserida:
 - **Miniatura** ‒ Deve ser uma imagem de alta qualidade em pixels (533 x 324). É recomendável fazer uma captura de tela de alguma parte da sua experiência com o Test Drive aqui.
 
 Veja abaixo como esses campos aparecem para o cliente durante a experiência com o Test Drive.
@@ -62,11 +61,11 @@ A próxima seção a ser preenchida é onde você pode configurar o Aplicativo L
 
 ![Configuração de técnicas de Test Drive](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Região** -  *[Campo Obrigatório]* Na região selecionada, você escolhe onde os recursos de Aplicativo Lógico de Test Drive são implantados.
+- **Região** - *[Campo obrigatório]* A região selecionada é onde você escolhe onde os recursos do aplicativo Test Drive Logic estão implantados.
 
     *Observação:* se o Aplicativo Lógico tiver recursos personalizados armazenados em uma região, verifique se essa região está selecionada aqui. A melhor maneira de fazer isso é **implantar de forma integral o Aplicativo Lógico localmente em sua assinatura do Azure no portal e verificar se ele funciona** antes de gravá-lo aqui.
 
-- **Máximo de Test Drives Simultâneos** -  *[Campo Obrigatório]* Número de instâncias do Test Drive que já foram implantadas e estão aguardando acesso por região selecionada. Os clientes podem acessar esses Test Drives instantaneamente em vez de ter que esperar por uma implantação.
+- **Drives de teste simultâneos** - *máximos [campo obrigatório]* Número de instâncias de test drive que já estão implantadas e aguardam acesso por região selecionada. Os clientes podem acessar esses Test Drives instantaneamente em vez de ter que esperar por uma implantação.
 
     *Observação:* se você estiver executando um webinar/aula em que deseje que todos os seus N alunos façam um Test Drive, será recomendável publicar com um número N de instâncias de acesso frequente e, quando a aula terminar, republicar de volta para o número normal de instâncias de acesso frequente.
 
@@ -78,15 +77,15 @@ A próxima seção a ser preenchida é onde você pode configurar o Aplicativo L
 
 - **Desprovisionar o Nome do Aplicativo Lógico ‒** *[Campo Obrigatório]* Grave o nome do Aplicativo Lógico para o desprovisionamento de todos os recursos criados no Test Drive. Verifique se esse arquivo foi salvo no Grupo de Recursos acima.
 
-- **Informações de acesso ‒** *[Campo Obrigatório]* Depois que um cliente obtém seu Test Drive, as informações de acesso são apresentadas a ele. Essas instruções servem para compartilhar os parâmetros de saída úteis do seu modelo do Resource Manager para Test Drive. Para incluir parâmetros de saída, utilize chaves duplas (por exemplo, **{{outputname}}** ); eles serão inseridos corretamente no local. A formatação da cadeia de caracteres HTML é recomendada aqui para renderizar no front-end.
+- **Informações de acesso ‒** *[Campo Obrigatório]* Depois que um cliente obtém seu Test Drive, as informações de acesso são apresentadas a ele. Essas instruções servem para compartilhar os parâmetros de saída úteis do seu modelo do Resource Manager para Test Drive. Para incluir parâmetros de saída, utilize chaves duplas (por exemplo, **{{outputname}}**); eles serão inseridos corretamente no local. A formatação da cadeia de caracteres HTML é recomendada aqui para renderizar no front-end.
 
 ### <a name="test-drive-deployment-subscription-details"></a>Detalhes da assinatura para implantação do Test Drive
 
-A seção final para preenchimento deve ser capaz de implantar os Test Drives automaticamente conectando sua Assinatura do Azure e o AD (Azure Active Directory).
+A seção final a ser preenchida deve habilitar a implementação  automática dos Test Drives, conectando sua Assinatura do Azure e do Azure AD (Azure Active Directory).
 
 ![Detalhes da assinatura para implantação do Test Drive](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**ID da Assinatura do Azure**  *[Campo Obrigatório]* Concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Caso ainda não tenha uma Assinatura do Azure **separada** apenas para Test Drives, crie uma. Para encontrar as IDs de Assinatura do Azure, entre no portal do Azure e navegue até Assinaturas no menu do lado esquerdo.
+**ID da Assinatura do Azure ** *[Campo Obrigatório]* Concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Caso ainda não tenha uma Assinatura do Azure **separada** apenas para Test Drives, crie uma. Para encontrar as IDs de Assinatura do Azure, entre no portal do Azure e navegue até Assinaturas no menu do lado esquerdo.
 (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")
 
 ![Assinaturas do Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
@@ -120,11 +119,11 @@ Clique em Salvar. O último passo é pegar o ID do aplicativo para esse aplicati
 Como estamos usando o aplicativo para implantar a assinatura, precisamos adicionar o aplicativo como colaborador na assinatura. Estas são as instruções:
 
 1. Navegue até a folha Assinaturas e selecione a assinatura adequada que você usa apenas para o Test Drive.
-1. Clique em **Controle de acesso (IAM)** .
-1. Clique na guia **atribuições de função** .  ![Azure Active Directory, adicionando uma nova entidade de segurança de controle de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique **em Acessar controle (IAM)**.
+1. Clique na guia **'Atribuições de** função'.  ![Diretório ativo do Azure, adicionando um novo principal de controle de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Clique em **Adicionar atribuição de função**.
-1. Defina a função como **Colaborador**.
-1. Digite o nome do aplicativo Azure AD e selecione o aplicativo para atribuir a função.
+1. Defina o papel como **Contribuinte**.
+1. Digite o nome do aplicativo do Azure AD e selecione o aplicativo para atribuir a função.
     ![Permissões do Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. Clique em **Salvar**.
 
@@ -133,7 +132,7 @@ Como estamos usando o aplicativo para implantar a assinatura, precisamos adicion
 ![Seção de Chaves do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 > [!CAUTION]
-> Não é possível usar a visualização de registro Azure App porque ela não gera uma chave codificada em base64 no momento.
+> Não é possível usar a visualização de registro do aplicativo Azure porque não gera atualmente uma chave codificada base64.
 
 
 <a name="next-steps"></a>Próximas etapas
@@ -143,6 +142,6 @@ Agora que preencheu todos os campos do Test Drive, prossiga e **Republique** sua
 
 É importante cuidar para não excluir nenhuma parte do Test Drive conforme elas são provisionadas para seus clientes. Assim, o serviço do Test Drive removerá automaticamente esses Grupos de Recursos depois que um cliente tiver encerrado.
 
-Quando estiver se sentindo confortável com sua oferta de versão prévia, é hora de **ativar**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
+Uma vez que você se sinta confortável com sua oferta de Preview, agora é hora **de ir ao ar**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
 
 Se você tiver mais dúvidas, estiver procurando ajuda para solução de problemas ou quiser um test drive de maior sucesso, acesse [Perguntas frequentes, solução de problemas e práticas recomendadas](./marketing-and-best-practices.md).

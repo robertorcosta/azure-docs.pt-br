@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617204"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Instalar o HANA no SAP HANA no Azure (Instâncias Grandes)
@@ -39,7 +39,7 @@ As unidades de Instância Grande do HANA não estão diretamente conectadas à I
 
 Você precisa de um usuário S do SAP ou outro usuário, o que permite que você acesse o SAP Marketplace.
 
-1. Entre e vá até o [SAP Service Marketplace](https://support.sap.com/en/index.html). Selecione **Baixar Software** > **Instalações e Atualização** > **Por Índice Alfabético**. Em seguida, selecione **Em H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Instalação**. Baixe os arquivos mostrados na captura de tela a seguir.
+1. Entre e vá até o [SAP Service Marketplace](https://support.sap.com/en/index.html). Selecione **Baixar instalações de software** > **e atualizar por** > **índice alfabético**. Em seguida, selecione **Em H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Instalação**. Baixe os arquivos mostrados na captura de tela a seguir.
 
    ![Captura de tela dos arquivos a serem baixados](./media/hana-installation/image16_download_hana.PNG)
 
@@ -132,5 +132,5 @@ A instância do SAP HANA deve estar pronta para uso. Você deve conseguir se con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Alta disponibilidade e recuperação de desastre do SAP HANA em Instâncias Grandes do Azure](hana-overview-high-availability-disaster-recovery.md)
+- [SAP HANA Large Instances alta disponibilidade e recuperação de desastres no Azure](hana-overview-high-availability-disaster-recovery.md)
 

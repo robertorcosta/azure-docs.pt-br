@@ -1,5 +1,5 @@
 ---
-title: Configurar uma rede virtual-cache Premium do Azure para Redis
+title: Configure uma rede virtual - Cache Premium Azure para Redis
 description: Saiba como criar e gerenciar suporte de Rede Virtual para o Cache do Azure na camada Premium para instâncias do Redis
 author: yegu-ms
 ms.author: yegu
@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278110"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de Rede Virtual para um Cache do Azure Premium para Redis
@@ -37,7 +37,7 @@ Para configurar a VNet para o novo cache, clique em **Rede Virtual** na folha **
 
 ![Rede virtual][redis-cache-vnet]
 
-Selecione a sub-rede desejada na lista suspensa **sub-rede** .  Se desejar, especifique um **endereço IP estático**. O campo **endereço IP estático** é opcional e, se nenhum for especificado, um será escolhido na sub-rede selecionada.
+Selecione a sub-rede desejada na lista de parada da **sub-rede.**  Se desejar, especifique um **endereço IP estático**. O campo **de endereço IP estático** é opcional e, se nenhum for especificado, um deles será escolhido na sub-rede selecionada.
 
 > [!IMPORTANT]
 > Ao implantar um Cache do Azure para Redis em uma VNet do Resource Manager, o cache deve estar em uma sub-rede dedicada que não contém nenhum outro recurso, exceto o Cache do Azure para Redis. Se uma tentativa de implantar um Cache do Azure para Redis for realizada em uma VNet do Resource Manager para uma sub-rede contendo outros recursos, a implantação falhará.
@@ -96,29 +96,29 @@ Quando o Cache do Azure para Redis for hospedado em uma VNet, serão usadas as p
 
 #### <a name="outbound-port-requirements"></a>Requisitos de porta de saída
 
-Há nove requisitos de porta de saída. As solicitações de saída nesses intervalos são de saída para outros serviços necessários para que o cache funcione ou seja interno à sub-rede Redis para comunicação entre nós. Para a replicação geográfica, existem outros requisitos de saída para a comunicação entre as sub-redes do cache primário e secundário.
+Há nove requisitos de porta de saída. As solicitações de saída nessas faixas são de saída para outros serviços necessários para que o cache funcione ou internamente para a sub-rede Redis para comunicação interna. Para a replicação geográfica, existem requisitos adicionais de saída para comunicação entre sub-redes do cache primário e secundário.
 
 | Porta(s) | Direção | Protocolo de Transporte | Finalidade | IP local | IP Remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Saída |TCP |Dependências de Redis no Armazenamento do Azure/PKI (Internet) | (Sub-rede Redis) |* |
-| 443 | Saída | TCP | Dependência Redis em Azure Key Vault | (Sub-rede Redis) | AzureKeyVault <sup>1</sup> |
+| 443 | Saída | TCP | Dependência redis no Cofre chave Azure | (Sub-rede Redis) | AzureKeyVault <sup>1</sup> |
 | 53 |Saída |TCP/UDP |Dependências Redis no DNS (Internet/Rede Virtual) | (Sub-rede Redis) | 168.63.129.16 e 169.254.169.254 <sup>2</sup> e qualquer servidor DNS personalizado para a sub-rede <sup>3</sup> |
 | 8443 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) | (Sub-rede Redis) |
 | 10221-10231 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) | (Sub-rede Redis) |
 | 20226 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 | 13000-13999 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
-| 15000-15999 |Saída |TCP |Comunicações internas para Redis e replicação geográfica | (Sub-rede Redis) |(Sub-rede Redis) (Sub-rede par de réplica geográfica) |
+| 15000-15999 |Saída |TCP |Comunicações internas para Redis e Geo-Replicação | (Sub-rede Redis) |(Sub-rede Redis) (Sub-rede de pares de réplica sinuosa) |
 | 6379-6380 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
-<sup>1</sup> você pode usar a marca de serviço ' AzureKeyVault ' com grupos de segurança de rede do Resource Manager.
+<sup>1</sup> Você pode usar a tag de serviço 'AzureKeyVault' com grupos de segurança de rede do gerenciador de recursos.
 
-<sup>2</sup> esses endereços IP pertencentes à Microsoft são usados para resolver a VM do host que serve o DNS do Azure.
+<sup>2</sup> Esses endereços IP de propriedade da Microsoft são usados para abordar a VM host que serve o DNS do Azure.
 
-<sup>3</sup> não é necessário para sub-redes sem servidor DNS personalizado ou caches Redis mais recentes que ignoram o DNS personalizado.
+<sup>3</sup> Não é necessário para sub-redes sem servidor DNS personalizado ou caches redis mais novos que ignoram dns personalizados.
 
 #### <a name="geo-replication-peer-port-requirements"></a>Requisitos de porta de pares de replicação geográfica
 
-Se você estiver usando a replicação geocompleta entre caches em redes virtuais do Azure, observe que a configuração recomendada é desbloquear as portas 15000-15999 para toda a sub-rede nas direções de entrada e saída para ambos os caches, para que todos os componentes de réplica na sub-rede pode se comunicar diretamente entre si mesmo no caso de um failover geográfico futuro.
+Se você estiver usando a georeplicação entre caches em Redes Virtuais Do Azure, observe que a configuração recomendada é desbloquear as portas 15000-15999 para toda a sub-rede em direções de entrada e saída para ambos os caches, de modo que todos os componentes da réplica na sub-rede pode se comunicar diretamente uns com os outros mesmo no caso de um futuro geo-failover.
 
 #### <a name="inbound-port-requirements"></a>Requisitos de porta de entrada
 
@@ -126,16 +126,16 @@ Há oito requisitos de intervalo de portas de entrada. As solicitações de entr
 
 | Porta(s) | Direção | Protocolo de Transporte | Finalidade | IP local | IP Remoto |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Entrada |TCP |Comunicação do cliente com o Redis, Balanceamento de Carga do Azure | (Sub-rede Redis) | (Sub-rede Redis), rede virtual, Azure Load Balancer <sup>1</sup> |
+| 6379, 6380 |Entrada |TCP |Comunicação do cliente com o Redis, Balanceamento de Carga do Azure | (Sub-rede Redis) | (Sub-rede Redis), Rede Virtual, Balanceador de Carga Azure <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 | 8500 |Entrada |TCP/UDP |Balanceamento de Carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redus), Azure Load Balancer |
 | 13000-13999 |Entrada |TCP |Comunicação do cliente com Clusters Redis, Balanceamento de Carga do Azure | (Sub-rede Redis) |Rede virtual, Azure Load Balancer |
-| 15000-15999 |Entrada |TCP |Comunicação de cliente com clusters Redis, balanceamento de carga do Azure e replicação geográfica | (Sub-rede Redis) |Rede virtual, Azure Load Balancer (sub-rede par de réplica geográfica) |
+| 15000-15999 |Entrada |TCP |Comunicação do cliente com Clusters Redis, Balanceamento de carga do Azure e Geo-Replicação | (Sub-rede Redis) |Rede Virtual, Balancer de Carga Azure (sub-rede de pares de réplica geo-replica) |
 | 16001 |Entrada |TCP/UDP |Balanceamento de Carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
-<sup>1</sup> você pode usar a marca de serviço ' AzureLoadBalancer ' (Gerenciador de recursos) (ou ' AZURE_LOADBALANCER ' para clássico) para criar as regras de NSG.
+<sup>1</sup> Você pode usar a tag de serviço 'AzureLoadBalancer' (Gerenciador de recursos) (ou 'AZURE_LOADBALANCER' para clássico) para a autoria das regras do NSG.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Requisitos de conectividade de rede VNET adicionais
 
@@ -149,7 +149,7 @@ Há requisitos de conectividade de rede para o Cache do Azure para Redis que pod
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Como verificar se o cache está funcionando em uma VNET?
 
 >[!IMPORTANT]
->Ao se conectar a um cache do Azure para a instância Redis hospedada em uma VNET, os clientes de cache devem estar na mesma VNET ou em uma VNET com emparelhamento VNET habilitado na mesma região do Azure. O Emparelhamento VNET global não tem suporte no momento. Isso inclui todos os aplicativos de teste ou ferramentas de diagnóstico do ping. Seja qual for o local em que o aplicativo cliente está hospedado, os Grupos de segurança de rede devem ser configurados de modo que o tráfego de rede do cliente tenha permissão para acessar a instância do Redis.
+>Ao se conectar a uma instância do Azure Cache for Redis que está hospedada em um VNET, seus clientes de cache devem estar no mesmo VNET ou em um VNET com peering VNET ativado na mesma região do Azure. O Global VNET Peering não é suportado no momento. Isso inclui todos os aplicativos de teste ou ferramentas de diagnóstico do ping. Seja qual for o local em que o aplicativo cliente está hospedado, os Grupos de segurança de rede devem ser configurados de modo que o tráfego de rede do cliente tenha permissão para acessar a instância do Redis.
 >
 >
 
@@ -157,7 +157,7 @@ Uma vez configurados os requisitos de porta conforme descrito na seção anterio
 
 - [Reinicialize](cache-administration.md#reboot) todos os nós de cache. Se todas as dependências de cache necessárias não podem ser acessadas (conforme documentado em [Requisitos de porta de entrada](cache-how-to-premium-vnet.md#inbound-port-requirements) e [Requisitos de porta de saída](cache-how-to-premium-vnet.md#outbound-port-requirements)), não será possível reiniciar o cache com êxito.
 - Uma vez que os nós de cache tenham reinicializado (conforme relatado pelo status de cache no portal do Azure), você poderá executar os testes a seguir:
-  - Execute o ping no ponto de extremidade do cache (usando a porta 6380) de um computador que esteja na mesma VNET que o cache, usando [tcping](https://www.elifulkerson.com/projects/tcping.php). Por exemplo:
+  - Execute o ping no ponto de extremidade do cache (usando a porta 6380) de um computador que esteja na mesma VNET que o cache, usando [tcping](https://www.elifulkerson.com/projects/tcping.php). Por exemplo: 
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +180,7 @@ Evite usar o endereço IP semelhante à seguinte cadeia de caracteres de conexã
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Se não for possível resolver o nome DNS, algumas bibliotecas de cliente incluem opções como `sslHost` que é fornecido pelo cliente StackExchange.Redis. Isso permite que você substitua o nome do host usado para validação de certificado. Por exemplo:
+Se não for possível resolver o nome DNS, algumas bibliotecas de cliente incluem opções como `sslHost` que é fornecido pelo cliente StackExchange.Redis. Isso permite que você substitua o nome do host usado para validação de certificado. Por exemplo: 
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
@@ -236,7 +236,7 @@ Para obter mais informações sobre o ExpressRoute, consulte [Visão geral técn
 ## <a name="next-steps"></a>Próximas etapas
 Aprenda a usar mais recursos de cache premium.
 
-* [Introdução à camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md)
+* [Introdução à camada Premium do Cache do Azure para Redis](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267450"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implantar o serviço Gerenciador de Dispositivo do StorSimple para a Matriz Virtual do StorSimple
@@ -70,7 +70,7 @@ Execute as etapas a seguir para excluir um serviço.
 
 #### <a name="to-delete-a-service"></a>Para excluir um serviço
 
-1. Acesse **Todos os recursos**. Pesquise por seu serviço Gerenciador de Dispositivo do StorSimple. Selecione o serviço que você deseja excluir.
+1. Vá para **Todos os recursos.** Pesquise por seu serviço Gerenciador de Dispositivo do StorSimple. Selecione o serviço que você deseja excluir.
    
     ![Selecione o serviço para exclusão](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. Acesse o painel do serviço para garantir que nenhum dispositivo esteja conectado a ele. Se não houver algum dispositivo registrado nesse serviço, você também verá uma mensagem de cabeçalho sobre isso. Clique em **Excluir**.
@@ -94,7 +94,7 @@ Depois de ter criado um serviço com êxito, você precisará registrar o dispos
 Execute as etapas a seguir para obter a chave de registro do serviço.
 
 #### <a name="to-get-the-service-registration-key"></a>Para obter a chave de registro do serviço
-1. Na folha **Device Manager do StorSimple** , vá para **Gerenciamento &gt;** **chaves**.
+1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
    
    ![Folha Chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na folha **Chaves**, uma chave de registro de serviço será exibida. Copie a chave de registro usando o ícone de cópia. 
@@ -107,7 +107,7 @@ Você precisará regenerar uma chave de registro de serviço se tiver que execut
 Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
-1. Na folha **Device Manager do StorSimple** , vá para **Gerenciamento &gt;** **chaves**.
+1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
    
    ![Folha Chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Na folha **Chaves**, clique em **Regenerar**.
@@ -123,6 +123,6 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
    Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como obter uma [Introdução](storsimple-virtual-array-deploy1-portal-prep.md) com uma Matriz Virtual do StorSimple.
+* Aprenda a [começar](storsimple-virtual-array-deploy1-portal-prep.md) com um StorSimple Virtual Array.
 * Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

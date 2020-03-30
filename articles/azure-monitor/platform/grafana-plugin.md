@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672201"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorar os serviços do Azure no Grafana
@@ -19,7 +19,7 @@ Use as etapas a seguir para configurar um servidor Grafana e criar painéis para
 ## <a name="set-up-a-grafana-server"></a>Configurar um servidor do Grafana
 
 ### <a name="set-up-grafana-locally"></a>Configurar o Grafana localmente
-Para configurar um servidor Grafana local, [baixe e instale o Grafana em seu ambiente local](https://grafana.com/grafana/download). Para usar a integração de Azure Monitor do plug-in, instale o Grafana versão 5,3 ou superior.
+Para configurar um servidor Grafana local, [baixe e instale o Grafana em seu ambiente local](https://grafana.com/grafana/download). Para usar a integração do Monitor Azure do plugin, instale a versão 5.3 ou superior do Grafana.
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Configurar o Grafana no Azure por meio do Azure Marketplace
 1. Acesse o Azure Marketplace e escolha Grafana da Grafana Labs.
@@ -38,15 +38,15 @@ Para configurar um servidor Grafana local, [baixe e instale o Grafana em seu amb
 
     Se você selecionar o grupo de segurança de rede (*grafana-nsg*, nesse caso), poderá ver que a porta 3000 é usada para acessar o servidor do Grafana.
 
-7. Obtenha o endereço IP público do seu servidor Grafana - volte à lista de recursos e selecione **Endereço IP público**.
+7. Obtenha o endereço IP público do seu servidor Grafana - volte à lista de recursos e selecione ** Endereço IP público **.
 
-## <a name="sign-in-to-grafana"></a>Entrar no Grafana
+## <a name="sign-in-to-grafana"></a>Faça login em Grafana
 
 1. Usando o endereço IP do seu servidor, abra a página de Login em *http://\<endereço IP\>: 3000* ou o *\<DNSName>\: 3000* no seu navegador. Enquanto 3000 é a porta padrão, note que você pode ter selecionado uma porta diferente durante a configuração. Você deve ver uma página de login para o servidor Grafana que você construiu.
 
     ![Tela de logon do Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
-2. Entre com o *administrador* de nome de usuário e a senha de administrador do servidor Grafana que você criou anteriormente. Se você estiver usando uma configuração local, a senha padrão será *admin* e você deverá alterá-la no primeiro login.
+2. Faça login com o nome de usuário *do admin* e a senha de admin do servidor Grafana que você criou anteriormente. Se você estiver usando uma configuração local, a senha padrão será *admin* e você deverá alterá-la no primeiro login.
 
 ## <a name="configure-data-source-plugin"></a>Configurar o plug-in de fonte de dados
 
@@ -64,7 +64,7 @@ Depois de fazer logon com êxito, você deverá ver que o plug-in de fonte de da
     A API do Log Analytics requer a função [ Log Analytics Reader ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que inclui as permissões da função Leitor e adiciona a ela.
 
 4. Forneça os detalhes da conexão para as APIs que você deseja usar. Você pode se conectar a todos ou alguns deles. 
-    * Se você se conectar a métricas e logs em Azure Monitor, poderá reutilizar as mesmas credenciais selecionando os **mesmos detalhes que Azure monitor API**.
+    * Se você se conectar a métricas e logs no Azure Monitor, poderá reutilizar as mesmas credenciais selecionando **os mesmos detalhes da API do Azure Monitor**.
     * Ao configurar o plug-in, você pode indicar qual nuvem do Azure você gostaria que o plug-in monitorasse (público, governo dos EUA do Azure, Alemanha do Azure ou China do Azure).
     * Se você usar o Application Insights, também poderá incluir a API do Application Insights e a ID do aplicativo para coletar métricas baseadas no Application Insights. Para obter mais informações, consulte [Obtendo sua chave de API e a ID do Aplicativo](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -91,12 +91,12 @@ Depois de fazer logon com êxito, você deverá ver que o plug-in de fonte de da
 4. Selecione a fonte de dados do Azure Monitor que você configurou.
    * Coletando métricas do Monitor do Azure - selecione **Azure Monitor** na lista suspensa de serviços. Uma lista de seletores é exibida, onde você pode selecionar os recursos e a métrica a serem monitorados neste gráfico. Para coletar métricas de uma VM, use o namespace **Microsoft.Compute / VirtualMachines**. Depois de selecionar VMs e métricas, você pode começar a visualizar os dados no painel.
      ![Configuração de gráfico do Grafana para o Monitor do Azure](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Coletando dados de log de Azure Monitor-selecione **log Analytics do Azure** na lista suspensa serviço. Selecione o workspace que você deseja consultar e defina o texto da consulta. Você pode copiar aqui qualquer consulta de log que já tenha ou criar uma nova. À medida que você digita sua consulta, o IntelliSense aparecerá e sugerirá opções de preenchimento automático. Selecione o tipo de visualização, **tabela**de **série temporal** e execute a consulta.
+   * Coleta de dados de log do Azure Monitor - selecione **Azure Log Analytics** na parada de serviço. Selecione o workspace que você deseja consultar e defina o texto da consulta. Você pode copiar aqui qualquer consulta de log que você já tenha ou criar uma nova. À medida que você digita sua consulta, o IntelliSense aparecerá e sugerirá opções de preenchimento automático. Selecione o tipo de visualização **Série temporal** **Tabela** e execute a consulta.
     
      > [!NOTE]
      >
      > A consulta padrão fornecida com o plug-in usa duas macros: "$ __ timeFilter () e $ __ interval. 
-     > Essas macros permitem que o Grafana calcule dinamicamente o intervalo de tempo e o tempo, quando você aumenta o zoom em parte de um gráfico. Você pode remover essas macros e usar um filtro de hora padrão, como *TimeGenerated> ago (1h)* , mas isso significa que o gráfico não suportaria o recurso de zoom in.
+     > Essas macros permitem que o Grafana calcule dinamicamente o intervalo de tempo e o tempo, quando você aumenta o zoom em parte de um gráfico. Você pode remover essas macros e usar um filtro de hora padrão, como *TimeGenerated> ago (1h)*, mas isso significa que o gráfico não suportaria o recurso de zoom in.
     
      ![Configuração do Grafana graph para o Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -129,7 +129,7 @@ Usage
 | sort by TimeGenerated
 ```
 
-Você pode configurar uma variável que listará todos os valores **Solution** disponíveis e, em seguida, atualizará sua consulta para usá-la.
+Você pode configurar uma variável que listará todos os valores ** Solution ** disponíveis e, em seguida, atualizará sua consulta para usá-la.
 Para criar uma nova variável, clique no botão Configurações do painel na área superior direita, selecione **Variáveis** e, em seguida, **Nova**.
 Na página da variável, defina a origem de dados e a consulta a serem executadas para obter a lista de valores.
 ![Configurar o Grafana variável](./media/grafana-plugin/grafana-configure-variable-dark.png)
@@ -150,13 +150,13 @@ Um dos muitos recursos úteis do Grafana é a playlist do painel. Você pode cri
 
 ![Exemplo de playlist do Grafana](./media/grafana-plugin/grafana7.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você configurou um ambiente do Grafana no Azure, você será cobrado quando as VMs são executadas, independentemente de você está usando ou não. Para evitar incorrer em encargos adicionais, limpe o grupo de recursos criado neste artigo.
 
 1. No menu à esquerda no portal do Azure, clique em **Grupos de recursos** e, em seguida, em **Grafana**.
 2. Na página do grupo de recursos, clique em **Excluir**, digite **Grafana** na caixa de texto e, em seguida, clique em **Excluir**.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Visão geral das métricas do Azure Monitor](data-platform.md)
 

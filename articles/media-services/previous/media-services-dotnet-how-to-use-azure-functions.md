@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251161"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver o Azure Functions com os Serviços de Mídia
@@ -27,7 +27,7 @@ Este artigo mostra como começar a criação de Azure Functions que usam os Serv
 
 Se você quiser explorar e implantar as Azure Functions existentes que usam o Serviços de Mídia do Azure, confira [Azure Functions dos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Esse repositório contém exemplosque usam os Serviços de Mídia para mostrar os fluxos de trabalho relativos à ingestão de conteúdo diretamente do armazenamento de blobs, à codificação e à gravação do conteúdo de volta no armazenamento de blobs. Ele também inclui exemplos de como monitorar as notificações de trabalho por meio de Webhooks e Filas do Azure. Você também pode desenvolver as Funções com base em exemplos do repositório [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implantar as funções, pressione o botão **Implantar no Azure**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Antes de criar sua primeira função, você precisará ter uma conta ativa do Azure. Se você ainda não tiver uma conta do Azure, [há contas gratuitas disponíveis](https://azure.microsoft.com/free/).
 - Se você pretende criar Azure Functions que executam ações em sua conta do AMS (Serviços de Mídia do Azure) ou escutar eventos enviados pelos Serviços de Mídia, crie uma conta do AMS conforme descrito [aqui](media-services-portal-create-account.md).
@@ -333,7 +333,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 Para testar a função, você precisa carregar um arquivo MP4 no contêiner **input** da conta de armazenamento especificada na cadeia de conexão.  
 
 1. Selecione a conta de armazenamento que você especificou na variável de ambiente **StorageConnection**.
-2. Clique em **Blobs**.
+2. Clique **em Blobs**.
 3. Clique em **+ Contêiner**. Nomeie o contêiner **entrada**.
 4. Pressione **Carregar** e navegue até um arquivo .mp4 que você deseje carregar.
 

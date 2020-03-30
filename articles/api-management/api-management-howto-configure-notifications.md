@@ -1,5 +1,5 @@
 ---
-title: Configurar notificações e modelos de email
+title: Configure notificações e modelos de e-mail
 titleSuffix: Azure API Management
 description: Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure.
 services: api-management
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244063"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de email no Gerenciamento de API do Azure
 
 O Gerenciamento de API possibilita configurar notificações de eventos específicos e modelos dos emails que são usados para se comunicar com os administradores e desenvolvedores de uma instância do Gerenciamento de API. Este artigo mostra como configurar notificações de eventos disponíveis e fornece uma visão geral da configuração dos modelos dos emails usados desses eventos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma instância do serviço de Gerenciamento de API, conclua o seguinte guia de início rápido: [Criar uma instância de Gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"> </a>Configurar notificações
+## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configurar notificações
 
 1.  Selecione a instância **GERENCIAMENTO DE API**.
 2.  Clique em **Notificações** para exibir as notificações disponíveis.
@@ -48,7 +48,7 @@ Se você não tiver uma instância do serviço de Gerenciamento de API, conclua 
     -   **Limite de cota de assinatura se aproximando** - Os usuários e destinatários de email a seguir receberão notificações por email quando o uso de assinaturas estiver se aproximando da cota.
 
         > [!NOTE]
-        > As notificações são disparadas pela política de [cota por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) apenas. [A política de cota por chave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) não gera notificações.
+        > As notificações são acionadas apenas pela cota por meio de política [de assinatura.](api-management-access-restriction-policies.md#SetUsageQuota) [Cota por política-chave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) não gera notificações.
 
     Para cada evento, você pode especificar destinatários de email usando a caixa de texto de endereço de email ou selecionando os usuários em uma lista.
 
@@ -58,7 +58,7 @@ Se você não tiver uma instância do serviço de Gerenciamento de API, conclua 
 
 4.  Pressione **Adicionar**.
 
-## <a name="email-templates"> </a>Configurar modelos de notificação
+## <a name="configure-notification-templates"></a><a name="email-templates"> </a>Configurar modelos de notificação
 
 O Gerenciamento de API fornece modelos de notificação para mensagens de email que são enviadas no decorrer da administração e da utilização do serviço. Os seguintes modelos de email são fornecidos.
 

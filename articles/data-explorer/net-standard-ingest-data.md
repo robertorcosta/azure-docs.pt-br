@@ -1,6 +1,6 @@
 ---
-title: Ingerir dados com o SDK do Azure Data Explorer .NET Standard (versão prévia)
-description: Neste artigo, você aprenderá a ingerir (carregar) dados no Azure Data Explorer usando o SDK do .NET Standard.
+title: Ingerir dados com o Azure Data Explorer .NET Standard SDK (Preview)
+description: Neste artigo, você aprende como ingerir dados (carregar) no Azure Data Explorer usando o .NET Standard SDK.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,21 +8,21 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 9b6eda60f0b0cb1b697560cccc2cffe719d58536
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251772"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Ingerir dados usando o SDK do .NET Standard do Azure Data Explorer (Versão prévia)
 
-O Azure Data Explorer (ADX) é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O ADX fornece duas bibliotecas de cliente para .NET Standard: uma [biblioteca de ingestão](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e [uma biblioteca de dados](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Essas bibliotecas permitem a inclusão de dados (carga) em um cluster e dados de consulta do seu código. Neste artigo, você primeiro cria uma tabela e um mapeamento de dados em um cluster de teste. Depois, você enfileira uma ingestão no cluster e valida os resultados.
+O Azure Data Explorer (ADX) é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O ADX fornece duas bibliotecas de cliente para .NET Standard: uma [biblioteca de ingestão](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e [uma biblioteca de dados](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Essas bibliotecas permitem a inclusão de dados (carga) em um cluster e dados de consulta do seu código. Neste artigo, você primeiro cria uma tabela e mapeamento de dados em um cluster de teste. Depois, você enfileira uma ingestão no cluster e valida os resultados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-* [Um cluster de teste e um banco de dados](create-cluster-database-portal.md)
+* [Um cluster de teste e banco de dados](create-cluster-database-portal.md)
 
 ## <a name="install-the-ingest-library"></a>Instalar a biblioteca de ingestão
 
@@ -74,7 +74,7 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>Definir informações de arquivo de origem
 
-Defina o caminho até o arquivo de origem. Este exemplo usa um arquivo de exemplo hospedado no armazenamento de BLOBs do Azure. O conjunto de dados de amostra **StormEvents** contém dados relacionados ao clima dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
+Defina o caminho até o arquivo de origem. Este exemplo usa um arquivo de exemplo hospedado no armazenamento de BLOBs do Azure. O conjunto de dados da amostra **StormEvents** contém dados relacionados ao clima dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -209,7 +209,7 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="run-troubleshooting-queries"></a>Executar consultas de solução de problemas
 
-Conectar [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e conectar ao seu cluster. Execute o seguinte comando no banco de dados para ver se houve alguma falha de ingestão nas últimas quatro horas. Substitua o nome do banco de dados antes da execução.
+Faça login [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e conecte-se ao seu cluster. Execute o seguinte comando no banco de dados para ver se houve alguma falha de ingestão nas últimas quatro horas. Substitua o nome do banco de dados antes da execução.
 
 ```Kusto
 .show ingestion failures
@@ -224,7 +224,7 @@ Execute o seguinte comando para exibir o status de todas as operações de inges
 | summarize arg_max(LastUpdatedOn, *) by OperationId
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou. Caso contrário, execute o comando a seguir no seu banco de dados para limpar a tabela `StormEvents`.
 

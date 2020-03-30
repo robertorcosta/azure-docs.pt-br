@@ -10,231 +10,328 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: fe8ea4dfb4de45a1e09648ac51fe8d74f93a6b9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 79310ddf121d6ada10755b198b515fdc9c1114d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247054"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
-O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e sub-redes do Azure. Se você desejar alterar qualquer roteamento padrão do Azure, poderá criar uma tabela de rotas para fazer isso. Se você é novo em rotear as redes virtuais, aprenda mais sobre elas na [visão geral de Rede Virtual](virtual-networks-udr-overview.md) ou executando um [tutorial](tutorial-create-route-table-portal.md).
+O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e sub-redes do Azure. Se você desejar alterar qualquer roteamento padrão do Azure, poderá criar uma tabela de rotas para fazer isso. Se você é novo no roteamento em redes virtuais, você pode aprender mais sobre isso no [roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md) ou completando um [tutorial](tutorial-create-route-table-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Se você não tiver uma, configure uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Em seguida, complete uma dessas tarefas antes de iniciar etapas em qualquer seção deste artigo:
 
-Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
+- **Usuários do portal**: Faça login no [portal Azure](https://portal.azure.com) com sua conta do Azure.
 
-* Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).<br>
-* Se estiver usando o portal, abra https://portal.azure.come entre com sua conta do Azure.<br>
-* Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.<br>
-* Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+- **Usuários do PowerShell**: Execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell)ou execute o PowerShell a partir do seu computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Na guia do navegador Azure Cloud Shell, encontre a lista de itens de lista de itens de lista de itens de **isento do ambiente Select** e escolha **o PowerShell** se ele ainda não estiver selecionado.
 
-A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à função de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe as ações apropriadas listadas em [permissões](#permissions).
+    Se estiver executando o PowerShell localmente, use a versão 1.0.0 do módulo Azure PowerShell ou posterior. Execute `Get-Module -ListAvailable Az.Network` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Execute `Connect-AzAccount` também para criar uma conexão com o Azure.
+
+- **Usuários da interface de linha de comando do Azure (CLI):** Execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash)ou execute o CLI a partir do seu computador. Use a versão 2.0.31 do Azure CLI ou posterior se estiver executando o Azure CLI localmente. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). Execute `az login` também para criar uma conexão com o Azure.
+
+A conta com a qual você faz login ou se conecta ao Azure deve ser atribuída à [função de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) da Rede ou a uma função [Personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha atribuído as ações [apropriadas listadas](#permissions)nas Permissões .
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-Há um limite para o número de tabelas de rotas que você pode criar por assinatura e local do Azure. Para obter detalhes, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Há um limite para quantas tabelas de rota você pode criar por localização e assinatura do Azure. Para obter detalhes, consulte [os limites de rede - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. No canto superior esquerdo do Portal, selecione **+ Criar um recurso**.
-1. Selecione **Rede** e, em seguida, selecione **Tabela de rotas**.
-1. Insira um **Nome** para a tabela de rotas, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou selecione um grupo de recursos existente, selecione um **Local** e, em seguida, selecione **Criar**. Se você planeja associar a tabela de rotas a uma sub-rede em uma rede virtual conectada à sua rede local por meio de um gateway de VPN e desabilitar a **propagação de rota de gateway de rede virtual**, suas rotas locais não são propagadas para as interfaces de rede na sub-rede.
+1. No menu do [portal Azure](https://portal.azure.com) ou na **página inicial,** selecione **Criar um recurso**.
 
-### <a name="create-route-table---commands"></a>Criar tabela de rotas-comandos
+1. Na caixa de pesquisa, insira *Tabela de rotas*. Quando a **Tabela de rotas** é exibida nos resultados da pesquisa, selecione-a.
 
-* CLI do Azure: [az network route-table create](/cli/azure/network/route-table/route)<br>
-* PowerShell: [New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
+1. Na página **Tabela de rotas**, selecione **Criar**.
+
+1. Na caixa de diálogo **de tabela de tabela** de rota criar:
+
+    1. Digite um **nome** para a tabela de rotas.
+    1. Escolha sua **Assinatura**.
+    1. Escolha um **grupo de recursos** existente ou selecione **Criar um novo** para criar um novo grupo de recursos.
+    1. Escolha um **local**.
+    1. Se você planeja associar a tabela de rotas a uma sub-rede em uma rede virtual conectada à sua rede local por meio de um gateway VPN, e não quiser propagar suas rotas locais para as interfaces de rede na sub-rede, defina a **propagação** de gateway de rede virtual para **Desativado**.
+
+1. Selecione **Criar** para criar sua nova tabela de rotas.
+
+### <a name="create-route-table---commands"></a>Criar tabela de rotas - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create) |
+| PowerShell | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) |
 
 ## <a name="view-route-tables"></a>Exibir tabelas de rotas
 
-Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção. As tabelas de rotas que existem na sua assinatura estão listadas.
+Vá ao [portal Azure](https://portal.azure.com) para gerenciar sua rede virtual. Pesquise e selecione **tabelas de rota**. As tabelas de rotas que existem na sua assinatura estão listadas.
 
-### <a name="view-route-table---commands"></a>Exibir tabela de rotas-comandos
+### <a name="view-route-table---commands"></a>Exibir tabela de rotas - comandos
 
-* CLI do Azure: [az network route-table list](/cli/azure/network/route-table/route)<br>
-* PowerShell: [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [lista de tabela de rota de rede az](/cli/azure/network/route-table#az-network-route-table-list) |
+| PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## <a name="view-details-of-a-route-table"></a>Exibir detalhes de uma tabela de rotas
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione na lista a tabela de rotas cujos detalhes você deseja exibir. Em **CONFIGURAÇÕES**, você pode exibir as **Rotas** na tabela de rotas e as **Sub-redes** às quais a tabela de rotas está associada.
-1. Para saber mais sobre configurações comuns do Azure, veja as seguintes informações:
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar sua rede virtual. Pesquise e selecione **tabelas de rota**.
 
-    * [Log de atividade](../azure-monitor/platform/platform-logs-overview.md)<br>
-    * [Controle de acesso (IAM)](../role-based-access-control/overview.md)<br>
-    * [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Script de automação](../azure-resource-manager/templates/export-template-portal.md)
+1. Na lista de tabelas de rotas, escolha a tabela de rotas para a qual deseja exibir detalhes.
 
-### <a name="view-details-of-route-table---commands"></a>Exibir detalhes da tabela de rotas – comandos
+1. Na página da tabela de rotas, em **Configurações,** veja as **Rotas** na tabela de rota ou nas **Subredes** a que a tabela de rotas está associada.
 
-* CLI do Azure: [az network route-table show](/cli/azure/network/route-table/route)<br>
-* PowerShell: [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
+Para saber mais sobre configurações comuns do Azure, veja as seguintes informações:
+
+- [Registro de atividades](../azure-monitor/platform/platform-logs-overview.md)
+- [Controle de acesso (IAM)](../role-based-access-control/overview.md)
+- [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Fechaduras](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Script de automação](../azure-resource-manager/templates/export-template-portal.md)
+
+### <a name="view-details-of-route-table---commands"></a>Ver detalhes da tabela de rotas - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az rede rota-tabela show](/cli/azure/network/route-table#az-network-route-table-show) |
+| PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## <a name="change-a-route-table"></a>Alterar uma tabela de rotas
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione a tabela de rotas que você deseja alterar. As alterações mais comuns são a [adição](#create-a-route) ou [remoção](#delete-a-route) de rotas e a [associação](#associate-a-route-table-to-a-subnet) ou a [desassociação](#dissociate-a-route-table-from-a-subnet) de tabelas de rotas de sub-redes.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar sua rede virtual. Pesquise e selecione **tabelas de rota**.
 
-### <a name="change-a-route-table---commands"></a>Alterar uma tabela de rotas – comandos
+1. Na lista de tabelas de rotas, escolha a tabela de rotas que deseja alterar.
 
-* CLI do Azure: [az network route-table update](/cli/azure/network/route-table/route)<br>
-* PowerShell: [set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
+As mudanças mais comuns são [adicionar](#create-a-route) rotas, [remover](#delete-a-route) rotas, [associar](#associate-a-route-table-to-a-subnet) tabelas de rotas a sub-redes ou [dissociar](#dissociate-a-route-table-from-a-subnet) tabelas de rotas de sub-redes.
+
+### <a name="change-a-route-table---commands"></a>Alterar uma tabela de rotas - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [atualização de tabela de rota de rede az](/cli/azure/network/route-table#az-network-route-table-update) |
+| PowerShell | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) |
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
-Uma sub-rede pode ter zero ou uma tabela de rotas associada a ela. Uma tabela de rotas pode ser associada a zero ou várias sub-redes. Já que tabelas de rotas não são associadas a redes virtuais, você precisa associar uma tabela de rotas a cada sub-rede à qual você deseje associar a tabela de rotas. Todo o tráfego que sai da sub-rede é roteado com base nas rotas que você criou nas tabelas de rota, [rotas padrão](virtual-networks-udr-overview.md#default)e rotas propagadas de uma rede local, se a rede virtual estiver conectada a um gateway de rede virtual do Azure (EXPRESSROUTE ou VPN). Você só pode associar uma tabela de rotas a sub-redes em redes virtuais que existem no mesmo local e assinatura do Azure que a tabela de rotas.
+Você pode associar opcionalmente uma tabela de rota a uma sub-rede. Uma tabela de rota pode ser associada a zero ou mais sub-redes. Como as tabelas de rota não estão associadas a redes virtuais, você deve associar uma tabela de rota a cada sub-rede à qual deseja a tabela de rotas associada. O Azure roteia todo o tráfego saindo da sub-rede com base nas rotas criadas dentro de tabelas de rotas, [rotas padrão](virtual-networks-udr-overview.md#default)e rotas propagadas a partir de uma rede local, se a rede virtual estiver conectada a um gateway de rede virtual do Azure (ExpressRoute ou VPN). Você só pode associar uma tabela de rotas a sub-redes em redes virtuais que existem no mesmo local e assinatura do Azure que a tabela de rotas.
 
-1. Na caixa de pesquisa na parte superior do portal, digite *redes virtuais* na caixa de pesquisa. Quando **Redes virtuais** aparecer nos resultados da pesquisa, selecione essa opção.
-1. Selecione a rede virtual na lista que contém a sub-rede à qual você deseja associar uma tabela de rotas.
-1. Selecione **Sub-redes** em **CONFIGURAÇÕES**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar sua rede virtual. Pesquise e selecione **redes virtuais**.
+
+1. Na lista de rede virtual, escolha a rede virtual que contém a sub-rede à qual deseja associar uma tabela de rotas.
+
+1. Na barra de menu de rede virtual, escolha **Subnets**.
+
 1. Selecione a sub-rede à qual você deseja associar a tabela de rotas.
-1. Selecione **tabela de rotas**, selecione a tabela de rotas que você deseja associar à sub-rede e selecione **Salvar**.
 
-Se sua rede virtual está conectada a um gateway de VPN do Azure, não associe a uma tabela de rota para o [sub-rede de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino de 0.0.0.0/0. Isso pode impedir que o gateway funcione corretamente. Para obter mais informações sobre como usar 0.0.0.0/0 em uma rota, consulte [roteamento de tráfego de rede Virtual](virtual-networks-udr-overview.md#default-route).
+1. Na **tabela Rota,** escolha a tabela de rotas que deseja associar à sub-rede.
 
-### <a name="associate-a-route-table---commands"></a>Associar uma tabela de rotas – comandos
+1. Selecione **Salvar**.
 
-* CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
-* PowerShell: [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
+Se sua rede virtual estiver conectada a um gateway Azure VPN, não associe uma tabela de rota à [sub-rede gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclua uma rota com destino de *0.0.0.0/0*. Isso pode impedir que o gateway funcione corretamente. Para obter mais informações sobre como usar *0.0.0.0/0* em uma rota, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md#default-route).
+
+### <a name="associate-a-route-table---commands"></a>Associar uma tabela de rota - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Desassociar uma tabela de rotas de uma sub-rede
 
 Quando você desassocia uma tabela de rota de uma sub-rede, o Azure roteia o tráfego com base em suas [rotas padrão](virtual-networks-udr-overview.md#default).
 
-1. Na caixa de pesquisa na parte superior do portal, digite *redes virtuais* na caixa de pesquisa. Quando **Redes virtuais** aparecer nos resultados da pesquisa, selecione essa opção.
-1. Selecione a rede virtual na lista que contém a sub-rede da qual você deseja desassociar uma tabela de rotas.
-1. Selecione **Sub-redes** em **CONFIGURAÇÕES**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar sua rede virtual. Pesquise e selecione **redes virtuais**.
+
+1. Na lista de rede virtual, escolha a rede virtual que contém a sub-rede da qual deseja dissociar uma tabela de rota.
+
+1. Na barra de menu de rede virtual, escolha **Subnets**.
+
 1. Selecione a sub-rede da qual você deseja desassociar a tabela de rotas.
-1. Selecione **Tabela de rotas**, selecione **Nenhum** e, em seguida, selecione **Salvar**.
 
-### <a name="dissociate-a-route-table---commands"></a>Dissociar uma tabela de rotas – comandos
+1. Na **tabela Rota,** escolha **Nenhum**.
 
-* CLI do Azure: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
-* PowerShell: [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
+1. Selecione **Salvar**.
+
+### <a name="dissociate-a-route-table---commands"></a>Dissociar uma tabela de rota - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## <a name="delete-a-route-table"></a>Excluir uma tabela de rotas
 
-Se uma tabela de rotas está associada a alguma sub-rede, ela não pode ser excluída. [Desassocie](#dissociate-a-route-table-from-a-subnet) uma tabela de rota de todas as sub-redes antes de tentar excluí-la.
+Você não pode excluir uma tabela de rota que está associada a quaisquer sub-redes. [Desassocie](#dissociate-a-route-table-from-a-subnet) uma tabela de rota de todas as sub-redes antes de tentar excluí-la.
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione **...** no lado direito da tabela de rotas que você deseja excluir.
-1. Selecione **Excluir** e, em seguida, selecione **Sim**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar suas tabelas de rotas. Pesquise e selecione **tabelas de rota**.
 
-### <a name="delete-a-route-table---commands"></a>Excluir uma tabela de rotas – comandos
+1. Na lista de tabelas de rota, escolha a tabela de rotas que deseja excluir.
 
-* CLI do Azure: [az network route-table delete](/cli/azure/network/route-table/route)<br>
-* PowerShell: [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
+1. Selecione **Excluir**e selecione **Sim** na caixa de diálogo de confirmação.
+
+### <a name="delete-a-route-table---commands"></a>Excluir uma tabela de rota - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az rede de tabela de rota excluir](/cli/azure/network/route-table#az-network-route-table-delete) |
+| PowerShell | [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable) |
 
 ## <a name="create-a-route"></a>Criar uma rota
 
-Há um limite para o número de rotas por tabela de rotas que você pode criar por assinatura e local do Azure. Para obter detalhes, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Há um limite para quantas rotas por tabela de rota pode criar por localização e assinatura do Azure. Para obter detalhes, consulte [os limites de rede - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione da lista a tabela de rotas à qual você deseja adicionar uma rota.
-1. Selecione **Rotas**, em **CONFIGURAÇÕES**.
-1. Selecione **+ Adicionar**.
-1. Insira um único **Nome** para a rota dentro da tabela de rotas.
-1. Insira o **Prefixo de endereço**, em notação CIDR, para o qual você deseja rotear o tráfego. O prefixo não pode ser duplicado em mais de uma rota dentro da tabela de rotas, embora o prefixo possa estar dentro de outro prefixo. Por exemplo, se você definir 10.0.0.0/16 como um prefixo em uma rota, ainda poderá definir outra rota com o prefixo de endereço 10.0.0.0/24. O Azure seleciona uma rota para o tráfego com base na correspondência de prefixo mais longa. Para saber mais sobre como o Azure seleciona rotas, veja [Visão geral de roteamento](virtual-networks-udr-overview.md#how-azure-selects-a-route).
-1. Selecione um **Tipo do próximo salto**. Para obter uma descrição detalhada de todos os tipos de próximo salto, veja [Visão geral de roteamento](virtual-networks-udr-overview.md).
-1. Insira um endereço IP para **Endereço do próximo salto**. Só é possível inserir um endereço se você seleciona *Dispositivo virtual* para **Tipo do próximo salto**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar suas tabelas de rotas. Pesquise e selecione **tabelas de rota**.
+
+1. Na lista de tabelas de rotas, escolha a tabela de rotas para a qual deseja adicionar uma rota.
+
+1. Na barra de menu da tabela de rotas, escolha **'Adicionar** > **rotas'.**
+
+1. Digite um **nome de rota** exclusivo para a rota dentro da tabela de rotas.
+
+1. Digite o **prefixo Endereço**, na notação DE ROTEAmento Interdomínio (CIDR) sem classe, para a qual deseja direcionar o tráfego. O prefixo não pode ser duplicado em mais de uma rota dentro da tabela de rotas, embora o prefixo possa estar dentro de outro prefixo. Por exemplo, se você definiu *10.0.0.0/16* como um prefixo em uma rota, você ainda pode definir outra rota com o prefixo de endereço *10.0.0.0/22.* O Azure seleciona uma rota para o tráfego com base na correspondência de prefixo mais longa. Para saber mais, veja [como o Azure seleciona uma rota](virtual-networks-udr-overview.md#how-azure-selects-a-route).
+
+1. Escolha um **tipo de salto seguinte**. Para saber mais sobre os próximos tipos de hop, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md).
+
+1. Se você escolheu um dispositivo **virtual**de **hop Next,** digite um endereço IP para **endereço de salto Next**.
+
 1. Selecione **OK**.
 
-### <a name="create-a-route---commands"></a>Criar um comando de rota
+### <a name="create-a-route---commands"></a>Criar uma rota - comandos
 
-* CLI do Azure: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell: [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) |
+| PowerShell | [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig) |
 
 ## <a name="view-routes"></a>Exibir rotas
 
-Uma tabela de rotas contém zero ou várias rotas. Para saber mais sobre as informações listadas ao exibir rotas, veja a [Visão geral de roteamento](virtual-networks-udr-overview.md).
+Uma tabela de rotas contém zero ou mais rotas. Para saber mais sobre as informações listadas ao visualizar rotas, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md).
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione da lista a tabela de rotas cujas rotas você deseja exibir.
-1. Selecione **Rotas**, em **CONFIGURAÇÕES**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar suas tabelas de rotas. Pesquise e selecione **tabelas de rota**.
 
-### <a name="view-routes---commands"></a>Exibir rotas-comandos
+1. Na lista de tabelas de rotas, escolha a tabela de rotas para a qual deseja ver as rotas.
 
-* CLI do Azure: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell: [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
+1. Na barra de menus da tabela de rotas, escolha **Rotas** para ver a lista de rotas.
+
+### <a name="view-routes---commands"></a>Exibir rotas - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [lista de rotas de rota de rede az](/cli/azure/network/route-table/route#az-network-route-table-route-list) |
+| PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## <a name="view-details-of-a-route"></a>Exibir detalhes de uma rota
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione a tabela de rotas que contém uma rota cujos detalhes você deseja exibir.
-1. Selecione **Rotas**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar suas tabelas de rotas. Pesquise e selecione **tabelas de rota**.
+
+1. Na lista de tabelas de rotas, escolha a tabela de rotas que contém a rota para a qual deseja ver detalhes.
+
+1. Na barra de menus da tabela de rotas, escolha **Rotas** para ver a lista de rotas.
+
 1. Selecione a rota cujos detalhes você deseja exibir.
 
-### <a name="view-details-of-a-route---commands"></a>Exibir detalhes de um comando de rota
+### <a name="view-details-of-a-route---commands"></a>Exibir detalhes de uma rota - comandos
 
-* CLI do Azure: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell: [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az rede rota-tabela show](/cli/azure/network/route-table/route#az-network-route-table-route-show) |
+| PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## <a name="change-a-route"></a>Alterar uma rota
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione a tabela de rotas que contém uma rota que você deseja alterar.
-1. Selecione **Rotas**.
-1. Selecione a rota que você deseja alterar.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar suas tabelas de rotas. Pesquise e selecione **tabelas de rota**.
+
+1. Na lista de tabelas de rotas, escolha a tabela de rotas que contém a rota que deseja alterar.
+
+1. Na barra de menus da tabela de rotas, escolha **Rotas** para ver a lista de rotas.
+
+1. Escolha a rota que deseja mudar.
+
 1. Altere as configurações existentes para suas novas configurações e selecione **Salvar**.
 
-### <a name="change-a-route---commands"></a>Alterar um comando de rota
+### <a name="change-a-route---commands"></a>Alterar uma rota - comandos
 
-* CLI do Azure: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell: [set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az rede rota-tabela atualização de rota](/cli/azure/network/route-table/route#az-network-route-table-route-update) |
+| PowerShell | [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig) |
 
 ## <a name="delete-a-route"></a>Excluir uma rota
 
-1. Na caixa de pesquisa na parte superior do portal, digite *tabelas de rota* na caixa de pesquisa. Quando as **Tabelas de rota** aparecem nos resultados da pesquisa, selecione essa opção.
-1. Selecione a tabela de rotas que contém uma rota que você deseja excluir.
-1. Selecione **Rotas**.
-1. Na lista de rotas, selecione **...** no lado direito da rota que você deseja excluir.
-1. Selecione **Excluir** e, em seguida, selecione **Sim**.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar suas tabelas de rotas. Pesquise e selecione **tabelas de rota**.
 
-### <a name="delete-a-route---commands"></a>Excluir um comando de rota
+1. Na lista de tabelas de rota, escolha a tabela de rota que contém a rota que deseja excluir.
 
-* CLI do Azure: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell: [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
+1. Na barra de menus da tabela de rotas, escolha **Rotas** para ver a lista de rotas.
+
+1. Escolha a rota que deseja excluir.
+
+1. Selecione **Excluir**e **selecione Sim** na caixa de diálogo de confirmação.
+
+### <a name="delete-a-route---commands"></a>Excluir uma rota - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az rede rota-tabela de exclusão](/cli/azure/network/route-table/route#az-network-route-table-route-delete) |
+| PowerShell | [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig) |
 
 ## <a name="view-effective-routes"></a>Exibir rotas efetivas
 
-As rotas efetivas para cada adaptador de rede anexado a uma máquina virtual são uma combinação de tabelas de rotas criadas por você, rotas padrão do Azure e todas as rotas propagadas de redes locais por meio do BGP através de um gateway de rede virtual do Azure. Entender as rotas em vigor para um adaptador de rede é útil ao solucionar problemas de roteamento. Você pode exibir as rotas em vigor para qualquer adaptador de rede anexado a uma máquina virtual em execução.
+As rotas eficazes para cada interface de rede conectada à VM são uma combinação de tabelas de rotas que você criou, as rotas padrão do Azure e quaisquer rotas propagadas a partir de redes locais através do Border Gateway Protocol (BGP) através de uma rede virtual do Azure Gateway. Entender as rotas em vigor para um adaptador de rede é útil ao solucionar problemas de roteamento. Você pode visualizar as rotas eficazes para qualquer interface de rede que esteja conectada a uma VM em execução.
 
-1. Na caixa de pesquisa na parte superior do portal, digite o nome de uma máquina virtual cujas rotas em vigor você deseja exibir. Se você não souber o nome de uma máquina virtual, insira *máquinas virtuais* na caixa de pesquisa. Quando **Máquinas virtuais** aparecer nos resultados da pesquisa, selecione essa opção e selecione uma máquina virtual da lista.
-1. Selecione **Rede** em **CONFIGURAÇÕES**.
+1. Vá para o [portal Azure](https://portal.azure.com) para gerenciar suas VMs. Procure e selecione **máquinas virtuais**.
+
+1. Na lista de máquinas virtuais, escolha a VM para a qual deseja visualizar rotas eficazes.
+
+1. Na barra de menus VM, escolha **Rede**.
+
 1. Selecione o nome de um adaptador de rede.
-1. Selecione **Rotas em vigor** em **SUPORTE + SOLUÇÃO DE PROBLEMAS**.
-1. Examine a lista de rotas em vigor para determinar se existe a rota correta para o local ao qual você deseja rotear o tráfego. Saiba mais sobre os tipos de próximo salto que você vê nessa lista em [Visão geral do roteamento](virtual-networks-udr-overview.md).
 
-### <a name="view-effective-routes---commands"></a>Exibir rotas efetivas-comandos
+1. Na barra de menu de interface de rede, selecione **Rotas eficazes**.
 
-* CLI do Azure: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)<br>
-* PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
+1. Revise a lista de rotas eficazes para ver se existe a rota correta para onde você deseja direcionar o tráfego. Saiba mais sobre os próximos tipos de hop que você vê nesta lista no [roteamento de tráfego de rede Virtual](virtual-networks-udr-overview.md).
+
+### <a name="view-effective-routes---commands"></a>Exibir rotas eficazes - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az rede nic show-efetivo-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) |
+| PowerShell | [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) |
 
 ## <a name="validate-routing-between-two-endpoints"></a>Validar o roteamento entre dois pontos de extremidade
 
-Você pode determinar o tipo de próximo salto entre uma máquina virtual e o endereço IP de outro recurso do Azure, um recurso local ou um recurso na Internet. Determinar o roteamento do Azure é útil ao solucionar problemas de roteamento. Para concluir essa tarefa, você deve ter um Observador de Rede existente. Se você não tiver um Observador de Rede existente, crie um completando as etapas em [Criar uma instância do Observador de Rede](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Você pode determinar o tipo de próximo salto entre uma máquina virtual e o endereço IP de outro recurso do Azure, um recurso local ou um recurso na Internet. Determinar o roteamento do Azure é útil ao solucionar problemas de roteamento. Para concluir esta tarefa, você deve ter um observador de rede existente. Se você não tiver um observador de rede existente, crie um completando as etapas em [Criar uma instância de Observador de rede](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-1. Na caixa de pesquisa na parte superior do portal, digite *observador de rede* na caixa de pesquisa. Quando os resultados da pesquisa exibirem **Observador de Rede**, selecione essa opção.
-1. Selecione **Próximo salto** em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**.
-1. Selecione sua **Assinatura** e o **Grupo de recursos** da máquina virtual de origem da qual provém o roteamento que você deseja validar.
-1. Selecione a **Máquina virtual** e o **Adaptador de rede** anexado à máquina virtual, bem como o **Endereço IP de origem** atribuído ao adaptador de rede do qual provém o roteamento que você deseja validar.
-1. Insira o **endereço IP de destino** para o qual se destina o roteamento que você deseja validar.
+1. Vá ao [portal Azure](https://portal.azure.com) para gerenciar seus observadores de rede. Procure e selecione **O Observador de Rede**.
+
+1. Na barra de menu sinuosa do observador de rede, escolha **Next hop**.
+
+1. No Observador da **Rede | Próxima** página de salto:
+
+    1. Escolha sua **Assinatura** e o **grupo Recurso** da VM de origem da qual deseja validar o roteamento.
+
+    1. Escolha a **máquina Virtual** e a interface **de rede** anexada à VM.
+    
+    1. Digite um **endereço IP de origem** atribuído à interface de rede da a que você deseja validar o roteamento.
+
+    1. Digite um **endereço IP de destino** para o que você deseja validar o roteamento.
+
 1. Selecione **Próximo salto**.
-1. Após uma breve espera, serão retornadas informações que dizem a você o tipo de próximo salto e a ID da rota utilizada no roteamento do tráfego. Saiba mais sobre os tipos de próximo salto que você vê retornado em [Visão geral do roteamento](virtual-networks-udr-overview.md).
 
-### <a name="validate-routing-between-two-endpoints---commands"></a>Validar o roteamento entre dois pontos de extremidade-comandos
+Depois de uma pequena espera, o Azure informa o próximo tipo de salto e o ID da rota que encaminhou o tráfego. Saiba mais sobre os próximos tipos de salto que você vê retornado no [roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md).
 
-* CLI do Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)<br>
-* PowerShell: [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
+### <a name="validate-routing-between-two-endpoints---commands"></a>Validar o roteamento entre dois pontos finais - comandos
+
+| Ferramenta | Comando |
+| ---- | ------- |
+| CLI do Azure | [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) |
+| PowerShell | [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) |
 
 ## <a name="permissions"></a>Permissões
 
-Para executar tarefas em tabelas de rotas e em rotas, sua conta deve ser atribuída à função de [colaborador da rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as permissões apropriadas listadas na tabela a seguir:
+Para fazer tarefas em tabelas de rotas e rotas, sua conta deve ser atribuída à [função de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) da Rede ou a uma função [Personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenha as ações apropriadas listadas na tabela a seguir:
 
 | Ação                                                          |   Nome                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
@@ -250,5 +347,5 @@ Para executar tarefas em tabelas de rotas e em rotas, sua conta deve ser atribu�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Criar uma tabela usando o [PowerShell](powershell-samples.md) ou os scripts de exemplo da [CLI do Azure](cli-samples.md) ou usando os modelos do [Azure Resource Manager](template-samples.md)<br>
-* Criar e aplicar a [Política do Azure](policy-samples.md) para redes virtuais
+- Crie uma tabela de rotas usando scripts de exemplo [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md) ou [modelos](template-samples.md) do Azure Resource Manager
+- Criar e aplicar a [Política do Azure](policy-samples.md) para redes virtuais

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247469"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos dos serviços de nuvem
@@ -166,9 +166,9 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / alta |
 | Standard_G2     | 4         | 56           | 768                  |2 / alta |
-| Standard_G3     | 8         | 112          | 1\.536                |4 / muito alta |
-| Standard_G4     | 16        | 224          | 3\.072                |8 / extremamente alta |
-| Standard_G5     | 32        | 448          | 6\.144                |8 / extremamente alta |
+| Standard_G3     | 8         | 112          | 1.536                |4 / muito alta |
+| Standard_G4     | 16        | 224          | 3.072                |8 / extremamente alta |
+| Standard_G5     | 32        | 448          | 6.144                |8 / extremamente alta |
 
 ## <a name="h-series"></a>Série H
 As máquinas virtuais da série H do Azure são a próxima geração de VMs de computação de alto desempenho voltadas para as necessidades computacionais de alto nível, como modelagem molecular e dinâmica de fluido computacional. Essas VMs de 8 e 16 núcleos baseiam-se na tecnologia do processador Intel Haswell E5-2667 V3 apresentando memória DDR4 e armazenamento local baseado em SSD.

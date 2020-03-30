@@ -1,5 +1,5 @@
 ---
-title: Mover dados do Salesforce usando Data Factory
+title: Mova dados da Salesforce usando a Fábrica de Dados
 description: Saiba mais sobre como mover os dados do Salesforce usando o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281126"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
@@ -27,14 +27,14 @@ ms.locfileid: "79281126"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do Salesforce na V2](../connector-salesforce.md).
 
-Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Factory para copiar os dados do Salesforce para qualquer armazenamento de dados listado na coluna Coletores tabela de [fontes de dados e coletores com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Este artigo se baseia no artigo de [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral de movimentação de dados com a Atividade de Cópia e combinações de armazenamentos de dados com suporte.
+Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Factory para copiar os dados do Salesforce para qualquer armazenamento de dados listado na coluna Coletores tabela de [fontes de dados e coletores com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Este artigo baseia-se no artigo [atividades de movimentação](data-factory-data-movement-activities.md) de dados, que apresenta uma visão geral da movimentação de dados com a Atividade de Cópia e combinações de armazenamento de dados suportadas.
 
 Atualmente, o Azure Data Factory dá suporte apenas para a movimentação dos dados do Salesforce para os [armazenamentos de dados do coletor com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats), mas não dá suporte para a movimentação dos dados de outros armazenamentos de dados para o Salesforce.
 
 ## <a name="supported-versions"></a>Versões com suporte
 Esse conector dá suporte para as seguintes edições do Salesforce: Developer Edition, Professional Edition, Enterprise Edition ou Unlimited Edition. E ele dá suporte à cópia na produção, da área restrita e do domínio personalizado do Salesforce.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 * A permissão de API deve estar habilitada. Consulte [Como habilito o acesso à API no Salesforce por conjunto de permissões?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Para copiar os dados do Salesforce para os armazenamentos de dados locais, você deve ter, pelo menos, o Gateway de Gerenciamento de Dados 2.0 instalado no ambiente local.
 
@@ -51,7 +51,7 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados do Sales
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio,** **Azure PowerShell,** **azure Resource Manager,** **.NET API**e **REST API**. Consulte [o tutorial de atividade copiar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -66,10 +66,10 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Salesforce.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| type |A propriedade type deve ser definida para: **Salesforce**. |Sim |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> -O padrão é "https:\//login.salesforce.com". <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
+| type |A propriedade do tipo deve ser definida como: **Salesforce**. |Sim |
+| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> - Padrão é\/"https: /login.salesforce.com". <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
 | Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
 | password |Especifique um senha para a conta de usuário. |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |Sim |
@@ -77,9 +77,9 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, veja o artigo [Criando conjuntos de dados](data-factory-create-datasets.md) . As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure e outros).
 
-A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as propriedades a seguir:
+A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no armazenamento de dados. A seção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as propriedades a seguir:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela no Salesforce. |Não (se uma **consulta** de **RelationalSource** for especificada) |
 
@@ -95,7 +95,7 @@ As propriedades que estão disponíveis na seção typeProperties da atividade, 
 
 Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que inclui Salesforce), as seguintes propriedades estarão disponíveis na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta |Utiliza a consulta personalizada para ler os dados. |Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: `select * from MyTable__c`. |Não (se **tableName** do **conjunto de dados** for especificado) |
 
@@ -106,12 +106,12 @@ Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que in
 
 ## <a name="query-tips"></a>Dicas de consulta
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperando dados usando a cláusula where na coluna DateTime
-Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo:
+Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo: 
 
-* **Exemplo de SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
-* **Exemplo de SQL**:
-    * **Usando o assistente de cópia para especificar a consulta:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Usando a edição JSON para especificar a consulta (escape Char corretamente):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+* **Amostra de SOQL:**`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Amostra de SQL:**
+    * **Use o assistente de cópia para especificar a consulta:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Use a edição de JSON para especificar a consulta (escape char corretamente):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Recuperando dados do relatório do Salesforce
 Você pode recuperar dados de relatórios do Salesforce especificando a consulta como `{call "<report name>"}`, por exemplo. `"query": "{call \"TestReport\"}"`.
@@ -119,11 +119,11 @@ Você pode recuperar dados de relatórios do Salesforce especificando a consulta
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recuperar registros excluídos da lixeira do Salesforce
 Para consultar os registros excluídos pelo software da lixeira do Salesforce, você poderá especificar **"IsDeleted = 1"** em sua consulta. Por exemplo,
 
-* Para consultar apenas os registros excluídos, especifique "select * from MyTable__c **where IsDeleted= 1**"
-* Para consultar todos os registros, incluindo existentes e excluídos, especifique "select * from MyTable__c **m que IsDeleted = 0 ou IsDeleted = 1**"
+* Para consultar apenas os registros excluídos, especifique "select * de MyTable__c **onde IsDeleted= 1**"
+* Para consultar todos os registros, incluindo o existente e o excluído, especifique "select * de MyTable__c **onde IsDeleted = 0 ou IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Exemplo de JSON: copiar dados do Salesforce para o Blob do Azure
-O exemplo a seguir fornece exemplos de definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Salesforce para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+O exemplo a seguir fornece definições de JSON de amostra que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [o Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Salesforce para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 Aqui estão os artefatos Data Factory que você precisará criar para implementar o cenário. As seções depois da lista fornecem detalhes sobre essas etapas.
 
@@ -131,7 +131,7 @@ Aqui estão os artefatos Data Factory que você precisará criar para implementa
 * Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 * Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](#dataset-properties)
 * Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* Um [pipeline](data-factory-create-pipelines.md) com Atividade de Cópia que usa [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
+* Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 **Serviço vinculado Salesforce**
 
@@ -152,7 +152,7 @@ Este exemplo usa o serviço vinculado **Salesforce** . Veja a seção [Serviço 
     }
 }
 ```
-**Serviço vinculado de armazenamento do Azure**
+**Serviço vinculado ao Azure Storage**
 
 ```json
 {
@@ -199,7 +199,7 @@ Configurar **external** como **true** informa ao serviço Data Factory que o con
 
 ![Data Factory — conexão Salesforce — nome da API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
-**Conjunto de dados de saída do blob do Azure**
+**Conjunto de dados de saída de blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
 
@@ -223,7 +223,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 }
 ```
 
-**Pipeline com Atividade de cópia**
+**Pipeline com atividade de cópia**
 
 O pipeline contém uma Atividade de Cópia, que está configurada para usar os conjuntos de dados de entrada e saída, e está agendado para ser executado a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **RelationalSource** e o tipo **sink** está definido como **BlobSink**.
 

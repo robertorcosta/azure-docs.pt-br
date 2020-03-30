@@ -1,5 +1,5 @@
 ---
-title: Criar tempo de execução de integração do Azure no Azure Data Factory
+title: Crie o tempo de execução da integração do Azure na fábrica de dados do Azure
 description: Saiba como criar o Integration Runtime do Azure no Azure Data Factory, que é usado para copiar dados e expedir atividades de transformação.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260755"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
@@ -30,14 +30,14 @@ Este documento apresenta como você pode criar e configurar o Integration Runtim
 Por padrão, cada data factory tem um IR do Azure no back-end que dá suporte a operações em armazenamentos de dados na nuvem e serviços de computação na rede pública. O local desse IR do Azure é resolvido automaticamente. Se a propriedade **connectVia** não for especificada na definição do serviço vinculado, o IR do Azure padrão será usado. Você precisa criar explicitamente um IR do Azure apenas quando deseja definir explicitamente o local do IR ou se desejar agrupar virtualmente as execuções de atividade em diferentes IRs para fins de gerenciamento. 
 
 ## <a name="create-azure-ir"></a>Criar IR do Azure
-Integration Runtime pode ser criado usando o cmdlet do PowerShell **set-AzDataFactoryV2IntegrationRuntime** . Para criar um IR do Azure, você especifica o nome, o local e o tipo para o comando. Aqui está um exemplo de comando para criar um IR do Azure com o local definido como "Europa Ocidental":
+Integração O tempo de execução pode ser criado usando o **cmdlet Set-AzDataFactoryV2IntegrationRuntime** PowerShell. Para criar um IR do Azure, você especifica o nome, o local e o tipo para o comando. Aqui está um exemplo de comando para criar um IR do Azure com o local definido como "Europa Ocidental":
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
 Para o IR do Azure, o tipo deve ser definido como **Managed**. Você não precisa especificar detalhes de computação porque ele é totalmente gerenciado elasticamente na nuvem. Especifique os detalhes de computação como o tamanho do nó e a contagem do nó quando desejar criar o IR Azure-SSIS. Para obter mais informações, consulte [Criar e configurar o IR do Azure-SSIS](create-azure-ssis-integration-runtime.md).
 
-Você pode configurar um Azure IR existente para alterar seu local usando o cmdlet do PowerShell Set-AzDataFactoryV2IntegrationRuntime. Para obter mais informações sobre o local de um IR do Azure, consulte [Introdução ao Integration Runtime](concepts-integration-runtime.md).
+Você pode configurar um Azure IR existente para alterar sua localização usando o cmdlet Set-AzDataFactoryV2IntegrationRuntime PowerShell. Para obter mais informações sobre o local de um IR do Azure, consulte [Introdução ao Integration Runtime](concepts-integration-runtime.md).
 
 ## <a name="use-azure-ir"></a>Usar o IR do Azure
 
@@ -63,6 +63,6 @@ Depois de criar um IR do Azure, você pode referenciá-lo em sua definição de 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir para criar outros tipos de runtimes de integração:
 
-- [Criar um Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md)
+- [Crie tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md)
 - [Criar o Integration Runtime do Azure-SSIS](create-azure-ssis-integration-runtime.md)
  

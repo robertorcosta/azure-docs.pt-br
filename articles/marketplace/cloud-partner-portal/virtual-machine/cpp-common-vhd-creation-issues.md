@@ -1,20 +1,19 @@
 ---
-title: Problemas comuns durante a criação do VHD (FAQ) para o Azure Marketplace
+title: Problemas comuns durante a criação de VHD (FAQ) para o Azure Marketplace
 description: Perguntas frequentes sobre a criação do VHD e problemas associados.
-services: Azure Marketplace
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2018
-ms.author: evansma
+ms.author: dsindona
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 192fea4101fb972ec66bb5f21a2a83f9903f0855
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934254"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278102"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (Perguntas Frequentes)
 

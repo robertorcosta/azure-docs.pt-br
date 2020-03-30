@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278682"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender sobre os principais conceitos de Fluxo de Trabalho do Windows PowerShell para runbooks de Automação
@@ -22,7 +22,7 @@ Para obter detalhes completos sobre os tópicos nesse artigo, consulte [Introdu�
 
 ## <a name="basic-structure-of-a-workflow"></a>Estrutura básica de um fluxo de trabalho
 
-A primeira etapa para converter um script do PowerShell para um fluxo de trabalho do PowerShell é circunscrevê-lo com a palavra-chave **Workflow** .  Um fluxo de trabalho começa com a palavra-chave **Workflow** seguida do corpo do script entre chaves. O nome do fluxo de trabalho segue a palavra-chave **Workflow**, conforme mostra a sintaxe a seguir:
+A primeira etapa para converter um script do PowerShell para um fluxo de trabalho do PowerShell é circunscrevê-lo com a palavra-chave **Workflow** .  Um fluxo de trabalho começa com a palavra-chave **Workflow** seguida do corpo do script entre chaves. O nome do fluxo de trabalho segue a palavra-chave **Workflow,** conforme mostrado na seguinte sintaxe:
 
 ```powershell
 Workflow Test-Workflow
@@ -31,7 +31,7 @@ Workflow Test-Workflow
 }
 ```
 
-O nome do fluxo de trabalho deve corresponder ao nome do runbook de automação. Se o runbook está sendo importado, o nome do arquivo deve corresponder ao nome do fluxo de trabalho e deve terminar em *.ps1*.
+O nome do fluxo de trabalho deve corresponder ao nome do runbook de automação. Se o runbook estiver sendo importado, o nome do arquivo deve corresponder ao nome do fluxo de trabalho e deve terminar em *.ps1*.
 
 Para adicionar parâmetros ao fluxo de trabalho, use a palavra-chave **Param** , exatamente como faria para um script.
 
@@ -222,7 +222,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Pontos de verificação
 
-Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar com erro ou se for suspenso, na próxima vez que for executado, ele iniciará em seu último ponto de verificação e não no início do fluxo de trabalho.  Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow** . A automação do Azure tem um recurso chamado [Fair share](automation-runbook-execution.md#fair-share), em que qualquer runbook executado por 3 horas é descarregado para permitir que outros runbooks sejam executados. Eventualmente, o runbook descarregado será recarregado e, quando for, ele continuará a execução do último ponto de verificação feito no runbook. Para garantir que o runbook seja concluído eventualmente, você deve adicionar pontos de verificação em intervalos executados por menos de 3 horas. Se, durante cada execução, um novo ponto de verificação for adicionado, e se o runbook for removido após três horas devido a um erro, o runbook será retomado indefinidamente.
+Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar com erro ou se for suspenso, na próxima vez que for executado, ele iniciará em seu último ponto de verificação e não no início do fluxo de trabalho.  Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow** . O Azure Automation tem um recurso chamado [fair share,](automation-runbook-execution.md#fair-share)onde qualquer runbook que seja executado por 3 horas é descarregado para permitir que outros runbooks seja executado. Eventualmente, o manual descarregado será recarregado, e quando for, retomará a execução do último ponto de verificação tomado no manual. Para garantir que o livro de execução será eventualmente concluído, você deve adicionar pontos de verificação em intervalos que funcionam por menos de 3 horas. Se durante cada execução um novo ponto de verificação for adicionado, e se o manual for despejado após 3 horas devido a um erro, o manual será retomado indefinidamente.
 
 No código de exemplo a seguir, uma exceção ocorre após Activity2, fazendo com que o fluxo de trabalho seja encerrado. Quando o fluxo de trabalho é executado novamente, ele começa pela execução de Activity2, já que isso foi logo após o último ponto de verificação definido.
 
@@ -254,7 +254,7 @@ Workflow Copy-Files
 }
 ```
 
-Como as credenciais do nome de usuário não são mantidas depois de chamar a atividade [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou após o último ponto de verificação, você precisa definir as credenciais para null e recuperá-las novamente no armazenamento de ativos após **Suspend-Workflow** ou o ponto de verificação ser chamado.  Caso contrário, você pode receber a seguinte mensagem de erro: *não é possível retomar a tarefa de fluxo de trabalho porque os dados de persistência não puderam ser salvos completamente ou os dados de persistência salvos foram corrompidos. Você deve reiniciar o fluxo de trabalho.*
+Como as credenciais do nome de usuário não são mantidas depois de chamar a atividade [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou após o último ponto de verificação, você precisa definir as credenciais para null e recuperá-las novamente no armazenamento de ativos após **Suspend-Workflow** ou o ponto de verificação ser chamado.  Caso contrário, você pode receber a seguinte mensagem de erro: *O trabalho do fluxo de trabalho não pode ser retomado, seja porque os dados de persistência não puderam ser salvos completamente, ou os dados de persistência salvos foram corrompidos. Você deve reiniciar o fluxo de trabalho.*
 
 O mesmo código a seguir demonstra como lidar com isso em seus runbooks do Fluxo de Trabalho do PowerShell.
 
@@ -291,5 +291,5 @@ Para saber mais sobre pontos de verificação, confira [Adicionando pontos de ve
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para começar com os runbooks do fluxo de trabalho PowerShell, consulte [Meu primeiro runbook de fluxo de trabalho PowerShell](automation-first-runbook-textual.md)
 

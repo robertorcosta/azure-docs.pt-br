@@ -1,5 +1,5 @@
 ---
-title: Configurar a segurança para recuperação de desastre
+title: Configurar segurança para recuperação de desastres
 description: Aprenda as considerações de segurança para configurar e gerenciar a segurança após uma restauração de banco de dados ou um failover para um servidor secundário.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73807489"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerenciar a segurança do Banco de Dados SQL do Azure para restauração geográfica ou failover
@@ -24,7 +24,7 @@ Esse artigo descreve os requisitos de autenticação para configurar e controlar
 
 ## <a name="disaster-recovery-with-contained-users"></a>Recuperação de desastre com usuários independentes
 
-Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de recuperação de desastre, os usuários podem continuar a conectar ao novo banco de dados primário recuperado usando restauração geográfica sem qualquer configuração adicional, pois o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de recuperação de desastre, os usuários podem continuar a conectar ao novo banco de dados primário recuperado usando restauração geográfica sem qualquer configuração adicional, pois o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 A principal desvantagem é que gerenciar o processo de recuperação de desastre em grande escala é mais desafiador. Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários bancos de dados pode invalidar os benefícios de usuários independentes. Por exemplo, a política de rotação de senha requer que alterações ocorram consistentemente em vários bancos de dados em vez de alterar a senha do logon apenas uma vez no banco de dados mestre. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada.
 
@@ -48,7 +48,7 @@ A preparação do acesso do usuário a uma replicação geográfica secundária 
 
 Configurar logons no servidor de destino envolve três etapas descritas abaixo:
 
-#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. determinar logons com acesso ao banco de dados primário
+#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. Determine logins com acesso ao banco de dados principal
 
 A primeira etapa do processo é determinar quais logons devem ser duplicados no servidor de destino. Isso é feito com um par de instruções SELECT, uma no banco de dados mestre lógico no servidor de origem e outra no próprio banco de dados primário.
 
@@ -64,7 +64,7 @@ Somente um membro da função de banco de dados db_owner, o usuário dbo ou o ad
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
-#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. Localize o SID para os logons identificados na etapa 1
+#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. Encontre o SID para os logins identificados na etapa 1
 
 Ao comparar a saída das consultas da seção anterior e fazer a correspondência dos SIDs, é possível mapear o logon do servidor para o usuário do banco de dados. Logons que têm um usuário de banco de dados com um SID correspondente têm acesso de usuário a esse banco de dados como essa entidade de usuário de banco de dados.
 
@@ -77,7 +77,7 @@ A consulta a seguir pode ser usada para ver todas as entidades de usuário e seu
 > [!NOTE]
 > Os usuários **INFORMATION_SCHEMA** e **sys** têm SIDs *NULL* e o SID **convidado** é **0x00**. O SID **dbo** pode começar com *0x01060000000001648000000000048454* se o criador do banco de dados foi o administrador do servidor, em vez de um membro do **DbManager**.
 
-#### <a name="3-create-the-logins-on-the-target-server"></a>3. criar os logons no servidor de destino
+#### <a name="3-create-the-logins-on-the-target-server"></a>3. Crie os logins no servidor de destino
 
 A última etapa é acessar o servidor de destino, ou servidores, e gerar os logons com os SIDs apropriados. A sintaxe básica é mostrada a seguir.
 
@@ -99,5 +99,5 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 * Para saber mais sobre como gerenciar o acesso ao banco de dados e os logons, veja [Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados](sql-database-manage-logins.md).
 * Para saber mais sobre usuários de bancos de dados independentes, confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 * Para saber mais sobre a replicação geográfica ativa, consulte [Replicação geográfica ativa](sql-database-active-geo-replication.md).
-* Para saber mais sobre grupos de failover automático, consulte [Grupos de failover automático](sql-database-auto-failover-group.md).
+* Para saber mais sobre grupos de failover automático, consulte [grupos de failover automáticos](sql-database-auto-failover-group.md).
 * Para obter informações sobre como usar a restauração geográfica, confira [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore)

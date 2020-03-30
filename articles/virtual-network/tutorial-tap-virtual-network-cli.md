@@ -1,5 +1,5 @@
 ---
-title: Criar, alterar ou excluir um toque de VNet-CLI do Azure
+title: Criar, alterar ou excluir um VNet TAP - Azure CLI
 description: Saiba como criar, alterar ou excluir um TAP de rede virtual usando a CLI do Azure.
 services: virtual-network
 documentationcenter: na
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 05ce45a52db2b8a47223023ce31b5591b2b97c37
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 56288a65dc9e5b12a12393965b9670e394146181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185389"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234961"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Trabalhar com um TAP de rede virtual usando a CLI do Azure
 
-O TAP (ponto de acesso do terminal) da rede virtual do Azure permite que você transmita seu tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. A ferramenta de análise ou de coleta é fornecida por um parceiro de [solução de virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/). Para obter uma lista de soluções de parceiros validadas para trabalhar com o TAP de rede virtual, confira [soluções de parceiros](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
+O TAP (Ponto de Acesso do Terminal) de rede virtual do Azure permite que você transmita o tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. A ferramenta de análise ou de coleta é fornecida por um parceiro de [solução de virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/). Para obter uma lista de soluções de parceiros validadas para trabalhar com o TAP de rede virtual, consulte [soluções de parceiros](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions). 
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Criar um recurso de TAP de rede virtual
 
-Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes de criar um recurso de TAP de rede virtual. Você pode executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI (interface de linha de comando) do Azure no computador. O Azure Cloud Shell é um shell interativo gratuito que não exige a instalação da CLI do Azure no computador. É necessário entrar no Azure com uma conta que tenha as [permissões](virtual-network-tap-overview.md#permissions) apropriadas. Este artigo requer a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). O toque de rede virtual está disponível atualmente como uma extensão. Para instalar a extensão, você precisa executar `az extension add -n virtual-network-tap`. Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes de criar um recurso de TAP de rede virtual. Você pode executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/bash) ou executando a CLI (interface de linha de comando) do Azure no computador. O Azure Cloud Shell é um shell interativo gratuito que não exige a instalação da CLI do Azure no computador. É necessário entrar no Azure com uma conta que tenha as [permissões](virtual-network-tap-overview.md#permissions) apropriadas. Este artigo requer a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). A rede virtual TAP está atualmente disponível como uma extensão. Para instalar a extensão, você precisa executar `az extension add -n virtual-network-tap`. Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 1. Recupere a ID da assinatura em uma variável que será usada em uma etapa posterior:
 
@@ -86,6 +86,7 @@ Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes d
       --query id \
       --out tsv)
       ```
+
    - Crie o TAP de rede virtual usando a ID da configuração IP de front-end como o destino e uma propriedade de porta opcional. A porta especifica a porta de destino na configuração IP de front-end onde o tráfego de TAP será recebido:  
 
       ```azurecli-interactive
@@ -140,7 +141,7 @@ Leia os [pré-requisitos](virtual-network-tap-overview.md#prerequisites) antes d
 
 ## <a name="delete-the-tap-configuration-on-a-network-interface"></a>Excluir a configuração de TAP em um adaptador de rede
 
-   ```azure-cli-interactive
+   ```azurecli-interactive
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \

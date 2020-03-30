@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253930"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
@@ -18,8 +18,8 @@ Em uma abordagem de micros serviços baseada em contêiner para o desenvolviment
 Este artigo apresenta os principais conceitos que fornecem rede para seus aplicativos no AKS:
 
 - [Serviços](#services)
-- [Redes virtuais do Azure](#azure-virtual-networks)
-- [Controladores de entrada](#ingress-controllers)
+- [Redes virtuais Azure](#azure-virtual-networks)
+- [Controladores de ingress](#ingress-controllers)
 - [Políticas de rede](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Noções básicas do Kubernetes
@@ -42,7 +42,7 @@ Para simplificar a configuração de rede para cargas de trabalho de aplicativos
 
     ![Diagrama mostrando o fluxo de tráfego do NodePort em um cluster AKS][aks-nodeport]
 
-- **LoadBalancer** - Cria um recurso do balanceador de carga do Azure, configura um endereço IP externo e conecta os pods solicitados ao pool de back-ends do balanceador de carga. Para permitir que o tráfego dos clientes chegue ao aplicativo, as regras de balanceamento de carga são criadas nas portas desejadas. 
+- **LoadBalancer** - Cria um recurso do balanceador de carga do Azure, configura um endereço IP externo e conecta os pods solicitados ao pool de back-ends do balanceador de carga. Para permitir que o tráfego dos clientes chegue ao aplicativo, são criadas regras de balanceamento de carga nas portas desejadas. 
 
     ![Diagrama mostrando o fluxo de tráfego do Balanceador de Carga em um cluster AKS][aks-loadbalancer]
 
@@ -52,7 +52,7 @@ Para simplificar a configuração de rede para cargas de trabalho de aplicativos
 
 O endereço IP para balanceadores de carga e serviços pode ser atribuído dinamicamente ou você pode especificar um endereço IP estático existente para uso. Endereços IP estáticos internos e externos podem ser atribuídos. Esse endereço IP estático existente é geralmente vinculado a uma entrada DNS.
 
-Ambos *interno* e *externo* balanceadores de carga podem ser criados. Os balanceadores de carga internos só recebem um endereço IP privado, portanto, eles não podem ser acessados pela Internet.
+Ambos *interno* e *externo* balanceadores de carga podem ser criados. Os balanceadores de carga interna são atribuídos apenas a um endereço IP privado, de modo que eles não podem ser acessados a partir da Internet.
 
 ## <a name="azure-virtual-networks"></a>Redes virtuais do Azure
 
@@ -65,59 +65,59 @@ No AKS, você pode implantar um cluster que usa um dos dois modelos de rede a se
 
 A opção de rede *kubenet* é a configuração padrão para a criação do cluster AKS. Com o *kubenet*, os nós obtêm um endereço IP de uma sub-rede da rede virtual do Azure. Os pods recebem um endereço IP de um espaço de endereço logicamente diferente da sub-rede da rede virtual do Azure dos nós. A NAT (conversão de endereços de rede), então, é configurada para que os pods possam acessar recursos na rede virtual do Azure. O endereço IP de origem do tráfego é configurado via NAT como o endereço IP primário do nó.
 
-Os nós usam o plug-in [kubenet][kubenet] kubernetes. Você pode permitir que a plataforma do Azure crie e configure as redes virtuais para você ou pode optar por implantar o cluster do AKS em uma sub-rede da rede virtual existente. Novamente, somente os nós recebem um endereço IP roteável e o pods usam NAT para se comunicar com outros recursos fora do cluster AKS. Essa abordagem reduz muito o número de endereços IP que você precisa reservar no espaço de rede para uso dos pods.
+Os nós usam o plug-in [kubenet][kubenet] do Kubernetes. Você pode permitir que a plataforma do Azure crie e configure as redes virtuais para você ou pode optar por implantar o cluster do AKS em uma sub-rede da rede virtual existente. Novamente, apenas os nós recebem um endereço IP rotável, e os pods usam NAT para se comunicar com outros recursos fora do cluster AKS. Essa abordagem reduz muito o número de endereços IP que você precisa reservar no espaço de rede para uso dos pods.
 
-Para obter mais informações, consulte [Configurar a rede kubenet para um cluster AKs][aks-configure-kubenet-networking].
+Para obter mais informações, consulte [Configurar rede kubenet para um cluster AKS][aks-configure-kubenet-networking].
 
 ### <a name="azure-cni-advanced-networking"></a>Rede da CNI do Azure (avançada)
 
-Com a CNI do Azure, cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o seu espaço de rede e devem ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem requer mais planejamento, como pode levar ao esgotamento de endereço IP ou à necessidade de recriar clusters em uma sub-rede maior conforme as demandas do seu aplicativo crescem.
+Com a CNI do Azure, cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o seu espaço de rede e devem ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem requer mais planejamento, pois pode levar à exaustão do endereço IP ou à necessidade de reconstruir clusters em uma sub-rede maior à medida que as demandas de aplicativos crescem.
 
-Os nós usam o plug-in kubernetes do [CNI (interface de rede de contêiner do Azure)][cni-networking] .
+Nós usam o plug-in de [CNI (Interface de rede de contêiner) do Azure][cni-networking] do Kubernetes.
 
 ![Diagrama que mostra dois nós com pontes conectando cada um a uma única VNet do Azure][advanced-networking-diagram]
 
-Para obter mais informações, consulte [Configurar o Azure CNI para um cluster AKs][aks-configure-advanced-networking].
+Para obter mais informações, consulte [Configurar a CNI do Azure para um cluster AKS][aks-configure-advanced-networking].
 
-### <a name="compare-network-models"></a>Comparar modelos de rede
+### <a name="compare-network-models"></a>Compare modelos de rede
 
-O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. No entanto, há vantagens e desvantagens para cada uma delas. Em um alto nível, as seguintes considerações se aplicam:
+Tanto a Kubenet quanto a Azure CNI fornecem conectividade de rede para seus clusters AKS. No entanto, há vantagens e desvantagens para cada um. Em alto nível, aplicam-se as seguintes considerações:
 
 * **kubenet**
-    * Conserva o espaço de endereço IP.
-    * Usa o balanceador de carga interno ou externo do kubernetes para alcançar pods fora do cluster.
-    * Você deve gerenciar e manter manualmente as rotas definidas pelo usuário (UDRs).
-    * Máximo de 400 nós por cluster.
-* **CNI do Azure**
-    * Os pods obtêm conectividade total de rede virtual e podem ser diretamente acessados por meio de seu endereço IP privado de redes conectadas.
+    * Conserva espaço de endereço IP.
+    * Usa o balanceador de carga interno ou externo kubernetes para alcançar pods de fora do cluster.
+    * Você deve gerenciar e manter manualmente rotas definidas pelo usuário (UDRs).
+    * Máximo de 400 nodes por cluster.
+* **Azure CNI**
+    * Os pods recebem conectividade de rede virtual completa e podem ser acessados diretamente através de seu endereço IP privado a partir de redes conectadas.
     * Requer mais espaço de endereço IP.
 
-Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
+Existem as seguintes diferenças de comportamento entre kubenet e Azure CNI:
 
 | Recurso                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Suportado |
-| Conectividade de pod de Pod                                                                         | Suportado | Suportado |
-| Pod-conectividade da VM; VM na mesma rede virtual                                          | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
-| Pod-conectividade da VM; VM na rede virtual emparelhada                                            | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
-| Acesso local usando VPN ou rota expressa                                                | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
-| Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Suportado | Suportado |
-| Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Suportado | Suportado |
-| Zonas privadas e DNS do Azure padrão                                                          | Suportado | Suportado |
+| Implantar cluster em rede virtual existente ou nova                                            | Suportado - UDRs aplicados manualmente | Com suporte |
+| Conectividade pod-pod                                                                         | Com suporte | Com suporte |
+| Conectividade Pod-VM; VM na mesma rede virtual                                          | Funciona quando iniciado por pod | Funciona nos dois sentidos |
+| Conectividade Pod-VM; VM em rede virtual peered                                            | Funciona quando iniciado por pod | Funciona nos dois sentidos |
+| Acesso no local usando VPN ou Express Route                                                | Funciona quando iniciado por pod | Funciona nos dois sentidos |
+| Acesso aos recursos protegidos por pontos finais de serviço                                             | Com suporte | Com suporte |
+| Exponha os serviços da Kubernetes usando um serviço de balanceador de carga, App Gateway ou controlador de entrada | Com suporte | Com suporte |
+| DNS e zonas privadas padrão do Azure                                                          | Com suporte | Com suporte |
 
-Em relação ao DNS, com o kubenet e o DNS CNI plug-ins do Azure são oferecidos pelo CoreDNS, um daemon definido em execução no AKS. Para obter mais informações sobre o CoreDNS no kubernetes, consulte [Personalizando o serviço DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS é configurado por padrão para encaminhar domínios desconhecidos para os servidores DNS do nó, em outras palavras, para a funcionalidade DNS da rede virtual do Azure em que o cluster AKS é implantado. Portanto, as zonas DNS e privadas do Azure funcionarão para o pods em execução no AKS.
+Em relação ao DNS, tanto o DNS da Kubenet quanto do Azure CNI é oferecido pela CoreDNS, um conjunto de daemon saem em execução em AKS. Para obter mais informações sobre o CoreDNS no Kubernetes, consulte [Personalizing DNS Service](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS é configurado por padrão para encaminhar domínios desconhecidos para os servidores DNS de nó, ou seja, para a funcionalidade DNS da Rede Virtual Azure onde o cluster AKS é implantado. Assim, o Azure DNS e as Zonas Privadas funcionarão para pods em execução em AKS.
 
 ### <a name="support-scope-between-network-models"></a>Escopo de suporte entre modelos de rede
 
-Independentemente do modelo de rede que você usa, tanto o kubenet quanto o CNI do Azure podem ser implantados de uma das seguintes maneiras:
+Independentemente do modelo de rede que você usa, tanto o Kubenet quanto o Azure CNI podem ser implantados de uma das seguintes maneiras:
 
 * A plataforma Azure pode criar e configurar automaticamente os recursos de rede virtual quando você cria um cluster AKS.
-* Você pode criar e configurar manualmente os recursos da rede virtual e anexá-los a esses recursos ao criar o cluster AKS.
+* Você pode criar e configurar manualmente os recursos da rede virtual e anexar a esses recursos quando criar seu cluster AKS.
 
-Embora haja suporte para recursos como pontos de extremidade de serviço ou UDRs com kubenet e CNI do Azure, as [políticas de suporte para AKs][support-policies] definem quais alterações você pode fazer. Por exemplo:
+Embora os recursos como endpoints de serviço ou UDRs sejam suportados com kubenet e Azure CNI, as [políticas de suporte para AKS][support-policies] definem quais mudanças você pode fazer. Por exemplo: 
 
-* Se você criar manualmente os recursos de rede virtual para um cluster AKS, terá suporte ao configurar seus próprios pontos de extremidade de serviço ou UDRs.
-* Se a plataforma Azure cria automaticamente os recursos de rede virtual para o cluster AKS, não há suporte para alterar manualmente esses recursos gerenciados por AKS para configurar seus próprios pontos de extremidade UDRs ou de serviço.
+* Se você criar manualmente os recursos de rede virtual para um cluster AKS, você será suportado ao configurar seus próprios UDRs ou pontos finais de serviço.
+* Se a plataforma Azure criar automaticamente os recursos de rede virtual para o cluster AKS, não será suportado alterar manualmente esses recursos gerenciados pela AKS para configurar seus próprios UDRs ou pontos finais de serviço.
 
 ## <a name="ingress-controllers"></a>Controladores de entrada
 
@@ -127,37 +127,37 @@ Quando você cria um serviço do tipo LoadBalancer, um recurso de balanceador de
 
 ![Diagrama mostrando o fluxo de tráfego de ingresso em um cluster AKS][aks-ingress]
 
-No AKS, você pode criar um recurso do Ingress usando algo como o NGINX ou usar o recurso de roteamento do aplicativo AKS HTTP. Quando você habilita o roteamento de aplicativo HTTP para um cluster AKS, a plataforma Azure cria o controlador Ingress e um controlador *External-DNS*. À medida que novos recursos do Ingress são criados no Kubernetes, os registros necessários do DNS A são criados em uma zona DNS específica do cluster. Para obter mais informações, consulte [implantar o roteamento de aplicativos http][aks-http-routing].
+No AKS, você pode criar um recurso do Ingress usando algo como o NGINX ou usar o recurso de roteamento do aplicativo AKS HTTP. Quando você habilita o roteamento de aplicativo HTTP para um cluster AKS, a plataforma Azure cria o controlador Ingress e um controlador *External-DNS*. À medida que novos recursos do Ingress são criados no Kubernetes, os registros necessários do DNS A são criados em uma zona DNS específica do cluster. Para obter mais informações, consulte [implantar o roteamento de aplicativos HTTP][aks-http-routing].
 
-Outro recurso comum do Ingress é o encerramento de SSL / TLS. Em grandes aplicativos da Web acessados via HTTPS, a terminação do TLS pode ser manipulada pelo recurso Ingress, em vez de pelo próprio aplicativo. Para fornecer geração e configuração automática de certificação TLS, você pode configurar o recurso Ingress para usar provedores como o Let's Encrypt. Para obter mais informações sobre como configurar um controlador de entrada NGINX com vamos criptografar, consulte [entrada e TLS][aks-ingress-tls].
+Outro recurso comum do Ingress é o encerramento de SSL / TLS. Em grandes aplicativos da Web acessados via HTTPS, a terminação do TLS pode ser manipulada pelo recurso Ingress, em vez de pelo próprio aplicativo. Para fornecer geração e configuração automática de certificação TLS, você pode configurar o recurso Ingress para usar provedores como o Let's Encrypt. Para obter mais informações sobre como configurar um controlador NGINX Ingress com o Let's Encrypt, consulte [Ingress e TLS][aks-ingress-tls].
 
-Você também pode configurar o controlador de entrada para preservar o IP de origem do cliente em solicitações para contêineres no cluster AKS. Quando a solicitação de um cliente é roteada para um contêiner no cluster AKS por meio do controlador de entrada, o IP de origem dessa solicitação não estará disponível para o contêiner de destino. Quando você habilita a *preservação de IP de origem do cliente*, o IP de origem do cliente está disponível no cabeçalho da solicitação em *X-forwardd-for*. Se você estiver usando a preservação de IP de origem do cliente em seu controlador de entrada, não poderá usar passagem SSL. A preservação de IP de origem do cliente e a passagem SSL podem ser usadas com outros serviços, como o tipo de *balanceador de carga* .
+Você também pode configurar seu controlador de ingress para preservar o IP de origem do cliente em solicitações para contêineres em seu cluster AKS. Quando a solicitação de um cliente é encaminhada para um contêiner em seu cluster AKS através do controlador de ingress, o IP de origem original dessa solicitação não estará disponível para o contêiner de destino. Quando você habilita a *preservação de IP da fonte do cliente,* o IP de origem para o cliente está disponível no cabeçalho de solicitação em *X-Forwarded-For*. Se você estiver usando a preservação de IP da fonte do cliente no controlador de entrada, você não pode usar o passe do SSL. A preservação de IP da fonte do cliente e o passe do SSL podem ser usados com outros serviços, como o tipo *LoadBalancer.*
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Um grupo de segurança de rede filtra o tráfego para VMs, como os nós do AKS. À medida que você cria Serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente as regras do grupo de segurança de rede necessárias. Não configure manualmente as regras do grupo de segurança de rede para filtrar o tráfego de pods em um cluster do AKS. Defina as portas e o encaminhamento necessários como parte dos manifestos do Kubernetes Service e permita que a plataforma do Azure crie ou atualize as regras apropriadas. Você também pode usar as políticas de rede, conforme discutido na próxima seção, para aplicar automaticamente as regras de filtro de tráfego a pods.
+Um grupo de segurança de rede filtra o tráfego para VMs, como os nós do AKS. À medida que você cria Serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente as regras do grupo de segurança de rede necessárias. Não configure manualmente as regras do grupo de segurança de rede para filtrar o tráfego de pods em um cluster do AKS. Defina as portas e o encaminhamento necessários como parte dos manifestos do Kubernetes Service e permita que a plataforma do Azure crie ou atualize as regras apropriadas. Você também pode usar políticas de rede, como discutido na próxima seção, para aplicar automaticamente as regras do filtro de tráfego aos pods.
 
 ## <a name="network-policies"></a>Políticas de rede
 
 Por padrão, todos os pods em um cluster do AKS podem enviar e receber tráfego sem limitações. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Os aplicativos de back-end geralmente só são expostos aos serviços de front-end necessários ou os componentes de banco de dados são acessíveis somente para as camadas de aplicativos que se conectam a eles.
 
-A política de rede é um recurso kubernetes disponível no AKS que permite controlar o fluxo de tráfego entre pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. Os grupos de segurança de rede são mais para os nós do AKS, e não para os pods. O uso de políticas de rede é uma maneira mais adequada e nativa da nuvem de controlar o fluxo de tráfego. Como os pods são criados dinamicamente em um cluster AKS, as políticas de rede necessárias podem ser aplicadas automaticamente.
+A diretiva de rede é um recurso kubernetes disponível no AKS que permite controlar o fluxo de tráfego entre pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. Os grupos de segurança de rede são mais para os nós do AKS, e não para os pods. O uso de políticas de rede é uma maneira mais adequada e nativa da nuvem de controlar o fluxo de tráfego. Como os pods são criados dinamicamente em um cluster AKS, as políticas de rede necessárias podem ser aplicadas automaticamente.
 
-Para obter mais informações, consulte [proteger o tráfego entre pods usando as políticas de rede no serviço de kubernetes do Azure (AKs)][use-network-policies].
+Para saber mais, confira [Proteger o tráfego entre os pods usando as políticas de rede no AKS (Serviço de Kubernetes do Azure)][use-network-policies].
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a usar a rede AKS, crie e configure um cluster AKS com seus próprios intervalos de endereços IP usando [kubenet][aks-configure-kubenet-networking] ou [CNI do Azure][aks-configure-advanced-networking].
+Para obter uma introdução à rede do AKS, crie e configure um cluster do AKS com seus próprios intervalos de endereços IP usando [kubenet][aks-configure-kubenet-networking] ou a [CNI do Azure][aks-configure-advanced-networking].
 
-Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para conectividade de rede e segurança no AKs][operator-best-practices-network].
+Para as práticas recomendadas associadas, consulte [As melhores práticas de conectividade e segurança de rede em AKS][operator-best-practices-network].
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
-- [Clusters e cargas de trabalho do kubernetes/AKS][aks-concepts-clusters-workloads]
-- [Acesso e identidade de kubernetes/AKS][aks-concepts-identity]
-- [Segurança do kubernetes/AKS][aks-concepts-security]
-- [Armazenamento kubernetes/AKS][aks-concepts-storage]
-- [Escala de kubernetes/AKS][aks-concepts-scale]
+- [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
+- [Kubernetes / AKS de acesso e identidade][aks-concepts-identity]
+- [Kubernetes / segurança AKS][aks-concepts-security]
+- [Kubernetes / armazenamento AKS][aks-concepts-storage]
+- [Kubernetes / escala de AKS][aks-concepts-scale]
 
 <!-- IMAGES -->
 [aks-clusterip]: ./media/concepts-network/aks-clusterip.png

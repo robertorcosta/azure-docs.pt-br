@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: d143992317c77c6fc3137527bea485a98c046daa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75969216"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
@@ -56,7 +56,7 @@ As permissões no Azure Repos e no GitHub são independentes das permissões do 
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 
-Às vezes, você precisa conceder diferentes níveis de acesso para diferentes usuários do data factory. Por exemplo:
+Às vezes, você precisa conceder diferentes níveis de acesso para diferentes usuários do data factory. Por exemplo: 
 - Você pode precisar de um grupo em que os usuários só têm permissões em um data factory específico.
 - Ou você pode precisar de um grupo em que os usuários só podem monitorar um data factory (ou factories), mas não podem modificá-lo.
 
@@ -77,17 +77,17 @@ Aqui estão alguns exemplos que demonstram o que você pode obter com as funçõ
   Esse cenário requer duas atribuições de função.
 
   1. Atribuir a função interna **Colaborador** no nível do data factory.
-  2. Crie uma função personalizada com a permissão **Microsoft.Resources/deployments/** . Atribua essa função personalizada ao usuário no nível do grupo de recursos.
+  2. Crie uma função personalizada com a permissão **Microsoft.Resources/deployments/**. Atribua essa função personalizada ao usuário no nível do grupo de recursos.
 
-- Permitir que um usuário só possa testar a conexão em um serviço vinculado
+- Deixe que um usuário só seja capaz de testar conexão em um serviço vinculado
 
-    Crie uma função de função personalizada com permissões para as seguintes ações: **Microsoft. datafactory/fábricas/Getfeaturevalue/Read** e **Microsoft. datafactory/factories/getDataPlaneAccess/Read**. Atribua essa função personalizada no recurso de data factory para o usuário.
+    Crie uma função personalizada com permissões para as seguintes ações: **Microsoft.DataFactory/factories/getFeatureValue/read** e **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Atribua essa função personalizada no recurso de fábrica de dados para o usuário.
 
 - Permitir que um usuário atualize um data factory usando o PowerShell ou o SDK, mas não o portal do Azure.
 
   Atribuir a função interna **Colaborador** no recurso do data factory ao usuário. Essa função permite que o usuário veja os recursos no portal do Azure, mas não permite que ele acesse os botões **Publicar** e **Publicar Tudo**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as funções no Azure – [Entender as definições de função](../role-based-access-control/role-definitions.md)
 

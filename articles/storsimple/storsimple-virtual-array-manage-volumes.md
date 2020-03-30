@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62125790"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos StorSimple para gerenciar volumes na Matriz Virtual StorSimple
@@ -33,7 +33,7 @@ O serviço Gerenciador de Dispositivos StorSimple é uma extensão do portal do 
 
 Os volumes do StorSimple podem ser:
 
-* **Fixados localmente**: Dados nesses volumes permanecerão sempre na matriz em todos os momentos e não transbordam para a nuvem.
+* **Fixados localmente**: os dados nesses volumes permanecerão sempre na matriz e não transbordam para a nuvem.
 * **Em camadas**: os dados nesses volumes podem transbordar para a nuvem. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada de local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiria no espaço local e 900 GB seria usado na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, não poderá provisionar um volume em camadas (porque 10% necessários na camada local não estarão disponíveis).
 
 ### <a name="provisioned-capacity"></a>Capacidade provisionada

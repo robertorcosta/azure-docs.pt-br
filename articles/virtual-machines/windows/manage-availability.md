@@ -16,10 +16,10 @@ ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae5d60f77319a6590807ae0b18a0c07c116e128b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267437"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerenciar a disponibilidade de máquinas virtuais Windows no Azure 
@@ -31,7 +31,7 @@ Aprenda como configurar e gerenciar várias máquinas virtuais para garantir a a
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o balanceamento de carga das máquinas virtuais, veja [Balanceamento de carga de máquinas virtuais](tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Exibir arquiteturas de referência para executar aplicativos de N camadas no SQL Server no IaaS
+Exibir arquiteturas de referência para executar aplicativos de nível N no SQL Server no IaaS
 
 * [Aplicativo de N camadas do Windows no Azure com SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Executar um aplicativo de N camadas em várias regiões do Azure para alta disponibilidade](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Executar aplicativo de N camadas em várias regiões do Azure para ter alta disponibilidade](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

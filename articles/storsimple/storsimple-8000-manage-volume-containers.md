@@ -1,5 +1,5 @@
 ---
-title: Gerenciar contêineres de volume para dispositivos StorSimple da série 8000
+title: Gerenciar contêineres de volume para dispositivos da série StorSimple 8000
 description: Explica como você pode usar a página de contêineres de volume do serviço do Gerenciador de Dispositivos do StorSimple para adicionar, modificar ou excluir um contêiner de volume.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
 ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267671"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar contêineres de volume do StorSimple
@@ -31,9 +31,9 @@ Um contêiner de volume em um dispositivo Microsoft Azure StorSimple contém um 
 Um contêiner de volume apresenta os seguintes atributos:
 
 * **Volumes** – os volumes do StorSimple em camadas ou fixados localmente que estão contidos no contêiner do volume. 
-* **Criptografia** – uma chave de criptografia que pode ser definida para cada contêiner de volume. Essa chave é usada para criptografar os dados enviados do seu dispositivo StorSimple para a nuvem. Uma chave de bits AES-256 de nível militar é usada com a chave inserida pelo usuário. Para proteger seus dados, é recomendável sempre habilitar a criptografia de armazenamento na nuvem.
+* **Criptografia** – Uma chave de criptografia que pode ser definida para cada contêiner de volume. Essa chave é usada para criptografar os dados enviados do seu dispositivo StorSimple para a nuvem. Uma chave de bits AES-256 de nível militar é usada com a chave inserida pelo usuário. Para proteger seus dados, é recomendável sempre habilitar a criptografia de armazenamento na nuvem.
 * **Conta de armazenamento** – a conta de armazenamento do Azure usada para armazenar os dados. Todos os volumes que residem em um contêiner de volume compartilham essa conta de armazenamento. Você pode escolher uma conta de armazenamento em uma lista existente ou criar uma nova conta quando criar o contêiner de volume e especificar as credenciais de acesso para essa conta.
-* **Largura de banda da nuvem** – a largura de banda consumida pelo dispositivo quando os dados do dispositivo estão sendo enviados para a nuvem. Imponha um controle de largura de banda especificando um valor entre 1 e 1.000 Mbps ao criar esse contêiner. Se desejar que o dispositivo consuma toda a largura de banda disponível, defina esse campo como **Ilimitado**. Também é possível criar e aplicar um modelo de largura de banda para alocar a largura de banda com base no agendamento.
+* **Largura da banda em nuvem** – A largura da banda consumida pelo dispositivo quando os dados do dispositivo estão sendo enviados para a nuvem. Imponha um controle de largura de banda especificando um valor entre 1 e 1.000 Mbps ao criar esse contêiner. Se deseja que o dispositivo consuma toda a largura de banda disponível, defina este campo para **Ilimitado**. Também é possível criar e aplicar um modelo de largura de banda para alocar a largura de banda com base no agendamento.
 
 Os seguintes procedimentos explicam como usar a folha **Contêineres de volume** do StorSimple para concluir as seguintes operações comuns:
 

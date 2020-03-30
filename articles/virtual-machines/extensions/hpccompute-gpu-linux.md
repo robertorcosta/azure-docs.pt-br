@@ -1,5 +1,5 @@
 ---
-title: Extensão do driver NVIDIA GPU – VMs Linux do Azure
+title: NVIDIA GPU Driver Extension - Azure Linux VMs
 description: Extensão do Microsoft Azure para instalar os Drivers NVIDIA GPU em série N de computação VMs que executam o Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250563"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
@@ -26,11 +26,11 @@ ms.locfileid: "79250563"
 
 Essa extensão instala drivers de GPU NVIDIA em VMs série N do Linux. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instalar drivers NVIDIA usando esta extensão, estará aceitando e concordando com os termos do [Contrato de Licença de Usuário Final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
-As instruções sobre a instalação manual dos drivers e as versões atuais com suporte estão disponíveis [aqui](
+Instruções sobre a instalação manual dos drivers e as versões suportadas atuais estão disponíveis [aqui](
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Windows](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -83,10 +83,10 @@ O JSON a seguir mostra o esquema para a extensão.
 
 Todas as configurações são opcionais. O comportamento padrão é não atualizar o kernel se não for necessário para a instalação do driver, instale o driver mais recente com suporte e o CUDA toolkit (conforme aplicável).
 
-| Nome | DESCRIÇÃO | Valor Padrão | Valores válidos | Tipo de Dados |
+| Nome | Descrição | Valor Padrão | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | false | verdadeiro, falso | booleano |
-| driverVersion | NV: Versão do driver de grade<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRADE: "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: Versão do driver de grade<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | true | verdadeiro, falso | booleano |
 
 
@@ -97,7 +97,7 @@ Todas as configurações são opcionais. O comportamento padrão é não atualiz
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem configuração pós-implantação.
 
-A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir nome e digite para recursos de crianças](../../azure-resource-manager/resource-manager-template-child-resource.md). 
 
 O exemplo a seguir pressupõe que a extensão está aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
@@ -155,7 +155,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell e a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir.
 
@@ -188,7 +188,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/community/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer ponto deste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre extensões, consulte [Recursos e extensões da máquina virtual para Linux](features-linux.md).

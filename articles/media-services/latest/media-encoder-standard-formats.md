@@ -1,6 +1,6 @@
 ---
-title: Codecs e formatos de codificador padrão-Azure
-description: Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com o StandardEncoderPreset.
+title: Formatos e codecs padrão de codificador - Azure
+description: Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,19 +15,19 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251356"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos de codificador padrão
+# <a name="standard-encoder-formats-and-codecs"></a>Formatos e codecs padrão do Codificador
 
 Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas usando **StandardEncoderPreset**, veja [Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
 
 ## <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
 
-| Formatos de arquivo (extensões de arquivo) | Suportado |
+| Formatos de arquivo (extensões de arquivo) | Com suporte |
 | --- | --- |
 | FLV (com codecs H.264 e AAC) (.flv) |Sim |
 | MXF    (.mxf) |Sim |
@@ -43,7 +43,7 @@ Este artigo contém uma lista dos formatos de arquivo de importação e exporta�
 
 ### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em contêineres de entrada
 
-O codificador padrão dá suporte à manutenção dos seguintes formatos de áudio em contêineres de entrada:
+O Codificador Padrão suporta os seguintes formatos de áudio em recipientes de entrada:
 
 * Arquivos do MXF, GXF e QuickTime que têm faixas de áudio com exemplos em estéreo intercalado ou de 5.1
 
@@ -52,7 +52,7 @@ ou
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Suportado |
+| Codecs de vídeo de entrada | Com suporte |
 | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
@@ -75,14 +75,14 @@ ou
 | HEVC/H.265| Perfil Principal|
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Suportado |
+| Codecs de áudio de entrada | Com suporte |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |
 | MP3 (MPEG-1 Audio Layer 3) |Sim |
 | Áudio do Windows Media |Sim |
 | WAV/PCM |Sim |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
+| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (multitaxa adaptável) |Sim |

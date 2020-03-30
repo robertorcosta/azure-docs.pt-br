@@ -1,13 +1,13 @@
 ---
-title: Formatos de conteúdo com suporte
-description: Saiba mais sobre os formatos de conteúdo com suporte no registro de contêiner do Azure, incluindo imagens de contêiner compatíveis com Docker, gráficos Helm, imagens de OCI e artefatos de OCI.
+title: Formatos de conteúdo suportados
+description: Conheça os formatos de conteúdo suportados pelo Azure Container Registry, incluindo imagens de contêiner compatíveis com Docker, gráficos Helm, imagens OCI e artefatos OCI.
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247001"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de conteúdo com suporte no Registro de Contêiner do Azure
@@ -16,25 +16,25 @@ Use um repositório privado no Registro de Contêiner do Azure para gerenciar um
 
 ## <a name="docker-compatible-container-images"></a>Imagens de contêiner compatíveis com Docker
 
-Há suporte para os seguintes formatos de imagem de contêiner do Docker:
+Os seguintes formatos de imagem de contêiner Docker são suportados:
 
 * [Manifesto de imagem de Docker V2, Esquema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
 * [Manifesto de imagem de Docker V2, Esquema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - inclui Listas de Manifestos que permitem que os registros armazenem imagens multiplataforma sob uma única referência "image:tag"
 
-## <a name="oci-images"></a>Imagens de OCI
+## <a name="oci-images"></a>Imagens OCI
 
-O registro de contêiner do Azure dá suporte a imagens que atendem à [especificação de formato de imagem de OCI (Open container Initiative)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Os formatos de empacotamento incluem o [formato de imagem de singularidade (SIF)](https://github.com/sylabs/sif).
+O Registro de Contêineres do Azure suporta imagens que atendem à especificação de formato de imagem da Open [Container Initiative (OCI).](https://github.com/opencontainers/image-spec/blob/master/spec.md) Os formatos de embalagem incluem [O Formato de Imagem singularidade (SIF)](https://github.com/sylabs/sif).
 
-## <a name="oci-artifacts"></a>Artefatos de OCI
+## <a name="oci-artifacts"></a>Artefatos OCI
 
-O registro de contêiner do Azure dá suporte à [especificação de distribuição de OCI](https://github.com/opencontainers/distribution-spec), uma especificação independente de fornecedor e de nuvem para armazenar, compartilhar, proteger e implantar imagens de contêiner e outros tipos de conteúdo (artefatos). A especificação permite que um registro armazene uma grande variedade de artefatos, além de imagens de contêiner. Você usa ferramentas apropriadas para o artefato para enviar e extrair artefatos. Para obter um exemplo, consulte [enviar por push e efetuar pull de um artefato de OCI usando um registro de contêiner do Azure](container-registry-oci-artifacts.md).
+O Azure Container Registry suporta a [Especificação de Distribuição OCI](https://github.com/opencontainers/distribution-spec), uma especificação neutra em nuvem e neutra do fornecedor para armazenar, compartilhar, proteger e implantar imagens de contêineres e outros tipos de conteúdo (artefatos). A especificação permite que um registro armazene uma ampla gama de artefatos, além de imagens de contêineres. Você usa ferramentas apropriadas ao artefato para empurrar e puxar artefatos. Por exemplo, consulte [Empurre e puxe um artefato OCI usando um registro de contêiner Azure](container-registry-oci-artifacts.md).
 
-Para saber mais sobre os artefatos de OCI, consulte o repositório [do OCI (registro de oras)](https://github.com/deislabs/oras) e o repositório de [artefatos de OCI](https://github.com/opencontainers/artifacts) no github.
+Para saber mais sobre os artefatos OCI, consulte o repo [do Registro OCI como Armazenamento (ORAS)](https://github.com/deislabs/oras) e o repo [de artefatos OCI](https://github.com/opencontainers/artifacts) no GitHub.
 
 ## <a name="helm-charts"></a>Gráficos Helm
 
-O registro de contêiner do Azure pode hospedar repositórios para [gráficos Helm](https://helm.sh/), um formato de empacotamento usado para gerenciar e implantar aplicativos para kubernetes rapidamente. Há suporte para o [cliente Helm](https://docs.helm.sh/using_helm/#installing-helm) versão 2 (2.11.0 ou posterior).
+O Azure Container Registry pode hospedar repositórios para [gráficos Helm](https://helm.sh/), um formato de embalagem usado para gerenciar e implantar aplicativos rapidamente para Kubernetes. [A](https://docs.helm.sh/using_helm/#installing-helm) versão 2 do cliente helm (2.11.0 ou posterior) é suportada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

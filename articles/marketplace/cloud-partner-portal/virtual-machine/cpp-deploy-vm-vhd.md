@@ -1,19 +1,18 @@
 ---
 title: Implantar uma VM de seus VHDs para o Azure Marketplace
 description: Explica como registrar uma VM de um VHD do Azure implantado.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: evansma
-ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813409"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277932"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM por meio dos seus VHDs
 
@@ -24,7 +23,7 @@ Depois de carregar seus discos rígidos virtuais (VHDs) - o VHD do sistema opera
 Para obter mais informações sobre imagens de VM consulte os posts de blog abaixo:
 
 - [Image da VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [Guia do PowerShell da Imagem da VM](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -60,12 +59,12 @@ Depois que a VM for implantada, você estará pronto para [certificar a imagem d
    |  -------------              |   ---------------                                                            |
    | Nome de Conta de Armazenamento do Usuário   | Nome da conta de armazenamento onde se encontra o VHD generalizado                    |
    | Nome do Contêiner de Armazenamento de Usuário | Nome do contêiner onde se encontra o VHD generalizado                          |
-   | Nome DNS para o IP público      | Nome DNS do IP público. O nome DNS é da VM, você irá defini-lo no portal do Azure, depois que a oferta for implantada.  |
+   | Nome DNS para o IP público      | Nome Público de DNS ip. O nome DNS é da VM, você definirá isso no Portal Azure, assim que a oferta for implantada.  |
    | Nome de Usuário do Administrador             | Nome de usuário da conta do administrador para a nova VM                                  |
    | Senha do Administrador              | Senha da conta Administrador para nova VM                                  |
-   | Tipo de sistema operacional                     | Sistema operacional da VM: `Windows` \| `Linux`                                    |
+   | Tipo de SO                     | Sistema operacional VM: `Windows` \|`Linux`                                    |
    | ID da assinatura             | Identificador para a assinatura selecionada                                      |
-   | Local                    | Localização geográfica da implantação                                        |
+   | Location                    | Localização geográfica da implantação                                        |
    | Tamanho da VM                     | [Tamanho da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por exemplo `Standard_A2` |
    | Nome do endereço IP público      | Nome do seu endereço IP público                                               |
    | Nome da VM                     | Nome da nova VM                                                           |

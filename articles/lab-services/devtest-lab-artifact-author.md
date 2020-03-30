@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66399212"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
@@ -30,7 +30,7 @@ Assista ao vídeo a seguir para obter uma visão geral das etapas descritas nest
 >
 
 ## <a name="overview"></a>Visão geral
-Você pode usar *artifacts* para implantar e configurar seu aplicativo depois de provisionar uma VM. Um artefato é composto por um arquivo de definição de artefato e outros arquivos de script que são armazenados em uma pasta em um repositório Git. Arquivos de definição de artefato são formados por JSON e expressões que você pode usar para especificar o que você deseja instalar em uma VM. Por exemplo, você pode definir o nome de um artefato, um comando a ser executado e parâmetros que estão disponíveis quando o comando é executado. Você pode consultar por nome outros arquivos de script dentro do arquivo de definição de artefato.
+Você pode usar *artefatos* para implantar e configurar seu aplicativo depois de provisionar uma VM. Um artefato é composto por um arquivo de definição de artefato e outros arquivos de script que são armazenados em uma pasta em um repositório Git. Arquivos de definição de artefato são formados por JSON e expressões que você pode usar para especificar o que você deseja instalar em uma VM. Por exemplo, você pode definir o nome de um artefato, um comando a ser executado e parâmetros que estão disponíveis quando o comando é executado. Você pode consultar por nome outros arquivos de script dentro do arquivo de definição de artefato.
 
 ## <a name="artifact-definition-file-format"></a>Formato do arquivo de definição de artefato
 O exemplo a seguir mostra as seções que compõem a estrutura básica de um arquivo de definição:
@@ -53,14 +53,14 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um arq
       }
     }
 
-| Nome do elemento | Obrigatório? | DESCRIÇÃO |
+| Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
 | $schema |Não |Local do arquivo de esquema JSON. O arquivo de esquema JSON pode lhe ajudar a testar a validade do arquivo de definição. |
-| title |Sim |Nome do artefato exibido no laboratório. |
-| description |Sim |Descrição do artefato exibido no laboratório. |
+| título |Sim |Nome do artefato exibido no laboratório. |
+| descrição |Sim |Descrição do artefato exibido no laboratório. |
 | iconUri |Não |URI do ícone exibido no laboratório. |
 | targetOsType |Sim |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
-| parameters |Não |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
+| parâmetros |Não |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
 | runCommand |Sim |Comando de instalação do artefato executado em uma VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros do artefato
@@ -76,11 +76,11 @@ Para definir parâmetros, use a seguinte estrutura:
       }
     }
 
-| Nome do elemento | Obrigatório? | DESCRIÇÃO |
+| Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
 | type |Sim |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
 | displayName |Sim |Nome do parâmetro exibido para um usuário no laboratório. |
-| description |Sim |Descrição do parâmetro exibido no laboratório. |
+| descrição |Sim |Descrição do parâmetro exibido no laboratório. |
 
 Os tipos permitidos são:
 
@@ -89,8 +89,8 @@ Os tipos permitidos são:
 * bool (qualquer booliano JSON válido)
 * array (qualquer matriz JSON válida)
 
-## <a name="secrets-as-secure-strings"></a>Segredos, como cadeias de caracteres seguras
-Declare segredos como cadeias de caracteres seguras. Aqui está a sintaxe para declarar um parâmetro de cadeia de caracteres segura na `parameters` seção o **artifactfile** arquivo:
+## <a name="secrets-as-secure-strings"></a>Segredos como cordas seguras
+Declare segredos como strings seguros. Aqui está a sintaxe para declarar um `parameters` parâmetro de string seguro dentro da seção do arquivo **artifactfile.json:**
 
 ```json
 
@@ -102,7 +102,7 @@ Declare segredos como cadeias de caracteres seguras. Aqui está a sintaxe para d
     },
 ```
 
-Comando de instalação para o artefato, execute o script do PowerShell que usa a cadeia de caracteres segura criada usando o comando ConvertTo-SecureString. 
+Para o comando instalação de artefatos, execute o script PowerShell que leva a seqüência segura criada usando o comando ConvertTo-SecureString. 
 
 ```json
   "runCommand": {
@@ -110,19 +110,19 @@ Comando de instalação para o artefato, execute o script do PowerShell que usa 
   }
 ```
 
-Para o exemplo completo artifactfile e o artifact.ps1 (script do PowerShell), consulte [essa amostra no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+Para obter o exemplo completo de artifactfile.json e do artifact.ps1 (script PowerShell), consulte [esta amostra no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
 
-Outro ponto importante a observar é não faça segredos no console, como a saída é capturada para depuração de usuário. 
+Outro ponto importante a ser observado é não registrar segredos para o console, pois a saída é capturada para depuração do usuário. 
 
 ## <a name="artifact-expressions-and-functions"></a>Expressões e funções de artefatos
 Você pode usar expressões e funções para construir o comando de instalação do artefato.
 As expressões são colocadas entre colchetes ([ e ]) e avaliadas quando o artefato é instalado. Expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON. Expressões sempre retornam outro valor JSON. Se precisar usar uma cadeia de caracteres literal que começa com um colchete ([), você deverá usar dois colchetes ([[).
-Normalmente, você usa expressões com funções para construir um valor. Assim como no JavaScript, as chamadas de função são formatadas como **functionName(arg1,arg2,arg3)** .
+Normalmente, você usa expressões com funções para construir um valor. Assim como no JavaScript, as chamadas de função são formatadas como **functionName(arg1,arg2,arg3)**.
 
 A lista a seguir mostra funções comuns:
 
-* **parameters(parameterName)** : Retorna um valor de parâmetro fornecido quando o comando do artefato é executado.
-* **concat(arg1, arg2, arg3…)** : Combina vários valores de cadeia de caracteres. Essa função pode conter uma variedade de argumentos.
+* **parameters(parameterName)**: retorna um valor de parâmetro fornecido quando o comando do artefato é executado.
+* **concat(arg1, arg2, arg3,….. )**: combina diversos valores de cadeia de caracteres. Essa função pode conter uma variedade de argumentos.
 
 O exemplo a seguir mostra como usar expressões e funções para construir um valor:
 
@@ -135,7 +135,7 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 
 ## <a name="create-a-custom-artifact"></a>Criar um artefato personalizado
 
-1. Instalar um editor de JSON. Você precisa de um editor de JSON para trabalhar com arquivos de definição de artefato. Recomendamos o uso do [Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
+1. Instalar um editor de JSON. Você precisa de um editor de JSON para trabalhar com arquivos de definição de artefato. Recomendamos o uso [do Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
 2. Obtenha um exemplo de arquivo de definição artifactfile.json. Confira os artefatos criados pela equipe do DevTest Labs em nosso [repositório GitHub](https://github.com/Azure/azure-devtestlab). Você criou uma biblioteca avançada artefatos que podem lhe ajudar a criar seus próprios artefatos. Baixe um arquivo de definição de artefato e faça as alterações nele para criar seus próprios artefatos.
 3. Faça uso do IntelliSense. Use o IntelliSense para ver os elementos válidos que você pode usar para construir um arquivo de definição de artefato. Você também pode ver as diferentes opções de valores para um elemento. Por exemplo, quando você edita o elemento **targetOsType**, o IntelliSense mostra a você as duas opções, Windows ou Linux.
 4. Armazene o artefato no [repositório público do Git para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou no [seu próprio repositório Git](devtest-lab-add-artifact-repo.md). No repositório público, você pode exibir os artefatos compartilhados por outras pessoas que você pode usar diretamente ou personalizá-los para atender às suas necessidades.
@@ -147,7 +147,7 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
       Veja um exemplo de como uma pasta de artefatos pode ser:
       
       ![Exemplo de pasta de artefato](./media/devtest-lab-artifact-author/git-repo.png)
-5. Se estiver usando seu próprio repositório para armazenar artefatos, adicione-o ao laboratório seguindo as instruções do artigo: [Adicionar um repositório Git para artefatos e modelos](devtest-lab-add-artifact-repo.md).
+5. Se estiver usando seu próprio repositório para armazenar artefatos, adicione-o ao laboratório seguindo as instruções no artigo: [Add a Git repository for artifacts and templates](devtest-lab-add-artifact-repo.md) (Adicionar um repositório Git para artefatos e modelos).
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Como diagnosticar falhas de artefato em DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)

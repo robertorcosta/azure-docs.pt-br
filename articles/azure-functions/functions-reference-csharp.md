@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 76af1f51c83e9554a51e6c17266fac739e6bd6b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276810"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do desenvolvedor de scripts C# (.csx) do Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Este artigo é uma introdução ao desenvolvimento do Azure Functions usando o script C# ( *.csx*).
+Este artigo é uma introdução ao desenvolvimento do Azure Functions usando o script C# (*.csx*).
 
 O Azure Functions oferece suporte às linguagens de programação C# e script C#. Se você estiver procurando diretrizes sobre [usar C# em um projeto de biblioteca de classes do Visual Studio](functions-develop-vs.md), consulte [Referência do desenvolvedor C#](functions-dotnet-class-library.md).
 
@@ -51,7 +51,7 @@ FunctionsProject
 
 Há um arquivo [host.json](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.csx) e arquivo de configuração de associação (function.json).
 
-As extensões de associação necessárias na [versão 2. x e versões posteriores](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de vinculação exigidas na [versão 2.x e versões posteriores](functions-versions.md) do tempo de execução Functions são definidas no `extensions.csproj` arquivo, com os arquivos de biblioteca reais na `bin` pasta. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
 
@@ -224,7 +224,7 @@ Use o valor retornado apenas se uma execução de função com êxito sempre res
 
 ## <a name="writing-multiple-output-values"></a>Gravando vários valores de saída
 
-Para gravar vários valores em uma associação de saída ou se uma invocação de função com êxito não resultar em nada a ser passado para a associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
+Para escrever vários valores em uma vinculação de saída, ou se uma invocação [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) de [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) função bem sucedida pode não resultar em nada para passar para a vinculação de saída, use o ou os tipos. Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
 
 Este exemplo grava várias mensagens de fila na mesma fila usando `ICollector`:
 
@@ -236,7 +236,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 }
 ```
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registrando em log
 
 A saída de log para logs de streaming em C#, inclue um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos nomeá-lo como `log`. Evite usar `Console.Write` no Azure Functions.
 
@@ -370,7 +370,7 @@ Para obter informações sobre como carregar arquivos na pasta da função, cons
 O diretório que contém o arquivo de script da função é inspecionado automaticamente quanto às alterações nos assemblies. Para inspecionar alterações de assembly em outros diretórios, adicione-os à lista `watchDirectories` em [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Usando pacotes NuGet
-Para usar pacotes NuGet em uma função 2. x e C# posterior, carregue um arquivo *Function. proj* para a pasta da função no sistema de arquivos do aplicativo de funções. Este é um arquivo *function.proj* de exemplo que adiciona uma referência a *Microsoft.ProjectOxford.Face* versão *1.1.0*:
+Para usar pacotes NuGet em uma função C# 2.x e posterior, carregue um arquivo *function.proj* para a pasta da função no sistema de arquivos do aplicativo de função. Este é um arquivo *function.proj* de exemplo que adiciona uma referência a *Microsoft.ProjectOxford.Face* versão *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -387,9 +387,9 @@ Para usar pacotes NuGet em uma função 2. x e C# posterior, carregue um arquivo
 Para usar um feed do NuGet personalizado, especifique o feed em um arquivo *Nuget.Config* na raiz do Aplicativo de Funções. Para obter mais informações, consulte [Configurando o comportamento do NuGet](/nuget/consume-packages/configuring-nuget-behavior).
 
 > [!NOTE]
-> Em funções 1. C# x, os pacotes NuGet são referenciados com um arquivo *Project. JSON* em vez de um arquivo *Function. proj* .
+> Nas funções 1.x C#, os pacotes NuGet são referenciados com um arquivo *project.json* em vez de um arquivo *function.proj.*
 
-Para funções 1. x, use um arquivo *Project. JSON* em vez disso. Aqui está um exemplo de arquivo *Project. JSON* :
+Para funções 1.x, use um arquivo *project.json* em vez disso. Aqui está um exemplo do arquivo *project.json:*
 
 ```json
 {
@@ -403,11 +403,11 @@ Para funções 1. x, use um arquivo *Project. JSON* em vez disso. Aqui está um 
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Usando um arquivo function. proj
+### <a name="using-a-functionproj-file"></a>Usando um arquivo function.proj
 
 1. Abra a função no portal do Azure. A guia logs exibe o resultado da instalação do pacote.
-2. Para carregar um arquivo *Function. proj* , use um dos métodos descritos em [como atualizar os arquivos do aplicativo de funções](functions-reference.md#fileupdate) no tópico Azure Functions referência do desenvolvedor.
-3. Depois que o arquivo *Function. proj* for carregado, você verá uma saída semelhante ao exemplo a seguir no log de streaming da função:
+2. Para carregar um arquivo *function.proj,* use um dos métodos descritos no [aplicativo Como atualizar a função](functions-reference.md#fileupdate) no tópico de referência do desenvolvedor Azure Functions.
+3. Depois que o arquivo *function.proj* é carregado, você vê a saída como o exemplo a seguir no log de streaming da sua função:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -449,7 +449,7 @@ No C#, e em outras linguagens .NET, você pode usar um padrão de associação [
 Defina uma associação obrigatória da seguinte maneira:
 
 - **Não** inclua uma entrada em *function.json* para as associações obrigatórias desejadas.
-- Passe um parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Passe em um [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) parâmetro [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)de entrada ou .
 - Use o padrão de C# a seguir para realizar a associação de dados.
 
 ```cs
@@ -459,7 +459,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela de aplicativos móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+`BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a vinculação de saída de saída de aplicativos móveis suporta [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) `T`seis tipos [de saída,](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)mas você só pode usar [o ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou para .
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 
@@ -482,7 +482,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
 
-O exemplo anterior obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo:
+O exemplo anterior obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo: 
 
 ```cs
 using Microsoft.Azure.WebJobs;
