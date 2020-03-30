@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76152923"
 ---
 # <a name="cluster-tuning"></a>Ajuste do cluster
 
 A maioria dos clusters vFXT podem se beneficiar de configurações de desempenho personalizadas. Essas configurações ajudam o cluster a funcionar melhor com seu fluxo de trabalho, conjunto de dados e ferramentas específicos.
 
-Essa personalização deve ser feita com a ajuda de um representante de suporte, pois ela pode envolver a configuração de recursos que não estão disponíveis no painel de controle do avere.
+Essa personalização deve ser feita com a ajuda de um representante de suporte, pois pode envolver a configuração de recursos que não estão disponíveis no Painel de Controle avere.
 
-Esta seção descreve alguns dos ajustes personalizados que podem ser feitos.
+Esta seção descreve algumas das sintonias personalizadas que podem ser feitas.
 
 ## <a name="general-optimizations"></a>Otimizações gerais
 
@@ -34,21 +34,21 @@ Essas alterações podem ser recomendadas com base em qualidades do conjuntos de
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>NAS de nuvem ou otimizações de gateway de nuvem
 
-Em um cenário de NAS ou gateway na nuvem, o cluster vFXT fornece acesso em estilo NAS a um contêiner de nuvem. Para aproveitar as maiores velocidades de dados entre o cluster vFXT e o armazenamento em nuvem, seu representante pode recomendar a alteração de configurações para enviar dados de forma mais agressiva para o volume de armazenamento do cache. Por exemplo:
+Em um cenário de NAS ou gateway em nuvem, o cluster vFXT fornece acesso no estilo NAS a um contêiner em nuvem. Para aproveitar as velocidades de dados mais altas entre o cluster vFXT e o armazenamento em nuvem, seu representante pode recomendar alterar as configurações para empurrar mais agressivamente os dados para o volume de armazenamento do cache. Por exemplo: 
 
 * Aumentar o número de conexões TCP entre o cluster e o contêiner de armazenamento
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Intermitência de nuvem ou otimizações de WAN híbrido
 
-Em cenários de intermitência de nuvem ou cenário de otimização de WAN de armazenamento híbrido, o cluster vFXT fornece integração entre o armazenamento de hardware local e na nuvem. Essas alterações podem ser úteis:
+Em um cenário de explosão em nuvem ou cenário de otimização de WAN de armazenamento híbrido, o cluster vFXT oferece integração entre o armazenamento de hardware em nuvem e no local. Essas alterações podem ser úteis:
 
 * Aumentar o número de conexões TCP permitidas entre o cluster e o arquivista de núcleo
 * Habilitar a configuração de Otimização de WAN para o arquivista de núcleo remoto (essa configuração pode ser usada para um arquivista local remoto ou para um arquivista de núcleo de nuvem em uma região do Azure diferente.)
-* Aumentar o tamanho do buffer de soquete TCP<sup>*</sup>
-* Habilite a configuração "sempre encaminhar" para reduzir arquivos armazenados em cache com redundância<sup>*</sup>
+* Aumente o tamanho do buffer do soquete TCP<sup>*</sup>
+* Habilite a configuração "sempre para frente" para reduzir arquivos redundantemente armazenados em cache<sup>*</sup>
 
-<sup>*</sup> Esses ajustes podem não se aplicar a todos os sistemas, dependendo das necessidades de carga de trabalho e desempenho.
+<sup>*</sup>Esses ajustes podem não se aplicar a todos os sistemas, dependendo da carga de trabalho e das necessidades de desempenho.
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ajudar a otimizar o Avere vFXT para o Azure
 
-Para entrar em contato com a equipe de suporte sobre essas otimizações, use o procedimento descrito em [obter ajuda com o sistema](avere-vfxt-open-ticket.md).
+Para contatar a equipe de suporte sobre essas otimizações, use o procedimento descrito em [Obter ajuda com o seu sistema](avere-vfxt-open-ticket.md).

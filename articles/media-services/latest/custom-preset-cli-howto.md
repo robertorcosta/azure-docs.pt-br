@@ -1,6 +1,6 @@
 ---
-title: Codificar transformação personalizada usando os serviços de mídia v3 CLI - Azure | Microsoft Docs
-description: Este tópico mostra como usar os serviços de mídia do Azure v3 para codificar uma transformação personalizada usando a CLI.
+title: Encode custom transform usando Media Services v3 Azure CLI | Microsoft Docs
+description: Este tópico mostra como usar o Azure Media Services v3 para codificar uma transformação personalizada usando o Azure CLI.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,37 +12,39 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 42b7c2d86525c428253137b424fe58bb61edba70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762018"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382946"
 ---
-# <a name="how-to-encode-with-a-custom-transform---cli"></a>Como codificar com uma transformação personalizada - CLI
+# <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Como codificar com uma transformação personalizada - Azure CLI
 
-Quando estiver codificando com os serviços de mídia do Azure, você pode começar a usar rapidamente com uma das predefinições internas recomendadas, com base em práticas recomendadas do setor, como demonstrado na [arquivos de Streaming](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) guia de início rápido. Você também pode criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino.
+Ao codificar com o Azure Media Services, você pode começar rapidamente com uma das predefinições incorporadas recomendadas, com base nas práticas recomendadas do setor, como demonstrado no quickstart [de arquivos streaming.](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) Você também pode construir uma predefinição personalizada para atingir seus requisitos específicos de cenário ou dispositivo.
 
 ## <a name="considerations"></a>Considerações
 
 Ao criar predefinições personalizadas, as seguintes considerações se aplicam:
 
-* Todos os valores de altura e largura no conteúdo de AVC devem ser um múltiplo de 4.
-* Serviços de mídia do Azure v3, todas as taxas de bits de codifica são em bits por segundo. Isso é diferente das predefinições com nossas APIs v2, que usado quilobits por segundo, como a unidade. Por exemplo, se a taxa de bits na versão 2 foi especificada como 128 (quilobits/segundo), na v3 ele deve ser definido como 128000 (bits/segundo).
+* Todos os valores para altura e largura no conteúdo AVC devem ser um múltiplo de 4.
+* No Azure Media Services v3, todas as bitrates de codificação estão em bits por segundo. Isto é diferente das predefinições com nossas APIs v2, que usavam kilobits/segundo como a unidade. Por exemplo, se a taxa de bits em v2 foi especificada como 128 (kilobits/segundo), em v3 seria definida como 128000 (bits/segundo).
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md). <br/>Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
+[Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
+
+Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services.
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
-## <a name="define-a-custom-preset"></a>Definir uma predefinição personalizada
+## <a name="define-a-custom-preset"></a>Defina uma predefinição personalizada
 
-O exemplo a seguir define o corpo da solicitação de uma nova transformação. Definimos um conjunto de saídas que queremos ser gerado quando essa transformação é usada. 
+O exemplo a seguir define o corpo de solicitação de uma nova Transformação. Definimos um conjunto de saídas que queremos gerar quando este Transform for usado.
 
-Neste exemplo, vamos adicionar uma camada de AacAudio para a codificação de áudio e duas camadas do H264Video para a codificação de vídeo. Nas camadas de vídeo, vamos atribuir rótulos para que eles podem ser usados nos nomes de arquivo de saída. Em seguida, queremos que a saída para incluir também as miniaturas. No exemplo a seguir, podemos especificar imagens no formato PNG, gerados em 50% da resolução de vídeo de entrada e em três carimbos de hora - {25%, 50%, 75} do comprimento do vídeo de entrada. Por fim, podemos especificar o formato para os arquivos de saída - um para vídeo + áudio e outro para as miniaturas. Como temos vários H264Layers, precisamos usar macros que geram nomes exclusivos por camada. Podemos pode usar um `{Label}` ou `{Bitrate}` macro, o exemplo mostra o antigo.
+Neste exemplo, adicionamos primeiro uma camada AacAudio para a codificação de áudio e duas camadas H264Video para a codificação de vídeo. Nas camadas de vídeo, atribuímos rótulos para que possam ser usados nos nomes dos arquivos de saída. Em seguida, queremos que a saída também inclua miniaturas. No exemplo abaixo especificamos imagens em formato PNG, geradas em 50% da resolução do vídeo de entrada, e em três carimbos de tempo - {25%, 50%, 75} do comprimento do vídeo de entrada. Por fim, especificamos o formato para os arquivos de saída - um para vídeo + áudio e outro para as miniaturas. Como temos várias Camadas H264, temos que usar macros que produzem nomes únicos por camada. Podemos usar um `{Label}` `{Bitrate}` ou macro, o exemplo mostra o primeiro.
 
-Vamos salvar essa transformação em um arquivo. Neste exemplo, podemos nomear o arquivo `customPreset.json`. 
+Vamos salvar essa transformação em um arquivo. Neste exemplo, nomeamos `customPreset.json`o arquivo .
 
 ```json
 {
@@ -120,25 +122,24 @@ Vamos salvar essa transformação em um arquivo. Neste exemplo, podemos nomear o
         }
     ]
 }
-
 ```
 
 ## <a name="create-a-new-transform"></a>Criar uma nova transformação  
 
-Neste exemplo, podemos criar uma **transformar** que se baseia a predefinição personalizada que definimos anteriormente. Ao criar uma transformação, você deve primeiro verificar se ela ainda existir. Se existir a transformação, reutilizá-lo. O seguinte `show` comando retorna o `customTransformName` transformar se ela existir:
+Neste exemplo, criamos uma **Transformação** baseada na predefinição personalizada que definimos anteriormente. Ao criar uma Transformação, você deve primeiro verificar se uma já existe. Se a Transformação existe, reutilize-a. O `show` comando a `customTransformName` seguir retorna a transformação se existir:
 
-```cli
+```azurecli-interactive
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-O seguinte comando da CLI cria a transformação com base na predefinição personalizada (definida anteriormente). 
+O comando Azure CLI a seguir cria o Transform com base na predefinição personalizada (definida anteriormente).
 
-```cli
+```azurecli-interactive
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-Serviços de mídia aplicar a transformação para o áudio ou vídeo especificado, você precisa enviar um trabalho sob essa transformação. Para obter um exemplo completo que mostra como enviar um trabalho em uma transformação, consulte [guia de início rápido: Stream de arquivos de vídeo - CLI](stream-files-cli-quickstart.md).
+Para que os Serviços de Mídia apliquem o Transform ao vídeo ou áudio especificado, você precisa enviar um Trabalho essa Transformação. Para um exemplo completo que mostra como enviar um trabalho sob uma transformação, consulte [Quickstart: Stream arquivos de vídeo - Azure CLI](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-[CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams)

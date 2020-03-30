@@ -1,6 +1,6 @@
 ---
-title: Desenvolver um aplicativo Web seguro | Microsoft Docs
-description: Este aplicativo de exemplo simples implementa práticas recomendadas de segurança que melhoram seu aplicativo e a postura de segurança de sua organização quando você desenvolve no Azure.
+title: Desenvolva um aplicativo web seguro | Microsoft Docs
+description: Este simples aplicativo de exemplo implementa práticas recomendadas de segurança que melhoram sua aplicação e a postura de segurança da sua organização quando você se desenvolve no Azure.
 keywords: na
 services: security
 documentationcenter: na
@@ -16,78 +16,81 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 640900458eccc36afe58cb148ffd7b94b43be879
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934912"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385207"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver um aplicativo Web seguro
 
-Este exemplo é um aplicativo Python simples que exibe uma página da Web que contém links para recursos de segurança para o desenvolvimento de aplicativos no Azure. O aplicativo implementa práticas recomendadas de segurança que podem ajudar a melhorar seu aplicativo e a postura de segurança da sua organização ao desenvolver aplicativos no Azure.
+Esta amostra é um aplicativo Python simples que exibe uma página da Web contendo links para recursos de segurança para o desenvolvimento de aplicativos no Azure. O aplicativo implementa práticas recomendadas de segurança que podem ajudar a melhorar seu aplicativo e a postura de segurança da sua organização quando você desenvolve aplicativos no Azure.
 
-Você deve seguir as etapas descritas neste artigo sequencialmente para garantir que os componentes do aplicativo estejam configurados corretamente. O banco de dados, Azure App serviço, Azure Key Vault instância e Aplicativo Azure instância de gateway dependem uns dos outros.
+Você deve seguir as etapas descritas neste artigo sequencialmente para garantir que os componentes do aplicativo estejam configurados corretamente. O banco de dados, o Azure App Service, a instância do Azure Key Vault e a ocorrência do Azure Application Gateway dependem um do outro.
 
-Os scripts de implantação configuram a infraestrutura. Depois de executar os scripts de implantação, você precisará fazer alguma configuração manual no portal do Azure para vincular os componentes e serviços juntos.
+Os scripts de implantação configuram a infra-estrutura. Depois de executar os scripts de implantação, você precisará fazer alguma configuração manual no portal Azure para vincular os componentes e serviços juntos.
 
 O aplicativo de exemplo é direcionado para iniciantes que desenvolvem aplicativos no Azure que desejam implementar medidas de segurança em seus aplicativos.
 
-Ao desenvolver e implantar este aplicativo, você aprenderá a:
+Ao desenvolver e implantar este aplicativo, você aprenderá como:
 
-- Crie uma instância de Azure Key Vault, armazene e recupere segredos dela.
-- Implantar o banco de dados do Azure para PostgreSQL, configurar senhas seguras e autorizar o acesso a ela.
-- Execute um contêiner do Alpine Linux em aplicativos Web do Azure para Linux e habilite identidades gerenciadas para recursos do Azure.
-- Crie e configure uma instância de gateway Aplicativo Azure com um firewall que usa o [OWASP 10 principais RuleSet](https://coreruleset.org/).
+- Crie uma instância do Azure Key Vault, armazene e recupere segredos dele.
+- Implantar o Banco de Dados Azure para PostgreSQL, configurar senhas seguras e autorizar o acesso a ele.
+- Execute um contêiner Alpine Linux no Azure Web Apps para Linux e habilite identidades gerenciadas para recursos do Azure.
+- Crie e configure uma instância do Gateway do aplicativo Azure com um firewall que usa [o OWASP Top 10 Ruleset](https://coreruleset.org/).
 - Habilite a criptografia de dados em trânsito e em repouso usando os serviços do Azure.
 
-Depois de desenvolver e implantar esse aplicativo, você terá configurado o exemplo de aplicativo Web a seguir junto com as medidas de configuração e segurança descritas.
+Depois de desenvolver e implantar este aplicativo, você terá configurado o seguinte aplicativo web de amostra, juntamente com as medidas de configuração e segurança descritas.
 
-![Aplicativo Web de exemplo](./media/secure-web-app/demo-app.png)
+![Exemplo de aplicativo web](./media/secure-web-app/demo-app.png)
 
 ## <a name="architecture"></a>Arquitetura
-O aplicativo é um aplicativo típico de n camadas com três camadas. O front-end, back-end e a camada de banco de dados com componentes de monitoramento e gerenciamento de segredo integrados são mostrados aqui:
+
+O aplicativo é um aplicativo n-tier típico com três níveis. A camada front-end, back-end e banco de dados com componentes de monitoramento e gerenciamento secreto integrados são mostrados aqui:
 
 ![Arquitetura do aplicativo](./media/secure-web-app/architecture.png)
 
 A arquitetura consiste nesses componentes:
 
-- [Gateway de Aplicativo do Azure](../../application-gateway/index.yml). Fornece o gateway e o firewall para nossa arquitetura de aplicativo.
-- [Aplicativos Web do Azure no Linux](../../app-service/containers/app-service-linux-intro.md). Fornece o tempo de execução do contêiner para executar o aplicativo Python em um ambiente Linux.
-- [Azure Key Vault](../../key-vault/index.yml). Armazena e criptografa os segredos de nosso aplicativo e gerencia a criação de políticas de acesso em relação a eles.
-- [Banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql/). Armazena com segurança os dados do aplicativo.
-- [Central de segurança do Azure](../../security-center/index.yml) e [informações de aplicativo Azure](../../azure-monitor/app/app-insights-overview.md). Fornece monitoramento e alertas na operação do nosso aplicativo.
+- [Gateway de Aplicativo do Azure](../../application-gateway/index.yml). Fornece o gateway e o firewall para nossa arquitetura de aplicativos.
+- [Azure Web Apps no Linux](../../app-service/containers/app-service-linux-intro.md). Fornece tempo de execução do contêiner para executar o aplicativo Python em um ambiente Linux.
+- [Azure Key Vault](../../key-vault/index.yml). Armazena e criptografa os segredos do nosso aplicativo e gerencia a criação de políticas de acesso ao seu redor.
+- [Banco de dados Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql/). Armazena com segurança os dados do nosso aplicativo.
+- [Azure Security Center](../../security-center/index.yml) e [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Fornece monitoramento e alertas sobre o funcionamento do nosso aplicativo.
 
 ## <a name="threat-model"></a>Modelo de ameaça
-A modelagem de ameaças é o processo de identificar possíveis ameaças à segurança para seus negócios e aplicativos e, em seguida, garantir que um plano de mitigação adequado esteja em vigor.
 
-Este exemplo usou o [Microsoft Threat Modeling Tool](threat-modeling-tool.md) para implementar a modelagem de ameaças para o aplicativo de exemplo seguro. Ao diagramar os componentes e os fluxos de dados, você pode identificar problemas e ameaças no início do processo de desenvolvimento. Isso poupa tempo e dinheiro mais tarde.
+Modelagem de ameaças é o processo de identificar potenciais ameaças à segurança de sua empresa e aplicativo e, em seguida, garantir que um plano de mitigação adequado esteja em vigor.
 
-Este é o modelo de ameaça para o aplicativo de exemplo:
+Esta amostra usou a [Ferramenta de Modelagem de Ameaças](threat-modeling-tool.md) da Microsoft para implementar a modelagem de ameaças para o aplicativo de amostra segura. Ao diagramar os componentes e os fluxos de dados, você pode identificar problemas e ameaças no início do processo de desenvolvimento. Isso economiza tempo e dinheiro depois.
+
+Este é o modelo de ameaça para o aplicativo de amostra:
 
 ![Modelo de ameaça](./media/secure-web-app/threat-model.png)
 
-Algumas ameaças de exemplo e possíveis vulnerabilidades que a ferramenta de modelagem de ameaças gera são mostradas na captura de tela a seguir. O modelo de ameaça fornece uma visão geral da superfície de ataque exposta e solicita que os desenvolvedores pensem sobre como mitigar os problemas.
+Algumas ameaças de exemplo e potenciais vulnerabilidades que a ferramenta de modelagem de ameaças gera são mostradas na captura de tela a seguir. O modelo de ameaça dá uma visão geral da superfície de ataque exposta e leva os desenvolvedores a pensar em como mitigar os problemas.
 
 ![Saída do modelo de ameaça](./media/secure-web-app/threat-model-output.png)
 
-Por exemplo, a injeção de SQL na saída do modelo de ameaça anterior é atenuada com a limpeza de entradas do usuário e o uso de funções armazenadas no banco de dados do Azure para PostgreSQL. Essa mitigação impede a execução arbitrária de consultas durante leituras e gravações de dados.
+Por exemplo, a injeção de SQL na saída do modelo de ameaça anterior é atenuada pela higienização das entradas do usuário e pelo uso de funções armazenadas no Banco de Dados Azure para PostgreSQL. Essa mitigação impede a execução arbitrária de consultas durante a leitura e a gravação de dados.
 
-Os desenvolvedores melhoram a segurança geral do sistema, reduzindo cada uma das ameaças na saída do modelo de ameaça.
+Os desenvolvedores melhoram a segurança geral do sistema, mitigando cada uma das ameaças na saída do modelo de ameaças.
 
 ## <a name="deployment"></a>Implantação
-As opções a seguir permitem executar o Linux no serviço Azure App:
 
-- Escolha um contêiner na lista de contêineres da Microsoft pré-criados no Azure que foram criados com tecnologias de suporte (Python, Ruby, PHP, Java, Node. js, .NET Core).
-- Use um contêiner personalizado. Selecione seus próprios registros de contêiner como a origem da imagem e crie com base nas muitas tecnologias disponíveis que dão suporte a HTTP.
+As seguintes opções permitem que você execute o Linux no Azure App Service:
 
-Neste exemplo, você executará o script de implantação que implantará o webapp no serviço de aplicativo e criará os recursos.
+- Escolha um contêiner na lista de contêineres Microsoft pré-construídos no Azure que foram criados com tecnologias de suporte (Python, Ruby, PHP, Java, Node.js, .NET Core).
+- Use um recipiente personalizado. Selecione seus próprios registros de contêineres como a fonte da imagem e baseie-se nas muitas tecnologias disponíveis que suportam HTTP.
+
+Neste exemplo, você executará o script de implantação que implantará o webapp no App Service e criará os recursos.
 
 O aplicativo pode usar os diferentes modelos de implantação mostrados abaixo:
 
 ![Diagrama de fluxo de dados de implantação](./media/secure-web-app/deployment.png)
 
-Há várias maneiras de implantar aplicativos no Azure, incluindo:
+Existem muitas maneiras de implantar aplicativos no Azure, incluindo:
 
 - Modelos do Azure Resource Manager
 - PowerShell
@@ -95,110 +98,121 @@ Há várias maneiras de implantar aplicativos no Azure, incluindo:
 - Portal do Azure
 - Azure DevOps
 
-Este aplicativo usado:
+Este aplicativo utilizado:
 
-- [Docker](https://docs.docker.com/) para criar e criar as imagens de contêiner.
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para implantação.
-- [Hub](https://hub.docker.com/) do Docker como o registro de contêiner.
+- [Docker](https://docs.docker.com/) para criar e construir as imagens do contêiner.
+- [Cli Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para implantação.
+- [Docker Hub](https://hub.docker.com/) como registro de contêineres.
 
 ## <a name="security-considerations"></a>Considerações sobre segurança
 
 ### <a name="network"></a>Rede
-O aplicativo de exemplo usa a criptografia SSL de ponta a ponta para dados em trânsito que fluem para dentro e para fora da rede. O gateway é configurado com um certificado autoassinado.
-> [!IMPORTANT]
-> Um certificado autoassinado é usado nesta demonstração. Em um ambiente de produção, você deve obter certificados de uma AC (autoridade de certificação) verificada.
 
-O Firewall do aplicativo também inspeciona o tráfego de entrada e alerta os administradores quando o tráfego mal-intencionado é detectado no tráfego de rede.
-O gateway de aplicativo atenua a possibilidade de ameaças de DDoS e de injeção de SQL descobertas no modelo de ameaça.
+O aplicativo de exemplo usa criptografia SSL de ponta a ponta para dados em trânsito que entram e saem da rede. O gateway é configurado com um certificado auto-assinado.
+> [!IMPORTANT]
+> Um certificado auto-assinado é usado nesta demonstração. Em um ambiente de produção, você deve obter certificados de uma Autoridade de Certificado (CA) verificada.
+
+O firewall do aplicativo também inspeciona o tráfego de entrada e alerta os admins quando o tráfego malicioso é detectado no tráfego da rede.
+O Application Gateway mitiga a possibilidade de ameaças de injeção DDoS e SQL descobertas no modelo de ameaça.
 
 ### <a name="identity"></a>Identidade
-Para entrar no portal, o aplicativo de exemplo usa a autenticação multifator para administradores do Azure Active Directory (Azure AD) que recebem acesso aos recursos.
-O aplicativo de exemplo usa identidades gerenciadas para obter permissões para ler e recuperar segredos de Azure Key Vault, garantindo que o aplicativo não precise codificar credenciais e tokens para ler os segredos. O Azure AD cria automaticamente as entidades de serviço que o aplicativo precisa para ler e modifica os segredos quando identidades gerenciadas são usadas.
 
-Identidades gerenciadas para recursos do Azure e MFA tornam mais difícil para os adversários obter privilégios e escalonar seus privilégios no sistema. Essa ameaça foi apontada no modelo de ameaça.
-O aplicativo usa o OAuth, que permite que os usuários registrados no aplicativo OAuth entrem no aplicativo.
+Para entrar no portal, o aplicativo de exemplo usa administradores do Azure Active Directory (Azure AD) que têm acesso aos recursos.
+O aplicativo de exemplo usa identidades gerenciadas para obter permissões para ler e recuperar segredos do Azure Key Vault, garantindo que o aplicativo não precise de credenciais de código rígido e tokens para ler os segredos. O Azure AD cria automaticamente os princípios de serviço que o aplicativo precisa ler e modifica os segredos quando as identidades gerenciadas são usadas.
+
+As identidades gerenciadas para os recursos do Azure e do MFA tornam mais difícil para os adversários obter privilégios e aumentar seus privilégios no sistema. Essa ameaça foi apontada no modelo de ameaça.
+O aplicativo usa o OAuth, que permite que os usuários cadastrados no aplicativo OAuth entrem no aplicativo.
 
 ### <a name="storage"></a>Armazenamento
-O banco de dados PostgreSQL é criptografado em repouso automaticamente pelo Azure Database para PostgreSQL. O banco de dados autoriza os endereços IP do serviço de aplicativo para que somente o aplicativo Web do serviço de aplicativo implantado possa acessar os recursos do banco de dados com as credenciais de autenticação corretas.
+
+Os dados no banco de dados PostgreSQL são criptografados automaticamente pelo Banco de Dados Azure para PostgreSQL. O banco de dados autoriza os endereços IP do App Service para que apenas o aplicativo web do App Service implantado possa acessar os recursos do banco de dados com as credenciais de autenticação certas.
 
 ### <a name="logging-and-auditing"></a>Registro em log e auditoria
-O aplicativo implementa o registro em log usando Application Insights para rastrear métricas, logs e exceções que ocorrem. Esse registro em log fornece metadados de aplicativo suficientes para informar os desenvolvedores e os membros da equipe de operações sobre o status do aplicativo. Ele também fornece dados suficientes para refazer o recapitular em caso de incidentes de segurança.
+
+O aplicativo implementa o registro usando o Application Insights para rastrear métricas, logs e exceções que ocorrem. Esse registro fornece metadados suficientes do aplicativo para informar os desenvolvedores e membros da equipe de operações sobre o status do aplicativo. Ele também fornece dados suficientes para retroceder em caso de incidentes de segurança.
 
 ## <a name="cost-considerations"></a>Considerações de custo
-Se você ainda não tiver uma conta do Azure, poderá criar uma gratuita. Acesse a [página conta gratuita](https://azure.microsoft.com/free/) para começar, veja o que você pode fazer com uma conta gratuita do Azure e saiba quais produtos são gratuitos por 12 meses.
 
-Para implantar os recursos no aplicativo de exemplo com os recursos de segurança, você precisa pagar por alguns recursos premium. Conforme o aplicativo é dimensionado e as camadas e avaliações gratuitas oferecidas pelo Azure precisam ser atualizadas para atender aos requisitos do aplicativo, seus custos podem aumentar. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) do Azure para estimar seus custos.
+Se você ainda não tem uma conta no Azure, você pode criar uma gratuita. Vá para a [página de conta gratuita](https://azure.microsoft.com/free/) para começar, veja o que você pode fazer com uma conta gratuita do Azure e saiba quais produtos são gratuitos por 12 meses.
+
+Para implantar os recursos no aplicativo de exemplo com os recursos de segurança, você precisa pagar por alguns recursos premium. À medida que o aplicativo escala e os níveis e testes gratuitos oferecidos pelo Azure precisam ser atualizados para atender aos requisitos do aplicativo, seus custos podem aumentar. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) do Azure para estimar seus custos.
 
 ## <a name="deploy-the-solution"></a>Implantar a solução
-### <a name="prerequisites"></a>Prerequisites
+
+### <a name="prerequisites"></a>Pré-requisitos
+
 Para colocar o aplicativo em funcionamento, você precisa instalar essas ferramentas:
 
-- Um editor de código para modificar e exibir o código do aplicativo. [Visual Studio Code](https://code.visualstudio.com/) é uma opção de código-fonte aberto.
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest,) em seu computador de desenvolvimento.
-- [Git](https://git-scm.com/) em seu sistema. O Git é usado para clonar o código-fonte localmente.
-- [JQ](https://stedolan.github.io/jq/), uma ferramenta UNIX para consultar o JSON de maneira amigável.
+- Um editor de código para modificar e visualizar o código do aplicativo. [Visual Studio Code](https://code.visualstudio.com/) é uma opção de código aberto.
+- [Azure CLI](/cli/azure/install-azure-cli) em seu computador de desenvolvimento.
+- [Git](https://git-scm.com/) em seu sistema. O Git é usado para clonar o código fonte localmente.
+- [jq](https://stedolan.github.io/jq/), uma ferramenta UNIX para consultar JSON de forma fácil de usar.
 
-Você precisa de uma assinatura do Azure para implantar os recursos do aplicativo de exemplo. Se você não tiver uma assinatura do Azure, poderá [criar uma conta gratuita](https://azure.microsoft.com/free/) para testar o aplicativo de exemplo.
+Você precisa de uma assinatura do Azure para implantar os recursos do aplicativo de exemplo. Se você não tiver uma assinatura do Azure, você pode [criar uma conta gratuita](https://azure.microsoft.com/free/) para testar o aplicativo de exemplo.
 
-Depois de instalar essas ferramentas, você estará pronto para implantar o aplicativo no Azure.
+Depois de instalar essas ferramentas, você está pronto para implantar o aplicativo no Azure.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
+
 Execute os scripts de implantação para configurar o ambiente e a assinatura:
 
-1. Para clonar o repositório de código-fonte, use este comando git:
+1. Para clonar o repositório de código-fonte, use este comando Git:
 
-   ``` git
+   ```shell
    git clone https://github.com/Azure-Samples/sample-linux-python-app tutorial-project
    ```
-2. Para ir para o diretório, use este comando:
 
-   ```
+2. Para passar para o diretório, use este comando:
+
+   ```shell
    cd tutorial-project/scripts
    ```
 
-3. Há arquivos na pasta scripts que são específicos para a plataforma que você está usando (Windows ou Linux). Como o CLI do Azure já foi instalado, entre na conta do Azure no prompt de comando executando este comando da CLI:
+3. Existem arquivos na pasta de scripts que são específicos da plataforma que você está usando (Windows ou Linux). Como o Azure CLI já foi instalado, faça login na conta do Azure no prompt de comando executando este comando Azure CLI:
 
-   ``` azurecli
+   ```azurecli-interactive
    az login
    ```
 
-O navegador será aberto, entre com suas credenciais. Depois de entrar, você pode começar a implantar os recursos do prompt de comando.
+O navegador abrirá, faça login com suas credenciais. Depois de fazer login, você pode começar a implantar os recursos a partir do prompt de comando.
 
-Os scripts `deploy-powershell.ps1` de implantação `deploy-bash.sh` e contêm código que implanta todo o aplicativo.
+Os scripts `deploy-powershell.ps1` `deploy-bash.sh` de implantação e o código de contenção que implantam todo o aplicativo.
 Para implantar a solução:
 
-1. Se você estiver no PowerShell, execute `deploy-powershell.ps1` o arquivo digitando `./deploy-powershell.ps1 REGION RESOURCE_GROUP_NAME` substituindo a região e o nome do grupo de recursos por regiões do Azure adequadas e um nome para o grupo de recursos
-2. Se você estiver no Linux, execute `deploy-bash.sh` o arquivo digitando `/deploy-bash.sh REGION RESOURCE_GROUP_NAME`, pode ser necessário tornar o arquivo executável digitando`chmod +x deploy-bash.sh`
+1. Se você estiver no `deploy-powershell.ps1` PowerShell `./deploy-powershell.ps1 REGION RESOURCE_GROUP_NAME` execute o arquivo digitando a substituição do nome da região e do grupo de recursos por regiões Azure adequadas e um nome para o grupo de recursos
+2. Se você estiver no `deploy-bash.sh` Linux `/deploy-bash.sh REGION RESOURCE_GROUP_NAME`executar o arquivo digitando, você pode ter que tornar o arquivo executável digitando`chmod +x deploy-bash.sh`
 
-Os exemplos a seguir mostram trechos de código dos componentes principais. Você pode implantar os exemplos individualmente ou com o restante dos componentes executando os arquivos de implantação.
+Os exemplos a seguir mostram trechos dos componentes-chave. Você pode implantar os exemplos individualmente ou com o resto dos componentes executando os arquivos de implantação.
 
 ### <a name="implementation-guidance"></a>Diretrizes de implementação
-O script de implantação é um script que pode ser dividido em quatro fases. Cada fase implanta e configura um recurso do Azure que está no [diagrama da arquitetura](#architecture).
+
+O script de implantação é um script que pode ser dividido em quatro fases. Cada fase implanta e configura um recurso Azure que está no [diagrama](#architecture)de arquitetura .
 
 As quatro fases são:
 
-- Implantar Azure Key Vault.
-- Implante o banco de dados do Azure para PostgreSQL.
+- Implantar o Cofre de Chaves Azure.
+- Implantar banco de dados Azure para PostgreSQL.
 - Implantar aplicativos Web do Azure no Linux.
-- Implante o gateway de aplicativo com o Firewall do aplicativo Web.
+- Implantar o Gateway de aplicativos com firewall de aplicativos web.
 
-Cada fase se baseia na anterior, usando a configuração dos recursos implantados anteriormente.
+Cada fase se baseia na anterior usando a configuração dos recursos anteriormente implantados.
 
-Para concluir as etapas de implementação, verifique se você instalou as ferramentas listadas em [pré-requisitos](#prerequisites).
+Para concluir as etapas de implementação, certifique-se de que você instalou as ferramentas listadas em [Pré-requisitos](#prerequisites).
 
-#### <a name="deploy-azure-key-vault"></a>Implantar Azure Key Vault
-Nesta seção, você cria e implanta uma instância de Azure Key Vault que é usada para armazenar segredos e certificados.
+#### <a name="deploy-azure-key-vault"></a>Implantar o cofre de chaves do Azure
 
-Depois de concluir a implantação, você terá uma instância Azure Key Vault implantada no Azure.
+Nesta seção, você cria e implanta uma instância do Azure Key Vault que é usada para armazenar segredos e certificados.
 
-Para implantar Azure Key Vault usando CLI do Azure:
+Depois de concluir a implantação, você tem uma ocorrência do Azure Key Vault implantada no Azure.
+
+Para implantar o Azure Key Vault usando o Azure CLI:
 
 1. Declare as variáveis para Azure Key Vault.
-2. Registre o provedor de Azure Key Vault.
-3. Crie o grupo de recursos para a instância.
-4. Crie a instância de Azure Key Vault no grupo de recursos criado na etapa 3.
+2. Registre o provedor do Azure Key Vault.
+3. Crie o grupo de recursos para a ocorrência.
+4. Crie a instância do Azure Key Vault no grupo de recursos criado na etapa 3.
 
-   ``` azurecli
+   ```powershell-interactive
 
     function Get-Hash() {
         return (New-Guid).Guid.Split('-')[4]
@@ -233,24 +247,26 @@ Para implantar Azure Key Vault usando CLI do Azure:
        --verbose
 
    ```
-É uma prática recomendada usar identidades gerenciadas para recursos do Azure em aplicativos que usam Key Vault para acessar recursos. Sua postura de segurança aumenta quando as chaves de acesso para Key Vault não são armazenadas no código ou na configuração.
 
-#### <a name="deploy-azure-database-for-postgresql"></a>Implantar o banco de dados do Azure para PostgreSQL
-O banco de dados do Azure para PostgreSQL funciona da seguinte maneira, primeiro crie o servidor de banco de dados e, em seguida, crie o banco de dados no qual armazenar o esquema e o dado.
+É uma prática recomendada usar identidades gerenciadas para recursos do Azure em aplicativos que usam o Key Vault para acessar recursos. Sua postura de segurança aumenta quando as chaves de acesso ao Key Vault não são armazenadas em código ou configuração.
 
-Depois de concluir a implantação, você tem um servidor e banco de dados PostgreSQL em execução no Azure.
+#### <a name="deploy-azure-database-for-postgresql"></a>Implantar banco de dados Azure para PostgreSQL
 
-Para implantar o banco de dados do Azure para PostgreSQL usando CLI do Azure:
+O Banco de Dados Do Azure para PostgreSQL funciona da seguinte forma, primeiro crie o servidor de banco de dados e crie o banco de dados no qual armazenar o esquema e os dados.
 
-1. Abra um terminal com CLI do Azure e sua configuração de assinatura do Azure.
-2. Gere uma combinação segura de nome de usuário e senha usada para acessar o banco de dados. (Eles devem ser armazenados em Azure Key Vault para aplicativos que os usam.)
+Depois de concluir a implantação, você tem um servidor PostgreSQL e um banco de dados em execução no Azure.
+
+Para implantar o Banco de Dados Azure para PostgreSQL usando o Azure CLI:
+
+1. Abra um terminal com o Azure CLI e sua configuração de assinatura do Azure.
+2. Gerar uma combinação segura de nome de usuário e senha que é usada para acessar o banco de dados. (Estes devem ser armazenados no Azure Key Vault para aplicativos que os usam.)
 3. Crie a instância do servidor PostgreSQL.
-4. Crie um banco de dados na instância de servidor que você criou na etapa 3.
-5. Execute scripts PostgreSQL na instância do PostgreSQL.
+4. Crie um banco de dados na instância do servidor que você criou na etapa 3.
+5. Execute scripts PostgreSQL na instância PostgreSQL.
 
-O código a seguir se baseia nos segredos PGUSERNAME e PGPASSWORD armazenados no Azure keyvault da etapa implantando keyvault acima.
+O código abaixo se baseia nos segredos PGUSERNAME e PGPASSWORD armazenados no Azure KeyVault a partir do passo de implantação do KeyVault acima.
 
-   ``` azurecli
+   ```powershell-interactive
    $pgUsername = $(az keyvault secret show --name PGUSERNAME --vault-name $kvName --query value) -replace '"',''
    $pgPassword = $(az keyvault secret show --name PGPASSWORD --vault-name $kvName --query value) -replace '"',''
 
@@ -291,31 +307,31 @@ O código a seguir se baseia nos segredos PGUSERNAME e PGPASSWORD armazenados no
        --verbose
    ```
 
-Depois de implantar o banco de dados, você precisa armazenar suas credenciais e a cadeia de conexão no Azure Key Vault.
-Na pasta scripts, há um `functions.sql` arquivo que contém o código pl/pgsql que cria funções armazenadas quando você a executa. A execução desse arquivo parametriza as entradas para limitar a injeção de SQL.
+Depois de implantar o banco de dados, você precisa armazenar suas credenciais e seqüência de conexão no Azure Key Vault.
+Na pasta scripts, há `functions.sql` um arquivo que contém o código PL/pgSQL que cria funções armazenadas quando você executá-lo. A execução deste arquivo parametriza as entradas para limitar a injeção SQL.
 
-O PostgreSQL é fornecido com uma ferramenta chamada `psql` que é usada para se conectar ao banco de dados. Para executar `functions.sql`o, você precisa se conectar à instância do banco de dados do Azure para PostgreSQL do computador local e executá-la a partir daí. A instalação da ferramenta psql está incluída na instalação padrão do PostgreSQL em cada sistema operacional.
+PostgreSQL é empacotado `psql` com uma ferramenta chamada que é usada para se conectar ao banco de dados. Para `functions.sql`ser executado, você precisa se conectar ao banco de dados Do Zure para a instância PostgreSQL da sua máquina local e executá-lo a partir daí. A instalação da ferramenta psql está incluída na instalação padrão para PostgreSQL em cada sistema operacional.
 Para obter mais informações, consulte a [documentação do psql](https://www.postgresql.org/docs/9.3/app-psql.html).
 
-Azure cloud Shell também inclui a `psql` ferramenta. Você pode usar Cloud Shell diretamente da portal do Azure selecionando o ícone de Cloud Shell.
+O Azure Cloud Shell `psql` também inclui a ferramenta. Você pode usar o Cloud Shell diretamente do portal Azure selecionando o Ícone cloud shell.
 
-Para habilitar o acesso remoto à instância do PostgreSQL, você precisa autorizar o endereço IP no PostgreSQL.
-Você habilita esse acesso acessando a guia **segurança da conexão** , selecionando **Adicionar IP do cliente**e salvando as novas configurações.
+Para habilitar o acesso remoto à instância PostgreSQL, você precisa autorizar o endereço IP no PostgreSQL.
+Você habilita esse acesso indo para a guia **de segurança Conexão,** selecionando **Adicionar IP do cliente**e salvando as novas configurações.
 
-![Autorizar IP do cliente](./media/secure-web-app/add-client-ip-postgres.png)
+![Autorizar ip do cliente](./media/secure-web-app/add-client-ip-postgres.png)
 
-Se você estiver usando Cloud Shell em vez da ferramenta psql local, selecione **permitir acesso aos serviços do Azure** e altere seu valor para **ativado** para permitir o acesso de Cloud Shell.
+Se você estiver usando o Cloud Shell em vez da ferramenta psql local, selecione **Permitir acesso aos serviços do Azure** e alterar seu valor para **ON** para permitir o acesso ao Cloud Shell.
 
-Em seguida, conecte-se à instância executando o comando psql abaixo com parâmetros de cadeia de conexão da guia cadeias de **conexão** da instância PostgreSQL no portal do Azure.
-Substitua as chaves vazias por parâmetros da folha cadeia de conexão do banco de dados e a senha pela senha de Azure Key Vault.
+Em seguida, conecte-se à instância executando o comando psql abaixo com parâmetros de seqüência de conexão da guia **Conexão strings** da instância PostgreSQL no portal Azure.
+Substitua as chaves vazias por parâmetros da lâmina de conexão string do banco de dados e da senha com a senha do Azure Key Vault.
 
-```sql
+```shell
 psql "host={} port=5432 dbname=hellodb user={} password=PGPASSWORD sslmode=require"
 ```
 
-Execute o seguinte script PL/pgSQL depois de se certificar de que você está conectado ao banco de dados. O script cria as funções armazenadas usadas para inserir dados no banco de dado.
+Execute o seguinte script PL/pgSQL depois de ter certeza de que está conectado ao banco de dados. O script cria as funções armazenadas usadas para inserir dados no banco de dados.
 
-```sql
+```shell
 CREATE OR REPLACE FUNCTION insert_visitor(country VARCHAR(40), browser VARCHAR(40), operating_system VARCHAR(40)) RETURNS void AS $$
 BEGIN
     INSERT INTO visitor(
@@ -332,7 +348,6 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
-
 CREATE OR REPLACE FUNCTION insert_azure_document(title VARCHAR(40), url VARCHAR(100), category VARCHAR(40)) RETURNS void AS $$
 BEGIN
     INSERT INTO azure_document(
@@ -348,29 +363,29 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
+Para obter mais informações sobre como configurar a verificação de SSL e Certificate Authority (CA) para PostgreSQL, consulte [Configurar a conectividade SSL no Banco de Dados Azure para PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
-Para obter mais informações sobre como configurar SSL e verificação de AC (autoridade de certificação) para PostgreSQL, consulte [Configurar a conectividade SSL no banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
+Um certificado raiz está incluído no recipiente. As medidas tomadas para obter o certificado são:
 
-Um certificado raiz está incluído no contêiner. As etapas usadas para obter o certificado são:
+1. Baixe o arquivo de certificado da Autoridade de [Certificado](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
+2. [Baixe e instale o OpenSSL em sua máquina](/azure/postgresql/concepts-ssl-connection-security).
+3. Decodfique seu arquivo de certificado:
 
-1. Baixe o arquivo de certificado da [autoridade de certificação](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Baixe e instale o OpenSSL em seu computador](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
-3. Decodifique seu arquivo de certificado:
-
-   ```powershell
+   ```shell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Leia mais sobre como configurar a segurança SSL para PostgreSQL aqui [Configurar a segurança de conexão SSL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
+Leia mais sobre como configurar a segurança SSL para PostgreSQL aqui [Configure a segurança de conexão SSL](/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Implantar aplicativos Web do Azure no Linux
-Você pode facilmente criar serviços do Linux com base no serviço Azure App, pois o Azure fornece um conjunto de contêineres e imagens pré-criados para linguagens amplamente usadas, C#como Python, Ruby, e Java. O Azure também dá suporte a contêineres personalizados, que podem permitir que praticamente todas as linguagens de programação sejam executadas na plataforma de serviço de Azure App.
 
-O aplicativo que está sendo implantado é um aplicativo Python simples que é executado na distribuição de Ubuntu Linux mais recente. Ele se conecta às instâncias Azure Key Vault e PostgreSQL que foram criadas nas seções anteriores para o gerenciamento de credenciais e o armazenamento de dados, respectivamente.
+Você pode facilmente construir serviços Linux em cima do Azure App Service, pois o Azure fornece um conjunto de contêineres e imagens pré-construídos para linguagens amplamente usadas como Python, Ruby, C#e Java. O Azure também suporta contêineres personalizados, o que pode permitir que praticamente todas as linguagens de programação seja executada na plataforma Azure App Service.
 
-O seguinte arquivo do Docker é fornecido na pasta raiz do aplicativo:
+O aplicativo que está sendo implantado é um simples aplicativo Python que é executado na mais recente distribuição Linux do Ubuntu. Ele se conecta às instâncias Azure Key Vault e PostgreSQL que foram criadas nas seções anteriores para gerenciamento de credenciais e armazenamento de dados, respectivamente.
 
-``` docker
+O seguinte arquivo Docker é fornecido na pasta raiz do aplicativo:
+
+```dockerfile
 # Docker file for the basic web app
 # Using the latest Alpine Linux
 
@@ -421,17 +436,17 @@ USER appuser
 ENTRYPOINT ["/usr/local/bin/init.sh"]
 ```
 
-O Dockerfile acima é usado para criar o contêiner que está hospedado no registro de contêiner do Azure `mcr.microsoft.com/samples/basic-linux-app`em.
+O Arquivo Docker acima é usado para construir o contêiner hospedado `mcr.microsoft.com/samples/basic-linux-app`no Registro de Contêineres do Azure em .
 
 O código abaixo:
 
-1. Declara as variáveis e os nomes da instância do serviço de aplicativo.
-2. Cria o grupo de recursos para o plano do serviço de aplicativo.
-3. Provisiona uma instância de aplicativos Web do Azure em contêineres do Linux.
-4. Habilita o registro em log para o contêiner do aplicativo Web.
-5. Define algumas configurações de aplicativo nas configurações do aplicativo do contêiner.
+1. Declara as variáveis e nomes para a instância do Serviço de Aplicativo.
+2. Cria o grupo de recursos para o plano App Service.
+3. Provisionamento de uma instância de aplicativos Web do Azure na instância de contêineres Linux.
+4. Habilita o registro do contêiner do aplicativo web.
+5. Define algumas configurações de aplicativos nas configurações do aplicativo do contêiner.
 
-   ```
+   ```powershell-interactive
    Write-Host "Retrieving the Azure Key Vault URL"
    $kvURI = $(az keyvault show --name $kvName --query properties.vaultUri)
 
@@ -500,36 +515,36 @@ O código abaixo:
            --end-ip-address $outboundIps[$i] `
            --verbose
    }
-
    ```
 
-Esse script cria uma identidade atribuída para a instância do serviço de aplicativo que pode ser usada com o MSI para interagir com Azure Key Vault sem segredos de codificação rígida no código ou na configuração.
+Este script cria uma identidade atribuída para a instância do Serviço de Aplicativo que pode ser usada com o MSI para interagir com o Azure Key Vault sem segredos de codificação rígidos em código ou configuração.
 
-Vá para a instância de Azure Key Vault no portal para autorizar a identidade atribuída na guia política de acesso. Selecione **Adicionar nova política de acesso**. Em **selecionar entidade de segurança**, procure o nome do aplicativo que é semelhante ao nome da instância do serviço de aplicativo criada.
-Uma entidade de serviço anexada ao aplicativo deve estar visível. Selecione-a e salve a página política de acesso, conforme mostrado na captura de tela a seguir.
+Vá até a instância do Azure Key Vault no portal para autorizar a identidade atribuída na guia de diretiva de acesso. Selecione **Adicionar nova diretiva de acesso**. Em **Select principal,** procure o nome do aplicativo semelhante ao nome da instância do Serviço de Aplicativo criada.
+Um princípio de serviço anexado ao aplicativo deve ser visível. Selecione-o e salve a página de diretiva de acesso, conforme mostrado na captura de tela a seguir.
 
-Como o aplicativo precisa apenas recuperar as chaves, selecione a permissão **obter** nas opções de segredos, permitindo o acesso enquanto reduz os privilégios concedidos.
+Como o aplicativo só precisa recuperar chaves, selecione a permissão **Obter** nas opções de segredos, permitindo o acesso enquanto reduz os privilégios concedidos.
 
 ![Política de acesso ao Key Vault](./media/secure-web-app/kv-access-policy.png)
 
-*Criar uma política de acesso de Key Vault*
+*Crie uma política de acesso do Key Vault*
 
-Salve a política de acesso e salve a nova alteração na guia **políticas de acesso** para atualizar as políticas.
+Salve a diretiva de acesso e salve a nova alteração na guia **Políticas de acesso** para atualizar as políticas.
 
-#### <a name="deploy-application-gateway-with-web-application-firewall-enabled"></a>Implantar o gateway de aplicativo com o Firewall do aplicativo Web habilitado
-Em aplicativos Web, não é recomendável que você exponha serviços diretamente para o mundo exterior na Internet.
-O balanceamento de carga e as regras de firewall fornecem mais segurança e controle sobre o tráfego de entrada e o ajudam a gerenciá-lo.
+#### <a name="deploy-application-gateway-with-web-application-firewall-enabled"></a>Implantar o Application Gateway com firewall de aplicativos web ativado
 
-Para implantar uma instância do gateway de aplicativo:
+Em aplicativos web, não é recomendável que você exponha serviços diretamente para o mundo exterior na internet.
+As regras de balanceamento de carga e firewall fornecem mais segurança e controle sobre o tráfego de entrada e ajudam a gerenciá-lo.
 
-1. Crie o grupo de recursos para alojar o gateway de aplicativo.
-2. Provisione uma rede virtual para anexar ao gateway.
+Para implantar uma instância do Gateway de aplicativos:
+
+1. Crie o grupo de recursos para abrigar o gateway de aplicativo.
+2. Provisionar uma rede virtual para anexar ao gateway.
 3. Crie uma sub-rede para o gateway na rede virtual.
-4. Provisionar um endereço IP público.
-5. Provisione o gateway de aplicativo.
-6. Habilite o Firewall do aplicativo Web no gateway.
+4. Provisão um endereço IP público.
+5. Provisão o gateway de aplicação.
+6. Habilite o firewall do aplicativo web no gateway.
 
-   ``` azurecli
+   ```powershell-interactive
    az keyvault certificate create --vault-name $kvName `
        --name $certName `
        --policy `@policy.json `
@@ -556,15 +571,15 @@ Para implantar uma instância do gateway de aplicativo:
 
 O script anterior:
 
-1. Cria um novo certificado autoassinado no Azure.
-2. Baixa o certificado autoassinado como um arquivo codificado em base64.
-3. Gera uma senha para o certificado autoassinado.
+1. Cria um novo certificado auto-assinado no Azure.
+2. Baixa o certificado auto-assinado como um arquivo codificado pela base64.
+3. Gera uma senha para o certificado auto-assinado.
 4. Exporta o certificado como um arquivo PFX assinado com a senha.
 5. Armazena a senha do certificado no Azure Key Vault.
 
 Esta seção implanta o gateway de aplicativo:
 
-```powershell
+```powershell-interactive
 # Create a virtual network required by the gateway
 Write-Host "Creating the Azure Virtual Network: $($vnetName)"
 az network vnet create --name $vnetName `
@@ -662,51 +677,52 @@ az network application-gateway http-settings update --gateway-name $gwName `
     --verbose
 ```
 
-Depois de concluir a implantação, você terá um gateway de aplicativo com o Firewall do aplicativo Web habilitado.
+Depois de concluir a implantação, você tem um gateway de aplicativo com firewall de aplicativo web ativado.
 
-A instância de gateway expõe a porta 443 para HTTPS. Essa configuração garante que nosso aplicativo só esteja acessível na porta 443 por HTTPS.
+A instância do gateway expõe a porta 443 para HTTPS. Essa configuração garante que nosso aplicativo só esteja acessível na porta 443 através de HTTPS.
 
-Bloquear portas não utilizadas e limitar a exposição da superfície de ataque é uma prática recomendada de segurança.
+Bloquear portas não utilizadas e limitar a exposição à superfície de ataque é uma prática recomendada de segurança.
 
-#### <a name="add-network-security-groups-to-the-app-service-instance"></a>Adicionar grupos de segurança de rede à instância do serviço de aplicativo
+#### <a name="add-network-security-groups-to-the-app-service-instance"></a>Adicionar grupos de segurança de rede à instância do Serviço de Aplicativo
 
-As instâncias do serviço de aplicativo podem ser integradas com redes virtuais. Essa integração permite que eles sejam configurados com políticas de grupo de segurança de rede que gerenciam o tráfego de entrada e saída do aplicativo.
+As instâncias do App Service podem ser integradas a redes virtuais. Essa integração permite que eles sejam configurados com políticas de grupo de segurança de rede que gerenciam o tráfego de entrada e saída do aplicativo.
 
-1. Para habilitar esse recurso, na folha instância do serviço Azure App, em **configurações**, selecione **rede**. No painel direito, em **integração VNet**, selecione **clique aqui para configurar**.
+1. Para habilitar esse recurso, na lâmina de instância de serviço do Azure App, em **Configurações,** **selecione Rede**. No painel direito, em **Integração VNet,** selecione **Clique aqui para configurar**.
 
    ![Nova integração de rede virtual](./media/secure-web-app/app-vnet-menu.png)
 
-    *Nova integração de rede virtual para o serviço de aplicativo*
-1. Na página seguinte, selecione **Adicionar VNET (versão prévia)** .
+    *Nova integração de rede virtual para serviço de aplicativos*
 
-1. No menu avançar, selecione a rede virtual criada na implantação que começa com `hello-vnet`. Você pode criar uma nova sub-rede ou selecionar uma existente.
-   Nesse caso, crie uma nova sub-rede. Defina o **intervalo de endereços** como **10.0.3.0/24** e nomeie a sub-rede **app-subnet**.
+1. Na próxima página, selecione **Adicionar VNET (visualização)**.
 
-   ![Configuração de rede virtual do serviço de aplicativo](./media/secure-web-app/app-vnet-config.png)
+1. No menu seguinte, selecione a rede virtual criada `hello-vnet`na implantação que começa com . Você pode criar uma nova sub-rede ou selecionar uma já existente.
+   Neste caso, crie uma nova sub-rede. Defina o **intervalo de endereços** para **10.0.3.0/24** e nomeie a **sub-sub-rede de aplicativos de sub-rede**.
 
-    *Configuração de rede virtual para o serviço de aplicativo*
+   ![Configuração de rede virtual do App Service](./media/secure-web-app/app-vnet-config.png)
+
+    *Configuração de rede virtual para serviço de aplicativos*
 
 Agora que você habilitou a integração de rede virtual, você pode adicionar grupos de segurança de rede ao nosso aplicativo.
 
-1. Use a caixa de pesquisa, procure **grupos de segurança de rede**. Selecione **grupos de segurança de rede** nos resultados.
+1. Use a caixa de pesquisa, procure grupos **de segurança da rede**. Selecione **grupos de segurança da rede** nos resultados.
 
-    ![Pesquisar grupos de segurança de rede](./media/secure-web-app/nsg-search-menu.png)
+    ![Procure por grupos de segurança de rede](./media/secure-web-app/nsg-search-menu.png)
 
-    *Pesquisar grupos de segurança de rede*
+    *Procure por grupos de segurança de rede*
 
-2. No menu avançar, selecione **Adicionar**. Insira o **nome** do NSG e o **grupo de recursos** no qual ele deve ser localizado. Este NSG será aplicado à sub-rede do gateway de aplicativo.
+2. No menu seguinte, selecione **Adicionar**. Digite o **nome** do NSG e do **grupo Resource** no qual ele deve estar localizado. Este NSG será aplicado à sub-rede do gateway de aplicativo.
 
     ![Criar um NSG](./media/secure-web-app/nsg-create-new.png)
 
     *Criar um NSG*
 
-3. Depois que o NSG for criado, selecione-o. Em sua folha, em **configurações**, selecione **regras de segurança de entrada**. Defina essas configurações para permitir conexões que entram no gateway de aplicativo pela porta 443.
+3. Depois que o NSG for criado, selecione-o. Em sua lâmina, em **Configurações,** selecione **Regras de segurança de entrada**. Configure essas configurações para permitir que as conexões entrem no gateway de aplicativo sobre a porta 443.
 
-   ![Configurar o NSG](./media/secure-web-app/nsg-gateway-config.png)
+   ![Configure o NSG](./media/secure-web-app/nsg-gateway-config.png)
 
-   *Configurar o NSG*
+   *Configure o NSG*
 
-4. Nas regras de saída para o NSG do gateway, adicione uma regra que permita conexões de saída para a instância do serviço de aplicativo Criando uma regra que se `AppService`destina à marca de serviço:
+4. Nas regras de saída para o GATEWAY NSG, adicione uma regra que permite conexões de saída `AppService`à instância do App Service, criando uma regra que visa a tag de serviço :
 
    ![Adicionar regras de saída para o NSG](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -714,259 +730,265 @@ Agora que você habilitou a integração de rede virtual, você pode adicionar g
 
     Adicione outra regra de saída para permitir que o gateway envie regras de saída para uma rede virtual.
 
-   ![Adicionar outra regra de saída](./media/secure-web-app/nsg-outbound-vnet.png)
+   ![Adicione outra regra de saída](./media/secure-web-app/nsg-outbound-vnet.png)
 
-    *Adicionar outra regra de saída*
+    *Adicione outra regra de saída*
 
-5. Na folha sub-redes do NSG, selecione **associar**, selecione a rede virtual criada na implantação e selecione a sub-rede de gateway denominada **GW-subnet**. O NSG é aplicado à sub-rede.
+5. Na lâmina de sub-redes do NSG, selecione **Associate,** selecione a rede virtual criada na implantação e selecione a sub-rede de gateway chamada **gw-subnet**. O NSG é aplicado à sub-rede.
 
-6. Crie outro NSG como na etapa anterior, desta vez para a instância do serviço de aplicativo. Dê um nome a ele. Adicione a regra de entrada para a porta 443, como fez para o NSG do gateway de aplicativo.
+6. Crie outro NSG como na etapa anterior, desta vez para a instância do Serviço de Aplicativo. Dê-lhe um nome. Adicione a regra de entrada para a porta 443 como você fez para o portal de aplicativos NSG.
 
-   Se você tiver uma instância do serviço de aplicativo implantada em uma instância do Ambiente do Serviço de Aplicativo, que não é o caso desse aplicativo, você poderá adicionar regras de entrada para permitir investigações de integridade do serviço do Azure abrindo as portas 454-455 nos grupos de segurança de entrada de seu serviço de aplicativo NSG. Aqui está a configuração:
+   Se você tiver uma instância do App Service implantada em uma instância do App Service Environment, o que não é o caso deste aplicativo, você pode adicionar regras de entrada para permitir testes do Azure Service Health abrindo portas 454-455 nos grupos de segurança de entrada do seu App Service NSG. Aqui está a configuração:
 
-   ![Adicionar regras para investigações de integridade do serviço do Azure](./media/secure-web-app/nsg-create-healthprobes.png)
+   ![Adicionar regras para testes de saúde do Serviço Azure](./media/secure-web-app/nsg-create-healthprobes.png)
 
-    *Adicionar regras para investigações de integridade do serviço do Azure (somente Ambiente do Serviço de Aplicativo)*
+    *Adicionar regras para testes azure Service Health (somente o App Service Environment)*
 
-7. Nas regras de segurança de saída, crie uma nova regra de segurança de saída que permita que a instância do serviço de aplicativo se comunique com o banco de dados PostgreSQL. Configure-o da seguinte maneira:
+7. Nas regras de segurança de saída, crie uma nova regra de segurança de saída que permite que a instância do App Service se comunique com o banco de dados PostgreSQL. Configurá-lo assim:
 
-   ![Regra para permitir conexões do PostgreSQL de saída](./media/secure-web-app/nsg-outbound-postgresql.png)
+   ![Regra para permitir conexões PostgreSQL de saída](./media/secure-web-app/nsg-outbound-postgresql.png)
 
-   *Adicionar uma regra para permitir conexões de saída do PostgreSQL*
+   *Adicionar uma regra para permitir conexões PostgreSQL de saída*
 
-Para limitar a superfície de ataque, modifique as configurações de rede do serviço de aplicativo para permitir que apenas o gateway de aplicativo acesse o aplicativo.
-Para fazer isso, vá para a guia rede do serviço de aplicativo, selecione a guia **restrições de IP** e crie uma regra de permissão que permita que apenas o IP do gateway de aplicativo acesse diretamente o serviço.
+Para limitar a superfície de ataque, modifique as configurações da rede app service para permitir que apenas o gateway do aplicativo acesse o aplicativo.
+Você faz isso entrando na guia de rede do App Service, selecionando a guia **Restrições de IP** e criando uma regra de permitir que apenas o IP do gateway do aplicativo acesse diretamente o serviço.
 
-Você pode recuperar o endereço IP do gateway de sua página de visão geral. Na guia **CIDR endereço IP** , insira o endereço IP neste formato: `<GATEWAY_IP_ADDRESS>/32`.
+Você pode recuperar o endereço IP do gateway a partir de sua página de visão geral. Na guia **CIDR de endereço IP,** digite `<GATEWAY_IP_ADDRESS>/32`o endereço IP neste formato: .
 
-![Permitir somente o gateway](./media/secure-web-app/app-allow-gw-only.png)
+![Permitir apenas o gateway](./media/secure-web-app/app-allow-gw-only.png)
 
-*Permitir que somente o IP do gateway acesse o serviço de aplicativo*
+*Permitir apenas o IP gateway para acessar o Serviço de Aplicativo*
 
+#### <a name="implement-azure-active-directory-oauth"></a>Implementar o Azure Active Directory OAuth
 
-#### <a name="implement-azure-active-directory-oauth"></a>Implementar Azure Active Directory OAuth
+Os documentos do Azure distribuídos na página do aplicativo web de amostra são recursos em nosso aplicativo que podem precisar de proteção. Você pode usar o Azure Active Directory (Azure AD) para implementar autenticação para aplicativos web, desktop e mobile usando diferentes fluxos de autenticação.
+O aplicativo usa login com a **Microsoft,** que permite que o aplicativo leia perfis de usuários que foram adicionados à lista de usuários do Azure AD de um único inquilino.
 
-Os documentos do Azure distribuídos na página de aplicativo Web de exemplo são recursos em nosso aplicativo que podem precisar de proteção. Você pode usar o Azure Active Directory (Azure AD) para implementar a autenticação para aplicativos Web, desktop e móveis usando fluxos de autenticação diferentes.
-O aplicativo usa **logon com a Microsoft**, que permite ao aplicativo ler perfis de usuários que foram adicionados à lista de usuários do Azure AD de locatário único.
+No portal Azure, configure o aplicativo para usar as credenciais necessárias:
 
-No portal do Azure, configure o aplicativo para usar as credenciais necessárias:
+1. Selecione **O Diretório Ativo do Azure**ou pesquise-o usando a caixa de pesquisa.
 
-1. Selecione **Azure Active Directory**ou pesquise por ele usando a caixa de pesquisa.
+2. Selecione **Novo registro**:
 
-2. Selecione **novo registro**:
+   ![Crie um registro](./media/secure-web-app/ad-auth-create.png)
 
-   ![Criar um registro](./media/secure-web-app/ad-auth-create.png)
+   *Crie um registro de aplicativo AD do Azure*
 
-   *Criar um registro de aplicativo do Azure AD*
+3. Na página seguinte, digite o nome do aplicativo. Em **tipos de conta suportados,** selecione Contas somente neste diretório **organizacional**.
+    Em **Redirecionar URI,** digite o domínio base em que o aplicativo será executado mais um com o ponto final do token. Por exemplo: *GATEWAY_HASH*.cloudapp.net/token.
 
-3. Na página seguinte, insira o nome do aplicativo. Em **tipos de conta com suporte**, selecione **contas somente neste diretório organizacional**.
-    Em **URI**de redirecionamento, insira o domínio base em que o aplicativo será executado mais um com o ponto de extremidade do token. Por exemplo:  *GATEWAY_HASH*. cloudapp.net/token.
+   ![Configure o registro do aplicativo Azure AD](./media/secure-web-app/ad-auth-type.png)
 
-   ![Configurar o registro de aplicativo do Azure AD](./media/secure-web-app/ad-auth-type.png)
+   *Configure o registro do aplicativo Azure AD*
 
-   *Configurar o registro de aplicativo do Azure AD*
-
-4. Você verá uma tela que mostra o aplicativo registrado e suas informações. Você precisa adicionar essas informações à instância de Azure Key Vault.
-   1. Copie a ID do aplicativo (cliente) e salve-a em `CLIENTID`Key Vault como.
-   2. Copie o URI de redirecionamento que você inseriu na etapa anterior e `REDIRECTURI`salve-o como.
-   3. Copie o nome do diretório padrão do Azure AD, que tem o formato *Name*. microsoftonline.com, e salve-o `TENANT`em Key Vault como.
-   4. Vá para a guia **certificados & segredos** do aplicativo do Azure AD que você criou anteriormente e selecione **novo segredo do cliente**, conforme mostrado na captura de tela a seguir. Defina uma data de expiração e, em seguida, copie o valor gerado e salve `CLIENTSECRET`-o em Key Vault como.
+4. Você é apresentado com uma tela que mostra o aplicativo cadastrado e suas informações. Você precisa adicionar essas informações na instância do Azure Key Vault.
+   1. Copie o ID do aplicativo (cliente) `CLIENTID`e salve-o no Key Vault como .
+   2. Copie o URI de redirecionamento que você `REDIRECTURI`inseriu na etapa anterior e salve-o como .
+   3. Copie o nome padrão do azure AD, que tem o *nome*de `TENANT`formato .microsoftonline.com, e salve-o no Key Vault como .
+   4. Vá para a guia **De si& segredos** do aplicativo Azure AD que você criou anteriormente e selecione **Novo segredo do cliente,** conforme mostrado na captura de tela a seguir. Defina uma data de validade e copie o valor `CLIENTSECRET`gerado e salve-o no Key Vault como .
 
       ![Segredo de autorização do Azure AD](./media/secure-web-app/ad-auth-secrets.png)
 
       *Segredo de autorização do Azure AD*
 
-   5. Gere uma chave secreta aleatória segura usando qualquer ferramenta de linha de comando/online. Salve-o em Key Vault `FLASKSECRETKEY`como. A estrutura do aplicativo usa essa chave para criar sessões.
-        Para saber como gerar uma chave secreta, consulte [sessões do Flask](http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
+   5. Gere uma chave secreta aleatória segura usando qualquer ferramenta de linha de comando/on-line. Guarde-o no `FLASKSECRETKEY`Key Vault como . A estrutura do aplicativo usa essa chave para criar sessões.
+        Para aprender a gerar uma chave secreta, consulte [Sessões de Frascos](http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
 
-5. Depois de configurar a entrada, você precisa adicionar usuários ao link do Azure AD para permitir que eles entrem no recurso. Para adicioná-los, vá para a guia **usuários** no Azure AD, selecione **todos os usuários**e, em seguida, selecione **novo usuário** ou **novo usuário convidado**. Para teste, você pode adicionar um usuário convidado e convidar o usuário para o diretório. Ou você pode adicionar um novo usuário se o domínio no qual o aplicativo está sendo executado tiver sido validado. Neste exemplo, somente os usuários registrados no locatário do Azure AD podem ser registrados para acesso. Para obter informações sobre o acesso de entrada multilocatário, consulte a documentação.
+5. Depois de configurar o login, você precisa adicionar os usuários ao link Azure AD para permitir que eles entrem no recurso. Para adicioná-los, vá para a guia **Usuários** no Azure AD, selecione **Todos os usuários**e selecione Novo **usuário** ou Novo **usuário convidado**. Para testes, você pode adicionar um usuário convidado e convidar o usuário para o diretório. Ou você pode adicionar um novo usuário se o domínio em que o aplicativo está sendo executado for validado. Neste exemplo, apenas usuários cadastrados no inquilino Azure AD podem ser cadastrados para acesso. Para obter informações sobre acesso ao login multilocatário, consulte a documentação.
 
    ![Adicionar usuários ao domínio padrão](./media/secure-web-app/ad-auth-add-user.png)
 
-   *Adicionar usuários ao domínio de Azure Active Directory padrão*
+   *Adicionar usuários ao domínio padrão do Azure Active Directory*
 
-Depois de adicionar a configuração e os segredos do Azure AD ao Key Vault, os usuários podem ser autenticados no aplicativo usando a autenticação OAuth do Azure.
-No código do aplicativo, isso é tratado pela ADAL (biblioteca de autenticação Azure Active Directory).
+Depois de adicionar a configuração e os segredos do Azure AD ao Key Vault, os usuários podem ser autenticados no aplicativo usando a autenticação Do Azure OAuth.
+No código do aplicativo, isso é tratado pela Azure Active Directory Authenticy Library (ADAL).
 
-Depois que os segredos estiverem em Key Vault e o aplicativo tiver acesso aos segredos e ao banco de dados, o serviço de aplicativo poderá ser acessado por meio https://GATEWAY_HASH.cloudapp.net) da URL do aplicativo do gateway (, que pode ser obtida em sua folha.
+Depois que os segredos estiverem no Key Vault e o aplicativo tiver acesso aos segredos e aohttps://GATEWAY_HASH.cloudapp.net)banco de dados, o serviço de aplicativo pode ser alcançado através da URL do aplicativo do gateway ( , que você pode obter a partir de sua lâmina.
 
-Se, ao entrar no Azure AD, você receber um erro dizendo "o usuário não está registrado no diretório no qual você está tentando fazer logon", você precisa adicionar o usuário. Para adicionar o usuário, vá para a guia **usuários** do Azure AD e adicione o usuário manualmente inserindo seus detalhes ou convide o usuário inserindo seu endereço de email como um usuário convidado no Azure ad na folha **convidar convidado** .
+Se, ao fazer login no Azure AD, você tiver um erro que diz "O usuário não está registrado no diretório em que você está tentando fazer login", você precisa adicionar o usuário. Para adicionar o usuário, vá para a guia **Usuários** do Azure AD e adicione o usuário manualmente inserindo seus dados ou convide o usuário inserindo seu endereço de e-mail como usuário convidado para o Azure AD na lâmina **Convidar convidado.**
 
 #### <a name="deploy-application-insights"></a>Implantar Application Insights
-Agora que o aplicativo está implantado e funcionando, você precisa manipular os erros que ocorrem dentro do aplicativo, juntamente com a coleta de dados de log e rastreamento.
-O log e a coleta de dados de rastreamento fornecem uma exibição dos eventos de auditoria que ocorrem no aplicativo.
+Agora que o aplicativo está implantado e funcionando, você precisa lidar com erros que ocorrem dentro do aplicativo, juntamente com o registro e a coleta de dados.
+O registro e a coleta de dados de rastreamento fornecem uma visão sobre eventos de auditoria que acontecem no aplicativo.
 
-Application Insights é um serviço que coleta logs que podem ser gerados por usuários ou pelo sistema.
+O Application Insights é um serviço que coleta logs que podem ser gerados pelos usuários ou pelo sistema.
 
-Para criar uma instância de Application Insights:
+Para criar uma instância de insights de aplicativos:
 
-1. Pesquise **Application insights** usando a caixa de pesquisa na portal do Azure.
+1. Procure **insights de aplicativos** usando a caixa de pesquisa no portal Azure.
 2. Selecione **Application Insights**. Forneça os detalhes mostrados aqui para criar uma instância.
 
-   ![Criar uma instância de Application Insights](./media/secure-web-app/app-insights-data.png)
+   ![Crie uma instância de insights de aplicativos](./media/secure-web-app/app-insights-data.png)
 
-Depois que a implantação for concluída, você terá uma instância de Application Insights.
+Depois que a implantação estiver concluída, você terá uma instância do Application Insights.
 
-Depois de criar a instância do Application insights, você precisa fazer com que o aplicativo reconheça a chave de instrumentação que permite enviar logs para a nuvem. Você faz isso recuperando a chave de Application Insights e usando-a nas bibliotecas de aplicativos que o Azure fornece para Application Insights. A prática recomendada é armazenar chaves e segredos em Azure Key Vault para mantê-los seguros.
+Depois de criar a instância Applications Insights, você precisa conscientizar o aplicativo sobre a chave de instrumentação que permite enviar logs para a nuvem. Você faz isso recuperando a chave do Application Insights e usando-a dentro das bibliotecas de aplicativos que o Azure fornece para insights de aplicativos. A melhor prática é armazenar chaves e segredos no Azure Key Vault para mantê-los seguros.
 
-Para o aplicativo de exemplo básico, depois de criar a instância do Application insights, você precisa fazer com que o aplicativo reconheça a chave de instrumentação que permite enviar logs para a nuvem.
-Em Key Vault, defina um `APPINSIGHTSKEY` segredo e defina seu valor como a chave de instrumentação. Isso permite que o aplicativo envie logs e métricas para Application Insights.
+Para o aplicativo de exemplo básico, depois de criar a instância Applications Insights, você precisa conscientizar o aplicativo sobre a chave de instrumentação que permite enviar logs para a nuvem.
+Em Key Vault, `APPINSIGHTSKEY` defina um segredo e defina seu valor como a chave de instrumentação. Isso permite que o aplicativo envie logs e métricas para o Application Insights.
 
-#### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementar a autenticação multifator para Azure Active Directory
-Os administradores precisam garantir que as contas de assinatura no portal sejam protegidas. A assinatura é vulnerável a ataques porque gerencia os recursos que você criou. Para proteger a assinatura, habilite a autenticação multifator na guia **Azure Active Directory** da assinatura.
+#### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementar autenticação multifatorial para diretório ativo do Azure
 
-O Azure AD opera com base em políticas que são aplicadas a um usuário ou grupos de usuários que se ajustam a determinados critérios.
-O Azure cria uma política padrão especificando que os administradores precisam de autenticação de dois fatores para entrar no Portal.
-Depois de habilitar essa política, você poderá ser solicitado a sair e entrar novamente no portal do Azure.
+Os administradores precisam garantir que as contas de assinatura no portal estejam protegidas. A assinatura é vulnerável a ataques porque gerencia os recursos que você criou. Para proteger a assinatura, habilite a Autenticação Multifatorial na guia Diretório Ativo do **Azure** da assinatura.
 
-Para habilitar a MFA para entradas de administrador:
+O Azure AD opera com base em políticas que são aplicadas a um usuário ou grupos de usuários que se encaixam em determinados critérios.
+O Azure cria uma diretiva padrão especificando que os administradores precisam de autenticação de dois fatores para entrar no portal.
+Depois de habilitar esta política, você pode ser solicitado a sair e entrar de volta no portal Azure.
 
-1. Vá para a guia **Azure Active Directory** na portal do Azure
-2. Na categoria segurança, selecione acesso condicional. Você verá esta tela:
+Para habilitar o MFA para logins de admin:
 
-   ![Acesso condicional-políticas](./media/secure-web-app/ad-mfa-conditional-add.png)
+1. Vá para a guia Diretório ativo do **Azure** no portal Azure
+2. Na categoria de segurança, selecione o acesso condicional. Você verá esta tela:
 
-Se você não puder criar uma nova política:
+   ![Acesso Condicional - Políticas](./media/secure-web-app/ad-mfa-conditional-add.png)
 
-1. Vá para a guia **MFA** .
-2. Selecione o link Azure AD Premium **avaliação gratuita** para assinar a avaliação gratuita.
+Se você não pode criar uma nova política:
 
-   ![Azure AD Premium avaliação gratuita](./media/secure-web-app/ad-trial-premium.png)
+1. Vá para a guia **MFA.**
+2. Selecione o link de **avaliação azure** AD Premium Free para assinar a avaliação gratuita.
+
+   ![Teste gratuito azure AD Premium](./media/secure-web-app/ad-trial-premium.png)
 
 Retorne à tela de acesso condicional.
 
-1. Selecione a guia nova política.
+1. Selecione a nova guia de diretiva.
 2. Insira o nome da política.
-3. Selecione os usuários ou grupos para os quais você deseja habilitar a MFA.
-4. Em **controles de acesso**, selecione a guia **conceder** e, em seguida, selecione **exigir autenticação** multifator (e outras configurações, se desejar).
+3. Selecione os usuários ou grupos para os quais deseja ativar o MFA.
+4. Em **Controles de acesso,** selecione a guia **Conceder** e, em seguida, **selecione Exigir autenticação multifatorial** (e outras configurações, se quiser).
 
    ![Exigir MFA](./media/secure-web-app/ad-mfa-conditional-add.png)
 
-Você pode habilitar a política marcando a caixa de seleção na parte superior da tela ou fazer isso na guia **acesso condicional** . Quando a política está habilitada, os usuários precisam de MFA para entrar no Portal.
+Você pode habilitar a diretiva selecionando a caixa de seleção na parte superior da tela ou fazê-lo na guia **Acesso Condicional.** Quando a política é ativada, os usuários precisam que o MFA faça login no portal.
 
-Há uma política de linha de base que requer MFA para todos os administradores do Azure. Você pode habilitá-lo imediatamente no Portal. A habilitação dessa política pode invalidar a sessão atual e forçá-lo a entrar novamente.
+Há uma política de linha de base que requer MFA para todos os administradores do Azure. Você pode habilitá-lo imediatamente no portal. Habilitar essa diretiva pode invalidar a sessão atual e forçá-lo a fazer login novamente.
 
 Se a política de linha de base não estiver habilitada:
-1.  Selecione **exigir MFA para administradores**.
-2.  Selecione **usar política imediatamente**.
 
-   ![Selecione usar política imediatamente](./media/secure-web-app/ad-mfa-conditional-enable.png)
+1. Selecione **Exigir MFA para admins**.
+2. Selecione **Usar a diretiva imediatamente**.
 
-#### <a name="use-azure-sentinel-to-monitor-apps-and-resources"></a>Usar o Azure Sentinel para monitorar aplicativos e recursos
+   ![Selecionar política de uso imediatamente](./media/secure-web-app/ad-mfa-conditional-enable.png)
 
-À medida que um aplicativo cresce, torna-se difícil agregar todos os sinais de segurança e métricas recebidos dos recursos e torná-los úteis de forma orientada a ações.
+#### <a name="use-azure-sentinel-to-monitor-apps-and-resources"></a>Use o Azure Sentinel para monitorar aplicativos e recursos
 
-O Azure Sentinel foi projetado para coletar dados, detectar os tipos de ameaças possíveis e fornecer visibilidade de incidentes de segurança.
-Enquanto ele aguarda a intervenção manual, o Azure Sentinel pode contar com guias estratégicos pré-gravados para iniciar os alertas e os processos de gerenciamento de incidentes.
+À medida que um aplicativo cresce, torna-se difícil agregar todos os sinais de segurança e métricas recebidos dos recursos e torná-los úteis de forma orientada à ação.
+
+O Azure Sentinel foi projetado para coletar dados, detectar os tipos de ameaças possíveis e fornecer visibilidade a incidentes de segurança.
+Enquanto aguarda a intervenção manual, o Azure Sentinel pode contar com cartilhas pré-escritas para iniciar alertas e processos de gerenciamento de incidentes.
 
 O aplicativo de exemplo é composto por vários recursos que o Azure Sentinel pode monitorar.
-Para configurar o Azure Sentinel, primeiro você precisa criar um espaço de trabalho Log Analytics que armazena todos os dados coletados de vários recursos.
+Para configurar o Azure Sentinel, primeiro você precisa criar um espaço de trabalho do Log Analytics que armazena todos os dados coletados dos vários recursos.
 
 Para criar este espaço de trabalho:
 
-1. Na caixa de pesquisa na portal do Azure, procure **log Analytics**. Escolha **workspaces do Log Analytics**.
+1. Na caixa de pesquisa no portal Azure, procure por **Log Analytics**. Selecione **espaços de trabalho do Log Analytics**.
 
    ![Pesquisar espaços de trabalho do Log Analytics](./media/secure-web-app/sentinel-log-analytics.png)
 
     *Pesquisar espaços de trabalho do Log Analytics*
 
-2. Na página seguinte, selecione **Adicionar** e forneça um nome, um grupo de recursos e um local para o espaço de trabalho.
+2. Na página seguinte, **selecione Adicionar** e, em seguida, forneça um nome, grupo de recursos e localização para o espaço de trabalho.
    ![Criar um espaço de trabalho do Log Analytics](./media/secure-web-app/sentinel-log-analytics-create.png)
 
-   *Criar um espaço de trabalho do Log Analytics*
+   *Crie um espaço de trabalho do Log Analytics*
 
-3. Use a caixa de pesquisa para pesquisar o **Azure Sentinel**.
+3. Use a caixa de pesquisa para procurar **o Azure Sentinel**.
 
-   ![Pesquisar pelo Azure Sentinel](./media/secure-web-app/sentinel-add.png)
+   ![Pesquisar por Azure Sentinel](./media/secure-web-app/sentinel-add.png)
 
-    *Pesquisar pelo Azure Sentinel*
+    *Procure o Azure Sentinel*
 
-4. Selecione **Adicionar** e, em seguida, selecione o log Analytics espaço de trabalho que você criou anteriormente.
+4. Selecione **Adicionar** e, em seguida, selecione o espaço de trabalho log analytics que você criou anteriormente.
 
-   ![Adicionar um espaço de trabalho Log Analytics](./media/secure-web-app/sentinel-workspace-add.png)
+   ![Adicionar um espaço de trabalho do Log Analytics](./media/secure-web-app/sentinel-workspace-add.png)
 
-    *Adicionar um espaço de trabalho Log Analytics*
+    *Adicionar um espaço de trabalho do Log Analytics*
 
-5. Na página **Azure Sentinel-conectores de dados** , em **configuração**, selecione conectores de **dados**. Você verá uma matriz de serviços do Azure que você pode vincular à instância de armazenamento Log Analytics para análise no Azure Sentinel.
+5. Na página **Azure Sentinel - Conectores de dados,** em **Configuração,** selecione **conectores de dados**. Você vê uma matriz de serviços do Azure que você pode vincular à instância de armazenamento do Log Analytics para análise no Azure Sentinel.
 
-   ![Conectores de dados Log Analytics](./media/secure-web-app/sentinel-connectors.png)
+   ![Conectores de dados do Log Analytics](./media/secure-web-app/sentinel-connectors.png)
 
-    *Adicionar um conector de dados ao Azure Sentinel*
+    *Adicione um conector de dados ao Azure Sentinel*
 
-   Por exemplo, para conectar o gateway de aplicativo, execute estas etapas:
+   Por exemplo, para conectar o gateway de aplicativo, dê estas etapas:
 
-   1. Abra a folha da instância do gateway Aplicativo Azure.
+   1. Abra a lâmina de ocorrência do Gateway do aplicativo Azure.
    2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
    3. Selecione **Adicionar configuração de diagnóstico**.
 
-      ![Adicionar diagnóstico do gateway de aplicativo](./media/secure-web-app/sentinel-gateway-connector.png)
+      ![Adicionar diagnósticos do Gateway de aplicativos](./media/secure-web-app/sentinel-gateway-connector.png)
 
-      *Adicionar diagnóstico do gateway de aplicativo*
+      *Adicionar diagnósticos do Gateway de aplicativos*
 
-   4. Na página **configurações de diagnóstico** , selecione o espaço de trabalho log Analytics que você criou e, em seguida, selecione todas as métricas que deseja coletar e enviar para o Azure Sentinel. Clique em **Salvar**.
+   4. Na página Configurações de **Diagnóstico,** selecione o espaço de trabalho log analytics que você criou e selecione todas as métricas que deseja coletar e envie para o Azure Sentinel. Selecione **Salvar**.
 
-        ![Configurações do conector do Azure Sentinel](./media/secure-web-app/sentinel-connector-settings.png)
+        ![Configurações do conector Azure Sentinel](./media/secure-web-app/sentinel-connector-settings.png)
 
-        *Configurações do conector do Azure Sentinel*
+        *Configurações do conector Azure Sentinel*
 
-  As métricas do recurso estão no Azure Sentinel, onde você pode consultá-las e investigue-as.
+  As métricas do recurso estão no Azure Sentinel, onde você pode consultar e investigá-las.
 
-   Adicione as mesmas métricas nas configurações de diagnóstico para Azure Key Vault, o endereço IP público, o banco de dados do Azure para PostgreSQL e quaisquer serviços que ofereçam suporte a logs de diagnóstico em sua conta.
+   Adicione as mesmas métricas nas configurações de diagnóstico do Azure Key Vault, o endereço IP público, o Banco de Dados Azure para PostgreSQL e quaisquer serviços que suportem logs de diagnóstico em sua conta.
 
 Depois de configurar as métricas, o Azure Sentinel tem dados para analisar.
 
 ## <a name="evaluate-and-verify"></a>Avaliar e verificar
-Depois de desenvolver e implantar a arquitetura, você precisa garantir que o código e os serviços implantados atendam aos padrões de segurança. Estas são algumas etapas que você pode executar para verificar o software:
+
+Depois de desenvolver e implantar a arquitetura, você precisa garantir que o código e os serviços implantados atendam aos padrões de segurança. Estas são algumas etapas que você pode tomar para verificar o software:
 
 - Análise de código estático
 - Verificação de vulnerabilidade
-- Localizando e corrigindo vulnerabilidades em dependências de aplicativos
+- Encontrar e corrigir vulnerabilidades em dependências de aplicativos
 
-Esses são os blocos de construção básicos para as práticas recomendadas em desenvolvimento seguro.
+Estes são os blocos básicos de construção para as melhores práticas em desenvolvimento seguro.
 
 ### <a name="static-code-analysis"></a>Análise de código estático
-Para o aplicativo de exemplo, a verificação com ferramentas de análise estática envolve a localização de vulnerabilidades no código do aplicativo usando técnicas como verificação de documentos e análise de fluxo de dados. As ferramentas de análise estática do Python dão a você mais confiança de que seu aplicativo é seguro.
 
-**Lint**
+Para o aplicativo de amostragem, a verificação com ferramentas de análise estática envolve encontrar vulnerabilidades no código do aplicativo usando técnicas como verificação de manchas e análise de fluxo de dados. As ferramentas de análise estática python dão mais confiança de que seu aplicativo está seguro.
 
-PyFlakes, uma biblioteca de fiapos do Python, ajuda você a remover o código inativo e as funções não utilizadas de aplicativos, como mostrado aqui:
+**Linting**
 
-![PyFlakes](./media/secure-web-app/pyflakes.png)
+PyFlakes, uma biblioteca de fiader Python, ajuda você a remover código morto e funções não utilizadas de aplicativos, como mostrado aqui:
 
-O refiapoing fornece dicas e possíveis alterações que podem tornar seu código mais limpo e menos propenso a erros durante o tempo de execução.
+![Flocos-de-py](./media/secure-web-app/pyflakes.png)
+
+O Linting fornece dicas e possíveis alterações que podem tornar seu código mais limpo e menos propenso a erros durante o tempo de execução.
 
 **PyLint**
 
-PyLint forneceu o maior valor para este projeto. Ele executa verificações padrão de código, verificação de erros e dicas de refatoração para garantir que o código em execução no servidor seja seguro. Usando o PyLint para atualizar seu código, você pode eliminar bugs e melhorar a classificação de PyLint, conforme mostrado nas imagens a seguir.
+PyLint forneceu o maior valor para este projeto. Ele executa verificações padrão de código, verificação de erros e dicas de refatoração para garantir que o código em execução no servidor esteja seguro. Ao usar pyLint para atualizar seu código, você pode eliminar bugs e melhorar a classificação PyLint, como mostram as imagens a seguir.
 
 ![Antes de PyLint](./media/secure-web-app/before-pylint.png)
 
 *Antes de PyLint*
 
-Depois de corrigir alguns dos erros de código encontrados pelas ferramentas de revestido, você tem mais confiança que o código não está propenso a erros. Corrigir os erros reduz significativamente os riscos de segurança que podem ocorrer quando o código é implantado em ambientes de produção.
+Depois de corrigir alguns dos erros de código encontrados pelas ferramentas de fiação, você tem mais confiança de que o código não é propenso a erros. Corrigir os erros reduz significativamente os riscos de segurança que podem ocorrer quando o código é implantado em ambientes de produção.
 
-![Após Pylint](./media/secure-web-app/after-pylint.png)
+![Depois de Pylint](./media/secure-web-app/after-pylint.png)
 
-*Após PyLint*
+*Depois de PyLint*
 
 ### <a name="vulnerability-scanning"></a>Verificação de vulnerabilidade
-A ferramenta [zap de OWASP](https://www.zaproxy.org/) é um verificador de vulnerabilidade de aplicativo Web de software livre que você pode usar para verificar se há vulnerabilidades no aplicativo de exemplo. A execução da ferramenta no aplicativo de exemplo revela alguns possíveis erros e vetores de ataque.
+
+A ferramenta [ZAP do OWASP](https://www.zaproxy.org/) é um scanner de vulnerabilidade de aplicativo web de código aberto que você pode usar para verificar as vulnerabilidades do aplicativo de amostra. A execução da ferramenta no aplicativo de amostra revela alguns possíveis erros e vetores de ataque.
 
 ![Ferramenta ZAP](./media/secure-web-app/zap-tool.png)
 
 *Ferramenta ZAP*
 
-### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Localizar e corrigir vulnerabilidades em dependências de aplicativo
-Para localizar e corrigir dependências de aplicativo, você pode usar a [verificação de dependência do OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Encontrar e corrigir vulnerabilidades nas dependências de aplicativos
 
-A segurança é um aplicativo semelhante que verifica as dependências. Você pode encontrá-lo no [GitHub](https://github.com/pyupio/safety). Verificações de segurança de vulnerabilidades encontradas em bancos de dados de vulnerabilidade bem conhecidas.
+Para encontrar e corrigir dependências de aplicativos, você pode usar [a verificação de dependência do OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
 
-![Multi-usuário](./media/secure-web-app/pysafety.png)
+Segurança é uma aplicação semelhante que verifica dependências. Você pode encontrá-lo no [GitHub](https://github.com/pyupio/safety). Verificações de segurança para vulnerabilidades encontradas em bancos de dados de vulnerabilidades bem conhecidos.
 
-*Multi-usuário*
+![Segurança](./media/secure-web-app/pysafety.png)
+
+*Segurança*
 
 ## <a name="next-steps"></a>Próximas etapas
-Os artigos a seguir podem ajudá-lo a projetar, desenvolver e implantar aplicativos seguros.
+
+Os seguintes artigos podem ajudá-lo a projetar, desenvolver e implantar aplicativos seguros.
 
 - [Design](secure-design.md)
 - [Desenvolver](secure-develop.md)

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: fc6766943747c066581fe3820481cfe4a35d5296
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774971"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295438"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia com REST
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Ao usar a autenticação do Azure AD com os Serviços de Mídia do Azure, você pode fazer a autenticação usando uma destas duas maneiras:
 
@@ -50,19 +50,19 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [Crie uma conta dos Serviços de Mídia do Azure usando o Portal do Azure](media-services-portal-create-account.md).
+- [Crie uma conta do Azure Media Services usando o portal Azure](media-services-portal-create-account.md).
 - Consulte o artigo [Acessando a API dos Serviços de Mídia do Azure com visão geral da autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs REST mostradas neste artigo. 
 
-    Neste tutorial, estamos usando o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Neste tutorial, estamos usando o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plugin REST ou **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obter informações de autenticação do portal do Azure
 
-### <a name="overview"></a>Visão Geral
+### <a name="overview"></a>Visão geral
 
 Para acessar a API dos Serviços de Mídia, você precisa coletar os seguintes pontos de dados.
 
-|Configuração|Exemplo|Description|
+|Configuração|Exemplo|Descrição|
 |---|-------|-----|
 |Domínio do locatário do Azure Active Directory|microsoft.onmicrosoft.com|O Azure AD enquanto ponto de extremidade do STS (Serviço de Token de Segurança) é criado usando o seguinte formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. O Azure AD emite um JWT para acessar recursos (um token de acesso).|
 |Ponto de extremidade da API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto de extremidade pelo qual todas as chamadas de API REST dos Serviços de Mídia em seu aplicativo são feitas.|
@@ -128,7 +128,7 @@ Esta seção mostra como usar o **Postman** para executar uma API REST que retor
 2. Selecione **POST**.
 3. Digite a URL que inclui o nome do locatário usando o seguinte formato: o nome do locatário deve terminar com **.onmicrosoft.com** e a URL deve terminar com **oauth2/token**: 
 
-    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Selecione a guia **Cabeçalhos**.
 5. Insira as informações de **Cabeçalhos** usando a grade de dados de "chave/valor". 
@@ -190,7 +190,7 @@ Esta seção mostra como acessar a API de **Ativos** usando o **Postman**.
 
 A resposta retornada contém os ativos que estão em sua conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Teste este código de exemplo em [Autenticação do Azure AD para acesso aos Serviços de Mídia do Azure: ambos via API REST](https://github.com/willzhan/WAMSRESTSoln)
 * [Carregar arquivos com .NET](media-services-dotnet-upload-files.md)

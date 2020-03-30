@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Localizar a rota para uma localização | Microsoft Azure Mapas'
 description: Este tutorial mostra como renderizar a rota para uma localização (ponto de interesse) em um mapa usando o Serviço de Roteiros do Microsoft Azure Mapas.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ba9ef8ad98dd33bdd61875e5c1cf02e15a739c03
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 98c36176ecd2996e5f735c52017162a076ef4bde
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77208073"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333769"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Rotear para um ponto de interesse usando os Mapas do Azure
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 49959ff12744f28e930959c43a449800c76818f5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 1db7009096635fc1279ce8a8358e0d8131209722
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969795"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372578"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
->Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` em seu leitor de RSS feed.
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` no leitor de feed RSS.
 
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -32,7 +32,7 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 ## <a name="known-issues"></a>Problemas conhecidos
 
 > [!NOTE]
-> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md)v3, exibir [ativos](assets-concept.md)v3, obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, transformações e trabalhos), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs](media-services-apis-overview.md#sdks)com suporte.
+> Você pode usar o [portal Azure](https://portal.azure.com/) para gerenciar v3 [Eventos ao Vivo,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, Transformações e Empregos), use a [API REST,](https://aka.ms/ams-v3-rest-ref) [CLI](https://aka.ms/ams-v3-cli-ref)ou uma das [SDKs](media-services-apis-overview.md#sdks)suportadas.
 
 Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
  
@@ -40,162 +40,162 @@ Para obter mais informações, consulte [Guia de migração para migrar do Servi
 
 ### <a name="improvements-in-media-processors"></a>Melhorias nos processadores de mídia
 
-- Suporte aprimorado para fontes entrelaçadas na análise de vídeo – esse conteúdo agora é desentrelaçado corretamente antes de ser enviado aos mecanismos de inferência.
-- Ao gerar miniaturas com o modo "melhor", o codificador agora pesquisa além de 30 segundos para selecionar um quadro que não seja monodesvio.
+- Suporte aprimorado para fontes entrelaçadas na Análise de Vídeo – esse conteúdo agora é desentrelaçado corretamente antes de ser enviado para mecanismos de inferência.
+- Ao gerar miniaturas com o modo "Melhor", o codificador agora pesquisa além de 30 segundos para selecionar um quadro que não seja monocromático.
 
-### <a name="azure-government-cloud-updates"></a>Atualizações de nuvem do Azure governamental
+### <a name="azure-government-cloud-updates"></a>Atualizações de nuvem do Governo Azure
 
-Os serviços de mídia GA'ed nas seguintes regiões do Azure governamental: *USGov Arizona* e *USGov Texas*.
+Serviços de Mídia GA'ed nas seguintes regiões do governo Azure: *USGov Arizona* e *USGov Texas*.
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
-Adicionado suporte à CDN para cabeçalhos de *pré-busca de assistência de origem* para streaming ao vivo e de vídeo sob demanda; disponível para clientes que têm contrato direto com o Akamai CDN. O recurso de origem-auxiliar CDN-prefetch envolve as seguintes trocas de cabeçalho HTTP entre a CDN da Akamai e a origem dos serviços de mídia do Azure:
+Adicionado suporte a CDN para *cabeçalhos Prefetch Origin-Assist* para streaming ao vivo e vídeo demanda; disponível para clientes que têm contrato direto com a Akamai CDN. O recurso CDN-Prefetch do Origin-Assist envolve as seguintes trocas de cabeçalho HTTP entre a origem do Akamai CDN e do Azure Media Services:
 
 |Cabeçalho HTTP|Valores|Remetente|Receptor|Finalidade|
 | ---- | ---- | ---- | ---- | ----- |
-|CDN-origem-auxiliar-pré-busca habilitada | 1 (padrão) ou 0 |CDN|Origem|Para indicar que a CDN está habilitada para pré-busca|
-|CDN-origem-assistência-pré-busca-caminho| Exemplo: <br/>Fragmentos (Video = 1400000000, Format = MPD-time-CMAF)|Origem|CDN|Para fornecer o caminho de pré-busca para a CDN|
-|CDN-origem-auxiliar-prefetch-solicitação|1 (solicitação de pré-busca) ou 0 (solicitação regular)|CDN|Origem|Para indicar que a solicitação da CDN é uma pré-busca|
+|CDN-Origin-Assist-Prefetch-Enabled | 1 (padrão) ou 0 |CDN|Origem|Para indicar que o CDN está ativado para a pré-busca|
+|CDN-Origin-Assist-Prefetch-Path| Exemplo: <br/>Fragmentos(vídeo=14000000000,format=mpd-time-cmaf)|Origem|CDN|Para fornecer caminho de pré-busca para cdn|
+|CDN-Origin-Assist-Prefetch-Request|1 (solicitação de pré-busca) ou 0 (solicitação regular)|CDN|Origem|Para indicar a solicitação do CDN é uma pré-busca|
 
 Para ver parte da troca de cabeçalho em ação, você pode tentar as seguintes etapas:
 
-1. Use o postmaster ou a ondulação para emitir uma solicitação para a origem dos serviços de mídia para um segmento ou fragmento de áudio ou vídeo. Certifique-se de adicionar o cabeçalho CDN-Origin-Assist-prefetch habilitado: 1 na solicitação.
-2. Na resposta, você deve ver o cabeçalho CDN-Origin-Assist-pré-busca-Path com um caminho relativo como seu valor.
+1. Use Carteiro ou curl para emitir uma solicitação à origem dos Serviços de Mídia para um segmento ou fragmento de áudio ou vídeo. Certifique-se de adicionar o cabeçalho CDN-Origin-Assist-Prefetch-Enabled: 1 na solicitação.
+2. Na resposta, você deve ver o cabeçalho CDN-Origin-Assist-Prefetch-Path com um caminho relativo como seu valor.
 
 ## <a name="november-2019"></a>Novembro de 2019
 
-### <a name="live-transcription-preview"></a>Visualização de transcrição ao vivo
+### <a name="live-transcription-preview"></a>Pré-visualização de transcrição ao vivo
 
-A transcrição ao vivo agora está em visualização pública e disponível para uso na região oeste dos EUA 2.
+A transcrição ao vivo está agora em pré-visualização pública e disponível para uso na região oeste dos EUA 2.
 
-A transcrição ao vivo foi projetada para trabalhar em conjunto com eventos ao vivo como um recurso complementar.  Há suporte para eventos ao vivo de codificação de passagem e Standard ou Premium.  Quando esse recurso é habilitado, o serviço usa o recurso de [conversão de fala em texto](../../cognitive-services/speech-service/speech-to-text.md) de serviços cognitivas para transcrever as palavras faladas no áudio de entrada em texto. Esse texto é disponibilizado para entrega junto com vídeo e áudio em protocolos MPEG-DASH e HLS. A cobrança é baseada em um novo medidor de complemento que é custo adicional para o evento ao vivo quando ele está no estado "em execução".  Para obter detalhes sobre a transcrição dinâmica e a cobrança, consulte [transcrição ao vivo](live-transcription.md)
+A transcrição ao vivo foi projetada para funcionar em conjunto com eventos ao vivo como um recurso adicional.  Ele é suportado em eventos ao vivo de transmissão e standard ou premium.  Quando esse recurso é ativado, o serviço usa o recurso [Fala-texto](../../cognitive-services/speech-service/speech-to-text.md) dos Serviços Cognitivos para transcrever as palavras faladas no áudio recebido em texto. Este texto é então disponibilizado para entrega, juntamente com vídeo e áudio nos protocolos MPEG-DASH e HLS. O faturamento é baseado em um novo medidor adicional que é um custo adicional para o evento ao vivo quando ele está no estado "Running".  Para obter detalhes sobre transcrição e faturamento ao vivo, consulte [transcrição ao vivo](live-transcription.md)
 
 > [!NOTE]
-> Atualmente, a transcrição ao vivo só está disponível como um recurso de visualização na região oeste dos EUA 2. Ele dá suporte à transcrição de palavras faladas em inglês (en-US) somente no momento.
+> Atualmente, a transcrição ao vivo só está disponível como um recurso de pré-visualização na região oeste dos EUA 2. Suporta transcrição de palavras faladas em inglês (en-us) apenas neste momento.
 
 ### <a name="content-protection"></a>Proteção de conteúdo
 
-O recurso de *prevenção de reprodução de token* lançado em regiões limitadas de volta em setembro agora está disponível em todas as regiões.
-Os clientes dos serviços de mídia agora podem definir um limite no número de vezes que o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [prevenção de reprodução de token](content-protection-overview.md#token-replay-prevention).
+O *recurso Token Replay Prevention,* lançado em regiões limitadas em setembro, já está disponível em todas as regiões.
+Os clientes da Media Services agora podem definir um limite no número de vezes que o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
 
-### <a name="new-recommended-live-encoder-partners"></a>Novos parceiros de codificador dinâmico recomendados
+### <a name="new-recommended-live-encoder-partners"></a>Novos parceiros de codificador ao vivo recomendados
 
-Adição de suporte para os seguintes novos codificadores de parceiros recomendados para streaming ao vivo RTMP:
+Adicionado suporte para os seguintes novos codificadores de parceiros recomendados para transmissão ao vivo RTMP:
 
-- [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
-- [GoPro Hero7/8 e máximo de câmeras de ação](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
+- [Câmeras de ação GoPro Hero7/8 e Max](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
 - [Restream.io](https://restream.io/)
 
-### <a name="file-encoding-enhancements"></a>Aprimoramentos de codificação de arquivo
+### <a name="file-encoding-enhancements"></a>Aprimoramentos de codificação de arquivos
 
-- Uma nova predefinição de codificação com reconhecimento de conteúdo está disponível agora. Ele produz um conjunto de MP4s alinhado a GOP usando a codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço executa uma análise leve inicial do conteúdo de entrada. Ele usa esses resultados para determinar o número ideal de camadas, a taxa de bits apropriada e as configurações de resolução para entrega por streaming adaptável. Essa predefinição é particularmente eficaz para vídeos de baixa complexidade e de complexidade média, em que os arquivos de saída têm taxas de bits menores, mas com uma qualidade que ainda oferece uma boa experiência aos visualizadores. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte as [especificações de API aberta](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
-- Melhor desempenho e multithreading para o redimensionador em Media Encoder Standard. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação VOD. O conteúdo de baixa complexidade codificado em várias taxas de bits verá o maior desempenho aumenta. 
-- A codificação padrão agora mantém uma cadência GOP regular para conteúdo de VFR (taxa de quadros variável) durante a codificação VOD ao usar a configuração de GOP baseada em tempo.  Isso significa que o cliente que envia conteúdo de taxa de quadros misto que varia entre 15-30 fps, por exemplo, agora deve ver as distâncias GOP regulares calculadas na saída para arquivos MP4 de streaming de taxa de bits adaptável. Isso melhorará a capacidade de alternar diretamente entre as faixas ao entregar HLS ou DASH. 
--  Sincronização antivírus aprimorada para conteúdo de origem de taxa de quadros variável (VFR)
+- Uma nova preconfiguração de codificação de reconhecimento de conteúdo está agora disponível. Ele produz um conjunto de MP4s alinhados ao GOP usando codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço realiza uma análise leve inicial do conteúdo de entrada. Ele usa esses resultados para determinar o número ideal de camadas, taxa de bits apropriada e configurações de resolução para entrega por streaming adaptativo. Esta preconfiguração é particularmente eficaz para vídeos de baixa complexidade e média complexidade, onde os arquivos de saída estão em taxas de bits mais baixas, mas em uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte as [especificações abertas da API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
+- Desempenho aprimorado e multi-threading para o re-sizer no Standard Encoder. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação de VOD. O conteúdo de baixa complexidade codificado em várias taxas de bits verá os maiores aumentos de desempenho. 
+- A codificação padrão agora mantém uma cadência GOP regular para conteúdo de taxa de quadros variável (VFR) durante a codificação de VOD ao usar a configuração GOP baseada no tempo.  Isso significa que o cliente que submete conteúdo de taxa de quadros misto que varia entre 15-30 fps, por exemplo, deve agora ver distâncias regulares de GOP calculadas na saída para arquivos MP4 de bitrate adaptativos. Isso melhorará a capacidade de alternar perfeitamente entre as faixas ao fornecer mais HLS ou DASH. 
+-  Sincronização AV melhorada para o conteúdo de origem da taxa de quadros variável (VFR)
 
-### <a name="video-indexer-video-analytics"></a>Video Indexer, análise de vídeo
+### <a name="video-indexer-video-analytics"></a>Indexador de vídeo, análise de vídeo
 
-- Os quadros-chave extraídos usando a predefinição VideoAnalyzer agora estão na resolução original do vídeo em vez de serem redimensionados. A extração de quadro-chave de alta resolução fornece imagens de qualidade original e permite que você use os modelos de inteligência artificial baseados em imagem fornecidos pelo Microsoft Pesquisa Visual Computacional e Visão Personalizada Services para obter ainda mais informações do seu vídeo.
+- Os quadros-chave extraídos usando a preconfiguração VideoAnalyzer estão agora na resolução original do vídeo em vez de serem redimensionados. A extração de quadros de alta resolução oferece imagens de qualidade original e permite que você faça uso dos modelos de inteligência artificial baseados em imagem fornecidos pelos serviços Microsoft Computer Vision e Custom Vision para obter ainda mais insights do seu vídeo.
 
 ## <a name="september-2019"></a>Setembro de 2019
 
 ###  <a name="media-services-v3"></a>Serviços de Mídia v3  
 
-#### <a name="live-linear-encoding-of-live-events"></a>Codificação linear dinâmica de eventos ao vivo
+#### <a name="live-linear-encoding-of-live-events"></a>Codificação linear ao vivo de eventos ao vivo
 
-Os serviços de mídia v3 estão anunciando a visualização de 24 horas x 365 dias de codificação linear dinâmica de eventos ao vivo.
+A Media Services v3 está anunciando a pré-visualização de 24 horas x 365 dias de codificação linear ao vivo de eventos ao vivo.
 
 ###  <a name="media-services-v2"></a>Serviços de Mídia v2  
 
-#### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
+#### <a name="deprecation-of-media-processors"></a>Depreciação de processadores de mídia
 
-Estamos anunciando a substituição da *Azure Media indexer* e da versão *prévia do Azure Media indexer 2*. Para as datas de desativação, consulte o tópico [componentes herdados](../previous/legacy-components.md) . Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
+Estamos anunciando a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o tópico [componentes legados.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia legados.
 
-Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](../previous/migrate-indexer-v1-v2.md).
+Para obter mais informações, consulte [Migrate do Azure Media Indexer e do Azure Media Indexer 2 para o Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Agosto de 2019
 
 ###  <a name="media-services-v3"></a>Serviços de Mídia v3  
 
-#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>O par regional da África do Sul está aberto para os serviços de mídia 
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Par regional da África do Sul está aberto para serviços de mídia 
 
-Os serviços de mídia agora estão disponíveis na África do Sul e nas regiões do oeste da África do Sul.
+Os Serviços de Mídia estão agora disponíveis nas regiões Oeste da África do Sul e África do Sul.
 
-Para obter mais informações, consulte [nuvens e regiões nas quais os serviços de mídia v3 existem](azure-clouds-regions.md).
+Para obter mais informações, consulte [Nuvens e regiões nas quais existe o Media Services v3](azure-clouds-regions.md).
 
 ###  <a name="media-services-v2"></a>Serviços de Mídia v2  
 
-#### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
+#### <a name="deprecation-of-media-processors"></a>Depreciação de processadores de mídia
 
-Estamos anunciando a reprovação dos processadores de mídia do *Windows Azure Media Encoder* (WAME) e *do Azure Media Encoder* (ame), que estão sendo desativados. Para as datas de desativação, consulte este tópico de [componentes herdados](../previous/legacy-components.md) .
+Estamos anunciando a depreciação dos processadores de mídia *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), que estão sendo aposentados. Para as datas de aposentadoria, consulte este tópico [de componentes legados.](../previous/legacy-components.md)
 
-Para obter detalhes, consulte [migrar WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [migrar ame para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Para obter detalhes, consulte [Migrate WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
 ## <a name="july-2019"></a>Julho de 2019
 
 ### <a name="content-protection"></a>Proteção de conteúdo
 
-Ao transmitir conteúdo protegido com restrição de token, os usuários finais precisam obter um token que é enviado como parte da solicitação de entrega de chave. O recurso de *prevenção de reprodução de token* permite que os clientes dos serviços de mídia definam um limite de quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [prevenção de reprodução de token](content-protection-overview.md#token-replay-prevention).
+Ao transmitir conteúdo protegido com restrição de token, os usuários finais precisam obter um token enviado como parte da solicitação de entrega chave. O recurso *Token Replay Prevention* permite que os clientes do Media Services definam um limite de quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
 
-A partir de julho, o recurso de visualização só estava disponível em Centro dos EUA e centro-oeste dos EUA.
+A partir de julho, o recurso de pré-visualização estava disponível apenas no Centro Central e no Centro Oeste dos EUA.
 
 ## <a name="june-2019"></a>Junho de 2019
 
-### <a name="video-subclipping"></a>Subcorte de vídeo
+### <a name="video-subclipping"></a>Subclipping de vídeo
 
-Agora você pode cortar ou subcortar um vídeo ao codificá-lo usando um [trabalho](https://docs.microsoft.com/rest/api/media/jobs). 
+Agora você pode cortar ou subclipar um vídeo ao codificar usando um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs). 
 
-Essa funcionalidade funciona com qualquer [transformação](https://docs.microsoft.com/rest/api/media/transforms) criada usando as predefinições [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições de [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) . 
+Essa funcionalidade funciona com qualquer [Transformação](https://docs.microsoft.com/rest/api/media/transforms) que seja construída usando as predefinições [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou as predefinições [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 
 
 Veja exemplos:
 
-* [Subclipe um vídeo com o .NET](subclip-video-dotnet-howto.md)
+* [Subclipe um vídeo com .NET](subclip-video-dotnet-howto.md)
 * [Subclipe um vídeo com REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Maio de 2019
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Suporte Azure Monitor para métricas e logs de diagnóstico dos serviços de mídia
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Suporte ao Monitor do Azure para registros e métricas de diagnóstico do Media Services
 
-Agora você pode usar Azure Monitor para exibir dados de telemetria emitidos pelos serviços de mídia.
+Agora você pode usar o Azure Monitor para visualizar dados de telemetria emitidos pelos Serviços de Mídia.
 
-* Use os logs de diagnóstico Azure Monitor para monitorar solicitações enviadas pelo ponto de extremidade de entrega de chave dos serviços de mídia. 
-* Monitore as métricas emitidas pelos [pontos de extremidade de streaming](streaming-endpoint-concept.md)dos serviços de mídia.   
+* Use os registros de diagnóstico do Azure Monitor para monitorar as solicitações enviadas pelo ponto final do Media Services Key Delivery. 
+* Monitore as métricas emitidas pelos pontos [finais de streaming](streaming-endpoint-concept.md)dos serviços de mídia .   
 
-Para obter detalhes, consulte [monitorar as métricas dos serviços de mídia e os logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
+Para obter detalhes, consulte [as métricas do Monitor Media Services e os registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Suporte a faixas de vários áudio no empacotamento dinâmico 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Suporte a várias faixas de áudio em Embalagens Dinâmicas 
 
-Ao transmitir ativos que têm várias faixas de áudio com vários codecs e linguagens, o [empacotamento dinâmico](dynamic-packaging-overview.md) agora dá suporte a faixas de vários áudio para a saída HLS (versão 4 ou superior).
+Ao transmitir ativos que possuem várias faixas de áudio com vários codecs e idiomas, [o Dynamic Packaging](dynamic-packaging-overview.md) agora suporta várias faixas de áudio para a saída HLS (versão 4 ou superior).
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>O par regional da Coreia está aberto para os serviços de mídia 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Par regional da Coreia está aberto para serviços de mídia 
 
-Os serviços de mídia agora estão disponíveis nas regiões da Coreia central e da Coreia do Sul. 
+Os Serviços de Mídia estão agora disponíveis nas regiões sul da Coreia central e da Coreia. 
 
-Para obter mais informações, consulte [nuvens e regiões nas quais os serviços de mídia v3 existem](azure-clouds-regions.md).
+Para obter mais informações, consulte [Nuvens e regiões nas quais existe o Media Services v3](azure-clouds-regions.md).
 
 ### <a name="performance-improvements"></a>Melhorias de desempenho
 
-Atualizações adicionadas que incluem melhorias de desempenho dos serviços de mídia.
+Atualizações adicionadas que incluem melhorias de desempenho dos Serviços de Mídia.
 
-* O tamanho máximo de arquivo com suporte para processamento foi atualizado. Confira, [cotas e limitações](limits-quotas-constraints.md).
-* A [codificação acelera as melhorias](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* O tamanho máximo do arquivo suportado para processamento foi atualizado. Veja, [Cotas e limitações.](limits-quotas-constraints.md)
+* [A codificação acelera melhorias](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>Abril de 2019
 
 ### <a name="new-presets"></a>Novas predefinições
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador interno.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições do codificador interno. Para obter mais informações, consulte [codificação com reconhecimento de conteúdo](content-aware-encoding.md). 
+* [O FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado às predefinições do analisador incorporado.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado às predefinições do codificador incorporado. Para obter mais informações, consulte [codificação com reconhecimento de conteúdo](content-aware-encoding.md). 
 
 ## <a name="march-2019"></a>Março de 2019
 
-O empacotamento dinâmico agora dá suporte a Dolby Atmos. Para obter mais informações, consulte [codecs de áudio com suporte pelo empacotamento dinâmico](dynamic-packaging-overview.md#audio-codecs).
+A Dynamic Packaging agora suporta Dolby Atmos. Para obter mais informações, consulte [codecs de áudio suportados por embalagens dinâmicas](dynamic-packaging-overview.md#audio-codecs).
 
-Agora você pode especificar uma lista de ativos ou filtros de conta, que se aplicariam ao seu localizador de streaming. Para obter mais informações, consulte [associar filtros ao localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator).
+Agora você pode especificar uma lista de filtros de ativos ou contas, que se aplicariam ao seu Localizador de Streaming. Para obter mais informações, consulte [Associar filtros com localizador de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Fevereiro de 2019
 
-O Media Services V3 agora tem suporte nas nuvens nacionais do Azure. Nem todos os recursos estão disponíveis em todas as nuvens. Para obter mais detalhes, confira [Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem](azure-clouds-regions.md).
+O Media Services v3 agora é suportado nas nuvens nacionais do Azure. Nem todos os recursos estão disponíveis em todas as nuvens. Para obter mais detalhes, confira [Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem](azure-clouds-regions.md).
 
 O evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) foi adicionado aos esquemas da Grade de Eventos do Azure para Serviços de Mídia.
 
@@ -341,7 +341,7 @@ Se você criou Ativos ou Filtros de Conta entre 09/28 e 10/12 com CLI ou APIs do
 
 ### <a name="net-sdk"></a>SDK .NET
 
-Os seguintes recursos estão presentes no SDK do .NET:
+As seguintes características estão presentes no .NET SDK:
 
 * **Transformações** e **Trabalhos** para codificar ou analisar o conteúdo de mídia. Para obter exemplos, consulte [Transmitir arquivos por stream](stream-files-tutorial-with-api.md) e [Analisar](analyze-videos-tutorial-with-api.md).
 * **Localizadores de streaming** para publicar e transmitir conteúdo aos dispositivos do usuário final
@@ -358,7 +358,7 @@ Os seguintes recursos estão presentes no SDK do .NET:
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral](media-services-overview.md)
-- [Notas de versão do Media Services v2](../previous/media-services-release-notes.md)
+- [Notas de versão v2 do Media Services v2](../previous/media-services-release-notes.md)

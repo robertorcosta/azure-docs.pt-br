@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre problemas de disponibilidade de aplicativos e serviços
+title: Problemas de disponibilidade de aplicativos e serviços FAQ
 titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre o aplicativo e a disponibilidade do serviço para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386911"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Perguntas frequentes sobre problemas de aplicativo e disponibilidade de serviço para Serviços de Nuvem do Azure
@@ -29,7 +29,7 @@ Este artigo inclui as perguntas frequentes sobre problemas de aplicativo e dispo
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>A minha função foi reciclada. Alguma atualização foi distribuída para meu serviço de nuvem?
-Aproximadamente uma vez por mês, a Microsoft libera uma nova versão do SO Convidado para VMs de PaaS do Microsoft Azure. O SO convidado é apenas uma dessas atualizações no pipeline. Uma versão pode ser afetada por vários outros fatores. Além disso, o Azure é executado em centenas de milhares de computadores. Portanto, é impossível prever a data e hora exatas em que suas funções serão reinicializadas. Podemos atualizar o RSS Feed de Atualização do SO Convidado com as informações mais recentes que temos, mas você deve considerar o horário relatado como um valor aproximado. Estamos cientes de que isso causa problemas para os clientes e estamos trabalhando em um plano limitar ou programar as reinicializações com mais precisão.
+Aproximadamente uma vez por mês, a Microsoft libera uma nova versão do SO Convidado para VMs de PaaS do Microsoft Azure.O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por vários outros fatores. Além disso, o Azure é executado em centenas de milhares de computadores. Portanto, é impossível prever a data e hora exatas em que suas funções serão reinicializadas. Podemos atualizar o RSS Feed de Atualização do SO Convidado com as informações mais recentes que temos, mas você deve considerar o horário relatado como um valor aproximado. Estamos cientes de que isso causa problemas para os clientes e estamos trabalhando em um plano limitar ou programar as reinicializações com mais precisão.
 
 Para obter detalhes completos sobre atualizações recentes do SO Convidado, consulte [Versões do SO Convidado do Azure e matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
@@ -46,4 +46,4 @@ Os documentos a seguir ajudarão você a entender e atenuar esse problema:
 
 Se você quiser alterar o comportamento padrão do IIS, precisará usar as tarefas de inicialização, porque se você aplicar as alterações manualmente às instâncias de Função Web, as alterações acabarão sendo perdidas.
 
-Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço de nuvem](cloud-services-startup-tasks.md).
+Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço em nuvem.](cloud-services-startup-tasks.md)
