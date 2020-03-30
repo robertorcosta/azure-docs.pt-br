@@ -16,17 +16,17 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0ac06fc3018b4230cbf32712067c48400599082
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058256"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar GoToMeeting para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no GoToMeeting e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o GoToMeeting.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -73,11 +73,11 @@ Esta seção orienta você quanto à conexão do Azure AD com a API de provision
 
     b. Na caixa de texto **Senha do Administrador do GoToMeeting**, digite a senha do administrador.
 
-1. No portal do Azure, clique em **Testar conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo GoToMeeting. Se a conexão falhar, verifique se a sua conta do GoToMeeting tem permissões de Administrador de Equipe e repita a etapa **"Credenciais de Administrador"** .
+1. No portal do Azure, clique em **Testar conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo GoToMeeting. Se a conexão falhar, verifique se a sua conta do GoToMeeting tem permissões de Administrador de Equipe e repita a etapa **"Credenciais de Administrador"**.
 
 1. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
-1. Clique em **Salvar.**
+1. Clique **em Salvar.**
 
 1. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o GoToMeeting.**
 
@@ -85,7 +85,7 @@ Esta seção orienta você quanto à conexão do Azure AD com a API de provision
 
 1. Para habilitar o serviço de provisionamento do Azure AD para o GoToMeeting, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
-1. Clique em **Salvar.**
+1. Clique **em Salvar.**
 
 Isso iniciará a sincronização inicial dos usuários e/ou grupos atribuídos ao GoToMeeting na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes da Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo GoToMeeting.
 
@@ -93,8 +93,8 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar Logon Único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](tutorial-list.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configurar o único sinal de inscrição](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

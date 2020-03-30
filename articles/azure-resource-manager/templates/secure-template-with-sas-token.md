@@ -1,24 +1,24 @@
 ---
-title: Implantar o modelo com segurança com o token SAS
-description: Implante recursos no Azure com um modelo de Azure Resource Manager que é protegido por um token SAS. Mostra Azure PowerShell e CLI do Azure.
+title: Implantar com segurança o modelo com token SAS
+description: Implante recursos no Azure com um modelo do Azure Resource Manager protegido por um token SAS. Mostra Azure PowerShell e Azure CLI.
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d30e685c35f33b6fc5d3872b9287e45190ad5713
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273703"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156388"
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token"></a>Implantar modelo privado do Resource Manager com o token SAS
+# <a name="deploy-private-arm-template-with-sas-token"></a>Implantar modelo ARM privado com token SAS
 
-Quando o modelo está localizado em uma conta de armazenamento, você pode restringir o acesso ao modelo para evitar expô-lo publicamente. Você acessa um modelo protegido criando um token de SAS (assinatura de acesso compartilhado) para o modelo e fornecendo esse token durante a implantação. Este artigo explica como usar Azure PowerShell ou CLI do Azure para implantar um modelo com um token SAS.
+Quando o modelo ARM (Azure Resource Manager) está localizado em uma conta de armazenamento, você pode restringir o acesso ao modelo para evitar expô-lo publicamente. Você acessa um modelo protegido criando um token sas (assinatura de acesso compartilhado) para o modelo e fornecendo esse token durante a implantação. Este artigo explica como usar o Azure PowerShell ou o Azure CLI para implantar um modelo com um token SAS.
 
 ## <a name="create-storage-account-with-secured-container"></a>Criar conta de armazenamento com contêiner protegido
 
-O script a seguir cria uma conta de armazenamento e um contêiner com acesso público desativado.
+O script a seguir cria uma conta de armazenamento e um contêiner com acesso público desligado.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -37,7 +37,7 @@ New-AzStorageContainer `
   -Permission Off
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create \
@@ -61,11 +61,11 @@ az storage container create \
 
 ---
 
-## <a name="upload-template-to-storage-account"></a>Carregar modelo para conta de armazenamento
+## <a name="upload-template-to-storage-account"></a>Enviar modelo para a conta de armazenamento
 
-Agora, você está pronto para carregar seu modelo na conta de armazenamento. Forneça o caminho para o modelo que você deseja usar.
+Agora, você está pronto para carregar seu modelo para a conta de armazenamento. Forneça o caminho para o modelo que deseja usar.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzStorageBlobContent `
@@ -73,7 +73,7 @@ Set-AzStorageBlobContent `
   -File c:\Templates\azuredeploy.json
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az storage blob upload \
@@ -90,10 +90,10 @@ az storage blob upload \
 Para implantar um modelo privado em uma conta de armazenamento, gere um token SAS e inclua-o no URI para o modelo. Defina a hora de vencimento de forma a permitir que haja tempo suficiente para concluir a implantação.
 
 > [!IMPORTANT]
-> O blob que contém o modelo é acessível apenas ao proprietário da conta. No entanto, quando você cria um token SAS para o blob, o blob fica acessível para qualquer pessoa com o URI. Se outro usuário interceptar o URI, esse usuário será capaz de acessar o modelo. Um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas você não deve incluir dados confidenciais como senhas diretamente no modelo.
+> A bolha que contém o modelo é acessível apenas ao proprietário da conta. No entanto, quando você cria um token SAS para o blob, o blob fica acessível para qualquer pessoa com o URI. Se outro usuário interceptar o URI, esse usuário será capaz de acessar o modelo. Um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas você não deve incluir dados confidenciais como senhas diretamente no modelo.
 >
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 # get the URI with the SAS token
@@ -109,7 +109,7 @@ New-AzResourceGroupDeployment `
   -TemplateUri $templateuri
 ```
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -129,7 +129,7 @@ url=$(az storage blob url \
     --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```
@@ -140,5 +140,5 @@ Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução à implantação de modelos, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](deploy-powershell.md).
+* Para obter uma introdução à implantação de modelos, consulte [Implantar recursos com modelos ARM e PowerShell do Azure](deploy-powershell.md).
 * Para definir os parâmetros no modelo, consulte [Criando modelos](template-syntax.md#parameters).

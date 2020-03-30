@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b9b536def2aa7da25fef9f3baa5efdd8b0ed6f7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066640"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o Armazenamento de Arquivos do Azure em VMs Linux usando SMB
 
@@ -22,22 +22,22 @@ O armazenamento de arquivos oferece compartilhamentos de arquivos na nuvem que u
 
 Mover arquivos de uma VM para uma montagem SMB hospedada no Armazenamento de arquivos é uma ótima maneira de depurar logs. O mesmo compartilhamento SMB pode ser montado localmente em sua estação de trabalho Mac, Linux ou Windows. O SMB não é a melhor solução para transmitir logs do Linux ou de aplicativo em tempo real, pois o protocolo SMB não foi desenvolvido para lidar com tarefas de log tão grandes. Uma ferramenta de camada de log unificada dedicada, como o Fluentd, poderá ser uma escolha melhor em relação ao SMB para coletar a saída de log do Linux e de aplicativo.
 
-Este guia exige que você esteja executando a CLI do Azure versão 2.0.4 ou posterior. Execute **az --version** para descobrir a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Este guia exige que você esteja executando a CLI do Azure versão 2.0.4 ou posterior. Execute **az --version** para descobrir a versão. Caso precise instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Criar um grupo de recursos denominado *myResourceGroup* no local *Leste dos EUA*.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma nova conta de armazenamento no grupo de recursos que você criou ao utilizar o [az storage account create](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento denominada *mySTORAGEACCT\<número aleatório >* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes de conta de armazenamento devem ser exclusivo e, portanto, use `$RANDOM` para acrescentar um número ao final e torná-lo exclusivo.
+Crie uma nova conta de armazenamento no grupo de recursos que você criou ao utilizar o [az storage account create](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento chamada *mySTORAGEACCT\<número aleatório>* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes de conta de armazenamento devem ser exclusivo e, portanto, use `$RANDOM` para acrescentar um número ao final e torná-lo exclusivo.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -52,7 +52,7 @@ Ao criar uma conta de armazenamento, as chaves da conta são criadas em pares, p
 
 Exibir as chaves da conta de armazenamento, usando [az storage account keys list](/cli/azure/storage/account/keys). Este exemplo armazena o valor da chave 1 na variável **STORAGEKEY**.
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -67,7 +67,7 @@ Os nomes de compartilhamento precisam ter somente letras em minúsculas, número
 
 Este exemplo cria um compartilhamento chamado *myshare* com uma cota de 10-GiB. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -103,11 +103,12 @@ Ao reinicializar a VM Linux, o compartilhamento SMB montado é desmontado durant
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 Para aumentar a segurança em ambientes de produção, você deve armazenar suas credenciais fora fstab.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Uso de cloud-init para personalizar uma VM do Linux durante a criação](using-cloud-init.md)
+- [Usando cloud-init para personalizar um VM Linux durante a criação](using-cloud-init.md)
 - [Adicionar um disco a uma VM do Linux](add-disk.md)
-- [Azure Disk Encryption para VMs Linux](disk-encryption-overview.md)
+- [Criptografia de disco azure para VMs Linux](disk-encryption-overview.md)
 

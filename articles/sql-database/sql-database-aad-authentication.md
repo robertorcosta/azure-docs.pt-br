@@ -11,16 +11,16 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: bc779df06d92d2483755ae888fda121b8e493a18
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ef20c5b8babdf378b88997ae2fd7b98350c31319
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79269153"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124920"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Use a Autenticação do Azure Active Directory para autenticar com SQL
 
-A autenticação do Microsoft Azure Active Directory é um mecanismo de conexão com o [SQL Database](sql-database-technical-overview.md), [Instância Gerenciada](sql-database-managed-instance.md), e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD (Azure AD). 
+A autenticação do Microsoft Azure Active Directory é um mecanismo de conexão com o [SQL Database](sql-database-technical-overview.md), [Instância Gerenciada](sql-database-managed-instance.md), e [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD (Azure AD). 
 
 > [!NOTE]
 > Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
@@ -147,7 +147,7 @@ Os métodos de autenticação a seguir têm suporte para as entidades de seguran
 
 - Para saber como criar e popular o Azure AD e, em seguida, configurar o Azure AD com o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure, consulte [Configurar e gerenciar a autenticação do Azure Active Directory com o Banco de Dados SQL, a Instância Gerenciada ou o SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 - Para ver um tutorial de como usar as entidades de segurança do servidor do Azure AD (logons) com Instâncias Gerenciadas, confira [Entidades de segurança do servidor do Azure AD (logons) com Instâncias Gerenciadas](sql-database-managed-instance-aad-security-tutorial.md)
-- Para obter uma visão geral de logons, usuários, funções de banco de dados e permissões no banco de dados SQL, consulte [logons, usuários, funções de banco de dados e permissões](sql-database-manage-logins.md).
+- Para obter uma visão geral dos logins, usuários, funções de banco de dados e permissões no Banco de Dados SQL, consulte [Logins, usuários, funções de banco](sql-database-manage-logins.md)de dados e permissões .
 - Para obter mais informações sobre objetos de banco de dados, confira [Entidades](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx).
 - Para ver a sintaxe de criação das entidades de segurança do servidor do Azure AD (logons) para Instâncias Gerenciadas, confira [CRIAR LOGON](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).

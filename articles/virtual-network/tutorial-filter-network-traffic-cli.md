@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a1ade6e823201419c3a742a36c66a50a9dc09976
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728809"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235071"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o CLI do Azure
 
-É possível filtrar o tráfego para entrada e saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Grupos de segurança de rede contêm regras de segurança que filtram o tráfego por endereço IP, porta e protocolo. As regras de segurança são aplicadas aos recursos implantados em uma sub-rede. Neste artigo, você aprenderá a:
+É possível filtrar o tráfego para entrada e saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Grupos de segurança de rede contêm regras de segurança que filtram o tráfego por endereço IP, porta e protocolo. As regras de segurança são aplicadas aos recursos implantados em uma sub-rede. Neste artigo, você aprenderá como:
 
 * Criar um grupo de segurança de rede e regras de segurança
 * Criar uma rede virtual e associar um grupo de segurança de rede a uma sub-rede
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Caso opte por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Caso opte por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
@@ -164,7 +164,7 @@ az vm create \
 
 A VM demora alguns minutos para criar. Depois que a VM é criada, é retornada uma saída semelhante ao exemplo a seguir: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmWeb",
@@ -196,7 +196,7 @@ A VM demora alguns minutos para criar. Depois que a VM é criada, anote o **publ
 
 ## <a name="test-traffic-filters"></a>Testar filtros de tráfego
 
-Use o comando a seguir para criar uma sessão SSH com a VM *myVmMgmt*. Substitua  *\<publicIpAddress >* com o endereço IP público da VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Use o comando a seguir para criar uma sessão SSH com a VM *myVmMgmt*. Substitua * \<publicIpAddress>* pelo endereço IP público da VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -230,13 +230,13 @@ A VM *myVmWeb* tem permissão de saída para a Internet para recuperar nginx, po
 curl myVmWeb
 ```
 
-Faça logoff da VM *myVmMgmt*. Para confirmar que você pode acessar o servidor da Web *myVmWeb* de fora do Azure, digite `curl <publicIpAddress>` de seu próprio computador. É uma conexão com êxito porque a porta 80 tem permissão de entrada da Internet para o grupo de segurança de aplicativo *myAsgWebServers* em que o adaptador de rede conectado à VM *myVmWeb* está.
+Faça logoff da VM *myVmMgmt*. Para confirmar que você pode acessar o servidor da Web *myVmWeb* de fora do Azure, digite `curl <publicIpAddress>` de seu próprio computador. A conexão é bem-sucedida, porque a porta 80 é permitida a entrada da Internet para o grupo de segurança do aplicativo myAsgWebServers no grupo de segurança do aplicativo *myAsgWebServers* que a interface de rede anexada ao *vm myVmWeb* está dentro.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

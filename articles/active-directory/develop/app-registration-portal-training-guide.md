@@ -1,127 +1,127 @@
 ---
 title: Nova experiência de registro de aplicativo do portal do Azure
 titleSuffix: Microsoft identity platform
-description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
+description: Uma introdução à nova experiência de registro de App no portal Azure
 services: active-directory
-author: archieag
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/8/2019
-ms.author: aragra
+ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 835924c92d0c5768c1125b3b1d26ee72cf2cec70
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154586"
 ---
-# <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registro de aplicativo portal do Azure
+# <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registro de aplicativos do portal Azure
 
-Há muitas melhorias na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver mais familiarizado com a experiência do apps.dev.microsoft.com (portal de registro de aplicativos) para registrar ou gerenciar aplicativos convergidos, chamados de experiência antiga, este guia de treinamento o ajudará a começar a usar a nova experiência.
+Há muitas melhorias na experiência de registro do novo [App](https://go.microsoft.com/fwlink/?linkid=2083908) no portal Azure. Se você estiver mais familiarizado com a experiência do portal de inscrição (apps.dev.microsoft.com) para se cadastrar ou gerenciar aplicativos convergentes, referido como a experiência antiga, este guia de treinamento fará com que você comece a usar a nova experiência.
 
 ## <a name="whats-not-changing"></a>O que não está mudando?
 
-- Seus aplicativos e configurações relacionadas podem ser encontrados no estado em que se encontram na nova experiência. Você não precisa registrar os aplicativos novamente e os usuários de seus aplicativos não precisarão entrar novamente.
+- Seus aplicativos e configurações relacionadas podem ser encontrados como está na nova experiência. Você não precisa registrar os aplicativos novamente e os usuários de seus aplicativos não precisarão fazer login novamente.
 
     > [!NOTE]
-    > Você deve entrar com a conta usada para registrar aplicativos para encontrá-los no portal do Azure. Recomendamos que você verifique o usuário conectado na portal do Azure corresponde ao usuário que entrou no portal de registro de aplicativo, comparando o endereço de email do seu perfil.
-    > 
-    > Em alguns casos, especialmente quando você entra usando contas pessoais da Microsoft (por exemplo, Outlook, Live, Xbox etc.) com um endereço de email do Azure AD, descobrimos que, quando você acessa o portal do Azure da experiência antiga, ele entra em uma conta diferente com a mesma email em seu locatário do Azure AD. Se você ainda acredita que seus aplicativos estão ausentes, saia e entre com a conta certa.
+    > Você deve fazer login com a conta que usou para registrar aplicativos para encontrá-los no portal Azure. Recomendamos que você verifique o usuário inscrito no portal Azure corresponde ao usuário que foi conectado ao portal de registro do Aplicativo, comparando o endereço de e-mail do seu perfil.
+    >
+    > Em alguns casos, especialmente quando você faz login usando contas pessoais da Microsoft (por exemplo, Outlook, Live, Xbox, etc.) com um endereço de e-mail AD do Azure, descobrimos que quando você vai para o portal Azure a partir da experiência antiga, ele o inscreve em uma conta diferente com o mesmo e-mail em seu inquilino Azure AD. Se você ainda acredita que seus aplicativos estão faltando, faça login e faça login com a conta certa.
 
-- Os aplicativos do Live SDK criados com contas pessoais da Microsoft ainda não têm suporte no portal do Azure e continuarão a permanecer na experiência antiga em um futuro próximo.
+- Os aplicativos SDK ao vivo criados usando contas pessoais da Microsoft ainda não são suportados no portal Azure e continuarão a permanecer na experiência antiga em um futuro próximo.
 
-## <a name="key-changes"></a>Principais alterações
+## <a name="key-changes"></a>Principais mudanças
 
--   Na experiência antiga, os aplicativos eram, por padrão, registrados como aplicativos convergidos que dão suporte a todas as contas organizacionais (multilocatário), bem como a contas pessoais da Microsoft. Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (multilocatário ou locatário único).
-    A nova experiência permite que você registre aplicativos que dão suporte a todas essas opções. [Saiba mais sobre os tipos de aplicativos](active-directory-v2-registration-portal.md).
+-   Na experiência antiga, os aplicativos eram registrados por padrão como aplicativos convergentes que suportavam todas as contas organizacionais (multilocatários) bem como contas pessoais da Microsoft. Isso não poderia ser modificado através da experiência antiga, dificultando a criação de aplicativos que suportassem apenas contas organizacionais (multilocatários ou únicas).
+    A nova experiência permite que você registre aplicativos que suportam todas essas opções. [Saiba mais sobre os tipos de aplicativos](active-directory-v2-registration-portal.md).
 
--   Na nova experiência, se sua conta Microsoft pessoal também estiver em um locatário do Azure AD, você verá três guias – todos os aplicativos no locatário, aplicativos de propriedade no locatário, bem como aplicativos de sua conta pessoal. Portanto, se você acreditar que os aplicativos registrados em seus conta Microsoft pessoais estão ausentes, verifique os **aplicativos na guia conta pessoal** .
+-   Na nova experiência, se sua conta pessoal da Microsoft também estiver em um inquilino Azure AD, você verá três guias - todos os aplicativos no inquilino, aplicativos próprios no inquilino, bem como aplicativos de sua conta pessoal. Então, se você acredita que os aplicativos registrados com sua conta pessoal da Microsoft estão faltando, verifique os aplicativos da sua conta **pessoal.**
 
--   Na nova experiência, você pode alternar facilmente entre locatários navegando até seu perfil e escolhendo alternar diretório.
+-   Na nova experiência, você pode facilmente alternar entre inquilinos navegando para o seu perfil e escolhendo o diretório de switch.
 
 ## <a name="list-of-applications"></a>Lista de aplicativos
 
--   A nova lista de aplicativo mostra os aplicativos que foram registrados por meio da experiência de registros do aplicativo herdado no portal do Azure (aplicativos que entram somente em contas do Azure AD), bem como aplicativos registrados no [portal de registro do aplicativo](https://apps.dev.microsoft.com/) (aplicativos que se conectam às contas do Azure AD e pessoal da Microsoft).
+-   A nova lista de aplicativos mostra aplicativos que foram registrados através da experiência de registros de aplicativos legados no portal Azure (aplicativos que assinam apenas em contas AD do Azure) bem como aplicativos cadastrados no [portal de registro](https://apps.dev.microsoft.com/) de aplicativos (aplicativos que assinam tanto no Azure AD quanto em contas pessoais da Microsoft).
 
--   A nova lista de aplicativos tem duas colunas adicionais: **criado em** coluna e **certificados & coluna segredos** que mostra o status (atual, expirando em breve ou expirado) de credenciais que foram registradas no aplicativo.
+-   A nova lista de aplicativos tem duas colunas adicionais: **Criada na** coluna e **Certificados &** coluna segredos que mostra o status (atual, expirando em breve ou expirado) das credenciais que foram registradas no aplicativo.
 
 ## <a name="new-app-registration"></a>Registro de novo aplicativo
 
-Na antiga experiência, para registrar um aplicativo convergido, você só precisa fornecer um nome. Os aplicativos que foram criados foram registrados como aplicativos convergidos que dão suporte a todos os diretórios organizacionais (multilocatário), bem como a contas pessoais da Microsoft.  Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (multilocatário ou locatário único). [Saiba mais sobre os tipos de conta com suporte](v2-supported-account-types.md)
+Na experiência antiga, para registrar um aplicativo convergente você só era obrigado a fornecer um Nome. Os aplicativos criados foram registrados como aplicativos convergentes que suportam todos os diretórios organizacionais (multilocatários) bem como contas pessoais da Microsoft.  Isso não poderia ser modificado através da experiência antiga, dificultando a criação de aplicativos que suportassem apenas contas organizacionais (multilocatários ou únicas). [Saiba mais sobre os tipos de conta suportadas](v2-supported-account-types.md)
 
-Na nova experiência, você deve fornecer um nome para o aplicativo e escolher os tipos de conta com suporte. Opcionalmente, você pode fornecer um URI de redirecionamento.
-Se você fornecer um URI de redirecionamento, será necessário especificar se ele é Web/público (nativo/móvel e área de trabalho). Para obter mais informações sobre como registrar um aplicativo usando a nova experiência de registros de aplicativo, consulte este guia de [início rápido](quickstart-register-app.md).
+Na nova experiência, você deve fornecer um Nome para o aplicativo e escolher os tipos de conta suportadas. Você pode fornecer opcionalmente um URI de redirecionamento.
+Se você fornecer um URI redirecionado, você precisará especificar se ele é web/público (nativo/móvel e desktop). Para obter mais informações sobre como registrar um aplicativo usando a experiência de registro de novos aplicativos, consulte [este quickstart](quickstart-register-app.md).
 
-## <a name="app-management-page"></a>Página de gerenciamento de aplicativo
+## <a name="app-management-page"></a>Página de gerenciamento de aplicativos
 
-A antiga experiência tinha uma única página de gerenciamento de aplicativo para aplicativos convergidos com as seguintes seções: Propriedades, segredos do aplicativo, plataformas, proprietários, Microsoft Graph permissões, perfil e opções avançadas.
+A experiência antiga tinha uma única página de gerenciamento de aplicativos para aplicativos convergentes com as seguintes seções: Propriedades, segredos de aplicativos, plataformas, proprietários, permissões de gráficos microsoft, perfil e opções avançadas.
 
-A nova experiência no portal do Azure representa esses recursos em páginas separadas. Aqui está onde você pode encontrar a funcionalidade equivalente:
+A nova experiência no portal Azure representa esses recursos em páginas separadas. Aqui é onde você pode encontrar a funcionalidade equivalente:
 
--   Propriedades-o nome e a ID do aplicativo estão na página Visão geral.
+-   Propriedades - O Nome e o ID do aplicativo estão na página Visão Geral.
 
--   Os segredos do aplicativo estão na página certificados & segredos
+-   Segredos de Inscrição está na página de segredos & Certificados
 
--   A configuração de plataformas está na página de autenticação
+-   A configuração das plataformas está na página Autenticação
 
--   Microsoft Graph permissões está na página permissões de API junto com outras permissões
+-   As permissões do Microsoft Graph estão na página de permissões da API, juntamente com outras permissões
 
--   O perfil está na página de identidade visual
+-   O perfil está na página branding
 
--   Opção avançada – o suporte ao Live SDK está na página de autenticação.
+-   Opção avançada - O suporte ao SDK ao vivo está na página autenticação.
 
-## <a name="application-secretscertificates--secrets"></a>Segredos/certificados do aplicativo & segredos
+## <a name="application-secretscertificates--secrets"></a>Segredos de aplicativos/Certificados & segredos
 
-Na nova experiência, os **segredos do aplicativo** foram renomeados para **certificados & segredos**. Além disso, **as chaves públicas** são conhecidas como **certificados** e **as senhas** são chamadas de **segredos do cliente**. Optamos por não trazer essa funcionalidade na nova experiência por motivos de segurança, portanto, você não pode mais gerar um novo par de chaves.
+Na nova experiência, os **segredos do aplicativo** foram renomeados para **Certificados & segredos**. Além disso, **as chaves públicas** são referidas como **Certificados** e **Senhas** são referidas como **segredos do Cliente**. Optamos por não trazer essa funcionalidade junto na nova experiência por razões de segurança, portanto, você não pode mais gerar um novo par de chaves.
 
-## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/autenticação: URLs de resposta/URIs de redirecionamento
-Na antiga experiência, uma seção aplicativo tinha plataformas para Web, nativa e API Web para configurar URLs de redirecionamento, URL de logout e fluxo implícito.
+## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/Autenticação: Responder URLs/uris de redirecionamento
+Na experiência antiga, um aplicativo tinha a seção Plataformas para Web, nativa e API da Web para configurar URLs de redirecionamento, URL de logout e fluxo implícito.
 
-Na nova experiência, as URLs de resposta podem ser encontradas em uma seção de autenticação do\'s de aplicativo. Além disso, eles são chamados de URIs de redirecionamento e o formato para URIs de redirecionamento foi alterado. Eles devem ser associados a um tipo de aplicativo (cliente Web ou público-celular e desktop). [Saiba mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Na nova experiência, urls de resposta\'podem ser encontrados em uma seção de Autenticação do aplicativo. Além disso, eles são chamados de URIs de redirecionamento e o formato para URIs de redirecionamento foi alterado. Eles são obrigados a estar associados a um tipo de aplicativo (web ou cliente público - móvel e desktop). [Saiba mais](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
-As APIs da Web são configuradas em expor uma página de API.
+As APIs da Web estão configuradas na página Expor uma API.
 
-> [!NOTE] 
-> Experimente a nova experiência de configurações de autenticação, na qual você pode definir configurações para seu aplicativo com base na plataforma ou no dispositivo que você deseja direcionar. [Saiba mais](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> [!NOTE]
+> Experimente a nova experiência de configurações de Autenticação, na qual você pode definir configurações para seu aplicativo com base na plataforma ou no dispositivo que você deseja ter como destino. [Saiba mais](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
-## <a name="microsoft-graph-permissionsapi-permissions"></a>Permissões de Microsoft Graph/permissões de API
+## <a name="microsoft-graph-permissionsapi-permissions"></a>Permissões/Permissões de API do Microsoft Graph
 
--   Ao selecionar uma API na experiência antiga, você pode escolher apenas Microsoft Graph APIs. Na nova experiência, você pode escolher entre muitas APIs da Microsoft, incluindo Microsoft Graph, APIs da sua organização e suas APIs, isso é apresentado em três guias: APIs da Microsoft, APIs que minha organização usa ou minhas APIs. A barra de pesquisa em APIs minha organização usa pesquisa de guias por meio de entidades de serviço no locatário.
-    
-    > [!NOTE] 
-    > Você não verá essa guia se seu aplicativo não estiver associado a um locatário. Para obter mais informações sobre como solicitar permissões usando a nova experiência, consulte [este guia de início rápido](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md).
+-   Ao selecionar uma API na experiência antiga, você pode escolher apenas entre as APIs do Microsoft Graph. Na nova experiência, você pode escolher entre muitas APIs da Microsoft, incluindo o Microsoft Graph, APIs da sua organização e suas APIs, isso é apresentado em três guias: APIs da Microsoft, APIs que minha organização usa ou Minhas APIs. A barra de pesquisa em APIs minha organização usa pesquisas de guias através de diretores de serviço no inquilino.
 
--   A antiga experiência não tinha um botão **conceder permissões** . Na nova experiência, há uma seção conceder consentimento com um botão **conceder consentimento do administrador** na seção permissões de API de um aplicativo. Somente um administrador pode conceder consentimento e esse botão é habilitado somente para administradores. Quando um administrador seleciona o botão **conceder consentimento do administrador** , o consentimento do administrador é concedido a todas as permissões solicitadas.
+    > [!NOTE]
+    > Você não verá esta guia se sua aplicação não estiver associada a um inquilino. Para obter mais informações sobre como solicitar permissões usando a nova experiência, consulte [este quickstart](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md).
+
+-   A experiência antiga não tinha um botão **de permissões Grant.** Na nova experiência, há uma seção de consentimento do Grant com um botão de consentimento de **admin Grant** na seção de permissões de API de um aplicativo. Apenas um admin pode conceder consentimento e este botão está habilitado apenas para admins. Quando um admin seleciona o botão de **consentimento do admin Grant,** o consentimento do admin é concedido a todas as permissões solicitadas.
 
 ## <a name="profile"></a>Perfil
-Na antiga experiência, o perfil tinha o logotipo, a URL da Home Page, a URL dos termos de serviço e a configuração da URL da política de privacidade. Na nova experiência, eles podem ser encontrados na página de identidade visual.
+Na experiência antiga, o Profile tinha logotipo, URL de página inicial, URL de Termos de Serviço e configuração de URL de Declaração de Privacidade. Na nova experiência, elas podem ser encontradas na página Branding.
 
 ## <a name="application-manifest"></a>Manifesto do aplicativo
-Na nova experiência, a página de manifesto permite que você edite e atualize os atributos do aplicativo. Para obter mais informações, veja [Manifesto do aplicativo](reference-app-manifest.md).
+Na nova experiência, a página Manifest permite editar e atualizar os atributos do aplicativo. Para obter mais informações, veja [Manifesto do aplicativo](reference-app-manifest.md).
 
-## <a name="new-ui"></a>Nova interface do usuário
-Há uma nova interface do usuário para propriedades que, anteriormente, só poderia ser definida usando o editor de manifesto ou a API, ou não existia.
+## <a name="new-ui"></a>Nova UI
+Há uma nova ui para propriedades que antes só podiam ser definidas usando o editor de manifesto ou a API, ou não existiam.
 
--   O oauth2AllowImplicitFlow (fluxo de concessão implícita) pode ser encontrado na página de autenticação. Ao contrário da experiência antiga, você pode habilitar tokens de acesso ou tokens de ID, ou ambos.
+-   O fluxo de concessão implícito (oauth2AllowImplicitFlow) pode ser encontrado na página Autenticação. Ao contrário da experiência antiga, você pode habilitar tokens de acesso ou tokens de ID, ou ambos.
 
--   Os escopos definidos por essa API (oauth2Permissions) e preAuthorizedApplications (aplicativos cliente autorizados) podem ser configurados por meio da página expor uma API. Para obter mais informações sobre como configurar um aplicativo para ser uma API da Web e expor permissões/escopos, consulte este guia de [início rápido](quickstart-configure-app-expose-web-apis.md).
+-   Os escopos definidos por esta API (oauth2Permissions) e aplicativos clienteautorizados (pré-AuthorizedApplications) podem ser configurados através da página Expor uma API. Para obter mais informações sobre como configurar um aplicativo para ser uma API web e expor permissões/escopos, consulte [este quickstart](quickstart-configure-app-expose-web-apis.md).
 
--   O domínio do Publicador (exibido aos usuários no [prompt de consentimento do aplicativo\'s](application-consent-experience.md)) pode ser encontrado na página da folha de identidade visual. Para obter mais informações sobre como configurar um domínio do Publicador, consulte [este "como](howto-configure-publisher-domain.md)".
+-   O domínio do publisher (que é exibido aos usuários no [prompt de consentimento do aplicativo)\'](application-consent-experience.md)pode ser encontrado na página da lâmina branding. Para obter mais informações sobre como configurar um domínio de editor, consulte [este como fazer](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Limitações
 
 A nova experiência tem as seguintes limitações:
 
--   A nova experiência ainda não oferece suporte a Registros de aplicativo para locatários Azure AD B2C.
+-   A nova experiência ainda não suporta registros de aplicativos para inquilinos Azure AD B2C.
 
--   A nova experiência ainda não dá suporte a aplicativos de SDK ao vivo criados com contas pessoais da Microsoft.
+-   A nova experiência ainda não suporta aplicativos Live SDK criados com contas pessoais da Microsoft.
 
--   Não há suporte para a alteração do valor de contas com suporte na interface do usuário. Você precisa usar o manifesto do aplicativo, a menos que\'alternar entre o locatário único do Azure AD e o multilocatário.
+-   A alteração do valor para contas suportadas não é suportada na ui. Você precisa usar o manifesto\'do aplicativo, a menos que você esteja alternando entre o Azure AD e o multi-inquilino.
 
    > [!NOTE]
-   > Se você for um usuário de conta Microsoft pessoal no locatário do Azure AD e o administrador do locatário tiver restringido o acesso ao portal do Azure, você poderá obter um acesso negado. No entanto, se você vir o atalho digitando Registros de aplicativo na barra de pesquisa ou fixando-o, você poderá acessar a nova experiência.
+   > Se você é um usuário pessoal da conta microsoft no inquilino Azure AD, e o administrador do inquilino tem acesso restrito ao portal Azure, você pode ter um acesso negado. No entanto, se você passar pelo atalho digitando registros de aplicativos na barra de pesquisa ou prendendo-o, você poderá acessar a nova experiência.

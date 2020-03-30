@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: b8acb50978c5932fe6e6838be86b65c12a0984ac
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058945"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Solucionar problemas de conectividade de SMTP de saída no Azure
@@ -30,15 +30,15 @@ Essa alteração no comportamento se aplica somente a novas assinaturas e novas 
 
 Usando esses serviços de entrega de email não é restrito no Azure, independentemente do tipo de assinatura.
 
-## <a name="enterprise-agreement"></a>Enterprise Agreement
+## <a name="enterprise-agreement"></a>Contrato Enterprise
 Para usuários do Enterprise Agreement do Azure, não há nenhuma alteração na capacidade técnica de enviar o email sem usar uma retransmissão autenticada. Usuários do Enterprise Agreement novos e existentes podem tentar a entrega de emails de saída das VMs do Azure diretamente aos provedores de email externo sem quaisquer restrições da plataforma do Azure. Embora não seja garantido que os provedores de email aceitarão o email de entrada de um determinado usuário, tentativas de entrega não serão bloqueadas pela plataforma do Azure para VMs dentro de assinaturas do Enterprise Agreement. Você precisará trabalhar diretamente com provedores de email para corrigir qualquer entrega de mensagens ou problemas de filtragem que envolvem provedores específicos de SPAM.
 
 ## <a name="pay-as-you-go"></a>Pré-paga
 Se você se criou a conta antes de 15 de novembro de 2017 pelas ofertas de assinatura Pagamento Conforme o Uso ou Microsoft Partner Network, não haverá alteração na responsabilidade técnica para tentar a entrega de emails de saída. Você continuará a ser capaz de testar a entrega de emails de saída das VMs do Azure dentro dessas assinaturas diretamente aos provedores de email externos sem quaisquer restrições da plataforma do Azure. Novamente, não é garantido que provedores de email aceitarão emails recebidos de um determinado usuário e os usuários terão que trabalhar diretamente com provedores de email para corrigir qualquer entrega de mensagens ou problemas de filtragem que envolvem provedores específicos de SPAM.
 
-Para assinaturas Pagamento Conforme o Uso ou Microsoft Partner Network criadas após 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o email que é enviado diretamente de VMs dentro dessas assinaturas. Se você quiser a capacidade de enviar email de máquinas virtuais do Azure diretamente para provedores de email externos (não usando uma retransmissão SMTP autenticada), você pode fazer uma solicitação para remover a restrição. As solicitações serão examinadas e aprovadas conforme os critérios da Microsoft e serão concedidas somente após a realização de verificações antifraude. Para fazer uma solicitação, abra um caso de suporte usando o seguinte tipo de problema: > A**conectividade**derede > virtual técnica**não pode enviar email (SMTP/porta 25).**  >  Certifique-se de adicionar detalhes sobre por que sua implantação tem que enviar emails diretamente aos provedores de email em vez de usar uma retransmissão autenticada.
+Para assinaturas Pagamento Conforme o Uso ou Microsoft Partner Network criadas após 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o email que é enviado diretamente de VMs dentro dessas assinaturas. Se você quiser a capacidade de enviar email de máquinas virtuais do Azure diretamente para provedores de email externos (não usando uma retransmissão SMTP autenticada), você pode fazer uma solicitação para remover a restrição. As solicitações serão examinadas e aprovadas conforme os critérios da Microsoft e serão concedidas somente após a realização de verificações antifraude. Para fazer uma solicitação, abra um caso de suporte usando o seguinte tipo de problema:**Conectividade** > **de rede** > virtual **técnica** > **não pode enviar e-mail (SMTP/Porta 25)**. Certifique-se de adicionar detalhes sobre por que sua implantação tem que enviar emails diretamente aos provedores de email em vez de usar uma retransmissão autenticada.
 
-Depois que uma assinatura pré-paga ou Microsoft Partner Network for isenta e as VMs tiverem sido ' interrompidas ' & ' iniciado ' da portal do Azure, todas as VMs dentro dessa assinatura serão isentas no futuro. A isenção só é aplicável à assinatura solicitada e só se aplica ao tráfego de máquina virtual roteado diretamente para a Internet. Não há suporte para o tráfego da porta 25 de roteamento por meio dos serviços de PaaS do Azure, como o [Firewall do Azure](https://azure.microsoft.com/services/azure-firewall/) .
+Depois que uma assinatura do Pay-As-You-Go ou da Microsoft Partner Network for isenta e as VMs tiverem sido 'paradas' & 'Started' do portal Azure, todas as VMs dentro dessa assinatura serão isentas daqui para frente. A isenção só é aplicável à assinatura solicitada e só se aplica ao tráfego da Máquina Virtual encaminhado diretamente para a internet. O tráfego da porta de roteamento 25 através de serviços do Azure PaaS, como [o Azure Firewall,](https://azure.microsoft.com/services/azure-firewall/) não tem suporte.
 
 > [!NOTE]
 > A Microsoft se reserva ao direito de revogar essa isenção se for determinado que ocorreu uma violação dos termos de serviço.
@@ -46,12 +46,12 @@ Depois que uma assinatura pré-paga ou Microsoft Partner Network for isenta e as
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, Azure Pass, Azure via Open, educação, BizSpark e avaliação gratuita
 Se você criou uma assinatura MSDN, Azure Pass, Azure in Open, Education, BizSpark, Azure Sponsorship, Azure Student, Avaliação gratuita ou qualquer Visual Studio depois de 15 de novembro de 2017, haverá restrições técnicas que bloqueiam o email enviado das VMs dentro dessas assinaturas diretamente para os provedores de email. As restrições são realizadas para evitar abusos. Nenhuma solicitação para remover essa restrição será concedida.
 
-Se você estiver usando esses tipos de assinatura, você será incentivado a usar os serviços de retransmissão de SMTP, conforme descrito anteriormente neste artigo ou alterar o tipo de assinatura.
+Se você estiver usando esses tipos de assinatura, você é encorajado a usar serviços de relé SMTP, como descrito anteriormente neste artigo ou alterar seu tipo de assinatura.
 
 ## <a name="cloud-service-provider-csp"></a>Provedor de Serviços de Nuvem (CSP)
 
-Se você estiver usando recursos do Azure por meio do CSP, poderá solicitar que o CSP crie uma solicitação de isenção de desbloqueio com a Microsoft em seu nome se uma retransmissão SMTP segura não puder ser usada.
+Se você estiver usando os recursos do Azure através do CSP, você pode solicitar ao CSP que crie uma solicitação de isenção de desbloqueio com a Microsoft em seu nome se um relé SMTP seguro não puder ser usado.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
-Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente usando o seguinte tipo de problema: **Gerenciamento de assinatura** Tipo de problema: **Solicitação para habilitar o fluxo de email da porta 25**.
+Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente usando o seguinte tipo de problema: Tipo de problema de gerenciamento de **assinaturas:** **Solicitação para ativar o fluxo de e-mail do Port 25**.

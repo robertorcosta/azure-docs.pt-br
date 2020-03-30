@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727206"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componentes e limites do sistema de informações do Azure
@@ -55,9 +55,9 @@ A equipe do sistema operacional fornece imagens, na forma de Discos Rígidos Vir
 
 Há três tipos de imagens do sistema operacional gerenciado por malha:
 
-- Host: Um sistema operacional personalizado executado nas VMs de host.
-- Nativo: Um sistema operacional nativo executado nos locatários (por exemplo, o Armazenamento do Azure). Esse sistema operacional não tem nenhum hipervisor.
-- Convidado: Um sistema operacional convidado executado nas VMs convidadas.
+- Host: um sistema operacional personalizado executado em VMs de host.
+- Nativo: um sistema operacional nativo executado em locatários (por exemplo, o Armazenamento do Azure). Esse sistema operacional não tem nenhum hipervisor.
+- Convidado: um sistema operacional convidado executado em VMs convidadas.
 
 Os sistemas operacionais gerenciados por FC de host e nativos são projetados para uso na nuvem e não são acessíveis publicamente.
 
@@ -84,19 +84,19 @@ As equipes de serviço são:
 - Engenharia de serviços de nuvem
 - ISSD: Segurança
 - Autenticação multifator
-- Banco de dados SQL
+- Banco de Dados SQL
 - Armazenamento
 
 ## <a name="types-of-users"></a>Tipos de usuários
 Funcionários (ou prestadores de serviço) da Microsoft são considerados usuários internos. Todos os outros são considerados usuários externos. Todos os usuários internos do Azure têm seus status de funcionário categorizados com um nível de confidencialidade que define o acesso aos dados do cliente (acesso ou sem acesso). Os privilégios de usuário para o Azure (permissão de autorização após a autenticação) são descritos na tabela a seguir:
 
-| Role | Interno ou externo | Nível de confidencialidade | Privilégios autorizados e funções executadas | Tipo de acesso
+| Função | Interno ou externo | Nível de confidencialidade | Privilégios autorizados e funções executadas | Tipo de acesso
 | --- | --- | --- | --- | --- |
-| Engenheiro do datacenter do Azure | Interno | Nenhum acesso aos dados do cliente | Gerenciar a segurança física das instalações. Conduzir patrulhas dentro e fora do datacenter e monitorar todos os pontos de entrada. Escoltar a entrada e saída do datacenter de determinadas pessoas sem liberação que prestam serviços gerais (por exemplo, alimentação ou limpeza) ou trabalho IT dentro do datacenter. Realizar monitoramento e manutenção de rotina de hardware de rede. Executar gerenciamento de incidente e trabalho de interrupção/reparo usando uma variedade de ferramentas. Realizar o monitoramento e a manutenção de rotina do hardware físico nos datacenters. Acesso ao ambiente sob demanda de proprietários de propriedade. Capaz de realizar investigações jurídicas, registrar em log relatórios de incidentes e exigir requisitos de política e treinamento de segurança obrigatórios. Propriedade operacional e manutenção de ferramentas de segurança críticas, como scanners e coleta de log. | Acesso persistente ao ambiente. |
-| Triagem de incidentes do Azure (engenheiros de resposta rápida) | Interno | Acesso aos dados do cliente | Gerenciar as comunicações entre o MCIO, o suporte e as equipes de engenharia. Realizar a triagem de incidentes de plataforma, problemas de implantação e solicitações de serviço. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
-| Engenheiros de implantação do Azure | Interno | Acesso aos dados do cliente | Implantar e atualizar os componentes da plataforma, software e alterações de configuração agendadas em suporte ao Azure. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
-| Suporte de interrupção de cliente do Azure (locatário) | Interno | Acesso aos dados do cliente | Depurar e diagnosticar falhas e interrupções de plataforma para locatários de computação individual e contas do Azure. Analisar falhas. Conduzir correções críticas para a plataforma ou o cliente e conduzir aprimoramentos técnicos em todo o suporte. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
-| Incidente e engenheiros de sites ativos do Azure (engenheiros de monitoramento) | Interno | Acesso aos dados do cliente | Diagnosticar e mitigar a integridade de plataforma usando ferramentas de diagnóstico. Conduzir correções para os drivers de volume da unidade, reparar itens resultantes de interrupções e ajudar em ações de restauração de interrupção. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
+| Engenheiro do datacenter do Azure | Interna | Nenhum acesso aos dados do cliente | Gerenciar a segurança física das instalações. Conduzir patrulhas dentro e fora do datacenter e monitorar todos os pontos de entrada. Escoltar a entrada e saída do datacenter de determinadas pessoas sem liberação que prestam serviços gerais (por exemplo, alimentação ou limpeza) ou trabalho IT dentro do datacenter. Realizar monitoramento e manutenção de rotina de hardware de rede. Executar gerenciamento de incidente e trabalho de interrupção/reparo usando uma variedade de ferramentas. Realizar o monitoramento e a manutenção de rotina do hardware físico nos datacenters. Acesso ao ambiente sob demanda de proprietários de propriedade. Capaz de realizar investigações jurídicas, registrar em log relatórios de incidentes e exigir requisitos de política e treinamento de segurança obrigatórios. Propriedade operacional e manutenção de ferramentas de segurança críticas, como scanners e coleta de log. | Acesso persistente ao ambiente. |
+| Triagem de incidentes do Azure (engenheiros de resposta rápida) | Interna | Acesso aos dados do cliente | Gerenciar as comunicações entre o MCIO, o suporte e as equipes de engenharia. Realizar a triagem de incidentes de plataforma, problemas de implantação e solicitações de serviço. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
+| Engenheiros de implantação do Azure | Interna | Acesso aos dados do cliente | Implantar e atualizar os componentes da plataforma, software e alterações de configuração agendadas em suporte ao Azure. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
+| Suporte de interrupção de cliente do Azure (locatário) | Interna | Acesso aos dados do cliente | Depurar e diagnosticar falhas e interrupções de plataforma para locatários de computação individual e contas do Azure. Analisar falhas. Conduzir correções críticas para a plataforma ou o cliente e conduzir aprimoramentos técnicos em todo o suporte. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
+| Incidente e engenheiros de sites ativos do Azure (engenheiros de monitoramento) | Interna | Acesso aos dados do cliente | Diagnosticar e mitigar a integridade de plataforma usando ferramentas de diagnóstico. Conduzir correções para os drivers de volume da unidade, reparar itens resultantes de interrupções e ajudar em ações de restauração de interrupção. | Acesso just-in-time ao ambiente – com acesso persistente limitado para sistemas não clientes. |
 |Clientes do Azure | Externo | N/D | N/D | N/D |
 
 O Azure usa identificadores exclusivos para autenticar usuários da organização e clientes (ou processos atuando em nome dos usuários organizacionais). Isso se aplica a todos os ativos e dispositivos que fazem parte do ambiente do Azure.
@@ -125,7 +125,7 @@ Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrut
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

@@ -5,31 +5,31 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: orspodek
 ms.openlocfilehash: a2297301a0b9c0540c73c0f50483cccfc3181a0f
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79128750"
 ---
 ### <a name="event-system-properties-mapping"></a>Mapeamento de propriedades do sistema de eventos
 
 > [!Note]
-> * As propriedades do sistema têm suporte para eventos de registro único.
-> * Para o mapeamento de `csv`, as propriedades são adicionadas no início do registro. Para o mapeamento de `json`, as propriedades são adicionadas de acordo com o nome que aparece na lista suspensa.
+> * As propriedades do sistema são suportadas para eventos de registro único.
+> * Para `csv` mapeamento, as propriedades são adicionadas no início do registro. Para `json` mapeamento, as propriedades são adicionadas de acordo com o nome que aparece na lista de paradas.
 
-Se você selecionou **Propriedades do sistema de eventos** na seção fonte de **dados** da tabela, deverá incluir as propriedades a seguir no esquema e no mapeamento da tabela.
+Se você selecionou propriedades do **sistema de eventos** na seção Origem de **dados** da tabela, você deve incluir as seguintes propriedades no esquema da tabela e no mapeamento.
 
 **Exemplo de esquema de tabela**
 
-Se os dados incluírem três colunas (`Timespan`, `Metric`e `Value`) e as propriedades incluídas forem `x-opt-enqueued-time` e `x-opt-offset`, crie ou altere o esquema da tabela usando este comando:
+Se seus dados incluem três`Timespan` `Metric`colunas `Value`( , e `x-opt-enqueued-time` ) `x-opt-offset`e as propriedades que você inclui são e, criar ou alterar o esquema da tabela usando este comando:
 
 ```kusto
     .create-merge table TestTable (TimeStamp: datetime, Metric: string, Value: int, EventHubEnqueuedTime:datetime, EventHubOffset:string)
 ```
 
-**Exemplo de mapeamento de CSV**
+**Exemplo de mapeamento csv**
 
-Execute os comandos a seguir para adicionar dados ao início do registro. Observe os valores ordinais.
+Execute os seguintes comandos para adicionar dados ao início do registro. Nota valores ordinários.
 
 ```kusto
     .create table TestTable ingestion csv mapping "CsvMapping1"
@@ -42,9 +42,9 @@ Execute os comandos a seguir para adicionar dados ao início do registro. Observ
     ']'
 ```
  
-**Exemplo de mapeamento de JSON**
+**Exemplo de mapeamento JSON**
 
-Os dados são adicionados usando os nomes de propriedades do sistema conforme aparecem na lista de **Propriedades do sistema de eventos** da folha conexão de **dados** . Execute estes comandos:
+Os dados são adicionados usando os nomes das propriedades do sistema como eles aparecem na lista de propriedades do **sistema de eventos da** lâmina de **conexão de dados.** Execute estes comandos:
 
 ```kusto
     .create table TestTable ingestion json mapping "JsonMapping1"

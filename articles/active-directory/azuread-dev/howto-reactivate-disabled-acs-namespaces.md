@@ -1,6 +1,6 @@
 ---
-title: Reativar os namespaces do serviço de controle de acesso (ACS) do Azure desabilitados
-description: Localize e habilite seus namespaces do ACS (serviço de controle de acesso) do Azure e solicite uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
+title: Reativar os espaços de nome do AcS (Access Control Service, serviço de acesso de acesso de acesso desativado) desativado
+description: Encontre e habilite os namespaces do AcS (Access Control Service, serviço de controle de acesso ao acesso do Azure) e solicite uma extensão para mantê-los habilitados até 4 de fevereiro de 2019.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,13 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 85696a5580c4ed6c03f257787e2693a61a6158de
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154858"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces do Serviço de Controle de Acesso desabilitado
 
@@ -25,7 +26,7 @@ ms.locfileid: "77164611"
 
 Em novembro de 2017, anunciamos que o Serviço de Coleta de Auditoria (ACS), um Serviço do Microsoft Azure Active Directory (Azure AD), está sendo desativado em 7 de novembro de 2018.
 
-Desde então, enviamos emails para o email de administrador das assinaturas do ACS sobre a desativação do ACS 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de desativação de 7 de novembro 2018.
+Desde então, enviamos e-mails para o e-mail de admin de assinaturas acs sobre a aposentadoria acs 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de aposentadoria de 7 de novembro de 2018.
 
 Em 3 de outubro de 2018, anunciamos (por e-mail e [uma postagem no blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) uma oferta de extensão a clientes que não podem concluir sua migração antes de 7 de novembro de 2018. O anúncio também continha instruções para solicitar a extensão.
 
@@ -88,7 +89,7 @@ Extensões adicionais não serão mais aprovadas automaticamente. Se você preci
 
 ### <a name="to-request-an-extension"></a>Para solicitar uma extensão
 
-1. Entre no portal do Azure e crie uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
+1. Faça login no portal Azure e crie uma [nova solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support).
 1. Preencha o novo formulário de solicitação de suporte, conforme mostrado no exemplo a seguir.
 
     | Campo de solicitação de suporte | Valor |

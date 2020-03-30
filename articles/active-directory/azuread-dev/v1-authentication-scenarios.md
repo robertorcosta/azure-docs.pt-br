@@ -1,28 +1,25 @@
 ---
-title: Azure AD para desenvolvedores (v 1.0) | Azure
-description: Aprenda noções básicas de autenticação para o Azure AD para desenvolvedores (v 1.0), como o modelo de aplicativo, a API, o provisionamento e os cenários de autenticação mais comuns.
+title: Azure AD para desenvolvedores (v1.0) | Azure
+description: Aprenda noções básicas de autenticação para o Azure AD para desenvolvedores (v1.0), como o modelo do aplicativo, API, provisionamento e os cenários de autenticação mais comuns.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 07bdc8af5a3bc82f0fc5aad52648a9524a2dc87f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154722"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -32,7 +29,7 @@ ms.locfileid: "77164143"
 
 *Autorização* é o ato de conceder a uma entidade de segurança autenticada a permissão para fazer algo. Ela especifica quais dados você tem permissão para acessar e o que você pode fazer com eles. Às vezes, a autorização é abreviada para AuthZ.
 
-O Azure Active Directory para desenvolvedores (v 1.0) (Azure AD) simplifica a autenticação para desenvolvedores de aplicativos fornecendo identidade como um serviço, com suporte para protocolos padrão do setor, como OAuth 2,0 e OpenID Connect, bem como bibliotecas de código-fonte aberto para diferentes plataformas para ajudá-lo a começar a codificar rapidamente.
+O Azure Active Directory for developers (v1.0) (Azure AD) simplifica a autenticação para desenvolvedores de aplicativos, fornecendo identidade como serviço, com suporte para protocolos padrão do setor, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de código aberto para diferentes plataformas para ajudá-lo a começar a codificar rapidamente.
 
 Há dois casos de uso principais no modelo de programação do Azure AD:
 
@@ -45,16 +42,16 @@ Considere o cenário mais básico em que a identidade é necessária: um usuári
 
 ![Visão geral de logon no aplicativo Web](./media/v1-authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
 
-Isto é o que você precisa saber sobre os vários componentes mostrados no diagrama:
+Aqui está o que você precisa saber sobre os vários componentes mostrados no diagrama:
 
-* O Azure AD é o provedor de identidade. O provedor de identidade é responsável por verificar a identidade dos usuários e dos aplicativos existentes no diretório de uma organização e emite tokens de segurança após a autenticação bem-sucedida desses usuários e aplicativos.
-* Um aplicativo que deseja terceirizar a autenticação para o Azure AD deve ser registrado no Azure Active Directory (AD do Azure). O Azure AD registra e identifica exclusivamente o aplicativo no diretório.
+* O Azure AD é o provedor de identidade. O provedor de identidade é responsável por verificar a identidade dos usuários e aplicativos existentes no diretório de uma organização e emite tokens de segurança após a autenticação bem-sucedida desses usuários e aplicativos.
+* Um aplicativo que deseja terceirizar a autenticação do Azure AD deve ser registrado no Azure Active Directory (Azure AD). O Azure AD registra e identifica exclusivamente o aplicativo no diretório.
 * Os desenvolvedores podem usar as bibliotecas de autenticação de código aberto do Azure AD para facilitar a autenticação, manipulando os detalhes de protocolo por você. Para obter mais informações, confira as [bibliotecas de autenticação v2.0](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) e as [bibliotecas de autenticação v1.0](active-directory-authentication-libraries.md) da plataforma de identidade da Microsoft.
-* Depois de autenticar um usuário, o aplicativo deverá validar o token de segurança do usuário para garantir que a autenticação foi bem-sucedida. Encontre inícios rápidos, tutoriais e exemplos de código em uma variedade de linguagens e estruturas que mostram o que o aplicativo precisa fazer.
+* Uma vez que um usuário tenha sido autenticado, o aplicativo deve validar o token de segurança do usuário para garantir que a autenticação tenha sido bem sucedida. Encontre inícios rápidos, tutoriais e exemplos de código em uma variedade de linguagens e estruturas que mostram o que o aplicativo precisa fazer.
   * Para criar rapidamente um aplicativo e adicionar funcionalidades como obtenção de tokens, atualização de tokens, conexão do usuário, exibição de algumas informações do usuário e muito mais, confira a seção **Inícios Rápidos** da documentação.
   * Para obter procedimentos detalhados baseados em cenário para as principais tarefas do desenvolvedor de autenticação, como obtenção de tokens de acesso e seu uso em chamadas à API do Microsoft Graph e a outras APIs, implementação da entrada com a Microsoft com um aplicativo baseado em navegador da Web tradicional usando o OpenID Connect e muito mais, confira a seção **Tutoriais** da documentação.
   * Para baixar exemplos de código, acesse o [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* O fluxo de solicitações e respostas do processo de autenticação é determinado pelo protocolo de autenticação que foi usado, como OAuth 2.0, OpenID Connect, Web Services Federation ou SAML 2.0. Para obter mais informações sobre protocolos, consulte a seção **conceitos > Protocolo de autenticação** da documentação do.
+* O fluxo de solicitações e respostas do processo de autenticação é determinado pelo protocolo de autenticação que foi usado, como OAuth 2.0, OpenID Connect, Web Services Federation ou SAML 2.0. Para obter mais informações sobre protocolos, consulte a seção **de protocolo de Autenticação > Conceitos** da documentação.
 
 No cenário de exemplo acima, você pode classificar os aplicativos de acordo com estas duas funções:
 
@@ -63,18 +60,18 @@ No cenário de exemplo acima, você pode classificar os aplicativos de acordo co
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
 
-Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte do Azure AD. Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
+Dependendo de como seu cliente é construído, ele pode usar um (ou vários) dos fluxos de autenticação suportados pelo Azure AD. Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso) bem como códigos de autorização, e exigem diferentes tokens para fazê-los funcionar. Este gráfico fornece uma visão geral:
 
-|Flow | Requisitos | id_token | o token de acesso | token de atualização | código de autorização | 
+|Flow | Requer | id_token | o token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Fluxo de código de autorização](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Fluxo implícito](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Fluxo de OIDC híbrido](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
-|[Resgate de token de atualização](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | token de atualização | x | x | x| |
-|[Fluxo em-nome-de](v1-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
-|[Credenciais do cliente](v1-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
+|[Fluxo oidc híbrido](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
+|[Atualizar resgate de tokens](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | token de atualização | x | x | x| |
+|[Fluxo em nome de](v1-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
+|[Credenciais do cliente](v1-oauth2-client-creds-grant-flow.md) | | | x (somente para aplicativos)| | |
 
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações de `groups` ou `wids`. 
+Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` `query` comprimento `fragment`devido ao ser passado de volta para o navegador através da URL (onde está ou ).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falhar quando for muito longo.  Assim, esses tokens `groups` não `wids` têm ou reivindicações. 
 
 Agora que você tem uma visão geral dos conceitos básicos, continue lendo para entender a API e o modelo de aplicativo de identidade, como funciona o provisionamento no Azure AD e obter links para informações detalhadas sobre os cenários comuns aos quais o Azure AD dá suporte.
 
@@ -104,7 +101,7 @@ Neste fluxo de provisionamento:
 1. Um usuário do locatário B tenta entrar com o aplicativo; o ponto de extremidade da autorização solicita um token para o aplicativo.
 1. As credenciais do usuário são adquiridas e verificadas quanto à autenticação
 1. O usuário deve fornecer consentimento ao aplicativo para obter acesso ao locatário B
-1. O Azure AD usa o objeto de aplicativo no locatário A como um plano gráfico para criar uma entidade de serviço no locatário B
+1. O Azure AD usa o objeto de aplicativo no inquilino A como um projeto para criar um princípio de serviço no inquilino B
 1. O usuário recebe o token solicitado
 
 Você pode repetir esse processo quantas vezes desejar para outros locatários (C, D e assim por diante). O locatário A mantém o blueprint para o aplicativo (objeto de aplicativo). Os usuários e os administradores de todos os outros locatários nos quais o aplicativo recebe consentimento retêm o controle sobre o que o aplicativo pode fazer por meio do objeto de entidade de serviço correspondente em cada locatário. Para obter mais informações, confira [Objetos de entidade de serviço e aplicativo na plataforma de identidade da Microsoft](../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
@@ -120,9 +117,9 @@ Tokens de segurança (tokens de acesso e ID) emitidos pelo Azure AD contêm decl
 
 As declarações presentes em qualquer token de segurança variam de acordo com o tipo de token, o tipo de credencial usada para autenticar o usuário e a configuração do aplicativo.
 
-Uma breve descrição de cada tipo de declaração emitida pelo Azure AD é fornecida na tabela a seguir. Para obter informações mais detalhadas, consulte [tokens de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) e [tokens de ID](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) emitidos pelo Azure AD.
+Uma breve descrição de cada tipo de declaração emitida pelo Azure AD é fornecida na tabela a seguir. Para obter informações mais detalhadas, consulte os [tokens de acesso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) e [tokens de ID emitidos](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) pelo Azure AD.
 
-| Declaração | DESCRIÇÃO |
+| Declaração | Descrição |
 | --- | --- |
 | ID do aplicativo | Identifica o aplicativo que está usando o token. |
 | Público | Identifica o recurso de destinatário ao qual o token é destinado. |

@@ -1,25 +1,25 @@
 ---
-title: Solucionar problemas de extensão de VM do Azure Log Analytics no Azure Monitor | Microsoft Docs
+title: Solucionar problemas Azure Log Analytics VM Extension
 description: Descreva os sintomas, as causas e a resolução dos problemas mais comuns com a extensão de VM do Log Analytics para VMs do Azure para Windows e Linux.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 88d76fc0c215653cf732ba7b827d82187d738fd9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e16531484505f055c1383aff5adb40518719d98a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658465"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054588"
 ---
-# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Solucionando problemas da extensão de VM Log Analytics no Azure Monitor
+# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Solucionar problemas da extensão da VM do Log Analytics no Azure Monitor
 Este artigo fornece ajuda para solucionar erros que você pode encontrar com a extensão de VM do Log Analytics para máquinas virtuais Windows e Linux em execução no Microsoft Azure e sugere soluções possíveis para resolvê-los.
 
 Para verificar o status da extensão, execute as seguintes etapas no portal do Azure.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **máquinas virtuais**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Máquinas virtuais**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com).
+2. No portal Azure, clique em **Todos os serviços**. Na lista de recursos, digite **máquinas virtuais**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **máquinas virtuais**.
 3. Na lista de máquinas virtuais, localize e selecione-a.
 3. Na máquina virtual, clique em **Extensões**.
 4. Na lista, verifique se a extensão de Log Analytics está habilitada ou não.  Para o Linux, o agente é listado como **OMSAgentforLinux** e, para o Windows, o agente é listado como **MicrosoftMonitoringAgent**.
@@ -58,6 +58,6 @@ Se a extensão da VM *Agente do Log Analytics para Linux* não estiver instaland
 
 Para obter mais informações, consulte [Solucionando problemas em extensões do Linux](../../virtual-machines/extensions/oms-linux.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para mais orientações sobre solução de problemas relacionados ao agente do Log Analytics para Linux hospedado em computadores fora do Azure, consulte [Solucionar problemas do Agente do Linux do Azure Log Analytics](agent-linux-troubleshoot.md).  

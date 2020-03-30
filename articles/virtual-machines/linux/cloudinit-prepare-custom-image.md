@@ -1,25 +1,25 @@
 ---
-title: Preparar a imagem de VM do Azure para uso com Cloud-init
+title: Prepare a imagem Do Azure VM para uso com nuvem-init
 description: Como preparar uma imagem de VM do Azure já existente para implantação com cloud-init
 author: danis
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: 73df3a12ebea3b94563d02eda8f1211401d1ae3f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: fef41f4dc90c03e3efbe4c8a75e495c26eec64b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969191"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066812"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparar uma imagem de VM do Azure do Linux para uso com cloud-init
 Este artigo mostra como usar uma máquina virtual do Azure existente e prepará-la para ser reimplantada e estar pronta para usar cloud-init. A imagem resultante pode ser usada para implantar uma nova máquina virtual ou conjuntos de dimensionamento de máquinas virtuais, que podem ser ainda mais personalizados pela cloud-init no tempo de implantação.  Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure. Para obter mais informações de como o cloud-init funciona nativamente no Azure e as distribuições do Linux compatíveis, consulte [Visão geral de cloud-init](using-cloud-init.md)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 Este documento assume que você já tem uma máquina virtual do Azure em execução executando uma versão compatível do sistema operacional Linux. Você já configurou o computador para atender às suas necessidades, instalou todos os módulos necessários, processou todas as atualizações necessárias e o testou para garantir que ele atende aos seus requisitos. 
 
-## <a name="preparing-rhel-76--centos-76"></a>Preparando o RHEL 7,6/CentOS 7,6
+## <a name="preparing-rhel-76--centos-76"></a>Preparando RHEL 7.6 / CentOS 7.6
 Você precisa se conectar por SSH à sua VM Linux e executar os seguintes comandos para instalar a cloud-init.
 
 ```bash
@@ -29,12 +29,14 @@ sudo yum install - y cloud-init
 ```
 
 Atualize a seção `cloud_init_modules` em `/etc/cloud/cloud.cfg` para incluir os seguintes módulos:
+
 ```bash
 - disk_setup
 - mounts
 ```
 
 Aqui está um exemplo da aparência de uma seção `cloud_init_modules` de uso geral.
+
 ```bash
 cloud_init_modules:
  - migrator
@@ -51,7 +53,9 @@ cloud_init_modules:
  - users-groups
  - ssh
 ```
-Várias tarefas relacionadas ao provisionamento e tratamento de discos efêmeros precisam ser atualizadas em `/etc/waagent.conf`. Execute os seguintes comandos para atualizar as configurações apropriadas. 
+
+Várias tarefas relacionadas ao provisionamento e tratamento de discos efêmeros precisam ser atualizadas em `/etc/waagent.conf`. Execute os seguintes comandos para atualizar as configurações apropriadas.
+
 ```bash
 sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
@@ -60,7 +64,7 @@ sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.co
 cloud-init clean
 ```
 
-Permita apenas o Azure como uma fonte de arquivos para o agente Linux do Azure criando um novo arquivo `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` usando um editor de sua escolha com a seguinte linha:
+Permita apenas o Azure como fonte de dados para o `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` Azure Linux Agent criando um novo arquivo usando um editor de sua escolha com a seguinte linha:
 
 ```bash
 # Azure Data Source config
@@ -72,12 +76,14 @@ Se a imagem do Azure existente tiver um arquivo de permuta configurado e você d
 Para imagens baseadas no Red Hat - siga as instruções no seguinte documento da Red Hat explicando como [remover o arquivo de troca](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 Para imagens CentOS com o arquivo de permuta habilitado, você pode executar o seguinte comando para desativar o arquivo de permuta:
+
 ```bash
 sudo swapoff /mnt/resource/swapfile
 ```
 
 Certifique-se de que a referência do arquivo de permuta seja removida de `/etc/fstab`, ele deve ser semelhante à seguinte saída:
-```text
+
+```output
 # /etc/fstab
 # Accessible filesystems, by reference, are maintained under '/dev/disk'
 # See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
@@ -87,9 +93,11 @@ UUID=7c473048-a4e7-4908-bad3-a9be22e9d37d /boot xfs defaults 0 0
 ```
 
 Para economizar espaço e remover o arquivo de permuta, você pode executar o comando a seguir:
+
 ```bash
 rm /mnt/resource/swapfile
 ```
+
 ## <a name="extra-step-for-cloud-init-prepared-image"></a>Etapa extra para imagem preparada de cloud-init
 > [!NOTE]
 > Se sua imagem era anteriormente uma imagem configurada e preparada de **cloud-init**, é necessário executar as etapas a seguir.
@@ -112,13 +120,13 @@ Para obter mais informações sobre os comandos de desprovisionamento do Agente 
 
 Saia da sessão SSH, em seguida, do shell bash, execute os seguintes comandos de AzureCLI para desalocar, generalizar e criar uma nova imagem de VM do Azure.  Substitua `myResourceGroup` e `sourceVmName` pelas informações adequadas refletindo sua sourceVM.
 
-```bash
+```azurecli
 az vm deallocate --resource-group myResourceGroup --name sourceVmName
 az vm generalize --resource-group myResourceGroup --name sourceVmName
 az image create --resource-group myResourceGroup --name myCloudInitImage --source sourceVmName
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter exemplos adicionais de alterações de configuração do cloud-init, consulte o seguinte:
  
 - [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)

@@ -1,17 +1,17 @@
 ---
-title: Recurso de Monitor de Desempenho na solução Monitor de Desempenho de Rede no Azure Log Analytics | Microsoft Docs
+title: Monitor de desempenho no Monitor de Desempenho de Rede
 description: O recurso Monitor de Desempenho no Monitor de Desempenho de Rede ajuda a monitorar a conectividade de rede em vários pontos em sua rede. Você pode monitorar as implantações de nuvem e locais internos, vários data centers e filiais, e aplicativos críticos ou microsserviços de várias camadas.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654521"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80055681"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução do Monitor de Desempenho de Rede – Monitoramento de Desempenho
 
@@ -83,7 +83,7 @@ Antes de escolher um protocolo, considere as seguintes informações:
 
 * **Precisão dos resultados.** Roteadores e comutadores tendem a atribuir a prioridade mais baixa para pacotes de eco ICMP em comparação com pacotes TCP. Em determinadas situações, quando os dispositivos de rede estão sobrecarregados, os dados obtidos pelo TCP refletem mais a perda e a latência apresentadas pelos aplicativos. Isso ocorre porque a maioria do tráfego do aplicativo flui pelo TCP. Nesses casos, o ICMP fornece resultados menos precisos em comparação ao TCP. 
 
-* **Configuração do firewall.** O protocolo TCP exige que os pacotes TCP sejam enviados a uma porta de destino. A porta padrão usada por agentes do Monitor de Desempenho de Rede é 8084. Você pode alterar a porta quando configurar agentes. Verifique se os firewalls de rede ou as regras do Grupo de Segurança de Rede (NSG) no Azure permitem o tráfego na porta. Você também precisa certificar-se de que o firewall local nos computadores em que os agentes são instalados esteja configurado para permitir o tráfego nesta porta. Você pode usar scripts do PowerShell para configurar regras de firewall em computadores que executam o Windows, no entanto, você precisa configurar manualmente o firewall da rede. Por outro lado, o ICMP não funciona por meio de uma porta. Na maioria dos cenários de negócios, o tráfego do ICMP é permitido por meio de firewalls para que você use ferramentas de diagnóstico de rede como o utilitário Ping. Se você puder executar Ping de um computador para o outro, poderá usar o protocolo ICMP sem ter que configurar firewalls manualmente.
+* **Configuração de firewall.** O protocolo TCP exige que os pacotes TCP sejam enviados a uma porta de destino. A porta padrão usada por agentes do Monitor de Desempenho de Rede é 8084. Você pode alterar a porta quando configurar agentes. Verifique se os firewalls de rede ou as regras do Grupo de Segurança de Rede (NSG) no Azure permitem o tráfego na porta. Você também precisa certificar-se de que o firewall local nos computadores em que os agentes são instalados esteja configurado para permitir o tráfego nesta porta. Você pode usar scripts do PowerShell para configurar regras de firewall em computadores que executam o Windows, no entanto, você precisa configurar manualmente o firewall da rede. Por outro lado, o ICMP não funciona por meio de uma porta. Na maioria dos cenários de negócios, o tráfego do ICMP é permitido por meio de firewalls para que você use ferramentas de diagnóstico de rede como o utilitário Ping. Se você puder executar Ping de um computador para o outro, poderá usar o protocolo ICMP sem ter que configurar firewalls manualmente.
 
 >[!NOTE] 
 > Alguns firewalls podem bloquear o ICMP, o que pode levar à retransmissão resultando em um grande número de eventos em seu sistema de gerenciamento de evento e informações de segurança. Verifique se o protocolo que você escolher não está bloqueado por um firewall de rede ou NSG. Caso contrário, o Monitor de Desempenho de Rede não pode monitorar o segmento de rede. Recomendamos que você use TCP para monitoramento. Use ICMP nos cenários em que você não pode usar o TCP, como quando: 
@@ -94,7 +94,7 @@ Antes de escolher um protocolo, considere as seguintes informações:
 
 Se você optar por usar o ICMP durante a implantação, poderá mudar para TCP a qualquer momento, editando a regra de monitoramento padrão.
 
-1. Vá até **Monitor de Desempenho** > **de Rede** > **Configurar** > **Monitor**. Em seguida, selecione **Regra padrão**. 
+1. Vá para O Monitor **de Desempenho** > **da** >Rede **Configurar** > **Monitor**. Em seguida, selecione **Regra padrão**. 
 2. Role até a seção **Protocolo** e selecione o protocolo que você deseja usar. 
 3. Selecione **Salvar** para aplicar a configuração. 
 

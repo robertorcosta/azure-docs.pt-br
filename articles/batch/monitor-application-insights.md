@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: labrenne
 ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022453"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
@@ -27,7 +27,7 @@ Este artigo mostra como adicionar e configurar a biblioteca do Application Insig
 Uma solução C# de exemplo com código para acompanhar este artigo está disponível no [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Este exemplo adiciona o código de instrumentação do Application Insights ao exemplo do [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se você não estiver familiarizado com esse exemplo, tente primeiro compilar e executar o TopNWords. Isso ajudará a compreender um fluxo de trabalho básico do Lote do processamento de um conjunto de blobs de entrada em paralelo em vários nós de computação. 
 
 > [!TIP]
-> Como alternativa, configure sua solução em lote para exibir dados do Application Insights, como os contadores de desempenho da VM no Batch Explorer. [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente autônoma, rica e exclusiva para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Confira o [repositório de insights em lote](https://github.com/Azure/batch-insights) para conhecer etapas rápidas para habilitar dados do Application Insights no Batch Explorer. 
+> Como alternativa, configure sua solução em lote para exibir dados do Application Insights, como os contadores de desempenho da VM no Batch Explorer. [O Explorador de lotes](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente autônomo e gratuita para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Confira o [repositório de insights em lote](https://github.com/Azure/batch-insights) para conhecer etapas rápidas para habilitar dados do Application Insights no Batch Explorer. 
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,9 +35,9 @@ Uma solução C# de exemplo com código para acompanhar este artigo está dispon
 
 * [Conta do Lote e conta de armazenamento vinculada](batch-account-create-portal.md)
 
-* [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
+* [Recurso de Insights de Aplicativos](../azure-monitor/app/create-new-resource.md )
   
-   * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione o **tipo de aplicativo**geral.
+   * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione a opção *Geral* **Tipo de Aplicativo**.
 
    * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do portal. Essa chave será necessária mais adiante neste artigo.
   
@@ -288,7 +288,7 @@ As capturas de tela a seguir mostram como o Application Insights registra exceç
 Métricas personalizadas também são uma ferramenta valiosa no portal. Por exemplo, é possível exibir o tempo médio que cada nó de computação demorou para baixar o arquivo de texto necessário que estava processando.
 
 Para criar um gráfico de exemplo:
-1. No recurso do Application Insights, clique em **Metrics Explorer** > **Adicionar gráfico**.
+1. No recurso Application Insights, clique em **Metrics Explorer** > **Add chart**.
 2. Clique em **Editar** no gráfico que foi adicionado.
 2. Atualize os detalhes do gráfico conforme a seguir:
    * Defina **Tipo de gráfico** para **Grade**.
@@ -341,8 +341,8 @@ pool.StartTask = new StartTask()
 Devido à natureza em grande escala dos aplicativos do Lote do Azure executando em produção, convém limitar a quantidade de dados coletados pelo Application Insights para gerenciar os custos. Consulte [Amostragem em Application Insights](../azure-monitor/app/sampling.md) e obtenha alguns mecanismos para fazer isso.
 
 
-## <a name="next-steps"></a>Próximos passos
-* Saiba mais sobre o [Application Insights](../azure-monitor/app/app-insights-overview.md).
+## <a name="next-steps"></a>Próximas etapas
+* Saiba mais sobre [o Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Para suporte do Application Insights em outros idiomas, consulte a [documentação de integrações, plataformas e idiomas](../azure-monitor/app/platforms.md).
 

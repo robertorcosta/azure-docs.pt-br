@@ -1,19 +1,19 @@
 ---
-title: Como usar o armazenamento de fila do Java – armazenamento do Azure
-description: Saiba como usar o armazenamento de fila para criar e excluir filas e inserir, obter e excluir mensagens com a biblioteca de cliente de armazenamento do Azure para Java.
+title: Como usar o armazenamento na fila do Java - Armazenamento Azure
+description: Aprenda a usar o armazenamento de filas para criar e excluir filas e inserir, obter e excluir mensagens com a biblioteca cliente do Azure Storage para Java.
 author: mhopkins-msft
-ms.service: storage
 ms.author: mhopkins
 ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 17d02d8df96927aa506683fef94899e5c5114684
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7658b8541e7a79a5e547a6649b35681446e34b0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839033"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067142"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como usar o Armazenamento de Fila no Java
 
@@ -21,7 +21,7 @@ ms.locfileid: "73839033"
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
-Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar** e **excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
+Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários cobertos incluem **inserir,** **espiar,** **obter**e **excluir** mensagens de fila, bem como **criar** e **excluir** filas. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
 
 > [!NOTE]
 > Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [SDK de Armazenamento do Azure para Android][Azure Storage SDK for Android].
@@ -32,9 +32,9 @@ Este guia lhe mostrará como executar cenários comuns usando o serviço de Arma
 
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
 
-Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em um aplicativo Web no Azure.
+Neste guia, você usará recursos de armazenamento que podem ser executados dentro de um aplicativo Java localmente ou em código executado dentro de um aplicativo web no Azure.
 
-Para isso, você precisará instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois de fazer isso, você precisará verificar se o sistema de desenvolvimento atende aos requisitos mínimos e às dependências listadas no repositório [SDK do armazenamento do Azure para Java][Azure Storage SDK for Java] no github. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
+Para isso, você precisará instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Uma vez feito isso, você precisará verificar se seu sistema de desenvolvimento atende aos requisitos mínimos e dependências que estão listados no [Azure Storage SDK para][Azure Storage SDK for Java] o repositório Java no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurar seu aplicativo para acessar o armazenamento de filas
 
@@ -97,7 +97,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-add-a-message-to-a-queue"></a>Como adicionar uma mensagem a uma fila
-Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **CloudQueueMessage**. Em seguida, chame o método **addMessage** . Um **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. Aqui está o código que cria uma fila (se ela não existir) e insere a mensagem "Olá, mundo".
+Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **CloudQueueMessage**. Em seguida, chame o método **addMessage** . Um **CloudQueueMessage** pode ser criado a partir de uma string (no formato UTF-8) ou de uma matriz de bytes. Aqui está o código que cria uma fila (se ela não existe) e insere a mensagem "Olá, Mundo".
 
 ```java
 try
@@ -159,7 +159,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como alterar o conteúdo de uma mensagem em fila
-Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir atualiza a mensagem da fila com novo conteúdo e define o tempo limite de visibilidade para estender mais 60 segundos. Estender o tempo limite de visibilidade salva o estado do trabalho associado à mensagem e dá ao cliente outro minuto para continuar a trabalhar na mensagem. Você pode usar essa técnica para acompanhar fluxos de trabalho de várias etapas em mensagens em fila, sem a necessidade de começar desde o início, caso uma etapa de processamento falhar devido a uma falha de hardware ou de software. Normalmente, você mantém uma contagem de repetições e, se a mensagem for repetida mais de *n* vezes, você a exclui. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
+Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir atualiza a mensagem da fila com novo conteúdo e define o tempo limite de visibilidade para estender mais 60 segundos. Estender o tempo de tempo de visibilidade salva o estado de trabalho associado à mensagem e dá ao cliente mais um minuto para continuar trabalhando na mensagem. Você pode usar essa técnica para acompanhar fluxos de trabalho de várias etapas em mensagens em fila, sem a necessidade de começar desde o início, caso uma etapa de processamento falhar devido a uma falha de hardware ou de software. Normalmente, você mantém uma contagem de repetições e, se a mensagem for repetida mais de *n* vezes, você a exclui. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
 
 O exemplo de código a seguir pesquisa através da fila de mensagens, localiza a primeira mensagem que corresponde a "Hello, World” do conteúdo, em seguida, modifica o conteúdo da mensagem e sai.
 
@@ -274,7 +274,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-dequeue-the-next-message"></a>Como remover a próxima mensagem da fila
-Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **retrieveMessage**, obtém a próxima mensagem em uma fila. As mensagens retornadas de **retrieveMessage** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para terminar de remover a mensagem da fila, você também deve chamar **deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo depois que a mensagem é processada.
+Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **retrieveMessage**, obtém a próxima mensagem em uma fila. As mensagens retornadas de **retrieveMessage** tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para terminar de remover a mensagem da fila, você também deve chamar **deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ter sido processada.
 
 ```java
 try
@@ -308,7 +308,7 @@ catch (Exception e)
 ## <a name="additional-options-for-dequeuing-messages"></a>Opções adicionais para remover mensagens da fila
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem.
 
-O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. Os cinco minutos começam para todas as mensagens ao mesmo tempo, portanto, quando cinco minutos passaram desde a chamada para **retrieveMessages**, todas as mensagens que não foram excluídas ficarão visíveis novamente.
+O exemplo de código a seguir usa o método **retrieveMessages** para obter 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **para** for. Ele também define o tempo limite de invisibilidade como cinco minutos (300 segundos) para cada mensagem. Os cinco minutos começam para todas as mensagens ao mesmo tempo, de modo que quando cinco minutos se passaram desde a chamada para **recuperarMensagens,** todas as mensagens que não foram excluídas se tornarão visíveis novamente.
 
 ```java
 try
@@ -338,7 +338,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-list-the-queues"></a>Como: listar as filas
-Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQueues()** , que retornará uma coleção de objetos **CloudQueue**.
+Para obter uma lista das filas atuais, chame o método **CloudQueueClient.listQueues()**, que retornará uma coleção de objetos **CloudQueue**.
 
 ```java
 try
@@ -394,10 +394,10 @@ catch (Exception e)
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]
+* [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)
 * [Referência de SDK do Cliente de Armazenamento do Azure][Azure Storage Client SDK Reference]
-* [API REST de serviços de armazenamento do Azure][Azure Storage Services REST API]
-* [Blog da Equipe do Armazenamento do Azure][Azure Storage Team Blog]
+* [Azure Storage Services REST API Reference][Azure Storage Services REST API] (Referência de API REST dos Serviços de Armazenamento do Azure)
+* [Blog da equipe de Armazenamento do Azure][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

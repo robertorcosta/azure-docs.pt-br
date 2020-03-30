@@ -4,7 +4,6 @@ description: Detalhes sobre como certificar o AppSource do seu aplicativo para o
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: conceptual
@@ -13,12 +12,13 @@ ms.date: 08/21/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8b966df3f0ca59edbaa304212f05daffeb9ef17d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ad4efa3b8126a9b9c6557822f61e3bfff3fe120
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164754"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154875"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como certificar o AppSource para o Azure AD
 
@@ -30,14 +30,14 @@ Para listar um aplicativo SaaS autônomo no AppSource, o aplicativo deve aceitar
 
 ## <a name="guides-and-code-samples"></a>Guias e exemplos de código
 
-Se você quiser saber mais sobre como integrar seu aplicativo com o Azure AD usando o Open ID Connect, siga nossos guias e exemplos de código no [Guia do desenvolvedor de Azure Active Directory](v1-overview.md#get-started "Introdução ao Azure AD para desenvolvedores").
+Se você quiser saber como integrar seu aplicativo com o Azure AD usando o Open ID connect, siga nossos guias e amostras de código no [guia do desenvolvedor do Azure Active Directory](v1-overview.md#get-started "Comece com o Azure AD para desenvolvedores").
 
 ## <a name="multi-tenant-applications"></a>Aplicativos multilocatários
 
 Um *aplicativo multilocatário* é aquele que aceita entradas de usuários de qualquer empresa ou organização que tenha o Azure AD sem a necessidade de uma instância, configuração ou implantação separada. O AppSource recomenda que os aplicativos implementem multilocação para habilitar a experiência de avaliação com um *clique simples*.
 
 Para habilitar a multilocação em seu aplicativo, siga estas etapas:
-1. Definir a propriedade `Multi-Tenanted` para `Yes` nas informações do registro do aplicativo no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por padrão, os aplicativos criados no portal do Azure são configurados como *[locatário único](#single-tenant-applications)* .
+1. Definir a propriedade `Multi-Tenanted` para `Yes` nas informações do registro do aplicativo no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por padrão, os aplicativos criados no portal do Azure são configurados como *[locatário único](#single-tenant-applications)*.
 1. Atualize o código para enviar solicitações ao ponto de extremidade `common`. Para fazer isso, atualize o ponto de extremidade de `https://login.microsoftonline.com/{yourtenant}` para `https://login.microsoftonline.com/common*`.
 1. Em algumas plataformas, como o ASP.NET, também é necessário atualizar o código para aceitar vários emissores.
 
@@ -55,11 +55,11 @@ Os aplicativos de locatário único podem habilitar a experiência *Entre em Con
 
 ### <a name="free-trial-customer-led-trial-experience"></a>Avaliação gratuita (experiência de avaliação orientada pelo cliente)
 
-A avaliação orientada pelo cliente é a experiência que o AppSource recomenda, pois oferece acesso a o aplicativo com um clique simples. O exemplo a seguir mostra a aparência desta experiência:
+A avaliação orientada pelo cliente é a experiência que o AppSource recomenda, pois oferece acesso a o aplicativo com um clique simples. O exemplo a seguir mostra como é essa experiência:
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>O usuário localiza o aplicativo no Site do AppSource</li><li>Seleciona a opção “Avaliação gratuita”</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>O usuário localiza o aplicativo no Site do AppSource</li><li>Seleciona a opção 'Avaliação gratuita'</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>O AppSource redireciona o usuário para uma URL no seu site</li><li>Seu site inicia o processo <i>single-sign-on</i> automaticamente (no carregamento da página)</li></ul></td>
     <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>O usuário é redirecionado para a página de entrada da Microsoft</li><li>O usuário fornece credenciais para entrar</li></ul></td>
 </tr>
@@ -76,7 +76,7 @@ Você pode usar a experiência de avaliação do parceiro quando uma operação 
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>O usuário localiza o aplicativo no Site do AppSource</li><li>Seleciona a opção “Entrar em contato comigo”</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>O usuário localiza o aplicativo no Site do AppSource</li><li>Seleciona a opção 'Entrar em contato comigo'</li></ul></td>
     <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Preenche um formulário com as informações de contato</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
@@ -113,11 +113,11 @@ Para saber mais sobre a experiência de avaliação do AppSource, confira [este 
 - Para obter mais informações sobre como compilar aplicativos que dão suporte a entradas do Azure AD, consulte [Cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
 - Para saber mais sobre como listar seu aplicativo SaaS no AppSource, confira [Informações de parceiro do AppSource](https://appsource.microsoft.com/partners)
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Para a integração do Azure AD, usamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a comunidade para fornecer suporte.
 
-Recomendamos fazer suas perguntas no Stack Overflow primeiro e navegar pelos problemas existentes para ver se alguém já fez sua pergunta antes. Verifique se suas perguntas ou comentários estão marcados com [`[azure-active-directory]` e `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Recomendamos fazer suas perguntas no Stack Overflow primeiro e navegar pelos problemas existentes para ver se alguém já fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados [ `[azure-active-directory]` com e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
 

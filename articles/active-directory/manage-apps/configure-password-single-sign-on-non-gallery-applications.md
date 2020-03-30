@@ -1,6 +1,6 @@
 ---
-title: Como configurar o logon único com senha para aplicativos do Azure AD | Microsoft Docs
-description: Como configurar o SSO (logon único) com senha para seus aplicativos empresariais do Azure AD na plataforma Microsoft Identity (Azure AD)
+title: Como configurar o login único de senha para aplicativos AD do Azure | Microsoft Docs
+description: Como configurar o SSO (Single Signon, assinatura de senha) para seus aplicativos corporativos Azure AD na plataforma de identidade Microsoft (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,17 +12,17 @@ ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063519"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurar o logon único com senha
 
-Quando você [adiciona um aplicativo de galeria](add-gallery-app.md) ou um [aplicativo Web que não é da Galeria](add-non-gallery-app.md) a seus aplicativos empresariais do Azure AD, uma das opções de logon único disponíveis para você é [logon único baseado em senha](what-is-single-sign-on.md#password-based-sso). Essa opção está disponível para qualquer Web com uma página de entrada HTML. O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários em que vários usuários precisam compartilhar uma única conta, como as contas de aplicativo de mídia social da sua organização. 
+Quando você [adiciona um aplicativo de galeria](add-gallery-app.md) ou um aplicativo web que não é [galeria](add-non-gallery-app.md) aos seus aplicativos Azure AD Enterprise, uma das opções únicas de login disponíveis para você é o login único baseado [em senha](what-is-single-sign-on.md#password-based-sso). Esta opção está disponível para qualquer web com uma página de login HTML. O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários em que vários usuários precisam compartilhar uma única conta, como nas contas de aplicativos de mídia social da sua organização. 
 
-O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos ao Azure AD rapidamente e permite que você:
+O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos no Azure AD rapidamente, e permite que você:
 
 -   Habilitar o **logon único para os usuários** armazenando de forma segura e reproduzindo os nomes de usuário e senhas do aplicativo integrado ao Azure AD
 
@@ -34,17 +34,17 @@ O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos 
 
 -   Permitir que um **membro do grupo de negócios** especifique os nomes de usuário e senhas atribuídos a um usuário usando o recurso de [Autoatendimento de Acesso ao Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Permitir que um **administrador** especifique um nome de usuário e uma senha a serem usados por indivíduos ou grupos ao entrar no aplicativo usando o recurso atualizar credenciais 
+-   Permitir que um **administrador** especifique um nome de usuário e senha para ser usado por indivíduos ou grupos ao fazer login no aplicativo usando o recurso Credenciais de atualização 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confira [Adicionar um aplicativo da galeria](add-gallery-app.md) ou [Adicionar um aplicativo inexistente na galeria](add-non-gallery-app.md).
 
-## <a name="open-the-app-and-select-password-single-sign-on"></a>Abra o aplicativo e selecione logon único com senha
+## <a name="open-the-app-and-select-password-single-sign-on"></a>Abra o aplicativo e selecione o login único de senha
 
 1. Entre no [portal do Azure](https://portal.azure.com) como administrador do aplicativo em nuvem ou um administrador de aplicativo para seu locatário do Azure AD.
 
-2. Navegue até **Azure Active Directory** > **aplicativos empresariais**. Uma amostra aleatória dos aplicativos em seu locatário do Azure AD é exibida. 
+2. Navegue até os aplicativos **do Azure Active Directory** > **Enterprise**. Uma amostra aleatória dos aplicativos em seu locatário do Azure AD é exibida. 
 
 3. No menu **Tipo de Aplicativo**, selecione **Todos os aplicativos** e, em seguida, **Aplicar**.
 
@@ -54,45 +54,45 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confir
 
 6. Selecione **baseado em senha**.
 
-7. Insira a URL da página de entrada baseada na Web do aplicativo. Essa cadeia de caracteres deve ser a página que inclui o campo de entrada nome de usuário.
+7. Digite a URL da página de login baseada na Web do aplicativo. Esta seqüência deve ser a página que inclui o campo de entrada de nome de usuário.
 
    ![Logon único baseado em senha](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
-8. Selecione **Salvar**. O Azure AD tenta analisar a página de entrada para obter uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem-sucedida, você terminará. 
+8. Selecione **Salvar**. O Azure AD tenta analisar a página de login para uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem sucedida, você está feito. 
  
 > [!NOTE]
-> A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas em nome de um usuário quando eles entrarem no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e clique em **Atualizar credenciais**. Em seguida, insira o nome de usuário e a senha a serem usados em nome do grupo de usuários ou grupos. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
+> O próximo passo é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais para serem usadas em nome de um usuário quando eles fizerem login no aplicativo. Selecione **Usuários e grupos,** selecione a caixa de seleção para a linha do usuário ou do grupo e clique em **Credenciais de atualização**. Em seguida, digite o nome de usuário e senha a ser usado em nome do usuário ou grupo. Caso contrário, os usuários serão solicitados a inserir as credenciais em si mesmos no lançamento.
  
 
 ## <a name="manual-configuration"></a>Configuração manual
 
-Se a tentativa de análise do Azure AD falhar, você poderá configurar o logon manualmente.
+Se a tentativa de análise do Azure AD falhar, você pode configurar o login manualmente.
 
-1. Em **\<nome do aplicativo > configuração**, selecione **Configurar \<nome do aplicativo > configurações de logon único de senha** para exibir a página **Configurar logon** . 
+1. Em ** \<nome do aplicativo> Configuração,** selecione ** \<Configurar o nome do aplicativo> Configurações de login único de senha** para exibir a página configurar **login.** 
 
-2. Selecione **detectar manualmente os campos de entrada**. São exibidas instruções adicionais que descrevem a detecção manual de campos de entrada.
+2. Selecione **Detectar manualmente campos de login**. Instruções adicionais descrevendo a detecção manual de campos de login são exibidas.
 
-   ![Configuração manual de logon único baseado em senha](./media/configure-password-single-sign-on/password-configure-sign-on.png)
-3. Selecione **capturar campos de entrada**. Uma página de status de captura é aberta em uma nova guia, mostrando que a captura de metadados de mensagem **está em andamento no momento**.
+   ![Configuração manual do login único baseado em senha](./media/configure-password-single-sign-on/password-configure-sign-on.png)
+3. Selecione **Capturar campos de login**. Uma página de status de captura é aberta em uma nova guia, mostrando que a **captura de metadados da**mensagem está em andamento .
 
-4. Se a caixa **extensão do painel de acesso necessária** aparecer em uma nova guia, selecione **instalar agora** para instalar a extensão do navegador de **extensão de entrada segura dos meus aplicativos** . (A extensão do navegador requer o Microsoft Edge, o Chrome ou o Firefox.) Em seguida, instale, inicie e habilite a extensão e atualize a página de status de captura.
+4. Se a caixa **de extensão do painel de acesso necessária** aparecer em uma nova guia, **selecione Instalar agora** para instalar a extensão do navegador De **extensão de login seguro de meus aplicativos.** (A extensão do navegador requer o Microsoft Edge, o Chrome ou o Firefox.) Em seguida, instale, inicie e habilite a extensão e atualize a página de status de captura.
 
-   A extensão do navegador abre outra guia que exibe a URL inserida.
-5. Na guia com a URL inserida, percorra o processo de entrada. Preencha os campos de nome de usuário e senha e tente entrar. (Você não precisa fornecer a senha correta.)
+   Em seguida, a extensão do navegador abre outra guia que exibe a URL inserida.
+5. Na guia com a URL inserida, passe pelo processo de login. Preencha os campos nome de usuário e senha e tente fazer login. (Você não precisa fornecer a senha correta.)
 
-   Um prompt solicita que você salve os campos de entrada capturados.
-6. Selecione **OK**. A extensão do navegador atualiza a página de status de captura com os metadados da mensagem **foram atualizados para o aplicativo**. A guia navegador é fechada.
+   Um aviso pede que você salve os campos de login capturados.
+6. Selecione **OK**. A extensão do navegador atualiza a página de status de captura com a mensagem **Metadata foi atualizada para o aplicativo**. A guia do navegador fecha.
 
-7. Na página de **logon configurar** do Azure AD, selecione **OK, eu consegui entrar no aplicativo com êxito**.
+7. Na página de login do Azure AD **Configure,** selecione **Ok, eu fui capaz de fazer login no aplicativo com sucesso**.
 
 8. Selecione **OK**.
 
-Após a captura da página de entrada, você pode atribuir usuários e grupos e pode configurar políticas de credenciais como [aplicativos de SSO de senha](what-is-single-sign-on.md)regular.
+Após a captura da página de login, você pode atribuir usuários e grupos e configurar políticas de credencial, assim como [aplicativos SSO](what-is-single-sign-on.md)de senha regular .
 
 > [!NOTE]
 > Você pode carregar um logotipo de bloco para o aplicativo usando o botão **Carregar Logotipo** na guia **Configurar** do aplicativo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir usuários e grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático de conta de usuário](../app-provisioning/configure-automatic-user-provisioning-portal.md)

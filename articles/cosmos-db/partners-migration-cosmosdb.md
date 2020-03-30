@@ -1,5 +1,5 @@
 ---
-title: Parceiros de desenvolvimento de aplicativos e migração para Azure Cosmos DB
+title: Parceiros de migração e desenvolvimento de aplicativos para o Azure Cosmos DB
 description: Lista os parceiros da Microsoft com soluções de migração compatíveis com o Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988168"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
@@ -21,7 +21,7 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 
 |**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |**Contato**  |
 |---------|---------|---------|---------|
-|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> O Striim simplifica a coleta em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log em Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
+|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> O Striim simplifica a coleta e a movimentação em tempo real de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log no Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
 
@@ -53,7 +53,7 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 | ![Xpand IT][25] | Desenvolvimento de novos aplicativos | Portugal, Reino Unido| [Site](https://www.xpand-it.com/)|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/en-US/).
 

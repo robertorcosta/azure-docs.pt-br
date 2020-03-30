@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: af9c157b4644156edc6dcdb1b53c141263576500
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727161"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Monitoramento da infraestrutura do Azure   
@@ -54,10 +54,10 @@ Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Az
 
 - [Recursos, local e segurança física do Azure](physical-security.md)
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
-- [Limites e componentes do sistema de informações do Azure](infrastructure-components.md)
+- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
 - [Proteção de dados do cliente do Microsoft Azure](protection-customer-data.md)

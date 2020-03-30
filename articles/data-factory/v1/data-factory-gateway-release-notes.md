@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9d0e31a89494477e048c7a2f9f7b8165e08d1a2f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064989"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se estiver usando a versão atual do serviço do Data Factory, consulte [runtime de integração auto-hospedada na V2](../create-self-hosted-integration-runtime.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [runtime de integração auto-hospedada na V2](../create-self-hosted-integration-runtime.md).
 
 Um dos desafios da integração de dados moderna é mover dados entre o local e a nuvem. O Data Factory faz essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
 
@@ -40,7 +40,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Melhorias-
 - Adicione as entradas DNS à lista de permissões do barramento de serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Você pode encontrar a entrada DNS respectiva no Portal do Azure (Data Factory -> 'Criar e Implantar' -> 'Gateways' -> "serviceUrls" (no JSON)
-- Agora, o conector HDFS dá suporte ao certificado público autoassinado, permitindo que você ignore a validação de SSL.
+- O conector HDFS agora suporta certificado público auto-assinado, permitindo que você pule a validação do TLS.
 - Corrigido: problema com gateway offline durante a atualização (devido à distorção do relógio)
 
 
@@ -64,7 +64,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 - Correção: leitura incorreta do valor nulo Decimal do Oracle como fonte.
 
 ## <a name="2661922"></a>2.6.6192.2
-### <a name="whats-new"></a>O que há de novo
+### <a name="whats-new"></a>Novidades
 - Os clientes podem fornecer comentários sobre a experiência de registro de gateway.
 - Suporte a um novo formato de compactação: ZIP (Deflate)
 
@@ -74,14 +74,14 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 
 ## <a name="2561641"></a>2.5.6164.1
-### <a name="enhancements"></a>Melhorias
+### <a name="enhancements"></a>Aprimoramentos
 - Experiência de registro de gateway melhor e mais robusta – agora você pode acompanhar o status do progresso durante o processo de registro de gateway, o que torna a experiência de registro mais dinâmica.
 - Melhoria no Processo de Restauração de Gateway – você ainda poderá recuperar o gateway, mesmo que não tenha o arquivo de backup do gateway com essa atualização. Isso exigiria a redefinição das credenciais de Serviço Vinculado no Portal.
 - Correção de bug.
 
 ## <a name="2461511"></a>2.4.6151.1
 
-### <a name="whats-new"></a>O que há de novo
+### <a name="whats-new"></a>Novidades
 
 - Agora você pode armazenar credenciais de fonte de dados localmente. As credenciais são criptografadas. As credenciais da fonte de dados podem ser recuperadas e restauradas usando o arquivo de backup que pode ser exportado do Gateway existente, tudo localmente.
 
@@ -102,7 +102,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 *  Permite a configuração do proxy HTTP para o gateway usando o Gerenciador de Configurações do Gateway. Se configurado, o Blob do Azure, a Tabela do Azure, o Azure Data Lake e o DocumentDB serão acessados por meio do proxy HTTP.
 *  Dá suporte ao tratamento de cabeçalho para TextFormat na cópia de dados dentro e fora do Blob do Azure, Azure Data Lake Store, Sistema de Arquivos Local e HDFS local.
 *  Dá suporte à cópia de dados do Blob de Acréscimos e Blob de Páginas com o Blob de Blocos já com suporte.
-*  Introduz um novo status de gateway **Online (Limitado)** , que indica se a funcionalidade principal do gateway funciona, com exceção do suporte à operação interativa do Assistente de Cópia.
+*  Introduz um novo status de gateway **Online (Limitado)**, que indica se a funcionalidade principal do gateway funciona, com exceção do suporte à operação interativa do Assistente de Cópia.
 *  Aprimora a robustez do registro de gateway usando a chave do Registro.
 
 ## <a name="216040"></a>2.1.6040.
@@ -128,7 +128,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
     *  Você pode copiar dados de um armazenamento usando a [ferramenta de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
 *  Você pode aproveitar o Gateway de Gerenciamento de Dados para inserir dados diretamente de um banco de dados SQL Server local no Azure Machine Learning.
 
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 
     * Melhore o desempenho de exibição de Esquema/Visualização no SQL Server na ferramenta de cópia sem código.
 
@@ -144,7 +144,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Em caso de falha da atualização automática, o instalador do gateway recupera a atualização automática três vezes no máximo.
 
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 
     * Melhora no desempenho do carregamento de grandes tabelas de servidor local no cenário de cópia sem código.
 
@@ -152,7 +152,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 
 *  Correções de bug
 
@@ -164,34 +164,34 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 *  Capacidade de definir o horário da agenda de atualização
 *  Script do PowerShell para ativar/desativar a atualização automática
 *  Suporte para o formato JSON  
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Melhorar a experiência de solução de problemas
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Suporte à fonte/coletor do HDFS local
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -208,7 +208,7 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Suporte a nome de tabela para  fonte de dados ODBC para o Azure Data Factory
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +229,13 @@ Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Suporte a cinco bancos de dados relacionais do Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata e Sybase)
 *  Suporte à compactação (Gzip e Deflate)
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Adicionar suporte a fonte de dados Oracle para o Azure Data Factory
-*  Aprimoramentos de desempenho
+*  Melhorias de desempenho
 *  Correções de bug
 
 ### <a name="1454921"></a>1.4.5492.1

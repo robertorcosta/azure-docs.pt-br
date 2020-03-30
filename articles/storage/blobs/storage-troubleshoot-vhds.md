@@ -4,16 +4,17 @@ description: Fornece links para os recursos de solução de problemas dos VHDs (
 services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.subservice: blobs
+ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rogarana
 ms.reviewer: wmgries
-ms.openlocfilehash: c00fdf3ad02edc1faf0d3257d3836a1c2f44d682
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b81c0947327dc8e84c5d3fbbecde3aa31313cc70
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150778"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061195"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Solucionar problemas de discos anexados às VMs do Azure 
 

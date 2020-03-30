@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas usando o comando dsregcmd-Azure Active Directory
+title: Solução de problemas usando o comando dsregcmd - Azure Active Directory
 description: Usando a saída de dsregcmd para entender o estado dos dispositivos no Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,37 +11,37 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 676a1dd2435d17db2151bdf21f1989e7f182701b
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136476"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128755"
 ---
-# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solucionando problemas de dispositivos usando o comando dsregcmd
+# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dispositivos de solução de problemas usando o comando dsregcmd
 
-O utilitário dsregcmd/status deve ser executado como uma conta de usuário de domínio.
+O utilitário dsregcmd /status deve ser executado como uma conta de usuário de domínio.
 
 ## <a name="device-state"></a>Estado do dispositivo
 
-Esta seção lista os parâmetros de estado de ingresso no dispositivo. A tabela a seguir lista os critérios para que o dispositivo esteja em vários Estados de junção.
+Esta seção lista os parâmetros de estado de adesão do dispositivo. A tabela abaixo lista os critérios para que o dispositivo esteja em vários estados de adesão.
 
-| AzureAdJoined | EnterpriseJoined | DomainJoined | Estado do dispositivo |
+| AzureAdJoin | EnterpriseJoined | DomínioUnidos | Estado do dispositivo |
 | ---   | ---   | ---   | ---   |
-| YES | Não | Não | Ingressado no Azure AD |
-| Não | Não | YES | Ingressado no domínio |
-| YES | Não | YES | Ingressado no AD híbrido |
-| Não | YES | YES | DRS local Unido |
+| YES | Não | Não | Azure AD Juntou-se |
+| Não | Não | YES | Domínio Unido |
+| YES | Não | YES | Anúncio híbrido juntado |
+| Não | YES | YES | DRS no local |
 
 > [!NOTE]
-> O estado do Workplace Join (Azure AD registrado) é exibido na seção "estado do usuário"
+> O estado de Workplace Join (registrado no Azure AD) é exibido na seção "Estado do Usuário"
 
-- **AzureAdJoined:** – defina como "Sim" se o dispositivo for ingressado no Azure AD. "Não" caso contrário.
-- **EnterpriseJoined:** – defina como "Sim" se o dispositivo estiver ingressado em um DRS local. Um dispositivo não pode ser EnterpriseJoined e AzureAdJoined.
-- **DomainJoined:** – defina como "Sim" se o dispositivo tiver ingressado em um domínio (AD).
-- **Nome_do_domínio:** – defina como o nome do domínio se o dispositivo for ingressado em um domínio.
+- **AzureAdJoined:** - Defina para "SIM" se o dispositivo estiver unido ao Azure AD. "Não" de outra forma.
+- **EnterpriseJoined:** - Defina para "SIM" se o dispositivo estiver unido a um DRS no local. Um dispositivo não pode ser tanto EnterpriseJoined quanto AzureAdJoin.
+- **DomainJoined:** - Defina para "SIM" se o dispositivo estiver unido a um domínio (AD).
+- **Nome do domínio:** - Defina o nome do domínio se o dispositivo estiver unido a um domínio.
 
-### <a name="sample-device-state-output"></a>Saída de estado do dispositivo de exemplo
+### <a name="sample-device-state-output"></a>Saída do estado do dispositivo de amostra
 
 ```
 +----------------------------------------------------------------------+
@@ -56,16 +56,16 @@ Esta seção lista os parâmetros de estado de ingresso no dispositivo. A tabela
 
 ## <a name="device-details"></a>Detalhes do Dispositivo
 
-Exibido somente quando o dispositivo for ingressado no Azure ad ou ingressado no Azure AD híbrido (não o Azure AD registrado). Esta seção lista os detalhes de identificação de dispositivo armazenados na nuvem.
+Exibido somente quando o dispositivo é Azure AD aderido ou adesão ao Azure AD híbrido (não registrado no Azure AD). Esta seção lista os detalhes de identificação do dispositivo armazenados na nuvem.
 
-- **DeviceID:** -ID exclusiva do dispositivo no locatário do Azure AD
-- **Impressão digital:** -impressão digital do certificado do dispositivo 
-- **DeviceCertificateValidity:** -validade do certificado do dispositivo
-- **Keycontainerid:** -ContainerId da chave privada do dispositivo associada ao certificado do dispositivo
-- **:** -(Hardware/software) usado para armazenar a chave privada do dispositivo.
-- **TpmProtected:** -"Sim" se a chave privada do dispositivo estiver armazenada em um TPM de hardware.
+- **DeviceId:** - ID exclusivo do dispositivo no inquilino Azure AD
+- **Impressão digital:** - Impressão digital do certificado do dispositivo 
+- **DeviceCertificateValidity:** - Validade do certificado do dispositivo
+- **KeyContainerId:** - ContainerId da chave privada do dispositivo associada ao certificado do dispositivo
+- **KeyProvider:** - KeyProvider (Hardware/Software) usado para armazenar a chave privada do dispositivo.
+- **TpmProtected:** - "SIM" se a chave privada do dispositivo for armazenada em um TPM de hardware.
 
-### <a name="sample-device-details-output"></a>Saída de detalhes do dispositivo de exemplo
+### <a name="sample-device-details-output"></a>Saída de detalhes do dispositivo de amostra
 
 ```
 +----------------------------------------------------------------------+
@@ -83,15 +83,15 @@ Exibido somente quando o dispositivo for ingressado no Azure ad ou ingressado no
 
 ## <a name="tenant-details"></a>Detalhes do locatário
 
-Exibido somente quando o dispositivo for ingressado no Azure ad ou ingressado no Azure AD híbrido (não o Azure AD registrado). Esta seção lista os detalhes comuns do locatário quando um dispositivo é ingressado no Azure AD.
+Exibido somente quando o dispositivo é Azure AD aderido ou adesão ao Azure AD híbrido (não registrado no Azure AD). Esta seção lista os detalhes comuns do inquilino quando um dispositivo é juntado ao Azure AD.
 
 > [!NOTE]
-> Se as URLs de MDM nesta seção estiverem vazias, isso indica que o MDM não foi configurado ou o usuário atual não está no escopo do registro de MDM. Verifique as configurações de mobilidade no Azure AD para examinar a configuração do MDM.
+> Se os URLs MDM nesta seção estiverem vazios, ele indicará que o MDM não estava configurado ou o usuário atual não está no escopo da inscrição do MDM. Verifique as configurações de mobilidade no Azure AD para revisar sua configuração de MDM.
 
 > [!NOTE]
-> Mesmo que você veja URLs de MDM, isso não significa que o dispositivo é gerenciado por um MDM. As informações serão exibidas se o locatário tiver a configuração de MDM para registro automático, mesmo que o próprio dispositivo não seja gerenciado. 
+> Mesmo se você vir URLs MDM isso não significa que o dispositivo seja gerenciado por um MDM. As informações são exibidas se o inquilino tiver configuração de MDM para registro automático, mesmo que o dispositivo em si não seja gerenciado. 
 
-### <a name="sample-tenant-details-output"></a>Saída de detalhes de locatário de exemplo
+### <a name="sample-tenant-details-output"></a>Produção de detalhes do inquilino da amostra
 
 ```
 +----------------------------------------------------------------------+
@@ -129,17 +129,17 @@ Esta seção lista o status de vários atributos para o usuário atualmente cone
 > [!NOTE]
 > O comando deve ser executado em um contexto de usuário para recuperar o status válido.
 
-- **NgcSet:** – defina como "Sim" se uma chave do Windows Hello for definida para o usuário conectado no momento.
-- **NgcKeyId:** -ID da chave do Windows Hello se uma estiver definida para o usuário conectado no momento.
-- **Redefinição:** -indica se a chave do Windows Hello pode ser redefinida pelo usuário. 
-- **Valores possíveis:** -DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive ou Unknown If Error. 
-- **WorkplaceJoined:** – defina como "Sim" se as contas registradas do Azure ad tiverem sido adicionadas ao dispositivo no contexto Ntuser atual.
-- **WamDefaultSet:** – definido como "Sim" se uma conta Webpadrão WAM for criada para o usuário conectado. Esse campo poderá exibir um erro se dsreg/status for executado no contexto de administrador. 
-- **WamDefaultAuthority:** -definido como "organizações" para o Azure AD.
-- **WamDefaultId:** -sempre "https://login.microsoft.com" para o Azure AD.
-- **WamDefaultGUID:** -o GUID do provedor de WAM (Azure AD/conta Microsoft) para a conta da webdefault do WAM. 
+- **NgcSet:** - Defina para "SIM" se uma tecla Dolá do Windows estiver definida para a atual logada no usuário.
+- **NgcKeyId:** - ID da tecla Windows Hello se estiver configurado para o usuário conectado atual.
+- **CanReset:** - Denota se a tecla Windows Hello pode ser redefinida pelo usuário. 
+- **Valores possíveis:** - DestructiveOnly, NonDestructiveOnly, DestructiveandNonDestructive ou Unknown se errar. 
+- **WorkplaceJoined:** - Definido como "SIM" se as contas registradas do Azure AD tiverem sido adicionadas ao dispositivo no contexto NTUSER atual.
+- **WamDefaultSet:** - Defina para "SIM" se uma WebAccount padrão WAM for criada para o usuário logado. Este campo pode exibir um erro se dsreg /status for executado a partir de um prompt de comando elevado. 
+- **WamDefaultAuthority:** - Definido como "organizações" para a Azure AD.
+- **WamDefaultId:** -https://login.microsoft.comAlways " para Azure AD.
+- **WamDefaultGUID:** - Guid do provedor WAM (conta Azure AD/Microsoft) para a WebAccount WAM padrão. 
 
-### <a name="sample-user-state-output"></a>Saída de estado do usuário de exemplo
+### <a name="sample-user-state-output"></a>Produção do estado do usuário da amostra
 
 ```
 +----------------------------------------------------------------------+
@@ -158,23 +158,23 @@ Esta seção lista o status de vários atributos para o usuário atualmente cone
 +----------------------------------------------------------------------+
 ```
 
-## <a name="sso-state"></a>Estado do SSO
+## <a name="sso-state"></a>Estado SSO
 
 Esta seção pode ser ignorada para dispositivos registrados no Azure AD.
 
 > [!NOTE]
 > O comando deve ser executado em um contexto de usuário para recuperar o status válido para esse usuário.
 
-- **AzureAdPrt:** -definido como "Sim" se um PRT estiver presente no dispositivo para o usuário conectado.
-- **AzureAdPrtUpdateTime:** -defina como a hora em UTC quando o PRT foi atualizado pela última vez.
-- **AzureAdPrtExpiryTime:** -defina para a hora em UTC em que o PRT irá expirar se não for renovado.
-- **AzureAdPrtAuthority:** -URL de autoridade do Azure AD
-- **EnterprisePrt:** – defina como "Sim" se o dispositivo tiver o PRT do ADFS local. Para dispositivos ingressados no Azure AD híbrido, o dispositivo poderia ter o PRT do Azure AD e do AD local simultaneamente. Os dispositivos ingressados no local terão apenas um PRT corporativo.
-- **EnterprisePrtUpdateTime:** -defina como a hora em UTC quando o PRT empresarial foi atualizado pela última vez.
-- **EnterprisePrtExpiryTime:** -defina para a hora em UTC em que o PRT irá expirar se não for renovado.
-- **EnterprisePrtAuthority:** -URL da autoridade de ADFS
+- **AzureAdPrt:** - Defina para "SIM" se um PRT estiver presente no dispositivo para o usuário conectado.
+- **AzureAdPrtUpdateTime:** - Definir o tempo em UTC quando o PRT foi atualizado pela última vez.
+- **AzureAdPrtExpiryTime:** - Defina o tempo em UTC quando o PRT vai expirar se não for renovado.
+- **AzureAdPrtAuthority:** - URL de autoridade azure AD
+- **EnterprisePrt:** - Defina para "SIM" se o dispositivo tiver PRT a partir de ADFS no local. Para dispositivos híbridos azure AD, o dispositivo pode ter PRT tanto do Azure AD quanto do AD no local simultaneamente. Os dispositivos aderidos no local terão apenas um Enterprise PRT.
+- **EnterprisePrtUpdateTime:** - Defina o tempo na UTC quando o Enterprise PRT foi atualizado pela última vez.
+- **EnterprisePrtExpiryTime:** - Defina o tempo na UTC quando a PRT vai expirar se não for renovada.
+- **EnterprisePrtAuthority:** - URL de autoridade DaDFS
 
-### <a name="sample-sso-state-output"></a>Saída de estado de SSO de exemplo
+### <a name="sample-sso-state-output"></a>Amostra de produção do estado sso
 
 ```
 +----------------------------------------------------------------------+
@@ -195,23 +195,23 @@ Esta seção pode ser ignorada para dispositivos registrados no Azure AD.
 
 ## <a name="diagnostic-data"></a>Dados de diagnóstico
 
-### <a name="pre-join-diagnostics"></a>Diagnóstico de pré-junção
+### <a name="pre-join-diagnostics"></a>Pré-adesão aos diagnósticos
 
-Esta seção será exibida somente se o dispositivo estiver ingressado no domínio e não puder ingressar no Azure AD híbrido.
+Esta seção é exibida somente se o dispositivo estiver unido ao domínio e não puder participar do Azure AD híbrido.
 
-Esta seção executa vários testes para ajudar a diagnosticar falhas de junção. Esta seção também inclui os detalhes do (?) anterior. Essas informações incluem a fase de erro, o código de erro, a ID de solicitação do servidor, o status HTTP de resposta do servidor e a mensagem de erro de resposta do servidor.
+Esta seção realiza vários testes para ajudar a diagnosticar falhas de adesão. Esta seção também inclui os detalhes do anterior (?). Essas informações incluem a fase de erro, o código de erro, o ID de solicitação do servidor, o status http de resposta do servidor, a mensagem de erro de resposta do servidor.
 
-- **Contexto do usuário:** -o contexto no qual o diagnóstico é executado. Valores possíveis: sistema, usuário não elevado, usuário elevado. 
+- **Contexto do Usuário:** - O contexto em que os diagnósticos são executados. Valores possíveis: SISTEMA, Usuário NÃO ELEVADO, Usuário ELEVADO. 
 
    > [!NOTE]
-   > Como a junção real é executada no contexto do sistema, a execução do diagnóstico no contexto do sistema é mais próxima do cenário de junção real. Para executar o diagnóstico no contexto do sistema, o comando dsregcmd/status deve ser executado em um prompt de comandos com privilégios elevados.
+   > Uma vez que a adesão real é realizada no contexto do SISTEMA, a execução dos diagnósticos no contexto do SISTEMA é mais próxima do cenário real de adesão. Para executar diagnósticos no contexto do SISTEMA, o comando dsregcmd /status deve ser executado a partir de um prompt de comando elevado.
 
-- **Hora do cliente:** -a hora do sistema em UTC.
-- **Teste de conectividade do AD:** -o teste executa um teste de conectividade para o controlador de domínio. O erro neste teste provavelmente resultará em erros de junção na fase de verificação prévia.
-- **Teste de configuração do AD:** – o Test lê e verifica se o objeto SCP está configurado corretamente na floresta do AD local. Os erros nesse teste provavelmente resultarão em erros de junção na fase de descoberta com o código de erro 0x801c001d.
-- **Teste de descoberta do DRS:** -Test Obtém os pontos de extremidade do DRS do ponto de extremidades dos metadados de descoberta e executa uma solicitação de realm do usuário. Os erros nesse teste provavelmente resultarão em erros de junção na fase de descoberta.
-- **Teste de conectividade do DRS:** -Test executa o teste de conectividade básica para o ponto de extremidade do Drs.
-- **Teste de aquisição de token:** -Test tenta obter um token de autenticação do Azure ad se o locatário do usuário é federado. Os erros nesse teste provavelmente resultarão em erros de junção na fase de autenticação. Se a autenticação falhar, a junção de sincronização será tentada como fallback, a menos que fallback seja explicitamente desabilitado com as configurações de chave do registro abaixo.
+- **Tempo do cliente:** - O tempo do sistema na UTC.
+- **Teste de conectividade AD:** - O teste realiza um teste de conectividade ao controlador de domínio. O erro neste teste provavelmente resultará em erros de Participar na fase de pré-verificação.
+- **Teste de configuração AD:** - O teste lê e verifica se o objeto SCP está configurado corretamente na floresta AD no local. Erros neste teste provavelmente resultariam em erros de Join na fase de descoberta com o código de erro 0x801c001d.
+- **Teste de descoberta do DRS:** - O teste obtém os pontos finais do DRS a partir do ponto final de metadados de detecção e executa uma solicitação de reino do usuário. Erros neste teste provavelmente resultariam em erros de Participar na fase de descoberta.
+- **Teste de conectividade DRS:** - O teste realiza o teste básico de conectividade ao ponto final do DRS.
+- **Teste de aquisição de token:** - O teste tenta obter um token de autenticação Azure AD se o inquilino do usuário estiver federado. Erros neste teste provavelmente resultariam em erros de Join na fase auth. Se auth falhar, a sync join será tentada como recuo, a menos que o recuo seja explicitamente desativado com as configurações de chave de registro abaixo.
 ```
     Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
     Value: FallbackToSyncJoin
@@ -220,18 +220,18 @@ Esta seção executa vários testes para ajudar a diagnosticar falhas de junçã
     Value: 0x1 -> Enabled
     Default (No Key): Enabled
  ```
-- **Fallback para Sync – Join:** -defina como "Enabled" se a chave do registro acima, para evitar o fallback para sincronizar a junção com falhas de autenticação, não estiver presente. Essa opção está disponível no Windows 10 1803 e posterior.
-- **Registro anterior:** -hora em que a tentativa de junção anterior ocorreu. Somente tentativas de junção com falha são registradas.
-- **Fase de erro:** -o estágio da junção em que foi anulado. Os valores possíveis são pré-verificação, descoberta, autenticação, junção.
-- **ErrorCode do cliente:** -código de erro do cliente RETORNADO (HRESULT).
-- **Servidor ErrorCode:** -código de erro do servidor se uma solicitação foi enviada ao servidor e o servidor respondeu de volta com um código de erro. 
-- **Mensagem do servidor:** -mensagem do servidor retornada junto com o código de erro.
-- **Status de https:** -status http retornado pelo servidor.
-- **ID da solicitação:** -o cliente requestId foi enviado ao servidor. Útil para correlacionar com logs do lado do servidor.
+- **Recuo para Sync-Join:** - Definido como "Ativado" se a tecla de registro acima, para evitar que o recuo sincronize a juntação com falhas de auth, NÃO esteja presente. Esta opção está disponível a partir do Windows 10 1803 e posterior.
+- **Registro Prévio:** - Tempo de tentativa de Adesão anterior ocorreu. Apenas as tentativas de Adesão falhadas são registradas.
+- **Fase de Erro:** - A fase da junta em que foi abortada. Os valores possíveis são pré-check, discover, auth, join.
+- **Código de erro do cliente:** - Código de erro do cliente retornado (HRESULT).
+- **Código de erro do servidor:** - Código de erro do servidor se uma solicitação foi enviada para o servidor e o servidor respondeu com um código de erro. 
+- **Mensagem do servidor:** - Mensagem do servidor retornada junto com o código de erro.
+- **Https Status:** - Http status retornado pelo servidor.
+- **Solicitação de ID:** - O cliente solicitadoId enviado para o servidor. Útil para se correlacionar com logs do lado do servidor.
 
-### <a name="sample-pre-join-diagnostics-output"></a>Exemplo de saída de diagnóstico de pré-junção
+### <a name="sample-pre-join-diagnostics-output"></a>Produção de diagnósticos pré-aderido à amostra
 
-O exemplo a seguir mostra a falha do teste de diagnóstico com um erro de descoberta.
+O exemplo a seguir mostra o teste de diagnóstico falhando com um erro de descoberta.
 
 ```
 +----------------------------------------------------------------------+
@@ -255,7 +255,7 @@ O exemplo a seguir mostra a falha do teste de diagnóstico com um erro de descob
 +----------------------------------------------------------------------+
 ```
 
-O exemplo a seguir mostra que os testes de diagnóstico estão passando, mas a tentativa de registro falhou com um erro de diretório, que é esperado para a junção de sincronização. Depois que o trabalho de sincronização do Azure AD Connect for concluído, o dispositivo poderá ingressar.
+O exemplo a seguir mostra que os testes de diagnóstico estão passando, mas a tentativa de registro falhou com um erro de diretório, que é esperado para sincronização. Uma vez que o trabalho de sincronização do Azure AD Connect seja concluído, o dispositivo poderá participar.
 
 ```
 +----------------------------------------------------------------------+
@@ -284,14 +284,14 @@ O exemplo a seguir mostra que os testes de diagnóstico estão passando, mas a t
 +----------------------------------------------------------------------+
 ```
 
-### <a name="post-join-diagnostics"></a>Diagnóstico pós-junção
+### <a name="post-join-diagnostics"></a>Diagnóstico pós-adesão
 
-Esta seção exibe a saída de verificações de sanidade executadas em um dispositivo ingressado na nuvem.
+Esta seção exibe a saída de verificações de sanidade realizadas em um dispositivo unido à nuvem.
 
-- **AadRecoveryEnabled:** -se "Sim", as chaves armazenadas no dispositivo não poderão ser usadas e o dispositivo será marcado para recuperação. A próxima entrada irá disparar o fluxo de recuperação e registrar novamente o dispositivo.
-- **KeySignTest:** -se "aprovada", as chaves do dispositivo estão em boas condições. Se KeySignTest falhar, o dispositivo geralmente será marcado para recuperação. A próxima entrada irá disparar o fluxo de recuperação e registrar novamente o dispositivo. Para dispositivos ingressados no Azure AD híbrido, a recuperação é silenciosa. Embora o Azure AD ingressado ou o Azure AD seja registrado, os dispositivos solicitarão a autenticação do usuário para recuperar e registrar novamente o dispositivo, se necessário. **O KeySignTest requer privilégios elevados.**
+- **AadRecoveryAtivado:** - Se "SIM", as chaves armazenadas no dispositivo não são utilizáveis e o dispositivo está marcado para recuperação. O próximo sinal irá acionar o fluxo de recuperação e recadastrar o dispositivo.
+- **KeySignTest:** - Se "PASSED" as teclas do dispositivo estiverem em boa saúde. Se o KeySignTest falhar, o dispositivo geralmente será marcado para recuperação. O próximo sinal irá acionar o fluxo de recuperação e recadastrar o dispositivo. Para dispositivos híbridos Azure AD unidos, a recuperação é silenciosa. Enquanto o Azure AD se juntou ou o Azure AD foi registrado, os dispositivos solicitarão que a autenticação do usuário recupere e registre novamente o dispositivo, se necessário. **O KeySignTest requer privilégios elevados.**
 
-#### <a name="sample-post-join-diagnostics-output"></a>Exemplo de saída de diagnóstico pós-junção
+#### <a name="sample-post-join-diagnostics-output"></a>Amostra de saída de diagnóstico pós-adesão
 
 ```
 +----------------------------------------------------------------------+
@@ -303,26 +303,26 @@ Esta seção exibe a saída de verificações de sanidade executadas em um dispo
 +----------------------------------------------------------------------+
 ```
 
-## <a name="ngc-prerequisite-check"></a>Verificação de pré-requisitos do NGC
+## <a name="ngc-prerequisite-check"></a>Verificação do pré-requisito ngc
 
-Esta seção executa as verificações de perquisite para o provisionamento do Windows Hello para empresas (WHFB). 
+Esta seção realiza as verificações perquisite para o provisionamento do Windows Hello for Business (WHFB). 
 
 > [!NOTE]
-> Você não poderá ver detalhes de verificação de pré-requisito do NGC em dsregcmd/status se o usuário já tiver configurado com êxito o WHFB.
+> Você pode não ver os detalhes de verificação pré-requisito do NGC em dsregcmd /status se o usuário já estiver configurado com sucesso whfb.
 
-- **IsDeviceJoined:** – defina como "Sim" se o dispositivo for ingressado no Azure AD.
-- **IsUserAzureAD:** – defina como "Sim" se o usuário conectado estiver presente no Azure AD.
-- **PolicyEnabled:** – defina como "Sim" se a política de WHFB estiver habilitada no dispositivo.
-- **PostLogonEnabled:** – defina como "Sim" se o registro de WHFB for disparado nativamente pela plataforma. Se ele estiver definido como "não", indica que o registro do Windows Hello para empresas é disparado por um mecanismo personalizado
-- **DeviceEligible:** – defina como "Sim" se o dispositivo atender ao requisito de hardware para registrar-se com o WHFB.
-- **SessionIsNotRemote:** – defina como "Sim" se o usuário atual estiver conectado diretamente ao dispositivo e não remotamente.
-- **CertEnrollment:** -específico para a implantação de confiança de certificado WHFB, indicando a autoridade de registro de certificado para WHFB. Defina como "autoridade de registro" se a origem da política WHFB for Política de Grupo, "gerenciamento de dispositivo móvel" se a origem for MDM. "nenhum" caso contrário
-- **AdfsRefreshToken:** -específico para a implantação de confiança de certificado WHFB. Presente somente se CertEnrollment for "autoridade de registro". Indica se o dispositivo tem um PRT empresarial para o usuário.
-- **AdfsRaIsReady:** -específico para a implantação de confiança de certificado WHFB.  Presente somente se CertEnrollment for "autoridade de registro". Defina como "Sim" se o ADFS for indicado nos metadados de descoberta que oferece suporte a WHFB e se o modelo *de* certificado de logon estiver disponível.
-- **LogonCertTemplateReady:** -específico para a implantação de confiança de certificado WHFB. Presente somente se CertEnrollment for "autoridade de registro". Definido como "Sim" se o estado do modelo de certificado de logon for válido e ajudar a solucionar problemas do ADFS RA.
-- **PreReqResult:** -fornece o resultado de toda a avaliação de pré-requisito do WHFB. Defina como "provisionar" se o registro WHFB for iniciado como uma tarefa de pós-logon quando o usuário entrar na próxima vez.
+- **IsDeviceJoined:** - Defina para "SIM" se o dispositivo estiver unido ao Azure AD.
+- **IsUserAzureAD:** - Defina para "SIM" se o usuário conectado estiver presente no Azure AD .
+- **PolíticaHabilitada:** - Defina para "SIM" se a diretiva WHFB estiver habilitada no dispositivo.
+- **PostLogonEnabled:** - Defina para "SIM" se a inscrição do WHFB for acionada nativamente pela plataforma. Se estiver definido como "NÃO", indica que a inscrição do Windows Hello for Business é acionada por um mecanismo personalizado
+- **DispositivoElegível:** - Definido como "SIM" se o dispositivo atender ao requisito de hardware para se inscrever no WHFB.
+- **SessionIsNotRemote:** - Defina para "SIM" se o usuário atual estiver conectado diretamente ao dispositivo e não remotamente.
+- **CertMatrícula:** - Específico para implantação do WHFB Certificate Trust, indicando a autoridade de inscrição de certificados para WHFB. Defina como "autoridade de inscrição" se a fonte da política WHFB for Política de Grupo, "gerenciamento de dispositivos móveis" se a fonte for MDM. "nenhum" de outra forma
+- **AdfsRefreshToken:** - Específico para implantação do WHFB Certificate Trust. Só está presente se o CertRegistration for "autoridade de matrícula". Indica se o dispositivo possui um PRT corporativo para o usuário.
+- **AdfsRaIsReady:** - Específico para implantação do WHFB Certificate Trust.  Só está presente se o CertRegistration for "autoridade de matrícula". Defina como "SIM" se o ADFS indicar nos metadados de detecção que ele suporta WHFB *e* se o modelo de certificado de logon estiver disponível.
+- **LogonCertTemplateReady:** - Específico para implantação do WHFB Certificate Trust. Só está presente se o CertRegistration for "autoridade de matrícula". Defina como "SIM" se o modelo de certificado de logon for válido e ajudar a solucionar problemas do ADFS RA.
+- **PreReqResultado:** - Fornece resultado de toda avaliação pré-requisito whfb. Definido como "Provision will" se a inscrição do WHFB for lançada como uma tarefa pós-logon quando o usuário fizer login na próxima vez.
 
-### <a name="sample-ngc-prerequisite-check-output"></a>Exemplo de saída de verificação de pré-requisitos de NGC
+### <a name="sample-ngc-prerequisite-check-output"></a>Amostra de saída de pré-requisito NGC
 
 ```
 +----------------------------------------------------------------------+

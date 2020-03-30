@@ -5,20 +5,20 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68857314"
 ---
 Nesta seção, você aprenderá a atualizar o código em seu projeto de back-end de Aplicativos Móveis para enviar uma notificação por push sempre que um novo item for adicionado. Esse processo é alimentado pelo recurso [modelo](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) dos Hubs de Notificações do Microsoft Azure, que permite pushes de plataforma cruzada. Os vários clientes são registrados para notificações por push usando modelos, e um único envio por push universal pode chegar a todas as plataformas clientes.
 
 Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de back-end&mdash;, um [back-end .NET](#dotnet) ou um [back-end Node.js](#nodejs).
 
-### <a name="dotnet"></a>Projeto de back-end do .NET
+### <a name="net-back-end-project"></a><a name="dotnet"></a>Projeto de back-end do .NET
 
 1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor. Em seguida, selecione **Gerenciar Pacotes do NuGet**. Pesquise `Microsoft.Azure.NotificationHubs` e, em seguida, selecione **Instalar**. Esse processo instala a biblioteca dos Hubs de Notificação para enviar notificações do back-end.
-2. No projeto do servidor, abra **Controladores** > **TodoItemController.cs**. Em seguida, adicione as seguintes instruções usando:
+2. No projeto do servidor, **os Controladores** > abertos**TodoItemController.cs**. Em seguida, adicione as seguintes instruções usando:
 
     ```csharp
     using System.Collections.Generic;
@@ -68,9 +68,9 @@ Escolha um dos procedimentos abaixo que corresponda ao seu tipo de projeto de ba
 
 4. Republicar o projeto de servidor.
 
-### <a name="nodejs"></a>Projeto de back-end do Node.js
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Projeto de back-end do Node.js
 
-1. Configure seu projeto de back-end.
+1. Configure seu projeto backend.
 2. Substitua o código existente em todoitem.js pelo código a seguir:
 
     ```javascript

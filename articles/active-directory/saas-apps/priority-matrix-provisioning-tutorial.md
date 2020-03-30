@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar a matriz de prioridade para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para a matriz de prioridade.
+title: 'Tutorial: Configure matriz de prioridade para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para a Matriz de Prioridades.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,115 +16,115 @@ ms.topic: article
 ms.date: 10/08/2019
 ms.author: Zhchia
 ms.openlocfilehash: 80ffaba6713027d216958e0be2cd4ae35a8d2d70
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063430"
 ---
-# <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutorial: configurar a matriz de prioridade para o provisionamento automático de usuário
+# <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutorial: Configure a Matriz de Prioridades para o provisionamento automático do usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas na matriz de prioridade e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para a matriz de prioridade.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no Priority Matrix e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisão e desprovisionamento automático de usuários e/ou grupos para a Matriz de Prioridades.
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um locatário de matriz de prioridade](https://appfluence.com/pricing/)
-* Uma conta de usuário em uma matriz de prioridade com permissões de administrador.
+* [Um inquilino da Matriz Prioritária](https://appfluence.com/pricing/)
+* Uma conta de usuário em uma Matriz prioritária com permissões de administração.
 
-## <a name="assign-users-to-priority-matrix"></a>Atribuir usuários à matriz de prioridade
+## <a name="assign-users-to-priority-matrix"></a>Atribuir usuários à Matriz de Prioridades
 
-Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado atribuições para determinar quais usuários devem receber acesso a aplicativos selecionados. No contexto do provisionamento automático do usuário, apenas os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso à matriz de prioridade. Depois de decidir, você pode atribuir esses usuários e/ou grupos à matriz de prioridade seguindo as instruções aqui:
+Antes de configurar e habilitar o provisionamento automático do usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam acessar a Matriz de Prioridade. Uma vez decidido, você pode atribuir esses usuários e/ou grupos à Matriz de Prioridade, seguindo as instruções aqui:
 
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-priority-matrix"></a>Dicas importantes para atribuir usuários à matriz de prioridade
+### <a name="important-tips-for-assigning-users-to-priority-matrix"></a>Dicas importantes para atribuir usuários à Matriz prioritária
 
-* É recomendável que um único usuário do Azure AD seja atribuído à matriz de prioridade para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único usuário Azure AD seja designado à Matriz de Prioridade satisfaz a configuração de provisionamento automático do usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário à matriz de prioridade, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário à Matriz de Prioridades, você deve selecionar qualquer função específica de aplicativo (se disponível) na caixa de diálogo de atribuição. Os usuários com a **função Default Access** são excluídos do provisionamento.
 
-## <a name="set-up-priority-matrix-for-provisioning"></a>Configurar a matriz de prioridade para provisionamento
+## <a name="set-up-priority-matrix-for-provisioning"></a>Configurar matriz de prioridade para provisionamento
 
-Antes de configurar a matriz de prioridade para o provisionamento automático de usuário com o Azure AD, será necessário recuperar algumas informações de provisionamento da matriz de prioridade.
+Antes de configurar a Matriz de Prioridade suscetida ao provisionamento automático do usuário com o Azure AD, você precisará recuperar algumas informações de provisionamento da Matriz de Prioridades.
 
-1. Entre em seu [console de administrador de matriz de prioridade](https://sync.appfluence.com/accounts/login/?next=/accounts/provisioning).
+1. Faça login no seu [console de admin de matriz prioritária](https://sync.appfluence.com/accounts/login/?next=/accounts/provisioning).
 
-3. Clique em **token de logon OAuth** para matriz de prioridade
+3. Clique **em Token de login Oauth para** Priority Matrix
 
-    ![Matriz de prioridade-adicionar SCIM](media/priority-matrix-provisioning-tutorial/oauthlogin.png)
+    ![Matriz prioritária adicionar SCIM](media/priority-matrix-provisioning-tutorial/oauthlogin.png)
 
-4. Clique no botão **obter novo token** . Copie a **cadeia de caracteres do token**. Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo de matriz de prioridade na portal do Azure. 
+4. Clique no botão **OBTER NOVO TOKEN.** Copie a **seqüência de tokens**. Esse valor será inserido no campo **Token Secreto** na guia Provisionamento do aplicativo Priority Matrix no portal Azure. 
 
-    ![Token de criação de matriz de prioridade](media/priority-matrix-provisioning-tutorial/token.png)
+    ![Matriz prioritária criar token](media/priority-matrix-provisioning-tutorial/token.png)
 
-## <a name="add-priority-matrix-from-the-gallery"></a>Adicionar matriz de prioridade da Galeria
+## <a name="add-priority-matrix-from-the-gallery"></a>Adicionar Matriz de Prioridade da galeria
 
-Para configurar a matriz de prioridade para o provisionamento automático de usuário com o Azure AD, você precisa adicionar a matriz de prioridade da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar a Matriz de Prioridade suscetia ao provisionamento automático do usuário com o Azure AD, você precisa adicionar a Matriz de Prioridades da galeria de aplicativos Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **aplicativos Enterprise**e selecione Todos **os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **matriz de prioridade**, selecione **matriz de prioridade** no painel de resultados. 
+4. Na caixa de pesquisa, **digite Matriz de Prioridades,** selecione **Matriz de Prioridade** no painel de resultados. 
 
-    ![Matriz de prioridade na lista de resultados](common/search-new-app.png)
+    ![Matriz prioritária na lista de resultados](common/search-new-app.png)
 
-5. Selecione o botão **inscrever-se para a matriz de prioridade** , que o redirecionará para a página de logon da matriz de prioridade. 
+5. Selecione o botão **''''''Matriz de prioridades',** que irá redirecioná-lo para a página de login da Priority Matrix. 
 
-    ![Adição de matriz de prioridade OIDC](media/priority-matrix-provisioning-tutorial/signup.png)
+    ![Matriz prioritária OIDC Adicionar](media/priority-matrix-provisioning-tutorial/signup.png)
 
-6. Como matriz de prioridade é um aplicativo OpenIDConnect, opte por fazer logon na matriz de prioridade usando sua conta corporativa da Microsoft.
+6. Como a Priority Matrix é um aplicativo OpenIDConnect, opte por fazer login no Priority Matrix usando sua conta de trabalho da Microsoft.
 
-    ![Logon OIDC de matriz de prioridade](media/priority-matrix-provisioning-tutorial/msftsignin.png)
+    ![Login de OIDC da Matriz prioritária](media/priority-matrix-provisioning-tutorial/msftsignin.png)
 
-7. Após uma autenticação bem-sucedida, aceite a solicitação de consentimento para a página de consentimento. O aplicativo será adicionado automaticamente ao seu locatário e você será redirecionado para sua conta de matriz de prioridade.
+7. Após uma autenticação bem-sucedida, aceite o prompt de consentimento para a página de consentimento. O aplicativo será então adicionado automaticamente ao seu inquilino e você será redirecionado para sua conta de Matriz prioritária.
 
-    ![Consentimento de OIDc de matriz de prioridade](media/priority-matrix-provisioning-tutorial/consent.png)
+    ![Consentimento oIDc da Matriz Prioritária](media/priority-matrix-provisioning-tutorial/consent.png)
 
-## <a name="configure-automatic-user-provisioning-to-priority-matrix"></a>Configurar o provisionamento automático de usuário para a matriz de prioridade 
+## <a name="configure-automatic-user-provisioning-to-priority-matrix"></a>Configure o provisionamento automático do usuário para a Matriz de Prioridades 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos na matriz de prioridade com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você através das etapas para configurar o serviço de provisionamento Azure AD para criar, atualizar e desativar usuários e/ou grupos em Matriz de Prioridade com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!NOTE]
-> Para saber mais sobre o ponto de extremidade SCIM da matriz de prioridade, consulte [provisionamento de usuário e matriz de prioridade](https://appfluence.com/help/article/user-provisioning/).
+> Para saber mais sobre o ponto final do SCIM da Priority Matrix, consulte [o provisionamento do usuário e a Matriz de Prioridades](https://appfluence.com/help/article/user-provisioning/).
 
-### <a name="to-configure-automatic-user-provisioning-for-priority-matrix-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para a matriz de prioridade no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-priority-matrix-in-azure-ad"></a>Para configurar o provisionamento automático do usuário para Matriz de Prioridade no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Faça login no [portal Azure](https://portal.azure.com). Selecione **Aplicativos Corporativos**e selecione **Todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **matriz de prioridade**.
+2. Na lista de aplicativos, **selecione Matriz de Prioridade**.
 
-    ![O link da matriz de prioridade na lista de aplicativos](common/all-applications.png)
+    ![O link Matriz de Prioridade na lista de aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia de provisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **modo de provisionamento** como **automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://sync.appfluence.com/scim/v2/` na **URL do locatário**. Insira o valor que você recuperou e salvou anteriormente da matriz de prioridade no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar à matriz de prioridade. Se a conexão falhar, verifique se sua conta de matriz de prioridade tem permissões de administrador e tente novamente.
+5. Na seção **Credenciais de Admin,** entrada `https://sync.appfluence.com/scim/v2/` na **URL do inquilino**. Insira o valor que você recuperou e salvou anteriormente de Priority Matrix em **Secret Token**. Clique **em Conexão de teste** para garantir que o Azure AD possa se conectar à Matriz de Prioridades. Se a conexão falhar, certifique-se de que sua conta de Matriz prioritária tenha permissões de administração e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -134,21 +134,21 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 7. Clique em **Salvar**.
 
-8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários com a matriz de prioridade**.
+8. Na seção **Mapeamentos,** selecione Sincronizar usuários do diretório ativo do **Azure para A Matriz de Prioridades**.
 
-    ![Mapeamentos de usuário da matriz de prioridade](media/priority-matrix-provisioning-tutorial/usermappings.png)
+    ![Mapeamentos de usuários de matriz de prioridade](media/priority-matrix-provisioning-tutorial/usermappings.png)
 
-9. Examine os atributos de usuário que são sincronizados do Azure AD para a matriz de prioridade na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário na matriz de prioridade para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Revise os atributos do usuário sincronizados do Azure AD para o Priority Matrix na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades de correspondência** são usados para corresponder às contas de usuário em Matriz de Prioridade para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
     ![Atributos de usuário da matriz de prioridade](media/priority-matrix-provisioning-tutorial/userattributes.png)
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento do Azure AD para a matriz de prioridade, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+11. Para habilitar o serviço de provisionamento Azure AD para Matriz prioritária, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações.**
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-12. Defina os usuários e/ou grupos que você deseja provisionar para a matriz de prioridade escolhendo os valores desejados no **escopo** na seção **configurações** .
+12. Defina os usuários e/ou grupos que você gostaria de prover para a Matriz de Prioridade, escolhendo os valores desejados no **Escopo** na seção **Configurações.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -156,16 +156,16 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure ad na matriz de prioridade.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **Detalhes de Sincronização** para monitorar o progresso e seguir links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento Azure AD na Priority Matrix.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento da rede de produção do Azure-Microsoft Azure
+title: Gerenciamento da rede de produção Do Azure - Microsoft Azure
 description: Este artigo descreve como a Microsoft gerencia e opera a rede de produção do Azure para proteger os data centers do Azure.
 services: security
 documentationcenter: n
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
 ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727123"
 ---
-# <a name="management-and-operation-of-the-azure-production-network"></a>Gerenciamento e operação da rede de produção do Azure    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Gestão e operação da rede de produção do Azure    
 Este artigo descreve como a Microsoft gerencia e opera a rede de produção do Azure para proteger os data centers do Azure.
 
-## <a name="monitor-log-and-report"></a>Monitorar, registrar e relatar
+## <a name="monitor-log-and-report"></a>Monitore, registre e informe
 
 O gerenciamento e a operação da rede de produção do Azure é um esforço coordenado entre as equipes de operações do Azure e do Banco de Dados SQL do Azure. As equipes usam várias ferramentas de monitoramento de desempenho de sistemas e aplicativos no ambiente. E eles usam ferramentas apropriadas para monitorar dispositivos de rede, servidores, serviços e processos de aplicativos.
 
@@ -55,10 +55,10 @@ Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Az
 
 - [Recursos, local e segurança física do Azure](physical-security.md)
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
-- [Limites e componentes do sistema de informações do Azure](infrastructure-components.md)
+- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)
 - [Proteção de dados do cliente do Microsoft Azure](protection-customer-data.md)

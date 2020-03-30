@@ -1,6 +1,6 @@
 ---
 title: Visão geral da API REST das Operações dos Serviços de Mídia | Microsoft Docs
-description: A API "REST de operações de serviços de mídia" é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de serviços de mídia. Este artigo fornece uma visão geral da API REST dos serviços de mídia do Azure v2.
+description: A API "Operações de Serviços de Mídia REST" é usada para criar empregos, ativos, canais ao vivo e outros recursos em uma conta de Serviços de Mídia. Este artigo fornece uma visão geral da API do Azure Media Services v2 REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,16 +16,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773671"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 A API **REST das Operações dos Serviços de Mídia** é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de Serviços de Mídia do Azure. Para saber mais, consulte [Referência da API REST das Operações dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -58,7 +58,7 @@ As seguintes considerações se aplicam ao usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Os cabeçalhos de solicitação HTTP padrão suportados pelos serviços de mídia
 Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela abaixo lista os cabeçalhos necessários:
 
-| Cabeçalho | Tipo | Valor |
+| Cabeçalho | Type | Valor |
 | --- | --- | --- |
 | Autorização |Portador |Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Microsoft Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (ou versão mais recente)|
@@ -72,7 +72,7 @@ Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeç
 
 Este é um conjunto de cabeçalhos opcional:
 
-| Cabeçalho | Tipo | Valor |
+| Cabeçalho | Type | Valor |
 | --- | --- | --- |
 | Data |Data do RFC 1123 |Carimbo de hora da solicitação |
 | Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida contém o fluxo de blob como carga. |
@@ -86,7 +86,7 @@ Este é um conjunto de cabeçalhos opcional:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
-| Cabeçalho | Tipo | Valor |
+| Cabeçalho | Type | Valor |
 | --- | --- | --- |
 | ID da solicitação |String |Um identificador exclusivo para a operação atual, serviço gerado. |
 | ID da solicitação de cliente |String |Um identificador especificado pelo chamador na solicitação original, se presente. |
@@ -97,7 +97,7 @@ Este é um conjunto de cabeçalhos que podem ser retornados para você, dependen
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos HTTP padrão suportados pelos serviços de mídia.
 A seguir está uma lista completa de verbos HTTP que podem ser usados quando fazem solicitações HTTP:
 
-| Verbo | Description |
+| Verbo | Descrição |
 | --- | --- |
 | GET |Retorna o valor atual de um objeto. |
 | POST |Cria um objeto com base nos dados fornecidos ou envia um comando. |
@@ -120,7 +120,7 @@ Para obter detalhes sobre como obter os detalhes de autenticação necessários 
 
 Para obter detalhes sobre como gravar um código que se conecte à API REST usando a autenticação do Azure AD, consulte o artigo [Usar a autenticação do Microsoft Azure Active Directory para acessar a API de Serviços de Mídia do Microsoft Azure com REST](media-services-rest-connect-with-aad.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber como usar a autenticação do Azure AD com a API REST de Serviços de Mídia do Microsoft Azure, consulte [Usar a autenticação do Microsoft Azure Active Directory para acessar a API de Serviços de Mídia do Microsoft Azure com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

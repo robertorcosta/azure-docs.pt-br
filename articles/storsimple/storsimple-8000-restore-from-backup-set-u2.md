@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60723320"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume do StorSimple de um conjunto de backup
@@ -33,7 +33,7 @@ Um método alternativo para iniciar a restauração é ir para **Dispositivos > 
 
 Antes de iniciar uma restauração, examine as seguintes advertências:
 
-* **É necessário colocar o volume offline** – Coloque o volume offline no host e no dispositivo antes de iniciar a operação de restauração. Embora a operação de restauração coloque automaticamente o volume online no dispositivo, você deve colocar o dispositivo online manualmente no host. Você pode colocar o volume online no host, assim que o volume estiver online no dispositivo. (Não é necessário aguardar até que a operação de restauração seja concluída.) Para obter os procedimentos, acesse [Colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
+* **É necessário colocar o volume offline** – Coloque o volume offline no host e no dispositivo antes de iniciar a operação de restauração. Embora a operação de restauração coloque automaticamente o volume online no dispositivo, você deve colocar o dispositivo online manualmente no host. Você pode colocar o volume online no host, assim que o volume estiver online no dispositivo. (Você não precisa esperar até que a operação de restauração esteja concluída.) Para procedimentos, vá para [Tomar um volume off-line](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
 
 * **Tipo de volume após a restauração** – Os volumes excluídos são restaurados com base no tipo do instantâneo; ou seja, volumes que foram fixados localmente são restaurados como volumes fixados localmente e volumes que estavam organizados em camadas são restaurados como volumes em camadas.
 
@@ -81,14 +81,14 @@ A folha **Catálogo de Backup** oferece uma consulta que ajuda a restringir sua 
 
 * **Intervalo de tempo** – O intervalo de datas e horas em que o conjunto de backup foi criado.
 * **Dispositivo** – O dispositivo no qual o conjunto de backup foi criado.
-* **Política de backup** ou **Volume** – A política de backup ou volume associado a este conjunto de backup.
+* **Política de backup** ou **volume** – A política de backup ou volume associado a este conjunto de backup.
 
 Os conjuntos de backup filtrados são então tabulados com base nos seguintes atributos:
 
-* **Nome** – O nome da política de backup ou do volume associada a este conjunto de backup.
-* **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
+* **Nome** – O nome do volume ou política de backup associados ao conjunto de backup.
+* **Tipo** – Os conjuntos de backup podem ser instantâneos locais ou na nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
 * **Tamanho** – O tamanho real do conjunto de backup.
-* **Criado em** – O intervalo de data e hora quando os backups foram criados. 
+* **Criado em** – A data e a hora em que os backups foram criados. 
 * **Volumes** – O número de volumes associados ao conjunto de backup.
 * **Iniciado** – Os backups podem ser iniciados de forma automática, de acordo com uma agenda ou de forma manual por um usuário. (Você pode usar uma política de backup para agendar backups. Ou é possível usar a opção **Fazer backup** para fazer um backup interativo ou sob demanda).
 
@@ -127,7 +127,7 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
    
     ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7. Clique em **Restaurar**. Isso iniciará um trabalho de restauração que poderá ser exibido acessando a página **Trabalhos**.
+7. Clique **em Restaurar**. Isso iniciará um trabalho de restauração que poderá ser exibido acessando a página **Trabalhos**.
 
    ![Página de confirmação](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 

@@ -1,29 +1,27 @@
 ---
-title: O OLTP na memória melhora o desempenho do SQL TXN
+title: OLTP na memória melhora o SQL txn perf
 description: Adote o OLTP Na Memória para melhorar o desempenho transacional em um banco de dados SQL existente.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: 0f10936867c101c07cc8d29d68dc45021bfad1b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 653ed75341d5d56ecbe06cb59f0efafa1e68aa0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810299"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067282"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Usar o OLTP in-memory para melhorar o desempenho do aplicativo no Banco de Dados SQL
 
 O [OLTP in-memory](sql-database-in-memory.md) pode ser usado para melhorar o desempenho do processamento de transações, a ingestão de dados e os cenários de dados transitórios, em bancos de dados das [camadas Premium e Comercialmente Crítico](sql-database-service-tiers-vcore.md) sem aumentar o tipo de preço. 
 
 > [!NOTE] 
-> Saiba como o [Quorum dobra a principal carga de trabalho do banco de dados, enquanto reduz a DTU em 70% com o Banco de Dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Saiba como [o Quorum dobra a carga de trabalho do banco de dados principal enquanto reduz o DTU em 70% com o Banco de Dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 
 Siga estas etapas para adotar o in-memory OLTP no banco de dados existente.
@@ -46,7 +44,7 @@ O SSMS inclui um relatório **Visão Geral da Análise do Desempenho da Transaç
 No SSMS, para gerar o relatório:
 
 * No **Pesquisador de Objetos**, clique com o botão direito do mouse no nó do banco de dados.
-* Clique em **Relatórios** > **Relatórios Padrão** > **Visão Geral da Análise de Desempenho da Transação**.
+* Clique em **Relatórios** > **padrão Visão** > **geral da análise de desempenho da transação**.
 
 Para saber mais, confira [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](https://msdn.microsoft.com/library/dn205133.aspx).
 
@@ -82,8 +80,8 @@ Para usar essa opção de migração:
 3. No assistente, clique em **Validação de migração** (ou no botão **Avançar**) para ver se a tabela tem algum recurso sem suporte nas tabelas com otimização de memória. Para obter mais informações, consulte:
    
    * A *lista de verificação de otimização de memória* no [Supervisor de Otimização de Memória](https://msdn.microsoft.com/library/dn284308.aspx).
-   * [Construções Transact-SQL sem suporte do OLTP Na Memória](https://msdn.microsoft.com/library/dn246937.aspx).
-   * [Migrando para o OLTP Na Memória](https://msdn.microsoft.com/library/dn247639.aspx).
+   * [Construções Transact-SQL não suportadas pelo OLTP na memória](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Migração para OLTP na memória](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Se a tabela não tiver recursos sem suporte, o supervisor poderá executar o esquema e a migração de dados reais para você.
 
 #### <a name="manual-t-sql"></a>T-SQL Manual
@@ -93,7 +91,7 @@ Para usar essa opção de migração:
 2. Obtenha o script T-SQL completo para a tabela e seus índices.
    
    * No SSMS, clique com o botão direito do mouse no nó da sua tabela.
-   * Clique em **Script de Tabela como** > **CRIAR Para** > **Nova Janela de Consulta**.
+   * Clique **na tabela de scripts como** > **CRIAR para** > **nova janela de consulta**.
 3. Na janela de script, adicione WITH (MEMORY_OPTIMIZED = ON) à instrução CREATE TABLE.
 4. Se houver um índice CLUSTERED, altere-o para NONCLUSTERED.
 5. Renomeie a tabela existente usando SP_RENAME.
@@ -169,7 +167,7 @@ Considere monitorar os efeitos de desempenho de  suas implementações de Na Mem
 * [Monitoramento de Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Links relacionados
-* [OLTP Na Memória (Otimização Na Memória)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [OLTP na memória (otimização na memória)](https://msdn.microsoft.com/library/dn133186.aspx)
 * [Introdução aos procedimentos armazenados compilados nativamente](https://msdn.microsoft.com/library/dn133184.aspx)
-* [Supervisor de Otimização de Memória](https://msdn.microsoft.com/library/dn284308.aspx)
+* [Orientador de otimização da memória](https://msdn.microsoft.com/library/dn284308.aspx)
 

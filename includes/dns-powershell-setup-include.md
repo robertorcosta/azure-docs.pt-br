@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
 ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67132998"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Configurar o Azure PowerShell para DNS do Azure
@@ -24,7 +24,7 @@ ms.locfileid: "67132998"
 Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 * Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Você precisa instalar a versão mais recente dos cmdlets do Azure Resource Manager do PowerShell. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Você precisa instalar a versão mais recente dos cmdlets do Azure Resource Manager do PowerShell. Para obter mais informações, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Além disso, para usar Zonas Privadas (Visualização Pública), é preciso ter os módulos e as versões do PowerShell a seguir. 
 * AzureRM.Dns – [versão 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) ou superior
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Entre na sua conta do Azure
 
-Abra o console do PowerShell e conecte-se à sua conta. Para obter mais informações, consulte [entrar com AzureRM](/powershell/azure/azurerm/authenticate-azureps).
+Abra o console do PowerShell e conecte-se à sua conta. Para obter mais informações, consulte [Entrar com o AzureRM](/powershell/azure/azurerm/authenticate-azureps).
 
 ```powershell
 Connect-AzureRmAccount

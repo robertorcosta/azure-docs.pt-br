@@ -1,25 +1,25 @@
 ---
-title: Configurar parâmetros do servidor-CLI do Azure-banco de dados do Azure para MySQL
+title: Configurar parâmetros de servidor - Azure CLI - Banco de dados Azure para MySQL
 description: Este artigo descreve como configurar os parâmetros de serviço no Banco de Dados do Azure para MySQL usando o utilitário da linha de comando da CLI do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 0250810d25b0abb5bf675d8c91f3c0678d895c37
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 3/18/2020
+ms.openlocfilehash: 5f3027909d1c4684e2ef5d1b6e967cb11f570fd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062424"
 ---
-# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalizar parâmetros de servidor usando CLI do Azure
+# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalize os parâmetros do servidor usando o Azure CLI
 É possível listar, exibir e atualizar os parâmetros de configuração de um servidor de Banco de Dados do Azure para MySQL usando o utilitário da linha de comando da CLI do Azure. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
-- [um servidor de Banco de Dados do Azure para MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Um banco de dados Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - Utilitário de linha de comando do [Azure CLI](/cli/azure/install-azure-cli) ou use o Azure Cloud Shell no navegador.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Listar os parâmetros de configuração de servidor para o Banco de Dados do Azure para MySQL
@@ -32,7 +32,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 Para obter a definição de cada um dos parâmetros listados, consulte a seção de referência do MySQL em [Variáveis do Sistema do Servidor](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes do parâmetro de configuração do servidor
-Para mostrar os detalhes sobre um parâmetro de configuração específico de um servidor, execute o comando [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show).
+Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute o comando [az mysql server configuration show.](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show)
 
 Este exemplo mostra detalhes do parâmetro de configuração de servidor **slow\_query\_log** para o servidor **mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup.**
 ```azurecli-interactive
@@ -65,7 +65,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário estejam preenchidas corretamente. Para reiniciar o servidor, use o [portal Azure](howto-restart-server-portal.md) ou [CLI](howto-restart-server-cli.md).
 
 Para exibir os valores de fuso horário disponíveis, execute o comando a seguir:
 
@@ -94,6 +94,6 @@ SET time_zone = 'US/Pacific';
 Consulte a documentação do MySQL para [Funções de data e hora](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Como configurar [parâmetros de servidor no Portal do Azure](howto-server-parameters.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61295916"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Criar uma imagem personalizada de um arquivo VHD
@@ -33,9 +33,9 @@ ms.locfileid: "61295916"
 
 As seguintes etapas orientam você durante a criação de uma imagem personalizada de um arquivo VHD usando o Portal do Azure:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Todos os serviços**e selecione **DevTest Labs** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 
@@ -60,9 +60,9 @@ As seguintes etapas orientam você durante a criação de uma imagem personaliza
 
 1. Você também poderá inserir um nome do plano, oferta do plano e um editor do plano, se a imagem utilizada para criar a imagem personalizada não for uma imagem licenciada (publicada pela Microsoft).
 
-   - **Nome do plano:** Digite o nome da imagem do Marketplace (SKU) do qual essa imagem personalizada é criada 
-   - **Plano de oferta:** Insira o produto (oferta) da imagem do Marketplace da qual essa imagem personalizada é criada. 
-   - **Editor do plano:** Insira o editor da imagem do Marketplace da qual essa imagem personalizada é criada.
+   - **Nome do plano:** insira o nome da imagem do Marketplace (SKU) a partir da qual essa imagem personalizada será criada 
+   - **Oferta do plano:** insira o produto (oferta) da imagem do Marketplace a partir da qual essa imagem personalizada é criada 
+   - **Oferta do plano:** insira o produto (oferta) da imagem do Marketplace a partir da qual essa imagem personalizada é criada
 
    > [!NOTE]
    > Se a imagem que você estiver utilizando para criar uma imagem personalizada **não** for uma imagem licenciada, esses campos estarão vazios e poderão ser preenchidos, caso você escolha. Se a imagem **for** uma imagem licenciada, os campos serão preenchidos automaticamente com as informações do plano. Se você tentar alterá-los nesse caso, uma mensagem de aviso será exibida.

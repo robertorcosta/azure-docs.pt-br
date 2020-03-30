@@ -9,10 +9,10 @@ ms.date: 1/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: aaceee65ae91a22dc658d185a874e2040b1e0f04
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75975661"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Usando a Ferramenta de Importação/Exportação do Azure (modelo de implantação clássico)
@@ -30,6 +30,6 @@ Os artigos a seguir mostram como:
 - Reparar um trabalho de exportação.
 - Solucionar problemas da Ferramenta de Importação/Exportação do Azure, caso você teve um problema durante o processo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configuração da ferramenta WAImportExport](../storage-import-export-tool-how-to.md)

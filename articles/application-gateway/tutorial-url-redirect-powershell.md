@@ -4,21 +4,21 @@ description: Saiba como criar um gateway de aplicativo com o tráfego redirecion
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/14/2019
+ms.date: 03/19/2020
 ms.author: victorh
-ms.topic: tutorial
-ms.openlocfilehash: 04cd390681d0492dc28308c3304753a6ecaf1c3c
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: c577859f6e8a44dd3573537aecadba638a5f6fa6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047602"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059378"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando o Azure PowerShell
 
-É possível usar o Azure PowerShell para configurar as [regras de roteamento baseado em URL](application-gateway-url-route-overview.md) quando você cria um [gateway de aplicativo](application-gateway-introduction.md). Neste tutorial, você criará pools de back-end usando [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, criará regras de roteamento de URL que garantem que o tráfego da Web seja redirecionado para o pool de back-end apropriado.
+É possível usar o Azure PowerShell para configurar as [regras de roteamento baseado em URL](application-gateway-url-route-overview.md) quando você cria um [gateway de aplicativo](application-gateway-introduction.md). Neste artigo, você cria pools back-end usando [conjuntos de escala de máquinavirtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, criará regras de roteamento de URL que garantem que o tráfego da Web seja redirecionado para o pool de back-end apropriado.
 
-Neste tutorial, você aprenderá como:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar a rede
@@ -30,7 +30,7 @@ O exemplo a seguir mostra o tráfego do site proveniente de ambas as portas 8080
 
 ![Exemplo de roteamento de URL](./media/tutorial-url-redirect-powershell/scenario.png)
 
-Se preferir, você pode concluir este tutorial usando a [CLI do Azure](tutorial-url-redirect-cli.md).
+Se preferir, você pode concluir este procedimento usando a [CLI do Azure](tutorial-url-redirect-cli.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -38,7 +38,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este procedimento requer a versão 1.0.0 ou posterior do módulo Azure PowerShell. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -50,7 +50,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-Crie as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações e sub-rede. Por fim, crie o endereço IP público denominado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway de aplicativo e seus recursos associados.
+Crie as configurações de sub-rede para *myBackendSubnet* e *myAGSubnet* usando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Crie a rede virtual denominada *myVNet* usando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) com as configurações e sub-rede. Por fim, crie o endereço IP público nomeado *myAGPublicIPAddress* usando [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Esses recursos são usados para fornecer conectividade de rede ao gateway de aplicativo e seus recursos associados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -129,7 +129,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Criar o ouvinte e regra padrão
 
-Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para um pool de back-end. Neste tutorial, você criará vários ouvintes. O primeiro ouvinte básico espera tráfego na URL da raiz. Os outros ouvintes esperam tráfego em URLs específicas, como `http://52.168.55.24:8080/images/` ou `http://52.168.55.24:8081/video/`.
+Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear o tráfego corretamente para um pool de back-end. Neste artigo, você cria vários ouvintes. O primeiro ouvinte básico espera tráfego na URL da raiz. Os outros ouvintes esperam tráfego em URLs específicas, como `http://52.168.55.24:8080/images/` ou `http://52.168.55.24:8081/video/`.
 
 Crie um ouvinte chamado *defaultListener* usando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração front-end e a porta front-end criadas anteriormente. Uma regra é necessária para o ouvinte saber qual pool de back-end deve ser usado para tráfego de entrada. Crie uma regra básica nomeada *rule1* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -346,7 +346,7 @@ Add-AzApplicationGatewayUrlPathMapConfig `
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="add-routing-rules"></a>Adicionar regras de roteamento
+### <a name="add-routing-rules"></a>Adicionar regras de redirecionamento
 
 A regra de roteamento associa o mapa de URL ao ouvinte que você criou. É possível adicionar as regras nomeadas *defaultRule* e *redirectedRule* usando [Add-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
@@ -391,7 +391,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando você define as configurações de IP.
+Neste exemplo, você cria três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte a três pools de back-end que você criou. Os conjuntos de dimensionamento que você cria são denominados *myvmss1*, *myvmss2*, e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual no qual você instala o IIS. Você atribui o conjunto de dimensionamento para o pool de back-end quando define as configurações de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

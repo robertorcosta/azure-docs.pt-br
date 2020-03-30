@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 537369c9466b1083723642ec9e93fcdf25056c5e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68855335"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migração de métricas de Armazenamento do Azure
@@ -45,7 +45,7 @@ Se você lê dados da métrica programaticamente, você precisa adotar o novo es
 
 | Métrica antiga | Nova métrica |
 | ------------------- | ----------------- |
-| **Capacidade**            | **BlobCapacity** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
+| **Capacity**            | **BlobCapacity** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
 | **ObjectCount**        | **BlobCount** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
 | **ContainerCount**      | **ContainerCount** |
 
@@ -73,17 +73,17 @@ As métricas a seguir são novas ofertas que as métricas antigas não dão supo
 | **AnonymousServerTimeoutError** | Transações com dimensão **ResponseType** igual a **ServerTimeoutError** e dimensões de **Autenticação** igual a **Anônimo** |
 | **AnonymousSuccess** | Transações com dimensão **ResponseType** igual a **Sucesso** e dimensões de **Autenticação** igual a **Anônimo** |
 | **AnonymousThrottlingError** | Transações com dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** e dimensão de**Autenticação** igual a **Anônimo** |
-| **AuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
+| **Erro de autorização** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
 | **Disponibilidade** | **Disponibilidade** |
 | **AverageE2ELatency** | **SuccessE2ELatency** |
 | **AverageServerLatency** | **SuccessServerLatency** |
 | **ClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** |
 | **ClientTimeoutError** | Transações com a dimensão **ResponseType** igual a **ClientTimeoutError** |
-| **NetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
+| **Erro de rede** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
 | **PercentAuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
 | **PercentClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** |
 | **PercentNetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
-| **PercentServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
+| **PercentClientOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
 | **PercentSuccess** | Transações com a dimensão **ResponseType** igual a **Success** |
 | **PercentThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** |
 | **PercentTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** ou **ResponseType** igual a **ClientTimeoutError** |
@@ -96,15 +96,15 @@ As métricas a seguir são novas ofertas que as métricas antigas não dão supo
 | **SASSuccess** | Transações com dimensão **ResponseType** igual a **Sucesso** e dimensões de **Autenticação** igual a **SAS** |
 | **SASThrottlingError** | Transações com dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** e dimensão de**Autenticação** igual a **SAS** |
 | **ServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
-| **ServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** |
-| **Êxito** | Transações com a dimensão **ResponseType** igual a **Success** |
+| **Falha de saída do servidor** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** |
+| **Sucesso** | Transações com a dimensão **ResponseType** igual a **Success** |
 | **ThrottlingError** | **Transações** com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError**|
 | **TotalBillableRequests** | **Transações** |
 | **TotalEgress** | **Saída** |
 | **TotalIngress** | **Entrada** |
 | **TotalRequests** | **Transações** |
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 
 ### <a name="how-should-i-migrate-existing-alert-rules"></a>Como posso migrar o regras de alerta existentes?
 
@@ -112,9 +112,9 @@ Se você criou regras de alerta clássicas com base em métricas de armazenament
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Os novos dados de métrica são armazenados na mesma conta de armazenamento por padrão?
 
-Nº Para arquivar os dados de métrica em uma conta de armazenamento, use a [API de configuração de diagnóstico do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
+Não. Para arquivar os dados de métrica em uma conta de armazenamento, use a [API de configuração de diagnóstico do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Métricas de Armazenamento do Microsoft Azure no Azure Monitor](./storage-metrics-in-azure-monitor.md)
+* [Métricas de armazenamento no Monitor Azure](./storage-metrics-in-azure-monitor.md)

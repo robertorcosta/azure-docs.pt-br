@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: 4e57fffd2f74ae1b14f51537c92299607f193ad5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934054"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de versão da Atualização 2 da série 8000 do StorSimple
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos em aberto da Atualização 2 da série 8000 do StorSimple. Elas também contêm uma lista das atualizações de software, driver e firmware de disco do StorSimple incluídas nesta versão. 
 
 A Atualização 2 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 1.2. A versão do dispositivo associada à Atualização 2 é 6.3.9600.17673.
@@ -66,7 +66,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 
 | Não. | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Adaptadores de rede |Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. |Sim |Não |
+| 1 |Interfaces de rede |Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. |Sim |Não |
 | 2 |Atualizações |Após atualizar para a Atualização 1, ocorreram alertas de alarme audível no portal clássico do Azure em vários dispositivos. Esse problema foi corrigido. |Sim |Não |
 | 3 |Autenticação Openstack |Ao usar o Openstack como seu provedor de serviços de nuvem, você poderá receber um erro informando que sua cadeia de caracteres de autenticação de nuvem é muito longa. Esse problema foi corrigido. |Sim |Não |
 

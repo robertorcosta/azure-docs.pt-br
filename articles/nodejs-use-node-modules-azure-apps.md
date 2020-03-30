@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
 ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70309270"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Usando Módulos no Node.js com aplicativos do Microsoft Azure
@@ -49,7 +49,7 @@ O Serviço de Aplicativo do Azure não dá suporte a todos os módulos nativos e
 
 * Execute a **npm install** em uma máquina do Windows que tenha todos os pré-requisitos do módulo nativo. Em seguida, implante a pasta **node\_modules** criada como parte do aplicativo no Serviço de Aplicativo do Azure.
 
-  * Antes de compilar, verifique se sua instalação local do Node.js tem arquitetura correspondente e se a versão é a mais próxima possível da usada no Azure (os valores atuais podem ser verificados no tempo de execução das propriedades **process.arch** e **process.version**).
+  * Antes de compilar, verifique se sua instalação local do Node.js tem arquitetura correspondente e se a versão é a mais próxima possível da usada no Azure (os valores atuais podem ser verificados no runtime das propriedades **process.arch** e **process.version**).
 
 * O Serviço de Aplicativo do Azure podem ser configurados para executar scripts bash ou de shell personalizados durante a implantação, oferecendo a você a oportunidade de executar comandos personalizados e configurar com precisão a maneira como o **npm install** é executado. Para obter um vídeo mostrando como configurar esse ambiente, consulte [Scripts de implantação de site personalizado com Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
 

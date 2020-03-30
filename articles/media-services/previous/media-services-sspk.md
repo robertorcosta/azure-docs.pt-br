@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
 ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096720"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming 
@@ -71,11 +71,11 @@ O Produto Final de Cliente do Smooth Streaming é oferecido em um modelo de roya
 * Nenhum royalty para as primeiras 10.000 implementações de dispositivo por ano 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedimento de licenciamento e acesso do SSPK
-Caso tenha alguma dúvida sobre licenciamento, envie um email para [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) .
+E-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) para todas as consultas de licenciamento.
 
 O [Portal de distribuição do SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) pode ser acessado por licenciados provisórios registrados.
 
-Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
+Os licenciados SSPK provisórios e [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)finais podem enviar perguntas técnicas para .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licenciados do Contrato do Produto provisório do cliente do Microsoft Smooth Streaming
 
@@ -125,7 +125,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Filmes FilmFlex limitados
+* FilmFlex Filmes Limitados
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
 * Gibson Innovations Limited

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: solucionar problemas de conectividade do Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: Soluciona problemas de conectividade Azure AD | Microsoft Docs'
 description: Explica como solucionar problemas de conectividade com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049727"
 ---
-# <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade do Azure AD
+# <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade Azure AD
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Solucionar problemas de conectividade no assistente de instalação
@@ -43,7 +43,7 @@ O servidor proxy também deve ter as URLs necessárias abertas. A lista oficial 
 
 Dessas URLs, a tabela a seguir é o mínimo absoluto para oferecer a capacidade de se conectar ao AD do Azure. Essa lista não inclui quaisquer recursos opcionais, como write-back de senha ou Azure AD Connect Health. Ela está documentado aqui para ajudar na solução de problemas da configuração inicial.
 
-| URL | Porta | DESCRIÇÃO |
+| URL | Porta | Descrição |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Usada para baixar as listas CRL. |
 | \*.verisign.com |HTTP/80 |Usada para baixar as listas CRL. |
@@ -69,19 +69,19 @@ Se você usar uma **conta da Microsoft** em vez de uma conta **corporativa ou de
 ![Uma conta da Microsoft é usada](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Não é possível alcançar o ponto de extremidade da MFA
-Esse erro aparecerá se o ponto de extremidade **https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada.  
+Esse erro aparece se **https://secure.aadcdn.microsoftonline-p.com** o ponto final não puder ser alcançado e o seu admin global tiver o MFA ativado.  
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Se você vir esse erro, verifique se o ponto de extremidade **secure.aadcdn.microsoftonline-p.com** foi adicionado ao proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>A senha não pode ser verificada
 Se o assistente de instalação for bem-sucedido ao conectar-se ao AD do Azure, mas a senha não puder ser verificada, você verá este erro:  
-![Senha inadequada.](./media/tshoot-connect-connectivity/badpassword.png)
+![Senha ruim.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* A senha é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente entrar em https://login.microsoftonline.com (em outro computador que não seja o servidor do Azure AD Connect) e verifique se a conta é utilizável.
+* A senha é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente entrar em `https://login.microsoftonline.com` (em outro computador que não seja o servidor do Azure AD Connect) e verifique se a conta é utilizável.
 
 ### <a name="verify-proxy-connectivity"></a>Verificar a conectividade do proxy
-Para verificar se o servidor do Azure AD Connect tem conectividade real com o Proxy e a Internet, use o PowerShell para ver se o proxy está permitindo solicitações da Web ou não. Em um prompt do PowerShell, execute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tecnicamente, a primeira chamada é para https://login.microsoftonline.com e esse URI também funciona, mas o outro URI responde mais rápido.)
+Para verificar se o servidor do Azure AD Connect tem conectividade real com o Proxy e a Internet, use o PowerShell para ver se o proxy está permitindo solicitações da Web ou não. Em um prompt do PowerShell, execute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tecnicamente, a primeira chamada é para `https://login.microsoftonline.com` e esse URI também funciona, mas o outro URI responde mais rápido.)
 
 O PowerShell usa a configuração em machine.config para entrar em contato com o proxy. As configurações no winhttp/netsh não devem afetar esses cmdlets.
 
@@ -96,7 +96,7 @@ Se o proxy não estiver configurado corretamente, você receberá um erro: ![pro
 | Erro | Texto do erro | Comentário |
 | --- | --- | --- |
 | 403 |Proibido |O proxy não foi aberto para a URL solicitada. Examine a configuração do proxy e verifique se as [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas. |
-| 407 |Autenticação de proxy necessária |O servidor proxy solicitou uma entrada e nenhuma foi fornecida. Se o servidor proxy exigir autenticação, certifique-se de ter essa configuração definida em Machine. config. Verifique também se você está usando contas de domínio para o usuário que está executando o assistente e para a conta de serviço. |
+| 407 |Autenticação de proxy necessária |O servidor proxy solicitou uma entrada e nenhuma foi fornecida. Se o servidor proxy precisar de autenticação, certifique-se de configurar essa configuração na máquina.config. Certifique-se também de que você está usando contas de domínio para o usuário executando o assistente e para a conta do serviço. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Configuração de tempo limite ocioso de proxy
 Quando o Azure AD Connect envia uma solicitação de exportação para o Azure AD, o Azure AD pode levar até 5 minutos para processar a solicitação antes de gerar uma resposta. Isso poderá ocorrer especialmente se houver um número de objetos de grupo com grandes associações de grupo incluídas na mesma solicitação de exportação. Certifique-se de que o tempo limite de ociosidade de Proxy esteja configurado para ser maior que 5 minutos. Caso contrário, o problema de conectividade intermitentes com o Azure AD pode ser observado no servidor do Azure AD Connect.
@@ -104,7 +104,7 @@ Quando o Azure AD Connect envia uma solicitação de exportação para o Azure A
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>O padrão de comunicação entre o Azure AD Connect e o AD do Azure
 Se você executou todas essas etapas anteriores e ainda não conseguiu se conectar, comece a examinar os logs de rede. Esta seção está documentando um padrão de conectividade normal e bem-sucedido. Também está listando distrações comuns que podem ser ignoradas ao ler os logs de rede.
 
-* Não há chamadas para https://dc.services.visualstudio.com. Não é necessário que esta URL esteja aberta no proxy para que a instalação tenha êxito e essas chamadas podem ser ignoradas.
+* Não há chamadas para `https://dc.services.visualstudio.com`. Não é necessário que esta URL esteja aberta no proxy para que a instalação tenha êxito e essas chamadas podem ser ignoradas.
 * Veja que a resolução DNS lista os hosts reais no namespace DNS nsatc.net e em outros namespaces que não estejam em microsoftonline.com. No entanto, não há solicitações de serviços Web nos nomes de servidor reais e você não precisará adicionar essas URLs ao proxy.
 * Os pontos de extremidade adminwebservice e provisioningapi são pontos de extremidade de descoberta usados para localizar o ponto de extremidade real a ser usado. Esses pontos de extremidade são diferentes dependendo de sua região.
 
@@ -138,7 +138,7 @@ Veja um despejo de um log de proxy real e a página do assistente de instalaçã
 | 11/01/2016 08:46 |connect://provisioningapi.microsoftonline.com:443 |
 | 11/01/2016 08:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Sincronização inicial**
+**Sincronização Inicial**
 
 | Hora | URL |
 | --- | --- |
@@ -166,7 +166,7 @@ Suas credenciais expiraram. Altere a sua senha.
 Falha ao autorizar o usuário para executar a ação no Azure AD.
 
 ### <a name="authentication-canceled"></a>Autenticação cancelada
-O desafio da autenticação multifator (MFA) foi cancelado.
+O desafio de autenticação multifatorial (MFA) foi cancelado.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -236,4 +236,4 @@ Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy o
 * Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

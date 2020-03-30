@@ -1,6 +1,6 @@
 ---
-title: Autenticar serviços do lote do Azure com Azure Active Directory
-description: O Lote dá suporte ao Azure AD para autenticação por meio do serviço do Lote. Saiba como autenticar de uma de duas maneiras.
+title: Authenticate Azure Batch serviços com diretório ativo do Azure
+description: O Lote dá suporte ao Azure AD para autenticação por meio do serviço do Lote. Aprenda a autenticar de duas maneiras.
 services: batch
 documentationcenter: .net
 author: LauraBrenner
@@ -15,15 +15,15 @@ ms.workload: big-compute
 ms.date: 01/28/2020
 ms.author: labrenne
 ms.openlocfilehash: f56c05f64086ac2e98e69d6b21fae7a0a63b5006
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019512"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
-O lote do Azure dá suporte à autenticação com o [Azure Active Directory][aad_about] (Azure AD). O Azure AD é o serviço de gerenciamento de identidade e diretório multilocatário com base em nuvem da Microsoft. O Azure em si usa o Azure AD para autenticar seus clientes, administradores de serviços e usuários organizacionais.
+O Lote do Azure dá suporte à autenticação com o [Azure AD][aad_about] (Azure Active Directory). O Azure AD é o serviço de gerenciamento de identidade e diretório multilocatário com base em nuvem da Microsoft. O Azure em si usa o Azure AD para autenticar seus clientes, administradores de serviços e usuários organizacionais.
 
 Ao usar a autenticação do Azure AD com o Lote do Azure, você pode fazer a autenticação usando uma destas duas maneiras:
 
@@ -53,7 +53,7 @@ Para autenticar no Azure AD, use esse ponto de extremidade junto com a ID do loc
 >
 >
 
-Para obter mais informações sobre pontos de extremidade do Azure AD, consulte [cenários de autenticação do Azure ad][aad_auth_scenarios].
+Para obter mais informações sobre pontos de extremidade do Azure AD, consulte [Cenários de autenticação do Azure AD][aad_auth_scenarios].
 
 ### <a name="batch-resource-endpoint"></a>Ponto de extremidade de recursos do Lote
 
@@ -63,11 +63,11 @@ Use o **ponto de extremidade de recursos do Lote do Azure** para adquirir um tok
 
 ## <a name="register-your-application-with-a-tenant"></a>Registrar seu aplicativo em um locatário
 
-A primeira etapa do uso do Azure AD para realizar a autenticação é registrar seu aplicativo em um locatário do Azure AD. Registrar o aplicativo permite chamar a [ADAL (Biblioteca de Autenticação do Active Directory)][aad_adal] (ADAL) do seu código. A ADAL fornece uma API para realizar a autenticação no Azure AD por meio do aplicativo. O registro do aplicativo é necessário se você pretende usar a autenticação integrada ou uma entidade de serviço.
+A primeira etapa do uso do Azure AD para realizar a autenticação é registrar seu aplicativo em um locatário do Azure AD. O registro do aplicativo permite que você chame a [ADAL][aad_adal] (Biblioteca de Autenticação do Active Directory) do Azure por meio do código. A ADAL fornece uma API para realizar a autenticação no Azure AD por meio do aplicativo. O registro do aplicativo é necessário se você pretende usar a autenticação integrada ou uma entidade de serviço.
 
 Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O Microsoft Azure AD, em seguida, fornece um ID do aplicativo (também chamado de *ID do Cliente*) que você usa para associar o aplicativo ao Microsoft Azure AD no runtime. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar seu aplicativo do lote, siga as etapas na seção [adicionando um aplicativo](../active-directory/develop/quickstart-register-app.md) em [integrando aplicativos com o Azure Active Directory][aad_integrate]. Se você registrar o aplicativo como um Aplicativo Nativo, poderá especificar qualquer URI válido para o **URI de Redirecionamento**. Ele não precisa ser um ponto de extremidade real.
+Para registrar o aplicativo Lote, siga as etapas da seção [Adicionar um aplicativo](../active-directory/develop/quickstart-register-app.md) em [Integração de aplicativos com o Azure Active Directory][aad_integrate]. Se você registrar o aplicativo como um Aplicativo Nativo, poderá especificar qualquer URI válido para o **URI de Redirecionamento**. Ele não precisa ser um ponto de extremidade real.
 
 Depois de registrar o aplicativo, você verá a ID do aplicativo:
 
@@ -91,20 +91,20 @@ Para autenticar com a autenticação integrada, você precisa conceder as permis
 
 Depois de registrar o aplicativo, siga estas etapas no portal do Azure para conceder a ele o acesso ao serviço do Lote:
 
-1. No painel de navegação esquerdo do Portal do Azure, escolha **Todos os serviços**. Selecione **registros do aplicativo**.
+1. No painel de navegação esquerdo do Portal do Azure, escolha **Todos os serviços**. Selecione **Registros de Aplicativos**.
 1. Pesquise pelo nome do seu aplicativo na lista de registros do aplicativo:
 
     ![Procure o nome do aplicativo](./media/batch-aad-auth/search-app-registration.png)
 
 1. Selecione o aplicativo e selecione **permissões de API**.
-1. Na seção **permissões de API** , selecione **Adicionar uma permissão**.
+1. Na **seção permissões da API,** **selecione Adicionar uma permissão**.
 1. Em **Selecionar uma API**, pesquise a API do Lote. Procure cada uma dessas cadeias de caracteres até encontrar a API:
-    1. **Lote do Microsoft Azure**
+    1. **Lote Microsoft Azure**
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** é a ID para a API do Lote.
-1. Depois de encontrar a API do lote, selecione-a e selecione **selecionar**.
-1. Em **selecionar permissões**, marque a caixa de seleção ao lado de **acessar serviço do lote do Azure** e, em seguida, selecione **adicionar permissões**.
+1. Depois de encontrar a API em lote, selecione-a e **selecione -A selecionar**.
+1. Em **Seleção de permissões,** selecione a caixa de seleção ao lado **do Access Azure Batch Service** e, em seguida, **selecione Adicionar permissões**.
 
-A seção **permissões de API** agora mostra que o aplicativo do Azure ad tem acesso ao Microsoft Graph e à API do serviço de lote. As permissões são concedidas para Microsoft Graph automaticamente quando você registra seu aplicativo pela primeira vez com o Azure AD.
+A seção **de permissões de API** agora mostra que seu aplicativo Azure AD tem acesso tanto ao Microsoft Graph quanto à API de serviço em lote. As permissões são concedidas ao Microsoft Graph automaticamente quando você registra seu aplicativo pela primeira vez com o Azure AD.
 
 ![Conceder permissões de API](./media/batch-aad-auth/required-permissions-data-plane.png)
 
@@ -112,33 +112,33 @@ A seção **permissões de API** agora mostra que o aplicativo do Azure ad tem a
 
 Para autenticar um aplicativo que é executado de forma autônoma, use uma entidade de serviço. Depois de registrar o aplicativo, siga estas etapas no portal do Azure para configurar uma entidade de serviço:
 
-1. Solicite um segredo para seu aplicativo.
-1. Atribua o RBAC (controle de acesso baseado em função) ao seu aplicativo.
+1. Solicite um segredo para sua inscrição.
+1. Atribuir rbac (Role-based Role-Based Access Control, controle de acesso baseado em função) ao seu aplicativo.
 
-### <a name="request-a-secret-for-your-application"></a>Solicitar um segredo para seu aplicativo
+### <a name="request-a-secret-for-your-application"></a>Solicite um segredo para sua aplicação
 
-Quando seu aplicativo é autenticado com uma entidade de serviço, ele envia a ID do aplicativo e um segredo para o Azure AD. Você precisará criar e copiar a chave secreta a ser usada do código.
+Quando seu aplicativo autentica com um diretor de serviço, ele envia o ID do aplicativo e um segredo para o Azure AD. Você precisará criar e copiar a chave secreta a ser usada do código.
 
 Siga estas etapas no portal do Azure:
 
-1. No painel de navegação esquerdo do Portal do Azure, escolha **Todos os serviços**. Selecione **registros do aplicativo**.
+1. No painel de navegação esquerdo do Portal do Azure, escolha **Todos os serviços**. Selecione **Registros de Aplicativos**.
 1. Selecione seu aplicativo na lista de registros do aplicativo.
-1. Selecione o aplicativo e, em seguida, selecione **certificados & segredos**. Na seção **segredos do cliente** , selecione **novo segredo do cliente**.
-1. Para criar um segredo, insira uma descrição para o segredo. Em seguida, selecione uma expiração para o segredo de um ano, dois anos ou sem expiração..
-1. Selecione **Adicionar** para criar e exibir o segredo. Copie o valor secreto para um local seguro, pois você não poderá acessá-lo novamente depois de sair da página.
+1. Selecione o aplicativo e selecione **Certificados & segredos**. Na seção Segredos do **Cliente,** selecione **Novo segredo do cliente**.
+1. Para criar um segredo, digite uma descrição do segredo. Em seguida, selecione um vencimento para o segredo de um ano, dois anos ou nenhuma expiração..
+1. Selecione **Adicionar** para criar e exibir o segredo. Copie o valor secreto para um lugar seguro, pois você não poderá acessá-lo novamente depois de sair da página.
 
     ![Criar uma chave secreta](./media/batch-aad-auth/secret-key.png)
 
 ### <a name="assign-rbac-to-your-application"></a>Atribuir RBAC ao seu aplicativo
 
-Para autenticar com uma entidade de serviço, você precisa atribuir o RBAC ao seu aplicativo. Siga estas etapas:
+Para autenticar com um diretor de serviço, você precisa atribuir RBAC ao seu aplicativo. Siga estas etapas:
 
 1. No portal do Azure, navegue para a conta do Lote usada pelo aplicativo.
-1. Na seção **configurações** da conta do lote, selecione **controle de acesso (iam)** .
+1. Na seção **Configurações** da conta Lote, selecione **Controle de acesso (IAM)**.
 1. Selecione a guia **Atribuições de função**.
 1. Selecione **Adicionar atribuição de função**.
 1. Na lista suspensa **Função**, escolha a função *Colaborador* ou *Leitor* para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).  
-1. No campo **Selecionar**, insira o nome de seu aplicativo. Selecione o aplicativo na lista e, em seguida, selecione **salvar**.
+1. No campo **Selecionar**, insira o nome de seu aplicativo. Selecione seu aplicativo na lista e, em seguida, **selecione Salvar**.
 
 O aplicativo agora deverá ser exibido nas configurações de controle de acesso com uma função RBAC atribuída.
 
@@ -146,26 +146,26 @@ O aplicativo agora deverá ser exibido nas configurações de controle de acesso
 
 ### <a name="assign-a-custom-role"></a>Atribuir uma função personalizada
 
-Uma função personalizada concede permissão granular a um usuário para enviar trabalhos, tarefas e muito mais. Isso fornece a capacidade de impedir que os usuários executem operações que afetam o custo, como a criação de pools ou a modificação de nós.
+Uma função personalizada concede permissão granular a um usuário para enviar trabalhos, tarefas e muito mais. Isso fornece a capacidade de impedir que os usuários realizem operações que afetam o custo, como criar pools ou modificar nomes.
 
-Você pode usar uma função personalizada para conceder permissões a um usuário, grupo ou entidade de serviço do Azure AD para as seguintes operações de RBAC:
+Você pode usar uma função personalizada para conceder permissões a um usuário, grupo ou principal de serviço do Azure AD para as seguintes operações de RBAC:
 
 - Microsoft.Batch/batchAccounts/pools/write
 - Microsoft.Batch/batchAccounts/pools/delete
 - Microsoft.Batch/batchAccounts/pools/read
-- Microsoft. batch/batchAccounts/jobSchedules/Write
-- Microsoft. batch/batchAccounts/jobSchedules/Delete
-- Microsoft. batch/batchAccounts/jobSchedules/Read
-- Microsoft. batch/batchAccounts/Jobs/Write
-- Microsoft. batch/batchAccounts/trabalhos/excluir
-- Microsoft. batch/batchAccounts/trabalhos/ler
+- Microsoft.Batch/batchAccounts/jobSchedules/write
+- Microsoft.Batch/batchAccounts/jobSchedules/delete
+- Microsoft.Batch/batchAccounts/jobSchedules/read
+- Microsoft.Batch/batchContas/jobs/write
+- Microsoft.Batch/batchContas/jobs/delete
+- Microsoft.Batch/batchContas/jobs/read
 - Microsoft.Batch/batchAccounts/certificates/write
 - Microsoft.Batch/batchAccounts/certificates/delete
 - Microsoft.Batch/batchAccounts/certificates/read
-- Microsoft. batch/batchAccounts/Read (para qualquer operação de leitura)
-- Microsoft. batch/batchAccounts/listKeys/Action (para qualquer operação)
+- Microsoft.Batch/batchAccounts/read (para qualquer operação de leitura)
+- Microsoft.Batch/batchAccounts/listKeys/action (para qualquer operação)
 
-As funções personalizadas são para usuários autenticados pelo Azure AD, não as credenciais de conta do lote (chave compartilhada). Observe que as credenciais da conta do lote dão permissão total para a conta do lote. Observe também que os trabalhos que usam o autopool exigem permissões em nível de pool.
+As funções personalizadas são para usuários autenticados pelo Azure AD, não as credenciais de conta Batch (chave compartilhada). Observe que as credenciais da conta Batch dão permissão total para a conta Batch. Observe também que os trabalhos que usam o autopool exigem permissões de nível de pool.
 
 Aqui está um exemplo de uma definição de função personalizada:
 
@@ -203,7 +203,7 @@ Aqui está um exemplo de uma definição de função personalizada:
 }
 ```
 
-Para obter mais informações gerais sobre como criar uma função personalizada, consulte [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).
+Para obter informações mais gerais sobre a criação de uma função personalizada, consulte [Funções personalizadas para os recursos do Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Obter a ID do locatário para o Azure Active Directory
 
@@ -223,7 +223,7 @@ Os exemplos de código desta seção mostram como realizar a autenticação com 
 > Um token de autenticação do AD do Azure expirará após uma hora. Ao usar uma vida útil longa **BatchClient** de objeto, é recomendável que você recuperar um token da ADAL em cada solicitação para garantir que você sempre tenha um token válido. 
 >
 >
-> Para fazer isso no .NET, escrever um método que recupera o token do AD do Azure e passar esse método para um **BatchTokenCredentials** objeto como um delegado. O método de representante é chamado em cada solicitação para o serviço de lote para garantir que um token válido seja fornecido. Por padrão ADAL armazena em cache os tokens, para que um novo token é recuperado do AD do Azure somente quando necessário. Para obter mais informações sobre tokens no Azure AD, consulte [cenários de autenticação do Azure ad][aad_auth_scenarios].
+> Para fazer isso no .NET, escrever um método que recupera o token do AD do Azure e passar esse método para um **BatchTokenCredentials** objeto como um delegado. O método de representante é chamado em cada solicitação para o serviço de lote para garantir que um token válido seja fornecido. Por padrão ADAL armazena em cache os tokens, para que um novo token é recuperado do AD do Azure somente quando necessário. Para saber mais sobre tokens no AD do Azure, veja [Cenários de autenticação do AD do Azure][aad_auth_scenarios].
 >
 >
 
@@ -427,7 +427,7 @@ Use as credenciais da entidade de serviço para abrir um objeto **BatchServiceCl
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre o Azure AD, veja a [documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Exemplos mais detalhados que mostram como usar o ADAL estão disponíveis na biblioteca [Amostras de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
@@ -439,6 +439,6 @@ Use as credenciais da entidade de serviço para abrir um objeto **BatchServiceCl
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é o Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Cenários de autenticação do Azure AD"
+[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Cenários de autenticação para Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrando aplicativos com o Azure Active Directory"
 [azure_portal]: https://portal.azure.com

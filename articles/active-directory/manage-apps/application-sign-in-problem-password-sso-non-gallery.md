@@ -1,6 +1,6 @@
 ---
-title: SSO (logon único) baseado em senha no painel de acesso | Microsoft Docs
-description: Discute áreas problemáticas que fornecem orientação para solucionar problemas relacionados à entrada em aplicativos da galeria do Azure AD configurados para logon único com senha.
+title: Logon único baseado em senha (SSO) no Painel de Acesso | Microsoft Docs
+description: Discute áreas problemáticas que fornecem orientação para solucionar problemas relacionados à login nos aplicativos do Azure AD Gallery configurados para o login único de senha.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68381228"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha
@@ -62,7 +62,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
+7.  Faça login no Painel de Acesso e veja se você pode **iniciar** seus aplicativos SSO de senha
 
 Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
 
@@ -78,7 +78,7 @@ Os pré-requisitos incluem:
 
 -   Você configurou os [Serviços de Domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e os computadores dos usuários ingressaram no domínio.
 
--   Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm essa permissão: Administradores de Domínio, Administradores da Empresa e Proprietários criadores de políticas de grupo. [Saiba mais](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
 Siga o tutorial [Como Implantar a Extensão do Painel de Acesso para o Internet Explorer usando Política de Grupo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) para obter instruções passo a passo sobre como configurar política de grupo e implantá-la nos usuários.
 
@@ -100,7 +100,7 @@ Para configurar um aplicativo da galeria do Azure AD será necessário:
 
 Para adicionar um aplicativo da galeria do Azure AD, siga as etapas abaixo:
 
-1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**
+1.  Abra o [portal Azure](https://portal.azure.com) e faça login como **administrador global** ou **co-administrador**
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -120,7 +120,7 @@ Após um curto período de tempo, você poderá ver o painel de configuração d
 
 Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global** ou **co-administrador.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -130,7 +130,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Selecione o aplicativo para o qual deseja configurar o logon único
 
@@ -148,7 +148,7 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -158,7 +158,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
@@ -172,7 +172,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
-12. **Opcional:** Caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
 
 13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
 

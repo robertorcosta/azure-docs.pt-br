@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728039"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigações do Microsoft Threat Modeling Tool
@@ -35,8 +35,8 @@ As atenuações da ferramenta de modelagem de ameaças são categorizadas de aco
 | Categoria | Descrição |
 | -------- | ----------- |
 | **[Auditoria e Log](threat-modeling-tool-auditing-and-logging.md)** | Quem fez o que e quando? Auditoria e log consultem como seu aplicativo registra eventos relacionados à segurança |
-| **[Autenticação](threat-modeling-tool-authentication.md)** | Quem é você? Autenticação é o processo no qual uma entidade comprova a identidade de outra entidade, normalmente por meio de credenciais, como um nome de usuário e senha |
-| **[Autorização](threat-modeling-tool-authorization.md)** | O que você pode fazer? A autorização é como o seu aplicativo fornece controles de acesso para recursos e operações |
+| **[Autenticação](threat-modeling-tool-authentication.md)** | quem é você? Autenticação é o processo no qual uma entidade comprova a identidade de outra entidade, normalmente por meio de credenciais, como um nome de usuário e senha |
+| **[Autorização](threat-modeling-tool-authorization.md)** | o que você pode fazer? A autorização é como o seu aplicativo fornece controles de acesso para recursos e operações |
 | **[Segurança da Comunicação](threat-modeling-tool-communication-security.md)** | Que você está falando com? Segurança de comunicação garante que toda a comunicação feita é tão segura quanto possível |
 | **[Gerenciamento da Configuração](threat-modeling-tool-configuration-management.md)** | Que seu aplicativo executar como? Quais bancos de dados ele se conecta ao? Como o seu aplicativo é administrado? Como essas configurações são protegidas? Gerenciamento de configuração se refere a como o seu aplicativo lida com esses problemas operacionais |
 | **[Criptografia](threat-modeling-tool-cryptography.md)** | Como você mantém os segredos (confidencialidade)? Como são à prova de adulteração seus dados ou bibliotecas (integridade)? Como você gera valores aleatórios que devem ser criptograficamente forte? Criptografia refere-se a como seu aplicativo impõe a integridade e confidencialidade |

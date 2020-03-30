@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7694e441a59680a9b9544d3479100c1f779964ff
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058817"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configurar o Bonusly para provisionamento automático de usuário
@@ -30,7 +30,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Bonusly 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já possui o seguinte:
 
@@ -47,7 +47,7 @@ Antes de configurar o Bonusly para o provisionamento automático de usuário com
 
 **Para adicionar o Bonusly da galeria de aplicativos do Azure AD, siga estas etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -75,7 +75,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, é ne
 
 * É recomendável que um único usuário do Azure AD seja atribuído ao Bonusly para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Bonusly, é necessário selecionar qualquer função específica ao aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Bonusly, é necessário selecionar qualquer função específica ao aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a **função Default Access** são excluídos do provisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Configurando o provisionamento automático de usuário no Bonusly
 
@@ -86,7 +86,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Bonusly no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **bônus**.
+1. Faça login no [portal Azure](https://portal.azure.com) e selecione **Aplicativos Corporativos,** selecione **Todos os aplicativos**e selecione **Bônus**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -98,7 +98,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
     ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **modo de provisionamento** como **automático**.
 
     ![Provisionamento Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -158,10 +158,10 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

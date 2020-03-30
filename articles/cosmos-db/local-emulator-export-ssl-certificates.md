@@ -1,23 +1,23 @@
 ---
 title: Exportar os certificados do Emulador do Azure Cosmos DB
-description: Ao desenvolver em linguagens e em tempos de execução que não usam o Repositório de Certificados do Windows, você precisará exportar e gerenciar os certificados SSL. Esta postagem fornece instruções passo a passo.
+description: Ao desenvolver em linguagens e em runtimes que não usam o Repositório de Certificados do Windows, você precisará exportar e gerenciar os certificados SSL. Esta postagem fornece instruções passo a passo.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: a398c10511fdd3891a2c429f0ef46869dcc48922
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: 623837b30038ef8524aef1e87aeb5933204925a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244441"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156014"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportar os certificados do Emulador do Azure Cosmos DB para uso com Java, Python e Node.js
 
 [**Baixar o Emulador**](https://aka.ms/cosmosdb-emulator)
 
-O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento, incluindo seu uso de conexões SSL. Esta postagem demonstra como exportar os certificados SSL para uso em linguagens e em tempos de execução que não são integrados ao Repositório de Certificados do Windows, por exemplo, Java, que usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) e Python, que usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html) e .Node.js que usa [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Leia mais sobre o emulador em [Usar o Emulador do Azure Cosmos DB para desenvolvimento e teste](./local-emulator.md).
+O Emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço Azure Cosmos DB para fins de desenvolvimento, incluindo seu uso de conexões SSL. Esta postagem demonstra como exportar os certificados SSL para uso em linguagens e em runtimes que não são integrados ao Repositório de Certificados do Windows, por exemplo, Java, que usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) e Python, que usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html) e .Node.js que usa [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Leia mais sobre o emulador em [Usar o Emulador do Azure Cosmos DB para desenvolvimento e teste](./local-emulator.md).
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -36,7 +36,7 @@ Os dois certificados podem ser gerados novamente clicando em **Redefinir Dados**
 
 ## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Como exportar o certificado SSL do Azure Cosmos DB
 
-1. Inicie o gerenciador de Certificados do Windows executando certlm.msc, navegue até a pasta Pessoal-> Certificados e abra o certificado com o nome amigável **DocumentDbEmulatorCertificate**.
+1. Inicie o gerenciador de certificados do Windows executando certlm.msc e navegue até a pasta De Certificados de >Pessoal e abra o certificado com o nome amigável **DocumentDbEmulatorCertificate**.
 
     ![Etapa 1 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
 
@@ -44,11 +44,11 @@ Os dois certificados podem ser gerados novamente clicando em **Redefinir Dados**
 
     ![Etapa 2 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. Clique em **Copiar para arquivo...** .
+3. Clique em **Copiar para arquivo...**.
 
     ![Etapa 3 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
-4. Clique em **Próximo**.
+4. Clique em **Avançar**.
 
     ![Etapa 4 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
@@ -64,7 +64,7 @@ Os dois certificados podem ser gerados novamente clicando em **Redefinir Dados**
 
     ![Etapa 7 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
 
-8. Clique em **Concluir**.
+8. Clique em **concluir**.
 
     ![Etapa 8 de exportação do emulador local do Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
 
@@ -74,7 +74,7 @@ Durante a execução de aplicativos Java ou MongoDB que usam o cliente Java, é 
 
 Siga as instruções em [Adicionar um certificado ao Repositório de Certificados de AC Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) para importar o certificado X.509 no repositório de certificados Java padrão. Lembre-se de que você trabalhará no diretório %JAVA_HOME% durante a execução da keytool.
 
-Após a instalação do certificado SSL “CosmosDBEmulatorCertificate”, seu aplicativo deverá conseguir se conectar e usar o Emulador local do Azure Cosmos DB. Se você continuar tendo problemas, siga o artigo [Depuração de conexões SSL/TLS](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). É muito provável que o certificado não esteja instalado no repositório %JAVA_HOME%/jre/lib/security/cacerts. Por exemplo, se você tiver várias versões do Java instaladas, seu aplicativo poderá usar um repositório de cacerts diferente daquele que você atualizou.
+Após a instalação do certificado SSL “CosmosDBEmulatorCertificate”, seu aplicativo deverá conseguir se conectar e usar o Emulador local do Azure Cosmos DB. Se você continuar a ter problemas, você pode querer seguir o artigo [Debugging SSL/TLS Connections.](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) É muito provável que o certificado não esteja instalado no repositório %JAVA_HOME%/jre/lib/security/cacerts. Por exemplo, se você tiver várias versões do Java instaladas, seu aplicativo poderá usar um repositório de cacerts diferente daquele que você atualizou.
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Como usar o certificado em Python
 
