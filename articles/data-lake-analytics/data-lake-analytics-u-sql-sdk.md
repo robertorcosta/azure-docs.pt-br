@@ -1,5 +1,5 @@
 ---
-title: Executar trabalhos do U-SQL localmente-Azure Data Lake o SDK U-SQL
+title: Executar empregos U-SQL localmente - Azure Data Lake U-SQL SDK
 description: Saiba como executar e testar trabalhos de U-SQL localmente usando a linha de comando e as interfaces de programação na estação de trabalho local.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309691"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
@@ -23,7 +23,7 @@ Se você se preocupa em como executar e depurar o script U-SQL no local manualme
 
 ## <a name="install-azure-data-lake-u-sql-sdk"></a>Instalar o SDK do U-SQL do Azure Data Lake
 
-É possível obter o SDK do U-SQL do Azure Data Lake [aqui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) em Nuget.org. Antes de usá-lo, você precisa verificar se tem as dependências a seguir.
+Você pode obter o Azure Data Lake U-SQL SDK [aqui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) no Nuget.org. E antes de usá-lo, você precisa ter certeza de que você tem dependências da seguinte forma.
 
 ### <a name="dependencies"></a>Dependências
 
@@ -61,11 +61,11 @@ Você pode usar um caminho relativo e um caminho absoluto local em scripts U-SQL
 
 ### <a name="working-directory"></a>Diretório de trabalho
 
-Ao executar o script U-SQL localmente, um diretório de trabalho é criado durante a compilação no diretório de execução atual. Além das saídas de compilação, os arquivos de tempo de execução necessários para execução local são copiados em sombra para esse diretório de trabalho. A pasta raiz do diretório de trabalho é chamada “ScopeWorkDir” e os arquivos no diretório de trabalho são os seguintes:
+Ao executar o script U-SQL localmente, um diretório de trabalho é criado durante a compilação no diretório de execução atual. Além das saídas de compilação, os arquivos de runtime necessários para execução local são copiados em sombra para esse diretório de trabalho. A pasta raiz do diretório de trabalho é chamada “ScopeWorkDir” e os arquivos no diretório de trabalho são os seguintes:
 
 |Diretório/arquivo|Diretório/arquivo|Diretório/arquivo|Definição|Descrição|
 |--------------|--------------|--------------|----------|-----------|
-|C6A101DDCB470506| | |Cadeia de caracteres de hash da versão do tempo de execução|Cópia de sombra dos arquivos de tempo de execução necessários para execução local|
+|C6A101DDCB470506| | |Cadeia de caracteres de hash da versão do runtime|Cópia de sombra dos arquivos de runtime necessários para execução local|
 | |Script_66AE4909AA0ED06C| |Nome do script + cadeia de caracteres de hash do caminho do script|Saídas da compilação e log das etapas de execução|
 | | |\_script\_.abr|Saída do compilador|Arquivo de álgebra|
 | | |\_ScopeCodeGen\_.*|Saída do compilador|Código gerenciado gerado|
@@ -120,7 +120,7 @@ A execução local do U-SQL precisa de uma raiz de dados especificada como a con
 
     Além de definir a variável de ambiente, você também pode especificar o argumento **-CppSDK** ao usar a linha de comando. Esse argumento substitui a variável de ambiente CppSDK padrão.
 
-- Defina a variável de ambiente **LOCALRUN_DATAROOT**.
+- Defina a variável de ambiente **LOCALRUN_DATAROOT.**
 
     Defina uma nova variável de ambiente chamada **LOCALRUN_DATAROOT** que aponta para a raiz de dados.
 
@@ -139,22 +139,22 @@ Estes são os argumentos opcionais para **run**:
 
 |Argumento|Valor padrão|Descrição|
 |--------|-------------|-----------|
-|-CodeBehind|False|O script tem o code-behind .cs|
+|-CodeBehind|Falso|O script tem o code-behind .cs|
 |-CppSDK| |Diretório do CppSDK|
 |-DataRoot| Variável de ambiente DataRoot|DataRoot para execução local, padrão para a variável de ambiente “LOCALRUN_DATAROOT”|
 |-MessageOut| |Mensagens de despejo no console para um arquivo|
 |-Parallel|1|Executar o plano com o paralelismo especificado|
 |-References| |Lista de caminhos para os assemblies de referência extra ou arquivos de dados do code-behind, separados por ';'|
-|-UdoRedirect|False|Gerar configuração de redirecionamento de assembly UDO|
-|-UseDatabase|mestre|Banco de dados a ser usado para registro do assembly temporário do code-behind|
-|-Verbose|False|Mostrar saídas detalhadas do tempo de execução|
+|-UdoRedirect|Falso|Gerar configuração de redirecionamento de assembly UDO|
+|-UseDatabase|master|Banco de dados a ser usado para registro do assembly temporário do code-behind|
+|-Verbose|Falso|Mostrar saídas detalhadas do runtime|
 |-WorkDir|Diretório atual|Diretório para uso do compilador e saídas|
 |-RunScopeCEP|0|Modo ScopeCEP a ser usado|
 |-ScopeCEPTempPath|temp|Caminho temporário a ser usado para transmissão de dados|
 |-OptFlags| |Lista separada por vírgula de sinalizadores do otimizador|
 
 
-Veja um exemplo:
+Aqui está um exemplo:
 
     LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
@@ -212,7 +212,7 @@ Estes são os argumentos opcionais para **execute**:
 |-DataRoot | '' |Raiz de dados para a execução de metadados. A variável de ambiente **LOCALRUN_DATAROOT** passa a ser o padrão.|
 |-MessageOut | '' |Despeje as mensagens do console em um arquivo.|
 |-Parallel | '1' |Indicador para executar as etapas de execução local geradas com o nível de paralelismo especificado.|
-|-Verbose | 'False' |Indicador para mostrar saídas detalhadas do tempo de execução.|
+|-Verbose | 'False' |Indicador para mostrar saídas detalhadas do runtime.|
 
 Aqui está um exemplo de uso:
 
@@ -223,7 +223,7 @@ Aqui está um exemplo de uso:
 
 As interfaces de programação estão localizadas no LocalRunHelper.exe. Você pode usá-los para integrar a funcionalidade do SDK para U-SQL e a estrutura de teste C# a fim de dimensionar o teste local do script U-SQL. Neste artigo, usarei o projeto de teste de unidade padrão do C# para mostrar como usar essas interfaces para testar o script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Etapa 1: Criar C# projeto e configuração de teste de unidade
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Etapa 1: Criar o projeto de teste de unidade do C# e a configuração
 
 - Crie um projeto de teste de unidade do C# por meio de Arquivo > Novo > Projeto > Visual C# > Teste > Projeto de Teste de Unidade.
 - Adicione LocalRunHelper.exe como uma referência do projeto. O LocalRunHelper.exe está localizado em \build\runtime\LocalRunHelper.exe no pacote NuGet.
@@ -240,7 +240,7 @@ As interfaces de programação estão localizadas no LocalRunHelper.exe. Você p
 
 - Lembre-se de copiar todos os arquivos de dependência em NugetPackage\build\runtime\ para o diretório de trabalho do projeto que, normalmente, está em ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Etapa 2: Criar caso de teste de script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Etapa 2: Criar um caso de teste do script U-SQL
 
 Veja abaixo o código de exemplo para o teste de script U-SQL. Para testar, você precisa preparar scripts, arquivos de entrada e os arquivos de saída esperados.
 
@@ -326,40 +326,40 @@ Veja abaixo o código de exemplo para o teste de script U-SQL. Para testar, voc�
 
 ### <a name="programming-interfaces-in-localrunhelperexe"></a>Interfaces de programação em LocalRunHelper.exe
 
-O LocalRunHelper.exe fornece as interfaces de programação para a compilação e execução locais do U-SQL, etc. As interfaces são listadas a seguir.
+LocalRunHelper.exe fornece as interfaces de programação para compilação local u-sql, execução, etc. As interfaces estão listadas da seguinte forma.
 
 **Construtor**
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|type|Descrição|
+|Parâmetro|Type|Descrição|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para usar o Console|
 
 **Propriedades**
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
-|AlgebraPath|cadeia de caracteres|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
-|CodeBehindReferences|cadeia de caracteres|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
-|CppSdkDir|cadeia de caracteres|Diretório do CppSDK|
-|CurrentDir|cadeia de caracteres|Diretório atual|
-|DataRoot|cadeia de caracteres|Caminho da raiz de dados|
-|DebuggerMailPath|cadeia de caracteres|O caminho para o slot de correio do depurador|
+|AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
+|CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
+|CppSdkDir|string|Diretório do CppSDK|
+|CurrentDir|string|Diretório atual|
+|DataRoot|string|Caminho da raiz de dados|
+|DebuggerMailPath|string|O caminho para o slot de correio do depurador|
 |GenerateUdoRedirect|bool|Se quisermos gerar a configuração de substituição do redirecionamento de carregamento do assembly|
 |HasCodeBehind|bool|Se o script tiver code-behind|
-|InputDir|cadeia de caracteres|Diretório dos dados de entrada|
-|MessagePath|cadeia de caracteres|Caminho do arquivo de despejo da mensagem|
-|OutputDir|cadeia de caracteres|Diretório dos dados de saída|
-|Paralelismo|int|Paralelismo para executar a álgebra|
-|ParentPid|int|PID do pai no qual o serviço monitora a saída, definido como 0 ou negativo para ignorar|
-|ResultPath|cadeia de caracteres|Caminho do arquivo de despejo do resultado|
-|RuntimeDir|cadeia de caracteres|Diretório do tempo de execução|
-|ScriptPath|cadeia de caracteres|Local em que o script pode ser encontrado|
+|InputDir|string|Diretório dos dados de entrada|
+|MessagePath|string|Caminho do arquivo de despejo da mensagem|
+|OutputDir|string|Diretório dos dados de saída|
+|Paralelismo|INT|Paralelismo para executar a álgebra|
+|ParentPid|INT|PID do pai no qual o serviço monitora a saída, definido como 0 ou negativo para ignorar|
+|ResultPath|string|Caminho do arquivo de despejo do resultado|
+|RuntimeDir|string|Diretório do runtime|
+|ScriptPath|string|Local em que o script pode ser encontrado|
 |Shallow|bool|Compilação superficial ou não|
-|TempDir|cadeia de caracteres|Diretório temporário|
-|UseDataBase|cadeia de caracteres|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
-|WorkDir|cadeia de caracteres|Diretório de trabalho preferencial|
+|TempDir|string|Diretório temporário|
+|UseDataBase|string|Especifique o banco de dados a ser usado para o registro de assembly temporário code-behind, mestre por padrão|
+|WorkDir|string|Diretório de trabalho preferencial|
 
 
 **Método**
@@ -369,17 +369,17 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |public bool DoCompile()|Compilar o script U-SQL|Verdadeiro se tiver êxito| |
 |public bool DoExec()|Executar o resultado compilado|Verdadeiro se tiver êxito| |
 |public bool DoRun()|Executar o script U-SQL (Compilar + Executar)|Verdadeiro se tiver êxito| |
-|public bool IsValidRuntimeDir(string path)|Verificar se o caminho fornecido é um caminho de tempo de execução válido|Verdadeiro para válido|O caminho do diretório de tempo de execução|
+|public bool IsValidRuntimeDir(string path)|Verificar se o caminho fornecido é um caminho de runtime válido|Verdadeiro para válido|O caminho do diretório de runtime|
 
 
 ## <a name="faq-about-common-issue"></a>Perguntas frequentes sobre um problema comum
 
 ### <a name="error-1"></a>Erro 1:
-E_CSC_SYSTEM_INTERNAL: Erro interno! Não foi possível carregar o arquivo ou o assembly “ScopeEngineManaged.dll” ou uma de suas dependências. O módulo especificado não pôde ser encontrado.
+E_CSC_SYSTEM_INTERNAL: Erro interno. Não foi possível carregar o arquivo ou o assembly “ScopeEngineManaged.dll” ou uma de suas dependências. O módulo especificado não pôde ser encontrado.
 
 Verifique o seguinte:
 
-- Verifique se você tem o ambiente x64. A plataforma de destino de compilação e o ambiente de teste devem ser x64 **, consulte a etapa 1: Crie C# projeto de teste de unidade** e configuração acima.
+- Verifique se você tem o ambiente x64. A plataforma de destino do build e o ambiente de teste devem ser x64; consulte **Etapa 1: Criar configuração e projeto de teste de unidade do C#** acima.
 - Verifique se você copiou todos os arquivos de dependência em NugetPackage\build\runtime\ para o diretório de trabalho do projeto.
 
 
@@ -387,6 +387,6 @@ Verifique o seguinte:
 
 * Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 * Para registrar em log as informações de diagnóstico, veja [Acessando os logs de diagnóstico para o Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
-* Para ver uma consulta mais complexa, consulte [Analisar logs de site usando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Para ver detalhes do trabalho, confira [Usar o Navegador de Trabalhos e o Modo de Exibição de Trabalho para trabalhos do Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-* Para usar o modo de exibição de execução de vértice, veja [Usar o Modo de Exibição de Execução de Vértice nas Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+* Para ver uma consulta mais complexa, consulte [Analisar registros de sites usando o Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* Para ver os detalhes do trabalho, consulte [Use Job Browser e Job View for Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
+* Para usar a exibição de execução do vértice, consulte [Usar a exibição de execução de vértice susceptíveis](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)de usar ferramentas do lago de dados para o Visual Studio .

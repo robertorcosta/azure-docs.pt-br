@@ -1,7 +1,7 @@
 ---
 title: Referência de sintaxe de expressão OData
 titleSuffix: Azure Cognitive Search
-description: Especificação de gramática formal e sintaxe para expressões OData no Azure Pesquisa Cognitiva consultas.
+description: Especificação formal de gramática e sintaxe para expressões OData em consultas de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,28 +20,28 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793230"
 ---
-# <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure
+# <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Referência de sintaxe de expressão OData para Pesquisa Cognitiva Azure
 
-O Azure Pesquisa Cognitiva usa [expressões OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) como parâmetros em toda a API. Normalmente, as expressões OData são usadas para os parâmetros `$orderby` e `$filter`. Essas expressões podem ser complexas, contendo várias cláusulas, funções e operadores. No entanto, até mesmo expressões OData simples como caminhos de propriedade são usadas em muitas partes da API REST do Azure Pesquisa Cognitiva. Por exemplo, as expressões de caminho são usadas para fazer referência a subcampos de campos complexos em qualquer lugar na API, como ao listar subcampos em um [Sugestor](index-add-suggesters.md), uma [função de Pontuação](index-add-scoring-profiles.md), o parâmetro `$select` ou até mesmo [pesquisa em campo em consultas do Lucene ](query-lucene-syntax.md).
+A Pesquisa Cognitiva do Azure usa [expressões OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) como parâmetros em toda a API. Mais comumente, expressões OData são `$orderby` `$filter` usadas para os parâmetros. Essas expressões podem ser complexas, contendo várias cláusulas, funções e operadores. No entanto, mesmo expressões simples de OData, como caminhos de propriedade, são usadas em muitas partes da API Azure Cognitive Search REST. Por exemplo, as expressões de caminho são usadas para se referir a subcampos de campos complexos em todos os `$select` lugares da API, como ao listar subcampos em um [sugestionista](index-add-suggesters.md), uma função de [pontuação,](index-add-scoring-profiles.md)o parâmetro ou até mesmo a pesquisa em campo nas consultas de [Lucene.](query-lucene-syntax.md)
 
-Este artigo descreve todas essas formas de expressões OData usando uma gramática formal. Também há um [Diagrama interativo](#syntax-diagram) para ajudar a explorar visualmente a gramática.
+Este artigo descreve todas essas formas de expressões OData usando uma gramática formal. Há também um [diagrama interativo](#syntax-diagram) para ajudar a explorar visualmente a gramática.
 
 ## <a name="formal-grammar"></a>Gramática formal
 
-Podemos descrever o subconjunto da linguagem OData com suporte pelo Azure Pesquisa Cognitiva usando uma gramática EBNF ([Backus estendido-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)). As regras são listadas "de cima para baixo", começando com as expressões mais complexas e dividindo-as em expressões mais primitivas. Na parte superior estão as regras de gramática que correspondem aos parâmetros específicos da API REST do Azure Pesquisa Cognitiva:
+Podemos descrever o subconjunto da linguagem OData suportada pelo Azure Cognitive Search usando uma gramática EBNF[(Extended Backus-Naur Form).](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form) As regras são listadas "de cima para baixo", começando com as expressões mais complexas, e dividindo-as em expressões mais primitivas. No topo estão as regras gramaticais que correspondem a parâmetros específicos da API Azure Cognitive Search REST:
 
-- [`$filter`](search-query-odata-filter.md), definido pela regra de `filter_expression`.
-- [`$orderby`](search-query-odata-orderby.md), definido pela regra de `order_by_expression`.
-- [`$select`](search-query-odata-select.md), definido pela regra de `select_expression`.
-- Caminhos de campo, definidos pela regra de `field_path`. Os caminhos de campo são usados em toda a API. Eles podem se referir a campos de nível superior de um índice ou subcampos com um ou mais ancestrais de [campo complexo](search-howto-complex-data-types.md) .
+- [`$filter`](search-query-odata-filter.md), definido `filter_expression` pela regra.
+- [`$orderby`](search-query-odata-orderby.md), definido `order_by_expression` pela regra.
+- [`$select`](search-query-odata-select.md), definido `select_expression` pela regra.
+- Caminhos de campo, definidos pela `field_path` regra. Caminhos de campo são usados em toda a API. Eles podem se referir a campos de alto nível de um índice, ou subcampos com um ou mais [ancestrais de campo complexos.](search-howto-complex-data-types.md)
 
-Depois que EBNF é um [diagrama de sintaxe](https://en.wikipedia.org/wiki/Syntax_diagram) navegável que permite explorar interativamente a gramática e as relações entre suas regras.
+Depois que a EBNF é um [diagrama de sintaxe](https://en.wikipedia.org/wiki/Syntax_diagram) navegável que permite explorar interativamente a gramática e as relações entre suas regras.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -209,14 +209,14 @@ search_mode ::= "'any'" | "'all'"
 
 ## <a name="syntax-diagram"></a>Diagrama de sintaxe
 
-Para explorar visualmente a gramática de linguagem OData suportada pelo Azure Pesquisa Cognitiva, experimente o diagrama de sintaxe interativa:
+Para explorar visualmente a gramática da linguagem OData suportada pelo Azure Cognitive Search, experimente o diagrama interativo de sintaxe:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxe do OData para Pesquisa Cognitiva do Azure](https://azuresearch.github.io/odata-syntax-diagram/)
+> [Diagrama de sintaxe OData para Pesquisa Cognitiva Azure](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>Consulte  
+## <a name="see-also"></a>Confira também  
 
-- [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-- [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtros na Pesquisa Cognitiva do Azure](search-filters.md)
+- [Pesquisar documentos &#40;A6Azure Cognitive Search Rest API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Sintaxe de consulta Lucene](query-lucene-syntax.md)
-- [Sintaxe de consulta simples no Azure Pesquisa Cognitiva](query-simple-syntax.md)
+- [Sintaxe de consulta simples na Pesquisa Cognitiva do Azure](query-simple-syntax.md)

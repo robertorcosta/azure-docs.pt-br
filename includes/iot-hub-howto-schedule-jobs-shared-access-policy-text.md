@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,12 +9,12 @@ ms.date: 07/17/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: e493d1c4f5851ee510ea83e706afce5fbb6f487e
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70049003"
 ---
 <!-- This contains intro text for the "Get an IoT hub connection string" section in the iot-hub-lang-lang-schedule-jobs.md files-->
 
-Neste artigo, você cria um serviço de back-end que agenda um trabalho para invocar um método direto em um dispositivo, agenda um trabalho para atualizar o dispositivo e monitora o progresso de cada trabalho. Para executar essas operações, seu serviço precisa das permissões de **leitura** do registro e de **gravação do registro** . Por padrão, todo Hub IoT é criado com uma política de acesso compartilhado chamada **registryReadWrite** que concede essas permissões.
+Neste artigo, você cria um serviço back-end que agenda um trabalho para invocar um método direto em um dispositivo, agenda um trabalho para atualizar o dispositivo gêmeo e monitora o progresso de cada trabalho. Para realizar essas operações, seu serviço precisa das permissões **de gravação de registro** e **registro.** Por padrão, todos os hubs de IoT são criados com uma política de acesso compartilhado chamada **registryReadWrite** que concede essas permissões.

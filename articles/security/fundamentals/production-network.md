@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726704"
 ---
 # <a name="the-azure-production-network"></a>Rede de produção do Microsoft Azure
 Os usuários da rede de produção do Microsoft Azure incluem ambos os clientes externos que acessam seus próprios aplicativos do Microsoft Azure e o pessoal de suporte do Microsoft Azure interno que gerenciam a rede de produção. Este artigo discute a segurança e os mecanismos de proteção para estabelecer conexões com a rede de produção do Microsofot Azure.
 
 ## <a name="internet-routing-and-fault-tolerance"></a>Roteamento de internet e tolerância a falhas
-Uma infraestrutura do Serviço de Nomes de Domínio (DNS) do Microsoft Azure interna e externa redundante, combinada com vários cluster de servidor DNS primários e secundários, fornece tolerância a falhas. Ao mesmo tempo, os controles adicionais de segurança de rede do Microsoft Azure, como NetScaler, são usados para impedir são usados para evitar ataque de negação de serviço distribuído (DDoS) e proteger a integridade dos serviços de DNS do Azure.
+Uma infraestrutura do Serviço de Nomes de Domínio (DNS) do Microsoft Azure interna e externa redundante, combinada com vários cluster de servidor DNS primários e secundários, fornece tolerância a falhas. Ao mesmo tempo, os controles adicionais de segurança de rede do Microsoft Azure, como NetScaler, são usados para impedir são usados para evitar ataque de negação de serviço distribuído (DDoS) e proteger a integridade dos serviços de DNS do Azure.                                                  
 
 Os servidores DNS do Azure estão localizados em várias instalações de datacenter. A implementação do DNS do Azure incorpora uma hierarquia de servidores DNS secundários e primários para resolver publicamente os nomes de domínio do cliente do Microsoft Azure. Os nomes de domínio geralmente são resolvidos para um endereço CloudApp.net, que envolve o endereço IP virtual (VIP) para o serviço do cliente. Exclusivo para o Microsoft Azure, o VIP correspondente ao endereço IP Dedicado interno (DIP) da tradução do locatário é feito pelos balanceadores de carga da Microsoft responsáveis por esse VIP.
 
@@ -55,18 +55,18 @@ O Azure implementa recursos robustos de segurança e firewall de software em vá
 ### <a name="azure-security-features"></a>Recursos de segurança do Azure
 O Azure implementa firewalls de software baseado em host dentro da rede de produção. Várias seguranças principais e recursos de firewall residem dentro do núcleo de ambiente do Azure. Esses recursos de segurança refletem uma estratégia de defesa em profundidade no ambiente do Azure. Dados do cliente no Microsoft Azure são protegidos pelos firewalls a seguir:
 
-**Firewall de hipervisor (filtro de pacote)** : este firewall é implementado no hipervisor e configurado por um agente controlador de malha (FC). Esse firewall protege o locatário em execução dentro da VM contra acesso não autorizado. Por padrão, quando uma VM é criada, todo o tráfego é bloqueado e o agente FC adicionar exceções no filtro a fim de permitir o tráfego autorizado.
+**Firewall de hipervisor (filtro de pacote)**: Este firewall é implementado no hipervisor e configurado por um agente controlador de malha (FC). Esse firewall protege o locatário em execução dentro da VM contra acesso não autorizado. Por padrão, quando uma VM é criada, todo o tráfego é bloqueado e o agente FC adicionar exceções no filtro a fim de permitir o tráfego autorizado.
 
 Há duas categorias de regras que são programadas aqui:
 
-- **Regras de configuração do computador ou de infraestrutura**: por padrão, toda a comunicação é bloqueada. Há exceções para permitir que uma VM envie e receba comunicações do Protocolo de Configuração Dinâmica de Hosts (DHCP), informações de DNS, envie tráfego para a Internet “pública”, de saída para outras VMs no cluster FC e no servidor de Ativação do SO. Como a lista permitida de destinos de saída das VMs não inclui sub-redes de roteadores do Microsoft Azure e outras propriedades da Microsoft, as regras agem como uma camada de defesa para elas.
-- **Regras do arquivo de configuração de função**: define as ACLs de entrada com base no modelo de serviço dos locatários. Por exemplo, se um locatário tiver um front-end da web na porta 80 em uma determinada VM, em seguida, a porta 80 é aberta para todos os endereços IP. Se a VM tiver uma função ou de trabalho em execução, a função de trabalho somente abre para a VM que esteja no mesmo locatário.
+- **Configuração de máquina ou regras de infraestrutura** por padrão, toda a comunicação é bloqueada. Há exceções para permitir que uma VM envie e receba comunicações do Protocolo de Configuração Dinâmica de Hosts (DHCP), informações de DNS, envie tráfego para a Internet “pública”, de saída para outras VMs no cluster FC e no servidor de Ativação do SO. Como a lista permitida de destinos de saída das VMs não inclui sub-redes de roteadores do Microsoft Azure e outras propriedades da Microsoft, as regras agem como uma camada de defesa para elas.
+- **Arquivo de Configuração de Função**: define as ACLs de entrada com base no modelo de serviço dos locatários. Por exemplo, se um locatário tiver um front-end da web na porta 80 em uma determinada VM, em seguida, a porta 80 é aberta para todos os endereços IP. Se a VM tiver uma função ou de trabalho em execução, a função de trabalho somente abre para a VM que esteja no mesmo locatário.
 
-**Firewall host nativo**: a malha e o Armazenamento do Azure são executados em um sistema operacional nativo sem hipervisores e, portanto, o firewall do Windows está configurado com os dois conjuntos de regras anteriores.
+**Firewall de host nativo**: a malha e o Armazenamento do Microsoft Azure são executados em um sistema operacional nativo sem hipervisores e, portanto, o firewall do Windows está configurado com os dois conjuntos de regras anteriores.
 
-**Firewall do host**: o firewall do host existe para proteger a partição do host que executa o hipervisor. As regras são programadas para permitir que as jump boxes conversem com a partição do host em uma porta específica. As outras exceções existem para permitir a resposta DHCP e Respostas DNS. O Microsoft Azure usa um arquivo de configuração de computador que contém o modelo de regras de firewall para a partição do host. Há também uma exceção de firewall de host que permite que as VMs se comuniquem com os componentes do host, o servidor de rede e o servidor de metadados, por meio de protocolos/portas específicos.
+**Firewall do host**: O firewall host protege a partição do host, que executa o hipervisor. As regras são programadas para permitir que as jump boxes conversem com a partição do host em uma porta específica. As outras exceções existem para permitir a resposta DHCP e Respostas DNS. O Microsoft Azure usa um arquivo de configuração de computador que contém o modelo de regras de firewall para a partição do host. Há também uma exceção de firewall de host que permite que as VMs se comuniquem com os componentes do host, o servidor de rede e o servidor de metadados, por meio de protocolos/portas específicos.
 
-**Firewall do convidado**: a parte do Firewall do Windows do SO convidado, que pode ser configurado pelo cliente em VMs de cliente e armazenamento.
+**Firewall convidado**: parte do SO convidado, o que pode ser configurado pelo cliente em VMs de cliente e armazenamento Firewall do Windows.
 
 Recursos de segurança adicionais que são integrados aos recursos do Microsoft Azure incluem:
 
@@ -83,9 +83,9 @@ Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Az
 
 - [Recursos, local e segurança física do Azure](physical-security.md)
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
-- [Limites e componentes do sistema de informações do Azure](infrastructure-components.md)
+- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
-- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

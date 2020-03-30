@@ -1,6 +1,6 @@
 ---
-title: Examinar estimativas de custo no Planejador de Implantações do Azure Site Recovery
-description: Este artigo descreve como examinar as estimativas de custo no Planejador de Implantações do Azure Site Recovery para a recuperação de desastres do VMware.
+title: Revisar estimativas de custos no Azure Site Recovery Deployment Planner
+description: Esteartigo descreve como rever as estimativas de custos no Azure Site Recovery Deployment Planner para recuperação de desastres VMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
 ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953335"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Examinar estimativas de custo no Planejador de Implantações VMware 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Revisar estimativas de custos no VMware Deployment Planner 
 
 O relatório do Planejador de Implantações fornece o resumo de estimativa de custo nas planilhas de [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) e a análise de custo detalhada na planilha Estimativa de Custo. Ele tem a análise de custo detalhada por VM. 
 
 >[!Note]
->A versão atual da ferramenta planejador de implantação v 2.5 fornece estimativa de custo para replicações de VMs para Managed Disks.
+>A versão atual da ferramenta Deployment planner v2.5 fornece estimativa de custo para VMs replicando em Discos Gerenciados.
 
 ### <a name="cost-estimation-summary"></a>Resumo de estimativa de custo 
 O gráfico mostra a exibição de resumo do custo total de recuperação de desastre (DR) estimado para o Azure da sua região de destino escolhida e da moeda que você especificou para a geração de relatórios.
@@ -77,7 +77,7 @@ Selecione a configuração apropriada de acordo com seus requisitos.
 
 **Gateway de VPN**: selecione o Gateway de VPN se você tiver algum em seu ambiente. Por padrão, é NA.
 
-**Região de Destino**: região do Azure especificada para recuperação de desastre. O preço usado no relatório de computação, armazenamento, rede e licença baseia-se nos preços do Azure para essa região. 
+**Região alvo**: Região Azure especificada para DR. O preço usado no relatório de computação, armazenamento, rede e licença baseia-se nos preços do Azure para essa região. 
 
 ### <a name="vm-running-on-azure"></a>VM em execução no Azure
 Se você tiver qualquer controlador de domínio ou VM de DNS ou VM do SQL Server com Grupos de Disponibilidade AlwaysOn em execução no Azure para recuperação de desastre, poderá fornecer o número de máquinas virtuais e o tamanho para considerar os custos de computação no custo total de recuperação de desastre. 
@@ -101,10 +101,10 @@ Para adicionar manualmente as máquinas virtuais:
 
 * Número de VMs, tamanho de IaaS (Sua seleção)
 * Tipo de Armazenamento (Standard/Premium)
-* Tamanho de armazenamento total da VM (GB) do computador de origem
+* Tamanho total de armazenamento (GB) vm da máquina de origem
 * Número de detalhamentos de recuperação de desastre em um ano 
 * Duração de cada detalhamento de recuperação de desastre (Dias) 
-* Tipo de sistema operacional
+* Tipo de SO
 * Redundância de dados 
 * Benefício Híbrido do Azure
 
@@ -116,17 +116,17 @@ Para adicionar manualmente as máquinas virtuais:
 
 **Número de VMs**: o número de VMs que correspondem à configuração. Você pode atualizar o número de VMs existentes se as VMs de configuração semelhantes não tiverem sido analisadas mas ainda assim serão protegidas.
 
-**Tamanho de IaaS (Recomendação)** : é o tamanho da função de VM da máquina virtual compatível recomendado pela ferramenta. 
+**Tamanho de IaaS (Recomendação)**: é o tamanho da função de VM da máquina virtual compatível recomendado pela ferramenta. 
 
-**Tamanho de IaaS (Sua seleção)** : por padrão, é igual ao tamanho de função de VM recomendado. Você pode alterar a função com base no requisito. O custo de computação se baseia no tamanho da função de VM selecionada.
+**Tamanho de IaaS (Sua seleção)**: por padrão, é igual ao tamanho de função de VM recomendado. Você pode alterar a função com base no requisito. O custo de computação se baseia no tamanho da função de VM selecionada.
 
 **Tipo de armazenamento**: o tipo de armazenamento usado pela máquina virtual. É armazenamento standard ou premium.
 
-**Tamanho total de armazenamento da VM (GB)** : o armazenamento total da VM de origem.
+**Tamanho total de armazenamento (GB) VM**: O armazenamento total da VM de origem.
 
 **Número de análises de recuperação de desastre em um ano**: o número de vezes que você executa análises de recuperação de desastre em um ano. Por padrão, é quatro vezes ao ano. Você pode modificar o período de VMs específicas ou aplicar o novo valor a todas as VMs inserindo o novo valor na linha superior e clicando no botão 'Aplicar a todos'. Com base no número de Análises de Recuperação de Desastre e do período de duração de cada Análise de Recuperação de Desastre, o custo total da Análise de Recuperação de Desastre é calculado.  
 
-**Duração de cada análise de recuperação de desastre (Dias)** : a duração de cada análise de recuperação de desastre. Por padrão, é de sete dias a cada 90 dias, de acordo com o [benefício do Software Assurance de Recuperação de Desastre](https://azure.microsoft.com/pricing/details/site-recovery). Você pode modificar o período de VMs específicas ou pode aplicar um novo valor a todas as VMs inserindo o novo valor na linha superior e clicando no botão 'Aplicar a todos'. O custo total da Análise de Recuperação de Desastre é calculado com base no número de análises de recuperação de desastre em um ano e no período de duração de cada Análise de Recuperação de Desastre.
+**Duração de cada análise de recuperação de desastre (Dias)**: a duração de cada análise de recuperação de desastre. Por padrão, é de sete dias a cada 90 dias, de acordo com o [benefício do Software Assurance de Recuperação de Desastre](https://azure.microsoft.com/pricing/details/site-recovery). Você pode modificar o período de VMs específicas ou pode aplicar um novo valor a todas as VMs inserindo o novo valor na linha superior e clicando no botão 'Aplicar a todos'. O custo total da Análise de Recuperação de Desastre é calculado com base no número de análises de recuperação de desastre em um ano e no período de duração de cada Análise de Recuperação de Desastre.
   
 **Tipo de sistema operacional**: o tipo de SO da VM. É Windows ou Linux. Se o tipo de sistema operacional for Windows, o Benefício Híbrido do Azure poderá ser aplicado a essa VM. 
 
@@ -138,7 +138,7 @@ Para adicionar manualmente as máquinas virtuais:
 
 **Custo de replicação de estado estacionário**: inclui o custo de armazenamento para replicação.
 
-**Custo total de análise de recuperação de desastre (média)** : inclui o custo de computação e de armazenamento para análise de recuperação de desastre.
+**Custo total de análise de recuperação de desastre (média)**: inclui o custo de computação e de armazenamento para análise de recuperação de desastre.
 
 **Custo da licença do ASR**: custo da licença do Azure Site Recovery.
 
@@ -150,7 +150,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas com suporte
 O Planejador de Implantações do Azure Site Recovery pode gerar o relatório de custo com qualquer uma das moedas a seguir.
 
-|Moeda|NOME||Moeda|NOME||Moeda|NOME|
+|Moeda|Nome||Moeda|Nome||Moeda|Nome|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileiro (R$)|
 |CAD|Dólar canadense ($)||CHF|Franco suíço. (chf)||DKK|Coroa dinamarquesa (kr)|

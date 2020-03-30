@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965284"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
@@ -39,7 +39,7 @@ O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM 
 | --- | --- | --- |
 | Alimentação de saída máxima |580 W |764 |
 | Frequência |50/60 Hz |50/60 Hz |
-| Seleção de faixa de tensão |Variação automática: 90 – 264 V AC, 47/63 Hz |Variação automática: 90- 264 V AC, 47/63 Hz |
+| Seleção de faixa de tensão |Faixa automática: 90-264 V AC, 47/63 Hz |Faixa automática: 90- 264 V AC, 47/63 Hz |
 | Corrente de entrada máxima |20 A |20 A |
 | Correção de fator de potência |Voltagem de entrada nominal >95% |Voltagem de entrada nominal >95% |
 | Harmônicas |Atende EN61000-3-2 |Atende EN61000-3-2 |
@@ -83,7 +83,7 @@ Os dispositivos StorSimple têm uma mescla de unidades de disco rígido e de est
 | Capacidade total utilizável* |~ 15 TB |~ 38 TB |
 | Capacidade máxima da solução (incluindo a nuvem) |200 TB |500 TB |
 
-<sup>* </sup>- *A capacidade útil total inclui a capacidade disponível para dados, metadados e buffers. Você pode provisionar volumes localmente fixados de até 8,5 TB no dispositivo 8100 ou até 22,5 TB no dispositivo 8600 maior. Para obter mais informações, vá para [StorSimple locally pinned volumes](storsimple-8000-local-volume-faq.md) (Volumes localmente fixados do StorSimple).*
+<sup>* </sup>- *A capacidade total utilizável inclui a capacidade disponível para dados, metadados e buffers. Você pode provisionar volumes fixados localmente até 8,5 TB no dispositivo 8100 ou até 22,5 TB no dispositivo maior de 8600. Para obter mais informações, vá para [StorSimple volumes fixados localmente](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensões do compartimento e especificações de peso
 
@@ -162,8 +162,8 @@ O dispositivo Microsoft Azure StorSimple atende às classificações EMC a segui
 
 O dispositivo é compatível com EMC em relação aos níveis de emissões conduzidas e irradiadas.
 
-* Níveis de limite de emissões conduzidos: CFR 47 parte 15B classe A EN55022 classe A CISPR classe a
-* Níveis de limite de emissões radiadas: CFR 47 parte 15B classe A EN55022 classe A CISPR classe a
+* Níveis de limite de emissões conduzidas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
+* Níveis de limite de emissões irradiadas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
 
 ### <a name="harmonics-and-flicker"></a>Harmônicas e cintilação
 
@@ -175,7 +175,7 @@ O dispositivo é compatível com EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformidade do cabo de alimentação de CA
 
-O plug e o conjunto completo do cabo de alimentação devem atender aos padrões apropriados para o país/região em que o dispositivo está sendo usado, e eles devem ter aprovações de segurança aceitáveis nesse país/região. As tabelas a seguir listam os padrões para os EUA e a Europa.
+O plugue e o conjunto completo do cabo de alimentação devem atender aos padrões adequados para o país/região em que o dispositivo está sendo utilizado, e devem ter aprovações de segurança aceitáveis naquele país/região. As tabelas a seguir listam os padrões para os EUA e a Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cabos de alimentação de CA - EUA (devem estar listados no NRTL)
 
