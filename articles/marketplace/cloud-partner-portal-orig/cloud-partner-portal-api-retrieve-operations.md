@@ -1,19 +1,18 @@
 ---
-title: Recuperar API de operações | Azure Marketplace
+title: Recuperar operações API | Mercado Azure
 description: Recuperar todas as operações na oferta ou obter uma operação específica para a operationId especificada.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819603"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280466"
 ---
 <a name="retrieve-operations"></a>Recuperar operações
 ===================
@@ -34,10 +33,10 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do publicador, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
-|  offerId           |  Identificador da oferta                                                                                              |  Cadeia de caracteres       |
+|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  String       |
+|  offerId           |  Identificador da oferta                                                                                              |  String       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operationId pode ser recuperada usando essa API e também é retornada no cabeçalho HTTP da resposta para qualquer operação longa, como a API [Publicar oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Parâmetro de consulta opcional usado para filtrar por status (por exemplo, `running`) na coleção retornada por essa API.  |   Cadeia de caracteres |
+|  filteredStatus    | Parâmetro de consulta opcional usado para filtrar por status (por exemplo, `running`) na coleção retornada por essa API.  |   String |
 |  api-version       | Última versão da API                                                                                           |    Data      |
 |  |  |  |
 
@@ -179,11 +178,11 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 |  **Nome**                    |  **Descrição**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
-|  ID                          | GUID que identifica exclusivamente a operação                                                       |
+|  id                          | GUID que identifica exclusivamente a operação                                                       |
 |  submissionType              | Identifica o tipo de operação que está sendo relatada para a oferta, por exemplo, `Publish/GGoLive`      |
 |  createdDateTime             | Data e hora em UTC quando a operação foi criada                                                       |
 |  lastActionDateTime          | Data e hora em UTC quando a última atualização foi feita na operação                                       |
-|  status                      | Status da operação, qualquer um dos `not started` \| `running` \| `failed` \| `completed`. Apenas uma operação pode ter um status `running` por vez. |
+|  status                      | Status da operação, `not started` \| `running` \| `failed` \| `completed`também. Apenas uma operação pode ter um status `running` por vez. |
 |  error                       | Mensagem de erro para operações com falha                                                               |
 |  |  |
 
@@ -195,5 +194,5 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  200      | `OK` - A solicitação foi processada com êxito e as operações solicitadas foram retornadas.        |
 |  400      | `Bad/Malformed request` - O corpo da resposta de erro pode conter mais informações.                    |
 |  403      | `Forbidden` - O cliente não tem acesso ao namespace especificado.                          |
-|  404      | `Not found` - A entidade especificada não existe.                                                 |
+|  404      | `Not found` – a entidade especificada não existe.                                                 |
 |  |  |

@@ -1,26 +1,25 @@
 ---
-title: Criar um VHD compatível com o Azure para o Azure Marketplace
+title: Crie um VHD compatível com Azure para o Azure Marketplace
 description: Explica como criar um VHD para uma oferta de máquina virtual no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2014a775edd4e24f5d302d863d0b69d83009b8a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277983"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com o Azure
 
 Este artigo detalha as etapas necessárias para criar um disco rígido virtual (VHD) para uma oferta de máquina virtual (VM) no Azure Marketplace.  Ele também inclui práticas recomendadas para vários aspectos, como o uso do RDP (Remote Desktop Protocol), a seleção de um tamanho para a VM, a instalação das atualizações mais recentes do Windows e a generalização da imagem do VHD.  As seções a seguir enfocam principalmente os VHDs baseados em Windows; para obter mais informações sobre a criação de VHDs baseados em Linux, consulte [Linux em distribuições endossadas pelo Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> É altamente recomendável seguir as orientações deste tópico para usar o Azure para criar uma VM que contenha um sistema operacional pré-configurado e endossado.  Se isso não for compatível com sua solução, será possível criar e configurar uma VM local usando um sistema operacional aprovado.  Você pode configurá-lo e prepará-lo para upload, conforme descrito em [ Preparar um VHDX ou VHDX do Windows para fazer o upload para o Azure ](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> É altamente recomendável seguir as orientações deste tópico para usar o Azure para criar uma VM que contenha um sistema operacional pré-configurado e endossado.  Se isso não for compatível com a sua solução, então é possível criar e configurar uma VM no local usando um sistema operacional aprovado.  Você pode configurá-lo e prepará-lo para upload, conforme descrito em [ Preparar um VHDX ou VHDX do Windows para fazer o upload para o Azure ](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Selecione uma base aprovada
@@ -50,7 +49,7 @@ No portal do [Microsoft Azure](https://ms.portal.azure.com/), crie a imagem base
 
 5. Depois de selecionar a imagem virtual adequada, forneça os seguintes valores:
    * No blade **Basics**, insira um **Name** para a máquina virtual, entre 1-15 caracteres alfanuméricos. (Este exemplo usa `DemoVm009`.)
-   * Digite um **nome de usuário** e uma **senha** forte, que são usados para criar uma conta local na VM.  (Aqui `adminUser` é usado.)  A senha deve ter de 3 a 8-123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [Requisitos de nome de usuário e senha](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Digite um **nome de usuário** e uma **senha** forte, que são usados para criar uma conta local na VM.  (Aqui `adminUser` é usado.)  A senha deve ter de 8 a 123 caracteres e atender a três dos quatro requisitos de complexidade seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Para obter mais informações, consulte [Requisitos de nome de usuário e senha](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
    * Selecione o grupo de recursos que você criou (aqui `DemoResourceGroup`).
    * Selecione um **Local** do Azure Datacenter (aqui `West US`).
    * Clique em **Okey** para salvar esses valores. 
@@ -62,7 +61,7 @@ No portal do [Microsoft Azure](https://ms.portal.azure.com/), crie a imagem base
 
    ![Lâmina de tamanho da nova VM](./media/publishvm_015.png)
 
-7. Na folha **Configurações**, defina a opção  **Usar disco gerenciado** como **Não**.  Isso permite gerenciar manualmente o novo VHD. (A folha **configurações** também permite que você altere outra alteração nas opções de armazenamento e rede, por exemplo, selecionando **Premium (SSD)** em **tipo de disco**.)  Clique em **OK** para continuar.
+7. Na folha **Configurações**, defina a opção ** Usar disco gerenciado** como **Não**.  Isso permite gerenciar manualmente o novo VHD. (A lâmina **Configurações** também permite alterar outras alterações nas opções de armazenamento e rede, por exemplo, selecionando **Premium (SSD)** no **tipo disco**.)  Clique em **OK** para continuar.
 
     ![Folha de configurações da nova VM](./media/publishvm_016.png)
 

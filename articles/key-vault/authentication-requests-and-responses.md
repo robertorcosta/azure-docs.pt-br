@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b84084dafe79a8caa9cdb70bc201f68834079845
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 8cb68b1a5363889e6ea7c49cf0cdda6ed5f0e027
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294552"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
 
@@ -65,7 +65,7 @@ Este tópico aborda informações específicas para o serviço do Azure Key Vaul
 
 - 3xx – Redirecionamento: O código 304 “Não modificado” pode ser retornada para preencher o GET condicional. Outros códigos de 3xx podem ser usados no futuro para indicar as alterações de DNS e caminho.  
 
-- 4xx – erro de cliente: usado para solicitações inválidas, chaves ausentes, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo da resposta conterá uma explicação detalhada do erro.  
+- 4xx – Erro do cliente: Usado para solicitações erradas, chaves ausentes, erros de sintaxe, parâmetros inválidos, erros de autenticação, etc. O corpo de resposta conterá explicação detalhada de erro.  
 
 - 5xx – Erro de servidor: Usado para erros de servidor interno. O corpo da resposta conterá explicações resumidas do erro.  
 
@@ -113,7 +113,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: O endereço do serviço de autorização OAuth2 que pode ser usado para obter um token de acesso para a solicitação.  
 
--   recurso: o nome do recurso (https://vault.azure.net) para usar na solicitação de autorização.  
+-   recurso: O nome do`https://vault.azure.net`recurso ( ) para usar no pedido de autorização.  
 
-## <a name="see-also"></a>Consulte Também  
+## <a name="see-also"></a>Consulte também  
  [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

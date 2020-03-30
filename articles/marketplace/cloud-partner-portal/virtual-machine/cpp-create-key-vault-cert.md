@@ -1,19 +1,18 @@
 ---
-title: Criar um certificado de Azure Key Vault | Azure Marketplace
+title: Criar um certificado azure Key Vault | Mercado Azure
 description: Explica como registrar uma VM de um VHD do Azure implantado.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 4adc6f716050e2d792e0a5c022972e4340d2846a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823124"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278068"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para o Azure Key Vault
 
@@ -77,7 +76,7 @@ Edite e execute o seguinte script do Azure Powershell para criar o arquivo de ce
 
 ## <a name="create-the-key-vault"></a>Criar o cofre de chaves
 
-Copie o conteúdo do [modelo de implantação do cofre de chaves](./cpp-key-vault-deploy-template.md) em um arquivo em seu computador local. (no script de exemplo abaixo, esse recurso é `C:\certLocation\keyvault.json`.)  Edite e execute o seguinte script do Azure PowerShell para criar uma instância de Azure Key Vault e o grupo de recursos associado.  Você precisará substituir os valores dos seguintes parâmetros:
+Copie o conteúdo do [modelo de implantação do cofre de chaves](./cpp-key-vault-deploy-template.md) em um arquivo em seu computador local. (no script de exemplo abaixo, esse recurso é `C:\certLocation\keyvault.json`.)  Editar e executar o seguinte script do Azure Powershell para criar uma instância do Azure Key Vault e o grupo de recursos associado.  Você precisará substituir os valores dos seguintes parâmetros:
 
 |  **Parâmetro**        |   **Descrição**                                                               |
 |  -------------        |   ---------------                                                               |

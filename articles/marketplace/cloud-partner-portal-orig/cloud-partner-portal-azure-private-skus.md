@@ -1,19 +1,18 @@
 ---
-title: SKUs e planos privados | Azure Marketplace
+title: SKUs privados e planos | Mercado Azure
 description: Como usar SKUs privados para gerenciar a disponibilidade de oferta.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
-ms.author: pabutler
-ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ee3ab7be4d15b13a3c0bb014a3ca4d4096299b4c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818827"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280381"
 ---
 <a name="private-skus-and-plans"></a>SKUs Privados e Planos
 ============
@@ -38,7 +37,7 @@ Para marcar uma SKU como privado, mude a opção perguntando se o SKU é privado
 
 ![Marcar um SKU como privado](./media/cloud-partner-portal-publish-virtual-machine/markingskuprivate.png)
 
-Você pode reutilizar os discos em outro SKU e modificar a descrição ou o preço. Para reutilizar os discos, selecione **Sim** como uma resposta para o prompt "este SKU reutiliza imagens de um SKU público".
+Você pode reutilizar os discos em outro SKU e modificar a descrição ou o preço. Para reutilizar os discos, selecione **Sim** como resposta ao prompt "Será que este SKU reutiliza imagens de um SKU público".
 
 Se o SKU está marcado como privado e a oferta tem outros SKUs com discos reutilizáveis, é necessário que você indique que o SKU reutiliza discos de outro SKU. Também é necessário que você especifique o público-alvo para o SKU privado.
 
@@ -48,11 +47,11 @@ Se o SKU está marcado como privado e a oferta tem outros SKUs com discos reutil
 <a name="select-an-image"></a>Selecionar uma imagem
 ------------------
 
-Você pode fornecer novos discos para o SKU privado ou reutilizar os mesmos discos já fornecidos em outro SKU, somente modificando os preços ou a descrição. Para reutilizar os discos, selecione **Sim** como uma resposta para o prompt "este SKU reutiliza a imagem de um SKU público".
+Você pode fornecer novos discos para o SKU privado ou reutilizar os mesmos discos já fornecidos em outro SKU, somente modificando os preços ou a descrição. Para reutilizar os discos, selecione **Sim** como resposta ao prompt "Será que esta imagem de reutilização do SKU de um SKU público" solicita.
 
 ![Indicar reutilização de imagem](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 
-Depois de confirmar que o SKU reutiliza as imagens, selecione o SKU de origem ou *base* para as imagens:
+Depois de confirmar se o SKU reutiliza imagens, selecione a origem ou o SKU *base* para as imagens:
 
 ![Selecionar uma imagem](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
@@ -83,27 +82,27 @@ Conteúdo do arquivo CSV de exemplo:
 
 Quando você alternar da exibição de entrada manual para a de upload de CSV ou vice-versa, a lista antiga de IDs de assinatura com acesso ao SKU não é mantida. Um aviso é exibido e a lista é substituída apenas ao salvar a oferta.
 
-<a name="managing-private-audiences"></a>Gerenciando públicos privados
+<a name="managing-private-audiences"></a>Gestão de audiências privadas
 -------------------------
 
-**Para atualizar o público sem publicar novamente a oferta inteira, você faz as alterações de público que desejar (usando a interface do usuário ou a API) e, em seguida, inicia a ação "sincronizar audiências privadas".**
+**A fim de atualizar o público sem republicar toda a oferta, você faz as alterações de audiência desejadas (usando a UI ou a API) e, em seguida, iniciar a ação "Sincronizar audiências privadas".**
 
-Se seu público-alvo for de 10 ou menos assinaturas, você poderá gerenciá-lo totalmente usando a interface do usuário do CPP.
+Se o seu público for de 10 ou menos assinaturas, você pode gerenciá-lo inteiramente usando a UI CPP.
 
-Se seu público-alvo tiver mais de 10 assinaturas, você poderá gerenciá-lo usando um arquivo CSV que pode ser carregado na interface do usuário do CPP ou usando a API.
+Se o seu público for mais de 10 assinaturas, você pode gerenciá-lo usando um arquivo CSV que você pode carregar para a UI CPP ou usando a API.
 
-Se você estiver usando a API e não quiser manter um arquivo CSV, poderá gerenciar o público diretamente usando a API de acordo com as instruções abaixo.
+Se você estiver usando a API e não quiser manter um arquivo CSV, você pode gerenciar o público diretamente usando a API de acordo com as instruções abaixo.
 
 > [!NOTE]
-> Use a ID de assinatura do Azure (planos e SKUs) ou a ID de locatário (somente planos) para adicionar um público à sua oferta privada.
+> Use o ID de assinatura do Azure (Planos e SKUs) ou ID de inquilino (somente planos) para adicionar uma audiência à sua oferta privada.
 
-###  <a name="managing-subscriptions-with-the-api"></a>Gerenciando assinaturas com a API
+###  <a name="managing-subscriptions-with-the-api"></a>Gerenciamento de assinaturas com a API
 
-Você pode usar a API para carregar um CSV ou gerenciar seu público diretamente (sem usar um CSV). Em geral, você simplesmente precisa recuperar sua oferta, atualizar o objeto `restrictedAudience` e enviar essas alterações de volta para sua oferta a fim de adicionar ou remover membros públicos.
+Você pode usar a API para carregar um CSV ou gerenciar seu público diretamente (sem usar um CSV). Em geral, você simplesmente precisa recuperar `restrictedAudience` sua oferta, atualizar o objeto e, em seguida, enviar essas alterações de volta à sua oferta, a fim de adicionar ou remover membros da audiência.
 
-Veja como atualizar de forma programática sua lista de audiências:
+Veja como atualizar programáticamente sua lista de audiência:
 
-1. [Recupere seus dados de oferta](cloud-partner-portal-api-retrieve-specific-offer.md) :
+1. [Recupere os](cloud-partner-portal-api-retrieve-specific-offer.md) dados da sua oferta:
 
     ```
     GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
@@ -114,34 +113,34 @@ Veja como atualizar de forma programática sua lista de audiências:
     ```
     $.definition.plans[*].restrictedAudience
     ```
-3. Atualize os objetos público restritos para sua oferta.
+3. Atualize os objetos de audiência restritos para sua oferta.
 
-    **Se você carregou originalmente a lista de assinaturas para sua oferta privada do arquivo CSV:**
+    **Se você fez o upload original da lista de assinaturas para sua oferta privada a partir do arquivo CSV:**
 
-    Seus objetos *restrictedAudience* terão a seguinte aparência.
+    Seus *objetos de audiência restrita* serão assim.
     ```
     "restrictedAudience": {
                   "uploadedCsvUri": "{SasUrl}"
     }
     ```
 
-    Para cada objeto público restrito:
+    Para cada objeto de audiência restrita:
 
-    a. Baixe o conteúdo de `restrictedAudience.uploadedCsvUri`. O conteúdo é simplesmente um arquivo CSV com cabeçalhos. Por exemplo:
+    a. Baixe o `restrictedAudience.uploadedCsvUri`conteúdo de . O conteúdo é simplesmente um arquivo CSV com cabeçalhos. Por exemplo: 
 
         type,id,description
         subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
         subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
 
-    b. Adicione ou exclua assinaturas no arquivo CSV baixado, conforme necessário.
+    b. Adicione ou exclua assinaturas no arquivo CSV baixado conforme necessário.
 
-    c. Carregue o arquivo CSV atualizado em um local, como o [armazenamento de BLOBs do Azure](../../storage/blobs/storage-blobs-overview.md) ou o [onedrive](https://onedrive.live.com), e crie um link somente leitura para o arquivo. Esse será o novo *SasUrl*.
+    c. Carregue o arquivo CSV atualizado para um local, como [o armazenamento Azure Blob](../../storage/blobs/storage-blobs-overview.md) ou [oneDrive,](https://onedrive.live.com)e crie um link somente de leitura para o seu arquivo. Este será o seu novo *SasUrl.*
 
-    d. Atualize a chave de `restrictedAudience.uploadedCsvUri` com seu novo *SasUrl*.
+    d. Atualize `restrictedAudience.uploadedCsvUri` a chave com o seu novo *SasUrl*.
 
-    **Se você inseriu manualmente a lista original de assinaturas para sua oferta privada do Portal do Cloud Partner:**
+    **Se você inseriu manualmente a lista original de assinaturas para sua oferta privada no Portal de Parceiros na Nuvem:**
 
-    Seus objetos *restrictedAudience* serão mais ou menos assim:
+    Seu objeto *(s) restritode Audience* será algo parecido com isso:
 
     ```
     "restrictedAudience": {
@@ -157,19 +156,19 @@ Veja como atualizar de forma programática sua lista de audiências:
         ]}
     ```
 
-    a. Para cada objeto público restrito, adicione ou exclua entradas na lista de `restrictedAudience.manualEntries`, conforme necessário.
+    a. Para cada objeto de audiência restrita, `restrictedAudience.manualEntries` adicione ou exclua entradas na lista conforme necessário.
 
-4. Ao concluir a atualização de todos os objetos *restrictedAudience* para cada SKU de sua oferta privada, [atualize a oferta](cloud-partner-portal-api-creating-offer.md):
+4. Quando terminar de atualizar todos os objetos *restritosDe audiência* para cada SKU de sua oferta privada, [atualize a oferta](cloud-partner-portal-api-creating-offer.md):
 
     ```
     PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
     ```
-    Com isso, sua lista de audiências atualizada agora está em vigor.
+    Com isso, sua lista de audiência atualizada está agora em vigor.
 
-<a name="previewing-private-offers"></a>Visualizando ofertas privadas
+<a name="previewing-private-offers"></a>Visualização de ofertas privadas
 -------------------------
 
-Durante a etapa de preparo/versão prévia, somente as assinaturas de versão prévia em nível de oferta serão capazes de acessar o SKU. Neste estágio de teste, você pode visualizar a oferta como ela seria exibida para os clientes de destino.
+Durante a etapa de preparo/versão prévia, somente as assinaturas de versão prévia em nível de oferta serão capazes de acessar o SKU. Nesta fase de teste, você pode visualizar a oferta como ela apareceria para seus clientes-alvo.
 
 Ofereça assinaturas de versão prévia no nível de oferta para acessar ofertas em preparo:
 

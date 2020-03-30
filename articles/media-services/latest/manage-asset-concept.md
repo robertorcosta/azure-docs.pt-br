@@ -1,7 +1,7 @@
 ---
-title: Gerenciar ativos nos serviços de mídia do Azure
+title: Gerencie ativos nos Serviços de Mídia do Azure
 titleSuffix: Azure Media Services
-description: Um ativo no qual você insere a mídia (por exemplo, por meio de carregamento ou ingestão dinâmica), mídia de saída (de uma saída de trabalho) e publica mídia de (para streaming). Este tópico fornece uma visão geral de como criar um novo ativo e carregar arquivos.
+description: Um ativo onde você insere mídia (por exemplo, através de upload ou live ingest), mídia de saída (a partir de uma saída de trabalho) e publica mídia de (para streaming). Este tópico dá uma visão geral de como criar um novo ativo e carregar arquivos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,42 +10,42 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b1ec4ee3d7a51c2a21a5bbd8888ea4662cf78bf5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: fcdb8af770fa0068e8413d4609a56223a9a20ce2
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304150"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345889"
 ---
 # <a name="manage-assets"></a>Gerenciar ativos
 
-Nos serviços de mídia do Azure, um [ativo](https://docs.microsoft.com/rest/api/media/assets) é onde você 
+No Azure Media Services, um [ativo](https://docs.microsoft.com/rest/api/media/assets) é onde você 
 
 * carregar arquivos de mídia em um ativo,
-* ingerir e arquivar transmissões ao vivo em um ativo,
-* gerar os resultados de uma codificação do trabalho de análise para um ativo,
+* ingerem e arquivam transmissões ao vivo em um ativo,
+* produzir os resultados de uma codificação de trabalho de análise para um ativo,
 * publicar mídia para streaming, 
 * baixar arquivos de um ativo.
 
-Este tópico fornece uma visão geral de como carregar arquivos em um ativo e executar outras operações comuns. Ele também fornece links para exemplos de código e tópicos relacionados.
+Este tópico dá uma visão geral de como carregar arquivos em um ativo e executar algumas outras operações comuns. Também fornece links para amostras de código e tópicos relacionados.
 
 ## <a name="prerequisite"></a>Pré-requisito 
 
 Antes de iniciar o desenvolvimento, examine:
 
 * [Conceitos](concepts-overview.md)
-* [Desenvolvendo com APIs dos serviços de mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura e assim por diante) 
+* [Desenvolvimento com APIs dos Serviços de Mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura etc.). 
 
-## <a name="upload-media-files-into-an-asset"></a>Carregar arquivos de mídia em um ativo
+## <a name="upload-media-files-into-an-asset"></a>Envie arquivos de mídia para um ativo
 
-Depois que os arquivos digitais são carregados no armazenamento e associados a um ativo, eles podem ser usados na codificação de serviços de mídia, no streaming e na análise de fluxos de trabalho de conteúdo. Um dos fluxos de trabalho dos Serviços de Mídia do Azure comuns é carregar, codificar e transmitir um arquivo. Esta seção descreve as etapas gerais.
+Depois que os arquivos digitais são carregados no armazenamento e associados a um Ativo, eles podem ser usados na codificação, streaming e análise de fluxos de trabalho de conteúdo. Um dos fluxos de trabalho dos Serviços de Mídia do Azure comuns é carregar, codificar e transmitir um arquivo. Esta seção descreve as etapas gerais.
 
 1. Use a API dos Serviços de Mídia do Azure v3 para criar um novo ativo de "entrada". Esta operação cria um contêiner na conta de armazenamento associada com sua conta de Serviços de Mídia do Azure. A API retorna o nome do contêiner (por exemplo, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
 
-    Se você já tiver um contêiner de BLOB que deseja associar a um ativo, poderá especificar o nome do contêiner ao criar o ativo. Os Serviços de Mídia do Azure atualmente suportam apenas blobs na raiz do contêiner e não com caminhos no nome do arquivo. Portanto, um contêiner com o nome do arquivo "input.mp4" funcionará. No entanto, um contêiner com o nome de arquivo "vídeos/entradas/Input. mp4" não funcionará.
+    Se você já tem um recipiente blob que deseja associar a um Ativo, você pode especificar o nome do contêiner ao criar o Ativo. Os Serviços de Mídia do Azure atualmente suportam apenas blobs na raiz do contêiner e não com caminhos no nome do arquivo. Portanto, um contêiner com o nome do arquivo "input.mp4" funcionará. No entanto, um contêiner com o nome do arquivo "videos/inputs/input.mp4" não funcionará.
 
     Você pode usar a CLI do Azure para carregar diretamente em qualquer conta de armazenamento e contêiner que você tiver direitos na sua assinatura.
 
@@ -54,15 +54,21 @@ Depois que os arquivos digitais são carregados no armazenamento e associados a 
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
-2. Obter uma URL de SAS com permissões de leitura / gravação que serão usadas para carregar arquivos digitais em contêiner do ativo. Você pode usar a API de Serviços de Mídia do Azure [listará as URLs de contêiner do ativo](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou o [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar arquivos no contêiner de ativos.
-4. Use as APIs dos Serviços de Mídia v3 para criar uma transformação e um trabalho para processar seu ativo de "entrada". Para obter mais informações, consulte [Transformações e Trabalhos](transform-concept.md).
+2. Obter uma URL de SAS com permissões de leitura / gravação que serão usadas para carregar arquivos digitais em contêiner do ativo.
+
+    Você pode usar a API de Serviços de Mídia do Azure [listará as URLs de contêiner do ativo](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+
+    **AssetContainerSas.listContainerSas** leva um parâmetro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) `expiryTime`no qual você define . O horário deve ser definido para < 24 horas.
+
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) retorna vários URLs SAS, pois existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, mude uma enquanto estiver usando a outra e comece a usar a nova tecla e gire a outra tecla). A 1ª URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento2.
+3. Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API de armazenamento REST](../../storage/common/storage-rest-api-auth.md) ou [.NET SDK)](../../storage/blobs/storage-quickstart-blobs-dotnet.md)para carregar arquivos no contêiner Asset.
+4. Use as APIs dos Serviços de Mídia v3 para criar uma transformação e um trabalho para processar seu ativo de "entrada". Para obter mais informações, consulte [Transformações e Empregos](transform-concept.md).
 5. Transmitir o conteúdo do ativo de "saída".
 
 ### <a name="create-a-new-asset"></a>Criar um novo ativo
 
 > [!NOTE]
-> As propriedades de um ativo do tipo DateTime estão sempre no formato UTC.
+> As propriedades de um ativo do tipo Datetime estão sempre no formato UTC.
 
 #### <a name="rest"></a>REST
 
@@ -72,7 +78,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Para obter um exemplo REST, consulte [Criar um ativo com exemplo de REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples).
 
-O exemplo mostra como criar o **corpo da solicitação** , onde você pode especificar a descrição, o nome do contêiner, a conta de armazenamento e outras informações úteis.
+O exemplo mostra como criar o **Corpo de solicitação** onde você pode especificar descrição, nome do contêiner, conta de armazenamento e outras informações úteis.
 
 #### <a name="curl"></a>cURL
 
@@ -94,51 +100,51 @@ curl -X PUT \
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 ```
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Confira também
 
 * [Criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md)
 * [Criar uma entrada de trabalho de uma URL HTTPS](job-input-from-http-how-to.md)
 
-## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Ingerir e arquivar transmissões ao vivo em um ativo
+## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Ingere e arquive transmissões ao vivo em um ativo
 
-Nos serviços de mídia, um objeto de [saída ao vivo](https://docs.microsoft.com/rest/api/media/liveoutputs) é como um gravador de vídeo digital que detectará e registrará seu fluxo ao vivo em um ativo em sua conta de serviços de mídia. O conteúdo gravado é mantido no contêiner definido pelo recurso de [ativo](https://docs.microsoft.com/rest/api/media/assets) .
-
-Para obter mais informações, consulte:
-
-* [Usar um DVR de nuvem](live-event-cloud-dvr.md)
-* [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)
-
-## <a name="output-the-results-of-a-job-to-an-asset"></a>Gerar os resultados de um trabalho para um ativo
-
-Nos serviços de mídia, ao processar seus vídeos (por exemplo, codificação ou análise), você precisa criar um [ativo](assets-concept.md) de saída para armazenar o resultado de seu [trabalho](transforms-jobs-concept.md).
+Em Serviços de Mídia, um objeto [de saída ao vivo](https://docs.microsoft.com/rest/api/media/liveoutputs) é como um gravador de vídeo digital que capturará e gravará sua transmissão ao vivo em um ativo em sua conta de Serviços de Mídia. O conteúdo gravado é persistido no contêiner definido pelo recurso [Asset.](https://docs.microsoft.com/rest/api/media/assets)
 
 Para obter mais informações, consulte:
 
-* [Codificando um vídeo](encoding-concept.md)
+* [Usando um DVR em nuvem](live-event-cloud-dvr.md)
+* [Streaming de tutorial ao vivo](stream-live-tutorial-with-api.md)
+
+## <a name="output-the-results-of-a-job-to-an-asset"></a>Produzir os resultados de um trabalho para um ativo
+
+Nos Serviços de Mídia, ao processar seus vídeos (por exemplo, codificação ou análise) você precisa criar um [ativo](assets-concept.md) de saída para armazenar o resultado do seu [trabalho](transforms-jobs-concept.md).
+
+Para obter mais informações, consulte:
+
+* [Codificação de um vídeo](encoding-concept.md)
 * [Criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md)
 
-## <a name="publish-an-asset-for-streaming"></a>Publicar um ativo para streaming
+## <a name="publish-an-asset-for-streaming"></a>Publique um ativo para streaming
 
-Para publicar um ativo para streaming, você precisa criar um [localizador de streaming](streaming-locators-concept.md). O localizador de streaming precisa saber o nome do ativo que você deseja publicar. 
+Para publicar um recurso para streaming, você precisa criar um [Localizador de Streaming](streaming-locators-concept.md). O localizador de streaming precisa saber o nome do ativo que você deseja publicar. 
 
 Para obter mais informações, consulte:
 
-[Tutorial: carregar, codificar e transmitir vídeos com os serviços de mídia v3](stream-files-tutorial-with-api.md)
+[Tutorial: Enviar, codificar e transmitir vídeos com media services v3](stream-files-tutorial-with-api.md)
 
 ## <a name="download-results-of-a-job-from-an-output-asset"></a>Baixar resultados de um trabalho de um ativo de saída
 
-Em seguida, você pode baixar esses resultados de seu trabalho para uma pasta local usando o serviço de mídia e as APIs de armazenamento. 
+Em seguida, você pode baixar esses resultados do seu trabalho para uma pasta local usando o Media Service e as APIs de armazenamento. 
 
-Consulte o exemplo [baixar arquivos](download-results-howto.md) .
+Veja o exemplo dos [arquivos de download.](download-results-howto.md)
 
 ## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
 
 Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte os exemplos de código completos que demonstram como carregar, codificar, analisar, transmitir ao vivo e sob demanda: 
+Veja os exemplos de código completo que demonstram como carregar, codificar, analisar, transmitir ao vivo e demanda: 
 
-* [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.Net](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [REST](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [Java,](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) 
+* [.NET,](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/) 
+* [DESCANSE.](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/)

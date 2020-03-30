@@ -1,46 +1,45 @@
 ---
-title: Guia Marketplace da oferta de aplicativo do Azure
+title: Aplicativo do Azure oferece guia Marketplace
 description: Use a guia Marketplace para identificar ativos de marketing para uma oferta de aplicativo do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 967b66a67d51b3a79bcf930ce977af48acc3dd63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827574"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281758"
 ---
 # <a name="azure-application-marketplace-tab"></a>Guia Marketplace de aplicativo do Azure
 
-Use a guia Marketplace para descrever seu aplicativo do Azure e fornecer ativos de marketing. Essa guia inclui as seguintes formas: visão geral, artefatos de marketing, gerenciamento de leads e ofício.
+Use a guia Marketplace para descrever seu aplicativo do Azure e fornecer ativos de marketing. Esta guia inclui os seguintes formulários: Visão geral, Artefatos de Marketing, Gerenciamento de Líderes e Legal.
 
 ## <a name="overview-form"></a>Formulário Visão Geral
 
-O formulário Visão Geral tem os campos obrigatórios e opcionais mostrados na próxima captura de tela. Os campos obrigatórios são indicados por um asterisco (*).
+Mostramos na próxima captura de tela o formulário Visão geral com os campos obrigatórios e opcionais. Os campos obrigatórios são indicados por um asterisco (*).
 
 ![Formulário Visão Geral](./media/azureapp-marketplace-overview.png)
 
-A tabela a seguir descreve as configurações a serem usadas para a criação de uma vitrine para a oferta.   Os campos anexados a um asterisco são obrigatórios.
+A tabela a seguir descreve as configurações a serem usadas para a criação de uma vitrine para a oferta.   Os campos anexados com um asterisco são necessários.
 
-|      Campo         |    DESCRIÇÃO    |
+|      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
 | **Título\***        | Título da oferta. Ele será exibido com destaque no marketplace. O tamanho máximo é de 50 caracteres. |
-| **\* de resumo**      | Breve resumo da oferta. O tamanho máximo é de 100 caracteres.           |
+| **Resumo\***      | Breve resumo da oferta. O tamanho máximo é de 100 caracteres.           |
 | **Resumo longo\*** | Resumo mais longo da oferta (embora possa ser igual ao resumo). O tamanho máximo é de 256 caracteres.           |
 | **Descrição\***  | Descrição da oferta. O tamanho máximo é de 3.000 caracteres. É permitido HTML simples, incluindo &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e marcas de cabeçalho.  |
-| **Identificador de marketing\*** | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres. Escolha um identificador de marketing curto e amigável para o serviço. Isso será usado nas URLs do marketplace para essa oferta. Por exemplo, se sua ID de editor for "contoso" e seu identificador de marketing for "sampleApp", a URL para sua oferta no Azure Marketplace será https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
-| **Visualizar IDs de assinatura\*** | Adicione de um a 100 identificadores de assinatura de visualizadores. Essas assinaturas listadas em branco terão acesso à sua oferta, enquanto estiverem disponíveis na visualização depois de publicadas, antes de entrar em tempo real.          |
-| **Links úteis**    | Opcionalmente, você pode fornecer links para vários recursos para os usuários de sua oferta, como suporte, documentação, fóruns, etc.  É recomendável que você adicione pelo menos um link à sua documentação.            |
-| **Categorias sugeridas (máx. 5)\*** | Selecione uma a cinco categorias. As categorias selecionadas são usadas para mapear a oferta para as categorias de produto disponíveis no Azure Marketplace e no portal do Azure. Elas serão mostradas nas páginas de navegação e na página de detalhes do produto. |
+| **Identificador de marketing\*** | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres. Escolha um identificador de marketing curto e amigável para o serviço. Isso será usado nas URLs do marketplace para essa oferta. Por exemplo, se o seu ID do editor for "contoso" e seu identificador de marketing for "sampleApp", a URL para sua oferta no Azure Marketplace seráhttps://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Visualizar IDs de assinatura\*** | Adicione de um a 100 identificadores de assinatura de visualizadores. Essas assinaturas listadas na lista branca terão acesso à sua oferta enquanto ela estiver disponível na pré-visualização depois de publicada, antes de entrar em operação.          |
+| **Links úteis**    | Opcionalmente, você pode fornecer links para vários recursos para os usuários de sua oferta, como suporte, documentação, fóruns, etc.  Recomenda-se adicionar pelo menos um link à sua documentação.            |
+| **Categorias sugeridas (Max 5)\*** | Selecione de uma a cinco categorias. As categorias selecionadas são usadas para mapear a oferta para as categorias de produto disponíveis no Azure Marketplace e no portal do Azure. Elas serão mostradas nas páginas de navegação e na página de detalhes do produto. |
 |  |  |
 
 
-## <a name="marketing-artifacts"></a>Artefatos de marketing
+## <a name="marketing-artifacts"></a>Artefatos de Marketing
 
 O formulário Artefatos de Marketing tem os campos obrigatórios e opcionais mostrados na próxima captura de tela. Os campos obrigatórios são indicados por um asterisco (*).
 
@@ -48,15 +47,15 @@ O formulário Artefatos de Marketing tem os campos obrigatórios e opcionais mos
 
 A tabela a seguir descreve os artefatos de marketing.
 
-|      Campo         |    DESCRIÇÃO    |
+|      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
-| **Pequeno\***        | Logotipo pequeno: 40x40 pixels no formato PNG     |
-| **Médio\***       | Logotipo médio: 90x90 pixels no formato PNG    |
-| **Grande\***        | Logotipo grande: 115x115 pixels no formato PNG   |
-| **\* largo**         | Logotipo amplo: 255x115 pixels no formato PNG    |
-| **Hero**           | Logotipo opcional do Hero: 815x290 pixels no formato PNG. **Observação:** O ícone Hero não pode ser excluído após ser carregado. |
+| **Pequeno\***        | Logotipo pequeno: 40x40 pixels em formato PNG     |
+| **Médio\***       | Logotipo médio: 90x90 pixels em formato PNG    |
+| **grande\***        | Logotipo grande: 115x115 pixels em formato PNG   |
+| **Larga\***         | Logotipo largo: 255x115 pixels em formato PNG    |
+| **Hero**           | Logotipo de herói opcional: 815x290 pixels em formato PNG. **Nota:** O ícone do herói não pode ser excluído depois de carregado. |
 | **Capturas de tela (máximo de 5)** |        Capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o aplicativo faz e como ele funciona. Por exemplo, você pode mostrar diagramas de arquitetura ou usar ilustrações de casos. As capturas de tela são opcionais e limitadas a 5 por SKU. Para adicionar uma captura de tela:<ul><li>Selecione **+ Adicionar captura de tela** para abrir a janela Captura de Tela</li><li>**Nome** – Insira um nome/título (tamanho máximo de 100 caracteres).</li><li>**Upload** – Carregue a imagem. Ela precisa estar no formato PNG e o tamanho é 533x324 pixels.</li></ul>           |
-| **Adicionar vídeo**      | Opcional, os vídeos são exibidos na página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o aplicativo faz e como ele funciona. Para adicionar um vídeo: <ul><li>Selecione **+ Adicionar vídeo** para abrir a janela Vídeo</li><li>**Nome** – Insira um nome/título (tamanho máximo de 100 caracteres).</li><li>**Link** -Insira a URL para o site que está hospedando o vídeo (YouTube ou Vimeo)</li><li>**Miniatura** – carregar uma miniatura. Ela precisa estar no formato PNG e o tamanho é 533x324 pixels.</li></ul>          |
+| **Adicionar vídeo**      | Opcional, os vídeos são exibidos na página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o aplicativo faz e como ele funciona. Para adicionar um vídeo: <ul><li>Selecione **+ Adicionar vídeo** para abrir a janela Vídeo</li><li>**Nome** – Insira um nome/título (tamanho máximo de 100 caracteres).</li><li>**Link** - Digite a URL do site que está hospedando o vídeo (YouTube ou Vimeo)</li><li>**Miniatura** - Faça upload de uma miniatura. Ela precisa estar no formato PNG e o tamanho é 533x324 pixels.</li></ul>          |
 |  |  |
 
 
@@ -66,7 +65,7 @@ A próxima captura de tela mostra um exemplo de resultado de pesquisa do Marketp
 
 ![Resultado da pesquisa de ofertas do Marketplace](./media/azureapp-marketplace-example-browse.png)
 
-A imagem a seguir mostra como a oferta é exibida no Marketplace depois que um cliente clica no bloco da oferta no resultado da pesquisa.
+A imagem a seguir mostra como a oferta é exibida no Marketplace após um cliente clicar no azulejo da oferta no resultado da pesquisa.
 
 ![Detalhes do resultado da pesquisa de ofertas de Marketplace](./media/azureapp-marketplace-example-details.png)
 
@@ -98,7 +97,7 @@ Todos os logotipos enviados para o Cloud Partner Portal devem seguir as diretriz
 O logotipo Hero é opcional.
 
 >[!IMPORTANT]
->Não é possível excluir o logotipo Hero depois que ele é carregado.
+>Você não pode excluir o logotipo do Herói depois de carregado.
 
 Use as seguintes diretrizes para um logotipo do Herói:
 
@@ -115,7 +114,7 @@ O formulário Gerenciamento de Clientes Potenciais tem um campo opcional para co
 ![Selecionar destino do gerenciamento de clientes potenciais](./media/azureapp-marketplace-leadmgmt.png)
 
 >[!TIP]
->Selecione o ícone de informações para ver esta mensagem: "Selecione o sistema no qual seus leads serão armazenados. Saiba como se conectar ao sistema CRM [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) . "
+>Selecione o ícone de informações para ver esta mensagem: "Selecione o sistema onde seus leads serão armazenados. Saiba como se conectar ao seu sistema de CRM [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) ."
 
 Para obter mais informações, confira [Configurar clientes potenciais](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).
 
@@ -126,8 +125,8 @@ Use o formulário Jurídico para fornecer a documentação legal necessária par
 
 Forneça as seguintes informações:
 
-- **URL da política de privacidade\*** -Insira um link para a política de privacidade do aplicativo.
-- **Termos de uso\*** -Insira os termos de uso do seu aplicativo. Os clientes precisam aceitar esses termos antes de poderem testar o aplicativo.
+- **URL\* da política** de privacidade - Insira um link para a política de privacidade do seu aplicativo.
+- **Termos de\* uso** - Digite os termos de uso do seu aplicativo. Os clientes precisam aceitar esses termos antes de poderem testar o aplicativo.
 
 ![Formulário Jurídico](./media/azureapp-marketplace-legal.png)
 

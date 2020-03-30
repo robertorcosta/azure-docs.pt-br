@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
-ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294864"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego
 
@@ -34,7 +34,7 @@ Quando um cliente tenta se conectar a um serviço, ele primeiro deve resolver o 
 
 ## <a name="traffic-manager-example"></a>Exemplo de Gerenciador de Tráfego
 
-A Contoso Corp desenvolveu um novo portal de parceiros. A URL para este portal é https://partners.contoso.com/login.aspx. O aplicativo é hospedado em três regiões do Azure. Para melhorar a disponibilidade e maximizar o desempenho global, elas usam o Gerenciador de Tráfego para distribuir o tráfego do cliente para o ponto de extremidade mais próximo disponível.
+A Contoso Corp desenvolveu um novo portal de parceiros. A URL para este portal é `https://partners.contoso.com/login.aspx`. O aplicativo é hospedado em três regiões do Azure. Para melhorar a disponibilidade e maximizar o desempenho global, elas usam o Gerenciador de Tráfego para distribuir o tráfego do cliente para o ponto de extremidade mais próximo disponível.
 
 Para alcançar essa configuração, eles concluem as etapas a seguir:
 
@@ -49,7 +49,7 @@ Para alcançar essa configuração, eles concluem as etapas a seguir:
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Como os clientes se conectam usando o Gerenciador de Tráfego
 
-Continuando do exemplo anterior, quando um cliente solicita a página https://partners.contoso.com/login.aspx, o cliente executa as seguintes etapas para resolver o nome DNS e estabelecer uma conexão:
+Continuando do exemplo anterior, quando um cliente solicita a página `https://partners.contoso.com/login.aspx`, o cliente executa as seguintes etapas para resolver o nome DNS e estabelecer uma conexão:
 
 ![Estabelecimento de conexão usando o Gerenciador de Tráfego][2]
 
@@ -60,7 +60,7 @@ Continuando do exemplo anterior, quando um cliente solicita a página https://pa
 
     - No estado configurado de cada ponto de extremidade (pontos de extremidade desabilitados não são retornados)
     - A integridade atual de cada ponto de extremidade, conforme determinado pela integridade Gerenciador de Tráfego. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md).
-    - O método de roteamento de tráfego escolhido. Para obter mais informações, consulte [Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
+    - O método de roteamento de tráfego escolhido. Para obter mais informações, consulte [Métodos de roteamento do gerenciador de tráfego](traffic-manager-routing-methods.md).
 
 5. O ponto de extremidade escolhido é retornado como outro registro DNS CNAME. Nesse caso, vamos supor que contoso-us.cloudapp.net seja retornado.
 6. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio “cloudapp.net”. Ele entra em contato com os servidores de nomes para solicitar o registro DNS de “contoso-us.cloudapp.net”. Um registro DNS “A” que contém o endereço IP do ponto de extremidade de serviço dos EUA é retornado.
@@ -71,29 +71,29 @@ O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolve
 
 ## <a name="faqs"></a>Perguntas frequentes
 
-* [Qual endereço IP o Gerenciador de tráfego usa?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [Qual endereço IP o Gerenciador de Tráfego usa?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
 
-* [Quais tipos de tráfego podem ser roteados usando o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+* [Que tipos de tráfego podem ser roteados usando Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [O Gerenciador de tráfego dá suporte a sessões "adesivas"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [O Gerenciador de Tráfego suporta sessões "pegajosas"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
 
-* [Por que estou vendo um erro HTTP ao usar o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [Por que vejo um erro de HTTP ao usar o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [Qual é o impacto no desempenho do uso do Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [Qual é o impacto no desempenho de usar o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [Quais protocolos de aplicativo posso usar com o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [Quais protocolos de aplicativo posso usar com o Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [Posso usar o Gerenciador de tráfego com um nome de domínio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [Posso usar o Traffic Manager com um nome de domínio "nu"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [O Gerenciador de tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [O Gerenciador de Tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [O que é o TTL do DNS e como ele afeta meus usuários?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [O que é o TTL do DNS e como ele afeta os meus usuários?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [O quão alto ou baixo posso definir o TTL das respostas do Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [Como posso definir o nível (alto ou baixo) do TTL para respostas do Gerenciador de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [Como posso entender o volume de consultas que estão chegando ao meu perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [Como faço para entender o volume de consultas que chega ao meu perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o [failover automático e monitoramento do ponto de extremidade](traffic-manager-monitoring.md)do Gerenciador de Tráfego.
 

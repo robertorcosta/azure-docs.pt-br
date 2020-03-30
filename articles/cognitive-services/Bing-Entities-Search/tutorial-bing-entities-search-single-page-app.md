@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Aplicativo Web de página única da Pesquisa de Entidade do Bing'
+title: 'Tutorial: aplicativo Web de página única da Pesquisa de Entidade do Bing'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial mostra como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943127"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
+# <a name="tutorial-single-page-web-app"></a>Tutorial: aplicativo Web de página única
 
 A API de Pesquisa de Entidade do Bing permite pesquisar na Web informações sobre *entidades* e *locais.* É possível solicitar qualquer tipo de resultado, ou ambos, em uma determinada consulta. As definições de entidades e locais são fornecidas abaixo.
 
@@ -56,7 +56,7 @@ Neste tutorial, abordaremos somente as partes selecionadas do código-fonte. O c
 > [!NOTE]
 > Este tutorial é muito semelhante ao [tutorial de aplicativo da Pesquisa na Web do Bing de página única](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mas lida apenas com os resultados da pesquisa de entidade.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para acompanhar o tutorial, você precisará de chaves de assinatura para a API de Pesquisa do Bing e da API do Bing Mapas. Se você não os tiver, use uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e uma [chave básica do Bing Mapas](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
@@ -71,7 +71,7 @@ Como qualquer aplicativo Web de página única, o aplicativo de tutorial inclui 
 
 Este tutorial não aborda a maior parte do CSS ou do HTML em detalhes, pois eles são simples.
 
-O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário está conectado ao JavaScript que, de fato, executa a pesquisa pelo atributo `onsubmit` da marca `<form>`:
+O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário está conectado ao JavaScript que, de fato, executa a pesquisa pelo atributo `<form>` da marca `onsubmit`:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

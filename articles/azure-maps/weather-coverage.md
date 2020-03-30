@@ -1,36 +1,36 @@
 ---
-title: Cobertura do clima | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre a cobertura do clima em mapas de Microsoft Azure.
-author: farah-alyasari
-ms.author: v-faalya
+title: Cobertura meteorológica | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre a cobertura meteorológica no Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fdae00a07b364252ae6d297a6df5eb242beac262
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333580"
 ---
-# <a name="azure-maps-weather-coverage"></a>Cobertura do clima do Azure Maps
+# <a name="azure-maps-weather-coverage"></a>Cobertura meteorológica do Azure Maps
 
-Este artigo fornece informações de cobertura para os [serviços meteorológicos](https://aka.ms/AzureMapsWeatherService)do Azure Maps. Os serviços de clima do Azure Maps retorna detalhes como blocos de radar, condições do clima atual, previsões do tempo e o clima ao longo de uma rota.
+Este artigo fornece informações de cobertura para os [serviços meteorológicos](https://aka.ms/AzureMapsWeatherService)do Azure Maps. Mapas do Azure Os serviços de dados meteorológicos retornam detalhes como radares, condições meteorológicas atuais, previsões meteorológicas e o tempo ao longo de uma rota.
 
-O mapas do Azure não tem o mesmo nível de informações e precisão para todos os países e regiões.
+O Azure Maps não tem o mesmo nível de informação e precisão para todos os países e regiões.
 
-A tabela a seguir fornece informações sobre o tipo de informações de clima que você pode solicitar de cada país/região.
+A tabela a seguir fornece informações sobre que tipo de informações meteorológicas você pode solicitar de cada país/região.
 
 | Símbolo | Significado |
 |--------|---------|
-|*       |Cobre o clima ao longo da rota, condições atuais, previsão por hora, previsão de trimestre e APIs de previsão diárias |
+|*       |Cobre o tempo ao longo da rota, condições atuais, previsão horária, previsão do trimestre e APIs de previsão diária |
 
 
 ## <a name="americas"></a>Américas
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/Região              |  Telhas satélites | Previsão de minutos, telhas de radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguila                                 | ✓ |   |  ✓| 
 | Antártica                               | ✓ |   |  ✓|
@@ -80,14 +80,14 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Saint Martin                             | ✓ |   |  ✓| 
 | São Pierre e Miquelon                | ✓ |   |  ✓| 
 | São Vincent e Granadinas         | ✓ |   |  ✓| 
-| Santo Eustáquio                           | ✓ |   |  ✓|  
+| Sint Eustáquio                           | ✓ |   |  ✓|  
 | Sint Maarten                             | ✓ |   |  ✓| 
-| Ilhas Geórgia do Sul e Sandwich do Sul | ✓ |   |  ✓| 
+| Ilhas sanduíche da Geórgia do Sul e do Sul | ✓ |   |  ✓| 
 | Suriname                                 | ✓ |   |  ✓| 
 | Trinidad e Tobago                      | ✓ |   |  ✓| 
 | Ilhas Turcas e Caicos                 | ✓ |   |  ✓| 
-| Territórios insulares dos EUA                    | ✓ |   |  ✓| 
-| Ilhas Virgens dos EUA                      | ✓ |   |  ✓| 
+| Ilhas Periféricas dos EUA                    | ✓ |   |  ✓| 
+| Ilhas Virgens dos Estados Unidos                      | ✓ |   |  ✓| 
 | Estados Unidos                            | ✓ | ✓ |  ✓| 
 | Uruguai                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 
@@ -95,7 +95,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 
 ## <a name="middle-east-and-africa"></a>Oriente Médio e África
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/Região              |  Telhas satélites | Previsão de minutos, telhas de radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Argélia                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -111,7 +111,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Chad                        | ✓               |                              |        ✓| 
 | Ilhas Comores                     | ✓               |                              |        ✓| 
 | Congo (RDC)                 | ✓               |                              |        ✓|
-| Côte d' Ivoire               | ✓               |                              |        ✓| 
+| Côte d’Ivoire               | ✓               |                              |        ✓| 
 | Djibuti                    | ✓               |                              |        ✓| 
 | Egito                       | ✓               |                              |        ✓| 
 | Guiné Equatorial           | ✓               |                              |        ✓| 
@@ -150,7 +150,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Catar                       | ✓               |                              |        ✓| 
 | Reunião                     | ✓               |                              |        ✓| 
 | Ruanda                      | ✓               |                              |        ✓| 
-| Santa Helena, ascensão e Tristão da Cunha        | ✓               |                              |        ✓| 
+| Santa Helena, Ascensão, Tristão da Cunha        | ✓               |                              |        ✓| 
 | São Tomé e Príncipe       | ✓               |                              |        ✓| 
 | Arábia Saudita                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
@@ -174,7 +174,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/Região              |  Telhas satélites | Previsão de minutos, telhas de radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afeganistão                       | ✓ |   |  ✓| 
 | Samoa Americana                    | ✓ |   |  ✓| 
@@ -241,7 +241,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 
 ## <a name="europe"></a>Europa
 
-| País/Região              |  Blocos satélite | Previsão de minutos, blocos de radar | Outros | 
+| País/Região              |  Telhas satélites | Previsão de minutos, telhas de radar | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albânia                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 

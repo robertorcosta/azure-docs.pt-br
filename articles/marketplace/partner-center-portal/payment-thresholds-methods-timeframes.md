@@ -1,22 +1,21 @@
 ---
 Description: O tempo estimado para transferir pagamentos, os limites de pagamento aplicáveis e os marketplaces Microsoft dos quais você pode receber pagamentos podem variar dependendo do país/região e do tipo de conta de pagamento.
-title: Limites de pagamento, métodos e intervalos de tempo no Marketplace comercial | Azure Marketplace
+title: Limites de pagamento, métodos e prazos no mercado comercial | Mercado Azure
 ms.date: 12/10/2019
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 6bb05513d59870b7fa0d997eb31510494a9938e0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe18fab4a2ea61f41e017704105e37f28c20e456
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931872"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279718"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Limites, métodos e períodos de pagamento
 
-O tempo estimado para transferir pagamentos e Microsoft Marketplaces dos quais você pode receber pagamentos pode variar dependendo do seu país/região e tipo de conta de pagamento. Este tópico descreve os métodos de pagamento com suporte em cada país/região.
+O tempo estimado para transferir pagamentos e os marketplaces da Microsoft dos quais você pode receber pagamentos podem variar dependendo do seu país/região e do tipo de conta de pagamento. Este tópico descreve os métodos de pagamento suportados em cada país/região.
 
 Para qualquer país/região, usaremos ACH/SEPA ou transferência eletrônica para fazer nossos pagamentos. Além disso, alguns países/regiões dão suporte a PayPal como forma de pagamento.
 
@@ -38,9 +37,9 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 ## <a name="payment-methods-in-countriesregions"></a>Métodos de pagamento em países/regiões
 
 > [!NOTE]
-> Os limites de pagamento em todas as regiões são US $ $50.
+> Os limites de pagamento em todas as regiões são de US$ 50.
 
-| País                          | Azure Marketplace | Armazenar, anunciar, mixar e Minecraft | Escritório | Pagamentos do PayPal |
+| País/Região                          | Azure Marketplace | Loja, Publicidade, Mixer e Minecraft | Office | Pagamentos PayPal |
 |----------------------------------|-------------------|------------------------------------------|--------|-----------------|
 | Afeganistão                      | Sim               | Sim                                      | Não     | Não              |
 | Albânia                          | Sim               | Sim                                      | Sim    | Sim             |
@@ -63,21 +62,21 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Botsuana                         | Sim               | Sim                                      | Não     | Sim             |
 | Brasil                           | Sim               | Sim                                      | Sim    | Sim             |
 | Bulgária                         | Sim               | Sim                                      | Sim    | Sim             |
-| Burquina Faso                     | Sim               | Sim                                      | Sim    | Não              |
+| Burkina Faso                     | Sim               | Sim                                      | Sim    | Não              |
 | Burundi                          | Sim               | Sim                                      | Sim    | Não              |
 | Camboja                         | Sim               | Sim                                      | Sim    | Não              |
-| República dos Camarões                         | Sim               | Sim                                      | Sim    | Não              |
-| Canadá                           | Sim               | Sim                                      | Sim    | Sim             |
+| Camarões                         | Sim               | Sim                                      | Sim    | Não              |
+| Canada                           | Sim               | Sim                                      | Sim    | Sim             |
 | República Centro-Africana         | Sim               | Sim                                      | Sim    | Não              |
 | Chad                             | Sim               | Sim                                      | Sim    | Não              |
 | Chile                            | Sim               | Sim                                      | Sim    | Sim             |
 | China                            | Não                | Sim                                      | Sim    | Sim             |
 | Colômbia                         | Sim               | Sim                                      | Sim    | Sim             |
 | Ilhas Comores                          | Sim               | Sim                                      | Não     | Não              |
-| Congo (República Democrática)                      | Sim               | Sim                                      | Sim    | Não              |
-| Congo, República da               | Sim               | Sim                                      | Sim    | Não              |
+| Congo (RDC)                      | Sim               | Sim                                      | Sim    | Não              |
+| Congo               | Sim               | Sim                                      | Sim    | Não              |
 | Costa Rica                       | Sim               | Sim                                      | Sim    | Sim             |
-| Côte d' Ivoire                    | Sim               | Sim                                      | Sim    | Não              |
+| Costa Do Marfim                    | Sim               | Sim                                      | Sim    | Não              |
 | Croácia                          | Sim               | Sim                                      | Sim    | Não              |
 | Chipre                           | Sim               | Sim                                      | Sim    | Sim             |
 | República Tcheca                   | Sim               | Sim                                      | Sim    | Sim             |
@@ -90,7 +89,7 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Eritreia                          | Sim               | Sim                                      | Sim    | Não              |
 | Estônia                          | Sim               | Sim                                      | Sim    | Sim             |
 | Etiópia                         | Sim               | Sim                                      | Sim    | Não              |
-| Fiji                     | Sim               | Sim                                      | Não     | Não              |
+| Ilhas Fiji                     | Sim               | Sim                                      | Não     | Não              |
 | Finlândia                          | Sim               | Sim                                      | Sim    | Sim             |
 | França                           | Sim               | Sim                                      | Sim    | Sim             |
 | Geórgia                          | Sim               | Sim                                      | Sim    | Sim             |
@@ -115,7 +114,7 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Jordânia                           | Sim               | Sim                                      | Sim    | Sim             |
 | Cazaquistão                       | Sim               | Sim                                      | Sim    | Sim             |
 | Quênia                            | Sim               | Sim                                      | Sim    | Sim             |
-| Coreia (Sul)                    | Sim               | Sim                                      | Sim    | Não              |
+| Coreia do Sul                    | Sim               | Sim                                      | Sim    | Não              |
 | Kuwait                           | Sim               | Sim                                      | Sim    | Sim             |
 | Quirguistão                       | Não                | Não                                       | Sim    | Não              |
 | Laos                             | Sim               | Sim                                      | Sim    | Não              |
@@ -125,7 +124,7 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Liechtenstein                    | Sim               | Sim                                      | Sim    | Sim             |
 | Lituânia                        | Sim               | Sim                                      | Sim    | Não              |
 | Luxemburgo                       | Sim               | Sim                                      | Sim    | Sim             |
-| Macedônia do Norte                        | Não                | Sim                                      | Sim    | Não              |
+| Macedônia                        | Não                | Sim                                      | Sim    | Não              |
 | Madagascar                       | Sim               | Sim                                      | Sim    | Não              |
 | Malaui                           | Sim               | Sim                                      | Sim    | Sim             |
 | Malásia                         | Sim               | Sim                                      | Sim    | Sim             |
@@ -139,7 +138,7 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Marrocos                          | Sim               | Sim                                      | Sim    | Não              |
 | Moçambique                       | Sim               | Sim                                      | Sim    | Sim             |
 | Nepal                            | Sim               | Sim                                      | Sim    | Não              |
-| Países Baixos                 | Sim               | Sim                                      | Sim    | Sim             |
+| Países Baixos, O                 | Sim               | Sim                                      | Sim    | Sim             |
 | Nova Zelândia                      | Sim               | Sim                                      | Sim    | Sim             |
 | Nicarágua                        | Sim               | Sim                                      | Sim    | Sim             |
 | Níger                            | Sim               | Sim                                      | Sim    | Não              |
@@ -158,12 +157,12 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Romênia                          | Sim               | Sim                                      | Sim    | Não              |
 | Rússia                           | Sim               | Sim                                      | Não     | Sim             |
 | Ruanda                           | Sim               | Sim                                      | Sim    | Não              |
-| São Vicente e Granadinas | Não                | Sim                                      | Não     | Não              |
+| São Vincent e Granadinas | Não                | Sim                                      | Não     | Não              |
 | Arábia Saudita                     | Sim               | Sim                                      | Sim    | Sim             |
 | Senegal                          | Sim               | Sim                                      | Sim    | Não              |
 | Sérvia                           | Sim               | Sim                                      | Sim    | Não              |
 | Serra Leoa                     | Sim               | Sim                                      | Sim    | Não              |
-| Cingapura                        | Sim               | Sim                                      | Sim    | Sim             |
+| Singapura                        | Sim               | Sim                                      | Sim    | Sim             |
 | Eslováquia                         | Sim               | Sim                                      | Sim    | Sim             |
 | Eslovênia                         | Sim               | Sim                                      | Sim    | Sim             |
 | Somália                          | Sim               | Sim                                      | Sim    | Não              |
@@ -186,7 +185,7 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 | Uganda                           | Sim               | Sim                                      | Sim    | Não              |
 | Ucrânia                          | Sim               | Sim                                      | Não     | Não              |
 | Emirados Árabes Unidos             | Sim               | Sim                                      | Sim    | Sim             |
-| Reino Unido                   | Sim               | Sim                                      | Sim    | Sim             |
+| United Kingdom                   | Sim               | Sim                                      | Sim    | Sim             |
 | Estados Unidos                    | Sim               | Sim                                      | Sim    | Sim             |
 | Uruguai                          | Sim               | Sim                                      | Sim    | Sim             |
 | Uzbequistão                       | Sim               | Sim                                      | Não     | Não              |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576179"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298753"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
 
@@ -33,7 +33,7 @@ A ferramenta de diagnóstico destina-se principalmente a dispositivos locais da 
 
 Essa ferramenta pode ser executada através da interface do Windows PowerShell do seu dispositivo StorSimple. Há duas maneiras de acessar a interface local do dispositivo:
 
-* [Use o PuTTY para conectar-se ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Use PuTTY para se conectar ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 * [Acesse remotamente a ferramenta por meio do Windows PowerShell para StorSimple](storsimple-8000-remote-connect.md).
 
 Neste artigo, estamos supondo que você se conectou ao console serial do dispositivo via PuTTY.
@@ -43,7 +43,7 @@ Neste artigo, estamos supondo que você se conectou ao console serial do disposi
 Após conectar-se à interface do Windows PowerShell do dispositivo, execute as seguintes etapas para executar o cmdlet.
 1. Faça logon no console serial do dispositivo seguindo as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Digite o seguinte comando:
+2. Digite o seguinte comando: 
 
     `Invoke-HcsDiagnostics`
 
@@ -323,7 +323,7 @@ hcs_startup                                   Stopped hcs_startup
 
 ### <a name="network-test"></a>Teste de rede
 
-Esse teste valida o status das interfaces de rede, portas, DNS e conectividade de servidor NTP, o certificado SSL, as credenciais da conta de armazenamento, a conectividade com os servidores de atualização e a conectividade do proxy da Web no seu dispositivo StorSimple.
+Este teste valida o status das interfaces de rede, portas, conectividade de servidor DNS e NTP, certificado TLS/SSL, credenciais de conta de armazenamento, conectividade aos servidores Update e conectividade por proxy web em seu dispositivo StorSimple.
 
 #### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Exemplo de saída do teste de rede quando somente DATA0 está habilitado
 
@@ -333,7 +333,7 @@ Aqui está um exemplo de saída do dispositivo 8100. Você pode ver na saída qu
 * A configuração do servidor DNS é válida e o dispositivo pode conectar-se por meio do servidor DNS.
 * A conectividade do servidor NTP também está boa.
 * As portas 80 e 443 estão abertas. No entanto, a porta 9354 está bloqueada. Conforme os [requisitos de rede do sistema](storsimple-system-requirements.md), você precisa abrir essa porta para a comunicação do barramento de serviço.
-* A certificação SSL é válida.
+* A certificação TLS/SSL é válida.
 * O dispositivo pode conectar-se à conta de armazenamento: _myss8000storageacct_.
 * A conectividade com os servidores de atualização é válida.
 * O proxy da Web não está configurado neste dispositivo.
@@ -378,7 +378,7 @@ Para usar essa ferramenta, siga as seguintes etapas:
 
 1.  Primeiro, crie uma mistura de volumes em camadas e em camadas com a opção de arquivamento marcada. Isso garante que a ferramenta executa os testes de tamanho de blob de 64 KB e 512 KB.
 
-2. Execute o cmdlet, depois de criar e configurar os volumes. Digite:
+2. Execute o cmdlet, depois de criar e configurar os volumes. Tipo:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
@@ -414,10 +414,10 @@ Controller0>
 
 Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windows PowerShell das informações do sistema. 
 
-| Parâmetro do PowerShell    | DESCRIÇÃO  |
+| Parâmetro do PowerShell    | Descrição  |
 |-------------------------|------------------|
 | ID da instância             | Cada controlador tem um identificador exclusivo ou um GUID associado a ele.|
-| NOME                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
+| Nome                    | O nome amigável do dispositivo conforme configurado por meio do portal do Azure durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo. |
 | Modelo                   | O modelo do seu dispositivo StorSimple série 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo vem configurado de fábrica e possui 15 caracteres. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 – É o modelo do dispositivo.<br>SHX – É o local de produção.<br> 0991003 - É um produto específico. <br> G44HT- os últimos cinco dígitos são incrementados para criar números de série exclusivos. Pode ser um conjunto não sequencial de números.|
 | timeZone                | O fuso horário do dispositivo conforme configurado no portal do Azure durante a implantação do dispositivo.|

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar credenciais de conta de armazenamento, dispositivo StorSimple da série 8000
+title: Gerenciar credenciais de conta de armazenamento, dispositivo da série StorSimple 8000
 description: Explica como você pode usar a página Configurar o Gerenciador de Dispositivos do StorSimple para adicionar, editar, excluir ou girar as chaves de segurança para uma conta de armazenamento.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 65aa83731be97b59a36a5baf60ea308690a0dcf8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254853"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297737"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
@@ -39,9 +39,9 @@ As contas de armazenamento contém as credenciais que o dispositivo StorSimple u
 
 Na folha **Credenciais da conta de armazenamento**, todas as contas de armazenamento criadas para a assinatura de cobrança são exibidas em formato tabular contendo as seguintes informações:
 
-* **Nome** – O nome exclusivo atribuído à conta quando a mesma foi criada.
-* **SSL habilitado** – Se o SSL está ativado e a comunicação do dispositivo para a nuvem é feita pelo canal seguro.
-* **Usado pelo** – O número de volumes usando a conta de armazenamento.
+* **Nome** – O nome exclusivo atribuído à conta quando ela foi criada.
+* **SSL ativado** – Se o TLS está ativado e a comunicação dispositivo-nuvem está sobre o canal seguro.
+* **Usado por** – O número de volumes usando a conta de armazenamento.
 
 As tarefas mais comuns relacionadas a contas de armazenamento que podem ser executadas são:
 
@@ -55,12 +55,12 @@ As tarefas mais comuns relacionadas a contas de armazenamento que podem ser exec
 Há três tipos de contas de armazenamento que podem ser usadas com o dispositivo StorSimple.
 
 * **Contas de armazenamento geradas automaticamente** – Como o nome sugere, esse tipo de conta de armazenamento é gerada automaticamente quando o serviço é criado pela primeira vez. Para saber mais sobre como essa conta de armazenamento é criada, consulte a [Etapa 1: criar um novo serviço](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas com a mesma assinatura que o serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). 
-* **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao seu serviço e que provavelmente existiam antes da criação do serviço.
+* **Contas de armazenamento na assinatura do serviço** – Essas são as contas de armazenamento do Azure que estão associadas à mesma assinatura do serviço. Para saber mais sobre como essas contas de armazenamento são criadas, consulte [Sobre Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). 
+* **Contas de armazenamento fora do serviço de assinatura** – Essas são as contas de armazenamento do Azure que não estão associadas ao serviço e provavelmente existiam antes de o serviço ter sido criado.
 
 ## <a name="add-a-storage-account"></a>Adicionar uma conta de armazenamento
 
-Você pode adicionar uma conta de armazenamento, fornecendo um nome amigável exclusivo e credenciais de acesso vinculadas à conta de armazenamento (com o provedor de serviços de nuvem especificado). Você também tem a opção de habilitar o modo secure sockets layer (SSL) para criar um canal seguro para comunicação de rede entre o dispositivo e a nuvem.
+Você pode adicionar uma conta de armazenamento, fornecendo um nome amigável exclusivo e credenciais de acesso vinculadas à conta de armazenamento (com o provedor de serviços de nuvem especificado). Você também tem a opção de habilitar o modo TLS (Transport Layer Security, segurança de camada de transporte), anteriormente conhecido como modo Secure Sockets Layer (SSL), para criar um canal seguro para comunicação de rede entre seu dispositivo e a nuvem.
 
 Você pode criar várias contas para um provedor de serviços de nuvem específico. Lembre-se, no entanto, que após a criação de uma conta de armazenamento, você não pode alterar o provedor de serviços de nuvem.
 
@@ -86,7 +86,7 @@ Use os procedimentos a seguir para adicionar as credenciais de conta de armazena
    
     3. Na caixa de texto **Chave de acesso da conta de armazenamento**, forneça a chave de acesso primária para suas credenciais de conta de armazenamento do Azure. Para obter essa chave, vá para o serviço de Armazenamento do Azure, escolha sua credencial de conta de armazenamento e clique em **Gerenciar chaves de conta**. Agora você pode copiar a chave de acesso primária.
    
-    4. Para habilitar o SSL, clique no botão **Habilitar** para criar um canal seguro para comunicação de rede entre o serviço Gerenciador de Dispositivos do StorSimple e a nuvem. Clique no botão **Desabilitar** somente se você estiver operando em uma nuvem privada.
+    4. Para habilitar o TLS, clique no botão **Habilitar** para criar um canal seguro para comunicação de rede entre o serviço StorSimple Device Manager e a nuvem. Clique no botão **Desabilitar** somente se você estiver operando em uma nuvem privada.
    
     5. Clique em **Adicionar**. Você será notificado depois que a credencial de conta de armazenamento tiver sido criada com êxito.
 
@@ -106,11 +106,11 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 2. Na folha **Credenciais da conta de armazenamento**, na lista de credenciais de conta de armazenamento, selecione e clique naquela que você deseja editar. 
 
-3. É possível modificar a seleção em **Habilitar SSL**. Você também pode clicar em **Mais...**  e selecionar **Sincronizar chave de acesso para girar** suas chaves de acesso da conta de armazenamento. Acesse [Rotação de chaves das contas de armazenamento](#key-rotation-of-storage-accounts) para obter mais informações sobre como executar a rotação de chaves. Depois de modificar as configurações, clique em **Salvar**. 
+3. É possível modificar a seleção em **Habilitar SSL**. Você também pode clicar em **Mais... ** e selecionar **Sincronizar chave de acesso para girar** suas chaves de acesso da conta de armazenamento. Acesse [Rotação de chaves das contas de armazenamento](#key-rotation-of-storage-accounts) para obter mais informações sobre como executar a rotação de chaves. Depois de modificar as configurações, clique em **Salvar**. 
 
     ![Salvar as credenciais editadas da conta de armazenamento](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
-4. Quando solicitado a confirmar, clique em **Sim**. 
+4. Quando solicitada a confirmação, clique em **Sim**. 
 
     ![Confirmar modificações](./media/storsimple-8000-manage-storage-accounts/editstorageacct4.png)
 
@@ -168,7 +168,7 @@ Para informar o serviço do Gerenciador de Dispositivos do StorSimple da altera�
 Você será notificado depois que a chave tiver sido sincronizada com êxito.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Para sincronizar as chaves para contas de armazenamento fora da assinatura do serviço
-1. Na página **Serviços** clique na guia **Configurar**.
+1. Na página **Serviços**, clique na guia **Configurar**.
 2. Clique em **Adicionar/Editar Contas de Armazenamento**.
 3. Na caixa de diálogo, faça o seguinte:
    

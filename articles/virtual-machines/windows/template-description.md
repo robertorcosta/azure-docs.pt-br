@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c9bf1cf0564655c932e066e5b74225382375e9c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243231"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235411"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
@@ -155,7 +155,7 @@ Este exemplo mostra uma seção de recursos típicos de um modelo para a criaç�
 
 Quando você implanta recursos usando um modelo, é necessário especificar uma versão da API a ser usada. O exemplo mostra o recurso de máquina virtual que usa esse elemento apiVersion:
 
-```
+```json
 "apiVersion": "2016-04-30-preview",
 ```
 
@@ -172,7 +172,7 @@ Use estas oportunidades para obter as versões mais recentes de API:
 
 Os [parâmetros](../../resource-group-authoring-templates.md) facilitam para você especificar valores para o modelo ao executá-lo. Esta seção de parâmetros é usada no exemplo:
 
-```        
+```json
 "parameters": {
   "adminUsername": { "type": "string" },
   "adminPassword": { "type": "securestring" },
@@ -184,7 +184,7 @@ Quando você implantar o modelo de exemplo, insira valores para o nome e a senha
 
 As [variáveis](../../resource-group-authoring-templates.md) facilitam para você configurar valores no modelo usados repetidamente ao longo dele ou que podem mudar com o tempo. Esta seção de variáveis é usada no exemplo:
 
-```
+```json
 "variables": { 
   "storageName": "mystore1",
   "accountid": "[concat('/subscriptions/', subscription().subscriptionId, 
@@ -221,7 +221,7 @@ Quando você implantar o modelo de exemplo, os valores de variáveis serão usad
 
 Quando você precisar de mais de uma máquina virtual para seu aplicativo, será possível usar um elemento de cópia em um modelo. Esse elemento opcional executa loops por meio da criação do número de VMs especificado como um parâmetro:
 
-```
+```json
 "copy": {
   "name": "virtualMachineLoop", 
   "count": "[parameters('numberOfInstances')]"
@@ -230,7 +230,7 @@ Quando você precisar de mais de uma máquina virtual para seu aplicativo, será
 
 Além disso, observe, no exemplo, que o índice do loop é usado ao especificar alguns valores para o recurso. Por exemplo, se você inseriu uma contagem de instâncias de três, os nomes dos discos de sistema operacional são myOSDisk1, myOSDisk2 e myOSDisk3:
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -245,7 +245,7 @@ Além disso, observe, no exemplo, que o índice do loop é usado ao especificar 
 
 Tenha em mente que a criação de um loop para um recurso no modelo pode exigir que você use o loop ao criar ou acessar outros recursos. Por exemplo, várias VMs não podem usar o mesmo adaptador de rede. Portanto, se seu modelo executa loops por meio da criação de três VMs, ele também deve executar loops por meio da criação de três interfaces de rede. Ao atribuir um adaptador de rede a uma VM, o índice de loop é usado para identificá-lo:
 
-```
+```json
 "networkInterfaces": [ { 
   "id": "[resourceId('Microsoft.Network/networkInterfaces',
     concat('myNIC', copyindex()))]" 
@@ -256,7 +256,7 @@ Tenha em mente que a criação de um loop para um recurso no modelo pode exigir 
 
 A maioria dos recursos dependem de outros recursos para funcionar corretamente. As máquinas virtuais devem ser associadas a uma rede virtual e, para fazer isso, é necessária um adaptador de rede. O elemento [dependsOn](../../resource-group-define-dependencies.md) é usado para certificar-se de que o adaptador de rede está pronto para ser usada antes que as VMs sejam criadas:
 
-```
+```json
 "dependsOn": [
   "[concat('Microsoft.Network/networkInterfaces/', 'myNIC', copyindex())]" 
 ],
@@ -266,7 +266,7 @@ O Resource Manager implanta em paralelo quaisquer recursos que não dependem de 
 
 Como saber se uma dependência é necessária? Examine os valores definidos no modelo. Se um elemento na definição de recurso de máquina virtual apontar para outro recurso implantado no mesmo modelo, será necessário ter uma dependência. Por exemplo, sua máquina virtual de exemplo define um perfil de rede:
 
-```
+```json
 "networkProfile": { 
   "networkInterfaces": [ { 
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
@@ -281,10 +281,10 @@ Para definir essa propriedade, o adaptador de rede deve existir. Portanto, é ne
 
 Vários elementos de perfil são usados ao definir um recurso de máquina virtual. Alguns são obrigatórios e alguns são opcionais. Por exemplo, os elementos hardwareProfile, osProfile, storageProfile e networkProfile são obrigatórios, mas diagnosticsProfile é opcional. Esses perfis definem configurações como:
    
-- [size](sizes.md)
+- [Tamanho](sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenciais
 - disco e [configurações do sistema operacional](cli-ps-findimage.md)
-- [adaptador de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [interface de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - diagnóstico de inicialização
 
 ## <a name="disks-and-images"></a>Discos e imagens
@@ -295,7 +295,7 @@ No Azure, arquivos VHD podem representar [discos ou imagens](managed-disks-overv
 
 Quando você cria uma VM, é necessário decidir qual o sistema operacional a ser usado. O elemento imageReference é usado para definir o sistema operacional de uma nova VM. O exemplo mostra uma definição de um sistema operacional Windows Server:
 
-```
+```json
 "imageReference": { 
   "publisher": "MicrosoftWindowsServer", 
   "offer": "WindowsServer", 
@@ -306,7 +306,7 @@ Quando você cria uma VM, é necessário decidir qual o sistema operacional a se
 
 Se você desejar criar um sistema operacional Linux, use esta definição:
 
-```
+```json
 "imageReference": {
   "publisher": "Canonical",
   "offer": "UbuntuServer",
@@ -317,7 +317,7 @@ Se você desejar criar um sistema operacional Linux, use esta definição:
 
 Definições de configuração do disco do sistema operacional são atribuídas com o elemento osDisk. O exemplo define um novo disco gerenciado com o modo de cache definido como **ReadWrite** e que o disco está sendo criado de uma [imagem de plataforma](cli-ps-findimage.md):
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -329,7 +329,7 @@ Definições de configuração do disco do sistema operacional são atribuídas 
 
 Se você desejar criar máquinas virtuais de discos existentes, remova os elementos imageReference e osProfile e defina estas configurações de disco:
 
-```
+```json
 "osDisk": { 
   "osType": "Windows",
   "managedDisk": { 
@@ -344,7 +344,7 @@ Se você desejar criar máquinas virtuais de discos existentes, remova os elemen
 
 Se você desejar criar uma máquina virtual de uma imagem gerenciada, altere o elemento imageReference e defina estas configurações de disco:
 
-```
+```json
 "storageProfile": { 
   "imageReference": {
     "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
@@ -362,7 +362,7 @@ Se você desejar criar uma máquina virtual de uma imagem gerenciada, altere o e
 
 Opcionalmente, é possível adicionar discos de dados às VMs. O [número de discos](sizes.md) depende do tamanho do disco do sistema operacional que você usa. Com o tamanho das VMs definido como Standard_DS1_v2, o número máximo de discos de dados que poderão ser adicionadas a eles é dois. No exemplo, um disco de dados gerenciado está sendo adicionado a cada VM:
 
-```
+```json
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
@@ -378,7 +378,7 @@ Opcionalmente, é possível adicionar discos de dados às VMs. O [número de dis
 
 Embora [extensões](extensions-features.md) sejam um recurso separado, elas estão estreitamente relacionadas a VMs. As extensões podem ser adicionadas como um recurso filho da VM ou como um recurso separado. O exemplo mostra a [Extensão de diagnóstico](extensions-diagnostics-template.md) que está sendo adicionada às VMs:
 
-```
+```json
 { 
   "name": "Microsoft.Insights.VMDiagnosticsSettings", 
   "type": "extensions", 
@@ -413,7 +413,7 @@ Esse recurso de extensão usa a variável storageName e as variáveis de diagnó
 
 Há muitas extensões que podem ser instalados em uma VM, mas a mais útil é provavelmente a [Extensão de Script Personalizado](extensions-customscript.md). No exemplo, um script do PowerShell chamado start.ps1 é executado em cada VM quando ela é iniciada pela primeira vez:
 
-```
+```json
 {
   "name": "MyCustomScriptExtension",
   "type": "extensions",

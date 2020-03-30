@@ -1,19 +1,18 @@
 ---
-title: Recuperar API de ofertas | Azure Marketplace
+title: Retrieve oferece API | Mercado Azure
 description: API recupera uma lista resumida de ofertas em um namespace do editor.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a1f15e269481b9706f81fd02f19effc9ad37df32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280483"
 ---
 <a name="retrieve-offers"></a>Recuperar ofertas
 ===============
@@ -28,7 +27,7 @@ Recupera uma lista resumida de ofertas em um namespace do editor.
 
 | **Nome**         |  **Descrição**                         |  **Tipo de dados** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador do publicador, por exemplo `contoso` |   Cadeia de caracteres    |
+|  publisherId     | Identificador do editor, por exemplo `contoso` |   String    |
 |  api-version     | Última versão da API                    |    Data        |
 |  |  |
 
@@ -72,7 +71,7 @@ Recupera uma lista resumida de ofertas em um namespace do editor.
 |  offerTypeId    | Identifica o tipo de oferta                                                                                           |
 |  publisherId    | Identificador que identifica exclusivamente o editor                                                                      |
 |  status         | Status da oferta. Para a lista de valores possíveis, consulte [Status da oferta](#offer-status) abaixo.                         |
-|  ID             | GUID que identifica exclusivamente a oferta no namespace do editor.                                                    |
+|  id             | GUID que identifica exclusivamente a oferta no namespace do editor.                                                    |
 |  version        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Isso é incrementado após cada publicação. |
 |  definição     | Contém uma visão resumida da definição real da carga de trabalho. Para obter uma definição detalhada, use a [API Recuperar oferta específica](./cloud-partner-portal-api-retrieve-specific-offer.md). |
 |  changedTime    | Hora em UTC quando a oferta foi modificada pela última vez                                                                              |
@@ -98,7 +97,7 @@ Recupera uma lista resumida de ofertas em um namespace do editor.
 |  NotStarted                  | A oferta é nova e não iniciada.                 |
 |  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.         |
 |  Executando                     | O envio da oferta está sendo processado.             |
-|  Bem-sucedido                   | O envio da oferta concluiu o processamento.       |
-|  Cancelado                    | O envio da oferta foi cancelado.                   |
-|  Falha                      | O envio da oferta falhou.                         |
+|  Teve êxito                   | O envio da oferta concluiu o processamento.       |
+|  Canceled                    | O envio da oferta foi cancelado.                   |
+|  Falhou                      | O envio da oferta falhou.                         |
 |  |  |

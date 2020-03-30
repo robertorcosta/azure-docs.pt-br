@@ -1,37 +1,36 @@
 ---
-title: Análise para o mercado comercial no Partner Center
-description: Visão geral sobre como acessar relatórios analíticos para monitorar vendas, avaliar o desempenho e otimizar suas ofertas do Marketplace.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Análise para o Mercado Comercial no Partner Center
+description: Visão geral sobre como acessar relatórios analíticos para monitorar vendas, avaliar o desempenho e otimizar suas ofertas de marketplace.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 9d7887894e796c71f0a92402e0a26fccc4d03f75
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f1db4479d04b8f81f95b95c5277efb35210745b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431939"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279769"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
+# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o Mercado Comercial no Partner Center
 
-Saiba como acessar relatórios analíticos no Microsoft Partner Center para monitorar vendas, avaliar o desempenho e otimizar suas ofertas no Marketplace. Como parceiro, você pode monitorar suas listagens de ofertas usando os grafos de visualização e insight de dados com suporte do Partner Center e encontrar maneiras de maximizar suas vendas. As ferramentas de análise aprimoradas permitem que você atue nos resultados de desempenho e mantenha relações melhores com seus clientes e revendedores.
+Saiba como acessar relatórios analíticos no Microsoft Partner Center para monitorar vendas, avaliar o desempenho e otimizar suas ofertas no mercado. Como parceiro, você pode monitorar suas listagens de oferta usando a visualização de dados e gráficos de insights suportados pelo Partner Center e encontrar maneiras de maximizar suas vendas. As ferramentas de análise aprimoradas permitem que você atue em resultados de desempenho e mantenha melhores relacionamentos com seus clientes e revendedores.
 
 ## <a name="partner-center-analytics-tools"></a>Ferramentas de análise do Partner Center
 
-Para acessar as ferramentas de análise do Partner Center, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
+Para acessar as ferramentas de análise do Partner Center, abra o painel **[Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Mercado Comercial.
 
 >[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+> Para definições detalhadas da terminologia de análise, consulte [perguntas freqüentes e terminologia para análises de mercado comercial](./faq-terminology.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Para grafos, tendências e valores de dados agregados que resumem a atividade do Marketplace para sua oferta, consulte [painel de resumo na análise do Marketplace comercial](./summary-dashboard.md).
-- Para obter informações sobre seus pedidos em um formato gráfico e baixável, consulte [painel de pedidos na análise do Marketplace comercial](./orders-dashboard.md).
-- Para VM (máquina virtual) oferece métricas de uso e cobrança limitada, consulte [painel de uso na análise do Marketplace comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [painel do cliente na análise do Marketplace comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte o [painel de downloads na análise do Marketplace comercial](./downloads-dashboard.md).
-- Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [painel classificações e revisões na análise do Marketplace comercial](./ratings-reviews.md).
-- Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+- Para obter gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- Para obter informações sobre seus pedidos em um formato gráfico e para download, consulte [Orders Dashboard em análises de mercado comercial](./orders-dashboard.md).
+- Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [O Painel de Uso em análises de mercado comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análises de Mercado Comercial](./customer-dashboard.md).
+- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [O Painel de Downloads em análises de Mercado Comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de Mercado Comercial](./ratings-reviews.md).
+- Para perguntas frequentes sobre análises de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análises de mercado comercial](./faq-terminology.md).

@@ -1,5 +1,5 @@
 ---
-title: Autenticação do Windows e servidor do Azure MFA-Azure Active Directory
+title: Autenticação do Windows e Servidor MFA Do Azure - Azure Active Directory
 description: Implantação da Autenticação do Windows e Servidor de Autenticação Multifator do Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263654"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação do Windows e Servidor de Autenticação Multifator do Azure
@@ -27,24 +27,24 @@ Use a seção de autenticação do Windows do servidor de Autenticação Multifa
 * IPs confiáveis dependem de o aplicativo poder fornecer o IP do cliente com a autenticação. Atualmente, apenas os Serviços de Terminal têm suporte.  
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o MFA Server para novas implantações. Novos clientes que gostariam de exigir autenticação multifatorial de seus usuários devem usar a Autenticação Multifatorial baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 > [!NOTE]
 > Esse recurso não tem suporte para proteger os Serviços de Terminal no Windows Server 2012 R2.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Para proteger um aplicativo com a autenticação do Windows, use o procedimento a seguir
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Para proteger um aplicativo com autenticação do Windows, use o procedimento a seguir
 
 1. No Servidor de Autenticação Multifator do Azure, clique no ícone de Autenticação do Windows.
-   ![a autenticação do Windows no servidor MFA](./media/howto-mfaserver-windows/windowsauth.png)
+   ![Autenticação do Windows no Servidor MFA](./media/howto-mfaserver-windows/windowsauth.png)
 2. Marque a caixa de seleção **Habilitar Autenticação do Windows**. Por padrão, essa caixa está desmarcada.
 3. A guia Aplicativos permite que o administrador configure um ou mais aplicativos para Autenticação do Windows.
 4. Selecione um servidor ou aplicativo — especifique se o servidor/aplicativo está habilitado. Clique em **OK**.
-5. Clique em **Adicionar...**
+5. Clique **em Adicionar...**
 6. A guia IPs Confiáveis permite que você ignore as sessões da Autenticação Multifator do Azure para Windows originadas de IPs específicos. Por exemplo, se os funcionários usarem o aplicativo no escritório e em casa, você pode decidir que não deseja que seus telefones toquem para a Autenticação Multifator do Azure enquanto estiverem no escritório. Para isso, você especifica a sub-rede do escritório como entrada de IPs Confiáveis.
-7. Clique em **Adicionar...**
+7. Clique **em Adicionar...**
 8. Selecione **IP Único** se desejar ignorar um único endereço IP.
-9. Selecione o **Intervalo de IP** se desejar ignorar um intervalo inteiro de IP. Exemplo 10.63.193.1-10.63.193.100.
-10. Selecione **Sub-rede** se desejar especificar um intervalo de IPs usando a notação de sub-rede. Insira o IP inicial da sub-rede e escolha a máscara de rede adequada na lista suspensa.
+9. Selecione **'Intervalo de IP'** se quiser pular um intervalo de IP inteiro. Exemplo 10.63.193.1-10.63.193.100.
+10. Selecione **Sub-rede** se quiser especificar uma série de IPs usando notação de sub-rede. Insira o IP inicial da sub-rede e escolha a máscara de rede adequada na lista suspensa.
 11. Clique em **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
