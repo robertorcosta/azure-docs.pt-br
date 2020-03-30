@@ -3,18 +3,18 @@ title: Perguntas frequentes sobre o Azure Resource Health
 description: Visão geral do Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f626dc4366cbdd9215704de97bb03fad19422eb
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75912778"
 ---
 # <a name="azure-resource-health-faq"></a>Perguntas frequentes sobre o Azure Resource Health
 Conheça as respostas para as perguntas comuns sobre o Azure Resource Health.
 
 ## <a name="what-is-azure-resource-health"></a>O que é o Azure Resource Health?
-O Resource Health ajuda a diagnosticar e obter suporte quando um problema do Azure afeta seus recursos. Ele informa sobre a integridade atual e passada de seus recursos e ajuda a atenuar problemas. O Resource Health fornece suporte técnico quando você precisa de ajuda com problemas de serviço do Azure.  
+O Resource Health ajuda a diagnosticar e obter suporte quando um problema do Azure afeta seus recursos. Ele informa sobre a integridade atual e anterior de seus recursos e ajuda a reduzir os problemas. O Resource Health fornece suporte técnico quando você precisa de ajuda com problemas de serviço do Azure.  
 
 ## <a name="what-is-the-resource-health-intended-for"></a>Qual é o objetivo do Resource Health?
 Após a detecção de um problema com um recurso, o Resource Health pode ajudar você a diagnosticar a causa raiz. Ele fornece ajuda para atenuar o problema e o suporte técnico quando você precisar de mais ajuda com problemas de serviço do Azure.
@@ -46,12 +46,12 @@ Sim. Quando um recurso não está disponível, o Resource Health identifica a ca
 No portal, as ações iniciadas pelo usuário aparecem usando um ícone de notificação azul, enquanto eventos planejados e não planejados são mostrados com um ícone de aviso vermelho. Mais detalhes são fornecidos na [Visão geral do Resource Health](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Posso integrar o Resource Health com minhas ferramentas de monitoramento?
-O Resource Health tem [suporte](resource-health-alert-arm-template-guide.md) para alertas baseados em log de atividades. Os alertas do log de atividades usam [grupos de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para notificar os usuários de que um alerta foi disparado. Os grupos de ação dão suporte a uma variedade de canais de notificação, como ações de email, SMS, webhook e ITSM.
+A saúde dos recursos tem [suporte de visualização](resource-health-alert-arm-template-guide.md) para alertas baseados no Registro de Atividades. Os alertas do Registro de Atividades usam [grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para notificar os usuários de que um alerta foi acionado. Os grupos de ação suportam uma variedade de canais de notificação, como e-mail, SMS, webhook e ações ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Onde encontro o Resource Health?
 Depois de fazer logon no portal do Azure, há várias maneiras de acessar o Resource Health:
 - Navegue até seu recurso. No painel de navegação à esquerda, selecione **Resource Health**
-- Vá à folha Integridade do Serviço do Azure.  No painel de navegação à esquerda, selecione **Resource Health**.
+- Vá à folha Integridade do Serviço do Azure.  Na navegação à esquerda, selecione **Recurso de saúde**.
 - Abra a folha **Ajuda + Suporte** selecionando o ponto de interrogação no canto superior direito do portal e, depois, selecionando **Ajuda + Suporte**. Quando a folha abrir, selecione **Resource Health**
 
 Você também pode usar a API do Resource Health para obter informações sobre a integridade de seus recursos.
@@ -63,7 +63,7 @@ A lista de verificações de integridade e os tipos de recursos com suporte por 
 Ao verificar a integridade de um recurso, imediatamente abaixo do status de integridade você pode clicar em **Relatar o status de integridade incorreto**. Antes de enviar o relatório, você tem a opção de fornecer detalhes adicionais sobre o motivo de você achar que o status de integridade atual está incorreto.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>O Resource Health está disponível para todas as regiões do Azure? 
-O Resource Health está disponível em todos os áreas geográficas do Azure.
+A saúde dos recursos está disponível em todos os geos do Azure.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Como o Resource Health é diferente do status do Azure ou painel de Integridade de Serviço?
 As informações fornecidas pelo Resource Health são mais específicas do que aquelas fornecidas pelo status do Azure ou painel de Integridade do Serviço.
@@ -84,8 +84,8 @@ Sim.  O Azure Resource Health está disponível gratuitamente.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Quais são as recomendações fornecidas pelo Resource Health?
 Com base no status de integridade, o Resource Health fornece recomendações com a meta de reduzir o tempo gasto com a solução de problemas. Para os recursos disponíveis, as recomendações se concentram em como resolver os problemas mais comuns que os clientes encontram. Se o recurso não estiver disponível devido a um evento não planejado do Azure, o foco estará no auxílio durante e após o processo de recuperação. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o Resource Health:
--  [Visão geral do Azure Resource Health](Resource-health-overview.md)
--  [Tipos de recurso e verificações de integridade disponíveis por meio do Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Visão geral da Saúde dos Recursos do Azure](Resource-health-overview.md)
+-  [Tipos de recursos e verificações de saúde disponíveis através do Azure Resource Health](resource-health-checks-resource-types.md)

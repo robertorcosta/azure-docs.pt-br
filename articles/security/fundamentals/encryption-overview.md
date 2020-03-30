@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5d8fd578c5539c83e37a232d8425ad8bdf22129b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243530"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125063"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -40,7 +40,7 @@ O Azure dá suporte a vários modelos de criptografia, incluindo criptografia no
 
 ### <a name="client-side-encryption"></a>Criptografia do cliente
 
-A criptografia no cliente é realizada fora do Azure. Ele inclui:
+A criptografia no cliente é realizada fora do Azure.  Ele inclui:
 
 - Dados criptografados por um aplicativo em execução no datacenter do cliente ou por um aplicativo de serviço.
 - Dados já criptografados quando recebidos pelo Azure.
@@ -89,7 +89,7 @@ O [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overvi
 
 #### <a name="transparent-data-encryption"></a>Criptografia de Dados Transparente
 
-A [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é usada para criptografar arquivos de dados do [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overview.md) e [SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real usando uma DEK (chave de criptografia de banco de dados), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação.
+A [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é usada para criptografar arquivos de dados do [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overview.md) e [SQL Data Warehouse do Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real usando uma DEK (chave de criptografia de banco de dados), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação.
 
 A TDE protege dados e arquivos de log usando os algoritmos de criptografia AES e 3DES (DES triplo). A criptografia do arquivo de banco de dados é executada em nível de página. As páginas de um banco de dados criptografado são criptografadas antes de serem gravadas em disco e são descriptografadas quando lidas na memória. A TDE agora é habilitada por padrão em bancos de dados SQL do Azure recentemente criados.
 
@@ -105,7 +105,7 @@ A CLE tem funções internas que você pode usar para criptografar dados usando 
 
 ### <a name="cosmos-db-database-encryption"></a>Criptografia de banco de dados do Cosmos DB
 
-O [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é o banco de dados multimodelo globalmente distribuído da Microsoft. Os dados de usuário armazenados no Cosmos DB em um armazenamento não volátil (unidades de estado sólido) são criptografados por padrão. Não existem controles para ativá-lo nem desativá-lo. A criptografia em repouso é implementada usando várias tecnologias de segurança, incluindo sistemas seguros de armazenamento de chaves, redes criptografadas e APIs criptográficas. As chaves de criptografia são gerenciadas pela Microsoft e giradas conforme as diretrizes internas da Microsoft.
+[O Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é o banco de dados multimodelo distribuído globalmente pela Microsoft. Os dados de usuário armazenados no Cosmos DB em um armazenamento não volátil (unidades de estado sólido) são criptografados por padrão. Não existem controles para ativá-lo nem desativá-lo. A criptografia em repouso é implementada usando várias tecnologias de segurança, incluindo sistemas seguros de armazenamento de chaves, redes criptografadas e APIs criptográficas. As chaves de criptografia são gerenciadas pela Microsoft e giradas conforme as diretrizes internas da Microsoft.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Criptografia em repouso no Data Lake
 
@@ -203,7 +203,7 @@ O Key Vault alivia as organizações da necessidade de configurar, aplicar patch
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral de segurança do Azure](get-started-overview.md)
+- [Visão Geral de segurança do Azure](get-started-overview.md)
 - [Visão geral da segurança de rede do Azure](network-overview.md)
 - [Visão geral de segurança do banco de dados do Azure](database-security-overview.md)
 - [Visão geral de segurança de máquinas virtuais do Azure](virtual-machines-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Usar Apache Hive com PowerShell no HDInsight - Azure
-description: Usar o PowerShell para executar consultas de Apache Hive no Apache Hadoop no Azure HDInsight
+description: Use o PowerShell para executar consultas da Colmeia Apache no Apache Hadoop no Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: deaa934b257fab74830d75e308a283e7608dc590
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552586"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Executar consultas do Apache Hive usando o PowerShell
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Este documento fornece um exemplo de como usar Azure PowerShell para executar Apache Hive consultas em um Apache Hadoop cluster HDInsight.
+Este documento fornece um exemplo de uso do Azure PowerShell para executar consultas apache hive em um grupo Apache Hadoop no cluster HDInsight.
 
 > [!NOTE]  
 > Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, veja [Usar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Um cluster do Apache Hadoop no HDInsight. Veja [Get Started com hdinsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * O [Módulo Az](https://docs.microsoft.com/powershell/azure/overview) do PowerShell instalado.
 
@@ -54,7 +54,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
         .\hivejob.ps1
 
-    Quando o script for executado, você será solicitado a inserir o nome do cluster e as credenciais da conta do administrador de HTTPS/cluster. Você também pode ser solicitado a entrar em sua assinatura do Azure.
+    Quando o script é executado, você é solicitado a inserir o nome do cluster e as credenciais de conta do Administrador HTTPS/Cluster. Você também pode ser solicitado a fazer login na sua assinatura do Azure.
 
 3. Quando o trabalho for concluído, ele deverá retornar informações semelhantes ao seguinte texto:
 
@@ -99,11 +99,11 @@ Esse cmdlet retorna as informações gravadas em STDERR durante o processamento 
 
 Como você pode ver, o PowerShell do Azure fornece uma maneira fácil de executar consultas do Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Usar Apache Hive com Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 

@@ -1,15 +1,15 @@
 ---
-title: Diagnóstico de proxy reverso do Azure Service Fabric
-description: Saiba como monitorar e diagnosticar o processamento de solicitações no proxy reverso para um aplicativo de Service Fabric do Azure.
+title: Diagnósticos por proxy reversos do Azure Service Fabric
+description: Saiba como monitorar e diagnosticar o processamento de solicitações no proxy reverso para um aplicativo de malha de serviço do Azure.
 author: kavyako
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645456"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitação no proxy reverso
@@ -189,7 +189,7 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que pode
 > [!NOTE]
 > Eventos relacionados ao processamento de solicitação de websocket não estão registrados em log no momento. Isso será adicionado na próxima versão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Agregação e coleta de eventos usando o Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) para habilitar a coleta de logs em clusters do Azure.
 * Para exibir eventos do Service Fabric no Visual Studio, confira [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Consulte [Configurar o proxy reverso para se conectar aos serviços seguros](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) para obter exemplos de modelo do Azure Resource Manager a fim de configurar o proxy reverso seguro com as diferentes opções de validação de certificado do serviço.

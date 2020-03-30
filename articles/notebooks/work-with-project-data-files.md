@@ -1,16 +1,16 @@
 ---
-title: Importar e exportar dados com projetos com Azure Notebooks visualização
-description: Saiba como inserir dados em um Azure Notebooks projeto de visualização de fontes externas e como exportar dados de um projeto do.
+title: Importar e exportar dados com projetos com a Visualização de Notebooks Azure
+description: Saiba como levar dados para um projeto de visualização de notebooks do Azure a partir de fontes externas e como exportar dados de um projeto.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646969"
 ---
-# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabalhar com arquivos de dados em Azure Notebooks projetos de visualização
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabalhe com arquivos de dados em projetos de visualização de notebooks do Azure
 
 Os dados são a força vital de muitos blocos de notas do Jupyter, especialmente os blocos de notas utilizados na ciência de dados. Com o Azure Notebooks, é fácil importar de várias fontes para um projeto e, em seguida, usar esses dados dos blocos de anotações. Você também pode fazer com que os blocos de anotações gerem dados que serão armazenados no projeto e que poderão ser baixados para serem usados em outro lugar.
 
@@ -34,11 +34,11 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 1. Escolha o comando **Carregar** e **Da URL** ou **Do computador** e crie os detalhes necessários para os dados que você deseja importar:
 
-   - **Da URL**: Insira o endereço de origem no campo **URL do arquivo** e o nome do arquivo para atribuir ao bloco de anotações em seu projeto no campo nome do **arquivo** . Em seguida, escolha **+ Adicionar Arquivo** para adicionar a URL à lista de carregamento. Repita o processo para todas as URLs adicionais e escolha **Concluído**.
+   - **A partir de URL**: Digite o endereço de origem no campo **URL do arquivo** e o nome do arquivo para atribuir ao notebook em seu projeto no campo Nome **do arquivo.** Em seguida, escolha **+ Adicionar Arquivo** para adicionar a URL à lista de carregamento. Repita o processo para todas as URLs adicionais e escolha **Concluído**.
 
      ![Carregar de URL popup](media/quickstarts/upload-from-url-popup.png)
 
-   - **Em computador**: arraste e solte arquivos para o pop-up, ou selecione **escolher arquivos**, navegue até e selecione os arquivos de dados que deseja importar. Você pode soltar ou escolher qualquer número de arquivos, de qualquer tipo e formato, já que é o código no bloco de anotações que abre o arquivo e analisa seus dados.
+   - **Do computador**: Arraste e solte arquivos no pop-up ou selecione **Escolher arquivos,** em seguida, navegue e selecione os arquivos de dados que deseja importar. Você pode soltar ou escolher qualquer número de arquivos, de qualquer tipo e formato, já que é o código no bloco de anotações que abre o arquivo e analisa seus dados.
 
      ![Carregar do popup do computador](media/quickstarts/upload-from-computer-popup.png)
 
@@ -46,7 +46,7 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 ### <a name="import-files-from-the-file-menu-in-a-notebook"></a>Importar arquivos do menu Arquivo em um bloco de anotações
 
-1. Dentro de um bloco de anotações em execução, escolha o comando **Carregar** > **Arquivo**:
+1. Dentro de um notebook em execução, selecione o comando**Upload de** **arquivos:** > 
 
     ![Comando de menu Carregar Arquivo dentro de um bloco de anotações](media/file-menu-upload.png)
 
@@ -54,11 +54,11 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
 1. No popup **Carregar status** exibido, escolha uma **Pasta de destino** na lista suspensa:
 
-    - Pasta de sessão ( *~/* ): carrega arquivos na sessão atual do bloco de anotações, mas não cria arquivos no projeto. A pasta de sessão cria um par com a pasta do projeto, mas ela não persistirá após o término da sessão. Para acessar arquivos de sessão no código, use o prefixo *../* nos nomes de arquivo com o caminho relativo.
+    - Pasta de*~/* sessão ( ): Carrega arquivos na sessão atual do notebook, mas não cria arquivos no projeto. A pasta de sessão cria um par com a pasta do projeto, mas ela não persistirá após o término da sessão. Para acessar arquivos de sessão no código, use o prefixo *../* nos nomes de arquivo com o caminho relativo.
 
         O uso da pasta de sessão é útil para experimentações e evita a acumulação de arquivos que poderão ou não ser necessários a longo prazo no projeto. Você também pode carregar arquivos para a pasta de sessão que tenha nomes idênticos aos arquivos do projeto sem causar conflitos ou precisar renomear os arquivos. Por exemplo, digamos que você tenha uma versão de *data.csv* no projeto, mas deseja experimentar uma versão diferente de *data.csv*. Ao carregar o arquivo na pasta de sessão, você pode executar o bloco de anotações usando dados no arquivo carregado (referindo-se a ele no código usando *../data.csv*) em vez dos dados no arquivo do projeto.
 
-    - Pasta do projeto ( */project*): carrega arquivos no projeto onde eles poderão ser acessados usando nomes de caminho relativos no código. Carregar um arquivo para essa pasta é o mesmo que carregar um arquivo no painel do projeto. O arquivo é salvo com o projeto e ficará disponível em sessões posteriores.
+    - Pasta do projeto (*/project*): carrega arquivos no projeto onde eles poderão ser acessados usando nomes de caminho relativos no código. Carregar um arquivo para essa pasta é o mesmo que carregar um arquivo no painel do projeto. O arquivo é salvo com o projeto e ficará disponível em sessões posteriores.
 
         O carregamento falhará se você tentar carregar um arquivo que tenha o mesmo nome de um arquivo existente no projeto. Para substituir um arquivo, carregue o novo arquivo no painel do projeto e, assim, terá a opção de substitui-lo.
 
@@ -100,7 +100,7 @@ Você também pode escolher um arquivo e usar o comando **Fazer o download** (at
 
 ## <a name="export-files-from-the-data-menu-in-a-notebook"></a>Exportar arquivos do menu Dados em um bloco de anotações
 
-1. Escolha o comando de menu **Fazer o download do** > **arquivo**:
+1. Selecione o comando **Menu Download de arquivos:** > **Download**
 
     ![Comando de menu Fazer o download dos dados dentro de um bloco de anotações](media/file-menu-download.png)
 
@@ -112,6 +112,6 @@ Você também pode escolher um arquivo e usar o comando **Fazer o download** (at
 
 1. O bloco de anotações prepara um único arquivo *.zip* que contém os arquivos escolhidos e eles são salvos como você normalmente faz em seu navegador. O bloco de anotações cria um arquivo *.zip* mesmo quando você baixa um único arquivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)
