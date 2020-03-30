@@ -1,5 +1,6 @@
 ---
-title: Esquema de Def. LoadBalancerProbe do Azure Cloud Services | Microsoft Docs
+title: Azure Cloud Services Def. LoadBalancerProbe Schema | Microsoft Docs
+description: O LoadBalancerProbe definido pelo cliente é um teste de saúde de pontos finais em instâncias de função. Ele combina com funções web ou de trabalhador em um arquivo de definição de serviço.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
-ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449049"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537339"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição dos Serviços de Nuvem do Azure
 A sonda do balanceador de carga é uma sonda de integridade definida pelo cliente de pontos de extremidade UDP e pontos de extremidade em instâncias de função. O `LoadBalancerProbe` não é um elemento autônomo; ele é combinado com a função web ou a função de trabalho em um arquivo de definição de serviço. Um `LoadBalancerProbe` pode ser usado por mais de uma função.
@@ -46,15 +47,15 @@ O elemento `LoadBalancerProbes` do arquivo de definição de serviço inclui os 
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>Elemento LoadBalancerProbes
 O elemento `LoadBalancerProbes` descreve a coleção de sondas do balanceador de carga. Esse elemento é o pai do [Elemento LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>Elemento LoadBalancerProbe
 O elemento `LoadBalancerProbe` define a sonda de integridade de um modelo. É possível definir várias sondas do balanceador de carga. 
 
 A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 
-|Atributo|Tipo|Description|
+|Atributo|Type|Descrição|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obrigatórios. O nome da sonda do balanceador de carga. O nome deve ser exclusivo.|
 | `protocol`          | `string` | Obrigatórios. Especifica o protocolo do ponto de extremidade. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, será necessário um ACK recebido para que a sonda tenha êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado será necessária para que a sonda tenha êxito.|
@@ -63,5 +64,5 @@ A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de investigação do status de integridade no ponto de extremidade. Normalmente, o intervalo é ligeiramente menor do que a metade do período de tempo limite alocado (em segundos) que permite duas sondas completas antes de tirar a instância de rotação.<br /><br /> O valor padrão é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda em que nenhuma resposta resultará na interrupção adicional da entrega do tráfego ao ponto de extremidade. Este valor permite que pontos de extremidade sejam tirados de rotação mais rapidamente ou mais lentamente do que os tempos normais usados no Azure (os padrões).<br /><br /> O valor padrão é 31, o valor mínimo é 11.|
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Consulte também
 [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md)

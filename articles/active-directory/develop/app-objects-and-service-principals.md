@@ -1,5 +1,5 @@
 ---
-title: Aplicativos & entidades de serviço no Azure AD | Azure
+title: Aplicativos & diretores de serviços no Azure AD | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a relação entre objetos de aplicativo e de entidade de serviço no Azure Active Directory.
 author: rwike77
@@ -15,10 +15,10 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.openlocfilehash: 19085346fb5797245c9f71911f8178df0a1b742a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263004"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de entidade de serviço e aplicativo no Azure Active Directory
@@ -41,14 +41,14 @@ Nas seções a seguir, você verá como o modelo de aplicativo do Azure AD repre
 
 ## <a name="application-registration"></a>Registro de aplicativo
 
-Quando você registra um aplicativo do Azure AD na [portal do Azure][AZURE-Portal], dois objetos são criados em seu locatário do Azure AD:
+Quando você registra um aplicativo do Azure AD no [portal do Azure][AZURE-Portal], dois objetos são criados no locatário do Azure AD:
 
 - Um objeto de aplicativo, e
 - Um objeto de entidade de serviço
 
 ### <a name="application-object"></a>Objeto de aplicativo
 
-Um aplicativo do Azure AD é definido por seu único objeto de aplicativo, que reside no locatário do Azure AD em que o aplicativo foi registrado, sendo conhecido como o locatário "inicial" do aplicativo. A [entidade de aplicativo][MS-Graph-App-Entity] Microsoft Graph define o esquema para as propriedades de um objeto de aplicativo.
+Um aplicativo do Azure AD é definido por seu único objeto de aplicativo, que reside no locatário do Azure AD em que o aplicativo foi registrado, sendo conhecido como o locatário "inicial" do aplicativo. A entidade Microsoft Graph [Application][MS-Graph-App-Entity] define o esquema para as propriedades de um objeto de aplicativo.
 
 ### <a name="service-principal-object"></a>Objeto de entidade de serviço
 
@@ -56,7 +56,7 @@ Para acessar os recursos que são protegidos por um locatário do Azure AD, a en
 
 A entidade de segurança define a política de acesso e as permissões para o usuário/aplicativo no locatário do Azure AD. Isso habilita recursos principais como a autenticação do usuário/aplicativo durante a entrada, bem como a autorização durante o acesso aos recursos.
 
-Quando um aplicativo recebe permissão para acessar os recursos em um locatário (após o registro ou o [consentimento](developer-glossary.md#consent)), um objeto de entidade de serviço é criado. A [entidade Microsoft Graph servicePrincipalName][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto de entidade de serviço.
+Quando um aplicativo recebe permissão para acessar os recursos em um locatário (após o registro ou o [consentimento](developer-glossary.md#consent)), um objeto de entidade de serviço é criado. A entidade Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] define o esquema para as propriedades de um objeto principal de serviço.
 
 ### <a name="application-and-service-principal-relationship"></a>Relação do aplicativo e a entidade de serviço
 
@@ -75,15 +75,15 @@ Uma entidade de serviço deve ser criada em cada locatário no qual o aplicativo
 
 O diagrama a seguir ilustra o relacionamento entre o objeto de aplicativo de um aplicativo e os objetos de entidade de serviço correspondentes, no contexto de um aplicativo multilocatário de exemplo chamado **aplicativo de RH**. Há três locatários do Azure AD nesse exemplo de cenário:
 
-- **Adatum**: o locatário usado pela empresa que desenvolveu o **aplicativo de RH**
-- **Contoso**: o locatário utilizado pela empresa Contoso, que é consumidora do **aplicativo de HR**
+- **Adatum** - O inquilino usado pela empresa que desenvolveu o **aplicativo de RH**
+- **Contoso** - O inquilino utilizado pela organização Contoso, que é consumidor do aplicativo de **RH**
 - **Fabrikam**: o locatário usado pela organização Fabrikam, que também consome o **aplicativo de HR**
 
-![Relação entre objeto de aplicativo e objeto de entidade de serviço](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Relação entre objeto do aplicativo e objeto principal do serviço](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 Nesse cenário de exemplo:
 
-| Etapa | DESCRIÇÃO |
+| Etapa | Descrição |
 |------|-------------|
 | 1    | É o processo de criação do aplicativo e dos objetos de entidade de serviço no locatário inicial do aplicativo. |
 | 2    | Quando os administradores da Contoso e da Fabrikam concluem o consentimento, um objeto de entidade de serviço é criado no locatário do Azure AD da empresa e recebe as permissões concedidas pelo administrador. Observe também que o aplicativo de RH pode ser configurado/projetado para permitir o consentimento pelos usuários para uso individual. |
@@ -91,9 +91,9 @@ Nesse cenário de exemplo:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Você pode usar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos de aplicativo e entidade de serviço.
-- Você pode acessar o objeto de aplicativo de um aplicativo usando a API Microsoft Graph, o editor de manifesto [do aplicativo portal do Azure][AZURE-Portal] ou os [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de aplicativo][MS-Graph-App-Entity]OData.
-- Você pode acessar o objeto de entidade de serviço de um aplicativo por meio da API do Microsoft Graph ou dos [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de UserEntity][MS-Graph-Sp-Entity]do OData.
+- Você pode usar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos principais do aplicativo e do serviço.
+- Você pode acessar o objeto de aplicativo de um aplicativo usando a API do Microsoft Graph, o editor de manifesto de aplicativos [do portal Azure][AZURE-Portal] ou [os cmdlets AD PowerShell do Azure, representados](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)pela entidade OData [Application][MS-Graph-App-Entity].
+- Você pode acessar o objeto principal de serviço de um aplicativo através da API do Microsoft Graph ou [cmdlets AD PowerShell do Azure,](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)representados pela entidade OData [ServicePrincipal][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 

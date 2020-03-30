@@ -1,7 +1,7 @@
 ---
 title: Criar um Basic Load Balancer interno – CLI do Azure
 titleSuffix: Azure Load Balancer
-description: Neste artigo, saiba como criar um balanceador de carga interno usando CLI do Azure
+description: Neste artigo, aprenda a criar um balanceador de carga interna usando o Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
-ms.openlocfilehash: 8726991682ca8c2eabd628f1539ff940bf94e03d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79284103"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457004"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balancear a carga de VMs usando a CLI do Azure
 
@@ -26,7 +26,7 @@ Este artigo mostra como criar um balanceador de carga interno para balancear car
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -39,9 +39,10 @@ O exemplo a seguir cria um grupo de recursos nomeado *myResourceGroupILB* na loc
     --name myResourceGroupILB \
     --location eastus
 ```
+
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *myResourceGroup* usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *myResourceGroup* usando [a rede vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -50,6 +51,7 @@ Crie uma rede virtual chamada *myVnet* com uma sub-rede chamada *mySubnet* no *m
     --location eastus \
     --subnet-name mySubnet
 ```
+
 ## <a name="create-basic-load-balancer"></a>Criar o balanceador de carga básico
 
 Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
@@ -60,7 +62,7 @@ Esta seção fornece detalhes sobre como criar e configurar os componentes do ba
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Crie um Load Balancer interno com [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** , que inclui uma configuração de IP de front-end chamada **myfrontend**, um pool de back-end chamado **MYBACKENDPOOL** que está associado a um endereço IP privado * * 10.0.0.7.
+Crie um Balanceador de carga interno com [a rede az lb criar](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **myLoadBalancer** que inclui uma configuração IP frontend chamada **myFrontEnd**, um pool de back-end chamado **myBackEndPool** que está associado a um endereço IP privado **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -71,10 +73,11 @@ Crie um Load Balancer interno com [AZ Network lb Create](https://docs.microsoft.
     --backend-pool-name myBackEndPool \
     --vnet-name myVnet \
     --subnet mySubnet      
-  ```
+```
+
 ### <a name="create-the-health-probe"></a>Criar a investigação de integridade
 
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para se certificar de que ela pode receber o tráfego de rede. A instância de máquina virtual com verificações de investigação com falha é removida do balanceador de carga até ele ficar online novamente e as verificações de investigação determinarem sua integridade. Crie uma sonda de saúde com [a sonda AZ Network lb criar](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a saúde das máquinas virtuais. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -128,9 +131,9 @@ Neste exemplo, você criará duas máquinas virtuais a serem usadas como servido
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic)
+Criar um conjunto de disponibilidade com [az vm availabilityset criar](/cli/azure/network/nic)
 
- ```azurecli-interactive
+```azurecli-interactive
   az vm availability-set create \
     --resource-group myResourceGroupILB \
     --name myAvailabilitySet
@@ -180,11 +183,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
     --resource-group myResourceGroupILB \
@@ -196,6 +199,7 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
     done
 ```
+
 Pode demorar alguns minutos para as VMs serem implantadas.
 
 ### <a name="create-a-vm-for-testing-the-load-balancer"></a>Criar uma VM para testar o balanceador de carga
@@ -221,14 +225,15 @@ Para obter o endereço IP do balanceador de carga, use [az network lb show](/cli
   az network lb show \
     --name myLoadBalancer \
     --resource-group myResourceGroupILB
-``` 
+```
+
 ![Testar o balanceador de carga](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o balanceador de carga e todos os recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupILB
 ```
 

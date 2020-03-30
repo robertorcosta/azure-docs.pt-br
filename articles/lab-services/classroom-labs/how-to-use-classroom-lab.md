@@ -10,23 +10,23 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: HT
+ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585124"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501921"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registrar em um laboratório de sala de aula, exibir todos os laboratórios que você pode acessar, iniciar/interromper uma VM no laboratório e se conectar a ela. 
 
 ## <a name="register-to-the-lab"></a>Registrar-se no laboratório
 
-1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com). Ainda não há suporte para o Internet Explorer 11. 
+1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, [https://labs.azure.com](https://labs.azure.com)use a URL: . Ainda não há suporte para o Internet Explorer 11. 
 1. Entre no serviço usando sua conta da escola para concluir o registro. 
 
     > [!NOTE]
@@ -60,29 +60,6 @@ Este artigo descreve como se registrar em um laboratório de sala de aula, exibi
     3. Para máquinas virtuais do **Linux**, você pode usar **SSH** ou **RDP** (se habilitado) para se conectar a elas. Para obter mais informações, veja [Habilitar conexão de área de trabalho remota para computadores Linux](how-to-enable-remote-desktop-linux.md). 
     1. Se estiver usando um **Mac** para se conectar à VM do laboratório, siga as instruções na próxima seção. 
 
-## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Conectar-se a uma VM usando RDP em um Mac
-Esta seção mostra como um aluno pode se conectar a uma VM de um Mac usando o RDP.
-
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Etapa 1: Instalar a Área de Trabalho Remota da Microsoft em um Mac
-1. Abra a App Store em seu Mac e procure pela **Área de Trabalho Remota da Microsoft**.
-
-    ![Área de Trabalho Remota da Microsoft](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
-1. Instale a versão mais recente da Área de Trabalho Remota da Microsoft. 
-
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Etapa 2: Acessar a VM de seu Mac usando RDP
-1. Abra o arquivo **RDP** que é baixado em seu computador com a **Área de Trabalho Remota da Microsoft** instalada. Ele deve começar a se conectar à VM. 
-
-    ![Conectar-se a uma VM](../media/how-to-use-classroom-lab/connect-linux-vm.png)
-1. Selecione **Continuar** se você receber o aviso a seguir. 
-
-    ![Aviso de certificado](../media/how-to-use-classroom-lab/certificate-error.png)
-1. Você deverá ver a VM. 
-
-    > [!NOTE]
-    > O exemplo a seguir é referente a uma VM CentOS do Linux. 
-
-    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
-
 ## <a name="progress-bar"></a>Barra de progresso 
 A barra de progresso no bloco mostra o número de horas usadas em relação ao número de [horas de cota](how-to-configure-student-usage.md#set-quotas-for-users) atribuídas a você. Esse tempo é o tempo adicional alocado para você, além do horário agendado para o laboratório. A cor da barra de progresso e o texto sob a barra de progresso variam de acordo com os seguintes cenários:
 
@@ -103,7 +80,7 @@ A barra de progresso no bloco mostra o número de horas usadas em relação ao n
 ## <a name="view-all-the-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
 Depois de se registrar nos laboratórios, você pode exibir todos os laboratórios de sala de aula por meio das seguintes etapas: 
 
-1. Navegue até [https://labs.azure.com](https://labs.azure.com). Ainda não há suporte para o Internet Explorer 11. 
+1. Navegue [https://labs.azure.com](https://labs.azure.com)até . Ainda não há suporte para o Internet Explorer 11. 
 2. Entre no serviço usando a conta de usuário usada para se registrar no laboratório. 
 3. Confirme que você vê todos os laboratórios aos quais tem acesso. 
 
@@ -111,7 +88,7 @@ Depois de se registrar nos laboratórios, você pode exibir todos os laboratóri
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes artigos:
+Veja os artigos a seguir:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)

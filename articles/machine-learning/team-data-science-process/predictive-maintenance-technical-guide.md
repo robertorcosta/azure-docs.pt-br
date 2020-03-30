@@ -1,6 +1,6 @@
 ---
 title: Guia de manutenção preditiva aeroespacial - Processo de Ciência de Dados da Equipe
-description: Um guia técnico para o modelo de solução para manutenção preditiva em aeroespacial, utilitários e transporte.
+description: Um guia técnico do Modelo de Solução para manutenção preditiva em aeroespacial, utilitários e transporte.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 3b3a0b00ee6e1e170023584c2e643a5802166428
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087573"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477163"
 ---
-# <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico para o modelo de solução para manutenção preditiva no setor aeroespacial
+# <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução para manutenção preditiva no aeroespacial
 
 > [!Important]
 > Este artigo foi preterido. A discussão sobre a manutenção preditiva no setor aeroespacial continua relevante, mas consulte a [Visão geral da solução para empresas](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) para obter informações mais recentes.
 
 
-Os modelos de solução foram projetados para acelerar o processo de criação de uma demonstração de E2E. Um modelo implantado provisiona sua assinatura com os componentes necessários e, em seguida, cria as relações entre eles. Ele também alimenta o pipeline de dados com dados de amostra produzidos por um aplicativo gerador de dados, que você baixa e instala no computador local depois de implantar o modelo de solução. Os dados produzidos pelo gerador irrigam o pipeline de dados e iniciam a geração das previsões de aprendizado de máquina, que podem ser visualizadas no painel do Power BI.
+Os modelos de solução são projetados para acelerar o processo de construção de uma demonstração E2E. Um modelo implantado provisiona sua assinatura com componentes necessários e, em seguida, constrói as relações entre eles. Ele também alimenta o pipeline de dados com dados de amostra produzidos por um aplicativo gerador de dados, que você baixa e instala no computador local depois de implantar o modelo de solução. Os dados produzidos pelo gerador irrigam o pipeline de dados e iniciam a geração das previsões de aprendizado de máquina, que podem ser visualizadas no painel do Power BI.
 
 O processo de implantação guia você pelas diversas etapas para configurar as credenciais da sua solução. Registre essas credenciais, como o nome da solução, o nome de usuário e a senha que você fornece durante a implantação. 
 
@@ -37,14 +37,14 @@ Os objetivos deste artigo são:
 ## <a name="overview"></a>Visão geral
 ![Arquitetura de manutenção preditiva](./media/predictive-maintenance-technical-guide/predictive-maintenance-architecture.png)
 
-Quando você implanta a solução, ela ativa os serviços do Azure, incluindo o Hub de eventos, Stream Analytics, HDInsight, Data Factory e Machine Learning. O diagrama da arquitetura acima mostra como a Manutenção Preventiva do Modelo de Solução Aeroespacial é criada. Você pode investigar esses serviços no portal do Azure clicando neles no diagrama do modelo de solução criado com a implantação da solução (isso não se aplica ao HDInsight, pois ele é provisionado sob demanda quando as atividades do pipeline relacionado são obrigatoriamente executadas e mais tarde excluídas).
+Quando você implanta a solução, ela ativa os serviços do Azure, incluindo Event Hub, Stream Analytics, HDInsight, Data Factory e Machine Learning. O diagrama da arquitetura acima mostra como a Manutenção Preventiva do Modelo de Solução Aeroespacial é criada. Você pode investigar esses serviços no portal do Azure clicando neles no diagrama do modelo de solução criado com a implantação da solução (isso não se aplica ao HDInsight, pois ele é provisionado sob demanda quando as atividades do pipeline relacionado são obrigatoriamente executadas e mais tarde excluídas).
 Baixe uma [versão em tamanho original do diagrama](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 As seções a seguir descrevem as partes da solução.
 
 ## <a name="data-source-and-ingestion"></a>Fonte de dados e ingestão de dados
 ### <a name="synthetic-data-source"></a>Fonte de dados sintética
-Para esse modelo, a fonte de dados usada é gerada a partir de um aplicativo de área de trabalho baixado que você executa localmente após a implantação bem-sucedida.
+Para este modelo, a fonte de dados usada é gerada a partir de um aplicativo de desktop baixado que você executa localmente após uma implantação bem-sucedida.
 
 Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](https://c3.nasa.gov/dashlink/resources/139/) usando o [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
@@ -58,14 +58,14 @@ O serviço [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-
 Use o [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer análises praticamente em tempo real no fluxo de entrada do serviço [Hub de Eventos do Azure](#azure-event-hub). Em seguida, publique os resultados em um painel do [Power BI](https://powerbi.microsoft.com) e arquive todos os eventos de entrada não processados no serviço [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para processamento posterior no serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a name="hdinsight-custom-aggregation"></a>Agregação personalizada do HDInsight
-Execute scripts do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orquestrados por Azure data Factory) usando o HDInsight para fornecer agregações nos eventos brutos arquivados usando o recurso Azure Stream Analytics.
+Executar scripts [hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orquestrado pela Azure Data Factory) usando o HDInsight para fornecer agregações sobre os eventos brutos arquivados usando o recurso Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Faça previsões sobre a RUL (vida útil restante) de um motor de aeronave específico usando as entradas recebidas com o [serviço Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestrado pelo Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publicação de dados
 ### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
-Use o [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) para armazenar as previsões recebidas pelo Azure Machine Learning, que são consumidas no painel [Power bi](https://powerbi.microsoft.com) .
+Use [o Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) para armazenar as previsões recebidas pelo Azure Machine Learning, que são então consumidas no painel power [bi.](https://powerbi.microsoft.com)
 
 ## <a name="data-consumption"></a>Consumo de dados
 ### <a name="power-bi"></a>Power BI
@@ -83,8 +83,8 @@ O Hub de Eventos do Azure é genérico. Os dados podem ser publicados no hub no 
 
 Esse documento não descreve como incluir seus dados, mas você pode facilmente enviar eventos ou dados para um Hub de Eventos do Azure usando as APIs do Hub de Eventos.
 
-### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
-Use o recurso Azure Stream Analytics para fornecer análise quase em tempo real, lendo de fluxos de dados e gerando dados para qualquer número de fontes.
+### <a name="azure-stream-analytics"></a><a name="azure-stream-analytics-1"></a>Azure Stream Analytics
+Use o recurso Azure Stream Analytics para fornecer análises quase em tempo real, lendo fluxos de dados e saindo dados para qualquer número de fontes.
 
 Para a Manutenção Preditiva para o Modelo de Solução Aeroespacial, a consulta do Stream Analytics do Azure consiste em quatro subconsultas; cada consulta consome eventos do serviço Hub de Eventos do Azure e produz saídas para quatro locais distintos. Essas saídas consistem em três conjuntos de dados do Power BI e em um local do Armazenamento do Azure.
 
@@ -105,7 +105,7 @@ Nesta solução, as consultas produzem como saída três conjuntos de dados com 
 A consulta do segundo trabalho do Stream Analytics, **maintenancesa02asablob**, simplesmente produz como saída todos os eventos do [Hub de Eventos](https://azure.microsoft.com/services/event-hubs/) para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) e, portanto, não requer alteração, independentemente do formato dos dados, já que as informações completas do evento são transmitidas para o armazenamento.
 
 ### <a name="azure-data-factory"></a>Fábrica de dados do Azure
-O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento de dados. Na Manutenção Preditiva para o Modelo de Solução Aeroespacial, o data factory é composto por três [pipelines](../../data-factory/concepts-pipelines-activities.md) que movem e processam os dados usando diversas tecnologias.  Acesse o data factory abrindo o nó Data Factory na parte inferior do diagrama do modelo de solução criado com a implantação da solução. Erros em seus conjuntos de dados ocorrem devido ao data factory ter sido implantado antes que o gerador de dados fosse iniciado. Esses erros podem ser ignorados e não impedem o funcionamento do seu data factory.
+O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento de dados. No Modelo de Manutenção Preditiva para Solução Aeroespacial, a fábrica de dados é composta por três [pipelines](../../data-factory/concepts-pipelines-activities.md) que movem e processam os dados usando várias tecnologias.  Acesse o data factory abrindo o nó Data Factory na parte inferior do diagrama do modelo de solução criado com a implantação da solução. Erros em seus conjuntos de dados ocorrem devido ao data factory ter sido implantado antes que o gerador de dados fosse iniciado. Esses erros podem ser ignorados e não impedem que sua fábrica de dados funcione.
 
 ![Erros do conjunto de dados do Data Factory](./media/predictive-maintenance-technical-guide/data-factory-dataset-error.png)
 
@@ -142,7 +142,7 @@ O experimento do [Azure Machine Learning](https://azure.microsoft.com/services/m
 Depois que o Gerador de Dados é iniciado, o pipeline começa a esvaziar e os diferentes componentes de sua solução começam a entrar em ação seguindo os comandos emitidos pelo data factory. Há duas maneiras possíveis de monitorar o pipeline.
 
 * Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente Armazenamento de Blobs de sua solução na tela na qual implantou a solução com êxito e clicar em Abrir no painel à direita, será levado para o [portal do Azure](https://portal.azure.com/). No portal, clique em Blobs. No painel seguinte, você vê uma lista de Contêineres. Clique em **maintenancesadata**. O próximo painel é a pasta **rawdata**. Dentro da pasta rawdata, há pastas com nomes como hour=17 e hour=18. A presença dessas pastas indica que dados não processados estão sendo gerados no seu computador e armazenados no armazenamento de blobs. Você deve ver arquivos csv com tamanhos finitos em MB nessas pastas.
-* A última etapa do pipeline é gravar dados (por exemplo, previsões do aprendizado de máquina) no Banco de Dados SQL. Talvez seja preciso esperar até três horas para que os dados apareçam no Banco de Dados SQL. Uma forma de monitorar o volume de dados disponível no Banco de Dados SQL é pelo [portal do Azure](https://portal.azure.com/). No painel esquerdo, localize bancos de dados SQL ![ícone SQL](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) e clique nele. Em seguida, localize o banco de dados **pmaintenancedb** e clique nele. Na próxima página, na parte inferior, clique em GERENCIAR
+* A última etapa do pipeline é gravar dados (por exemplo, previsões do aprendizado de máquina) no Banco de Dados SQL. Talvez seja preciso esperar até três horas para que os dados apareçam no Banco de Dados SQL. Uma forma de monitorar o volume de dados disponível no Banco de Dados SQL é pelo [portal do Azure](https://portal.azure.com/). No painel esquerdo, localize o ![ícone](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) SQL Databases SQL e clique nele. Em seguida, localize o banco de dados **pmaintenancedb** e clique nele. Na próxima página, na parte inferior, clique em GERENCIAR.
    
     ![Ícone Gerenciar](./media/predictive-maintenance-technical-guide/icon-manage.png)
    
@@ -155,11 +155,11 @@ Configure um painel do Power BI para visualizar seus dados do Azure Stream Analy
 ### <a name="set-up-the-cold-path-dashboard"></a>Configurar o painel de caminho frio
 No pipeline de dados do caminho frio, o objetivo é obter a RUL de previsão (vida útil restante) de cada motor da aeronave após o término de um voo (ciclo). O resultado da previsão é atualizado a cada três horas para prever os motores da aeronave que concluiu um voo durante as três últimas horas.
 
-O Power BI se conecta a um banco de dados SQL do Azure como sua fonte, onde os resultados da previsão são armazenados. 
+O Power BI conecta-se a um Banco de Dados SQL do Azure como sua fonte de dados, onde os resultados da previsão são armazenados. 
 
 Observação: 
 1.    Ao implantar sua solução, uma previsão aparecerá no banco de dados dentro de 3 horas. O arquivo pbix que acompanha o download do Gerador contém alguns dados de propagação para que você possa criar o painel do Power BI imediatamente. 
-2.    Nesta etapa, o pré-requisito é baixar e instalar o software gratuito [Power bi desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+2.    Nesta etapa, o pré-requisito é baixar e instalar o software livre [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL envolvido no momento da implantação da solução com dados (por exemplo, resultados de previsão) para visualização.
 
@@ -167,33 +167,34 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
    
    Você precisará do **nome do servidor de banco de dados, do nome do banco de dados, do nome de usuário e da senha** antes de passar para as próximas etapas. Veja algumas etapas para mostrar como encontrá-las.
    
-   * Quando **'Banco de Dados SQL do Azure'** ficar verde no diagrama do modelo da solução, clique nele e em **'Abrir'** .
-   * Você verá uma nova guia/janela do navegador que exibe a página portal do Azure. Clique em **'Grupos de recursos'** no painel esquerdo.
-   * Selecione a assinatura que você está usando para implantar a solução e selecione **'NomedaSolução\_ResourceGroup'** .
-   * No novo painel pop-out, clique no ícone ![ícone do SQL](./media/predictive-maintenance-technical-guide/icon-sql.png) para acessar o banco de dados. O nome do banco de dados fica ao lado desse ícone (por exemplo, **'pmaintenancedb'** ) e o **nome do servidor de banco de dados** está listado sob a propriedade Nome do servidor e deve ser parecido com **NomedaSolução.database.windows.net**.
+   * Quando **'Banco de Dados SQL do Azure'** ficar verde no diagrama do modelo da solução, clique nele e em **'Abrir'**.
+   * Você verá uma nova guia/janela do navegador que exibe a página do portal Azure. Clique em **'Grupos de recursos'** no painel esquerdo.
+   * Selecione a assinatura que você está usando para implantar a solução e selecione **'NomedaSolução\_ResourceGroup'**.
+   * No novo painel pop-out, clique no ícone ![ícone do SQL](./media/predictive-maintenance-technical-guide/icon-sql.png) para acessar o banco de dados. O nome do banco de dados fica ao lado desse ícone (por exemplo, **'pmaintenancedb'**) e o **nome do servidor de banco de dados** está listado sob a propriedade Nome do servidor e deve ser parecido com **NomedaSolução.database.windows.net**.
    * O **nome de usuário** e a **senha** do banco de dados são iguais ao nome de usuário e a senha previamente gravados durante a implantação da solução.
 2. Atualize a fonte de dados do arquivo de relatório de caminho frio com o Power BI Desktop.
    
-   * Na pasta em que você baixou e descompactou o arquivo Gerador, clique duas vezes no arquivo **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Se houver mensagens de aviso quando você abrir o arquivo, ignore-as. Na parte superior do arquivo, clique em **'Editar Consultas'** .
+   * Na pasta em que você baixou e descompactou o arquivo Gerador, clique duas vezes no arquivo **PowerBI\\PredictiveMaintenanceAerospace.pbix**. Se houver mensagens de aviso quando você abrir o arquivo, ignore-as. Na parte superior do arquivo, clique em **'Editar Consultas'**.
      
      ![Editar Consultas](./media/predictive-maintenance-technical-guide/edit-queries.png)
    * Você verá duas tabelas, **RemainingUsefulLife** e **PMResult**. Selecione a primeira tabela e clique no ![Ícone de configurações de consulta](./media/predictive-maintenance-technical-guide/icon-query-settings.png) ao lado de **“Fonte”** em **“ETAPAS APLICADAS”** no painel **“Configurações da Consulta”** à direita. Ignore as mensagens de aviso que aparecerem.
-   * Na janela aberta, substitua **'Servidor'** e **'Banco de Dados'** por seus próprios nomes do servidor e do banco de dados e clique em **'OK'** . Para o nome do servidor, especifique a porta 1433 (**NomeSolução.database.windows.net, 1433**). Deixe o campo Banco de Dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem na tela.
-   * Na próxima janela aberta, você verá duas opções no painel à esquerda (**Windows** e **Banco de Dados**). Clique em **' banco de dados '** , preencha seu **' nome de usuário '** e **' senha '** (o nome de usuário e a senha que você inseriu quando implantou a solução pela primeira vez e criou um banco de dados SQL do Azure). Em ***Selecione o nível no qual aplicar essas configurações***, marque a opção do nível do banco de dados. Clique em **'Conectar'** .
+   * Na janela pop out, substitua **'Servidor'** e **'Banco de dados'** por nomes de servidor e banco de dados próprios e clique **em 'OK'**. Para o nome do servidor, especifique a porta 1433 (**NomeSolução.database.windows.net, 1433**). Deixe o campo Banco de Dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem na tela.
+   * Na próxima janela aberta, você verá duas opções no painel à esquerda (**Windows** e **Banco de Dados**). Clique em **'Banco de dados',** preencha seu **'Nome de usuário'** e **'Senha'** (o nome de usuário e a senha que você inseriu quando implantou a solução pela primeira vez e criou um Banco de Dados SQL do Azure). Em ***Selecione o nível no qual aplicar essas configurações***, marque a opção do nível do banco de dados. Em seguida, clique **em 'Conectar'**.
    * Clique na segunda tabela **PMResult** e clique no ![Ícone de Navegação](./media/predictive-maintenance-technical-guide/icon-navigation.png) ao lado de **“Fonte”** em **“ETAPAS APLICADAS”** no painel **“Configurações da Consulta”** à direita e atualize os nomes do servidor e do banco de dados, como nas etapas acima e clique em OK.
    * Depois de ser guiado de volta à página anterior, feche a janela. Uma mensagem é exibida; clique em **Aplicar**. Por fim, clique no botão **Salvar** para salvar as alterações. Seu arquivo do Power BI agora estabeleceu uma conexão com o servidor. Se suas visualizações estiverem vazias, limpe as seleções nas visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das legendas. Use o botão de atualização para refletir os novos dados nas visualizações. Inicialmente, você só vê os dados propagados em suas visualizações, já que a atualização do data factory está agendada para a cada três horas. Após três horas, você verá novas previsões refletidas nas visualizações quando atualizar os dados.
-3. (Opcional) Publique o painel de caminho frio no [Power BI online](https://www.powerbi.com/). Esta etapa precisa de uma conta de Power BI (ou conta do Office 365).
+3. (Opcional) Publique o painel de caminho frio no [Power BI online](https://www.powerbi.com/). Esta etapa precisa de uma conta power bi (ou conta do Office 365).
    
    * Clique em **'Publicar'** e, depois de alguns segundos, será exibida uma janela mostrando "Êxito ao publicar no Power BI!". com uma marca de seleção verde. Clique no link abaixo, "Abrir PredictiveMaintenanceAerospace.pbix no Power BI". Para obter instruções detalhadas, consulte [Publicar do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Para criar um novo painel: clique no sinal **+** ao lado da seção **Painéis** no painel à esquerda. Insira o nome "Demonstração de manutenção preditiva" para esse novo painel.
+   * Para criar um novo **+** painel: clique no sinal ao lado da seção **Dashboards** no painel esquerdo. Insira o nome "Demonstração de manutenção preditiva" para esse novo painel.
    * Depois de abrir o relatório, clique no ![Ícone de PIN](./media/predictive-maintenance-technical-guide/icon-pin.png) para fixar todas as visualizações no painel. Para obter instruções detalhadas, confira [Fixar um bloco em um painel do Power BI por meio de um relatório](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Vá para a página do painel e ajuste o tamanho e o local de suas visualizações e edite os títulos delas. Para obter instruções detalhadas sobre como editar seus blocos, confira [Editar um bloco — redimensionar, mover, renomear, fixar, excluir, adicionar hiperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Veja um painel de exemplo com algumas visualizações de caminho frio fixadas nele.  Dependendo da duração da execução do gerador de dados, os números nas visualizações poderão ser diferentes.
      <br/>
      ![Exibição final](./media/predictive-maintenance-technical-guide/final-view.png)
      <br/>
-   * Para agendar a atualização dos dados, passe o mouse sobre o conjunto de **PredictiveMaintenanceAerospace** , clique ![ícone de reticências](./media/predictive-maintenance-technical-guide/icon-elipsis.png) e, em seguida, escolha **agendar atualização**.
+   * Para agendar a atualização dos dados, passe o mouse sobre ![o conjunto](./media/predictive-maintenance-technical-guide/icon-elipsis.png) de dados **PredictiveMaintenanceAerospace,** clique no ícone Ellipsis e, em seguida, escolha **'Atualização de horários 'Atualizar'**
      <br/>
-     **Observação:** se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
+     > [!NOTE]
+     > Se você vir uma mensagem de aviso, clique em **Editar credenciais** e certifique-se de que suas credenciais de banco de dados sejam as mesmas descritas na etapa 1.
      <br/>
      ![Agendar atualização](./media/predictive-maintenance-technical-guide/schedule-refresh.png)
      <br/>
@@ -207,24 +208,24 @@ As etapas a seguir mostram como visualizar a saída de dados dos trabalhos do St
 1. Adicione a saída do Power BI ao Stream Analytics (ASA).
    
    * Você precisa seguir as instruções em [Azure Stream Analytics e Power BI: um painel de análise para a visibilidade em tempo real dos dados de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Azure Stream Analytics como seu painel do Power BI.
-   * A consulta ASA tem três saídas que são **aircraftmonitor**, **aircraftalert**e **flightsbyhour**. Você pode exibir a consulta clicando na guia consulta. correspondente a cada uma dessas tabelas, você precisa adicionar uma saída ao ASA. Quando você adiciona a primeira saída (**aircraftmonitor**), verifique se **Alias de Saída**, **Nome do Conjunto de Dados** e **Nome da Tabela** estão iguais (**aircraftmonitor**). Repita as etapas para adicionar saídas para **aircraftalert** e **flightsbyhour**. Depois de adicionar as três tabelas de saída e de iniciar o trabalho do ASA, você obterá uma mensagem de confirmação (“Êxito ao iniciar o trabalho maintenancesa02asapbi do Stream Analytics”).
+   * A consulta ASA tem três saídas que são **monitor de aeronaves,** **alerta de aeronaves**e **flightsbyhour**. Você pode visualizar a consulta clicando na guia consulta. Correspondente a cada uma dessas tabelas, você precisa adicionar uma saída ao ASA. Quando você adiciona a primeira saída (**aircraftmonitor**), verifique se **Alias de Saída**, **Nome do Conjunto de Dados** e **Nome da Tabela** estão iguais (**aircraftmonitor**). Repita as etapas para adicionar saídas para **aircraftalert** e **flightsbyhour**. Depois de adicionar as três tabelas de saída e de iniciar o trabalho do ASA, você obterá uma mensagem de confirmação (“Êxito ao iniciar o trabalho maintenancesa02asapbi do Stream Analytics”).
 2. Faça logon no [Power BI online](https://www.powerbi.com)
    
    * No painel à esquerda, seção Conjuntos de Dados em Meu Workspace, os nomes de ***CONJUNTO DE DADOS*****aircraftmonitor**, **aircraftalert** e **flightsbyhour** devem aparecer. Esses são os dados de streaming enviados do Stream Analytics do Azure na etapa anterior. O conjunto de dados **flightsbyhour** poderá não aparecer ao mesmo tempo que os outros dois conjuntos de dados devido à natureza da consulta SQL por trás dele. No entanto, ele deve aparecer após uma hora.
    * Verifique se o painel ***Visualizações*** está aberto e se é mostrado no lado direito da tela.
 3. Depois que os dados fluírem para o Power BI, você poderá começar a visualizar os dados de streaming. Veja abaixo um painel de exemplo com algumas visualizações de afunilamento fixadas nele. É possível criar outros blocos de painel com base em conjuntos de dados apropriados. Dependendo da duração da execução do gerador de dados, os números nas visualizações poderão ser diferentes.
 
-    ![Exibir painel](media/predictive-maintenance-technical-guide/dashboard-view.png)
+    ![Exibição Painel](media/predictive-maintenance-technical-guide/dashboard-view.png)
 
-1. Aqui estão algumas etapas para criar um dos blocos acima – o bloco "exibição da frota do sensor 11 vs. limite 48,26":
+1. Aqui estão algumas etapas para criar uma das telhas acima – a "Visão da Frota do Sensor 11 vs. Limiar 48.26":
    
    * Clique no conjunto de dados **aircraftmonitor** na seção Conjuntos de dados do painel esquerdo.
    * Clique no ícone **Gráfico de Linhas** .
    * Clique em **Processado** no painel **Campos** para mostrá-lo em "Eixo" no painel **Visualizações**.
    * Clique em "s11" e em "s11\_alert" para que ambos sejam exibidos em "Valores". Clique na pequena seta ao lado de **s11** e de **s11\_alert** e altere "Soma" para "Média".
    * Clique em **SALVAR** na parte superior e chame o relatório de "aircraftmonitor". O relatório chamado "aircraftmonitor" é exibido na seção **Relatórios** do painel **Navegador** à esquerda.
-   * Clique no ícone **fixar Visual** no canto superior direito deste gráfico de linhas. Uma janela "Fixar ao painel" poderá aparecer para que você escolha um painel. Selecione "Demonstração de manutenção preditiva" e clique em "Fixar".
-   * Passe o mouse sobre este bloco no painel, clique no ícone "Editar" no canto superior direito para alterar seu título para "exibição de frota do sensor 11 versus o limite 48,26" e o subtítulo para "média na frota ao longo do tempo".
+   * Clique no ícone **Pin Visual** no canto superior direito deste gráfico de linha. Uma janela "Fixar ao painel" poderá aparecer para que você escolha um painel. Selecione "Demonstração de manutenção preditiva" e clique em "Fixar".
+   * Passe o mouse sobre este azulejo no painel, clique no ícone "editar" no canto superior direito para alterar seu título para "Fleet View of Sensor 11 vs. Threshold 48.26" e legenda para "Média em toda a frota ao longo do tempo".
 
 ## <a name="delete-your-solution"></a>Excluir sua solução
 Não se esqueça de parar o gerador de dados quando não estiver usando ativamente a solução, pois a execução do gerador de dados incorrerá em custos mais altos. Se não estiver usando a solução, exclua-a. A exclusão da solução exclui todos os componentes que foram provisionados em sua assinatura quando você implantou a solução. Para excluir a solução, clique em seu respectivo nome no painel esquerdo do modelo de solução e clique em **Excluir**.

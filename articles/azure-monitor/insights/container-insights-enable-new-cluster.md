@@ -1,20 +1,20 @@
 ---
-title: Monitorar um novo cluster do AKS (serviço kubernetes do Azure) | Microsoft Docs
-description: Saiba como habilitar o monitoramento para um novo cluster do AKS (serviço kubernetes do Azure) com Azure Monitor para assinatura de contêineres.
+title: Monitore um novo cluster Azure Kubernetes Service (AKS) | Microsoft Docs
+description: Saiba como ativar o monitoramento de um novo cluster Azure Kubernetes Service (AKS) com o Azure Monitor para assinatura de contêineres.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275432"
 ---
-# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar o monitoramento de um novo cluster do AKS (serviço kubernetes do Azure)
+# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilite o monitoramento de um novo cluster Azure Kubernetes Service (AKS)
 
-Este artigo descreve como configurar Azure Monitor para contêineres para monitorar o cluster kubernetes gerenciado hospedado no [serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/) que você está preparando para implantar em sua assinatura.
+Este artigo descreve como configurar o Azure Monitor para contêineres para monitorar o cluster Kubernetes gerenciado hospedado no [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) que você está preparando para implantar em sua assinatura.
 
-Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos com suporte:
+Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos suportados:
 
 * CLI do Azure
 * Terraform
@@ -24,7 +24,7 @@ Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos co
 Para habilitar o monitoramento de um novo cluster do AKS criado com a CLI do Azure, siga a etapa no artigo de início rápido na seção [Criar cluster do AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.74 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se você tiver instalado a extensão da CLI AKs-preview 0.4.12 ou superior, remova as alterações feitas para habilitar uma extensão de visualização, pois ela pode substituir o comportamento de CLI do Azure padrão, pois os recursos de visualização de AKS não estão disponíveis no Azure US governamental Cloud.
+>Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a versão 2.0.74 do Azure CLI ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se você tiver instalado a versão CLI de visualização aks 0.4.12 ou superior, remova quaisquer alterações feitas para habilitar uma extensão de visualização, pois ela pode substituir o comportamento padrão do Azure CLI, uma vez que os recursos do AKS Preview não estão disponíveis na nuvem DoAzure US Governmnet.
 
 ## <a name="enable-using-terraform"></a>Habilitar usando Terraform
 
@@ -116,4 +116,4 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
 
 * Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
 
-* Com o monitoramento habilitado para coletar a utilização de recursos e de integridade do cluster AKS e das cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.
+* Com o monitoramento habilitado para coletar a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho em execução neles, aprenda [a usar o](container-insights-analyze.md) Monitor Do Azure para contêineres.

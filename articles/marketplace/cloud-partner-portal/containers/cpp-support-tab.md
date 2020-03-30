@@ -1,19 +1,18 @@
 ---
-title: Configurações de suporte para uma imagem de contêineres do Azure | Azure Marketplace
+title: Configurações de suporte para uma imagem de Contêineres Azure | Mercado Azure
 description: Definir configurações de suporte para um contêiner do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8124828c565f344387ae946a1fa6e61a84675b81
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823102"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279956"
 ---
 # <a name="container-support-tab"></a>Guia de suporte de contêiner
 
@@ -29,18 +28,18 @@ Forneça as informações necessárias para os campos Contato de engenharia e Su
 
 O contato de engenharia é o contato técnico entre sua organização e a Microsoft. Os campos obrigatórios são indicados por um asterisco (*).
 
-- **Nome\*** -nome da pessoa ou grupo que serve como suporte técnico/de engenharia.
-- **Email\*** -endereço de email deste contato técnico.
-- **Telefone\*** -número de telefone para suporte técnico.
+- **Nome\* ** - Nome da pessoa ou grupo que ate como suporte técnico/de engenharia.
+- **E-mail\* ** - Endereço de e-mail deste contato técnico.
+- **Telefone\* ** - Número de telefone para suporte técnico.
 
 
 ### <a name="customer-support"></a>Suporte ao cliente
 
 O contato do Suporte ao Cliente recebe tickets de suporte abertos pelos clientes no Azure.  Os campos obrigatórios são indicados por um asterisco (*).
 
-- **Nome\*** -nome da pessoa ou grupo que serve como atendimento ao cliente.
-- **Email\*** -endereço de email deste contato de suporte.
-- **Telefone\*** -número de telefone para atendimento ao cliente.
+- **Nome\* ** - Nome da pessoa ou grupo que serve como suporte ao cliente.
+- **E-mail\* ** - Endereço de e-mail deste contato de suporte.
+- **Telefone\* ** - Número de telefone para atendimento ao cliente.
 
 
 ## <a name="next-steps"></a>Próximas etapas

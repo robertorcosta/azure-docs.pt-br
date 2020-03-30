@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253878"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceitos de design
@@ -119,7 +119,7 @@ Ao instalar o Azure AD Connect com o modo Personalizado, o assistente do Azure A
 
 ![Instalação personalizada – configuração do sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 | --- | --- |
 | Permitir que o Azure gerencie a âncora de origem para mim | Selecione esta opção se deseja que Azure AD escolha o atributo para você. Se você selecionar essa opção, o Assistente do Azure AD Connect aplicará a mesma [lógica de seleção de atributo sourceAnchor usada durante a instalação do Expresso](#express-installation). De modo semelhante à instalação do Expresso, o assistente informará qual atributo foi selecionado como atributo Source Anchor após a conclusão da instalação Personalizada. |
 | Um atributo específico | Selecione esta opção se você quiser especificar um atributo existente do AD como o atributo sourceAnchor. |
@@ -140,7 +140,7 @@ Para trocar de objectGUID para ConsistencyGuid como o atributo de Âncora de Ori
 
 3. Insira suas credenciais de administrador do Azure AD e clique em **Avançar**.
 
-4. O assistente do Azure AD Connect analisará o estado do atributo ms-DS-ConsistencyGuid em seu Active Directory local. Se o atributo não estiver configurado em nenhum objeto no diretório, o Azure AD Connect concluirá que nenhum outro aplicativo está usando o atributo atualmente e é seguro usá-lo como o atributo de Âncora de Origem. Clique em **Avançar** para continuar.
+4. O assistente do Azure AD Connect analisará o estado do atributo ms-DS-ConsistencyGuid em seu Active Directory local. Se o atributo não estiver configurado em nenhum objeto no diretório, o Azure AD Connect concluirá que nenhum outro aplicativo está usando o atributo atualmente e é seguro usá-lo como o atributo de Âncora de Origem. Clique em **Próximo** para continuar.
 
    ![Habilitar ConsistencyGuid para implantação existente – etapa 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -156,7 +156,7 @@ Durante a análise (etapa 4), se o atributo estiver configurado em um ou mais ob
 
 ![Habilitar ConsistencyGuid para implantação existente – erro](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Se você tiver certeza de que o atributo não é usado por outros aplicativos existentes, poderá suprimir o erro reiniciando o assistente de Azure AD Connect com a opção **/SkipLdapSearch** especificada. Para tal, execute o seguinte comando no prompt de comando:
+ Se você tiver certeza de que o atributo não é usado por outros aplicativos existentes, você pode suprimir o erro reiniciando o assistente Azure AD Connect com o switch **/SkipLdapSearch** especificado. Para tal, execute o seguinte comando no prompt de comando:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -170,7 +170,7 @@ Se você estiver gerenciando o AD FS fora do Azure AD Connect ou usando servidor
 ![Configuração da federação de terceiros](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Adicionando novos diretórios à implantação existente
-Suponha que você tenha implantado o Azure AD Connect com o recurso ConsistencyGuid habilitado e agora deseje adicionar outro diretório à implantação. Quando você tenta adicionar o diretório, o assistente do Azure AD Connect verifica o estado do atributo ms-DS-ConsistencyGuid no diretório. Se o atributo estiver configurado em um ou mais objetos no diretório, o assistente concluirá que o atributo está sendo usado por outros aplicativos e retornará um erro, conforme ilustrado no diagrama a seguir. Se você tiver certeza de que o atributo não é usado por aplicativos existentes, poderá suprimir o erro reiniciando o assistente de Azure AD Connect com a opção **/SkipLdapSearch** especificada conforme descrito acima ou precisará entrar em contato com o suporte para obter mais informações.
+Suponha que você tenha implantado o Azure AD Connect com o recurso ConsistencyGuid habilitado e agora deseje adicionar outro diretório à implantação. Quando você tenta adicionar o diretório, o assistente do Azure AD Connect verifica o estado do atributo ms-DS-ConsistencyGuid no diretório. Se o atributo estiver configurado em um ou mais objetos no diretório, o assistente concluirá que o atributo está sendo usado por outros aplicativos e retornará um erro, conforme ilustrado no diagrama a seguir. Se você tiver certeza de que o atributo não é usado pelos aplicativos existentes, você pode suprimir o erro reiniciando o assistente Azure AD Connect com o switch **/SkipLdapSearch** especificado conforme descrito acima ou você precisa entrar em contato com o Suporte para obter mais informações.
 
 ![Adicionando novos diretórios à implantação existente](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 
@@ -198,4 +198,4 @@ Leia [Adicionar seu nome de domínio personalizado ao Azure Active Directory](..
 O Azure AD Connect detecta se você está executando em um ambiente de domínio não roteável e avisa corretamente para não prosseguir com configurações expressas. Se você está operando em um domínio não roteável, é provável que o UPN dos usuários também tenha sufixos não roteáveis. Por exemplo, se você estiver executando em contoso.local, o Azure AD Connect vai sugerir o uso de configurações personalizadas em vez de usar as configurações expressas. Usando as configurações personalizadas, você pode especificar o atributo que deve ser usado como o UPN para entrar no Azure depois que os usuários são sincronizados com o Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

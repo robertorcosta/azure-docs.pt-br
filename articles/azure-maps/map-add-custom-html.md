@@ -1,7 +1,7 @@
 ---
-title: Adicionar um marcador HTML ao mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a adicionar um marcador HTML a um mapa usando o SDK da Web do Microsoft Azure Maps.
-author: jingjing-z
+title: Adicionar um marcador HTML para mapear | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre como adicionar um Marcador HTML a um mapa usando o Microsoft Azure Maps Web SDK.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4cc3b1789ef2f7ef44e5421cbacb5a93c2a0a1ff
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2700d42c25d58911fb275ad9ce6c5610cd22624d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536761"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicionar marcadores HTML ao mapa
 
@@ -24,13 +24,13 @@ Este artigo mostra como adicionar um HTML personalizado, como um arquivo de imag
 > Os marcadores HTML não conectam fontes de dados. Em vez disso, as informações de posição são adicionadas diretamente ao marcador e o marcador é adicionado à propriedade `markers` do mapa que é um [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> Ao contrário da maioria das camadas no controle de Web do Azure Mapas que usam WebGL para renderização, os marcadores HTML usam elementos DOM tradicionais para renderização. Assim, quanto mais marcadores HTML foram adicionados a uma página, mais elementos DOM existem. O desempenho poderá ser prejudicado após adicionar algumas centenas de marcadores HTML. Para conjuntos de dados maiores, considere o clustering de dados ou utilizar uma camada de Símbolos ou Bolhas.
+> Ao contrário da maioria das camadas no controle de Web do Azure Mapas que usam WebGL para renderização, os marcadores HTML usam elementos DOM tradicionais para renderização. Como tal, quanto mais marcadores HTML adicionados a uma página, mais elementos DOM existem. O desempenho poderá ser prejudicado após adicionar algumas centenas de marcadores HTML. Para conjuntos de dados maiores, considere o clustering de dados ou utilizar uma camada de Símbolos ou Bolhas.
 
 ## <a name="add-an-html-marker"></a>Adicionar um marcador HTML
 
-A classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) tem um estilo padrão. É possível personalizar o marcador, definindo as opções de cor e texto do marcador. O estilo padrão da classe de marcador HTML é um modelo SVG que tem um espaço reservado `{color}` e `{text}`. Defina as propriedades de cor e texto nas opções de marcador HTML para uma personalização rápida. 
+A classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) tem um estilo padrão. É possível personalizar o marcador, definindo as opções de cor e texto do marcador. O estilo padrão da classe de marcador HTML é `{color}` `{text}` um modelo SVG que tem um e espaço reservado. Defina as propriedades de cor e texto nas opções de marcador HTML para uma personalização rápida. 
 
-O código a seguir cria um marcador HTML e define a Propriedade Color como "DodgerBlue" e a propriedade Text como "10". Um popup é anexado ao marcador e `click` evento é usado para alternar a visibilidade do Popup.
+O código a seguir cria um marcador HTML e define a propriedade de cor como "DodgerBlue" e a propriedade de texto como "10". Um pop-up é anexado `click` ao marcador e o evento é usado para alternar a visibilidade do popup.
 
 ```javascript
 //Create an HTML marker and add it to the map.
@@ -52,7 +52,7 @@ map.events.add('click',marker, () => {
 });
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Abaixo está a amostra completa de código de execução da funcionalidade acima.
 
 <br/>
 
@@ -69,7 +69,7 @@ O padrão `htmlContent` de um marcador HTML é um modelo de SVG contendo as past
 </iframe>
 
 > [!TIP]
-> O SDK da Web do Azure Maps fornece vários modelos de imagem SVG que podem ser usados com marcadores de HTML. Para obter mais informações, consulte o documento [como usar modelos de imagem](how-to-use-image-templates-web-sdk.md) .
+> O Web SDK do Azure Maps fornece vários modelos de imagem SVG que podem ser usados com marcadores HTML. Para obter mais informações, consulte o documento [Como usar modelos de imagem.](how-to-use-image-templates-web-sdk.md)
 
 ## <a name="add-a-css-styled-html-marker"></a>Adicionar um marcador HTML com estilo CSS
 
@@ -82,7 +82,7 @@ Um dos benefícios dos marcadores HTML é que há muitas ótimas personalizaçõ
 
 ## <a name="draggable-html-markers"></a>Marcadores HTML arrastáveis
 
-Esse exemplo mostra como tornar um marcador HTML arrastável. Os marcadores de HTML dão suporte a eventos `drag`, `dragstart`e `dragend`.
+Esse exemplo mostra como tornar um marcador HTML arrastável. Suporte a `drag`marcadores `dragend` HTML e `dragstart`eventos.
 
 <br/>
 
@@ -98,7 +98,7 @@ Estes exemplos mostram como adicionar eventos do mouse e de arrastar a um marcad
 <iframe height='500' scrolling='no' title='Adicionando eventos do mouse a marcadores HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Caneta <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Adicionando eventos do mouse a marcadores HTML</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
@@ -117,7 +117,7 @@ Para obter mais exemplos de código para adicionar aos seus mapas, consulte os s
 > [Como usar modelos de imagem](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolo](./map-add-pin.md)
+> [Adicione uma camada de símbolo](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolhas](./map-add-bubble-layer.md)
+> [Adicione uma camada de bolha](./map-add-bubble-layer.md)

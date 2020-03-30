@@ -1,15 +1,15 @@
 ---
-title: Restaurar dados no Azure para um Windows Server
-description: Neste artigo, saiba como restaurar os dados armazenados no Azure para um computador Windows Server ou Windows com o agente de Serviços de Recuperação do Microsoft Azure (MARS).
+title: Restaurar dados no Azure para um servidor Windows
+description: Neste artigo, saiba como restaurar os dados armazenados no Azure em um servidor Windows ou computador Windows com o Agente microsoft Azure Recovery Services (MARS).
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 25ca8eecaeb615f071340188a23fae7978ddb75c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248041"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409806"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar arquivos no Windows usando o modelo de implantação do Azure Resource Manager
 
@@ -40,18 +40,18 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     ![Captura de tela do Backup do Azure, com Recuperar Dados realçado](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Na página **Introdução**, para restaurar os dados para o mesmo computador ou servidor, selecione **Este servidor (`<server name>`)**  > **Avançar**.
+3. Na página **Como iniciar,** para restaurar os dados no mesmo servidor ou computador, selecione **Este servidor (`<server name>`)****Next** > .
 
     ![Captura de tela da página Introdução ao Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Na página **selecionar modo de recuperação** , escolha **arquivos e pastas individuais** > **Avançar**.
+4. Na página **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais** > **Avançar**.
 
     ![Captura de tela da página Selecionar Modo de Recuperação do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > A opção de restauração de arquivos e pastas individuais exige o .NET Framework 4.5.2 ou posterior. Se você não vir a opção **arquivos e pastas individuais**, você deve atualizar o .NET Framework para a versão 4.5.2 ou posterior e tente novamente.
  
    > [!TIP]
-   > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ela é adequada para a recuperação de arquivos individuais, com tamanhos totalizando não mais de 80 GB e ofertas de velocidades de transferência/cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (no máximo 60 MBps), que são ideais para a recuperação de dados grandes ou volumes inteiros.
+   > A opção **Arquivos e pastas Individuais** permite acesso rápido aos dados do ponto de recuperação. Ela é adequada para a recuperação de arquivos individuais, com tamanhos totalizando não mais de 80 GB e ofertas de velocidades de transferência/cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (no máximo 60 MBps), que são ideais para a recuperação de dados grandes ou volumes inteiros.
 
 5. Na página **Selecionar Volume e Data**, selecione o volume que contém os arquivos e pastas que você deseja restaurar.
 
@@ -63,7 +63,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     O Backup do Azure monta o ponto de recuperação local e o usa como um volume de recuperação.
 
-7. Na página **procurar e recuperar arquivos** , selecione **procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
+7. Na página **Procurar e Recuperar arquivos,** **selecione Procurar** para abrir o Windows Explorer e encontre os arquivos e pastas desejadas.
 
     ![Captura de tela da página Procurar e Recuperar Arquivos do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
@@ -85,16 +85,16 @@ Se o servidor inteiro for perdido, você ainda pode recuperar dados do backup do
 
 Essas etapas incluem a seguinte terminologia:
 
-* *Máquina de origem*: a máquina original da qual o backup foi feito e que está indisponível no momento.
+* *Máquina de origem* – A máquina original da qual o backup foi retirado e que está atualmente indisponível.
 * *Computador de destino* – O computador para o qual os dados estão sendo recuperados.
-* *Cofre de exemplo*: o cofre dos Serviços de Recuperação no qual a máquina de origem e a máquina de destino estão registradas.
+* *Cofre de* amostras – O cofre dos Serviços de Recuperação para o qual a máquina de origem e a máquina de destino estão registradas.
 
 > [!NOTE]
-> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito de um computador com Windows 7 pode ser restaurado em um computador com Windows 7 (ou posterior). Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
+> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup retirado de um computador Windows 7 pode ser restaurado em um computador Windows 7 (ou posterior). Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
 >
 >
 
-1. Abra o snap-in do **Backup do Microsoft Azure** no computador de destino.
+1. Abra o snap-in **do Microsoft Azure Backup** na máquina de destino.
 
 2. Verifique se a máquina de destino e a máquina de origem estão registradas no mesmo cofre dos Serviços de Recuperação.
 
@@ -110,7 +110,7 @@ Essas etapas incluem a seguinte terminologia:
 
     Se o arquivo de credencial de cofre for inválido (ou tiver expirado), baixe um novo arquivo de credencial de cofre do cofre de exemplo no portal do Azure. Depois de fornecer uma credencial de cofre válida, o nome do cofre de backup correspondente aparecerá.
 
-6. Na página **Selecionar Servidor de Backup**, selecione o computador de origem na lista de computadores exibidos e forneça a senha. Em seguida, selecione **Avançar**.
+6. Na página **Selecionar Servidor de Backup**, selecione o computador de origem na lista de computadores exibidos e forneça a senha. Em seguida, selecione **Next**.
 
     ![Captura de tela da página Selecionar Servidor de Backup do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
@@ -126,7 +126,7 @@ Essas etapas incluem a seguinte terminologia:
 
 9. Selecione **Montar** para montar localmente o ponto de recuperação como um volume de recuperação em seu computador de destino.
 
-10. Na página **procurar e recuperar arquivos** , selecione **procurar** para abrir o Windows Explorer e localize os arquivos e pastas desejados.
+10. Na página **Procurar e recuperar arquivos,** **selecione Procurar** para abrir o Windows Explorer e encontre os arquivos e pastas desejadas.
 
     ![Captura de tela da página Procurar e Recuperar Arquivos do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
@@ -144,4 +144,6 @@ Essas etapas incluem a seguinte terminologia:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).
+* Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).
+
+* Encontre [perguntas comuns sobre backup de arquivos e pastas](backup-azure-file-folder-backup-faq.md).

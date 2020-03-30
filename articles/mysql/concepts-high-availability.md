@@ -1,17 +1,17 @@
 ---
-title: Alta disponibilidade-banco de dados do Azure para MySQL
+title: Alta disponibilidade - Banco de dados Azure para MySQL
 description: Este tópico fornece informações de alta disponibilidade ao usar o Banco de Dados do Azure para MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 532cb62c371718a59adf2877517fcdb8f7047bcf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532766"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL
 O serviço do Banco de Dados do Azure para MySQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
@@ -31,6 +31,6 @@ Semelhante ao modelo de alta disponibilidade, quando um Banco de Dados do Azure 
 
 Durante a operação de escala, ocorre uma interrupção nas conexões de banco de dados. Os aplicativos cliente são desconectados e as transações abertas não confirmadas são canceladas. Depois que o aplicativo cliente repetir a tentativa ou realizar uma nova conexão, o gateway direcionará a conexão para a instância recém-dimensionada. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [tratamento de erros de conectividade transitórios](concepts-connectivity.md)
 - Saiba como [replicar seus dados com réplicas de leitura](howto-read-replicas-portal.md)

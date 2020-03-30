@@ -1,5 +1,6 @@
 ---
 title: Universos de segurança do Azure Key Vault | Microsoft Docs
+description: O Azure Key Vault é um serviço multi-inquilino. Ele usa um pool de HSMs em cada local do Azure. Todos os locais em uma região geográfica compartilham um limite criptográfico.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -7,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 35d2683495a12b864378f8fb6f5edb6663d92c27
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194913"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457382"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Universos de segurança e limites geográficos do Azure Key Vault
 
@@ -31,7 +32,7 @@ Por exemplo, um backup feito por determinada assinatura de uma chave em um cofre
 
 ## <a name="regions-and-products"></a>Regiões e produtos
 
-- [Regiões do Azure](https://azure.microsoft.com/regions/)
+- [Regiões azure](https://azure.microsoft.com/regions/)
 - [Produtos da Microsoft por região](https://azure.microsoft.com/regions/services/)
 
 Regiões são mapeadas para mundos de segurança, mostrados como cabeçalhos principais nas tabelas:

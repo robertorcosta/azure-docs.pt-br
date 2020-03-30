@@ -1,32 +1,32 @@
 ---
 title: Corrigir recursos sem conformidade
-description: Este guia orienta você pela correção de recursos que não são compatíveis com as políticas no Azure Policy.
+description: Este guia orienta você sobre a remediação de recursos que não estão em conformidade com as políticas da Política Azure.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 5cf26f5235fbc35cdc9bfc8527967c3cc5ca91b8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 71af5c81e0dce4d5c0a0461534f634db36bd66a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264525"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471380"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
-Os recursos que não são compatíveis com uma política **deployIfNotExists** ou **Modify** podem ser colocados em um estado compatível por meio da **correção**. A correção é realizada instruindo Azure Policy a executar o efeito **deployIfNotExists** ou as **operações** de marca da política atribuída em seus recursos existentes, se essa atribuição é para um grupo de gerenciamento, uma assinatura, um grupo de recursos ou um recurso individual. Este artigo mostra as etapas necessárias para entender e realizar a correção com o Azure Policy.
+Os recursos que não estão em conformidade com uma política **deployIfNotExist** ou **modify** podem ser colocados em um estado compatível através da **Remediação**. A remediação é realizada instruindo a Política Do Azure a executar o efeito **deployIfNotExists** ou as **operações** de marcação da política atribuída em seus recursos existentes, seja para um grupo de gerenciamento, uma assinatura, um grupo de recursos ou um recurso individual. Este artigo mostra os passos necessários para entender e realizar a remediação com a Política do Azure.
 
 ## <a name="how-remediation-security-works"></a>Como funciona a correção de segurança
 
-Quando Azure Policy executa o modelo na definição de política **deployIfNotExists** , ele faz isso usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy cria uma identidade gerenciada para cada atribuição, mas deve ter detalhes sobre quais funções devem ser concedidas à identidade gerenciada. Se a identidade gerenciada não tiver funções, esse erro será exibido durante a atribuição da política ou uma iniciativa. Ao usar o portal, Azure Policy concederá automaticamente à identidade gerenciada as funções listadas assim que a atribuição for iniciada.
+Quando o Azure Policy executa o modelo na definição de diretiva **deployIfNotExist,** ele o faz usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md).
+A Azure Policy cria uma identidade gerenciada para cada atribuição, mas deve ter detalhes sobre quais funções conceder a identidade gerenciada. Se a identidade gerenciada não tiver funções, esse erro será exibido durante a atribuição da política ou uma iniciativa. Ao usar o portal, a Diretiva Azure concede automaticamente à identidade gerenciada as funções listadas quando a atribuição é iniciada. A _localização_ da identidade gerenciada não afeta sua operação com a Política Do Azure.
 
 ![Identidade gerenciada – função ausente](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Se um recurso modificado por **deployIfNotExists** ou **Modify** estiver fora do escopo da atribuição de política ou o modelo acessar propriedades em recursos fora do escopo da atribuição de política, a identidade gerenciada da atribuição deverá ser [concedida ao acesso manualmente](#manually-configure-the-managed-identity) ou a implantação de correção falhará.
+> Se um recurso modificado pelo **deployIfNotExist** ou **modificar** estiver fora do escopo da atribuição de diretiva ou o modelo acessar propriedades em recursos fora do escopo da atribuição de diretiva, a identidade gerenciada da atribuição deve ser [concedida manualmente ou](#manually-configure-the-managed-identity) a implantação de remediação falhará.
 
 ## <a name="configure-policy-definition"></a>Configurar a definição de política
 
-A primeira etapa é definir as funções que **deployIfNotExists** e **Modificar** precisam na definição de política para implantar com êxito o conteúdo do modelo incluído. Na propriedade **detalhes**, adicione uma propriedade **roleDefinitionIds**. Essa propriedade é uma matriz de cadeias de caracteres que correspondem a funções no ambiente. Para obter um exemplo completo, consulte o [exemplo de deployIfNotExists](../concepts/effects.md#deployifnotexists-example) ou os exemplos de [Modificar](../concepts/effects.md#modify-examples).
+O primeiro passo é definir as funções que **implantamIfNotExist** e **modificar** necessidades na definição de diretiva para implantar com sucesso o conteúdo do modelo incluído. Na propriedade **detalhes**, adicione uma propriedade **roleDefinitionIds**. Essa propriedade é uma matriz de cadeias de caracteres que correspondem a funções no ambiente. Para um exemplo completo, consulte o [exemplo deployIfNotExist](../concepts/effects.md#deployifnotexists-example) ou os [exemplos de modificação](../concepts/effects.md#modify-examples).
 
 ```json
 "details": {
@@ -38,7 +38,7 @@ A primeira etapa é definir as funções que **deployIfNotExists** e **Modificar
 }
 ```
 
-A propriedade **roleDefinitionIds** usa o identificador de recurso completo e não assume a **roleName** curta da função. Para obter a ID para a função 'Colaborador' em seu ambiente, use o seguinte código:
+A propriedade **roleDefinitionIds** usa o identificador completo de recursos e não assume o papel **curtoNome** da função. Para obter a ID para a função 'Colaborador' em seu ambiente, use o seguinte código:
 
 ```azurecli-interactive
 az role definition list --name 'Contributor'
@@ -46,7 +46,7 @@ az role definition list --name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurar manualmente a identidade gerenciada
 
-Ao criar uma atribuição usando o portal, o Azure Policy gera a identidade gerenciada e concede a ela as funções definidas em **roleDefinitionIds**. Nas seguintes condições, as etapas usadas para criar a identidade gerenciada e atribuir permissões a ela precisam ser feitas manualmente:
+Ao criar uma atribuição usando o portal, a Azure Policy gera a identidade gerenciada e concede-lhe as funções definidas em **roleDefinitionIds**. Nas seguintes condições, as etapas usadas para criar a identidade gerenciada e atribuir permissões a ela precisam ser feitas manualmente:
 
 - Ao usar o SDK (como o Azure PowerShell)
 - Quando um recurso fora do escopo de atribuição é modificado pelo modelo
@@ -120,9 +120,9 @@ Para adicionar uma função à identidade gerenciada da atribuição, siga estas
 
 ## <a name="create-a-remediation-task"></a>Criar uma tarefa de correção
 
-### <a name="create-a-remediation-task-through-portal"></a>Criar uma tarefa de correção por meio do portal
+### <a name="create-a-remediation-task-through-portal"></a>Crie uma tarefa de remediação através do portal
 
-Durante a avaliação, a atribuição de política com efeitos **deployIfNotExists** ou **Modify** determina se há recursos sem conformidade. Quando forem encontrados recursos sem conformidade, os detalhes serão fornecidos na página **Correção**. Junto com a lista de políticas que têm recursos sem conformidade está a opção para disparar uma **tarefa de correção**. Essa opção é o que cria uma implantação do modelo **deployIfNotExists** ou das operações **Modify** .
+Durante a avaliação, a atribuição de diretiva com **implanteSNãoExiste** ou **modifica** efeitos determina se há recursos não compatíveis. Quando forem encontrados recursos sem conformidade, os detalhes serão fornecidos na página **Correção**. Junto com a lista de políticas que têm recursos sem conformidade está a opção para disparar uma **tarefa de correção**. Essa opção é o que cria uma implantação a partir do modelo **deployIfNotExist** ou das operações **de modificação.**
 
 Para criar uma **tarefas de correção**, siga estas etapas:
 
@@ -132,20 +132,20 @@ Para criar uma **tarefas de correção**, siga estas etapas:
 
 1. Selecione **Correção** no lado esquerdo da página do Azure Policy.
 
-   ![Selecionar correção na página de política](../media/remediate-resources/select-remediation.png)
+   ![Selecione Remediação na página Política](../media/remediate-resources/select-remediation.png)
 
-1. Todos os **deployIfNotExists** e **Modificar** atribuições de política com recursos sem conformidade estão incluídos nas **políticas para corrigir a** guia e a tabela de dados. Clique em uma política com recursos sem conformidade. A página **Nova tarefa de correção** é aberta.
+1. Todos os **implantesIfNotExist** e **modifiquem** as atribuições de diretiva com recursos não compatíveis estão incluídos nas **Políticas para remediar a** tabela de dados e a tabela de dados. Clique em uma política com recursos sem conformidade. A página **Nova tarefa de correção** é aberta.
 
    > [!NOTE]
    > Uma maneira alternativa de abrir a página **tarefa de correção** é localizar e clicar na política na página **Conformidade** e, em seguida, clicar no botão **Criar tarefa de correção**.
 
 1. Na página **Nova tarefa de correção**, filtre os recursos a serem corrigidos usando as reticências de **Escopo** para escolher os recursos filho nos quais a política está atribuída (incluindo até os objetos do recurso individuais). Além disso, use a lista suspensa **Locais** para filtrar ainda mais os recursos. Somente os recursos listados na tabela serão corrigidos.
 
-   ![Corrigir-selecione os recursos a serem corrigidos](../media/remediate-resources/select-resources.png)
+   ![Remediar - selecione quais recursos remediar](../media/remediate-resources/select-resources.png)
 
-1. Inicie a tarefa de correção depois que os recursos forem filtrados clicando em **Corrigir**. A página conformidade da política é aberta na guia **tarefas de correção** para mostrar o estado do progresso das tarefas. Implantações criadas pela tarefa de correção iniciam imediatamente.
+1. Inicie a tarefa de correção depois que os recursos forem filtrados clicando em **Corrigir**. A página de conformidade de políticas é aberta na guia **Tarefas de Remediação** para mostrar o progresso das tarefas. As implantações criadas pela tarefa de remediação começam imediatamente.
 
-   ![Corrigir-progresso das tarefas de correção](../media/remediate-resources/task-progress.png)
+   ![Remediar - progresso de tarefas de remediação](../media/remediate-resources/task-progress.png)
 
 1. Clique na **tarefa de correção** na página de conformidade de política para obter detalhes sobre o progresso. A filtragem usada para a tarefa é mostrada junto com uma lista dos recursos que estão sendo corrigidos.
 
@@ -155,9 +155,9 @@ Para criar uma **tarefas de correção**, siga estas etapas:
 
 Os recursos implantados por meio de uma **tarefa de correção** são adicionados à guia **Recursos Implantados** na página de conformidade com a política.
 
-### <a name="create-a-remediation-task-through-azure-cli"></a>Criar uma tarefa de correção por meio do CLI do Azure
+### <a name="create-a-remediation-task-through-azure-cli"></a>Crie uma tarefa de remediação através do Azure CLI
 
-Para criar uma **tarefa de correção** com CLI do Azure, use os comandos `az policy remediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` com sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
+Para criar uma **tarefa de remediação** `az policy remediation` com o Azure CLI, use os comandos. Substitua `{subscriptionId}` por seu `{myAssignmentId}` ID de assinatura e por sua **implantaçãoIfNotExist** ou **modifique** o ID de atribuição de diretiva.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -166,11 +166,11 @@ Para criar uma **tarefa de correção** com CLI do Azure, use os comandos `az po
 az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-Para outros comandos de correção e exemplos, consulte os comandos [AZ Policy remediation](/cli/azure/policy/remediation) .
+Para outros comandos e exemplos de remediação, consulte os comandos [de remediação de políticas az.](/cli/azure/policy/remediation)
 
-### <a name="create-a-remediation-task-through-azure-powershell"></a>Criar uma tarefa de correção por meio do Azure PowerShell
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Crie uma tarefa de remediação através do Azure PowerShell
 
-Para criar uma **tarefa de correção** com Azure PowerShell, use os comandos `Start-AzPolicyRemediation`. Substitua `{subscriptionId}` pela sua ID de assinatura e `{myAssignmentId}` com sua ID de atribuição de política **deployIfNotExists** ou **Modify** .
+Para criar uma **tarefa de remediação** com `Start-AzPolicyRemediation` o Azure PowerShell, use os comandos. Substitua `{subscriptionId}` por seu `{myAssignmentId}` ID de assinatura e por sua **implantaçãoIfNotExist** ou **modifique** o ID de atribuição de diretiva.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -179,13 +179,13 @@ Para criar uma **tarefa de correção** com Azure PowerShell, use os comandos `S
 Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
-Para obter outros cmdlets de correção e exemplos, consulte o módulo [AZ. PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) .
+Para obter outros cmdlets e exemplos de remediação, consulte o módulo [Az.PolicyInsights.](/powershell/module/az.policyinsights/#policy_insights)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
+- Revisar exemplos em [amostras de política do Azure](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).
-- Entenda como [criar políticas programaticamente](programmatically-create.md).
+- Entenda como [criar políticas programáticas.](programmatically-create.md)
 - Saiba como [obter dados de conformidade](get-compliance-data.md).
-- Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Reveja o que é um grupo de gestão com [organize seus recursos com grupos de gerenciamento do Azure.](../../management-groups/overview.md)

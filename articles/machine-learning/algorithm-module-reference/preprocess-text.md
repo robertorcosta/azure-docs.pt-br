@@ -1,7 +1,7 @@
 ---
-title: 'Pré-processar texto: referência de módulo'
+title: 'Texto de pré-processo: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo de texto de pré-processamento em Azure Machine Learning para limpar e simplificar o texto.
+description: Aprenda a usar o módulo Texto de Pré Processo no Azure Machine Learning para limpar e simplificar o texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,82 +9,82 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: a8938eba0f7af995086ab1e2baba41aee7dc6330
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153801"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477486"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no azure Machine Learning designer (visualização).
 
-Use o módulo de **texto pré-processar** para limpar e simplificar o texto. Ele dá suporte a essas operações comuns de processamento de texto:
+Use o módulo **Texto de pré-processo** para limpar e simplificar o texto. Ele suporta essas operações comuns de processamento de texto:
 
-* Remoção de palavras irrelevantes
-* Usando expressões regulares para pesquisar e substituir cadeias de caracteres de destino específicas
-* Lematização, que converte várias palavras relacionadas em um único Formulário canônico
-* Normalização de caso
-* Remoção de determinadas classes de caracteres, como números, caracteres especiais e sequências de caracteres repetidos, como "aaaa"
-* Identificação e remoção de emails e URLs
+* Remoção de stop-words
+* Usando expressões regulares para procurar e substituir strings de destino específicas
+* Lemmatização, que converte múltiplas palavras relacionadas a uma única forma canônica
+* Normalização de casos
+* Remoção de certas classes de caracteres, como números, caracteres especiais e sequências de caracteres repetidos, como "aaaa"
+* Identificação e remoção de e-mails e URLs
 
-O módulo de **texto de pré-processamento** atualmente só dá suporte ao inglês.
+O módulo **Texto de Pré-Processo** atualmente só suporta inglês.
 
-## <a name="configure-text-preprocessing"></a>Configurar o pré-processamento de texto  
+## <a name="configure-text-preprocessing"></a>Configurar pré-processamento de texto  
 
-1.  Adicione o módulo de **texto de pré-processamento** ao seu pipeline no Azure Machine Learning. Você pode encontrar esse módulo em **análise de texto**.
+1.  Adicione o módulo **Texto de pré-processo** ao seu pipeline no Azure Machine Learning. Você pode encontrar este módulo em **Text Analytics**.
 
-1. Conecte um conjunto de um DataSet que tenha pelo menos uma coluna contendo texto.
+1. Conecte um conjunto de dados que tenha pelo menos uma coluna contendo texto.
 
-1. Selecione o idioma na lista suspensa **idioma** .
+1. Selecione o idioma na lista de isto **do idioma.**
 
-1. **Coluna de texto a ser limpa**: selecione a coluna que você deseja pré-processar.
+1. **Coluna de texto para limpar**: Selecione a coluna que deseja pré-processar.
 
-1. **Remover palavras de parada**: Selecione esta opção se desejar aplicar uma lista de palavra irrelevante predefinida à coluna de texto. 
+1. **Remover palavras de parada**: Selecione esta opção se quiser aplicar uma lista de palavras de ponto predefinidas na coluna de texto. 
 
-    As listas de palavra irrelevante são dependentes de idioma e personalizáveis.
+    As listas de palavras de parada são dependentes de idiomas e personalizáveis.
 
-1. **Lematização**: Selecione esta opção se quiser que as palavras sejam representadas em sua forma canônica. Essa opção é útil para reduzir o número de ocorrências exclusivas de outros tokens de texto semelhantes.
+1. **Lemmatização**: Selecione esta opção se quiser que as palavras sejam representadas em sua forma canônica. Esta opção é útil para reduzir o número de ocorrências únicas de tokens de texto semelhantes.
 
-    O processo lematização é dependente de linguagem altamente.
+    O processo de lematização é altamente dependente da linguagem..
 
-1. **Detectar sentenças**: Selecione esta opção se desejar que o módulo Insira uma marca de limite de frase ao executar a análise.
+1. **Detectar frases**: Selecione esta opção se quiser que o módulo insira uma marca de limite de frase ao realizar a análise.
 
-    Esse módulo usa uma série de três caracteres de pipe `|||` para representar o terminador de frase.
+    Este módulo usa uma série `|||` de três caracteres de tubo para representar o exterminador de sentença.
 
-1. Execute operações de localização e substituição opcionais usando expressões regulares.
+1. Realize operações opcionais de encontrar e substituir usando expressões regulares.
 
-    * **Expressão regular personalizada**: defina o texto que você está pesquisando.
-    * **Cadeia de substituição personalizada**: defina um único valor de substituição.
+    * **Expressão regular personalizada**: Defina o texto que você está procurando.
+    * **Seqüência de substituição personalizada**: Defina um único valor de substituição.
 
-1. **Normalizar maiúsculas e minúsculas**: Selecione esta opção se desejar converter caracteres maiúsculos ASCII em formatos minúsculos.
+1. **Normalize a caixa em minúsculas**: Selecione esta opção se quiser converter caracteres maiúsculos ASCII em suas formas minúsculas.
 
-    Se os caracteres não forem normalizados, a mesma palavra em letras maiúsculas e minúsculas será considerada duas palavras diferentes.
+    Se os caracteres não forem normalizados, a mesma palavra em letras maiúsculas e minúsculas é considerada duas palavras diferentes.
 
-1. Você também pode remover os seguintes tipos de caracteres ou sequências de caracteres do texto de saída processado:
+1. Você também pode remover os seguintes tipos de caracteres ou seqüências de caracteres do texto de saída processada:
 
-    * **Remover números**: Selecione esta opção para remover todos os caracteres numéricos do idioma especificado. Os números de identificação são dependentes de domínio e de idioma. Se os caracteres numéricos forem parte integrante de uma palavra conhecida, o número poderá não ser removido.
+    * **Remover números**: Selecione esta opção para remover todos os caracteres numéricos para o idioma especificado. Os números de identificação são dependentes de domínio e dependentes de linguagem. Se caracteres numéricos são parte integrante de uma palavra conhecida, o número pode não ser removido.
     
-    * **Remover caracteres especiais**: Use esta opção para remover quaisquer caracteres especiais não alfanuméricos.
+    * **Remova caracteres especiais**: Use esta opção para remover quaisquer caracteres especiais não alfanuméricos.
     
-    * **Remover caracteres duplicados**: Selecione esta opção para remover caracteres extras em qualquer sequência que se repita para mais de duas vezes. Por exemplo, uma sequência como "AAAAA" seria reduzida para "AA".
+    * **Remova caracteres duplicados**: Selecione esta opção para remover caracteres extras em qualquer seqüência que se repita por mais de duas vezes. Por exemplo, uma sequência como "aaaaa" seria reduzida a "aa".
     
-    * **Remover endereços de email**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>`.  
-    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos de URL: `http`, `https`, `ftp``www`
+    * **Remover endereços de e-mail**: Selecione esta opção para remover qualquer seqüência do formato `<string>@<string>`.  
+    * **Remover URLs**: Selecione esta opção para remover qualquer `http`seqüência que inclua os seguintes prefixos de URL: , `https`, `ftp``www`
     
-1. **Expandir contratações de verbo**: essa opção se aplica somente a idiomas que usam contratações de verbo; Atualmente, somente em inglês. 
+1. **Expanda contrações verbos**: Esta opção se aplica apenas a linguagens que usam contrações verbos; atualmente, apenas inglês. 
 
-    Por exemplo, ao selecionar essa opção, você pode substituir a frase *"não estaria lá"* com *"não permaneceria lá"* .
+    Por exemplo, ao selecionar essa opção, você poderia substituir a frase *"não ficaria lá"* por *"não ficaria lá".*
 
-1. **Normalizar barras invertidas para barras**: Selecione esta opção para mapear todas as instâncias de `\\` para `/`.
+1. **Normalize os cortes de barras para cortes**: `\\` Selecione esta opção para mapear todas as instâncias de . `/`
 
-1. **Dividir tokens em caracteres especiais**: Selecione esta opção se desejar quebrar palavras em caracteres como `&`, `-`e assim por diante. Essa opção também pode reduzir os caracteres especiais quando ele se repetir mais de duas vezes. 
+1. **Tokens divididos em caracteres especiais**: Selecione esta opção `&` `-`se quiser quebrar palavras em caracteres como , e assim por diante. Esta opção também pode reduzir os caracteres especiais quando se repete mais de duas vezes. 
 
-    Por exemplo, a cadeia de caracteres `MS---WORD` seria separada em três tokens, `MS`, `-`e `WORD`.
+    Por exemplo, `MS---WORD` a seqüência seria separada `MS`em `-`três `WORD`tokens, e .
 
-1. Execute o pipeline.
+1. Envie o oleoduto.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

@@ -1,6 +1,6 @@
 ---
-title: Transformação do coletor no fluxo de dados de mapeamento
-description: Saiba como configurar uma transformação de coletor no fluxo de dados de mapeamento.
+title: Transformação do dissipador no mapeamento do fluxo de dados
+description: Saiba como configurar uma transformação de sink no mapeamento do fluxo de dados.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,59 +9,59 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a0b9d424c1995fba075c05ffe5058e297d764775
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020039"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531253"
 ---
-# <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
+# <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do dissipador no mapeamento do fluxo de dados
 
-Depois de transformar seus dados, você pode coletar os dados em um conjunto de dado de destino. Cada fluxo de dados requer pelo menos uma transformação de coletor, mas você pode gravar tantos coletores quantos forem necessários para concluir o fluxo de transformação. Para gravar em coletores adicionais, crie novos fluxos por meio de novas ramificações e divisões condicionais.
+Depois de transformar seus dados, você pode afundar os dados em um conjunto de dados de destino. Todo fluxo de dados requer pelo menos uma transformação de pia, mas você pode escrever para o máximo de pias necessário para completar seu fluxo de transformação. Para escrever em pias adicionais, crie novos fluxos através de novos ramos e divisões condicionais.
 
-Cada transformação de coletor é associada a exatamente um conjunto de Data Factory. O DataSet define a forma e o local dos dados que você deseja gravar.
+Cada transformação de pia está associada a exatamente um conjunto de dados da Fábrica de Dados. O conjunto de dados define a forma e a localização dos dados para os quais você deseja escrever.
 
-## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Conectores de coletor com suporte no fluxo de dados de mapeamento
+## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Conectores de pia suportados no mapeamento do fluxo de dados
 
-Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de coletor:
+Atualmente, os seguintes conjuntos de dados podem ser usados em uma transformação de pia:
     
-* [Armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
-* [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
-* [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
-* [Análise de Synapse do Azure](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [CosmosDB do Azure](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+* [Armazenamento Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Texto, Parquet)
+* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
+* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
+* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
+* [Banco de dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
+* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-As configurações específicas para esses conectores estão localizadas na guia **configurações** . as informações sobre essas configurações estão localizadas na documentação do conector. 
+As configurações específicas desses conectores estão localizadas na guia **Configurações.** 
 
-Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para gravar dados para essas outras fontes do fluxo de dados, use a atividade de cópia para carregar esses dados de uma das áreas de preparo com suporte após a conclusão do fluxo de dados.
+A Fábrica de Dados Azure tem acesso a mais de [90 conectores nativos](connector-overview.md). Para gravar dados para essas outras fontes a partir do seu fluxo de dados, use a Atividade de Cópia para carregar esses dados de uma das áreas de preparação suportadas após a conclusão do fluxo de dados.
 
-## <a name="sink-settings"></a>Configurações do coletor
+## <a name="sink-settings"></a>Configurações do dissipador
 
-Depois de adicionar um coletor, configure por meio da guia **coletor** . Aqui, você pode escolher ou criar o conjunto de os que seu coletor grava 
+Depois de adicionar uma pia, configure através da guia **'Afundar'.** Aqui você pode escolher ou criar o conjunto de dados que sua pia grava para 
 
-![Configurações do coletor](media/data-flow/sink-settings.png "Configurações do coletor")
+![Configurações do dissipador](media/data-flow/sink-settings.png "Configurações da pia")
 
-**Descompasso de esquema:** a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade do data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações na coluna. Habilite **permitir descompasso de esquemas** para gravar colunas adicionais sobre o que está definido no esquema de dados do coletor.
+**Deriva de esquema:** [Schema Drift](concepts-data-flow-schema-drift.md) é a capacidade da fábrica de dados de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem precisar definir explicitamente as alterações da coluna. Habilitar **Permitir deriva de esquema** para gravar colunas adicionais em cima do que é definido no esquema de dados do dissipador.
 
-**Validar esquema:** Se validar esquema for selecionado, o fluxo de dados falhará se nenhuma coluna no esquema definido do conjunto de dados for encontrada.
+**Validar o esquema:** Se o esquema de validação for selecionado, o fluxo de dados falhará se qualquer coluna do esquema de origem recebida não for encontrada na projeção de origem ou se os tipos de dados não corresponderem. Use esta configuração para impor que os dados de origem atendam ao contrato de sua projeção definida. É muito útil em cenários de fonte de banco de dados para sinalizar que nomes de colunas ou tipos mudaram.
 
 ## <a name="field-mapping"></a>Mapeamento de campo
 
-Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Isso é conhecido como **mapeamento automático**.
+Semelhante a uma transformação Select, na guia **Mapeamento** da pia, você pode decidir quais colunas recebidas serão escritas. Por padrão, todas as colunas de entrada, incluindo colunas à deriva, são mapeadas. Isso é conhecido como **Auto-mapping**.
 
-Ao desativar o mapeamento automático, você terá a opção de adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Os mapeamentos baseados em regras permitem escrever expressões com correspondência de padrões, enquanto o mapeamento fixo mapeará nomes de colunas lógicas e físicas. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+Quando você desativar o mapeamento automático, você terá a opção de adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Os mapeamentos baseados em regras permitem que você escreva expressões com correspondência de padrões, enquanto o mapeamento fixo mapeará nomes de colunas lógicas e físicas. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink)de coluna no fluxo de dados de mapeamento .
 
-## <a name="custom-sink-ordering"></a>Ordenação de coletor personalizado
+## <a name="custom-sink-ordering"></a>Pedidos de pia personalizados
 
-Por padrão, os dados são gravados em vários coletores em uma ordem não determinística. O mecanismo de execução gravará dados em paralelo, pois a lógica de transformação é concluída e a ordenação do coletor pode variar cada execução. Para especificar a ordenação exata do coletor, habilite a **ordenação personalizada do coletor** na guia Geral do fluxo de dados. Quando habilitado, os coletores serão gravados em sequência em ordem crescente.
+Por padrão, os dados são gravados em vários sinks em uma ordem não determinista. O mecanismo de execução gravará dados em paralelo à medida que a lógica de transformação for concluída e o pedido de pia pode variar a cada execução. Para especificar e solicitar o saque exato, habilite o **pedido de sacção personalizado** na guia geral do fluxo de dados. Quando ativado, as pias serão escritas sequencialmente em ordem crescente.
 
-![Ordenação de coletor personalizado](media/data-flow/custom-sink-ordering.png "Ordenação de coletor personalizado")
+![Pedidos de pia personalizados](media/data-flow/custom-sink-ordering.png "Pedidos de pia personalizados")
 
-## <a name="data-preview-in-sink"></a>Visualização de dados no coletor
+## <a name="data-preview-in-sink"></a>Visualização de dados na pia
 
-Ao buscar uma visualização de dados em um cluster de depuração, nenhum dado será gravado no coletor. Um instantâneo da aparência dos dados será retornado, mas nada será gravado no destino. Para testar a gravação de dados em seu coletor, execute uma depuração de pipeline na tela do pipeline.
+Ao buscar uma visualização de dados em um cluster de depuração, nenhum dado será gravado no seu dissipador. Um instantâneo de como os dados se parecem será devolvido, mas nada será escrito para o seu destino. Para testar a escrita de dados em sua pia, execute uma depuração do pipeline da tela do pipeline.
 
-## <a name="next-steps"></a>Próximos passos
-Agora que você criou o fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).
+## <a name="next-steps"></a>Próximas etapas
+Agora que você criou seu fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

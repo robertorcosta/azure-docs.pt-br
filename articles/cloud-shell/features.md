@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 0aa71e4b78df8087093f183b146c525d2a8a0f99
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366233"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
@@ -53,13 +53,13 @@ Todas as alterações feitas nos recursos do Azure, diretamente no portal do Azu
 
 ### <a name="manage-exchange-online"></a>Gerenciar o Exchange Online
 
-O PowerShell no Cloud Shell contém uma compilação particular do módulo do Exchange Online.  Execute `Connect-EXOPSSession` para obter os cmdlets do Exchange.
+O PowerShell na Cloud Shell contém uma compilação privada do módulo Exchange Online.  Corra `Connect-EXOPSSession` para obter seus cmdlets exchange.
 
 ![](media/features-powershell/exchangeonline.png)
 
  Execute `Get-Command -Module tmp_*`
 > [!NOTE]
-> O nome do módulo deve começar com `tmp_`, se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão exibidos. 
+> O nome do `tmp_`módulo deve começar com , se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão abordados. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -76,13 +76,13 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |Editores de texto           |código (editor do Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Controle do código-fonte         |git                    |
 |Ferramentas de build            |make<br> maven<br> npm<br> pip         |
-|Contêineres             |[Máquina do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI DO DC/OS](https://github.com/dcos/dcos-cli)         |
-|Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [Utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)|
+|Contêineres             |[Computador do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Leme](https://github.com/kubernetes/helm)<br> [CLI do DC/OS](https://github.com/dcos/dcos-cli)         |
+|Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso fantoche](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-|Linguagem   |Versão   |
+|Idioma   |Versão   |
 |---|---|
 |.NET Core  |2.2.402       |
 |Go         |1.9        |
@@ -92,7 +92,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |Python     |2.7 e 3.5 (padrão)|
 
 ## <a name="next-steps"></a>Próximas etapas
-[Início rápido do Bash no Cloud Shell](quickstart.md) <br>
-[Início Rápido do PowerShell no Cloud Shell](quickstart-powershell.md) <br>
+[Bash em Cloud Shell Quickstart](quickstart.md) <br>
+[PowerShell em Cloud Shell Quickstart](quickstart-powershell.md) <br>
 [Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

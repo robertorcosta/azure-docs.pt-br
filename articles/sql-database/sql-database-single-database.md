@@ -1,5 +1,5 @@
 ---
-title: O que é um banco de dados individual
+title: O que é um único banco de dados
 description: Saiba mais sobre o banco de dados individual no Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7bca36bdb41c5800a8718f76d48afcfde6f9333e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: fc63de4057def632d3ac1980e8cb3eaedbff2175
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79208833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500750"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -29,7 +29,7 @@ A opção de implantação de banco de dados individual cria um banco de dados n
 
 ## <a name="dynamic-scalability"></a>Dimensionamento dinâmico
 
-Você pode criar seu primeiro aplicativo em um banco de dados pequeno e único com baixo custo na camada de computação sem servidor ou em um tamanho de computação pequeno na camada de computação provisionada. Você altera a [camada de computação ou de serviço](sql-database-single-database-scale.md) manualmente ou programaticamente a qualquer momento para atender às necessidades de sua solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
+Você pode construir seu primeiro aplicativo em um pequeno banco de dados único a baixo custo no nível de computação sem servidor ou um pequeno tamanho de computação no nível de computação provisionado. Você altera o [nível de computação ou serviço](sql-database-single-database-scale.md) manualmente ou programáticamente a qualquer momento para atender às necessidades de sua solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
 
 ## <a name="single-databases-and-elastic-pools"></a>Bancos de dados individuais e pools elásticos
 
@@ -37,11 +37,11 @@ Um banco de dados individual pode ser movido de ou para um [pool elástico](sql-
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 
-Use as ferramentas de [monitoramento de desempenho interno](sql-database-performance.md) e [alerta](sql-database-insights-alerts-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Além disso, o banco de dados SQL pode [emitir métricas e logs de recursos](sql-database-metrics-diag-logging.md) para facilitar o monitoramento.
+Use as ferramentas de [monitoramento de desempenho interno](sql-database-performance-guidance.md) e [alerta](sql-database-insights-alerts-portal.md) em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução com base nas suas necessidades de desempenho atuais ou de projeto. Além disso, o SQL Database pode [emitir métricas e registros de recursos](sql-database-metrics-diag-logging.md) para facilitar o monitoramento.
 
 ## <a name="availability-capabilities"></a>Recursos de disponibilidade
 
-Os bancos de dados individuais, os pools elásticos e as instâncias gerenciadas oferecem muitas características de disponibilidade. Para obter informações, confira [Características de disponibilidade](sql-database-technical-overview.md#availability-capabilities).
+Bancos de dados únicos, piscinas elásticas e instâncias gerenciadas fornecem muitas características de disponibilidade. Para obter informações, confira [Características de disponibilidade](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Diferenças do Transact-SQL
 
@@ -55,10 +55,10 @@ Para obter mais informações, confira [Resolvendo diferenças de Transact-SQL d
 O Banco de Dados SQL fornece uma variedade de [recursos internos de segurança e conformidade](sql-database-security-overview.md) para ajudar seu aplicativo a atender a vários requisitos de conformidade e segurança.
 
 > [!IMPORTANT]
-> O banco de dados SQL do Azure (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte a [central de confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , em que você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
+> O Banco de Dados SQL do Azure (todas as opções de implantação) foi certificado com uma série de padrões de conformidade. Para obter mais informações, consulte o [Microsoft Azure Trust Center,](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do Banco de Dados SQL.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para começar rapidamente com um único banco de dados, comece com o [Guia de início rápido do banco de dados individual](sql-database-single-database-quickstart-guide.md).
+- Para começar rapidamente com um único banco de dados, comece com o [guia de início rápido do banco de dados Único](sql-database-single-database-quickstart-guide.md).
 - Para saber mais sobre como migrar um banco de dados do SQL Server para o Azure, confira [Migrar para o Banco de Dados SQL do Azure](sql-database-single-database-migrate.md).
 - Para obter informações sobre os recursos com suporte, consulte [Recursos](sql-database-features.md).

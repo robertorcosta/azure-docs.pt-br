@@ -1,5 +1,5 @@
 ---
-title: Exibir e gerenciar alertas do StorSimple virtual array
+title: Exibir e gerenciar alertas para StorSimple Virtual Array
 description: Descreve as condições de alerta e gravidade da Matriz Virtual StorSimple, e como usar o serviço StorSimple Manager para gerenciar alertas.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267424"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
@@ -39,7 +39,7 @@ Você pode escolher se deseja ser notificado por email das condições de alerta
 > [!NOTE]
 > Você pode inserir um máximo de 20 endereços de email por matriz virtual.
 
-Depois de habilitar a notificação por email para uma matriz virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-Alerts-noreply\@mail.WindowsAzure.com* e descreverá a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
+Depois de habilitar a notificação por email para uma matriz virtual, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-alerts-noreply\@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar assinatura** para sair da lista de notificação de email.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Para habilitar a notificação por email para alertas
 
@@ -53,7 +53,7 @@ Depois de habilitar a notificação por email para uma matriz virtual, os membro
    
    1. No campo **Habilitar notificação por email**, selecione **SIM**.
    2. No campo **Administradores do serviços de email**, selecione **SIM** se deseja que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
-   3. No campo **Destinatários de email adicionais**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira nomes no formato *alguém\@Somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo virtual.
+   3. No campo **Destinatários de email adicionais**, insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Digite nomes no formato *que alguém\@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo virtual.
       
        ![configuração da notificação de alertas](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Para enviar uma notificação de email de teste, clique em **Enviar email de teste**. O serviço Gerenciador de Dispositivo do StorSimple exibirá mensagens de status conforme ele encaminha a notificação de teste.
@@ -64,7 +64,7 @@ Depois de habilitar a notificação por email para uma matriz virtual, os membro
       > Se a mensagem de notificação de teste não pode ser enviada, o serviço Gerenciador de Dispositivo do StorSimple exibirá uma mensagem apropriada. Clique em **OK**, aguarde alguns minutos e, em seguida, tente enviar a mensagem de notificação de teste novamente.
       >
       >
-   5. Na parte inferior da página, clique em **Salvar** para salvar sua configuração. Quando solicitado a confirmar, clique em **Sim**.
+   5. Na parte inferior da página, clique em **Salvar** para salvar sua configuração. Quando solicitada a confirmação, clique em **Sim**.
       
       ![Email de notificação de teste de alertas enviado](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
@@ -73,7 +73,7 @@ Depois de habilitar a notificação por email para uma matriz virtual, os membro
 A matriz Virtual StorSimple gera alertas em resposta a uma variedade de condições. A seguir estão os tipos mais comuns de condições de alerta:
 
 * **Problemas de conectividade** – esses alertas ocorrem quando há dificuldade na transferência de dados. Podem ocorrer problemas de comunicação durante a transferência de dados de e para a conta de armazenamento do Azure ou devido à falta de conectividade entre os dispositivos virtuais e o serviço Gerenciador de Dispositivo do StorSimple. Problemas de comunicação são alguns dos mais difíceis de corrigir porque há muitos pontos de falha. Você deve sempre verificar primeiro se a conectividade de rede e o acesso à Internet estão disponíveis antes de continuar com a solução de problemas mais avançados. Para obter informações sobre portas e configurações de firewall, vá para [Requisitos do sistema StorSimple Virtual Array](storsimple-ova-system-requirements.md). Para obter ajuda com a solução de problemas, acesse [Solucionar problemas com o cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
-* **Problemas de desempenho** – esses alertas são causados quando o sistema não estiver sendo executado corretamente, como quando ele está sob uma carga pesada.
+* **Problemas de desempenho** – Estes alertas são causados quando seu sistema não apresenta um desempenho satisfatório, como quando está sobrecarregado.
 
 Além disso, você pode ver alertas relacionados à segurança, atualizações ou falhas no trabalho.
 
@@ -81,8 +81,8 @@ Além disso, você pode ver alertas relacionados à segurança, atualizações o
 
 Alertas têm diferentes níveis de severidade, dependendo do impacto que terá a situação de alerta e a necessidade de uma resposta ao alerta. Os níveis de severidade são:
 
-* **Crítico** – esse alerta ocorre em resposta a uma condição que está afetando o desempenho correto do seu sistema. Uma ação é necessária para garantir que o serviço StorSimple não seja interrompido.
-* **Aviso** – essa condição poderá se tornar crítica se não for resolvida. Você deve investigar a situação e realizar qualquer ação necessária para resolver o problema.
+* **Crítico** – Este alerta é em resposta a uma condição que está afetando o desempenho adequado do seu sistema. Uma ação é necessária para garantir que o serviço StorSimple não seja interrompido.
+* **Aviso** – Esta condição pode tornar-se crítica se não for resolvida. Você deve investigar a situação e realizar qualquer ação necessária para resolver o problema.
 * **Informações** – esse alerta contém informações que podem ser úteis para controlar e gerenciar seu sistema.
 
 ## <a name="view-and-track-alerts"></a>Exibir e controlar os alertas
@@ -101,7 +101,7 @@ Clique em um alerta na lista para obter detalhes adicionais sobre o mesmo, inclu
 
 Você pode copiar os detalhes do alerta para um arquivo de texto se precisar enviar as informações ao Suporte da Microsoft. Depois de seguir a recomendação e resolver a condição do alerta local, limpe o alerta da lista. Selecione o alerta na lista e clique em **Limpar**. Para limpar vários alertas, selecione cada alerta, clique em qualquer coluna exceto na coluna **Alerta** e clique em **Limpar** após ter selecionado todos os alertas a serem limpos.
 
-Ao clicar em **Limpar**, você terá a oportunidade de fornecer comentários sobre o alerta e as etapas que você seguiu para resolver o problema.
+Ao clicar em **Apagar**, você terá a oportunidade de fornecer comentários sobre o alerta e as etapas realizadas para resolver o problema.
 
 ![comentários de alerta](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
@@ -111,10 +111,10 @@ Alguns eventos serão removidos pelo sistema se outro evento for disparado com n
 
 A folha **Alertas** pode exibir até 250 alertas. Se você excedeu o número de alertas, nem todos os alertas serão exibidos no modo de exibição padrão. Você pode combinar os campos a seguir para personalizar quais alertas são exibidos:
 
-* **Status** – Você pode exibir alertas **Ativos** ou **Removidos**. Alertas ativos ainda estão sendo disparados em seu sistema, embora os alertas removidos tenham sido limpos manualmente por um administrador ou por meio de programação porque o sistema atualizou a condição de alerta com novas informações.
-* **Severidade** – Você pode exibir alertas de todos os níveis de severidade (críticos, avisos, informações) ou apenas uma determinada severidade, como, por exemplo, somente alertas críticos.
+* **Status** – Você pode exibir os alertas **Ativos** ou **Apagados**. Alertas ativos ainda estão sendo disparados em seu sistema, embora os alertas removidos tenham sido limpos manualmente por um administrador ou por meio de programação porque o sistema atualizou a condição de alerta com novas informações.
+* **Severidade** – Você pode exibir alertas de todos os níveis de severidade (críticos, aviso, informações) ou somente uma severidade específica como somente alertas críticos.
 * **Fonte** – Você pode exibir alertas de todas as fontes ou limitar os alertas para aqueles que vêm de serviço ou de um ou todos os dispositivos virtuais.
-* **Intervalo de tempo** – Especificando os carimbos de data e hora **De** e **Para**, você pode examinar os alertas durante o período de tempo desejado.
+* **Intervalo de tempo** – Ao especificar os carimbos de data e hora **De** e **Para**, você pode ver os alertas conforme o período de tempo de seu interesse.
 
 ## <a name="alerts-quick-reference"></a>Referência rápida de alertas
 
@@ -137,14 +137,14 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Configuração do dispositivo virtual local sem suporte. |Desempenho lento. |A configuração atual pode resultar em degradação de desempenho. Certifique-se de que o servidor atenda aos requisitos mínimos de configuração. Para saber mais, acesse os [requisitos do StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
-| Você está com pouco espaço em disco provisionado em <*nome do dispositivo*\>. |Aviso de espaço em disco. |Você está com pouco espaço em disco provisionado. Para liberar espaço, considere mover cargas de trabalho para outro volume ou compartilhar ou excluir dados. |
+| Você está ficando sem espaço em disco provisionado no nome <*do*\>dispositivo . |Aviso de espaço em disco. |Você está com pouco espaço em disco provisionado. Para liberar espaço, considere mover cargas de trabalho para outro volume ou compartilhar ou excluir dados. |
 
 ### <a name="job-failure-alerts"></a>Alertas de falha nos trabalhos
 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| O backup de <*nome do dispositivo*\> não pôde ser concluído. |Falha no trabalho de backup. |Não foi possível criar um backup. Considere o seguinte:<ul><li>Problemas de conectividade podem estar impedindo a operação de backup de ser concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade. Para obter mais informações sobre solução de problemas de conectividade, vá para a [interface do usuário da Web local](storsimple-ova-web-ui-admin.md) do seu dispositivo virtual.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul> Resolva os problemas, limpe o alerta e repita a operação. |
-| A clonagem de <*nome do dispositivo*\> não pôde ser concluída. |Falha no trabalho de clonagem. |Não foi possível criar um clone. Considere o seguinte:<ul><li>sua lista de backup pode não ser válida. Atualize a lista para verificar se ela ainda é válida.</li><li>Problemas de conectividade podem estar impedindo que a operação de clonagem seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul>Resolva os problemas, limpe o alerta e repita a operação. |
+| O backup do *nome* \> <do dispositivo não pôde ser concluído. |Falha no trabalho de backup. |Não foi possível criar um backup. Considere o seguinte:<ul><li>Problemas de conectividade podem estar impedindo a operação de backup de ser concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade. Para obter mais informações sobre solução de problemas de conectividade, vá para a [interface do usuário da Web local](storsimple-ova-web-ui-admin.md) do seu dispositivo virtual.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul>  Resolva os problemas, limpe o alerta e repita a operação. |
+| O clone de <*nome* \> do dispositivo não pôde ser concluído. |Falha no trabalho de clonagem. |Não foi possível criar um clone. Considere o seguinte:<ul><li>sua lista de backup pode não ser válida. Atualize a lista para verificar se ela ainda é válida.</li><li>Problemas de conectividade podem estar impedindo que a operação de clonagem seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul> Resolva os problemas, limpe o alerta e repita a operação. |
 
 ### <a name="networking-alerts"></a>Alertas de rede
 
@@ -157,13 +157,13 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Você está sofrendo atrasos inesperados na transferência de dados. |Transferência de dados lenta. |Erros de limitação acontecem quando você excede os alvos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou locatário possa usar o serviço a custos de outros. Para saber mais sobre a solução de problemas de sua conta de armazenamento do Azure, vá para [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Há pouco espaço em disco de reserva local em <*nome do dispositivo*\>. |Tempo de resposta lento. |Dez por cento do tamanho total provisionado para <*nome do dispositivo*\> está reservado no dispositivo local e agora está acabando o espaço reservado. A carga de trabalho em <*nome do dispositivo*\> está gerando uma taxa maior de variação ou você pode ter migrado recentemente uma grande quantidade de dados. Isso pode resultar em desempenho reduzido. Considere uma das ações a seguir para resolver esse problema:<ul><li>Aumentar a largura de banda de nuvem para este dispositivo.</li><li>Reduzir ou mover cargas de trabalho para outro volume ou compartilhamento.</li></ul> |
+| Você está ficando sem espaço em disco de reserva local no *nome*\>do dispositivo <. |Tempo de resposta lento. |10% do tamanho total provisionado para <*nome* \> do dispositivo está reservado no dispositivo local e agora você está ficando sem espaço reservado. A carga de trabalho em <*nome* \> do dispositivo está gerando uma taxa mais alta de churn ou você pode ter migrado recentemente uma grande quantidade de dados. Isso pode resultar em desempenho reduzido. Considere uma das ações a seguir para resolver esse problema:<ul><li>Aumentar a largura de banda de nuvem para este dispositivo.</li><li>Reduzir ou mover cargas de trabalho para outro volume ou compartilhamento.</li></ul> |
 
 ### <a name="security-alerts"></a>Alertas de segurança
 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| A senha de <*nome do dispositivo*\> vai expirar em <*número*\> dias. |Aviso de senha. |A sua senha vai expirar em <*número*\> dias. Considere alterar sua senha. Para saber mais, vá para [Alterar a senha de administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
+| A senha para <*nome* \> do dispositivo expirará em <dias *de número.* \> |Aviso de senha. |Sua senha expirará em <dias *de número.* \> Considere alterar sua senha. Para saber mais, vá para [Alterar a senha de administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ad8b4b39e582d10c2a3b6003bfa07138f4697b71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271129"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499195"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
-O Hub IoT fornece uma linguagem semelhante à SQL poderosa para recuperar informações sobre [dispositivos gêmeos](iot-hub-devguide-device-twins.md), [módulo gêmeos](iot-hub-devguide-module-twins.md), [trabalhos](iot-hub-devguide-jobs.md)e [Roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
+O IoT Hub fornece uma linguagem poderosa semelhante ao SQL para recuperar informações sobre [gêmeos de dispositivos,](iot-hub-devguide-device-twins.md) [gêmeos de módulo,](iot-hub-devguide-module-twins.md) [trabalhos](iot-hub-devguide-jobs.md)e [roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta do roteamento de mensagens, confira [consultas no roteamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ O Hub IoT fornece uma linguagem semelhante à SQL poderosa para recuperar inform
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de dispositivos e módulos gêmeos
 
-O [dispositivo gêmeos](iot-hub-devguide-device-twins.md) e o [módulo gêmeos](iot-hub-devguide-module-twins.md) podem conter objetos JSON arbitrários como marcas e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
+[Gêmeos de](iot-hub-devguide-device-twins.md) dispositivo e [gêmeos de módulo](iot-hub-devguide-module-twins.md) podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
 
 Suponha, por exemplo, que os seus dispositivos gêmeos do Hub IoT possuam a seguinte estrutura (o módulo gêmeo seria semelhante, somente com um moduleId adicional):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Consultas de módulo gêmeo
 
-A consulta no módulo gêmeos é semelhante à consulta no dispositivo gêmeos, mas usando uma coleção/namespace diferente; em vez de **dispositivos**, você consulta em **Devices. modules**:
+A consulta em gêmeos de módulo é semelhante à consulta em gêmeos de dispositivo, mas usando um espaço de coleta/namespace diferente; em vez de **dispositivos,** você consulta de **dispositivos.módulos:**
 
 ```sql
 SELECT * FROM devices.modules
@@ -233,7 +233,7 @@ O objeto de consulta expõe vários valores de **Next** dependendo da opção de
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se você estiver consultando dispositivos individuais gêmeos por ID, use a [API REST](https://docs.microsoft.com/rest/api/iothub/service/gettwin)do "Get". Essa API sempre retorna os valores mais recentes e tem limites de maior limitação. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs de serviço do Hub IOT do Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se consultar gêmeos de dispositivo individuais por ID, use a [API get twin REST](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Esta API sempre retorna os valores mais recentes e tem limites de estrangulamento mais altos. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs do Azure IoT Hub Service](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 
@@ -315,7 +315,7 @@ No momento, as consultas em **devices.jobs** não dão suporte a:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
 
-Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada (**dispositivos**, **dispositivos. modules**ou **Devices.Jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
+Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleta de documentos a ser iterada em (**dispositivos,** **dispositivos.módulos,** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-A cláusula **from < from_specification >** pode assumir apenas três valores: **de dispositivos** para consultar dispositivos gêmeos, **de Devices. modules** para consultar o módulo gêmeos ou **de Devices.Jobs** para consultar os detalhes do trabalho por dispositivo.
+A cláusula **de>de <from_specification** pode assumir apenas três valores: de dispositivos para consultar gêmeos de dispositivos, de **dispositivos.módulos** para consultar gêmeos do módulo de consulta ou **de devices.jobs** para consultar **detalhes** do trabalho por dispositivo.
 
 ## <a name="where-clause"></a>cláusula WHERE
 
@@ -436,11 +436,11 @@ Para entender o que significa cada símbolo na sintaxe de expressões, consulte 
 
 | Símbolo | Definição |
 | --- | --- |
-| attribute_name | Qualquer propriedade do documento JSON na coleção **FROM**. |
+| attribute_name | Qualquer propriedade do documento JSON na coleção **FROM.** |
 | binary_operator | Qualquer operador binário listado na seção [Operadores](#operators). |
 | function_name| Qualquer função listada na seção [Funções](#functions). |
 | decimal_literal |Um float expresso em notação decimal. |
-| hexadecimal_literal |Um número expresso pela cadeia de caracteres '0x' seguida por uma cadeia de caracteres de dígitos hexadecimais. |
+| hexadecimal_literal |Um número expresso pela seqüência '0x' seguido por uma seqüência de dígitos hexadecimais. |
 | string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma sequência de zero ou mais caracteres Unicode ou sequências de escape. As literais de cadeia de caracteres são colocadas entre aspas simples ou aspas duplas. Escapes permitidos: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por quatro dígitos hexadecimais. |
 
 ### <a name="operators"></a>Operadores
@@ -457,18 +457,18 @@ Há suporte para os seguintes operadores:
 
 Ao consultar gêmeos e trabalhos, a única função com suporte é:
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 | -------- | ----------- |
 | IS_DEFINED(propriedade) | Retorna um valor booliano que indica se um valor foi atribuído à propriedade (incluindo `null`). |
 
 Em condições de rotas, há suporte para as seguintes funções matemáticas:
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 | -------- | ----------- |
 | ABS(x) | Retorna o valor absoluto (positivo) da expressão numérica especificada. |
 | EXP(x) | Retorna o valor exponencial da expressão numérica especificada (e^x). |
 | POWER(x,y) | Retorna o valor da expressão especificada para a potência indicada (x^y).|
-| SQUARE(x) | Retorna o quadrado do valor numérico especificado. |
+| SQUARE(x)    | Retorna o quadrado do valor numérico especificado. |
 | CEILING(x) | Retorna o menor valor de número inteiro maior ou igual à expressão numérica especificada. |
 | FLOOR(x) | Retorna o maior inteiro menor ou igual à expressão numérica especificada. |
 | SIGN(x) | Retorna o sinal positivo (+1), zero (0) ou negativo (-1) da expressão numérica especificada.|
@@ -476,7 +476,7 @@ Em condições de rotas, há suporte para as seguintes funções matemáticas:
 
 Em condições de rotas, há suporte para as seguintes funções de verificação de tipo e conversão de tipo:
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 | -------- | ----------- |
 | AS_NUMBER | Converte a cadeia de caracteres de entrada em um número. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
 | IS_ARRAY | Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz. |
@@ -490,7 +490,7 @@ Em condições de rotas, há suporte para as seguintes funções de verificaçã
 
 Em condições de rotas, há suporte para as seguintes funções de cadeias de caracteres:
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
 | LENGTH(x) | Retorna o número de caracteres da expressão de cadeia de caracteres especificada.|

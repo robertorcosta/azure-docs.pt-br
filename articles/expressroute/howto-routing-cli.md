@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: configurar o emparelhamento: CLI'
+title: 'Azure ExpressRoute: Configure peering: CLI'
 description: Este artigo ajuda a criar e provisionar o emparelhamento público, privado e da Microsoft de um circuito da ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 services: expressroute
 author: cherylmc
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dbda73e022ebaad283641ce2f54a5962aeb4cb60
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 91a1b6cc877b31fbcef638e34d3147d3377ce85c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264759"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476110"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Criar e modificar o emparelhamento de um circuito do ExpressRoute usando a CLI
 
 Esse artigo ajuda a criar e gerenciar a configuração de roteamento/emparelhamento de um circuito da ExpressRoute no modelo de implantação do Resource Manager usando a CLI. Você também pode verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Se quiser usar um método diferente para trabalhar com seu circuito, selecione um artigo na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-routing-arm.md)
-> * [CLI do Azure](howto-routing-cli.md)
-> * [Emparelhamento público](about-public-peering.md)
+> * [Portal Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Powershell](expressroute-howto-routing-arm.md)
+> * [Azure CLI](howto-routing-cli.md)
+> * [Peering público](about-public-peering.md)
 > * [Vídeo – Emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vídeo – Emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
@@ -37,9 +37,9 @@ Esse artigo ajuda a criar e gerenciar a configuração de roteamento/emparelhame
 
 Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que ofereça serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
-Você pode configurar emparelhamento privado e emparelhamento da Microsoft para um circuito do ExpressRoute (o emparelhamento público do Azure é preterido para novos circuitos). Os emparelhamentos podem ser configurados em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre o emparelhamento público, consulte [emparelhamento público do ExpressRoute](about-public-peering.md).
+Você pode configurar peering privado e Microsoft peering para um circuito ExpressRoute (peering público do Azure é preterido para novos circuitos). Os peerings podem ser configurados em qualquer ordem que você escolher. No entanto, você deve concluir a configuração de um emparelhamento por vez. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre peering público, consulte [O peering público ExpressRoute](about-public-peering.md).
 
-## <a name="msft"></a>Emparelhamento da Microsoft
+## <a name="microsoft-peering"></a><a name="msft"></a>Peering da Microsoft
 
 Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento da Microsoft para um circuito do ExpressRoute.
 
@@ -50,28 +50,28 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 ### <a name="to-create-microsoft-peering"></a>Criar emparelhamento da Microsoft
 
-1. Instale a versão mais recente do CLI do Azure. Use a versão mais recente do CLI do Azure (Interface de linha de comando).* Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+1. Instale a versão mais recente do CLI do Azure. Use a versão mais recente da Interface de linha de Comando do Azure (CLI). Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
 
    Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute.
 
-   ```azurecli-interactive
+   ```azurecli
    az account set --subscription "<subscription ID>"
    ```
 2. Criar um circuito do ExpressRoute. Siga as instruções para criar um [circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento da Microsoft. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, continue a configuração executando as próximas etapas. 
 
 3. Verifique se o circuito do ExpressRoute está provisionado e habilitado. Use o seguinte exemplo:
 
-   ```azurecli-interactive
+   ```azurecli
    az network express-route list
    ```
 
    A resposta é semelhante ao seguinte exemplo:
 
-   ```azurecli
+   ```output
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
@@ -113,27 +113,27 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
    Execute o exemplo a seguir para configurar o emparelhamento da Microsoft para seu circuito:
 
-   ```azurecli-interactive
+   ```azurecli
    az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
    ```
 
-### <a name="getmsft"></a>Para exibir detalhes de emparelhamento da Microsoft
+### <a name="to-view-microsoft-peering-details"></a><a name="getmsft"></a>Para exibir detalhes de emparelhamento da Microsoft
 
 Você pode obter detalhes de configuração usando o exemplo a seguir:
 
-```azurecli-interactive
+```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
 > [!IMPORTANT]
-> A Microsoft verifica se os ' prefixos públicos publicados ' e ' peer ASN ' (ou ' cliente ASN ') especificados estão atribuídos a você no registro de roteamento da Internet. Se você estiver obtendo os prefixos públicos de outra entidade e se a atribuição não for registrada com o registro de roteamento, a validação automática não será concluída e exigirá validação manual. Se a validação automática falhar, você verá "AdvertisedPublicPrefixesState" como "validação necessária" na saída do comando acima. 
+> A Microsoft verifica se os 'prefixos públicos anunciados' e 'Peer ASN' (ou 'Customer ASN') são atribuídos a você no Registro de Roteamento da Internet. Se você estiver recebendo os prefixos públicos de outra entidade e se a atribuição não for registrada no registro de roteamento, a validação automática não será concluída e exigirá validação manual. Se a validação automática falhar, você verá 'AdvertisedPublicPrefixesState' como 'Validação necessária' na saída do comando acima. 
 > 
-> Se você vir a mensagem "validação necessária", colete os documentos que mostram os prefixos públicos são atribuídos à sua organização pela entidade que está listada como o proprietário dos prefixos no registro de roteamento e envie esses documentos para validação manual por abrindo um tíquete de suporte, conforme mostrado abaixo. 
+> Se você vir a mensagem 'Validação necessária', colete os documentos que mostram os prefixos públicos são atribuídos à sua organização pela entidade que está listada como a proprietária dos prefixos no registro de roteamento e envie esses documentos para validação manual por abrindo um bilhete de suporte, como mostrado abaixo. 
 > 
 >
 
 A saída deverá ser semelhante ao seguinte exemplo:
 
-```azurecli
+```output
 {
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
@@ -165,29 +165,29 @@ A saída deverá ser semelhante ao seguinte exemplo:
 }
 ```
 
-### <a name="updatemsft"></a>Para atualizar a configuração de emparelhamento da Microsoft
+### <a name="to-update-microsoft-peering-configuration"></a><a name="updatemsft"></a>Atualizar a configuração de emparelhamento da Microsoft
 
 Você pode atualizar qualquer parte da configuração. Os prefixos anunciados do circuito estão sendo atualizados de 123.1.0.0/24 para 124.1.0.0/24 no exemplo a seguir:
 
-```azurecli-interactive
+```azurecli
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
 ```
 
-### <a name="addIPv6msft"></a>Para adicionar configurações de IPv6 de emparelhamento da Microsoft a uma configuração de IPv4 existente
+### <a name="to-add-ipv6-microsoft-peering-settings-to-an-existing-ipv4-configuration"></a><a name="addIPv6msft"></a>Para adicionar configurações de IPv6 de emparelhamento da Microsoft a uma configuração de IPv4 existente
 
-```azurecli-interactive
+```azurecli
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
-### <a name="deletemsft"></a>Para excluir emparelhamento da Microsoft
+### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Excluir emparelhamento da Microsoft
 
 Você pode remover a configuração de emparelhamento executando o seguinte exemplo:
 
-```azurecli-interactive
+```azurecli
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
-## <a name="private"></a>Emparelhamento privado do Azure
+## <a name="azure-private-peering"></a><a name="private"></a>Emparelhamento privado do Azure
 
 Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento privado do Azure para um circuito do ExpressRoute.
 
@@ -195,26 +195,26 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 1. Instale a versão mais recente do CLI do Azure. Você deve usar a versão mais recente do CLI do Azure (Interface de linha de comando). * Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
 
    Selecionar a assinatura na qual você deseja criar um circuito do ExpressRoute
 
-   ```azurecli-interactive
+   ```azurecli
    az account set --subscription "<subscription ID>"
    ```
 2. Criar um circuito do ExpressRoute. Siga as instruções para criar um [circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, você pode solicitar a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, continue a configuração executando as próximas etapas.
 
 3. Verifique se o circuito do ExpressRoute está provisionado e habilitado. Use o seguinte exemplo:
 
-   ```azurecli-interactive
+   ```azurecli
    az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
    ```
 
    A resposta é semelhante ao seguinte exemplo:
 
-   ```azurecli
+   ```output
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
@@ -253,13 +253,13 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
    Use o seguinte exemplo para configurar o emparelhamento privado do Azure para seu circuito:
 
-   ```azurecli-interactive
+   ```azurecli
    az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
    ```
 
    Se você optar por usar um hash MD5, use o exemplo a seguir:
 
-   ```azurecli-interactive
+   ```azurecli
    az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
    ```
 
@@ -268,17 +268,17 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
    > 
    > 
 
-### <a name="getprivate"></a>Para exibir detalhes sobre o emparelhamento privado do Azure
+### <a name="to-view-azure-private-peering-details"></a><a name="getprivate"></a>Para exibir detalhes sobre o emparelhamento privado do Azure
 
 Você pode obter detalhes de configuração usando o exemplo a seguir:
 
-```azurecli-interactive
+```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
 A saída deverá ser semelhante ao seguinte exemplo:
 
-```azurecli
+```output
 {
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
@@ -304,15 +304,15 @@ A saída deverá ser semelhante ao seguinte exemplo:
 }
 ```
 
-### <a name="updateprivate"></a>Para atualizar a configuração de emparelhamento privado do Azure
+### <a name="to-update-azure-private-peering-configuration"></a><a name="updateprivate"></a>Atualizar a configuração de emparelhamento privado do Azure
 
 Você pode atualizar qualquer parte da configuração usando o exemplo a seguir. Neste exemplo, a ID da VLAN do circuito está sendo atualizada de 100 para 500.
 
-```azurecli-interactive
+```azurecli
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-### <a name="deleteprivate"></a>Para excluir um emparelhamento privado do Azure
+### <a name="to-delete-azure-private-peering"></a><a name="deleteprivate"></a>Excluir um emparelhamento privado do Azure
 
 Você pode remover a configuração de emparelhamento executando o seguinte exemplo:
 
@@ -321,7 +321,7 @@ Você pode remover a configuração de emparelhamento executando o seguinte exem
 > 
 > 
 
-```azurecli-interactive
+```azurecli
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 

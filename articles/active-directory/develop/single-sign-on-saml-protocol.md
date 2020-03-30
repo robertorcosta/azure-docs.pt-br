@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262419"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Logon Único
@@ -46,7 +46,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parâmetro |  | DESCRIÇÃO |
+| Parâmetro |  | Descrição |
 | --- | --- | --- |
 | ID | Obrigatório | O Azure AD usa esse atributo para popular o atributo `InResponseTo` da resposta retornada. A ID não deve começar com um número. Uma estratégia comum é anexar uma cadeia de caracteres como "id" à representação de cadeia de caracteres de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma ID válida. |
 | Versão | Obrigatório | Esse parâmetro deve ser definido como **2.0**. |
@@ -55,7 +55,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ForceAuthn | Opcional | Esse é um valor booliano. Se for true, isso significa que o usuário será forçado a autenticar novamente, mesmo que ele tenha uma sessão válida no Azure AD. |
 | IsPassive | Opcional | Esse é um valor booliano que especifica se o Azure AD deve autenticar o usuário silenciosamente, sem a interação do usuário, usando o cookie da sessão, se existir. Se for true, o Azure AD tentará autenticar o usuário usando o cookie da sessão. |
 
-Todos os outros atributos `AuthnRequest`, como Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName são **ignorados**.
+Todos `AuthnRequest` os outros atributos, como Consentimento, Destino, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName são **ignorados**.
 
 O Azure AD também ignora o elemento `Conditions` na `AuthnRequest`.
 
@@ -89,7 +89,7 @@ Se `NameIDPolicy` for fornecido, você poderá incluir seu atributo `Format` opc
 O Azure AD ignora o atributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-O elemento `RequestedAuthnContext` especifica os métodos de autenticação desejados. É opcional nos elementos `AuthnRequest` enviados ao Azure AD. O Azure AD dá suporte a `AuthnContextClassRef` valores como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+O elemento `RequestedAuthnContext` especifica os métodos de autenticação desejados. É opcional nos elementos `AuthnRequest` enviados ao Azure AD. O Azure AD `AuthnContextClassRef` suporta `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`valores como .
 
 ### <a name="scoping"></a>Scoping
 O elemento `Scoping`, que inclui uma lista de provedores de identidade, é opcional em `AuthnRequest` enviadas ao Azure AD.
@@ -157,7 +157,7 @@ O elemento `Response` inclui os resultados da solicitação de autorização. O 
 
 ### <a name="issuer"></a>Emissor
 
-O Azure AD define o elemento `Issuer` como `https://login.microsoftonline.com/<TenantIDGUID>/` em que \<TenantIDGUID > é a ID de locatário do locatário do Azure AD.
+O Azure AD `https://login.microsoftonline.com/<TenantIDGUID>/` define \<o `Issuer` elemento para onde o TenantIDGUID> é o ID do inquilino Azure AD.
 
 Por exemplo, uma resposta com o elemento Issuer poderia ter a aparência deste exemplo:
 
@@ -192,7 +192,7 @@ Além de `ID`, `IssueInstant` e `Version`, o Azure AD define os elementos a segu
 
 #### <a name="issuer"></a>Emissor
 
-Isso é definido como `https://sts.windows.net/<TenantIDGUID>/`em que \<TenantIDGUID > é a ID de locatário do locatário do Azure AD.
+Isto é `https://sts.windows.net/<TenantIDGUID>/` \<definido para onde TenantIDGUID> é o ID inquilino do Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -270,7 +270,7 @@ Ele contém declarações sobre o assunto ou o usuário. O trecho a seguir cont�
 </AttributeStatement>
 ```        
 
-* **Declaração de Nome**: o valor do atributo `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) é o nome UPN do usuário autenticado, como `testuser@managedtenant.com`.
+* **Reivindicação de nome** - `Name` O`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`valor do atributo () é o `testuser@managedtenant.com`nome principal do usuário autenticado, tais como .
 * **Declaração ObjectIdentifier**: o valor do atributo `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) é o `ObjectId` do objeto do directory representando o usuário autenticado no Azure AD. `ObjectId` é um identificador seguro globalmente exclusivo, imutável e reutilizável do usuário autenticado.
 
 #### <a name="authnstatement"></a>AuthnStatement

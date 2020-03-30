@@ -1,28 +1,28 @@
 ---
-title: Exemplos de transformação de declarações de cadeia de caracteres para políticas personalizadas
+title: Exemplos de transformação de reivindicações de strings para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos de transformação de declarações de cadeia de caracteres para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: Exemplos de transformação de reivindicações de strings para o esquema IEF (Identity Experience Framework, estrutura de experiência de identidade) do Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a5d0908842c20e15fdf7b336b9e244c4bafb345
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264291"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472768"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações de cadeia de caracteres do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para o uso das transformações de reivindicações de string do esquema Identity Experience Framework no Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
@@ -34,7 +34,7 @@ Compare duas declarações e lance uma exceção se não forem iguais de acordo 
 | InputClaim | inputClaim2 | string | Tipo da segunda declaração, que será comparado. |
 | InputParameter | stringComparison | string | comparação da cadeia de caracteres, um dos valores: Ordinal, OrdinalIgnoreCase. |
 
-A transformação declarações **AssertStringClaimsAreEqual** é sempre executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md)ou um [DisplayConrtol](display-controls.md). O `UserMessageIfClaimsTransformationStringsAreNotEqual` metadados de um perfil técnico autodeclarado controla a mensagem de erro que é apresentada ao usuário.
+A transformação de reivindicações **AssertStringClaimsAreEqual** é sempre executada a partir de um [perfil técnico](validation-technical-profile.md) de validação que é chamado por um perfil [técnico auto-afirmado](self-asserted-technical-profile.md), ou um [DisplayConrtol](display-controls.md). Os `UserMessageIfClaimsTransformationStringsAreNotEqual` metadados de um perfil técnico auto-afirmado controlam a mensagem de erro apresentada ao usuário. As mensagens de erro podem ser [localizadas](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![Execução do AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
@@ -80,8 +80,8 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**:someone@contoso.com
+  - **inputClaim2**:someone@outlook.com
 - Parâmetros de entrada:
   - **stringComparison**: ordinalIgnoreCase
 - Resultado: erro gerado
@@ -92,7 +92,7 @@ Altera a declaração fornecida para letra maiúscula ou minúscula, dependendo 
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | O ClaimType a ser alterado. |
+| InputClaim | inputClaim1 | string | O Tipo de Reclamação a ser alterado. |
 | InputParameter | toCase | string | Um dos seguintes valores: `LOWER` ou `UPPER`. |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
 
@@ -115,19 +115,19 @@ Use essa transformação de declaração para alterar qualquer ClaimType de cade
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **email**: SomeOne@contoso.com
+  - **e-mail**:SomeOne@contoso.com
 - Parâmetros de entrada:
     - **toCase**: LOWER
 - Declarações de saída:
-  - **email**: someone@contoso.com
+  - **e-mail**:someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
-Cria uma declaração de cadeia de caracteres do parâmetro de entrada fornecido na transformação.
+Cria uma reivindicação de string a partir do parâmetro de entrada fornecido na transformação.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | A cadeia de caracteres a ser definida. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions). |
+| InputParameter | value | string | A corda a ser definida. Este parâmetro de entrada suporta [expressões de transformação de reivindicações de string .](string-transformations.md#string-claim-transformations-expressions) |
 | OutputClaim | createdClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declaração, com o valor especificado no parâmetro de entrada. |
 
 Use essa transformação de declarações para definir um valor de ClaimType de cadeia de caracteres.
@@ -183,11 +183,11 @@ Use essa transformação de declaração para verificar se uma declaração for 
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**:someone@contoso.com
+  - **inputClaim2**:someone@outlook.com
 - Parâmetros de entrada:
     - **operator**: NOT EQUAL
-    - **ignoreCase**: true
+    - **ignorarCase:** verdadeiro
 - Declarações de saída:
     - **outputClaim**: true
 
@@ -297,7 +297,7 @@ Formate uma declaração de acordo com a cadeia de caracteres de formato forneci
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |string |O ClaimType que atua como o parâmetro {0} do formato da cadeia de caracteres. |
-| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo o parâmetro {0}. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions).  |
+| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo o parâmetro {0}. Este parâmetro de entrada suporta [expressões de transformação de reivindicações de string .](string-transformations.md#string-claim-transformations-expressions)  |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
 
 Use essa transformação de declarações para formatar qualquer cadeia de caracteres com um parâmetro {0}. O exemplo a seguir cria um **userPrincipalName**. Todos os perfis técnicos do provedor de identidade social, como `Facebook-OAUTH` chama **CreateUserPrincipalName** para gerar um **userPrincipalName**.
@@ -323,7 +323,7 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 - Parâmetros de entrada:
     - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
 - Declarações de saída:
-  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **saídaReclamação:**cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -333,7 +333,7 @@ Formate duas declarações de acordo com a cadeia de caracteres de formato forne
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |string | O ClaimType que atua como o parâmetro {0} do formato da cadeia de caracteres. |
 | InputClaim | InputClaim | string | O ClaimType que atua como o parâmetro {1} do formato da cadeia de caracteres. |
-| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo os parâmetros {0} e {1}. Esse parâmetro de entrada suporta [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions).   |
+| InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo os parâmetros {0} e {1}. Este parâmetro de entrada suporta [expressões de transformação de reivindicações de string .](string-transformations.md#string-claim-transformations-expressions)   |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
 
 Use essa transformação de declarações para formatar qualquer cadeia de caracteres com dois parâmetros, {0} e {1}. O exemplo a seguir cria um **displayName** com o formato especificado:
@@ -359,31 +359,31 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
     - **inputClaim1**: Joe
     - **inputClaim2**: Fernando
 - Parâmetros de entrada:
-    - **StringFormat**: {0} {1}
+    - **stringFormat** {0} :{1}
 - Declarações de saída:
     - **outputClaim**: Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
-Copia cadeias de caracteres localizadas em declarações.
+Copia strings localizadas em reivindicações.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | O nome da cadeia de caracteres localizada | string | Lista de tipos de declaração produzidas após a chamada desta transformação de declarações. |
+| OutputClaim | O nome da seqüência localizada | string | Lista de tipos de sinistros que são produzidos após essa transformação de sinistros foi invocado. |
 
-Para usar a transformação de declarações GetLocalizedStringsTransformation:
+Para usar a transformação de reivindicações GetLocalizedStringsTransformation:
 
-1. Defina uma [cadeia de caracteres de localização](localization.md) e associe-a a um [perfil técnico autodeclarado](self-asserted-technical-profile.md).
-1. O `ElementType` do elemento `LocalizedString` deve ser definido como `GetLocalizedStringsTransformationClaimType`.
-1. O `StringId` é um identificador exclusivo que você define e usá-lo mais tarde em sua transformação de declarações.
-1. Na transformação declarações, especifique a lista de declarações a serem definidas com a cadeia de caracteres localizada. O `ClaimTypeReferenceId` é uma referência a um ClaimType já definido na seção ClaimsSchema da política. O `TransformationClaimType` é o nome da cadeia de caracteres localizada, conforme definido no `StringId` do elemento `LocalizedString`.
-1. Em um [perfil técnico autodeclarado](self-asserted-technical-profile.md)ou uma transformação de declarações de entrada ou saída de [controle de exibição](display-controls.md) , faça uma referência à sua transformação de declarações.
+1. Defina uma [seqüência de localização](localization.md) e associe-a a um [perfil técnico-auto-afirmado](self-asserted-technical-profile.md).
+1. O `ElementType` do `LocalizedString` elemento deve `GetLocalizedStringsTransformationClaimType`ser definido como .
+1. O `StringId` é um identificador único que você define e o usa mais tarde na transformação de suas reivindicações.
+1. Na transformação de sinistros, especifique a lista de reivindicações a serem definidas com a seqüência localizada. É `ClaimTypeReferenceId` uma referência a um ClaimType já definido na seção ClaimsSchema na diretiva. O `TransformationClaimType` é o nome da seqüência `StringId` localizada `LocalizedString` como definido no elemento.
+1. Em um [perfil técnico auto-afirmado,](self-asserted-technical-profile.md)ou uma mudança de entrada ou saída de sinistros de [controle de exibição,](display-controls.md) faça uma referência à transformação de suas reivindicações.
 
 ![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
 
-O exemplo a seguir pesquisa o assunto do email, o corpo, sua mensagem de código e a assinatura do email, de cadeias de caracteres localizadas. Essas declarações são usadas posteriormente pelo modelo de verificação de email personalizado.
+O exemplo a seguir analisa o assunto de e-mail, o corpo, sua mensagem de código e a assinatura do e-mail, a partir de strings localizadas. Essas reivindicações posteriormente usadas pelo modelo de verificação de e-mail personalizado.
 
-Defina cadeias de caracteres localizadas para inglês (padrão) e espanhol.
+Defina strings localizadas para inglês (padrão) e espanhol.
 
 ```XML
 <Localization Enabled="true">
@@ -411,7 +411,7 @@ Defina cadeias de caracteres localizadas para inglês (padrão) e espanhol.
 </Localization>
 ```
 
-A transformação declarações define o valor do tipo de Declaração *sujeito* ao valor do `StringId` *email_subject*.
+A transformação de sinistros *subject* define o valor `StringId` do sujeito do tipo de sinistro com o valor do *email_subject*.
 
 ```XML
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -427,10 +427,10 @@ A transformação declarações define o valor do tipo de Declaração *sujeito*
 ### <a name="example"></a>Exemplo
 
 - Declarações de saída:
-  - **assunto**: código de verificação de email da conta contoso
+  - **assunto**: Código de verificação de e-mail da conta contoso
   - **mensagem**: Obrigado por verificar sua conta!
-  - **codeIntro**: seu código é
-  - **assinatura**: Atenciosamente
+  - **codeIntro**: Seu código é
+  - **assinatura**: Sinceramente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -474,7 +474,7 @@ A transformação de declarações procura o texto do item e retorna seu valor. 
 - Declarações de entrada:
     - **mapFromClaim**: B2C_V1_90001
 - Declarações de saída:
-    - **restrictionValueClaim**: não é possível entrar porque você é um secundário.
+    - **restriçãoValueClaim**: Você não pode fazer login porque você é menor.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -485,7 +485,7 @@ Procure um valor de declaração de uma lista de valores com base no valor de ou
 | InputClaim | inputParameterId | string | A declaração que contém o valor de pesquisa |
 | InputParameter | |string | Coleção de inputParameters. |
 | InputParameter | errorOnFailedLookup | booleano | Controlar se um erro é retornado quando nenhuma pesquisa corresponde. |
-| OutputClaim | inputParameterId | string | Os ClaimTypes que serão produzidos depois de invocar esta transformação de declaração. O valor do `Id`correspondente. |
+| OutputClaim | inputParameterId | string | Os ClaimTypes que serão produzidos depois de invocar esta transformação de declaração. O valor da `Id`correspondência. |
 
 O exemplo a seguir procura o nome de domínio em uma das coleções inputParameters. A transformação de declarações procura o nome de domínio no identificador e retorna seu valor (uma ID de aplicativo).
 
@@ -518,11 +518,11 @@ O exemplo a seguir procura o nome de domínio em uma das coleções inputParamet
 - Declarações de saída:
     - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
 
-Quando `errorOnFailedLookup` parâmetro de entrada é definido como `true`, a transformação **LookupValue** declarações é sempre executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md)ou um [DisplayConrtol](display-controls.md). O `LookupNotFound` metadados de um perfil técnico autodeclarado controla a mensagem de erro que é apresentada ao usuário.
+Quando `errorOnFailedLookup` o parâmetro de `true`entrada é definido para , a transformação de reivindicações **Do LookupValue** é sempre executada a partir de um [perfil técnico](validation-technical-profile.md) de validação que é chamado por um perfil técnico [auto-afirmado](self-asserted-technical-profile.md), ou um [DisplayConrtol](display-controls.md). Os `LookupNotFound` metadados de um perfil técnico auto-afirmado controlam a mensagem de erro apresentada ao usuário.
 
 ![Execução do AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
-O exemplo a seguir procura o nome de domínio em uma das coleções inputParameters. A transformação declarações pesquisa o nome de domínio no identificador e retorna seu valor (uma ID de aplicativo) ou gera uma mensagem de erro.
+O exemplo a seguir procura o nome de domínio em uma das coleções inputParameters. A transformação de sinistros pesquisa o nome de domínio no identificador e retorna seu valor (um ID de aplicativo) ou levanta uma mensagem de erro.
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -544,14 +544,14 @@ O exemplo a seguir procura o nome de domínio em uma das coleções inputParamet
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputParameterId**: Live.com
+    - **parâmetro de entradaId:** live.com
 - Parâmetros de entrada:
     - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
     - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup**: true
+    - **erroOnFailedLookup**: true
 - Erro:
-    - Nenhuma correspondência encontrada para o valor de declaração de entrada na lista de IDs de parâmetro de entrada e errorOnFailedLookup é true.
+    - Nenhuma correspondência encontrada para o valor da reivindicação de entrada na lista de ids de parâmetro de entrada e erroOnFailedLookup é verdadeira.
 
 
 ## <a name="nullclaim"></a>NullClaim
@@ -560,9 +560,9 @@ Limpe o valor de uma determinada declaração.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | O valor da declaração é definido como nulo. |
+| OutputClaim | claim_to_null | string | O valor da reivindicação é definido como NULO. |
 
-Use essa transformação de declaração para remover dados desnecessários do recipiente de propriedades de declarações, de modo que o cookie de sessão será menor. O exemplo a seguir remove o valor do tipo de declaração `TermsOfService`.
+Use essa transformação de sinistro para remover dados desnecessários do saco de propriedade de sinistros para que o cookie da sessão seja menor. O exemplo a seguir remove o valor do tipo de declaração `TermsOfService`.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
@@ -602,23 +602,23 @@ Use essa transformação de declarações para analisar o nome de domínio depoi
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **emailAddress**: joe@outlook.com
+  - **endereço de e-mail**:joe@outlook.com
 - Declarações de saída:
     - **domain**: outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
-Verifica se uma declaração de cadeia de caracteres `claimToMatch` e `matchTo` parâmetro de entrada são iguais e define as declarações de saída com o valor presente no parâmetro de entrada `outputClaimIfMatched`, juntamente com a declaração de saída de resultado de comparação, que deve ser definida como `true` ou `false` com base no resultado da comparação.
+Verifica se uma `claimToMatch` `matchTo` reivindicação de string e parâmetro de entrada são `outputClaimIfMatched` iguais, e define as reivindicações de saída com `true` `false` o valor presente no parâmetro de entrada, juntamente com a reivindicação de saída de resultado de comparação, que deve ser definida como ou com base no resultado da comparação.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | Tipo da declaração, que será comparado. |
-| InputParameter | matchTo | string | A expressão regular a ser correspondente. |
+| InputParameter | matchTo | string | A expressão regular de correspondência. |
 | InputParameter | outputClaimIfMatched | string | O valor a ser definido se as cadeias de caracteres forem iguais. |
-| OutputClaim | outputClaim | string | Se a expressão regular for corresponder, essa declaração de saída conterá o valor de `outputClaimIfMatched` parâmetro de entrada. Ou NULL, se não houver correspondência. |
-| OutputClaim | regexCompareResultClaim | booleano | A expressão regular corresponde ao tipo de declaração de saída de resultado, que deve ser definido como `true` ou `false` com base no resultado da correspondência. |
+| OutputClaim | outputClaim | string | Se a expressão regular for compatível, `outputClaimIfMatched` esta reivindicação de saída contém o valor do parâmetro de entrada. Ou nulo, se não for páreo. |
+| OutputClaim | regexCompareResultadoClaimClaim | booleano | O tipo de reclamação de saída de resultado `true` `false` de expressão regular, que deve ser definido como ou com base no resultado da correspondência. |
 
-Por exemplo, verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular de número de telefone.
+Por exemplo, verifica se o número de telefone fornecido é válido, com base no padrão de expressão regular do número de telefone.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
@@ -639,13 +639,13 @@ Por exemplo, verifica se o número de telefone fornecido é válido, com base no
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **claimToMatch**: "64854114520"
+    - **reivindicaçãoToMatch**: "64854114520"
 - Parâmetros de entrada:
-    - **matchto**: "^ [0-9]{4,16}$"
-    - **outputClaimIfMatched**: "isphone"
+    - **matchTo**: "^[0-9]{4,16}$"
+    - **saídaClaimIfMatched**: "isPhone"
 - Declarações de saída:
-    - **outputClaim**: "isphone"
-    - **regexCompareResultClaim**: true
+    - **saídaReclamação:**"isPhone"
+    - **regexCompareResultClaimClaim**: verdadeiro
 
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -688,7 +688,7 @@ Verifica se uma declaração de cadeia de caracteres e o parâmetro de entrada `
     - **inputClaim**: v1
 - Parâmetros de entrada:
     - **matchTo**: V1
-    - **stringComparison**: ordinalIgnoreCase
+    - **stringComparação:** ordinalIgnoreCase
     - **stringMatchMsg**: B2C_V1_90005
     - **stringMatchMsgCode**: o TOS é atualizado para a v2
 - Declarações de saída:
@@ -734,7 +734,7 @@ Por exemplo, a seguinte transformação de declarações verifica se o valor da 
     - **claimToMatch**: secundário
 - Parâmetros de entrada:
     - **matchTo**: secundário
-    - **stringComparison**: ordinalIgnoreCase
+    - **stringComparação:** ordinalIgnoreCase
     - **outputClaimIfMatched**: B2C_V1_90001
 - Declarações de saída:
     - **isMinorResponseCode**: B2C_V1_90001
@@ -743,16 +743,16 @@ Por exemplo, a seguinte transformação de declarações verifica se o valor da 
 
 ## <a name="stringcontains"></a>StringContains
 
-Determine se uma subcadeia de caracteres especificada ocorre dentro da declaração de entrada. O resultado é um novo ClaimType booliano com um valor de `true` ou `false`. `true` se o parâmetro de valor ocorrer nessa cadeia de caracteres, caso contrário, `false`.
+Determine se uma substring especificada ocorre dentro da reivindicação de entrada. O resultado é um novo ClaimType booliano com um valor de `true` ou `false`. `true`se o parâmetro de valor ocorrer dentro `false`desta string, caso contrário, .
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | O tipo de declaração, que deve ser pesquisada. |
-|InputParameter|contains|string|O valor a ser pesquisado.|
-|InputParameter|ignoreCase|string|Especifica se essa comparação deve ignorar o caso da cadeia de caracteres que está sendo comparada.|
-| OutputClaim | outputClaim | string | O ClaimType produzido depois de invocar esta ClaimsTransformation. Um indicador booliano se a subcadeia de caracteres ocorrer na declaração de entrada. |
+| InputClaim | InputClaim | string | O tipo de sinistro, que deve ser pesquisado. |
+|InputParameter|contains|string|O valor para pesquisar.|
+|InputParameter|ignoreCase|string|Especifica se essa comparação deve ignorar o caso da seqüência de caracteres a ser comparada.|
+| OutputClaim | outputClaim | string | O ClaimType produzido depois de invocar esta ClaimsTransformation. Um indicador booleano se a substring ocorrer dentro da reivindicação de entrada. |
 
-Use essa transformação de declarações para verificar se um tipo de declaração de cadeia de caracteres contém uma subcadeia de caracteres. O exemplo a seguir verifica se o tipo de declaração de cadeia de caracteres `roles` contém o valor de **admin**.
+Use esta transformação de reivindicações para verificar se um tipo de reclamação de string contém uma substring. Exemplo a seguir, `roles` verifica se o tipo de reclamação de string contém o valor do **admin**.
 
 ```XML
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
@@ -772,25 +772,25 @@ Use essa transformação de declarações para verificar se um tipo de declaraç
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**: "admin, Aprovador, editor"
+    - **inputClaim**: "Admin, Approver, Editor"
 - Parâmetros de entrada:
     - **contém**: "admin",
-    - **ignoreCase**: true
+    - **ignorarCase:** verdadeiro
 - Declarações de saída:
     - **outputClaim**: true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
-Extrai partes de um tipo de declaração de cadeia de caracteres, começando pelo caractere na posição especificada e retorna o número especificado de caracteres.
+Extrai partes de um tipo de reivindicação de seqüência, começando pelo caractere na posição especificada, e retorna o número especificado de caracteres.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | O tipo de declaração, que contém a cadeia de caracteres. |
-| InputParameter | startIndex | INT | A posição de caractere inicial com base em zero de uma subcadeia de caracteres nesta instância. |
-| InputParameter | comprimento | INT | O número de caracteres na Subcadeia. |
-| OutputClaim | outputClaim | booleano | Uma cadeia de caracteres equivalente à subcadeia de caracteres que começa em startIndex nessa instância, ou vazia se startIndex for igual ao comprimento dessa instância e o comprimento for zero. |
+| InputClaim | InputClaim | string | O tipo de reclamação, que contém a seqüência. |
+| InputParameter | startIndex | INT | A posição de caractere de início de base zero de uma subcadeia de caracteres nesta instância. |
+| InputParameter | comprimento | INT | O número de caracteres na subcadeia de caracteres. |
+| OutputClaim | outputClaim | booleano | Uma string equivalente à substring de comprimento que começa no startIndex nesta instância, ou Empty if startIndex é igual ao comprimento desta instância e o comprimento é zero. |
 
-Por exemplo, obtenha o prefixo do país do número de telefone.
+Por exemplo, obtenha o prefixo de número de telefone do país.
 
 
 ```XML
@@ -810,25 +810,25 @@ Por exemplo, obtenha o prefixo do país do número de telefone.
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**: "+ 1644114520"
+    - **inputClaim**: "+1644114520"
 - Parâmetros de entrada:
     - **startIndex**: 0
-    - **comprimento**: 2
+    - **comprimento:** 2
 - Declarações de saída:
-    - **outputClaim**: "+ 1"
+    - **saídaReclamação**: "+1"
 
 ## <a name="stringreplace"></a>StringReplace
 
-Pesquisa uma cadeia de caracteres de tipo de declaração em um valor especificado e retorna uma nova cadeia de caracteres de tipo de declaração na qual todas as ocorrências de uma cadeia de caracteres especificada na cadeia de caracteres atual são substituídas por outra cadeia de caracteres especificada.
+Pesquisa uma seqüência de tipo de solicitação para um valor especificado e retorna uma nova seqüência de tipo de solicitação na qual todas as ocorrências de uma seqüência de string especificada na seqüência atual são substituídas por outra seqüência especificada.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | O tipo de declaração, que contém a cadeia de caracteres. |
-| InputParameter | oldValue | string | A cadeia de caracteres a ser pesquisada. |
-| InputParameter | newValue | string | A cadeia de caracteres para substituir todas as ocorrências de `oldValue` |
-| OutputClaim | outputClaim | booleano | Uma cadeia de caracteres equivalente à cadeia de caracteres atual, exceto que todas as instâncias de oldValue são substituídas por newValue. Se oldValue não for encontrado na instância atual, o método retornará a instância atual inalterada. |
+| InputClaim | InputClaim | string | O tipo de reclamação, que contém a seqüência. |
+| InputParameter | oldValue | string | A corda a ser revistada. |
+| InputParameter | newValue | string | A seqüência para substituir todas as ocorrências de`oldValue` |
+| OutputClaim | outputClaim | booleano | Uma string equivalente à seqüência atual, exceto que todas as instâncias do oldValue são substituídas pelo newValue. Se o oldValue não for encontrado na instância atual, o método reaverá a instância atual inalterada. |
 
-Por exemplo, Normalize um número de telefone removendo os caracteres `-`
+Por exemplo, normalize um número de `-` telefone, removendo os caracteres
 
 
 ```XML
@@ -848,24 +848,24 @@ Por exemplo, Normalize um número de telefone removendo os caracteres `-`
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**: "+ 164-411-452-054"
+    - **inputClaim**: "+164-411-452-054"
 - Parâmetros de entrada:
-    - **OldValue**: "-"
-    - **comprimento**: ""
+    - **oldValue**: "-"
+    - **comprimento:**""
 - Declarações de saída:
-    - **outputClaim**: "+ 164411452054"
+    - **outputClaim**: "+164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
-Concatena os elementos de um tipo de declaração de coleção de cadeia de caracteres especificado, usando o separador especificado entre cada elemento ou membro.
+Concatena os elementos de um tipo de reivindicação de coleção de stringespecificado, usando o separador especificado entre cada elemento ou membro.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | stringCollection | Uma coleção que contém as cadeias de caracteres a serem concatenadas. |
-| InputParameter | delimiter | string | A cadeia de caracteres a ser usada como separador, como `,`por vírgula. |
-| OutputClaim | outputClaim | string | Uma cadeia de caracteres que consiste nos membros da coleção de cadeia de caracteres `inputClaim`, delimitada pelo parâmetro de entrada `delimiter`. |
+| InputParameter | delimiter | string | A corda para usar como separador, `,`como a comma. |
+| OutputClaim | outputClaim | string | Uma seqüência que consiste `inputClaim` nos membros da coleção `delimiter` de cordas, delimitada pelo parâmetro de entrada. |
 
-O exemplo a seguir usa uma coleção de cadeias de caracteres de funções de usuário e a converte em uma cadeia de caracteres delimitadora de vírgula. Você pode usar esse método para armazenar uma coleção de cadeia de caracteres na conta de usuário do Azure AD. Posteriormente, quando você ler a conta do diretório, use a `StringSplit` para converter a cadeia de caracteres delimitadores de vírgula para a coleção de cadeias de caracteres.
+O exemplo a seguir pega uma coleção de strings de funções do usuário e converte-a em uma seqüência de delimitador de comma. Você pode usar este método para armazenar uma coleção de strings na conta de usuário do Azure AD. Mais tarde, quando você ler a conta `StringSplit` do diretório, use o para converter a string delimitador de comma de volta à coleção de strings.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -884,24 +884,24 @@ O exemplo a seguir usa uma coleção de cadeias de caracteres de funções de us
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim**: ["admin", "autor", "leitor"]
+  - **inputClaim**: [ "Admin", "Autor", "Reader" ]
 - Parâmetros de entrada:
   - **delimitador**: ","
 - Declarações de saída:
-  - **outputClaim**: "administrador, autor, leitor"
+  - **outputClaim**: "Admin,Author,Reader"
 
 
 ## <a name="stringsplit"></a>StringSplit
 
-Retorna uma matriz de cadeia de caracteres que contém as subcadeias de caracteres desta instância que são delimitadas por elementos de uma cadeia de caracteres especificada.
+Retorna uma matriz de strings que contém as substrings nesta instância que são delimitadas por elementos de uma seqüência de stringespecificada.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | string | Um tipo de declaração String que contém as subcadeias de caracteres a serem divididas. |
-| InputParameter | delimiter | string | A cadeia de caracteres a ser usada como separador, como `,`por vírgula. |
-| OutputClaim | outputClaim | stringCollection | Uma coleção de cadeias de caracteres cujos elementos contêm as subcadeias nesta cadeia de caracteres delimitadas pelo parâmetro de entrada `delimiter`. |
+| InputClaim | InputClaim | string | Um tipo de reivindicação de strings que contém as sub strings para dividir. |
+| InputParameter | delimiter | string | A corda para usar como separador, `,`como a comma. |
+| OutputClaim | outputClaim | stringCollection | Uma coleção de cordas cujos elementos contêm as substrings nesta seqüência que são delimitadas pelo parâmetro `delimiter` de entrada. |
 
-O exemplo a seguir usa uma cadeia de caracteres delimitadores de vírgula de funções de usuário e a converte em uma coleção de cadeias de caracteres.
+O exemplo a seguir pega uma seqüência de delimitador de comma de funções do usuário e converte-a em uma coleção de strings.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
@@ -920,17 +920,17 @@ O exemplo a seguir usa uma cadeia de caracteres delimitadores de vírgula de fun
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim**: "administrador, autor, leitor"
+  - **inputClaim**: "Admin,Author,Reader"
 - Parâmetros de entrada:
   - **delimitador**: ","
 - Declarações de saída:
-  - **outputClaim**: ["admin", "autor", "leitor"]
+  - **outputClaim**: [ "Admin", "Autor", "Reader" ]
 
-## <a name="string-claim-transformations-expressions"></a>Expressões de transformações de declaração de cadeia de caracteres
-Expressões de transformações de declaração em Azure AD B2C políticas personalizadas fornecem informações de contexto sobre a ID do locatário e a ID do perfil técnico.
+## <a name="string-claim-transformations-expressions"></a>String claim transformações expressões
+As expressões de transformação de sinistros nas políticas personalizadas azure AD B2C fornecem informações de contexto sobre o ID do inquilino e o ID do perfil técnico.
 
-  | Expression | DESCRIÇÃO | Exemplo |
+  | Expression | Descrição | Exemplo |
  | ----- | ----------- | --------|
- | `{TechnicalProfileId}` | O nome de ProfileId técnico. | Facebook – OAUTH |
+ | `{TechnicalProfileId}` | O perfil técnico id nome. | OAUTH do Facebook |
  | `{RelyingPartyTenantId}` | A ID do locatário da política de terceira parte confiável. | your-tenant.onmicrosoft.com |
  | `{TrustFrameworkTenantId}` | A ID do locatário e da estrutura de confiança. | your-tenant.onmicrosoft.com |

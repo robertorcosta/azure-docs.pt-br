@@ -1,5 +1,5 @@
 ---
-title: Exibir e gerenciar alertas para o dispositivo StorSimple da série 8000
+title: Exibir e gerenciar alertas para o dispositivo da série StorSimple 8000
 description: Descreve as condições e a gravidade de alertas do StorSimple, como configurar notificações de alerta e como usar o serviço StorSimple Device Manager para gerenciar alertas.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267814"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usar o serviço StorSimple Device Manager para exibir e gerenciar alertas do StorSimple
@@ -27,9 +27,9 @@ Este tutorial descreve as condições de alerta comuns, níveis de severidade do
 
 Seu dispositivo StorSimple gera alertas em resposta a uma variedade de condições. A seguir estão os tipos mais comuns de condições de alerta:
 
-* **Problemas de hardware** – Esses alertas informam sobre a integridade de seu hardware. Eles permitem saber se as atualizações de firmware são necessárias, se uma interface de rede está com problemas ou se há um problema com uma de suas unidades de dados.
+* **Problemas de hardware** – Estes alertas informam sobre a integridade do seu hardware. Eles permitem saber se as atualizações de firmware são necessárias, se uma interface de rede está com problemas ou se há um problema com uma de suas unidades de dados.
 * **Problemas de conectividade** – esses alertas ocorrem quando há dificuldade na transferência de dados. Podem ocorrer problemas de comunicação durante a transferência de dados entre a conta de armazenamento do Azure ou devido à falta de conectividade entre os dispositivos e o serviço StorSimple Device Manager. Problemas de comunicação são alguns dos mais difíceis de corrigir porque há muitos pontos de falha. Você deve sempre verificar primeiro se a conectividade de rede e o acesso à Internet estão disponíveis antes de continuar com a solução de problemas mais avançados. Para obter ajuda com a solução de problemas, acesse [Solucionar problemas com o cmdlet Test-Connection](storsimple-8000-troubleshoot-deployment.md).
-* **Problemas de desempenho** – esses alertas são causados quando o sistema não estiver sendo executado corretamente, como quando ele está sob uma carga pesada.
+* **Problemas de desempenho** – Estes alertas são causados quando seu sistema não apresenta um desempenho satisfatório, como quando está sobrecarregado.
 
 Além disso, você pode ver alertas relacionados à segurança, atualizações ou falhas no trabalho.
 
@@ -37,8 +37,8 @@ Além disso, você pode ver alertas relacionados à segurança, atualizações o
 
 Alertas têm diferentes níveis de severidade, dependendo do impacto que terá a situação de alerta e a necessidade de uma resposta ao alerta. Os níveis de severidade são:
 
-* **Crítico** – esse alerta ocorre em resposta a uma condição que está afetando o desempenho correto do seu sistema. Uma ação é necessária para garantir que o serviço StorSimple não seja interrompido.
-* **Aviso** – essa condição poderá se tornar crítica se não for resolvida. Você deve investigar a situação e realizar qualquer ação necessária para resolver o problema.
+* **Crítico** – Este alerta é em resposta a uma condição que está afetando o desempenho adequado do seu sistema. Uma ação é necessária para garantir que o serviço StorSimple não seja interrompido.
+* **Aviso** – Esta condição pode tornar-se crítica se não for resolvida. Você deve investigar a situação e realizar qualquer ação necessária para resolver o problema.
 * **Informações** – esse alerta contém informações que podem ser úteis para controlar e gerenciar seu sistema.
 
 ## <a name="configure-alert-settings"></a>Definição de configurações de alerta
@@ -48,11 +48,11 @@ Você pode escolher se deseja ser notificado por email das condições de alerta
 > [!NOTE]
 > Você pode inserir um máximo de 20 endereços de email por dispositivo.
 
-Depois de habilitar a notificação por email para um dispositivo, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-Alerts-noreply\@mail.WindowsAzure.com* e descreverá a condição de alerta. Os destinatários podem clicar em **Cancelar inscrição** para serem removidos da lista de notificação de email.
+Depois de habilitar a notificação por email para um dispositivo, os membros da lista de notificação receberão uma mensagem de email sempre que um alerta crítico ocorrer. As mensagens serão enviadas de *storsimple-alerts-noreply\@mail.windowsazure.com* e descreverão a condição de alerta. Os destinatários podem clicar em **Cancelar assinatura** para sair da lista de notificação de email.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Para habilitar a notificação por email de alertas para um dispositivo
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Na lista de dispositivos, selecione e clique no dispositivo que você deseja configurar.
-2. Acesse **Configurações** > **Geral** no dispositivo.
+2. Vá para **Configurações** > **Gerais** para o dispositivo.
 
    ![Folha Alertas](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
@@ -60,7 +60,7 @@ Depois de habilitar a notificação por email para um dispositivo, os membros da
    
    1. No campo **Enviar notificação por email**, selecione **SIM**.
    2. No campo **Administradores do serviço de email**, selecione **SIM** para que o administrador de serviços e todos os coadministradores recebam as notificações de alerta.
-   3. No campo **Outros destinatários de email** , insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Insira nomes no formato *alguém\@Somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo. 
+   3. No campo **Outros destinatários de email** , insira os endereços de email de todos os outros destinatários que devem receber as notificações de alerta. Digite nomes no formato *que alguém\@somewhere.com*. Use ponto e vírgula para separar os endereços de email. Você pode configurar um máximo de 20 endereços de email por dispositivo. 
       
 3. Para enviar uma notificação de email de teste, clique em **Enviar email de teste**. O serviço Gerenciador de Dispositivo do StorSimple exibirá mensagens de status conforme ele encaminha a notificação de teste.
 
@@ -73,7 +73,7 @@ Depois de habilitar a notificação por email para um dispositivo, os membros da
    > [!NOTE]
    > Se a mensagem de notificação de teste não puder ser enviada, o serviço StorSimple Device Manager exibirá uma mensagem de erro apropriada. Aguarde alguns minutos e, em seguida, tente enviar a mensagem de notificação de teste novamente. 
 
-5. Depois de concluir a configuração, clique em **Salvar**. Quando solicitado a confirmar, clique em **Sim**.
+5. Depois de concluir a configuração, clique em **Salvar**. Quando solicitada a confirmação, clique em **Sim**.
 
      ![Email de notificação de teste de alertas enviado](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
@@ -91,7 +91,7 @@ Clicar em um alerta na lista fornece detalhes adicionais para o mesmo, incluindo
 
 Você pode copiar os detalhes do alerta para um arquivo de texto se precisar enviar as informações ao Suporte da Microsoft. Depois de seguir a recomendação e resolver a condição de alerta localmente, limpe o alerta do dispositivo selecionando-o na folha **Alertas** e clicando em **Limpar**. Para limpar vários alertas, selecione cada alerta, clique em qualquer coluna exceto na coluna **Alerta** e clique em **Limpar** após ter selecionado todos os alertas a serem limpos. Observe que alguns alertas são removidos automaticamente quando o problema é resolvido ou quando o sistema atualiza o alerta com novas informações.
 
-Ao clicar em **Limpar**, você terá a oportunidade de fornecer comentários sobre o alerta e as etapas que você seguiu para resolver o problema. Alguns eventos serão removidos pelo sistema se outro evento for disparado com novas informações. Nesse caso, você verá a seguinte mensagem de erro.
+Ao clicar em **Apagar**, você terá a oportunidade de fornecer comentários sobre o alerta e as etapas realizadas para resolver o problema. Alguns eventos serão removidos pelo sistema se outro evento for disparado com novas informações. Nesse caso, você verá a seguinte mensagem de erro.
 
 ![Limpar mensagem de alerta](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
@@ -99,10 +99,10 @@ Ao clicar em **Limpar**, você terá a oportunidade de fornecer comentários sob
 
 Talvez seja mais eficiente executar relatórios sobre alertas, para que você possa analisá-los e limpá-los em grupos. Além disso, a folha **Alertas** pode exibir até 250 alertas. Se você excedeu o número de alertas, nem todos os alertas serão exibidos no modo de exibição padrão. Você pode combinar os campos a seguir para personalizar quais alertas são exibidos:
 
-* **Status** – Você pode exibir alertas **Ativos** ou **Removidos**. Alertas ativos ainda estão sendo disparados em seu sistema, embora os alertas removidos tenham sido limpos manualmente por um administrador ou por meio de programação porque o sistema atualizou a condição de alerta com novas informações.
-* **Severidade** – Você pode exibir alertas de todos os níveis de severidade (críticos, avisos, informações) ou apenas uma determinada severidade, como, por exemplo, somente alertas críticos.
+* **Status** – Você pode exibir os alertas **Ativos** ou **Apagados**. Alertas ativos ainda estão sendo disparados em seu sistema, embora os alertas removidos tenham sido limpos manualmente por um administrador ou por meio de programação porque o sistema atualizou a condição de alerta com novas informações.
+* **Severidade** – Você pode exibir alertas de todos os níveis de severidade (críticos, aviso, informações) ou somente uma severidade específica como somente alertas críticos.
 * **Fonte** – Você pode exibir alertas de todas as fontes ou limitar os alertas para aqueles que vêm de serviço ou de um ou todos os dispositivos.
-* **Intervalo de tempo** – Especificando os carimbos de data e hora **De** e **Para**, você pode examinar os alertas durante o período de tempo desejado.
+* **Intervalo de tempo** – Ao especificar os carimbos de data e hora **De** e **Para**, você pode ver os alertas conforme o período de tempo de seu interesse.
 
 ![Lista Alertas](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
 
@@ -151,8 +151,8 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 | O dispositivo realizou failover para <*nome do dispositivo*>. |Failover não planejado. |O StorSimple foi criado para se recuperar automaticamente de failovers não planejados. Se você vir um grande número desses alertas, contate o Suporte da Microsoft. |
 | O dispositivo realizou failover para <*nome do dispositivo*>. |Outro/causa desconhecida. |Se você vir um grande número desses alertas, contate o Suporte da Microsoft. Depois que o problema for resolvido, exclua este alerta da página de alertas. |
 | O serviço de um dispositivo crítico informa o status de falha. |Falha no serviço de caminho de dados. |Contate o Suporte da Microsoft para obter assistência. |
-| O endereço IP virtual da interface de rede <*DATA #* > informa o status de falha. |Outro/causa desconhecida. |Condições temporárias, às vezes, podem causar esses alertas. Se esse for o caso, esse alerta será automaticamente removido após algum tempo. Se o problema persistir, contate o Suporte da Microsoft. |
-| O endereço IP virtual da interface de rede <*DATA #* > informa o status de falha. |Nome da interface: endereço IP <*DATA #* > `<IP address>` não pode ser colocado online porque um endereço IP duplicado foi detectado na rede. |Verifique se o endereço IP duplicado foi removido da rede ou reconfigure a interface com um endereço IP diferente. |
+| O endereço IP virtual da interface de rede <*DATA #*> informa o status de falha. |Outro/causa desconhecida. |Condições temporárias, às vezes, podem causar esses alertas. Se esse for o caso, esse alerta será automaticamente removido após algum tempo. Se o problema persistir, contate o Suporte da Microsoft. |
+| O endereço IP virtual da interface de rede <*DATA #*> informa o status de falha. |Nome da interface: endereço IP <*DATA #*> `<IP address>` não pode ser colocado online porque um endereço IP duplicado foi detectado na rede. |Verifique se o endereço IP duplicado foi removido da rede ou reconfigure a interface com um endereço IP diferente. |
 
 ### <a name="disaster-recovery-alerts"></a>Alertas de recuperação de desastres
 
@@ -183,7 +183,7 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 | A expansão do volume local <*nome do volume*> falhou. |O trabalho de modificação de volume falhou devido a <*mensagem de erro correspondente ao código de erro da falha*>. |Problemas de conectividade podem estar impedindo a conclusão bem-sucedida da operação de expansão de volume. Volumes fixados localmente são provisionados de forma densa, e o processo de extensão do espaço existente envolve a liberação de volumes em camadas para a nuvem. Se não houver problemas de conectividade, talvez você tenha esgotado o espaço no dispositivo local. Verifique se há espaço no dispositivo antes de repetir essa operação. |
 | A conversão do volume <*nome do volume*> falhou. |O trabalho de conversão do volume, a fim de converter o tipo de volume de fixado localmente para em camadas, falhou. |Não foi possível concluir a conversão do volume do tipo fixado localmente para em camadas. Verifique se não há problemas de conectividade que impeçam a conclusão bem-sucedida da operação. Para solucionar problemas de conectividade, acesse [Solucionar problemas com o cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>O volume original fixado localmente agora está marcado como um volume em camadas, pois alguns dos dados do volume fixado localmente foram liberados para a nuvem durante a conversão. O volume em camadas resultante ainda está ocupando o espaço local no dispositivo, que não poderá ser recuperado para volumes locais futuros.<br>Resolva quaisquer problemas de conectividade, limpe o alerta e converta esse volume de volta ao tipo de volume original fixado localmente a fim de garantir que todos os dados sejam disponibilizados localmente mais uma vez. |
 | A conversão do volume <*nome do volume*> falhou. |O trabalho de conversão do volume, a fim de converter o tipo de volume de em camadas para fixado localmente, falhou. |Não foi possível concluir a conversão do volume do tipo em camadas para fixado localmente. Verifique se não há problemas de conectividade que impeçam a conclusão bem-sucedida da operação. Para solucionar problemas de conectividade, acesse [Solucionar problemas com o cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>O volume em camadas original marcado como um volume fixo local como parte do processo de conversão continua a ter dados que residem na nuvem, enquanto o espaço bastante provisionado no dispositivo para o volume não pode mais ser recuperado para futuros volumes locais.<br>Resolva quaisquer problemas de conectividade, limpe o alerta e converta esse volume para o tipo de volume original em camadas a fim de garantir que o espaço local provisionado de forma densa no dispositivo possa ser recuperado. |
-| Aproximando-se ao consumo de espaço local para instantâneos locais do <*nome do grupo de volume*> |Em breve, os instantâneos locais para a política de backup poderão ficar sem espaço e ser invalidados a fim de evitar falhas de gravação do host. |Os instantâneos locais frequentes, junto com uma variação grande nos dados nos volumes associados a esse grupo de políticas de backup, estão causando o consumo rápido do espaço local no dispositivo. Exclua todos os instantâneos locais que não são mais necessários. Além disso, atualize seus cronogramas de instantâneos locais dessa política de backup a fim de obter instantâneos locais com menos frequência, e certifique-se de que os instantâneos de nuvem sejam obtidos regularmente. Se essas ações não forem realizadas, o espaço local para esses instantâneos esgotará em breve, e o sistema os excluirá automaticamente para garantir que as gravações no host continuem a ser processadas com êxito. |
+| Aproximando-se do consumo de espaço local para instantâneos locais do nome do grupo de *volume* <> |Em breve, os instantâneos locais para a política de backup poderão ficar sem espaço e ser invalidados a fim de evitar falhas de gravação do host. |Os instantâneos locais frequentes, junto com uma variação grande nos dados nos volumes associados a esse grupo de políticas de backup, estão causando o consumo rápido do espaço local no dispositivo. Exclua todos os instantâneos locais que não são mais necessários. Além disso, atualize seus cronogramas de instantâneos locais dessa política de backup a fim de obter instantâneos locais com menos frequência, e certifique-se de que os instantâneos de nuvem sejam obtidos regularmente. Se essas ações não forem realizadas, o espaço local para esses instantâneos esgotará em breve, e o sistema os excluirá automaticamente para garantir que as gravações no host continuem a ser processadas com êxito. |
 | Os instantâneos locais para <*nome do grupo de volume*> foram invalidados. |Os instantâneos locais para <*nome do grupo de volume*> foram invalidados e excluídos, pois estavam excedendo o espaço local no dispositivo. |Para garantir que isso ocorra novamente no futuro, revise os cronogramas de instantâneo local dessa política de backup e exclua todos os instantâneos locais que não são mais necessários. Os instantâneos locais frequentes, junto com uma variação grande nos dados nos volumes associados a esse grupo de políticas de backup, podem causar o consumo rápido do espaço local no dispositivo. |
 | A restauração de <*IDs de elemento de backup da fonte*> falhou. |O trabalho de restauração falhou. |Se você tiver volumes fixados localmente, ou uma combinação de volumes fixados localmente e em camadas nessa política de backup, atualize a lista de backups para verificar se o backup ainda é válido. Se o backup for válido, é possível que problemas de conectividade de nuvem estejam impedindo a operação de restauração de ser concluída com êxito. Os dados dos volumes fixados localmente que estavam sendo restaurados como parte desse grupo de instantâneos não foram baixados no dispositivo e, se você tiver uma combinação de volumes em camadas e fixados localmente nesse grupo de instantâneo, eles não estarão sincronizados entre si. Para concluir a operação de restauração, coloque os volumes deste grupo offline no host e repita a operação de restauração. Observe que quaisquer modificações no volume de dados executadas durante o processo de restauração serão perdidas. |
 
@@ -192,9 +192,9 @@ Se a conectividade de nuvem falhar em seu dispositivo de produção do StorSimpl
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Não foi possível iniciar os serviços do StorSimple. |Erro de caminho de dados |Se o problema persistir, contate o Suporte da Microsoft. |
-| Endereço IP duplicado detectado para 'Data0'. | |O sistema detectou um conflito para o endereço IP '10.0.0.1'. O recurso de rede ' Data0 ' no dispositivo *\<device1 >* está offline. Verifique se esse endereço IP não está sendo usado por qualquer outra entidade nessa rede. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para ajudar a resolver esse problema, entre em contato com o administrador da rede. Se o problema persistir, contate o Suporte da Microsoft. |
-| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP '10.0.0.1'. e o comprimento do prefixo ' 22 ' no dispositivo *\<device1 >* está offline. Certifique-se de que as portas de comutação às quais esta interface está conectada estejam operacionais. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticar não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL no portal do Azure, Acesse https:\//aka.ms/ss-8000-network-reqs. Se estiver usando a nuvem do Azure governamental, vá para os padrões de URL em https:\//aka.ms/ss8000-gov-network-reqs.|
+| Endereço IP duplicado detectado para 'Data0'. | |O sistema detectou um conflito para o endereço IP '10.0.0.1'. O recurso de rede 'Data0' no * \<dispositivo1>* está offline. Verifique se esse endereço IP não está sendo usado por qualquer outra entidade nessa rede. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para ajudar a resolver esse problema, entre em contato com o administrador da rede. Se o problema persistir, contate o Suporte da Microsoft. |
+| O endereço IPv4 (ou IPv6) para 'Data0' está offline. | |O recurso de rede 'Data0' com o endereço IP '10.0.0.1'. e comprimento do prefixo '22' no * \<dispositivo1>* está offline. Certifique-se de que as portas de comutação às quais esta interface está conectada estejam operacionais. Para solucionar problemas de rede, acesse [Solucionar problemas com o cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Não foi possível se conectar ao serviço de autenticação. |Erro de caminho de dados |A URL usada para autenticar não está acessível. Certifique-se de que as regras de firewall incluam os padrões de URL especificados para o dispositivo StorSimple. Para obter mais informações sobre padrões de URL\/no portal Azure, acesse https: /aka.ms/ss-8000-network-reqs. Se usar o Azure Government Cloud, vá\/para os padrões de URL em https: /aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 

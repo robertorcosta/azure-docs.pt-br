@@ -1,19 +1,18 @@
 ---
-title: Criar Azure IoT Edge ativos técnicos do módulo | Azure Marketplace
+title: Criar ativos técnicos do módulo Azure IoT Edge | Mercado Azure
 description: Crie os recursos técnicos para um módulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 57bc2f789836a7d3453004cdacc59029c4b24129
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 304ea31f2a6f9820226a6ad0db8bfc803e6fdb94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827615"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285207"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare seus recursos técnicos do módulo IoT Edge
 
@@ -30,7 +29,7 @@ Um módulo IoT Edge é um contêiner compatível com Docker que é feito para se
 
 Os requisitos técnicos a seguir devem ser atendidos para que o módulo IoT Edge seja certificado e publicado no Azure Marketplace.
 
-### <a name="platform-support"></a>Suporte à plataforma
+### <a name="platform-support"></a>Suporte a plataforma
 
 Seu módulo IoT Edge deve suportar uma das seguintes opções de plataforma.
 
@@ -80,11 +79,11 @@ Em um cenário em que um parâmetro necessário para um valor padrão não faz s
 
 #### <a name="configuration-documentation"></a>Documentação de configuração
 
-Todas as definições de configuração de um módulo de IoT Edge devem ser claramente documentadas (como usar suas rotas, propriedades desejadas de entrelaçamento, variáveis de ambiente, criaroptions e assim por diante.) Forneça um link para sua documentação ou a documentação deve fazer parte da sua descrição de oferta/SKU.
+Todas as configurações de um módulo IoT Edge devem ser claramente documentadas (como usar suas rotas, propriedades desejadas duplas, variáveis de ambiente, createOptions e assim por diante.) Forneça um link para sua documentação, ou a documentação deve fazer parte da sua descrição de oferta/sku.
 
 ### <a name="tags-and-versioning"></a>Marcas e controle de versão
 
-Os clientes devem ser capazes de implantar um módulo com facilidade e obter atualizações automaticamente do Marketplace (em um cenário de desenvolvedor). Eles também devem ser capazes de usar e congelar uma versão exata testada (em um cenário de produção).
+Os clientes devem ser capazes de implantar facilmente um módulo e obter automaticamente atualizações do mercado (em um cenário de desenvolvedor.) Eles também devem ser capazes de usar e congelar uma versão exata que testaram (em um cenário de produção.)
 
 Para atender às expectativas desses clientes e ser publicado no mercado, os módulos IoT Edge devem atender aos seguintes requisitos:
 
@@ -123,11 +122,11 @@ O SDK do módulo IoT é necessário para obter dados de telemetria sobre o núme
 ## <a name="recertification-process"></a>Processo recertificação
 
 <!-- Add legal time windows-->
-Os parceiros serão notificados sempre que houver uma alteração significativa que afete seus módulos, como:
+ Os parceiros serão notificados sempre que houver uma alteração significativa que afete seus módulos, como:
 
 - Camada de suporte de os / arch de camada 1 suportada pelo IoT Edge
 - Módulo do IoT do SDK
-- Tempo de execução do IoT Edge
+- Runtime do IoT Edge
 - As diretrizes de certificação do módulo do IoT Edge
 
 Os parceiros terão que atualizar seus módulos e recertificá-los usando a ferramenta Cloud Partner Portal.

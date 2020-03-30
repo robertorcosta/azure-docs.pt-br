@@ -1,142 +1,142 @@
 ---
-title: O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
-description: Como implantar e configurar a rede do consórcio do Fabric do Microsoft Azure no serviço kubernetes
+title: Consórcio Hyperledger Fabric no Azure Kubernetes Service (AKS)
+description: Como implantar e configurar a rede de consórcios Hyperledger Fabric no Serviço Azure Kubernetes
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
-ms.openlocfilehash: 5aed420295fd17cf4e7b26c86e8b84c4687e6545
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 2312c002e5c2e0b813f8acbdc3e3bff597f204d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029904"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476433"
 ---
-# <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
+# <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consórcio Hyperledger Fabric no Azure Kubernetes Service (AKS)
 
-Você pode usar a HLF (malha do Microsoft) no modelo AKS (serviço kubernetes do Azure) para implantar e configurar uma rede do consórcio de malha de multirazão no Azure.
+Você pode usar o modelo Hyperledger Fabric (HLF) no Azure Kubernetes Service (AKS) para implantar e configurar uma rede de consórcio Hyperledger Fabric no Azure.
 
 Depois de ler este artigo, você irá:
 
-- Obtenha o conhecimento prático da malha de hiperrazãor e os vários componentes que formam os blocos de construção da rede blockchain de malha do
-- Saiba como implantar e configurar um consórcio de malha de multirazão no serviço kubernetes do Azure para seus cenários de produção.
+- Obtenha conhecimento de trabalho da Hyperledger Fabric e dos vários componentes que formam os blocos de construção da rede blockchain Hyperledger Fabric.
+- Saiba como implantar e configurar um consórcio Hyperledger Fabric no Azure Kubernetes Service para seus cenários de produção.
 
-## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do consórcio de malha de multirazãor
+## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitetura do Hyperledger Fabric Consortium
 
-Para criar uma rede de malha de multirazão no Azure, você precisa implantar o serviço de pedidos e a organização com nós pares. Os diferentes componentes fundamentais que são criados como parte da implantação do modelo são:
+Para construir a rede Hyperledger Fabric no Azure, você precisa implantar serviço de pedidos e organização com nós de pares. Os diferentes componentes fundamentais que são criados como parte da implantação do modelo são:
 
-- **Nós do solicitante**: um nó que é responsável pela ordenação da transação no razão. Junto com outros nós, os nós ordenados formam o serviço de pedidos da rede de malha de terceiros.
+- **Nó sumido**: Um nó responsável pela ordenação de transações no livro razão. Juntamente com outros nódulos, os nós ordenados formam o serviço de encomenda da rede Hyperledger Fabric.
 
-- **Nós de mesmo nível**: um nó que hospeda principalmente razões e contratos inteligentes, esses elementos fundamentais da rede.
+- **Os pares**: Um nó que hospeda principalmente livros contábeis e contratos inteligentes, esses elementos fundamentais da rede.
 
-- **AC de malha**: a AC de malha é a autoridade de certificação (CA) para a malha de hiperrazões. A AC de malha permite que você inicialize e inicie o processo do servidor que hospeda a autoridade de certificação. Ele permite que você gerencie identidades e certificados. Cada cluster AKS implantado como parte do modelo terá um pod de AC de malha por padrão.
+- **Fabric CA**: Fabric CA é a Autoridade de Certificado (CA) para malha Hyperledger. O Fabric CA permite que você inicie e inicie o processo do servidor que hospeda a autoridade do certificado. Ele permite que você gerencie identidades e certificados. Cada cluster AKS implantado como parte do modelo terá um pod Fabric CA por padrão.
 
-- **CouchDB ou LevelDB**: o banco de dados de estado mundial para os nós de par pode ser armazenado em LevelDB ou CouchDB. LevelDB é o banco de dados de estado padrão incorporado no nó de par e armazena o chaincode data como pares chave-valor simples e oferece suporte somente a consultas de chave, intervalo de chaves e chave composta. CouchDB é um banco de dados de estado alternativo opcional que dá suporte a consultas avançadas quando os valores de dados chaincode são modelados como JSON.
+- **CouchDB ou LevelDB**: O banco de dados de estado mundial para os nós pares pode ser armazenado no LevelDB ou no CouchDB. LevelDB é o banco de dados de estado padrão incorporado no nó de pares e armazena dados chaincode como pares simples de valor de chave e suporta apenas consultas de tecla, intervalo de chaves e tecidas compostas. CouchDB é um banco de dados de estado alternativo opcional que suporta consultas ricas quando os valores de dados chaincode são modelados como JSON.
 
-O modelo na implantação gira vários recursos do Azure em sua assinatura. Os diferentes recursos do Azure implantados são:
+O modelo de implantação gira vários recursos do Azure em sua assinatura. Os diferentes recursos do Azure implantados são:
 
-- **Cluster AKs**: cluster kubernetes do Azure configurado de acordo com os parâmetros de entrada fornecidos pelo cliente. O cluster AKS tem vários pods configurados para executar os componentes de rede da malha do limiar. Os pods diferentes criados são:
+- **Cluster AKS**: Cluster Azure Kubernetes configurado de acordo com os parâmetros de entrada fornecidos pelo cliente. O cluster AKS tem vários pods configurados para executar os componentes da rede Hyperledger Fabric. Os diferentes pods criados são:
 
-  - **Ferramentas de malha**: a ferramenta de malha é responsável por configurar os componentes de malha do limiar.
-  - **Solicitante/peer pods**: os nós da rede HLF.
-  - **Proxy**: um pod de proxy NGNIX por meio do qual os aplicativos cliente podem interagir com o cluster AKs.
-  - **AC de malha**: o Pod que executa a AC de malha.
-- **PostgreSQL**: uma instância do PostgreSQL é implantada para manter as identidades da AC da malha.
+  - **Ferramentas de tecido**: A ferramenta de tecido é responsável pela configuração dos componentes da malha Hyperledger.
+  - **Ordenador/pods de pares:** Os nós da rede HLF.
+  - **Proxy**: Um proxy do NGNIX através do qual os aplicativos clientes podem interagir com o cluster AKS.
+  - **Malha CA**: A cápsula que executa o Fabric CA.
+- **PostgreSQL**: Uma instância do PostgreSQL é implantada para manter as identidades da CA de malha.
 
-- **Cofre de chaves do Azure**: uma instância de cofre de chaves é implantada para salvar as credenciais de AC de malha e os certificados raiz fornecidos pelo cliente, que é usado no caso de repetição de implantação de modelo, isso é para lidar com a mecânica do modelo.
-- **Disco gerenciado do Azure**: o disco gerenciado do Azure é para armazenamento persistente para o banco de dados de estado mundial do nó de par e do razão.
-- **IP público**: um ponto de extremidade IP público do cluster AKs implantado para fazer a interface com o cluster.
+- **Cofre Azure Key**: Uma instância de cofre chave é implantada para salvar as credenciais da Fabric CA e os certificados raiz fornecidos pelo cliente, que é usado em caso de repetição de implantação de modelo, isto é para lidar com a mecânica do modelo.
+- **Disco gerenciado do Azure**: O disco Azure Managed é para armazenamento persistente para banco de dados de estado do mundo do nó de razão e pares.
+- **IP público**: Um ponto final IP público do cluster AKS implantado para interligação com o cluster.
 
-## <a name="hyperledger-fabric-blockchain-network-setup"></a>Configuração de rede de Blockchain de malha de multirazão
+## <a name="hyperledger-fabric-blockchain-network-setup"></a>Configuração da rede Hyperledger Fabric Blockchain
 
 Para começar, você precisa de uma assinatura do Azure que possa suportar a implantação de várias máquinas virtuais e contas de armazenamento padrão. Se você não tiver uma assinatura do Azure, poderá [ criar uma conta gratuita do Azure ](https://azure.microsoft.com/free/).
 
-Configure a rede Blockchain de malha do multirazão usando as seguintes etapas:
+Configurar rede Hyperledger Fabric Blockchain usando as seguintes etapas:
 
-- [Implantar a organização do solicitante/par](#deploy-the-ordererpeer-organization)
-- [Criar o consórcio](#build-the-consortium)
-- [Executar operações HLF nativas](#run-native-hlf-operations)
+- [Implantar a organização do pedidor/peer](#deploy-the-ordererpeer-organization)
+- [Construa o consórcio](#build-the-consortium)
+- [Executar operações nativas de HLF](#run-native-hlf-operations)
 
-## <a name="deploy-the-ordererpeer-organization"></a>Implantar a organização do solicitante/par
+## <a name="deploy-the-ordererpeer-organization"></a>Implantar a organização do pedidor/peer
 
-Para começar a usar a implantação de componentes de rede do HLF, navegue até a [portal do Azure](https://portal.azure.com). Selecione **criar um recurso > Blockchain** > Pesquisar por **malha de Hiperrazões no serviço kubernetes do Azure**.
+Para começar com a implantação dos componentes da rede HLF, navegue até o [portal Azure](https://portal.azure.com). Selecione **Criar um recurso > blockchain** > procurar por malha **Hyperledger no Azure Kubernetes Service**.
 
-1. Selecione **criar** para iniciar a implantação do modelo. O **serviço criar malha de kubernetes no Azure** é exibido.
+1. Selecione **criar** para iniciar a implantação do modelo. O **Create Hyperledger Fabric no Azure Kubernetes Service** é exibido.
 
-    ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
+    ![Malha Hyperledger no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
 
-2. Insira os detalhes do projeto na página **noções básicas** .
+2. Digite os **detalhes** do projeto na página Básico.
 
-    ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
+    ![Malha Hyperledger no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
 
 3. Insira os seguintes detalhes:
-    - **Assinatura**: escolha o nome da assinatura em que você deseja implantar os componentes de rede do HLF.
+    - **Assinatura**: Escolha o nome da assinatura onde deseja implantar os componentes da rede HLF.
     - **Grupo de recursos**: Crie um novo grupo de recursos ou escolha um grupo de recursos vazio existente, o grupo de recursos manterá todos os recursos implantados como parte do modelo.
-    - **Região**: escolha a região do Azure em que você deseja implantar o cluster kubernetes do Azure para os componentes do HLF. O modelo está disponível em todas as regiões em que AKS está disponível, certifique-se de escolher uma região em que sua assinatura não esteja atingindo o limite de cota da máquina virtual (VM).
-    - **Prefixo do recurso**: prefixo para a nomenclatura de recursos que são implantados. O prefixo do recurso deve ter menos de seis caracteres e a combinação de caracteres deve incluir números e letras.
-4. Selecione a guia **configurações de malha** para definir os componentes de rede HLF que serão implantados.
+    - **Região**: Escolha a região azure onde deseja implantar o cluster Azure Kubernetes para os componentes HLF. O modelo está disponível em todas as regiões onde o AKS está disponível Certifique-se de escolher uma região onde sua assinatura não está atingindo o limite de cotas da Máquina Virtual (VM).
+    - **Prefixo de**recursos : Prefixo para nomeação de recursos que são implantados. O prefixo de recurso deve ter menos de seis caracteres de comprimento e a combinação de caracteres deve incluir números e letras.
+4. Selecione a guia **Configurações de** malha para definir os componentes de rede HLF que serão implantados.
 
-    ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
+    ![Malha Hyperledger no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Insira os seguintes detalhes:
-    - **Nome da organização**: o nome da organização de malha, que é necessário para várias operações de plano de dados.
-    - **Componente de rede de malha**: escolha o serviço de pedidos ou nós de mesmo nível com base no componente de rede Blockchain que você deseja configurar.
-    - **Número de nós** – os dois tipos de nós a seguir:
-        - Serviço de pedidos – selecione o número de nós para fornecer a tolerância a falhas para a rede. Somente 3, 5 e 7 são a contagem de nós do solicitante com suporte.
-        - Nós de par-você pode escolher 1-10 nós com base em seu requisito.
-    - **Banco de dados de estado mundial do nó par**: escolha entre LevelDB e CoucbDB. Esse campo é exibido quando o usuário escolhe o nó par na lista suspensa componente de rede de malha.
-    - **Nome de usuário da malha**: Insira o nome de usuário que é usado para a autenticação da AC da malha.
-    - **Senha da AC de malha**: Insira a senha para autenticação de AC de malha.
-    - **Confirmar senha**: Confirme a senha da AC da malha.
-    - **Certificados**: se você quiser usar seus próprios certificados raiz para inicializar a AC de malha, escolha carregar certificado raiz para a opção malha AC, senão, por padrão, a AC de malha cria certificados autoassinados.
-    - **Certificado raiz**: carregue o certificado raiz (chave pública) com o qual a AC da malha precisa ser inicializada. Há suporte para certificados de formato. PEM, os certificados devem ser válidos no fuso horário UTC.
-    - **Chave privada do certificado raiz**: carregue a chave privada do certificado raiz. Se você tiver um certificado. PEM, que tem a chave pública e privada combinada, carregue-o aqui também.
+    - **Nome da organização**: O nome da organização Fabric, que é necessária para várias operações de data plane. O nome da organização precisa ser único por implantação. 
+    - **Componente de rede de malha**: Escolha serviço de pedidos ou nós peer com base no componente de rede Blockchain que deseja configurar.
+    - **Número de nós** - Os dois tipos de nós:
+        - Serviço de encomenda - selecione o número de nós para fornecer tolerância de falha à rede. Apenas 3,5 e 7 são a contagem de nós ordenados suportados.
+        - Nós pares - você pode escolher 1-10 nodes com base na sua exigência.
+    - **Banco de dados do estado do mundo do nó peer :** Escolha entre LevelDB e CoucbDB. Este campo é exibido quando o usuário escolhe o nó de ponto em componente de rede de malha suspenso.
+    - **Nome de usuário da malha**: Digite o nome de usuário usado para a autenticação do Fabric CA.
+    - **Senha da MALHA CA**: Digite a senha para autenticação de Fabric CA.
+    - **Confirmar senha**: Confirme a senha do Fabric CA.
+    - **Certificados**: Se você quiser usar seus próprios certificados raiz para inicializar o Fabric CA, escolha Enviar certificado raiz para a opção Fabric CA, senão, por padrão, a Fabric CA cria certificados auto-assinados.
+    - **Certificado raiz**: Certificado raiz de upload (chave pública) com o qual a Fabric CA precisa ser inicializada. Os certificados do formato .pem são suportados, os certificados devem ser válidos no fuso horário UTC.
+    - **Tecla privada do Certificado Raiz**: Carregue a chave privada do certificado raiz. Se você tem um certificado .pem, que tem chave pública e privada combinada, carregue-o aqui também.
 
 
-6. Selecione a guia **configurações de cluster do AKS** para definir a configuração do cluster kubernetes do Azure que é a infraestrutura subjacente na qual os componentes da rede de malha serão configurados.
+6. Selecione a guia **Configurações do cluster AKS** para definir a configuração do cluster Azure Kubernetes, que é a infra-estrutura subjacente na qual os componentes da rede Fabric serão configurados.
 
-    ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
+    ![Malha Hyperledger no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
 7. Insira os seguintes detalhes:
-    - **Nome do cluster kubernetes**: o nome do cluster AKs que é criado. Este campo é preenchido previamente com base no prefixo de recurso fornecido, você pode alterar se necessário.
-    - **Versão do kubernetes**: a versão do kubernetes que será implantada no cluster. Com base na região selecionada na guia **noções básicas** , as versões com suporte disponíveis podem ser alteradas.
-    - **Prefixo DNS**: prefixo de nome DNS (sistema de nomes de domínio) para o cluster AKs. Você usará o DNS para se conectar à API do kubernetes ao gerenciar contêineres depois de criar o cluster.
-    - **Tamanho do nó**: o tamanho do nó kubernetes, você pode escolher na lista de SKUs (unidades de manutenção de estoque) da VM disponíveis no Azure. Para obter um desempenho ideal, recomendamos o Standard DS3 v2.
-    - **Contagem de nós**: a contagem do número de nós kubernetes a serem implantados no cluster. É recomendável manter essa contagem de nós pelo menos igual ou mais do que o número de nós HLF especificados nas configurações de malha.
-    - **ID do cliente da entidade de serviço**: Insira a ID do cliente de uma entidade de serviço existente ou crie uma nova, que é necessária para a autenticação AKs. Consulte as etapas para [criar uma entidade de serviço](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
-    - **Segredo do cliente da entidade de serviço**: Insira o segredo do cliente da entidade de serviço fornecida na ID do cliente da entidade de serviço.
-    - **Confirmar segredo do cliente**: Confirme o segredo do cliente fornecido no segredo do cliente da entidade de serviço.
-    - **Habilitar o monitoramento de contêiner**: escolha habilitar o monitoramento de AKs, que permite que os logs de AKs enviem por push para o espaço de trabalho de log Analytics especificado.
-    - **Log Analytics espaço de trabalho**: o espaço de trabalho do log Analytics será preenchido com o espaço de trabalho padrão que é criado se o monitoramento estiver habilitado.
+    - **Nome do cluster Kubernetes**: O nome do cluster AKS que é criado. Este campo é pré-preenchido com base no prefixo de recurso fornecido, você pode alterar se necessário.
+    - **Versão Kubernetes**: A versão dos Kubernetes que será implantada no cluster. Com base na região selecionada na guia Básico, as **versões** suportadas disponíveis podem mudar.
+    - **Prefixo DNS**: Prefixo de nome de nome de domínio (DNS) para cluster AKS. Você usará o DNS para se conectar à API do Kubernetes ao gerenciar contêineres após a criação do cluster.
+    - **Tamanho do nó**: O tamanho do nó Kubernetes, você pode escolher na lista de SKUs (Unidade de Manutenção de Estoque vm) disponível no Azure. Para um desempenho ideal, recomendamos o Standard DS3 v2.
+    - **Contagem de**nó : A contagem do número de nódulos Kubernetes a serem implantados no cluster. Recomendamos manter essa contagem de nós pelo menos igual ou superior ao número de nós HLF especificados nas configurações de Malha.
+    - **ID do cliente principal do serviço**: Digite o ID do cliente de um principal de serviço existente ou crie um novo, que é necessário para a autenticação AKS. Veja, passos para [criar o diretor de serviço.](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal)
+    - **Serviço principal cliente secreto**: Digite o segredo do cliente do principal serviço fornecido no serviço principal iD do cliente.
+    - **Confirme o segredo**do cliente : Confirme o segredo do cliente fornecido no principal segredo do cliente do serviço.
+    - **Habilitar o monitoramento de contêineres**: Escolha ativar o monitoramento aks, o que permite que os logs AKS empurrem para o espaço de trabalho do Log Analytics especificado.
+    - **Espaço de trabalho do Log Analytics**: O espaço de trabalho do Log Analytics será preenchido com o espaço de trabalho padrão criado se o monitoramento estiver ativado.
 
-8. Depois de fornecer todos os detalhes acima, selecione a guia **revisar e criar** . A revisão e a criação dispara a validação para os valores fornecidos.
-9. Depois que a validação for aprovada, você poderá selecionar **criar**.
-A implantação geralmente leva 10-12 minutos, pode variar dependendo do tamanho e do número de nós AKS especificados.
-10. Após a implantação bem-sucedida, você será notificado por meio das notificações do Azure no canto superior direito.
-11. Selecione **ir para o grupo de recursos** para verificar todos os recursos criados como parte da implantação do modelo. Todos os nomes de recursos serão iniciados com o prefixo fornecido na configuração de **noções básicas** .
+8. Depois de fornecer todos os detalhes acima, selecione **Revisar e criar** guia. A revisão e a criação desencadeiam a validação dos valores fornecidos.
+9. Uma vez que a validação passe, você pode selecionar **criar**.
+A implantação geralmente leva de 10 a 12 minutos, podendo variar dependendo do tamanho e número de nomes AKS especificados.
+10. Após a implantação bem-sucedida, você é notificado através de notificações do Azure no canto superior direito.
+11. Selecione **Ir ao grupo de recursos** para verificar todos os recursos criados como parte da implantação do modelo. Todos os nomes dos recursos começarão com o prefixo fornecido na configuração **Basics.**
 
-## <a name="build-the-consortium"></a>Criar o consórcio
+## <a name="build-the-consortium"></a>Construa o consórcio
 
-Para criar o blockchain Consortium após implantar o serviço de pedidos e os nós de mesmo nível, você precisa executar as etapas a seguir em sequência. **Compile seu** script de rede (byn.sh), que ajuda você a configurar o consórcio, a criar o canal e a instalar o chaincode.
+Para construir o post de consórcio blockchain implantando o serviço de pedidos e os nós de pares, você precisa realizar as etapas abaixo em seqüência. **Construa o** script da rede (byn.sh), que ajuda você a configurar o consórcio, criar canal e instalar chaincode.
 
 > [!NOTE]
-> Criar seu script de rede (byn) fornecido é estritamente usado para cenários de demonstração/DevTest. Para a configuração de nível de produção, é recomendável usar as APIs nativas do HLF.
+> O script Build Your Network (byn) fornecido é estritamente usado para cenários de demonstração/devteste. Para a configuração de grau de produção, recomendamos o uso das APIs nativas hlf.
 
-Todos os comandos para executar o script byn podem ser executados por meio da CLI (interface de linha de comando) do Azure bash. Você pode fazer logon na versão da Web do shell do Azure por meio de ![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) no canto superior direito do portal do Azure. No prompt de comando, digite bash e insira para mudar para a CLI do bash.
+Todos os comandos para executar o script byn podem ser executados através da Interface de Linha de Comando (CLI) do Azure Bash. Você pode fazer login na versão web shell do Azure através ![Malha Hyperledger no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) opção no canto superior direito do portal Azure. No prompt de comando, digite bash e digite para trocar para bash CLI.
 
-Consulte o [shell do Azure](https://docs.microsoft.com/azure/cloud-shell/overview) para obter mais informações.
+Consulte [a shell do Azure](https://docs.microsoft.com/azure/cloud-shell/overview) para obter mais informações.
 
-![Malha de multirazão no modelo do serviço kubernetes do Azure](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
+![Malha Hyperledger no modelo de serviço Azure Kubernetes](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
 
-Baixe o arquivo byn.sh e Fabric-admin. YAML.
+Baixe byn.sh e arquivo fabric-admin.yaml.
 
 ```bash-interactive
 curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/consortiumScripts/byn.sh -o byn.sh; chmod 777 byn.sh
 curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/consortiumScripts/fabric-admin.yaml -o fabric-admin.yaml
 ```
-**Defina as variáveis de ambiente abaixo no shell CLI do Azure bash**:
+**Definir abaixo variáveis de ambiente no shell Azure CLI Bash**:
 
-Definir informações de canal e informações da organização do solicitante
+Defina informações de canal e informações da organização do ordenador
 
 ```bash
 SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
@@ -147,7 +147,7 @@ ORDERER_DNS_ZONE=$(az aks show --resource-group $ORDERER_AKS_RESOURCE_GROUP --na
 ORDERER_END_POINT="orderer1.$ORDERER_DNS_ZONE:443"
 CHANNEL_NAME=<channelName>
 ```
-Definir informações da organização par
+Definir informações da organização de pares
 
 ```bash
 PEER_AKS_RESOURCE_GROUP=<peerAKSClusterResourceGroup>
@@ -157,7 +157,7 @@ PEER_AKS_SUBSCRIPTION=<peerAKSClusterSubscriptionID>
 PEER_ORG_NAME=<peerOrganizationName>
 ```
 
-Crie um compartilhamento de arquivos do Azure para compartilhar vários certificados públicos entre organizações de mesmo nível e do solicitante.
+Crie um compartilhamento de arquivos do Azure para compartilhar vários certificados públicos entre organizações peer e orderer.
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -174,27 +174,27 @@ az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE
 SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
 AZURE_FILE_CONNECTION_STRING="https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN"
 ```
-**Comandos de gerenciamento de canal**
+**Comandos de Gerenciamento de Canais**
 
-Vá para a organização do orderr AKS cluster e o comando Issue para criar um novo canal
+Vá para o cluster aks organization do pedido e emita comando para criar um novo canal
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $ORDERER_AKS_RESOURCE_GROUP $ORDERER_AKS_NAME $ORDERER_AKS_SUBSCRIPTION
 ./byn.sh createChannel "$CHANNEL_NAME"
 ```
 
-**Comandos de gerenciamento do consórcio**
+**Comandos de Gestão de Consórcios**
 
-Execute os comandos abaixo na ordem determinada para adicionar uma organização de mesmo nível em um canal e consórcio.
+Execute abaixo os comandos na ordem dada para adicionar uma organização de pares em um canal e consórcio.
 
-1. Vá para par organização AKS cluster e carregue seu serviço de membro fornecer (MSP) em um armazenamento de arquivos do Azure.
+1. Vá para o Cluster AKS da Organização de Pares e carregue seu MSP (Member Service Provide, serviço de membro) em um armazenamento de arquivos Azure.
 
     ```bash
     SWITCH_TO_AKS_CLUSTER $PEER_AKS_RESOURCE_GROUP $PEER_AKS_NAME $PEER_AKS_SUBSCRIPTION
     ./byn.sh uploadOrgMSP "$AZURE_FILE_CONNECTION_STRING"
     ```
 
-2. Vá para a organização do orderr AKS cluster e adicione a organização par no canal e consórcio.
+2. Vá para o cluster AKS Organization e adicione a organização por pares em canal e consórcio.
 
     ```bash
     SWITCH_TO_AKS_CLUSTER $ORDERER_AKS_RESOURCE_GROUP $ORDERER_AKS_NAME $ORDERER_AKS_SUBSCRIPTION
@@ -204,26 +204,26 @@ Execute os comandos abaixo na ordem determinada para adicionar uma organização
     ./byn.sh addPeerInChannel "$PEER_ORG_NAME" "$CHANNEL_NAME" "$AZURE_FILE_CONNECTION_STRING"
     ```
 
-3. Volte para a organização par e o comando Issue para ingressar nós pares no canal.
+3. Volte para a organização de pares e emita comando para juntar os pares no canal.
 
     ```bash
     SWITCH_TO_AKS_CLUSTER $PEER_AKS_RESOURCE_GROUP $PEER_AKS_NAME $PEER_AKS_SUBSCRIPTION
     ./byn.sh joinNodesInChannel "$CHANNEL_NAME" "$ORDERER_END_POINT" "$AZURE_FILE_CONNECTION_STRING"
     ```
 
-Da mesma forma, para adicionar mais organizações pares no canal, atualize as variáveis de ambiente AKS de mesmo nível de acordo com a organização par necessária e execute as etapas de 1 a 3.
+Da mesma forma, para adicionar mais organizações de pares no canal, atualize as variáveis do ambiente AKS de acordo com a organização de pares necessária e execute as etapas 1 a 3.
 
-**Comandos de gerenciamento do Chaincode**
+**Comandos de gerenciamento de chaincode**
 
-Execute o comando abaixo para executar a operação relacionada ao chaincode. Esses comandos executam todas as operações em um chaincode de demonstração. Este chaincode de demonstração tem duas variáveis "a" e "b". Na instanciação do chaincode, "a" é inicializado com 1000 e "b" é inicializado com 2000. Em cada invocação do chaincode, 10 unidades são transferidas de "a" para "b". A operação de consulta em chaincode mostra o estado mundial da variável "a".
+Execute o comando abaixo para executar a operação relacionada ao chaincode. Esses comandos executam todas as operações em um código de cadeia de demonstração. Este código de momo tem duas variáveis "a" e "b". Na instanciação do chaincode, "a" é inicializado com 1000 e "b" é inicializado com 2000. Em cada invocação do chaincode, 10 unidades são transferidas de "a" para "b". A operação de consulta no chaincode mostra o estado mundial da variável "a".
 
-Execute os comandos a seguir executados no cluster AKS da organização de mesmo nível.
+Execute os seguintes comandos executados no cluster AKS da organização de pares.
 
 ```bash
 # switch to peer organization AKS cluster. Skip this command if already connected to the required Peer AKS Cluster
 SWITCH_TO_AKS_CLUSTER $PEER_AKS_RESOURCE_GROUP $PEER_AKS_NAME $PEER_AKS_SUBSCRIPTION
 ```
-**Comandos da operação Chaincode**
+**Comandos de operação Chaincode**
 
 ```bash
 PEER_NODE_NAME="peer<peer#>"
@@ -233,51 +233,51 @@ PEER_NODE_NAME="peer<peer#>"
 ./byn.sh queryDemoChaincode "$PEER_NODE_NAME" "$CHANNEL_NAME"
 ```
 
-## <a name="run-native-hlf-operations"></a>Executar operações HLF nativas
+## <a name="run-native-hlf-operations"></a>Executar operações nativas de HLF
 
-Para ajudar os clientes a começar a executar comandos nativos do multirazão na rede HLF no AKS. O aplicativo de exemplo é fornecido que usa o SDK do Fabric NodeJS para executar as operações de HLF. Os comandos são fornecidos para criar uma nova identidade de usuário e instalar seu próprio chaincode.
+Para ajudar os clientes a começar a executar comandos nativos hyperledger na rede HLF no AKS. A aplicação da amostra é fornecida que usa tecido NodeJS SDK para executar as operações HLF. Os comandos são fornecidos para criar uma nova identidade de usuário e instalar seu próprio chaincode.
 
 ### <a name="before-you-begin"></a>Antes de começar
 
 Siga os comandos abaixo para a configuração inicial do aplicativo:
 
-- Baixar arquivos do aplicativo
-- Gerar perfil de conexão e perfil de administrador
-- Importar identidade de usuário administrador
+- Baixar arquivos de aplicativos
+- Gerar perfil de conexão e perfil de admin
+- Importar identidade do usuário de admin
 
-Depois de concluir a configuração inicial, você pode usar o SDK para obter as operações abaixo:
+Após concluir a configuração inicial, você pode usar o SDK para alcançar as operações abaixo:
 
 - Geração de identidade do usuário
-- Operações de Chaincode
+- Operações chaincode
 
-Os comandos mencionados acima podem ser executados de Azure Cloud Shell.
+Os comandos acima mencionados podem ser executados a partir do Azure Cloud Shell.
 
-### <a name="download-application-files"></a>Baixar arquivos do aplicativo
+### <a name="download-application-files"></a>Baixar arquivos de aplicativos
 
-A primeira configuração para executar o aplicativo é baixar todos os arquivos de aplicativo em uma pasta.
+A primeira configuração para executar o aplicativo é baixar todos os arquivos do aplicativo em uma pasta.
 
-**Crie a pasta do aplicativo e insira-a na pasta**:
+**Criar pasta de aplicativo e entrar na pasta:**
 
 ```bash
 mkdir app
 cd app
 ```
-Execute o comando abaixo para baixar todos os arquivos e pacotes necessários:
+Execute abaixo o comando para baixar todos os arquivos e pacotes necessários:
 
 ```bash-interactive
 curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/application/setup.sh | bash
 ```
-Esse comando leva tempo para carregar todos os pacotes. Após a execução bem-sucedida do comando, você poderá ver uma pasta `node_modules` no diretório atual. Todos os pacotes necessários são carregados na pasta `node_modules`.
+Este comando leva tempo para carregar todos os pacotes. Após a execução bem sucedida `node_modules` do comando, você pode ver uma pasta no diretório atual. Todos os pacotes necessários `node_modules` estão carregados na pasta.
 
-### <a name="generate-connection-profile-and-admin-profile"></a>Gerar perfil de conexão e perfil de administrador
+### <a name="generate-connection-profile-and-admin-profile"></a>Gerar perfil de conexão e perfil de admin
 
-Criar `profile` diretório dentro da pasta `app`
+Criar `profile` diretório dentro `app` da pasta
 
 ```bash
 cd app
 mkdir ./profile
 ```
-Definir essas variáveis de ambiente no Azure cloud Shell
+Defina essas variáveis de ambiente no shell de nuvem do Azure
 
 ```bash
 # Organization name whose connection profile is to be generated
@@ -286,33 +286,33 @@ ORGNAME=<orgname>
 AKS_RESOURCE_GROUP=<resourceGroup>
 ```
 
-Execute o comando abaixo para gerar o perfil de conexão e o perfil de administrador da organização
+Execute abaixo o comando para gerar perfil de conexão e perfil de admin da organização
 
 ```bash
 ./getConnector.sh $AKS_RESOURCE_GROUP | sed -e "s/{action}/gateway/g"| xargs curl > ./profile/$ORGNAME-ccp.json
 ./getConnector.sh $AKS_RESOURCE_GROUP | sed -e "s/{action}/admin/g"| xargs curl > ./profile/$ORGNAME-admin.json
 ```
 
-Ele criará o perfil de conexão e `profile` de administrador da organização na pasta de perfil com o nome `<orgname>-ccp.json` e `<orgname>-admin.json`, respectivamente.
+Ele criará perfil de conexão e admin `profile` `<orgname>-ccp.json` da `<orgname>-admin.json` organização na pasta de perfil com nome e, respectivamente.
 
-Da mesma forma, gere o perfil de conexão e o perfil de administrador para cada pedido e organização de mesmo nível.
+Da mesma forma, gerar perfil de conexão e perfil de admin para cada ordenador e organização de pares.
 
 
-### <a name="import-admin-user-identity"></a>Importar identidade de usuário administrador
+### <a name="import-admin-user-identity"></a>Importar identidade do usuário de admin
 
-A última etapa é importar a identidade do usuário administrador da organização na carteira.
+O último passo é importar a identidade do usuário de admin da organização na carteira.
 
 ```bash
 npm run importAdmin -- -o <orgName>
 
 ```
-O comando acima executa importAdmin. js para importar a identidade do usuário administrador para a carteira. O script lê a identidade de administrador do perfil de administrador `<orgname>-admin.json` e a importa em carteira para executar operações HLF.
+O comando acima executa importAdmin.js para importar a identidade do usuário do admin para a carteira. O script lê a identidade do administrador do `<orgname>-admin.json` perfil de administrador e importa-a em carteira para execução de operações HLF.
 
-Os scripts usam a carteira do sistema de arquivos para armazenar as identidades. Ele cria uma carteira de acordo com o caminho especificado no campo ". carteira" no perfil de conexão. Por padrão, o campo ". carteira" é inicializado com `<orgname>`, o que significa que uma pasta chamada `<orgname>` é criada no diretório atual para armazenar as identidades. Se você quiser criar uma carteira em outro caminho, modifique o campo ". carteira" no perfil de conexão antes de executar registrar usuário administrador e qualquer outra operação HLF.
+Os scripts usam a carteira do sistema de arquivos para armazenar as identidades. Ele cria uma carteira de acordo com o caminho especificado no campo ".wallet" no perfil de conexão. Por padrão, o campo ".wallet" é inicializado com `<orgname>`, o que significa que uma pasta nomeada `<orgname>` é criada no diretório atual para armazenar as identidades. Se você quiser criar carteira em algum outro caminho, modifique o campo ".wallet" no perfil de conexão antes de executar o usuário de admin de inscrição e quaisquer outras operações HLF.
 
-Da mesma forma, importe a identidade do usuário administrador para cada organização.
+Da mesma forma, importe a identidade do usuário do admin para cada organização.
 
-Consulte a ajuda do comando para obter mais detalhes sobre os argumentos passados no comando.
+Consulte a ajuda de comando para obter mais detalhes sobre os argumentos passados no comando.
 
 ```bash
 npm run importAdmin -- -h
@@ -321,12 +321,12 @@ npm run importAdmin -- -h
 
 ### <a name="user-identity-generation"></a>Geração de identidade do usuário
 
-Execute os comandos abaixo na ordem fornecida para gerar novas identidades de usuário para a organização HLF.
+Execute abaixo os comandos na ordem dada para gerar novas identidades de usuário para a organização HLF.
 
 > [!NOTE]
-> Antes de começar com as etapas de geração de identidade do usuário, verifique se a configuração inicial do aplicativo está concluída.
+> Antes de começar com as etapas de geração de identidade do usuário, certifique-se de que a configuração inicial do aplicativo seja feita.
 
-Definir as variáveis de ambiente abaixo no Azure cloud Shell
+Definir abaixo variáveis de ambiente no shell de nuvem azul
 
 ```bash
 # Organization name for which user identity is to be generated
@@ -336,9 +336,9 @@ USER_IDENTITY=<username>
 
 ```
 
-Registrar e registrar novo usuário
+Registre-se e inscreva-se novo usuário
 
-Para registrar e registrar o novo usuário, execute o comando abaixo que executa o registerUser. js. Ele salva a identidade do usuário gerada na carteira.
+Para registrar e cadastrar o novo usuário, execute o comando abaixo que executa registerUser.js. Ele salva a identidade de usuário gerada na carteira.
 
 ```bash
 npm run registerUser -- -o $ORGNAME -u $USER_IDENTITY
@@ -346,22 +346,22 @@ npm run registerUser -- -o $ORGNAME -u $USER_IDENTITY
 ```
 
 > [!NOTE]
-> A identidade do usuário administrador é usada para emitir o comando Register para o novo usuário. Portanto, é obrigatório ter a identidade do usuário administrador na carteira antes de executar esse comando. Caso contrário, esse comando falhará.
+> A identidade do usuário do admin é usada para emitir o comando register para o novo usuário. Portanto, é obrigatório ter a identidade do usuário administrador na carteira antes de executar este comando. Caso contrário, este comando falhará.
 
-Consulte a ajuda do comando para obter mais detalhes sobre os argumentos passados no comando
+Indique ajuda de comando para obter mais detalhes sobre os argumentos aprovados no comando
 
 ```bash
 npm run registerUser -- -h
 
 ```
 
-### <a name="chaincode-operations"></a>Operações de Chaincode
+### <a name="chaincode-operations"></a>Operações chaincode
 
 
 > [!NOTE]
-> Antes de começar com qualquer operação chaincode, verifique se a configuração inicial do aplicativo está concluída.
+> Antes de começar com qualquer operação de chaincode, certifique-se de que a configuração inicial do aplicativo seja feita.
 
-Defina as variáveis de ambiente específicas do chaincode no Azure cloud Shell:
+Definir abaixo variáveis de ambiente específicas do chaincode no shell do Azure Cloud:
 
 ```bash
 # peer organization name where chaincode is to be installed
@@ -383,52 +383,52 @@ CHANNEL=<channelName>
 
 ````
 
-As operações de chaincode abaixo podem ser executadas:
+As operações abaixo do chaincode podem ser realizadas:
 
-- Instalar o chaincode
-- Criar instância de chaincode
+- Instalar chaincode
+- Código de corrente instanciado
 - Invocar chaincode
-- Chaincode de consulta
+- Código de cadeia de consulta
 
-### <a name="install-chaincode"></a>Instalar o chaincode
+### <a name="install-chaincode"></a>Instalar chaincode
 
-Execute o comando abaixo para instalar o chaincode na organização par.
+Execute o comando abaixo para instalar chaincode na organização de pares.
 
 ```bash
 npm run installCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION
 
 ```
-Ele instalará o chaincode em todos os nós pares da organização definida em `ORGNAME` variável de ambiente. Se houver duas ou mais organizações pares em seu canal e você quiser instalar o chaincode em todos eles, execute os comandos separadamente para cada organização par.
+Ele instalará chaincode em todos os nós de `ORGNAME` pares da organização definidos na variável ambiente. Se houver duas ou mais organizações de pares em seu canal e você quiser instalar chaincode em todas elas, execute os comandos separadamente para cada organização de pares.
 
-Siga as etapas:
+Siga os passos:
 
-- Defina `ORGNAME` como `<peerOrg1Name>` e emita `installCC` comando.
-- Defina `ORGNAME` como `<peerOrg2Name>` e emita `installCC` comando.
+- Definir `ORGNAME` `<peerOrg1Name>` e `installCC` emitir comando.
+- Definir `ORGNAME` `<peerOrg2Name>` e `installCC` emitir comando.
 
-  Execute-o para cada organização de mesmo nível.
+  Execute-o para cada organização de pares.
 
-Consulte a ajuda do comando para obter mais detalhes sobre os argumentos passados no comando.
+Consulte a ajuda de comando para obter mais detalhes sobre os argumentos passados no comando.
 
 ```bash
 npm run installCC -- -h
 
 ```
 
-### <a name="instantiate-chaincode"></a>Criar instância de chaincode
+### <a name="instantiate-chaincode"></a>Código de corrente instanciado
 
-Execute o comando abaixo para criar uma instância de chaincode no par.
+Execute abaixo o comando para instanciar o código de corrente no peer.
 
 ```bash
 npm run instantiateCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL -f <instantiateFunc> -a <instantiateFuncArgs>
 
 ```
-Passe o nome da função de instanciação e a lista de argumentos separados por vírgulas em `<instantiateFunc>` e `<instantiateFuncArgs>` respectivamente. Por exemplo, em [fabrcar chaincode](https://github.com/hyperledger/fabric-samples/blob/release/chaincode/fabcar/fabcar.go), para instanciar o chaincode definido `<instantiateFunc>` para `"Init"` e `<instantiateFuncArgs>` para `""`de cadeia de caracteres vazia.
+Passe o nome da função de instanciação `<instantiateFunc>` e `<instantiateFuncArgs>` a lista separada de comuma de argumentos dentro e respectivamente. Por exemplo, no [fabrcar chaincode,](https://github.com/hyperledger/fabric-samples/blob/release/chaincode/fabcar/fabcar.go)para `<instantiateFunc>` instanciar o código de corrente definido para `"Init"` e `<instantiateFuncArgs>` para esvaziar a seqüência de cordas `""`.
 
 > [!NOTE]
-> Execute o comando de uma vez em qualquer organização de mesmo nível no canal.
-> Depois que a transação for enviada com êxito para o solicitante, o solicitante distribuirá essa transação para todas as organizações pares no canal. Portanto, o chaincode é instanciado em todos os nós de mesmo nível em todas as organizações pares no canal.
+> Execute o comando por uma vez a partir de qualquer organização de um par no canal.
+> Uma vez que a transação é submetida com sucesso ao pedidor, o ordenador distribui essa transação para todas as organizações pares do canal. Assim, o chaincode é instanciado em todos os nós de pares em todas as organizações de pares do canal.
 
-Consulte a ajuda do comando para obter mais detalhes sobre os argumentos passados no comando
+Indique ajuda de comando para obter mais detalhes sobre os argumentos aprovados no comando
 
 ```bash
 npm run instantiateCC -- -h
@@ -443,31 +443,31 @@ Execute o comando abaixo para invocar a função chaincode:
 npm run invokeCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <invokeFunc> -a <invokeFuncArgs>
 
 ```
-Passe Invoke Name da função e lista de argumentos separados por vírgulas em `<invokeFunction>` e `<invokeFuncArgs>` respectivamente. Continuando com o exemplo fabcar chaincode, para invocar initLedger conjunto de funções `<invokeFunction>` para `"initLedger"` e `<invokeFuncArgs>` como `""`.
+Passe o nome da função e a lista `<invokeFunction>` `<invokeFuncArgs>` separada de comuma de discussão dentro e respectivamente. Continuando com o exemplo fabcar chaincode, para `<invokeFunction>` `"initLedger"` invocar `<invokeFuncArgs>` `""`a função initLedger definida para e para .
 
 > [!NOTE]
-> Execute o comando de uma vez em qualquer organização de mesmo nível no canal.
-> Depois que a transação for enviada com êxito para o solicitante, o solicitante distribuirá essa transação para todas as organizações pares no canal. Portanto, o estado mundial é atualizado em todos os nós pares de todas as organizações pares no canal.
+> Execute o comando por uma vez a partir de qualquer organização de um par no canal.
+> Uma vez que a transação é submetida com sucesso ao pedidor, o ordenador distribui essa transação para todas as organizações pares do canal. Assim, o Estado mundial é atualizado em todos os nós pares de todas as organizações pares do canal.
 
-Consulte a ajuda do comando para obter mais detalhes sobre os argumentos passados no comando
+Indique ajuda de comando para obter mais detalhes sobre os argumentos aprovados no comando
 
 ```bash
 npm run invokeCC -- -h
 
 ```
 
-### <a name="query-chaincode"></a>Chaincode de consulta
+### <a name="query-chaincode"></a>Código de cadeia de consulta
 
-Execute o comando abaixo para consultar o chaincode:
+Execute abaixo o comando para consultar chaincode:
 
 ```bash
 npm run queryCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <queryFunction> -a <queryFuncArgs>
 
 ```
 
-Passe o nome da função de consulta e a lista de argumentos separados por vírgulas em `<queryFunction>` e `<queryFuncArgs>` respectivamente. Novamente, levando `fabcar` chaincode como referência, para consultar todos os carros no conjunto de Estados do mundo `<queryFunction>` como `"queryAllCars"` e `<queryArgs>` para `""`.
+Passar nome da função de consulta e comma lista separada de argumentos dentro `<queryFunction>` e `<queryFuncArgs>` respectivamente. Mais uma `fabcar` vez, tomando o chaincode como referência, `<queryFunction>` `"queryAllCars"` para `<queryArgs>` `""`consultar todos os carros do estado mundial definidos para e para .
 
-Consulte a ajuda do comando para obter mais detalhes sobre os argumentos passados no comando
+Indique ajuda de comando para obter mais detalhes sobre os argumentos aprovados no comando
 
 ```bash
 npm run queryCC -- -h

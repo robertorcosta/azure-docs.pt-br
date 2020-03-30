@@ -1,45 +1,44 @@
 ---
-title: Power BI os pré-requisitos da oferta de aplicativo | Azure Marketplace
-description: Fornece os pré-requisitos para publicar um aplicativo de Power BI no AppSource.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+title: Power BI App oferece pré-requisitos | Mercado Azure
+description: Fornece os pré-requisitos para publicar um aplicativo Power BI ao AppSource.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 486a1b9ca213828b5a26571de7bc34d06f56d434
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5c95c50f5597eee51c66cc68273478b1b9f0e2df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826015"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286329"
 ---
-# <a name="power-bi-app-offer-prerequisites"></a>Power BI pré-requisitos de oferta de aplicativo
+# <a name="power-bi-app-offer-prerequisites"></a>Pré-requisitos de oferta de aplicativo do Power BI
 
-Este artigo fornece os requisitos técnicos e comerciais que você precisa cumprir antes de publicar uma oferta de aplicativo Power BI no Marketplace AppSource.  Se você ainda não tiver feito isso, examine o [Guia de publicação do Office 365, Dynamics 365, PowerApps e Power bi offer](../../appsource-offer-publishing-guide.md).
+Este artigo fornece os requisitos técnicos e de negócios que você precisa atender antes de publicar uma oferta de Aplicativo Power BI para o mercado AppSource.  Se você ainda não fez isso, revise o [Office 365, Dynamics 365, PowerApps e Power BI Offer Publishing Guide](../../appsource-offer-publishing-guide.md).
 
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
-O principal ativo técnico que você precisará para esse tipo de oferta é um [aplicativo Power bi](https://go.microsoft.com/fwlink/?linkid=2028636). Para obter mais informações, confira [Criar ativos técnicos do Power BI](./cpp-create-technical-assets.md).
+O principal ativo técnico que você vai precisar para este tipo de oferta é um [aplicativo Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). Para obter mais informações, confira [Criar ativos técnicos do Power BI](./cpp-create-technical-assets.md).
 
-Depois que o aplicativo de serviço é criado e testado no Power BI, você deve salvar a URL de instalação do aplicativo que o Power BI gera. Você precisará dela para [criar uma oferta de aplicativo Power bi](./cpp-create-offer.md).
+Depois que seu aplicativo de serviço for criado e testado no Power BI, você deve salvar a URL de instalação do aplicativo que o Power BI gera. Você precisará dele para [criar uma oferta de aplicativo Power BI](./cpp-create-offer.md).
 
 ## <a name="business-requirements"></a>Requisitos de negócios
 
-Os requisitos de negócios incluem o procedimento, o contratual e as obrigações legais.  Você deve:
+Os requisitos do negócio incluem obrigações processuais, contratuais e legais.  Você deve:
 
-- Seja um Publicador do Cloud Marketplace registrado. Se você não estiver registrado, siga as etapas em [tornar-se um Publicador do Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Seja um editor de mercado em nuvem registrado. Se você não estiver registrado, siga os passos em [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
-    > Use a mesma conta de registro do Microsoft Developer Center para entrar no [portal do Cloud Partner](https://cloudpartner.azure.com). Você deve ter apenas uma conta da Microsoft para suas ofertas do AppSource. As contas não devem ser específicas para serviços individuais ou ofertas.
+    > Use a mesma conta de registro do Microsoft Developer Center para entrar no Portal de [Parceiros](https://cloudpartner.azure.com)na Nuvem . Você deve ter apenas uma conta da Microsoft para suas ofertas do AppSource. As contas não devem ser específicas para serviços individuais ou ofertas.
  
 - Disponibilize o suporte técnico para os clientes de modo comercialmente razoável.
-- Forneça o conteúdo que atende aos critérios para sua oferta a ser listada em AppSource. Para obter mais informações, consulte fazer com que [um aplicativo seja listado no AppSource? Veja como](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
-- Obedecer à política de [privacidade da Microsoft](https://privacy.microsoft.com/privacystatement).
+- Forneça conteúdo que atenda aos critérios para sua oferta ser listada no AppSource. Para obter mais informações, consulte [Ter um aplicativo para listar no AppSource? Aqui está como.](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)
+- Cumpra a [Declaração de Privacidade](https://privacy.microsoft.com/privacystatement)da Microsoft .
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de atender a todos os requisitos, você estará pronto para [criar uma oferta de aplicativo Power bi](./cpp-create-offer.md) no portal do Cloud Partner.
+Depois de cumprir todos os requisitos, você está pronto para [criar uma oferta de Aplicativo power bi](./cpp-create-offer.md) no Portal de Parceiros na Nuvem.

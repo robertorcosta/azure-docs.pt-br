@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service – suporte a HTTP2 | Microsoft Docs
-description: Este artigo ajuda a entender melhor o suporte a HTTP/2 no Azure Front Door Service
+title: Porta Da Frente do Azure - Suporte HTTP2 | Microsoft Docs
+description: Este artigo ajuda você a aprender sobre o suporte HTTP/2 no Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 415a89cbccd6b43d64ba1a553d44ac003df5806a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775263"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471618"
 ---
-# <a name="http2-support-in-azure-front-door-service"></a>Suporte a HTTP/2 no Azure Front Door Service
+# <a name="http2-support-in-azure-front-door"></a>Suporte HTTP/2 na porta frontal do Azure
 
 No momento, o suporte a HTTP/2 está ativo para todas as configurações do Front Door. Nenhuma ação adicional dos clientes é necessária.
 

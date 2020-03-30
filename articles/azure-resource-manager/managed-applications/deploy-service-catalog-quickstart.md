@@ -1,18 +1,18 @@
 ---
-title: Usar portal do Azure para implantar o aplicativo de catálogo de serviços
+title: Use o portal Azure para implantar o aplicativo de catálogo de serviços
 description: Mostra aos consumidores de Aplicativos Gerenciados como implantar um aplicativo de catálogo de serviço por meio do portal do Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3fa9709e096e908907772c940fc5e2f2895b7eb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650780"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473057"
 ---
-# <a name="deploy-service-catalog-app-through-azure-portal"></a>Implantar o app de catálogo de serviços por meio do portal do Azure
+# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Quickstart: implante o aplicativo de catálogo de serviços através do portal Azure
 
 No [início rápido anterior](publish-managed-app-definition-quickstart.md), você publicou uma definição de aplicativo gerenciado. Neste início rápido, você pode criar um aplicativo de catálogo de serviço usando essa definição.
 
@@ -36,7 +36,7 @@ No portal do Azure, use as seguintes etapas:
 
    ![Selecione a definição a ser implantada](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. Forneça valores para a guia **noções básicas** . Selecione a assinatura do Azure para implantar seu aplicativo de catálogo de serviços. Crie um novo grupo de recursos denominado **applicationGroup**. Selecione um local para o aplicativo. Ao terminar, selecione **OK**.
+1. Forneça valores para a guia **Noções** Básicas. Selecione a assinatura do Azure para implantar seu aplicativo de catálogo de serviços para. Crie um novo grupo de recursos denominado **applicationGroup**. Selecione um local para o aplicativo. Ao terminar, selecione **OK**.
 
    ![Forneça valores para o básico](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
@@ -54,13 +54,13 @@ Depois que o serviço de aplicativo do catálogo tiver sido implantado, você te
 
 1. Exiba o grupo de recursos denominado **applicationGroup** para ver o app de catálogo de serviços.
 
-   ![Exiba o aplicativo](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Exibir aplicativo](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. Exiba o grupo de recursos denominado **applicationGroup{hash-characters}** para ver os recursos do app de catálogo de serviços.
 
    ![Exibir recursos](./media/deploy-service-catalog-quickstart/view-resources.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como criar os arquivos de definição de um aplicativo gerenciado, confira [Criar e publicar uma definição de aplicativo gerenciado](publish-service-catalog-app.md).
 * Para a CLI do Azure, confira [Implantar app de catálogo de serviços com a CLI do Azure](./scripts/managed-application-cli-sample-create-application.md).

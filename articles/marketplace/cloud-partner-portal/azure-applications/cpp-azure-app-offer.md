@@ -1,19 +1,18 @@
 ---
-title: Oferta de Aplicativo Azure | Azure Marketplace
+title: Oferta de aplicativo Azure | Mercado Azure
 description: Visão geral do processo de publicação de uma oferta de Aplicativo Azure no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/06/2019
-ms.author: pabutler
-ms.openlocfilehash: 9125b5c71b63b27c58ea72b7bfd49f730854b33d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ed086ffdc49e21b819c0ee05b38ad882b4e269d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285309"
 ---
 # <a name="azure-application-offer"></a>Oferta de aplicativo do Azure
 
@@ -39,7 +38,7 @@ Há dois tipos de aplicativos do Azure: aplicativos gerenciados e modelos de sol
 Além do Azure Marketplace, você também pode oferecer aplicativos gerenciados em um catálogo de serviços. O catálogo de serviços é um catálogo interno das soluções aprovadas para os usuários em uma organização. Você pode usar o catálogo para atender aos padrões organizacionais ao oferecer soluções para grupos em uma organização. Os funcionários usam o catálogo para encontrar com facilidade aplicativos recomendados e aprovados pelos departamentos de TI.
 
 >[!Note]
->A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
+>O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](../../cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP.
 
 Para obter mais informações sobre as vantagens e os tipos de aplicativos gerenciados, confira a [Visão geral dos aplicativos gerenciados do Azure](https://docs.microsoft.com/azure/managed-applications/overview).
 
@@ -54,7 +53,7 @@ As etapas de alto nível para publicar uma oferta de aplicativo Azure são:
 
 1. Atender aos [pré-requisitos](./cpp-prerequisites.md) – (não mostrado) Verifique se você atende aos requisitos comerciais e técnicos para a publicação de um aplicativo do Azure no Azure Marketplace. 
 
-1. [Crie a oferta](./cpp-create-offer.md) – forneça informações detalhadas sobre a oferta. Essas informações incluem: a descrição da oferta, materiais de marketing, informações de suporte e especificações de ativos.
+1. [Crie a oferta](./cpp-create-offer.md) - Forneça informações detalhadas sobre a oferta. Essas informações incluem: a descrição da oferta, materiais de marketing, informações de suporte e especificações de ativos.
 
 1. [Coletar ativos técnicos e comerciais existentes ou criá-los](./cpp-create-technical-assets.md) – crie ativos comerciais (documentos legais e materiais de marketing) e ativos técnicos para a solução associada.
 

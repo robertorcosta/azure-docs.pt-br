@@ -1,5 +1,5 @@
 ---
-title: Extensão da máquina virtual do agente do observador de rede do Azure para Linux
+title: Extensão de máquina virtual do Azure Network Watcher Agent para Linux
 description: Implante o Agente do Observador de Rede do Azure na máquina virtual Linux usando uma extensão da máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 69d2bfe4576a9350e905fc10f3d7617619e6284a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 712ec177996cd54d7bd6d184fea306009b58b083
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915479"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531015"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux
 
@@ -29,13 +29,13 @@ ms.locfileid: "77915479"
 
 Este artigo detalha as plataformas e as opções de implantação com suporte para a extensão da VM do Agente do Observador de Rede para Linux. A instalação do agente não interrompe a VM ou exige uma reinicialização dela. É possível implantar a extensão em máquinas virtuais que você implanta. Se a máquina virtual for implantada por um serviço do Azure, verifique a documentação do serviço para determinar se ele permite ou não a instalação de extensões na máquina virtual.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
 A extensão do Agente do Observador de Rede pode ser configurada para as seguintes distribuições do Linux:
 
-| Distribution | {1&gt;Version&lt;1} |
+| Distribuição | Versão |
 |---|---|
 | Ubuntu | 12+ |
 | Debian | 7 e 8 |
@@ -75,10 +75,10 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Red
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| {1&gt;Nome&lt;1} | Valor/Exemplo |
+| Nome | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.Azure.NetworkWatcher |
+| publicador | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
@@ -92,7 +92,7 @@ Você pode implantar extensões de VM do Azure com um modelo do Azure Resource M
 
 O exemplo a seguir implanta a extensão de VM de Agente do Observador de Rede para uma VM existente implantada por meio do modelo de implantação clássico:
 
-```azurecli
+```console
 azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
@@ -119,4 +119,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda a qualquer momento neste artigo, consulte a [documentação do Observador de Rede](/azure/network-watcher/) ou entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para saber mais sobre como usar o Suporte do Azure, consulte as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer ponto deste artigo, você pode consultar a [documentação](/azure/network-watcher/)do Observador de Rede ou entrar em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para saber mais sobre como usar o Suporte do Azure, consulte as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

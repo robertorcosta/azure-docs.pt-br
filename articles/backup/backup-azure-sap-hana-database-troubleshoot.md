@@ -1,129 +1,149 @@
 ---
-title: Solucionar erros de backup de bancos de dados SAP HANA
-description: Descreve como solucionar erros comuns que podem ocorrer quando você usa o backup do Azure para fazer backup de bancos de dados do SAP HANA.
+title: Solucionando problemas de bancos de dados SAP HANA erros de backup
+description: Descreve como solucionar problemas que podem ocorrer quando você usa o Azure Backup para fazer backup dos bancos de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 8872cfe87df9b8d0553d777f72fe7102d08dea4d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6520f106011b632da2725f456aeb278c7748ddc9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273287"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79459303"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solucionar problemas de backup de bancos de dados SAP HANA no Azure
 
-Este artigo fornece informações de solução de problemas para fazer backup de bancos de dados SAP HANA em máquinas virtuais do Azure. Para obter mais informações sobre os cenários de backup SAP HANA que atualmente damos suporte, consulte [suporte a cenários](sap-hana-backup-support-matrix.md#scenario-support).
+Este artigo fornece informações de solução de problemas para fazer backup de bancos de dados SAP HANA em máquinas virtuais Do Zure. Para obter mais informações sobre os cenários de backup sap HANA que atualmente suportamos, consulte [Suporte ao cenário](sap-hana-backup-support-matrix.md#scenario-support).
 
-## <a name="prerequisites-and-permissions"></a>Pré-requisitos e permissões
+## <a name="prerequisites-and-permissions"></a>Pré-requisitos e Permissões
 
-Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e o [que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) seções antes de configurar backups.
+Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) antes de configurar backups.
 
 ## <a name="common-user-errors"></a>Erros comuns do usuário
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Mensagem de erro**      | <span style="font-weight:normal">O backup do Azure não tem os privilégios de função necessários para executar o backup</span>    |
+| **Mensagem de erro**      | <span style="font-weight:normal">O backup do Azure não tem privilégios de função necessários para realizar backup</span>    |
 | ---------------------- | ------------------------------------------------------------ |
-| **Possíveis causas:**    | A função pode ter sido substituída.                          |
-| **Ação recomendada** | Para resolver o problema, execute o script no painel **descobrir DB** ou baixe-o [aqui](https://aka.ms/scriptforpermsonhana). Como alternativa, adicione a função ' SAP_INTERNAL_HANA_SUPPORT ' ao usuário de backup de carga de trabalho (AZUREWLBACKUPHANAUSER). |
+| **Possíveis causas**    | O papel pode ter sido substituído.                          |
+| **Ação recomendada** | Para resolver o problema, execute o script do painel **Discover DB** ou baixe-o [aqui](https://aka.ms/scriptforpermsonhana). Alternativamente, adicione a função 'SAP_INTERNAL_HANA_SUPPORT' ao Usuário de Backup da Carga de Trabalho (AZUREWLBACKUPHANAUSER). |
 
-### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
+### <a name="usererrorinopeninghanaodbcconnection"></a>Erro do usuárioAberturaHanaOdbcConexão
 
 | Mensagem de erro      | <span style="font-weight:normal">Falha ao conectar ao sistema HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | A instância de SAP HANA pode estar inativa.<br/>As permissões necessárias para o backup do Azure interagir com o banco de dados HANA não estão definidas. |
-| **Ação recomendada** | Verifique se o banco de dados do SAP HANA está ativo. Se o banco de dados estiver em execução, verifique se todas as permissões necessárias estão definidas. Se alguma das permissões estiver ausente, execute o [script de auto-registro](https://aka.ms/scriptforpermsonhana) para adicionar as permissões ausentes. |
+| **Possíveis causas**    | A instância sap HANA pode estar em baixo.<br/>As permissões necessárias para o backup do Azure interagir com o banco de dados HANA não estão definidas. |
+| **Ação recomendada** | Verifique se o banco de dados SAP HANA está em dia. Se o banco de dados estiver em funcionamento, verifique se todas as permissões necessárias estão definidas. Se alguma das permissões estiver faltando, execute o [script de pré-registro](https://aka.ms/scriptforpermsonhana) para adicionar as permissões faltantes. |
 
-### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
+### <a name="usererrorhanainstancenameinvalid"></a>UsuárioErrorHanaInstanceNameInvalid
 
-| Mensagem de erro      | <span style="font-weight:normal">A instância de SAP HANA especificada é inválida ou não pode ser encontrada</span>  |
+| Mensagem de erro      | <span style="font-weight:normal">A instância especificada do SAP HANA é inválida ou não pode ser encontrada</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | Não é possível fazer backup de várias instâncias do SAP HANA em uma única VM do Azure. |
-| **Ação recomendada** | Execute o [script de auto-registro](https://aka.ms/scriptforpermsonhana) na instância de SAP Hana que você deseja fazer backup. Se o problema ainda persistir, entre em contato com o suporte da Microsoft. |
+| **Possíveis causas**    | Várias instâncias sap HANA em um único VM Azure não podem ser backup. |
+| **Ação recomendada** | Execute o [script de pré-registro](https://aka.ms/scriptforpermsonhana) na instância SAP HANA que você deseja fazer backup. Se o problema ainda persistir, entre em contato com o suporte da Microsoft. |
 
 ### <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation
 
-| Mensagem de erro      | <span style="font-weight:normal">Não há suporte para a operação de SAP HANA especificada</span>              |
+| Mensagem de erro      | <span style="font-weight:normal">A operação SAP HANA especificada não é suportada</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | O backup do Azure para SAP HANA não dá suporte a backup incremental e ações executadas em clientes SAP HANA nativos (ferramenta cockpit de Studio/cockpit/DBA) |
+| **Possíveis causas**    | O backup do Azure para SAP HANA não suporta backup incremental e ações realizadas em clientes nativos do SAP HANA (Studio/ Cockpit/ DBA Cockpit) |
 | **Ação recomendada** | Para obter mais informações, consulte [aqui](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
-### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
+### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNãoSuportaBackupType
 
-| Mensagem de erro      | <span style="font-weight:normal">Este banco de dados SAP HANA não dá suporte ao tipo de backup solicitado</span>  |
+| Mensagem de erro      | <span style="font-weight:normal">Este banco de dados SAP HANA não suporta o tipo de backup solicitado</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | O backup do Azure não dá suporte a backup incremental e backup usando instantâneos |
+| **Possíveis causas**    | O backup do Azure não suporta backup e backup incrementais usando instantâneos |
 | **Ação recomendada** | Para obter mais informações, consulte [aqui](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
-### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
+### <a name="usererrorhanalsnvalidationfailure"></a>Falha de validação do UsuárioErrorHANALSN
 
-| Mensagem de erro      | <span style="font-weight:normal">A cadeia de logs de backup está quebrada</span>                                    |
+| Mensagem de erro      | <span style="font-weight:normal">Cadeia de log de backup está quebrada</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | O destino do backup de log pode ter sido atualizado de BACKINT para o sistema de arquivos ou o executável BACKINT pode ter sido alterado |
-| **Ação recomendada** | Disparar um backup completo para resolver o problema                   |
+| **Possíveis causas**    | O destino de backup de log pode ter sido atualizado de backint para sistema de arquivos ou o executável backint pode ter sido alterado |
+| **Ação recomendada** | Acione um backup completo para resolver o problema                   |
 
-### <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore
+### <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>Erro do usuárioIncomaptibleSrcTargetSystsemsForRestore
 
-| Mensagem de erro      | <span style="font-weight:normal">Os sistemas de origem e de destino para restauração são incompatíveis</span>    |
+| Mensagem de erro      | <span style="font-weight:normal">Os sistemas de origem e destino para restauração são incompatíveis</span>    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | O sistema de destino para restauração é incompatível com a origem |
-| **Ação recomendada** | Consulte a observação do SAP [1642148](https://launchpad.support.sap.com/#/notes/1642148) para saber mais sobre os tipos de restauração com suporte hoje |
+| **Possíveis causas**    | O sistema de destino para restauração é incompatível com a fonte |
+| **Ação recomendada** | Consulte o SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) para saber mais sobre os tipos de restauração suportados hoje |
 
-### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
+### <a name="usererrorsdctomdcupgradedetected"></a>UsuárioErrorSCtoMDCUpgradeDetected
 
-| Mensagem de erro      | <span style="font-weight:normal">SDC para a atualização MDC detectada</span>                                   |
+| Mensagem de erro      | <span style="font-weight:normal">Atualização SDC para MDC detectada</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | A instância de SAP HANA foi atualizada de SDC para MDC. Os backups falharão após a atualização. |
-| **Ação recomendada** | Siga as etapas listadas na [seção Atualizando do SAP HANA 1,0 para 2,0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) para resolver o problema |
+| **Possíveis causas**    | A ocorrência SAP HANA foi atualizada de SDC para MDC. Os backups falharão após a atualização. |
+| **Ação recomendada** | Siga as etapas listadas na [atualização da seção SAP HANA 1.0 para 2.0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) para resolver o problema |
 
-### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
+### <a name="usererrorinvalidbackintconfiguration"></a>Erro de usuárioInvalidReintConfiguração
 
-| Mensagem de erro      | <span style="font-weight:normal">Configuração de BACKINT inválida detectada</span>                       |
+| Mensagem de erro      | <span style="font-weight:normal">Configuração de backint inválida detectada</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | Os parâmetros de backup estão especificados incorretamente para o backup do Azure |
-| **Ação recomendada** | Verifique se os seguintes parâmetros (BACKINT) estão definidos:<br/>\* [catalog_backup_using_backint: true]<br/>\* [enable_accumulated_catalog_backup: false]<br/>\* [parallel_data_backup_backint_channels: 1]<br/>\* [log_backup_timeout_s: 900)]<br/>\* [backint_response_timeout: 7200]<br/>Se os parâmetros baseados em BACKINT estiverem presentes no HOST, remova-os. Se os parâmetros não estiverem presentes no nível do HOST, mas tiverem sido modificados manualmente em um nível de banco de dados, reverta-os para os valores apropriados, conforme descrito anteriormente. Ou execute o [Stop Protection e mantenha os dados de backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) do portal do Azure e selecione **retomar backup**. |
+| **Possíveis causas**    | Os parâmetros de backup são especificados incorretamente para backup do Azure |
+| **Ação recomendada** | Verifique se os seguintes parâmetros (backint) estão definidos:<br/>\*[catalog_backup_using_backint:true]<br/>\*[enable_accumulated_catalog_backup:false]<br/>\*[parallel_data_backup_backint_channels:1]<br/>\*[log_backup_timeout_s:900)]<br/>\*[backint_response_timeout:7200]<br/>Se os parâmetros baseados em backint estiverem presentes no HOST, remova-os. Se os parâmetros não estão presentes no nível HOST, mas foram modificados manualmente em um nível de banco de dados, reverta-os para os valores apropriados como descrito anteriormente. Ou, execute [a proteção contra stop e retenha dados](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) de backup do portal Azure e selecione **Retomar backup**. |
 
 ## <a name="restore-checks"></a>Restaurar verificações
 
-### <a name="single-container-database-sdc-restore"></a>Restauração de banco de dados de contêiner único (SDC)
+### <a name="single-container-database-sdc-restore"></a>Restauração do Banco de Dados de Contêineres Únicos (SDC)
 
-Tome cuidado com as entradas durante a restauração de um banco de dados de contêiner único (SDC) para HANA para outro computador SDC. O nome do banco de dados deve ser fornecido com letras minúsculas e com "SDC" anexado entre colchetes. A instância do HANA será exibida em maiúsculas.
+Cuide das entradas enquanto restaura um único banco de dados de contêineres (SDC) para HANA para outra máquina SDC. O nome do banco de dados deve ser dado com minúsculas e com "sdc" anexado entre parênteses. A instância hana será exibida em capitais.
 
-Suponha que uma instância do HANA do SDC "H21" seja submetida a backup. A página itens de backup mostrará o nome do item de backup como **"H21 (SDC)"** . Se você tentar restaurar esse banco de dados para outro SDC de destino, digamos H11, as entradas a seguir precisarão ser fornecidas.
+Suponha que uma ocorrência "H21" do SDC HANA seja apoiada. A página de itens de backup mostrará o nome do item de backup como **"h21(sdc)"**. Se você tentar restaurar esse banco de dados para outro SDC de destino, digamos H11, então as entradas seguintes precisam ser fornecidas.
 
 ![Nome do banco de dados SDC restaurado](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Observe os seguintes pontos:
 
-- Por padrão, o nome do banco de BD restaurado será preenchido com o nome do item de backup. Nesse caso, H21 (SDC).
-- Selecionar o destino como H11 não alterará automaticamente o nome do banco de BD restaurado. **Ele deve ser editado para H11 (SDC)** . Em relação a SDC, o nome do BD restaurado será a ID da instância de destino com letras minúsculas e ' SDC ' anexado entre colchetes.
-- Como o SDC pode ter apenas um único banco de dados, você também precisa clicar na caixa de seleção para permitir a substituição dos existentes nos data com os dados do ponto de recuperação.
-- O Linux diferencia maiúsculas de minúsculas. Portanto, tenha cuidado para preservar o caso.
+- Por padrão, o nome db restaurado será preenchido com o nome do item de backup. Neste caso, h21(sdc).
+- A seleção do destino como H11 NÃO mudará o nome db restaurado automaticamente. **Deve ser editado para h11(sdc)**. Em relação ao SDC, o nome db restaurado será o ID de instância de destino com letras minúsculas e 'sdc' anexados entre parênteses.
+- Como o SDC pode ter apenas um banco de dados único, você também precisa clicar na caixa de seleção para permitir a substituição dos dados de banco de dados existentes com os dados do ponto de recuperação.
+- O Linux é sensível a casos. Então tenha cuidado para preservar o caso.
 
-### <a name="multiple-container-database-mdc-restore"></a>Restauração de banco de dados de contêiner múltiplo (MDC)
+### <a name="multiple-container-database-mdc-restore"></a>Restauração do Banco de Dados de Vários Contêineres (MDC)
 
-Em vários bancos de dados de contêiner para HANA, a configuração padrão é SYSTEMDB + 1 ou mais bancos de dados de locatário. A restauração de uma instância de SAP HANA inteira significa restaurar bancos de SYSTEMDB e locatários. Uma restaura SYSTEMDB primeiro e, em seguida, prossegue para o banco de do locatário. Essencialmente, o banco de dados do sistema significa substituir as informações do sistema no destino selecionado. Essa restauração também substitui as informações relacionadas ao BackInt na instância de destino. Assim, depois que o banco de BD do sistema for restaurado para uma instância de destino, execute o script de pré-registro novamente. Somente as restaurações subsequentes do banco de bancos de locatário serão realizadas com sucesso.
+Em vários bancos de dados de contêineres para HANA, a configuração padrão é SYSTEMDB + 1 ou mais DBs inquilinos. Restaurar uma instância HANA inteira significa restaurar os DBs systemdb e inquilinos. Um restaura o SYSTEMDB primeiro e depois prossegue para o Inquilino DB. O sistema DB significa essencialmente substituir as informações do sistema no alvo selecionado. Essa restauração também substitui as informações relacionadas ao BackInt na instância de destino. Assim, depois que o DB do sistema for restaurado para uma instância de destino, execute o script de pré-registro novamente. Só então as restaurações subseqüentes do INQUILINO DB terão sucesso.
 
-## <a name="upgrading-from-sap-hana-10-to-20"></a>Atualizando do SAP HANA 1,0 para 2,0
+## <a name="upgrading-from-sap-hana-10-to-20"></a>Atualização do SAP HANA 1.0 para 2.0
 
-Se você estiver protegendo bancos de dados SAP HANA 1,0 e quiser atualizar para o 2,0, execute as seguintes etapas:
+Se você estiver protegendo os bancos de dados SAP HANA 1.0 e desejar atualizar para 2.0, execute as seguintes etapas:
 
-- [Pare a proteção](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) com reter dados para o antigo banco de SDC.
-- Execute a atualização. Após a conclusão, o HANA agora é MDC com um banco de BD do sistema e DB (s) de locatário
-- Execute o [script de pré-registro](https://aka.ms/scriptforpermsonhana) novamente com os detalhes corretos de (Sid e MDC).
-- Registre novamente a extensão para o mesmo computador em portal do Azure (backup-> detalhes da exibição-> selecione a VM do Azure relevante-> registrar novamente).
-- Clique em redescobrir bancos de os para a mesma VM. Essa ação deve mostrar o novo banco de bancos na etapa 2 com detalhes corretos (SYSTEMDB e DB de locatário, não SDC).
-- Configure o backup para esses novos bancos de dados.
+- [Pare a proteção](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) com dados de retenção para o banco de dados SDC antigo.
+- Realize a atualização. Após a conclusão, o HANA agora é MDC com um DB do sistema e db(s) inquilino
+- Reexecute [o script de pré-registro](https://aka.ms/scriptforpermsonhana) com detalhes corretos de (sid e mdc).
+- Reregistre a extensão para a mesma máquina no portal Azure (Backup -> exibir detalhes -> Selecione o Recadastramento azure -> Re-register).
+- Clique em Redescobrir DBs para a mesma VM. Esta ação deve mostrar os novos DBs na etapa 2 com detalhes corretos (SYSTEMDB e Tenant DB, não SDC).
+- Configure backup para esses novos bancos de dados.
 
-## <a name="upgrading-without-an-sid-change"></a>Atualizando sem uma alteração de SID
+## <a name="upgrading-without-an-sid-change"></a>Atualização sem uma alteração SID
 
-As atualizações para o sistema operacional ou SAP HANA que não causam uma alteração de SID podem ser manipuladas conforme descrito abaixo:
+Upgrades para O ou SAP HANA que não causem uma alteração SID podem ser tratados conforme descrito abaixo:
 
-- [Interromper a proteção](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) com reter dados para o Database
-- Execute a atualização.
-- Execute novamente o [script de pré-registro](https://aka.ms/scriptforpermsonhana). Normalmente, vimos que o processo de atualização remove as funções necessárias. A execução do script de pré-registro ajudará a verificar todas as funções necessárias.
+- [Parar a proteção](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) com dados de retenção para o banco de dados
+- Realize a atualização.
+- Reexecute o [script de pré-registro](https://aka.ms/scriptforpermsonhana). Normalmente, vimos o processo de upgrade remover as funções necessárias. A execução do script de pré-registro ajudará a verificar todas as funções necessárias.
 - [Retomar a proteção](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) para o banco de dados novamente
+
+## <a name="re-registration-failures"></a>Falhas de reregistro
+
+Verifique se há um ou mais dos seguintes sintomas antes de acionar a operação de re-registro:
+
+- Todas as operações (como backup, restauração e backup configurado) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable, UserErrorWorkloadWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidnTDequeueMsg**.
+- Se a área **de status de backup** do item de backup estiver mostrando não **acessível,** exclua todas as outras causas que possam resultar no mesmo status:
+
+  - Falta de permissão para executar operações relacionadas ao backup na VM
+  - A VM está desligada, então os backups não podem ocorrer
+  - Problemas de rede
+
+Esses sintomas podem surgir por uma ou mais das seguintes razões:
+
+- Uma extensão foi excluída ou desinstalada do portal.
+- A VM foi restaurada no tempo através da restauração do disco no local.
+- A VM foi desligada por um período prolongado, então a configuração de extensão nele expirou.
+- A VM foi excluída, e outra VM foi criada com o mesmo nome e no mesmo grupo de recursos da VM excluída.
+
+Nos cenários anteriores, recomendamos que você acione uma operação de re-registro na VM.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine as [perguntas](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) frequentes sobre como fazer backup de bancos de dados SAP Hana em VMs do Azure]
+- Revise as [perguntas freqüentes](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) sobre o backup de bancos de dados SAP HANA em VMs Azure.

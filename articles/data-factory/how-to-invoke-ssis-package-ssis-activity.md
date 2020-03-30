@@ -1,6 +1,6 @@
 ---
-title: Executar um pacote do SSIS com a atividade executar pacote do SSIS
-description: Este artigo descreve como executar um pacote SQL Server Integration Services (SSIS) em um pipeline Azure Data Factory usando a atividade executar pacote do SSIS.
+title: Execute um pacote SSIS com a atividade do pacote Execute SSIS
+description: Este artigo descreve como executar um pacote SSIS (SSIS) sql server integration services (SSIS) em um pipeline azure Data Factory usando a atividade Execute SSIS Package.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -15,28 +15,28 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/14/2019
 ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260625"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade Executar pacote SSIS no Azure Data Factory
-Este artigo descreve como executar um pacote SQL Server Integration Services (SSIS) em um pipeline Azure Data Factory usando a atividade executar pacote do SSIS. 
+Este artigo descreve como executar um pacote SSIS (SSIS) sql server integration services (SSIS) em um pipeline azure Data Factory usando a atividade Execute SSIS Package. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Crie um IR (tempo de execução de integração) do Azure-SSIS, se você ainda não tiver um, seguindo as instruções passo a passo no [tutorial: provisionando Azure-SSIS ir](tutorial-create-azure-ssis-runtime-portal.md).
+Crie um tempo de execução de integração Azure-SSIS (IR) se você ainda não tiver um seguindo as instruções passo a passo no [Tutorial: Provisionamento Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Executar um pacote no portal do Azure
-Nesta seção, você usará o Data Factory interface do usuário ou o aplicativo para criar um pipeline Data Factory com uma atividade executar pacote do SSIS que executa seu pacote SSIS.
+Nesta seção, você usa a interface de usuário (UI) ou aplicativo da Fábrica de Dados para criar um pipeline de Fábrica de Dados com uma atividade execute ssis package que executa seu pacote SSIS.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Criar um pipeline com uma atividade Executar Pacote do SSIS
-Nesta etapa, você usa a interface do usuário do Data Factory ou o aplicativo para criar um pipeline. Adiciona uma atividade Executar pacote SSIS ao pipeline e configure-a para executar o pacote SSIS. 
+Nesta etapa, você usa a UI ou aplicativo Data Factory para criar um pipeline. Adiciona uma atividade Executar pacote SSIS ao pipeline e configure-a para executar o pacote SSIS. 
 
-1. Em sua visão geral do Data Factory ou home page no portal do Azure, selecione o bloco **criar & monitor** para iniciar a interface do usuário do data Factory ou o aplicativo em uma guia separada. 
+1. Em sua visão geral da Fábrica de Dados ou na página inicial no portal Azure, selecione o **bloco Autor & Monitor** para iniciar a UI ou aplicativo da Fábrica de Dados em uma guia separada. 
 
    ![Home page do Data Factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
@@ -44,96 +44,96 @@ Nesta etapa, você usa a interface do usuário do Data Factory ou o aplicativo p
 
    ![Página Introdução](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 
-1. Na caixa de ferramentas **atividades** , expanda **geral**. Em seguida, arraste uma atividade **executar pacote do SSIS** para a superfície do designer de pipeline. 
+1. Na **caixa de ferramentas Atividades,** expanda **geral**. Em seguida, arraste uma atividade **do Pacote Execute SSIS** para a superfície do designer de pipeline. 
 
    ![Arraste uma atividade Executar pacote SSIS para a superfície do designer](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
-1. Na guia **geral** da atividade executar pacote do SSIS, forneça um nome e uma descrição para a atividade. Defina valores de **tempo limite** e de **repetição** opcionais.
+1. Na guia **Geral** para a atividade Executar pacote SSIS, forneça um nome e uma descrição para a atividade. Defina **valores** opcionais de tempo e **repetição.**
 
    ![Definir propriedades na guia Geral](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-1. Na guia **configurações** da atividade executar pacote SSIS, selecione um Azure-SSIS ir em que você deseja executar o pacote. Se o pacote usar a autenticação do Windows para acessar armazenamentos de dados (por exemplo, servidores SQL ou compartilhamentos de arquivos locais ou do Azure), marque a caixa de seleção **autenticação do Windows** . Insira os valores para as credenciais de execução do pacote nas caixas **domínio**, **nome de usuário**e **senha** . 
+1. Na guia **Configurações** para executar a atividade do pacote SSIS, selecione um IR Azure-SSIS onde deseja executar seu pacote. Se o pacote usar a autenticação do Windows para acessar armazenamentos de dados (por exemplo, servidores SQL ou compartilhamentos de arquivos no local ou arquivos do Azure), selecione a caixa de **seleção de autenticação** do Windows. Digite os valores das credenciais de execução do pacote nas caixas **Domínio,** **Nome de Usuário**e **Senha.** 
 
-    Como alternativa, você pode usar os segredos armazenados em seu cofre de chaves do Azure como seus valores. Para fazer isso, marque a caixa de seleção **Azure Key Vault** ao lado da credencial relevante. Selecione ou edite o serviço vinculado do cofre de chaves existente ou crie um novo. Em seguida, selecione o nome ou a versão do segredo para seu valor de credencial.
+    Alternativamente, você pode usar segredos armazenados em seu cofre de chaves do Azure como seus valores. Para isso, selecione a caixa de seleção **AZURE KEY VAULT** ao lado da credencial relevante. Selecione ou edite seu serviço vinculado ao cofre de chaves existente ou crie um novo. Em seguida, selecione o nome ou versão secreta para o seu valor de credencial.
 
-    Ao criar ou editar o serviço vinculado do cofre de chaves, você pode selecionar ou editar o cofre de chaves existente ou criar um novo. Certifique-se de conceder Data Factory acesso de identidade gerenciada ao cofre de chaves se ainda não tiver feito isso. Você também pode inserir seus segredos diretamente no seguinte formato: `<Key vault linked service name>/<secret name>/<secret version>`. Se seu pacote precisar de tempo de execução de 32 bits para executar, marque a caixa de seleção **tempo de execução de 32 bits** .
+    Quando você cria ou edita seu serviço vinculado ao cofre de chaves, você pode selecionar ou editar o cofre de chaves existente ou criar um novo. Certifique-se de conceder acesso de identidade gerenciado da Fábrica de Dados ao seu cofre principal se você ainda não fez isso. Você também pode inserir seus segredos `<Key vault linked service name>/<secret name>/<secret version>`diretamente no seguinte formato: . Se o pacote precisar de tempo de execução de 32 bits, selecione a caixa de seleção **em tempo de execução de 32 Bits.**
 
-   Para **local do pacote**, selecione **SSISDB**, **sistema de arquivos (pacote)** , **sistema de arquivos (projeto)** ou **pacote inserido**. Se você selecionar **SSISDB** como o local do pacote, que será selecionado automaticamente se o Azure-SSIS ir tiver sido provisionado com o catálogo do SSIS (SSISDB) hospedado por um servidor de banco de dados SQL do Azure ou instância gerenciada, especifique o pacote a ser executado que foi implantado no SSISDB. 
+   Para **a localização do pacote,** selecione **SSISDB,** **Sistema de arquivos (Pacote)**, **Sistema de arquivos (Projeto)** ou **Pacote Incorporado**. Se você selecionar **o SSISDB** como seu local de pacote, que será automaticamente selecionado se o seu IR Azure-SSIS foi provisionado com o catálogo SSIS (SSISDB) hospedado por um servidor de banco de dados SQL do Azure ou instância gerenciada, especifique seu pacote para executar que foi implantado no SSISDB. 
 
-    Se o Azure-SSIS IR estiver em execução e a caixa de seleção **entradas manuais** estiver desmarcada, procure e selecione suas pastas, projetos, pacotes ou ambientes existentes do SSISDB. Selecione **Atualizar** para buscar suas pastas, projetos, pacotes ou ambientes recém-adicionados do SSISDB para que fiquem disponíveis para navegação e seleção. Para procurar ou selecionar os ambientes para suas execuções de pacote, você deve configurar seus projetos com antecedência para adicionar esses ambientes como referências das mesmas pastas em SSISDB. Para obter mais informações, consulte [criar e mapear ambientes SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+    Se o IR do Azure-SSIS estiver em execução e a caixa **de seleção de entradas manual** estiver limpa, navegue e selecione suas pastas, projetos, pacotes ou ambientes existentes no SSISDB. Selecione **Atualizar** para buscar suas pastas, projetos, pacotes ou ambientes recém-adicionados do SSISDB para que eles estejam disponíveis para navegação e seleção. Para navegar ou selecionar os ambientes para execuções de pacotes, você deve configurar seus projetos com antecedência para adicionar esses ambientes como referências das mesmas pastas no SSISDB. Para obter mais informações, consulte [Criar e mapear ambientes SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
 
-   Em **Nível de registro**, selecione um escopo predefinido de registro em log para a execução do pacote. Marque a caixa de seleção **personalizado** se desejar inserir seu nome de log personalizado em vez disso. 
+   Em **Nível de registro**, selecione um escopo predefinido de registro em log para a execução do pacote. Selecione a **caixa de** seleção personalizada se quiser inserir seu nome de registro personalizado. 
 
    ![Definir propriedades na guia Configurações — Automático](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Se o Azure-SSIS IR não estiver em execução ou se a caixa de seleção **entradas manuais** estiver marcada, insira os caminhos do pacote e do ambiente do SSISDB diretamente nos seguintes formatos: `<folder name>/<project name>/<package name>.dtsx` e `<folder name>/<environment name>`.
+   Se o seu IR Azure-SSIS não estiver em execução ou a caixa de seleção **de entradas** `<folder name>/<project name>/<package name>.dtsx` manual `<folder name>/<environment name>`estiver selecionada, digite os caminhos do pacote e do ambiente do SSISDB diretamente nos seguintes formatos: e .
 
    ![Definir propriedades na guia Configurações — Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Se você selecionar **sistema de arquivos (pacote)** como o local do pacote, que será selecionado automaticamente se o Azure-SSIS ir tiver sido provisionado sem o SSISDB, especifique o pacote a ser executado fornecendo um caminho UNC (Convenção Universal de nomenclatura) ao arquivo de pacote (`.dtsx`) na caixa **caminho do pacote** . Por exemplo, se você armazenar o pacote em arquivos do Azure, o caminho do pacote será `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
+   Se você selecionar **O Sistema de Arquivos (Pacote)** como o local do pacote, que será automaticamente selecionado se o seu IR Azure-SSIS foi provisionado sem SSISDB, especifique seu pacote para ser executado fornecendo um caminho de Convenção de Nomeação Universal (UNC) para o arquivo do pacote (`.dtsx`) na caixa de caminho do **pacote.** Por exemplo, se você armazenar seu pacote em Arquivos `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`Azure, seu caminho de pacote é . 
    
-   Se você configurar o pacote em um arquivo separado, também precisará fornecer um caminho UNC para o arquivo de configuração (`.dtsConfig`) na caixa **caminho de configuração** . Por exemplo, se você armazenar sua configuração em arquivos do Azure, seu caminho de configuração será `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
+   Se você configurar seu pacote em um arquivo separado, você também precisará`.dtsConfig`fornecer um caminho UNC para o seu arquivo de configuração ( ) na caixa **de caminho Configuração.** Por exemplo, se você armazenar sua configuração em `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`Arquivos Azure, seu caminho de configuração será .
 
    ![Definir propriedades na guia Configurações — Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   Se você selecionar **sistema de arquivos (projeto)** como o local do pacote, especifique o pacote a ser executado fornecendo um caminho UNC para o arquivo de projeto (`.ispac`) na caixa **caminho do projeto** e um arquivo de pacote (`.dtsx`) do seu projeto na caixa **nome do pacote** . Por exemplo, se você armazenar seu projeto em arquivos do Azure, seu caminho de projeto será `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
+   Se você selecionar **O Sistema de Arquivos (Project)** como local do pacote, especifique o pacote para ser executado fornecendo um caminho UNC para o arquivo do projeto (`.ispac`) na caixa de caminho do **Projeto** e um arquivo de pacote (`.dtsx`) do seu projeto na caixa nome do **pacote.** Por exemplo, se você armazenar seu projeto em Arquivos `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`Azure, seu caminho de projeto é .
 
    ![Definir propriedades na guia Configurações — Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
-   Em seguida, especifique as credenciais para acessar seu projeto, pacote ou arquivos de configuração. Se você inseriu anteriormente os valores para suas credenciais de execução de pacote (consulte anterior), você pode reutilizá-los selecionando o **mesmo que as credenciais de execução de pacote** caixa de seleção. Caso contrário, insira os valores para o pacote de credenciais de acesso nas caixas **domínio**, **nome de usuário**e **senha** . Por exemplo, se você armazenar seu projeto, pacote ou configuração em arquivos do Azure, o domínio será `Azure`, o nome de usuário será `<storage account name>`e a senha será `<storage account key>`. 
+   Em seguida, especifique as credenciais para acessar seus arquivos de projeto, pacote ou configuração. Se você inseriu anteriormente os valores das credenciais de execução do pacote (veja anterior), você pode reutilizá-los selecionando o mesmo que a **caixa de seleção de credenciais de execução** do pacote. Caso contrário, digite os valores das credenciais de acesso ao pacote nas caixas **Domínio,** **Nome de Usuário**e **Senha.** Por exemplo, se você armazenar seu projeto, pacote ou configuração `Azure`em Arquivos `<storage account name>`Azure, `<storage account key>`o domínio é , o nome de usuário é , e a senha é . 
 
-   Como alternativa, você pode usar os segredos armazenados em seu cofre de chaves como seus valores (consulte anterior). Essas credenciais são usadas para acessar o pacote e pacotes filho na tarefa Executar Pacote, tudo a partir de seu próprio caminho ou do mesmo projeto, bem como configurações, que incluem aqueles especificados em seus pacotes. 
+   Alternativamente, você pode usar segredos armazenados em seu cofre de chaves como seus valores (ver anterior). Essas credenciais são usadas para acessar seus pacotes e pacotes infantis na Execute Package Task, tudo a partir de seu próprio caminho ou do mesmo projeto, bem como configurações, que incluem aquelas especificadas em seus pacotes. 
 
-   Se você selecionar **pacote inserido** como o local do pacote, arraste e solte o pacote para executá-lo ou **carregá** -lo de uma pasta de arquivo na caixa fornecida. Seu pacote será compactado e inserido automaticamente na carga da atividade. Uma vez inserido, você pode **baixar** seu pacote posteriormente para edição. Você também pode **parametrizar** seu pacote inserido atribuindo-o a um parâmetro de pipeline que pode ser usado em várias atividades, otimizando assim o tamanho da carga do pipeline. Se o pacote inserido não for todos criptografados e detectarmos o uso da tarefa Executar Pacote, a caixa de seleção **tarefa Executar Pacote** será selecionada automaticamente e os pacotes filho relevantes com suas referências de sistema de arquivos serão adicionados automaticamente para que você também os incorpore. Se não for possível detectar o uso da tarefa Executar Pacote, você precisará marcar manualmente a caixa de seleção **tarefa Executar Pacote** e adicionar os pacotes filho relevantes com seu sistema de arquivos referencia um a um para você também incorporá-los. Se os pacotes filho usarem referências SQL Server, verifique se o SQL Server pode ser acessado pelo seu Azure-SSIS IR.  No momento, não há suporte para o uso de referências de projeto para pacotes filho.
+   Se você selecionar **o pacote Incorporado** como o local do pacote, arraste e solte o pacote para executá-lo ou **carregue-o** de uma pasta de arquivo na caixa fornecida. Seu pacote será automaticamente compactado e incorporado na carga de atividade. Uma vez incorporado, você pode **baixar** seu pacote mais tarde para edição. Você também pode **parametrizar** seu pacote incorporado atribuindo-o a um parâmetro de pipeline que pode ser usado em várias atividades, otimizando assim o tamanho da carga útil do pipeline. Se o pacote incorporado não estiver todo criptografado e detectarmos o uso da Execute Package Task nele, a caixa de **seleção Execute Package Task** será automaticamente selecionada e os pacotes infantis relevantes com suas referências do sistema de arquivos serão automaticamente adicionados para que você também os incorpore. Se não conseguirmos detectar o uso da Execute Package Task, você terá que selecionar manualmente a caixa de **seleção Execute Package Task** e adicionar os pacotes infantis relevantes com as referências do sistema de arquivos um a um para que você também os incorpore. Se os pacotes filho usarem referências do SQL Server, certifique-se de que o SQL Server esteja acessível pelo seu IR Azure-SSIS.  O uso de referências de projetos para pacotes infantis não é suportado no momento.
    
    ![Definir propriedades na guia Configurações — Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
    
-   Se você usou o nível de proteção **EncryptAllWithPassword** ou **EncryptSensitiveWithPassword** quando criou seu pacote via SQL Server Data Tools, insira o valor para sua senha na caixa **senha de criptografia** . Como alternativa, você pode usar um segredo armazenado em seu cofre de chaves como seu valor (consulte anterior). Se você usou o nível de proteção **EncryptSensitiveWithUserKey** , insira novamente seus valores confidenciais nos arquivos de configuração ou nas guias **parâmetros do SSIS**, **gerenciadores de conexões**ou **substituições de propriedades** (consulte mais adiante). 
+   Se você usou o nível de proteção **EncryptAllWithPassword** ou **EncryptSensitiveWithPassword** quando criou seu pacote via SQL Server Data Tools, digite o valor da sua senha na caixa **de senha de criptografia.** Alternativamente, você pode usar um segredo armazenado em seu cofre de chaves como seu valor (veja anterior). Se você usou o nível de proteção **EncryptSensitiveWithUserKey,** reinsira seus valores sensíveis em arquivos de configuração ou nas **guias SSIS Parameters,** **Connection Managers**ou **Property Overrests** (veja mais tarde). 
 
-   Se você usou o nível de proteção **EncryptAllWithUserKey** , ele não tem suporte. Você precisa reconfigurar o pacote para usar outro nível de proteção por meio de SQL Server Data Tools ou o utilitário de linha de comando `dtutil`. 
+   Se você usou o nível de proteção **EncryptAllWithUserKey,** ele não será suportado. Você precisa reconfigurar seu pacote para usar outro nível de proteção através de Ferramentas de Dados do Servidor SQL ou do `dtutil` utilitário de linha de comando. 
    
-   Em **Nível de registro**, selecione um escopo predefinido de registro em log para a execução do pacote. Marque a caixa de seleção **personalizado** se desejar inserir seu nome de log personalizado em vez disso. Se você quiser registrar em log as execuções de pacote além de usar os provedores de log padrão que podem ser especificados em seu pacote, especifique a pasta de log fornecendo seu caminho UNC na caixa **caminho de log** . Por exemplo, se você armazenar os logs nos arquivos do Azure, o caminho de log será `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`. Uma subpasta é criada nesse caminho para cada execução de pacote individual e nomeada depois da ID de execução de atividade do pacote SSIS de execução, na qual os arquivos de log são gerados a cada cinco minutos. 
+   Em **Nível de registro**, selecione um escopo predefinido de registro em log para a execução do pacote. Selecione a **caixa de** seleção personalizada se quiser inserir seu nome de registro personalizado. Se você quiser registrar suas execuções de pacote além de usar os provedores de log padrão que podem ser especificados em seu pacote, especifique sua pasta de log fornecendo seu caminho UNC na caixa **de caminho De registrar.** Por exemplo, se você armazenar seus logs em Arquivos `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`Azure, seu caminho de registro será . Uma subpasta é criada neste caminho para cada execução de pacote individual e nomeada após o Execute SSIS Package activity execut a ID, no qual os arquivos de log são gerados a cada cinco minutos. 
    
-   Por fim, especifique as credenciais para acessar a pasta de log. Se você inseriu anteriormente os valores para suas credenciais de acesso de pacote (veja anteriormente), poderá reutilizá-los selecionando a caixa de seleção **igual a pacotes de credenciais de acesso** . Caso contrário, insira os valores para suas credenciais de acesso de log nas caixas **domínio**, **nome de usuário**e **senha** . Por exemplo, se você armazenar os logs nos arquivos do Azure, o domínio será `Azure`, o nome de usuário será `<storage account name>`e a senha será `<storage account key>`. 
+   Finalmente, especifique as credenciais para acessar sua pasta de log. Se você inseriu anteriormente os valores das credenciais de acesso ao pacote (veja anterior), você pode reutilizá-los selecionando o Mesmo que a **caixa de seleção de credenciais de acesso** ao pacote. Caso contrário, digite os valores para suas credenciais de acesso de registro nas caixas **Domínio,** **Nome de Usuário**e **Senha.** Por exemplo, se você armazenar seus logs em `Azure`Arquivos Azure, o domínio é , o nome de usuário é `<storage account name>`, e a senha é `<storage account key>`. 
 
-    Como alternativa, você pode usar os segredos armazenados em seu cofre de chaves como seus valores (consulte anterior). Essas credenciais são usadas para armazenar seus logs. 
+    Alternativamente, você pode usar segredos armazenados em seu cofre de chaves como seus valores (ver anterior). Essas credenciais são usadas para armazenar seus registros. 
    
-   Para todos os caminhos UNC mencionados anteriormente, o nome de arquivo totalmente qualificado deve ter menos de 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
+   Para todos os caminhos UNC mencionados anteriormente, o nome do arquivo totalmente qualificado deve ter menos de 260 caracteres. O nome do diretório deve ter menos de 248 caracteres.
 
-1. Na guia **parâmetros do SSIS** para a atividade executar pacote SSIS, se o Azure-SSIS ir estiver em execução, o **SSISDB** será selecionado como o local do pacote e a caixa de seleção **entradas manuais** na guia **configurações** será desmarcada, os parâmetros do SSIS existentes no projeto ou pacote selecionado do SSISDB serão exibidos para que você atribua valores a eles. Caso contrário, você pode inseri-los um a um para atribuir valores a eles manualmente. Verifique se eles existem e foram inseridos corretamente para que a execução do pacote seja bem sucedido. 
+1. Na guia **Parâmetros SSIS** para a atividade executar o pacote SSIS, se o IR do Azure-SSIS estiver em execução, o **SSISDB** será selecionado como local do pacote e a caixa de seleção **de entradas manuais** na guia **Configurações** é limpa, os parâmetros SSIS existentes em seu projeto ou pacote selecionado do SSISDB são exibidos para que você atribua valores a eles. Caso contrário, você pode inseri-los um a um para atribuir valores a eles manualmente. Certifique-se de que eles existem e estão corretamente inseridos para que a execução do pacote seja bem sucedida. 
    
-   Se você usou o nível de proteção **EncryptSensitiveWithUserKey** quando criou o pacote via SQL Server Data Tools e o **sistema de arquivos (pacote)** ou o **sistema de arquivos (projeto)** estiver selecionado como o local do pacote, também precisará reinserir os parâmetros confidenciais para atribuir valores a eles em arquivos de configuração ou nessa guia. 
+   Se você usou o nível de proteção **EncryptSensitiveWithUserKey** quando criou seu pacote via SQL Server Data Tools and **File System (Package)** ou **File System (Project)** for selecionado como seu local de pacote, você também precisará reinserir seus parâmetros sensíveis para atribuir valores a eles em arquivos de configuração ou nesta guia. 
    
-   Ao atribuir valores aos parâmetros, você pode adicionar conteúdo dinâmico usando expressões, funções, Data Factory variáveis do sistema e Data Factory parâmetros ou variáveis de pipeline. Como alternativa, você pode usar os segredos armazenados em seu cofre de chaves como seus valores (consulte anterior).
+   Quando você atribui valores aos seus parâmetros, você pode adicionar conteúdo dinâmico usando expressões, funções, variáveis do sistema data factory e parâmetros ou variáveis do pipeline da Fábrica de Dados. Alternativamente, você pode usar segredos armazenados em seu cofre de chaves como seus valores (ver anterior).
 
    ![Definir propriedades na guia Parâmetros SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-1. Na guia **gerenciadores de conexões** da atividade executar pacote SSIS, se o Azure-SSIS ir estiver em execução, o **SSISDB** será selecionado como o local do pacote e a caixa de seleção **entradas manuais** na guia **configurações** será desmarcada, os gerenciadores de conexões existentes no projeto ou pacote selecionado do SSISDB serão exibidos para que você atribua valores às suas propriedades. Caso contrário, você pode inseri-las uma a uma para atribuir valores às suas propriedades manualmente. Verifique se eles existem e foram inseridos corretamente para que a execução do pacote seja bem sucedido. 
+1. Na guia **Gerentes de conexão** para a atividade Executar pacote SSIS, se o IR do Azure-SSIS estiver em execução, o **SSISDB** será selecionado como local do pacote e a caixa de seleção **de entradas manuais** na guia **Configurações** será limpa, os gerentes de conexão existentes em seu projeto ou pacote selecionado do SSISDB serão exibidos para que você atribua valores às suas propriedades. Caso contrário, você pode inseri-los um a um para atribuir valores às suas propriedades manualmente. Certifique-se de que eles existem e estão corretamente inseridos para que a execução do pacote seja bem sucedida. 
    
-   Se você usou o nível de proteção **EncryptSensitiveWithUserKey** quando criou seu pacote via SQL Server Data Tools e o **sistema de arquivos (pacote)** ou o **sistema de arquivos (projeto)** estiver selecionado como o local do pacote, também precisará reinserir suas propriedades confidenciais do Gerenciador de conexões para atribuir valores a elas em arquivos de configuração ou nesta guia. 
+   Se você usou o nível de proteção **EncryptSensitiveWithUserKey** quando criou seu pacote via SQL Server Data Tools and **File System (Package)** ou **File System (Project)** for selecionado como seu local de pacote, você também precisa reinserir suas propriedades confidenciais do gerenciador de conexão para atribuir valores a eles em arquivos de configuração ou nesta guia. 
    
-   Ao atribuir valores às suas propriedades do Gerenciador de conexões, você pode adicionar conteúdo dinâmico usando expressões, funções, Data Factory variáveis do sistema e Data Factory parâmetros ou variáveis de pipeline. Como alternativa, você pode usar os segredos armazenados em seu cofre de chaves como seus valores (consulte anterior).
+   Quando você atribui valores às propriedades do gerenciador de conexões, você pode adicionar conteúdo dinâmico usando expressões, funções, variáveis do sistema Data Factory e parâmetros ou variáveis do pipeline da Fábrica de Dados. Alternativamente, você pode usar segredos armazenados em seu cofre de chaves como seus valores (ver anterior).
 
    ![Definir propriedades na guia Gerenciadores de Conexões](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-1. Na guia **substituições de propriedade** da atividade executar pacote SSIS, insira os caminhos das propriedades existentes no pacote selecionado um a um para atribuir valores a elas manualmente. Verifique se eles existem e foram inseridos corretamente para que a execução do pacote seja bem sucedido. Por exemplo, para substituir o valor de sua variável de usuário, insira seu caminho no seguinte formato: `\Package.Variables[User::<variable name>].Value`. 
+1. Na guia **'Sobrerações de propriedades'** para a atividade Executar pacote SSIS, insira os caminhos das propriedades existentes no pacote selecionado um a um para atribuir valores a eles manualmente. Certifique-se de que eles existem e estão corretamente inseridos para que a execução do pacote seja bem sucedida. Por exemplo, para substituir o valor da variável de usuário, `\Package.Variables[User::<variable name>].Value`insira seu caminho no seguinte formato: . 
    
-   Se você usou o nível de proteção **EncryptSensitiveWithUserKey** quando criou o pacote via SQL Server Data Tools e o **sistema de arquivos (pacote)** ou o **sistema de arquivos (projeto)** estiver selecionado como o local do pacote, também precisará reinserir suas propriedades confidenciais para atribuir valores a elas em arquivos de configuração ou nesta guia. 
+   Se você usou o nível de proteção **EncryptSensitiveWithUserKey** quando criou seu pacote via SQL Server Data Tools and **File System (Package)** ou **File System (Project)** for selecionado como seu local de pacote, você também precisa reinserir suas propriedades confidenciais para atribuir valores a eles em arquivos de configuração ou nesta guia. 
    
-   Ao atribuir valores às suas propriedades, você pode adicionar conteúdo dinâmico usando expressões, funções, Data Factory variáveis do sistema e Data Factory parâmetros ou variáveis de pipeline.
+   Quando você atribui valores às suas propriedades, você pode adicionar conteúdo dinâmico usando expressões, funções, variáveis do sistema Data Factory e parâmetros ou variáveis do pipeline da Fábrica de Dados.
 
    ![Definir propriedades na guia Substituições de Propriedades](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
-   Os valores atribuídos nos arquivos de configuração e na guia **parâmetros do SSIS** podem ser substituídos usando as guias **gerenciadores de conexões** ou **substituições de propriedades** . Os valores atribuídos na guia **gerenciadores de conexões** também podem ser substituídos usando a guia **substituições de propriedade** .
+   Os valores atribuídos nos arquivos de configuração e na guia **Parâmetros SSIS** podem ser substituídos usando as guias **'Gerentes de conexão'** ou **sobreposição de propriedades.** Os valores atribuídos na guia **Gerentes de conexão** também podem ser substituídos usando a guia **'Sobrerções de propriedades'.**
 
-1. Para validar a configuração de pipeline, selecione **validar** na barra de ferramentas. Para fechar o **relatório de validação de pipeline**, selecione **>>** .
+1. Para validar a configuração do pipeline, **selecione Validar** na barra de ferramentas. Para fechar o relatório **>>** de validação de **pipeline,** selecione .
 
-1. Para publicar o pipeline para Data Factory, selecione **publicar tudo**. 
+1. Para publicar o pipeline na Fábrica de Dados, **selecione Publicar tudo**. 
 
 ### <a name="run-the-pipeline"></a>Executar o pipeline
 Nesta etapa, você dispara uma execução de pipeline. 
 
-1. Para disparar uma execução de pipeline, selecione **gatilho** na barra de ferramentas e selecione **disparar agora**. 
+1. Para ativar uma execução de pipeline, **selecione 'Disparar'** na barra de ferramentas e selecione **'Gatilho' agora**. 
 
    ![Disparar agora](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
@@ -141,15 +141,15 @@ Nesta etapa, você dispara uma execução de pipeline.
 
 ### <a name="monitor-the-pipeline"></a>Monitorar o Pipeline
 
-1. Alterne para a guia **Monitorar** à esquerda. Você vê a execução do pipeline e seu status junto com outras informações, como a hora de **início da execução** . Para atualizar a exibição, selecione **Atualizar**.
+1. Alterne para a guia **Monitorar** à esquerda. Você vê o pipeline executado e seu status, juntamente com outras informações, como o **tempo de Execução.** Para atualizar a exibição, selecione **Atualizar**.
 
    ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-2. Selecione o link **Exibir execuções de atividade** na coluna **Ações**. Você vê apenas uma execução de atividade porque o pipeline tem apenas uma atividade. É a atividade executar pacote SSIS.
+2. Selecione o link **Exibir execuções de atividade** na coluna **Ações**. Você vê apenas uma atividade executada porque o pipeline tem apenas uma atividade. É a atividade do Pacote Execute SSIS.
 
    ![Execuções de atividade](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-3. Execute a consulta a seguir no banco de dados SSISDB no SQL Server para verificar se o pacote foi executado. 
+3. Execute a seguinte consulta no banco de dados SSISDB em seu servidor SQL para verificar se o pacote foi executado. 
 
    ```sql
    select * from catalog.executions
@@ -157,29 +157,29 @@ Nesta etapa, você dispara uma execução de pipeline.
 
    ![Verificar as execuções do pacote](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-4. Você também pode obter a ID de execução do SSISDB da saída da execução da atividade do pipeline e usar a ID para verificar logs de execução mais abrangentes e mensagens de erro no SQL Server Management Studio.
+4. Você também pode obter o ID de execução do SSISDB da saída da execução da atividade do pipeline e usar o ID para verificar registros de execução mais abrangentes e mensagens de erro no SQL Server Management Studio.
 
    ![Obter a ID de execução.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>Programar o pipeline com um gatilho
 
-Você também pode criar um gatilho agendado para o pipeline para que o pipeline seja executado em uma agenda, como por hora ou por dia. Para um exemplo, consulte [Criar uma data factory - Interface do Usuário do Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+Você também pode criar um gatilho programado para o seu pipeline para que o pipeline seja executado em um horário, como de hora em hora ou diariamente. Para um exemplo, consulte [Criar uma data factory - Interface do Usuário do Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## <a name="run-a-package-with-powershell"></a>Executar um pacote com o PowerShell
-Nesta seção, você usará Azure PowerShell para criar um pipeline de Data Factory com uma atividade executar pacote do SSIS que executa seu pacote SSIS. 
+Nesta seção, você usa o Azure PowerShell para criar um pipeline de Fábrica de Dados com uma atividade execute ssis package que executa seu pacote SSIS. 
 
 Instale os módulos mais recentes do Azure PowerShell seguindo as instruções passo a passo em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
-### <a name="create-a-data-factory-with-azure-ssis-ir"></a>Criar um data factory com Azure-SSIS IR
-Você pode usar um data factory existente que já tenha Azure-SSIS IR provisionado ou criar um novo data factory com Azure-SSIS IR. Siga as instruções detalhadas no [tutorial: implantar pacotes do SSIS no Azure por meio do PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
+### <a name="create-a-data-factory-with-azure-ssis-ir"></a>Crie uma fábrica de dados com o Azure-SSIS IR
+Você pode usar uma fábrica de dados existente que já tenha o Azure-SSIS IR provisionado ou criar uma nova fábrica de dados com o Azure-SSIS IR. Siga as instruções passo-a-passo no [Tutorial: Implante pacotes SSIS no Azure via PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Criar um pipeline com uma atividade Executar Pacote do SSIS 
 Nesta etapa, você cria um pipeline com uma atividade Executar pacote SSIS. A atividade é executada em seu pacote SSIS. 
 
-1. Crie um arquivo JSON chamado *RunSSISPackagePipeline. JSON* na pasta *C:\ADF\RunSSISPackage* com conteúdo semelhante ao exemplo a seguir.
+1. Crie um arquivo JSON chamado *RunSISPackagePipeline.json* na pasta *C:\ADF\RunSSISPackage* com conteúdo semelhante ao exemplo a seguir.
 
    > [!IMPORTANT]
-   > Substitua nomes de objeto, descrições e caminhos, valores de propriedade ou parâmetro, senhas e outros valores de variáveis antes de salvar o arquivo. 
+   > Substitua nomes de objetos, descrições e caminhos, valores de propriedade ou parâmetro, senhas e outros valores variáveis antes de salvar o arquivo. 
     
    ```json
    {
@@ -286,7 +286,7 @@ Nesta etapa, você cria um pipeline com uma atividade Executar pacote SSIS. A at
    }
    ```
 
-   Para executar pacotes armazenados em sistemas de arquivos, compartilhamentos de arquivos ou arquivos do Azure, insira os valores para as propriedades do pacote e local do log da seguinte maneira:
+   Para executar pacotes armazenados em sistemas de arquivos, compartilhamentos de arquivos ou arquivos Do Zure, digite os valores das propriedades de localização do pacote e do registro da seguinte forma:
 
    ```json
    {
@@ -335,7 +335,7 @@ Nesta etapa, você cria um pipeline com uma atividade Executar pacote SSIS. A at
    }
    ```
 
-   Para executar pacotes em projetos armazenados em sistemas de arquivos, compartilhamentos de arquivos ou arquivos do Azure, insira os valores para a propriedade local do pacote da seguinte maneira:
+   Para executar pacotes dentro de projetos armazenados em sistemas de arquivos, compartilhamentos de arquivos ou arquivos Do Zure, digite os valores da propriedade de localização do pacote da seguinte forma:
 
    ```json
    {
@@ -366,7 +366,7 @@ Nesta etapa, você cria um pipeline com uma atividade Executar pacote SSIS. A at
    }
    ```
 
-   Para executar pacotes inseridos, insira os valores para a propriedade local do pacote da seguinte maneira:
+   Para executar pacotes incorporados, digite os valores da propriedade de localização do pacote da seguinte forma:
 
    ```json
    {
@@ -391,9 +391,9 @@ Nesta etapa, você cria um pipeline com uma atividade Executar pacote SSIS. A at
    }
    ```
 
-2. Em Azure PowerShell, alterne para a pasta *C:\ADF\RunSSISPackage* .
+2. No Azure PowerShell, mude para a pasta *C:\ADF\RunSSISPackage.*
 
-3. Para criar o pipeline **RunSSISPackagePipeline**, execute o cmdlet **set-AzDataFactoryV2Pipeline** .
+3. Para criar o pipeline **RunSSISPackagePipeline**, execute o cmdlet **Set-AzDataFactoryV2Pipeline.**
 
    ```powershell
    $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
@@ -402,7 +402,7 @@ Nesta etapa, você cria um pipeline com uma atividade Executar pacote SSIS. A at
                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
    ```
 
-   Aqui está a saída de exemplo:
+   Aqui está a saída da amostra:
 
    ```
    PipelineName      : Adfv2QuickStartPipeline
@@ -413,7 +413,7 @@ Nesta etapa, você cria um pipeline com uma atividade Executar pacote SSIS. A at
    ```
 
 ### <a name="run-the-pipeline"></a>Executar o pipeline
-Use o cmdlet **Invoke-AzDataFactoryV2Pipeline** para executar o pipeline. O cmdlet retorna a ID da execução de pipeline para monitoramento futuro.
+Use o **cmdlet Invoke-AzDataFactoryV2Pipeline** para executar o pipeline. O cmdlet retorna a ID da execução de pipeline para monitoramento futuro.
 
 ```powershell
 $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
@@ -423,7 +423,7 @@ $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactor
 
 ### <a name="monitor-the-pipeline"></a>Monitorar o Pipeline
 
-Execute o script do PowerShell a seguir para verificar continuamente o status da execução de pipeline até que ela termine de copiar os dados. Copie ou cole o script a seguir na janela do PowerShell e selecione Enter. 
+Execute o script do PowerShell a seguir para verificar continuamente o status da execução de pipeline até que ela termine de copiar os dados. Copie ou cole o seguinte script na janela PowerShell e selecione Enter. 
 
 ```powershell
 while ($True) {
@@ -444,12 +444,12 @@ while ($True) {
 }   
 ```
 
-Você também pode monitorar o pipeline usando o portal do Azure. Para obter instruções passo a passo, consulte [Monitorar o pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+Você também pode monitorar o pipeline usando o portal Azure. Para obter instruções passo a passo, consulte [Monitorar o pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>Programar o pipeline com um gatilho
-Na etapa anterior, você executou o pipeline sob demanda. Você também pode criar um gatilho de agendamento para executar o pipeline em um agendamento, como por hora ou por dia.
+Na etapa anterior, você executou o oleoduto demanda. Você também pode criar um gatilho de cronograma para executar o pipeline em um cronograma, como de hora em hora ou diariamente.
 
-1. Crie um arquivo JSON chamado *mytrigger. JSON* na pasta *C:\ADF\RunSSISPackage* com o seguinte conteúdo: 
+1. Crie um arquivo JSON chamado *MyTrigger.json* na pasta *C:\ADF\RunSSISPackage* com o seguinte conteúdo: 
         
    ```json
    {
@@ -475,22 +475,22 @@ Na etapa anterior, você executou o pipeline sob demanda. Você também pode cri
    }    
    ```
     
-1. Em Azure PowerShell, alterne para a pasta *C:\ADF\RunSSISPackage* .
-1. Execute o cmdlet **set-AzDataFactoryV2Trigger** , que cria o gatilho. 
+1. No Azure PowerShell, mude para a pasta *C:\ADF\RunSSISPackage.*
+1. Execute o **cmdlet Set-AzDataFactoryV2Trigger,** que cria o gatilho. 
 
    ```powershell
    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-1. Por padrão, o gatilho está no estado interrompido. Inicie o gatilho executando o cmdlet **Start-AzDataFactoryV2Trigger** . 
+1. Por padrão, o gatilho está no estado interrompido. Inicie o gatilho executando o **cmdlet Start-AzDataFactoryV2Trigger.** 
 
    ```powershell
    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-1. Confirme se o gatilho é iniciado executando o cmdlet **Get-AzDataFactoryV2Trigger** . 
+1. Confirme se o gatilho foi iniciado executando o **cmdlet Get-AzDataFactoryV2Trigger.** 
 
    ```powershell
    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
@@ -507,7 +507,7 @@ Na etapa anterior, você executou o pipeline sob demanda. Você também pode cri
                                       -TriggerRunStartedBefore "2017-12-09"
    ```
 
-   Execute a consulta a seguir no banco de dados SSISDB no SQL Server para verificar se o pacote foi executado. 
+   Execute a seguinte consulta no banco de dados SSISDB em seu servidor SQL para verificar se o pacote foi executado. 
 
    ```sql
    select * from catalog.executions
@@ -515,4 +515,4 @@ Na etapa anterior, você executou o pipeline sob demanda. Você também pode cri
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte a postagem blog a seguir:
-- [Modernizar e estender seus fluxos de trabalho ETL/ELT com atividades do SSIS em pipelines de Azure Data Factory](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
+- [Modernize e amplie seus fluxos de trabalho ETL/ELT com atividades do SSIS em pipelines azure Data Factory](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
