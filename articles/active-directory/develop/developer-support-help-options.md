@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160960"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
@@ -47,7 +47,7 @@ Em que *{Seus Termos de Pesquisa}* correspondem às palavras-chave de pesquisa.
 
 ## <a name="use-the-development-support-tools"></a>Use as ferramentas de suporte de desenvolvimento
 
-| Ferramenta  | DESCRIÇÃO  |
+| Ferramenta  | Descrição  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Cole uma ID ou token de acesso para decodificar os nomes das declarações e valores. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Ferramentas que permitem fazer solicitações e ver as respostas na API do Microsoft Graph. |
@@ -70,17 +70,17 @@ Se não conseguir encontrar uma resposta para sua pergunta por meio da pesquisa,
 
 As seguintes postagens do Stack Overflow contêm dicas sobre como fazer perguntas e adicionar o código-fonte. Siga essas diretrizes para aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:
 
-* [Como fazer uma boa pergunta](https://stackoverflow.com/help/how-to-ask)
+* [Como faço uma boa pergunta?](https://stackoverflow.com/help/how-to-ask)
 * [Como criar um exemplo mínimo, completo e verificável](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 
 Se encontrar um bug ou problema relacionado às nossas bibliotecas, gere um problema em nossos repositórios do GitHub. Como nossas bibliotecas são de software livre, você também pode enviar uma solicitação de pull.
 
-Para obter uma lista de bibliotecas e seus repositórios GitHub, consulte o seguinte:
+Para obter uma lista de bibliotecas e seus repositórios do GitHub, consulte o seguinte:
 
-* Bibliotecas [Adal (Azure Active Directory Authentication Library)](../azuread-dev/active-directory-authentication-libraries.md) e repositórios github
-* Bibliotecas [do MSAL (biblioteca de autenticação da Microsoft)](reference-v2-libraries.md) e repositórios do github
+* [Bibliotecas azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) e repositórios GitHub
+* [Bibliotecas MSAL (Microsoft Authentication Library, bibliotecas](reference-v2-libraries.md) e repositórios do GitHub)
 
 ## <a name="open-a-support-request"></a>Abrir uma solicitação de suporte
 

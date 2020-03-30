@@ -1,66 +1,66 @@
 ---
-title: Atualizando o Aplicativo Azure insights Depurador de Instantâneos
-description: Como atualizar Depurador de Instantâneos para aplicativos .NET para a versão mais recente no Azure App Services ou por meio de pacotes NuGet
+title: Atualizando o depurador de instantâneos do aplicativo Azure
+description: Como atualizar o Snapshot Debugger para aplicativos .NET para a versão mais recente no Azure App Services ou através de pacotes Nuget
 ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671385"
 ---
-# <a name="upgrading-the-snapshot-debugger"></a>Atualizando o Depurador de Instantâneos
+# <a name="upgrading-the-snapshot-debugger"></a>Atualizando o Snapshot Debugger
 
-Para fornecer a melhor segurança possível para seus dados, a Microsoft está se afastando do TLS 1,0 e do TLS 1,1, que foram mostrados para serem vulneráveis a invasores determinados. Se você estiver usando uma versão mais antiga da extensão do site, será necessário uma atualização para continuar trabalhando. Este documento descreve as etapas necessárias para atualizar o depurador de instantâneos para a versão mais recente. Há dois caminhos de atualização principais, dependendo de se você habilitou o Depurador de Instantâneos usando uma extensão de site ou se usou um SDK/NuGet adicionado ao seu aplicativo. Os dois caminhos de atualização são discutidos abaixo. 
+Para fornecer a melhor segurança possível para seus dados, a Microsoft está se afastando do TLS 1.0 e do TLS 1.1, que se mostraram vulneráveis a determinados atacantes. Se você estiver usando uma versão mais antiga da extensão do site, será necessário um upgrade para continuar funcionando. Este documento descreve as etapas necessárias para atualizar o depurador de snapshot para a versão mais recente. Existem dois caminhos de atualização principais, dependendo se você habilitou o Depurador de instantâneos usando uma extensão de site ou se você usou um SDK/Nuget adicionado ao seu aplicativo. Ambos os caminhos de atualização são discutidos abaixo. 
 
 ## <a name="upgrading-the-site-extension"></a>Atualizando a extensão do site
 
 > [!IMPORTANT]
-> As versões mais antigas do Application Insights usavam uma extensão de site particular chamada _Application insights extensão para Azure app serviço_. A experiência atual de Application Insights é habilitada definindo as configurações de aplicativo para liberar uma extensão de site pré-instalada.
-> Para evitar conflitos, o que pode fazer com que seu site pare de funcionar, é importante excluir primeiro a extensão de site particular. Consulte a etapa 4 abaixo.
+> Versões mais antigas do Application Insights usaram uma extensão de site privada chamada _extensão Application Insights para o Azure App Service_. A experiência atual do Application Insights é habilitada definindo configurações de aplicativos para iluminar uma extensão de site pré-instalada.
+> Para evitar conflitos, o que pode fazer com que seu site pare de funcionar, é importante excluir a extensão do site privado primeiro. Veja o passo 4 abaixo.
 
-Se você habilitou o depurador de instantâneos usando a extensão de site, poderá atualizar usando o seguinte procedimento:
+Se você habilitou o depurador de instantâneos usando a extensão do site, você pode atualizar usando o seguinte procedimento:
 
-1. Entre no Portal do Azure.
-2. Navegue até o recurso que tem o Application Insights e o depurador de instantâneos habilitados. Por exemplo, para um aplicativo Web, navegue até o recurso do serviço de aplicativo:
+1. Entre no portal do Azure.
+2. Navegue até o recurso que tenha o Depurador de Aplicativos e o depurador de instantâneos ativados. Por exemplo, para um aplicativo web, navegue até o recurso App Service:
 
-   ![Captura de tela do recurso de serviço de aplicativo individual chamado DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
+   ![Captura de tela do recurso individual do App Service chamado DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
 
-3. Depois de navegar até o recurso, clique na folha extensões e aguarde a lista de extensões popular:
+3. Depois de navegar até o recurso, clique na lâmina Extensões e aguarde a lista de extensões para preencher:
 
-   ![Captura de tela das extensões do serviço de aplicativo mostrando Application Insights extensão para Azure App serviço instalado](./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png)
+   ![Captura de tela das extensões do serviço de aplicativos mostrando a extensão do Application Insights para o Azure App Service instalado](./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png)
 
-4. Se qualquer versão da _extensão de Application insights para o serviço Azure app_ estiver instalada, selecione-a e clique em excluir. Confirme **Sim** para excluir a extensão e aguarde a conclusão da exclusão antes de passar para a próxima etapa.
+4. Se qualquer versão da _extensão Do Aplicativo Insights para o Azure App Service_ estiver instalada, selecione-a e clique em Excluir. Confirme **Sim** para excluir a extensão e aguardar que a exclusão seja concluída antes de passar para a próxima etapa.
 
-   ![Captura de tela das extensões do serviço de aplicativo mostrando Application Insights extensão para Azure App serviço com o botão excluir realçado](./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png)
+   ![Captura de tela das extensões do serviço de aplicativo mostrando a extensão do Application Insights para o Azure App Service com o botão Excluir destacado](./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png)
 
-5. Vá para a folha de visão geral do recurso e clique em Application Insights:
+5. Vá para a lâmina visão geral do seu recurso e clique em Insights de aplicativos:
 
-   ![Captura de tela de três botões. O botão central com o nome Application Insights está selecionado](./media/snapshot-debugger-upgrade/application-insights-button.png)
+   ![Captura de tela de três botões. O botão central com o nome Application Insights é selecionado](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-6. Se esta for a primeira vez que você exibiu a folha Application Insights para esse serviço de aplicativo, será solicitado que você ative Application Insights. Selecione **ativar Application insights**.
+6. Se esta é a primeira vez que você visualiza a lâmina Application Insights para este Serviço de Aplicativo, você será solicitado a ativar o Application Insights. Selecione **Ativar insights de aplicativos**.
  
-   ![Captura de tela da primeira experiência para a folha Application Insights com o botão Ativar Application Insights realçado](./media/snapshot-debugger-upgrade/turn-on-application-insights.png)
+   ![Captura de tela da primeira experiência para a lâmina Application Insights com o botão Ativar insights de aplicativo destacado](./media/snapshot-debugger-upgrade/turn-on-application-insights.png)
 
-7. As configurações de Application Insights atuais são exibidas. A menos que você queira tirar a oportunidade de alterar suas configurações, você pode deixá-las como estão. O botão **aplicar** na parte inferior da folha não é habilitado por padrão e você precisará alternar uma das configurações para ativar o botão. Você não precisa alterar as configurações reais, em vez disso, você pode alterar a configuração e, em seguida, alterá-la imediatamente. É recomendável alternar a configuração do criador de perfil e, em seguida, selecionar **aplicar**.
+7. As configurações atuais do Application Insights são exibidas. A menos que você queira aproveitar a oportunidade para mudar suas configurações, você pode deixá-las como estão. O botão **Aplicar** na parte inferior da lâmina não está habilitado por padrão e você terá que alternar uma das configurações para ativar o botão. Você não precisa alterar nenhuma configuração real, em vez disso, você pode alterar a configuração e, em seguida, imediatamente alterá-la de volta. Recomendamos alternar a configuração Profiler e, em seguida, selecionar **Aplicar**.
 
-   ![Captura de tela da página de configuração do serviço de aplicativo Application Insights com o botão Aplicar realçado em vermelho](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
+   ![Captura de tela da página de configuração do serviço de aplicativo Do Aplicativo Insights com botão Aplicar destacado em vermelho](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-8. Depois de clicar em **aplicar**, você será solicitado a confirmar as alterações.
+8. Uma vez que você clique **em Aplicar,** você será solicitado a confirmar as alterações.
 
     > [!NOTE]
-    > O site será reiniciado como parte do processo de atualização.
+    > O local será reiniciado como parte do processo de atualização.
 
-   ![Captura de tela do prompt de aplicação de monitoramento do serviço de aplicativo. A caixa de texto exibe a mensagem: "agora aplicaremos as alterações às configurações do aplicativo e instalaremos nossas ferramentas para vincular o recurso de Application Insights ao aplicativo Web. Isso reiniciará o site. Deseja continuar?"](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![Captura de tela do aplicativo Aplicativo aplicar aviso de monitoramento. Caixa de texto exibe mensagem: "Agora aplicaremos alterações nas configurações do aplicativo e instalaremos nossas ferramentas para vincular seu recurso Application Insights ao aplicativo web. Isso reiniciará o site. Deseja continuar?"](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
-9. Clique em **Sim** para aplicar as alterações e aguardar a conclusão do processo.
+9. Clique **em Sim** para aplicar as alterações e aguardar a conclusão do processo.
 
-O site agora foi atualizado e está pronto para uso.
+O site já foi atualizado e está pronto para uso.
 
-## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>Atualizando Depurador de Instantâneos usando o SDK/NuGet
+## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>Atualizando o snapshot depurador usando SDK/Nuget
 
-Se o aplicativo estiver usando uma versão do `Microsoft.ApplicationInsights.SnapshotCollector` abaixo da versão 1.3.1, será necessário atualizá-lo para uma [versão mais recente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) para continuar trabalhando.
+Se o aplicativo estiver `Microsoft.ApplicationInsights.SnapshotCollector` usando uma versão abaixo da versão 1.3.1, ele precisará ser atualizado para uma [versão mais recente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) para continuar funcionando.

@@ -1,5 +1,5 @@
 ---
-title: Conversões de bloco do designer de exibição para pastas de trabalho Azure Monitor
+title: Azure Monitor visualiza designer para conversões de blocos de artigos de trabalho
 description: ''
 author: austonli
 ms.author: aul
@@ -7,25 +7,25 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658619"
 ---
-# <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor conversões de bloco do designer de exibição
-O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo fornece detalhes para converter blocos diferentes em pastas de trabalho.
+# <a name="azure-monitor-view-designer-tile-conversions"></a>Conversões de azulejos de exibição do Azure Monitor
+[O View designer](view-designer.md) é um recurso do Azure Monitor que permite criar visualizações personalizadas para ajudá-lo a visualizar dados em seu espaço de trabalho do Log Analytics, com gráficos, listas e cronogramas. Eles estão sendo eliminados e substituídos por livros de trabalho que fornecem funcionalidade adicional. Este artigo fornece detalhes para converter diferentes telhas em livros de trabalho.
 
-## <a name="donut--list-tile"></a>Bloco de lista de & de rosca
+## <a name="donut--list-tile"></a>Azulejo da lista de & de donuts
 
-![Lista de rosca](media/view-designer-conversion-tiles/donut-list.png)
+![Lista de Rosquinhas](media/view-designer-conversion-tiles/donut-list.png)
 
-Recriar o bloco de lista de & de rosca em pastas de trabalho envolve duas visualizações separadas. Para a parte de rosca, há duas opções.
+Recriar o bloco de lista de & de rosquinhas em livros de trabalho envolve duas visualizações separadas. Para a porção de donuthá duas opções.
 Para ambos, comece selecionando **Adicionar consulta** e cole a consulta original do designer de exibição na célula.
 
-**Opção 1:** Selecione o **gráfico de pizza** na lista suspensa **Visualização** : ![menu de visualização de gráfico de pizza](media/view-designer-conversion-tiles/pie-chart.png)
+**Opção 1:** Selecione Gráfico de **Tortas** ![no menu de visualização **de visualização:** Menu de visualização do gráfico de tortas](media/view-designer-conversion-tiles/pie-chart.png)
 
-**Opção 2:** Selecione **definir por consulta** na lista suspensa **visualização** e adicione `| render piechart` à consulta:
+**Opção 2:** Selecione **Definir por consulta** na parada de **visualização** e adicionar `| render piechart` à consulta:
 
  ![Menu de visualização](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -46,16 +46,16 @@ search *
 | render piechart
 ```
 
-Para criar uma lista e habilitar minigráficos, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
+Para criar uma lista e habilitar linhas de ignição, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
 
-Veja a seguir um exemplo de como o bloco de lista de & de rosca pode ser reinterpretado em pastas de trabalho:
+A seguir, um exemplo de como o bloco de lista de & de rosquinhas pode ser reinterpretado em livros de trabalho:
 
-![Pastas de trabalho da lista de rosca](media/view-designer-conversion-tiles/donut-workbooks.png)
+![Livros de trabalho da lista de rosquinhas](media/view-designer-conversion-tiles/donut-workbooks.png)
 
-## <a name="line-chart--list-tile"></a>Bloco de lista & do gráfico de linhas
-![Lista de gráficos de linhas](media/view-designer-conversion-tiles/line-list.png) 
+## <a name="line-chart--list-tile"></a>Bloco de lista de lista de & gráfico de linha
+![Lista de gráficos de linha](media/view-designer-conversion-tiles/line-list.png) 
 
-Para recriar a parte do gráfico de linhas, atualize a consulta da seguinte maneira:
+Para recriar a parte do gráfico de linha, atualize a consulta da seguinte forma:
 
 Consulta original
 ```KQL
@@ -71,11 +71,11 @@ search *
 
 Há duas opções para visualizar o gráfico de linhas
 
-**Opção 1:** Selecione o **gráfico de linhas** na lista suspensa **Visualização** :
+**Opção 1:** Selecione gráfico de **linha** a partir do dropdown **de visualização:**
  
- ![Menu de gráfico de linhas](media/view-designer-conversion-tiles/line-visualization.png)
+ ![Menu gráfico de linhas](media/view-designer-conversion-tiles/line-visualization.png)
 
-**Opção 2:** Selecione **definir por consulta** na lista suspensa **visualização** e adicione `| render linechart` à consulta:
+**Opção 2:** Selecione **Definir por consulta** na parada de **visualização** e adicionar `| render linechart` à consulta:
 
  ![Menu de visualização](media/view-designer-conversion-tiles/set-by-query.png)
 
@@ -87,17 +87,17 @@ search *
 | render linechart_
 ```
 
-Para criar uma lista e habilitar minigráficos, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
+Para criar uma lista e habilitar linhas de ignição, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
 
-Veja a seguir um exemplo de como o gráfico de linhas & bloco de lista pode ser reinterpretado em pastas de trabalho:
+A seguir está um exemplo de como o gráfico de linhas & lista de azulejos de lista pode ser reinterpretado em livros de trabalho:
 
-![Planilhas de lista de gráfico de linhas](media/view-designer-conversion-tiles/line-workbooks.png)
+![Livros de trabalho da lista de gráficos de linha](media/view-designer-conversion-tiles/line-workbooks.png)
 
-## <a name="number--list-tile"></a>Número de & bloco de lista
+## <a name="number--list-tile"></a>Bloco de lista de & de números
 
- ![Lista de blocos](media/view-designer-conversion-tiles/tile-list-example.png)
+ ![Lista de azulejos](media/view-designer-conversion-tiles/tile-list-example.png)
 
-Para o bloco número, atualize a consulta da seguinte maneira:
+Para o bloco de números, atualize a consulta da seguinte forma:
 
 Consulta original
 ```KQL
@@ -112,25 +112,25 @@ search *
 | summarize Count = count()
 ```
 
-Altere a lista suspensa visualização para **blocos** e, em seguida, selecione **configurações de bloco**.
- ](media/view-designer-conversion-tiles/tile-visualization.png) de visualização ![bloco
+Altere a queda de visualização para **Telhas** e, em seguida, **selecione Configurações de azulejos**.
+ ![Visualização de telhas](media/view-designer-conversion-tiles/tile-visualization.png)
 
-Deixe a seção **título** em branco e selecione **esquerda**. Altere o valor para **usar coluna:** para **contagem**e **renderizador de coluna** para **número grande**:
+Deixe a seção **Título** em branco e selecione **Esquerda**. Alterar o valor para **usar coluna:** para **Contagem**e **Renderização de Coluna** para Grande **Número**:
 
-![Configurações de bloco](media/view-designer-conversion-tiles/tile-settings.png)
+![Configurações de azulejos](media/view-designer-conversion-tiles/tile-settings.png)
 
  
-Para criar uma lista e habilitar minigráficos, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
+Para criar uma lista e habilitar linhas de ignição, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
 
-Veja a seguir um exemplo de como o número de & bloco de lista pode ser reinterpretado em pastas de trabalho:
+A seguir está um exemplo de como o número & lista de azulejos de lista pode ser reinterpretado em livros de trabalho:
 
-![Listar pastas de trabalho](media/view-designer-conversion-tiles/number-workbooks.png)
+![Listas de trabalho da lista numérica](media/view-designer-conversion-tiles/number-workbooks.png)
 
 ## <a name="timeline--list"></a>Linha do tempo e lista
 
  ![Lista de linha do tempo](media/view-designer-conversion-tiles/time-list.png)
 
-Para a linha do tempo, atualize sua consulta da seguinte maneira:
+Para atualizar a linha do tempo, atualize sua consulta da seguinte forma:
 
 Consulta original
 ```KQL
@@ -144,21 +144,21 @@ search *
 | summarize Count = count() by Computer, bin(TimeGenerated,{TimeRange:grain})
 ```
 
-Há duas opções para visualizar a consulta como um gráfico de barras:
+Existem duas opções para visualizar a consulta como um gráfico de barras:
 
-**Opção 1:** Selecione o **gráfico de barras** na lista suspensa **Visualização** : ![visualização barChart](media/view-designer-conversion-tiles/bar-visualization.png)
+**Opção 1:** Selecione gráfico de **barras** a ![partir do dropdown de **visualização** de visualização: visualização do barchart](media/view-designer-conversion-tiles/bar-visualization.png)
  
-**Opção 2:** Selecione **definir por consulta** na lista suspensa **visualização** e adicione `| render barchart` à consulta:
+**Opção 2:** Selecione **Definir por consulta** na parada de **visualização** e adicionar `| render barchart` à consulta:
 
  ![Menu de visualização](media/view-designer-conversion-tiles/set-by-query.png)
 
  
-Para criar uma lista e habilitar minigráficos, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
+Para criar uma lista e habilitar linhas de ignição, consulte o artigo sobre [tarefas comuns](view-designer-conversion-tasks.md).
 
-Veja a seguir um exemplo de como a linha do tempo & bloco de lista pode ser reinterpretado em pastas de trabalho:
+A seguir está um exemplo de como a linha do tempo & telhas de lista podem ser reinterpretadas em livros de trabalho:
 
-![Lista de tempo das pastas de trabalho](media/view-designer-conversion-tiles/time-workbooks.png)
+![Agenda sincronia](media/view-designer-conversion-tiles/time-workbooks.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral da transição do designer de exibição para pastas de trabalho](view-designer-conversion-overview.md)
+- [Visão geral do designer de visão para transição de livros de trabalho](view-designer-conversion-overview.md)

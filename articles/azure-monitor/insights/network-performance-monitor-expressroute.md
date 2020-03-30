@@ -7,10 +7,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660743"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
@@ -24,7 +24,7 @@ Use a funcionalidade do Monitor do Azure ExpressRoute no [Monitor de Desempenho 
 ![ExpressRoute Monitor](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## <a name="configuration"></a>Configuração 
-Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução Monitor de Desempenho de Rede](network-performance-monitor.md) e selecione **Configurar**.
+Para abrir a configuração do Monitor de Desempenho de Rede, abra a [solução Network Performance Monitor](network-performance-monitor.md) e **selecione Configurar**.
 
 ### <a name="configure-network-security-group-rules"></a>Configurar regras do grupo de segurança de rede 
 Para servidores no Azure que estão sendo usados para o monitoramento via Monitor de Desempenho de Rede, você deverá configurar as regras do NSG (grupo de segurança de rede) para permitir o tráfego TCP na porta usada pelo Monitor de Desempenho de Rede para transações sintéticas. A porta padrão é 8084. Essa configuração permite que o agente do Log Analytics instalado nas VMs do Azure se comunique com um agente de monitoramento local. 
@@ -139,5 +139,5 @@ Você pode ver os códigos de notificação e definir alertas sobre eles por mei
 
  
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 [Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.

@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.openlocfilehash: b770b9bd34c8267889db536ec81332de32cb8776
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668308"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica clássicos usando o Azure Monitor
@@ -20,7 +20,7 @@ Os alertas de métrica clássicos no Azure Monitor fornecem uma maneira para not
 
 1. No [portal](https://portal.azure.com/), localize o recurso que você quer monitorar e, em seguida, selecione-o.
 
-2. Na seção**MONITORAMENTO**, selecione **Alertas (Clássico)** . O texto e o ícone podem variar ligeiramente para diferentes recursos. Se você não localizar **Alertas (Clássico)** aqui, poderá encontrá-lo em **Alertas** ou **Regras de Alerta**.
+2. Na seção**MONITORAMENTO**, selecione **Alertas (Clássico)**. O texto e o ícone podem variar ligeiramente para diferentes recursos. Se você não localizar **Alertas (Clássico)** aqui, poderá encontrá-lo em **Alertas** ou **Regras de Alerta**.
 
     ![Monitoramento](media/alerts-classic-portal/AlertRulesButton.png)
 
@@ -34,7 +34,7 @@ Os alertas de métrica clássicos no Azure Monitor fornecem uma maneira para not
 
 6. Selecione **Proprietários de email...** se você quiser que administradores e coadministradores recebam notificações por email quando o alerta for acionado.
 
-7. Se você quiser enviar notificações para endereços de email adicionais quando o alerta for acionado, adicione-os no campo **Emails adicionais do administrador**. Separe vários emails com ponto e vírgula, no seguinte formato: *email\@contoso. com; email2\@contoso.com*
+7. Se você quiser enviar notificações para endereços de email adicionais quando o alerta for acionado, adicione-os no campo **Emails adicionais do administrador**. Separe vários e-mails com ponto e vírgula, no seguinte formato: *e-mail\@\@contoso.com;email2 contoso.com*
 
 8. Coloque um URI válido no campo **Webhook** se você quiser que ele seja chamado quando o alerta for acionado.
 
@@ -88,7 +88,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 Esta seção mostra como usar os comandos do PowerShell para criar, exibir e gerenciar alertas de métrica clássicos. Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Monitor para alertas de métrica clássicos.
 
-1. Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para saber mais, consulte [Como instalar e configurar o PowerShell](/powershell/azure/overview). Você também pode ver a lista completa de cmdlets do PowerShell do Azure Monitor em [Cmdlets do Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+1. Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para obter mais informações, [consulte Como instalar e configurar o PowerShell](/powershell/azure/overview). Você também pode ver a lista completa de cmdlets do PowerShell do Azure Monitor em [Cmdlets do Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
 
 2. Primeiro, entre em sua assinatura do Azure.
 
@@ -126,9 +126,9 @@ Esta seção mostra como usar os comandos do PowerShell para criar, exibir e ger
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Regras de alerta clássico não podem ser criadas por meio do PowerShell. Para criar uma regra de alerta, você precisa usar o novo comando [' Add-AzMetricAlertRule '](/powershell/module/az.monitor/add-azmetricalertrule) .
+8. Regras de alerta clássico não podem ser criadas por meio do PowerShell. Para criar uma regra de alerta, você precisa usar o novo comando ['Add-AzMetricAlertRule'.](/powershell/module/az.monitor/add-azmetricalertrule)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Criar um alerta de métrica clássico com um modelo do Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Fazer um alerta de métrica clássico notificar um sistema diferente do Azure usando um webhook](../../azure-monitor/platform/alerts-webhooks.md).

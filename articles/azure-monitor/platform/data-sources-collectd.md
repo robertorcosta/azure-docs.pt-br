@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670603"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Coletar dados do CollectD em agentes do Linux no Azure Monitor
@@ -63,7 +63,7 @@ O agente do Log Analytics para Linux também escuta métricas do CollectD na por
     </filter>
 
 > [!NOTE]
-> Coletado por padrão é definido para ler valores em um [intervalo](https://collectd.org/wiki/index.php/Interval)de 10 segundos. Como isso afeta diretamente o volume de dados enviados aos logs de Azure Monitor, talvez seja necessário ajustar esse intervalo dentro da configuração coletada para um bom equilíbrio entre os requisitos de monitoramento e os custos associados e o uso dos logs de Azure Monitor.
+> A coleta por padrão é definida como leitura de valores em um intervalo de 10 [segundos](https://collectd.org/wiki/index.php/Interval). Como isso afeta diretamente o volume de dados enviados ao Azure Monitor Logs, talvez seja necessário ajustar esse intervalo dentro da configuração CollectD para encontrar um bom equilíbrio entre os requisitos de monitoramento e os custos e o uso associados para logs do Monitor do Azure.
 
 ## <a name="versions-supported"></a>Versões com suporte
 - Atualmente, o Azure Monitor dá suporte ao CollectD versão 4.8 e superior.
@@ -109,13 +109,13 @@ Para manter um modelo familiar entre as métricas de infraestrutura já coletada
 |:--|:--|
 | `host` | Computador |
 | `plugin` | Nenhum |
-| `plugin_instance` | Nome da instância<br>Se **plugin_instance** é *null*, então InstanceName=" *_Total*" |
+| `plugin_instance` | Nome da Instância<br>Se **plugin_instance** é *null*, então InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Se **type_instance** é *null*, então CounterName=**blank** |
 | `dsnames[]` | CounterName |
 | `dstypes` | Nenhum |
 | `values[]` | CounterValue |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 
 * Use [campos personalizados](custom-fields.md) para analisar dados dos registros do syslog em campos individuais.

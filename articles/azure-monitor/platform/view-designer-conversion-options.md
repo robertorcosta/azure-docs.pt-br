@@ -1,5 +1,5 @@
 ---
-title: Opções de conversão do designer de exibição para pastas de trabalho do Azure Monitor
+title: Azure Monitor visualiza designer para opções de conversão de livros de trabalho
 description: ''
 author: austonli
 ms.author: aul
@@ -7,41 +7,41 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658703"
 ---
-# <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opções de conversão do designer de exibição para pastas de trabalho do Azure Monitor
-O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo compara os conceitos fundamentais entre as duas opções para converter exibições em pastas de trabalho.
+# <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Azure Monitor visualiza designer para opções de conversão de livros de trabalho
+[O View designer](view-designer.md) é um recurso do Azure Monitor que permite criar visualizações personalizadas para ajudá-lo a visualizar dados em seu espaço de trabalho do Log Analytics, com gráficos, listas e cronogramas. Eles estão sendo eliminados e substituídos por livros de trabalho que fornecem funcionalidade adicional. Este artigo compara conceitos fundamentais entre os dois e opções para converter pontos de vista em livros de trabalho.
 
-## <a name="basic-workbook-designs"></a>Designs de pasta de trabalho básica
+## <a name="basic-workbook-designs"></a>Designs básicos de livros de trabalho
 
-O designer de exibição tem um estilo estático fixo de representação, enquanto as pastas de trabalho habilitam a liberdade para incluir e modificar o modo como os dados são representados. As imagens a seguir descrevem dois exemplos de como você pode organizar as pastas de trabalho ao converter exibições.
+O designer de visualização tem um estilo fixo de representação estática, enquanto as agencias permitem a liberdade de incluir e modificar a forma como os dados são representados. As imagens abaixo mostram dois exemplos de como você pode organizar livros de trabalho ao converter visualizações.
 
+[Carteira de trabalho](view-designer-conversion-examples.md#vertical)
+![vertical](media/view-designer-conversion-options/view-designer-vertical.png)
 
-da [pasta de trabalho vertical](view-designer-conversion-examples.md#vertical) ![](media/view-designer-conversion-options/view-designer-vertical.png) vertical
+[Guia de distribuição](view-designer-conversion-examples.md#tabbed)
+![do](media/view-designer-conversion-options/distribution-tab.png)
+![tipo de trabalho Guia do tipo de trabalho Tipos de dados sobre a guia de tempo](media/view-designer-conversion-options/over-time-tab.png)
 
-[Pasta de trabalho com guias](view-designer-conversion-examples.md#tabbed)
-![guia distribuição de tipo de dados](media/view-designer-conversion-options/distribution-tab.png)
-![tipos de dados ao longo da guia de tempo](media/view-designer-conversion-options/over-time-tab.png)
-
-## <a name="tile-conversion"></a>Conversão de bloco
-O designer de exibição usa o recurso de bloco visão geral para representar e resumir o estado geral. Elas são representadas em sete blocos, variando de números a gráficos. Em pastas de trabalho, os usuários podem criar visualizações semelhantes e fixá-las para se parecer com o estilo original dos blocos de visão geral. 
+## <a name="tile-conversion"></a>Conversão de ladrilhos
+O designer de visualização usa o recurso de telha de visão geral para representar e resumir o estado geral. Estes são representados em sete telhas, variando de números a gráficos. Nos livros de trabalho, os usuários podem criar visualizações semelhantes e fixá-las para se assemelhar ao estilo original de telhas de visão geral. 
 
 ![Galeria](media/view-designer-conversion-options/overview.png)
 
 
-## <a name="view-dashboard-conversion"></a>Exibir conversão de painel
-Os blocos de designer de exibição geralmente consistem em duas seções, uma visualização e uma lista que corresponde aos dados da visualização, por exemplo, o bloco de **& de rosca**
+## <a name="view-dashboard-conversion"></a>Ver conversão do painel
+Os ladrilhos de designer normalmente consistem em duas seções, uma visualização e uma lista que correspondem aos dados da visualização, por exemplo, o bloco **Donut & List.**
 
-![Rosca](media/view-designer-conversion-options/donut-example.png)
+![Donut](media/view-designer-conversion-options/donut-example.png)
 
-Com as pastas de trabalho, permitimos que o usuário opte por consultar uma ou ambas as seções da exibição. As consultas do formular em pastas de trabalho são um processo simples de duas etapas. Primeiro, os dados são gerados a partir da consulta e, segundo, os dados são renderizados como uma visualização.  Um exemplo de como essa exibição seria recriada em pastas de trabalho é a seguinte:
+Com as cadernetas, permitimos que o usuário opte por consultar uma ou ambas as seções da exibição. Formular consultas em pastas de trabalho é um processo simples de duas etapas. Primeiro, os dados são gerados a partir da consulta e, em segundo lugar, os dados são renderizados como visualização.  Um exemplo de como essa exibição seria recriada em livros de trabalho é a seguinte:
 
-![Convert](media/view-designer-conversion-options/convert-donut.png)
+![Converter](media/view-designer-conversion-options/convert-donut.png)
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-- [Acessando pastas de trabalho & permissões](view-designer-conversion-access.md)
+## <a name="next-steps"></a>Próximas etapas
+- [Acessando as permissões & de trabalho](view-designer-conversion-access.md)

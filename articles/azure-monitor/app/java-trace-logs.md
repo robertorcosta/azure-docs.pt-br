@@ -1,26 +1,26 @@
 ---
-title: Explorar os logs de rastreamento do Java no Aplicativo Azure insights
+title: Explore os registros de rastreamento java no Azure Application Insights
 description: Pesquisar rastreamentos Log4J ou Logback no Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657207"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 > [!TIP]
-> Você só precisa definir sua chave de instrumentação Application Insights uma vez para seu aplicativo. Se você estiver usando uma estrutura como o Java Spring, talvez já tenha registrado a chave em outro lugar na configuração do aplicativo.
+> Você só precisa definir sua chave de instrumentação de insights de aplicativo uma vez para o seu aplicativo. Se você estiver usando uma estrutura como Java Spring, você pode já ter registrado a chave em outro lugar na configuração do seu aplicativo.
 
-## <a name="using-the-application-insights-java-agent"></a>Usando o agente Java Application Insights
+## <a name="using-the-application-insights-java-agent"></a>Usando o agente Java do Application Insights
 
-Por padrão, o Application Insights agente Java captura automaticamente o log executado no nível `WARN` e acima.
+Por padrão, o agente Application Insights Java `WARN` captura automaticamente o registro realizado em nível e acima.
 
-Você pode alterar o limite de log que é capturado usando o arquivo de `AI-Agent.xml`:
+Você pode alterar o limiar de registro `AI-Agent.xml` capturado usando o arquivo:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +33,7 @@ Você pode alterar o limite de log que é capturado usando o arquivo de `AI-Agen
 </ApplicationInsightsAgent>
 ```
 
-Você pode desabilitar a captura de log do agente Java usando o arquivo de `AI-Agent.xml`:
+Você pode desativar a captura de registro `AI-Agent.xml` do agente Java usando o arquivo:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,11 +46,11 @@ Você pode desabilitar a captura de log do agente Java usando o arquivo de `AI-A
 </ApplicationInsightsAgent>
 ```
 
-## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Como alternativa (em oposição ao uso do agente Java), você pode seguir as instruções abaixo
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Alternativamente (em vez de usar o agente Java), você pode seguir as instruções abaixo
 
 ### <a name="install-the-java-sdk"></a>Instalar o SDK do Java
 
-Siga as instruções para instalar [Application insights SDK para Java][java], caso ainda não tenha feito isso.
+Siga as instruções para instalar o [SDK do Application Insights para Java][java] se ainda não tiver feito isso.
 
 ### <a name="add-logging-libraries-to-your-project"></a>Adicionar bibliotecas de log ao seu projeto
 *Escolha o modo apropriado para seu projeto.*
@@ -126,7 +126,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 #### <a name="otherwise-"></a>Caso contrário...
 Siga as orientações para instalar manualmente o SDK do Java do Application Insights, baixe o jar (após chegar na Página Central do Maven, clique no link para "jar" na seção de download) correspondente ao appender apropriado e adicione-o ao projeto.
 
-| Agente | {1&gt;{2&gt;Baixar&lt;2}&lt;1} | Biblioteca |
+| Agente | Baixar | Biblioteca |
 | --- | --- | --- |
 | Logback |[Jar do appender de Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Jar do appender de Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
@@ -182,13 +182,13 @@ Para começar a obter rastreamentos, mescle o snippet de código relevante ao ar
 Os appenders Application Insights podem ser referenciados por qualquer agente configurado e não necessariamente pelo agente raiz (conforme mostrado nos exemplos de código acima).
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explorar seus rastreamentos no portal do Application Insights
-Agora que você configurou seu projeto para enviar rastreamentos para Application Insights, você pode exibir e Pesquisar esses rastreamentos no portal de Application Insights, na folha [Pesquisar][diagnostic] .
+Agora que você configurou o projeto para enviar os rastreamentos para o Application Insights, é possível exibir e pesquisar esses rastreamentos no portal do Application Insights, na folha [Pesquisa][diagnostic].
 
 Exceções enviadas por meio de agentes serão exibidas no portal como Telemetria de exceção.
 
 ![No portal do Application Insights, abra a Pesquisa](./media/java-trace-logs/01-diagnostics.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 [Pesquisa de diagnóstico][diagnostic]
 
 <!--Link references-->

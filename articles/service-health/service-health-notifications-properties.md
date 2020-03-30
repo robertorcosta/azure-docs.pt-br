@@ -4,10 +4,10 @@ description: As notificações de integridade do serviço permitem exibir mensag
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77653961"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
@@ -24,7 +24,7 @@ Há diversas classes de notificações de integridade do serviço:
 
 Cada notificação de integridade do serviço inclui detalhes sobre o escopo e o impacto em seus recursos. Os detalhes incluem:
 
-Nome da propriedade | DESCRIÇÃO
+Nome da propriedade | Descrição
 -------- | -----------
 canais | Um dos seguintes valores: **Admin** ou **Operação**.
 correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Eventos que pertencem à mesma ação geralmente compartilham a mesma correlationId.
@@ -43,29 +43,29 @@ category | Esta propriedade é sempre **ServiceHealth**.
 resourceId | ID do recurso afetado.
 Properties.title | O título localizado dessa comunicação. Inglês é o padrão.
 Properties.communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
-Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **informativo**, **incidente**, **manutenção**ou **segurança**.
+Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **Informational**, **Incident,** **Maintenance,** or **Security**.
 Properties.trackingId | O incidente ao qual esse evento está associado. Use-a para correlacionar os eventos relacionados a um incidente.
 Properties.impactedServices | Um blob JSON com escape que descreve as regiões e os serviços afetados pelo incidente. Uma lista de Services, que, individualmente, tem um **ServiceName** e uma lista de ImpactedRegions, que têm um **RegionName**.
 Properties.defaultLanguageTitle | A comunicação em inglês.
 Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação.
-Properties.stage | Os valores possíveis para **incidente**e **segurança** são **ativo,** **resolvido** ou **RCA**. Para **ActionRequired** ou **Informational**, o único valor é **Ativo**. Para **Manutenção** são: **Ativo**, **Planejado**, **EmAndamento**, **Cancelado**, **Reagendado**, **Resolvido** ou **Concluído**.
+Properties.stage | Os valores possíveis para **Incidente** e **Segurança** são **Ativo,** **Resolvido** ou **RCA**. Para **ActionRequired** ou **Informational**, o único valor é **Ativo**. Para **manutenção** são: **Ativo,** **Planejado,** **InProgress,** **Cancelado,** **Reagendado,** **Resolvido**ou **Completo**.
 Properties.communicationId | A comunicação à qual esse evento está associado.
 
 ### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações de nível de integridade de serviço
 
 **Ação Necessária** (properties.incidentType == ActionRequired)
-- Informativo-a ação do administrador é necessária para evitar o impacto nos serviços existentes.
+- Informativo - A ação do administrador é necessária para evitar impacto nos serviços existentes.
     
 **Manutenção** (properties.incidentType == Maintenance)
-- Aviso-manutenção de emergência
-- Informativo-manutenção planejada padrão
+- Aviso - Manutenção de emergência
+- Informativo - Manutenção planejada padrão
 
 **Informações** (properties.incidentType == Information)
-- Informativo-o administrador pode ser solicitado a evitar o impacto nos serviços existentes.
+- Informativo - O administrador pode ser necessário para evitar impactos nos serviços existentes.
 
 **Segurança** (properties.incidentType == Security)
-- Aviso-consultoria de segurança que afeta os serviços existentes e pode exigir ação do administrador.
-- Informativo-consultoria de segurança que afeta os serviços existentes.
+- Aviso - Assessoria de segurança que afeta os serviços existentes e pode exigir ação do administrador.
+- Informativo - Assessoria de segurança que afeta os serviços existentes.
 
 **Problemas de Serviço** (properties.incidentType == Incident)
 - Erro – problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.

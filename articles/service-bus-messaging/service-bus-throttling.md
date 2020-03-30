@@ -1,6 +1,6 @@
 ---
-title: Visão geral da limitação do barramento de serviço do Azure | Microsoft Docs
-description: Visão geral da limitação do barramento de serviço – camadas Standard e Premium.
+title: Visão geral do estrangulamento do Ônibus de Serviço Azure | Microsoft Docs
+description: Visão geral do estrangulamento do Ônibus de Serviço - Níveis Padrão e Premium.
 services: service-bus-messaging
 author: axisc
 editor: spelluru
@@ -9,118 +9,118 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
 ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598282"
 ---
-# <a name="throttling-operations-on-azure-service-bus"></a>Operações de limitação no barramento de serviço do Azure
+# <a name="throttling-operations-on-azure-service-bus"></a>Operações de estrangulamento no Ônibus de Serviço Azure
 
-As soluções nativas de nuvem fornecem uma noção de recursos ilimitados que podem ser dimensionados com sua carga de trabalho. Embora essa noção seja mais verdadeira na nuvem do que com os sistemas locais, ainda existem limitações que existem na nuvem.
+As soluções nativas em nuvem dão uma noção de recursos ilimitados que podem ser dimensionados com sua carga de trabalho. Embora essa noção seja mais verdadeira na nuvem do que com sistemas locais, ainda existem limitações que existem na nuvem.
 
-Essas limitações podem causar a limitação de solicitações de aplicativos cliente nas camadas Standard e Premium, conforme discutido neste artigo. 
+Essas limitações podem causar o estrangulamento de solicitações de aplicativos clientes nos níveis Standard e Premium, conforme discutido neste artigo. 
 
-## <a name="throttling-in-azure-service-bus-standard-tier"></a>Limitação na camada standard do barramento de serviço do Azure
+## <a name="throttling-in-azure-service-bus-standard-tier"></a>Estrangulamento no nível padrão do ônibus de serviço azure
 
-A camada standard do barramento de serviço do Azure funciona como uma configuração multilocatário com um modelo de preços pago conforme o uso. Aqui, vários namespaces no mesmo cluster compartilham os recursos alocados. A camada Standard é a opção recomendada para ambientes de desenvolvimento, teste e QA, juntamente com sistemas de produção de baixa taxa de transferência.
+O nível Azure Service Bus Standard funciona como uma configuração de vários inquilinos com um modelo de preços de pagamento à medida que você vai. Aqui vários namespaces no mesmo cluster compartilham os recursos alocados. O nível padrão é a escolha recomendada para ambientes de desenvolvedor, teste e QA, juntamente com sistemas de produção de baixo throughput.
 
-No passado, o barramento de serviço do Azure tinha limites de alta limitação estritamente dependentes da utilização de recursos. No entanto, há uma oportunidade de refinar a lógica de limitação e fornecer um comportamento de limitação previsível para todos os namespaces que estão compartilhando esses recursos.
+No passado, a Azure Service Bus tinha limites de estrangulamento grosseiros estritamente dependentes da utilização de recursos. No entanto, há uma oportunidade de refinar a lógica de estrangulamento e fornecer um comportamento previsível de estrangulamento para todos os namespaces que estão compartilhando esses recursos.
 
-Em uma tentativa de garantir o uso e a distribuição justas de recursos em todos os namespaces padrão do barramento de serviço do Azure que usam os mesmos recursos, a lógica de limitação foi modificada para ser baseada em crédito.
+Na tentativa de garantir o uso justo e a distribuição de recursos em todos os espaços de nome Azure Service Bus Standard que usam os mesmos recursos, a lógica de estrangulamento foi modificada para ser baseada em crédito.
 
 > [!NOTE]
-> É importante observar que a limitação não é ***novidade*** no barramento de serviço do Azure ou em qualquer serviço de nuvem nativo.
+> É importante notar que o estrangulamento não é ***novo*** no Azure Service Bus, ou em qualquer serviço nativo na nuvem.
 >
-> A limitação baseada em crédito é simplesmente refinar a maneira como vários namespaces compartilham recursos em um ambiente de camada padrão multilocatário e, portanto, habilitando o uso justo por todos os namespaces que compartilham os recursos.
+> O estrangulamento baseado em crédito está simplesmente refinando a maneira como vários namespaces compartilham recursos em um ambiente de nível padrão de vários locatários e, assim, permitindo o uso justo por todos os namespaces compartilhando os recursos.
 
-### <a name="what-is-credit-based-throttling"></a>O que é a limitação baseada em crédito?
+### <a name="what-is-credit-based-throttling"></a>O que é estrangulamento baseado em crédito?
 
-A limitação baseada em crédito limita o número de operações que podem ser executadas em um determinado namespace em um período de tempo específico. 
+O estrangulamento baseado em crédito limita o número de operações que podem ser realizadas em um determinado namespace em um período de tempo específico. 
 
-Abaixo está o fluxo de trabalho para a limitação baseada em crédito- 
+Abaixo está o fluxo de trabalho para estrangulamento baseado em crédito - 
 
-  * No início de cada período de tempo, fornecemos um determinado número de créditos para cada namespace.
-  * Todas as operações executadas pelos aplicativos cliente remetente ou destinatário serão contadas em relação a esses créditos (e subtraídos dos créditos disponíveis).
-  * Se os créditos estiverem esgotados, as operações subsequentes serão limitadas até o início do próximo período de tempo.
-  * Os créditos são reabastecidos no início do próximo período de tempo.
+  * No início de cada período de tempo, fornecemos um certo número de créditos para cada namespace.
+  * Quaisquer operações realizadas pelos aplicativos do cliente remetente ou receptor serão contadas contra esses créditos (e subtraídas dos créditos disponíveis).
+  * Se os créditos forem esgotados, as operações subsequentes serão estranguladas até o início do próximo período.
+  * Os créditos são repostos no início do próximo período.
 
 ### <a name="what-are-the-credit-limits"></a>Quais são os limites de crédito?
 
-Os limites de crédito estão atualmente definidos como ' 1000 ' créditos a cada segundo (por namespace).
+Os limites de crédito são atualmente definidos para créditos '1000' a cada segundo (por namespace).
 
-Nem todas as operações são criadas de forma igual. Aqui estão os custos de crédito de cada uma das operações- 
+Nem todas as operações são criadas iguais. Aqui estão os custos de crédito de cada uma das operações - 
 
 | Operação | Custo de crédito|
 |-----------|-----------|
-| Operações de dados (Send, SendAsync, Receive, ReceiveAsync, Peek) |1 crédito por mensagem |
-| Operações de gerenciamento (criar, ler, atualizar, excluir em filas, tópicos, assinaturas, filtros) | 10 créditos |
+| Operações de dados (Enviar, EnviarAsync, Receber, ReceberAsync, Peek) |1 crédito por mensagem |
+| Operações de gerenciamento (Criar, Ler, Atualizar, Excluir em Filas, Tópicos, Assinaturas, Filtros) | 10 créditos |
 
 > [!NOTE]
-> Observe que, ao enviar para um tópico, cada mensagem é avaliada em relação aos filtros antes de ser disponibilizada na assinatura.
-> Cada avaliação de filtro também conta com relação ao limite de crédito (ou seja, 1 crédito por avaliação de filtro).
+> Observe que ao enviar para um Tópico, cada mensagem é avaliada contra filtros antes de ser disponibilizada na Assinatura.
+> Cada avaliação do filtro também conta com o limite de crédito (ou seja, 1 crédito por avaliação de filtro).
 >
 
-### <a name="how-will-i-know-that-im-being-throttled"></a>Como saber que estou sendo limitado?
+### <a name="how-will-i-know-that-im-being-throttled"></a>Como saberei que estou sendo estrangulado?
 
-Quando as solicitações do aplicativo cliente estiverem sendo limitadas, a resposta do servidor abaixo será recebida pelo seu aplicativo e registrada em log.
+Quando as solicitações de aplicativo do cliente estiverem sendo estranguladas, a resposta abaixo do servidor será recebida pelo seu aplicativo e registrada.
 
 ```
 The request was terminated because the entity is being throttled. Error code: 50009. Please wait 2 seconds and try again.
 ```
 
-### <a name="how-can-i-avoid-being-throttled"></a>Como posso evitar a limitação?
+### <a name="how-can-i-avoid-being-throttled"></a>Como posso evitar ser estrangulado?
 
-Com recursos compartilhados, é importante impor algum tipo de uso justo em vários namespaces do barramento de serviço que compartilham esses recursos. A limitação garante que qualquer pico em uma única carga de trabalho não faz com que outras cargas de trabalho nos mesmos recursos sejam limitadas.
+Com recursos compartilhados, é importante impor algum tipo de uso justo em vários espaços de nome do Service Bus que compartilham esses recursos. O estrangulamento garante que qualquer pico em uma única carga de trabalho não faça com que outras cargas de trabalho nos mesmos recursos sejam estranguladas.
 
-Como mencionado posteriormente neste artigo, não há nenhum risco de ser limitado porque os SDKs do cliente (e outras ofertas de PaaS do Azure) têm a política de repetição padrão interna. Todas as solicitações limitadas serão repetidas com a retirada exponencial e, eventualmente, serão passadas quando os créditos forem reabastecidos.
+Como mencionado posteriormente no artigo, não há risco de ser estrangulado porque os SDKs do cliente (e outras ofertas do Azure PaaS) têm a política de reavaliação padrão incorporada a eles. Quaisquer pedidos estrangulados serão julgados com recuo exponencial e eventualmente passarão quando os créditos forem repostos.
 
-É compreensível que alguns aplicativos possam ser sensíveis à limitação. Nesse caso, é recomendável [migrar seu namespace standard do barramento de serviço atual para Premium](service-bus-migrate-standard-premium.md). 
+Compreensivelmente, algumas aplicações podem ser sensíveis a serem estranguladas. Nesse caso, recomenda-se [migrar o seu atual espaço de nome padrão de barra de serviço para premium](service-bus-migrate-standard-premium.md). 
 
-Na migração, você pode alocar recursos dedicados ao namespace do barramento de serviço e dimensionar adequadamente os recursos se houver um pico na carga de trabalho e reduzir a probabilidade de ser limitado. Além disso, quando sua carga de trabalho reduz a níveis normais, você pode reduzir verticalmente os recursos alocados para seu namespace.
+Na migração, você pode alocar recursos dedicados ao seu espaço de nome de Bus de Serviço e aumentar adequadamente os recursos se houver um aumento na sua carga de trabalho e reduzir a probabilidade de ser estrangulado. Além disso, quando sua carga de trabalho reduz a níveis normais, você pode reduzir os recursos alocados para o seu namespace.
 
-## <a name="throttling-in-azure-service-bus-premium-tier"></a>Limitação na camada Premium do barramento de serviço do Azure
+## <a name="throttling-in-azure-service-bus-premium-tier"></a>Estrangulamento no nível Premium do Ônibus de Serviço Azure
 
-A camada [Premium do barramento de serviço do Azure](service-bus-premium-messaging.md) aloca recursos dedicados, em termos de unidades de mensagens, a cada configuração de namespace pelo cliente. Esses recursos dedicados fornecem taxa de transferência e latência previsíveis e são recomendados para alta taxa de transferência ou sistemas de nível de produção confidenciais.
+O [nível Azure Service Bus Premium](service-bus-premium-messaging.md) aloca recursos dedicados, em termos de unidades de mensagens, para cada configuração de namespace pelo cliente. Esses recursos dedicados fornecem produção e latência previsíveis e são recomendados para sistemas de alto desempenho ou de grau de produção sensíveis.
 
-Além disso, a camada Premium também permite que os clientes aumentem sua capacidade de taxa de transferência quando experimentarem picos na carga de trabalho.
+Além disso, o nível Premium também permite que os clientes aumentem sua capacidade de throughput quando experimentam picos na carga de trabalho.
 
-### <a name="how-does-throttling-work-in-service-bus-premium"></a>Como a limitação funciona no barramento de serviço Premium?
+### <a name="how-does-throttling-work-in-service-bus-premium"></a>Como funciona o estrangulamento no Service Bus Premium?
 
-Com alocação de recursos exclusiva para o barramento de serviço Premium, a limitação é puramente controlada pelas limitações dos recursos alocados para o namespace.
+Com alocação exclusiva de recursos para service bus premium, o estrangulamento é puramente impulsionado pelas limitações dos recursos alocados no namespace.
 
-Se o número de solicitações for maior do que os recursos atuais podem ser atendidos, as solicitações serão limitadas.
+Se o número de solicitações for maior do que os recursos atuais podem atender, então as solicitações serão estranguladas.
 
-### <a name="how-will-i-know-that-im-being-throttled"></a>Como saber que estou sendo limitado?
+### <a name="how-will-i-know-that-im-being-throttled"></a>Como saberei que estou sendo estrangulado?
 
-Há várias maneiras de identificar a limitação no barramento de serviço Premium do Azure- 
-  * **As solicitações limitadas** aparecem no [Azure monitor métricas de solicitação](service-bus-metrics-azure-monitor.md#request-metrics) para identificar quantas solicitações foram limitadas.
-  * Alto **uso da CPU** indica que a alocação de recursos atual é alta e as solicitações podem ser limitadas se a carga de trabalho atual não for reduzida.
-  * O **uso de memória** alta indica que a alocação de recursos atual é alta e as solicitações podem ser limitadas se a carga de trabalho atual não for reduzida.
+Existem várias maneiras de identificar o estrangulamento no Azure Service Bus Premium - 
+  * **Solicitações estranguladas** aparecem nas métricas de solicitação do [Monitor Do Azure](service-bus-metrics-azure-monitor.md#request-metrics) para identificar quantas solicitações foram estranguladas.
+  * O uso elevado **da CPU** indica que a alocação atual de recursos é alta e as solicitações podem ser estranguladas se a carga de trabalho atual não reduzir.
+  * O **uso de memória alta** indica que a alocação atual de recursos é alta e as solicitações podem ser estranguladas se a carga de trabalho atual não reduzir.
 
-### <a name="how-can-i-avoid-being-throttled"></a>Como posso evitar a limitação?
+### <a name="how-can-i-avoid-being-throttled"></a>Como posso evitar ser estrangulado?
 
-Como o namespace Premium do barramento de serviço já tem recursos dedicados, você pode reduzir a possibilidade de ficar limitado ao escalar verticalmente o número de unidades de mensagens alocadas para seu namespace no evento (ou antecipação) de um pico na carga de trabalho.
+Uma vez que o espaço de nome Service Bus Premium já possui recursos dedicados, você pode reduzir a possibilidade de ser estrangulado aumentando o número de Unidades de Mensagens alocadas ao seu namespace no caso (ou antecipação) de um pico na carga de trabalho.
 
-A expansão/redução pode ser obtida com a criação de [runbooks](../automation/automation-create-alert-triggered-runbook.md) que podem ser disparados por alterações nas métricas acima.
+A escala para cima/para baixo pode ser alcançada criando [runbooks](../automation/automation-create-alert-triggered-runbook.md) que podem ser acionados por alterações nas métricas acima.
 
 ## <a name="faqs"></a>Perguntas frequentes
 
-### <a name="how-does-throttling-affect-my-application"></a>Como a limitação afeta meu aplicativo?
+### <a name="how-does-throttling-affect-my-application"></a>Como o estrangulamento afeta minha aplicação?
 
-Quando uma solicitação é limitada, ela indica que o serviço está ocupado porque está voltado a mais solicitações do que os recursos permitem. Se a mesma operação for tentada novamente após alguns instantes, depois que o serviço tiver trabalhado por meio de sua carga de trabalho atual, a solicitação poderá ser respeitada.
+Quando uma solicitação é estrangulada, implica que o serviço está ocupado porque está enfrentando mais solicitações do que os recursos permitem. Se a mesma operação for tentada novamente após alguns momentos, uma vez que o serviço tenha trabalhado através de sua carga de trabalho atual, então a solicitação pode ser honrada.
 
-Como a limitação é o comportamento esperado de qualquer serviço nativo de nuvem, criamos a lógica de repetição no próprio SDK do barramento de serviço do Azure. O padrão é definido como repetição automática com um retirada exponencial para garantir que não tenhamos a mesma solicitação sendo limitada a cada vez.
+Como o estrangulamento é o comportamento esperado de qualquer serviço nativo em nuvem, construímos a lógica de repetição no próprio SDK do Azure Service Bus. O padrão é definido para tentar novamente com um back-off exponencial para garantir que não tenhamos a mesma solicitação sendo estrangulada todas as vezes.
 
-A lógica de repetição padrão será aplicada a todas as operações.
+A lógica de repetição padrão se aplicará a cada operação.
 
-### <a name="does-throttling-result-in-data-loss"></a>A limitação resulta em perda de dados?
+### <a name="does-throttling-result-in-data-loss"></a>O estrangulamento resulta em perda de dados?
 
-O barramento de serviço do Azure é otimizado para persistência, garantimos que todos os dados enviados ao barramento de serviço estejam comprometidos com o armazenamento antes que o serviço reconheça o sucesso da solicitação.
+O Ônibus de Serviço Azure é otimizado para persistência, garantimos que todos os dados enviados ao Service Bus sejam comprometidos com o armazenamento antes que o serviço reconheça o sucesso da solicitação.
 
-Depois que a solicitação for bem-sucedida ' ACK ' (confirmada) pelo barramento de serviço, significa que o barramento de serviço processou a solicitação com êxito. Se o barramento de serviço retornar um ' NACK ' (falha), significa que o barramento de serviço não pôde processar a solicitação e o aplicativo cliente deve repetir a solicitação.
+Uma vez que a solicitação é bem sucedida 'ACK' (reconhecida) pela Service Bus, isso implica que a Service Bus processou com sucesso a solicitação. Se a Service Bus retornar um 'NACK' (falha), então isso implica que a Service Bus não foi capaz de processar a solicitação e o aplicativo do cliente deve tentar novamente a solicitação.
 
-No entanto, quando uma solicitação é limitada, o serviço está implicando que ele não pode aceitar e processar a solicitação no momento devido a limitações de recursos. Isso **não** implica nenhum tipo de perda de dados porque o barramento de serviço simplesmente não examinou a solicitação. Nesse caso, depender da política de repetição padrão do SDK do barramento de serviço garante que a solicitação seja eventualmente processada.
+No entanto, quando uma solicitação é estrangulada, o serviço está insinuando que não pode aceitar e processar a solicitação agora devido a limitações de recursos. Isso **não** implica qualquer tipo de perda de dados porque a Service Bus simplesmente não analisou a solicitação. Neste caso, confiar na política de repetição padrão do Service Bus SDK garante que a solicitação seja eventualmente processada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

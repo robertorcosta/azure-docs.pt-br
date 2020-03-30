@@ -1,22 +1,22 @@
 ---
 title: Trabalhar com cadeias de caracteres nas consultas de log no Azure Monitor | Microsoft Docs
-description: Este artigo fornece um tutorial para usar Azure Monitor Log Analytics no portal do Azure para consultar e analisar dados de log no Azure Monitor.
+description: Este artigo fornece um tutorial para usar o Azure Monitor Log Analytics no portal Azure para consultar e analisar dados de log no Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670144"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com JSON e estruturas de dados em consultas de log do Azure Monitor
 
 > [!NOTE]
-> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas de Azure monitor log](get-started-queries.md) antes de concluir esta lição.
+> Você deve concluir [Comece com o Azure Monitor Log Analytics](get-started-portal.md) e [comece com as consultas de log do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -25,7 +25,7 @@ Objetos aninhados são objetos que contêm outros objetos em uma matriz ou um ma
 ## <a name="working-with-json-strings"></a>Trabalhando com cadeias de caracteres JSON
 Use `extractjson` para acessar um elemento específico de JSON em um caminho conhecido. Essa função requer uma expressão de caminho que usa as convenções a seguir.
 
-- _$_ Para fazer referência à pasta raiz
+- _$_ para se referir à pasta raiz
 - Use o colchete ou a notação de ponto para se referir a índices e elementos, conforme ilustrado nos exemplos a seguir.
 
 
@@ -123,10 +123,10 @@ print hosts_object
 
 ![Criar esquema](media/json-data-structures/buildschema.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Confira outras lições para usar consultas de log no Azure Monitor:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações da cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)

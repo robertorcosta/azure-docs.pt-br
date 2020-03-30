@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77608721"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de gravar o código de gerenciamento da CDN, é necessário fazer algumas preparações para habilitar o código a interagir com o Azure Resource Manager. Para fazer essas preparações, é necessário:
 
 * Crie um grupo de recursos para conter o perfil CDN criada neste tutorial
@@ -19,8 +19,8 @@ Antes de gravar o código de gerenciamento da CDN, é necessário fazer algumas 
 * Aplicar permissões ao grupo de recursos, de modo que somente usuários autorizados do locatário do Azure Active Directory possam interagir com o perfil CDN
 
 ### <a name="creating-the-resource-group"></a>Criando o grupo de recursos
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Criar um recurso**.
+1. Faça login no [Portal Azure](https://portal.azure.com).
+2. Clique **em Criar um recurso**.
 3. Procure o **Grupo de recursos** e no painel de Grupos de Recursos, clique em **Criar**.
 
     ![Criando um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
@@ -39,7 +39,7 @@ A criação de uma entidade de serviço abarca várias etapas, incluindo o desen
 > [!IMPORTANT]
 > Siga todas as etapas do [tutorial vinculado](../articles/active-directory/develop/howto-create-service-principal-portal.md).  É *importante* que você conclua-o exatamente conforme descrito.  Anote a **ID do locatário**, o **nome de domínio do locatário** (normalmente um domínio *.onmicrosoft.com*, a menos que você tenha especificado um domínio personalizado), a **ID do cliente** e a **chave de autenticação do cliente**, pois essas informações serão necessárias mais tarde.  Proteja a **ID do cliente** e a **chave de autenticação de cliente**, pois essas credenciais podem ser utilizadas por qualquer pessoa para executar operações como a entidade de serviço.
 >
-> Quando chegar à etapa chamada Configurar aplicativo multilocatário, selecione **Não**.
+> Quando você chegar à etapa chamada Configure aplicativo multi-inquilino, **selecione Não**.
 >
 > Quando você chegar à etapa [Atribua o aplicativo a uma função](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), use o grupo de recursos criado anteriormente, *CdnConsoleTutorial*, mas, em vez da função **Reader**, atribua a função **CDN Profile Contributor**.  Depois de atribuir a função **Colaborador do Perfil CDN** ao aplicativo em seu grupo de recursos, volte para este tutorial. 
 >
@@ -62,6 +62,6 @@ Se, em vez de uma entidade de serviço você preferir a autenticação de usuár
     ![Aplicativo nativo](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 2. Na próxima página, será solicitado um **URI de Redirecionamento**.  O URI não será validado, mas lembre-se do que você digitou. Isso será necessário mais tarde.
 3. Não é necessário criar uma **chave de autenticação do cliente**.
-4. Em vez de atribuir uma entidade de serviço para a função **Colaborador do Perfil CDN** , vamos atribuir usuários individuais ou grupos.  Neste exemplo, é possível ver que atribui o *Usuário de Demonstração CDN* à função **Colaborador do Perfil CDN**.  
+4. Em vez de atribuir uma entidade de serviço para a função **Colaborador do Perfil CDN** , vamos atribuir usuários individuais ou grupos.  Neste exemplo, você pode ver que eu designei *o Usuário dedemonstração de CDN* para a função **contribuinte de perfil de CDN.**  
 
     ![Acesso de usuário individual](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

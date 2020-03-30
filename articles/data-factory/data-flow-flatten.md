@@ -1,139 +1,139 @@
 ---
-title: Transformação achatar no fluxo de dados de mapeamento
-description: Desnormalizar dados hierárquicos usando a transformação achatar
+title: Achatar a transformação no mapeamento do fluxo de dados
+description: Desnormalizar dados hierárquicos usando a transformação de achatamento
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 74f6df1fbc749a5ec015afb954ca6b12cbe0f18f
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: b19aae8ab6730936a826f5bb069bfdb7d696cdfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086962"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246629"
 ---
-# <a name="flatten-transformation-in-mapping-data-flow"></a>Transformação achatar no fluxo de dados de mapeamento
+# <a name="flatten-transformation-in-mapping-data-flow"></a>Achatar a transformação no mapeamento do fluxo de dados
 
-Use a transformação achatar para pegar valores de matriz dentro de estruturas hierárquicas, como JSON, e desagrupá-los em linhas individuais. Esse processo é conhecido como desnormalização.
+Use a transformação de achate para levar valores de matriz dentro de estruturas hierárquicas como JSON e desenrolá-los em linhas individuais. Esse processo é conhecido como desnormalização.
 
 ## <a name="configuration"></a>Configuração
 
-A transformação achatamento contém as seguintes definições de configuração
+A transformação do achatamento contém as seguintes configurações
 
-![Configurações de mesclagem](media/data-flow/flatten1.png "Configurações de mesclagem")
+![Configurações de achate](media/data-flow/flatten1.png "Configurações de achate")
 
-### <a name="unroll-by"></a>Não acumulado por
+### <a name="unroll-by"></a>Unroll por
 
-Selecione uma matriz para desroll-la. Os dados de saída terão uma linha por item em cada matriz. Se a matriz de não acumulação na linha de entrada for nula ou vazia, haverá uma linha de saída com valores não acumulados como NULL.
+Selecione uma matriz para desenrolar. Os dados de saída terão uma linha por item em cada matriz. Se o desenrolar por matriz na linha de entrada estiver nulo ou vazio, haverá uma linha de saída com valores desenrolados como nulos.
 
-### <a name="unroll-root"></a>Desacumular raiz
+### <a name="unroll-root"></a>Raiz de desenrolar
 
-Por padrão, a transformação achatar desverte uma matriz na parte superior da hierarquia na qual ela existe. Opcionalmente, você pode selecionar uma matriz como sua raiz de desroll. A raiz não acumulada deve ser uma matriz de objetos complexos que seja ou que contenha a matriz unlance by. Se uma raiz não acumulada for selecionada, os dados de saída conterão pelo menos uma linha por item na raiz de deslançamento. Se a linha de entrada não tiver nenhum item na raiz não acumulada, ela será descartada dos dados de saída. A escolha de uma raiz sem distribuição sempre produzirá um número menor ou igual de linhas que o comportamento padrão.
+Por padrão, a transformação de achate desenrola uma matriz para o topo da hierarquia em que existe. Você pode selecionar opcionalmente uma matriz como sua raiz de desenrolar. A raiz de desenrolar deve ser uma matriz de objetos complexos que são ou contêm o desenrolar por matriz. Se uma raiz de desenrolar for selecionada, os dados de saída conterão pelo menos uma linha por item na raiz de desenrolar. Se a linha de entrada não tiver nenhum item na raiz de desrolo, ela será descartada dos dados de saída. Escolher uma raiz de sumido sempre produzirá um número menor ou igual de linhas do que o comportamento padrão.
 
 ### <a name="flatten-mapping"></a>Mapeamento de achatamento
 
-Semelhante à transformação selecionar, escolha a projeção da nova estrutura de campos de entrada e a matriz desnormalizada. Se uma matriz desnormalizada for mapeada, a coluna de saída será o mesmo tipo de dados que a matriz. Se a matriz de unlance by for uma matriz de objetos complexos que contém submatrizes, o mapeamento de um item desse subarry produzirá uma matriz.
+Semelhante à transformação seleto, escolha a projeção da nova estrutura a partir de campos de entrada e da matriz desnormalizada. Se uma matriz desnormalizada for mapeada, a coluna de saída será o mesmo tipo de dados da matriz. Se o desrolo por matriz for uma matriz de objetos complexos que contenham submatrizes, mapear um item desse subarry produzirá uma matriz.
 
-Consulte a guia inspecionar e a visualização de dados para verificar a saída do mapeamento.
+Consulte a guia de inspeção e a visualização de dados para verificar a saída de mapeamento.
 
 ## <a name="examples"></a>Exemplos
 
-Consulte o seguinte objeto JSON para ver os exemplos abaixo da transformação achatar
+Consulte o seguinte objeto JSON para obter os exemplos abaixo da transformação do achatamento
 
 ``` json
-[{
+{
   "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
   "goods": {
     "trade":true, "customers":["government", "distributer", "retail"],
     "orders":[
         {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
         {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
-    ]}},
+    ]}}
 {"name":"Company1","location":"Seattle", "satellites": ["New York"],
   "goods":{"trade":false, "customers":["store1", "store2"],
   "orders":[
       {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
       {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
-    ]}},
+    ]}}
 {"name": "Company2", "location": "Bellevue",
-  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}},
-{"name": "Company3", "location": "Kirkland"}]
+  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}}
+{"name": "Company3", "location": "Kirkland"}
 ```
 
-### <a name="no-unroll-root-with-string-array"></a>Nenhuma raiz de distribuição com matriz de cadeia de caracteres
+### <a name="no-unroll-root-with-string-array"></a>Sem raiz de desenrolar com matriz de cordas
 
-| Não acumulado por | Desacumular raiz | Projeção |
+| Unroll por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens. Customers | Nenhum | {1&gt;name&lt;1} <br> cliente = bens. Customer |
+| bens.clientes | Nenhum | name <br> cliente = goods.customer |
 
 #### <a name="output"></a>Saída
 
 ```
-{ 'MSFT', 'government'},
-{ 'MSFT', 'distributer'},
-{ 'MSFT', 'retail'},
-{ 'Company1', 'store'},
-{ 'Company1', 'store2'},
-{ 'Company2', 'Bank'},
+{ 'MSFT', 'government'}
+{ 'MSFT', 'distributer'}
+{ 'MSFT', 'retail'}
+{ 'Company1', 'store'}
+{ 'Company1', 'store2'}
+{ 'Company2', 'Bank'}
 { 'Company3', null}
 ```
 
-### <a name="no-unroll-root-with-complex-array"></a>Nenhuma raiz de distribuição com matriz complexa
+### <a name="no-unroll-root-with-complex-array"></a>Sem raiz de desenrolar com matriz complexa
 
-| Não acumulado por | Desacumular raiz | Projeção |
+| Unroll por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens. Orders. remetited. orderItems | Nenhum | {1&gt;name&lt;1} <br> orderId = bens. Orders. orderId <br> itemName = bens. Orders. remetited. orderItems. itemName <br> itemQty = bens. Orders. remetited. orderItems. itemQty <br> local = local |
+| goods.orders.shipped.orderItens | Nenhum | name <br> orderId = goods.orders.orderId <br> itemNome = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> localização = localização |
 
 #### <a name="output"></a>Saída
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
-{ 'Company2', 4, null, null, 'Bellevue'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
+{ 'Company2', 4, null, null, 'Bellevue'}
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
-### <a name="same-root-as-unroll-array"></a>Mesma raiz como matriz não revertida
+### <a name="same-root-as-unroll-array"></a>Mesma raiz que unroll array
 
-| Não acumulado por | Desacumular raiz | Projeção |
+| Unroll por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens. Orders | bens. Orders | {1&gt;name&lt;1} <br> mercadorias. Orders. remetited. orderItems. itemName <br> bens. Customers <br> local |
+| bens.ordens | bens.ordens | name <br> goods.orders.shipped.orderItems.itemName <br> bens.clientes <br> local |
 
 #### <a name="output"></a>Saída
 
 ```
-{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'},
-{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'},
-{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'},
-{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'},
+{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'}
+{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'}
+{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'}
+{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'}
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
-### <a name="unroll-root-with-complex-array"></a>Desacumular raiz com matriz complexa
+### <a name="unroll-root-with-complex-array"></a>Desfazer raiz com matriz complexa
 
-| Não acumulado por | Desacumular raiz | Projeção |
+| Unroll por | Raiz de desenrolar | Projeção |
 | --------- | ----------- | ---------- |
-| bens. Orders. remetited. orderItem | bens. Orders |{1&gt;name&lt;1} <br> orderId = bens. Orders. orderId <br> itemName = bens. Orders. remetited. orderItems. itemName <br> itemQty = bens. Orders. remetited. orderItems. itemQty <br> local = local |
+| goods.orders.shipped.orderItem | bens.ordens |name <br> orderId = goods.orders.orderId <br> itemNome = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> localização = localização |
 
 #### <a name="output"></a>Saída
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
 { 'Company2', 4, null, null, 'Bellevue'}
 ```
 
@@ -152,7 +152,7 @@ foldDown(unroll(<unroll cols>),
     )) ~> <transformationName>
 ```
 
-### <a name="example"></a>{1&gt;Exemplo&lt;1}
+### <a name="example"></a>Exemplo
 
 ```
 source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
@@ -167,7 +167,7 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
     skipDuplicateMapOutputs: false) 
 ```    
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-* Use a [transformação dinâmica](data-flow-pivot.md) para dinamizar linhas para colunas.
-* Use a [transformação não dinâmica](data-flow-unpivot.md) para dinamizar as colunas para linhas.
+* Use a [transformação pivô](data-flow-pivot.md) para linhas pivôs em colunas.
+* Use a [transformação Unpivot](data-flow-unpivot.md) para colunas pivôs em linhas.

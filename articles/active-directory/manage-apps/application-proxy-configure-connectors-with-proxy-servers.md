@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d7c7d9f6d59ffd57ddb14f7c060d0a3f6f2a6eb
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 5fe3a63e119fed6825982b9de13bc78cb7da5415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967745"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481391"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -38,7 +38,7 @@ Os componentes do SO tentam localizar um servidor proxy realizando uma pesquisa 
 
 É possível configurar o conector para ignorar o proxy local de modo a garantir que ele use uma conectividade direta com os serviços do Azure. Isso é o que recomendamos (se sua política de rede permitir), porque significa que você terá uma menor configuração para manter.
 
-Para desabilitar o uso do proxy de saída para o conector, edite o arquivo C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config e adicione a seção *system.net* mostrada neste exemplo de código:
+Para desativar o uso de proxy de saída para o conector, edite o C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file e adicione a seção *system.net* mostrada nesta amostra de código:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -76,7 +76,7 @@ Como consequência de ter apenas o tráfego de saída, não há necessidade de c
 
 Se a WPAD estiver habilitada no ambiente e corretamente configurada, o conector descobrirá automaticamente o servidor proxy de saída e tentará usá-lo. No entanto, você pode configurar explicitamente o conector para passar por um proxy de saída.
 
-Para fazer isso, edite o arquivo C: \ Arquivos de Programas \ Microsoft AAD App Proxy Connector \ ApplicationProxyConnectorService.exe.config e adicione a seção *system.net* mostrada neste exemplo de código. Altere *proxyserver:8080* para refletir o nome do servidor proxy local ou o endereço IP e a porta na qual ele está escutando. O valor deve ter o prefixo http://, mesmo se você estiver usando um endereço IP.
+Para fazer isso, edite o arquivo C: \ Arquivos de Programas \ Microsoft AAD App Proxy Connector \ ApplicationProxyConnectorService.exe.config e adicione a seção *system.net* mostrada neste exemplo de código. Alterar *servidor proxy:8080* para refletir o nome do servidor proxy local ou endereço IP e a porta em que ele está ouvindo. O valor deve ter o prefixo http://, mesmo se você estiver usando um endereço IP.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -104,19 +104,19 @@ Há quatro aspectos a considerar no proxy de saída:
 * Regras de saída do proxy
 * Autenticação do proxy
 * Portas do proxy
-* Inspeção SSL
+* Inspeção TLS
 
 #### <a name="proxy-outbound-rules"></a>Regras de saída do proxy
 
 Permita o acesso às seguintes URLs:
 
-| {1&gt;URL&lt;1} | Como ele é usado |
+| URL | Como ele é usado |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de Aplicativo |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector usa essas URLs para verificar os certificados |
-| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>*. microsoftonline.com<br>* . microsoftonline-p.com<br>*. msauth.net<br>* . msauthimages.net<br>*. msecnd.net<br>* . msftauth.net<br>*. msftauthimages.net<br>* . PhoneFactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector usa essas URLs durante o processo de registro. |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O conector usa esses URLs para verificar certificados |
+| login.windows.net<br>Secure.aadcdn.microsoftonline p.com<br>*microsoftonline.com<br>*.microsoftonline-p.com<br>*msauth.net<br>* msauthimages.net .<br>*msecnd.net<br>* msftauth.net .<br>*msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | O conector usa essas URLs durante o processo de registro. |
 
-Se o firewall ou o proxy permitir que você configure listas de permissões de DNS, você poderá permitir conexões com \*. msappproxy.net e \*. servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
+Se o firewall ou proxy permitir que você configure listas \*de permitir \*DNS, você poderá permitir conexões a .msappproxy.net e .servicebus.windows.net. Caso contrário, você precisará permitir o acesso aos [intervalos IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
 Se você não puder permitir a conectividade pelo FQDN e precisar especificar intervalos IP, use estas opções:
 
@@ -129,14 +129,14 @@ No momento, não há suporte à autenticação do proxy. Nossa recomendação at
 
 #### <a name="proxy-ports"></a>Portas do proxy
 
-O conector faz conexões de saída baseadas em SSL usando o método CONNECT. Basicamente, esse método configura um túnel pelo proxy de saída. Configure o servidor proxy para permitir o túnel para as portas 443 e 80.
+O conector faz conexões baseadas em TLS de saída usando o método CONNECT. Basicamente, esse método configura um túnel pelo proxy de saída. Configure o servidor proxy para permitir o túnel para as portas 443 e 80.
 
 > [!NOTE]
 > Quando o Barramento de Serviço for executado por HTTPS, ele usará a porta 443. No entanto, por padrão, o Barramento de Serviço tenta as conexões TCP diretas e voltará para o HTTPS somente se a conectividade direta falhar.
 
-#### <a name="ssl-inspection"></a>Inspeção SSL
+#### <a name="tls-inspection"></a>Inspeção TLS
 
-Não use a inspeção SSL para o tráfego do conector, pois isso causa problemas no tráfego dele. O conector usa um certificado para autenticar o serviço de Proxy de Aplicativo e esse certificado pode ser perdido durante a inspeção SSL.
+Não utilize a inspeção TLS para o tráfego do conector, pois causa problemas para o tráfego do conector. O conector usa um certificado para autenticar ao serviço Proxy de aplicativo, e esse certificado pode ser perdido durante a inspeção TLS.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Solucionar problemas do proxy do conector e problemas de conectividade do serviço
 
@@ -161,7 +161,7 @@ Para a solução de problemas inicial, execute as seguintes etapas:
 1. Inicie o serviço Conector do Proxy de Aplicativo do Azure AD.
 1. Pare a captura de rede.
 
-   ![Captura de tela mostra o botão parar captura de rede](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Captura de tela mostra o botão de captura de rede Stop](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Verifique se o tráfego do conector ignorou proxies de saída
 
@@ -183,7 +183,7 @@ O filtro anterior mostra apenas as solicitações e respostas HTTPs para/da port
 
 Caso sejam exibidos outros códigos de resposta, como 407 ou 502, isso indica que o proxy está exigindo autenticação ou não está permitindo o tráfego por algum outro motivo. Neste ponto, você interage com a equipe de suporte do servidor proxy.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-* [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
+* [Entenda os conectores proxy do aplicativo Azure AD](application-proxy-connectors.md)
 * Se você tiver problemas de conectividade do conector, faça sua pergunta no [fórum do Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) ou crie um tíquete com nossa equipe de suporte.

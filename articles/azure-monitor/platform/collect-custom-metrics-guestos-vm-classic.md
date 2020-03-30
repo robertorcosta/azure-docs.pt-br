@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas de VM do Windows clássicas para Azure Monitor banco de dados de métricas
+title: Envie métricas clássicas do Windows VM para o banco de dados de métricas do Azure Monitor
 description: Enviar métricas do sistema operacional convidado para o armazenamento de dados do Monitor do Azure para uma máquina virtual do Windows (clássica)
 author: anirudhcavale
 services: azure-monitor
@@ -8,33 +8,33 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655790"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Enviar métricas do sistema operacional convidado para o banco de dados de métricas de Azure Monitor para uma máquina virtual do Windows (clássica)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envie métricas do Sistema Operacional convidado para o banco de dados de métricas do Azure Monitor para uma máquina virtual do Windows (clássica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 A extensão de diagnóstico do [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (conhecida como "WAD" ou "Diagnóstico") permite coletar métricas e logs do sistema operacional convidado (sistema operacional convidado) em execução como parte de uma máquina virtual, serviço em nuvem ou Cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows (clássica) para o banco de dados de métricas Azure Monitor. A partir da versão 1.11 do Diagnostics, você pode gravar métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. 
+Este artigo descreve o processo de envio de métricas de desempenho do Sistema Operacional convidado para uma máquina virtual do Windows (clássica) para o banco de dados métrico do Azure Monitor. A partir da versão 1.11 do Diagnostics, você pode gravar métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. 
 
 Armazená-los nesse local permite acessar as mesmas ações que você faz para as métricas da plataforma. As ações incluem alertas em tempo quase real, gráficos, roteamento, acesso a uma API REST e muito mais. Anteriormente, a Extensão de diagnóstico gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor. 
 
 O processo descrito neste artigo funciona somente em máquinas virtuais clássicas que executam o sistema operacional Windows.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ser um [administrador ou co-administrador de serviços](../../cost-management-billing/manage/add-change-subscription-administrator.md) em sua assinatura do Azure. 
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Você precisa ter [o Azure PowerShell](/powershell/azure) ou [o Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalados.
 
-- O recurso da VM deve estar em uma [região que ofereça suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
+- Seu recurso vm deve estar em uma [região que suporta métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Criar uma conta clássica de máquina virtual e armazenamento
 
@@ -202,6 +202,6 @@ Conceda a este aplicativo as permissões “Monitoring Metrics Publisher” para
    ![Plotar as métricas](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

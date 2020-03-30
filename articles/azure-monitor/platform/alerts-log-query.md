@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667781"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alertas de log no Azure Monitor
 [As regras de alerta baseadas em logs do Azure Monitor](alerts-unified-log.md) são executadas em intervalos regulares. Portanto, você deve garantir que sejam escritas para minimizar a sobrecarga e a latência. Este artigo fornece recomendações sobre como escrever consultas eficientes para alertas de log e um processo de conversão de consultas existentes. 
 
 ## <a name="types-of-log-queries"></a>Tipos de consultas de log
-As [consultas de log no Azure monitor](../log-query/log-query-overview.md) iniciam com uma tabela ou um operador de [pesquisa](/azure/kusto/query/searchoperator) ou de [União](/azure/kusto/query/unionoperator) .
+[As consultas de log no Azure Monitor](../log-query/log-query-overview.md) começam com uma tabela ou uma [pesquisa](/azure/kusto/query/searchoperator) ou um operador [de sindicato.](/azure/kusto/query/unionoperator)
 
 Por exemplo, o escopo da consulta a seguir é a tabela _SecurityEvent_ e pesquisa a ID do evento específico. É a única tabela que a consulta deve processar.
 
@@ -214,7 +214,7 @@ on Hour
 | count 
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [alertas de log](alerts-log.md) no Azure Monitor.
 - Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
 

@@ -5,12 +5,12 @@ keywords: serviço de aplicativo do azure, aplicativo Web, aplicativo móvel, ap
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 28394689048e730aa0c84e3bf807ef3afb898b1e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475367"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicativo do Azure
 
@@ -31,14 +31,14 @@ As seções a seguir mostram como proteger ainda mais o aplicativo do Serviço d
 
 ## <a name="https-and-certificates"></a>HTTPS e certificados
 
-O Serviço de Aplicativo permite que você proteja os aplicativos com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando o aplicativo for criado, o nome do domínio padrão (\<app_name>.azurewebsites.net) já estará acessível usando HTTPS. Se você [configurar um domínio personalizado para seu aplicativo](app-service-web-tutorial-custom-domain.md), também deverá [protegê-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores cliente possam fazer conexões HTTPS seguras com seu domínio personalizado. Há vários tipos de certificados com suporte pelo serviço de aplicativo:
+O Serviço de Aplicativo permite que você proteja os aplicativos com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando o aplicativo for criado, o nome do domínio padrão (\<app_name>.azurewebsites.net) já estará acessível usando HTTPS. Se você [configurar um domínio personalizado para o seu aplicativo,](app-service-web-tutorial-custom-domain.md)você também deve [protegê-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores clientes possam fazer conexões HTTPS seguras ao seu domínio personalizado. Existem vários tipos de certificados suportados pelo App Service:
 
-- Serviço de Aplicativo Gratuito certificado gerenciado
-- Certificado do serviço de aplicativo
+- Certificado gerenciado de serviço de aplicativo gratuito
+- Certificado de serviço de aplicativo
 - Certificado de terceiros
-- Certificado importado de Azure Key Vault
+- Certificado importado do Azure Key Vault
 
-Para obter mais informações, consulte [Adicionar um certificado SSL no serviço de Azure app](configure-ssl-certificate.md).
+Para obter mais informações, consulte [Adicionar um certificado SSL no Azure App Service](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolos não seguros (HTTP, TLS 1.0, FTP)
 
@@ -52,7 +52,7 @@ O Serviço de Aplicativo dá suporte ao FTP e FTPS para implantar os arquivos. N
 
 Por padrão, o aplicativo do Serviço de Aplicativo aceita solicitações de todos os endereços IP da Internet, mas é possível limitar esse acesso a um pequeno subconjunto de endereços IP. O Serviço de Aplicativo no Windows permite definir uma lista de endereços IP com permissão para acessar o aplicativo. A lista permitida pode incluir endereços IP individuais ou um intervalo de endereços IP definidos por uma máscara de sub-rede. Para obter mais informações, consulte [Restrições de IP estático do Serviço de Aplicativo do Azure](app-service-ip-restrictions.md).
 
-Para o serviço de aplicativo no Windows, você também pode restringir os endereços IP dinamicamente Configurando o _Web. config_. Para obter mais informações, consulte [segurança de IP dinâmico \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o Serviço de Aplicativos no Windows, você também pode restringir endereços IP dinamicamente configurando o _web.config_. Para obter mais informações, consulte [Dynamic IP Security \<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticação e autorização do cliente
 
@@ -65,7 +65,7 @@ A autenticação e autorização do Serviço de Aplicativo dão suporte a vário
 Ao autenticar um serviço de back-end, o Serviço de Aplicativo fornece dois mecanismos diferentes, dependendo da necessidade:
 
 - **Serviço de identidade** - Faça logon no recurso remoto usando a identidade do próprio aplicativo. O Serviço de Aplicativo permite criar facilmente uma [identidade gerenciada](overview-managed-identity.md), que pode ser usada para autenticação com outros serviços como o [Banco de Dados SQL do Azure](/azure/sql-database/) ou [Azure Key Vault](/azure/key-vault/). Para obter um tutorial completo desta abordagem, confira [Conexão segura do Banco de Dados SQL do Azure do Serviço de Aplicativo usando a identidade gerenciada](app-service-web-tutorial-connect-msi.md).
-- **OBO (em nome de)** - Faça acesso delegado a recursos remotos em nome do usuário. Com o Azure Active Directory como provedor de autenticação, o aplicativo do Serviço de Aplicativo pode fazer logon delegado em um serviço remoto, como [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) ou um aplicativo de API remoto no Serviço de Aplicativo. Para obter um tutorial de ponta a ponta dessa abordagem, consulte [Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure ](app-service-web-tutorial-auth-aad.md).
+- **OBO (em nome de)** - Faça acesso delegado a recursos remotos em nome do usuário. Com o Azure Active Directory como provedor de autenticação, seu aplicativo App Service pode realizar login delegado para um serviço remoto, como [a API do Microsoft Graph](../active-directory/develop/microsoft-graph-intro.md) ou um aplicativo remoto de API no App Service. Para obter um tutorial de ponta a ponta dessa abordagem, consulte [Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure ](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Conectividade para recursos remotos
 

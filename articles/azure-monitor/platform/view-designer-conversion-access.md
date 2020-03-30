@@ -1,5 +1,5 @@
 ---
-title: Resumo e acesso de conversão do designer de exibição para pastas de trabalho Azure Monitor
+title: Azure Monitor visualiza designer para resumo de conversão de livros de trabalho e acesso
 description: ''
 author: austonli
 ms.author: aul
@@ -7,44 +7,44 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658839"
 ---
-# <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Resumo e acesso de conversão do designer de pastas de trabalho
-O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho, que fornecem funcionalidade adicional. Este artigo fornece detalhes sobre como você pode criar um resumo de visão geral e as permissões necessárias para acessar pastas de trabalho.
+# <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Exibir resumo de conversão e acesso de designer para livros de trabalho
+[O View designer](view-designer.md) é um recurso do Azure Monitor que permite criar visualizações personalizadas para ajudá-lo a visualizar dados em seu espaço de trabalho do Log Analytics, com gráficos, listas e cronogramas. Eles estão sendo eliminados e substituídos por livros de trabalho, que fornecem funcionalidade adicional. Este artigo detalha como você pode criar um resumo de visão geral e permissões necessárias para acessar as abanuais.
 
-## <a name="creating-your-workspace-summary-from-azure-dashboard"></a>Criando o resumo do seu espaço de trabalho no painel do Azure
-Os usuários do designer de exibição podem estar familiarizados com um bloco de visão geral para representar um conjunto de exibições. Para manter uma visão geral Visual como o resumo do espaço de trabalho do designer de exibição, as pastas de trabalho oferecem etapas fixadas, que podem ser fixadas ao seu [painel de portal do Azure](../../azure-portal/azure-portal-dashboards.md). Assim como os blocos de visão geral no resumo do espaço de trabalho, itens de pasta de trabalho fixados serão vinculados diretamente à exibição da pasta de trabalho
+## <a name="creating-your-workspace-summary-from-azure-dashboard"></a>Criando seu resumo do espaço de trabalho do painel do Azure
+Os usuários do designer de visualização podem estar familiarizados em ter um azulejo de visão geral para representar um conjunto de visualizações. Para manter uma visão geral visual como o resumo do espaço de trabalho do designer de visualização, as apostilas oferecem etapas fixas, que podem ser fixadas no [painel do portal Azure](../../azure-portal/azure-portal-dashboards.md). Assim como as telhas de visão geral no resumo do Workspace, os itens da carteira de trabalho fixados se vincularão diretamente à exibição da carteira de trabalho.
 
-Você pode aproveitar o alto nível de recursos de personalização fornecidos com os painéis do Azure, que permite atualização automática, movimentação, dimensionamento e filtragem adicional para seus itens fixados e visualizações. 
+Você pode aproveitar o alto nível de recursos de personalização fornecidos com painéis Azure, que permitem atualização automática, movimento, dimensionamento e filtragem adicional para seus itens e visualizações fixas. 
 
 ![Painel](media/view-designer-conversion-access/dashboard.png)
 
-Crie um novo painel do Azure ou selecione um painel existente para iniciar a fixação de itens de pastas de trabalho.
+Crie um novo painel azure ou selecione um painel existente para começar a fixar itens de livros de trabalho.
 
-Para fixar um item individual, você precisará habilitar o ícone de pino para sua etapa específica. Para fazer isso, selecione o botão **Editar** correspondente para sua etapa e, em seguida, selecione o ícone de engrenagem para abrir **as configurações avançadas**. Marque a opção para **sempre mostrar o ícone de pino nesta etapa**e um ícone de pino aparecerá no canto superior direito de sua etapa. Esse PIN permite que você fixe visualizações específicas ao seu painel, como os blocos de visão geral.
+Para fixar o item individual, você precisará ativar o ícone do pino para sua etapa específica. Para isso, selecione o botão **Editar** correspondente para o seu passo e, em seguida, selecione o ícone de engrenagem para abrir **Configurações Avançadas**. Verifique a opção de **sempre mostrar o ícone do pino nesta etapa**, e um ícone de pino aparecerá no canto superior direito do seu passo. Este pino permite que você fixar visualizações específicas no seu painel, como os ladrilhos de visão geral.
 
-![Etapa do PIN](media/view-designer-conversion-access/pin-step.png)
-
-
-Você também pode querer fixar várias visualizações da pasta de trabalho ou todo o conteúdo da pasta de trabalho em um painel. Para fixar a pasta de trabalho inteira, selecione **Editar** na barra de ferramentas superior para alternar o **modo de edição**. Um ícone de pino será exibido, permitindo que você fixe todo o item da pasta de trabalho ou todas as etapas e visualizações individuais na pasta de trabalho.
-
-![Fixar tudo](media/view-designer-conversion-access/pin-all.png)
+![Passo do pino](media/view-designer-conversion-access/pin-step.png)
 
 
+Você também pode desejar fixar várias visualizações da Carteira de Trabalho ou de todo o conteúdo da Carteira de Trabalho em um painel de controle. Para fixar toda a agenda, selecione **Editar** na barra de ferramentas superior para alternar o **modo de edição**. Um ícone de pino aparecerá, permitindo que você fixe todo o item da Carteira de Trabalho ou todas as etapas e visualizações individuais na caderneta de trabalho.
 
-## <a name="sharing-and-viewing-permissions"></a>Permissões de compartilhamento e exibição 
-As pastas de trabalho têm a vantagem de ser um documento privado ou compartilhado. Por padrão, as pastas de trabalho salvas serão salvas em **meus relatórios, o**que significa que apenas o criador pode exibir essa pasta de trabalho.
+![Pino tudo](media/view-designer-conversion-access/pin-all.png)
 
-Você pode compartilhar suas pastas de trabalho selecionando o ícone **compartilhar** na barra de ferramentas superior enquanto estiver no **modo de edição**. Você será solicitado a mover sua pasta de trabalho para **relatórios compartilhados**, o que irá gerar um link que fornece acesso direto à pasta de trabalho.
 
-Para que um usuário exiba uma pasta de trabalho compartilhada, ela deve ter acesso à assinatura e ao grupo de recursos em que a pasta de trabalho é salva.
 
-![Acesso baseado em assinatura](media/view-designer-conversion-access/subscription-access.png)
+## <a name="sharing-and-viewing-permissions"></a>Compartilhamento e visualização de permissões 
+As abanuais têm o benefício de serem um documento privado ou compartilhado. Por padrão, as carteiras de trabalho salvas serão salvas em **Meus Relatórios,** o que significa que apenas o criador pode visualizar esta carteira de trabalho.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+Você pode compartilhar suas regras de trabalho selecionando o ícone **Compartilhar** na barra de ferramentas superior enquanto estiver no **modo de edição**. Você será solicitado a mover sua carteira de trabalho para **Relatórios Compartilhados,** o que gerará um link que fornece acesso direto à carteira de trabalho.
+
+Para que um usuário visualize uma carteira de trabalho compartilhada, ele deve ter acesso tanto ao grupo de assinatura quanto aos recursos em que a carteira de trabalho é salva.
+
+![Acesso por assinatura](media/view-designer-conversion-access/subscription-access.png)
+
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tarefas comuns](view-designer-conversion-tasks.md)

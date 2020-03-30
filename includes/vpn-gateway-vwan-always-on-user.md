@@ -8,24 +8,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7d2248360e499aab79459d0be549da3d8baa79ab
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500189"
 ---
-## <a name="configure-a-user-tunnel"></a>Configurar um túnel de usuário
+1. Instale certificados de cliente no cliente Windows 10, conforme mostrado neste artigo de [cliente VPN ponto a ponto.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) O certificado deve estar na loja do usuário atual.
 
-1. Instale certificados de cliente no cliente do Windows 10, conforme mostrado neste artigo do [cliente VPN ponto a site](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . O certificado deve estar no repositório de usuários atual.
+1. Configure o cliente Always On VPN através do PowerShell, Configuration Manager ou Intune seguindo as instruções em [Configurar o cliente do Windows 10 sempre em conexões VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-1. Configure o cliente VPN Always On por meio do PowerShell, do Configuration Manager ou do Intune seguindo as instruções em [Configurar o cliente do Windows 10 Always on conexões VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+### <a name="example-configuration-for-the-user-tunnel"></a>Configuração de exemplo para o túnel do usuário
 
-### <a name="example-configuration-for-the-user-tunnel"></a>Exemplo de configuração para o túnel do usuário
+Depois de configurar o gateway de rede virtual e instalar o certificado cliente na loja de máquinas local no cliente Windows 10, configure um túnel de dispositivo cliente usando os seguintes exemplos:
 
-Depois de configurar o gateway de rede virtual e instalar o certificado do cliente no repositório do computador local no cliente do Windows 10, configure um túnel de dispositivo cliente usando os seguintes exemplos:
-
-1. Copie o texto a seguir e salve-o como *usercert. ps1*:
+1. Copie o texto a seguir e salve-o como *usercert.ps1*:
 
    ```
    Param(
@@ -77,7 +75,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie o texto a seguir e salve-o como *VPNProfile. xml* na mesma pasta que *usercert. ps1*. Edite o seguinte texto para corresponder ao seu ambiente:
+1. Copie o texto a seguir e salve-o como *VPNProfile.xml* na mesma pasta *que usercert.ps1*. Edite o seguinte texto para corresponder ao seu ambiente:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -123,13 +121,13 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    ```
 1. Execute o PowerShell como administrador.
 
-1. No PowerShell, alterne para a pasta em que *usercert. ps1* e *VPNProfile. xml* estão localizados e execute o seguinte comando:
+1. No PowerShell, mude para a pasta onde *o usercert.ps1* e *vpnProfile.xml* estão localizados e execute o seguinte comando:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. Em **configurações de VPN**, procure a entrada **usertest** e, em seguida, selecione **conectar**.
+1. Em **Configurações VPN,** procure a entrada **UserTest** e selecione **Conectar**.
 
-1. Se a conexão for bem-sucedida, você configurou com êxito um túnel de usuário Always On.
+1. Se a conexão for bem sucedida, você configurou com sucesso um túnel de usuário Always On.

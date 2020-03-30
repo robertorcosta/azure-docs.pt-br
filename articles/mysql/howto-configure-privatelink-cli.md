@@ -1,26 +1,26 @@
 ---
-title: Link privado-CLI do Azure-banco de dados do Azure para MySQL
-description: Saiba como configurar o link privado para o banco de dados do Azure para MySQL do CLI do Azure
+title: Private Link - Azure CLI - Banco de dados Azure para MySQL
+description: Saiba como configurar link privado para banco de dados Azure para MySQL do Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368002"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando a CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Crie e gerencie o Private Link para o Banco de Dados Azure para MySQL usando o CLI usando o CLI
 
-Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste artigo, você aprenderá a usar o CLI do Azure para criar uma VM em uma rede virtual do Azure e um servidor de banco de dados do Azure para MySQL com um ponto de extremidade privado do Azure.
+Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste artigo, você aprenderá a usar o Azure CLI para criar uma VM em uma Rede Virtual Azure e um banco de dados Azure para o servidor MySQL com um ponto final privado do Azure.
 
 > [!NOTE]
-> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para MySQL dá suporte a tipos de preço Uso Geral e com otimização de memória.
+> Esse recurso está disponível em todas as regiões do Azure, onde o Azure Database for MySQL suporta níveis de preços otimizados de uso geral e memória.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -28,14 +28,14 @@ Se você optar por instalar e usar a CLI do Azure localmente, este guia de iníc
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de criar qualquer recurso, você deve criar um grupo de recursos para hospedar a Rede Virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *MyResource* Group no local *westeurope* :
+Antes de criar qualquer recurso, você deve criar um grupo de recursos para hospedar a Rede Virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização da *Europa Ocidental:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma Rede Virtual com [az network vnet create](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet*:
+Crie uma Rede Virtual com a rede [az vnet criar](/cli/azure/network/vnet). O exemplo cria uma Rede Virtual padrão nomeada *myVirtualNetwork* com uma sub-rede nomeada *mySubnet*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -65,7 +65,7 @@ az vm create \
 Anote o Endereço IP Público da VM. Você usará esse endereço para conectar-se à VM pela Internet na próxima etapa.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL 
-Crie um banco de dados do Azure para MySQL com o comando AZ MySQL Server CREATE. Lembre-se de que o nome do seu servidor MySQL deve ser exclusivo no Azure, portanto, substitua o valor do espaço reservado entre colchetes com seu próprio valor exclusivo: 
+Crie um banco de dados Azure para MySQL com o comando az mysql server create. Lembre-se de que o nome do seu MySQL Server deve ser único em todo o Azure, então substitua o valor de espaço reservado entre parênteses pelo seu próprio valor único: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
@@ -78,10 +78,10 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Observe que a ID do servidor MySQL é semelhante à ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` você usará a ID do servidor MySQL na próxima etapa. 
+Observe que o ID do Servidor ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` MySQL é semelhante ao Você usará o MySQL Server ID na próxima etapa. 
 
 ## <a name="create-the-private-endpoint"></a>Criar um Ponto de Extremidade Privado 
-Crie um ponto de extremidade privado para o servidor MySQL em sua rede virtual: 
+Crie um ponto final privado para o servidor MySQL em sua Rede Virtual: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -94,7 +94,7 @@ az network private-endpoint create \
  ```
 
 ## <a name="configure-the-private-dns-zone"></a>Configurar a Zona DNS Privada 
-Crie uma zona de DNS privado para o domínio do servidor MySQL e crie um link de associação com a rede virtual. 
+Crie uma zona de DNS privada para o domínio do servidor MySQL e crie um link de associação com a Rede Virtual. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.mysql.database.azure.com" 
@@ -118,7 +118,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> O FQDN na configuração de DNS do cliente não é resolvido para o IP privado configurado. Você precisará configurar uma zona DNS para o FQDN configurado, conforme mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
+> O FQDN na configuração de DNS do cliente não resolve o IP privado configurado. Você terá que configurar uma região DNS para o FQDN configurado como mostrado [aqui](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 
@@ -128,7 +128,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar**, **Conectar-se à máquina virtual** abre.
 
-1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
+1. Selecione **Baixar arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
 1. Abra o arquivo *downloaded.rdp*.
 
@@ -137,7 +137,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
-        > Talvez seja necessário selecionar **Mais escolhas** > **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
+        > Você pode precisar selecionar **Mais opções** > **Use uma conta diferente,** para especificar as credenciais inseridas quando criou a VM.
 
 1. Selecione **OK**.
 
@@ -145,7 +145,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Depois que a área de trabalho da VM for exibida, minimize-a para voltar para sua área de trabalho local.  
 
-## <a name="access-the-mysql-server-privately-from-the-vm"></a>Acessar o servidor MySQL de forma privada da VM
+## <a name="access-the-mysql-server-privately-from-the-vm"></a>Acesse o servidor MySQL privadamente a partir da VM
 
 1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
 
@@ -160,28 +160,28 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     Address:  10.1.3.4
     ```
 
-3. Teste a conexão de link privado para o servidor MySQL usando qualquer cliente disponível. No exemplo abaixo, usei o [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar a operação.
+3. Teste a conexão de link privado para o servidor MySQL usando qualquer cliente disponível. No exemplo abaixo eu usei [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para fazer a operação.
 
 
-4. Em **nova conexão**, insira ou selecione estas informações:
+4. Em **Nova conexão,** digite ou selecione essas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Nome da Conexão| Selecione o nome de conexão de sua escolha.|
-    | Nome do host | Selecionar *mydemoserver.privatelink.mysql.Database.Azure.com* |
-    | Nome de Usuário | Insira o nome de usuário como *username@servername* que é fornecido durante a criação do servidor MySQL. |
-    | Senha | Insira uma senha fornecida durante a criação do servidor MySQL. |
+    | Nome do host | Selecione *mydemoserver.privatelink.mysql.database.azure.com* |
+    | Nome de Usuário | Digite o *username@servername* nome de usuário como é fornecido durante a criação do servidor MySQL. |
+    | Senha | Digite uma senha fornecida durante a criação do servidor MySQL. |
     ||
 
-5. Selecione conectar.
+5. Selecione Conectar.
 
 6. Procurar bancos de dados no menu à esquerda.
 
-7. Opcionalmente Crie ou consulte informações do banco de dados MySQL.
+7. (Opcionalmente) Criar ou consultar informações do banco de dados MySQL.
 
-8. Feche a conexão de área de trabalho remota para myVm.
+8. Feche a conexão remota da área de trabalho para myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos 
+## <a name="clean-up-resources"></a>Limpar recursos 
 Quando não for mais necessário, você poderá usar az group delete para remover o grupo de recursos e todos os recursos que ele contém: 
 
 ```azurecli-interactive
@@ -189,4 +189,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [o que é o ponto de extremidade privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Saiba mais sobre [o que é o ponto final privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

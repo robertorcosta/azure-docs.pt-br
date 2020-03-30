@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616200"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implantar o SAP S/4HANA ou o BW/4HANA no Azure
@@ -75,7 +75,7 @@ A página **Soluções** mostra algumas soluções baseadas no SAP CAL HANA disp
 
    ![Confirmação dos serviços de nuvem do Internet Explorer](./media/cal-s4h/s4h-pic5a.png)
 
-1. Clique em **Aceitar**. Se a autorização for bem-sucedido, a definição de conta da SAP CAL será exibida novamente. Após um curto período de tempo, uma mensagem confirmará que o processo de autorização foi bem-sucedido.
+1. Clique **em Aceitar**. Se a autorização for bem-sucedido, a definição de conta da SAP CAL será exibida novamente. Após um curto período de tempo, uma mensagem confirmará que o processo de autorização foi bem-sucedido.
 
 1. Para atribuir a conta da CAL SAP recém-criada ao seu usuário, insira sua **ID de usuário** na caixa de texto à direita e clique em **Adicionar**.
 

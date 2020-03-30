@@ -7,10 +7,10 @@ ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665809"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência
@@ -47,9 +47,9 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 | [Cliente Apache HTTP](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Clientes de armazenamento</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
-| [PostgreSQL (suporte beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
+| [PostgreSQL (Suporte Beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
-| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
+| [Mysql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Bibliotecas de log</b> | |
 | [Logback](https://logback.qos.ch/) | 1+ |
 | [Log4j](https://logging.apache.org/log4j/) | 1.2+ |
@@ -67,26 +67,26 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 | [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Clientes de armazenamento</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2. x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2. x-3. x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2,16. x |
-| [PostgreSql](https://www.npmjs.com/package/pg); | 6. x-7. x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1. x-2. x |
+| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
+| [Mysql](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
+| [PostgreSql;](https://www.npmjs.com/package/pg) | 6.x - 7.x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
 | <b>Bibliotecas de log</b> | |
-| [console](https://nodejs.org/api/console.html) | 0.10+ |
+| [Console](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [Winston](https://www.npmjs.com/package/winston) | 2. x-3. x |
+| [Winston](https://www.npmjs.com/package/winston) | 2.x - 3.x |
 
 ## <a name="javascript"></a>JavaScript
 
 | Bibliotecas de comunicação | Versões |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Tudo |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Todos |
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Configurar o acompanhamento de dependência personalizado para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
 - Configurar o acompanhamento de dependência personalizado para [Java](../../azure-monitor/app/java-agent.md).
-- Configure o acompanhamento de dependência personalizado para [Python OpenCensus](../../azure-monitor/app/opencensus-python-dependency.md).
+- Configure o rastreamento de dependência personalizado para [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
 - [Escrever telemetria de dependência personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Consulte [modelo de dados](../../azure-monitor/app/data-model.md) para modelo de dados e tipos do Application Insights.
 - Confira as [plataformas](../../azure-monitor/app/platforms.md) com suporte do Application Insights.

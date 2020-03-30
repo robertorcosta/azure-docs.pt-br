@@ -4,10 +4,10 @@ description: Monitoramento estendido do desempenho de aplicativo do seu site Jav
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 687f97c305bffdfb408feb314ccded4f93ac574a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660726"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
@@ -15,7 +15,7 @@ ms.locfileid: "77660726"
 
 Para explorar as métricas de desempenho do sistema Linux no [Application Insights](../../azure-monitor/app/app-insights-overview.md), instale [collectd](https://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 
-Normalmente, você usará collectd se já tiver [instrumentado seu serviço Web Java com Application insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas. 
+Normalmente, você usará o collectd se já tiver [instrumentado seu serviço Web Java com o Application Insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas. 
 
 ## <a name="get-your-instrumentation-key"></a>Obter a chave de instrumentação
 No [Portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](../../azure-monitor/app/app-insights-overview.md) onde você quer que os dados sejam exibidos. (Ou [crie um novo recurso](../../azure-monitor/app/create-new-resource.md ).)
@@ -82,7 +82,7 @@ Configure outros [plug-ins collectd](https://collectd.org/wiki/index.php/Table_o
 Reinicie o collectd, de acordo com seu [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Exibir os dados no Application Insights
-No recurso Application Insights, abra [métricas e adicione gráficos][metrics], selecionando as métricas que você deseja ver na categoria personalizada.
+No recurso Application Insights, abra [Métricas e adicione gráficos,][metrics]selecionando as métricas que deseja ver na categoria Personalizado.
 
 Por padrão, as métricas são agregadas em todos os computadores host dos quais as métricas foram coletadas. Para exibir as métricas por host, na folha Detalhes do gráfico, ative Agrupamento e escolha Agrupar por CollectD-Host.
 
@@ -94,7 +94,7 @@ Para excluir dados de plug-ins ou fontes de dados específicos:
 * Edite o arquivo de configuração. 
 * Em `<Plugin ApplicationInsightsWriter>`, adicione linhas diretivas como esta:
 
-| Directive | Efeito |
+| Diretiva | Efeito |
 | --- | --- |
 | `Exclude disk` |Excluir todos os dados coletados pelo plug-in `disk` |
 | `Exclude disk:read,write` |Exclua as fontes denominadas `read` e `write` do plug-in `disk`. |
@@ -104,7 +104,7 @@ Diretivas separadas por uma nova linha.
 ## <a name="problems"></a>Problemas?
 *Não vejo dados no portal*
 
-* Abra a [pesquisa][diagnostic] para ver se os eventos brutos chegaram. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
+* Abra [Pesquisar][diagnostic] para ver se os eventos brutos aparecem. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
 * Talvez você precise [definir exceções de firewall para dados de saída](../../azure-monitor/app/ip-addresses.md)
 * Habilite o rastreamento no plug-in do Application Insights. Adicione esta linha em `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
@@ -115,7 +115,7 @@ Diretivas separadas por uma nova linha.
 
 O plug-in de Gravação do Application Insights é incompatível com determinados plugins de Leitura. Alguns plugins às vezes enviam "NaN" onde o plug-in do Application Insights espera um número de ponto flutuante.
 
-Sintoma: o log coletado mostra erros que incluem "ia:... SyntaxError: token N inesperado ".
+Sintoma: O registro coletado mostra erros que incluem "IA: ... SintaxError: Token inesperado N".
 
 Solução alternativa: exclua dados coletados pelo problema de plugins de Gravação. 
 

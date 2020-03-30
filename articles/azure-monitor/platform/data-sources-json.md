@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662154"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Coletando fontes de dados JSON personalizadas com o agente do Log Analytics para Linux no Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-As fontes de dados JSON personalizadas podem ser coletadas no [Azure Monitor](data-platform.md) usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizados podem ser scripts simples retornando JSON, assim como [curl](https://curl.haxx.se/) ou um dos [mais de 300 plug-ins do FluentD](https://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para essa coleta de dados.
+As fontes de dados JSON personalizadas podem ser coletadas no [Azure Monitor](data-platform.md) usando o agente do Log Analytics para Linux.  Essas fontes de dados personalizadas podem ser scripts simples que retornam json, como [curl](https://curl.haxx.se/) ou um dos [mais de 300 plugins da FluentD](https://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para essa coleta de dados.
 
 
 > [!NOTE]
@@ -98,5 +98,5 @@ Fontes de dados JSON aninhados têm suporte, mas são indexadas sem se basear no
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 

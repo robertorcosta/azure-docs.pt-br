@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: dc334932bfd57bc81a58314ee68f02aeed520f41
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670943"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria do Application Insights no Visual Studio CodeLens
@@ -67,10 +67,10 @@ Para obter mais detalhes, clique nas solicitações no indicador do CodeLens:
 * Escolha **Tendência** para exibir uma visualização de tendências de solicitações, solicitações com falha ou tempos de resposta médios nas últimas 24 horas.
 * Escolha o nome do recurso do Application Insights no canto superior esquerdo da exibição de detalhes do CodeLens para alterar o recurso que é a fonte de dados do CodeLens.
 
-## <a name="next"></a>Próximas etapas
+## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 |  |  |
 | --- | --- |
-| **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/visual-studio-codelens/34.png) |
+| **[Trabalhando com insights de aplicativos no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Pesquisar telemetria, ver dados em CodeLens e configurar o Application Insights. Tudo no Visual Studio. |![Clique com o botão direito no projeto e escolha Application Insights, Pesquisar.](./media/visual-studio-codelens/34.png) |
 | **[Adicionar mais dados](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |![Visual Studio](./media/visual-studio-codelens/64.png) |
 | **[Trabalhando com o portal do Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |![Visual Studio](./media/visual-studio-codelens/62.png) |
 

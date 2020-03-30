@@ -4,10 +4,10 @@ description: Iniciar o monitoramento de um novo aplicativo com uma nova chave de
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671436"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorar um site do SharePoint com o Application Insights
@@ -39,7 +39,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 ```
 
-Insira o script logo antes da &lt;/Head&gt; marca de cada página que você deseja controlar. Se seu site tiver uma página mestra, você poderá colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\Shared\_Layout. cshtml
+Insira o &lt;script&gt; pouco antes da tag /head de cada página que você deseja rastrear. Se o seu site tiver uma página-mestre, você pode colocar o script lá. Por exemplo, em um projeto ASP.NET MVC, você deve colocá-lo em View\Shared\_Layout. cshtml
 
 O script contém a chave de instrumentação que direciona a telemetria para o recurso do Application Insights.
 
@@ -132,7 +132,7 @@ function onRequestFail(sender, args) {
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Testes da web](../../azure-monitor/app/monitor-web-app-availability.md) para monitorar a disponibilidade de seu site.
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) para outros tipos de aplicativos.
 

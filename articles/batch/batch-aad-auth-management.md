@@ -1,6 +1,6 @@
 ---
-title: Usar Azure Active Directory para autenticar soluções de gerenciamento do lote
-description: Explore o uso de Azure Active Directory para autenticar de aplicativos que usam a biblioteca .NET de gerenciamento do lote.
+title: Use o Azure Active Directory para autenticar soluções de gerenciamento de lotes
+description: Explore usando o Azure Active Directory para autenticar a partir de aplicativos que usam a biblioteca .NET de gerenciamento de lotes.
 services: batch
 documentationcenter: .net
 author: LauraBrenner
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: labrenne
-ms.openlocfilehash: f1f47df841b61599b6aed8cd4d6715decd27a288
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5c217971bd213c97a2ee31a0a1f513b601d14df9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025972"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472972"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gerenciamento do lote com o Active Directory
 
-Os aplicativos que chamam o serviço de gerenciamento do lote do Azure se autenticam com o [Azure Active Directory][aad_about] (Azure AD). O Azure AD é o serviço de gerenciamento de identidade e diretório multilocatário com base em nuvem da Microsoft. O Azure em si usa o AD do Azure (Active Directory do Azure) para a autenticação de seus clientes, administradores de serviços e usuários organizacionais.
+Aplicativos que chamam o serviço Azure Batch Management se autenticam com [Azure Active Directory][aad_about] (Azure AD). O Azure AD é o serviço de gerenciamento de identidade e diretório multilocatário com base em nuvem da Microsoft. O Azure em si usa o AD do Azure (Active Directory do Azure) para a autenticação de seus clientes, administradores de serviços e usuários organizacionais.
 
-A biblioteca .NET do Gerenciamento do Lote expõe os tipos para trabalhar com contas, chaves de conta, aplicativos e pacotes de aplicativos do Lote. A biblioteca .NET de gerenciamento do lote é um cliente do provedor de recursos do Azure e é usada junto com [Azure Resource Manager][resman_overview] para gerenciar esses recursos programaticamente. O Azure AD é necessário para autenticar solicitações feitas por meio de qualquer cliente do provedor de recursos do Azure, incluindo a biblioteca .NET de gerenciamento do lote e por meio de [Azure Resource Manager][resman_overview].
+A biblioteca .NET do Gerenciamento do Lote expõe os tipos para trabalhar com contas, chaves de conta, aplicativos e pacotes de aplicativos do Lote. A biblioteca .NET do Gerenciamento do Lote é um cliente do provedor de recursos do Azure e é usada junto com o [Azure Resource Manager][resman_overview] para gerenciar esses recursos por meio de programação. O Azure AD é necessário para autenticar solicitações feitas por meio de qualquer cliente de provedor de recursos do Azure, incluindo a biblioteca .NET do Gerenciamento do Lote e por meio do [Azure Resource Manager][resman_overview].
 
-Neste artigo, exploraremos como usar o Azure AD para autenticar aplicativos que usem a biblioteca do Batch Management .NET. Mostramos como usar o Azure AD para autenticar um administrador ou coadministrador de assinatura usando a autenticação integrada. Usamos o projeto de exemplo [AccountManagement][acct_mgmt_sample] , disponível no GitHub, para percorrer o uso do Azure AD com a biblioteca .net de gerenciamento do lote.
+Neste artigo, exploraremos como usar o Azure AD para autenticar aplicativos que usem a biblioteca do Batch Management .NET. Mostramos como usar o Azure AD para autenticar um administrador ou coadministrador de assinatura usando a autenticação integrada. Nesta seção, usamos o projeto de exemplo [AccountManagment][acct_mgmt_sample], disponível no GitHub, para percorrer o uso do Azure AD com a biblioteca do Batch Management .NET.
 
 Para saber mais sobre como usar a biblioteca .NET do Gerenciamento do Lote e o exemplo AccountManagement, veja [Gerenciar contas e cotas do Lote com a biblioteca de cliente do Gerenciamento do Lote para .NET](batch-management-dotnet.md).
 
 ## <a name="register-your-application-with-azure-ad"></a>Registrar seu aplicativo no Azure AD
 
-O Adal ( [biblioteca de autenticação do Active Directory][aad_adal] do Azure) fornece uma interface programática para o Azure ad para uso em seus aplicativos. Para chamar a ADAL de seu aplicativo, você deve registrar seu aplicativo em um locatário do Azure AD. Quando você registra seu aplicativo, fornece ao Azure AD informações sobre seu aplicativo, incluindo um nome para ele dentro do locatário do Azure AD. Em seguida, o Azure AD fornece uma ID de aplicativo que você usa para associar seu aplicativo ao Azure AD em runtime. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
+A ADAL [Biblioteca de Autenticação do Active Directory][aad_adal] fornece uma interface programática para o Azure AD para uso em seus aplicativos. Para chamar a ADAL de seu aplicativo, você deve registrar seu aplicativo em um locatário do Azure AD. Quando você registra seu aplicativo, fornece ao Azure AD informações sobre seu aplicativo, incluindo um nome para ele dentro do locatário do Azure AD. Em seguida, o Azure AD fornece uma ID de aplicativo que você usa para associar seu aplicativo ao Azure AD em runtime. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo de exemplo AccountManagement, siga as etapas na seção [adicionando um aplicativo](../active-directory/develop/quickstart-register-app.md) em [integrando aplicativos com o Azure Active Directory][aad_integrate]. Especifique **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2.0 padrão do setor para o **URI de Redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. Porém, você pode especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de Redirecionamento**, pois ele não precisa ser um ponto de extremidade real:
+Para registrar o aplicativo de exemplo AccountManagement, siga as etapas da seção [Adição de um aplicativo](../active-directory/develop/quickstart-register-app.md) em [Integração de aplicativos ao Azure Active Directory][aad_integrate]. Especifique **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2.0 padrão do setor para o **URI de Redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. Porém, você pode especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de Redirecionamento**, pois ele não precisa ser um ponto de extremidade real:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -91,9 +91,9 @@ O aplicativo cliente usa a ID do aplicativo (também conhecida como a ID do clie
 
 ```csharp
 // Specify the unique identifier (the "Client ID") for your application. This is required so that your
-// native client application (i.e. this sample) can access the Microsoft Azure AD Graph API. For information
-// about registering an application in Azure Active Directory, please see "Adding an Application" here:
-// https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
+// native client application (i.e. this sample) can access the Microsoft Graph API. For information
+// about registering an application in Azure Active Directory, please see "Register an application with the Microsoft identity platform" here:
+// https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
 private const string ClientId = "<application-id>";
 ```
 Também copie o URI que você especificou durante o processo de registro de redirecionamento. O URI de redirecionamento especificado no código deve corresponder ao URI de redirecionamento que você forneceu quando registrou o aplicativo.
@@ -122,9 +122,9 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 Depois de fornecer suas credenciais, o aplicativo de exemplo poderá emitir solicitações autenticadas para o serviço de Gerenciamento do Lote. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como executar o [aplicativo de exemplo AccountManagement][acct_mgmt_sample], consulte [gerenciar contas e cotas do lote com a biblioteca de cliente de gerenciamento do lote para .net](batch-management-dotnet.md).
+Para saber mais sobre a execução do [aplicativo de exemplo AccountManagement][acct_mgmt_sample], veja [Gerenciar contas e cotas do Lote com a biblioteca de cliente de Gerenciamento do Lote para .NET](batch-management-dotnet.md).
 
 Para saber mais sobre o Azure AD, veja a [documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Exemplos mais detalhados que mostram como usar o ADAL estão disponíveis na biblioteca [Amostras de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
@@ -133,7 +133,7 @@ Para autenticar aplicativos de serviço do lote usando o Azure AD, consulte [Aut
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é o Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Cenários de autenticação do Azure AD"
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Cenários de autenticação para Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrando aplicativos com o Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: https://portal.azure.com

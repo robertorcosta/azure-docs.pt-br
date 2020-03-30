@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671708"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Criar o perfil de aplicativos web ASP.NET Core Azure Linux com o Application Insights Profiler
@@ -23,7 +23,7 @@ Depois de concluir este passo a passo, seu aplicativo poderá coletar rastreamen
 
 ![Rastreamentos do Criador de Perfil](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do Windows, Linux e Mac:
 
 * Instale o [SDK 2.1.2 do .NET Core ou posterior](https://dotnet.microsoft.com/download/archives).
@@ -47,7 +47,7 @@ As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do 
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Habilitar Application Insights em Program.cs:
+1. Habilite os insights do aplicativo em Program.cs:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -56,7 +56,7 @@ As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do 
             .UseStartup<Startup>();
     ```
     
-1. Habilitar criador de perfil no Startup.cs:
+1. Habilitar profiler em Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -170,11 +170,11 @@ Você deverá ver uma saída semelhante ao seguinte exemplo:
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>O botão perfil agora não funciona para o perfil do Linux
-A versão Linux do criador de perfil do App insights ainda não dá suporte à criação de perfil sob demanda usando o botão perfil agora.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>O botão Profile Now não funciona para o Linux Profiler
+A versão Linux do perfil App Insights ainda não suporta a criação de perfil demanda usando o botão profile now.
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Se você usar contêineres personalizados hospedados pelos Serviço de Aplicativo do Azure, siga as instruções em [ Habilitar o Criador de Perfil de Serviço para um aplicativo em contêineres do ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para habilitar o Application Insights Profiler.
 
 Relate quaisquer problemas ou sugestões ao repositório do Github do Application Insights: [ApplicationInsights-Profiler-AspNetCore: problemas](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).

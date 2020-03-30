@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670314"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criar gráficos e diagramas a partir de consultas de log do Azure Monitor
@@ -33,7 +33,7 @@ Heartbeat
 
 Por padrão, os resultados são exibidos como uma tabela:
 
-![Table](media/charts/table-display.png)
+![Tabela](media/charts/table-display.png)
 
 Para obter uma visão melhor, selecione **Chart** e escolha a opção **Pie** para visualizar os resultados:
 
@@ -50,9 +50,9 @@ Perf
 | summarize avg(CounterValue), percentiles(CounterValue, 50, 95)  by bin(TimeGenerated, 1h)
 ```
 
-Selecione o **linha** opção de exibição de gráfico:
+Selecione a opção De exibição do gráfico **de** linha:
 
-![Gráfico de linhas](media/charts/charts-and-diagrams-multiSeries.png)
+![Gráfico de Linhas](media/charts/charts-and-diagrams-multiSeries.png)
 
 ### <a name="reference-line"></a>Linha de referência
 
@@ -85,10 +85,10 @@ Você pode alternar entre selecionando o menu suspenso com o nome da coluna.
 
 ![Gráfico de barras AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações da cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)

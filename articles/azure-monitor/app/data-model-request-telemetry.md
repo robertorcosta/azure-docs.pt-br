@@ -1,14 +1,14 @@
 ---
-title: Modelo de dados para telemetria de solicitação-Aplicativo Azure insights
+title: Modelo de dados para telemetria de solicitação - Azure Application Insights
 description: Modelo de dados do Application Insights para telemetria de solicitações
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671895"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
@@ -17,11 +17,11 @@ Um item de telemetria de solicitação (em [Application Insights](../../azure-mo
 
 A solicitação de telemetria dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizadas.
 
-## <a name="name"></a>{1&gt;Nome&lt;1}
+## <a name="name"></a>Nome
 
 O nome da solicitação representa o caminho de código necessário para processar a solicitação. Valor de baixa cardinalidade para permitir melhor agrupamento de solicitações. Para solicitações HTTP, ele representa o método HTTP e o modelo do caminho de URL como `GET /values/{id}` sem um valor real de `id`.
 
-O SDK Web do Application Insights envia o nome de solicitação "como está" em relação a diferenciar maiúsculas e minúsculas. O agrupamento na interface do usuário diferencia maiúsculas de minúsculas, então `GET /Home/Index` é contado separadamente de `GET /home/INDEX`, embora muitas vezes eles resultem na mesma execução de ação e de controlador. O motivo é que as URLs em geral [diferenciam maiúsculas e minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Talvez você queira ver se todos os `404` aconteceram para as URLs digitadas em maiúsculas. Você pode ler mais sobre a coleção de nomes de solicitação pelo SDK da Web do ASP.NET na [postagem do blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+O SDK Web do Application Insights envia o nome de solicitação "como está" em relação a diferenciar maiúsculas e minúsculas. O agrupamento na interface do usuário diferencia maiúsculas de minúsculas, então `GET /Home/Index` é contado separadamente de `GET /home/INDEX`, embora muitas vezes eles resultem na mesma execução de ação e de controlador. O motivo é que as URLs em geral [diferenciam maiúsculas e minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Talvez você queira ver se todos os `404` aconteceram para as URLs digitadas em maiúsculas. Você pode ler mais sobre a coleta de nomes de solicitação por ASP.NET Web SDK no post do [blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Comprimento máximo: 1.024 caracteres
 
@@ -37,7 +37,7 @@ URL de solicitação com todos os parâmetros de cadeia de consulta.
 
 Comprimento máximo: 2.048 caracteres
 
-## <a name="source"></a>Origem
+## <a name="source"></a>Fonte
 
 A origem da solicitação. Os exemplos são a chave de instrumentação do chamador ou o endereço IP do chamador. Para obter mais informações, consulte a página de [correlação](../../azure-monitor/app/correlation.md).
 
@@ -53,7 +53,7 @@ Resultado de uma execução de solicitação. Código de status HTTP para solici
 
 Comprimento máximo: 1.024 caracteres
 
-## <a name="success"></a>Êxito
+## <a name="success"></a>Sucesso
 
 Indicação de chamada bem-sucedida ou malsucedida. Esse campo é obrigatório. Quando não definido explicitamente como `false`, uma solicitação é considerada bem-sucedida. Defina esse valor como `false` se a operação for interrompida por exceção ou tiver retornado um código de resultado do erro.
 
@@ -71,7 +71,7 @@ Você pode ler mais sobre código de status e código de resultados de solicita�
 
 [!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Escrever uma telemetria de solicitação personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
 - Consulte [modelo de dados](data-model.md) para modelo de dados e tipos do Application Insights.

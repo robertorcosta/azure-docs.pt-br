@@ -1,13 +1,13 @@
 ---
-title: Pacote de detecção de segurança com informações do Aplicativo Azure
-description: Monitore o aplicativo com informações de Aplicativo Azure e detecção inteligente para possíveis problemas de segurança.
+title: Pacote de detecção de segurança com insights de aplicativos do Azure
+description: Monitore o aplicativo com insights de aplicativos do Azure e detecção inteligente para possíveis problemas de segurança.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: b23ada6fe4596a2eee242cc9145789521caf697f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669719"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacote de detecção de segurança do aplicativo (visualização)
@@ -20,7 +20,7 @@ Este recurso não exige nenhuma configuração especial, diferente de [configura
 Há três tipos de problemas de segurança que são detectados:
 1. Acesso de URL não segura: uma URL no aplicativo que está sendo acessada via HTTP e HTTPS. Normalmente, uma URL que aceita solicitações HTTPS não deve aceitar as solicitações HTTP. Isso pode indicar um problema de segurança ou um erro em seu aplicativo.
 2. Forma não segura: um formulário (ou outra solicitação de "POST") no aplicativo usa HTTP em vez de HTTPS. Usar HTTP pode comprometer os dados do usuário que são enviados pelo formulário.
-3. Atividade de usuário suspeita: o aplicativo está sendo acessado de vários países/regiões pelo mesmo usuário praticamente ao mesmo tempo. Por exemplo, o mesmo usuário acessou o aplicativo da Espanha e Estados Unidos na mesma hora. Essa detecção indica uma tentativa de acesso possivelmente mal-intencionado ao seu aplicativo.
+3. Atividade suspeita do usuário: o aplicativo está sendo acessado de vários países/regiões pelo mesmo usuário aproximadamente ao mesmo tempo. Por exemplo, o mesmo usuário acessou o aplicativo da Espanha e Estados Unidos na mesma hora. Essa detecção indica uma tentativa de acesso possivelmente mal-intencionado ao seu aplicativo.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>Meu aplicativo realmente tem um problema?
 Não, uma notificação não significa que seu aplicativo realmente tem um problema. A detecção de qualquer um dos cenários acima pode, em muitos casos, indicar um problema de segurança. No entanto, a detecção pode ter uma justificativa comercial natural e pode ser ignorada.
@@ -37,5 +37,5 @@ Não, uma notificação não significa que seu aplicativo realmente tem um probl
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Como corrigir a detecção de "atividade de usuário suspeita"?
 1. **Triagem.** A notificação fornece o número de usuários diferentes que exibiu o comportamento suspeito. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Escopo.** De quais países/regiões as solicitações suspeitas se originam? Qual o usuário foi mais suspeito? Essas informações podem ser obtidas na notificação.
+2. **Escopo.** De quais países/regiões os pedidos suspeitos se originaram? Qual o usuário foi mais suspeito? Essas informações podem ser obtidas na notificação.
 3. **Diagnosticar.** A detecção fornece a lista de usuários suspeitos e a lista de países/regiões para cada usuário, para ajudá-lo a diagnosticar o problema.

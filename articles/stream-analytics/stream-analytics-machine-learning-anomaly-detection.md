@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525525"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
@@ -20,9 +20,9 @@ Disponível na nuvem e no Azure IoT Edge, o Azure Stream Analytics oferece recur
 
 Os modelos de machine learning supõem uma série temporal incluída na amostra de maneira uniforme. Se a série temporal não for uniforme, insira uma etapa de agregação com uma janela em cascata antes de chamar a detecção de anomalias.
 
-As operações de Machine Learning não dão suporte a tendências sazonalidade ou correlações entre variate no momento.
+As operações de aprendizado de máquina não suportam tendências de sazonalidade ou correlações multivariadas neste momento.
 
-## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Detecção de anomalias usando o aprendizado de máquina no Azure Stream Analytics
+## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Detecção de anomalias usando aprendizado de máquina no Azure Stream Analytics
 
 O vídeo a seguir demonstra como detectar uma anomalia em tempo real usando funções de aprendizado de máquina no Azure Stream Analytics. 
 
@@ -34,11 +34,11 @@ De modo geral, a precisão do modelo melhora com mais dados na janela deslizante
 
 As funções operam estabelecendo um determinado valor normal com base no que foi observado até então. As exceções são identificadas pela comparação em relação ao normal estabelecido, no nível de confiança. O tamanho da janela deve se basear nos eventos mínimos necessários para treinar o modelo para comportamento normal, de modo que ele esteja apto a reconhecê-la quando uma anomalia ocorrer.
 
-O tempo de resposta do modelo aumenta com o tamanho do histórico porque ele precisa comparar com um número maior de eventos anteriores. É recomendável incluir apenas o número necessário de eventos para obter melhor desempenho.
+O tempo de resposta do modelo aumenta com o tamanho da história porque precisa ser comparado com um número maior de eventos passados. É recomendável incluir apenas o número necessário de eventos para obter melhor desempenho.
 
-As lacunas na série temporal podem ser um resultado do não recebimento de eventos pelo modelo em determinados pontos no tempo. Essa situação é manipulada por Stream Analytics usando a lógica imputação. O tamanho do histórico e a duração para a mesma janela deslizante são usados para calcular a taxa média na qual os eventos são esperados.
+As lacunas na série temporal podem ser um resultado do não recebimento de eventos pelo modelo em determinados pontos no tempo. Essa situação é tratada pelo Stream Analytics usando lógica de imputação. O tamanho do histórico e a duração para a mesma janela deslizante são usados para calcular a taxa média na qual os eventos são esperados.
 
-Um gerador de anomalias disponível [aqui](https://aka.ms/asaanomalygenerator) pode ser usado para alimentar um hub IOT com dados com padrões de anomalia diferentes. Um trabalho ASA pode ser configurado com essas funções de detecção de anomalias para ler esse Hub IOT e detectar anomalias.
+Um gerador de anomalias disponível [aqui](https://aka.ms/asaanomalygenerator) pode ser usado para alimentar um Hub iot com dados com diferentes padrões de anomalia. Um trabalho ASA pode ser configurado com essas funções de detecção de anomalias para ler a partir deste Hub Iot e detectar anomalias.
 
 ## <a name="spike-and-dip"></a>Pico e queda
 
@@ -112,53 +112,53 @@ FROM AnomalyDetectionStep
 
 ## <a name="performance-characteristics"></a>Características de desempenho
 
-O desempenho desses modelos depende do tamanho do histórico, da duração da janela, da carga do evento e se o particionamento no nível da função é usado. Esta seção aborda essas configurações e fornece exemplos de como sustentar taxas de ingestão de eventos de 1K, 5K e 10K por segundo.
+O desempenho desses modelos depende do tamanho do histórico, duração da janela, carga do evento e se o particionamento do nível de função é usado. Esta seção discute essas configurações e fornece amostras de como sustentar taxas de ingestão de eventos de 1K, 5K e 10K por segundo.
 
-* **Tamanho do histórico** -esses modelos são executados linearmente com o **tamanho do histórico**. Quanto maior o tamanho do histórico, mais longos os modelos levam para pontuar um novo evento. Isso ocorre porque os modelos comparam o novo evento com cada um dos eventos passados no buffer de histórico.
-* **Duração da janela** – a **duração da janela** deve refletir o tempo necessário para receber tantos eventos quantos forem especificados pelo tamanho do histórico. Sem esses muitos eventos na janela, Azure Stream Analytics imputar valores ausentes. Portanto, o consumo de CPU é uma função do tamanho do histórico.
-* **Carga de eventos** -quanto maior a **carga de eventos**, mais trabalho é executado pelos modelos, o que afeta o consumo da CPU. O trabalho pode ser escalado horizontalmente, tornando-o embaraçosamente paralelo, pressupondo que faça sentido para que a lógica comercial use mais partições de entrada.
-* O **particionamento de nível de função** - particionamento de nível de **função** é feito usando ```PARTITION BY``` na chamada de função de detecção de anomalias. Esse tipo de particionamento adiciona uma sobrecarga, pois o estado precisa ser mantido para vários modelos ao mesmo tempo. O particionamento no nível de função é usado em cenários como o particionamento no nível do dispositivo.
+* **Tamanho da história** - Esses modelos funcionam linearmente com **o tamanho da história.** Quanto maior o tamanho da história, mais tempo os modelos demoram para marcar um novo evento. Isso porque os modelos comparam o novo evento com cada um dos eventos passados no buffer histórico.
+* **Duração da janela** - A **duração da janela** deve refletir quanto tempo leva para receber tantos eventos quanto suscitado pelo tamanho do histórico. Sem tantos eventos na janela, o Azure Stream Analytics imputaria valores perdidos. Portanto, o consumo de CPU é uma função do tamanho do histórico.
+* **Carga de evento** - Quanto maior a carga do **evento,** mais trabalho é realizado pelos modelos, o que impacta o consumo de CPU. O trabalho pode ser dimensionado tornando-o vergonhosamente paralelo, assumindo que faz sentido para a lógica empresarial usar mais partições de entrada.
+* **Particionamento do nível de** - função O**particionamento do nível da função** é feito usando ```PARTITION BY``` a chamada da função de detecção de anomalias. Este tipo de particionamento adiciona uma sobrecarga, pois o estado precisa ser mantido para vários modelos ao mesmo tempo. Particionamento do nível de função é usado em cenários como particionamento de nível de dispositivo.
 
 ### <a name="relationship"></a>Relação
-O tamanho do histórico, a duração da janela e a carga total do evento são relacionados da seguinte maneira:
+O tamanho do histórico, a duração da janela e a carga total do evento estão relacionados da seguinte maneira:
 
-windowDuration (em MS) = 1000 * historySize/(total de eventos de entrada por segundo/contagem de partições de entrada)
+windowDuração (em ms) = 1000 * historySize / (Total Input Events Per Sec / Input Partition Count)
 
-Ao particionar a função por DeviceID, adicione "PARTITION BY DeviceID" à chamada de função de detecção de anomalias.
+Ao particionar a função por dispositivoId, adicione "PARTITION BY deviceId" à chamada da função de detecção de anomalias.
 
-### <a name="observations"></a>Amo
-A tabela a seguir inclui as observações de taxa de transferência para um único nó (6 SU) para o caso não particionado:
+### <a name="observations"></a>Observações
+A tabela a seguir inclui as observações de throughput para um único nó (6 SU) para o caso não particionado:
 
-| Tamanho do histórico (eventos) | Duração da janela (MS) | Total de eventos de entrada por segundo |
+| Tamanho da história (eventos) | Duração da janela (ms) | Total de eventos de entrada por segundo |
 | --------------------- | -------------------- | -------------------------- |
-| 60 | 55 | 2\.200 |
-| 600 | 728 | 1\.650 |
-| 6\.000 | 10.910 | 1\.100 |
+| 60 | 55 | 2.200 |
+| 600 | 728 | 1,650 |
+| 6.000 | 10,910 | 1.100 |
 
-A tabela a seguir inclui as observações de taxa de transferência para um único nó (6 SU) para o caso particionado:
+A tabela a seguir inclui as observações de throughput para um único nó (6 SU) para o caso particionado:
 
-| Tamanho do histórico (eventos) | Duração da janela (MS) | Total de eventos de entrada por segundo | Contagem de dispositivos |
+| Tamanho da história (eventos) | Duração da janela (ms) | Total de eventos de entrada por segundo | Contagem de dispositivos |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1\.091 | 1\.100 | 10 |
-| 600 | 10.910 | 1\.100 | 10 |
-| 6\.000 | 218.182 | <550 | 10 |
-| 60 | 21.819 | 550 | 100 |
-| 600 | 218.182 | 550 | 100 |
-| 6\.000 | 2\.181.819 | <550 | 100 |
+| 60 | 1,091 | 1.100 | 10 |
+| 600 | 10,910 | 1.100 | 10 |
+| 6.000 | 218,182 | <550 | 10 |
+| 60 | 21,819 | 550 | 100 |
+| 600 | 218,182 | 550 | 100 |
+| 6.000 | 2,181,819 | <550 | 100 |
 
-O código de exemplo para executar as configurações não particionadas acima está localizado no [repositório streaming em escala](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) dos exemplos do Azure. O código cria um trabalho do Stream Analytics sem particionamento de nível de função, que usa o Hub de eventos como entrada e saída. A carga de entrada é gerada usando clientes de teste. Cada evento de entrada é um documento JSON 1 KB. Eventos simulam um dispositivo IoT enviando dados JSON (para dispositivos com até 1K). O tamanho do histórico, a duração da janela e a carga total do evento são variados em 2 partições de entrada.
+O código de amostra para executar as configurações não partições acima está localizado no [repo Streaming At Scale](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) do Azure Samples. O código cria um trabalho de análise de fluxo sem particionamento de nível de função, que usa o Event Hub como entrada e saída. A carga de entrada é gerada usando clientes de teste. Cada evento de entrada é um documento json 1KB. Os eventos simulam um dispositivo IoT enviando dados JSON (para até dispositivos 1K). O tamanho do histórico, a duração da janela e a carga total do evento são variados em 2 partições de entrada.
 
 > [!Note]
-> Para obter uma estimativa mais precisa, personalize os exemplos para se ajustar ao seu cenário.
+> Para uma estimativa mais precisa, personalize as amostras para se adequar em seu cenário.
 
-### <a name="identifying-bottlenecks"></a>Identificando afunilamentos
-Use o painel métricas em seu trabalho de Azure Stream Analytics para identificar afunilamentos em seu pipeline. Examine os **eventos de entrada/saída** para obter a taxa de transferência e o ["atraso da marca d' água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos de registro** posterior para ver se o trabalho está acompanhando a taxa de entrada. Para as métricas do hub de eventos, procure **solicitações limitadas** e ajuste as unidades de limite de acordo. Para Cosmos DB métricas, examine o **intervalo máximo consumido de ru/s por chave de partição** em taxa de transferência para garantir que os intervalos de chaves de partição sejam consumidos uniformemente. Para o banco de BD SQL do Azure, monitore e **/s de log** e **CPU**.
+### <a name="identifying-bottlenecks"></a>Identificação de gargalos
+Use o painel Metrics em seu trabalho do Azure Stream Analytics para identificar gargalos em seu pipeline. Revisar **eventos de entrada/saída** para throughput e ["Watermark Delay"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **Backlogged Events** para ver se o trabalho está acompanhando a taxa de entrada. Para as métricas do Event Hub, procure **solicitações estranguladas** e ajuste as Unidades de Limiar de acordo. Para as métricas do Cosmos DB, revise **o alcance de tecla RU/s consumido por partição** em Throughput para garantir que suas faixas de tecla de partição sejam consumidas uniformemente. Para O Azure SQL DB, monitore **o Log IO** e **a CPU**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
+* [Comece a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

@@ -1,6 +1,6 @@
 ---
-title: Carregar dados incrementalmente usando o PowerShell
-description: Este script do PowerShell mostra como usar o Azure Data Factory para copiar dados incrementalmente de um Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
+title: Carregar incrementalmente dados usando o PowerShell
+description: Este script do PowerShell mostra como usar o Azure Data Factory para copiar dados incrementalmente de um banco de dados SQL do Azure para um Armazenamento Azure Blob.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
-ms.date: 10/31/2017
-ms.openlocfilehash: 9a488fb2c4f7f3390fc0ac0e11cdf57bbf030bf6
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/12/2020
+ms.openlocfilehash: 1919f89d2e39981effe14c1203446f8f9d930f41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255956"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79462482"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script do PowerShell – Carregar dados incrementalmente usando o Azure Data Factory
 
@@ -57,8 +57,8 @@ Este script usa os seguintes comandos:
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar um data factory. |
 | [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | Cria um serviço vinculado no data factory. Um serviço vinculado vincula um armazenamento de dados ou uma computação a um data factory. |
 | [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | Cria um conjunto de dados no data factory. Um conjunto de dados representa a entrada/saída para uma atividade em um pipeline. | 
-| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | Cria um pipeline no data factory. Um pipeline contém uma ou mais atividades que executam uma determinada operação. Nesse pipeline, a atividade de cópia copia dados de um local para outro no Armazenamento de Blobs do Azure. |
-| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Cria uma execução do pipeline. Em outras palavras, executa o pipeline. |
+| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | Cria um pipeline no data factory. Um gasoduto contém uma ou mais atividades que realizam uma determinada operação. Nesse pipeline, a atividade de cópia copia dados de um local para outro no Armazenamento de Blobs do Azure. |
+| [Invoca-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | Cria uma execução do pipeline. Em outras palavras, executa o pipeline. |
 | [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | Obtém os detalhes sobre a execução da atividade (execução da atividade) no pipeline. 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

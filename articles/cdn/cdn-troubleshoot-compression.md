@@ -3,8 +3,8 @@ title: Solucionando problemas de compactação de arquivo na CDN do Azure | Micr
 description: Solucione problemas com a compactação de arquivo da CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5195dc3c47d2a4377147b2ef49b23bab6b3fee77
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aff2dadee365fcdc7e14070714aa1d2cbba901ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476416"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solucionando problemas de compactação de arquivo CDN
 Este artigo ajuda você a solucionar problemas com a [compactação de arquivo CDN](cdn-improve-performance.md).
@@ -42,6 +42,7 @@ Há várias causas possíveis, incluindo:
 * O conteúdo solicitado não está qualificado para compactação.
 * A compactação não está habilitada para o tipo de arquivo solicitado.
 * A solicitação HTTP não incluía um cabeçalho solicitando um tipo de compactação válido.
+* Origin está enviando conteúdo em pedaços.
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 > [!TIP]
@@ -97,7 +98,7 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 
 Usando as ferramentas de desenvolvedor do navegador, verifique os cabeçalhos de resposta para garantir que o arquivo está armazenado em cache na região em que está sendo solicitado.
 
-* Verifique o cabeçalho de resposta **Server** .  O cabeçalho deve ter o formato **Plataforma (POP/ID do Servidor)** , como mostrado no exemplo a seguir.
+* Verifique o cabeçalho de resposta **Server** .  O cabeçalho deve ter o formato **Plataforma (POP/ID do Servidor)**, como mostrado no exemplo a seguir.
 * Verifique o cabeçalho de resposta **X-Cache** .  No cabeçalho, deve-se ler **HIT**.  
 
 ![Cabeçalhos de resposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -116,6 +117,6 @@ Para ser elegível para compactação, um arquivo deve atender aos seguintes req
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Verifique a solicitação no servidor de origem por um cabeçalho **Via**
 O cabeçalho HTTP **Via** indica ao servidor Web que a solicitação está sendo passada por um servidor proxy.  Por padrão, os servidores Web do Microsoft IIS não compactam as respostas quando a solicitação contém um cabeçalho **Via** .  Para substituir esse comportamento, execute o seguinte procedimento:
 
-* **IIS 6**: [Defina HcNoCompressionForProxies = "FALSE" nas propriedades de Metabase do IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 e superior**: [Defina as **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Defina HcNoCompressionForProxies="FALSE" nas propriedades do IIS Metabase](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 e superior**: [defina **noCompressionForHttp10** e **noCompressionForProxies** como False na configuração do servidor](https://www.iis.net/configreference/system.webserver/httpcompression)
 

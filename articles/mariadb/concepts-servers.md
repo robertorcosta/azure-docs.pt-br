@@ -1,17 +1,17 @@
 ---
-title: Servidores-Banco de dados do Azure para MariaDB
+title: Servidores - Banco de Dados Azure para MariaDB
 description: Este tópico fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 048d9f3089a433dbf8c2647ed86ddab69c78ebaa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772037"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527785"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor no banco de dados do Azure para MariaDB
 Este artigo fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
@@ -48,8 +48,8 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
 ## <a name="how-do-i-manage-a-server"></a>Como posso gerenciar um servidor?
 Você pode gerenciar o Banco de Dados do Azure para servidores MariaDB usando o portal do Azure ou a CLI do Azure.
 
-## <a name="next-steps"></a>Próximos passos
-- Para obter uma visão geral do serviço, confira [Visão geral do Banco de Dados do Azure para MariaDB](./overview.md)
-- Para saber mais sobre cotas e limitações específicas de recursos com base em sua **camada de serviço**, confira [Camadas de serviço](./concepts-pricing-tiers.md)
+## <a name="next-steps"></a>Próximas etapas
+- Para obter uma visão geral do serviço, consulte [Banco de Dados do Azure para Visão Geral do MariaDB](./overview.md)
+- Para obter informações sobre cotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [níveis de serviço](./concepts-pricing-tiers.md)
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

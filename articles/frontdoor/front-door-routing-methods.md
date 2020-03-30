@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service – métodos de roteamento de tráfego | Microsoft Docs
+title: Azure Front Door - métodos de roteamento de tráfego | Microsoft Docs
 description: Este artigo ajuda você a entender os diferentes métodos de roteamento de tráfego usados pelo Front Door
 services: front-door
 documentationcenter: ''
@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: bd1278db43ba31ed78f13a826a330e16c3bc8d57
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 69ef68dafc2385eb5614179c3d04265250383104
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79280788"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471533"
 ---
 # <a name="front-door-routing-methods"></a>Métodos de roteamento do Front Door
 
-O Azure Front Door Service é compatível com diversos métodos de roteamento de tráfego para determinar como rotear o tráfego HTTP/HTTPS para os vários pontos de extremidade de serviço. O método de roteamento configurado é aplicado a cada solicitação do cliente que chega ao Front Door para garantir que as solicitações sejam direcionadas à melhor instância de back-end. 
+O Azure Front Door suporta vários métodos de roteamento de tráfego para determinar como direcionar seu tráfego HTTP/HTTPS para os vários pontos finais de serviço. O método de roteamento configurado é aplicado a cada solicitação do cliente que chega ao Front Door para garantir que as solicitações sejam direcionadas à melhor instância de back-end. 
 
 Há quatro conceitos principais para roteamento de tráfego disponíveis no Front Door:
 
 * **[Latência](#latency):** o roteamento baseado em latência garante que as solicitações sejam enviadas para os back-ends de latência mais baixos aceitáveis dentro de um intervalo de sensibilidade. Basicamente, as solicitações do usuário são enviadas para o conjunto de back-ends “mais próximo” com relação à latência de rede.
 * **[Prioridade](#priority):** você pode atribuir prioridades para seus diferentes back-ends quando desejar usar um back-end de serviço primário para todo o tráfego e fornecer backups caso os back-ends primários ou de backup não estejam disponíveis.
 * **[Ponderado](#weighted):** atribua pesos aos diferentes back-ends quando desejar distribuir tráfego entre um conjunto de back-ends, seja uniformemente ou de acordo com os coeficientes de ponderação.
-* **Afinidade de sessão:** Você pode configurar a afinidade de sessão para seus hosts front-end ou domínios quando desejar que as solicitações subsequentes de um usuário sejam enviadas para o mesmo back-end, desde que a sessão do usuário ainda esteja ativa e a instância de back-end ainda relate a integridade com base nas investigações de integridade. 
+* **Afinidade de sessão:** Você pode configurar a afinidade de sessão para seus hosts ou domínios frontend quando quiser que as solicitações subseqüentes de um usuário sejam enviadas para o mesmo backend enquanto a sessão do usuário ainda estiver ativa e a instância de back-end ainda relatar problemas saudáveis com base em testes de saúde. 
 
 Todas as configurações do Front Door incluem monitoramento de integridade de back-end e failover global instantâneo automatizado. Para obter mais informações, confira [Monitoramento de back-end do Front Door](front-door-health-probes.md). Seu Front Door pode ser configurado para funcionar com base em um único método de roteamento e, dependendo das necessidades do seu aplicativo, é possível usar vários ou todos esses métodos de roteamento juntos para criar uma topologia de roteamento ideal.
 
-## <a name = "latency"></a>Roteamento de tráfego baseado em latências mais baixas
+## <a name="lowest-latencies-based-traffic-routing"></a><a name = "latency"></a>Roteamento de tráfego baseado em latências mais baixas
 
-A implantação de back-ends em duas ou mais localizações do mundo pode melhorar a capacidade de resposta de vários aplicativos, encaminhando o tráfego para a localização “mais próxima” de você e dos usuários finais. O método de roteamento de tráfego padrão para a sua configuração do Front Door encaminha as solicitações dos usuários finais para o back-end mais próximo do ambiente do Front Door que recebeu a solicitação. Combinada com a arquitetura Anycast do Azure Front Door Service, essa abordagem garante que todos os seus usuários finais receberão desempenho máximo personalizado com base na localização deles.
+A implantação de back-ends em duas ou mais localizações do mundo pode melhorar a capacidade de resposta de vários aplicativos, encaminhando o tráfego para a localização “mais próxima” de você e dos usuários finais. O método de roteamento de tráfego padrão para a sua configuração do Front Door encaminha as solicitações dos usuários finais para o back-end mais próximo do ambiente do Front Door que recebeu a solicitação. Combinada com a arquitetura Anycast do Azure Front Door, essa abordagem garante que cada um de seus usuários finais obtenha o máximo de desempenho personalizado com base em sua localização.
 
 O back-end “mais próximo” não é necessariamente o mais próximo em termos de distância geográfica. Em vez disso, o Front Door determina os back-ends mais próximos medindo a latência de rede. Leia mais sobre a [arquitetura de roteamento do Front Door](front-door-routing-architecture.md). 
 
@@ -47,7 +47,7 @@ Veja abaixo o fluxo geral de decisão:
 > Por padrão, a propriedade de sensibilidade à latência é definida como 0 ms, ou seja, a solicitação sempre é encaminhada para o back-end mais rápido disponível.
 
 
-## <a name = "priority"></a>Roteamento de tráfego baseado em prioridade
+## <a name="priority-based-traffic-routing"></a><a name = "priority"></a>Roteamento de tráfego baseado em prioridade
 
 Frequentemente, as organizações desejam fornecer confiabilidade para seus serviços implantando um ou mais serviços de backup, caso seu serviço primário fique inativo. Em toda a indústria, essa topologia também é conhecida como topologia de implantação Ativo/Em espera ou Ativo/Passivo. O método de roteamento de tráfego por “Prioridade” permite que os clientes do Azure implementem esse padrão de failover com facilidade.
 
@@ -55,9 +55,9 @@ O Front Door padrão contém uma lista de back-ends de igual prioridade. Por pad
 
 ### <a name="configuring-priority-for-backends"></a>Configurar prioridade para back-ends
 
-Cada back-end no pool de back-end dentro da configuração do Front Door tem uma propriedade chamada “Priority” que pode ser um número entre 1 e 5. No Azure Front Door Service, a prioridade do back-end é configurada explicitamente usando essa propriedade para cada back-end. Essa propriedade é um valor entre 1 e 5. Valores mais baixos representam uma prioridade mais alta. Os back-ends podem ter os mesmos valores de prioridade.
+Cada back-end no pool de back-end dentro da configuração do Front Door tem uma propriedade chamada “Priority” que pode ser um número entre 1 e 5. Com o Azure Front Door, você configura a prioridade de back-end usando explicitamente essa propriedade para cada backend. Essa propriedade é um valor entre 1 e 5. Valores mais baixos representam uma prioridade mais alta. Os back-ends podem ter os mesmos valores de prioridade.
 
-## <a name = "weighted"></a>Método de roteamento de tráfego ponderado
+## <a name="weighted-traffic-routing-method"></a><a name = "weighted"></a>Método de roteamento de tráfego ponderado
 O método de roteamento de tráfego “Ponderado” permite que você distribua o tráfego de maneira uniforme ou use uma ponderação predefinida.
 
 No Método de roteamento de tráfego ponderado, você atribui um peso a cada back-end na configuração do Front Door do seu pool de back-ends. Cada peso é um inteiro de 1 a 1000. Esse parâmetro usa um peso padrão de “50”.
@@ -70,8 +70,8 @@ O método ponderado permite alguns cenários úteis:
 * **Migração de aplicativo para o Azure**: crie um pool de back-end com back-ends externos e do Azure. Ajuste o peso dos back-ends para dar preferência aos novos back-ends. Você pode definir isso gradualmente começando com os novos back-ends desabilitados e atribuindo a eles pesos mais baixos, aumentando lentamente até alcançar os níveis em que eles receberão a maior parte do tráfego. Por fim, basta desabilitar os back-end menos preferenciais e removê-los do pool.  
 * **Estouro de nuvem para capacidade adicional**: expanda rapidamente uma implantação local na nuvem colocando-a atrás do Front Door. Quando você precisar de capacidade extra na nuvem, poderá adicionar ou habilitar mais back-ends e especificar qual parte do tráfego vai para cada back-end.
 
-## <a name = "affinity"></a>Afinidade de sessão
-Por padrão, sem afinidade de sessão, o Front Door encaminha as solicitações originadas do mesmo cliente para back-ends diferentes com base na configuração de balanceamento de carga, especialmente no caso de alteração das latências de em back-ends diferentes ou se diferentes solicitações do mesmo usuário chegarem a outros ambientes do Front Door. No entanto, para alguns aplicativos com estado ou em determinados cenários, é preferível que as solicitações subsequentes do mesmo usuário sejam levadas para o mesmo back-end que processou a solicitação inicial. O recurso de afinidade de sessão baseada em cookies é útil quando você deseja manter uma sessão de usuário no mesmo back-end. Usando cookies gerenciados pelo Front Door, o Azure Front Door Service pode direcionar o tráfego subsequente de uma sessão de usuário para o mesmo back-end para processamento, desde que o back-end esteja íntegro e a sessão do usuário não tenha expirado. 
+## <a name="session-affinity"></a><a name = "affinity"></a>Afinidade da sessão
+Por padrão, sem afinidade de sessão, o Front Door encaminha solicitações originárias do mesmo cliente para diferentes backends com base na configuração de balanceamento de carga, particularmente quando as latências para diferentes backends mudam ou se diferentes solicitações do mesmo o usuário pousa em um ambiente diferente da Porta da Frente. No entanto, para alguns aplicativos com estado ou em determinados cenários, é preferível que as solicitações subsequentes do mesmo usuário sejam levadas para o mesmo back-end que processou a solicitação inicial. O recurso de afinidade de sessão baseada em cookies é útil quando você deseja manter uma sessão de usuário no mesmo back-end. Ao usar cookies gerenciados pelo Front Door, o Azure Front Door pode direcionar o tráfego subseqüente de uma sessão de usuário para o mesmo backend para processamento, desde que o backend esteja saudável e a sessão do usuário não tenha expirado. 
 
 A afinidade de sessão pode ser habilitada em um nível de host de front-end para cada um dos domínios (ou subdomínios) configurados. Uma vez habilitado, o Front Door adiciona um cookie à sessão do usuário. A afinidade de sessão baseada em cookie permite que o Front Door identifique os diferentes usuários, mesmo se estiverem por trás do mesmo endereço IP que, por sua vez, possibilita uma distribuição mais uniforme do tráfego entre seus diferentes back-ends.
 
@@ -80,7 +80,7 @@ O tempo de vida do cookie é o mesmo que a sessão do usuário, visto que o Fron
 > [!NOTE]
 > Proxies públicos podem interferir nas afinidade de sessão. Isso ocorre porque estabelecer uma sessão requer que o Front Door adicione um cookie de afinidade de sessão à resposta, o que não poderá ser realizado se a resposta for armazenável em cache, pois ela poderia atrapalhar os cookies de outros clientes que solicitam o mesmo recurso. Para evitar isso, a afinidade de sessão **não** será estabelecida se o back-end enviar uma resposta armazenável em cache ao tentar fazer isso. Se a sessão já tiver sido estabelecida, não importará se a resposta de back-end for armazenável em cache ou não.
 > A afinidade de sessão será estabelecida nas seguintes circunstâncias, **a menos que** a resposta tenha um código de status HTTP 304:
-> - A resposta tem valores específicos definidos para o cabeçalho ```Cache-Control``` que impedem o armazenamento em cache, como “private” (privado) ou “no-store” (não armazenar).
+> - A resposta tem valores ```Cache-Control``` específicos definidos para o cabeçalho que impede o cache, como "privado" ou não".
 > - A resposta contém um cabeçalho ```Authorization``` que não expirou.
 > - A resposta tem um código de status HTTP 302.
 

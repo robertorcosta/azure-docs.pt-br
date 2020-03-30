@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670994"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crie relatórios interativos com pastas de trabalho do Azure Monitor
@@ -19,7 +19,7 @@ As Pastas de Trabalho combinam texto, [consultas de Análise](https://docs.mic
 
 As pastas de trabalho são úteis para cenários como:
 
-* Explorando o uso de seu aplicativo quando você não conhece as métricas de interesse com antecedência: números de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
+* Explorando o uso do seu aplicativo quando você não sabe as métricas de interesse com antecedência: número de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso, os livros de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as ótimas para esse tipo de exploração de forma livre.
 * Explicar para sua equipe sobre o desempenho de um recurso recém-liberado, mostrando contagens de usuário para as principais interações e outras métricas.
 * Compartilhar os resultados de um experimento A/B no aplicativo com outros membros de sua equipe. Você pode explicar as metas do experimento com um texto e, depois, mostrar cada métrica de uso e consulta do Analytics usada para avaliar o experimento, junto com textos explicativos claros que indicam se cada métrica estava acima ou abaixo da meta.
 * Relatar o impacto de uma interrupção no uso do aplicativo, combinando dados, explicação de texto e uma discussão das próximas etapas para prevenir interrupções no futuro.
@@ -153,13 +153,13 @@ Há quatro tipos diferentes de parâmetros que têm suporte no momento:
   |         |          |
    | ---------------- |:-----|
    | **Texto**    | o usuário editará uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
-   | **Lista suspensa** | O usuário escolherá de um conjunto de valores. |
+   | **Queda** | O usuário escolherá de um conjunto de valores. |
    | **Seletor de intervalo de tempo**| O usuário escolherá um conjunto predefinido de valores de intervalo de tempo ou escolherá um intervalo de tempo personalizado.|
-   | **Seletor de recurso** | O usuário irá escolher dentre os recursos selecionados para a pasta de trabalho.|
+   | **Catador de recursos** | O usuário irá escolher dentre os recursos selecionados para a pasta de trabalho.|
 
 ### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 
-O valor que um usuário digita na caixa de texto é substituído diretamente na consulta, sem escape ou aspas. Se o valor que você precisa é uma cadeia de caracteres, a consulta deve ter aspas ao redor do parâmetro (como **'{parameter}'** ).
+O valor que um usuário digita na caixa de texto é substituído diretamente na consulta, sem escape ou aspas. Se o valor que você precisa é uma cadeia de caracteres, a consulta deve ter aspas ao redor do parâmetro (como **'{parameter}'**).
 
 Isso permite que o valor em uma caixa de texto seja usado em qualquer lugar. Pode ser um nome de tabela, o nome da coluna, nome da função, operador, etc.
 
@@ -199,7 +199,7 @@ Gera o resultado:
 
 ![Controles de edição da seção Pastas de Trabalho do Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Um exemplo mais aplicável é usar uma lista suspensa para escolher um conjunto de países/regiões por nome:
+Um exemplo mais aplicável é usar um dropdown para escolher de um conjunto de países/regiões pelo nome:
 
 ```
 customEvents
@@ -250,7 +250,7 @@ Para fixar um link em uma pasta de trabalho em um Painel do Azure:
 
 Você criou um modelo de pasta de trabalho incrível e quer compartilhá-lo com a comunidade? Para saber mais, visite nosso [repositório GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
     - [Usuários, Sessões, Eventos](../../azure-monitor/app/usage-segmentation.md)

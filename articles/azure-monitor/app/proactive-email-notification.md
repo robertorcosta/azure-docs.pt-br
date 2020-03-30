@@ -1,16 +1,16 @@
 ---
-title: Alterações de notificação de detecção inteligente-Aplicativo Azure insights
-description: Altere para os destinatários de notificação padrão da detecção inteligente. A detecção inteligente permite monitorar rastreamentos de aplicativos com Aplicativo Azure informações sobre padrões incomuns na telemetria de rastreamento.
+title: Mudança de notificação de detecção inteligente - Azure Application Insights
+description: Altere para os destinatários de notificação padrão do Smart Detection. A Detecção Inteligente permite monitorar os rastreamentos de aplicativos com o Azure Application Insights para padrões incomuns na telemetria de rastreamento.
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671776"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração de notificações por email de detecção inteligente
@@ -31,7 +31,7 @@ Essa alteração afetará todas as regras de detecção inteligente, exceto as s
 
 ## <a name="how-to-prepare-for-this-change"></a>Como se preparar para essa alteração?
 
-Para garantir que as notificações por email da detecção inteligente sejam enviadas aos usuários relevantes, esses usuários devem ser atribuídos ao [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ou às funções de colaborador de [monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) da assinatura.
+Para garantir que as notificações de e-mail da Detecção Inteligente sejam enviadas aos usuários relevantes, esses usuários devem ser atribuídos às funções [de Leitor de Monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ou Contribuinte de [Monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) da assinatura.
 
 Para atribuir aos usuários as funções de leitor de monitoramento ou colaborador de monitoramento pelo portal do Azure, siga as etapas descritas no artigo [Adicionar uma atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Certifique-se de selecionar _leitor de monitoramento_ ou _colaborador de monitoramento_ como a função atribuída aos usuários.
 
@@ -40,7 +40,7 @@ Para atribuir aos usuários as funções de leitor de monitoramento ou colaborad
 
 Se você tiver perguntas ou dúvidas sobre essa alteração, [entre em contato conosco](mailto:smart-alert-feedback@microsoft.com).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a detecção inteligente:
 

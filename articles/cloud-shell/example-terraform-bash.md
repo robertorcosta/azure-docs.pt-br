@@ -1,6 +1,6 @@
 ---
-title: Implantar com Terraform de Azure Cloud Shell | Microsoft Docs
-description: Implantar com Terraform de Azure Cloud Shell
+title: Implantar com terraform da Azure Cloud Shell | Microsoft Docs
+description: Implantar com terraform do Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: f5939251729905d349b79a94411cf87e3873b279
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742072"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458147"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implantar com Terraform do Bash no Azure Cloud Shell
-Este artigo mostra as etapas para criar um grupo de recursos com o [provedor do Terraform do AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html). 
+Este artigo mostra as etapas para criar um grupo de recursos com o [provedor do Terraform do AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-O [Hashicorp Terraform](https://www.terraform.io/) é uma ferramenta de software livre que codifica APIs em arquivos de configuração declarativa que podem ser compartilhados entre os membros da equipe para ser editado, revisado e ter controle de versão. O provedor do Microsoft AzureRM é usado para interagir com os recursos com suporte pelo Azure Resource Manager por meio das APIs do AzureRM. 
+O [Hashicorp Terraform](https://www.terraform.io/) é uma ferramenta de software livre que codifica APIs em arquivos de configuração declarativa que podem ser compartilhados entre os membros da equipe para ser editado, revisado e ter controle de versão. O provedor do Microsoft AzureRM é usado para interagir com os recursos com suporte pelo Azure Resource Manager por meio das APIs do AzureRM.
 
 ## <a name="automatic-authentication"></a>Autenticação automática
 O Terraform é instalado em Bash no Cloud Shell por padrão. Além disso, o Cloud Shell autentica automaticamente sua assinatura da CLI do Azure padrão para implantar recursos por meio dos módulos do Terraform Azure.
@@ -147,7 +147,7 @@ O [comando terraform apply](https://www.terraform.io/docs/commands/apply.html) �
 ### <a name="verify-deployment-with-azure-cli"></a>Verificar a implantação com a CLI do Azure
 Execute `az group show -n myRgName` para verificar se o recurso foi provisionado com êxito.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 

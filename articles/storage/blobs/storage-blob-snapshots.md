@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar um instantâneo de blob no .NET-armazenamento do Azure
-description: Saiba como criar um instantâneo somente leitura de um blob para fazer backup de dados de BLOB em um determinado momento.
+title: Criar e gerenciar um instantâneo blob no .NET - Azure Storage
+description: Aprenda a criar um instantâneo somente leitura de uma bolha para fazer backup de dados blob em um dado momento.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,17 +9,17 @@ ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 17cd57fbcf9b1c14fb275a070bdefdd1282c4d6e
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370518"
 ---
-# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerenciar um instantâneo de blob no .NET
+# <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerenciar um instantâneo blob no .NET
 
-Um instantâneo é uma versão somente leitura de um blob capturada em um momento no tempo. Os instantâneos são úteis para fazer backup de blobs. Este artigo mostra como criar e gerenciar instantâneos de BLOB usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Um instantâneo é uma versão somente leitura de um blob capturada em um momento no tempo. Os instantâneos são úteis para fazer backup de blobs. Este artigo mostra como criar e gerenciar instantâneos blob usando a [biblioteca de clientes do Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="about-blob-snapshots"></a>Sobre instantâneos de BLOB
+## <a name="about-blob-snapshots"></a>Sobre instantâneos blob
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -29,7 +29,7 @@ O instantâneo de um blob é idêntico ao respectivo blob de base, exceto pelo f
 > Todos os instantâneos compartilham o URI do blob de base. A única diferença entre o blob de base e o instantâneo é o acréscimo do valor **DateTime** .
 >
 
-Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até serem explicitamente excluídos, o que significa que um instantâneo não pode sobreviver além seu blob de base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
+Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até que sejam explicitamente excluídos, o que significa que um instantâneo não pode sobreviver à sua bolha base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
 
 Quando você cria um instantâneo de um blob, as propriedades do sistema são copiadas para o instantâneo com os mesmos valores. Os metadados do blob de base também são copiados no instantâneo, a menos que você especifique metadados separados para o instantâneo ao criá-lo. Depois de criar um instantâneo, você pode lê-lo, copiá-lo ou excluí-lo, mas não é possível modificá-lo.
 
@@ -39,10 +39,10 @@ Um arquivo VHD é usado para armazenar as informações atuais e o status de um 
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
-Para criar um instantâneo de um blob de blocos, use um dos seguintes métodos:
+Para criar um instantâneo de uma bolha de bloco, use um dos seguintes métodos:
 
-- [CreateSnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
-- [CreateSnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
+- [CriarSnapshot](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshot)
+- [CriarsnapshotAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.createsnapshotasync)
 
 O exemplo de código a seguir mostra como criar um instantâneo. Este exemplo especifica metadados adicionais para o instantâneo quando ele é criado.
 
@@ -81,13 +81,13 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 ## <a name="delete-snapshots"></a>Excluir instantâneos
 
-Para excluir um blob, você deve primeiro excluir todos os instantâneos desse blob. Você pode excluir um instantâneo individualmente ou especificar que todos os instantâneos sejam excluídos quando o blob de origem for excluído. Se você tentar excluir um blob que ainda possua instantâneos, um erro será gerado.
+Para excluir uma bolha, você deve primeiro excluir quaisquer instantâneos dessa bolha. Você pode excluir um instantâneo individualmente ou especificar que todos os instantâneos sejam excluídos quando o blob de origem for excluído. Se você tentar excluir um blob que ainda possua instantâneos, um erro será gerado.
 
-Para excluir instantâneos de BLOB, use um dos seguintes métodos de exclusão de BLOB e inclua a enumeração [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) .
+Para excluir instantâneos blob, use um dos seguintes métodos de exclusão de bolhas e inclua o [enum DeleteSnapshotsOption.](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption)
 
-- [Delete (excluir)](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Excluir](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
-- [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
+- [ExcluirSeexiste](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
 
 O exemplo de código a seguir mostra como excluir um blob e seus instantâneos no .NET, em que `blockBlob` é um objeto do tipo [CloudBlockBlob][dotnet_CloudBlockBlob]:
@@ -98,7 +98,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Retornar o URI absoluto para um instantâneo
 
-O exemplo de código a seguir cria um instantâneo e grava o URI absoluto para o local primário.
+O exemplo de código a seguir cria um instantâneo e escreve o URI absoluto para o local principal.
 
 ```csharp
 //Create the blob service client object.
@@ -130,7 +130,7 @@ A lista a seguir inclui os principais pontos a considerar ao criar um instantân
 
 - Sua conta de armazenamento é cobrada por páginas ou blocos exclusivos, estejam eles no blob ou no instantâneo. Sua conta não incorre em cobranças adicionais para instantâneos associados a um blob até que você atualize o blob no qual eles se baseiam. Depois de atualizar o blob de base, ele divergirá dos respectivos instantâneos. Quando isso acontece, você é cobrado por páginas ou blocos exclusivos em cada blob ou instantâneo.
 - Quando você substituir um bloco em um blob de blocos, esse bloco será cobrado subsequentemente como um único bloco. Isso é verdadeiro mesmo se o bloco tiver a mesma ID de bloco e os mesmos dados que tem no instantâneo. Depois que o bloco for confirmado novamente, ele divergirá de sua contraparte em qualquer instantâneo e você será cobrado por seus dados. O mesmo se aplica para uma página em um blob de páginas é atualizada com os dados idênticos.
-- Substituir um blob de bloco chamando o método [Uploadfromfile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]ou [UploadFromByteArray][dotnet_UploadFromByteArray] substitui todos os blocos no BLOB. Se você tiver um instantâneo associado a esse blob, todos os blocos no blob de base e o instantâneo agora divergirão e você será cobrado por todos os blocos em ambos os blobs. Isso é verdadeiro mesmo se os dados no blob de base e o instantâneo permanecerem idênticos.
+- Substituir um blob de blocos chamando os métodos [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray] substitui todos os blocos no blob. Se você tiver um instantâneo associado a esse blob, todos os blocos no blob de base e o instantâneo agora divergirão e você será cobrado por todos os blocos em ambos os blobs. Isso é verdadeiro mesmo se os dados no blob de base e o instantâneo permanecerem idênticos.
 - O serviço Blob do Azure não tem um meio para determinar se dois blocos contêm dados idênticos. Cada bloco que é carregado e confirmado é tratado como exclusivo, mesmo se tiver os mesmos dados e a mesma ID de bloco. Já que as cobranças se acumulam para blocos exclusivos, é importante considerar que a atualização de um blob que tenha um instantâneo resulta em blocos exclusivos adicionais e cobranças adicionais.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>Minimizar o custo com gerenciamento de instantâneos
@@ -138,7 +138,7 @@ A lista a seguir inclui os principais pontos a considerar ao criar um instantân
 É recomendável gerenciar seus instantâneos com cuidado para evitar cobranças extras. Você pode seguir estas práticas recomendadas para ajudar a minimizar os custos incorridos pelo armazenamento de seus instantâneos:
 
 - Exclua e recrie instantâneos associados a um blob sempre que você atualiza o blob, mesmo se você estiver atualizando com dados idênticos, a menos que o design do seu aplicativo requer que você mantenha os instantâneos. Ao excluir e recriar os instantâneos do blob, você pode garantir que o blob e os instantâneos não divirjam.
-- Se você estiver mantendo instantâneos para um blob, evite chamar [Uploadfromfile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]ou [UploadFromByteArray][dotnet_UploadFromByteArray] para atualizar o blob. Esses métodos substituem todos os blocos no blob, fazendo com que o blob base e os respectivos instantâneos divirjam consideravelmente. Em vez disso, atualize o menor número possível de blocos usando os métodos [PutBlock][dotnet_PutBlock] e [PutBlockList][dotnet_PutBlockList].
+- Se você estiver mantendo instantâneos para um blob, evite chamar [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray] para atualizar o blob. Esses métodos substituem todos os blocos no blob, fazendo com que o blob base e os respectivos instantâneos divirjam consideravelmente. Em vez disso, atualize o menor número possível de blocos usando os métodos [PutBlock][dotnet_PutBlock] e [PutBlockList][dotnet_PutBlockList].
 
 ### <a name="snapshot-billing-scenarios"></a>Cenários de cobrança de instantâneo
 
@@ -164,7 +164,7 @@ No cenário 3, o blob de base foi atualizado, mas o instantâneo, não. O bloco 
 
 #### <a name="scenario-4"></a>Cenário 4
 
-No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos exclusivos. Esse cenário pode ocorrer se você estiver usando um método Update, como [Uploadfromfile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream]ou [UploadFromByteArray][dotnet_UploadFromByteArray], porque esses métodos substituem todo o conteúdo de um blob.
+No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos exclusivos. Este cenário poderá ocorrer se você estiver usando um método de atualização como [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray], pois esses métodos substituem todo o conteúdo de um blob.
 
 ![Recursos de Armazenamento do Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 

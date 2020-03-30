@@ -4,10 +4,10 @@ description: O Stream Analytics pode transformar, filtrar e rotear continuamente
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664007"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usar o Stream Analytics para processar os dados exportados do Application Insights
@@ -89,7 +89,7 @@ Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamen
 
 ### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
 
-**Defina o Formato de Data como AAAA-MM-DD (com traços).**
+**Certifique-se de definir o formato de data para YYYY-MM-DD (com traços).**
 
 O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
@@ -107,7 +107,7 @@ Neste exemplo:
 > 
 
 ## <a name="add-new-output"></a>Adicionar nova saída
-Agora, selecione seu trabalho > **Saídas** > **Adicionar**.
+Agora selecione seu trabalho > **Saídas** > **Adicionar**.
 
 ![](./media/export-stream-analytics/SA006.png)
 
@@ -211,7 +211,7 @@ Noam Ben Zeev mostra como processar dados exportados usando o Stream Analytics.
 > 
 > 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Exportação contínua](export-telemetry.md)
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)

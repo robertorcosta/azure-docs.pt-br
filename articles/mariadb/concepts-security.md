@@ -1,54 +1,54 @@
 ---
-title: Segurança-banco de dados do Azure para MariaDB
-description: Uma visão geral dos recursos de segurança no banco de dados do Azure para MariaDB.
+title: Segurança - Banco de Dados Azure para MariaDB
+description: Uma visão geral dos recursos de segurança no Banco de Dados Do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: d23eabdacc57a3f5a10d9e3b132a6daac42fbd4d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 8f41fe1005e96b428337bc73b9d468962a079596
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772140"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527819"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Segurança no Banco de Dados do Azure para MariaDB
 
-Há várias camadas de segurança que estão disponíveis para proteger os dados no banco de dado do Azure para o servidor MariaDB. Este artigo descreve essas opções de segurança.
+Existem várias camadas de segurança disponíveis para proteger os dados do seu banco de dados Azure para o servidor MariaDB. Este artigo descreve essas opções de segurança.
 
 ## <a name="information-protection-and-encryption"></a>Proteção e criptografia de informações
 
 ### <a name="in-transit"></a>Em trânsito
-O banco de dados do Azure para o MariaDB protege seus dados criptografando os dados em trânsito com a segurança da camada de transporte. A criptografia (SSL/TLS) é imposta por padrão.
+O Banco de Dados Do Azure para MariaDB protege seus dados criptografando dados em trânsito com a Security Transport Layer. A criptografia (SSL/TLS) é aplicada por padrão.
 
 ### <a name="at-rest"></a>Em repouso
-O serviço Banco de Dados do Azure para MariaDB usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco, com exceção dos arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
+O serviço Banco de Dados do Azure para MariaDB usa o módulo de criptografia validado por FIPS 140-2 para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados em disco, com exceção de arquivos temporários criados durante a execução de consultas. O serviço usa a criptografia AES de 256 bits incluída na criptografia de armazenamento do Azure e as chaves são gerenciadas pelo sistema. A criptografia de armazenamento está sempre ativada e não pode ser desabilitada.
 
 
 ## <a name="network-security"></a>Segurança de rede
-As conexões com um banco de dados do Azure para o servidor MariaDB são roteadas primeiro por meio de um gateway regional. O gateway tem um IP acessível publicamente, enquanto os endereços IP do servidor são protegidos. Para obter mais informações sobre o gateway, visite o [artigo arquitetura de conectividade](concepts-connectivity-architecture.md).  
+As conexões a um banco de dados Azure para servidor MariaDB são primeiramente roteadas através de um gateway regional. O gateway tem um IP acessível ao público, enquanto os endereços IP do servidor estão protegidos. Para obter mais informações sobre o gateway, visite o [artigo de arquitetura de conectividade](concepts-connectivity-architecture.md).  
 
-Um banco de dados do Azure criado recentemente para o servidor MariaDB tem um firewall que bloqueia todas as conexões externas. Embora eles atinjam o gateway, eles não têm permissão para se conectar ao servidor. 
+Um banco de dados Azure recém-criado para servidor MariaDB tem um firewall que bloqueia todas as conexões externas. Embora eles cheguem ao gateway, eles não têm permissão para se conectar ao servidor. 
 
 ### <a name="ip-firewall-rules"></a>Regras de firewall de IP
-As regras de firewall IP concedem acesso a servidores com base no endereço IP de origem de cada solicitação. Consulte a [visão geral das regras de firewall](concepts-firewall-rules.md) para obter mais informações.
+As regras de firewall IP concedem acesso a servidores com base no endereço IP de origem de cada solicitação. Consulte a visão geral das [regras do firewall](concepts-firewall-rules.md) para obter mais informações.
 
 ### <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
-Os pontos de extremidade de serviço de rede virtual estendem sua conectividade de rede virtual no backbone do Azure. Usando regras de rede virtual, você pode habilitar seu banco de dados do Azure para o servidor MariaDB para permitir conexões de sub-redes selecionadas em uma rede virtual. Para obter mais informações, consulte [visão geral do ponto de extremidade do serviço de rede virtual](concepts-data-access-security-vnet.md).
+Os pontos finais de serviço de rede virtual ampliam sua conectividade de rede virtual sobre o backbone do Azure. Usando regras de rede virtuais, você pode habilitar seu banco de dados Azure para servidor MariaDB para permitir conexões de sub-redes selecionadas em uma rede virtual. Para obter mais informações, consulte a visão geral do [ponto final do serviço](concepts-data-access-security-vnet.md)de rede virtual .
 
 
-## <a name="access-management"></a>gerenciamento de acesso
+## <a name="access-management"></a>Gerenciamento de acesso
 
-Ao criar o banco de dados do Azure para o servidor MariaDB, você fornece credenciais para um usuário administrador. Esse administrador pode ser usado para criar usuários MariaDB adicionais.
+Ao criar o Banco de Dados Azure para o servidor MariaDB, você fornece credenciais para um usuário administrador. Este administrador pode ser usado para criar usuários adicionais do MariaDB.
 
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
-Você pode aceitar a [proteção avançada contra ameaças](concepts-data-access-and-security-threat-protection.md) , que detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar servidores.
+Você pode optar pelo [Advanced Threat Protection,](concepts-data-access-and-security-threat-protection.md) que detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar servidores.
 
-O [log de auditoria](concepts-audit-logs.md) está disponível para acompanhar a atividade em seus bancos de dados. 
+[O registro de auditoria](concepts-audit-logs.md) está disponível para rastrear a atividade em seus bancos de dados. 
 
 
-## <a name="next-steps"></a>Próximos passos
-- Habilitar regras de firewall para [IPS](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-security-vnet.md)
+## <a name="next-steps"></a>Próximas etapas
+- Habilite regras de firewall para [IPs](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-security-vnet.md)

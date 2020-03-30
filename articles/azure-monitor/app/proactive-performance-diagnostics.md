@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671725"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
@@ -49,7 +49,7 @@ As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
-As notificações de detecção inteligente são habilitadas por padrão e enviadas aos que têm acesso de [monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [monitoramento de colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) para a assinatura na qual reside o recurso de Application insights. Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
+As notificações de Detecção Inteligente são habilitadas por padrão e enviadas para aqueles que têm acesso [ao Leitor de Monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e Monitoramento [contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) à assinatura em que o recurso Application Insights reside. Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
   
   ![Configurações de Detecção Inteligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,7 +70,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 * *Posso criar minhas próprias regras de detecção de anomalias ou personalizar regras existentes?*
 
   * Ainda não, mas você pode:
-    * [Configurar alertas](../../azure-monitor/app/alerts.md) que informam quando uma métrica excede um limite.
+    * [Configure alertas](../../azure-monitor/app/alerts.md) que informem quando uma métrica cruza um limiar.
     * [Exporte a telemetria](../../azure-monitor/app/export-telemetry.md) para um [banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou para o [PowerBI](../../azure-monitor/app/export-power-bi.md ), em que você mesmo poderá analisá-la.
 * *Com que frequência a análise é executada?*
 
@@ -170,11 +170,11 @@ Clique nos links para abrir o Metrics Explorer e a Pesquisa de relatórios relev
 
 Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
 * [Profiler](profiler.md) 
-* [Depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md)
+* [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)
 * [Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnóstico inteligente do Analytics](../../azure-monitor/app/analytics.md)
 

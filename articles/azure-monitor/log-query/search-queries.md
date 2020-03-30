@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660233"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa nos logs do Azure Monitor
@@ -43,7 +43,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>Tabela e coluna de escopo
-Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar apenas uma coluna específica (denominada *origem* no exemplo abaixo), use esta sintaxe:
+Por padrão, a **pesquisa** avaliará todas as colunas no conjunto de dados. Para pesquisar apenas uma coluna específica (chamada *Fonte* no exemplo abaixo), use esta sintaxe:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -51,7 +51,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se você usar `==` em vez de `:`, os resultados seriam incluir registros em que o *origem* coluna tem o valor exato "error" e nesse caso exato. Usar ': ' incluirá registros em que a *origem* tem valores como "código de erro 404" ou "erro".
+> Se você usar `==` em vez de `:`, os resultados seriam incluir registros em que o *origem* coluna tem o valor exato "error" e nesse caso exato. O uso de ':' incluirá registros onde *a Fonte* tem valores como "código de erro 404" ou "Erro".
 
 ## <a name="case-sensitivity"></a>Diferenciar maiusculas de minúsculas
 Por padrão, pesquisa de termo diferencia maiusculas de minúsculas, portanto, pesquisar "dns" pode produzir resultados como "DNS", "dns" ou "Dns". Para tornar a pesquisa diferencia maiusculas de minúsculas, use o `kind` opção:
@@ -94,7 +94,7 @@ Você também pode obter tudo em uma tabela usando apenas um curinga: `search in
 > [!TIP]
 > Embora você possa usar `search *` para obter todas as colunas de todas as tabelas, é recomendável que você sempre definir o escopo de suas consultas em tabelas específicas. Fora do escopo de consultas pode demorar um pouco para ser concluído e pode retornar um número excessivo de resultados.
 
-## <a name="add-and--or-to-search-queries"></a>Adicionar *e* / *ou* para pesquisar consultas
+## <a name="add-and--or-to-search-queries"></a>Adicione *e* / *ou* para pesquisar consultas
 Use **e** para procurar registros que contêm vários termos:
 
 ```Kusto
@@ -102,7 +102,7 @@ search in (Event) "error" and "register"
 | take 100
 ```
 
-Use **ou** para obter registros que contenham pelo menos um dos termos:
+Use ** ou ** para obter registros que contenham pelo menos um dos termos:
 
 ```Kusto
 search in (Event) "error" or "register"
@@ -129,6 +129,6 @@ search in (Event) "win"
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Confira mais tutoriais sobre o [site da linguagem de consulta do Kusto](/azure/kusto/query/).

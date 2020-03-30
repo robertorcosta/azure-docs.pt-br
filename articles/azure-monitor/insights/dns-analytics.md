@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
 ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657326"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
@@ -36,7 +36,7 @@ A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução
 | **Fonte conectada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
 | [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução coleta informações de DNS dos agentes do Windows. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de DNS dos agentes diretos do Linux. |
+| [Agentes Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de DNS dos agentes diretos do Linux. |
 | [Grupo de gerenciamento do System Center Operations Manager](../platform/om-agents.md) | Sim | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessária uma conexão direta entre o agente do Operations Manager e o Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
 | [Conta de armazenamento do Azure](../platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é usado pela solução. |
 
@@ -57,7 +57,7 @@ A solução inicia a coleta de dados sem a necessidade de configuração adicion
 
 No painel de solução, clique em **Configuração** para abrir a página Configuração de Análise de DNS. Há dois tipos de alteração de configuração que podem ser feitos:
 
-- **Nomes de Domínio na Lista de Permissões**. A solução não processa todas as consultas de pesquisa. Ela mantém uma lista de permissões de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem aos sufixos de nome de domínio na lista de permissões não são processadas pela solução. O não processamento de nomes de domínio na lista de permissões ajuda a otimizar os dados enviados ao Azure Monitor. A lista de permissões padrão inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa com a barra de rolagem.
+- **Nomes de domínio listados na lista branca**. A solução não processa todas as consultas de pesquisa. Ela mantém uma lista de permissões de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem aos sufixos de nome de domínio na lista de permissões não são processadas pela solução. O não processamento de nomes de domínio na lista de permissões ajuda a otimizar os dados enviados ao Azure Monitor. A lista de permissões padrão inclui nomes de domínio público populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa com a barra de rolagem.
 
   É possível modificar a lista para adicionar qualquer sufixo de nome de domínio do qual você deseja exibir informações de pesquisa. Você também pode remover qualquer sufixo de nome de domínio do qual você não deseja exibir informações de pesquisa.
 
@@ -99,7 +99,7 @@ O painel da solução mostra as seguintes folhas:
 
 ![folha Segurança DNS](./media/dns-analytics/dns-security-blade.png)
 
-Quando você clica em um IP do cliente na lista, a Pesquisa de Logs é aberta e mostra os detalhes da pesquisa da respectiva consulta. No seguinte exemplo, a Análise de DNS detectou que a comunicação foi feita com um [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
+Quando você clica em um IP do cliente na lista, a Pesquisa de Logs é aberta e mostra os detalhes da pesquisa da respectiva consulta. No exemplo a seguir, o DNS Analytics detectou que a comunicação foi feita com um [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
 ![Resultados da pesquisa de logs mostrando ircbot](./media/dns-analytics/ircbot.png)
 
@@ -177,12 +177,12 @@ Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar
 
 Etapas comuns de solução de problemas:
 
-1. Dados de pesquisas de DNS ausentes-para solucionar esse problema, tente redefinir a configuração ou apenas carregar a página de configuração uma vez no Portal. Para redefinir, basta alterar uma configuração para outro valor e, em seguida, alterá-la de volta para o valor original e salvar a configuração.
+1. Dados de pesquisa de DNS ausentes - Para solucionar esse problema, tente redefinir a configuração ou apenas carregar a página de configuração uma vez no portal. Para redefinir, basta alterar uma configuração para outro valor, em seguida, alterá-la de volta para o valor original e salvar a configuração.
 
 ## <a name="feedback"></a>Comentários
 
-Para fornecer comentários, visite a [página log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) para postar ideias para análise de DNS recursos para trabalhar. 
+Para fornecer feedback, visite a [página Log Analytics UserVoice](https://aka.ms/dnsanalyticsuservoice) para postar ideias sobre os recursos do DNS Analytics para trabalhar. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Consulte logs](../log-query/log-query-overview.md) para exibir registros de log DNS detalhados.

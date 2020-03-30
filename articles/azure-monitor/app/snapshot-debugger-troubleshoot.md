@@ -1,19 +1,19 @@
 ---
-title: Solucionar problemas do Aplicativo Azure insights Depurador de Instantâneos
-description: Este artigo apresenta as etapas e as informações de solução de problemas para ajudar os desenvolvedores que estão tendo problemas para habilitar ou usar Application Insights Depurador de Instantâneos.
+title: Depuração de snapshot do Azure Application Insights
+description: Este artigo apresenta etapas e informações de solução de problemas para ajudar os desenvolvedores que estão tendo problemas para ativar ou usar o Depurador de instantâneos do Application Insights.
 ms.topic: conceptual
 author: brahmnes
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671402"
 ---
-# <a id="troubleshooting"></a>Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
-Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes pelos quais os instantâneos não são gerados. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Solucionando problemas que permitem o Depurador de instantâneos do Application Insights ou a visualização de instantâneos
+Se você habilitou o Depurador de instantâneos do Application Insights para o seu aplicativo, mas não está vendo instantâneos para exceções, você pode usar essas instruções para solucionar problemas. Pode haver muitas razões diferentes pelas quais os snapshots não são gerados. Você pode executar a verificação de saúde de instantâneo para identificar algumas das possíveis causas comuns.
 
 ## <a name="use-the-snapshot-health-check"></a>Use a verificação de integridade do instantâneo
 Vários problemas comuns resultam na não exibição do Abrir Instantâneo de Depuração. Usando um Coletor de Instantâneo desatualizado, por exemplo; alcançando o limite de carregamento diário; ou talvez o instantâneo está simplesmente demorando muito para carregar. Use a Verificação de Integridade de Instantâneo para solucionar problemas comuns.
@@ -32,13 +32,13 @@ Se isso não resolver o problema, consulte as etapas manuais de solução de pro
 
 Certifique-se de que está usando a chave de instrumentação correta no aplicativo publicado. Normalmente, a chave de instrumentação é lida do arquivo ApplicationInsights.config. Verifique se o valor é o mesmo da chave de instrumentação para o recurso do Application Insights que você vê no portal.
 
-## <a name="preview-versions-of-net-core"></a>Versões prévias do .NET Core
-Se o aplicativo usar uma versão de visualização do .NET Core e Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, depurador de instantâneos talvez não seja iniciado. Siga as instruções em [habilitar depurador de instantâneos para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) com o aplicativo, ***além*** de habilitar por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+## <a name="preview-versions-of-net-core"></a>Visualizar versões do .NET Core
+Se o aplicativo usar uma versão de visualização do .NET Core e o Snapshot Debugger foi ativado através do [painel Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, então o Snapshot Debugger pode não ser ativado. Siga as instruções em [Ativar snapshot depurador para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet com o ***aplicativo, além*** de habilitar através do painel Do aplicativo [Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Atualize para a versão mais recente do pacote NuGet
 
-Se Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights no portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), seu aplicativo já deverá estar executando o pacote NuGet mais recente. Se Depurador de Instantâneos tiver sido habilitado incluindo o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , use o Gerenciador de pacotes NuGet do Visual Studio para verificar se você está usando a versão mais recente de Microsoft. ApplicationInsights. SnapshotCollector. Notas de versão podem ser encontradas em https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Se o Snapshot Debugger foi habilitado através do [painel Application Insights no portal,](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)então seu aplicativo já deve estar executando o pacote NuGet mais recente. Se o Snapshot Debugger foi habilitado incluindo o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, use o NuGet Package Manager do Visual Studio para ter certeza de que você está usando a versão mais recente do Microsoft.ApplicationInsights.SnapshotCollector. Notas de versão podem ser encontradas em https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ## <a name="check-the-uploader-logs"></a>Verificar os logs de carregador
 
@@ -216,4 +216,4 @@ Se você não vir uma exceção com essa ID de instantâneo, a telemetria de exc
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Editar regras de firewall ou proxy de rede
 
-Se o aplicativo se conectar à Internet por meio de um proxy ou firewall, talvez será necessário editar as regras para permitir que o aplicativo se comunique com o serviço de Depurador de Instantâneos. Os IPs usados pelo Depurador de Instantâneos são incluídos na marca de serviço do Azure Monitor.
+Se o aplicativo se conectar à Internet por meio de um proxy ou firewall, talvez será necessário editar as regras para permitir que o aplicativo se comunique com o serviço de Depurador de Instantâneos. Os IPs usados pelo Snapshot Debugger estão incluídos na tag de serviço Do Monitor do Azure.

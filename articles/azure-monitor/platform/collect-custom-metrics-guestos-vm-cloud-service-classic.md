@@ -1,6 +1,6 @@
 ---
-title: Enviar métricas clássicas dos serviços de nuvem para Azure Monitor banco de dados de métricas
-description: Descreve o processo para enviar métricas de desempenho do SO convidado para serviços de nuvem clássicos do Azure para o repositório de métrica Azure Monitor.
+title: Envie métricas clássicas do Cloud Services para o banco de dados de métricas do Azure Monitor
+description: Descreve o processo de envio de métricas de desempenho do Guest OS para o Azure classic Cloud Services para a loja métrica Do Monitor Do Azure.
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655780"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor 
@@ -26,15 +26,15 @@ Armazená-las nesse local permite que você acesse as mesmas ações possíveis 
 
 O processo descrito neste artigo só funciona para contadores de desempenho nos Serviços de Nuvem do Azure. Ele não funciona para outras métricas personalizadas. 
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ser um [administrador ou co-administrador de serviços](../../cost-management-billing/manage/add-change-subscription-administrator.md) em sua assinatura do Azure. 
 
 - Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Você precisa ter [o Azure PowerShell](/powershell/azure) ou [o Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalados.
 
-- Seu serviço de nuvem deve estar em uma [região que dá suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
+- Seu Serviço de Nuvem deve estar em uma [região que suporte métricas personalizadas.](metrics-custom-overview.md#supported-regions)
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Provisionar um serviço de nuvem e uma conta de armazenamento 
 
@@ -177,7 +177,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 2. No menu esquerdo, selecione **Monitor**.
 
-3. Na folha **Monitor**, selecione a guia **Métricas (versão prévia)** .
+3. Na folha **Monitor**, selecione a guia **Métricas (versão prévia)**.
 
 4. No menu suspenso do recurso, selecione seu serviço de nuvem clássico.
 
@@ -189,7 +189,7 @@ Use a filtragem de dimensão e os recursos de divisão para exibir a memória to
 
  ![Métricas do portal do Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

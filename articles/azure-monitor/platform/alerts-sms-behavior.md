@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665299"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento dos alertas por SMS em grupos de ação
@@ -35,13 +35,13 @@ Um receptor de SMS configurado como parte de um grupo de ação receberá um SMS
 | DISABLE `<Action Group Short name>` | Desabilita o SMS adicional do Grupo de Ação |
 | ENABLE `<Action Group Short name>` | Habilita novamente o SMS do Grupo de Ação |
 | STOP | Desabilita o SMS adicional de todos os Grupos de Ação |
-| {1&gt;INICIAR&lt;1} | Habilita novamente o SMS de TODOS os Grupos de Ação |
+| START | Habilita novamente o SMS de TODOS os Grupos de Ação |
 | HELP | Uma resposta é enviada para o usuário com um link para este artigo. |
 
 >[!NOTE]
 >Se um usuário tiver cancelado a assinatura de alertas por SMS, mas, em seguida, ele for adicionado a um novo grupo de ação, ele receberá alertas por SMS para esse novo grupo de ação, mas a assinatura de todos os grupos de ação anteriores permanecerá cancelada.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Obtenha uma [visão geral dos alertas do log de atividades](alerts-overview.md) e saiba como receber alertas  
 Saiba mais sobre a [limitação de taxa de SMS](alerts-rate-limiting.md)  
 Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md)
