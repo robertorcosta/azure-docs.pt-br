@@ -1,5 +1,5 @@
 ---
-title: Recursos de segurança de gerenciamento e monitoramento-Microsoft Azure | Microsoft Docs
+title: Recursos de segurança de gerenciamento e monitoramento - Microsoft Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral dos recursos de segurança e serviços que o Azure fornece para auxiliar no gerenciamento e no monitoramento de serviços de nuvem e máquinas virtuais do Azure.
 services: security
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73162753"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de gerenciamento e monitoramento de segurança do Azure
@@ -32,7 +32,7 @@ O RBAC (Controle de Acesso Baseado em Função) fornece o gerenciamento de acess
 Saiba mais:
 
 * [Blog da equipe do Active Directory sobre o RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Controle de Acesso Baseado em Função do Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
 
@@ -40,7 +40,7 @@ Com o Azure, você pode usar um software antimalware dos principais fornecedores
 
 O Antimalware da Microsoft para Máquinas Virtuais e Serviços de Nuvem do Azure oferece a capacidade de instalar um agente de antimalware para funções de PaaS e máquinas virtuais. Com base no System Center Endpoint Protection, esse recurso leva para a nuvem a já comprovada tecnologia de segurança local.
 
-Também oferecemos uma integração profunda dos produtos [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) da Trend na plataforma Azure. Deep Security é uma solução antivírus, e SecureCloud é uma solução de criptografia. O Deep Security é implantado nas VMs por meio de um modelo de extensão. Usando a interface do usuário do portal do Azure e o PowerShell, você pode optar por usar o Deep Security em novas VMs que estão sendo iniciadas ou nas VMs virtuais existentes que já foram implantadas.
+Também oferecemos uma profunda integração para os produtos [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) e [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) da Trend na plataforma Azure. Deep Security é uma solução antivírus, e SecureCloud é uma solução de criptografia. O Deep Security é implantado nas VMs por meio de um modelo de extensão. Usando a interface do usuário do portal do Azure e o PowerShell, você pode optar por usar o Deep Security em novas VMs que estão sendo iniciadas ou nas VMs virtuais existentes que já foram implantadas.
 
 Também há suporte para o SEP (Symantec Endpoint Protection) no Azure. Por meio da integração do portal, você pode especificar que pretende usar o SEP em uma VM. O SEP pode ser instalado em uma nova VM por meio do portal do Azure ou instalado em uma VM existente usando o PowerShell.
 
@@ -100,7 +100,7 @@ Saiba mais:
 * [Gerenciamento de identidades com privilégios do AD do Azure](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Introdução ao Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md)
 
-## <a name="identity-protection"></a>Proteção de identidade
+## <a name="identity-protection"></a>Identity Protection
 
 O Azure Active Directory Identity Protection fornece uma exibição consolidada das atividades de entrada suspeitas e das vulnerabilidades potenciais, com o objetivo de ajudar a proteger seus negócios. A Proteção de Identidade detecta atividades suspeitas para usuários e identidades com privilégios (administrador), com base em sinais como:
 
@@ -130,11 +130,11 @@ A Central de Segurança ajuda a otimizar e monitorar a segurança de seus recurs
 Saiba mais:
 
 * [Introdução à Central de Segurança do Azure](../../security-center/security-center-intro.md)
-* [Melhorar sua classificação de segurança na Central de Segurança do Azure](../../security-center/security-center-secure-score.md)
+* [Melhorar sua pontuação segura na Central de segurança do Azure](../../security-center/security-center-secure-score.md)
 
 ## <a name="intelligent-security-graph"></a>Gráfico de Segurança Inteligente
 
-O Gráfico de Segurança Inteligente fornece proteção contra ameaças em tempo real nos serviços e produtos da Microsoft. Ele usa análises avançadas que vinculam uma grande quantidade de dados de segurança e inteligência de ameaça para fornecer insights que podem reforçar a segurança da organização. A Microsoft usa análises avançadas, processando mais de 450 bilhões de autenticações por mês, verificando a presença de malware e phishing em 400 bilhões de emails e atualizando um bilhão de dispositivos, para gerar insights mais avançados. Com esses insights, sua organização pode detectar e responder a ataques rapidamente.
+O Gráfico de Segurança Inteligente fornece proteção contra ameaças em tempo real nos serviços e produtos da Microsoft. Ele usa análises avançadas que vinculam uma grande quantidade de dados de segurança e inteligência de ameaça para fornecer insights que podem reforçar a segurança da organização. A Microsoft usa análises avançadas, processando mais de 450 bilhões de autenticações por mês, verificando a presença de malware e phishing em 400 bilhões de emails e atualizando um bilhão de dispositivos, para gerar insights mais avançados. Esses insights podem ajudar sua organização detectar e responder a ataques rapidamente.
 
 * [Gráfico de Segurança Inteligente](https://www.microsoft.com/security/intelligence)
 

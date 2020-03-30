@@ -10,10 +10,10 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
 ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022946"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
@@ -28,7 +28,7 @@ O diagrama a seguir mostra um cenário híbrido que inclui os serviços do Azure
 
 * **Rede** - Local: VPN ou Microsoft Azure ExpressRoute. Azure: VNET do Azure.
 
-* **Armazenamento** - Arquivos de entrada e saída: NFS ou CFS usando VMs do Azure, sincronizados com armazenamento local por meio da Sincronização de Arquivos do Azure e RSync. Como alternativa: avere vFXT para entrada ou saída de arquivos em dispositivos NAS locais usando NFS.
+* **Armazenamento** - Arquivos de entrada e saída: NFS ou CFS usando VMs do Azure, sincronizados com armazenamento local por meio da Sincronização de Arquivos do Azure e RSync. Alternativamente: Avere vFXT para inserir ou output files de dispositivos NAS no local usando NFS.
 
   ![Intermitência de nuvem - Híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
@@ -57,7 +57,7 @@ O diagrama a seguir mostra um cenário híbrido totalmente conectado para comput
   ![Intermitência de nuvem - Computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como usar [Gerenciadores de renderização](batch-rendering-render-managers.md) com o Lote do Azure.
 

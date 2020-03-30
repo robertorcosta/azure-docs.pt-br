@@ -5,14 +5,14 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 7f7dc1483002c2bdfe3227a8aade8dbf2a8da417
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70802999"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Obter um token do Azure Resource Manager
-O Active Directory do Azure deve autenticar todas as tarefas que podem ser executadas nos recursos usando o Gerenciador de Recursos do Azure. O exemplo mostrado aqui usa a autenticação de senha, para outras abordagens, consulte [autenticando Azure Resource Manager solicitações][lnk-authenticate-arm].
+O Active Directory do Azure deve autenticar todas as tarefas que podem ser executadas nos recursos usando o Gerenciador de Recursos do Azure. O exemplo mostrado aqui usa a autenticação de senha; para ver outras abordagens, veja [Autenticação de solicitações do Azure Resource Manager][lnk-authenticate-arm].
 
 1. Adicione o seguinte código ao método **Main** em Program.cs para recuperar um token do Azure AD usando a ID e senha do aplicativo.
    

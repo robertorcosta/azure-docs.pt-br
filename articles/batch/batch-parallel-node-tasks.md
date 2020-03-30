@@ -1,5 +1,5 @@
 ---
-title: Executar tarefas em paralelo para otimizar os recursos de computação-lote do Azure
+title: Executar tarefas em paralelo para otimizar os recursos de computação - Azure Batch
 description: Aumente a eficiência e reduza os custos usando menos nós de computação e executando tarefas simultâneas em cada nó em um pool do Lote do Azure
 services: batch
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.date: 04/17/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5465771cb97ef9d8d5c451a6bafc61c4621d3c4b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023626"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Execute tarefas simultaneamente para maximizar o uso dos nós de computação do Lote 
@@ -38,24 +38,24 @@ Para ilustrar os benefícios de execução das tarefas paralelas, digamos que se
 Em vez de usar os nós Standard\_D1, que têm um núcleo de CPU, você poderia utilizar os nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) com 16 núcleos cada e permitir a execução de tarefas paralelas. Portanto, *16 vezes menos nós* poderiam ser usados; em vez de 1.000 nós, somente 63 seriam necessários. Além disso, se arquivos de aplicativo grandes ou dados de referência forem necessários para cada nó, a eficiência e a duração do trabalho serão novamente aperfeiçoadas, uma vez que os dados são copiados para apenas 63 nós.
 
 ## <a name="enable-parallel-task-execution"></a>Habilitar a execução de tarefas paralelas
-Você configura os nós de computação para a execução paralela das tarefas no nível do pool. Com a biblioteca .NET do lote, defina a propriedade [CloudPool. MaxTasksPerComputeNode][maxtasks_net] ao criar um pool. Se você estiver usando a API REST do lote, defina o elemento [maxTasksPerNode][rest_addpool] no corpo da solicitação durante a criação do pool.
+Você configura os nós de computação para a execução paralela das tarefas no nível do pool. Com a biblioteca .NET do Lote, defina a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] quando criar um pool. Se você estiver usando a API REST do Lote, defina o elemento [maxTasksPerNode][rest_addpool] no corpo da solicitação durante a criação do pool.
 
-O lote do Azure permite que você defina tarefas por nó até (4x) o número de nós principais. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. No entanto, independentemente de quantos núcleos o nó tem, você não pode ter mais de 256 tarefas por nó. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
+O Azure Batch permite definir tarefas por nó até (4x) o número de nós principais. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. No entanto, independentemente de quantos núcleos o nó tem, você não pode ter mais de 256 tarefas por nó. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
 
 > [!TIP]
-> Lembre-se de levar em conta o valor de `maxTasksPerNode` ao construir uma [fórmula de dimensionamento automático][enable_autoscaling] para o pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
+> Leve em consideração o valor de `maxTasksPerNode` ao criar uma [fórmula de dimensionamento automático][enable_autoscaling] para o seu pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
 >
 >
 
 ## <a name="distribution-of-tasks"></a>Distribuição de tarefas
 Quando os nós de computação em um pool puderem executar as tarefas simultaneamente, será importante especificar como você deseja distribuir suas tarefas nos nós no pool.
 
-Usando a propriedade [CloudPool. TaskSchedulingPolicy][task_schedule] , você pode especificar que as tarefas devem ser atribuídas uniformemente em todos os nós no pool ("difusão"). Ou você pode especificar que o máximo possível de tarefas deve ser atribuído a cada nó antes de as tarefas serem atribuídas a outro nó no pool ("remessa").
+Ao usar a propriedade [CloudPool.TaskSchedulingPolicy][task_schedule], você pode especificar que as tarefas devam ser atribuídas uniformemente em todos os nós no pool ("difusão"). Ou você pode especificar que o máximo possível de tarefas deve ser atribuído a cada nó antes de as tarefas serem atribuídas a outro nó no pool ("remessa").
 
-Como um exemplo de como esse recurso é valioso, considere o pool de nós [padrão de\_D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) configurado com um valor de 16 [CloudPool. MaxTasksPerComputeNode][maxtasks_net] . Se o [CloudPool. TaskSchedulingPolicy][task_schedule] for configurado com um [ComputeNodeFillType][fill_type] do *Pack*, ele maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento](batch-automatic-scaling.md) automático removesse nós não utilizados do pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economizando dinheiro.
+Como um exemplo de como esse recurso é útil, considere o pool de nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) configurado com um valor de 16 para [CloudPool.MaxTasksPerComputeNode][maxtasks_net]. Se [CloudPool.TaskSchedulingPolicy][task_schedule] for configurada com um [ComputeNodeFillType][fill_type] igual a *Pack*, ela maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento automático](batch-automatic-scaling.md) removesse os nós não utilizados do pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economizando dinheiro.
 
 ## <a name="batch-net-example"></a>Exemplo de .NET do Lote
-Este trecho de código de API [.net do lote][api_net] mostra uma solicitação para criar um pool que contém quatro nós com um máximo de quatro tarefas por nó. Isso especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para obter mais informações sobre como adicionar pools usando a API .NET do lote, consulte [BatchClient. PoolOperations. createpool][poolcreate_net].
+Este snippet de código da API [Batch .NET][api_net] mostra uma solicitação para criar um pool que contém quatro nós com um máximo de quatro tarefas por nó. Isso especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para saber mais sobre como adicionar pools usando a API .NET do Lote, confira [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
 ```csharp
 CloudPool pool =
@@ -71,7 +71,7 @@ pool.Commit();
 ```
 
 ## <a name="batch-rest-example"></a>Exemplo REST do Lote
-Este trecho da API [REST do lote][api_rest] mostra uma solicitação para criar um pool que contém dois nós grandes com um máximo de quatro tarefas por nó. Para obter mais informações sobre como adicionar pools usando a API REST, consulte [Adicionar um pool a uma conta][rest_addpool].
+Esse snippet da API [REST do Lote][api_rest] mostra uma solicitação para criar um pool com dois nós grandes, com um máximo de quatro tarefas por nó. Para obter mais informações sobre como adicionar pools usando a API REST, consulte [Adicionar um pool a uma conta][rest_addpool].
 
 ```json
 {
@@ -89,14 +89,14 @@ Este trecho da API [REST do lote][api_rest] mostra uma solicitação para criar 
 ```
 
 > [!NOTE]
-> Você pode definir o elemento `maxTasksPerNode` e a propriedade [MaxTasksPerComputeNode][maxtasks_net] somente no momento da criação do pool. Eles não poderão ser modificados após a criação do pool.
+> Você pode definir o elemento `maxTasksPerNode` e a propriedade [MaxTasksPerComputeNode][maxtasks_net] apenas no momento da criação do pool. Eles não poderão ser modificados após a criação do pool.
 >
 >
 
 ## <a name="code-sample"></a>Exemplo de código
-O projeto [ParallelNodeTasks][parallel_tasks_sample] no GitHub ilustra o uso da propriedade [CloudPool. MaxTasksPerComputeNode][maxtasks_net] .
+O projeto [ParallelNodeTasks][parallel_tasks_sample] no GitHub ilustra o uso da propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net].
 
-Esse C# aplicativo de console usa a biblioteca [.net do lote][api_net] para criar um pool com um ou mais nós de computação. Ele executa um número configurável de tarefas nesses nós para simular uma carga variável. A saída do aplicativo especifica os nós executados em cada tarefa. O aplicativo também fornece um resumo dos parâmetros do trabalho e a duração. A parte de resumo da saída de duas execuções diferentes do aplicativo de exemplo é exibida abaixo.
+Este aplicativo de console C# usa a biblioteca [.NET do Lote][api_net] para criar um pool com um ou mais nós de computação. Ele executa um número configurável de tarefas nesses nós para simular uma carga variável. A saída do aplicativo especifica os nós executados em cada tarefa. O aplicativo também fornece um resumo dos parâmetros do trabalho e a duração. A parte de resumo da saída de duas execuções diferentes do aplicativo de exemplo é exibida abaixo.
 
 ```
 Nodes: 1
@@ -123,9 +123,9 @@ A segunda execução do exemplo mostra uma redução significativa na duração 
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 ### <a name="batch-explorer-heat-map"></a>Mapa de Calor do Explorador do Lote
-[O Batch Explorer][batch_labs] é uma ferramenta cliente autônoma, rica e exclusiva para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. O Batch Explorer contém um recurso de *Mapa de Calor* que fornece visualização da execução da tarefa. Quando estiver executando o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample] , você poderá usar o recurso de mapa de calor para visualizar facilmente a execução de tarefas paralelas em cada nó.
+[O Explorador de lotes][batch_labs] é uma ferramenta de cliente autônomo e gratuita para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. O Batch Explorer contém um recurso de *Mapa de Calor* que fornece visualização da execução da tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], você pode usar o recurso Mapa de Calor para visualizar facilmente a execução das tarefas paralelas em cada nó.
 
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx

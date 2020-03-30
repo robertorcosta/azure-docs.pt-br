@@ -18,19 +18,19 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71213009"
 ---
-# <a name="how-to-send-scheduled-notifications"></a>Como: Enviar notificações agendadas
+# <a name="how-to-send-scheduled-notifications"></a>Como enviar notificações agendadas
 
 Se você tiver um cenário no qual deseja enviar uma notificação em algum momento futuro, mas não tiver um maneira fácil de despertar seu código back-end para enviar a notificação. Os hubs de notificação do tipo Standard oferecem suporte a um recurso que permite a programação de notificações para sete dias no futuro.
 
 
 ## <a name="schedule-your-notifications"></a>Agendar notificações
-Ao enviar uma notificação, basta usar a classe [`ScheduledNotification` ](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) no SDK dos Hubs de Notificação, conforme mostrado no seguinte exemplo:
+Ao enviar uma notificação, [ `ScheduledNotification` ](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) basta usar a classe no SDK de hubs de notificação, conforme mostrado no exemplo a seguir:
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
@@ -51,7 +51,7 @@ Não há limites para o número de notificações agendadas que você pode envia
 Consulte os seguintes tutoriais:
 
  - [Notificações por push para todos os dispositivos registrados](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
- - [Notificações por push para especificar dispositivos](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
+ - [Notificações por push para dispositivos específicos](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
  - [Notificações localizadas por push](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
- - [Enviar notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
+ - [Notificações por push para usuários específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
  - [Notificações por push com base no local](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

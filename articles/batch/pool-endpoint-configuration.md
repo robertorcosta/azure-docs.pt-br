@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: labrenne
 ms.openlocfilehash: 098ccf999391412520989c4ec2433fd73bc0a72d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77017217"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desabilitar o acesso remoto a nós de computação em um pool do Lote do Azure
@@ -22,7 +22,7 @@ Por padrão, o lote permite um [usuário de nó](/rest/api/batchservice/computen
 Em seu ambiente, talvez seja necessário restringir ou desabilitar essas configurações de acesso externo padrão. Você pode modificar essas configurações usando as APIs de Lote para definir a propriedade [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration). 
 
 ## <a name="about-the-pool-endpoint-configuration"></a>Sobre a configuração de ponto de extremidade do pool
-A configuração de ponto de extremidade consiste em um ou mais [pools de NAT (Conversão de Endereços de Rede)](/rest/api/batchservice/pool/add#inboundnatpool) de portas de front-end. (Não confunda um pool de NAT com o pool do lote de nós de computação.) Você configura cada pool NAT para substituir as configurações de conexão padrão nos nós de computação do pool. 
+A configuração de ponto de extremidade consiste em um ou mais [pools de NAT (Conversão de Endereços de Rede)](/rest/api/batchservice/pool/add#inboundnatpool) de portas de front-end. (Não confunda um pool NAT com o pool de nós de computação batch.) Você configura cada pool NAT para substituir as configurações de conexão padrão nos nós computacionais do pool. 
 
 Cada configuração de pool de NAT inclui uma ou mais [Regras de NSG (Grupo de Segurança de Rede)](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regra de NSG permite ou nega determinado tráfego de rede para o ponto de extremidade. Você pode optar por permitir ou negar todo o tráfego, o tráfego identificado por uma [marca de serviço](../virtual-network/security-overview.md#service-tags) (como "Internet") ou o tráfego de endereços IP ou sub-redes específicas.
 
@@ -123,7 +123,7 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre regras de NSG no Azure, veja [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
 

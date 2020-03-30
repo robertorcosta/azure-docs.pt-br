@@ -1,5 +1,5 @@
 ---
-title: Criar dependências de tarefas para executar tarefas-lote do Azure
+title: Criar dependências de tarefas para executar tarefas - Azure Batch
 description: Crie tarefas que dependem da conclusão de outras tarefas para o processamento em estilo MapReduce e cargas de trabalho de big data semelhantes no Lote do Azure.
 services: batch
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.date: 05/22/2017
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca771117e889afc8e143c4ca4626ab2d3bb4da2f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022895"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas
@@ -37,10 +37,10 @@ Por padrão, as tarefas dependentes estão agendadas para execução somente ap�
 Você pode criar tarefas que dependem de outras tarefas em uma relação um para um ou um para muitos. Também é possível criar uma dependência entre intervalos, em que uma tarefa depende da conclusão de um grupo de tarefas em um intervalo especificado de identificações da tarefa. Você pode combinar esses três cenários básicos para criar relações muitos-para-muitos.
 
 ## <a name="task-dependencies-with-batch-net"></a>Dependências de tarefas com o .NET do Lote
-Neste artigo, discutiremos como configurar dependências de tarefas usando a biblioteca [.net do lote][net_msdn] . Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Também descrevemos como especificar uma ação de dependência para executar tarefas dependentes em caso de falha do pai. Finalmente, discutiremos os [cenários de dependência](#dependency-scenarios) aos quais o Lote dá suporte.
+Neste artigo, discutimos como configurar dependências de tarefas usando a biblioteca [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Também descrevemos como especificar uma ação de dependência para executar tarefas dependentes em caso de falha do pai. Finalmente, discutiremos os [cenários de dependência](#dependency-scenarios) aos quais o Lote dá suporte.
 
 ## <a name="enable-task-dependencies"></a>Habilitar dependências de tarefas
-Para usar dependências entre tarefas no aplicativo do Lote, é necessário primeiro configurar o trabalho para usar dependências entre tarefas. No .NET do lote, habilite-o em seu [CloudJob][net_cloudjob] definindo sua propriedade [UsesTaskDependencies][net_usestaskdependencies] como `true`:
+Para usar dependências entre tarefas no aplicativo do Lote, é necessário primeiro configurar o trabalho para usar dependências entre tarefas. No .NET do Lote, habilite-o no [CloudJob][net_cloudjob] configurando a propriedade [UsesTaskDependencies][net_usestaskdependencies] como `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -50,10 +50,10 @@ CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
 unboundJob.UsesTaskDependencies = true;
 ```
 
-No trecho de código anterior, "batchClient" é uma instância da classe [batchClient][net_batchclient] .
+No snippet de código anterior, "batchClient" é uma instância da classe [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Criar tarefas dependentes
-Para criar uma tarefa que depende da conclusão de uma ou mais tarefas pai, é possível especificar que a tarefa “depende” das outras tarefas. No .NET do lote, configure o [CloudTask][net_cloudtask]. [Depende][net_dependson] da propriedade com uma instância da classe [TaskDependencies][net_taskdependencies] :
+Para criar uma tarefa que depende da conclusão de uma ou mais tarefas pai, é possível especificar que a tarefa “depende” das outras tarefas. No .NET do Lote, configure a propriedade [CloudTask][net_cloudtask].[DependsOn][net_dependson] com uma instância da classe [TaskDependencies][net_taskdependencies]:
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -67,7 +67,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Este snippet de código cria uma tarefa dependente com a identificação da tarefa “Flowers”. A tarefa “Flowers” depende das tarefas “Rain” e “Sun”. A tarefa “Flowers” será agendada para execução em um nó de computação somente após a conclusão bem-sucedida das tarefas “Rain” e “Sun”.
 
 > [!NOTE]
-> Por padrão, uma tarefa é considerada concluída com êxito quando está no estado **concluído** e seu **código de saída** é `0`. No .NET do lote, isso significa um [CloudTask][net_cloudtask]. Valor da propriedade [State][net_taskstate] `Completed` e do CloudTask do CloudTaskTaskExecutionInformation][net_taskexecutioninformation]. O valor da propriedade[ExitCode][net_exitcode] é `0`. Para saber como alterar isso, confira a seção [Ações de dependência](#dependency-actions).
+> Por padrão, uma tarefa é considerada concluída com êxito quando está no estado **concluído** e seu **código de saída** é `0`. No .NET do Lote, isso significa que o valor da propriedade [CloudTask][net_cloudtask].[State][net_taskstate] é `Completed` e o valor da propriedade [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask é `0`. Para saber como alterar isso, confira a seção [Ações de dependência](#dependency-actions).
 > 
 > 
 
@@ -86,7 +86,7 @@ Há três cenários de dependência de tarefas básicos que você pode usar no L
 > Nos exemplos desta seção, uma tarefa dependente é executada somente após a conclusão bem-sucedida das tarefas pai. Esse comportamento é o comportamento padrão de uma tarefa dependente. É possível executar uma tarefa dependente após uma falha da tarefa pai especificando uma ação de dependência para substituir o comportamento padrão. Consulte a seção [Ações de dependência](#dependency-actions) para obter detalhes.
 
 ### <a name="one-to-one"></a>Um para um
-Em uma relação um-para-um, uma tarefa depende da conclusão bem-sucedida de uma tarefa pai. Para criar a dependência, forneça uma única ID de tarefa para o [TaskDependencies][net_taskdependencies]. Método estático [OnId][net_onid] quando você preenche a [Propriedade dependy][net_dependson] de [CloudTask][net_cloudtask].
+Em uma relação um-para-um, uma tarefa depende da conclusão bem-sucedida de uma tarefa pai. Para criar a dependência, forneça uma única identificação da tarefa para o método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
@@ -100,7 +100,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Um-para-muitos
-Em uma relação um-para-muitos, uma tarefa depende da conclusão de várias tarefas pai. Para criar a dependência, forneça uma coleção de IDs de tarefa para o [TaskDependencies][net_taskdependencies]. Método estático [OnIds][net_onids] quando você preenche a Propriedade [dependy][net_dependson] de [CloudTask][net_cloudtask].
+Em uma relação um-para-muitos, uma tarefa depende da conclusão de várias tarefas pai. Para criar a dependência, forneça uma coleção de identificações da tarefa para o método estático [TaskDependencies][net_taskdependencies].[OnIds][net_onids] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -117,7 +117,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 ### <a name="task-id-range"></a>Intervalo de IDs de tarefa
 Em uma dependência em um intervalo de tarefas pai, uma tarefa depende da conclusão de tarefas cujas IDs estão em um intervalo.
-Para criar a dependência, forneça a primeira e a última ID de tarefa no intervalo para o [TaskDependencies][net_taskdependencies]. Método estático [OnIdRange][net_onidrange] quando você preenche a Propriedade [dependy][net_dependson] de [CloudTask][net_cloudtask].
+Para criar a dependência, forneça a primeira e a última identificação da tarefa no intervalo para o método estático [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
 > Quando você usar os intervalos de ID de tarefa para suas dependências, somente tarefas com IDs que representam valores inteiros serão selecionadas por intervalo. Portanto, o intervalo `1..10` selecionará as tarefas `3` e `7`, mas não `5flamingoes`. 
@@ -152,7 +152,7 @@ Por padrão, uma tarefa dependente ou um conjunto de tarefas é executado soment
 
 Por exemplo, suponha que uma tarefa dependente está aguardando dados da conclusão da tarefa upstream. Se a tarefa upstream falhar, a tarefa dependente ainda poderá ser executada usando dados mais antigos. Nesse caso, uma ação de dependência pode especificar que a tarefa dependente é qualificada para execução, apesar da falha da tarefa pai.
 
-Uma ação de dependência baseia-se em uma condição de saída da tarefa pai. Você pode especificar uma ação de dependência para qualquer uma das seguintes condições de saída; para .NET, consulte a classe [ExitConditions][net_exitconditions] para obter detalhes:
+Uma ação de dependência baseia-se em uma condição de saída da tarefa pai. É possível especificar uma ação de dependência para qualquer uma das condições de saída a seguir; para o .NET, consulte a classe [ExitConditions][net_exitconditions] para obter detalhes:
 
 - Quando ocorre um erro de pré-processamento.
 - Quando ocorre um erro de carregamento de arquivo. Se a tarefa é encerrada com um código de saída especificado por meio de **exitCodes** ou **exitCodeRanges**, e, em seguida, encontra erro de carregamento de arquivo, a ação especificada pelo código de saída tem precedência.
@@ -160,7 +160,7 @@ Uma ação de dependência baseia-se em uma condição de saída da tarefa pai. 
 - Quando a tarefa é encerrada com um código de saída que está dentro de um intervalo especificado pela propriedade **ExitCodeRanges**.
 - No caso padrão, se a tarefa for encerrada com um código de saída não definido por **ExitCodes** ou **ExitCodeRanges**, ou se a tarefa for encerrada com um erro de pré-processamento e a propriedade **PreProcessingError** não for definida, ou se houver erro de carregamento de arquivo e a propriedade **FileUploadError** não estiver definida. 
 
-Para especificar uma ação de dependência no .NET, defina [exitoptions][net_exitoptions]. Propriedade [dependencyaction][net_dependencyaction] para a condição de saída. A propriedade **DependencyAction** usa um dos dois valores:
+Para especificar uma ação de dependência no .NET, defina a propriedade [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] da condição de saída. A propriedade **DependencyAction** usa um dos dois valores:
 
 - A configuração da propriedade **DependencyAction** como **Atender** indica que as tarefas dependentes estão qualificadas para execução se a tarefa pai é encerrada com um erro especificado.
 - A configuração da propriedade **DependencyAction** como **Bloquear** indica que as tarefas dependentes não estão qualificadas para execução.
@@ -203,18 +203,18 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>Exemplo de código
-O projeto de exemplo [TaskDependencies][github_taskdependencies] é um dos [exemplos de código do lote do Azure][github_samples] no github. Esta solução do Visual Studio demonstra:
+O projeto de exemplo [TaskDependencies][github_taskdependencies] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Esta solução do Visual Studio demonstra:
 
 - Como habilitar a dependência entre tarefas em um trabalho
 - Como criar tarefas que dependem de outras tarefas
 - Como executar essas tarefas em um pool de nós de computação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 ### <a name="application-deployment"></a>Implantação de aplicativo
 O recurso de [pacotes de aplicativos](batch-application-packages.md) do lote fornece uma maneira fácil de implantar e controlar a versão dos aplicativos que as tarefas executam em nós de computação.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalação de aplicativos e preparação de dados
-Consulte [Instalando aplicativos e preparando dados em nós de computação do lote][forum_post] no fórum do lote do Azure para obter uma visão geral dos métodos para preparar seus nós para executar tarefas. Escrita por um dos membros da equipe do Lote do Azure, essa postagem é um bom guia sobre as diferentes maneiras de copiar aplicativos, dados de entrada de tarefa e outros arquivos nos nós de computação.
+Consulte [Instalando aplicativos e preparando dados em nós de computação do Lote][forum_post] no fórum do Lote do Azure para obter uma visão geral de métodos para preparar os nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, essa postagem é um bom guia sobre as diferentes maneiras de copiar aplicativos, dados de entrada de tarefa e outros arquivos nos nós de computação.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -238,4 +238,4 @@ Consulte [Instalando aplicativos e preparando dados em nós de computação do l
 
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagrama: dependência de um para um"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependência de um para muitos"
-[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência de intervalo de ids de tarefas"
+[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência do intervalo de id da tarefa"

@@ -1,28 +1,27 @@
 ---
-title: Padrões de SaaS multilocatário
+title: Padrões SaaS de vários inquilinos
 description: Aprenda sobre os requisitos e os padrões da arquitetura de dados comuns de aplicativos de banco de dados SaaS (software como serviço) multilocatários executados no ambiente de nuvem do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seoapril2019
-ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ad7bd660ee685b490fb79c7e63fd3c5fce557977
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: seoapril2019
+ms.openlocfilehash: 956d74467c69d9924d26f9cae8d902a6ddd84496
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822068"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067499"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de locatário de banco de dados de SaaS multilocatários
 
-Este artigo descreve os vários modelos de locação disponíveis para um aplicativo SaaS multilocatário.
+Este artigo descreve os vários modelos de locação disponíveis para um aplicativo SaaS multi-inquilino.
 
-Ao criar um aplicativo de SaaS multilocatário, você deve escolher cuidadosamente o modelo de aluguel que melhor atenda às necessidades do seu aplicativo.  Um modelo de aluguel determina como os dados de cada locatário são mapeados para o armazenamento.  A escolha do modelo de aluguel afeta o design de aplicativo e gerenciamento.  Alternar para um modelo diferente mais tarde, às vezes, é caro.
+Ao criar um aplicativo de SaaS multilocatário, você deve escolher cuidadosamente o modelo de aluguel que melhor atenda às necessidades do seu aplicativo.  Um modelo de locação determina como os dados de cada inquilino são mapeados para armazenamento.  A escolha do modelo de aluguel afeta o design de aplicativo e gerenciamento.  Alternar para um modelo diferente mais tarde, às vezes, é caro.
 
 ## <a name="a-saas-concepts-and-terminology"></a>a. Conceitos e terminologia de SaaS
 
@@ -30,10 +29,10 @@ No Software como um modelo de serviço (SaaS), sua empresa não vende *licenças
 
 Em troca de pagamento de aluguel, cada locatário recebe acesso aos componentes do seu aplicativo SaaS, e tem seus dados armazenados no sistema de SaaS.
 
-O termo *modelo de locação* refere-se a como os dados armazenados dos locatários são organizados:
+O termo * modelo de locação * refere-se a como os dados armazenados dos locatários são organizados:
 
-- *Single-aluguel:* &nbsp; cada banco de dados armazena dados de apenas um locatário.
-- *Multilocação:* &nbsp; cada banco de dados armazena dados de vários locatários separados (com mecanismos para proteger a privacidade de dados).
+- *Locação única:* &nbsp; Cada banco de dados armazena dados de apenas um inquilino.
+- *Multi-locação:* &nbsp; Cada banco de dados armazena dados de vários inquilinos separados (com mecanismos para proteger a privacidade de dados).
 - Modelos de aluguel híbridos também estão disponíveis.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo apropriado de aluguel
@@ -46,9 +45,9 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
     - Armazenamento em agregação.
     - Carga de trabalho.
 
-- **Isolamento de locatários:** &nbsp; Isolamento de dados e desempenho (se cargas de trabalho de um locatário afeta outras pessoas).
+- **Isolamento do inquilino:** &nbsp; isolamento e desempenho de dados (se a carga de trabalho de um inquilino impacta outros).
 
-- **Custo por locatário:** &nbsp; Os custos de banco de dados.
+- **Custo por inquilino:** &nbsp; Custos do banco de dados.
 
 - **Complexidade de desenvolvimento:**
     - Alterações para esquema.
@@ -56,11 +55,11 @@ Em geral, o modelo de aluguel não afeta a função de um aplicativo, mas provav
 
 - **Complexidade operacional:**
     - Monitoramento e ajuste de desempenho.
-    - Gerenciamento do esquema.
+    - Gerenciamento do Esquema.
     - Restaurando um locatário.
     - Recuperação de desastre.
 
-- **Personalização:** &nbsp; Facilidade de suportar as personalizações de esquema que são específicas de locatário ou específicos de classe de locatário.
+- **Personalização:** &nbsp; Facilidade de suporte a personalizações de esquemas que são específicas do inquilino ou específicas da classe do inquilino.
 
 A discussão de aluguel enfoca na camada de *dados*.  Mas considere por um momento a camada de *aplicativo*.  A camada de aplicativo é tratada como uma entidade monolítica.  Se você dividir o aplicativo em vários componentes pequenos, a escolha do modelo de aluguel pode ser alterada.  Você pode tratar alguns componentes diferentemente de outras pessoas sobre tanto aluguel e a tecnologia de armazenamento quanto a plataforma usada.
 
@@ -78,7 +77,7 @@ Cada banco de dados de locatário é implantado como um banco de dados individua
 
 #### <a name="vendor-management"></a>Gerenciamento de fornecedor
 
-O fornecedor pode acessar todos os bancos de dados em todas as instâncias de aplicativo autônomo, mesmo se as instâncias do aplicativo estão instaladas em assinaturas de locatários diferentes.  O acesso é obtido por meio de conexões do SQL.  Esse acesso entre instâncias pode habilitar o fornecedor centralizar o gerenciamento de esquema e consulta de bancos de dados para fins de relatório ou análise.  Se esse tipo de gerenciamento centralizado é desejado, um catálogo deve ser mapeado identificadores de locatário para URIs de banco de dados implantado.  Banco de dados SQL do Azure fornece uma biblioteca de fragmentação que é usada junto com um banco de dados SQL para fornecer um catálogo.  A biblioteca de fragmentação é formalmente nomeada a [biblioteca de cliente do banco de dados elástico][docu-elastic-db-client-library-536r].
+O fornecedor pode acessar todos os bancos de dados em todas as instâncias de aplicativo autônomo, mesmo se as instâncias do aplicativo estão instaladas em assinaturas de locatários diferentes.  O acesso é obtido por meio de conexões do SQL.  Esse acesso entre instâncias pode habilitar o fornecedor centralizar o gerenciamento de esquema e consulta de bancos de dados para fins de relatório ou análise.  Se esse tipo de gerenciamento centralizado é desejado, um catálogo deve ser mapeado identificadores de locatário para URIs de banco de dados implantado.  Banco de dados SQL do Azure fornece uma biblioteca de fragmentação que é usada junto com um banco de dados SQL para fornecer um catálogo.  A biblioteca de fragmentação é chamada formalmente o [biblioteca de cliente de Banco de Dados Elástico][docu-elastic-db-client-library-536r].
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplicativo de multilocatário com o banco de dados por locatário
 
@@ -98,13 +97,13 @@ Quando os bancos de dados são implantados no mesmo grupo de recursos, eles pode
 
 ![Aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-db-per-tenant-pool-153p]
 
-Banco de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorar e gerenciar o compartilhamento.  As métricas de desempenho no nível do pool e no nível de banco de dados estão disponíveis no portal do Azure e por meio de logs de Azure Monitor.  As métricas podem fornecer excelentes ideias sobre desempenho de agregação e específicos de locatário.  Bancos de dados individuais podem ser movidos entre grupos para fornecer recursos reservados para um locatário específico.  Essas ferramentas permitem garantir o bom desempenho de maneira econômica.
+Banco de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorar e gerenciar o compartilhamento.  As métricas de desempenho em nível de pool e de banco de dados estão disponíveis no portal do Azure e através de logs do Monitor Do Azure.  As métricas podem fornecer excelentes ideias sobre desempenho de agregação e específicos de locatário.  Bancos de dados individuais podem ser movidos entre grupos para fornecer recursos reservados para um locatário específico.  Essas ferramentas permitem garantir o bom desempenho de maneira econômica.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Escala de operações para o banco de dados por locatário
 
 A plataforma de Banco de Dados SQL do Azure tem muitos recursos de gerenciamento projetados para gerenciar grandes números de bancos de dados em escala, como mais de 100.000 bancos de dados.  Esses recursos tornam o padrão de banco de dados por locatário plausível.
 
-Por exemplo, suponha que um sistema tem um banco de dados de 1000 locatário como apenas um banco de dados.  O banco de dados pode ter 20 índices.  Se o sistema converter para ter bancos de dados de único locatário 1000, a quantidade de índices aumentará para 20.000.  No banco de dados SQL como parte do [ajuste automático][docu-sql-db-automatic-tuning-771a], os recursos de indexação automática são habilitados por padrão.  A indexação automática gerencia para você, todos os índices de 20.000 e seus otimizações create e drop em andamento.  Essas ações automatizadas ocorrerem dentro de um banco de dados individual, e eles não são coordenados ou restrito a ações semelhantes em outros bancos de dados.  A indexação automática trata índices de forma diferente em um banco de dados ocupado que em um banco de dados menos ocupado.  Esse tipo de personalização de gerenciamento de índice seria impraticável em escala a banco de dados por locatário se essa tarefa de gerenciamento de grande tinha que ser feita manualmente.
+Por exemplo, suponha que um sistema tem um banco de dados de 1000 locatário como apenas um banco de dados.  O banco de dados pode ter 20 índices.  Se o sistema converter para ter bancos de dados de único locatário 1000, a quantidade de índices aumentará para 20.000.  No banco de dados SQL como parte do [ajuste automático][docu-sql-db-automatic-tuning-771a], os recursos de indexação automática estão habilitados por padrão.  A indexação automática gerencia para você, todos os índices de 20.000 e seus otimizações create e drop em andamento.  Essas ações automatizadas ocorrerem dentro de um banco de dados individual, e eles não são coordenados ou restrito a ações semelhantes em outros bancos de dados.  A indexação automática trata índices de forma diferente em um banco de dados ocupado que em um banco de dados menos ocupado.  Esse tipo de personalização de gerenciamento de índice seria impraticável em escala a banco de dados por locatário se essa tarefa de gerenciamento de grande tinha que ser feita manualmente.
 
 Outros recursos de gerenciamento que podem ser expandidos também incluem o seguinte:
 
@@ -115,7 +114,7 @@ Outros recursos de gerenciamento que podem ser expandidos também incluem o segu
 
 #### <a name="automation"></a>Automação
 
-As operações de gerenciamento podem ser inseridas no script e oferecidas por meio de um modelo [DevOps][http-visual-studio-devops-485m] .  As operações ainda podem ser automatizadas e expostas no aplicativo.
+As operações de gerenciamento podem ser incluídos no script e oferecidas por meio de um [devops][http-visual-studio-devops-485m] modelo.  As operações ainda podem ser automatizadas e expostas no aplicativo.
 
 Por exemplo, você pode automatizar a recuperação de um único locatário em um ponto anterior no tempo.  A recuperação só precisa restaurar um único locatário banco de dados que armazena o locatário.  Essa restauração não tem nenhum impacto em outros locatários, que confirma que as operações de gerenciamento estão no nível granular eficiente de cada locatário individual.
 
@@ -125,9 +124,9 @@ Por exemplo, você pode automatizar a recuperação de um único locatário em u
 
 #### <a name="tenant-isolation-is-sacrificed"></a>No entanto, o isolamento de locatários é limitado
 
-*Dados:* &nbsp; um banco de dados multilocatário necessariamente sacrifica isolamento de locatários.  Os dados de vários locatários são armazenados juntos em um banco de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca exponham dados de mais de um locatário.  O banco de dados SQL dá suporte à [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], o que pode impor que os dados retornados de uma consulta sejam delimitados para um único locatário.
+*Dados:* &nbsp; Um banco de dados de vários inquilinos necessariamente sacrifica o isolamento do inquilino.  Os dados de vários locatários são armazenados juntos em um banco de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca exponham dados de mais de um locatário.  Banco de dados SQL dá suporte a [segurança em nível de linha][docu-sql-svr-db-row-level-security-947w], que pode garantir que os dados retornados por uma consulta escopo para um único locatário.
 
-*Processamento:* &nbsp; um banco de dados multilocatário compartilha os recursos de computação e armazenamento em todos os seus locatários.  O banco de dados como um todo pode ser monitorado para garantir desempenho aceitável.  No entanto, o sistema do Azure não tem interno como monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário traz um risco maior de encontrar vizinhos ruídos, onde a carga de trabalho de um locatário overactive afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  Monitoramento adicional de nível de aplicativo pode monitorar o desempenho do nível de locatário.
+*Processamento:* &nbsp; Um banco de dados multi-locatário compartilha recursos de computação e armazenamento em todos os seus inquilinos.  O banco de dados como um todo pode ser monitorado para garantir desempenho aceitável.  No entanto, o sistema do Azure não tem interno como monitorar ou gerenciar o uso desses recursos por um locatário individual.  Portanto, o banco de dados multilocatário traz um risco maior de encontrar vizinhos ruídos, onde a carga de trabalho de um locatário overactive afeta a experiência de desempenho de outros locatários no mesmo banco de dados.  Monitoramento adicional de nível de aplicativo pode monitorar o desempenho do nível de locatário.
 
 #### <a name="lower-cost"></a>Menor custo
 
@@ -145,7 +144,7 @@ Operações de gerenciamento que concentram-se em locatários individuais são m
 
 A maioria dos aplicativos SaaS acessar os dados de locatário somente um por vez.  O padrão de acesso permite que os dados de locatário seja distribuída por vários bancos de dados ou fragmentos, onde todos os dados para um locatário está contido em um fragmento.  Um modelo fragmentado combinado com um padrão de banco de dados multilocatário, permite que a escala praticamente ilimitada.
 
-![Aplicativo de multilocatário com o banco de dados por locatário.][image-mt-app-sharded-mt-db-174s]
+![ de multilocatário com o banco de dados por locatário.][image-mt-app-sharded-mt-db-174s]
 
 #### <a name="manage-shards"></a>Gerenciar fragmentos
 
@@ -185,8 +184,8 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 
 | Medida | Aplicativo independente | Banco de dados por locatário | Multilocatário fragmentado |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Escala | Média<br />1-100s | Muito alta<br />1-100.000s | Ilimitado<br />1-1.000.000s |
-| Isolamento de locatário | Muito alta | Alto | Baixo, exceto para qualquer locatário único (ou seja, sozinho em um banco de dados de MT). |
+| Escala | Médio<br />1-100s | Muito alta<br />1-100.000s | Ilimitado<br />1-1.000.000s |
+| Isolamento de locatário | Muito alta | Alta | Baixo, exceto para qualquer locatário único (ou seja, sozinho em um banco de dados de MT). |
 | Banco de dados por locatário | Alta; é dimensionado para picos. | Baixo; pools usados. | Mais baixo, para locatários pequenos em MT bancos de dados. |
 | Monitoramento e gerenciamento de desempenho | Por locatário somente | Agregação + por locatário | Agregação, embora seja por locatário somente para únicos. |
 | Complexidade de desenvolvimento | Baixo | Baixo | Médio; devido à fragmentação. |
@@ -195,9 +194,9 @@ A tabela a seguir resume as diferenças entre o Functions e o WebJobs.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implantar e explorar um aplicativo Wingtip multilocatário que usa o modelo de SaaS de banco de dados por locatário – banco de dados SQL do Azure][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
+- [Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de Dados SQL do Azure][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 
-- [Bem-vindo ao aplicativo de aluguel de banco de dados SQL do SaaS de exemplo do Wingtip tickets][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
+- [Bem-vindo ao aplicativo de aluguel de Banco de Dados SQL do Azure do SaaS de exemplo do Wingtip Tickets][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
 
 
 <!--  Article link references.  -->

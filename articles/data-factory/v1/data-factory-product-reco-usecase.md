@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70139152"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso - recomendações de produtos
@@ -38,7 +38,7 @@ Em terceiro lugar, as recomendações devem poder ser entregues imediatamente ao
 
 Por fim, os revendedores devem avaliar a eficiência de sua abordagem acompanhando as medidas de vendas bem-sucedidas de conversão de clique, tanto em vendas suplementares quanto em vendas cruzadas, para então ajustar-se às suas recomendações futuras.
 
-## <a name="solution-overview"></a>Visão Geral da Solução
+## <a name="solution-overview"></a>Visão geral da solução
 Esse exemplo de caso de uso foi resolvido e implementado por usuários reais do Azure pelo uso do Azure Data Factory e outros serviços de componente de Cortana Intelligence, inclusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
 O revendedor online usa um Armazenamento de Blob do Azure, um SQL Server local, um Banco de Dados SQL do Azure e um data mart para dados relacionais como suas opções de armazenamento de dados durante o fluxo de trabalho.  O armazenamento de blob contém dados de informações de produto, dados de comportamento do cliente e informações do produto. Os dados de informações de produto incluem informações sobre a marca do produto e um catálogo de produtos armazenados localmente em um SQL data warehouse. 

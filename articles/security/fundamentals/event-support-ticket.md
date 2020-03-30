@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: barclayn
 ms.openlocfilehash: 5635a9e1403731eabc20a04be880fd0aeb24d729
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727350"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Como registrar um tíquete de suporte de evento de segurança
@@ -28,15 +28,15 @@ ms.locfileid: "68727350"
 
     ![Tipo de evento e definição](./media/event-support-ticket/chart.png)
 
-3. Depois de selecionar o Tipo de Problema e a Categoria, clique no botão '**Iniciar solicitação**'. Forneça as informações a seguir para nos ajudar a entender melhor o problema.
+3. Depois de selecionar o Tipo de problema e a categoria, clique no botão **'Iniciar solicitação**'. Forneça as informações a seguir para nos ajudar a entender melhor o problema.
 
     i. Qual é o problema e/ou vulnerabilidade?
 
-    II. Para vulnerabilidades, forneça a CVE (mitre.org) ou a calculadora de CVSS3 v3 preenchida (https://www.first.org/cvss/calculator/3.0).
+    ii. Para vulnerabilidades, forneça a cve (mitre.org) ou a calculadora CVSS3 v3 preenchida (https://www.first.org/cvss/calculator/3.0).
 
     III. Há uma resolução ou mitigação? Se sim, forneça as etapas de correção.
 
-    IV. Você tem uma mensagem que deseja enviar aos clientes? Trabalharemos com você para criar uma mensagem apropriada, se aplicável.
+    iv. Você tem uma mensagem que deseja enviar aos clientes? Trabalharemos com você para criar uma mensagem apropriada, se aplicável.
 
 4. Confirmação de envio – Depois que você tiver enviado seu problema, confirmaremos o recebimento dentro de um dia útil e atribuiremos uma prioridade e uma gravidade ao problema.
 

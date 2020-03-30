@@ -7,15 +7,15 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976781"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como se conectar a fontes de dados
 ## <a name="introduction"></a>Introdução
-**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Um aspecto fundamental deste cenário está usando os dados – quando um usuário descobrir uma fonte de dados e compreender sua finalidade, a próxima etapa será se conectar à fonte de dados para colocar seus dados em uso.
+**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, **o Azure Data Catalog** tem tudo a ver com ajudar as pessoas a descobrir, entender e usar fontes de dados e ajudar as organizações a obter mais valor a partir de seus dados existentes. Um aspecto fundamental deste cenário está usando os dados – quando um usuário descobrir uma fonte de dados e compreender sua finalidade, a próxima etapa será se conectar à fonte de dados para colocar seus dados em uso.
 
 ## <a name="data-source-locations"></a>Locais de origem de dados
 Durante o registro da fonte de dados, o **Catálogo de dados do Azure** recebe metadados sobre a fonte de dados. Esses metadados incluem os detalhes do local da fonte de dados. Os detalhes do local variam de fonte de dados para fonte de dados, mas sempre conterão as informações necessárias para a conexão. Por exemplo, o local para uma tabela do SQL Server inclui o nome do servidor, o nome do banco de dados, o nome do esquema e o nome da tabela, enquanto o local para um relatório do SQL Server Reporting Services inclui o nome do servidor e o caminho para o relatório. Outros tipos de fonte de dados terão locais que reflitam a estrutura e os recursos do sistema de origem.
@@ -28,7 +28,7 @@ Quando o modo de exibição de bloco padrão for usado, esse menu estará dispon
 
 Quando o modo de exibição de lista for usado, o menu estará disponível na barra de pesquisa na parte superior da janela do portal.
 
- ![Abrir um relatório de SQL Server Reporting Services no Report Manager](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Abrindo um relatório sql server reporting services no gerenciador de relatórios](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Aplicativos do Cliente com Suporte
 Ao usar o menu "Abrir em..." para as fontes de dados no portal do Catálogo de Dados do Azure, o aplicativo cliente correto deve ser instalado no computador do cliente.
@@ -59,5 +59,5 @@ Para facilitar a descoberta de uma fonte de dados para usuários que não tenham
 ## <a name="summary"></a>Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados for registrada e descoberta, os usuários poderão se conectar à fonte de dados do menu “Abrir no...” do portal **Catálogo de Dados do Azure** ou usando suas ferramentas de dados à sua escolha.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como conectar as fontes de dados.

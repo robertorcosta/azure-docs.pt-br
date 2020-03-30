@@ -1,6 +1,6 @@
 ---
 title: Aprimore a segurança de gerenciamento remoto no Azure | Microsoft Docs
-description: Este artigo aborda as etapas para aprimorar a segurança de gerenciamento remoto durante a administração de Microsoft Azure ambientes, incluindo serviços de nuvem, máquinas virtuais e aplicativos personalizados.
+description: Este artigo discute medidas para melhorar a segurança do gerenciamento remoto enquanto administra os ambientes do Microsoft Azure, incluindo serviços de nuvem, máquinas virtuais e aplicativos personalizados.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73643790"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
@@ -138,14 +138,14 @@ A imposição de políticas que inclui controles de acesso estritos utiliza meca
 ## <a name="client-configuration"></a>Configuração do cliente
 Recomendamos três configurações principais para uma estação de trabalho protegida. Os maiores diferenciais entre elas são o custo, a usabilidade e a acessibilidade, mantendo um perfil de segurança semelhante em todas as opções. A tabela a seguir fornece uma breve análise dos benefícios e riscos de cada uma delas. (Observe que "computador corporativo" se refere a uma configuração de computador desktop padrão que seria implantada para todos os usuários do domínio, independentemente das funções.)
 
-| Configuração | Benefícios | Contras |
+| Configuração | Benefícios | Desvantagens |
 | --- | --- | --- |
 | Estação de trabalho protegida autônoma |Estação de trabalho rigidamente controlada |custo mais alto para áreas de trabalho dedicadas |
 | - | Risco reduzido de explorações de aplicativos |Maior esforço de gerenciamento |
 | - | Clara separação de funções | - |
 | Computador corporativo como máquina virtual |Menor custo de hardware | - |
 | - | Segregação de funções e aplicativos | - |
-| Windows To Go com criptografia de unidade de disco BitLocker |Compatibilidade com a maioria dos computadores |Acompanhamento de ativos |
+| Windows To Go com criptografia de unidade de disco BitLocker  |Compatibilidade com a maioria dos computadores |Acompanhamento de ativos |
 | - | Economia e portabilidade | - |
 | - | Ambiente de gerenciamento isolado |- |
 
@@ -186,7 +186,7 @@ Considere as diretrizes adicionais a seguir ao gerenciar aplicativos e dados no 
 ### <a name="dos-and-donts"></a>Recomendações
 Não presuma que, como uma estação de trabalho foi bloqueada, outros requisitos de segurança comuns não precisam ser atendidos. O risco potencial é maior devido aos níveis de acesso com privilégios elevados que as contas de administrador geralmente têm. Exemplos de riscos e suas práticas de segurança alternativas são mostrados na tabela a seguir.
 
-| Errado | Certo |
+| O que não fazer | O que fazer |
 | --- | --- |
 | Não envie por email credenciais para acesso de administrador ou outros segredos (por exemplo, certificados de gerenciamento ou SSL) |Mantenha a confidencialidade fornecendo nomes de contas e senhas por voz (mas não os armazenando na caixa postal), execute uma instalação remota de certificados de cliente/servidor (por meio de uma sessão criptografada), baixe de um compartilhamento de rede protegido ou distribua manualmente por meio de mídia removível. |
 | - | Gerencie os ciclos de vida de certificado de gerenciamento. |

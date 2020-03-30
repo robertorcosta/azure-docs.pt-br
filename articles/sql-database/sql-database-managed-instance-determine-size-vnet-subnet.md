@@ -1,5 +1,5 @@
 ---
-title: Instância gerenciada determinar o tamanho da VNet/sub-rede
+title: Instância gerenciada determinar o tamanho do VNet/sub-rede
 description: Este tópico descreve como calcular o tamanho da sub-rede na qual as Instâncias Gerenciadas do Banco de Dados SQL do Azure serão implantadas.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
 ms.openlocfilehash: 7f0ef26343284b7b668e71676114586f4bec8b9e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825748"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinar o tamanho da sub-rede da VNet para o banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure
@@ -26,10 +26,10 @@ O número de Instâncias Gerenciadas que podem ser implantadas na sub-rede da VN
 
 Quando você cria uma Instância Gerenciada, o Azure aloca uma série de máquinas virtuais, dependendo da camada selecionada durante o provisionamento. Como essas máquinas virtuais estão associadas à sua sub-rede, elas exigem endereços IP. Para garantir alta disponibilidade durante operações regulares e manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários em uma sub-rede é maior que o número de Instâncias Gerenciadas nessa sub-rede.
 
-Por design, uma Instância Gerenciada precisa de um mínimo de 16 endereços IP em uma sub-rede e pode usar até 256 endereços IP. Como resultado, você pode usar uma máscara de sub-rede entre/28 e/24 ao definir seus intervalos de IP de sub-rede. Um bit de máscara de rede de/28 (14 hosts por rede) é um bom tamanho para uma única finalidade geral ou implantação crítica para os negócios. Um bit de máscara de/27 (30 hosts por rede) é ideal para várias implantações de Instância Gerenciada dentro da mesma VNet. As configurações de bits de máscara de/26 (62 hosts) e/24 (hosts 254) permitem a expansão adicional da VNet para dar suporte a instâncias gerenciadas adicionais.
+Por design, uma Instância Gerenciada precisa de um mínimo de 16 endereços IP em uma sub-rede e pode usar até 256 endereços IP. Como resultado, você pode usar uma máscara de sub-rede entre /28 e /24 ao definir os intervalos IP da sub-rede. Um bit de máscara de rede de /28 (14 hosts por rede) é um bom tamanho para um único propósito geral ou implantação crítica para os negócios. Um bit de máscara de /27 (30 hosts por rede) é ideal para várias implantações de instância gerenciada dentro do mesmo VNet. As configurações de bits de máscara de /26 (62 hosts) e /24 (254 hosts) permitem um dimensionamento adicional do VNet para suportar instâncias gerenciadas adicionais.
 
 > [!IMPORTANT]
-> Um tamanho de sub-rede com 16 endereços IP é o mínimo, com potencial limitado, em que uma operação de dimensionamento como alteração de tamanho vCore não é suportada. É altamente recomendável escolher a sub-rede com o prefixo/27 ou o prefixo mais longo.
+> Um tamanho de sub-rede com 16 endereços IP é o mínimo com potencial limitado onde uma operação de escala como a mudança de tamanho vCore não é suportada. Escolher a sub-rede com o prefixo /27 ou o prefixo mais longo é altamente recomendado.
 
 ## <a name="determine-subnet-size"></a>Determinar o tamanho da sub-rede
 
@@ -46,7 +46,7 @@ Se você planeja implantar múltiplas instâncias gerenciadas dentro da sub-rede
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md).
+- Para obter uma visão geral, consulte [O que é uma instância gerenciada](sql-database-managed-instance.md).
 - Saiba mais sobre [Arquitetura de conectividade para a Instância Gerenciada](sql-database-managed-instance-connectivity-architecture.md).
 - Veja como [criar uma VNet na qual você implantará Instâncias Gerenciadas](sql-database-managed-instance-create-vnet-subnet.md)
-- Para problemas de DNS, consulte [Configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md)
+- Para problemas de DNS, consulte [Configuração de um DNS personalizado](sql-database-managed-instance-custom-dns.md)

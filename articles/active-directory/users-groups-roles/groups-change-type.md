@@ -1,5 +1,5 @@
 ---
-title: Alterar a associação de grupo estático para dinâmico – Azure AD | Microsoft Docs
+title: Alterar a adesão do grupo estático para dinâmica - Azure AD | Microsoft Docs
 description: Como criar regras de associação para preencher automaticamente os grupos e uma referência de regra.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74027305"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar o tipo de associação de grupo estático para dinâmico no Microsoft Azure Active Directory
@@ -32,7 +32,7 @@ Você pode alterar a associação do grupo de estático para dinâmico (ou vice-
 
 ## <a name="change-the-membership-type-for-a-group"></a>Alterar o tipo de associação para um grupo
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de usuário em seu locatário.
+1. Faça login no centro de administração do [Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de usuário em seu inquilino.
 2. Selecione **Grupos**.
 3. Na lista **Todos os grupos**, abra o grupo que você deseja alterar.
 4. Selecione **Propriedades**.
@@ -46,7 +46,7 @@ As etapas a seguir são um exemplo de alteração de um grupo de associação es
   
 2. Selecione **Adicionar consulta dinâmica** e, em seguida, forneça a regra.
   
-   ![Insira a regra para o grupo dinâmico](./media/groups-change-type/enter-rule.png)
+   ![entrar na regra para o grupo dinâmico](./media/groups-change-type/enter-rule.png)
   
 3. Depois de criar a regra, selecione **Adicionar consulta** na parte inferior da página.
 4. Selecione **Salvar** na página **Propriedades** para o grupo salvar suas alterações. O **Tipo de Associação** do grupo é imediatamente atualizado na lista de grupos.

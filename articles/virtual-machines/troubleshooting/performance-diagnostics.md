@@ -14,22 +14,22 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70080609"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho de máquinas virtuais do Azure
 
-A ferramenta de diagnóstico de desempenho ajuda a solucionar problemas de desempenho que podem afetar uma VM (máquina virtual) Windows ou Linux. Cenários de solução de problemas com suporte incluem verificações rápidas sobre problemas conhecidos e melhores práticas e problemas complexos que desempenho lento da VM ou alto uso de CPU, espaço em disco ou memória.
+A ferramenta de diagnóstico de desempenho ajuda a solucionar problemas de desempenho que podem afetar uma máquina virtual Windows ou Linux (VM). Cenários de solução de problemas com suporte incluem verificações rápidas sobre problemas conhecidos e melhores práticas e problemas complexos que desempenho lento da VM ou alto uso de CPU, espaço em disco ou memória.
 
 Você pode executar o diagnóstico de desempenho diretamente do portal do Azure, no qual também pode examinar informações e um relatório em vários logs, configuração avançada e dados de diagnóstico. É recomendável que você execute o diagnóstico de desempenho e examine os dados de insights e diagnóstico antes de entrar em contato com o Suporte da Microsoft.
 
 > [!NOTE]
-> Para o Windows, o diagnóstico de desempenho tem suporte atualmente em VMs que têm o SDK do .NET versão 4,5 ou uma versão posterior instalada. Para as etapas para executar o diagnóstico de desempenho em VMs clássicas, veja [extensão de VM de Diagnóstico de Desempenho do Azure](performance-diagnostics-vm-extension.md).
+> Para windows, os diagnósticos de desempenho são atualmente suportados em VMs que têm a versão 4.5 do .NET SDK ou uma versão posterior instalada. Para as etapas para executar o diagnóstico de desempenho em VMs clássicas, veja [extensão de VM de Diagnóstico de Desempenho do Azure](performance-diagnostics-vm-extension.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 ### <a name="windows"></a>Windows
 
@@ -37,14 +37,14 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-Database-EE 13,8 imagem do Marketplace), CentOS 6,5`*`[], 7,6, RHEL 7,2, 7,5, 8,0`*`[], Ubuntu 14, 4, 16, 4, 18, 4, Debian 8, 9, 10`*`[], SLES 12 SP4 [`*`]
+Oracle`*`Linux Server 6.10 [ ], 7.3, 7.6, 7.5 (Imagem de mercado Oracle-Database-Ee 13.8), CentOS 6.5 [`*`],`*`7.6, RHEL 7.2, 7.5, 8.0 [ ], Ubuntu 14.04, 16.04, 18.04, Debian 8, 9, 10 [],`*`SLES 12 SP4 [ ]`*`
 
 >[!Note]
->[`*`] Consulte os [problemas conhecidos](how-to-use-perfinsights-linux.md#known-issues)
+>[`*`] Consulte [os problemas conhecidos](how-to-use-perfinsights-linux.md#known-issues)
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Instalar e executar o diagnóstico de desempenho em sua VM
 
-O diagnóstico de desempenho instala uma extensão de VM que executa uma ferramenta de diagnóstico chamada PerfInsights. O PerfInsights está disponível para [Windows](https://aka.ms/perfinsights) e [Linux](https://aka.ms/perfinsightslinux). Para instalar e executar o diagnóstico de desempenho, siga estas etapas:
+O diagnóstico de desempenho instala uma extensão de VM que executa uma ferramenta de diagnóstico denominada PerfInsights. O PerfInsights está disponível para [Windows](https://aka.ms/perfinsights) e [Linux](https://aka.ms/perfinsightslinux). Para instalar e executar o diagnóstico de desempenho, siga estas etapas:
 
 1. Na coluna de comandos esquerda, selecione **Máquinas virtuais**.
 1. Na lista de nomes de VM, selecione a VM em que você deseja executar o diagnóstico.
@@ -53,7 +53,7 @@ O diagnóstico de desempenho instala uma extensão de VM que executa uma ferrame
     ![Captura de tela do portal do Azure com o botão de diagnóstico de desempenho de instalação realçado](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > Nesta captura de tela, a folha de nomes de VM é oculta.
+    > Nesta captura de tela, a lâmina de nomes VM está oculta.
 1. Selecione uma conta de armazenamento (opcional)
 
     Se você quer usar uma única conta de armazenamento para armazenar os resultados do diagnóstico de desempenho de várias VMs, pode selecionar uma conta de armazenamento clicando no botão **Configurações** na barra de ferramentas. Clique no botão **OK** depois de selecionar a conta de armazenamento.
@@ -79,14 +79,14 @@ Os cenários de análise a seguir estão disponíveis no portal do Azure. Seleci
 * **Análise de desempenho**  
     Inclui todas as verificações na análise de desempenho rápido e monitora o alto consumo de recursos. Use esta versão para solucionar problemas de desempenho geral, como alta utilização da CPU, memória e uso do disco. Essa análise demora 30 segundos para 15 minutos, dependendo da duração selecionada. Saiba mais [Windows](https://aka.ms/perfinsights/vmslow) ou [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
-* **Análise de desempenho avançada**`*`  
+* **Análise avançada de desempenho**`*`  
     Inclui todas as verificações na análise de desempenho e coleta de um ou mais dos rastreamentos conforme listado nas seções a seguir. Use este cenário para solucionar problemas complexos que exigem rastreamentos adicionais. Executar esse cenário por períodos mais longos aumentará o tamanho geral da saída de diagnóstico, dependendo do tamanho da VM e das opções de rastreamento selecionadas. Essa análise demora 30 segundos para 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](https://aka.ms/perfinsights/advanced)
 
-* **Análise de arquivos do Azure**`*`  
+* **Análise de Arquivos Azure**`*`  
     Inclui todas as verificações na análise de desempenho e captura um rastreamento de rede e contadores de SMB. Use este cenário para solucionar problemas de desempenho de Arquivos do Azure. Essa análise demora 30 segundos para 15 minutos para ser executada, dependendo da duração selecionada. [Saiba mais](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
->[`*`] Esses cenários de análise só têm suporte no Windows.
+>[`*`] Esses cenários de análise são suportados apenas no Windows.
 
 ![Captura de tela do painel Executar diagnóstico na folha Diagnóstico de desempenho](media/performance-diagnostics/run-diagnostics-pane.png)
 
@@ -109,7 +109,7 @@ Uma notificação é exibida quando o diagnóstico de desempenho começa a ser i
 Depois que a análise for concluída, os seguintes itens serão carregados para tabelas do Azure e um contêiner de BLOB (objeto binário grande) na conta de armazenamento especificada:
 
 * Todos os insights e informações relacionadas sobre a execução
-* Um arquivo compactado (. zip) de saída (chamado **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. zip** ) no Windows e um arquivo de bola tar (chamado **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. tar. gz** ) no Linux que contém arquivos de log
+* Um arquivo compactado de saída (.zip) (chamado **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip)** no Windows e um arquivo de bola de piche (chamado **PerformanceDiagnostics_yyyy-MM-dd_hh-dd_hh-mm-ss-fff.tar.gz** ) no Linux que contém arquivos de log
 * Um relatório HTML
 
 Após o upload, um novo relatório de diagnóstico é listado no portal do Azure.
@@ -122,7 +122,7 @@ Use o botão de barra de ferramentas **Configurações** para alterar a conta de
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Examinar insights e relatório de diagnóstico de desempenho
 
-Cada execução de diagnóstico contém uma lista de insights e recomendações, recursos afetados, arquivos de log e outras informações de diagnóstico avançadas coletadas, além de um relatório para exibição offline. Para obter uma lista completa de todos os dados de diagnóstico coletados, consulte **que tipo de informação é coletada pelo PerfInsights?** no [Windows](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) ou no [Linux](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights).
+Cada execução de diagnóstico contém uma lista de insights e recomendações, recursos afetados, arquivos de log e outras informações de diagnóstico avançadas coletadas, além de um relatório para exibição offline. Para obter uma lista completa de todos os dados de diagnóstico coletados, [Windows](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) consulte [Linux](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights) **Que tipo de informações são coletadas pelo PerfInsights?**
 
 ### <a name="select-a-performance-diagnostics-report"></a>Selecionar um relatório de diagnóstico de desempenho
 
@@ -160,20 +160,20 @@ Você pode desinstalar o diagnóstico de desempenho de uma VM. Essa ação remov
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Onde estão os dados de diagnóstico da minha VM armazenada
+### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Onde estão armazenados os dados de diagnóstico do meu VM
 
 Todos os relatórios e análises de desempenho de diagnóstico são armazenados em sua própria conta de armazenamento. Insights são armazenados dentro de tabelas do Azure. O arquivo compactado de relatórios é armazenado em um contêiner de BLOB (objeto binário grande) denominado azdiagextnresults.
 
 Você pode exibir as informações da conta de armazenamento usando o botão Configurações na barra de ferramentas.
 
-### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Como fazer compartilhar esses dados com o atendimento ao cliente da Microsoft
+### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Como compartilho esses dados com o Suporte ao Cliente da Microsoft
 
 Há várias maneiras de compartilhar o relatório de diagnóstico com a Microsoft.
 
-**Opção 1:** Compartilhar automaticamente o relatório mais recente  
+**Opção 1:** compartilhar automaticamente o relatório mais recente  
 Quando você abre um tíquete de suporte com a Microsoft, é importante compartilhar o relatório de diagnóstico de desempenho. Se você tiver optado por compartilhar essas informações com a Microsoft enquanto executa o diagnóstico (marcando a caixa de seleção "**Concordo compartilhar informações de diagnóstico com a Microsoft**"), a Microsoft poderá acessar o relatório da sua conta de armazenamento usando um link SAS para o arquivo zip de saída por até 30 dias da data de execução. Somente o relatório mais recente estará disponível para o engenheiro de suporte.
 
-**Opção 2:** Gerar uma assinatura de acesso compartilhado para o arquivo compactado do relatório de diagnóstico  
+**Opção 2:** gerar uma assinatura de acesso compartilhado para o arquivo compactado de relatório de diagnóstico  
 Você pode compartilhar um link para o arquivo compactado de relatórios usando Assinaturas de Acesso Compartilhado. Para fazer isso, siga estas etapas:
 
 1. No portal do Azure, navegue até a conta de armazenamento na qual os dados de diagnóstico são armazenados.
@@ -184,11 +184,11 @@ Você pode compartilhar um link para o arquivo compactado de relatórios usando 
 1. Clique em **Gerar URL e token SAS do blob**.
 1. Copie a **URL de SAS do Blob** e compartilhe-a com o engenheiro de suporte.
 
-**Opção 3:** Baixar o relatório da conta de armazenamento
+**Opção 3:** baixar o relatório da conta de armazenamento
 
 Você também pode localizar o arquivo compactado do relatório de diagnóstico de desempenho usando as etapas 1 a 4 na Opção 2. Selecione esta opção para baixar o arquivo e, em seguida, compartilhá-lo por email ou pedir ao engenheiro de suporte instruções para carregar o arquivo.  
 
-### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Como fazer capturar os dados de diagnóstico no horário correto
+### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Como capturar os dados de diagnóstico na hora correta
 
 Cada execução de diagnóstico de desempenho tem duas etapas:
 
@@ -201,4 +201,4 @@ No momento, não há nenhuma maneira fácil de saber exatamente quando a instala
 
 Depois de examinar os insights e o relatório de diagnóstico de desempenho, se você ainda não conseguir determinar a causa do problema e precisar de mais ajuda, poderá abrir um tíquete de suporte com o atendimento ao cliente Microsoft.
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer ponto deste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/)e selecione **Obter suporte**. Para obter informações sobre o uso do suporte ao Azure, leia o [faq de suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

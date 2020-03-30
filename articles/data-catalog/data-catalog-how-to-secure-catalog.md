@@ -1,16 +1,16 @@
 ---
 title: Como proteger o acesso ao Catálogo de Dados do Azure
-description: Este artigo explica como proteger um catálogo de dados e seus ativos de dados no catálogo de dados do Azure.
+description: Este artigo explica como proteger um catálogo de dados e seus ativos de dados no Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b0972be2b8a6e05d3d90cde7354b4890ea95cbe4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68976755"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e ativos de dados
@@ -26,23 +26,23 @@ Para dar a um usuário ou grupo o acesso a um catálogo de dados e definir permi
 
 1. Na [home page do seu catálogo de dados](https://www.azuredatacatalog.com), clique em **Configurações** na barra de ferramentas.
 
-   ![Botão Configurações de home page do catálogo de dados do Azure](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
+   ![Botão de configuração da página inicial do Catálogo de Dados do Azure](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 
 2. Na página configurações, expanda a seção **Usuários do Catálogo**.
 
-   ![Botão Adicionar usuários do catálogo de dados do Azure](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
+   ![Usuários do Catálogo de Dados do Azure adicionam botão](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
 
-3. Clique em **Adicionar** .
+3. Clique em **Adicionar**.
 
 4. Insira o **nome de usuário** totalmente qualificado ou nome do **grupo de segurança** no AAD (Azure Active Directory) associado ao catálogo. Use vírgula (', ') como um separador se você estiver adicionando mais de um usuário ou grupo.
 
-   ![Usuários do catálogo de dados do Azure-usuários ou grupos](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
+   ![Usuários do Catálogo de Dados do Azure - usuários ou grupos](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 
 5. Pressione **ENTER** ou **TAB** fora da caixa de texto. 
 
 6. Confirme que todas as permissões (**Anotar**, **Registrar** e **Apropriar-se**) sejam atribuídos a esses usuários ou grupos por padrão. Ou seja, o usuário ou grupo pode [registrar ativos de dados]( data-catalog-how-to-register.md), [anotar os ativos de dados]( data-catalog-how-to-annotate.md) e [assumir a propriedade de ativos de dados]( data-catalog-how-to-manage.md). 
 
-   ![Usuários do catálogo de dados do Azure-permissões padrão](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
+   ![Usuários do Catálogo de Dados do Azure - permissões padrão](media/data-catalog-how-to-secure-catalog/data-catalog-default-permissions.png)
 
 7. Para conceder a um usuário ou grupo apenas o acesso de leitura para o catálogo, desmarque a opção **anotar** para esse usuário ou grupo. Quando você fizer isso, o usuário ou grupo não poderá anotar os ativos de dados no catálogo, mas poderá exibi-los. 
 
@@ -52,7 +52,7 @@ Para dar a um usuário ou grupo o acesso a um catálogo de dados e definir permi
 
 10. Para excluir um usuário/grupo de usuários do catálogo, clique em **x** para o usuário/grupo na parte inferior da lista. 
 
-   ![Usuários do catálogo do catálogo de dados do Azure – ícone Excluir usuário X](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
+   ![Usuários do catálogo do Catálogo de Dados do Azure - exclua o ícone do usuário X](media/data-catalog-how-to-secure-catalog/data-catalog-delete-user.png)
 
    > [!IMPORTANT]
    > É recomendável que você adicione grupos de segurança para usuários do catálogo em vez de adicionar usuários diretamente e atribuir permissões. Em seguida, adicione usuários a grupos de segurança que correspondam às funções e ao acesso necessário ao catálogo desses usuários.

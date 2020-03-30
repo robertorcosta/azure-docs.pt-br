@@ -1,6 +1,6 @@
 ---
-title: Configurar mensagens de texto como seu método de verificação-Azure AD
-description: Como configurar sua página de informações de segurança (versão prévia) para verificar sua identidade usando mensagens de texto como seu método de verificação.
+title: Configure mensagens de texto como seu método de verificação - Azure AD
+description: Como configurar sua página de informações de segurança (visualização) para verificar sua identidade usando mensagens de texto como seu método de verificação.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 0525ee6d0ac5df61113e5a97c9812394323ffb3d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062346"
 ---
-# <a name="set-up-text-messaging-as-your-verification-method"></a>Configurar mensagens de texto como seu método de verificação
+# <a name="set-up-text-messaging-as-your-verification-method"></a>Configure mensagens de texto como seu método de verificação
 
 Siga estas instruções para adicionar os métodos de verificação em duas etapas e redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
@@ -27,7 +27,7 @@ Se for solicitado que você faça tais configurações imediatamente após entra
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se você não vir uma opção de telefone, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
+>Se você não vê uma opção de telefone, é possível que sua organização não permita que você use essa opção para verificação. Neste caso, você precisará escolher outro método ou entrar em contato com o help desk da sua organização para obter mais assistência.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>Configurar mensagens de texto usando a página de Informações de segurança
 
@@ -60,7 +60,7 @@ Dependendo das configurações da sua organização, você poderá usar mensagen
 
     A página muda para mostrar seu sucesso.
 
-    ![Notificação de êxito, conectando o número de telefone, a escolha para receber mensagens de texto e sua conta](media/security-info/securityinfo-myprofile-phonetext-success.png)
+    ![Notificação de sucesso, conexão do número de telefone, a escolha de receber mensagens de texto e sua conta](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
     Suas informações de segurança são atualizadas e você pode usar mensagens de texto para verificar sua identidade ao usar redefinição de senha ou verificação de duas etapas. Se você quiser tornar mensagens de texto seu método padrão, confira a seção [Alterar seu método de informações de segurança padrão](#change-your-default-security-info-method) deste artigo.
 
@@ -81,7 +81,7 @@ Se você não quiser mais usar mensagens de texto como um método de informaçõ
 
 ## <a name="change-your-default-security-info-method"></a>Alterar o método de informações de segurança padrão
 
-Se você quiser que o sistema de mensagens de texto seja o método padrão usado ao entrar em sua conta corporativa ou de estudante usando a verificação de dois fatores ou para solicitações de redefinição de senha, você poderá defini-lo na página **informações de segurança** .
+Se você quiser que as mensagens de texto sejam o método padrão usado quando você faz login na sua conta de trabalho ou escola usando verificação de dois fatores ou para solicitações de redefinição de senha, você pode defini-la a partir da página de informações de **segurança.**
 
 ### <a name="to-change-your-default-security-info-method"></a>Para alterar o método de informações de segurança padrão
 
@@ -89,11 +89,11 @@ Se você quiser que o sistema de mensagens de texto seja o método padrão usado
 
     ![Link Alterar do método de entrada padrão](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecione **Telefone – texto ( *_seu_número_de_telefone_* )** na lista suspensa de métodos disponíveis e, em seguida, selecione **Confirmar**.
+2. Selecione **Telefone – texto (*_seu_número_de_telefone_*)** na lista suspensa de métodos disponíveis e, em seguida, selecione **Confirmar**.
 
     ![Selecione o método de entrada padrão](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    O método padrão usado para alterações de entrada para **Telefone – texto ( *_seu_número_de_telefone_* )** .
+    O método padrão usado para alterações de entrada para **Telefone – texto (*_seu_número_de_telefone_*)**.
 
 ## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
 
@@ -103,7 +103,7 @@ Você tem opções adicionais de como sua organização entra em contato com voc
 
 - **Chamada de telefone do dispositivo móvel ou trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
-- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a juntamente com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar sua identidade com uma chave de segurança, consulte [Configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
 
 - **Endereço de e-mail.** Digite seu endereço de e-mail do trabalho ou da escola para receber um e-mail para redefinir a senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar seu e-mail, consulte [Configurar informações de segurança para usar o e-mail](security-info-setup-email.md).
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: c4756c36c2243840df69f3696e7ddac3628f3a00
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727169"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
@@ -81,7 +81,7 @@ Os roteadores de filtragem na camada de acesso e na borda da rede do Azure forne
 ### <a name="ddos-mitigation"></a>Mitigação de DDOS
 Ataques de negação de serviço distribuído (DDoS) continuam a impor uma ameaça real à confiabilidade dos serviços online. Conforme os ataques se tornam mais direcionados e sofisticados, e conforme os serviços que a Microsoft fornece se tornam mais geograficamente diversificados, identificar e minimizar o impacto desses ataques é uma alta prioridade.
 
-O [Padrão de Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md) oferece uma defesa contra ataques de DDoS. Consulte [Proteção contra DDoS do Azure: práticas recomendadas e arquiteturas de referência](ddos-best-practices.md) para saber mais.
+O [Padrão de Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md) oferece uma defesa contra ataques de DDoS. Consulte [Azure DDoS Protection: Melhores práticas e arquiteturas de referência](ddos-best-practices.md) para saber mais.
 
 > [!NOTE]
 > A Microsoft fornece proteção contra DDoS por padrão para todos os clientes do Azure.
@@ -102,7 +102,7 @@ Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrut
 - [Disponibilidade da infraestrutura do Azure](infrastructure-availability.md)
 - [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

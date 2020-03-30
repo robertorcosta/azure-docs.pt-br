@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,22 +9,22 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68780123"
 ---
-1. Abra a página do seu gateway de rede virtual. Há várias maneiras de navegar. Você pode navegar até o gateway acessando o **nome de sua VNet-> visão geral-> dispositivos conectados-> nome do seu gateway**.
-2. Na página do gateway, clique em **conexões**. Na parte superior da página Conexões, clique em **+ Adicionar** para abrir a página **Adicionar conexão**.
+1. Abra a página para o gateway de rede virtual. Há várias maneiras de navegar. Você pode navegar até o gateway indo para **Nome do seu VNet -> Visão Geral -> Dispositivos conectados -> Nome do seu gateway**.
+2. Na página para o gateway, clique em **Conexões**. Na parte superior da página Conexões, clique em **+ Adicionar** para abrir a página **Adicionar conexão**.
 
    ![Criar uma conexão site a site](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. Na página **Adicionar conexão**, configure os valores da sua conexão.
 
-   - **Nome:** Nomeie sua conexão.
-   - **Tipo de conexão**: Selecione **Site a site (IPSec)** .
-   - **Gateway de rede virtual:** O valor é fixo porque você está conectando por esse gateway.
-   - **Gateway de rede local:** Clique em **Escolher um gateway de rede local** e selecione o gateway de rede local que você quer usar.
+   - **Nome:** nomeie sua conexão.
+   - **Tipo de conexão:** selecione **Site a site (IPSec)**.
+   - **Gateway de rede virtual:** o valor é fixo porque você está se conectando por esse gateway.
+   - **Gateway de rede local:** clique em **Escolher um gateway de rede local** e selecione o gateway de rede local que você deseja usar.
    - **Chave Compartilhada:** o valor aqui deve corresponder ao valor usado para seu dispositivo VPN local. O exemplo usa “abc123”, mas você pode (e deve) usar algo mais complexo. O importante é que o valor especificado aqui deve ser o mesmo valor especificado ao configurar seu dispositivo VPN.
    - Os valores restantes para **Assinatura**, **Grupo de Recursos** e **Local** são corrigidos.
 

@@ -1,5 +1,5 @@
 ---
-title: Inscreva-se na sua organização-Azure Active Directory | Microsoft Docs
+title: Inscreva-se em sua organização - Azure Active Directory | Microsoft Docs
 description: Instruções sobre como inscrever sua organização para usar o Azure e o Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -14,18 +14,18 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561621"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscreva sua organização para usar o Azure Active Directory | Microsoft Docs
 Inscreva-se para uma nova assinatura do Microsoft Azure ou do Azure AD (Azure Active Directory), usando uma das seguintes opções:
 
-- **Conta Microsoft.** Use sua conta pessoal da Microsoft para obter acesso ao Azure e a todos os produtos e serviços de nuvem orientados ao consumidor como o Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. A inscrição para uma caixa de correio do Outlook.com cria automaticamente uma conta da Microsoft. Para obter mais informações, consulte [Visão geral da conta Microsoft](https://account.microsoft.com/account).
+- **Conta da Microsoft.** Use sua conta pessoal da Microsoft para obter acesso ao Azure e a todos os produtos e serviços de nuvem orientados ao consumidor como o Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. A inscrição para uma caixa de correio do Outlook.com cria automaticamente uma conta da Microsoft. Para obter mais informações, consulte [Visão geral da conta Microsoft](https://account.microsoft.com/account).
 
-- **Conta corporativa ou de estudante.** Use sua conta corporativa ou de estudante para obter acesso a todos os serviços de nuvem pequenos, médios e empresariais da Microsoft como o Azure, Microsoft Intune ou Office 365. Após inscrever-se em um desses serviços como uma organização, o Azure AD provisiona automaticamente um diretório baseado em nuvem que representa a organização. Para obter mais informações, consulte [Gerenciar seu diretório do Azure AD](active-directory-administer.md).
+- **Trabalho ou conta da escola.** Use sua conta corporativa ou de estudante para obter acesso a todos os serviços de nuvem pequenos, médios e empresariais da Microsoft como o Azure, Microsoft Intune ou Office 365. Após inscrever-se em um desses serviços como uma organização, o Azure AD provisiona automaticamente um diretório baseado em nuvem que representa a organização. Para obter mais informações, consulte [Gerenciar seu diretório do Azure AD](active-directory-administer.md).
 
   > [!Note]
   >   É recomendável que você use sua conta corporativa ou de estudante, se já tiver acesso ao Azure AD. Porém, você deve usar qualquer tipo de conta associada à sua assinatura do Azure.

@@ -1,6 +1,6 @@
 ---
 title: Ingerir Blobs do Azure no Azure Data Explorer
-description: Neste artigo, você aprenderá a enviar dados da conta de armazenamento para o Azure Data Explorer usando uma assinatura da grade de eventos.
+description: Neste artigo, você aprende como enviar dados de conta de armazenamento para o Azure Data Explorer usando uma assinatura event grid.
 author: orspod
 ms.author: orspodek
 ms.reviewer: tzgitlin
@@ -8,35 +8,35 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: ec218b1638183db463ff09488c988cad64d78c6d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370433"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Azure Data Explorer assinando notificações da Grade de Eventos
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-grid.md)
-> * [C#](data-connection-event-grid-csharp.md)
+> * [C #](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-event-grid-resource-manager.md)
+> * [Modelo de Gerenciador de recursos do Azure](data-connection-event-grid-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Ele oferece ingestão contínua (carregamento de dados) de blobs gravados em contêineres de blob. 
 
-Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do Azure](/azure/event-grid/overview) e a rotear eventos para o Azure data Explorer por meio de um hub de eventos. Para começar, você precisa ter uma conta de armazenamento com uma assinatura da grade de eventos que envie notificações para os Hubs de Eventos do Azure. Então, você criará uma conexão de dados da Grade de Eventos e verá o fluxo de dados pelo sistema.
+Neste artigo, você aprende como definir uma assinatura [do Azure Event Grid](/azure/event-grid/overview) e encaminhar eventos para o Azure Data Explorer através de um hub de eventos. Para começar, você precisa ter uma conta de armazenamento com uma assinatura da grade de eventos que envie notificações para os Hubs de Eventos do Azure. Então, você criará uma conexão de dados da Grade de Eventos e verá o fluxo de dados pelo sistema.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/).
-* [Um cluster e um banco de dados](create-cluster-database-portal.md).
+* Uma assinatura do Azure. Crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/).
+* [Um cluster e um banco de dados.](create-cluster-database-portal.md)
 * [Uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 * [Um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-event-grid-subscription-in-your-storage-account"></a>Criar uma assinatura da Grade de Eventos em sua conta de armazenamento
 
 1. No portal do Azure, encontre a conta de armazenamento.
-1. Selecione **Eventos** > **Assinatura de Evento**.
+1. Selecione **a** > **assinatura de eventos .**
 
     ![Link do aplicativo de consulta](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
@@ -48,15 +48,15 @@ Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do 
     | Esquema do evento | *Esquema da Grade de Eventos* | O esquema que deve ser usado para a grade de eventos. |
     | Tipo de tópico | *Conta de armazenamento* | O tipo de tópico da grade de eventos. |
     | Recurso do Tópico | *gridteststorage* | O nome da sua conta de armazenamento. |
-    | Assinar todos os tipos de evento | *clear* | Não ser notificado de todos os eventos. |
-    | Tipos de Eventos Definidos | *Blob Criado* | De quais eventos específicos receber notificações. |
-    | Tipo de Ponto de Extremidade | *Hubs de Eventos* | O tipo do ponto de extremidade ao qual você envia os eventos. |
+    | Assinar todos os tipos de evento | *Claro* | Não ser notificado de todos os eventos. |
+    | Tipos de Eventos Definidos | *Blob criado* | De quais eventos específicos receber notificações. |
+    | Tipo de Ponto de Extremidade | *Hubs de eventos* | O tipo do ponto de extremidade ao qual você envia os eventos. |
     | Ponto de extremidade | *test-hub* | O hub de eventos que você criou. |
     | | |
 
-1. Selecione a guia **filtros** se desejar rastrear arquivos de um contêiner específico. Defina os filtros das notificações da seguinte maneira:
+1. Selecione a guia **Filtros** se quiser rastrear arquivos de um contêiner específico. Defina os filtros das notificações da seguinte maneira:
     * Campo **Assunto começa com** é o prefixo *literal* do contêiner de blobs. Como é o padrão aplicado é *startswith*, ele pode abranger vários contêineres. Não são permitidos curingas.
-     Ele *precisa* ser definido da seguinte maneira: *`/blobServices/default/containers/`* [prefixo do contêiner]
+     Ele *precisa* ser definido da seguinte maneira: *`/blobServices/default/containers/`*[prefixo do contêiner]
     * O campo **Assunto termina com** é o sufixo *literal* do blob. Não são permitidos curingas.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Criar uma tabela de destino no Gerenciador de dados do Azure
@@ -83,19 +83,19 @@ Crie uma tabela no Azure Data Explorer em que os Hubs de Eventos enviarão dados
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Criar uma conexão de dados da Grade de Eventos no Azure Data Explorer
 
-Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dados que fluem para o contêiner de blob sejam transmitidos para a tabela de teste. 
+Agora conecte-se à Grade de Eventos do Azure Data Explorer, para que os dados que fluem para o contêiner blob sejam transmitidos para a tabela de testes. 
 
 1. Selecione **Notificações** na barra de ferramentas para verificar se a implantação do hub de eventos foi bem-sucedida.
 
-1. No cluster que você criou, selecione **bancos de dados** > **TestDatabase**.
+1. No cluster que você criou, selecione **Databases** > **TestDatabase**.
 
     ![Banco de dados de testes](media/ingest-data-event-grid/select-test-database.png)
 
-1. Selecione **Ingestão de dados** > **Adicionar conexão de dados**.
+1. Selecione **a ingestão de** > **dados Adicionar conexão de dados**.
 
     ![Ingestão de dados](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Selecione o tipo de conexão: **armazenamento de BLOBs**.
+1.  Selecione o tipo de conexão: **Blob Storage**.
 
 1. Preencha o formulário com as seguintes informações e selecione **Criar**.
 
@@ -110,7 +110,7 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
     | Conta de armazenamento | *gridteststorage* | O nome da conta de armazenamento que você criou anteriormente.|
     | Grade de Eventos | *test-grid-connection* | O nome da grade de eventos que você criou. |
     | Nome do Hub de Eventos | *test-hub* | O hub de eventos que você criou. Esse campo é preenchido automaticamente quando você escolhe uma grade de eventos. |
-    | Grupo de consumidores | *grupo de teste* | O grupo de consumidores definido no hub de eventos que você criou. |
+    | Grupo de consumidores | *test-group* | O grupo de consumidores definido no hub de eventos que você criou. |
     | | |
 
     Tabela de destino:
@@ -118,7 +118,7 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela criada na **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOH, SCSV, TSV, RAW e TXT. Opções de compactação com suporte: zip e GZip |
+    | Formato de dados | *JSON* | Os formatos suportados são Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW e TXT. Opções de compactação suportadas: Zip e GZip |
     | Mapeamento de coluna | *TestMapping* | O mapeamento que você criou em **TestDatabase**, que mapeia os dados de entrada JSON para tipos de dados e nomes de coluna da **TestTable**.|
     | | |
     
@@ -159,35 +159,35 @@ Salve os dados em um arquivo e carregue-o com este script:
 ```
 
 > [!NOTE]
-> Para obter o melhor desempenho de ingestão, o tamanho *descompactado* dos BLOBs compactados enviados para ingestão deve ser comunicado. Como as notificações da grade de eventos contêm apenas detalhes básicos, as informações de tamanho devem ser comunicadas explicitamente. As informações de tamanho não compactado podem ser fornecidas definindo a propriedade `rawSizeBytes` nos metadados de blob com o tamanho de dados *descompactado* em bytes.
+> Para obter o melhor desempenho de ingestão, deve ser comunicado o tamanho *descompactado* das bolhas compactadas submetidas à ingestão. Como as notificações do Event Grid contêm apenas detalhes básicos, as informações de tamanho devem ser explicitamente comunicadas. As informações de tamanho não compactados `rawSizeBytes` podem ser fornecidas definindo a propriedade nos metadados blob com o tamanho de dados *não compactado* em bytes.
 
 ### <a name="ingestion-properties"></a>Propriedades da ingestão
 
-Você pode especificar as [Propriedades de ingestão](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) da ingestão de BLOBs por meio dos metadados de BLOB.
+Você pode especificar as propriedades de [Ingestão](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) da ingestão de bolhas através dos metadados blob.
 
 Essas propriedades podem ser definidas:
 
 |**Propriedade** | **Descrição da propriedade**|
 |---|---|
-| `rawSizeBytes` | Tamanho dos dados brutos (não compactados). Para Avro/ORC/parquet, esse é o tamanho antes que a compactação específica de formato seja aplicada.|
-| `kustoTable` |  Nome da tabela de destino existente. Substitui o `Table` definido na folha `Data Connection`. |
-| `kustoDataFormat` |  Formato de dados. Substitui o `Data format` definido na folha `Data Connection`. |
-| `kustoIngestionMappingReference` |  Nome do mapeamento de ingestão existente a ser usado. Substitui o `Column mapping` definido na folha `Data Connection`.|
-| `kustoIgnoreFirstRecord` | Se definido como `true`, Kusto ignorará a primeira linha do blob. Use em dados de formato tabular (CSV, TSV ou semelhante) para ignorar os cabeçalhos. |
-| `kustoExtentTags` | Cadeia de caracteres que representa as [marcas](/azure/kusto/management/extents-overview#extent-tagging) que serão anexadas à extensão resultante. |
-| `kustoCreationTime` |  Substitui [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) para o blob, formatado como uma cadeia de caracteres ISO 8601. Use para o preenchimento. |
+| `rawSizeBytes` | Tamanho dos dados brutos (não comprimidos). Para Avro/ORC/Parquet, este é o tamanho antes da aplicação da compactação específica do formato.|
+| `kustoTable` |  Nome da tabela de destino existente. Substitui o `Table` conjunto `Data Connection` na lâmina. |
+| `kustoDataFormat` |  Formato de dados. Substitui o `Data format` conjunto `Data Connection` na lâmina. |
+| `kustoIngestionMappingReference` |  Nome do mapeamento de ingestão existente a ser utilizado. Substitui o `Column mapping` conjunto `Data Connection` na lâmina.|
+| `kustoIgnoreFirstRecord` | Se estiver `true`definido, Kusto ignora a primeira linha da bolha. Use em dados de formato tabular (CSV, TSV ou similares) para ignorar cabeçalhos. |
+| `kustoExtentTags` | String representando [tags](/azure/kusto/management/extents-overview#extent-tagging) que serão anexadas em extensão resultante. |
+| `kustoCreationTime` |  Substitui [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) para a bolha, formatado como uma seqüência ISO 8601. Use para recarga. |
 
 > [!NOTE]
-> O Azure Data Explorer não excluirá os BLOBs após a ingestão.
-> Mantenha os blobs por thrre para cinco dias.
-> Use o [ciclo de vida do armazenamento de blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) para gerenciar a exclusão de BLOB. 
+> O Azure Data Explorer não excluirá as bolhas de publicação de ingestão.
+> Mantenha as bolhas por até cinco dias.
+> Use [o ciclo de vida do armazenamento Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) para gerenciar a exclusão de bolhas. 
 
 ## <a name="review-the-data-flow"></a>Revise o fluxo de dados
 
 > [!NOTE]
 > O Azure Data Explorer tem uma política de agregação (envio em lote) para a ingestão de dados, criada para otimizar o processo de ingestão.
 Por padrão, a política é configurada como 5 minutos.
-Você poderá alterar a política posteriormente, se necessário. Neste artigo, você pode esperar uma latência de alguns minutos.
+Você será capaz de alterar a apólice mais tarde, se necessário. Neste artigo você pode esperar uma latência de alguns minutos.
 
 1. No portal do Azure, em sua grade de eventos, você vê o pico de atividade enquanto o aplicativo está em execução.
 
@@ -210,7 +210,7 @@ Você poderá alterar a política posteriormente, se necessário. Neste artigo, 
 
     ![Conjunto de resultados de mensagem](media/ingest-data-event-grid/table-result.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não planeja usar sua grade de eventos novamente, limpe **test-hub-rg** para evitar custos.
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
 ms.openlocfilehash: b998043bc7d896989590ac21db5f309a81cc02bd
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056827"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de solução de virtualização de rede no Azure
@@ -42,7 +42,7 @@ Suporte técnico para NVAs de terceiros e sua integração com a plataforma do A
 - UDRs em sub-redes da rede virtual que direcionam o tráfego de NVA
 - Tabelas de roteamento e regras dentro da NVA (por exemplo, de NIC1 à NIC2)
 - Rastreamento em NICs de NVA para verificar a receber e enviar tráfego de rede
-- Ao usar um SKU Standard e IPs públicos, deve haver um NSG criado e uma regra explícita para permitir que o tráfego seja roteado para o NVA.
+- Ao usar um SKU padrão e IPs públicos, deve haver um NSG criado e uma regra explícita para permitir que o tráfego seja encaminhado para o NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Etapas para solucionar problemas
 
@@ -83,7 +83,7 @@ Usar o PowerShell
    NetworkSecurityGroup : null
    ```
 
-**Verificar NSG ao usar o IP PUBILC SKU padrão** Ao usar um SKU Standard e IPs públicos, deve haver um NSG criado e uma regra explícita para permitir o tráfego para o NVA.
+**Verifique se há NSG ao usar o IP padrão SKU Pubilc** Ao usar um SKU padrão e IPs públicos, deve haver um NSG criado e uma regra explícita para permitir o tráfego para o NVA.
 
 **Verifique se o tráfego possa ser roteado para a NVA**
 
@@ -114,7 +114,7 @@ Usar o PowerShell
 
 ### <a name="validate-vm-cpu"></a>Validar a CPU da VM
 
-Se o uso da CPU ficar perto de 100%, você poderá enfrentar problemas que afetam os descartes de pacotes de rede. Seus relatórios VM médios de CPU para um período de tempo específico no portal do Azure. Durante um pico de CPU, investigar qual processo no convidado que VM está causando a alta utilização da CPU e resolvê-lo, se possível. Você também terá que redimensionar a VM para um tamanho maior de SKU ou, para o conjunto de dimensionamento de máquina virtual, aumentar a contagem de instâncias ou definido para dimensionamento automático no uso da CPU. Para qualquer um desses problemas, [entre em contato com o fornecedor da NVA para obter assistência](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), conforme necessário.
+Se o uso da CPU se aproximar de 100%, você poderá ter problemas que afetam a queda do pacote de rede. Seus relatórios VM médios de CPU para um período de tempo específico no portal do Azure. Durante um pico de CPU, investigar qual processo no convidado que VM está causando a alta utilização da CPU e resolvê-lo, se possível. Você também terá que redimensionar a VM para um tamanho maior de SKU ou, para o conjunto de dimensionamento de máquina virtual, aumentar a contagem de instâncias ou definido para dimensionamento automático no uso da CPU. Para qualquer uma dessas questões, [entre em contato com o fornecedor nva para obter assistência,](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)conforme necessário.
 
 ### <a name="validate-vm-network-statistics"></a>Validar as estatísticas de rede de VM
 
@@ -129,7 +129,7 @@ Capturar um rastreamento de rede simultânea na VM de origem, a NVA, e a VM de d
 
    **Para Windows**
 
-   netsh trace Start Capture = Sim TraceFile = cenário c:\server_IP.etl = NetConnection
+   netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
 
    **Para Linux**
 

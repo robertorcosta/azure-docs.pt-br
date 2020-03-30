@@ -1,5 +1,5 @@
 ---
-title: Contadores de desempenho para acompanhar o Gerenciador de mapa de fragmentos
+title: Contadores de desempenho para rastrear o gerenciador de mapas de fragmentos
 description: Classe do ShardMapManager e contadores de desempenho de roteamento dependente de dados
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: de481dad9dd39b301a21142c67b1baf2209f76e2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823893"
 ---
-# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Criar contadores de desempenho para acompanhar o desempenho do Gerenciador de mapa de fragmentos
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Crie contadores de desempenho para acompanhar o desempenho do gerenciador de mapas de fragmentos
 
-Os contadores de desempenho são usados para acompanhar o desempenho de operações de [Roteamento dependentes de dados](sql-database-elastic-scale-data-dependent-routing.md) . Esses contadores estão acessíveis no Monitor de Desempenho, na categoria "Banco de Dados Elástico: Gerenciamento de Fragmento".
+Contadores de desempenho são usados para rastrear o desempenho de operações de [roteamento dependentes](sql-database-elastic-scale-data-dependent-routing.md) de dados. Esses contadores estão acessíveis no Monitor de Desempenho, na categoria "Banco de Dados Elástico: Gerenciamento de Fragmento".
 
 Você pode capturar o desempenho de um [Gerenciador de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md), especialmente ao usar [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos da classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 

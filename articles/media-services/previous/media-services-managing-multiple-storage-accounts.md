@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69901773"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerenciar ativos de Serviços de Mídia por meio de várias contas de armazenamento  
@@ -42,7 +42,7 @@ Ao anexar diversas contas de armazenamento para sua conta de Serviços de Mídia
 
 Outras considerações:
 
-Os serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao construir URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter quaisquer dos seguintes [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+Os Serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao criar URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por essa razão, a codificação percentual não é permitida. O valor da propriedade Name não pode ter quaisquer dos seguintes [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 ## <a name="to-attach-storage-accounts"></a>Para anexar contas de armazenamento  
 

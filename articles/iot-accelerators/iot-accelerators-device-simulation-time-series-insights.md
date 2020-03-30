@@ -1,5 +1,5 @@
 ---
-title: Visualizar telemetria simulada com o Time Series Insights-Azure | Microsoft Docs
+title: Visualize telemetria simulada com Insights da Série Tempo - Azure | Microsoft Docs
 description: Aprenda a configurar seu ambiente do Time Series Insights para explorar e analisar a telemetria gerada pelo acelerador de solução do Device Simulation.
 author: dominicbetts
 manager: timlt
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889342"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use as informações do Time Series para visualizar a telemetria enviada a partir do acelerador de solução do Device Simulation
 
 O acelerador de solução Device Simulation permite gerar telemetria de dispositivos simulados para testar suas soluções de IoT. Este guia prático mostra como visualizar e analisar a telemetria simulada usando um ambiente de Séries Temporais.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir as etapas deste guia prático, você precisa de uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -55,9 +55,9 @@ As etapas a seguir usam a CLI do Azure no Azure Cloud Shell para criar o grupo d
 
 [Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md) é um serviço totalmente gerenciado de análise, armazenamento e visualização para o gerenciamento de dados de série temporal em escala IoT na nuvem. Para criar um novo ambiente do Time Series Insights:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 
-1. Selecione **Criar um recurso** > **Internet das Coisas** > **Time Series Insights**:
+1. Selecione **Criar um recurso** > **Internet of Things** > **Time Series Insights**:
 
     ![Novo Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights.png)
 
@@ -66,11 +66,11 @@ As etapas a seguir usam a CLI do Azure no Azure Cloud Shell para criar o grupo d
     | Configuração | Valor |
     | ------- | ----- |
     | Nome do ambiente | A captura de tela a seguir usa o nome **Contoso-TSI**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
-    | Assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
-    | Grupo de recursos | **contoso-simulation**. Use o nome do seu acelerador de solução. |
-    | Local padrão | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
+    | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
+    | Resource group | **contoso-simulation**. Use o nome do seu acelerador de solução. |
+    | Location | Este exemplo usa **Leste dos EUA**. Crie seu ambiente na mesma região que seu acelerador de simulação de dispositivo. |
     | Sku |**S1** |
-    | Capacidade | **1** |
+    | Capacity | **1** |
 
     ![Criar Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
 
@@ -89,7 +89,7 @@ Crie uma nova fonte de evento para se conectar ao hub IoT. Use o grupo de consum
 
     ![Exibir Origens do Evento](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-sources.png)
 
-1. Clique em **Adicionar**:
+1. Clique **em Adicionar:**
 
     ![Adicionar Origem do Evento](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-sources-add.png)
 
@@ -151,7 +151,7 @@ O explorador do Time Series Insights é um aplicativo da web que você pode usar
 
     ![Perspectiva do explorador do Insights do Time Series](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-explorer-perspective.png)
 
-1. Clique em **+** para adicionar uma nova consulta à perspectiva:
+1. Clique **+** para adicionar uma nova consulta à perspectiva:
 
     ![Explorador de Insights do Time Series Adicionar Consulta](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-new-query.png)
 
@@ -167,10 +167,10 @@ O explorador do Time Series Insights é um aplicativo da web que você pode usar
 
 Se você planejar explorar ainda mais, deixe o acelerador de solução implantado.
 
-Caso não precise mais do acelerador de solução, exclua-o da página [Soluções provisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e clicando em **Excluir solução**.
+Se você não precisar mais do acelerador de soluções, exclua-o da página [de soluções provisionadas,](https://www.azureiotsolutions.com/Accelerators#dashboard) selecionando-o e, em seguida, clicando **em Excluir solução**.
 
 Se você tiver adicionado o ambiente do Time Series Insights ao grupo de recursos do acelerador de solução, ele será excluído automaticamente quando você excluir o acelerador de solução. Caso contrário, você deverá remover manualmente o ambiente do Time Series Insights do portal do Azure.
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como explorar e consultar dados no explorador Estatísticas do Time Series, consulte [Explorador do Azure Time Series Insights](../time-series-insights/time-series-insights-explorer.md).

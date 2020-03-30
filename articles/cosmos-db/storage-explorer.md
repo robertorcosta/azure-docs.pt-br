@@ -8,10 +8,10 @@ ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
 ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72882359"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com os dados usando o Gerenciador de Armazenamento do Azure
@@ -29,7 +29,7 @@ Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Ge
 
 ## <a name="connect-to-an-azure-subscription"></a>Conectar-se a uma assinatura do Azure
 
-1. Depois de instalar o **Gerenciador de Armazenamento do Azure**, clique no ícone de **plug-in** à esquerda, conforme mostrado na imagem a seguir:
+1. Depois de instalar o **Azure Storage Explorer,** clique no ícone **de plug-in** à esquerda, conforme mostrado na imagem a seguir:
        
    ![Ícone do plug-in](./media/storage-explorer/plug-in-icon.png)
  
@@ -37,7 +37,7 @@ Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Ge
 
    ![Conectar-se a uma assinatura do Azure](./media/storage-explorer/connect-to-azure-subscription.png)
 
-2. Na caixa de diálogo **Entrar no Azure**, selecione **Entrar** e insira suas credenciais do Azure.
+2. Na caixa de diálogo **Azure Sign in,** selecione **Entrar**e digite suas credenciais do Azure.
 
     ![Entrar](./media/storage-explorer/sign-in.png)
 
@@ -59,7 +59,7 @@ Um modo alternativo de se conectar a um Azure Cosmos DB é usar uma cadeia de co
 
     ![Conectar-se ao Cosmos DB por uma cadeia de conexão](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Atualmente, só há suporte para API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
+2. Atualmente, só há suporte para API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a seqüência de conexão principal, consulte [Obter a seqüência de conexões](manage-with-powershell.md#list-keys).
 
     ![Cadeia de conexão](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Use as seguintes etapas para se conectar a um Azure Cosmos DB pelo Emulador. Atu
 
     ![Conecte-se ao Cosmos DB pelo emulador](./media/storage-explorer/emulator-entry.png)
 
-3. Atualmente, só há suporte para API do SQL. Cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
+3. Atualmente, só há suporte para API do SQL. Cole a **Cadeia de Conexão**, insira o **Rótulo de conta**, clique em **Próximo** para verificar o resumo e depois clique em **Conectar** para conectar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a seqüência de conexão principal, consulte [Obter a seqüência de conexões](manage-with-powershell.md#list-keys).
 
     ![Conecte-se ao Cosmos DB pelo diálogo do emulador](./media/storage-explorer/emulator-dialog.png)
 
@@ -116,7 +116,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
     ![Excluir database2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Criar uma coleção
-1. Clique com o botão direito do mouse no banco de dados, escolha **criar coleção**e forneça as informações a seguir, como **ID da coleção**, **capacidade de armazenamento**, etc. Clique em **OK** para concluir. 
+1. Clique com o botão direito do mouse no banco de dados, escolha **Criar coleção**e forneça as seguintes informações como **ID de coleta,** **capacidade de armazenamento,** etc. Clique em **OK** para terminar. 
 
     ![Criar collection1](./media/storage-explorer/create-collection.png)
 
@@ -140,7 +140,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 #### <a name="create-and-modify-documents"></a>Criar e modificar documentos
 - Para criar um novo documento, abra **Documentos** na janela esquerda, clique em **Novo Documento**, edite o conteúdo no painel direito e clique em **Salvar**. Você também pode atualizar um documento existente e, em seguida, clicar em **Salvar**. As alterações podem ser descartadas clicando em **Descartar**.
 
-    ![Documento](./media/storage-explorer/document.png)
+    ![Document](./media/storage-explorer/document.png)
 
 #### <a name="delete-a-document"></a>Excluir um documento
 - Clique no botão **Excluir** para excluir o documento selecionado.
@@ -158,7 +158,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 1. Para criar um novo vértice, abra o **Gráfico** na janela esquerda, clique em **Novo vértice**, edite o conteúdo e clique em **OK**.    
 2. Para modificar um vértice existente, clique no ícone de caneta no painel direito.   
 
-    ![Graph](./media/storage-explorer/vertex.png)
+    ![Grafo](./media/storage-explorer/vertex.png)
 
 #### <a name="delete-a-graph"></a>Excluir um gráfico
 - Para excluir um vértice, clique no ícone de lixeira ao lado do nome do vértice.
@@ -199,7 +199,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
     ![Procedimento armazenado](./media/storage-explorer/stored-procedure.png)
 * As operações para **Gatilhos** e **UDF** são semelhantes aos **Procedimentos Armazenados**.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 [Azure Cosmos DB no Gerenciador de Armazenamento](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) é um aplicativo autônomo que permite que você se conecte a contas do Azure Cosmos DB hospedadas nas nuvens do Azure e soberanas do Windows, do macOS ou do Linux. Ele permite a você gerenciar entidades do Azure Cosmos DB, manipular dados, atualizar procedimentos armazenados e gatilhos junto com outras entidades do Azure, como blobs e filas do Armazenamento.
 
@@ -213,7 +213,7 @@ Antes de continuar, tente reiniciar o aplicativo e ver se os problemas podem ser
 
 Há alguns motivos que podem exibir esse erro. Os dois mais comuns são:
 
-+ Você está por trás de um *proxy transparente*, o que significa que alguém (por exemplo, o departamento de TI) está interceptando o tráfego HTTPS, descriptografando-o e criptografando-o usando um certificado autoassinado.
++ Você está por trás de um *proxy transparente, o*que significa que alguém (como seu departamento de TI) está interceptando tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado auto-assinado.
 
 + Você está executando software, por exemplo, um software antivírus, que está injetando certificados SSL autoassinados nas mensagens HTTPS recebidas.
 
@@ -228,7 +228,7 @@ Quando o Gerenciador de Armazenamento encontrar um desses "certificados autoassi
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Procurar certificados autoassinados. Se você não tiver certeza quais são autoassinados, procure onde o assunto ("s") e o emissor ("i") são os mesmos.
 5.  Depois de encontrar os certificados autoassinados, copie e cole tudo desde, e incluindo, **---BEGIN CERTIFICATE---** até **---END CERTIFICATE---** em um novo arquivo .cer para cada um.
-6.  Abra o Gerenciador de Armazenamento e vá para **Editar** > **Certificados SSL** > **Importar Certificados**. Usando o seletor de arquivos, encontre, selecione e abra os arquivos .cer criados.
+6.  Abra o Storage Explorer e vá para **Editar** > **certificados SSL Certificados** > **de importação .** Usando o seletor de arquivos, encontre, selecione e abra os arquivos .cer criados.
 
 Se você não conseguir localizar todos os certificados autoassinados usando as etapas acima, envie comentários para obter mais ajuda.
 
@@ -268,7 +268,7 @@ Se você não conseguir remover uma conta, ou se o link de nova autenticação n
   - Pasta %AppData%/StorageExplorer para Windows
   - /Usuários/<seu_nome>/Library/Application SUpport/StorageExplorer para Mac
   - ~/.config/StorageExplorer para Linux
-  - **Será necessário reinserir todas as suas credenciais** se você excluir esses arquivos
+  - **Você terá que reinserir todas as suas credenciais** se você excluir esses arquivos
 
 
 ### <a name="httphttps-proxy-issue"></a>Problema de proxy HTTP/HTTPS
@@ -298,11 +298,11 @@ Tente as seguintes sugestões:
 - Verifique se a conta do Azure Cosmos DB está sendo provisionada e tente novamente quando a conta for criada com êxito.
 - Se a conta estiver no nó "Acesso Rápido" ou "Local e Anexado", verifique se a conta foi excluída. Nesse caso, você precisará remover o nó manualmente.
 
-## <a name="contact-us"></a>Contate-nos
+## <a name="contact-us"></a>Fale conosco
 
-Se nenhuma das soluções funcionar, envie um email à equipe das Ferramentas de Desenvolvimento do Azure Cosmos DB ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) com detalhes sobre o problema, para que possa ser corrigido.
+Se nenhuma das soluções funcionar para você, envie um e-mail[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)para a Equipe de Ferramentas do Azure Cosmos DB Dev ( ) com detalhes sobre o problema, para corrigir os problemas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Assista ao seguinte vídeo para aprender a usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) (Usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure).
 * Saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).

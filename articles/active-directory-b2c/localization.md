@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C de localização
+title: Localização - Diretório Ativo Azure B2C
 description: Especifica o elemento Localization de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126763"
 ---
 # <a name="localization"></a>Localização
@@ -41,7 +41,7 @@ O elemento **Localization** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Habilitado | Não | Valores possíveis: `true` ou `false`. |
+| habilitado | Não | Valores possíveis: `true` ou `false`. |
 
 O elemento **Localization** contém os seguintes elementos XML
 
@@ -73,7 +73,7 @@ O elemento **LocalizedResources** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
+| ID | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
 
 O elemento **LocalizedResources** contém os seguintes elementos:
 
@@ -111,7 +111,7 @@ O elemento **Item** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de caracteres de exibição amigável deve ser mostrada ao usuário na interface do usuário para essa opção. |
-| {1&gt;Valor&lt;1} | Sim | O valor da declaração da cadeia de caracteres associada com essa opção. |
+| Valor | Sim | O valor da declaração da cadeia de caracteres associada com essa opção. |
 | SelectByDefault | Não | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Os valores possíveis: True ou False. |
 
 O exemplo a seguir mostra o uso do elemento **LocalizedCollections**. Ele contém dois elementos **LocalizedCollection**, um para inglês e outro para espanhol. Ambos definem a coleção de **Restrição** da declaração `Gender` com uma lista de itens para inglês e espanhol.
@@ -146,8 +146,8 @@ O elemento **LocalizedString** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ElementType | Sim | Uma referência a um elemento de tipo de declaração ou um elemento de interface do usuário na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`ou `GetLocalizedStringsTransformationClaimType`. O valor `ClaimType` é usado para localizar um dos atributos de declaração, conforme especificado em StringId. O valor `UxElement` é usado para localizar um dos elementos de interface do usuário, conforme especificado em StringId. O valor `ErrorMessage` é usado para localizar uma das mensagens de erro do sistema, conforme especificado em StringId. O valor `Predicate` é usado para localizar uma das mensagens de erro [Predicate](predicates.md), conforme especificado em StringId. O valor `InputValidation` é usado para localizar uma das mensagens de erro do grupo [PredicateValidation](predicates.md), conforme especificado em StringId. O valor de `GetLocalizedStringsTransformationClaimType` é usado para copiar cadeias de caracteres localizadas em declarações. Para obter mais informações, consulte [GetLocalizedStringsTransformation Claims Transformation](string-transformations.md#getlocalizedstringstransformation)  | 
-| ElementId | Sim | Se **ElementType** for definido como `ClaimType`, `Predicate` ou `InputValidation`, esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. |
+| ElementType | Sim | Uma referência a um elemento de tipo de declaração ou um elemento de interface do usuário na política. Valores `ClaimType`possíveis: `ErrorMessage` `Predicate`, `UxElement` `GetLocalizedStringsTransformationClaimType`, , ou . O valor `ClaimType` é usado para localizar um dos atributos de declaração, conforme especificado em StringId. O valor `UxElement` é usado para localizar um dos elementos de interface do usuário, conforme especificado em StringId. O valor `ErrorMessage` é usado para localizar uma das mensagens de erro do sistema, conforme especificado em StringId. O valor `Predicate` é usado para localizar uma das mensagens de erro [Predicate](predicates.md), conforme especificado em StringId. O valor `InputValidation` é usado para localizar uma das mensagens de erro do grupo [PredicateValidation](predicates.md), conforme especificado em StringId. O `GetLocalizedStringsTransformationClaimType` valor é usado para copiar strings localizadas em sinistros. Para obter mais informações, consulte [A transformação de reivindicações getLocalizedStringsTransformation](string-transformations.md#getlocalizedstringstransformation)  | 
+| ElementId | Sim | Se **ElementType** estiver `ClaimType` `Predicate`definido `InputValidation`para , ou , este elemento contém uma referência a um tipo de reivindicação já definido na seção ClaimsSchema. |
 | StringId | Sim | Se **ElementType** for definido como `ClaimType`, esse elemento conterá uma referência a um atributo de um tipo de declaração. Valores possíveis: `DisplayName`, `AdminHelpText` ou `PatternHelpText`. O valor `DisplayName` é usado para definir o nome de exibição de declaração. O valor `AdminHelpText` é usado para definir o nome de texto de ajuda do usuário de declaração. O valor `PatternHelpText` é usado para definir o texto de ajuda do padrão de declaração. Se **ElementType** for definido como `UxElement`, esse elemento conterá uma referência a um atributo de um elemento de interface do usuário. Se **ElementType** for definido como `ErrorMessage`, esse elemento especificará o identificador de uma mensagem de erro. Veja [IDs de cadeia de localização](localization-string-ids.md) para obter uma lista completa de identificadores `UxElement`.|
 
 
@@ -207,9 +207,9 @@ No elemento **BuildingBlocks**, adicione o elemento **Localization** com a lista
 </Localization>
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Consulte os seguintes artigos para obter exemplos de localização:
+Veja os seguintes artigos para exemplos de localização:
 
-- [Personalização de idioma com política personalizada no Azure Active Directory B2C](custom-policy-localization.md)
-- [Personalização de idioma com fluxos de usuário no Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personalização de idiomas com política personalizada no Azure Active Directory B2C](custom-policy-localization.md)
+- [Personalização de idiomas com fluxos de usuário no Azure Active Directory B2C](user-flow-language-customization.md)

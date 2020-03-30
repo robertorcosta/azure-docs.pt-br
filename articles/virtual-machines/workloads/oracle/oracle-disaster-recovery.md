@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: f6f678f91e74ea9b0b68127c1786fee745508b99
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101471"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure
@@ -31,7 +31,7 @@ ms.locfileid: "70101471"
 ## <a name="goals"></a>Metas
 - Projetar a topologia e a configuração para atender aos seus requisitos de recuperação de desastre.
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Cenário 1: Sites primários e de recuperação de desastre no Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Cenário 1: Sites primário e de recuperação de desastre no Azure
 
 Um cliente tem uma configuração de banco de dados Oracle no site primário. Um site de recuperação de desastre está em uma região diferente. O cliente usa o Oracle Data Guard para recuperação rápida entre esses sites. O site primário também tem um banco de dados secundário para relatórios e outros usos. 
 
@@ -57,7 +57,7 @@ Um cliente tem uma configuração de banco de dados Oracle local (site primário
 
 Há duas abordagens para essa configuração.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Abordagem 1: Conexões diretas entre o local e o Azure, exigindo portas TCP abertas no firewall 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Abordagem 1: Conexões diretas entre o local e o Azure, é necessário abrir as portas TCP no firewall 
 
 Nós não recomendamos conexões diretas, pois expõem as portas TCP para o mundo exterior.
 
@@ -77,7 +77,7 @@ Veja aqui um resumo da configuração do Azure:
 
 ![Captura de tela da página de topologia de recuperação de desastre](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
-### <a name="approach-2-site-to-site-vpn"></a>Abordagem 2: VPN site a site
+### <a name="approach-2-site-to-site-vpn"></a>Método 2: VPN Site a site
 A VPN site a site é uma abordagem melhor. Para saber mais sobre como configurar uma VPN, veja [Criar uma rede virtual com uma conexão VPN Site a Site usando a CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topologia
@@ -105,5 +105,5 @@ Veja aqui um resumo da configuração do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
+- [Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 - [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)

@@ -16,20 +16,20 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: 37969986b1d015ed08113da42a309eef42df569c
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015514"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
@@ -44,7 +44,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 > [!NOTE]
 > Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amshelp@microsoft.com se precisar executar um Canal por períodos mais longos.
 
-1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador dinâmico local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Essa etapa também pode ser realizada após a criação do canal.
 
@@ -66,7 +66,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 11. Publique o ativo associado ao programa criando um localizador OnDemand.
 
     >[!NOTE]
-    >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**. 
+    >Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**. 
 
 12. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
 13. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
@@ -87,10 +87,10 @@ O artigo mostra como fazer o seguinte:
 7. Mostrar e ocultar slates. Iniciar e parar anúncios. São usadas APIs de execução longa.
 8. Limpe seu canal e todos os recursos associados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial.
 
-* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
+* Uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
 * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Criar Conta](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
 * Você deve usar o Media Services .NET SDK na versão 3.2.0.0 ou mais recente.
@@ -98,7 +98,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 
 ## <a name="considerations"></a>Considerações
 * Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amshelp@microsoft.com se precisar executar um Canal por períodos mais longos.
-* Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
+* Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 ## <a name="download-sample"></a>Baixar exemplo
 
@@ -106,7 +106,7 @@ Você pode baixar o exemplo descrito neste artigo [aqui](https://azure.microsoft
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Configurar para o desenvolvimento com o SDK dos Serviços de Mídia para .NET
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="code-example"></a>Exemplo de código
 
@@ -502,7 +502,7 @@ namespace EncodeLiveStreamWithAmsClear
 ```
 
 ## <a name="next-step"></a>Próxima etapa
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

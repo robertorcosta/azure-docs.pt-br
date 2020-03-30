@@ -1,5 +1,5 @@
 ---
-title: Como usar o armazenamento de fila do PHP-armazenamento do Azure
+title: Como usar o armazenamento na fila do PHP - Azure Storage
 description: Saiba como usar o serviço de armazenamento de Filas do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. As amostras são escritas em PHP.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 692c943e48c08771b5f1c60b66412270081cf0e6
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72302958"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como usar o Armazenamento de Fila do PHP
@@ -21,7 +21,7 @@ ms.locfileid: "72302958"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são gravados por meio de classes da [biblioteca de cliente de armazenamento do Azure para php][download]. Os cenários abrangidos incluem inserir, exibir, obter e excluir mensagens da fila, bem como criar e excluir filas.
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos usando classes da [Biblioteca do Cliente de Armazenamento do Azure para PHP][download]. Os cenários abrangidos incluem inserir, exibir, obter e excluir mensagens da fila, bem como criar e excluir filas.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -29,9 +29,9 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 
 ## <a name="create-a-php-application"></a>Criar um aplicativo PHP
 
-O único requisito para a criação de um aplicativo PHP que acessa o armazenamento de filas do Azure é a referência de classes na [biblioteca de cliente de armazenamento do Azure para php][download] de dentro do seu código. Você pode usar as ferramentas de desenvolvimento para criar seu aplicativo, incluindo o bloco de notas.
+O único requisito para a criação de um aplicativo PHP que acessa o armazenamento de Filas do Azure é a referência de classes no [Biblioteca do Cliente de Armazenamento do Azure para PHP][download] em seu código. Você pode usar as ferramentas de desenvolvimento para criar seu aplicativo, incluindo o bloco de notas.
 
-Neste guia, você usa os recursos do serviço de armazenamento de fila que podem ser chamados em um aplicativo PHP localmente ou no código em execução em um aplicativo Web no Azure.
+Neste guia, você usa os recursos do serviço de armazenamento queue que podem ser chamados dentro de um aplicativo PHP localmente ou em código em execução dentro de um aplicativo web no Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obter as bibliotecas de cliente do Azure
 
@@ -46,14 +46,14 @@ Neste guia, você usa os recursos do serviço de armazenamento de fila que podem
       }
     }
     ```
-2. Baixe o **[Composer. Phar][composer-phar]** na raiz do projeto.
+2. Baixe **[composer.phar][composer-phar]** na raiz do projeto.
 3. Abra um prompt de comando e execute o seguinte comando na raiz do projeto
    
     ```
     php composer.phar install
     ```
 
-Como alternativa, vá para a [biblioteca de cliente php do armazenamento do Azure][download] no GitHub para clonar o código-fonte.
+Como alternativa acesse a [biblioteca de clientes PHP do armazenamento do Azure ][download] no GitHub para clonar o código-fonte.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurar seu aplicativo para acessar o armazenamento de Filas
 
@@ -223,7 +223,7 @@ else{
 
 ## <a name="de-queue-the-next-message"></a>Remover a próxima mensagem da fila
 
-Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy->listMessages**, que torna a mensagem invisível para qualquer outro código de leitura da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. (Se a mensagem não for excluída neste período de tempo, ela se tornará visível na fila novamente.) Para terminar de remover a mensagem da fila, você deve chamar **QueueRestProxy->deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo depois que a mensagem é processada.
+Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy->listMessages**, que torna a mensagem invisível para qualquer outro código de leitura da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. (Se a mensagem não for excluída nesse período de tempo, ela se tornará visível na fila novamente.) Para terminar de remover a mensagem da fila, você deve chamar **QueueRestProxy->deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo após a mensagem ter sido processada.
 
 ```php
 require_once 'vendor/autoload.php';

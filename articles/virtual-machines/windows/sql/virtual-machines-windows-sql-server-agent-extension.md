@@ -1,6 +1,6 @@
 ---
-title: Automatizar tarefas de gerenciamento com a extensão do agente IaaS
-description: Este artigo descreve como gerenciar a extensão do agente IaaS SQL Server, que automatiza tarefas específicas de administração de SQL Server. Isso inclui backup automatizado, aplicação de patch automatizada e integração de Azure Key Vault.
+title: Automatize tarefas de gerenciamento com a extensão do agente IaaS
+description: Este artigo descreve como gerenciar o SQL Server IaaS Agent Extension, que automatiza tarefas específicas de administração do SQL Server. Isso inclui backup automatizado, patches automatizados e integração do Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -18,22 +18,22 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 3d16c1950cbae0bcc7dd858e5520eb8bfc6e496d
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77030771"
 ---
-# <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure usando a extensão SQL Server IaaS Agent
+# <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatize tarefas de gerenciamento em máquinas virtuais do Azure usando a extensão do agente IaaS do SQL Server
 > [!div class="op_single_selector"]
-> * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
+> * [Gerenciador de recursos](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-A extensão do SQL Server IaaS Agent (SqlIaasExtension) é executada em máquinas virtuais do Azure para automatizar tarefas de administração. Este artigo fornece uma visão geral dos serviços aos quais a extensão dá suporte. Este artigo também fornece instruções para instalação, status e remoção da extensão.
+A extensão do SQL Server IaaS Agent (SqlIaasExtension) é executada em máquinas virtuais do Azure para automatizar tarefas de administração. Este artigo fornece uma visão geral dos serviços que a extensão suporta. Este artigo também fornece instruções para instalação, status e remoção da extensão.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para exibir a versão clássica deste artigo, consulte [SQL Server extensão do agente IaaS para VMs SQL Server (clássico)](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+Para ver a versão clássica deste artigo, consulte [SQL Server IaaS Agent Extension for SQL Server VMs (clássico)](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 
 ## <a name="supported-services"></a>Serviços com suporte
@@ -41,17 +41,17 @@ A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de ad
 
 | Recurso de administração | Descrição |
 | --- | --- |
-| **SQL Server backup automatizado** |Automatiza o agendamento de backups para todos os bancos de dados para a instância padrão ou uma instância nomeada do SQL Server [instalada corretamente](virtual-machines-windows-sql-server-iaas-faq.md#administration) na VM. Para obter mais informações, consulte [backup automatizado para SQL Server em máquinas virtuais do Azure (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
-| **SQL Server aplicação de patch automatizada** |Configura uma janela de manutenção durante a qual as atualizações importantes do Windows para a VM podem ocorrer, evitando atualizações da carga de trabalho durante horários de pico. Para obter mais informações, consulte [aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
-| **Integração do Azure Key Vault** |Permite a instalação e configuração automática do Cofre de Chaves do Azure em sua VM do SQL Server. Para obter mais informações, consulte [Configurar a integração de Azure Key Vault para SQL Server em máquinas virtuais do Azure (Gerenciador de recursos)](virtual-machines-windows-ps-sql-keyvault.md). |
+| **Backup automatizado do SQL Server** |Automatiza o agendamento de backups para todos os bancos de dados para a instância padrão ou uma instância nomeada [corretamente](virtual-machines-windows-sql-server-iaas-faq.md#administration) do SQL Server na VM. Para obter mais informações, consulte [backup automatizado para SQL Server em máquinas virtuais Azure (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
+| **Patches automatizados do SQL Server** |Configura uma janela de manutenção durante a qual as atualizações importantes do Windows para a VM podem ocorrer, evitando atualizações da carga de trabalho durante horários de pico. Para obter mais informações, consulte [Patches automatizados para SQL Server em máquinas virtuais Do Zure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
+| **Integração do Azure Key Vault** |Permite a instalação e configuração automática do Cofre de Chaves do Azure em sua VM do SQL Server. Para obter mais informações, consulte [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
 
-Depois que a extensão do agente IaaS SQL Server estiver instalada e em execução, ela disponibilizará os recursos de administração:
+Depois que o SQL Server Iaas Agent Extension é instalado e executado, ele disponibiliza os recursos de administração:
 
-* No painel de SQL Server da máquina virtual na portal do Azure e por meio de Azure PowerShell para SQL Server imagens no Azure Marketplace.
-* Por meio de Azure PowerShell para instalações manuais da extensão. 
+* No painel SQL Server da máquina virtual no portal Azure e através do Azure PowerShell para imagens do SQL Server no Azure Marketplace.
+* Através do Azure PowerShell para instalações manuais da extensão. 
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
-Aqui estão os requisitos para usar a extensão do agente IaaS SQL Server em sua VM:
+## <a name="prerequisites"></a>Pré-requisitos
+Aqui estão os requisitos para usar a extensão do agente IaaS do Servidor SQL em sua VM:
 
 **Sistema operacional**:
 
@@ -61,7 +61,7 @@ Aqui estão os requisitos para usar a extensão do agente IaaS SQL Server em sua
 * Windows Server 2016
 * Windows Server 2019 
 
-**Versão do SQL Server**:
+**Versão do SQL Server:**
 
 * SQL Server 2008 
 * SQL Server 2008 R2
@@ -73,13 +73,13 @@ Aqui estão os requisitos para usar a extensão do agente IaaS SQL Server em sua
 
 **Azure PowerShell**:
 
-* [Baixar e configurar os comandos mais recentes do Azure PowerShell](/powershell/azure/overview)
+* [Baixe e configure os mais recentes comandos Azure PowerShell](/powershell/azure/overview)
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 
 ##  <a name="installation"></a>Instalação
-A extensão de IaaS SQL Server é instalada quando você registra sua VM de SQL Server com o [provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md). Se necessário, você pode instalar o agente IaaS SQL Server manualmente usando o comando do PowerShell abaixo: 
+A extensão SQL Server IaaS é instalada quando você registra seu VM do Servidor SQL com o [provedor de recursos SQL VM](virtual-machines-windows-sql-register-with-resource-provider.md). Se necessário, você pode instalar o agente SQL Server IaaS manualmente usando o comando PowerShell abaixo: 
 
   ```powershell-interactive
     Set-AzVMSqlServerExtension -VMName "sql2017" `
@@ -91,29 +91,29 @@ A extensão de IaaS SQL Server é instalada quando você registra sua VM de SQL 
 > A instalação da extensão reinicia o serviço SQL Server. 
 
 
-### <a name="install-on-a-vm-with-a-single-named-sql-server-instance"></a>Instalar em uma VM com uma única instância de SQL Server nomeada
+### <a name="install-on-a-vm-with-a-single-named-sql-server-instance"></a>Instale em uma VM com uma única instância chamada SQL Server
 A extensão SQL Server IaaS funcionará com uma instância nomeada no SQL Server se a instância padrão for desinstalada e a extensão IaaS for reinstalada.
 
 Para usar uma instância nomeada do SQL Server, siga estas etapas:
-   1. Implante uma VM SQL Server do Azure Marketplace. 
-   1. Desinstale a extensão IaaS da [portal do Azure](https://portal.azure.com).
-   1. Desinstale SQL Server completamente dentro da VM SQL Server.
-   1. Instale SQL Server com uma instância nomeada dentro da VM SQL Server. 
-   1. Instale a extensão IaaS do portal do Azure.  
+   1. Implante um VM do SQL Server do Azure Marketplace. 
+   1. Desinstale a extensão IaaS do [portal Azure](https://portal.azure.com).
+   1. Desinstale o SQL Server completamente dentro do VM do Servidor SQL.
+   1. Instale o SQL Server com uma instância nomeada dentro do VM do Servidor SQL. 
+   1. Instale a extensão IaaS do portal Azure.  
 
 
-## <a name="get-the-status-of-the-sql-server-iaas-extension"></a>Obter o status da extensão de IaaS SQL Server
-Uma maneira de verificar se a extensão está instalada é exibir o status do agente no portal do Azure. Selecione **todas as configurações** na janela da máquina virtual e, em seguida, selecione **extensões**. Você deverá ver a extensão **SqlIaasExtension** na lista.
+## <a name="get-the-status-of-the-sql-server-iaas-extension"></a>Obtenha o status da extensão SQL Server IaaS
+Uma maneira de verificar se a extensão está instalada é exibir o status do agente no portal do Azure. Selecione **Todas as configurações** na janela da máquina virtual e, em seguida, **selecione Extensões**. Você deverá ver a extensão **SqlIaasExtension** na lista.
 
-![Status da extensão do agente IaaS SQL Server no portal do Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
+![Status da extensão do agente IaaS do servidor SQL no portal Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-Você também pode usar o cmdlet **Get-AzVMSqlServerExtension** Azure PowerShell:
+Você também pode usar o **cmdlet Get-AzVMSqlServerExtension** Azure PowerShell:
 
    ```powershell-interactive
    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
    ```
 
-O comando anterior confirma que o agente está instalado e fornece informações gerais de status. Você pode obter informações de status específicas sobre backup e aplicação de patch automatizados usando os seguintes comandos:
+O comando anterior confirma que o agente está instalado e fornece informações gerais de status. Você pode obter informações específicas de status sobre backup e patches automatizados usando os seguintes comandos:
 
    ```powershell-interactive
     $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
@@ -122,17 +122,17 @@ O comando anterior confirma que o agente está instalado e fornece informações
    ```
 
 ## <a name="removal"></a>Remoção
-No portal do Azure, você pode desinstalar a extensão selecionando as reticências na janela **extensões** de suas propriedades de máquina virtual. Em seguida, selecione **Excluir**.
+No portal Azure, você pode desinstalar a extensão selecionando as elipses na janela **Extensões** de suas propriedades de máquina virtual. Em seguida, **selecione Excluir**.
 
-![Desinstalando a extensão do agente IaaS SQL Server no portal do Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
+![Desinstalação da extensão do agente IaaS do servidor SQL no portal Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-Você também pode usar o cmdlet do PowerShell **Remove-AzVMSqlServerExtension** :
+Você também pode usar o **cmdlet Remove-AzVMSqlServerExtension** PowerShell:
 
    ```powershell-interactive
     Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
    ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-Comece a usar um dos serviços que a extensão dá suporte. Para obter mais informações, consulte os artigos mencionados na seção [serviços com suporte](#supported-services) deste artigo.
+## <a name="next-steps"></a>Próximas etapas
+Comece a usar um dos serviços que a extensão suporta. Para obter mais informações, consulte os artigos mencionados na seção de [serviços suportados](#supported-services) deste artigo.
 
-Para obter mais informações sobre como executar SQL Server em máquinas virtuais do Azure, consulte o [que é SQL Server nas máquinas virtuais do Azure?](virtual-machines-windows-sql-server-iaas-overview.md).
+Para obter mais informações sobre como executar o SQL Server em Máquinas Virtuais Azure, consulte o Que é o [SQL Server em Máquinas Virtuais Azure?](virtual-machines-windows-sql-server-iaas-overview.md).

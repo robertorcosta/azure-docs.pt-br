@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69016783"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store  
@@ -32,7 +32,7 @@ Este tutorial contém quatro lições:
 3. Selecionar fluxos do Smooth Streaming
 4. Selecionar faixas do Smooth Streaming
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 > [!NOTE]
 > A versão de projetos 8.1 da Windows Store e versões anteriores não têm suporte no Visual Studio 2017.  Para saber mais, confira [Direcionamento e compatibilidade da plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
@@ -47,7 +47,7 @@ A solução completa para cada lição pode ser baixada das Amostras de Código 
 * [Lição 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - Um Player de Mídia simples de Smooth Streaming do Windows 8 com seleção de fluxo,  
 * [Lição 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - um Player de Mídia simples de Smooth Streaming do Windows 8 com seleção de faixa.
 
-## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lição 1: Criar um aplicativo de armazenamento básico Smooth Streaming
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lição 1: Criar um aplicativo básico de Smooth Streaming para a Store
 
 Nesta lição, você criará um aplicativo da Windows Store com um controle MediaElement para reproduzir conteúdo de Smooth Streaming.  O aplicativo em execução é semelhante a:
 
@@ -60,10 +60,10 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 3. Modificar o arquivo code-behind
 4. Compilar e testar o aplicativo
 
-### <a name="to-create-a-windows-store-project"></a>Para criar um projeto da Windows Store
+### <a name="to-create-a-windows-store-project"></a>Para criar um novo projeto da Windows Store
 
 1. Execute o Visual Studio; há suporte para as versões de 2012 a 2015.
-1. No menu **ARQUIVO**, clique em **Novo** e em **Projeto**.
+1. No menu **FILE,** clique em **Novo**e clique em **Projeto**.
 1. Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
     | Nome | Valor |
@@ -72,12 +72,12 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
     | Modelo |Aplicativo em branco (XAML) |
     | Nome |SSPlayer |
     | Location |C:\SSTutorials |
-    | Nome da solução |SSPlayer |
+    | Nome da Solução |SSPlayer |
     | Criar diretório para a solução |(selecionado) |
 
 1. Clique em **OK**.
 
-### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Para adicionar uma referência ao SDK do cliente do Smooth Streaming
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Para adicionar uma referência ao SDK do Smooth Streaming Client
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 1. Digite ou selecione os valores a seguir:
@@ -91,10 +91,10 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 
 Depois de adicionar as referências, você deve selecionar a plataforma de destino (x64 ou x86). A adição de referências não funcionará para a configuração Qualquer plataforma de CPU.  No Gerenciador de Soluções, você verá a marca de aviso amarela para essas referências adicionadas.
 
-### <a name="to-design-the-player-user-interface"></a>Para criar a interface do usuário do Player
+### <a name="to-design-the-player-user-interface"></a>Para criar a interface do usuário do player
 
 1. No Gerenciador de Soluções, clique duas vezes em **MainPage.xaml** para abri-lo no modo de exibição de design.
-2. Localize as marcas **&lt;Grid&gt;** e **&lt;/Grid&gt;** no arquivo XAML e cole o seguinte código entre as duas marcas:
+2. Localize ** &lt;&gt; ** as marcas Grade e ** &lt;/Grade&gt; ** do arquivo XAML e cole o seguinte código entre as duas tags:
 
    ```xml
          <Grid.RowDefinitions>
@@ -239,7 +239,7 @@ Esta lição contém os seguintes procedimentos:
 5. Adicionar o código relacionado à barra de controle deslizante
 6. Compilar e testar o aplicativo
 
-### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registrar o manipulador de fluxo de bytes Smooth Streaming e passar o PropertySet
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registrar o manipulador de fluxo de bytes de Smooth Streaming e aprovar o propertyset
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e clique em **Exibir Código**.
 2. No início do arquivo, adicione a seguinte instrução using:
@@ -284,7 +284,7 @@ Esta lição contém os seguintes procedimentos:
    ```
 6. Pressione **CTRL+S** para salvar o arquivo.
 
-### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para adicionar o manipulador de eventos de nível de Gerenciador de origem adaptável
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para adicionar o manipulador de eventos no nível do gerenciador de origens adaptáveis
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e clique em **Exibir Código**.
 2. No início da classe **MainPage** adicione os membros de dados a seguir:
@@ -312,7 +312,7 @@ Esta lição contém os seguintes procedimentos:
    ```
 5. Pressione **CTRL+S** para salvar o arquivo.
 
-### <a name="to-add-adaptive-source-level-event-handlers"></a>Para adicionar manipuladores de eventos de nível de fonte adaptável
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Para adicionar os manipuladores de eventos de origens adaptáveis
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e clique em **Exibir Código**.
 2. No início da classe **MainPage** adicione os membros de dados a seguir:
@@ -363,7 +363,7 @@ Esta lição contém os seguintes procedimentos:
 
 Os mesmos eventos também estão disponíveis no nível do gerenciador de origens adaptáveis, que pode ser usado para manipular a funcionalidade comum a todos os elementos de mídia do aplicativo. Cada AdaptiveSource inclui seus próprios eventos e todos os eventos de AdaptiveSource serão colocados em cascata no AdaptiveSourceManager.
 
-### <a name="to-add-media-element-event-handlers"></a>Para adicionar manipuladores de eventos de elemento de mídia
+### <a name="to-add-media-element-event-handlers"></a>Para adicionar manipuladores de eventos de elementos de mídia
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e clique em **Exibir Código**.
 2. No final da classe **MainPage** , adicione os manipuladores de eventos a seguir:
@@ -399,7 +399,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
    ```
 4. Pressione **CTRL+S** para salvar o arquivo.
 
-### <a name="to-add-slider-bar-related-code"></a>Para adicionar um código relacionado à barra de controle deslizante
+### <a name="to-add-slider-bar-related-code"></a>Para adicionar o código relacionado à barra de controle deslizante
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **MainPage.xaml** e clique em **Exibir Código**.
 2. No início do arquivo, adicione a seguinte instrução using:
@@ -507,7 +507,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
    ```
 
    > [!NOTE]
-   > O CoreDispatcher é usado para fazer alterações no thread da interface do usuário no thread que não é da interface do usuário. No caso de afunilamento no thread do Dispatcher, o desenvolvedor pode optar por usar o Dispatcher fornecido pelo elemento da interface do usuário que pretende atualizar.  Por exemplo:
+   > O CoreDispatcher é usado para fazer alterações no thread da interface do usuário no thread que não é da interface do usuário. Em caso de gargalo no segmento de despachante, o desenvolvedor pode optar por usar o despachante fornecido pelo elemento de ui que eles pretendem atualizar.  Por exemplo: 
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -542,7 +542,7 @@ Os mesmos eventos também estão disponíveis no nível do gerenciador de origen
 
 Você concluiu a lição 2.  Nesta lição, você adicionou um controle deslizante ao aplicativo. 
 
-## <a name="lesson-3-select-smooth-streaming-streams"></a>Lição 3: Selecionar fluxos do Smooth Streaming
+## <a name="lesson-3-select-smooth-streaming-streams"></a>Lição 3: Selecionar fluxos de Smooth Streaming
 O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vários idiomas que podem ser selecionadas pelos visualizadores.  Nesta lição, você habilitará a seleção dos fluxos pelos visualizadores. Esta lição contém os seguintes procedimentos:
 
 1. Modificar o arquivo XAML
@@ -819,7 +819,7 @@ O Smooth Streaming é capaz de transmitir conteúdo com faixas de áudio de vár
 
 Você concluiu a lição 3.  Nesta lição, você adicionará a funcionalidade de escolher fluxos.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lição 4: Selecionar faixas de Smooth Streaming
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lição 4: Selecione faixas de streaming suaves
 
 Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo codificados com diferentes níveis de qualidade (taxas de bits) e resoluções. Nesta lição, você habilitará a seleção de faixas pelos usuários. Esta lição contém os seguintes procedimentos:
 
@@ -847,7 +847,7 @@ Um apresentação de Smooth Streaming pode conter vários arquivos de vídeo cod
          </ListBox>
          </StackPanel>
    ```
-3. Pressione **Ctrl + S** para salvar as alterações
+3. Pressione **CTRL+S** para salvar as alterações
 
 ### <a name="to-modify-the-code-behind-file"></a>Para modificar o arquivo code-behind
 

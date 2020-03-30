@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048563"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implantação de HSM Dedicado do Azure
@@ -48,7 +48,7 @@ Os HSMs são distribuídos pelos datacenters da Microsoft e podem ser facilmente
 * Leste da Austrália
 * Sudeste da Austrália
 
-Cada uma dessas regiões tem racks HSM implantados em dois datacenters independentes ou em pelo menos duas zonas de disponibilidade independentes. O Sudeste Asiático possui três zonas de disponibilidade e o Leste dos EUA 2 possui duas. Há um total de oito regiões na Europa, Ásia e EUA que oferecem o serviço HSM dedicado. Para obter mais informações sobre regiões do Azure, consulte as [informações oficiais das regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+Cada uma dessas regiões tem racks HSM implantados em dois datacenters independentes ou em pelo menos duas zonas de disponibilidade independentes. O Sudeste da Ásia possui três zonas de disponibilidade e o Leste dos EUA 2 possui duas. Há um total de oito regiões na Europa, Ásia e EUA que oferecem o serviço HSM dedicado. Para obter mais informações sobre regiões do Azure, consulte as [informações oficiais das regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 Alguns fatores de design para qualquer solução Dedicada com base em HSM são localização/latência, alta disponibilidade e suporte para outros aplicativos distribuídos.
 
 ## <a name="device-location"></a>Localização do dispositivo
@@ -63,7 +63,7 @@ Para obter alta disponibilidade, um cliente deve usar dois dispositivos HSM em u
 
 Os dispositivos HSM dedicados geralmente são implementados no suporte a aplicativos que precisam executar operações de armazenamento de chaves e recuperação de chaves. Os dispositivos HSM dedicados possuem 10 partições para suporte de aplicativo independente. O local do dispositivo deve ser baseado em uma visão holística de todos os aplicativos que precisam usar o serviço.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Depois que a arquitetura de implantação for determinada, a maioria das atividades de configuração para implementar essa arquitetura será fornecida pela Gemalto. Isso inclui a configuração do dispositivo e também os cenários de integração de aplicativos. Para obter mais informações, use o [portal de suporte ao cliente da Gemalto](https://supportportal.gemalto.com/csm/) e faça o download dos guias de administração e configuração. O site parceiro da Microsoft possui uma variedade de guias de integração.
 Recomenda-se que todos os principais conceitos do serviço, como alta disponibilidade e segurança, por exemplo, sejam bem compreendidos antes do provisionamento do dispositivo ou do design e da implantação do aplicativo.
@@ -73,4 +73,4 @@ Mais tópicos de nível de conceito:
 * [Segurança física](physical-security.md)
 * [Rede](networking.md)
 * [Capacidade de suporte](supportability.md)
-* [Monitoring](monitoring.md)
+* <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>Monitoramento<ept i="1000001">&lt;b}</ept>

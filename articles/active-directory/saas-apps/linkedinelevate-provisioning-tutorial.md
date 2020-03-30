@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: provisionamento de usuário para LinkedIn Elevate – Azure AD'
+title: 'Tutorial: Provisionamento do usuário para LinkedIn Elevate - Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no LinkedIn Elevate.
 services: active-directory
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057406"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Elevate para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no LinkedIn Elevate e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LinkedIn Elevate.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -84,7 +84,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 5. Clique em **Gerar token**. Você deve ver o token de acesso ser exibido sob o campo **Token de acesso**.
 
-6. Salve seu token de acesso na área de transferência ou no computador antes de sair da página.
+6. Salve seu token de acesso à sua área de transferência ou computador antes de sair da página.
 
 7. Em seguida, entre no [Portal do Azure](https://portal.azure.com) e navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
@@ -92,7 +92,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 9. Selecione sua instância do LinkedIn Elevate e selecione a guia **Provisionamento**.
 
-10. Defina o **Modo de Provisionamento** como **Automático**.
+10. Defina o **modo de provisionamento** como **automático**.
 
     ![Provisionamento do LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
@@ -106,7 +106,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 12. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-13. Clique em **Save** (Salvar).
+13. Clique em **Salvar**.
 
 14. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário e grupo que serão sincronizados do Azure AD para o LinkedIn Elevate. Observe que os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário e grupos no LinkedIn Elevate para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
@@ -114,7 +114,7 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 15. Para habilitar o serviço de provisionamento do Azure AD para o LinkedIn Elevate, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações**
 
-16. Clique em **Save** (Salvar).
+16. Clique em **Salvar**.
 
 Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos ao LinkedIn Elevate na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo LinkedIn Learning.
 
@@ -122,5 +122,5 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

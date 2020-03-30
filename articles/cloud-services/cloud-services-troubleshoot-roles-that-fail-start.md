@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71122741"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solução de problemas de funções do serviço de nuvem com falha de inicialização
@@ -47,7 +47,7 @@ Informações sobre erros mais completas podem ser exibidas pela configuração 
 Para exibir erros mais completos sem usar a Área de Trabalho Remota:
 
 1. Abra a solução no Microsoft Visual Studio.
-2. No **Gerenciador de Soluções**, localize o arquivo web.config e abri-lo.
+2. No **Gerenciador de Soluções**, localize o arquivo web.config e abra-o.
 3. No arquivo web.config, localize a seção system.web e adicione a seguinte linha:
 
     ```xml
@@ -69,15 +69,15 @@ Você pode usar a Área de Trabalho Remota para acessar a função e exibir info
 7. Digite `IPconfig`.
 8. Observe o valor do Endereço IPV4.
 9. Abra o Internet Explorer.
-10. Digite o endereço e o nome do aplicativo Web. Por exemplo: `http://<IPV4 Address>/default.aspx`.
+10. Digite o endereço e o nome do aplicativo Web. Por exemplo, `http://<IPV4 Address>/default.aspx`.
 
 Navegar até o site agora retornará mensagens de erro mais explícitas:
 
 * Erro de servidor no aplicativo '/'.
-* Descrição: Ocorreu uma exceção sem tratamento durante a execução da solicitação da Web atual. Examine o rastreamento de pilha para obter mais informações sobre o erro e em que ponto ele ocorreu no código.
-* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o arquivo ou assembly ' Microsoft. WindowsAzure. StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35 ' ou uma de suas dependências. O sistema não pode encontrar o arquivo especificado.
+* Descrição: ocorreu uma exceção sem tratamento durante a execução da solicitação da Web atual. Examine o rastreamento de pilha para obter mais informações sobre o erro e em que ponto ele ocorreu no código.
+* Detalhes da exceção: System.IO.FIleNotFoundException: não foi possível carregar o arquivo ou assembly ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ ou uma de suas dependências. O sistema não pode encontrar o arquivo especificado.
 
-Por exemplo:
+Por exemplo: 
 
 ![Erro de servidor explícito no aplicativo '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
@@ -101,7 +101,7 @@ Siga estas etapas para implantar o serviço com o IntelliTrace habilitado:
 
 1. Confirme se o Azure SDK 1.3 ou posterior está instalado.
 2. Implante a solução usando o Visual Studio. Durante a implantação, marque a caixa de seleção **Habilitar IntelliTrace para funções do .NET 4** .
-3. Quando a instância for iniciada, abra o **Gerenciador de Servidores**.
+3. Depois que a instância for iniciada, abra **Gerenciador de Servidores**.
 4. Expanda o nó **Azure\\Serviços de Nuvem** e localize a implantação.
 5. Expanda a implantação até ver as instâncias de função. Clique com o botão direito do mouse em uma das instâncias.
 6. Escolha **Exibir logs do IntelliTrace**. O **Resumo do IntelliTrace** será aberto.

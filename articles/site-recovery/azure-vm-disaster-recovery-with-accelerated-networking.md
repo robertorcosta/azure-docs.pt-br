@@ -1,5 +1,5 @@
 ---
-title: Habilitar rede acelerada para recuperação de desastre de VM do Azure com Azure Site Recovery
+title: Habilite a rede acelerada para recuperação de desastres do Azure VM com a recuperação do site do Azure
 description: Descreve como habilitar a Rede acelerada com o Azure Site Recovery para recuperação de desastre de máquina virtual do Azure
 services: site-recovery
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73622427"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rede acelerada com a recuperação de desastre de máquina virtual do Azure
@@ -35,10 +35,10 @@ Antes de começar, verifique se você compreende:
 
 O Azure Site Recovery dá suporte a habilitar a Rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a Rede acelerada habilitada. Se sua máquina virtual de origem não tem a Rede acelerada habilitada, saiba como habilitar a Rede acelerada para máquinas virtuais do Windows [aqui](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **Windows Server 2016 Datacenter**
-* **Windows Server 2012 R2 Datacenter**
+* **Centro de dados R2 do Windows Server 2012**
 
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
@@ -51,7 +51,7 @@ Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM 
 
 O Azure Site Recovery dá suporte a habilitar a Rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a Rede acelerada habilitada. Se sua máquina virtual de origem não tem a Rede acelerada habilitada, saiba como habilitar a Rede acelerada para máquinas virtuais do Linux [aqui](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **Ubuntu 16.04**
 * **SLES 12 SP3**

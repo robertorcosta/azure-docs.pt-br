@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar mypolicies para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para mypolicies.
+title: 'Tutorial: Configure myPolicies para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para myPolicies.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,82 +16,82 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 353da826b6e339d40a5d85bbf63caac5bf7094f1
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061345"
 ---
-# <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: configurar mypolicies para provisionamento automático de usuário
+# <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configure myPolicies para provisionamento automático do usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas em mypolicies e Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para mypolicies.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no myPolicies e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para myPolicies.
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os Termos de uso gerais do Microsoft Azure para a versão prévia de recursos, confira [Termos de uso adicionais para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD.
-* [Um locatário Mypolicies](https://mypolicies.com/index.html#section10).
-* Uma conta de usuário em mypolicies com permissões de administrador.
+* [Um inquilino myPolicies.](https://mypolicies.com/index.html#section10)
+* Uma conta de usuário no myPolicies com permissões de administração.
 
-## <a name="assigning-users-to-mypolicies"></a>Atribuindo usuários ao mypolicies
+## <a name="assigning-users-to-mypolicies"></a>Atribuindo usuários ao myPolicies
 
-Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso a aplicativos selecionados. No contexto do provisionamento automático do usuário, apenas os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso a mypolicies. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao mypolicies seguindo estas instruções:
+Antes de configurar e habilitar o provisionamento automático do usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam acessar myPolicies. Uma vez decidido, você pode atribuir esses usuários e/ou grupos às minhasPolíticas seguindo as instruções aqui:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-mypolicies"></a>Dicas importantes para atribuir usuários ao mypolicies
+## <a name="important-tips-for-assigning-users-to-mypolicies"></a>Dicas importantes para atribuir usuários às minhasPolíticas
 
-* É recomendável que um único usuário do Azure AD seja atribuído a mypolicies para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único usuário azure AD seja atribuído ao myPolicies para testar a configuração automática de provisionamento do usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao mypolicies, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
+* Ao atribuir um usuário às minhasPolíticas, você deve selecionar qualquer função específica de aplicativo (se disponível) na caixa de diálogo de atribuição. Os usuários com a **função Default Access** são excluídos do provisionamento.
 
-## <a name="setup-mypolicies-for-provisioning"></a>Configurar mypolicies para provisionamento
+## <a name="setup-mypolicies-for-provisioning"></a>Configurar minhasPolíticas para provisionamento
 
-Antes de configurar mypolicies para o provisionamento automático de usuário com o Azure AD, você precisará habilitar o provisionamento do SCIM em mypolicies.
+Antes de configurar myPolicies para provisionamento automático do usuário com o Azure AD, você precisará habilitar o provisionamento de SCIM em myPolicies.
 
-1. Entre em contato com seu representante do mypolicies em **support@mypolicies.com** para obter o token secreto necessário para configurar o provisionamento do SCIM.
+1. Entre em contato com **support@mypolicies.com** o seu representante myPolicies para obter o token secreto necessário para configurar o provisionamento SCIM.
 
-2.  Salve o valor do token fornecido pelo representante mypolicies. Esse valor será inserido no campo **token secreto** na guia provisionamento do aplicativo mypolicies na portal do Azure.
+2.  Salve o valor do token fornecido pelo representante myPolicies. Esse valor será inserido no campo **Token Secreto** na guia Provisionamento do aplicativo myPolicies no portal Azure.
 
-## <a name="add-mypolicies-from-the-gallery"></a>Adicionar mypolicies da Galeria
+## <a name="add-mypolicies-from-the-gallery"></a>Adicione myPolicies da galeria
 
-Para configurar mypolicies para o provisionamento automático de usuário com o Azure AD, você precisa adicionar o mypolicies da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar myPolicies para provisionamento automático de usuários com o Azure AD, você precisa adicionar myPolicies da galeria de aplicativos Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar mypolicies da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
+**Para adicionar myPolicies na galeria de aplicativos Azure AD, execute as seguintes etapas:**
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+2. Vá para **aplicativos Enterprise**e selecione Todos **os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **Mypolicies**, selecione **mypolicies** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **myPolicies**, selecione **myPolicies** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![myPolicies na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-mypolicies"></a>Configurando o provisionamento automático de usuário para mypolicies 
+## <a name="configuring-automatic-user-provisioning-to-mypolicies"></a>Configuração do provisionamento automático do usuário para myPolicies 
 
-Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos em mypolicies com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você através das etapas para configurar o serviço de provisionamento Azure AD para criar, atualizar e desativar usuários e/ou grupos em myPolicies com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por habilitar o logon único baseado em SAML para mypolicies, seguindo as instruções fornecidas no [tutorial de logon único do Mypolicies](mypolicies-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
+> Você também pode optar por ativar o login único baseado em SAML para myPolicies, seguindo as instruções fornecidas no [tutorial myPolicies Single sign-on](mypolicies-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos sejam complementares.
 
-### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para mypolicies no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Para configurar o provisionamento automático do usuário para myPolicies no Azure AD:
 
-1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Faça login no [portal Azure](https://portal.azure.com). Selecione **Aplicativos Corporativos**e selecione **Todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -101,16 +101,16 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia provisionamento](common/provisioning.png)
+    ![Guia de provisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+4. Defina o **modo de provisionamento** como **automático**.
 
-    ![Guia provisionamento](common/provisioning-automatic.png)
+    ![Guia de provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira `https://<myPoliciesCustomDomain>.mypolicies.com/scim` na **URL do locatário** em que `<myPoliciesCustomDomain>` é seu domínio personalizado mypolicies. Você pode recuperar seu domínio de cliente mypolicies, da sua URL.
-Exemplo: `<demo0-qa>`. mypolicies.com.
+5. Na seção Credenciais de `https://<myPoliciesCustomDomain>.mypolicies.com/scim` **Admin,** insira em **URL do inquilino** onde `<myPoliciesCustomDomain>` está o domínio personalizado myPolicies. Você pode recuperar seu domínio de cliente myPolicies, a partir de sua URL.
+Exemplo: `<demo0-qa>`.mypolicies.com.
 
-6. Em **token secreto**, insira o valor do token que foi recuperado anteriormente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao mypolicies. Se a conexão falhar, verifique se sua conta mypolicies tem permissões de administrador e tente novamente.
+6. Em **Secret Token,** digite o valor de token que foi recuperado anteriormente. Clique **em Conexão de teste** para garantir que o Azure AD possa se conectar às minhasPolíticas. Se a conexão falhar, certifique-se de que sua conta myPolicies tenha permissões de administração e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -118,23 +118,23 @@ Exemplo: `<demo0-qa>`. mypolicies.com.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
 
-9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para mypolicies**.
+9. Na seção **Mapeamentos,** selecione **Sincronizar usuários do diretório ativo do Azure para myPolicies**.
 
-    ![Mapeamentos de usuário mypolicies](media/mypolicies-provisioning-tutorial/usermapping.png)
+    ![mapeamentos de usuários myPolicies](media/mypolicies-provisioning-tutorial/usermapping.png)
 
-10. Examine os atributos de usuário que são sincronizados do Azure AD para mypolicies na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário em mypolicies para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+10. Revise os atributos do usuário sincronizados do Azure AD para myPolicies na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades de correspondência** são usados para corresponder às contas de usuário no myPolicies para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Mapeamentos de usuário mypolicies](media/mypolicies-provisioning-tutorial/userattribute.png)
+    ![mapeamentos de usuários myPolicies](media/mypolicies-provisioning-tutorial/userattribute.png)
 
 11. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar o serviço de provisionamento do Azure AD para mypolicies, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+12. Para habilitar o serviço de provisionamento Azure AD para myPolicies, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações.**
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-13. Defina os usuários e/ou grupos que você deseja provisionar para mypolicies escolhendo os valores desejados no **escopo** na seção **configurações** .
+13. Defina os usuários e/ou grupos que você gostaria de provisionar para myPolicies escolhendo os valores desejados no **Escopo** na seção **Configurações.**
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -142,19 +142,19 @@ Exemplo: `<demo0-qa>`. mypolicies.com.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD em mypolicies.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **Detalhes de sincronização** para monitorar o progresso e seguir links para o relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento Azure AD no myPolicies.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* mypolicies sempre requer **username**, **email** e **externalId**.
-* mypolicies não dá suporte a exclusões rígidas para atributos de usuário.
+* myPolicies sempre requer **nome de usuário,** **e-mail** e **id externo**.
+* myPolicies não suporta exclusões duras para atributos do usuário.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

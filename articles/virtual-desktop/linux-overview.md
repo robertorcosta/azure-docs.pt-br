@@ -1,6 +1,6 @@
 ---
-title: Suporte para Linux de área de trabalho virtual do Windows – Azure
-description: Uma breve visão geral do suporte ao Linux para área de trabalho virtual do Windows.
+title: Suporte para Windows Virtual Desktop Linux - Azure
+description: Uma breve visão geral do suporte ao Linux para o Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,36 +9,36 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127834"
 ---
 # <a name="linux-support"></a>Suporte para Linux
 
-Você pode usar o SDK do Linux para área de trabalho virtual do Windows para criar um cliente de área de trabalho virtual do Windows autônomo. Você também pode usá-lo para habilitar o suporte à área de trabalho virtual do Windows em seu aplicativo cliente. Este guia rápido explicará o que é o SDK do Linux e como começar a usá-lo.
+Você pode usar o Linux SDK para Windows Virtual Desktop para construir um cliente de Área Virtual do Windows autônomo. Você também pode usá-lo para habilitar o suporte ao Windows Virtual Desktop no aplicativo do cliente. Este guia rápido explicará o que é o Linux SDK e como começar a usá-lo.
 
-## <a name="what-is-the-linux-sdk"></a>O que é o SDK do Linux?
+## <a name="what-is-the-linux-sdk"></a>O que é o Linux SDK?
 
-Você pode usar as APIs do SDK para recuperar feeds de recursos, conectar-se a sessões de aplicativos remotos ou de área de trabalho e usar muitos dos redirecionamentos aos quais nossos clientes de primeira empresa dão suporte.
+Você pode usar as APIs sdk para recuperar feeds de recursos, conectar-se a sessões de desktop ou aplicativos remotos e usar muitos dos redirecionamentos que nossos clientes de primeira parte suportam.
 
 > [!NOTE]
 > O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para acessar o SDK quando ele estiver disponível.
 
-### <a name="supported-linux-distributions"></a>Distribuições do Linux com suporte
+### <a name="supported-linux-distributions"></a>Distribuições Linux suportadas
 
-O SDK é compatível com a maioria dos sistemas operacionais baseados no Ubuntu 18, 4 ou posterior. Se você tiver uma distribuição do Linux diferente, poderemos trabalhar com você para descobrir como oferecer o melhor suporte às suas necessidades.
+O SDK é compatível com a maioria dos sistemas operacionais baseados no Ubuntu 18.04 ou posterior. Se você tem uma distribuição Linux diferente, podemos trabalhar com você para descobrir como melhor apoiar suas necessidades.
 
 ### <a name="feature-support"></a>Suporte a recursos
 
-O SDK dá suporte a várias conexões para desktop e sessões de aplicativos remotos. Há suporte para os seguintes redirecionamentos:
+O SDK suporta várias conexões para sessões de desktop e aplicativos remotos. Os seguintes redirecionamentos são suportados:
 
-| Redirecionamento       | Suportado |
+| Redirecionamento       | Com suporte |
 | :---------------- | :-------: |
 | Teclado          | &#10004;  |
 | Mouse             | &#10004;  |
-| Entrada de áudio          | &#10004;  |
+| Áudio em          | &#10004;  |
 | Saída de áudio         | &#10004;  |
 | Área de transferência (texto)  | &#10004;  |
 | Área de transferência (imagem) | &#10004;  |
@@ -46,23 +46,23 @@ O SDK dá suporte a várias conexões para desktop e sessões de aplicativos rem
 | Cartão inteligente         | &#10004;  |
 | Unidade/pasta      | &#10004;  |
 
-O SDK também dá suporte a várias configurações de exibição de monitor, contanto que os monitores selecionados para a sessão sejam contíguos.
+O SDK também suporta várias configurações de exibição de monitor, desde que os monitores selecionados para sua sessão sejam contíguos.
 
-Atualizaremos este documento à medida que adicionamos suporte para novos recursos e redirecionamentos. Se você quiser sugerir novos recursos e outras melhorias, visite nossa [página uservoice](https://go.microsoft.com/fwlink/?linkid=2116523).
+Atualizaremos este documento à medida que adicionamos suporte para novos recursos e redirecionamentos. Se você quiser sugerir novos recursos e outras melhorias, visite nossa [página UserVoice](https://go.microsoft.com/fwlink/?linkid=2116523).
 
-## <a name="get-started-with-the-linux-sdk"></a>Introdução ao SDK do Linux
+## <a name="get-started-with-the-linux-sdk"></a>Comece com o Linux SDK
 
-Para poder desenvolver um cliente Linux para área de trabalho virtual do Windows, você precisa fazer o seguinte:
+Antes de desenvolver um cliente Linux para Windows Virtual Desktop, você precisa fazer as seguintes coisas:
 
-1. Crie e implante um ambiente de área de trabalho virtual do Windows para teste ou uso em produção.
-2. Teste os clientes primários disponíveis para se familiarizar com a experiência do usuário da área de trabalho virtual do Windows.
+1. Crie e implante um ambiente de desktop virtual do Windows para testes ou uso de produção.
+2. Teste os clientes de primeira parte disponíveis para se familiarizar com a experiência do usuário do Windows Virtual Desktop.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Confira nossa documentação para os seguintes clientes:
 
-- [Cliente de área de trabalho do Windows](connect-windows-7-and-10.md)
-- [Cliente Web](connect-web.md)
-- [Cliente Android](connect-android.md)
-- [cliente macOS](connect-macos.md)
-- [cliente iOS](connect-ios.md)
+- [Cliente de Área de Trabalho do Windows](connect-windows-7-and-10.md)
+- [Cliente web](connect-web.md)
+- [Cliente para Android](connect-android.md)
+- [Cliente para macOS](connect-macos.md)
+- [Cliente para iOS](connect-ios.md)

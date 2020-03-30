@@ -9,10 +9,10 @@ ms.date: 01/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dac17da4aa3d3d73ccbbc101cba4326a17fec9b1
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127777"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento com um modelo do Azure Resource Manager
@@ -106,6 +106,6 @@ Siga estas instruções para iniciar a ferramenta:
 
 Caso tenha problemas com a ferramenta de gerenciamento ou outras ferramentas da Área de Trabalho Virtual do Windows, siga as instruções em [Modelos do Azure Resource Manager para Serviços de Área de Trabalho Remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatá-los no GitHub.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que aprendeu como implantar a ferramenta de gerenciamento e conectar-se a ela, você pode aprender a usar a ajuda do Serviço do Azure para monitorar problemas de serviço e avisos de integridade. Para saber mais, confira o tutorial [Configurar alertas de serviço](./set-up-service-alerts.md).

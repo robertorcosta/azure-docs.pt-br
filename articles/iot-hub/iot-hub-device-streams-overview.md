@@ -1,6 +1,6 @@
 ---
-title: Fluxos de dispositivo do Hub IoT do Azure | Microsoft Docs
-description: Visão geral dos fluxos de dispositivo do Hub IoT do Azure, que facilitam os túneis TCP bidirecionais seguros para uma variedade de cenários de comunicação da nuvem para o dispositivo.
+title: Fluxos de dispositivos Azure IoT Hub | Microsoft Docs
+description: Visão geral dos fluxos de dispositivos Azure IoT Hub, que facilitam túneis TCP bidirecionais seguros para uma variedade de cenários de comunicação nuvem-dispositivo.
 author: robinsh
 services: iot-hub
 ms.service: iot-hub
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890464"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
 
 Os *fluxos de dispositivos* do Hub IoT do Azure facilitam a criação de túneis seguros de TCP bidirecionais para uma vários cenários de comunicação da nuvem para dispositivo. Um fluxo de dispositivo é intermediado por um *ponto de extremidade de streaming* do Hub IoT que atua como um proxy entre os pontos de extremidade de serviço e o dispositivo. Essa configuração, ilustrada no diagrama a seguir, é especialmente útil quando os dispositivos estão por trás de um firewall de rede ou residem no interior de uma rede privada. Como tal, os fluxos de dispositivo do Hub IoT ajudam atender à necessidade dos clientes de acessar dispositivos de IoT de forma amigável para o firewall e sem a necessidade de abrir completamente as portas de firewall de rede de entrada ou saída.
 
-!["Visão geral dos fluxos de dispositivo do Hub IoT"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png )
+!["Visão geral dos fluxos de dispositivos IoT Hub"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png )
 
 Ao usar os fluxos de dispositivos do Hub IoT, os dispositivos permanecem seguros e só precisarão abrir as conexões de TCP de saída para o ponto de extremidade de streaming do Hub IoT pela porta 443. Quando um fluxo é estabelecido, os aplicativos do lado do serviço e do lado do dispositivo têm acesso via programação a um objeto de cliente do WebSocket para enviar e receber os bytes brutos entre si. As garantias de confiabilidade e ordenação fornecidas por esse túnel são similares àquelas oferecidas por TCP.
 
@@ -26,19 +26,19 @@ Ao usar os fluxos de dispositivos do Hub IoT, os dispositivos permanecem seguros
 
 Os fluxos de dispositivos do Hub IoT oferecem os seguintes benefícios:
 
-* **Conectividade segura compatível com firewall:** Os dispositivos IoT podem ser acessados de pontos de extremidade de serviço sem abrir a porta de firewall de entrada no dispositivo ou perímetros de rede (somente a conectividade de saída para o Hub IoT é necessária na porta 443).
+* **Conectividade segura amigável ao firewall:** Os dispositivos IoT podem ser alcançados a partir de pontos finais de serviço sem abertura de porta de firewall de entrada no dispositivo ou perímetros de rede (apenas a conectividade de saída para o IoT Hub é necessária sobre a porta 443).
 
-* **Autenticação:** Os lados de dispositivo e serviço do túnel precisam se autenticar no Hub IoT usando suas credenciais correspondentes.
+* **Autenticação:** Ambos os lados do dispositivo e do serviço do túnel precisam autenticar com o IoT Hub usando suas credenciais correspondentes.
 
-* **Criptografia:** Por padrão, os fluxos de dispositivo do Hub IoT usam conexões habilitadas para TLS. Isso garante que o tráfego seja sempre criptografado, independentemente se o aplicativo usa a criptografia ou não.
+* **Criptografia:** Por padrão, os fluxos de dispositivos IoT Hub usam conexões habilitadas para TLS. Isso garante que o tráfego seja sempre criptografado, independentemente se o aplicativo usa a criptografia ou não.
 
-* **Simplicidade de conectividade:** Em muitos casos, o uso de fluxos de dispositivo elimina a necessidade de configuração complexa de redes virtuais privadas para habilitar a conectividade com dispositivos IoT.
+* **Simplicidade da conectividade:** Em muitos casos, o uso de fluxos de dispositivos elimina a necessidade de configuração complexa de Redes Privadas Virtuais para permitir a conectividade com dispositivos IoT.
 
-* **Compatibilidade com a pilha TCP/IP:** Os fluxos de dispositivo do Hub IoT podem acomodar o tráfego do aplicativo TCP/IP. Isso significa que uma ampla gama de protocolos proprietários, assim como protocolos baseados em padrões, podem aproveitar esse recurso.
+* **Compatibilidade com a pilha TCP/IP:** Os fluxos de dispositivos IoT Hub podem acomodar o tráfego de aplicativos TCP/IP. Isso significa que uma ampla gama de protocolos proprietários, assim como protocolos baseados em padrões, podem aproveitar esse recurso.
 
-* **Facilidade de uso em configurações de rede privada:** O serviço pode se comunicar com um dispositivo referenciando sua ID do dispositivo, em vez do endereço IP do dispositivo. Isso é útil em situações em que um dispositivo está localizado dentro de uma rede privada e tem um endereço IP privado, ou seu endereço IP é atribuído dinamicamente e é desconhecido para o lado do serviço.
+* **Facilidade de uso em configurações de rede privada:** O serviço pode se comunicar com um dispositivo fazendo referência ao id do dispositivo, em vez do endereço IP do dispositivo. Isso é útil em situações em que um dispositivo está localizado dentro de uma rede privada e tem um endereço IP privado, ou seu endereço IP é atribuído dinamicamente e é desconhecido para o lado do serviço.
 
-## <a name="device-stream-workflows"></a>Fluxos de trabalho de fluxo de dispositivo
+## <a name="device-stream-workflows"></a>Fluxos de trabalho de fluxo de dispositivos
 
 Um fluxo de dispositivo é iniciado quando o serviço solicita uma conexão a um dispositivo, fornecendo sua identificação do dispositivo. Esse fluxo de trabalho se encaixa especialmente no modelo de comunicação cliente/servidor, incluindo SSH e RDP, em que um usuário pretende se conectar remotamente ao servidor SSH ou RDP em execução no dispositivo usando um programa de cliente SSH ou RDP.
 
@@ -48,7 +48,7 @@ O processo de criação de fluxo de dispositivo envolve uma negociação entre o
 
 A criação programática de um fluxo de dispositivo usando o SDK envolve as etapas a seguir, que também são descritas na figura abaixo:
 
-!["Processo de handshake de fluxo do dispositivo"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-handshake.png)
+!["Processo de aperto de mão do fluxo de dispositivos"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-handshake.png)
 
 1. O aplicativo do dispositivo registra um retorno de chamada com antecedência para ser notificado sobre quando um novo fluxo de dispositivo é iniciado no dispositivo. Esta etapa geralmente ocorre quando o dispositivo é inicializado e se conecta ao Hub IoT.
 
@@ -66,7 +66,7 @@ No processo de handshake acima:
 
 * Após a conclusão do fluxo de criação de fluxo acima, o ponto de extremidade de streaming atuará como um proxy e transferirá o tráfego entre o serviço e o dispositivo por meio dos respectivos WebSockets.
 
-* O dispositivo e o serviço precisam de conectividade de saída para os pontos de extremidade principais do Hub IoT, assim como do ponto de extremidade de streaming pela porta 443. A URL desses pontos de extremidade está disponível na guia *Visão geral* no portal do Hub IoT.
+* O dispositivo e o serviço precisam de conectividade de saída para os pontos de extremidade principais do Hub IoT, assim como do ponto de extremidade de streaming pela porta 443. A URL desses pontos finais está disponível na guia *Visão Geral* no portal do IoT Hub.
 
 * As garantias de confiabilidade e ordenação de um fluxo estabelecido são similares àquelas oferecidas por TCP.
 
@@ -80,9 +80,9 @@ Um fluxo estabelecido termina quando qualquer uma das conexões TCP ao gateway �
 
 Os lados do serviço e do dispositivo de um fluxo de dispositivo devem ser capazes de estabelecer conexões de TLS habilitado ao Hub IoT e ao seu ponto de extremidade de streaming. Isso requer conectividade de saída pela porta 443 para esses pontos de extremidade. O nome do host associado a esses pontos de extremidade pode ser encontrado na guia *Visão geral* do Hub IoT, conforme mostrado na figura abaixo:
 
-!["Pontos de extremidade de fluxo de dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
+!["Pontos finais do fluxo do dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-Como alternativa, as informações dos pontos de extremidade podem ser recuperadas usando CLI do Azure na seção de propriedades do Hub, especificamente, `property.hostname` e `property.deviceStreams` chaves.
+Alternativamente, as informações de pontos finais podem ser recuperadas usando o Azure CLI na seção de propriedades do hub, especificamente, `property.hostname` e `property.deviceStreams` chaves.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>
@@ -99,14 +99,14 @@ A saída é um objeto JSON com todos os pontos de extremidade que seu dispositiv
 ```
 
 > [!NOTE]
-> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [Install Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 >
 
-## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Permitir conectividade de saída para os pontos de extremidade de streaming do dispositivo
+## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Permitir conectividade de saída aos pontos finais de streaming do dispositivo
 
-Conforme mencionado no início deste artigo, seu dispositivo cria uma conexão de saída para o ponto de extremidade de streaming do Hub IoT durante o processo de inicialização de fluxos de dispositivo. Os firewalls no dispositivo ou em sua rede devem permitir a conectividade de saída para o gateway de streaming pela porta 443 (observe que a comunicação ocorre em uma conexão WebSocket que é criptografada usando TLS).
+Como mencionado no início deste artigo, seu dispositivo cria uma conexão de saída com o ponto final de streaming do IoT Hub durante o processo de iniciação dos fluxos de dispositivos. Os firewalls no dispositivo ou em sua rede devem permitir a conectividade de saída para o gateway de streaming pela porta 443 (observe que a comunicação ocorre em uma conexão WebSocket que é criptografada usando TLS).
 
-O nome do host do ponto de extremidade de streaming do dispositivo pode ser encontrado no portal do Hub IoT do Azure na guia Visão geral. !["pontos de extremidade de fluxo de dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
+O nome de host do ponto final de streaming do dispositivo pode ser encontrado ![no portal Azure IoT Hub na guia Visão Geral. "Pontos finais de fluxo de dispositivo"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 Como alternativa, você pode encontrar essas informações usando a CLI do Azure:
 
@@ -115,32 +115,32 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [instalar CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Verifique se a CLI do Azure versão 2.0.57 ou posterior está instalada. Você pode baixar a versão mais recente na página [Install Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 >
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Solucionar problemas por meio de logs de atividades de fluxos de dispositivos
 
-Você pode configurar logs de Azure Monitor para coletar o log de atividades dos fluxos de dispositivo em seu hub IoT. Isso pode ser muito útil em cenários de solução de problemas.
+Você pode configurar registros do Monitor Azure para coletar o registro de atividades de fluxos de dispositivos em seu Hub IoT. Isso pode ser muito útil em cenários de solução de problemas.
 
-Siga as etapas abaixo para configurar os logs de Azure Monitor para as atividades de fluxo do dispositivo do Hub IoT:
+Siga as etapas abaixo para configurar os logs do Monitor do Azure para as atividades de fluxo de dispositivos do Seu IoT Hub:
 
 1. Navegue até a guia *Configurações de diagnóstico* em seu Hub IoT e, em seguida, clique no link *Ativar diagnóstico*.
 
-   !["Habilitando logs de diagnóstico"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+   !["Habilitando registros de diagnósticos"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
 
-2. Forneça um nome para as configurações de diagnóstico e, em seguida, escolha a opção *Enviar para o Log Analytics*. Você será guiado para escolher um recurso existente do espaço de trabalho Log Analytics ou criar um novo. Além disso, verifique os *DeviceStreams* na lista.
+2. Forneça um nome para as configurações de diagnóstico e, em seguida, escolha a opção *Enviar para o Log Analytics*. Você será orientado a escolher um recurso de espaço de trabalho do Log Analytics existente ou criar um novo. Além disso, verifique os *DeviceStreams* na lista.
 
-    !["Habilitar logs de fluxos de dispositivo"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
+    !["Habilitar logs de fluxos de dispositivos"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
 
 3. Agora você pode acessar seus logs de fluxos de dispositivo na guia *Logs* no portal do seu Hub IoT. Os logs de atividades de fluxo de dispositivo aparecerão na tabela `AzureDiagnostics` e possuem `Category=DeviceStreams`.
 
-   Como mostrado abaixo, a identidade do dispositivo de destino e o resultado da operação também estão disponíveis nos logs.
+   Como mostrado abaixo, a identidade do dispositivo de destino e o resultado da operação também estão disponíveis nos registros.
 
-   !["Acessar logs de fluxo do dispositivo"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
+   !["Acesso a registros de fluxo de dispositivos"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-Durante a visualização pública, os fluxos de dispositivo do Hub IoT estão disponíveis nas regiões EUA Central, EUA Central EUAP, Europa Setentrional e sudeste asiático. Certifique-se de criar seu hub em uma dessas regiões.
+Durante a visualização pública, os fluxos de dispositivos IoT Hub estão disponíveis nas regiões central dos EUA, EuAP Central, Norte da Europa e Sudeste Asiático. Certifique-se de criar seu hub em uma dessas regiões.
 
 ## <a name="sdk-availability"></a>Disponibilidade do SDK
 
@@ -150,11 +150,11 @@ Dois lados de cada fluxo (no lado do dispositivo e do serviço) usam o SDK do Hu
 
 * Os SDKs de Node.js e C# dão suporte a fluxos de dispositivos no lado do serviço.
 
-## <a name="iot-hub-device-stream-samples"></a>Amostras de fluxo de dispositivo do Hub IoT
+## <a name="iot-hub-device-stream-samples"></a>Amostras de fluxo de dispositivos IoT Hub
 
-Há duas [amostras de início rápido](/azure/iot-hub) disponíveis na página do Hub IOT. Eles demonstram o uso de fluxos de dispositivo por aplicativos.
+Existem duas [amostras de quickstart](/azure/iot-hub) disponíveis na página do IoT Hub. Estes demonstram o uso de fluxos de dispositivos por aplicativos.
 
-* O exemplo *Echo* demonstra o uso programático de fluxos de dispositivo (chamando diretamente a API do SDK).
+* A amostra *de eco* demonstra o uso programático de fluxos de dispositivos (chamando diretamente a API sdk).
 
 * O exemplo de *proxy local* demonstra o túnel de tráfego de aplicativo do servidor/cliente pronto para uso (como Web, RDP ou SSH) por meio de fluxos de dispositivo.
 
@@ -162,17 +162,17 @@ Esses exemplos são abordados em mais detalhes abaixo.
 
 ### <a name="echo-sample"></a>Exemplo de echo
 
-O exemplo de eco demonstra o uso via programação dos fluxos de dispositivos para enviar e receber bytes entre os aplicativos de serviço e de dispositivo. Observe que você pode usar programas de serviço e dispositivo em diferentes idiomas. Por exemplo, você pode usar o programa de dispositivo C com C# o programa de serviço.
+O exemplo de eco demonstra o uso via programação dos fluxos de dispositivos para enviar e receber bytes entre os aplicativos de serviço e de dispositivo. Observe que você pode usar programas de serviço e dispositivo em diferentes idiomas. Por exemplo, você pode usar o programa de dispositivo C com o programa de serviço C#.
 
-Aqui estão os exemplos de eco:
+Aqui estão as amostras de eco:
 
-* [C#programa de serviço e serviço](quickstart-device-streams-echo-csharp.md)
+* [C# programa de serviços e serviços](quickstart-device-streams-echo-csharp.md)
 
-* [Programa de serviço node. js](quickstart-device-streams-echo-nodejs.md)
+* [Programa de serviço node.js](quickstart-device-streams-echo-nodejs.md)
 
-* [Programa de dispositivo C](quickstart-device-streams-echo-c.md)
+* [Programa de dispositivos C](quickstart-device-streams-echo-c.md)
 
-### <a name="local-proxy-sample-for-ssh-or-rdp"></a>Exemplo de proxy local (para SSH ou RDP)
+### <a name="local-proxy-sample-for-ssh-or-rdp"></a>Amostra de proxy local (para SSH ou RDP)
 
 O exemplo de proxy local demonstra uma maneira de habilitar o túnel de tráfego de um aplicativo existente que envolva a comunicação entre um programa de cliente e de servidor. Essa configuração funciona para protocolos de cliente/servidor, como SSH e RDP, em que o lado do serviço atua como um cliente (executando programas de cliente SSH ou RDP) e o lado do dispositivo atua como o servidor (executando programas de daemon SSH ou de servidor RDP).
 
@@ -180,7 +180,7 @@ Esta seção descreve o uso de fluxos de dispositivos para habilitar que os usu�
 
 A configuração utiliza dois programas de *proxy local* mostrados na figura abaixo, ou seja, *proxy local do dispositivo* e *proxy local do serviço*. Os programas de proxy locais são responsáveis por executar o [handshake de início do fluxo de dispositivo](#device-stream-creation-flow) com o Hub IoT e interagir com o cliente SSH e o daemon SSH usando os soquetes de cliente/servidor comuns.
 
-!["Configuração de proxy do fluxo do dispositivo para SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
+!["Configuração do proxy de fluxo de dispositivo para SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 
 1. O usuário executa o proxy local de serviço para iniciar um fluxo de dispositivo para o dispositivo.
 
@@ -198,19 +198,19 @@ A configuração utiliza dois programas de *proxy local* mostrados na figura aba
 
 * A opção de usar a porta 2222 no proxy local de serviço é arbitrária. O proxy pode ser configurado para usar qualquer outra porta disponível.
 
-* A escolha da porta 22 é dependente de protocolo e específica ao SSH, nesse caso. No caso do RDP, a porta 3389 deve ser usada. Isso pode ser configurado nos programas de exemplo fornecidos.
+* A escolha da porta 22 é dependente de protocolo e específica para SSH neste caso. No caso do RDP, a porta 3389 deve ser usada. Isso pode ser configurado nos programas de exemplo fornecidos.
 
 Use os links abaixo para obter instruções sobre como executar os programas de proxy local na linguagem de sua escolha. Semelhante ao [exemplo de eco](#echo-sample), é possível executar os programas de proxy locais de dispositivo e serviço em linguagens diferentes, já que eles são totalmente interoperáveis.
 
-* [C#programa de serviço e serviço](quickstart-device-streams-proxy-csharp.md)
+* [C# programa de serviços e serviços](quickstart-device-streams-proxy-csharp.md)
 
-* [Programa de serviço node. js](quickstart-device-streams-proxy-nodejs.md)
+* [Programa de serviço node.js](quickstart-device-streams-proxy-nodejs.md)
 
-* [Programa de dispositivo C](quickstart-device-streams-proxy-c.md)
+* [Programa de dispositivos C](quickstart-device-streams-proxy-c.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use os links abaixo para saber mais sobre os fluxos de dispositivo.
+Use os links abaixo para saber mais sobre fluxos de dispositivos.
 
 > [!div class="nextstepaction"]
-> [Fluxos de dispositivo no IoT show (canal 9)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fchannel9.msdn.com%2FShows%2FInternet-of-Things-Show%2FAzure-IoT-Hub-Device-Streams&data=02%7C01%7Crezas%40microsoft.com%7Cc3486254a89a43edea7c08d67a88bcea%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636831125031268909&sdata=S6u9qiehBN4tmgII637uJeVubUll0IZ4p2ddtG5pDBc%3D&reserved=0)
+> [Fluxos de dispositivos no show de IoT (Canal 9)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fchannel9.msdn.com%2FShows%2FInternet-of-Things-Show%2FAzure-IoT-Hub-Device-Streams&data=02%7C01%7Crezas%40microsoft.com%7Cc3486254a89a43edea7c08d67a88bcea%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636831125031268909&sdata=S6u9qiehBN4tmgII637uJeVubUll0IZ4p2ddtG5pDBc%3D&reserved=0)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
 ms.openlocfilehash: c8ead7abc454df387db31b2ce65d2ba714b0067d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494090"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use o Apache Spark MLlib para criar um aplicativo de aprendizado de máquina e analisar um conjunto de dados
@@ -22,9 +22,9 @@ Aprenda como usar o Apache Spark [MLlib](https://spark.apache.org/mllib/) para c
 
 MLlib é uma biblioteca Spark principal que fornece vários utilitários úteis para tarefas de aprendizado de máquina, incluindo utilitários adequados para:
 
-* Classificação
-* regressão
-* clustering
+* classificação
+* Regressão
+* Clustering
 * Modelagem de tópico
 * Decomposição de valor singular (SVD) e análise de componente principal (PCA)
 * Teste de hipótese e cálculo de estatísticas de exemplo
@@ -43,9 +43,9 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Crie um aplicativo de aprendizado de máquina Apache Spark MLlib
 
-1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter instruções, consulte [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter as instruções, consulte [Criar um caderno Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importe os tipos obrigatórios necessários para este aplicativo. Copie e cole o código a seguir em uma célula vazia e pressione **Shift + Enter**.
+2. Importe os tipos obrigatórios necessários para este aplicativo. Copie e cole o seguinte código em uma célula vazia e, em seguida, pressione **SHIFT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -179,7 +179,7 @@ Vamos começar a ter uma ideia do que o nosso conjunto de dados contém.
     ![Saída da consulta SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Saída da consulta SQL")
 
 
-3. Você também pode usar [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), uma biblioteca usada para construir a visualização de dados para criar um gráfico. Como o gráfico deve ser criado a partir do dataframe **countResultsdf** mantido localmente, o snippet de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
+3. Você também pode usar [o Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), uma biblioteca usada para construir visualização de dados, para criar um plot. Como o gráfico deve ser criado a partir do dataframe **countResultsdf** mantido localmente, o snippet de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
 
     ```PySpark
     %%local
@@ -195,15 +195,15 @@ Vamos começar a ter uma ideia do que o nosso conjunto de dados contém.
 
     A saída é:
 
-    ![Saída do aplicativo Spark Machine Learning-gráfico de pizza com cinco resultados de inspeção distintos](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Saída de resultado do Machine Learning do Spark")
+    ![Saída de aplicativo de aprendizagem de máquina spark - gráfico de tortacom cinco resultados de inspeção distintos](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Saída do resultado do aprendizado de máquina de faísca")
 
     Para prever um resultado de inspeção de alimentos, você precisa desenvolver um modelo com base nas violações. Como a regressão logística é um método de classificação binária, faz sentido agrupar os dados de resultado em duas categorias: **Reprovado** e **Aprovado**:
 
    - Aprovado
        - Aprovado
        - Aprovado c/ condições
-   - Reprovado
-       - Reprovado
+   - Falha
+       - Falha
    - Descartar
        - Negócios não localizados
        - Fora de negócio
@@ -352,14 +352,14 @@ Agora você pode construir uma visualização final para ajudar a justificar os 
 
     Você deve ver o seguinte resultado:
 
-    ![Saída do aplicativo Spark Machine Learning – porcentagens do gráfico de pizza de inspeções de alimentos com falha.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Saída de resultado do Machine Learning do Spark")
+    ![Spark machine learning saída de aplicativo - percentuais gráficos de tortas de inspeções de alimentos falhou.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Saída do resultado do aprendizado de máquina de faísca")
 
     Neste gráfico, um resultado "positivo" refere-se a uma reprovação na inspeção de alimentos, enquanto um resultado negativo refere-se a uma aprovação na inspeção.
 
 ## <a name="shut-down-the-notebook"></a>Fechar o notebook
 Depois de concluir a execução do aplicativo, você deve encerrar o bloco de anotações para liberar os recursos. Para fazer isso, no menu **Arquivo** do notebook, selecione **Fechar e Interromper**. Isso desliga e fecha o bloco de anotações.
 
-## <a name="seealso"></a>Consulte também
+## <a name="see-also"></a><a name="seealso"></a>Veja também
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários

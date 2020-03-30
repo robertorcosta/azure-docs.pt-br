@@ -13,10 +13,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d376672336845958fb6434a78177f42aca938229
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70081962"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Visão geral do SQL Server nas Máquinas Virtuais do Azure (Linux)
@@ -29,14 +29,14 @@ O SQL Server em máquinas virtuais do Azure permite que você use versões compl
 
 Máquinas virtuais do Azure executadas em várias [regiões geográficas](https://azure.microsoft.com/regions/) diferentes no mundo inteiro. Eles também oferecem uma variedade de [tamanhos de máquina](../sizes.md). A galeria de imagens de máquina virtual permite que você crie uma VM do SQL Server com a versão, a edição e o sistema operacional corretos. Isso torna a máquinas virtuais uma boa opção para uma das muitas cargas de trabalho diferentes do SQL Server.
 
-## <a id="create"></a> Introdução a VMs do SQL
+## <a name="get-started-with-sql-vms"></a><a id="create"></a> Introdução a VMs do SQL
 
 Para começar, escolha uma imagem de máquina virtual do SQL Server com a versão, a edição e o sistema operacional necessários. As seções a seguir fornecem links diretos para o Portal do Azure para as imagens da Galeria de máquina virtual do SQL Server.
 
 > [!TIP]
 > Para compreender melhor o preço das imagens do SQL, confira [a página de preços para VMs SQL Server do Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-| Version | Sistema operacional | Edição |
+| Versão | Sistema operacional | Edition |
 | --- | --- | --- |
 | **SQL Server 2017** | Red Hat Enterprise Linux (RHEL) 7.4 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74) |
 | **SQL Server 2017** | SUSE Linux Enterprise Server (SLES) v12 SP2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2) |
@@ -45,11 +45,11 @@ Para começar, escolha uma imagem de máquina virtual do SQL Server com a versã
 > [!NOTE]
 > Para ver as imagens de máquina virtual do Windows SQL Server disponíveis, consulte [Visão geral do SQL Server em máquinas virtuais do Azure (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-## <a id="packages"></a> Pacotes instalados
+## <a name="installed-packages"></a><a id="packages"></a> Pacotes instalados
 
 Quando você configura o SQL Server no Linux, você instala o pacote do mecanismo de banco de dados e, depois, vários pacotes opcionais, dependendo dos seus requisitos. As imagens de máquina virtual Linux para SQL Server instalam automaticamente a maioria dos pacotes para você. A tabela a seguir mostra quais pacotes são instalados para cada distribuição.
 
-| Distribuição | [Mecanismo de Banco de Dados](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Ferramentas](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Pesquisa de texto completo](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Complemento HA](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| Distribuição | [Mecanismo de banco de dados](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Ferramentas](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Pesquisa de texto completo](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [Ssis](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Complemento HA](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![não](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | SLES | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![sim](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![não](./media/sql-server-linux-virtual-machines-overview/no.png) | ![não](./media/sql-server-linux-virtual-machines-overview/no.png) |
@@ -73,7 +73,7 @@ Quando você configura o SQL Server no Linux, você instala o pacote do mecanism
 
 ### <a name="sql"></a>SQL
 
-* [SQL Server na documentação do Linux](https://docs.microsoft.com/sql/linux)
+* [SQL Server na documentação Linux](https://docs.microsoft.com/sql/linux)
 * [Comparação de Banco de Dados SQL do Azure](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71121943"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>O certificado de servidor back-end não está na lista de permissões para um gateway de aplicativo usando um Balanceador de Carga Interno com um ambiente de serviço de aplicativo
 
-Este artigo soluciona o problema a seguir: um certificado não é permitido quando você cria um gateway de aplicativo usando um ILB (Balanceador de Carga Interno) juntamente com um ASE (Ambiente do Serviço de Aplicativo) no back-end ao usar SSL de ponta a ponta no Azure.
+Este artigo soluciona o seguinte problema: um certificado não é permitido quando você cria um gateway de aplicativo usando um ILB (Balanceador de Carga Interno) juntamente com um ASE (Ambiente do Serviço de Aplicativo) no back-end ao usar SSL de ponta a ponta no Azure.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -31,28 +31,28 @@ Quando você cria um gateway de aplicativo usando um ILB com um ASE no back-end,
 
 **Configuração do Gateway de Aplicativo:**
 
-- **Ouvinte:** Vários sites
-- **Porta:** 443
+- **Ouvinte:** Multissite
+- **Porto:** 443
 - **Nome do host:** test.appgwtestase.com
-- **Certificado SSL**: CN=test.appgwtestase.com
-- **Pool de back-end**: Endereço IP ou FQDN
-- **Endereço IP:** : 10.1.5.11
-- **Configurações HTTP:** HTTPS
-- **Porta:** : 443
-- **Investigação personalizada:** Nome do host - test.appgwtestase.com
+- **Certificado SSL:** CN=test.appgwtestase.com
+- **Pool de back-end:** endereço IP ou FQDN
+- **Endereço IP:**: 10.1.5.11
+- **Configurações de HTTP:** HTTPS
+- **Porta:**: 443
+- **Investigação personalizada:** nome do host – test.appgwtestase.com
 - **Certificado de autenticação:** .cer do test.appgwtestase.com
-- **Integridade do back-end:** Não íntegro – o certificado do servidor back-end não está na lista de permissões do Gateway de Aplicativo.
+- **Integridade de back-end:** Não íntegro – O certificado do servidor back-end não está na lista de permissões do Gateway de Aplicativo.
 
 **Configuração do ASE:**
 
 - **IP do ILB:** 10.1.5.11
 - **Nome de domínio:** appgwtestase.com
 - **Serviço de Aplicativo:** test.appgwtestase.com
-- **Associação de SSL:** SSL baseado em SNI - CN=test.appgwtestase.com
+- **Associação SSL:** SNI SSL – CN=test.appgwtestase.com
 
 Ao acessar o gateway de aplicativo, você receberá a seguinte mensagem de erro porque o servidor back-end está não íntegro:
 
-**502 – o servidor Web recebeu uma resposta inválida ao atuar como gateway ou servidor proxy.**
+**502 – O servidor web recebeu uma resposta inválida enquanto atuava como um gateway ou servidor proxy.**
 
 ## <a name="solution"></a>Solução
 
@@ -68,8 +68,8 @@ Quando você usar um FQDN (nome de domínio totalmente qualificado) para acessar
 
 - Desmarque a opção **Uso para serviço de aplicativo** para o gateway de aplicativo, caso você esteja usando o endereço IP do ILB.
 
-Para reduzir a sobrecarga, você poderá carregar o certificado ILB nas configurações de HTTP para fazer com que o caminho da investigação funcione. (Esta etapa é apenas para lista de permissões. Não será usada para comunicação SSL.) É possível recuperar o certificado ILB, acessando o ILB com o endereço IP do seu navegador em HTTPS, em seguida, exportando o certificado SSL em um formato de CER codificado com Base 64 e carregando o certificado nas respectivas configurações de HTTP.
+Para reduzir a sobrecarga, você poderá carregar o certificado ILB nas configurações de HTTP para fazer com que o caminho da investigação funcione. (Esta etapa é apenas para lista de permissões. Não será usado para comunicação SSL.) Você pode recuperar o certificado ILB acessando o ILB com seu endereço IP do seu navegador em HTTPS, exportando o certificado SSL em um formato CER codificado base-64 e carregando o certificado nas respectivas configurações HTTP.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

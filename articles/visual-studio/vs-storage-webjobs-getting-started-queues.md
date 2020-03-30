@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de filas usando o Visual Studio (projetos de trabalho Web)
+title: Começando com o armazenamento na fila usando o Visual Studio (projetos WebJob)
 description: Como começar a usar o armazenamento de fila do Azure em um projeto WebJob depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298754"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
@@ -45,7 +45,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Além da **cadeia de caracteres**, o parâmetro pode ser uma matriz de bytes, um objeto **CloudQueueMessage** ou um POCO definido por você.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 No exemplo a seguir, a mensagem da fila contém o JSON para um objeto **BlobInformation**, que inclui uma propriedade **BlobName**. O SDK automaticamente desserializa o objeto.
 
 ```csharp
@@ -89,7 +89,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Tipos com os quais o atributo QueueTrigger funciona
 Você pode usar **QueueTrigger** com os seguintes tipos:
 
-* **string**
+* **String**
 * Um tipo POCO serializado como JSON
 * **byte[]**
 * **CloudQueueMessage**
@@ -112,7 +112,7 @@ Você pode obter as propriedades da mensagem a seguir adicionando parâmetros à
 * **DateTimeOffset** insertionTime
 * **DateTimeOffset** nextVisibleTime
 * **string** queueTrigger (contém o texto da mensagem)
-* **string** id
+* id **corda**
 * **string** popReceipt
 * **int** dequeueCount
 
@@ -191,7 +191,7 @@ Para obter mais informações, consulte [Desligamento normal dos trabalhos Web](
 Para gravar uma função que cria uma nova mensagem da fila, use o atributo **Queue** . Como **QueueTrigger**, você passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila da cadeia
-O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector\<t >** conforme mostrado posteriormente nesta seção.)
+O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assincronistas, **use\<iAsyncCollector T>** como mostrado mais tarde nesta seção.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -202,7 +202,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para criar uma mensagem da fila que contenha um POCO em vez de uma cadeia de caracteres, passe o tipo POCO como um parâmetro de saída para o construtor de atributo **Queue** .
 
 ```csharp
@@ -217,7 +217,7 @@ public static void CreateQueueMessage(
 O SDK serializa automaticamente o objeto em JSON. Uma mensagem da fila sempre é criada, mesmo que o objeto seja nulo.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou em funções assíncronas
-Para criar várias mensagens, torne o tipo de parâmetro para a fila de saída **ICollector\<t >** ou **IAsyncCollector\<t >** , conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, faça o tipo de parâmetro para a fila de saída **\<ICollector T>** ou **IAsyncCollector\<T>, **como mostrado no exemplo a seguir.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -282,7 +282,7 @@ public static void ProcessQueueMessage(
 }
 ```
 
-O construtor do atributo **Blob** aceita um parâmetro **blobPath** que especifica o nome do blob e o contêiner. Para obter mais informações sobre esse espaço reservado, consulte [Como usar o Armazenamento de Blobs do Azure com o SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+O construtor do atributo **Blob** aceita um parâmetro **blobPath** que especifica o nome do blob e o contêiner. Para obter mais informações sobre este espaço reservado, consulte [Como usar o armazenamento blob do Azure com o WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Quando o atributo decora um objeto **Stream**, outro parâmetro de construtor especifica o modo **FileAccess** como leitura, gravação ou leitura/gravação.
 
@@ -297,7 +297,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Mensagens de fila POCO [(Objeto Plain Old CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para um POCO armazenado como JSON na mensagem da fila, é possível utilizar espaços reservados que nomeiam propriedades do objeto no parâmetro **blobPath** do atributo **Queue**. Também é possível utilizar os nomes de propriedade de metadados de fila como espaços reservados. Consulte [Obter a fila ou os metadados de mensagem da fila](#get-queue-or-queue-message-metadata).
 
 O exemplo a seguir copia um blob para um novo blob com uma extensão diferente. A mensagem da fila é um objeto **BlobInformation** que inclui as propriedades **BlobName** e **BlobNameWithoutExtension**. Os nomes de propriedade são usados como espaços reservados no caminho de blob para os atributos **Blob** .
@@ -343,7 +343,7 @@ As mensagens cujo conteúdo faz com que uma função falhe são chamadas de *men
 ### <a name="automatic-poison-message-handling"></a>Manipulação automática de mensagens suspeitas
 O SDK chamará uma função até 5 vezes para processar uma mensagem da fila. Se a quinta tentativa falhar, a mensagem é movida para uma fila de mensagens suspeitas. Veja como configurar o número máximo de tentativas em [Como definir opções de configuração](#how-to-set-configuration-options).
 
-A fila de mensagens suspeita é denominada *{originalqueuename}* -suspeita. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
+A fila de mensagens suspeita é denominada *{originalqueuename}*-suspeita. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária.
 
 No exemplo a seguir a função **CopyBlob** falhará quando uma mensagem da fila tiver o nome de um blob que não existe. Quando isso acontece, a mensagem será movida da fila copyblobqueue para a fila copyblobqueue-poison. O **ProcessPoisonMessage**, em seguida, registra a mensagem suspeita.
 
@@ -395,7 +395,7 @@ public static void CopyBlob(
 * Definir as configurações de **QueueTrigger** como contagem máxima de remoção da fila.
 * Obtenha nomes de fila por meio da configuração.
 
-### <a name="set-sdk-connection-strings-in-code"></a>Definir cadeias de conexão do SDK no código
+### <a name="set-sdk-connection-strings-in-code"></a>Defina as cadeias de conexão do SDK no código
 A definição das cadeias de conexão do SDK no código lhe permite usar seus próprios nomes de cadeia de conexão em arquivos de configuração ou variáveis de ambiente, conforme mostrado no exemplo a seguir.
 
 ```csharp
@@ -545,7 +545,7 @@ No painel do SDK do Web Jobs, as 100 linhas da saída do Console mais recentes s
 
 ![Ativar/Desativar Saída](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Em um Trabalho Web contínuo, os logs de aplicativo são mostrados em /data/jobs/continuous/ *{nomedowebjob}* /job_log.txt no sistema de arquivos do aplicativo Web.
+Em um Trabalho Web contínuo, os logs de aplicativo são mostrados em /data/jobs/continuous/*{nomedowebjob}*/job_log.txt no sistema de arquivos do aplicativo Web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

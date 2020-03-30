@@ -1,7 +1,7 @@
 ---
 title: Habilidade cognitiva do Text Split
 titleSuffix: Azure Cognitive Search
-description: Quebrar o texto em partes ou páginas de texto com base no comprimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Quebre o texto em pedaços ou páginas de texto com base no comprimento de um pipeline de enriquecimento de IA na Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73479658"
 ---
 # <a name="text-split-cognitive-skill"></a>Habilidade cognitiva do Text Split
@@ -29,23 +29,23 @@ Microsoft.Skills.Text.SplitSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | textSplitMode      | "Páginas" ou "sentenças" | 
-| maximumPageLength | Se o textSplitMode for definido como "páginas", isso se refere ao comprimento máximo da página, conforme medido pelo `String.Length`. O valor mínimo é {1}100{2}.  Se o textSplitMode for definido como "pages", o algoritmo tentará dividir o texto em partes com um tamanho de, no máximo, "maximumPageLength". Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de orações, de modo que o tamanho da parte possa ser um pouco menor que "maximumPageLength". | 
-| defaultLanguageCode   | (opcional) Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (en). Algumas coisas para levar em consideração:<ul><li>Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebra o texto em limites de caractere.</li><li>Fornecer um código de idioma é útil para evitar cortar uma palavra na metade para idiomas que não sejam espaços em branco, como chinês, japonês e coreano.</li><li>Se você não souber o idioma (ou seja, precisar dividir o texto para entrada no [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), o padrão de Inglês (EN) deve ser suficiente. </li></ul>  |
+| maximumPageLength | Se o textSplitMode for definido como "páginas", isso se refere ao comprimento máximo da página, conforme medido pelo `String.Length`. O valor mínimo é 100.  Se o textSplitMode for definido como "pages", o algoritmo tentará dividir o texto em partes com um tamanho de, no máximo, "maximumPageLength". Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de orações, de modo que o tamanho da parte possa ser um pouco menor que "maximumPageLength". | 
+| defaultLanguageCode   | (opcional) Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. O padrão é inglês (en). Algumas coisas para levar em consideração:<ul><li>Se você passar um formato languagecode-countrycode, somente a parte languagecode do formato é usada.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebra o texto em limites de caractere.</li><li>Fornecer um código de idioma é útil para evitar cortar uma palavra ao meio para línguas não brancas, como chinês, japonês e coreano.</li><li>Se você não conhece o idioma (ou seja, você precisa dividir o texto para entrada no [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), o padrão de inglês (en) deve ser suficiente. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome do parâmetro       | DESCRIÇÃO      |
+| Nome do parâmetro       | Descrição      |
 |----------------------|------------------|
-| texto  | O texto a ser dividido em subcadeias. |
-| languageCode  | (opcional) Código de idioma para o documento. Se você não souber o idioma (ou seja, precisar dividir o texto para entrada no [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), será seguro remover essa entrada.  |
+| text  | O texto a ser dividido em subcadeias. |
+| languageCode  | (opcional) Código de idioma para o documento. Se você não conhece o idioma (ou seja, você precisa dividir o texto para entrada no [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), é seguro remover essa entrada.  |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades 
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | textItems | Uma matriz de subcadeias de caracteres que foram extraídos. |
 
@@ -100,7 +100,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 }
 ```
 
-##  <a name="sample-output"></a>Saída de Exemplo
+##  <a name="sample-output"></a>Saída de exemplo
 
 ```json
 {

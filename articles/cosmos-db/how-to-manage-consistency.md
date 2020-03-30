@@ -1,16 +1,16 @@
 ---
 title: Gerenciar a consistência no Azure Cosmos DB
-description: Saiba como configurar e gerenciar níveis de consistência no Azure Cosmos DB usando portal do Azure, SDK do .net, SDK do Java e vários outros SDKs
+description: Saiba como configurar e gerenciar níveis de consistência no Azure Cosmos DB usando o portal Azure, .Net SDK, Java SDK e vários outros SDKs
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369396"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerenciar os níveis de coerência no Azure Cosmos DB
@@ -69,7 +69,7 @@ Para exibir ou modificar o nível de consistência padrão, entre no portal do A
 
 Os clientes podem substituir o nível de consistência padrão que é definido pelo serviço. O nível de consistência pode ser definido por solicitação, o que substitui o nível de consistência padrão definido no nível da conta.
 
-### <a id="override-default-consistency-dotnet"></a>SDK do .NET V2
+### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>SDK do .NET V2
 
 ```csharp
 // Override consistency at the client level
@@ -81,7 +81,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-dotnet-v3"></a>SDK do .NET V3
+### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 // Override consistency at the request level via request options
@@ -94,7 +94,7 @@ var response = await client.GetContainer(databaseName, containerName)
         requestOptions);
 ```
 
-### <a id="override-default-consistency-java-async"></a>SDK de Java Assíncrono
+### <a name="java-async-sdk"></a><a id="override-default-consistency-java-async"></a>SDK de Java Assíncrono
 
 ```java
 // Override consistency at the client level
@@ -108,7 +108,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync"></a>SDK de Java Síncrono
+### <a name="java-sync-sdk"></a><a id="override-default-consistency-java-sync"></a>SDK de Java Síncrono
 
 ```java
 // Override consistency at the client level
@@ -116,7 +116,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
-### <a id="override-default-consistency-javascript"></a>SDK de Node.js/JavaScript/TypeScript
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="override-default-consistency-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
 ```javascript
 // Override consistency at the client level
@@ -129,7 +129,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a id="override-default-consistency-python"></a>SDK do Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>SDK do Python
 
 ```python
 # Override consistency at the client level
@@ -144,7 +144,7 @@ Um dos níveis de consistência no Azure Cosmos DB é a consistência de *Sessã
 
 Para gerenciar os tokens de sessão manualmente, obtenha o token de sessão na resposta e configure-os por solicitação. Se não for necessário gerenciar manualmente os tokens de sessão, você não precisa usar esses exemplos. O SDK controla os tokens de sessão automaticamente. Se você não definir o token de sessão manualmente, por padrão, o SDK usará o token de sessão mais recente.
 
-### <a id="utilize-session-tokens-dotnet"></a>SDK do .NET V2
+### <a name="net-sdk-v2"></a><a id="utilize-session-tokens-dotnet"></a>SDK do .NET V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -157,7 +157,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-dotnet-v3"></a>SDK do .NET V3
+### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -169,7 +169,7 @@ options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
-### <a id="utilize-session-tokens-java-async"></a>SDK de Java Assíncrono
+### <a name="java-async-sdk"></a><a id="utilize-session-tokens-java-async"></a>SDK de Java Assíncrono
 
 ```java
 // Get session token from response
@@ -191,7 +191,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync"></a>SDK de Java Síncrono
+### <a name="java-sync-sdk"></a><a id="utilize-session-tokens-java-sync"></a>SDK de Java Síncrono
 
 ```java
 // Get session token from response
@@ -204,7 +204,7 @@ options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
 
-### <a id="utilize-session-tokens-javascript"></a>SDK de Node.js/JavaScript/TypeScript
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="utilize-session-tokens-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
 ```javascript
 // Get session token from response
@@ -215,7 +215,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a id="utilize-session-tokens-python"></a>SDK do Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>SDK do Python
 
 ```python
 // Get the session token from the last response headers
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorar métrica PBS (Desatualização Limitada Probabilística)
 
-Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização com relação ao histórico de versão e à hora. A métrica [**PBS (desatualização limitada probabilística)** ](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e mostra-a como uma métrica. Para exibir a métrica PBS, vá para a conta do Azure Cosmos no portal do Azure. Abra o painel **métricas** e selecione a guia **consistência** . Examine o grafo chamado **probabilidade de leituras altamente consistentes com base em sua carga de trabalho (consulte PBS)** .
+Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização com relação ao histórico de versão e à hora. A métrica [**PBS (desatualização limitada probabilística)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e mostra-a como uma métrica. Para exibir a métrica PBS, vá para a conta do Azure Cosmos no portal do Azure. Abra o painel **Métricas** e selecione a guia **Consistência.** Veja o gráfico chamado **Probabilidade de leituras fortemente consistentes com base na sua carga de trabalho (ver PBS)**.
 
 ![Gráfico PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
 

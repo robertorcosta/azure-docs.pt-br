@@ -1,5 +1,5 @@
 ---
-title: Usar imagens de VM compartilhadas para criar um conjunto de dimensionamento no Azure
+title: Use imagens vm compartilhadas para criar um conjunto de escalas no Azure
 description: Saiba como usar o Azure PowerShell para criar imagens de VM compartilhadas a usar para implantar Conjuntos de Dimensionamento de Máquinas Virtuais no Azure.
 author: axayjo
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 5f4eca88614a98f0caf87d04847029328042edd8
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77368728"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Criar e usar imagens personalizadas para Conjuntos de Dimensionamento de Máquinas Virtuais com o Azure PowerShell
@@ -25,7 +25,7 @@ A galeria é um recurso de nível superior que fornece RBAC (controle de acesso 
 
 O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos. Usaremos ou criaremos estes itens neste artigo:
 
-| Recurso | DESCRIÇÃO|
+| Recurso | Descrição|
 |----------|------------|
 | **Imagem gerenciada** | Esta é uma imagem básica que pode ser usada sozinha ou para criar uma **versão da imagem** em uma galeria de imagens. Imagens gerenciadas são criadas de VMs generalizadas. Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para criar várias VMs e agora pode ser usado para criar versões de imagem compartilhada. |
 | **Galeria de imagens** | Como o Azure Marketplace, uma **galeria de imagens** é um repositório para gerenciar e compartilhar imagens, mas você controla quem tem acesso. |
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 As etapas abaixo detalham como pegar uma VM existente e transformá-la em uma imagem personalizada reutilizável que você pode usar para criar novas instâncias de VM.
 
-Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente. Você pode seguir [o tutorial: criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com Azure PowerShell](tutorial-use-custom-image-powershell.md) para criar um, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
+Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente. Você pode seguir [tutorial: crie e use uma imagem personalizada para conjuntos de escala de máquinas virtuais com o Azure PowerShell](tutorial-use-custom-image-powershell.md) para criar um, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
 
 Ao trabalhar com o artigo, substitua o grupo de recursos e os nomes de VM quando for necessário.
 
@@ -49,7 +49,7 @@ Ao trabalhar com o artigo, substitua o grupo de recursos e os nomes de VM quando
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Criar um conjunto de dimensionamento da versão de imagem compartilhada
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). O exemplo a seguir cria um conjunto de dimensionamento da nova versão da imagem no centro de *EUA Central do Sul* . Quando solicitado, defina suas próprias credenciais administrativas para as instâncias de VM no conjunto de dimensionamento:
+Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). O exemplo a seguir cria um conjunto de escalas a partir da nova versão de imagem no datacenter *do Centro-Sul dos EUA.* Quando solicitado, defina suas próprias credenciais administrativas para as instâncias de VM no conjunto de dimensionamento:
 
 
 ```azurepowershell-interactive

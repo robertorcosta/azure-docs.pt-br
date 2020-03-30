@@ -11,17 +11,17 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 6ad9c7912eee6c3f5ec55b9cd7ab340bc79c9db7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837764"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Série de ciência de dados para iniciantes
 Aprenda como criar um modelo simples de regressão para prever o preço de um diamante no vídeo 4, Ciência de dados para iniciantes. Vamos desenhar um modelo de regressão com dados de destino.
 
-Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
+Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
@@ -32,7 +32,7 @@ Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a list
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
 * Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
-* Vídeo 2: [Seus dados estão prontos para a ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
+* Vídeo 2: [Seus dados estão prontos para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
 * Video 3: [Faça uma pergunta que você possa responder com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
 * Vídeo 4: Preveja uma resposta com um modelo simples
 * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
@@ -87,7 +87,7 @@ Desenhando uma linha, criamos um *modelo*. Pense nisso como pegar o mundo real e
 
 O fato de que todos os pontos não passam exatamente pela linha não tem qualquer problema. Cientistas de dados explicam isso dizendo que há o modelo (essa é a linha) e cada ponto tem algum *ruído* ou *variação* associado a ele. Há a relação perfeita subjacente, e há o mundo real que adiciona ruído e incerteza.
 
-Como estamos tentando responder à pergunta *quanto custa?* , isso é chamado de *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
+Como estamos tentando responder à pergunta *quanto custa?*, isso é chamado de *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usar o modelo para encontrar a resposta
 Agora, temos um modelo e fazemos a nossa pergunta: quanto custará um diamante de 1,35 quilate?
@@ -124,8 +124,8 @@ Além disso, se em vez de apenas um punhado de diamantes, tivéssemos dois mil o
 
 Hoje, falamos sobre como fazer a regressão linear e fizemos uma previsão usando dados.
 
-Certifique-se de conferir os outros vídeos em "ciência de dados para iniciantes" em Microsoft Azure Machine Learning Studio (clássico).
+Não deixe de conferir os outros vídeos em "Data Science for Beginners" do Microsoft Azure Machine Learning Studio (clássico).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
+* [Experimente um primeiro experimento de ciência de dados com o Machine Learning Studio (clássico)](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

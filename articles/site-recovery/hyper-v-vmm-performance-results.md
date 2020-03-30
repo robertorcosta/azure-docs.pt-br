@@ -1,5 +1,5 @@
 ---
-title: Testar a replicação de VM do Hyper-V em um site secundário com o VMM usando Azure Site Recovery
+title: Teste a replicação do Hyper-V VM para um site secundário com VMM usando a recuperação do site do Azure
 description: Este artigo fornece informações sobre os testes de desempenho para a replicação de VMs do Hyper-V em nuvens de VMM para um site secundário usando o Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73663181"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testar resultados para replicação do Hyper-V para um site secundário
@@ -108,7 +108,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| Servidores Hyper-V no cluster:  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Site secundário
@@ -120,7 +120,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| Servidores Hyper-V no cluster:  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2,30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
@@ -175,10 +175,10 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 | CPU |\Processador(_Total)\% Tempo do processador |
 | Memória disponível |\Memória\MBytes disponíveis |
 | IOPS |\Disco físico(_Total)\Transferências do disco/seg |
-| Operações de leitura da VM (IOPS)/seg |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) operações \/s |
-| Operações de gravação da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento virtual (\<VHD >) operações de \/S |
-| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
-| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Dispositivo (\<VHD >) \ Bytes/s |
+| Operações de leitura da VM (IOPS)/seg |\Dispositivo de armazenamento virtual\<Hyper-V (VHD>)\Operações/Sec |
+| Operações de gravação da VM (IOPS)/seg |\Dispositivo de armazenamento virtual\<Hyper-V (VHD>)\Write Operations/S |
+| Taxa de transferência de leitura da VM |\Dispositivo de armazenamento virtual\<hyper-V (VHD>)\Leia Bytes/seg |
+| Taxa de transferência de gravação da VM |\Dispositivo de armazenamento virtual\<hyper-V (VHD>)\Write Bytes/seg |
 
 ## <a name="next-steps"></a>Próximas etapas
 
