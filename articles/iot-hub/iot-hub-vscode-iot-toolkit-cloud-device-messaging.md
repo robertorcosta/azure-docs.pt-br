@@ -1,5 +1,5 @@
 ---
-title: Usar as ferramentas do Azure IoT para VSCode para gerente mensagens do hub de ti
+title: Use ferramentas de IoT do Azure para VSCode para gerenciador mensagens do IT Hub
 description: Saiba como usar as Ferramentas do Azure IoT para Visual Studio Code para monitorar mensagens de dispositivo para a nuvem e enviar mensagens da nuvem para o dispositivo no Hub IoT do Azure.
 author: formulahendry
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
 ms.openlocfilehash: 0b081229dcb382786fea03dff358b5cc47d77ee7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75912008"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Use as Ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o Hub IoT
@@ -39,9 +39,9 @@ Você aprende a usar as Ferramentas do Azure IoT para Visual Studio Code para mo
 
 * Um hub IoT do Azure em sua assinatura.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Código visual do estúdio](https://code.visualstudio.com/)
 
-* [Ferramentas do Azure IOT para vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [abrir este link no Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Ferramentas de IoT do Azure para código VS](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [abra este link no Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o Hub IoT
 
@@ -56,19 +56,19 @@ Você aprende a usar as Ferramentas do Azure IoT para Visual Studio Code para mo
 5. A lista de dispositivos será mostrada na guia **Dispositivos do Hub IoT do Azure** em poucos segundos.
 
    > [!Note]
-   > Você também pode concluir a configuração escolhendo **Definir cadeia de conexão do Hub IoT**. Insira a cadeia de conexão da política **iothubowner** para o Hub IOT ao qual seu dispositivo IOT se conecta na janela pop-up.
+   > Você também pode concluir a configuração escolhendo **Definir cadeia de conexão do Hub IoT**. Digite a seqüência de conexão de diretiva **iothubowner** para o hub IoT ao que seu dispositivo IoT se conecta na janela pop-up.
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorar mensagens do dispositivo para a nuvem
 
 Para monitorar as mensagens enviadas do seu dispositivo ao seu Hub IoT, siga estas etapas:
 
-1. Clique com o botão direito do mouse no dispositivo e selecione **Iniciar Monitoramento do ponto de extremidade do evento interno**.
+1. Clique com o botão direito do mouse no dispositivo e **selecione Iniciar o ponto final de evento incorporado**.
 
-2. As mensagens monitoradas serão mostradas na **saída** > exibição **do Hub IOT do Azure** .
+2. As mensagens monitoradas serão mostradas na exibição **OUTPUT** > **Azure IoT Hub.**
 
-3. Para interromper o monitoramento, clique com o botão direito do mouse na exibição de **saída** e selecione **parar monitoramento de ponto de extremidade de evento interno**.
+3. Para interromper o monitoramento, clique com o botão direito do mouse na exibição **OUTPUT** e selecione **Stop Monitoring Built-in Event Endpoint**.
 
-## <a name="send-cloud-to-device-messages"></a>Enviar mensagens da nuvem para o dispositivo
+## <a name="send-cloud-to-device-messages"></a>Envie mensagens da nuvem para o dispositivo
 
 Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 
@@ -76,9 +76,9 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 
 2. Insira a mensagem na caixa de entrada.
 
-3. Os resultados serão mostrados na **saída** > exibição **do Hub IOT do Azure** .
+3. Os resultados serão mostrados na exibição **OUTPUT** > **Azure IoT Hub.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu como monitorar mensagens do dispositivo para a nuvem e enviar mensagens da nuvem para o dispositivo entre o dispositivo IoT e o Hub IoT do Azure.
 

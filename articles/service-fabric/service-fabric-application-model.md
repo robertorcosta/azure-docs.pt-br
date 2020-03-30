@@ -1,13 +1,13 @@
 ---
-title: Modelo de aplicativo Service Fabric do Azure
-description: Como modelar e descrever aplicativos e serviços no Azure Service Fabric usando arquivos de manifesto de aplicativo e serviço.
+title: Modelo de aplicativo de malha de serviço azure
+description: Como modelar e descrever aplicativos e serviços no Azure Service Fabric usando arquivos de manifesto de aplicativos e serviços.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551872"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelar um aplicativo no Malha do Serviço
@@ -38,7 +38,7 @@ O diagrama a seguir mostra a relação entre aplicativos e instâncias de servi�
 > 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [escalabilidade de aplicativo](service-fabric-concepts-scalability.md).
 - Saiba mais sobre [estado](service-fabric-concepts-state.md), [particionamento](service-fabric-concepts-partitioning.md) e [disponibilidade](service-fabric-availability-services.md) de serviços.
 - Leia sobre como os aplicativos e serviços são definidos em [Manifestos de aplicativos e serviços](service-fabric-application-and-service-manifests.md).

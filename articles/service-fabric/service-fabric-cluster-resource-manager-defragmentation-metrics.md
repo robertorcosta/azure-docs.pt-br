@@ -1,15 +1,15 @@
 ---
-title: Desfragmentação de métricas no Azure Service Fabric
-description: Saiba como usar a desfragmentação, ou empacotamento, como uma estratégia para métricas em Service Fabric. Essa técnica é útil para serviços muito grandes.
+title: Desfragmentação de métricas no tecido de serviço do Azure
+description: Aprenda a usar a desfragmentação, ou embalagem, como uma estratégia para métricas em Malha de Serviço. Esta técnica é útil para serviços muito grandes.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75563353"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e carga no Service Fabric
@@ -33,7 +33,7 @@ O diagrama a seguir fornece uma representação visual de dois clusters, um dele
 
 <center>
 
-![comparar clusters balanceados e desfragmentados][Image1]
+![Comparando clusters equilibrados e desfragmentados][Image1]
 </center>
 
 No caso do cluster balanceado, considere o número de movimentações que seria necessário para colocar um dos maiores objetos de serviço. No cluster desfragmentado, a carga de trabalho grande pode ser colocada nos nós quatro ou cinco sem precisar esperar que outros serviços se movam.
@@ -88,8 +88,8 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
-- O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
-- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
+## <a name="next-steps"></a>Próximas etapas
+- O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de malha de serviço](service-fabric-cluster-resource-manager-cluster-description.md)
+- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

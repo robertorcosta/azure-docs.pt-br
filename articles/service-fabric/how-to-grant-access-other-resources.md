@@ -1,41 +1,41 @@
 ---
-title: Conceder a um aplicativo acesso a outros recursos do Azure
-description: Este artigo explica como conceder acesso ao aplicativo Service Fabric habilitado para identidade gerenciada a outros recursos do Azure que dão suporte à autenticação baseada em Azure Active Directory.
+title: Conceda acesso a um aplicativo a outros recursos do Azure
+description: Este artigo explica como conceder o acesso do aplicativo Service Fabric habilitado para identidade gerenciada a outros recursos do Azure que suportam a autenticação baseada no Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 3b1feab1e67e993df771564a1a7c1aba4236b2c0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614786"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concedendo um acesso de identidade gerenciada de Service Fabric aplicativo aos recursos do Azure (versão prévia)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concedendo o acesso gerenciado de identidade de um aplicativo de malha de serviço aos recursos do Azure (visualização)
 
-Antes que o aplicativo possa usar sua identidade gerenciada para acessar outros recursos, as permissões devem ser concedidas a essa identidade no recurso protegido do Azure que está sendo acessado. A concessão de permissões é normalmente uma ação de gerenciamento no ' plano de controle ' do serviço do Azure que possui o recurso protegido roteado via Azure Resource Manager, o que irá impor qualquer verificação de acesso baseada em função aplicável.
+Antes que o aplicativo possa usar sua identidade gerenciada para acessar outros recursos, as permissões devem ser concedidas a essa identidade no recurso protegido do Azure que está sendo acessado. A concessão de permissões é tipicamente uma ação de gerenciamento no "plano de controle" do serviço Azure que possui o recurso protegido roteado via Azure Resource Manager, que aplicará qualquer verificação de acesso baseada em função aplicável.
 
-A sequência exata de etapas dependerá do tipo de recurso do Azure que está sendo acessado, bem como o idioma/cliente usado para conceder permissões. O restante do artigo pressupõe uma identidade atribuída pelo usuário atribuída ao aplicativo e inclui vários exemplos típicos para sua conveniência, mas não é uma referência completa para este tópico; consulte a documentação dos respectivos serviços do Azure para obter instruções atualizadas sobre como conceder permissões.  
+A seqüência exata das etapas dependerá, então, do tipo de recurso do Azure que está sendo acessado, bem como do idioma/cliente usado para conceder permissões. O restante do artigo assume uma identidade atribuída ao usuário atribuída ao aplicativo e inclui vários exemplos típicos para sua conveniência, mas não é de forma alguma uma referência exaustiva para este tópico; consulte a documentação dos respectivos serviços do Azure para obter instruções atualizadas sobre a concessão de permissões.  
 
-## <a name="granting-access-to-azure-storage"></a>Concedendo acesso ao armazenamento do Azure
-Você pode usar a identidade gerenciada do aplicativo Service Fabric (atribuída pelo usuário neste caso) para recuperar os dados de um blob de armazenamento do Azure. Conceda à identidade as permissões necessárias no portal do Azure com as seguintes etapas:
+## <a name="granting-access-to-azure-storage"></a>Concessão de acesso ao Armazenamento Azure
+Você pode usar a identidade gerenciada do aplicativo Service Fabric (atribuída pelo usuário neste caso) para recuperar os dados de uma bolha de armazenamento do Azure. Conceda à identidade as permissões necessárias no portal Azure com as seguintes etapas:
 
 1. Navegue até a conta de armazenamento
-2. Clique no link controle de acesso (IAM) no painel esquerdo.
-3. adicional Verificar o acesso existente: selecione a identidade gerenciada atribuída pelo sistema ou pelo usuário no controle ' Localizar '; Selecione a identidade apropriada na lista de resultados informados
-4. Clique em + Adicionar atribuição de função na parte superior da página para adicionar uma nova atribuição de função para a identidade do aplicativo.
-Em função, no menu suspenso, selecione leitor de dados de blob de armazenamento.
-5. No menu suspenso seguinte, em atribuir acesso a, escolha `User assigned managed identity`.
-6. Em seguida, verifique se a assinatura apropriada está listada na lista suspensa assinatura e, em seguida, defina grupo de recursos como todos os grupos de recursos.
-7. Em selecionar, escolha o UAI correspondente ao aplicativo Service Fabric e, em seguida, clique em salvar.
+2. Clique no link do Controle de acesso (IAM) no painel à esquerda.
+3. (opcional) Verifique o acesso existente: selecione a identidade gerenciada atribuída pelo sistema ou pelo usuário no controle 'Encontrar'; selecionar a identidade apropriada da lista de resultados subsequente
+4. Clique em + Adicione a atribuição de função no topo da página para adicionar uma nova atribuição de função para a identidade do aplicativo.
+Em Função, no menu suspenso, selecione Leitor de Dados de Blob de Armazenamento.
+5. Na próxima queda, em Atribuição `User assigned managed identity`de acesso, escolha .
+6. Depois, verifique se a assinatura correta está listada no menu suspenso Assinatura e defina Grupo de Recursos como Todos os grupos de recursos.
+7. Em Select, escolha o UAI correspondente ao aplicativo Service Fabric e clique em Salvar.
 
-O suporte para identidades gerenciadas Service Fabric atribuídas pelo sistema não inclui integração no portal do Azure; Se seu aplicativo usar uma identidade atribuída pelo sistema, você precisará localizar primeiro a ID do cliente da identidade do aplicativo e, em seguida, repetir as etapas acima, mas selecionando a opção `Azure AD user, group, or service principal` no controle localizar.
+O suporte para identidades gerenciadas pelo Service Fabric atribuídas pelo sistema não inclui integração no portal Azure; se o aplicativo usar uma identidade atribuída ao sistema, você terá que encontrar primeiro o ID do cliente `Azure AD user, group, or service principal` da identidade do aplicativo e, em seguida, repetir as etapas acima, mas selecionando a opção no controle Encontrar.
 
-## <a name="granting-access-to-azure-key-vault"></a>Concedendo acesso ao Azure Key Vault
-Da mesma forma, com o acesso ao armazenamento, você pode aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar um cofre de chaves do Azure. As etapas para conceder acesso no portal do Azure são semelhantes às listadas acima e não serão repetidas aqui. Consulte a imagem abaixo para obter diferenças.
+## <a name="granting-access-to-azure-key-vault"></a>Concessão de acesso ao Azure Key Vault
+Da mesma forma, com o acesso ao armazenamento, você pode aproveitar a identidade gerenciada de um aplicativo de malha de serviço para acessar um cofre de chaves do Azure. As etapas para a concessão de acesso no portal Azure são semelhantes às listadas acima, e não serão repetidas aqui. Consulte a imagem abaixo para obter diferenças.
 
 ![Política de acesso ao cofre de chaves](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-O exemplo a seguir ilustra a concessão de acesso a um cofre por meio de uma implantação de modelo; Adicione o (s) trecho (es) abaixo como outra entrada no elemento `resources` do modelo. O exemplo demonstra a concessão de acesso para os tipos de identidade atribuídos pelo usuário e pelo sistema, respectivamente, escolha o aplicável.
+O exemplo a seguir ilustra a concessão de acesso a um cofre por meio de uma implantação de modelo; adicionar o trecho abaixo como outra entrada `resources` sob o elemento do modelo. A amostra demonstra a concessão de acesso para os tipos de identidade atribuídos pelo usuário e pelo sistema, respectivamente - escolha o aplicável.
 
 ```json
     # under 'variables':
@@ -102,8 +102,8 @@ E para identidades gerenciadas atribuídas pelo sistema:
     }
 ```
 
-Para obter mais detalhes, consulte [cofres – atualizar política de acesso](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).
+Para obter mais [detalhes,](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)consulte Vaults - Update Access Policy .
 
-## <a name="next-steps"></a>Próximos passos
-* [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Implante um aplicativo de malha de serviço do Azure com uma identidade gerenciada atribuída ao sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Implante um aplicativo de malha de serviço do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)

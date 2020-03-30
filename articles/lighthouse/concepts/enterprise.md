@@ -4,10 +4,10 @@ description: As funcionalidades do Azure Lighthouse podem ser usadas para simpli
 ms.date: 09/25/2019
 ms.topic: conceptual
 ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75749216"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
@@ -24,7 +24,7 @@ Ao mesmo tempo, há situações que podem exigir que uma organização mantenha 
 
 Ao centralizar as operações de gerenciamento em vários locatários, será necessário determinar qual locatário incluirá os usuários que executam operações de gerenciamento para os outros locatários. Em outras palavras, será necessário determinar qual locatário será o locatário de gerenciamento para outros locatários.
 
-Por exemplo, digamos que sua organização tenha um único locatário que chamarei *de locatário a*. Em seguida, sua organização adquire dois locatários adicionais, o *locatário B* e o *locatário C*, e você tem motivos comerciais que exigem que você os mantenha como locatários separados.
+Por exemplo, digamos que sua organização tem um único inquilino que chamaremos *de Inquilino A*. Sua organização então adquire dois inquilinos adicionais, *inquilino B* e *inquilino C*, e você tem razões comerciais que exigem que você os mantenha como inquilinos separados.
 
 Sua organização deseja usar as mesmas definições de política, práticas de backup e processos de segurança entre todos os locatários. Como você já tem usuários (incluindo grupos de usuários e entidades de serviço) responsáveis por realizar essas tarefas no Locatário A, é possível integrar todas as assinaturas dentro do Locatário B e do Locatário C para que esses mesmos usuários no Locatário A possam executar essas tarefas.
 
@@ -56,7 +56,7 @@ Por exemplo, no exemplo descrito acima, o Locatário A pode ser pensado como um 
 
 Nesse exemplo, os usuários do Locatário A com as permissões adequadas podem [exibir e gerenciar recursos delegados](../how-to/view-manage-customers.md) na página **Meus clientes** do portal do Azure. Da mesma forma, os usuários dos Locatários B e C com as permissões adequadas podem [exibir e gerenciar os recursos que foram delegados](../how-to/view-manage-service-providers.md) ao Locatário A na página **Provedores de serviço** do portal do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - Saiba mais sobre o [Gerenciamento de recursos delegados do Azure](azure-delegated-resource-management.md).

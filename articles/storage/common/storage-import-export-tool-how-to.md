@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 35236a95e691d6f7d0444a038e62116a684965a7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978455"
 ---
 # <a name="using-the-azure-importexport-tool"></a>Usando a Ferramenta de Importação/Exportação do Azure
@@ -30,6 +30,6 @@ Os artigos a seguir mostram como:
 - Reparar um trabalho de exportação.
 - Solucionar problemas da Ferramenta de Importação/Exportação do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configuração da ferramenta WAImportExport](storage-import-export-tool-setup.md)

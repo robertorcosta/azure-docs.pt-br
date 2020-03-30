@@ -1,14 +1,14 @@
 ---
-title: Criar um contêiner para o Apache Tomcat no Linux
+title: Crie um contêiner para Apache Tomcat no Linux
 description: Crie contêiner do Linux para expor um aplicativo em execução no servidor Apache Tomcat no Microsoft Azure Service Fabric. Crie uma imagem do Docker com o seu aplicativo e servidor do Apache Tomact, envie a imagem para um registro de contêiner por push, crie e implante um aplicativo de contêiner do Service Fabric.
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614410"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar contêiner do Service Fabric executando o servidor Apache Tomcat no Linux
@@ -18,7 +18,7 @@ Para saber mais sobre o Apache Tomcat, consulte a [home page do Apache Tomcat](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um computador de desenvolvimento executando:
-  * [Ferramentas e SDK do Service Fabric](service-fabric-get-started-linux.md).
+  * [SDK de tecido](service-fabric-get-started-linux.md)de serviço e ferramentas .
   * [Docker CE para Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [CLI do Service Fabric](service-fabric-cli.md)
 
@@ -101,9 +101,9 @@ Siga as etapas nesta seção para criar uma imagem do Docker com base em uma ima
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Enviar a imagem Tomcar para o eu registro de contêiner
 Agora que você verificou que a imagem do Tomcat é executada em um contêiner no computador de desenvolvimento, você deve enviá-la para um repositório em um registro de contêiner. Este artigo usa o Registro de Contêiner do Azure para armazenar a imagem, mas com algumas modificações de etapas, você pode usar qualquer registro de contêiner que você escolher. Neste artigo o nome do registro será considerado *myregistry* e o nome do registro completo é myregistry.azurecr.io. Altere-os adequadamente para seu cenário. 
 
-1. Execute `docker login` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
+1. Execute `docker login` para entrar no seu registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-   O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando o nome de usuário e a senha do registro.
+   O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando seu nome de usuário e senha do registro.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -152,7 +152,7 @@ Agora que você já enviou por push a imagem do Tomcat para um registro de cont�
    </Resources>
    ```
 
-11. No manifesto do aplicativo (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sob o **ServiceManifestImport** de marca, adicione o seguinte XML. Substitua o **AccountName** e a **senha** na marca **RepositoryCredentials** pelo nome do seu registro de contêiner e a senha necessária para entrar nele.
+11. No manifesto do aplicativo (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sob o **ServiceManifestImport** de marca, adicione o seguinte XML. Substitua a **marca Nome** da conta e **senha** na tag **RepositoryCredentials** com o nome do seu registro de contêiner e a senha necessária para fazer login nele.
 
    ```xml
    <Policies>
@@ -229,7 +229,7 @@ docker rmi tomcattest
 docker rmi myregistry.azurecr.io/samples/tomcattest
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Para obter etapas rápidas nos recursos de contêiner do Linux adicionais, leia [Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux](service-fabric-get-started-containers-linux.md).
 * Para etapas mais detalhadas sobre contêineres do Linux, leia o tutorial [Criar um tutorial de aplicativo de contêiner do Linux](service-fabric-tutorial-create-container-images.md).
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-containers-overview.md).

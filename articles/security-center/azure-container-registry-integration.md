@@ -1,6 +1,6 @@
 ---
-title: Central de segurança do Azure e registro de contêiner do Azure
-description: Saiba mais sobre a integração da central de segurança do Azure com o registro de contêiner do Azure
+title: Centro de Segurança Azure e Registro de Contêineres Azure
+description: Saiba mais sobre a integração do Azure Security Center com o Registro de Contêineres do Azure
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,40 +13,40 @@ ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
 ms.openlocfilehash: 069ce6ca1e76a9bd954031708702c973387abbaa
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78205986"
 ---
-# <a name="azure-container-registry-integration-with-security-center"></a>Integração do registro de contêiner do Azure com a central de segurança
+# <a name="azure-container-registry-integration-with-security-center"></a>Integração do Registro de Contêineres do Azure com o Security Center
 
-O ACR (registro de contêiner do Azure) é um serviço de registro gerenciado e privado do Docker que armazena e gerencia suas imagens de contêiner para implantações do Azure em um registro central. Ele é baseado no registro do Docker 2,0 de código aberto.
+O Acr (ACR) é um serviço de registro docker gerenciado e privado que armazena e gerencia suas imagens de contêiner para implantações do Azure em um registro central. É baseado no Registro Docker de código aberto 2.0.
 
-Se você estiver na camada Standard da central de segurança do Azure, poderá adicionar o pacote de registros de contêiner. Esse recurso opcional traz uma visibilidade mais profunda das vulnerabilidades das imagens em seus registros baseados em ARM. Habilite ou desabilite o pacote no nível de assinatura para abranger todos os registros em uma assinatura. Esse recurso é cobrado por imagem, conforme mostrado na [página de preços](security-center-pricing.md). Habilitando o pacote de registros de contêiner, o garante que a central de segurança esteja pronta para verificar imagens que são enviadas por push ao registro. 
+Se você estiver no nível padrão do Azure Security Center, você pode adicionar o pacote Registros de Contêineres. Esse recurso opcional traz uma visibilidade mais profunda sobre as vulnerabilidades das imagens em seus registros baseados em ARM. Habilite ou desative o pacote no nível de assinatura para cobrir todos os registros em uma assinatura. Esse recurso é cobrado por imagem, como mostrado na [página de preços](security-center-pricing.md). Habilitando o pacote Registros de Contêineres, garante que o Security Center esteja pronto para escanear imagens que são empurradas para o registro. 
 
-Sempre que uma imagem é enviada para o registro, a central de segurança verifica a imagem automaticamente. Para disparar a verificação de uma imagem, envie-a por push para o repositório.
+Sempre que uma imagem é empurrada para o seu registro, o Security Center verifica automaticamente essa imagem. Para ativar a varredura de uma imagem, empurre-a para o repositório.
 
-Quando a verificação for concluída (normalmente após aproximadamente 10 minutos), as descobertas estarão disponíveis nas recomendações da central de segurança como esta:
+Quando a varredura é concluída (normalmente após aproximadamente 10 minutos), os resultados estão disponíveis em recomendações do Security Center como esta:
 
-[![exemplo de recomendação da central de segurança do Azure sobre vulnerabilidades descobertas em uma imagem hospedada do ACR (registro de contêiner do Azure)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Exemplo de recomendação do Azure Security Center sobre vulnerabilidades descobertas em uma imagem hospedada no Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Vantagens da integração
 
-A central de segurança identifica registros ACR baseados em ARM em sua assinatura e fornece diretamente:
+O Security Center identifica registros aCR baseados em ARM em sua assinatura e fornece perfeitamente:
 
-* **Azure-verificação de vulnerabilidades nativas** para todas as imagens do Linux enviadas por push. A central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys. Essa solução nativa é totalmente integrada por padrão.
+* **Varredura de vulnerabilidade nativa do Azure** para todas as imagens do Linux empurradas. O Security Center verifica a imagem usando um scanner do fornecedor de varredura de vulnerabilidades líder do setor, qualys. Esta solução nativa é perfeitamente integrada por padrão.
 
-* **Recomendações de segurança** para imagens do Linux com vulnerabilidades conhecidas. A central de segurança fornece detalhes de cada vulnerabilidade relatada e uma classificação de gravidade. Além disso, ele fornece orientação sobre como corrigir as vulnerabilidades específicas encontradas em cada imagem enviada por push para o registro.
+* **Recomendações de segurança** para imagens Linux com vulnerabilidades conhecidas. O Security Center fornece detalhes de cada vulnerabilidade relatada e uma classificação de gravidade. Além disso, ele dá orientações sobre como remediar as vulnerabilidades específicas encontradas em cada imagem empurrada para o registro.
 
-![Visão geral de alto nível da central de segurança do Azure e do ACR (registro de contêiner do Azure)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Visão geral de alto nível do Azure Security Center e do Azure Container Registry (ACR)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os recursos de segurança do contêiner da central de segurança, confira:
+Para saber mais sobre os recursos de segurança de contêineres do Security Center, consulte:
 
-* [Central de segurança do Azure e segurança do contêiner](container-security.md)
+* [Centro de Segurança Azure e segurança de contêineres](container-security.md)
 
-* [Integração com o serviço kubernetes do Azure](azure-kubernetes-service-integration.md)
+* [Integração com o Serviço de Kubernetes do Azure](azure-kubernetes-service-integration.md)
 
-* [Proteção da máquina virtual](security-center-virtual-machine-protection.md) – descreve as recomendações da central de segurança
+* [Proteção de máquinas virtuais](security-center-virtual-machine-protection.md) - Descreve as recomendações do Security Center

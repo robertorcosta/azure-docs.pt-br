@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172121"
 ---
 #### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
 
 Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
 
-1. Inicie o Internet Explorer e navegue até [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Inicie o Internet [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)Explorer e navegue para .
 2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
     ![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,7 +26,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
    
     ![Pesquisar o catálogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Clique em **Download**. Especifique ou **Navegue** até o local em que deseja que o download apareça. Clique nos arquivos para baixar no local e pasta especificados. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+4. Clique em **Baixar**. Especifique ou **Navegue** até o local em que deseja que o download apareça. Clique nos arquivos para baixar no local e pasta especificados. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
 5. Procure quaisquer hotfixes adicionais listados na tabela acima (**4011841**) e baixe os arquivos correspondentes às pastas específicas, conforme listado na tabela anterior.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
     > [!NOTE]
     > Ocasionalmente, o cmdlet relatará `False` quando a atualização ainda estiver em andamento. Para garantir que o hotfix seja concluído, aguarde alguns minutos, execute esse comando novamente e verifique se `RunInProgress` é `False`. Em caso positivo, o hotfix foi concluído.
 
-6. Depois que a atualização do software estiver concluída, verifique as versões de software do sistema. Digite:
+6. Depois que a atualização do software estiver concluída, verifique as versões de software do sistema. Tipo:
    
     `Get-HcsSystem`
    
@@ -107,7 +107,7 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
      > Você deve reiniciar o controlador ativo via cmdlet `Restart-HcsController` antes de aplicar a próxima atualização.
      
 7. Repita as etapas 3 a 5 para instalar o agente Cis/MDS baixado para a pasta _FirstOrderUpdate_. 
-8. Repita as etapas 3 a 5 para instalar as atualizações de ordem de segundo. **Para atualizações da segunda ordem, várias atualizações podem ser instaladas executando apenas o `Start-HcsHotfix cmdlet` e apontando para a pasta onde as atualizações da segunda ordem estão localizadas. O cmdlet executará todas as atualizações disponíveis na pasta.** Se uma atualização já estiver instalada, a lógica de atualização detectar que e não aplicar essa atualização. 
+8. Repita as etapas 3 a 5 para instalar as atualizações de ordem de segundo. **Para atualizações de segunda ordem, várias atualizações `Start-HcsHotfix cmdlet` podem ser instaladas apenas executando a e apontando para a pasta onde as atualizações de segunda ordem estão localizadas. O cmdlet executará todas as atualizações disponíveis na pasta.** Se uma atualização já estiver instalada, a lógica de atualização detectar que e não aplicar essa atualização. 
 
 Depois que todos os hotfixes são instalados, use o `Get-HcsSystem` cmdlet. As versões devem ser:
 
@@ -123,7 +123,7 @@ Observe que, se o firmware de disco já estiver atualizado, você não precisar�
 
 Para instalar as atualizações de firmware de disco, siga as instruções abaixo.
 
-1. Coloque o dispositivo no modo de manutenção. **Observe que você não deve usar a comunicação remota do Windows PowerShell ao se conectar a um dispositivo no modo de manutenção. Em vez disso, execute esse cmdlet no controlador do dispositivo quando conectado por meio do console serial do dispositivo.** Digite:
+1. Coloque o dispositivo no modo de manutenção. **Observe que você não deve usar o Windows PowerShell remoting ao se conectar a um dispositivo no modo de manutenção. Em vez disso, execute este cmdlet no controlador do dispositivo quando conectado através do console serial do dispositivo.** Tipo:
    
     `Enter-HcsMaintenanceMode`
    
@@ -164,7 +164,7 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitore o progresso da instalação usando o comando `Get-HcsUpdateStatus` . A atualização é concluída quando o `RunInProgress` muda para `False`.
-4. Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reiniciado. Faça logon como opção 1, **Faça logon com acesso completo**, e verifique a versão de firmware de disco. Digite:
+4. Depois que a instalação for concluída, o controlador no qual o hotfix do modo de manutenção foi instalado será reiniciado. Faça logon como opção 1, **Faça logon com acesso completo**, e verifique a versão de firmware de disco. Tipo:
    
    `Get-HcsFirmwareVersion`
    

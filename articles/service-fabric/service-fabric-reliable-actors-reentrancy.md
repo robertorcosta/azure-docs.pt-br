@@ -1,15 +1,15 @@
 ---
-title: Reentrância no Azure Service Fabric atores
-description: Introdução à reentrância para Service Fabric Reliable Actors, uma maneira de evitar logicamente o bloqueio com base no contexto de chamada.
+title: Reentrancy em atores de Fabric de Serviço Azure
+description: Introdução à reentrada para atores confiáveis de malha de serviço, uma maneira de evitar logicamente o bloqueio com base no contexto de chamada.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645524"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrância de Reliable Actors
@@ -101,5 +101,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a reentrada na [Documentação de referência de API de Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)

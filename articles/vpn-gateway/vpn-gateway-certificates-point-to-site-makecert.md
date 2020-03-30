@@ -1,5 +1,5 @@
 ---
-title: 'Gateway de VPN do Azure: gerar & exportar certificados para P2S: MakeCert'
+title: 'Gateway Azure VPN: Gere & certificados de exportação para P2S: MakeCert'
 description: Criar um certificado raiz autoassinado, exportar a chave pública e gerar certificados do cliente usando o MakeCert.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
 ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75833984"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
@@ -22,11 +22,11 @@ Enquanto é recomendável usar o [etapas do Windows 10 PowerShell](vpn-gateway-c
 
 * O MakeCert foi preterido. Isso significa que essa ferramenta pode ser removida a qualquer momento. Todos os certificados que você já tiver gerado usando MakeCert não serão afetados quando o MakeCert não estiver mais disponível. MakeCert só é usado para gerar os certificados, não como um mecanismo de validação.
 
-## <a name="rootcert"></a>Criar um certificado raiz autoassinado
+## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Criar um certificado raiz autoassinado
 
 As etapas a seguir mostram como criar um certificado autoassinado usando o MakeCert. Essas etapas não são específicas do modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
 
-1. Baixe e instale o [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
+1. Baixe e [instale o MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
 2. Após a instalação, você pode normalmente localizar o utilitário makecert.exe neste caminho: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Embora, é possível que ele tenha sido instalado em outro local. Abra um prompt de comando como administrador e navegue até o local do utilitário MakeCert. Você pode usar o exemplo a seguir, ajustando para o local apropriado:
 
    ```cmd
@@ -38,7 +38,7 @@ As etapas a seguir mostram como criar um certificado autoassinado usando o MakeC
    makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
    ```
 
-## <a name="cer"></a>Exportar a chave pública (.cer)
+## <a name="export-the-public-key-cer"></a><a name="cer"></a>Exportar a chave pública (.cer)
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
@@ -52,7 +52,7 @@ Convém exportar o certificado raiz autoassinado e armazená-lo com segurança. 
 
 Não instale o certificado autoassinado diretamente no computador cliente. Você precisa gerar um certificado de cliente do certificado autoassinado. Em seguida, você exporta e instala o certificado de cliente no computador cliente. Essas etapas não são específicas ao modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
 
-### <a name="clientcert"></a>Gerar um certificado do cliente
+### <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Gerar um certificado de cliente
 
 Cada computador cliente que se conecta a uma rede virtual usando ponto a site deve ter um certificado do cliente instalado. Você gera um certificado do cliente com base no certificado raiz autoassinado e, em seguida, a exporta e instala o certificado do cliente. Se o certificado do cliente não estiver instalado, a autenticação falhará. 
 
@@ -69,15 +69,15 @@ As etapas abaixo lhe guiarão pela geração de um certificado do cliente por me
    makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
    ```
 
-### <a name="clientexport"></a>Exportar um certificado do cliente
+### <a name="export-a-client-certificate"></a><a name="clientexport"></a>Exportar um certificado do cliente
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
-### <a name="install"></a>Instalar um certificado do cliente exportado
+### <a name="install-an-exported-client-certificate"></a><a name="install"></a>Instalar um certificado do cliente exportado
 
 Para instalar um certificado de cliente, confira [Instalar um certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Continue com a configuração de Ponto a Site. 
 

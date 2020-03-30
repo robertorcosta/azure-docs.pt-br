@@ -1,14 +1,14 @@
 ---
-title: Diferenças de Service Fabric do Azure entre Linux e Windows
+title: Diferenças de malha do Azure Service entre Linux e Windows
 description: As diferenças entre o Azure Service Fabric no Linux e o Azure Service Fabric no Windows.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: sfrev
 ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75748537"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>As diferenças entre o Service Fabric no Linux e no Windows
@@ -21,7 +21,7 @@ Há alguns recursos que têm suporte no Windows, mas ainda não no Linux. Eventu
 * O Serviço de Análise de Falha (FAS) no Linux
 * Serviço DNS para serviços do Service Fabric (o serviço DNS tem suporte para contêineres no Linux)
 * Equivalentes de comando da CLI de determinados comandos do Powershell (lista abaixo, a maior parte se aplica somente aos clusters autônomos)
-* [Diferenças na implementação de log que podem afetar a escalabilidade](service-fabric-concepts-scalability.md#choosing-a-platform)
+* [Diferenças na implementação de logs que podem afetar a escalabilidade](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets do PowerShell que não funcionam em um cluster Linux do Service Fabric
 
@@ -78,11 +78,11 @@ Há alguns recursos que têm suporte no Windows, mas ainda não no Linux. Eventu
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Preparar seu ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
 * [Preparar seu ambiente de desenvolvimento no OSX](service-fabric-get-started-mac.md)
 * [Criar e implantar seu primeiro aplicativo Java de do Service Fabric no Linux usando Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
-* [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o plug-in do Service Fabric para o Eclipse](service-fabric-get-started-eclipse.md)
+* [Crie e implante seu primeiro aplicativo Service Fabric Java no Linux usando o Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Criar seu primeiro aplicativo do CSharp no Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Usar a CLI do Service Fabric para gerenciar seus aplicativos](service-fabric-application-lifecycle-sfctl.md)

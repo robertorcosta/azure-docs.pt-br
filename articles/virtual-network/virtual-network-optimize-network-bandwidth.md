@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
 ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75690897"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a taxa de transferência de rede para máquinas virtuais do Azure
 
 Máquinas virtuais do Azure (VM) têm configurações de rede padrão que podem ser mais otimizadas para taxa de transferência de rede. Este artigo descreve como otimizar a taxa de transferência de rede para VMs Windows e Linux do Microsoft Azure, incluindo as distribuições principais como o Ubuntu, CentOS e Red Hat.
 
-## <a name="windows-vm"></a>VM do Windows
+## <a name="windows-vm"></a>VM Windows
 
 Se sua VM Windows for compatível com a [Rede Acelerada](create-vm-accelerated-networking-powershell.md), habilitar esse recurso será a configuração ideal para a taxa de transferência. Para todas as outras VMs do Windows, usar RSS (Receive Side Scaling) pode alcançar uma taxa de transferência máxima maior que uma VM sem RSS. RSS pode ser desabilitado por padrão em uma VM do Windows. Para determinar se o RSS está habilitado, e habilitá-lo se ele estiver desabilitado no momento, conclua as seguintes etapas:
 
@@ -50,7 +50,7 @@ Se sua VM Windows for compatível com a [Rede Acelerada](create-vm-accelerated-n
     Enabled                  : True
     ```
 
-## <a name="linux-vm"></a>VM do Linux
+## <a name="linux-vm"></a>VM Linux
 
 RSS está sempre habilitado por padrão em uma VM do Linux do Azure. Kernels do Linux liberados desde outubro de 2017 incluem novas opções de otimização de rede que permitem que uma VM Linux obtenha maior taxa de transferência de rede.
 
@@ -151,7 +151,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 
 Saiba mais sobre o Linux Integration Services versão 4.2 para o Hyper-V exibindo a [página de download](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Veja o resultado otimizado com o [Teste de Largura de Banda/Taxa de Transferência da VM do Azure](virtual-network-bandwidth-testing.md) para seu cenário.
 * Leia sobre como a [largura de banda é alocada para máquinas virtuais](virtual-machine-network-throughput.md)
 * Saiba mais com as [Perguntas frequentes sobre a rede virtual do Azure](virtual-networks-faq.md)

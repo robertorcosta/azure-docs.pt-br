@@ -1,6 +1,6 @@
 ---
-title: Controles de segurança para o gerenciamento de API do Azure
-description: Uma lista de verificação de controles de segurança para avaliar o gerenciamento de API
+title: Controles de segurança para gerenciamento de API do Azure
+description: Uma lista de verificação de controles de segurança para avaliação do gerenciamento de API
 services: api-management
 author: vladvino
 ms.service: api-management
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751129"
 ---
-# <a name="security-controls-for-api-management"></a>Controles de segurança para o gerenciamento de API
+# <a name="security-controls-for-api-management"></a>Controles de segurança para gerenciamento de API
 
-Este artigo documenta os controles de segurança incorporados ao gerenciamento de API.
+Este artigo documenta os controles de segurança incorporados ao Gerenciamento de API.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
@@ -24,18 +24,18 @@ Este artigo documenta os controles de segurança incorporados ao gerenciamento d
 
 | Controle de segurança | Sim/Não | Observações | Documentação |
 |---|---|--|--|
-| Suporte ao ponto de extremidade de serviço| Não | |  |
-| Suporte à injeção de VNet| Sim | |  |
-| Isolamento de rede e suporte de firewall| Sim | Usar NSG (grupos de segurança de rede) e Aplicativo Azure gateway (ou outro dispositivo de software), respectivamente. |  |
-| Suporte a túnel forçado| Sim | A rede do Azure fornece túnel forçado. |  |
+| Suporte a ponto final de serviço| Não | |  |
+| Suporte à injeção VNet| Sim | |  |
+| Suporte de isolamento de rede e firewall| Sim | Usando grupos de segurança de rede (NSG) e Azure Application Gateway (ou outro aparelho de software) respectivamente. |  |
+| Suporte forçado de tunelamento| Sim | A rede do Azure fornece túnel forçado. |  |
 
-## <a name="monitoring--logging"></a>Monitorando & log
+## <a name="monitoring--logging"></a>Monitoramento & registro
 
 | Controle de segurança | Sim/Não | Observações| Documentação |
 |---|---|--|--|
-| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | | |
-| Registro e auditoria do plano de gerenciamento e controle| Sim | [Logs de atividades Azure Monitor](../azure-monitor/platform/platform-logs-overview.md) | |
-| Log e auditoria do plano de dados| Sim | [Azure monitor logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) e (opcionalmente) [aplicativo Azure insights](../azure-monitor/app/app-insights-overview.md).  | |
+| Suporte ao monitoramento do Azure (análises de log, insights de aplicativos, etc.)| Sim | | |
+| Registro e auditoria de plano de controle e gerenciamento| Sim | [Registros de atividades do Monitor do Azure](../azure-monitor/platform/platform-logs-overview.md) | |
+| Registro e auditoria de data plan| Sim | [Registros de diagnóstico do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md) e (opcionalmente) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  | |
 
 
 ## <a name="identity"></a>Identidade
@@ -49,27 +49,27 @@ Este artigo documenta os controles de segurança incorporados ao gerenciamento d
 
 | Controle de segurança | Sim/Não | Observações | Documentação |
 |---|---|--|--|
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Dados confidenciais, como certificados, chaves e valores nomeados por segredo, são criptografados com chaves gerenciadas por serviço, por chave de instância de serviço. |  |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não | Todas as chaves de criptografia são por instância de serviço e são gerenciadas pelo serviço. |  |
-| Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |  |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | A criptografia de [rota expressa](../expressroute/index.yml) e VNet é fornecida pela [rede do Azure](../virtual-network/index.yml). |  |
-| Chamadas criptografadas à API| Sim | As chamadas do plano de gerenciamento são feitas por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) sobre TLS. Um JWT (token Web JSON) válido é necessário.  As chamadas de plano de dados podem ser protegidas com TLS e um dos mecanismos de autenticação com suporte (por exemplo, certificado de cliente ou JWT). |   |
+| Criptografia do lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Dados confidenciais, como certificados, chaves e valores com nomes secretos, são criptografados com chaves de instância gerenciada por serviço. |  |
+| Criptografia do lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não | Todas as chaves de criptografia são por instância de serviço e são gerenciadas pelo serviço. |  |
+| Criptografia de nível de coluna (Azure Data Services)| N/D | |  |
+| Criptografia em trânsito (como criptografia ExpressRoute, criptografia VNet e criptografia VNet-VNet)| Sim | [A](../expressroute/index.yml) criptografia Express Route e VNet é fornecida pela [rede Azure.](../virtual-network/index.yml) |  |
+| Chamadas criptografadas à API| Sim | As chamadas de plano de gerenciamento são feitas através [do Azure Resource Manager](../azure-resource-manager/index.yml) via TLS. Um JWT (token Web JSON) válido é necessário.  As chamadas de plano de dados podem ser protegidas com TLS e um dos mecanismos de autenticação suportados (por exemplo, certificado de cliente ou JWT). |   |
  |
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 
 | Controle de segurança | Sim/Não | Observações| Documentação |
 |---|---|--|--|
-| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Usando o [DevOps Resource Kit de gerenciamento de API do Azure](https://aka.ms/apimdevops) |  |
+| Suporte ao gerenciamento de configuração (versão de configuração, etc.)| Sim | Usando o [kit de recursos de devOps de gerenciamento de gerenciamento de API do Azure](https://aka.ms/apimdevops) |  |
 
-## <a name="vulnerability-scans-false-positives"></a>Vulnerabilidade verifica falsos positivos
+## <a name="vulnerability-scans-false-positives"></a>A vulnerabilidade verifica falsos positivos
 
-Esta seção documenta as vulnerabilidades comuns que não afetam o gerenciamento de API do Azure.
+Esta seção documenta vulnerabilidades comuns que não afetam o gerenciamento de API do Azure.
 
-| Vulnerabilidade               | Description                                                                                                                                                                                                                                                                                                               |
+| Vulnerabilidade               | Descrição                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ticketbleed (CVE-2016-9244) | Ticketbleed é uma vulnerabilidade na implementação da extensão SessionTicket do TLS encontrada em alguns produtos F5. Ele permite o vazamento ("sangramento") de até 31 bytes de dados de memória não inicializada. Isso é causado pelo preenchimento da pilha TLS de uma ID de sessão, passada do cliente, com dados para torná-la de 32 bits de comprimento. |
+| Sangramento de ingressos (CVE-2016-9244) | O ticketbleed é uma vulnerabilidade na implementação da extensão TLS SessionTicket encontrada em alguns produtos F5. Permite o vazamento ("sangramento") de até 31 bytes de dados de memória não inicializada. Isso é causado pela pilha TLS enchimento de um ID de sessão, passado do cliente, com dados para torná-lo 32 bits de comprimento. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).
+- Saiba mais sobre os [controles de segurança incorporados nos serviços do Azure.](../security/fundamentals/security-controls.md)

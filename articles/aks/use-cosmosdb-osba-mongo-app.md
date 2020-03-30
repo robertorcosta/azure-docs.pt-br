@@ -9,10 +9,10 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker para Azure
 ms.openlocfilehash: ddaa3b9aa198bc142e1bcbcab6b7b1e028eff2aa
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78247931"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrar aplicativo MongoDB existente com a API do Azure Cosmos DB para MongoDB e OSBA (Open Service Broker para Azure)
@@ -21,7 +21,7 @@ O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído g
 
 Neste artigo, você seleciona um aplicativo Java existente que usa um banco de dados MongoDB e atualiza-o para usar um banco de dados do Cosmos DB usando Open Service Broker para Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de continuar, você precisará:
     
@@ -187,7 +187,7 @@ Navegue até `http://localhost:8080` no navegador. Observe que os dados padrão 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Executar o aplicativo no cluster do AKS
 
-Você pode usar o [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) para implantar o aplicativo no cluster do AKS. Azure Dev Spaces ajuda a gerar artefatos, como gráficos Dockerfiles e Helm, e implantar e executar um aplicativo no AKS.
+Você pode usar o [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) para implantar o aplicativo no cluster do AKS. O Azure Dev Spaces ajuda você a gerar artefatos, como arquivos Docker e gráficos Helm, e implantar e executar um aplicativo em AKS.
 
 Para habilitar o Azure Dev Spaces no cluster do AKS:
 
@@ -202,7 +202,7 @@ Use o conjunto de ferramentas do Azure Dev Spaces para preparar o aplicativo par
 azds prep --public
 ```
 
-Esse comando gera vários artefatos, incluindo uma pasta *charts/* , que é o gráfico do Helm, na raiz do projeto. Esse comando não pode gerar um *Dockerfile* para este projeto específico, portanto, será necessário criá-lo.
+Esse comando gera vários artefatos, incluindo uma pasta *charts/*, que é o gráfico do Helm, na raiz do projeto. Esse comando não pode gerar um *Dockerfile* para este projeto específico, portanto, será necessário criá-lo.
 
 Crie um arquivo na raiz do projeto nomeado *Dockerfile* com este conteúdo:
 
@@ -265,7 +265,7 @@ press Ctrl+C to detach
 ...
 ```
 
-Navegue até a URL exibida nos logs. No exemplo anterior, você usaria *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* . 
+Navegue até a URL exibida nos logs. No exemplo anterior, você *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* usaria . 
 
 Verifique se você vê o aplicativo junto com suas alterações.
 

@@ -1,15 +1,15 @@
 ---
-title: Gerar eventos de log de um aplicativo .NET
+title: Gerar eventos de log a partir de um aplicativo .NET
 description: Saiba mais sobre como adicionar log ao seu aplicativo .NET Service Fabric hospedado em um cluster do Azure ou um cluster de autônomo.
 author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
 ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614359"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adicione um login ao aplicativo do Service Fabric
@@ -96,7 +96,7 @@ Usar uma mistura de instrumentação genérica e não estruturados também pode 
 
 O registro do ASP.NET Core ([pacote Microsoft.Extensions.Logging NuGet](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) é uma estrutura de log que fornece uma API de log padrão para seu aplicativo. Suporte para outros back-ends log pode ser conectado ao registro do ASP.NET Core. Isso fornece uma ampla variedade de suporte para log em seu aplicativo é processada, sem precisar alterar a quantidade de código.
 
-1. Adicione o pacote NuGet **Microsoft.Extensions.Logging** ao projeto que você deseja instrumentar. Além disso, adicione todos os pacotes de provedor. Para saber mais, veja [Entrar no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+1. Adicione o pacote **Microsoft.Extensions.Logging** NuGet ao projeto que deseja instrumentar. Além disso, adicione todos os pacotes de provedor. Para saber mais, veja [Entrar no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 2. Adicione uma diretiva **using** para **Microsoft.Extensions.Logging** ao seu arquivo de serviço.
 3. Definir uma variável privada em sua classe de serviço.
 
@@ -163,7 +163,7 @@ Alguns provedores de terceiros usam a abordagem descrita na seção anterior, in
    >[!NOTE]
    >É recomendável que você *não* use o `Log.Logger` estático com o exemplo anterior. O Service Fabric pode hospedar várias instâncias do mesmo tipo de serviço em um único processo. Se você usar o `Log.Logger`, estático, o último gravador de aprimoradores de propriedade mostrará valores para todas as instâncias em execução. É por isso que a variável _logger é uma variável de membro particular da classe de serviço. Além disso, você deve disponibilizar o `_logger` para código comum, que pode ser usado entre serviços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia mais informações sobre [aplicativo de monitoramento de Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Leia sobre registro em log com [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [Diagnóstico do Windows Azure](service-fabric-diagnostics-event-aggregation-wad.md).

@@ -1,15 +1,15 @@
 ---
-title: Monitorar eventos de cluster do Linux no Azure Service Fabric
-description: Saiba como monitorar um Service Fabric eventos de cluster do Linux gravando Service Fabric eventos de plataforma no syslog.
+title: Monitore eventos de cluster Linux no Azure Service Fabric
+description: Aprenda a monitorar eventos de cluster Do Service Fabric Linux escrevendo eventos da plataforma Service Fabric no Syslog.
 author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645745"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster no Service Fabric do Linux no Syslog
@@ -26,9 +26,9 @@ Cada evento de Syslog tem 4 componentes
 * Recurso
 * Identidade
 * Mensagem
-* Gravidade
+* Severity
 
-O SyslogConsumer grava todos os eventos de plataforma usando o Recurso `Local0`. Você pode atualizar para qualquer recurso válido alterando a configuração config. A identidade usada é `ServiceFabric`. O campo de Mensagem contém o evento inteiro serializado em JSON para que possa ser consultado e consumido por uma variedade de ferramentas. 
+O SyslogConsumer grava todos os eventos de plataforma usando o Recurso `Local0`. Você pode atualizar para qualquer instalação válida alterando a configuração de configuração. A identidade `ServiceFabric`usada é . O campo de Mensagem contém o evento inteiro serializado em JSON para que possa ser consultado e consumido por uma variedade de ferramentas. 
 
 ## <a name="enable-syslogconsumer"></a>Habilitar SyslogConsumer
 
@@ -76,7 +76,7 @@ Para habilitar o SyslogConsumer, você precisa executar uma atualização do clu
 
 Aqui estão as alterações para ressaltar
 1. Na seção Comum, há um novo parâmetro chamado `LinuxStructuredTracesEnabled`. **Isso é necessário ter eventos de Linus estruturados e serializado quando enviado para Syslog.**
-2. Na seção de diagnóstico, um novo ConsumerInstance: SyslogConsumer foi adicionado. Isso informa à plataforma que há outro consumidor de eventos. 
+2. Na seção Diagnósticos, um novo ConsumerInstance: SyslogConsumer foi adicionado. Isso informa à plataforma que há outro consumidor de eventos. 
 3. A nova seção SyslogConsumer precisa ter `IsEnabled` como `true`. É configurado para usar o recurso de Local0 automaticamente. Você pode substituir isso, adicionando outro parâmetro.
 
 ```json
@@ -86,8 +86,8 @@ Aqui estão as alterações para ressaltar
     }
 ```
 
-## <a name="azure-monitor-logs-integration"></a>Integração de logs de Azure Monitor
-Você pode ler esses eventos de syslog em uma ferramenta de monitoramento, como logs de Azure Monitor. Você pode criar um espaço de trabalho do Log Analytics usando o Azure Marketplace usando essas [instruções].(.. / azure-monitor/learn/quick-create-workspace.md) você também precisará adicionar o agente do Log Analytics ao seu cluster para coletar e enviar esses dados para o espaço de trabalho. Isso é o mesmo agente usado para coletar contadores de desempenho. 
+## <a name="azure-monitor-logs-integration"></a>Integração de logs do Azure Monitor
+Você pode ler esses eventos do Syslog em uma ferramenta de monitoramento, como logs do Monitor Do Azure. Você pode criar um espaço de trabalho do Log Analytics usando o Azure Marketplace usando essas [instruções].(.. / azure-monitor/learn/quick-create-workspace.md) você também precisará adicionar o agente do Log Analytics ao seu cluster para coletar e enviar esses dados para o espaço de trabalho. Isso é o mesmo agente usado para coletar contadores de desempenho. 
 
 1. Navegue até a `Advanced Settings` folha
 
@@ -95,7 +95,7 @@ Você pode ler esses eventos de syslog em uma ferramenta de monitoramento, como 
 
 2. Clique em `Data`
 3. Clique em `Syslog`
-4. Configure o Local0 como o recurso a ser acompanhado. Você pode adicionar outro recurso se o tiver alterado em fabricSettings
+4. Configure local0 como a instalação a ser rastreada. Você pode adicionar outra instalação se você o alterou em configurações de malha
 
     ![Configurar Syslog](media/service-fabric-diagnostics-oms-syslog/syslog-configure.png)
 5. Vá para o Gerenciador de consultas clicando `Logs` no menu do recurso do workspace para começar a consultar
@@ -111,8 +111,8 @@ Você pode ler esses eventos de syslog em uma ferramenta de monitoramento, como 
 
 O exemplo acima é de um evento NodeDown. Você pode exibir a lista completa de eventos [aqui](service-fabric-diagnostics-event-generation-operational.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Implantar o Agente do Log Analytics](service-fabric-diagnostics-oms-agent.md) para os nós para coletar os contadores de desempenho e coletar logs e estatísticas do docker para seus contêineres
-* Familiarize-se com os recursos de [pesquisa de logs e consulta](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs de Azure monitor
-* [Usar o designer de exibição para criar exibições personalizadas em logs de Azure Monitor](../log-analytics/log-analytics-view-designer.md)
-* Referência sobre como [Azure monitor a integração de logs com o syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Familiarize-se com os recursos de [pesquisa e consulta de log](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs do Monitor do Azure
+* [Use o View Designer para criar visualizações personalizadas nos registros do Monitor do Azure](../log-analytics/log-analytics-view-designer.md)
+* Referência de como o [Azure Monitor registra a integração com o Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

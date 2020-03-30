@@ -1,5 +1,5 @@
 ---
-title: Desanexar um disco de dados de uma VM do Windows-Azure
+title: Desconecte um disco de dados de uma VM do Windows - Azure
 description: Desanexe um disco de dados de uma máquina virtual no Azure usando o modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 author: cynthn
@@ -11,10 +11,10 @@ ms.date: 01/08/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 301f3abd26f702f3f29c8833c835ba7d0e41bcaf
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834598"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
@@ -50,17 +50,17 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
 
-Você pode *remover* um disco de dados, mas certifique-se de que nada esteja usando o disco ativamente antes de desanexá-lo da VM.
+Você pode remover um disco de dados *quente,* mas certifique-se de que nada está usando ativamente o disco antes de desconectá-lo da VM.
 
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
-1. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar.
+1. Selecione a máquina virtual que tem o disco de dados que deseja desvincular.
 1. Em **Configurações**, selecione **Discos**.
 1. Na parte superior do painel **Discos**, selecione **Editar**.
-1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, selecione **desanexar**.
-1. Selecione **salvar** na parte superior da página para salvar as alterações.
+1. No painel **Discos,** à extrema direita do disco de dados que você gostaria de desprender, selecione **Desapego**.
+1. Selecione **Salvar** na parte superior da página para salvar suas alterações.
 
 O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser reutilizar o disco de dados, você poderá simplesmente [anexá-lo a outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

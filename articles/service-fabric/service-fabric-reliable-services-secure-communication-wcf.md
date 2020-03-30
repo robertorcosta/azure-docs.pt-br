@@ -1,15 +1,15 @@
 ---
-title: Proteger a comunicação do serviço baseado no WCF
+title: Comunicação de serviço segura baseada em WCF
 description: Saiba como proteger as comunicações baseadas em WCF quanto a serviço confiáveis que estão sendo executados no cluster do Azure Service Fabric.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614155"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Proteger a comunicação baseada em WCF para um serviço

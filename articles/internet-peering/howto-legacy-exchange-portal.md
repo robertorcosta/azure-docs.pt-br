@@ -1,7 +1,7 @@
 ---
-title: Converter um emparelhamento direto herdado para o recurso do Azure usando o portal
+title: Converter um Emparelhamento direto herdado para o recurso do Azure usando o portal
 titleSuffix: Azure
-description: Converter um emparelhamento direto herdado para o recurso do Azure usando o portal
+description: Converter um Emparelhamento direto herdado para o recurso do Azure usando o portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,43 +9,43 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: a40c7bbc9f37135814b7bba3396d368faf97a166
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775193"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-azure-resource-using-the-portal"></a>Converter um emparelhamento do Exchange herdado para o recurso do Azure usando o portal
 
-Este artigo descreve como converter um emparelhamento do Exchange herdado existente para o recurso do Azure usando o Portal.
+Este artigo descreve como converter um exchange legado existente em recurso do Azure usando o portal.
 
-Se preferir, você pode concluir este guia usando o [PowerShell](howto-legacy-exchange-powershell.md).
+Se preferir, você pode completar este guia usando o [PowerShell](howto-legacy-exchange-powershell.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Examine os [pré-requisitos](prerequisites.md) e o [emparelhamento do Exchange](walkthrough-exchange-all.md) com o Walkthrough antes de começar a configuração.
+* Revise [pré-requisitos](prerequisites.md) e [faça o passo a passo do Exchange](walkthrough-exchange-all.md) antes de iniciar a configuração.
 
 ## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>Converter um emparelhamento do Exchange herdado para o recurso do Azure
 
-### <a name="sign-in-to-portal-and-select-your-subscription"></a>Entre no portal e selecione sua assinatura
+### <a name="sign-in-to-portal-and-select-your-subscription"></a>Faça login no portal e selecione sua assinatura
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name=create></a>Converter o emparelhamento do Exchange herdado
+### <a name="convert-legacy-exchange-peering"></a><a name=create></a>Converter peering de exchange legado
 
-Você pode converter conexões de emparelhamento herdadas usando o recurso de **emparelhamento** .
+Você pode converter conexões de peering legados usando o recurso **Peering.**
 
-#### <a name="launch-resource-and-configure-basic-settings"></a>Iniciar recurso e definir configurações básicas
+#### <a name="launch-resource-and-configure-basic-settings"></a>Inicie o recurso e configure configurações básicas
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 
-#### <a name="configure-connections-and-submit"></a>Configurar conexões e enviar
+#### <a name="configure-connections-and-submit"></a>Configure conexões e envie
 [!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration-legacy.md)]
 
-### <a name=get></a>Verificar o emparelhamento do Exchange
+### <a name="verify-exchange-peering"></a><a name=get></a>Verificar peering exchange
 [!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter mais informações, visite [perguntas frequentes sobre emparelhamento da Internet](faqs.md)
+Para obter mais informações, visite [perguntas frequentes sobre peering na Internet](faqs.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar ou modificar um emparelhamento do Exchange usando o portal](howto-exchange-portal.md)

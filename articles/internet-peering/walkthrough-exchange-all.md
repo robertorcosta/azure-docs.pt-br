@@ -1,7 +1,7 @@
 ---
-title: Passo a passos de emparelhamento do Exchange
+title: Passo a passo do emparelhamento do Exchange
 titleSuffix: Azure
-description: Passo a passos de emparelhamento do Exchange
+description: Passo a passo do emparelhamento do Exchange
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,47 +9,47 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: bb761afa6d8953b441b6c9541c43b73031719494
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775167"
 ---
-# <a name="exchange-peering-walkthrough"></a>Passo a passos de emparelhamento do Exchange
+# <a name="exchange-peering-walkthrough"></a>Passo a passo do emparelhamento do Exchange
 
-Esta seção explica as etapas que você precisa seguir para configurar e gerenciar um emparelhamento do Exchange.
+Esta seção explica os passos que você precisa seguir para configurar e gerenciar um peering exchange.
 
-## <a name="create-an-exchange-peering"></a>Criar um emparelhamento do Exchange
+## <a name="create-an-exchange-peering"></a>Criar um peering de troca
 > [!div class="mx-imgBorder"]
-> ![o fluxo de trabalho de emparelhamento do Exchange e os Estados de conexão](./media/exchange-peering.png)
+> ![Intercâmbio de fluxo de trabalho e estados de conexão](./media/exchange-peering.png)
 
-As etapas a seguir devem ser seguidas para provisionar um emparelhamento do Exchange:
-1. Examine a [política de emparelhamento](https://peering.azurewebsites.net/peering) da Microsoft para entender os requisitos de emparelhamento do Exchange.
-1. Localizar o local de emparelhamento da Microsoft e a ID do recurso de emparelhamento em [PeeringDB](https://www.peeringdb.com/net/694)
-1. Solicite o emparelhamento do Exchange para um local de emparelhamento usando as instruções no artigo [criar e modificar um emparelhamento do Exchange usando o PowerShell](howto-exchange-powershell.md) para obter mais detalhes.
-1. Depois de enviar uma solicitação de emparelhamento, a Microsoft examinará a solicitação e entrará em contato com você, se necessário.
-1. Depois de aprovado, o estado da conexão muda para aprovado
-1. Configure a sessão BGP no seu fim e notifique a Microsoft
-1. Provisionaremos a sessão BGP com a política negar tudo e validaremos de ponta a ponta.
-1. Se for bem-sucedido, você receberá uma notificação informando que o estado da conexão de emparelhamento está ativo.
-1. O tráfego será permitido por meio do novo emparelhamento.
+As seguintes etapas devem ser seguidas para provisão de um peering exchange:
+1. Revise a [política de peering da](https://peering.azurewebsites.net/peering) Microsoft para entender os requisitos para peering do Exchange.
+1. Encontre o local de peering da Microsoft e o id de instalação de peering no [PeeringDB](https://www.peeringdb.com/net/694)
+1. Solicitar troca de pares para um local de peering usando as instruções em [Criar e modificar um peering Exchange usando](howto-exchange-powershell.md) o artigo PowerShell para obter mais detalhes.
+1. Depois de enviar uma solicitação de peering, a Microsoft revisará a solicitação e entrará em contato com você, se necessário.
+1. Uma vez aprovado, o estado de conexão muda para Aprovado
+1. Configure a sessão BGP no seu final e notifique a Microsoft
+1. Vamos provisionar a sessão BGP com a política DENY ALL e validar de ponta a ponta.
+1. Se for bem-sucedido, você receberá uma notificação de que o estado de conexão de peering está ativo.
+1. O tráfego será permitido através do novo peering.
 
-Observe que os Estados de conexão não devem ser confundidos com os Estados de sessão [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) padrão.
+Observe que os estados de conexão não devem ser confundidos com os estados de sessão [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) padrão.
 
 ## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>Converter um emparelhamento do Exchange herdado para o recurso do Azure
-As etapas a seguir devem ser seguidas para converter um emparelhamento do Exchange herdado para o recurso do Azure:
-1. Siga as instruções em [converter um emparelhamento do Exchange herdado para o recurso do Azure](howto-legacy-exchange-powershell.md)
-1. Depois de enviar a solicitação de conversão, a Microsoft examinará a solicitação e entrará em contato com você, se necessário.
-1. Depois de aprovado, você verá o emparelhamento do Exchange com o estado de conexão como ativo.
+As seguintes etapas devem ser seguidas para converter um peering exchange legado para o recurso DoZure:
+1. Siga as instruções em [Converter um correspondente legado do Exchange para o recurso DoZure](howto-legacy-exchange-powershell.md)
+1. Depois de enviar a solicitação de conversão, a Microsoft analisará a solicitação e entrará em contato com você, se necessário.
+1. Uma vez aprovado, você verá o seu Exchange olhando com o estado de conexão como Ativo.
 
-## <a name="deprovision-exchange-peering"></a>Desprovisionar emparelhamento do Exchange
-Entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com) para desprovisionar o emparelhamento do Exchange.
+## <a name="deprovision-exchange-peering"></a>Peering de deprovision Exchange
+Entre em contato com [a Microsoft para](mailto:peering@microsoft.com) desprovisionar o peering do Exchange.
 
-Quando um emparelhamento do Exchange for definido para desprovisionamento, você verá o estado da conexão como **PendingRemove**
+Quando um peering do Exchange é definido para deprovisionamento, você verá o estado de conexão como **PendingRemove**
 
 > [!NOTE]
-> Se você executar o cmdlet do PowerShell para excluir o emparelhamento do Exchange quando o estado da conexão for ProvisioningStarted ou ProvisioningCompleted, a operação falhará.
+> Se você executar o cmdlet PowerShell para excluir o peering do Exchange quando o estado de conexão estiver provisionandoIniciado ou ProvisionadoConcluído a operação falhará.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [pré-requisitos para configurar o emparelhamento com a Microsoft](prerequisites.md).
+* Saiba mais sobre [pré-requisitos para configurar peering com a Microsoft](prerequisites.md).

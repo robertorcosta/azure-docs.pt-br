@@ -1,5 +1,5 @@
 ---
-title: Exemplo de configuração para conectar dispositivos Cisco ASA a gateways de VPN do Azure
+title: Configuração de exemplo para conectar dispositivos Cisco ASA a gateways Azure VPN
 description: Este artigo apresenta um exemplo de configuração para conectar dispositivos Cisco ASA a gateways de VPN do Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75778075"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemplo de configuração: dispositivo Cisco ASA (IKEv2/não BGP)
@@ -78,7 +78,7 @@ A tabela a seguir lista os algoritmos e os parâmetros de IPsec/IKE usados no ex
 | * Criptografia IPsec | AES256                               |
 | * Integridade do IPsec  | SHA1                                 |
 | Grupo PFS        | PFS24                                |
-| Tempo de vida da QM SA   | 7\.200 segundos                         |
+| Tempo de vida da QM SA   | 7.200 segundos                         |
 | Seletor de tráfego | UsePolicyBasedTrafficSelectors $True |
 | Chave Pré-Compartilhada   | PreSharedKey                         |
 |                  |                                      |
@@ -111,13 +111,13 @@ O script fornece um exemplo que tem base na configuração e nos parâmetros des
 * Assegure que todos os nomes e números de política sejam exclusivos em seu dispositivo.
 * Assegure que os algoritmos de criptografia tenham suporte em seu dispositivo.
 * Substitua os seguintes **valores de espaço reservado** por valores reais para sua configuração:
-  - Nome da interface externa: **externa**
+  - Nome da interface externa: **fora**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
-  - IKE: **Pre_Shared_Key**
+  - PRE_SHARED_KEY **Pre_Shared_Key**
   - Nomes do gateway de rede local e da rede virtual: **VNetName** e **LNGName**
   - **Prefixos** de endereço de rede local e de rede virtual
-  - **Máscaras de rede** adequadas
+  - **Máscaras de rede adequadas**
 
 #### <a name="sample-script"></a>Exemplo de script
 
@@ -300,5 +300,5 @@ Use estes comandos ASA para fins de depuração:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para configurar conexões de VNet a VNet e ativo-ativo entre locais, consulte [Configurar gateways VPN ativo-ativo](vpn-gateway-activeactive-rm-powershell.md).

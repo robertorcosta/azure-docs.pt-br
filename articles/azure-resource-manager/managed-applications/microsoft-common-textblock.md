@@ -1,15 +1,15 @@
 ---
-title: Elemento de interface do usuário do TextBlock
+title: Elemento De IU textBlock
 description: Descreve o elemento de interface do usuário Microsoft.Common.TextBlock para o Portal do Azure. Use para adicionar texto à interface.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 418056cb149f4441bac49db839a0dba40c2bb42d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652210"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Elemento de interface do usuário Microsoft.Common.TextBlock
@@ -43,7 +43,7 @@ Um controle que pode ser usado para adicionar texto à interface do portal.
 "Please provide the configuration values for your application. Learn more"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

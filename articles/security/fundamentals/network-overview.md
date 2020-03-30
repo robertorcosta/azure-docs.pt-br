@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75749944"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
@@ -36,7 +36,7 @@ Este artigo cobre algumas das opções que o Azure oferece na área de seguranç
 * Resolução de nomes
 * Arquitetura de rede de perímetro (DMZ)
 * Proteção contra DDoS do Azure
-* Azure Front Door
+* Porta da frente do Azure
 * Gerenciador de tráfego
 * Monitoramento e detecção de ameaças
 
@@ -93,7 +93,7 @@ Pontos de extremidade de serviço são outra maneira de aplicar o controle sobre
 
 Saiba mais:
 
-* [Pontos de extremidade de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
+* [Pontos finais de serviço](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
 
 ### <a name="route-control-and-forced-tunneling"></a>Controle de rota e túnel forçado
 
@@ -128,7 +128,7 @@ Por exemplo, seus requisitos de segurança podem incluir:
 * Controle de acesso de aplicativo
 * Proteção de DDoS adicional (acima da proteção de DDoS fornecida pela própria malha do Azure)
 
-É possível acessar esses recursos avançados de segurança de rede por meio de uma solução de parceiros do Azure. Você pode encontrar as soluções mais atuais de segurança de rede de parceiros do Azure visitando o [Azure Marketplace](https://azure.microsoft.com/marketplace/) e pesquisando por "segurança" e "segurança de rede".
+É possível acessar esses recursos avançados de segurança de rede por meio de uma solução de parceiros do Azure. Você pode encontrar as soluções de segurança de rede de parceiros mais atuais do Azure visitando o [Azure Marketplace](https://azure.microsoft.com/marketplace/)e buscando "segurança" e "segurança de rede".
 
 ## <a name="azure-firewall"></a>Firewall do Azure
 
@@ -158,7 +158,7 @@ A rede do Azure dá suporte aos seguintes cenários de acesso remoto:
 
 Você poderá permitir que os desenvolvedores individuais ou a equipe de operações gerenciem as máquinas virtuais e os serviços no Azure. Por exemplo, digamos que você precisa ter acesso a uma máquina virtual em uma rede virtual. Mas a política de segurança não permite acesso remoto RDP ou SSH a máquinas virtuais individuais. Nesse caso, você pode usar uma [conexão VPN de ponto a ponto](../../vpn-gateway/point-to-site-about.md).
 
-A conexão VPN ponto-a-site permite que você configure uma conexão privada e segura entre o usuário e a rede virtual. Quando a conexão VPN é estabelecida, o usuário poderá utilizar RDP ou SSH através da conexão VPN em qualquer máquina virtual em uma rede virtual. (Isso pressupõe que o usuário pode autenticar e está autorizado.) A VPN ponto a site dá suporte a:
+A conexão VPN ponto-a-site permite que você configure uma conexão privada e segura entre o usuário e a rede virtual. Quando a conexão VPN é estabelecida, o usuário poderá utilizar RDP ou SSH através da conexão VPN em qualquer máquina virtual em uma rede virtual. (Isso pressupõe que o usuário pode autenticar e está autorizado.) Suporte de VPN ponto a ponto:
 
 * SSTP (Secure Socket Tunneling Protocol), que é um protocolo VPN baseado em SSL proprietário. Uma solução de SSL VPN pode invadir firewalls, desde que a maioria dos firewalls abra a porta TCP 443, usada pelo SSL. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior).
 
@@ -168,7 +168,7 @@ A conexão VPN ponto-a-site permite que você configure uma conexão privada e s
 
 Saiba mais:
 
-* [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure uma conexão ponto a ponto para uma rede virtual usando o PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Conectar a rede local a uma rede virtual com uma VPN
 
@@ -193,7 +193,7 @@ As organizações que precisam do nível mais alto de segurança e disponibilida
 Saiba mais:
 
 * [Visão Geral Técnica do ExpressRoute](../../expressroute/expressroute-introduction.md)
-* [Diretos do ExpressRoute](../../expressroute/expressroute-erdirect-about.md)
+* [ExpressRoute direto](../../expressroute/expressroute-erdirect-about.md)
 * [Express alcance global de rota](../../expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>Conectar redes virtuais entre si
@@ -202,13 +202,13 @@ Saiba mais:
 
 Uma opção é que os serviços em uma rede virtual se conectem aos serviços em outra rede virtual "executando um loopback" pela Internet. A conexão é iniciada em uma rede virtual, passa pela Internet e volta para a rede virtual de destino. Essa opção expõe a conexão a problemas de segurança inerentes a qualquer comunicação baseada na Internet.
 
-Uma opção melhor pode ser criar uma VPN site a site que estabelece a conexão entre duas redes virtuais. Esse método usa o mesmo protocolo de [modo de túnel IPsec](https://technet.microsoft.com/library/cc786385.aspx) que a conexão VPN site a site entre instalações mencionada acima.
+Uma opção melhor pode ser criar uma VPN site a site que estabelece a conexão entre duas redes virtuais. Este método usa o mesmo protocolo de [modo de túnel IPSec](https://technet.microsoft.com/library/cc786385.aspx) que a conexão VPN entre instalações de site para local mencionada acima.
 
 A vantagem dessa abordagem é que a conexão VPN é estabelecida pela malha da rede do Azure, e não pela conexão pela Internet. Isso fornece uma camada extra de segurança em comparação com as VPNs site a site que se conectam pela Internet.
 
 Saiba mais:
 
-* [Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Configure uma conexão VNet-to-VNet usando o Azure Resource Manager e o PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 É outra maneira de se conectar suas redes virtuais [emparelhamento VNET](../../virtual-network/virtual-network-peering-overview.md). Esse recurso permite que você se conecte duas redes do Azure para que a comunicação entre eles ocorra em infraestrutura de backbone da Microsoft sem ele nunca ficar pela Internet. Emparelhamento VNET pode conectar duas redes virtuais na mesma região ou duas redes virtuais entre regiões do Azure. NSGs podem ser usados para limitar a conectividade entre sistemas ou sub-redes diferentes.
 
@@ -284,7 +284,7 @@ Para a resolução de nomes interna, você tem duas opções:
 Saiba mais:
 
 * [Visão geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
-* [Gerenciar Servidores DNS usados por uma rede virtual](../../virtual-network/manage-virtual-network.md#change-dns-servers)
+* [Gerenciar servidores DNS usados por uma rede virtual](../../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 Para a resolução de nomes externa, você tem duas opções:
 
@@ -299,7 +299,7 @@ O Azure oferece uma solução de DNS externo de alta disponibilidade e alto dese
 
 Saiba mais:
 
-* [Visão geral do DNS do Azure](../../dns/dns-overview.md)
+* [Visão geral do Azure DNS](../../dns/dns-overview.md)
 * [Zonas privadas do DNS do Azure](../../dns/private-dns-overview.md) permitem que você configure os nomes DNS privados para recursos do Azure, em vez de nomes atribuídos automaticamente sem a necessidade de adicionar uma solução DNS personalizada.
 
 ## <a name="perimeter-network-architecture"></a>Arquitetura de rede de perímetro
@@ -322,10 +322,10 @@ A Microsoft fornece proteção contra DDoS conhecido como **Básico** como parte
 * **Monitoramento de tráfego Always On:** seus padrões de tráfego do aplicativo são monitorados 24 horas por dia, 7 dias por semana, procurando indicadores de ataques de DDoS. A mitigação é realizada quando as políticas de proteção são excedidas.
 * **Relatórios de Mitigação de Ataque** Os Relatórios de Mitigação de Ataques usam dados de fluxo de rede agregados para fornecer informações detalhadas sobre ataques direcionados a seus recursos.
 * **Logs de Fluxo de Mitigação de Ataque** Os Logs de Fluxo de Mitigação de Ataque permitem que você revise o tráfego perdido, o tráfego encaminhado e outros dados de ataque quase em tempo real durante um ataque DDoS ativo.
-* **Ajuste adaptativo:** A criação de perfil de tráfego inteligente aprende o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil que é o mais adequado para o seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece Proteção contra DDoS para toda a pilha quando usado com um Firewall do Aplicativo Web.
+* **Ajuste adaptativo:** O perfil inteligente de tráfego aprende o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil mais adequado para o seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece Proteção contra DDoS para toda a pilha quando usado com um Firewall do Aplicativo Web.
 * **Escala de mitigação ampla:** mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques de DDoS conhecidos.
 * **Métricas de ataque:** métricas resumidas de cada ataque são acessíveis por meio do Azure Monitor.
-* **Alerta de ataque:** Os alertas podem ser configurados no início e na interrupção de um ataque e na duração do ataque, usando métricas de ataque internas. Os alertas integram-se ao seu software operacional, como Microsoft Azure logs de monitor, Splunk, armazenamento do Azure, email e o portal do Azure.
+* **Alerta de ataque:** Os alertas podem ser configurados no início e parada de um ataque e durante a duração do ataque, usando métricas de ataque incorporadas. Os alertas integram-se ao seu software operacional, como os logs do Microsoft Azure Monitor, Splunk, Azure Storage, Email e o portal Azure.
 * **Garantia de custo:** créditos de serviço de expansão de aplicativo para ataques de DDoS documentados.
 * **DDoS Os clientes do padrão de proteção DDoS** de resposta rápida agora têm acesso à equipe de resposta rápida durante um ataque ativo. A DRR pode ajudar na investigação de ataques, atenuações personalizadas durante uma análise de ataque e pós-ataque.
 
@@ -334,7 +334,7 @@ Saiba mais:
 
 * [visão geral da proteção contra DDoS](../../virtual-network/ddos-protection-overview.md)
 
-## <a name="azure-front-door"></a>Azure Front Door
+## <a name="azure-front-door"></a>Porta da frente do Azure
 
 O serviço de porta frontal do Azure permite definir, gerenciar e monitorar o roteamento global do tráfego da Web. Ele otimiza o roteamento do seu tráfego para melhor desempenho e alta disponibilidade. O Azure Front Door permite que você crie regras WAF (firewall do aplicativo Web) personalizadas para obter controle de acesso a fim de proteger sua carga de trabalho HTTP/HTTPS contra exploração com base em endereços IP do cliente, o código do país e parâmetros http. Além disso, o Front Door também permite que você crie regras limitadoras de taxa para combater o tráfego de bots maliciosos, incluindo o descarregamento de SSL e solicitações por HTTP / HTTPS, processamento da camada de aplicativos.
 
@@ -360,14 +360,14 @@ O Azure fornece recursos para ajudá-lo nessa área-chave com detecção antecip
 
 O Observador de Rede do Azure pode ajudá-lo a solucionar problemas e fornece um conjunto de ferramentas totalmente novo para ajudá-lo na identificação de problemas de segurança.
 
-[Exibição de Grupo de Segurança ](../../network-watcher/network-watcher-security-group-view-overview.md) ajuda na conformidade de segurança e auditoria de Máquinas Virtuais. Use esse recurso para executar auditorias programáticas, comparando as políticas de linha de base definidas por sua organização para regras eficientes de cada uma das suas VMs. Isso pode ajudar a identificar qualquer descompasso de configuração.
+[O Security Group View](../../network-watcher/network-watcher-security-group-view-overview.md) ajuda na auditoria e na conformidade de segurança das Máquinas Virtuais. Use esse recurso para executar auditorias programáticas, comparando as políticas de linha de base definidas por sua organização para regras eficientes de cada uma das suas VMs. Isso pode ajudar a identificar qualquer descompasso de configuração.
 
 A [captura de pacote](../../network-watcher/network-watcher-packet-capture-overview.md) permite que você capture o tráfego de rede que entra e sai da máquina virtual. Você pode coletar estatísticas de rede e solucionar problemas de aplicativos, o que pode ser valioso na investigação de invasões de rede. Você também pode usar esse recurso em conjunto com o Azure Functions para iniciar capturas de rede em resposta a alertas específicos do Azure.
 
 Para saber mais sobre o Observador de Rede e como começar a testar algumas das funcionalidades nos laboratórios, consulte a [Visão geral do monitoramento do Observador de Rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md).
 
 > [!NOTE]
-> Para ver as notificações mais recentes sobre disponibilidade e status desse serviço, verifique a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher).
+> Para obter as notificações mais atualizadas sobre a disponibilidade e o status deste serviço, verifique a [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
@@ -383,7 +383,7 @@ Saiba mais:
 
 * [Introdução à Central de Segurança do Azure](../../security-center/security-center-intro.md)
 
-### <a name="virtual-network-tap"></a>TAP de Rede Virtual
+### <a name="virtual-network-tap"></a>Rede Virtual TAP
 
 O TAP (Ponto de Acesso do Terminal) de rede virtual do Azure permite que você transmita o tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. O coletor ou ferramenta de análise é fornecido por um parceiro de dispositivo virtual de rede. Você pode usar o mesmo recurso de TAP de rede virtual para o tráfego agregado por meio de vários adaptadores de rede nas mesmas assinaturas ou em outras.
 
@@ -391,15 +391,15 @@ Saiba mais:
 
 * [TAP de rede virtual](../../virtual-network/virtual-network-tap-overview.md)
 
-### <a name="logging"></a>Registro em log
+### <a name="logging"></a>Registrando em log
 
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos NSGs para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 
-* [Logs de atividade](../../azure-monitor/platform/platform-logs-overview.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
+* [Registros de atividades](../../azure-monitor/platform/platform-logs-overview.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
 * Logs de eventos. Esses logs fornecem informações sobre quais regras do NSG foram aplicadas.
 * Logs de contador. Esses logs permitem saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 
 Você também pode usar o [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), uma ferramenta de visualização de dados avançada, para exibir e analisar esses logs.
 Saiba mais:
 
-* [Logs de Azure Monitor para NSGs (grupos de segurança de rede)](../../virtual-network/virtual-network-nsg-manage-log.md)
+* [Registros do Monitor do Azure para NSGs (Network Security Groups)](../../virtual-network/virtual-network-nsg-manage-log.md)

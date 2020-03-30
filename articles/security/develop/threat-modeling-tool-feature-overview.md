@@ -1,5 +1,5 @@
 ---
-title: Visão geral do recurso de Microsoft Threat Modeling Tool-Azure
+title: Visão geral do recurso do recurso de modelagem de ameaças da Microsoft - Azure
 description: Conheça todos os recursos disponíveis no Threat Modeling Tool
 author: jegeib
 ms.author: jegeib
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552110"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
@@ -55,7 +55,7 @@ Os símbolos são atalhos para os menus de nível superior:
 | **Abrir** | Abre um novo arquivo. |
 | **Salvar** | Salva o arquivo atual. |
 | **Design** | Abre o modo de exibição de **Design**, no qual é possível criar modelos. |
-| **Analise** | Mostra ameaças geradas e suas propriedades. |
+| **Analisar** | Mostra ameaças geradas e suas propriedades. |
 | **Adicionar diagrama** | Adiciona um novo diagrama (semelhante às novas guias no Excel). |
 | **Excluir Diagrama** | Exclui o diagrama atual. |
 | **Copiar/Recortar/Colar** | Copia, recorta e cola elementos. |
@@ -194,11 +194,11 @@ Conforme mostrado na imagem anterior, você pode alterar as informações gerada
 
 ## <a name="reports"></a>Relatórios
 
-Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Vá para **Relatório** > **Criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
+Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Ir para **relatório** > **criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
 
-![Relate](./media/threat-modeling-tool-feature-overview/report.png)
+![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Envie seus comentários, dúvidas e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/threatmodelingtool)** a ferramenta Threat Modeling Tool para começar a usá-la hoje mesmo.
 - Para contribuir com um modelo para a comunidade, visite nossa página no [GitHub](https://github.com/Microsoft/threat-modeling-templates).

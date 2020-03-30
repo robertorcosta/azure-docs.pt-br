@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas para a segurança de Service Fabric do Azure
+title: Práticas recomendadas para a segurança do tecido de serviço do Azure
 description: Este artigo fornece um conjunto de melhores práticas de segurança do Azure Service Fabric.
 author: unifycloud
 ms.author: tomsh
@@ -8,16 +8,16 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75548812"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
 
-O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrar na implementação de cargas de trabalho essenciais e críticas que são escalonáveis, confiáveis e gerenciáveis.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrarem na implementação de cargas de trabalho essenciais e exigentes que são escalonáveis, confiáveis e gerenciáveis.
 
 Para cada prática recomendada, vamos explicar:
 
@@ -115,7 +115,7 @@ No Service Fabric atores são implementados na estrutura do aplicativo Reliable 
 
 Cada ator é definido como uma instância de um tipo de ator, da mesma forma que um objeto do .NET é uma instância de um tipo do .NET. Por exemplo, um **tipo de ator** que implementa a funcionalidade de uma calculadora pode ter muitos atores desse tipo que são distribuídos em vários nós em um cluster. Cada um dos atores distribuídos é caracterizado exclusivamente por um identificador de ator.
 
-As [configurações de segurança do replicador](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) servem para proteger o canal de comunicação que é usado durante a replicação. Essa configuração impede os serviços de enxergar o tráfego de replicação uns dos outros e garante que os dados de alta disponibilidade fiquem seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
+[As configurações de segurança dos replicadores](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) são usadas para proteger o canal de comunicação usado durante a replicação. Essa configuração impede os serviços de enxergar o tráfego de replicação uns dos outros e garante que os dados de alta disponibilidade fiquem seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
 Configurações do replicador configuram o replicador que será responsável por tornar o Provedor de Estado do Ator altamente confiável.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Configurar o SSL para o Azure Service Fabric
@@ -132,10 +132,10 @@ O certificado deve atender aos seguintes requisitos para certificados SSL no Azu
 -   O nome de assunto do certificado deve corresponder ao nome de domínio usado para acessar o serviço de nuvem.
 
     - Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço de nuvem.
-    - Solicite um certificado de uma autoridade de certificação com um nome de assunto que coincida com o nome de domínio personalizado do seu serviço. Por exemplo, se o nome de domínio personalizado for __contoso__ **.com**, você pode solicitar um certificado da autoridade de certificação para **.contoso.com** ou __www__ **.contoso.com**.
+    - Solicite um certificado de uma autoridade de certificação com um nome de assunto que coincida com o nome de domínio personalizado do seu serviço. Por exemplo, se o nome de domínio personalizado for __contoso__**.com**, você pode solicitar um certificado da autoridade de certificação para **.contoso.com** ou __www__**.contoso.com**.
 
     >[!NOTE]
-    >Você não pode obter um certificado SSL de uma autoridade de certificação para o domínio __cloudapp__ **.net**.
+    >Você não pode obter um certificado SSL de uma autoridade de certificação para o domínio __cloudapp__**.net**.
 
 -   O certificado deve usar, no mínimo, uma criptografia de 2.048 bits.
 
@@ -169,14 +169,14 @@ Há duas etapas básicas para configurar um cofre de chaves:
 Para saber mais sobre como configurar um cofre de chaves, confira [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
 ## <a name="assign-users-to-roles"></a>Atribuir usuários a funções
-Depois de criar os aplicativos para representar o cluster, atribua os usuários às funções com suporte pelo Service Fabric: somente leitura e administrador. Você pode atribuir essas funções usando o portal do Azure.
+Depois de criar os aplicativos para representar seu cluster, atribua seus usuários às funções suportadas pelo Service Fabric: somente leitura e administrador. Você pode atribuir essas funções usando o portal Azure.
 
 >[!NOTE]
 > Para obter mais informações sobre como usar funções no Service Fabric, consulte [Controle de acesso baseado em função para clientes do Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 O Azure Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um [cluster do Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrador e usuário. O administrador do cluster pode usar o controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. O controle de acesso torna o cluster mais seguro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Lista de verificação de segurança do Service Fabric](service-fabric-checklist.md)
 - Configurar o [ambiente de desenvolvimento](../../service-fabric/service-fabric-get-started.md) do Service Fabric.

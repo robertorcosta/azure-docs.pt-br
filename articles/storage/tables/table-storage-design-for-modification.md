@@ -1,6 +1,6 @@
 ---
-title: Projetar o armazenamento de tabelas do Azure para modificação de dados | Microsoft Docs
-description: Projetar tabelas para modificação de dados no armazenamento de tabelas do Azure.
+title: Design Azure Table armazenamento para modificação de dados | Microsoft Docs
+description: Tabelas de design para modificação de dados no armazenamento da Tabela Azure.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771539"
 ---
 # <a name="design-for-data-modification"></a>Design para modificação de dados
@@ -34,13 +34,13 @@ Outro fator-chave que influencia sua escolha de chaves para otimizar as modifica
 Os padrões a seguir no artigo [Padrões de design de tabela](table-storage-design-patterns.md) endereçam a consistência de gerenciamento:  
 
 * [Padrão de índice secundário intrapartição](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição) para permitir pesquisas rápidas e eficientes, bem como ordens de classificação alternativas usando valores de **RowKey** diferentes.  
-* [Padrão de índice secundário entre partições](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições separadas ou em tabelas separadas, a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey** .  
+* [Padrão de índice secundário entre partições](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) – armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições separadas ou em tabelas separadas, a fim de permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de **RowKey**.  
 * [Padrão de transações eventualmente consistentes](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) - Habilite comportamento eventualmente consistente entre limites de partição ou limites do sistema de armazenamento usando filas do Azure.
-* [Padrão de entidades de índice](table-storage-design-patterns.md#index-entities-pattern) - Mantenha entidades de índice para permitir pesquisas eficientes que retornem listas de entidades.  
+* [Padrão de entidades de](table-storage-design-patterns.md#index-entities-pattern) índice - Manter entidades de índice para permitir pesquisas eficientes que retornam listas de entidades.  
 * [Padrão de desnormalização](table-storage-design-patterns.md#denormalization-pattern) - Combine dados relacionados juntos em uma única entidade, para que você possa recuperar todos os dados de que precisa com uma única consulta de ponto.  
 * [Padrão de série de dados](table-storage-design-patterns.md#data-series-pattern) - Armazene séries completas de dados em uma única entidade para minimizar o número de solicitações feitas.  
 
-Para saber mais sobre transações de grupo, consulte a seção [Transações de grupo de entidades](table-storage-design.md#entity-group-transactions).  
+Para obter informações sobre transações de grupos de entidades, consulte a seção [Transações do grupo Entity](table-storage-design.md#entity-group-transactions).  
 
 ## <a name="ensure-your-design-for-efficient-modifications-facilitates-efficient-queries"></a>Garantir o design para modificações eficientes facilita consultas eficientes
 Em muitos casos, um design para consultas eficientes resulta em modificações eficientes, mas você sempre deve avaliar se esse é o caso para seu cenário específico. Alguns dos padrões no artigo [Padrões de design de tabela](table-storage-design-patterns.md) avaliam explicitamente as compensações entre a consulta e a modificação de entidades, e você deve sempre levar em consideração o número de cada tipo de operação.  

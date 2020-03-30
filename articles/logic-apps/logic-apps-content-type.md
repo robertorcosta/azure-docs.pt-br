@@ -1,16 +1,16 @@
 ---
 title: Lidar com tipos de conteúdo
-description: Saiba como lidar com vários tipos de conteúdo em fluxos de trabalho durante o tempo de design e o tempo de execução em aplicativos lógicos do Azure
+description: Saiba como lidar com vários tipos de conteúdo em fluxos de trabalho durante o tempo de projeto e tempo de execução no Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666866"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativos Lógicos do Azure
@@ -59,7 +59,7 @@ Os Aplicativos Lógicos possibilitam gerar tokens amigáveis que representam as 
   
   1. No gatilho de Solicitação, selecione **Usar o conteúdo de amostra para gerar o esquema**.  
   
-  2. Em **Inserir ou colar um conteúdo JSON de amostra**, forneça um conteúdo de exemplo e, em seguida, escolha **Concluído**. Por exemplo: 
+  2. Em **Inserir ou colar um conteúdo JSON de amostra**, forneça um conteúdo de exemplo e, em seguida, escolha **Concluído**. Por exemplo:  
 
      ![Fornecer conteúdo JSON de amostra](./media/logic-apps-content-type/request-trigger.png)
 
@@ -140,12 +140,12 @@ Esta lista descreve como os Aplicativos Lógicos convertem o conteúdo quando vo
 * `xml()`: Converte dados em `application/xml`
 * `binary()`: Converte dados em `application/octet-stream`
 * `string()`: Converte dados em `text/plain`
-* `base64()`: converte o conteúdo em uma cadeia de caracteres codificada em base64
-* `base64toString()`: converte uma cadeia de caracteres codificada em base64 em `text/plain`
-* `base64toBinary()`: converte uma cadeia de caracteres codificada em base64 em `application/octet-stream`
-* `dataUri()`: converte uma cadeia de caracteres em um URI de dados
-* `dataUriToBinary()`: converte um URI de dados em uma cadeia de caracteres binária
-* `dataUriToString()`: converte um URI de dados em uma cadeia de caracteres
+* `base64()`: Converte conteúdo em uma seqüência de string codificada com base64
+* `base64toString()`: Converte uma seqüência de base64 codificada para`text/plain`
+* `base64toBinary()`: Converte uma seqüência de base64 codificada para`application/octet-stream`
+* `dataUri()`: Converte uma seqüência para um URI de dados
+* `dataUriToBinary()`: Converte um URI de dados em uma seqüência binária
+* `dataUriToString()`: Converte um URI de dados em uma seqüência
 
 Por exemplo, se você receber uma solicitação HTTP em que `Content-Type` é definido como `application/xml`, tal como este conteúdo:
 

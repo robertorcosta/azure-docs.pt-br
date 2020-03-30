@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75612250"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
@@ -71,7 +71,7 @@ await client.ConnectionSyncRequestAsync(connId, connProperties, options);
 
 Aqui estão algumas propriedades de interesse:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | -- | -- |
 | Confirmação automática | Um valor booleano que indica se `autoCommit` está habilitado para transações Phoenix. |
 | ReadOnly | Um valor booleano que indica se a conexão é somente leitura. |
@@ -82,9 +82,9 @@ Aqui estão algumas propriedades de interesse:
 
 Aqui estão os `TransactionIsolation` valores:
 
-| Valor de isolamento | Description |
+| Valor de isolamento | Descrição |
 | -- | -- |
-| 0 | Não há suporte para transações. |
+| 0 | As transações não são suportadas. |
 | 1 | Podem ocorrer leituras sujas, leituras não repetíveis e leituras fantasmas. |
 | 2 | As leituras sujas são impedidas, mas podem ocorrer leituras não repetíveis e leituras fantasmas. |
 | 4 | As leituras sujas e as leituras não repetíveis são impedidas, mas podem ocorrer leituras fantasmas. |
@@ -94,7 +94,7 @@ Aqui estão os `TransactionIsolation` valores:
 
 HBase, como outros RDBMS, armazena dados em tabelas. Phoenix usa consultas SQL padrão para criar novas tabelas, ao definir a chave principal e os tipos de coluna.
 
-Este exemplo e todos os exemplos posteriores usam o objeto de `PhoenixClient` instanciado conforme definido em [instanciar um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
+Este exemplo e todos os exemplos posteriores, use o objeto instanciado `PhoenixClient` como definido no [Instantiate um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -170,7 +170,7 @@ Este exemplo mostra uma inserção de dados individuais, referenciando um `List<
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-O valor da coluna `StateProvince` da tabela será usado em uma operação de seleção posterior.
+O valor `StateProvince` da coluna da tabela será usado em uma operação de seleção posterior.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +277,7 @@ finally
 }
 ```
 
-A estrutura para executar uma instrução insert é semelhante à criação de uma nova tabela. No final do bloco de `try`, a transação é explicitamente confirmada. Este exemplo repete uma transação de inserção 300 vezes. O exemplo a seguir mostra um processo mais eficiente de inserção em lotes.
+A estrutura para executar uma instrução insert é semelhante à criação de uma nova tabela. No final do `try` bloco, a transação é explicitamente comprometida. Este exemplo repete uma transação de inserção 300 vezes. O exemplo a seguir mostra um processo mais eficiente de inserção em lotes.
 
 ## <a name="batch-insert-data"></a>Inserir dados em lotes
 
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Apache Phoenix no HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Usando o SDK do REST do Apache HBase](apache-hbase-rest-sdk.md)

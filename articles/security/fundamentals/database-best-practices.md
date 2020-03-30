@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas de segurança do banco de dados-Microsoft Azure
+title: Práticas recomendadas de segurança de banco de dados - Microsoft Azure
 description: Este artigo fornece um conjunto de melhores práticas de segurança do banco de dados do Azure.
 services: security
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0f2e0257c5bf855b0d9be61c43b68b4e30b3d80d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943654"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125099"
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
-Este artigo descreve as práticas recomendadas para segurança de banco de dados.
+Este artigo descreve as melhores práticas para a segurança do banco de dados.
 
-As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. As opiniões e tecnologias mudam ao longo do tempo e este artigo é atualizado regularmente para refletir essas alterações.
+As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. Opiniões e tecnologias mudam ao longo do tempo e este artigo é atualizado regularmente para refletir essas mudanças.
 
-## <a name="secure-databases"></a>Proteger bancos de dados
+## <a name="secure-databases"></a>Bancos de dados seguros
 A segurança é uma das principais preocupações para o gerenciamento de bancos de dados e sempre foi uma prioridade para o [Banco de Dados SQL do Azure](../../sql-database/index.yml). Seus bancos de dados podem ser totalmente protegidos para ajudar a atender a maioria dos requisitos regulamentares ou de segurança, como HIPAA, ISO 27001/27002 e PCI DSS Nível 1. Uma lista atual das certificações de conformidade de segurança está disponível no [site da Central de Confiabilidade da Microsoft](https://azure.microsoft.com/support/trust-center/services/). Você também pode optar por colocar seus bancos de dados em datacenters do Azure específico com base em requisitos regulamentares.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Usar regras de firewall para restringir o acesso ao banco de dados
@@ -55,7 +55,7 @@ Para obter mais informações sobre as regras de firewall no Banco de Dados SQL,
 ## <a name="enable-database-authentication"></a>Habilitar a autenticação de banco de dados
 O Banco de Dados SQL dá suporte a dois tipos de autenticação: autenticação do SQL Server e autenticação do Azure AD.
 
-### <a name="sql-server-authentication"></a>*Autenticação SQL Server*
+### <a name="sql-server-authentication"></a>*Autenticação do SQL Server*
 
 Os benefícios incluem o seguinte:
 
@@ -75,7 +75,7 @@ Se você usar a autenticação do SQL Server, deverá:
 - (Possivelmente) proteger as credenciais passadas pela rede do servidor Web para o banco de dados. Para saber mais, confira [Como conectar-se ao SQL Server usando Autenticação do SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticação do Azure AD (Active Directory)*
-A autenticação do Azure AD é um mecanismo de conexão com o Banco de Dados SQL do Azure e o [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD. Com a autenticação do Azure AD, é possível gerenciar as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões.
+A autenticação do Azure AD é um mecanismo de conexão com o Banco de Dados SQL do Azure e o [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD. Com a autenticação do Azure AD, é possível gerenciar as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões.
 
 > [!NOTE]
 > Recomendamos o uso de autenticação do Azure AD, em vez de autenticação do SQL Server.
@@ -119,7 +119,7 @@ Já que um usuário autorizado, como um administrador de segurança ou um admini
 
 Para outras maneiras de proteger seus dados, considere:
 
-- [Criptografia no nível de célula](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) para criptografar colunas específicas ou até mesmo células de dados com diferentes chaves de criptografia.
+- [Criptografia de nível celular](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) para criptografar colunas específicas ou mesmo células de dados com diferentes chaves de criptografia.
 - O [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) permite que os clientes criptografem dados confidenciais em aplicativos clientes e nunca revelem as chaves de criptografia para o Mecanismo de Banco de Dados (Banco de Dados SQL ou SQL Server). Consequentemente, o Always Encrypted diferencia os proprietários dos dados (que podem vê-los) de quem gerencia os dados (mas não deve ter acesso).
 - [Segurança em Nível de Linha](/sql/relational-databases/security/row-level-security), que permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário que está executando uma consulta. (As características de exemplo são contexto de execução e associação de grupo.)
 
@@ -132,7 +132,7 @@ A auditoria de uma instância do Mecanismo de Banco de Dados do SQL Server ou de
 
 Há vários níveis de auditoria do SQL Server, dependendo dos requisitos padrão ou governamentais de sua instalação. Auditoria do SQL Server fornece ferramentas e processos para habilitar, armazenar e exibir auditorias em vários servidor e objetos de banco de dados.
 
-A [Auditoria do Banco de Dados SQL do Azure](/azure/sql-database/sql-database-auditing) acompanha eventos de banco de dados e grava-os em um log de auditoria em sua conta de Armazenamento do Azure.
+[A auditoria do Banco de Dados Do Azure SQL](/azure/sql-database/sql-database-auditing) rastreia eventos do banco de dados e os grava em um registro de auditoria em sua conta de armazenamento Do Azure.
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a encontrar discrepâncias e anomalias que podem apontar para preocupações empresariais ou violações de segurança. A auditoria facilita a adoção de padrões de conformidade, mas não garante a conformidade.
 
@@ -172,4 +172,4 @@ Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-p
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – o local em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou por email para secure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou por e-mail parasecure@microsoft.com

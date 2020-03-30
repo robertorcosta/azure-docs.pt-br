@@ -1,5 +1,5 @@
 ---
-title: 'Gateway de VPN do Azure: excluir um gateway: Portal'
+title: 'Gateway Azure VPN: Exclua um gateway: portal'
 description: Exclua um gateway de rede virtual usando o portal do Azure no modelo de implantação do Resource Manager.
 services: vpn-gateway
 author: cherylmc
@@ -8,17 +8,17 @@ ms.date: 10/23/2018
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: fba213be2de3b747d3ba962674a03c0bc7df3ed5
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75863658"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Exclua um gateway de rede virtual usando o portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-> * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [Portal Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Powershell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (clássico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
 Este artigo fornece as instruções para excluir um gateway de VPN do Azure implantado usando o modelo de implantação do Resource Manager. Há duas abordagens diferentes que podem ser executadas quando você deseja excluir um gateway de rede virtual de uma configuração de Gateway de VPN.
@@ -55,7 +55,7 @@ Nesse momento, o gateway de rede virtual é excluído. As próximas etapas ajuda
 2. Na folha **Sub-redes**, clique em **GatewaySubnet** e, em seguida, clique em **Excluir**. 
 3. Clique em **Sim** para confirmar que deseja excluir a sub-rede do gateway.
 
-## <a name="deleterg"></a>Excluir um Gateway de VPN por meio da exclusão do grupo de recursos
+## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="deleterg"></a>Excluir um Gateway de VPN por meio da exclusão do grupo de recursos
 
 Se você não estiver preocupado em manter nenhum de seus recursos no grupo de recursos e apenas desejar recomeçar, poderá excluir um grupo de recursos inteiro. Essa é uma maneira rápida de remover tudo. As próximas etapas se aplicam somente ao modelo de implantação do Resource Manager.
 

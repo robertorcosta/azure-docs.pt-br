@@ -1,6 +1,6 @@
 ---
-title: Conectar ao box
-description: Automatizar tarefas e fluxos de trabalho que criam e gerenciam arquivos no box usando aplicativos lógicos do Azure
+title: Conecte-se à caixa
+description: Automatize tarefas e fluxos de trabalho que criam e gerenciam arquivos na Caixa usando aplicativos de lógica do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666764"
 ---
-# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Criar e gerenciar arquivos no box usando aplicativos lógicos do Azure
+# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Criar e gerenciar arquivos na Caixa usando aplicativos azure logic
 
 Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de dentro de um aplicativo lógico com o conector do Box. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos e outras ações, por exemplo:
 
@@ -22,7 +22,7 @@ Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de den
 
 * Dispare o fluxo de trabalho e tarefas automatizadas quando um arquivo é criado ou atualizado.
 
-* Executar uma ação que copia um arquivo ou exclui um arquivo.
+* Execute uma ação que copia um arquivo ou exclua um arquivo.
 
   Quando essas ações obtêm uma resposta, elas disponibilizam a saída para outras ações. 
   Por exemplo, quando um arquivo é alterado no Box, você pode enviar esse arquivo em email usando o Office 365.
@@ -42,6 +42,6 @@ Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que são o
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/box/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

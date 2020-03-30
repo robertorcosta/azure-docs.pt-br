@@ -1,6 +1,6 @@
 ---
 title: Serviços vinculados no Azure Data Factory
-description: Saiba mais sobre os serviços vinculados no Data Factory. Os serviços vinculados vinculam computação/armazenamentos de dados a um data factory.
+description: Conheça os serviços vinculados na Data Factory. Os serviços vinculados vinculam computação/armazenamentos de dados a um data factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: 90e51e8b56bd3fb63d56c630d47770e97f439796
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75563523"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços vinculados no Azure Data Factory
@@ -23,12 +23,12 @@ ms.locfileid: "75563523"
 > * [Versão 1](v1/data-factory-create-datasets.md)
 > * [Versão atual](concepts-linked-services.md)
 
-Este artigo descreve quais serviços vinculados são, como eles são definidos no formato JSON e como eles são usados em pipelines de Azure Data Factory.
+Este artigo descreve o que são serviços vinculados, como eles são definidos no formato JSON e como eles são usados em pipelines azure Data Factory.
 
 Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](introduction.md) para obter uma visão geral.
 
-## <a name="overview"></a>Visão Geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você poderá usar uma atividade de cópia para copiar os dados de um SQL Server local para um armazenamento de Blobs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
+## <a name="overview"></a>Visão geral
+Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que, em conjunto, realizam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você poderá usar uma atividade de cópia para copiar os dados de um SQL Server local para um armazenamento de Blobs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [Pipelines e atividades](concepts-pipelines-activities.md) no Azure Data Factory.
 
 Por outro lado, um **conjunto de dados** é uma exibição nomeada de dados que simplesmente aponta ou faz referência aos dados que você deseja usar em suas **atividades** como entradas e saídas.
 
@@ -61,7 +61,7 @@ Um serviço vinculado no Data Factory é definido no formato JSON da seguinte ma
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Description | Obrigatório |
+Propriedade | Descrição | Obrigatório |
 -------- | ----------- | -------- |
 name | Nome do serviço vinculado. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  Sim |
 type | Tipo de serviço vinculado. Por exemplo: AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição de typeProperties. | Sim |
@@ -89,18 +89,18 @@ O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
-Você pode criar serviços vinculados usando uma destas ferramentas ou SDKs: [API .net](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modelo e portal do Azure
+Você pode criar serviços vinculados usando uma dessas ferramentas ou SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell,](quickstart-create-data-factory-powershell.md) [REST API,](quickstart-create-data-factory-rest-api.md)Azure Resource Manager Template e Portal Azure
 
-## <a name="data-store-linked-services"></a>Serviços vinculados do repositório de dados
-Você pode encontrar a lista de armazenamentos de dados com suporte pelo Data Factory do artigo [visão geral do conector](copy-activity-overview.md#supported-data-stores-and-formats) . Clique em um armazenamento de dados para aprender as propriedades de conexão com suporte.
+## <a name="data-store-linked-services"></a>Serviços vinculados ao armazenamento de dados
+Você pode encontrar a lista de armazenamentos de dados suportados pela Data Factory a partir de um artigo de visão geral do [conector.](copy-activity-overview.md#supported-data-stores-and-formats) Clique em um armazenamento de dados para saber as propriedades de conexão suportadas.
 
-## <a name="compute-linked-services"></a>Serviços vinculados a computação
-Faça referência a [ambientes de computação com suporte](compute-linked-services.md) para obter detalhes sobre diferentes ambientes de computação aos quais você pode se conectar do data Factory, bem como as diferentes configurações.
+## <a name="compute-linked-services"></a>Serviços vinculados de computação
+Ambientes [de computação](compute-linked-services.md) de referência suportados para detalhes sobre diferentes ambientes de computação que você pode conectar a partir de sua fábrica de dados, bem como as diferentes configurações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes tutoriais para obter instruções passo a passo para criar pipelines e conjuntos de dados usando uma destas ferramentas ou SDKs.
 
 - [Início rápido: criar um data factory usando o .NET](quickstart-create-data-factory-dot-net.md)
 - [Início rápido: criar um data factory usando o PowerShell](quickstart-create-data-factory-powershell.md)
 - [Início rápido: criar um data factory usando a API REST](quickstart-create-data-factory-rest-api.md)
-- [Início rápido: criar um data factory usando portal do Azure](quickstart-create-data-factory-portal.md)
+- [Início rápido: criar um data factory usando o Portal do Azure](quickstart-create-data-factory-portal.md)

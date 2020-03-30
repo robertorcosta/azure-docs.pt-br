@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 4a3925752d1af5e43d5984b06c0a68aa9faa214b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67839759"
 ---
 | Nº da porta| Entrada ou saída | Escopo da porta| Obrigatório| Observações |   |
 |--------|-----|-----|-----------|----------|-----------|
-| TCP 80 (HTTP)|No|LAN|Sim|Esta porta é usada para se conectar ao armazenamento de Blog de caixa de dados APIs REST sobre HTTP. Se não estiver se conectando para APIs REST, isso redireciona automaticamente a interface do usuário da web local mais 8443. |
-| TCP 443 (HTTPS)|No|LAN|Sim|Esta porta é usada para se conectar ao armazenamento de Blog de caixa de dados APIs REST sobre HTTPS. Se não estiver se conectando para APIs REST, isso redireciona automaticamente a interface do usuário da web local mais 8443. |
-| TCP 8443 (Alt-HTTPS)|No|LAN|Sim|Isso é uma porta alternativa para HTTPS e é usado ao se conectar a interface web local para o gerenciamento de dispositivo. |
-| TCP 445 (SMB)|Entrada/saída|LAN|Em alguns casos<br>Consulte as observações|Esta porta é necessária somente se você estiver se conectando por meio do SMB. |
-| TCP 2049 (NFS)|Entrada/saída|LAN|Em alguns casos<br>Consulte as observações|Esta porta é necessária somente se você estiver se conectando por meio de NFS. |
-| TCP 111 (NFS)|Entrada/saída|LAN|Em alguns casos<br>Consulte as observações|Esta porta é usada para o mapeamento de porta/rpcbind e necessário somente se você estiver se conectando por meio de NFS.  |
+| TCP 80 (HTTP)|No|LAN|Sim|Esta porta é usada para se conectar às APIs rest do Data Box Blog sobre HTTP. Se não estiver se conectando às APIs REST, isso redireciona automaticamente para a UI da Web local sobre 8443. |
+| TCP 443 (HTTPS)|No|LAN|Sim|Esta porta é usada para se conectar às APIs rest do Data Box Blog sobre HTTPS. Se não estiver se conectando às APIs REST, isso redireciona automaticamente para a UI da Web local sobre 8443. |
+| TCP 8443 (HTTPS-Alt)|No|LAN|Sim|Esta é uma porta alternativa para HTTPS e é usada ao se conectar à ui web local para gerenciamento de dispositivos. |
+| TCP 445 (SMB)|Entrada/saída|LAN|Em alguns casos<br>Consulte as observações|Esta porta só é necessária se você estiver se conectando via SMB. |
+| TCP 2049 (NFS)|Entrada/saída|LAN|Em alguns casos<br>Consulte as observações|Esta porta só é necessária se você estiver se conectando via NFS. |
+| TCP 111 (NFS)|Entrada/saída|LAN|Em alguns casos<br>Consulte as observações|Esta porta é usada para mapeamento rpcbind/port e é necessária apenas se você estiver se conectando via NFS.  |

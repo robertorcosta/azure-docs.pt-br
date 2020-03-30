@@ -1,15 +1,15 @@
 ---
-title: Adicionar ou remover nós de um Cluster Service Fabric autônomo
+title: Adicionar ou remover nós de um cluster do Service Fabric autônomo
 description: Saiba como adicionar ou remover nós de um cluster do Azure Service Fabric em um computador físico ou virtual executando o Windows Server, que pode ser local ou em qualquer nuvem.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934218"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autônomo em execução no Windows Server
@@ -17,21 +17,21 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
 
 ## <a name="add-nodes-to-your-cluster"></a>Adicionar nós ao cluster
 
-1. Prepare a VM/computador que você deseja adicionar ao cluster seguindo as etapas descritas em [planejar e preparar a implantação de cluster Service Fabric](service-fabric-cluster-standalone-deployment-preparation.md).
+1. Prepare a VM/máquina que deseja adicionar ao seu cluster seguindo as etapas descritas no [Plano e prepare a implantação do cluster de malha de malha de serviço](service-fabric-cluster-standalone-deployment-preparation.md).
 
-2. Identifique o domínio de falha e o domínio de atualização para o qual você adicionará essa VM/computador.
+2. Identifique a qual domínio de falha e domínio de upgrade você adicionará este VM/máquina.
 
-   Se você usar certificados para proteger o cluster, os certificados deverão ser instalados nos repositórios de certificados locais, em preparação para o nó para ingressar no cluster. A analogia é aplicável ao usar outras formas de segurança.
+   Se você usar certificados para proteger o cluster, espera-se que os certificados sejam instalados nas lojas de certificados locais, em preparação para que o nó se junte ao cluster. O analógico é aplicável ao usar outras formas de segurança.
 
 3. RDP (área de trabalho remota) na VM/computador que você deseja adicionar ao cluster.
 
-4. Copie ou [Baixe o pacote autônomo para Service Fabric do Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) para a VM/máquina e descompacte o pacote.
+4. Copie ou [baixe o pacote autônomo para malha de serviço para Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) para a VM/máquina e descompacte o pacote.
 
-5. Execute o PowerShell com privilégios elevados e vá para o local do pacote descompactado.
+5. Execute o PowerShell com privilégios elevados e vá para a localização do pacote sem zíper.
 
-6. Execute o script *AddNode.ps1* com os parâmetros que descrevem o novo nó a adicionar. O exemplo a seguir adiciona um novo nó chamado VM5, com o tipo NodeType0 e o endereço IP 182.17.34.52, em UD1 e FD:/DC1/r0. `ExistingClusterConnectionEndPoint` é um ponto de extremidade de conexão para um nó que já está no cluster existente, que pode ser o endereço IP de *qualquer* nó no cluster. 
+6. Execute o script *AddNode.ps1* com os parâmetros que descrevem o novo nó a adicionar. O exemplo a seguir adiciona um novo nó chamado VM5, com tipo NodeType0 e endereço IP 182.17.34.52, em UD1 e fd:/dc1/r0. `ExistingClusterConnectionEndPoint`é um ponto final de conexão para um nó já no cluster existente, que pode ser o endereço IP de *qualquer* nó no cluster. 
 
-   Não seguro (criando protótipos):
+   Inseguro (prototipagem):
 
    ```
    .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
@@ -46,9 +46,9 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
 
    ```
 
-   Quando o script terminar a execução, você poderá verificar se o novo nó foi adicionado executando o cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) .
+   Quando o script terminar de ser executado, você pode verificar se o novo nó foi adicionado executando o [cmdlet Get-ServiceFabricNode.](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps)
 
-7. Para garantir a consistência em diferentes nós do cluster, você deve iniciar uma atualização de configuração. Execute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e adicione o nó recém-adicionado à seção "nós". Também é recomendável ter sempre a configuração de cluster mais recente disponível caso você precise reimplantar um cluster que tenha a mesma configuração.
+7. Para garantir a consistência em diferentes nós do cluster, você deve iniciar uma atualização de configuração. Executar [Get-ServiceFabricConfigurationpara](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) obter o arquivo de configuração mais recente e adicionar o nó recém-adicionado à seção "Nosdes". Também é recomendável ter sempre a configuração de cluster mais recente disponível caso você precise reimplantar um cluster que tenha a mesma configuração.
 
    ```
     {
@@ -66,7 +66,7 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
    ```
 
-   Você pode monitorar o andamento da atualização no Service Fabric Explorer. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+   Você pode monitorar o andamento da atualização no Service Fabric Explorer. Como alternativa, você pode executar [get-serviceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Adicionar nós aos clusters configurados com a Segurança do Windows usando a gMSA
 Para clusters configurados com a Conta de Serviço Gerenciado de Grupo (gMSA)(https://technet.microsoft.com/library/hh831782.aspx), um novo nó pode ser adicionado usando uma atualização de configuração:
@@ -124,7 +124,7 @@ Adicione o parâmetro "NodesToBeRemoved" na seção "Configurar" dentro da seç�
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Você pode monitorar o andamento da atualização no Service Fabric Explorer. Como alternativa, você pode executar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+    Você pode monitorar o andamento da atualização no Service Fabric Explorer. Como alternativa, você pode executar [get-serviceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 > [!NOTE]
 > A remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com a marca `IsSeedNode=”true”` e podem ser identificadas consultando o manifesto do cluster usando `Get-ServiceFabricClusterManifest`. A remoção desses nós pode levar mais tempo do que outros, pois os nós de propagação terão de ser movidos nesses cenários. O cluster deve manter um mínimo de 3 nós do tipo de nó primário.
@@ -139,8 +139,8 @@ Antes de remover um tipo de nó, verifique novamente se há qualquer nó fazendo
 A substituição de nós primários deve ser realizada um nó após o outro, em vez de remover e depois adicionar em lotes.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md)
-* [Proteger um cluster autônomo no Windows usando os certificados X509](service-fabric-windows-cluster-x509-security.md)
+* [Proteja um cluster autônomo no Windows usando certificados X509](service-fabric-windows-cluster-x509-security.md)
 * [Criar um cluster do Service Fabric autônomo com VMs do Azure executando o Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 

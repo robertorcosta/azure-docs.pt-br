@@ -1,6 +1,6 @@
 ---
-title: Entender o controle de acesso baseado em função – gêmeos digital do Azure | Microsoft Docs
-description: Saiba mais sobre o controle de acesso baseado em função e o gerenciamento de permissões no Azure digital gêmeos.
+title: Entenda o controle de acesso baseado em papéis - Azure Digital Twins | Microsoft Docs
+description: Saiba mais sobre controle de acesso baseado em papéis e permissões de gerenciamento em Gêmeos Digitais Azure.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,15 +9,15 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: feda4b3a7f21b581fb4f08aec013f87c0fabb7e5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76044945"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controle de acesso baseado em função em Gêmeos Digitais do Azure
 
-O Azure digital gêmeos permite o controle de acesso preciso sobre dados, recursos e ações específicos em seu grafo espacial. Ele faz isso por meio de função granular e gerenciamento de permissões chamado de RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/) ). O RBAC consiste em _funções_ e _atribuições de funções_. Funções de identificam o nível de permissões. As atribuições de função associam uma função com um usuário ou dispositivo.
+O Azure Digital Twins permite um controle preciso de acesso sobre dados, recursos e ações específicas em seu gráfico espacial. Ele faz isso através do gerenciamento de função granular e permissão chamado [rbac (Role-based access control).](https://docs.microsoft.com/azure/role-based-access-control/) O RBAC consiste em _funções_ e _atribuições de funções_. Funções de identificam o nível de permissões. As atribuições de função associam uma função com um usuário ou dispositivo.
 
 Usando o RBAC, pode ser concedida permissão para:
 
@@ -49,7 +49,7 @@ Um desenvolvedor pode usar o RBAC para:
 
 ### <a name="role-definitions"></a>Definições de função
 
-Uma definição de função é uma coleção de permissões e outros atributos que constituem uma função. Uma definição de função lista as operações permitidas, que incluem *CRIAR*, *LER*, *ATUALIZAR* e *EXCLUIR* que qualquer objeto com essa função pode executar. Ele também especifica a quais tipos de objeto as permissões se aplicam.
+Uma definição de função é uma coleção de permissões e outros atributos que constituem uma função. Uma definição de função lista as operações permitidas, que incluem *CRIAR*, *LER*, *ATUALIZAR* e *EXCLUIR* que qualquer objeto com essa função pode executar. Também especifica a quais tipos de objeto as permissões se aplicam.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
@@ -81,8 +81,8 @@ Para conceder permissões a um destinatário, crie uma atribuição de função.
 >[!IMPORTANT]
 > Saiba mais sobre atribuições de funções, lendo [Criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como criar e gerenciar atribuições de função dos Gêmeos Digitais do Azure, leia [Criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).
 
-- Leia mais sobre o [RBAC para Azure](https://docs.microsoft.com/azure/role-based-access-control/).
+- Leia mais sobre [o RBAC para o Azure](https://docs.microsoft.com/azure/role-based-access-control/).

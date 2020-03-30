@@ -9,14 +9,14 @@ ms.date: 03/18/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 55ef7a2ef06d29e653516a3915af76a2fcc24e50
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67471257"
 ---
 | Tipo de disco Standard | S4 | S6 | S10 | S15 | S20 | S30 | S40 | S50 | S60 | S70 | S80 |
 |--------------------|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
-| Tamanho do Disk em GiB | 32 | 64 | 128 | 256 | 512 | 1\.024 | 2\.048 | 4\.096 | 8\.192 | 16.384 | 32.767 |
+| Tamanho do Disk em GiB | 32 | 64 | 128 | 256 | 512 | 1.024 | 2.048 | 4.096 | 8.192 | 16.384 | 32.767 |
 | IOPS por disco | Até 500 | Até 500 | Até 500 | Até 500 | Até 500 | Até 500 | Até 500 | Até 500 | Até 1.300 | Até 2.000 | Até 2.000 |
 | Taxa de transferência por disco | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s | Até 60 MiB/s| Até 300 MiB/s | Até 500 MiB/s | Até 500 MiB/s |

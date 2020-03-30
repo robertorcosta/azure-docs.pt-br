@@ -1,6 +1,6 @@
 ---
 title: Migração e integração de aplicativos no Azure DevTest Labs
-description: Este artigo fornece diretrizes para governança de Azure DevTest Labs infraestrutura no contexto de migração e integração de aplicativos.
+description: Este artigo fornece orientação para a governança da infra-estrutura do Azure DevTest Labs no contexto de migração e integração de aplicativos.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644879"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governança da infraestrutura do Azure DevTest Labs – Integração e migração de aplicativos
@@ -64,7 +64,7 @@ Confira [este vídeo sobre o padrão fábrica de imagem](https://blogs.msdn.micr
 Usando DevTest Labs para criar um pipeline de imagem personalizado em Azure Pipelines:
 
 - [Introdução: prepare as VMs em minutos configurando uma fábrica de imagem no Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Fábrica de imagens – parte 2! Instalação Azure Pipelines e laboratório de fábrica para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Fábrica de Imagens – Parte 2! Configurar pipelines Azure e laboratório de fábrica para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Fábrica de imagem – Parte 3: salvar imagens personalizadas e distribuí-las para vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Vídeo: fábrica de imagem personalizada com o Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -117,7 +117,7 @@ Há uma regra com relação a quantas máquinas virtuais devo definir por usuár
 Ao considerar o número de máquinas virtuais por usuário ou por laboratório, há três principais preocupações:
 
 - O **custo geral** que a equipe pode gastar em recursos do laboratório. É fácil acelerar várias máquinas. Para controlar os custos, um mecanismo serve para limitar o número de máquinas virtuais por usuário e/ou por laboratório
-- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é 800 grupos de recursos por assinatura. Os Laboratórios de Desenvolvimento/Teste criam um novo grupo de recursos para cada máquina virtual (a menos que sejam usados IPs públicos compartilhados). Se houver 10 laboratórios em uma assinatura, os laboratórios poderão se ajustar a aproximadamente 79 máquinas virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios em si) = 79 máquinas virtuais por laboratório.
+- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é 800 grupos de recursos por assinatura. Os Laboratórios de Desenvolvimento/Teste criam um novo grupo de recursos para cada máquina virtual (a menos que sejam usados IPs públicos compartilhados). Se houver 10 laboratórios em uma assinatura, os laboratórios poderiam caber aproximadamente 79 máquinas virtuais em cada laboratório (800 limites superiores – 10 grupos de recursos para os 10 próprios laboratórios) = 79 máquinas virtuais por laboratório.
 - Se o laboratório é conectado ao local por meio da Rota Expressa (por exemplo), há **espaços de endereço IP definidos disponíveis** para a VNet/sub-rede. Para garantir que as máquinas virtuais no laboratório não falhem ao serem criadas (erro: não é possível obter o endereço IP), os proprietários de laboratório podem especificar o máximo de máquinas virtuais por laboratório alinhado com o espaço de endereço IP disponível.
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos
@@ -132,5 +132,5 @@ Esse cenário pode não ser útil se você estiver usando os Laboratórios de De
 
 Ainda vale a pena observar que o número de máquinas virtuais por laboratório ou por usuário só limita o número de máquinas criadas nativamente no laboratório em si e não por quaisquer ambientes (modelos do Resource Manager).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Confira [Usar ambientes nos Laboratórios de Desenvolvimento/Teste](devtest-lab-test-env.md).

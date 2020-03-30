@@ -1,13 +1,13 @@
 ---
-title: Desenvolver testes de unidade para serviços com estado
-description: Saiba mais sobre os testes de unidade no Azure Service Fabric para serviços com estado e considerações especiais para ter em mente durante o desenvolvimento.
+title: Desenvolver testes unitários para serviços estaduais
+description: Aprenda sobre testes unitários no Azure Service Fabric para serviços estaduais e considerações especiais para ter em mente durante o desenvolvimento.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639829"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado
@@ -25,7 +25,7 @@ A partir da versão 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
 [GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
-*O infabric. Mocks não é propriedade da Microsoft nem é mantida por ela. No entanto, essa é atualmente a biblioteca recomendada pela Microsoft para serviços com estado de teste de unidade.*
+*ServiceFabric.Mocks não é de propriedade ou manutenção da Microsoft. No entanto, esta é atualmente a biblioteca recomendada pela Microsoft para testar serviços estaduais de teste unitário.*
 
 ## <a name="set-up-the-mock-orchestration-and-state"></a>Configurar a orquestração e estado de simulação
 Como parte da parte de organização de um teste, um conjunto de réplicas simuladas e um gerenciador de estado serão criados. O conjunto de réplicas será proprietário da criação de uma instância do serviço testado para cada réplica. Ele também possui eventos de ciclo de vida em execução, como `OnChangeRole` e `RunAsync`. O gerente de estado simulado assegurará que quaisquer operações executadas contra o gerente de estado sejam executadas e mantidas como o gerente de estado real faria.
@@ -127,5 +127,5 @@ public async Task TestServiceState_InMemoryState_PromoteActiveSecondary()
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba como testar [comunicação serviço a serviço](service-fabric-testability-scenarios-service-communication.md) e [simular falhas usando caos controlado](service-fabric-controlled-chaos.md).

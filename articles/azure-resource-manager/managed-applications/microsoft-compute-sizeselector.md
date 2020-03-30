@@ -1,15 +1,15 @@
 ---
-title: Elemento de interface do usuário SizeSelector
+title: Elemento UI do SizeSelector
 description: Descreve o elemento de interface do usuário Microsoft.Compute.SizeSelector para o Portal do Azure. Use para selecionar o tamanho de uma máquina virtual.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: d98ddbb09ac4f1f933237b3288db7a0cb78380b5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652041"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.SizeSelector
@@ -76,7 +76,7 @@ Depois de selecionar o controle, o usuário vê uma exibição expandida dos tam
 - O `numAvailabilityZonesRequired` pode ser 1, 2 ou 3.
 - Por padrão, `hideDiskTypeFilter` é **false**. O filtro de tipo de disco permite que o usuário veja todos os tipos de disco ou somente o SSD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171962"
 ---
 > [!NOTE]
@@ -18,18 +18,18 @@ ms.locfileid: "67171962"
 
 #### <a name="to-configure-rbs"></a>Para configurar o RBS
 1. Abra a página Administração Central do SharePoint e navegue até **Configurações do Sistema**. 
-2. Na seção **Azure StorSimple**, clique em **Configurar Adaptador StorSimple**.
+2. Na seção **Azure StorSimple**, clique em **Configurar Adaptador do StorSimple**.
    
     ![Configurar o Adaptador StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
-3. Na página **Configurar Adaptador StorSimple** :
+3. Na página **Configurar Adaptador do StorSimple**:
    
-   1. Verifique se a caixa de seleção **Habilitar edição de caminho** está marcada.
+   1. Verifique se a caixa de seleção **Habilitar caminho de edição** está marcada.
    2. Na caixa de texto, digite o caminho UNC (Convenção de Nomenclatura Universal) do armazenamento de BLOB.
       
       > [!NOTE]
       > O volume de armazenamento de BLOB deve ser hospedado em um volume iSCSI configurado no dispositivo StorSimple.
 
-   3. Clique no botão **Habilitar** abaixo de cada banco de dados de conteúdo que deseja configurar para armazenamento remoto.
+   3. Clique no botão **Habilitar** abaixo de cada um dos bancos de dados de conteúdo que você deseja configurar para armazenamento remoto.
       
       > [!NOTE]
       > O armazenamento de BLOB deve ser compartilhado e poder ser acessado por todos os servidores WFE (Front-End da Web) e a conta do usuário que está configurada para o farm de servidores do SharePoint deve ter acesso ao compartilhamento.
@@ -40,12 +40,12 @@ ms.locfileid: "67171962"
       
       ![Configurar o Adaptador StorSimple para Habilitado/Desabilitado](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. Clique no botão **Atualizar** para aplicar a configuração. Quando você clica no botão **Atualizar** , o status da configuração do RBS é atualizado em todos os servidores WFE e todo o farm é habilitado para RBS. A seguinte mensagem é exibida.
+   4. Clique no botão **Atualizar** para aplicar a configuração. Quando você clica no botão **Atualizar**, o status de configuração de RBS será atualizado em todos os servidores WFE, e o farm inteiro será habilitado para RBS. A seguinte mensagem é exibida.
       
       ![Mensagem de configuração do adaptador](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > Se você estiver configurando um RBS para um farm do SharePoint com um número muito grande de bancos de dados (maior que 200), o tempo limite da página da Web da Administração Central do SharePoint poderá se esgotar. Se isso ocorrer, atualize a página. Isso não afeta o processo de configuração.
+      > Se você estiver configurando o RBS para uma fazenda SharePoint com um número muito grande de bancos de dados (maiorque 200), a página da Web da Administração Central do SharePoint pode ser cronometrada. Se isso ocorrer, atualize a página. Isso não afeta o processo de configuração.
 
 4. Verifique a configuração:
    
@@ -111,9 +111,9 @@ ms.locfileid: "67171962"
    Se você armazenar BLOBs e o banco de dados de conteúdo em volumes separados no dispositivo StorSimple, é recomendável configurá-los no mesmo contêiner de volume. Isso garante que os respectivos backups sejam feitos juntos.
    
    > [!WARNING]
-   > Se você não tiver habilitado o RBS, não é recomendável mover o banco de dados de conteúdo para o dispositivo StorSimple. Essa é uma configuração não testada.
+   > Se você não tiver habilitado RBS, não é recomendável mover o banco de dados de conteúdo para o dispositivo StorSimple. Essa é uma configuração não testada.
    
-9. Vá para a etapa seguinte: [Configurar a coleta de lixo](#configure-garbage-collection).
+9. Vá para a próxima etapa: [Configurar a coleta de lixo](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

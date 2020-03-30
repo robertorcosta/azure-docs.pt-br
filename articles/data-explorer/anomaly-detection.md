@@ -1,6 +1,6 @@
 ---
-title: Detecção de anomalias de série temporal & previsão no Azure Data Explorer
-description: Saiba como analisar dados de série temporal para detecção de anomalias e previsão usando o Azure Data Explorer.
+title: Previsão de & de detecção de anomalias em séries tempois no Azure Data Explorer
+description: Saiba como analisar dados de séries tempois para detecção e previsão de anomalias usando o Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: adieldar
@@ -8,30 +8,30 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194150"
 ---
-# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Detecção de anomalias e previsão no Azure Data Explorer
+# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Detecção e previsão de anomalias no Azure Data Explorer
 
-O Azure Data Explorer executa a coleta contínua de dados de telemetria de serviços de nuvem ou dispositivos IoT. Esses dados são analisados para várias informações, como monitoramento de integridade do serviço, processos de produção física, tendências de uso e previsão de carga. A análise é feita na série temporal de métricas selecionadas para localizar um padrão de desvio da métrica em relação ao padrão típico de linha de base normal. O Azure Data Explorer contém suporte nativo para criação, manipulação e análise de várias séries temporais. Ele pode criar e analisar milhares de séries temporais em segundos, permitindo soluções de monitoramento e fluxos de trabalho quase em tempo real.
+O Azure Data Explorer realiza a coleta contínua de dados de telemetria de serviços de nuvem ou dispositivos IoT. Esses dados são analisados para diversos insights, como monitoramento da saúde dos serviços, processos de produção física, tendências de uso e previsão de carga. A análise é feita em séries tempois de métricas selecionadas para localizar um padrão de desvio da métrica em relação ao seu padrão normal típico de linha de base. O Azure Data Explorer contém suporte nativo para criação, manipulação e análise de várias séries tempontos. Ele pode criar e analisar milhares de séries temporinativas em segundos, permitindo soluções de monitoramento e fluxos de trabalho em tempo real.
 
-Este artigo detalha os recursos de previsão e de detecção de anomalias da série temporal do Azure Data Explorer. As funções de série temporal aplicáveis se baseiam em um modelo de decomposição conhecido robusto, em que cada série temporal original é decomposta em componentes sazonais, de tendência e residuais. As anomalias são detectadas por exceções no componente residual, enquanto a previsão é feita por meio da extrapolação dos componentes sazonais e de tendência. A implementação de Data Explorer do Azure aprimora significativamente o modelo de decomposição básico por detecção automática de sazonalidade, análise de exceção robusta e implementação em vetor para processar milhares de séries temporais em segundos.
+Este artigo detalha os recursos de detecção e previsão de anomalias da série temporal do Azure Data Explorer. As funções das séries tempois aplicáveis são baseadas em um modelo de decomposição robusto e conhecido, onde cada série temporal original é decomposta em componentes sazonais, tendências e residuais. Anomalias são detectadas por outliers no componente residual, enquanto a previsão é feita extrapolando os componentes sazonais e de tendência. A implementação do Azure Data Explorer melhora significativamente o modelo básico de decomposição por detecção automática de sazonalidade, análise robusta de outlier e implementação vetorializada para processar milhares de séries tempontos em segundos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Leia [análise de série temporal no Azure data Explorer](/azure/data-explorer/time-series-analysis) para obter uma visão geral dos recursos de série temporal.
+Leia [a análise da série Time no Azure Data Explorer](/azure/data-explorer/time-series-analysis) para uma visão geral dos recursos das séries tempois.
 
-## <a name="time-series-decomposition-model"></a>Modelo de decomposição de série temporal
+## <a name="time-series-decomposition-model"></a>Modelo de decomposição de séries tempois
 
-A implementação nativa do Azure Data Explorer para a previsão de série temporal e a detecção de anomalias usa um modelo de decomposição conhecido. Esse modelo é aplicado à série temporal de métricas esperadas para manifestar o comportamento periódico e de tendência, como tráfego de serviço, pulsações de componente e medições periódicas de IoT para prever valores de métrica futuros e detectar anomalias. A suposição desse processo de regressão é que, além do comportamento sazonal e de tendência conhecido anteriormente, a série temporal é distribuída aleatoriamente. Em seguida, você pode prever valores de métricas futuros dos componentes sazonais e de tendência, de linha de base nomeada coletivamente, e ignorar a parte residual. Você também pode detectar valores anormais com base na análise de exceção usando apenas a parte residual.
-Para criar um modelo de decomposição, use a função [`series_decompose()`](/azure/kusto/query/series-decomposefunction). A função `series_decompose()` usa um conjunto de séries temporais e automaticamente decompõe cada série temporal para seus componentes sazonal, de tendência, residuais e de linha de base. 
+A implementação nativa do Azure Data Explorer para previsão de séries tempois e detecção de anomalias usa um modelo de decomposição bem conhecido. Este modelo é aplicado a séries tempois de métricas esperadas para manifestar comportamentos periódicos e de tendência, como tráfego de serviço, batimentos cardíacos componentes e medições periódicas de IoT para prever valores métricos futuros e detectar os anômalos. O pressuposto desse processo de regressão é que, além do comportamento sazonal e de tendência anteriormente conhecido, as séries temporâneas são distribuídas aleatoriamente. Em seguida, você pode prever valores métricos futuros dos componentes sazonais e de tendência, coletivamente nomeados como linha de base, e ignorar a parte residual. Você também pode detectar valores anômalos com base na análise outlier usando apenas a porção residual.
+Para criar um modelo de [`series_decompose()`](/azure/kusto/query/series-decomposefunction)decomposição, use a função . A `series_decompose()` função leva um conjunto de séries temporiais e decompõe automaticamente cada série temporal aos seus componentes sazonais, de tendência, residuais e de linha de base. 
 
-Por exemplo, você pode decompor o tráfego de um serviço Web interno usando a seguinte consulta:
+Por exemplo, você pode decompor o tráfego de um serviço web interno usando a seguinte consulta:
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WQ3WrDMAyF7/sUukvCnDXJGIOVPEULuwxqoixm/gm2+jf28JObFjbYrmyho3M+yRCD1a5jaGFAJtaW8qaqX8qqLqvnYrMySYHnvxRNWT1B07xW1U03JFEzbVYDWd9Z/KAuUtAUm9UXpLJcSnAH2+LxPZe3AO9gJ6ZbRjvDGLy9EbG/BUemOXnvLxD1AOJ1mijQtWhbyHbbOgOA9RogkqGeAaXn3g1BooVb6OiDNHpD6CjAUccDGv2JrL0TSzozuQHyPYqHdqRkDKN3aBRwkJaCQJIoQ4VsuXh2A/Xezj5SWkVBWSvI0vSoOSsWpLtEpyDwY4KTW8nnJ5ws+2+eAhSyOxjkd+HDVVcIfHplp2TYTxgYTpqnnDUbarM32gPO86PY4jjqfmGw3vGkftNlCi5xNprbWW5kYvENQQnqDh8CAAA=) **\]**
+**\[**[**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WQ3WrDMAyF7/sUukvCnDXJGIOVPEULuwxqoixm/gm2+jf28JObFjbYrmyho3M+yRCD1a5jaGFAJtaW8qaqX8qqLqvnYrMySYHnvxRNWT1B07xW1U03JFEzbVYDWd9Z/KAuUtAUm9UXpLJcSnAH2+LxPZe3AO9gJ6ZbRjvDGLy9EbG/BUemOXnvLxD1AOJ1mijQtWhbyHbbOgOA9RogkqGeAaXn3g1BooVb6OiDNHpD6CjAUccDGv2JrL0TSzozuQHyPYqHdqRkDKN3aBRwkJaCQJIoQ4VsuXh2A/Xezj5SWkVBWSvI0vSoOSsWpLtEpyDwY4KTW8nnJ5ws+2+eAhSyOxjkd+HDVVcIfHplp2TYTxgYTpqnnDUbarM32gPO86PY4jjqfmGw3vGkftNlCi5xNprbWW5kYvENQQnqDh8CAAA=)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -44,21 +44,21 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, decomposition', ysplit=panels)
 ```
 
-![Decomposição de série temporal](media/anomaly-detection/series-decompose-timechart.png)
+![Decomposição da série temporal](media/anomaly-detection/series-decompose-timechart.png)
 
-* A série temporal original é rotulada **num** (vermelho). 
-* O processo inicia pela detecção automática do sazonalidade usando a função [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) e extrai o padrão **sazonal** (em roxo).
-* O padrão sazonal é subtraído da série temporal original e uma regressão linear é executada usando a função [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) para localizar o componente de **tendência** (em azul claro).
+* A série temporal original é rotulada **como num** (em vermelho). 
+* O processo começa pela detecção automática da [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) sazonalidade usando a função e extrai o padrão **sazonal** (em roxo).
+* O padrão sazonal é subtraído da série temporal original e uma [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) regressão linear é executada usando a função para encontrar o componente **de tendência** (em azul claro).
 * A função subtrai a tendência e o restante é o componente **residual** (em verde).
-* Por fim, a função adiciona os componentes sazonais e Trend para gerar a **linha de base** (em azul).
+* Finalmente, a função adiciona os componentes sazonais e de tendência para gerar a **linha de base** (em azul).
 
 ## <a name="time-series-anomaly-detection"></a>Detecção de anomalias de série temporal
 
-A função [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction) localiza pontos anormais em um conjunto de séries temporais. Essa função chama `series_decompose()` para criar o modelo de decomposição e, em seguida, executa [`series_outliers()`](/azure/kusto/query/series-outliersfunction) no componente residual. `series_outliers()` calcula as pontuações de anomalias para cada ponto do componente residual usando o teste de isolamento do Tukey. As pontuações de anomalias acima de 1,5 ou abaixo-1,5 indicam um leve aumento de anomalia ou declínio, respectivamente. As pontuações de anomalias acima de 3,0 ou abaixo-3,0 indicam uma forte anomalia. 
+A [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction) função encontra pontos anômalos em um conjunto de séries tempontos. Esta função `series_decompose()` chama para construir o [`series_outliers()`](/azure/kusto/query/series-outliersfunction) modelo de decomposição e, em seguida, é executada no componente residual. `series_outliers()`calcula as pontuações de anomalia para cada ponto do componente residual usando o teste de cerca de Tukey. Os escores de anomalia acima de 1,5 ou abaixo de -1,5 indicam um leve aumento ou declínio da anomalia, respectivamente. Os escores de anomalia acima de 3,0 ou abaixo de -3,0 indicam uma anomalia forte. 
 
-A consulta a seguir permite que você detecte anomalias no tráfego interno do serviço Web:
+A seguinte consulta permite detectar anomalias no tráfego interno de serviços web:
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WR3W7CMAyF73mKI25KpRbaTmjSUJ8CpF1WoXVptPxUifmb9vBLoGO7GFeR7ePv2I4ihpamYdToBBNLTYuqKF/zosyLdbqZqagQl/8UVV68oKreimLSdVFUDZtZR9o2WnxQ48lJ8tXsCzHM7yHMUdfidFiEN4U12AXoloUe0Turp4nYTsaeaYzs/RVedgis80CObkFdI9ltywTAagV4UtQyRKiZgyLEaTGZ9taFQqtIGHI4SX8USn4KltYEJF2YTIeFMFaHPPkMvrWOMuxFoEpDaVjujmo6aq0erafmIY+7ZCiX6wx5mSGJHb3kJA1sF8jB8q69toNwjLPkYfGTseqoja//eLNkRXXyTnuIcVyCneh72cL2YQdtDQ8ZHvIkDcsfPWH+3AvPvObx0FMXD/RLhfDYW9VhtNKwj/8U69M1b2S//AbRUQMWQQIAAA==) **\]**
+**\[**[**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WR3W7CMAyF73mKI25KpRbaTmjSUJ8CpF1WoXVptPxUifmb9vBLoGO7GFeR7ePv2I4ihpamYdToBBNLTYuqKF/zosyLdbqZqagQl/8UVV68oKreimLSdVFUDZtZR9o2WnxQ48lJ8tXsCzHM7yHMUdfidFiEN4U12AXoloUe0Turp4nYTsaeaYzs/RVedgis80CObkFdI9ltywTAagV4UtQyRKiZgyLEaTGZ9taFQqtIGHI4SX8USn4KltYEJF2YTIeFMFaHPPkMvrWOMuxFoEpDaVjujmo6aq0erafmIY+7ZCiX6wx5mSGJHb3kJA1sF8jB8q69toNwjLPkYfGTseqoja//eLNkRXXyTnuIcVyCneh72cL2YQdtDQ8ZHvIkDcsfPWH+3AvPvObx0FMXD/RLhfDYW9VhtNKwj/8U69M1b2S//AbRUQMWQQIAAA==)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -74,16 +74,16 @@ demo_make_series2
 ![Detecção de anomalias de série temporal](media/anomaly-detection/series-anomaly-detection.png)
 
 * A série temporal original (em vermelho). 
-* O componente de linha de base (sazonal + Trend) (em azul).
-* Os pontos anormais (em roxo) na parte superior da série temporal original. Os pontos anormais se desviam significativamente dos valores de linha de base esperados.
+* O componente linha de base (sazonal + tendência) (em azul).
+* Os pontos anômalos (em roxo) no topo da série temporal original. Os pontos anômalos se desviam significativamente dos valores de linha de base esperados.
 
-## <a name="time-series-forecasting"></a>Previsão de série temporal
+## <a name="time-series-forecasting"></a>Previsão de séries tempois
 
-A função [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction) prevê os valores futuros de um conjunto de séries temporais. Essa função chama `series_decompose()` para criar o modelo de decomposição e, em seguida, para cada série temporal, extrapola o componente de linha de base no futuro.
+A [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction) função prevê valores futuros de um conjunto de séries temponíveis. Esta função `series_decompose()` exige a construção do modelo de decomposição e, em seguida, para cada série de tempo, extrapola o componente de linha de base no futuro.
 
-A consulta a seguir permite prever o tráfego do serviço Web da próxima semana:
+A seguinte consulta permite prever o tráfego de serviços web da próxima semana:
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA22QzW6DMBCE73mKuQFqKISqitSIW98gkXpEDl5iK9hG9uanUR++dqE99YRGO8x845EYRtuO0UIKJtaG8qbebMt6U9avxW41Joe4/+doyvoFTfNW14tPJlOjZqGc1w9n263crSQZ1xlxpi6Q1xSa1ReSLGcJezGtuJ7y+C3gLA6xZM/CTBi8MwshuxnkaUlGYJpS5/ETQUvEzJsiTz+ibZEd9psMQFUBgUbqGSLe7GkkpBVYygfn46EfSVjyuOpwEaN+CNbOxki6M1mZTNSLkAbOv3WSemcmF6j7vSX8dcTUlvOFsZJcFDHFx4wYnmp7JTzjplnlrHmkNvugI8Q0PYO9GAbdww0RyDjLav1XHLnBimAjEG5E5zQ7vRP284x36hOOTtxZ8Q3The8P2QEAAA==) **\]**
+**\[**[**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA22QzW6DMBCE73mKuQFqKISqitSIW98gkXpEDl5iK9hG9uanUR++dqE99YRGO8x845EYRtuO0UIKJtaG8qbebMt6U9avxW41Joe4/+doyvoFTfNW14tPJlOjZqGc1w9n263crSQZ1xlxpi6Q1xSa1ReSLGcJezGtuJ7y+C3gLA6xZM/CTBi8MwshuxnkaUlGYJpS5/ETQUvEzJsiTz+ibZEd9psMQFUBgUbqGSLe7GkkpBVYygfn46EfSVjyuOpwEaN+CNbOxki6M1mZTNSLkAbOv3WSemcmF6j7vSX8dcTUlvOFsZJcFDHFx4wYnmp7JTzjplnlrHmkNvugI8Q0PYO9GAbdww0RyDjLav1XHLnBimAjEG5E5zQ7vRP284x36hOOTtxZ8Q3The8P2QEAAA==)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -97,18 +97,18 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decomposition')
 ```
 
-![Previsão de série temporal](media/anomaly-detection/series-forecasting.png)
+![Previsão de séries tempois](media/anomaly-detection/series-forecasting.png)
 
-* Métrica original (em vermelho). Valores futuros estão ausentes e definidos como 0, por padrão.
-* Extrapolar o componente de linha de base (em azul) para prever valores da próxima semana.
+* Métrica original (em vermelho). Os valores futuros estão faltando e definidos como 0, por padrão.
+* Extrapolar o componente de linha de base (em azul) para prever os valores da próxima semana.
 
 ## <a name="scalability"></a>Escalabilidade
 
-A sintaxe da linguagem de consulta do Azure Data Explorer permite que uma única chamada para processar várias séries temporais. Sua implementação otimizada exclusiva permite um desempenho rápido, que é essencial para a detecção e previsão de anomalias em vigor ao monitorar milhares de contadores em cenários quase em tempo real.
+A sintaxe do idioma do Azure Data Explorer permite que uma única chamada processe várias séries tempor. Sua implementação otimizada única permite um desempenho rápido, o que é fundamental para a detecção e previsão de anomalias eficazes ao monitorar milhares de contadores em cenários quase em tempo real.
 
-A consulta a seguir mostra o processamento de três séries temporais simultaneamente:
+A consulta a seguir mostra o processamento de três séries temporinhas simultaneamente:
 
-**\[** [**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA21Qy26DMBC85yvmFlChcUirSI34ikTqETl4KVawjfDmqX587UCaHuqLtePxPLYjhtG2YpRQkom1oaQQy3Uulrl4TzezLjLk5T9GkYsViuJDiImnIqlox6F1g745W67VZqbIuMrIA1WeBk2+mH0jjvk4wh5NKU9fSbhTOItdMNmyND2awZkpIbsxyMukDM/UR8/9FV6rIEkXJqvgmsYTl7X0lISHspzvtqt5hjdxPxkeYBHA4gGKFMBiAUilIAfWja617CY1NG4ASX/FSfuj7PRNsg4ZXANz7Fj3HSGuBmOjZ5hYbcSqIBwbZpNk+iQFcQpx4/omrqLamd55qh5v41d22nIybWChOI0qQ9Cg4e5ftyE6zprbhDV3VM4/aQ/Z96/gQTahU4wsYZzlNvs11vYL3BJsCIQz0eHed/W30jz9AUEBI0ktAgAA) **\]**
+**\[**[**Clique para executar a consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA21Qy26DMBC85yvmFlChcUirSI34ikTqETl4KVawjfDmqX587UCaHuqLtePxPLYjhtG2YpRQkom1oaQQy3Uulrl4TzezLjLk5T9GkYsViuJDiImnIqlox6F1g745W67VZqbIuMrIA1WeBk2+mH0jjvk4wh5NKU9fSbhTOItdMNmyND2awZkpIbsxyMukDM/UR8/9FV6rIEkXJqvgmsYTl7X0lISHspzvtqt5hjdxPxkeYBHA4gGKFMBiAUilIAfWja617CY1NG4ASX/FSfuj7PRNsg4ZXANz7Fj3HSGuBmOjZ5hYbcSqIBwbZpNk+iQFcQpx4/omrqLamd55qh5v41d22nIybWChOI0qQ9Cg4e5ftyE6zprbhDV3VM4/aQ/Z96/gQTahU4wsYZzlNvs11vYL3BJsCIQz0eHed/W30jz9AUEBI0ktAgAA)**\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -123,12 +123,12 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, forecasting the next week for 3 time series')
 ```
 
-![Escalabilidade de série temporal](media/anomaly-detection/series-scalability.png)
+![Escalabilidade de séries tempois](media/anomaly-detection/series-scalability.png)
 
 ## <a name="summary"></a>Resumo
 
-Este documento detalha as funções nativas do Azure Data Explorer para detecção e previsão de anomalias de séries temporais. Cada série temporal original é decomposta em componentes sazonais, de tendência e residuais para detectar anomalias e/ou previsões. Essas funcionalidades podem ser usadas para cenários de monitoramento quase em tempo real, como detecção de falhas, manutenção preditiva e previsão de carga e demanda.
+Este documento detalha as funções nativas do Azure Data Explorer para detecção e previsão de anomalias em séries tempo. Cada série temporal original é decomposta em componentes sazonais, tendências e residuais para detectar anomalias e/ou previsões. Essas funcionalidades podem ser usadas para cenários de monitoramento quase em tempo real, como detecção de falhas, manutenção preditiva e previsão de demanda e carga.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os [recursos de aprendizado de máquina](/azure/data-explorer/machine-learning-clustering) no Azure data Explorer.
+Saiba mais sobre [os recursos de aprendizado de máquina](/azure/data-explorer/machine-learning-clustering) no Azure Data Explorer.

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76030096"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gerenciar permissões do banco de dados do Azure Data Explorer
@@ -36,7 +36,7 @@ O Azure Data Explorer tem as seguintes funções:
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Gerenciar permissões no portal do Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 
 1. Navegue até o cluster do Azure Data Explorer.
 
@@ -56,13 +56,13 @@ O Azure Data Explorer tem as seguintes funções:
 
     ![Gerenciar permissões no portal do Azure](media/manage-database-permissions/new-principals.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![Gerenciar permissões no portal do Azure](media/manage-database-permissions/save-permission.png)
 
 ## <a name="manage-permissions-with-management-commands"></a>Gerenciar permissões com comandos de gerenciamento
 
-1. Entre em [https://dataexplorer.azure.com](https://dataexplorer.azure.com), e adicione o cluster, se ainda não estiver disponível.
+1. Faça login [https://dataexplorer.azure.com](https://dataexplorer.azure.com)e adicione seu cluster se ele ainda não estiver disponível.
 
 1. No painel esquerdo, selecione o banco de dados apropriado.
 
@@ -74,8 +74,8 @@ O Azure Data Explorer tem as seguintes funções:
 
     A saída do comando mostra a lista de usuários existentes e as funções às quais eles estão atribuídos no banco de dados.
     
-    Para obter exemplos referentes à Azure Active Directory e ao modelo de autorização Kusto, consulte [princípios e provedores de identidade](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
+    Para exemplos relativos ao Azure Active Directory e ao modelo de autorização kusto, consulte [Princípios e Provedores de Identidade](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Gravar consultas](write-queries.md)

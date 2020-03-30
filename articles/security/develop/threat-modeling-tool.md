@@ -1,6 +1,6 @@
 ---
-title: Visão geral de Microsoft Threat Modeling Tool-Azure
-description: Visão geral do Microsoft Threat Modeling Tool, que contém informações sobre como começar a usar a ferramenta, incluindo o processo de modelagem de ameaças.
+title: Visão geral da ferramenta de modelagem de ameaças da Microsoft - Azure
+description: Visão geral da Ferramenta de Modelagem de Ameaças da Microsoft, contendo informações sobre como começar com a ferramenta, incluindo o processo de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
 ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75548760"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelagem de ameaças do Microsoft
@@ -33,11 +33,11 @@ Aqui estão alguns recursos de ferramentas e inovações, apenas para citar algu
 * **Projetado para desenvolvedores e centralizado no Software:** muitas abordagens são centralizadas em ativos ou invasores. Nós são centralizados em software. Criamos em atividades que todos os arquitetos e desenvolvedores de software estão familiarizados com-- como o desenho de imagens para sua arquitetura de software
 * **Voltada para análise de Design:** a termo "modelagem de ameaças" pode se referir a um requisitos ou uma técnica de análise de design. Às vezes, ele se refere a uma mistura complexa de ambos. A abordagem de SDL da Microsoft para a modelagem de ameaças é uma técnica de análise de design focalizado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A tabela abaixo contém links importantes para que você comece a usar o Threat Modeling Tool:
 
-| Etapa  | Description                                                                                   |
+| Etapa  | Descrição                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Baixe a ferramenta Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Leia nosso guia de introdução](threat-modeling-tool-getting-started.md)    |
@@ -45,7 +45,7 @@ A tabela abaixo contém links importantes para que você comece a usar o Threat 
 | **4** | [Saiba mais sobre categorias de ameaça gerada](threat-modeling-tool-threats.md)   |
 | **5** | [Localize mitigações para ameaças geradas](threat-modeling-tool-mitigations.md) |
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 
 Aqui estão alguns artigos mais antigos que ainda são relevantes para modelagem de ameaça atual:
 

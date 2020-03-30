@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79217217"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125002"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para proteger bancos de dados de PaaS no Azure
 
-Neste artigo, discutiremos uma coleção de práticas recomendadas de segurança do [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overview.md) e do [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) para proteger seus aplicativos Web e móveis de PaaS (plataforma como serviço). Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
+Neste artigo, discutiremos uma coleção de práticas recomendadas de segurança do [Banco de Dados SQL do Azure](../../sql-database/sql-database-technical-overview.md) e do [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) para proteger seus aplicativos Web e móveis de PaaS (plataforma como serviço). Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
 
 O Banco de Dados SQL do Azure e o SQL Data Warehouse fornecem um serviço de banco de dados relacional para seus aplicativos baseados na Internet. Vamos examinar os serviços que ajudam a proteger seus aplicativos e dados ao usar o Banco de Dados SQL do Azure e o SQL Data Warehouse em uma implantação de PaaS:
 
@@ -53,7 +53,7 @@ A [autenticação do Azure Active Directory](../../active-directory/develop/auth
 Para saber mais sobre a autenticação do Azure AD, consulte:
 
 - [Usar a Autenticação do Azure Active Directory para autenticação com o Banco de Dados SQL, a Instância Gerenciada ou o SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
-- [Autenticação do SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Autenticação no Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Token-based authentication support for Azure SQL DB using Azure AD authentication](../../sql-database/sql-database-aad-authentication.md) (Suporte para autenticação baseada em token para o Banco de Dados SQL do Azure usando a autenticação do Azure AD)
 
 > [!NOTE]
@@ -79,7 +79,7 @@ O SQL do Azure gerencia problemas relacionados a chave para a TDE. Assim como co
 
 O SQL do Azure fornece a criptografia para colunas por meio do [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Isso permite o acesso somente de aplicativos autorizados às colunas confidenciais. O uso dessa variante de criptografia limita as consultas SQL às colunas criptografadas à valores com base em igualdade.
 
-A criptografia do nível do aplicativo também deve ser usada para dados seletivos. Às vezes, as preocupações com a soberania de dados podem ser atenuadas com a criptografia de dados com uma chave que é mantida no país/região correto. Isso impede que até uma transferência de dados acidental cause um problema, uma vez que é impossível descriptografar os dados sem a chave, supondo que um algoritmo forte seja usado (como AES 256).
+A criptografia do nível do aplicativo também deve ser usada para dados seletivos. As preocupações com a soberania dos dados às vezes podem ser atenuadas criptografando dados com uma chave que é mantida no país/região correto. Isso impede que até uma transferência de dados acidental cause um problema, uma vez que é impossível descriptografar os dados sem a chave, supondo que um algoritmo forte seja usado (como AES 256).
 
 Você pode usar precauções adicionais para ajudar a proteger o banco de dados, como a criação de um sistema seguro, a criptografia de ativos confidenciais e a criação de um firewall em torno de servidores de bancos de dados.
 

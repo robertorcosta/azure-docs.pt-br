@@ -1,23 +1,23 @@
 ---
-title: Funções de modelo – implantação
+title: Funções de modelo - implantação
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para recuperar informações sobre implantação.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274262"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156320"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos do Azure Resource Manager 
+# <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM 
 
-O Gerenciador de recursos fornece as seguintes funções para obter valores relacionados à implantação atual:
+O Resource Manager fornece as seguintes funções para obter valores relacionados à implantação atual do modelo ARM (Azure Resource Manager, gerenciador de recursos do Azure):
 
-* [implantação](#deployment)
-* [ambiente](#environment)
-* [parameters](#parameters)
-* [variáveis](#variables)
+* [Implantação](#deployment)
+* [Ambiente](#environment)
+* [Parâmetros](#parameters)
+* [Variáveis](#variables)
 
 Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [Funções de recurso](template-functions-resource.md).
 
@@ -51,7 +51,7 @@ Essa função retorna o objeto que é passado durante a implantação. As propri
 }
 ```
 
-Quando o objeto é transmitido como um link, como ao usar o parâmetro **- TemplateUri** para apontar para um objeto remoto, o objeto é retornado no seguinte formato: 
+Quando o objeto é passado como um link, como ao usar o parâmetro **-TemplateUri** para apontar para um objeto remoto, o objeto é retornado no seguinte formato: 
 
 ```json
 {
@@ -137,11 +137,11 @@ Para um modelo no nível da assinatura, que usa a função de implantação, con
 
 `environment()`
 
-Retorna informações sobre o ambiente do Azure usado para implantação.
+Retorna informações sobre o ambiente Azure usado para implantação.
 
 ### <a name="return-value"></a>Valor retornado
 
-Essa função retorna propriedades para o ambiente atual do Azure. O exemplo a seguir mostra as propriedades do Azure global. Nuvens soberanas podem retornar Propriedades ligeiramente diferentes.
+Esta função retorna propriedades para o ambiente Azure atual. O exemplo a seguir mostra as propriedades do Azure global. Nuvens soberanas podem retornar propriedades ligeiramente diferentes.
 
 ```json
 {
@@ -179,7 +179,7 @@ Essa função retorna propriedades para o ambiente atual do Azure. O exemplo a s
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo a seguir retorna o objeto de ambiente.
+O modelo de exemplo a seguir retorna o objeto do ambiente.
 
 ```json
 {
@@ -237,9 +237,9 @@ O exemplo anterior retorna o seguinte objeto quando implantado no Azure global:
 
 Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sim |string |O nome do parâmetro a retornar. |
 
@@ -334,7 +334,7 @@ A saída do exemplo anterior com os valores padrão é:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | opção 1 |
 
-Para obter mais informações sobre como usar parâmetros, consulte [parâmetros no modelo Azure Resource Manager](template-parameters.md).
+Para obter mais informações sobre o uso de parâmetros, consulte [Parâmetros no modelo do Azure Resource Manager](template-parameters.md).
 
 ## <a name="variables"></a>variáveis
 
@@ -342,9 +342,9 @@ Para obter mais informações sobre como usar parâmetros, consulte [parâmetros
 
 Retorna o valor da variável. O nome do parâmetro especificado deve ser definido na seção variáveis do modelo.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | variableName |Sim |String |O nome da variável a retornar. |
 
@@ -392,7 +392,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
         "var4": {
             "property1": "value1",
             "property2": "value2"
-        }
+          }
     },
     "resources": [],
     "outputs": {
@@ -425,11 +425,11 @@ A saída do exemplo anterior com os valores padrão é:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
-Para obter mais informações sobre como usar variáveis, consulte [variáveis no modelo Azure Resource Manager](template-variables.md).
+Para obter mais informações sobre o uso de variáveis, consulte [Variáveis no modelo do Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](template-syntax.md).
+* Para obter uma descrição das seções em um modelo do Azure Resource Manager, consulte [Os modelos do Azure Resource Manager](template-syntax.md).
 * Para mesclar diversos modelos, confira [Usar modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
 * Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
 

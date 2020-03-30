@@ -9,13 +9,13 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 40ba5a935e78cd75c4fcd7729e44f1cdf6c2859b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75772916"
 ---
-Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a opção **-debug** com a CLI e a opção **-Debug** com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
+Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo Debug é ativado passando o interruptor **de depuração** com CLI e o interruptor **-Debug** com powerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Não é possível criar uma galeria de imagens compartilhadas
@@ -24,7 +24,7 @@ Possíveis causas:
 
 *O nome da galeria é inválido.*
 
-Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços. Altere o nome da galeria e tente novamente. 
+Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode conter traços. Altere o nome da galeria e tente novamente. 
 
 *O nome da galeria não é exclusivo na sua assinatura.*
 
@@ -37,7 +37,7 @@ Possíveis causas:
 
 *o nome da definição de imagem é inválido.*
 
-Os caracteres permitidos para a definição de imagem são letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos. Altere o nome da definição de imagem e tente novamente.
+Caracteres permitidos para definição de imagem são letras maiúsculas ou minúsculas, dígitos, pontilhados, traços e períodos. Altere o nome da definição de imagem e tente novamente.
 
 *As propriedades obrigatórias para criar uma definição de imagem não são preenchidas.*
 
@@ -62,7 +62,7 @@ Verifique se a imagem de origem existe e está na mesma região que a versão da
 
 Verifique se o estado de provisionamento da imagem gerenciada de origem é **Êxito**.
 
-*A lista região de destino não inclui a região de origem.*
+*A lista da região-alvo não inclui a região de origem.*
 
 A lista de regiões de destino deve incluir a região de origem da versão da imagem. Inclua a região de origem na lista de regiões de destino para as quais você deseja que o Azure replique sua versão da imagem.
 
@@ -88,7 +88,7 @@ Verifique se que o **OSType** da versão da imagem da qual você está tentando 
 
 ## <a name="unable-to-share-resources"></a>Não é possível compartilhar recursos
 
-O compartilhamento de galeria de imagens compartilhada, definição de imagem e recursos de versão de imagem entre assinaturas é habilitado usando o RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) ). 
+O compartilhamento de recursos de galeria de imagens compartilhadas, definição de imagem e versão de imagem entre assinaturas é habilitado usando o RBAC [(Role-Based Access Control).](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) 
 
 ## <a name="replication-is-slow"></a>A replicação é lenta
 

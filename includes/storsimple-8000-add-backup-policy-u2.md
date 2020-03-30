@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172112"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Para adicionar uma política de backup do StorSimple
@@ -23,7 +23,7 @@ ms.locfileid: "67172112"
    
    1. **Selecionar dispositivo** é preenchido automaticamente com base no dispositivo selecionado.
    
-   2. Especifique um **Nome de política** de backup que contenha de três a 150 caracteres. Depois que a política é criada, você não pode renomeá-la.
+   2. Especifique um **nome de política** de backup que contenha entre 3 e 150 caracteres. Depois que a política é criada, você não pode renomeá-la.
        
    3. Para atribuir volumes a essa política de backup, selecione **Adicionar volumes** e na lista tabular de volumes, clique nas caixas de seleção para atribuir um ou mais volumes a essa política de backup.
 
@@ -35,7 +35,7 @@ ms.locfileid: "67172112"
 
        1. Para **Tipo de instantâneo**, selecione **Nuvem** ou **Local**.
 
-       2. Indique a frequência dos backups (Especifique um número e escolha **Dias** ou **Semanas** na lista suspensa.
+       2. Indique a freqüência de backups (especifique um número e escolha **Dias** ou **Semanas** na lista de baixa.
 
        3. Insira um agendamento de retenção.
 

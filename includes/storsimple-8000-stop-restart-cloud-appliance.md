@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67171980"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Para interromper e iniciar um dispositivo de nuvem
@@ -20,11 +20,11 @@ ms.locfileid: "67171980"
 
     ![Máquina virtual do Dispositivo de nuvem StorSimple](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart2.png)
 
-3. Quando solicitado a confirmar, clique em **Sim**.
+3. Quando solicitada a confirmação, clique em **Sim**.
 
     ![Máquina virtual do Dispositivo de nuvem StorSimple](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. Quando você para uma VM, ela é desalocada. Enquanto o dispositivo de nuvem está parando, seu status muda para **Desalocando**. Após a interrupção do dispositivo de nuvem, seu status muda para **Parado (desalocado)** .
+4. Quando você para uma VM, ela é desalocada. Enquanto o dispositivo de nuvem está parando, seu status muda para **Desalocando**. Após a interrupção do dispositivo de nuvem, seu status muda para **Parado (desalocado)**.
 
     ![Máquina virtual do Dispositivo de nuvem StorSimple](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 

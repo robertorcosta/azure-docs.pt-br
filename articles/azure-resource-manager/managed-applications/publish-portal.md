@@ -1,15 +1,15 @@
 ---
-title: Publicar aplicativos gerenciados por meio do portal
+title: Publique aplicativos gerenciados através do portal
 description: Mostra como usar o portal do Azure para criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651716"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicar um aplicativo de catálogo de serviços por meio do portal do Azure
@@ -54,7 +54,7 @@ O arquivo .zip que contém a definição de aplicativo gerenciado deve estar dis
 
    ![Criar aplicativo gerenciado](./media/publish-portal/create-app.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados](overview.md).
 * Para obter exemplos de aplicativo gerenciado, veja [Projetos de exemplo para aplicativos gerenciados do Azure](sample-projects.md).

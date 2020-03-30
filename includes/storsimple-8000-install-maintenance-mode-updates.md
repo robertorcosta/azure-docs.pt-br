@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172118"
 ---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Instalar atualizações do modo de manutenção por meio do Windows PowerShell para StorSimple
@@ -16,10 +16,10 @@ ms.locfileid: "67172118"
 Quando você aplicar atualizações do modo de manutenção para o dispositivo StorSimple, todas as solicitações de E/S são pausadas. Serviços como a memória de acesso aleatório não volátil (NVRAM) ou o serviço de cluster também são interrompidos. Ambos os controladores são reiniciados quando você entra ou sai desse modo. Quando você sair desse modo, todos os serviços serão retomados e estarão íntegros. (Isso pode levar alguns minutos).
 
 > [!IMPORTANT]
-> * Antes de entrar no modo de manutenção, verifique se ambos os controladores estão íntegros no portal do Azure. Se o controlador não estiver íntegro, [entre em contato com o Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para saber as próximas etapas.
+> * Antes de entrar no modo de manutenção, verifique se ambos os controladores estão íntegros no portal do Azure. Se o controlador não estiver saudável, entre em contato com o [suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para os próximos passos.
 > * Quando você estiver no modo de manutenção, você precisa primeiro atualizar um controlador e, em seguida, o outro controlador.
 
-1. Use o PuTTY para conectar-se ao console serial. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**. Selecione a Opção 1, **Fazer logon com acesso completo**.
+1. Use o PuTTY para conectar-se ao console serial. Siga as instruções detalhadas em [Usar o PuTTy para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). No prompt de comando, pressione **Enter**. Selecione opção 1, **faça login com acesso total**.
 
 2. Para colocar o controlador no modo de manutenção, digite:
     
@@ -27,13 +27,13 @@ Quando você aplicar atualizações do modo de manutenção para o dispositivo S
 
     Ambos os controladores são reiniciados no modo de manutenção.
 
-3. Instale suas atualizações no modo de manutenção. Digite:
+3. Instale suas atualizações no modo de manutenção. Tipo:
 
     `Start-HcsUpdate`
 
     Você recebe uma solicitação para fornecer sua confirmação. Depois de confirmar as atualizações, elas serão instaladas no controlador que está sendo atualmente acessado por você. Depois que as atualizações forem instaladas, o controlador é reiniciado.
 
-4. Monitore o status das atualizações. Faça logon no outro controlador já que o controlador atual está sendo atualizado e não é capaz de processar nenhum outro comando. Digite:
+4. Monitore o status das atualizações. Faça logon no outro controlador já que o controlador atual está sendo atualizado e não é capaz de processar nenhum outro comando. Tipo:
 
     `Get-HcsUpdateStatus`
 

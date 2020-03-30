@@ -1,18 +1,18 @@
 ---
 title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft Azure
-description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
+description: Neste artigo, saiba como usar o painel de visão geral do cofre do Recovery Services para monitorar e gerenciar seus cofres dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: b57d6eff5f5dfa2163962a47eee079d7e26257b5
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 1a4d23c157700f42422cfe7ca8fa1c49e2cf128a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131966"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
-Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviços de Recuperação para monitorar e gerenciar os cofres dos Serviços de Recuperação. Quando você abre um cofre dos Serviços de Recuperação na lista, o painel de **Visão geral** do cofre selecionado será aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status dos alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica) utilizada. Se você fizer backup de VMs do Azure no cofre, o bloco [**Status da Pré-Verificação de Backup** exibe todos os itens críticos ou de aviso](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). A imagem a seguir é o painel de **Visão geral** do **cofre da Contoso**. O bloco **Itens de Backup** mostra que existem nove itens registrados no cofre.
+Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviços de Recuperação para monitorar e gerenciar os cofres dos Serviços de Recuperação. Quando você abre um cofre dos Serviços de Recuperação na lista, o painel de **Visão geral** do cofre selecionado será aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status dos alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de LRS (armazenamento com redundância local) e GRS (armazenamento com redundância geográfica) utilizada. Se você fizer backup de VMs do Azure no cofre, o bloco [**Status da Pré-Verificação de Backup** exibe todos os itens críticos ou de aviso](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). A imagem a seguir é o painel de **Visão geral** do **cofre da Contoso**. O bloco **Itens de Backup** mostra que existem nove itens registrados no cofre.
 
 ![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -24,7 +24,7 @@ Os pré-requisitos para este artigo são: uma assinatura do Azure, um cofre dos 
 
 Para monitorar alertas ou exibir dados de gerenciamento sobre um cofre dos Serviços de Recuperação, abra o cofre.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
+1. Faça login no [portal Azure](https://portal.azure.com/) usando sua assinatura do Azure.
 
 2. No portal do Azure, clique em **Todos os serviços**.
 
@@ -49,7 +49,7 @@ O painel de **Visão geral** do cofre dos Serviços de Recuperação fornece os 
 A seção de Monitoramento mostra os resultados das consultas de **Alertas de Backup** e **Trabalhos de Backup** predefinidas. Os blocos de Monitoramento fornecem informações atualizadas sobre:
 
 * Alertas Críticos e de Aviso para trabalhos de Backup (nas últimas 24 horas)
-* Status de pré-verificação para VMs do Azure. Para obter informações completas sobre o status de pré-verificação, consulte [status de pré-verificação de backup](#backup-pre-check-status).
+* Consulte o status de pré-verificação das VMs do Azure. Para obter informações completas sobre o status de pré-verificação, consulte [Status de pré-verificação de backup](#backup-pre-check-status).
 * Os trabalhos de Backup em andamento e os trabalhos com falha (nas últimas 24 horas).
 
 Os blocos de Uso fornecem:
@@ -65,18 +65,18 @@ O menu Alertas de Backup, na imagem acima, está filtrado por: Status está ativ
 
 ### <a name="backup-pre-check-status"></a>Status de pré-verificação de backup
 
-Verificações prévias de backup verificam a configuração de suas VMs para problemas que podem afetar negativamente os backups. Eles agregam essas informações para que você possa exibi-las diretamente do painel do cofre dos serviços de recuperação e fornecer recomendações para medidas corretivas, a fim de garantir o êxito dos backups consistentes com o arquivo ou consistente com o aplicativo. Eles não precisam de infraestrutura e não têm nenhum custo adicional.  
+Pré-verificação de backup verifique a configuração de suas VMs em busca de problemas que possam afetar negativamente os backups. Eles agregam essas informações para que você possa visualizá-la diretamente do painel do Cofre de Serviços de Recuperação e fornecer recomendações para medidas corretivas para garantir backups consistentes com arquivos ou consistentes com aplicativos. Eles não exigem infra-estrutura e não têm custo adicional.  
 
-Verificações prévias de backup são executadas como parte das operações de backup agendadas para suas VMs do Azure. Eles terminam com um dos seguintes Estados:
+Backup Pré-Verificações executados como parte das operações de backup programadas para suas VMs do Azure. Eles terminam com um dos seguintes estados:
 
-* **Aprovado**: esse estado indica que a configuração da VM deve levar a backups bem-sucedidos e nenhuma ação corretiva precisa ser executada.
-* **Aviso**: esse estado indica um ou mais problemas na configuração da VM que *podem* levar a falhas de backup. Ele fornece etapas *recomendadas* para garantir backups bem-sucedidos. Por exemplo, não ter o agente de VM mais recente instalado pode fazer com que os backups falhem intermitentemente. Essa situação forneceria um estado de aviso.
-* **Crítico**: esse estado indica um ou mais problemas críticos na configuração da *VM que* levará a falhas de backup e fornece as etapas *necessárias* para garantir os backups bem-sucedidos. Por exemplo, um problema de rede causado por uma atualização das regras NSG de uma VM fará com que os backups falhem, pois impede que a VM se comunique com o serviço de backup do Azure. Essa situação forneceria um estado crítico.
+* **Passado**: Este estado indica que a configuração da VM deve levar a backups bem-sucedidos e nenhuma ação corretiva precisa ser tomada.
+* **Aviso**: Este estado indica um ou mais problemas na configuração da VM que *podem* levar a falhas de backup. Ele fornece etapas *recomendadas* para garantir backups bem-sucedidos. Por exemplo, não ter o mais recente VM Agent instalado pode fazer com que os backups falhem intermitentemente. Esta situação forneceria um estado de alerta.
+* **Crítico**: Este estado indica um ou mais problemas críticos na configuração da VM que levarão a falhas de backup e *fornecerão* etapas *necessárias* para garantir backups bem-sucedidos. Por exemplo, um problema de rede causado por uma atualização das regras do NSG de uma VM, fará com que os backups falhem, pois impede que a VM se comunique com o serviço de backup do Azure. Esta situação proporcionaria um estado crítico.
 
-Siga as etapas abaixo para iniciar a resolução de quaisquer problemas relatados pelas verificações prévias de backup para backups de VM no cofre dos serviços de recuperação.
+Siga as etapas abaixo para começar a resolver quaisquer problemas relatados pelas pré-verificações de backup para backups de VM em seu Cofre de Serviços de Recuperação.
 
-* Selecione o bloco **status da pré-verificação de backup (VMS do Azure)** no painel do cofre dos serviços de recuperação.
-* Selecione qualquer VM com um status de pré-verificação de backup de **crítico** ou de **aviso**. Essa ação abrirá o painel **detalhes da VM** .
+* Selecione o bloco **status de pré-verificação de backup (Azure VMs)** no painel do Cofre de Serviços de Recuperação.
+* Selecione qualquer VM com um status de pré-verificação de backup de **crítica** ou **aviso**. Esta ação abrirá o painel de detalhes da **VM.**
 * Selecione a notificação do painel na parte superior do painel para revelar a descrição do problema de configuração e as etapas corretivas.
 
 ## <a name="manage-backup-alerts"></a>Gerenciar alertas de Backup
@@ -178,7 +178,7 @@ Para explorar um tipo específico de instância protegida, clique no item na col
 
 ![Lista de tipos de backup](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos associados, [Pré-verificação de Backup](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/) anterior, último Status de Backup e a data do Ponto de Restauração mais recente. As reticências, na última coluna, abrem o menu para disparar tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de backup.
+A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos associados, [Pré-verificação de Backup](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status) anterior, último Status de Backup e a data do Ponto de Restauração mais recente. As reticências, na última coluna, abrem o menu para disparar tarefas comuns. Os dados úteis fornecidos nas colunas são diferentes para cada tipo de backup.
 
 ![Lista de tipos de backup](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -186,7 +186,7 @@ A lista de máquinas virtuais tem dados úteis: o Grupo de Recursos associados, 
 
 O bloco **Trabalhos de Backup** no painel do cofre mostra o número de trabalhos que estão Em andamento ou Com falha nas últimas 24 horas. O bloco fornece uma breve visão sobre o menu Trabalhos de Backup.
 
-![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Faça backup de itens das configurações](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 Para ver detalhes adicionais sobre os trabalhos, clique em **Em andamento** ou **Com falha** para abrir o menu Trabalhos de Backup filtrado para esse estado.
 
@@ -196,11 +196,11 @@ O menu **Trabalhos de Backup** exibe informações sobre o Tipo de item, Operaç
 
 Para abrir o menu Trabalhos de Backup, no menu principal do cofre, clique em **Trabalhos de Backup**.
 
-![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Faça backup de itens das configurações](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 A lista de Trabalhos de Backup é aberta.
 
-![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Faça backup de itens das configurações](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 O menu Trabalhos de Backup mostra o status para todas as operações, em todos os tipos de backup, nas últimas 24 horas. Use **Filtro** para alterar os filtros. Os filtros são explicados nas seções a seguir.
 
@@ -208,11 +208,11 @@ Para alterar os filtros:
 
 1. No menu Trabalhos de Backup do cofre, clique em **Filtro**.
 
-   ![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Faça backup de itens das configurações](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     O menu Filtro é aberto.
 
-   ![Fazer backup de itens de configurações](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Faça backup de itens das configurações](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Escolha as configurações de filtro e clique em **Concluído**. A lista filtrada é atualizada com base nas novas configurações.
 
@@ -231,7 +231,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 É possível exibir uma única operação ou todas as operações. Não é possível selecionar duas ou três operações. As Operações disponíveis são:
 
 * Todas as operações
-* Registrar
+* Registrar 
 * Configurar o backup
 * Backup
 * Restaurar
@@ -270,7 +270,7 @@ O bloco Armazenamento de Backup no painel mostra o armazenamento consumido no Az
 * Uso do armazenamento LRS de nuvem associado ao cofre
 * Uso do armazenamento GRS de nuvem associado ao cofre
 
-## <a name="troubleshooting-monitoring-issues"></a>Solucionando problemas de monitoramento
+## <a name="troubleshooting-monitoring-issues"></a>Problemas de monitoramento de solução de problemas
 
 **Problema:** trabalhos e/ou alertas do agente de Backup do Azure não aparecem no portal.
 

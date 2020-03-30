@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 2c021a6d10c95b58ac444de8ea895ca01371a2b0
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75902453"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Tratamento de erro em políticas de Gerenciamento de API
@@ -59,32 +59,32 @@ A seção de política `on-error` pode ser usada em qualquer escopo. Os editores
 
 As políticas a seguir podem ser usadas na seção da política `on-error`.
 
--   [choose](api-management-advanced-policies.md#choose)
--   [set-variable](api-management-advanced-policies.md#set-variable)
+-   [Escolher](api-management-advanced-policies.md#choose)
+-   [variável de conjunto](api-management-advanced-policies.md#set-variable)
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)
 -   [set-status](api-management-advanced-policies.md#SetStatus)
 -   [send-request](api-management-advanced-policies.md#SendRequest)
--   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)
+-   [enviar-um-way-request](api-management-advanced-policies.md#SendOneWayRequest)
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
 
 ## <a name="lasterror"></a>lastError
 
-Quando ocorre um erro e o controle salta para a seção de política de `on-error`, o erro é armazenado no [contexto. ](api-management-policy-expressions.md#ContextVariables)A propriedade LastError, que pode ser acessada por políticas na seção `on-error`. LastError tem as propriedades a seguir.
+Quando ocorre um erro e `on-error` o controle salta para a seção de diretiva, o erro é armazenado no [contexto. Propriedade LastError,](api-management-policy-expressions.md#ContextVariables) que pode ser acessada por políticas na seção. `on-error` LastError tem as propriedades a seguir.
 
-| Nome       | Tipo   | Description                                                                                               | Obrigatório |
+| Nome       | Type   | Descrição                                                                                               | Obrigatório |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | cadeia de caracteres | Indica o elemento em que ocorreu o erro. Pode ser a política ou um nome de etapa de pipeline interno.      | Sim      |
-| `Reason`   | cadeia de caracteres | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não       |
-| `Message`  | cadeia de caracteres | Descrição de erro legível por humanos.                                                                         | Sim      |
-| `Scope`    | cadeia de caracteres | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
-| `Section`  | cadeia de caracteres | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".      | Não       |
-| `Path`     | cadeia de caracteres | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                 | Não       |
-| `PolicyId` | cadeia de caracteres | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não       |
+| `Source`   | string | Indica o elemento em que ocorreu o erro. Pode ser uma política ou um nome de passo de pipeline embutido.      | Sim      |
+| `Reason`   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não       |
+| `Message`  | string | Descrição de erro legível por humanos.                                                                         | Sim      |
+| `Scope`    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
+| `Section`  | string | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".      | Não       |
+| `Path`     | string | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                 | Não       |
+| `PolicyId` | string | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não       |
 
 > [!TIP]
 > É possível acessar o código de status por meio de context.Response.StatusCode.
@@ -96,20 +96,20 @@ Quando ocorre um erro e o controle salta para a seção de política de `on-erro
 
 Os erros a seguir são predefinidos para condições de erro que podem ocorrer durante a avaliação das etapas de processamento interno.
 
-| Origem        | Condição                                 | Motivo                  | Mensagem                                                                                                                |
+| Fonte        | Condição                                 | Motivo                  | Mensagem                                                                                                                |
 | ------------- | ----------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | configuração | O Uri não corresponde a nenhuma API ou Operação | OperationNotFound       | Não é possível corresponder a solicitação recebida a uma operação.                                                                      |
 | autorização | Chave de assinatura não fornecida             | SubscriptionKeyNotFound | Acesso negado devido à ausência da chave de assinatura. Certifique-se de incluir a chave de assinatura ao fazer solicitações para esta API. |
 | autorização | O valor chave e assinatura é inválido         | SubscriptionKeyInvalid  | Acesso negado devido à chave de assinatura inválida. Certifique-se de fornecer uma chave válida para uma assinatura ativa.            |
-| vários | A conexão downstream (de um cliente para um gateway de gerenciamento de API) foi anulada pelo cliente enquanto a solicitação estava pendente | ClientConnectionFailure | vários |
-| vários | A conexão upstream (de um gateway de gerenciamento de API para um serviço de back-end) não foi estabelecida ou foi anulada pelo back-end | BackendConnectionFailure | vários |
-| vários | Ocorreu uma exceção de tempo de execução durante a avaliação de uma expressão específica | ExpressionValueEvaluationFailure | vários |
+| vários | A conexão downstream (de um cliente para um gateway de gerenciamento de API) foi abortada pelo cliente enquanto a solicitação estava pendente | Falha de conexão do cliente | vários |
+| vários | A conexão upstream (de um gateway de gerenciamento de API para um serviço backend) não foi estabelecida ou foi abortada pelo backend | Falha de conexão backend | vários |
+| vários | Exceção de tempo de execução ocorreu durante a avaliação de uma expressão específica | Falha de avaliação de valor de expressão | vários |
 
 ## <a name="predefined-errors-for-policies"></a>Erros predefinidos para políticas
 
 Os erros a seguir são predefinidos para condições de erro que podem ocorrer durante a avaliação da política.
 
-| Origem       | Condição                                                       | Motivo                    | Mensagem                                                                                                                              |
+| Fonte       | Condição                                                       | Motivo                    | Mensagem                                                                                                                              |
 | ------------ | --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | rate-limit   | Limite de taxa excedido                                             | RateLimitExceeded         | O limite da taxa foi excedido                                                                                                               |
 | quota        | Cota excedida                                                  | QuotaExceeded             | Fora da cota do volume de chamada. A cota será reposta em xx:xx:xx. – ou – Sem cota de largura de banda. A cota será reposta em xx:xx:xx. |
@@ -128,7 +128,7 @@ Os erros a seguir são predefinidos para condições de erro que podem ocorrer d
 | validate-jwt | As declarações necessárias estão ausentes no token                          | TokenClaimNotFound        | O token JWT não tem as seguintes declarações: <c1\>, <c2\>, … Acesso negado.                                                            |
 | validate-jwt | Incompatibilidade de valores de declaração                                           | TokenClaimValueNotAllowed | O valor da declaração {claim-name} de {claim-value} não é permitido. Acesso negado.                                                             |
 | validate-jwt | Outras falhas de validação                                       | JwtInvalid                | <mensagem da biblioteca jwt\>                                                                                                          |
-| solicitação de encaminhamento ou envio-solicitação | O código e os cabeçalhos de status de resposta HTTP não foram recebidos do back-end dentro do tempo limite configurado | Tempo limite | vários |
+| solicitação de encaminhamento ou solicitação de envio | O código de status de resposta HTTP e os cabeçalhos não foram recebidos do backend dentro do tempo normal configurado | Tempo limite | vários |
 
 ## <a name="example"></a>Exemplo
 
@@ -179,7 +179,7 @@ e enviar uma solicitação não autorizada resultará na resposta a seguir:
 
 ![Resposta de erro não autorizada](media/api-management-error-handling-policies/error-response.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 
