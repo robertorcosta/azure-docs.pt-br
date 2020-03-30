@@ -1,14 +1,14 @@
 ---
-title: Instâncias de contêiner e orquestração de contêiner
+title: Instâncias de contêineres e orquestração de contêineres
 description: Entender como as Instâncias de Contêiner do Azure interagem com orquestradores de contêiner.
 ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
 ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533654"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de Contêiner do Azure e orquestradores de contêiner
@@ -56,11 +56,11 @@ Para dimensionar rapidamente as cargas de trabalho do aplicativo em um cluster d
 
 Os nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Comece com os nós virtuais usando a [CLI do Azure](https://go.microsoft.com/fwlink/?linkid=2047538) ou o [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Os nós virtuais usam o [Kubelet virtual][aci-connector-k8s] de software livre para imitar o kubernetes [Kubelet][kubelet-doc] registrando-se como um nó com capacidade ilimitada. O Kubelet virtual despacha a criação de [pods][pod-doc] como grupos de contêineres em instâncias de contêiner do Azure.
+Nós virtuais usam software livre [Virtual Kubelet][aci-connector-k8s] para imitar o Kubernetes [kubelet][kubelet-doc] registrando-se como um nó com capacidade ilimitada. O Virtual Kubelet expede a criação de [pods][pod-doc] como grupos de contêineres em Instâncias de Contêiner do Azure.
 
 Consulte o projeto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de estender a API do Kubernetes em plataformas de contêiner sem servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Crie seu primeiro contêiner com as Instâncias de Contêiner do Azure usando o [guia de início rápido](container-instances-quickstart.md).
 

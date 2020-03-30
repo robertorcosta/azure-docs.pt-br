@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: areddish
 ms.openlocfilehash: a0cfa49dfe247a71e5c2d546e2bb7e9d9b2efc18
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77616340"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: Criar um projeto de classificação de imagem com o SDK de Visão Personalizada para Java

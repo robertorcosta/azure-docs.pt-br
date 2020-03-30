@@ -1,86 +1,85 @@
 ---
-title: Códigos de estado de venda conjunta | Azure Marketplace
-description: Use esses códigos de estado/província ao fornecer informações de contato na página de venda de sua oferta.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: Co-venda de códigos estaduais | Mercado Azure
+description: Use esses códigos de estado/província ao fornecer informações de contato na página de co-venda da sua oferta.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: c64fc161108560e893ef7b207782d79b6c3c01d4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934357"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277032"
 ---
-# <a name="co-sell-state-codes"></a>Códigos de estado de venda conjunta
+# <a name="co-sell-state-codes"></a>Co-venda de códigos estaduais
 
-Se aplicável, use esses códigos para fornecer informações de estado/província ao [fornecer informações de contato na página de venda de sua oferta](commercial-marketplace-co-sell.md#contacts).
+Se for o caso, use esses códigos para fornecer informações de Estado/Província ao [fornecer informações de contato na página de co-venda da sua oferta.](commercial-marketplace-co-sell.md#contacts)
 
-## <a name="stateprovince-table"></a>Tabela de estado/província
+## <a name="stateprovince-table"></a>Tabela Estado/Província
 
-|   Nome do estado/província               |   Codificar    |
+|   Nome estado/província               |   Código    |
 |-------------------------------------|-----------|
-| Alabama                             | US-AL     |
-| Alaska                              | US-AK     |
+| Alabama                             | EUA-AL     |
+| Alasca                              | EUA-AK     |
 | Arizona                             | EUA-AZ     |
-| Arkansas                            | US-AR     |
-| Califórnia                          | US-CA     |
-| Colorado                            | US-CO     |
+| Arkansas                            | EUA-AR     |
+| Califórnia                          | EUA-CA     |
+| Colorado                            | EUA-CO     |
 | Connecticut                         | US-CT     |
-| Delaware                            | US-DE     |
+| Delaware                            | EUA-DE     |
 | Florida                             | US-FL     |
 | Geórgia                             | EUA-GA     |
 | Hawaii                              | US-HI     |
-| Idaho                               | ID DOS EUA     |
-| Illinois                            | US-IL     |
-| Indiana                             | EUA-EM     |
+| Idaho                               | US-ID     |
+| Illinois                            | EUA-IL     |
+| Indiana                             | US-IN     |
 | Iowa                                | EUA-IA     |
-| Kansas                              | US-KS     |
-| Kentucky                            | US-KY     |
-| Louisiana                           | US-LA     |
-| Maine                               | EUA-EU     |
+| Kansas                              | EUA-KS     |
+| Kentucky                            | EUA-KY     |
+| Louisiana                           | EUA-LA     |
+| Maine                               | NÓS-EU     |
 | Maryland                            | US-MD     |
-| Massachusetts                       | US-MA     |
+| Massachusetts                       | EUA-MA     |
 | Michigan                            | US-MI     |
 | Minnesota                           | US-MN     |
 | Mississippi                         | EUA-MS     |
 | Missouri                            | EUA-MO     |
 | Montana                             | US-MT     |
-| Nebraska                            | US-NE     |
+| Nebraska                            | EUA-NE     |
 | Nevada                              | US-NV     |
-| New Hampshire                       | US-NH     |
+| New Hampshire                       | EUA-NH     |
 | New Jersey                          | EUA-NJ     |
 | Novo México                          | US-NM     |
-| Nova York                            | US-NY     |
-| Carolina do Norte                      | US-NC     |
+| Nova Iorque                            | EUA-NY     |
+| Carolina do Norte                      | EUA-NC     |
 | Dakota do Norte                        | US-ND     |
-| Ohio                                | EUA-OH     |
+| Ohio                                | NÓS-OH     |
 | Oklahoma                            | EUA-OK     |
 | Oregon                              | EUA-OU     |
 | Pensilvânia                        | EUA-PA     |
-| Rhode Island                        | EUA-RI     |
-| South Carolina                      | US-SC     |
-| Dakota do Sul                        | US-SD     |
+| Rhode Island                        | US-RI     |
+| South Carolina                      | EUA-SC     |
+| Dakota do Sul                        | EUA-SD     |
 | Tennessee                           | US-TN     |
 | Texas                               | EUA-TX     |
 | Utah                                | US-UT     |
 | Vermont                             | US-VT     |
-| Virgínia                            | US-VA     |
+| Virgínia                            | EUA-VA     |
 | Washington                          | EUA-WA     |
 | Virgínia Ocidental                       | US-WV     |
 | Wisconsin                           | US-WI     |
-| Wyoming                             | US-WY     |
-| District of Columbia                | US-DC     |
-| Samoa Americana                      | EUA-COMO     |
-| Guam                                | US-GU     |
-| Ilhas Marianas do Norte            | EUA-MP     |
-| Porto Rico                         | US-PR     |
-| Territórios Insulares dos Estados Unidos | US-UM    |
-|Ilhas Virgens Americanas                 | US-VI     |
+| Wyoming                             | EUA-WY     |
+| District of Columbia                | EUA-DC     |
+| Samoa Americana                      | EUA-AS     |
+| Guam                                | EUA-GU     |
+| Ilhas Marianas do Norte            | US-MP     |
+| Porto Rico                         | EUA-PR     |
+| Territórios Insulares dos Estados Unidos | EUA-UM    |
+|Ilhas Virgens Americanas                 | EUA-VI     |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [opção de venda conjunta no Partner Center](./commercial-marketplace-co-sell.md).
+- Conheça a [opção de co-venda no Partner Center](./commercial-marketplace-co-sell.md).

@@ -1,5 +1,5 @@
 ---
-title: Alterar o algoritmo de hash de assinatura para a terceira parte confiável do Office 365-Azure
+title: Alterar o algoritmo hash de assinatura para o Office 365 confiando na confiança do partido - Azure
 description: Esta página fornece diretrizes para alterar o algoritmo SHA para confiança de federação com o Office 365
 keywords: SHA1, SHA256, O365, federação, aadconnect, adfs, ad fs, alterar o sha, confiança de federação, objeto de confiança de terceira parte confiável
 services: active-directory
@@ -18,14 +18,14 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2233b434fda628dcf812a62f06541fc4b0296aba
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897342"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Alterar o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável Office 365
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O AD FS (Serviços de Federação do Azure Active Directory) assina seus tokens para o Microsoft Azure Active Directory para garantir que eles não possam ser violados. Essa assinatura pode ser baseada em SHA1 ou em SHA256. O Azure Active Directory agora dá suporte para tokens assinados com um algoritmo SHA256, e recomendamos configurar o algoritmo de assinatura do token para SHA256 no nível mais alto de segurança. Este artigo descreve as etapas necessárias para definir o algoritmo de assinatura de token para o nível SHA256 mais seguro.
 
 >[!NOTE]

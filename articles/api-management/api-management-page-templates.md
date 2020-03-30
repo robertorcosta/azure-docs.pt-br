@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249536"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página no Gerenciamento de API do Azure
@@ -27,7 +27,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 -   [Entrar](#SignIn)  
   
--   [Inscrever-se](#SignUp)  
+-   [Inscrição](#SignUp)  
   
 -   [Página não encontrada](#PageNotFound)  
   
@@ -38,10 +38,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="SignIn"></a> Entrar  
+##  <a name="sign-in"></a><a name="SignIn"></a>Entrar  
  O modelo **entrar** permite personalizar a página de entrada no portal do desenvolvedor.  
   
- ![Página de entrada](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página de entrada do APIM")  
+ ![Fazer login na página](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM assina modelos de porta-desenvolvedores de página")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -102,7 +102,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ### <a name="controls"></a>Controles  
  Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [basic-signin](api-management-page-controls.md#basic-signin)  
+-   [básico-signin](api-management-page-controls.md#basic-signin)  
   
 -   [providers](api-management-page-controls.md#providers)  
   
@@ -137,10 +137,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }
 ```  
   
-##  <a name="SignUp"></a> Inscrever-se  
+##  <a name="sign-up"></a><a name="SignUp"></a>Inscrição  
  O modelo **inscrição** permite personalizar a página de inscrição no portal do desenvolvedor.  
   
- ![Página de inscrição](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Página de inscrição do APIM modelos do portal do desenvolvedor")  
+ ![Página de inscrição](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelos do portal de desenvolvedores de página de inscrição da APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -185,10 +185,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="PageNotFound"></a> Página não encontrada  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a> Página não encontrada  
  O modelo **página não encontrada** permite personalizar a página “não encontrada” no portal do desenvolvedor.  
   
- ![Página não encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM de página não encontrado modelos do portal do desenvolvedor")  
+ ![Página não encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor de páginas não encontradas do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -227,7 +227,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |referenceCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  
 |errorCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  

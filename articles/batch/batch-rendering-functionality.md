@@ -1,6 +1,6 @@
 ---
 title: Recursos de renderização - Lote do Azure
-description: Os recursos do lote do Azure padrão são usados para executar aplicativos e cargas de trabalho de renderização. O lote inclui recursos específicos para dar suporte à renderização de cargas de trabalho.
+description: Os recursos padrão do Azure Batch são usados para executar cargas de trabalho de renderização e aplicativos. O lote inclui recursos específicos para suportar cargas de trabalho de renderização.
 services: batch
 ms.service: batch
 author: mscurrell
@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75449720"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
@@ -30,16 +30,16 @@ Há uma imagem do Windows 2016 e uma imagem do CentOS.  No [Azure Marketplace](h
 
 Para um exemplo de configuração do pool, consulte o [tutorial de renderização de CLI do Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  O portal do Azure e o Explorador de lotes fornecem ferramentas de GUI para selecionar uma imagem de VM de renderização quando você cria um pool.  Se você estiver usando uma API de lotes, especifique os seguintes valores de propriedade para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
 
-| Publicador | Oferta | SKU | Versão |
+| Publicador | Oferta | Sku | Versão |
 |---------|---------|---------|--------|
-| batch | rendering-centos73 | renderização | mais recente |
-| batch | rendering-windows2016 | renderização | mais recente |
+| lote | rendering-centos73 | renderização | mais recente |
+| lote | rendering-windows2016 | renderização | mais recente |
 
 Outras opções estão disponíveis se aplicativos adicionais forem necessários nas VMs do pool:
 
-* Uma imagem personalizada da Galeria de imagens compartilhadas:
-  * Usando essa opção, você pode configurar sua VM exatamente com os aplicativos e as versões específicas de que você precisa. Para obter mais informações, consulte [criar um pool com a Galeria de imagens compartilhadas](batch-sig-images.md). A Autodesk e o Chaos Group modificaram o Arnold e o V-Ray, respectivamente, para validar o serviço de licenciamento do Azure Batch. Certifique-se de ter as versões desses aplicativos com esse suporte, caso contrário, o licenciamento de pagamento por uso não funcionará. As versões atuais do Maya ou do 3ds Max não exigem um servidor de licenças durante a execução sem cabeça (no modo de lote / linha de comando). Entre em contato com o suporte do Azure se você não tiver certeza de como proceder com essa opção.
-* [Pacotes de aplicativos](https://docs.microsoft.com/azure/batch/batch-application-packages):
+* Uma imagem personalizada da Galeria de Imagens Compartilhadas:
+  * Usando essa opção, você pode configurar sua VM exatamente com os aplicativos e as versões específicas de que você precisa. Para obter mais informações, consulte [Criar um pool com a Galeria de Imagens Compartilhadas](batch-sig-images.md). A Autodesk e o Chaos Group modificaram o Arnold e o V-Ray, respectivamente, para validar o serviço de licenciamento do Azure Batch. Certifique-se de ter as versões desses aplicativos com esse suporte, caso contrário, o licenciamento de pagamento por uso não funcionará. As versões atuais do Maya ou do 3ds Max não exigem um servidor de licenças durante a execução sem cabeça (no modo de lote / linha de comando). Entre em contato com o suporte do Azure se você não tiver certeza de como proceder com essa opção.
+* [Pacotes de aplicativos:](https://docs.microsoft.com/azure/batch/batch-application-packages)
   * Empacote os arquivos do aplicativo usando um ou mais arquivos ZIP, faça o upload por meio do portal do Azure e especifique o pacote na configuração do pool. Quando as VMs do pool são criadas, os arquivos ZIP são baixados e os arquivos extraídos.
 * Arquivos de recurso:
   * Os arquivos do aplicativo são carregados no armazenamento de blobs do Azure e você especifica referências de arquivos na tarefa de [início do pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). Quando as VMs do pool são criadas, os arquivos de recurso são baixados em cada VM.
@@ -90,7 +90,7 @@ Para obter mais informações sobre as características das VMs de baixa priorid
 Não há suporte de renderização específica é necessária para trabalhos e tarefas.  O item de configuração principal é a linha de comando da tarefa, que precisa referenciar o aplicativo necessário.
 Quando as imagens de VM do Azure Marketplace são usadas, a prática recomendada é usar as variáveis de ambiente para especificar o caminho e o executável do aplicativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para exemplos de renderização de Lote, experimente os dois tutoriais:
 

@@ -1,5 +1,5 @@
 ---
-title: Adicionar um painel para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
+title: Adicionar um painel à interface do usuário da solução de Monitoramento Remoto – Azure | Microsoft Docs
 description: Este artigo mostra como adicionar um novo painel ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447056"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um painel personalizado ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto
@@ -24,7 +24,7 @@ Este artigo mostra como adicionar um novo painel a uma página de dashboard na i
 
 O painel de exemplo neste artigo é exibido na página do dashboard existente.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 
@@ -90,7 +90,7 @@ Se a interface do usuário da web ainda não estiver em execução localmente, e
 npm start
 ```
 
-O comando anterior é executado localmente na interface do usuário [ http://localhost:3000/dashboard ](http://localhost:3000/dashboard). Navegue até a página **Dashboard** para exibir o novo painel.
+O comando anterior executa a [http://localhost:3000/dashboard](http://localhost:3000/dashboard)ui localmente em . Navegue até a página **Dashboard** para exibir o novo painel.
 
 ## <a name="next-steps"></a>Próximas etapas
 

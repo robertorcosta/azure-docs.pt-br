@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60779671"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Shake, Shake para um tweet -- Recuperar uma mensagem do Twitter com o Azure Functions
@@ -29,8 +29,8 @@ Siga o [Guia de Introdução](https://docs.microsoft.com/azure/iot-hub/iot-hub-a
 
 Uma assinatura ativa do Azure. Se você não tiver uma, você pode registrar por meio de um desses métodos:
 
-* Ative uma [conta do Microsoft Azure de avaliação por 30 dias](https://azure.microsoft.com/free/)
-* Declare seu [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se você for assinante do MSDN ou o Visual Studio
+* Ativar uma [conta gratuita de 30 dias do Microsoft Azure](https://azure.microsoft.com/free/)
+* Reivindique seu [crédito no Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se você é um assinante do MSDN ou do Visual Studio
 
 ## <a name="open-the-project-folder"></a>Abrir a pasta do projeto
 
@@ -118,7 +118,7 @@ Agora a cadeia de caracteres de conexão está definida, ele verifica e carrega 
 
 2. O Kit de Desenvolvimento reinicia e começa a execução do código.
 
-Você pode receber uma mensagem de erro “Erro: AZ3166: pacote desconhecido". Esse erro ocorre quando o índice do pacote de quadro não é atualizado corretamente. Para resolver esse problema, verifique o [erro "pacote desconhecido" nas perguntas Frequentes do Kit de desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+Você pode obter uma mensagem de erro "Erro: AZ3166: pacote desconhecido". Esse erro ocorre quando o índice do pacote de quadro não é atualizado corretamente. Para resolver esse problema, verifique o [erro "pacote desconhecido" nas perguntas Frequentes do Kit de desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Teste do projeto
 
@@ -167,7 +167,7 @@ Para fins de teste, este projeto de exemplo usa um token de portador pré-config
 
 3. Use [algum utilitário](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) para gerar um token de portador do Twitter dessas duas chaves.
 
-4. No [portal do Azure](https://portal.azure.com/){:target="_blank"}, entre no **Grupo de Recursos** e encontre o Azure Function (Tipo: Serviço de Aplicativo) para o seu projeto "Shake, Shake". O nome contém sempre a cadeia de caracteres 'shake...'.
+4. No [portal do Azure](https://portal.azure.com/){: destino = blank"}, vá para o **Grupo de Recursos** e localize o Azure Function (tipo: serviço de aplicativo) para o projeto"Shake, Shake". O nome contém sempre a cadeia de caracteres 'shake...'.
 
    ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 

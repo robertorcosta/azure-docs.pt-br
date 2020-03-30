@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2020
+ms.date: 03/23/2020
 ms.author: barclayn
-ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d8aa643dcf9734ac983c9c4c0d53bda24ce4688d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243387"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125080"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 
@@ -39,7 +39,7 @@ A criptografia em repouso é a codificação (criptografia) de dados quando eles
 - Uma chave de criptografia simétrica é usada para criptografar dados, pois eles são gravados no armazenamento.
 - A mesma chave de criptografia é usada para descriptografar esses dados conforme estiverem prontos para serem usados na memória.
 - Os dados podem ser particionados, e diferentes chaves podem ser usadas para cada partição.
-- As chaves devem ser armazenadas em uma localização segura com controle de acesso baseado em identidade e políticas de auditoria. As chaves de criptografia de dados geralmente são criptografadas com uma chave de criptografia de chave em Azure Key Vault para limitar ainda mais o acesso.
+- As chaves devem ser armazenadas em uma localização segura com controle de acesso baseado em identidade e políticas de auditoria. As chaves de criptografia de dados são frequentemente criptografadas com uma chave de criptografia no Azure Key Vault para limitar ainda mais o acesso.
 
 Na prática, os principais cenários de controle e gerenciamento, assim como garantias de disponibilidade e escala, requerem construções adicionais. Os conceitos e componentes de Criptografia em Repouso no Microsoft Azure são descritos abaixo.
 
@@ -49,9 +49,9 @@ A criptografia em repouso oferece proteção de dados para dados armazenados (em
 
 A criptografia em repouso é projetada para impedir que o invasor acesse os dados não criptografados, assegurando que os dados sejam criptografados quando em disco. Se um invasor tiver um disco rígido com os dados criptografados, mas não tiver as chaves de criptografia, ele precisará superar a criptografia para ler os dados. Esse ataque é muito mais complexo e consome mais recursos do que o acesso a dados não criptografados em um disco rígido. Por esse motivo, a criptografia em repouso é altamente recomendada e é um requisito de alta prioridade para muitas organizações.
 
-A criptografia em repouso também pode ser exigida pela necessidade de uma organização para governança de dados e esforços de conformidade. As regulamentações governamentais e do setor como HIPAA, PCI e FedRAMP estabelecem proteções específicas sobre a proteção de dados e requisitos de criptografia. A criptografia em repouso é uma medida obrigatória necessária para oferecer conformidade com alguns desses regulamentos.
+A criptografia em repouso também pode ser exigida pela necessidade de uma organização para governança de dados e esforços de conformidade. As regulamentações governamentais e do setor como HIPAA, PCI e FedRAMP estabelecem proteções específicas sobre a proteção de dados e requisitos de criptografia. A criptografia em repouso é uma medida obrigatória necessária para oferecer conformidade com alguns desses regulamentos. Para obter mais informações sobre a abordagem da Microsoft para a validação do FIPS 140-2, consulte [a publicação 140-2 do Federal Information Processing Standard (FIPS)](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2) 
 
-Além de atender a requisitos de regulamentação e conformidade, a criptografia em repouso fornece proteção com defesa em profundidade. O Microsoft Azure fornece uma plataforma em conformidade com serviços, aplicativos e dados. Ele também fornece uma abrangente segurança física e das instalações, controle de acesso a dados e auditoria. No entanto, é importante fornecer medidas de segurança "sobrepostas" adicionais para o caso de uma das outras medidas de segurança falhar e a criptografia em repouso fornece essa medida de segurança
+Além de atender a requisitos de regulamentação e conformidade, a criptografia em repouso fornece proteção com defesa em profundidade. O Microsoft Azure fornece uma plataforma em conformidade com serviços, aplicativos e dados. Ele também fornece uma abrangente segurança física e das instalações, controle de acesso a dados e auditoria. No entanto, é importante fornecer medidas adicionais de segurança "sobrepostas" no caso de uma das outras medidas de segurança falhar e a criptografia em repouso fornecer tal medida de segurança.
 
 A Microsoft tem o compromisso de fornecer opções de criptografia em repouso nos serviços de nuvem e de proporcionar aos clientes controle das chaves de criptografia e dos logs de uso da chave. Além disso, a Microsoft está trabalhando para criptografar todos os dados do cliente em repouso por padrão.
 
@@ -71,12 +71,12 @@ Permissões para utilizar as chaves armazenadas no Azure Key Vault, seja para ge
 
 ### <a name="key-hierarchy"></a>Hierarquia de Chave
 
-Mais de uma chave de criptografia é utilizada em uma implementação de criptografia em repouso. O armazenamento de uma chave de criptografia no Azure Key Vault garante o acesso de chave seguro e o gerenciamento central de chaves. No entanto, o acesso local do serviço a chaves de criptografia é mais eficiente para criptografia e descriptografia em massa do que interagir com Key Vault para cada operação de dados, permitindo uma criptografia mais forte e melhor desempenho. Limitar o uso de uma chave de criptografia única diminui o risco de que a chave fique comprometida e o custo de nova criptografia quando uma chave precisar ser substituída. Os modelos de criptografias em repouso do Azure usam uma hierarquia de chave composta pelos seguintes tipos de chaves para atender a todas essas necessidades:
+Mais de uma chave de criptografia é utilizada em uma implementação de criptografia em repouso. O armazenamento de uma chave de criptografia no Azure Key Vault garante acesso seguro à chave e gerenciamento central de chaves. No entanto, o acesso local de serviço às chaves de criptografia é mais eficiente para criptografia e descriptografia em massa do que interagir com o Key Vault para cada operação de dados, permitindo uma criptografia mais forte e um melhor desempenho. Limitar o uso de uma chave de criptografia única diminui o risco de que a chave fique comprometida e o custo de nova criptografia quando uma chave precisar ser substituída. As criptografias do Azure nos modelos de descanso usam uma hierarquia de chaves composta pelos seguintes tipos de chaves para atender a todas essas necessidades:
 
 - **DEK (Chave de Criptografia de Dados)** – Uma chave simétrica AES256 utilizada para criptografar uma partição ou bloco de dados.  Um recurso único pode ter muitas partições e muitas Chaves de Criptografia de Dados. Criptografar cada bloco de dados com uma chave diferente torna os ataques de análise de criptografia mais difíceis. O acesso a DEKs é necessário pelo provedor de recursos ou instância do aplicativo que criptografa e descriptografa um bloco específico. Quando um DEK é substituído por uma nova chave, apenas os dados em seu bloco associado devem ser reciclados com a nova chave.
-- Chave de **criptografia de chave (Kek)** – uma chave de criptografia usada para criptografar as chaves de criptografia de dados. O uso de uma chave de criptografia de chave que nunca deixa Key Vault permite que as próprias chaves de criptografia de dados sejam criptografadas e controladas. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Uma entidade pode acessar o DEK como agente para limitar o acesso de cada DEK a uma partição específica. Uma vez que o KEK é necessário para descriptografar os DEKs, o KEK é efetivamente um ponto único pelo qual os DEKs podem ser efetivamente excluídos pela exclusão do KEK.
+- **Key Encryption Key (KEK)** – Uma chave de criptografia usada para criptografar as chaves de criptografia de dados. O uso de uma chave de criptografia de chave que nunca deixa o Key Vault permite que as próprias chaves de criptografia de dados sejam criptografadas e controladas. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Uma entidade pode acessar o DEK como agente para limitar o acesso de cada DEK a uma partição específica. Uma vez que o KEK é necessário para descriptografar os DEKs, o KEK é efetivamente um ponto único pelo qual os DEKs podem ser efetivamente excluídos pela exclusão do KEK.
 
-As chaves de criptografia de dados, criptografadas com as chaves de criptografia de chave, são armazenadas separadamente e apenas uma entidade com acesso à chave de criptografia de chave pode descriptografar essas chaves de criptografia de dados. Há suporte para diferentes modelos de armazenamento de chaves. Cada modelo será discutido com mais detalhes na próxima seção.
+As Chaves de Criptografia de Dados, criptografadas com as chaves de criptografia de chaves são armazenadas separadamente e apenas uma entidade com acesso à Chave de Criptografia de Chaves pode descriptografar essas chaves de criptografia de dados. Há suporte para diferentes modelos de armazenamento de chaves. Cada modelo será discutido com mais detalhes na próxima seção.
 
 ## <a name="data-encryption-models"></a>Modelos de Criptografia de Dados
 
@@ -150,9 +150,9 @@ Quando a criptografia do lado do servidor com chaves gerenciadas pelo serviço �
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Azure Key Vault
 
-Para cenários em que o requisito é criptografar os dados em repouso e controlar as chaves de criptografia, os clientes podem utilizar criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Key Vault. Alguns serviços podem armazenar apenas a Chave de Criptografia de Chave raiz no Azure Key Vault e armazenar a Chave de Criptografia de Dados criptografada em um local interno mais próximo dos dados. Nesse cenário, os clientes podem trazer suas próprias chaves para o Key Vault (BYOK - Traga Sua Própria Chave), ou gerar novas, e utilizá-las para criptografar os recursos desejados. Enquanto o provedor de recursos executa as operações de criptografia e descriptografia, ele usa a chave de criptografia de chave configurada como a chave raiz para todas as operações de criptografia.
+Para cenários em que o requisito é criptografar os dados em repouso e controlar as chaves de criptografia, os clientes podem utilizar criptografia do lado do servidor usando chaves gerenciadas pelo cliente no Key Vault. Alguns serviços podem armazenar apenas a Chave de Criptografia de Chave raiz no Azure Key Vault e armazenar a Chave de Criptografia de Dados criptografada em um local interno mais próximo dos dados. Nesse cenário, os clientes podem trazer suas próprias chaves para o Key Vault (BYOK - Traga Sua Própria Chave), ou gerar novas, e utilizá-las para criptografar os recursos desejados. Enquanto o Provedor de Recursos executa as operações de criptografia e descriptografia, ele usa a chave de criptografia de chave configurada como a chave raiz para todas as operações de criptografia.
 
-A perda de chaves de criptografia de chave significa perda de dados. Por esse motivo, as chaves não devem ser excluídas. O backup das chaves deve ser feito sempre que for criado ou girado. [A exclusão reversível](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve ser habilitada em qualquer cofre que armazene chaves de criptografia de chave. Em vez de excluir uma chave, defina habilitado como falso ou defina a data de expiração.
+A perda das chaves de criptografia significa perda de dados. Por essa razão, as chaves não devem ser excluídas. As teclas devem ser apoiadas sempre que criadas ou giradas. [O Soft-Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) deve ser ativado em qualquer cofre que armazena chaves de criptografia. Em vez de excluir uma chave, defina habilitado para falsaou para definir a data de validade.
 
 ##### <a name="key-access"></a>Acesso à chave
 
@@ -215,7 +215,7 @@ Os clientes de Software como Serviço (SaaS), geralmente possuem criptografia em
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Criptografia em repouso para clientes de PaaS
 
-Os dados do cliente de PaaS (plataforma como serviço) normalmente residem em um serviço de armazenamento, como o armazenamento de BLOB, mas também podem ser armazenados em cache ou armazenadas no ambiente de execução do aplicativo, como uma máquina virtual. Para ver as opções de criptografia em repouso disponíveis, examine a tabela abaixo para as plataformas de aplicativos e armazenamento que você usa.
+Os dados do cliente do Platform as a Service (PaaS) geralmente residem em um serviço de armazenamento, como o Blob Storage, mas também podem ser armazenados em cache ou armazenados no ambiente de execução do aplicativo, como uma máquina virtual. Para ver as opções de criptografia em repouso disponíveis, examine a tabela abaixo para as plataformas de aplicativos e armazenamento que você usa.
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Criptografia em repouso para clientes de IaaS
 
@@ -227,7 +227,7 @@ Como PaaS, as soluções de IaaS podem aproveitar outros serviços do Azure que 
 
 #### <a name="encrypted-compute"></a>Computação criptografada
 
-Todos os Managed Disks, instantâneos e imagens são criptografados usando Criptografia do Serviço de Armazenamento usando uma chave gerenciada por serviço. Uma solução mais completa de criptografia em repouso garante que os dados nunca sejam persistidos em formato não criptografado. Durante o processamento dos dados em uma máquina virtual, os dados podem ser persistidos no arquivo de paginação do Windows ou no arquivo de permuta do Linux, em um despejo de memória ou em um log de aplicativo. Para garantir que esses dados sejam criptografados em repouso, os aplicativos de IaaS podem usar o Azure Disk Encryption em uma máquina virtual de IaaS do Azure (Windows ou Linux) e no disco virtual.
+Todos os discos, snapshots e imagens gerenciados são criptografados usando a criptografia do serviço de armazenamento usando uma chave gerenciada por serviço. Uma solução mais completa de Criptografia em Repouso garante que os dados nunca sejam persistidos de forma não criptografada. Durante o processamento dos dados em uma máquina virtual, os dados podem ser persistidos no arquivo de página do Windows ou no arquivo de swap do Linux, em um dump de falha ou em um registro de aplicativos. Para garantir que esses dados sejam criptografados em repouso, os aplicativos de IaaS podem usar o Azure Disk Encryption em uma máquina virtual de IaaS do Azure (Windows ou Linux) e no disco virtual.
 
 #### <a name="custom-encryption-at-rest"></a>Criptografia em repouso personalizada
 
@@ -243,7 +243,7 @@ Qualquer cliente que utiliza recursos de IaaS (Infraestrutura como Serviço) pod
 
 #### <a name="azure-storage"></a>Armazenamento do Azure
 
-Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas e arquivos do Azure) dão suporte à criptografia no lado do servidor em repouso; alguns serviços adicionalmente dão suporte a chaves gerenciadas pelo cliente e criptografia do lado do cliente. 
+Todos os serviços de armazenamento Do Azure (armazenamento Blob, armazenamento na fila, armazenamento de tabela e arquivos Do Zure) suportam criptografia do lado do servidor em repouso; alguns serviços também suportam chaves gerenciadas pelo cliente e criptografia do lado do cliente. 
 
 - No servidor: Todos os serviços de Armazenamento do Azure habilitam a criptografia do servidor por padrão que usa chaves de serviço gerenciado, que é transparente para o aplicativo. Para obter mais informações, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](../../storage/common/storage-service-encryption.md). O Armazenamento de Blobs do Azure e os Arquivos do Azure também dão suporte a chaves gerenciadas pelo cliente RSA de 2048 bits no Azure Key Vault. Para obter mais informações, consulte [Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
 - No cliente: os Blobs do Azure, tabelas e filas oferecem suporte para criptografia de cliente. Ao usar criptografia do cliente, os clientes criptografam os dados e carregam os dados como um blob criptografado. O gerenciamento de chaves é feito pelo cliente. Para obter mais informações, consulte [Criptografia do lado do cliente e Azure Key Vault para o Armazenamento do Microsoft Azure](../../storage/common/storage-client-side-encryption.md).
@@ -260,7 +260,7 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 
 |                                  |                    | **Modelo de criptografia e gerenciamento de chaves** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Lado do servidor usando chave de serviço gerenciado**     | **Lado do servidor usando chave gerenciada pelo cliente**             | **Lado do cliente usando chave gerenciada pelo cliente**      |
+|                                  | **Lado do servidor usando chave de serviço gerenciado**     | **Lado do servidor usando a chave gerenciada pelo cliente**             | **Lado do cliente usando a chave gerenciada pelo cliente**      |
 | **IA e Machine Learning**      |                    |                    |                    |
 | Pesquisa Cognitiva do Azure           | Sim                | Sim                | -                  |
 | Azure Machine Learning           | Sim                | Sim                | -                  |
@@ -268,23 +268,23 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Power BI                         | Sim                | Versão prévia, RSA de 2048 bits | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Stream Analytics do Azure           | Sim                | -                  | -                  |
-| Hubs de Eventos                       | Sim                | Sim, todos os comprimentos RSA. | -                  |
-| Funções                        | Sim                | Sim, todos os comprimentos RSA. | -                  |
+| Hubs de Eventos                       | Sim                | Sim, todos os Comprimentos RSA. | -                  |
+| Funções                        | Sim                | Sim, todos os Comprimentos RSA. | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
 | Apache Kafka no Azure HDInsight  | Sim                | Todos os comprimentos RSA.   | -                  |
-| Azure Monitor Application Insights | Sim                | Sim                | -                  |
-| Azure Monitor Log Analytics | Sim                | Sim                | -                  |
+| Insights do aplicativo do Monitor Do Azure | Sim                | Sim                | -                  |
+| Análise saqueadores do Monitor Do Azure | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
 | Fábrica de dados do Azure               | Sim                | Sim                | -                  |
 | Repositório Azure Data Lake            | Sim                | Sim, RSA 2048-bit  | -                  |
-| **Contêineres**                   |                    |                    |                    |
+| **Recipientes**                   |                    |                    |                    |
 | Serviço de Kubernetes do Azure         | Sim                | Sim                | -                  |
 | Instâncias de Contêiner              | Sim                | Sim                | -                  |
 | Registro de Contêiner               | Sim                | Sim                | -                  |
-| **Computação**                      |                    |                    |                    |
+| **Calcular**                      |                    |                    |                    |
 | Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
-| Conjunto de dimensionamento de máquinas virtuais        | Sim                | Sim, RSA 2048-bit  | -                  |
+| Conjunto de escala de máquina virtual        | Sim                | Sim, RSA 2048-bit  | -                  |
 | SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
 | Serviço de Aplicativo                      | Sim                | Sim                | -                  |
 | Automação                       | Sim                | Sim                | -                  |
@@ -293,18 +293,18 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Aplicativos gerenciados do Azure       | Sim                | Sim                | -                  |
 | Barramento de Serviço                      | Sim                | Sim                | -                  |
 | Site Recovery                    | Sim                | Sim                | -                  |
-| **Bancos de dados**                    |                    |                    |                    |
+| **Bancos**                    |                    |                    |                    |
 | SQL Server em máquinas virtuais   | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Banco de Dados SQL do Azure               | Sim                | Sim, RSA 2048-bit  | Sim                |
-| Banco de dados SQL do Azure para MariaDB   | Sim                | -                  | -                  |
-| Banco de dados SQL do Azure para MySQL     | Sim                | Sim                | -                  |
-| Banco de dados SQL do Azure para PostgreSQL | Sim               | Sim                | -                  |
-| Azure Synapse Analytics          | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Banco de dados Azure SQL para MariaDB   | Sim                | -                  | -                  |
+| Banco de dados Azure SQL para MySQL     | Sim                | Sim                | -                  |
+| Banco de dados Azure SQL para PostgreSQL | Sim               | Sim                | -                  |
+| Azure Synapse Analytics          | Sim                | Sim, RSA 2048-bit  | -                  |
 | SQL Server Stretch Database      | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento de Tabelas                    | Sim                | Sim                | Sim                |
 | Azure Cosmos DB                  | Sim                | Sim                | -                  |
 | Azure Databricks                 | Sim                | Sim                | -                  |
-| **DevOps**                       |                    |                    |                    |
+| **Devops**                       |                    |                    |                    |
 | Azure DevOps                     | Sim                | -                  | Sim                |
 | Azure Repos                      | Sim                | -                  | Sim                |
 | **Identidade**                     |                    |                    |                    |
@@ -320,10 +320,10 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Azure Site Recovery              | Sim                | -                  | -                  |
 | **Mídia**                        |                    |                    |                    |
 | Serviços de mídia                   | Sim                | -                  | Sim                |
-| **Storage**                      |                    |                    |                    |
+| **Armazenamento**                      |                    |                    |                    |
 | Armazenamento de Blobs                     | Sim                | Sim, RSA 2048-bit  | Sim                |
 | Armazenamento em disco                     | Sim                | Sim                | -                  |
-| Armazenamento em Disco gerenciados             | Sim                | Sim                | -                  |
+| Armazenamento de disco gerenciado             | Sim                | Sim                | -                  |
 | Armazenamento de Arquivos                     | Sim                | Sim, RSA 2048-bit  | -                  |
 | Armazenamento de Filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |

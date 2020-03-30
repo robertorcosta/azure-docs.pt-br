@@ -9,15 +9,15 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: babanisa
 ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561752"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos da Grade de Eventos do Azure para Barramento de Serviço
 
-Este artigo fornece as propriedades e o esquema para eventos do Barramento de Serviço. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos do Barramento de Serviço.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do evento do Barramento de Serviço](event-sources.md#service-bus).
 
@@ -25,7 +25,7 @@ Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do even
 
 Barramento de Serviço emite os seguintes tipos de evento:
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Gerado quando há mensagens ativas em uma fila ou assinatura e nenhum receptor escutando. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Gerado quando há mensagens ativas em uma fila de mensagens mortas e nenhum listener ativo. |
@@ -80,20 +80,20 @@ O esquema para um evento de fila de mensagens mortas é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
 | id | string | Identificador exclusivo do evento. |
-| data | object | Dados de eventos do armazenamento de blob. |
+| data | objeto | Dados de eventos do armazenamento de blob. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
 | metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | namespaceName | string | O namespace do Barramento de Serviço onde está o recurso existente. |
 | requestUri | string | O URI para a fila específica ou a assinatura que emite o evento. |

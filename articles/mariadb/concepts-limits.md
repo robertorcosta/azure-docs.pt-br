@@ -1,61 +1,61 @@
 ---
-title: Limitações-banco de dados do Azure para MariaDB
+title: Limitações - Banco de Dados Azure para MariaDB
 description: Este artigo descreve as limitações no Banco de Dados do Azure para o MariaDB, como o número de opções de mecanismo de conexão e armazenamento.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/9/2020
-ms.openlocfilehash: c982181dee34a7eb0715d5e1271ef5ed794f3809
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.date: 3/18/2020
+ms.openlocfilehash: bb907ee59891e5a9a1ffc9c8c6eee34d3e71ad2f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79296737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531933"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações no Banco de Dados do Azure para o MariaDB
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
 
 ## <a name="server-parameters"></a>Parâmetros do Servidor
 
-Os valores mínimo e máximo de vários parâmetros de servidor populares são determinados pelo tipo de preço e vCores. Consulte as tabelas abaixo para obter limites.
+Os valores mínimo e máximo de vários parâmetros de servidor populares são determinados pelo nível de preços e vCores. Consulte as tabelas abaixo para obter limites.
 
-### <a name="max_connections"></a>max_connections
+### <a name="max_connections"></a>Max_connections
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|**Nível de preços**|**vCore(s)**|**Valor padrão**|**Valor min**|**Valor máximo**|
 |---|---|---|---|---|
 |Basic|1|50|10|50|
 |Basic|2|100|10|100|
 |Uso Geral|2|300|10|600|
 |Uso Geral|4|625|10|1250|
 |Uso Geral|8|1250|10|2500|
-|Uso Geral|16|2500|10|5\.000|
-|Uso Geral|32|5\.000|10|10000|
+|Uso Geral|16|2500|10|5.000|
+|Uso Geral|32|5.000|10|10000|
 |Uso Geral|64|10000|10|20000|
 |Otimizado para memória|2|600|10|800|
 |Otimizado para memória|4|1250|10|2500|
-|Otimizado para memória|8|2500|10|5\.000|
-|Otimizado para memória|16|5\.000|10|10000|
+|Otimizado para memória|8|2500|10|5.000|
+|Otimizado para memória|16|5.000|10|10000|
 |Otimizado para memória|32|10000|10|20000|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > ERRO 1040 (08004): número excessivo de conexões
 
 > [!IMPORTANT]
-> Para obter a melhor experiência, recomendamos que você use um pool de conexões como o ProxySQL para gerenciar conexões com eficiência.
+> Para obter a melhor experiência, recomendamos que você use um pooler de conexão como proxySQL para gerenciar conexões de forma eficiente.
 
-A criação de novas conexões de cliente com o MariaDB leva tempo e, uma vez estabelecida, essas conexões ocupam recursos do banco de dados, mesmo quando ociosas. A maioria dos aplicativos solicita muitas conexões de curta duração, o que aumenta essa situação. O resultado é um número menor de recursos disponíveis para sua carga de trabalho real, levando a um desempenho reduzido. Um pool de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais sobre como configurar o ProxySQL, visite nossa [postagem no blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+Criar novas conexões de clientes ao MariaDB leva tempo e, uma vez estabelecidas, essas conexões ocupam recursos de banco de dados, mesmo quando ociosas. A maioria dos aplicativos solicita muitas conexões de curta duração, o que agrava essa situação. O resultado é menos recursos disponíveis para sua carga de trabalho real, levando a uma diminuição do desempenho. Um pooler de conexões que diminui as conexões ociosas e reutiliza as conexões existentes ajudará a evitar isso. Para saber mais sobre a configuração do ProxySQL, visite nosso [post no blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
-## <a name="query_cache_size"></a>query_cache_size
+### <a name="query_cache_size"></a>query_cache_size
 
-O cache de consulta é desativado por padrão. Para habilitar o cache de consulta, configure o parâmetro `query_cache_type`. 
+O cache de consulta é desligado por padrão. Para ativar o cache de `query_cache_type` consulta, configure o parâmetro. 
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre esse parâmetro.
+Reveja a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) para saber mais sobre esse parâmetro.
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|**Nível de preços**|**vCore(s)**|**Valor padrão**|**Valor min**|**Valor máximo**|
 |---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Basic|1|Não configurável no nível Básico|N/D|N/D|
+|Basic|2|Não configurável no nível Básico|N/D|N/D|
 |Uso Geral|2|0|0|16777216|
 |Uso Geral|4|0|0|33554432|
 |Uso Geral|8|0|0|67108864|
@@ -68,14 +68,14 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 |Otimizado para memória|16|0|0|134217728|
 |Otimizado para memória|32|0|0|134217728|
 
-## <a name="sort_buffer_size"></a>sort_buffer_size
+### <a name="sort_buffer_size"></a>sort_buffer_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) para saber mais sobre esse parâmetro.
+Reveja a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) para saber mais sobre esse parâmetro.
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|**Nível de preços**|**vCore(s)**|**Valor padrão**|**Valor min**|**Valor máximo**|
 |---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Basic|1|Não configurável no nível Básico|N/D|N/D|
+|Basic|2|Não configurável no nível Básico|N/D|N/D|
 |Uso Geral|2|524288|32768|4194304|
 |Uso Geral|4|524288|32768|8388608|
 |Uso Geral|8|524288|32768|16777216|
@@ -88,14 +88,14 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 |Otimizado para memória|16|524288|32768|33554432|
 |Otimizado para memória|32|524288|32768|33554432|
 
-## <a name="join_buffer_size"></a>join_buffer_size
+### <a name="join_buffer_size"></a>join_buffer_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) para saber mais sobre esse parâmetro.
+Reveja a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) para saber mais sobre esse parâmetro.
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|**Nível de preços**|**vCore(s)**|**Valor padrão**|**Valor min**|**Valor máximo**|
 |---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Basic|1|Não configurável no nível Básico|N/D|N/D|
+|Basic|2|Não configurável no nível Básico|N/D|N/D|
 |Uso Geral|2|262144|128|268435455|
 |Uso Geral|4|262144|128|536870912|
 |Uso Geral|8|262144|128|1073741824|
@@ -108,14 +108,14 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 |Otimizado para memória|16|262144|128|4294967295|
 |Otimizado para memória|32|262144|128|4294967295|
 
-## <a name="max_heap_table_size"></a>max_heap_table_size
+### <a name="max_heap_table_size"></a>max_heap_table_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre esse parâmetro.
+Reveja a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) para saber mais sobre esse parâmetro.
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|**Nível de preços**|**vCore(s)**|**Valor padrão**|**Valor min**|**Valor máximo**|
 |---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Basic|1|Não configurável no nível Básico|N/D|N/D|
+|Basic|2|Não configurável no nível Básico|N/D|N/D|
 |Uso Geral|2|16777216|16384|268435455|
 |Uso Geral|4|16777216|16384|536870912|
 |Uso Geral|8|16777216|16384|1073741824|
@@ -128,14 +128,14 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 |Otimizado para memória|16|16777216|16384|4294967295|
 |Otimizado para memória|32|16777216|16384|4294967295|
 
-## <a name="tmp_table_size"></a>tmp_table_size
+### <a name="tmp_table_size"></a>tmp_table_size
 
-Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) para saber mais sobre esse parâmetro.
+Reveja a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) para saber mais sobre esse parâmetro.
 
-|**Tipo de preço**|**vCore(s)**|**Valor padrão**|**Valor mínimo**|**Valor máximo**|
+|**Nível de preços**|**vCore(s)**|**Valor padrão**|**Valor min**|**Valor máximo**|
 |---|---|---|---|---|
-|Basic|1|Não configurável na camada básica|N/D|N/D|
-|Basic|2|Não configurável na camada básica|N/D|N/D|
+|Basic|1|Não configurável no nível Básico|N/D|N/D|
+|Basic|2|Não configurável no nível Básico|N/D|N/D|
 |Uso Geral|2|16777216|1024|67108864|
 |Uso Geral|4|16777216|1024|134217728|
 |Uso Geral|8|16777216|1024|268435456|
@@ -150,25 +150,25 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Com suporte
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
-- [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
+- [Memória](https://mariadb.com/kb/en/library/memory-storage-engine/)
 
 ### <a name="unsupported"></a>Sem suporte
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
-- [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
+- [Arquivo](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Suporte de privilégio
 
 ### <a name="unsupported"></a>Sem suporte
 - Função DBA: muitas configurações e parâmetros do servidor podem inadvertidamente prejudicar o desempenho do servidor ou negar as propriedades ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado.
-- Privilégio SUPER: semelhante a privilégio [SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
-- O desfinamento: requer a criação de privilégios e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
+- SUPER privilégio: Da mesma [forma, o privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
+- DEFINER: Requer super privilégios para criar e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Com suporte
 - `LOAD DATA INFILE` tem suporte, mas o parâmetro `[LOCAL]` deve ser especificado e direcionado para um caminho UNC (armazenamento do Azure montado por meio do SMB).
 
 ### <a name="unsupported"></a>Sem suporte
@@ -194,11 +194,11 @@ Examine a [documentação do MariaDB](https://mariadb.com/kb/en/server-system-va
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 ### <a name="storage-size"></a>Tamanho de armazenamento
-- Veja os [tipos de preço](concepts-pricing-tiers.md) para os limites de tamanho de armazenamento por tipo de preço.
+- Consulte os [níveis de preços](concepts-pricing-tiers.md) para os limites de tamanho de armazenamento por nível de preço.
 
 ## <a name="current-known-issues"></a>Problemas frequentes conhecidos
 - Instância de servidor MariaDB exibe a versão de servidor incorreto após o estabelecimento de conexão. Para obter a versão correta do mecanismo de instância de servidor, use o comando `select version();`.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [O que está disponível em cada camada de serviço](concepts-pricing-tiers.md)
+- [O que está disponível em cada nível de serviço](concepts-pricing-tiers.md)
 - [Versões com suporte de banco de dados MariaDB](concepts-supported-versions.md)

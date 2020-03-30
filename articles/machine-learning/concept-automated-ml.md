@@ -1,7 +1,7 @@
 ---
-title: O que é o ML/AutoML automatizado
+title: O que é automatizado ML / AutoML
 titleSuffix: Azure Machine Learning
-description: Saiba como Azure Machine Learning pode escolher automaticamente um algoritmo para você e gerar um modelo a partir dele para poupar tempo usando os parâmetros e critérios que você fornece para selecionar o melhor algoritmo para seu modelo.
+description: Saiba como o Azure Machine Learning pode escolher automaticamente um algoritmo para você e gerar um modelo a partir dele para economizar tempo usando os parâmetros e critérios que você fornece para selecionar o melhor algoritmo para o seu modelo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,63 +10,67 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c8864e00be9f491d87478c253286070b9334a26e
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283882"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383184"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
-O Machine Learning automatizado, também conhecido como ML automatizado, é o processo de automatização das tarefas iterativas demoradas do desenvolvimento de modelos de aprendizado de máquina. Ele permite que cientistas de dados, analistas e desenvolvedores criem modelos de ML com alta escala, eficiência e produtividade, tudo ao mesmo tempo em que sustenta a qualidade do modelo. O ML automatizado se baseia em uma inovação da [divisão do Microsoft Research](https://arxiv.org/abs/1705.05355).
+O aprendizado automatizado de máquina, também chamado de ML automatizado, é o processo de automatização das tarefas demoradas e iterativas do desenvolvimento de modelos de aprendizagem de máquina. Ele permite que cientistas de dados, analistas e desenvolvedores construam modelos ML com alta escala, eficiência e produtividade, ao mesmo tempo em que sustentam a qualidade do modelo. O ML automatizado é baseado em um avanço da nossa [divisão de Pesquisa Microsoft.](https://arxiv.org/abs/1705.05355)
 
-O desenvolvimento de modelos de aprendizado de máquina tradicional tem uso intensivo de recursos, exigindo conhecimento e tempo de domínio significativos para produzir e comparar dezenas de modelos. Aplique ML automatizado quando desejar que Azure Machine Learning treine e ajuste um modelo para você usando a métrica de destino que você especificar. Em seguida, o serviço faz a iteração por meio de algoritmos de ML emparelhados com seleções de recursos, em que cada iteração produz um modelo com uma pontuação de treinamento. Quanto maior a pontuação, melhor o modelo é considerado para "ajustar" seus dados.
+O desenvolvimento tradicional de modelos de aprendizado de máquina é intensivo em recursos, exigindo conhecimento de domínio significativo e tempo para produzir e comparar dezenas de modelos. Com o machine learning automatizado, você vai acelerar o tempo que se leva para colocar modelos de ML prontos em produção com grande facilidade e eficiência.
 
-Com o aprendizado de máquina automatizado, você acelerará o tempo necessário para obter modelos de ML prontos para produção com grande facilidade e eficiência.
+ 
+
 
 ## <a name="when-to-use-automated-ml"></a>Quando usar ML automatizado
 
-Democratiza automatizado o processo de desenvolvimento do modelo do Machine Learning e capacita seus usuários, não importa sua experiência em ciência de dados, para identificar um pipeline de aprendizado de máquina de ponta a ponta para qualquer problema.
+Aplique ML automatizado quando quiser que o Azure Machine Learning treine e ajuste um modelo para você usando a métrica de destino especificada. O ML automatizado democratiza o processo de desenvolvimento do modelo de machine learning e capacita seus usuários, não importando a qualificação em ciência de dados, a identificar um pipeline de aprendizado de máquina de ponta a ponta para qualquer problema.
 
-Cientistas de dados, analistas e desenvolvedores em setores podem usar o ML automatizado para:
+Cientistas de dados, analistas e desenvolvedores de todas as indústrias podem usar ml automatizados para:
 
-+ Implementar soluções de Machine Learning sem amplo conhecimento de programação
-+ Economize tempo e recursos
-+ Aproveitar as práticas recomendadas de ciência de dados
++ Implementar soluções de aprendizado de máquina sem amplo conhecimento de programação
++ Economizar tempo e recursos
++ Aproveitar melhores práticas da ciência de dados
 + Fornecer solução de problemas ágil
 
-A tabela a seguir lista casos comuns de uso de ML automatizados. 
+A tabela a seguir lista casos comuns de uso automatizado de ML. 
 
-classificação| Previsão de série temporal | Regressão
+classificação| Previsão de séries tempois | Regressão
 ---|---|---
-[Detecção de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Previsão de vendas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)|[Previsão de desempenho da CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
-|[Previsão de marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[Previsão de demanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
-|[Classificação de dados do grupo de notícias](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)|[Previsão de produção de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)|
+[Detecção de fraudes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Previsão de Vendas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)|[Previsão de desempenho da CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
+|[Previsão de Marketing](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[Previsão de demanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+|[Classificação de dados do grupo de notícias](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)|[Previsão de Produção de Bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)|
 
-## <a name="how-automated-ml-works"></a>Como o ML automatizado funciona
+## <a name="design-automated-ml-experiments"></a>Projetar experimentos ml automatizados
 
-Usando **Azure Machine Learning**, você pode projetar e executar seus experimentos de treinamento de ml automatizados com estas etapas:
+Usando **o Azure Machine Learning,** você pode projetar e executar seus experimentos automatizados de treinamento ML com estas etapas:
 
-1. **Identificar o problema de ml** a ser resolvido: classificação, previsão ou regressão
+1. **Identifique o problema ml** a ser resolvido: classificação, previsão ou regressão
 
-1. **Especifique a origem e o formato dos dados de treinamento rotulados**: matrizes de numpy ou pandas dataframe
+1. **Especifique a origem e o formato dos dados de treinamento rotulados**: matrizes numpy ou dataframe pandas
 
-1. **Configure o destino de computação para treinamento de modelo**, como seu [computador local, Azure Machine Learning computações, VMS remotas ou Azure Databricks](how-to-set-up-training-targets.md).  Saiba mais sobre o treinamento automatizado [em um recurso remoto](how-to-auto-train-remote.md).
+1. **Configure o alvo de computação para treinamento de modelos,** como seu computador [local, Azure Machine Learning Computes, VMs remotos ou Databricks Azure](how-to-set-up-training-targets.md).  Saiba mais sobre treinamento automatizado [em um recurso remoto.](how-to-auto-train-remote.md)
 
-1. **Configure os parâmetros automatizados de aprendizado de máquina** que determinam quantas iterações em diferentes modelos, configurações de hiperparâmetro, pré-processamento avançado/personalização e quais métricas examinar ao determinar o melhor modelo.  Você pode definir as configurações de teste de treinamento automático no [Azure Machine Learning Studio](https://ml.azure.com)ou [com o SDK](how-to-configure-auto-train.md). 
+1. **Configure os parâmetros automatizados de aprendizado de máquina** que determinam quantas iterações em diferentes modelos, configurações de hiperparâmetros, pré-processamento/featurização avançada e quais métricas olhar ao determinar o melhor modelo.  Você pode configurar as configurações para experimentos de treinamento automático no [estúdio Azure Machine Learning](https://ml.azure.com)ou com o [SDK](how-to-configure-auto-train.md). 
 
     [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-1. **Envie a execução de treinamento.**
+1. **Envie o treinamento.**
 
-  ![Machine Learning automatizado](./media/concept-automated-ml/automl-concept-diagram2.png)
+## <a name="how-automated-ml-works"></a>Como o ML automatizado funciona
 
-Durante o treinamento, Azure Machine Learning cria um número de pipelines paralelos que tentam algoritmos e parâmetros diferentes. Ele será interrompido quando atingir os critérios de saída definidos no experimento.
+Durante o treinamento, o Azure Machine Learning cria uma série de pipelines paralelos que experimentam diferentes algoritmos e parâmetros. O serviço itera através de algoritmos ML emparelhados com seleções de recursos, onde cada iteração produz um modelo com uma pontuação de treinamento. Quanto maior a pontuação, melhor o modelo é considerado para "encaixar" seus dados.  Ele vai parar quando atingir os critérios de saída definidos no experimento. O diagrama a seguir ilustra esse processo. 
 
-Você também pode inspecionar as informações de execução registradas, que [contêm as métricas](how-to-understand-automated-ml.md) coletadas durante a execução. A execução de treinamento produz um objeto serializado do Python (arquivo de`.pkl`) que contém o modelo e o pré-processamento de dados.
+  ![Aprendizado automatizado de máquina](./media/concept-automated-ml/automl-concept-diagram2.png)
 
-Embora a criação de modelos seja automatizada, você também pode [aprender como os recursos importantes ou relevantes são](how-to-configure-auto-train.md#explain) para os modelos gerados.
+
+Você também pode inspecionar as informações de execução [registradas, que contém métricas coletadas](how-to-understand-automated-ml.md) durante a execução. A execução do treinamento produz`.pkl` um objeto serializado Python (arquivo) que contém o modelo e o pré-processamento de dados.
+
+Embora a construção de modelos seja automatizada, você também pode [aprender o quão importantes ou relevantes são](how-to-configure-auto-train.md#explain) os recursos para os modelos gerados.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -74,223 +78,144 @@ Embora a criação de modelos seja automatizada, você também pode [aprender co
 
 ## <a name="preprocessing"></a>Pré-processamento
 
-Em todos os experimentos de aprendizado de máquina automatizados, seus dados são pré-processados usando os métodos padrão e, opcionalmente, por meio de pré-processamento avançado.
+Em todos os experimentos automatizados de aprendizado de máquina, seus dados são pré-processados usando os métodos padrão e, opcionalmente, através de pré-processamento avançado.
 
 > [!NOTE]
 > As etapas de pré-processamento automatizado de machine learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em números etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
 
 ### <a name="automatic-preprocessing-standard"></a>Pré-processamento automático (padrão)
 
-Em todos os experimentos de aprendizado de máquina automatizados, seus dados são dimensionados e normalizados automaticamente para ajudar os algoritmos a executarem bem.  Durante o treinamento do modelo, uma das técnicas de dimensionamento ou normalização a seguir será aplicada a cada modelo.
+Em cada experimento automatizado de aprendizado de máquina, seus dados são automaticamente dimensionados ou normalizados para ajudar os algoritmos a ter um bom desempenho.  Durante o treinamento do modelo, uma das seguintes técnicas de dimensionamento ou normalização será aplicada em cada modelo.
 
-|Dimensionamento&nbsp;&&nbsp;normalização| DESCRIÇÃO |
+|Normalização de dimensionamento&nbsp;&&nbsp;| Descrição |
 | ------------- | ------------- |
-| [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a média e dimensionamento para a variação de unidade  |
-| [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma recursos dimensionando cada recurso pelo mínimo e máximo da coluna  |
-| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Dimensionar cada recurso por seu valor absoluto máximo |
-| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |Esses recursos de scaler por seu intervalo de Quantil |
-| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Redução de dimensionalidade linear usando a decomposição de valor singular dos dados para projetar a ti em um espaço dimensional inferior |
-| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Esse transformador executa a redução de dimensionalidade linear por meio da decomposição de valor singular truncado (SVD). Ao contrário do PCA, esse estimador não centraliza os dados antes de calcular a decomposição do valor singular, o que significa que ele pode trabalhar com matrizes SciPy. esparsas com eficiência |
-| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Cada exemplo (ou seja, cada linha da matriz de dados) com pelo menos um componente diferente de zero é redimensionado independentemente de outros exemplos para que sua norma (L1 ou L2) seja igual a uma |
+| [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a média e o dimensionamento para a variância unitária  |
+| [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma recursos dimensionando cada recurso pelo mínimo e máximo dessa coluna  |
+| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Dimensione cada característica pelo seu valor absoluto máximo |
+| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |Este Scaler apresenta por sua gama quantile |
+| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Redução da dimensionalidade linear usando a Decomposição de Valor Singular dos dados para projetá-lo para um espaço dimensional inferior |
+| [TruncadoSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Este transformador realiza a redução da dimensionalidade linear por meio de decomposição de valor singular truncada (SVD). Ao contrário do PCA, este estimador não centrala os dados antes de calcular a decomposição singular do valor, o que significa que ele pode trabalhar com matrizes esparsas.esparsas eficientemente |
+| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Cada amostra (ou seja, cada linha da matriz de dados) com pelo menos um componente não-zero é redimensionada independentemente de outras amostras de modo que sua norma (l1 ou l2) seja igual a uma |
 
-### <a name="advanced-preprocessing-optional-featurization"></a>Pré-processamento avançado: personalização opcional
+### <a name="advanced-preprocessing-optional-featurization"></a>Pré-processamento avançado: featurização opcional
 
-O pré-processamento avançado adicional e os personalização também estão disponíveis, como data guardrails, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-use-automated-ml-for-ml-models.md#featurization). Habilite essa configuração com:
+Também estão disponíveis pré-processamento avançado e featurização adicionais, como guardrails de dados, codificação e transformações. [Saiba mais sobre o que inclui a featurização.](how-to-use-automated-ml-for-ml-models.md#featurization) Habilite esta configuração com:
 
-+ Azure Machine Learning Studio: habilite o **personalização automático** na seção **Exibir configuração adicional** [com estas etapas](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
++ Estúdio azure Machine Learning: Habilite a **featurização automática** na seção **Exibir configuração adicional** com essas [etapas](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-+ SDK do Python: especificando `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` para a [classe`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
++ Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` Especificando [ `AutoMLConfig` ](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)para a classe . 
 
-## <a name="prevent-over-fitting"></a>Evitar sobreajuste
+## <a name="classification--regression"></a>Classificação & regressão
 
-O ajuste excessivo no aprendizado de máquina ocorre quando um modelo se ajusta também aos dados de treinamento e, como resultado, não pode prever com precisão os dados de teste não vistos. Em outras palavras, o modelo tem apenas padrões específicos memorizados e ruídos nos dados de treinamento, mas não é flexível o suficiente para fazer previsões sobre dados reais. Na maioria dos casos flagrantes, um modelo de sobreadaptação assumirá que as combinações de valor de recurso vistas durante o treinamento resultarão sempre na mesma saída para o destino. 
+Classificação e regressão são os tipos mais comuns de tarefas de aprendizagem de máquina. Ambos são tipos de aprendizado supervisionado em que os modelos aprendem usando dados de treinamento e aplicam esses aprendizados a novos dados. O Azure Machine Learning oferece featurizações especificamente para essas tarefas, como featurizers de texto de rede neural profunda para classificação. Saiba mais sobre [as opções de featurização.](how-to-use-automated-ml-for-ml-models.md#featurization) 
 
-A melhor maneira de evitar o ajuste excessivo é seguir as práticas recomendadas do ML, incluindo:
+O principal objetivo dos modelos de classificação é prever em quais categorias os novos dados se enquadrarão com base nos aprendizados de seus dados de treinamento. Exemplos de classificação comuns incluem detecção de fraude, reconhecimento de caligrafia e detecção de objetos.  Saiba mais e veja um exemplo de [classificação com aprendizado automático](tutorial-train-models-with-aml.md)de máquina.
 
-* Usando mais dados de treinamento e eliminando a tendência estatística
-* Evitando o vazamento de destino
-* Usando menos recursos
-* **Regularização e otimização de hiperparâmetro**
-* **Limitações de complexidade do modelo**
-* **Validação cruzada**
+Diferente da classificação onde os valores de saída previstos são categóricos, os modelos de regressão prevêem valores de saída numérica baseados em preditores independentes. Na regressão, o objetivo é ajudar a estabelecer a relação entre essas variáveis preditoras independentes, estimando como uma variável impacta as outras. Por exemplo, o preço do automóvel com base em características como, quilometragem de gás, classificação de segurança, etc. Saiba mais e veja um exemplo de [regressão com aprendizado automático](tutorial-auto-train-models.md)de máquina.
 
-No contexto de ML automatizado, os três primeiros itens acima são **as práticas recomendadas que você implementa**. Os últimos três itens em negrito são **as melhores práticas que o ml automatizado implementa** por padrão para proteger contra sobreajuste. Em configurações diferentes de ML automatizado, vale a pena seguir todas as seis práticas recomendadas para evitar modelos de sobreajuste.
+## <a name="time-series-forecasting"></a>Previsão da série temporal
 
-### <a name="best-practices-you-implement"></a>Práticas recomendadas que você implementa
+As previsões de construção são parte integrante de qualquer negócio, seja receita, estoque, vendas ou demanda do cliente. Você pode usar ML automatizado para combinar técnicas e abordagens e obter uma previsão recomendada de séries tempológicas de alta qualidade.
 
-Usar **mais dados** é a maneira mais simples e melhor possível de evitar o ajuste excessivo, e como um bônus adicional normalmente aumenta a precisão. Quando você usa mais dados, fica mais difícil para o modelo memorizar padrões exatos e é forçado a alcançar soluções que são mais flexíveis para acomodar mais condições. Também é importante reconhecer a **diferença estatística**, para garantir que os dados de treinamento não incluam padrões isolados que não existam em dados de previsão dinâmica. Esse cenário pode ser difícil de resolver, pois pode não haver sobreajuste entre seus conjuntos de treinamento e teste, mas pode haver sobreajustes presentes em comparação com os dados de teste ao vivo.
+Um experimento automatizado de séries tempois é tratado como um problema de regressão multivariada. Os valores passados da série temporal são "pivotados" para se tornarem dimensões adicionais para o regressor, juntamente com outros preditores. Essa abordagem, ao contrário dos métodos clássicos das séries tempois, tem a vantagem de incorporar naturalmente múltiplas variáveis contextuais e sua relação entre si durante o treinamento. O ML automatizado aprende um único modelo, mas muitas vezes ramificado internamente para todos os itens no conjunto de dados e horizontes de previsão. Assim, mais dados estão disponíveis para estimar parâmetros do modelo e a generalização para séries invisíveis.
 
-O vazamento de destino é um problema semelhante, no qual você pode não ver o ajuste excessivo entre os conjuntos de treinamento/teste, mas, em vez disso, ele aparece em tempo de previsão. O vazamento de destino ocorre quando seu modelo "trapacear" durante o treinamento, tendo acesso aos dados que normalmente não deveria ter no tempo de previsão. Por exemplo, se o problema for prever na segunda-feira, qual será o preço de mercadoria na sexta-feira, mas um de seus recursos incluía dados acidentalmente das quintas, que seriam dados que o modelo não terá no tempo de previsão, pois não poderá vê-lo no futuro. O vazamento de destino é um erro fácil de ser ignorado, mas geralmente é caracterizado por uma precisão muito alta para o seu problema. Se você estiver tentando prever o preço de ações e tiver treinado um modelo com precisão de 95%, é provável que haja vazamento de destino em algum lugar em seus recursos.
+Saiba mais e veja um exemplo de aprendizado automático de [máquina para previsão de séries tempois.](how-to-auto-train-forecast.md) Ou, consulte o [notebook de demanda de energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obter exemplos de código detalhados da configuração avançada de previsão, incluindo:
 
-A remoção de recursos também pode ajudar com o sobreajuste, impedindo que o modelo tenha muitos campos a serem usados para memorizar padrões específicos, tornando-o mais flexível. Pode ser difícil medir de forma quantitativa, mas se você puder remover recursos e manter a mesma precisão, você provavelmente tornou o modelo mais flexível e reduziu o risco de sobreajuste.
+* detecção e featurização de feriados
+* aprendizes de série sportiva e DNN (Auto-ARIMA, Prophet, ForecastTCN)
+* muitos modelos de suporte através do agrupamento
+* validação cruzada de origem de rolamento
+* lags configuráveis
+* rolando janelas características agregadas
 
-### <a name="best-practices-automated-ml-implements"></a>O ML automatizado de práticas recomendadas implementa
+## <a name="ensemble-models"></a><a name="ensemble"></a>Modelos de conjunto
 
-A regularização é o processo de minimizar uma função de custo para penalizar modelos complexos e sobreajustados. Há diferentes tipos de funções de regularização, mas, em geral, todos eles penalizam o tamanho do coeficiente do modelo, a variância e a complexidade. O ML automatizado usa L1 (laço), L2 (saliência) e ElasticNet (L1 e L2 simultaneamente) em combinações diferentes com configurações de hiperparâmetro de modelo diferentes que controlam o sobreajuste. Em termos simples, o ML automatizado vai variar o quanto um modelo é regulamentado e escolher o melhor resultado.
+O aprendizado automatizado de máquina suporta modelos de conjunto, que são habilitados por padrão. A aprendizagem do conjunto melhora os resultados de aprendizado de máquina e o desempenho preditivo, combinando vários modelos em vez de usar modelos únicos. As iterações do conjunto aparecem como as iterações finais de sua corrida. O aprendizado automatizado de máquina utiliza métodos de conjunto de votação e empilhamento para combinar modelos:
 
-O ML automatizado também implementa limitações de complexidade de modelo explícitas para evitar o ajuste excessivo. Na maioria dos casos, essa implementação é especificamente para algoritmos de árvore de decisão ou de floresta, em que a profundidade máxima da árvore individual é limitada e o número total de árvores usadas nas técnicas de floresta ou Ensemble são limitados.
+* **Votação**: prevê com base na média ponderada das probabilidades de classe previstas (para tarefas de classificação) ou metas de regressão previstas (para tarefas de regressão).
+* **Empilhamento**: o empilhamento combina modelos heterogêneos e treina um metamodelo baseado na saída dos modelos individuais. Os metamodelos padrão atuais são LogisticRegression para tarefas de classificação e ElasticNet para tarefas de regressão/previsão.
 
-A CV (validação cruzada) é o processo de pegar muitos subconjuntos de seus dados de treinamento completos e treinar um modelo em cada subconjunto. A ideia é que um modelo poderia ter "sorte" e ter grande precisão com um subconjunto, mas usando muitos subconjuntos o modelo não atingirá essa alta precisão a cada vez. Ao fazer a CV, você fornece um conjunto de um DataSet de validação, especifica as dobras de CV (número de subconjuntos) e o ML automatizado treinará seu modelo e ajustará os hiperparâmetros para minimizar o erro em seu conjunto de validação. Uma dobra de CV pode ser mais adequada, mas usar muitas delas reduz a probabilidade de que o modelo final seja mais adequado. A compensação é que a vc resulta em tempos de treinamento mais longos e, portanto, um custo maior, porque, em vez de treinar um modelo uma vez, você o treina uma vez para cada um dos *n* conjuntos de vc.
+O [algoritmo de seleção de conjuntos caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) com inicialização de conjunto ordenado é usado para decidir quais modelos usar dentro do conjunto. Em alto nível, este algoritmo inicializa o conjunto com até cinco modelos com as melhores pontuações individuais, e verifica que esses modelos estão dentro do limiar de 5% da melhor pontuação para evitar um conjunto inicial ruim. Em seguida, para cada iteração do conjunto, um novo modelo é adicionado ao conjunto existente e a pontuação resultante é calculada. Se um novo modelo melhorou a pontuação do conjunto existente, o conjunto é atualizado para incluir o novo modelo.
 
-> [!NOTE]
-> A validação cruzada não está habilitada por padrão; Ele deve ser configurado em configurações de ML automatizadas. No entanto, depois que a CV for configurada e um conjunto de dados de validação tiver sido fornecido, o processo será automatizado para você.
+Consulte [o "como fazer"](how-to-configure-auto-train.md#ensemble) para alterar as configurações padrão do conjunto no aprendizado automatizado de máquina.
 
-### <a name="identifying-over-fitting"></a>Identificação de sobreajuste
+## <a name="use-with-onnx-in-c-apps"></a>Usar com ONNX em aplicativos C#
 
-Considere os seguintes modelos treinados e suas imprecisões de treinamento e teste correspondentes.
-
-| Modelo | Precisão do treinamento | Precisão do teste |
-|-------|----------------|---------------|
-| Um | 99,9% | 95% |
-| B | 87% | 87% |
-| C | 99,9% | 45% |
-
-Considerando o modelo **A**, há um equívoco comum de que, se a precisão do teste nos dados não vistos for menor do que a precisão do treinamento, o modelo será superajustado. No entanto, a precisão do teste deve ser sempre menor do que a precisão do treinamento, e a distinção de sobreajuste vs. adequado se ajusta ao *quanto* menos preciso. 
-
-Ao comparar os modelos **a** e **B**, o modelo **A** é um modelo melhor porque tem precisão de teste mais alta e, embora a precisão do teste seja ligeiramente menor do que 95%, não é uma diferença significativa que sugere que o excesso de ajuste esteja presente. Você não escolheria o modelo **B** simplesmente porque as imprecisões de treinamento e de teste estão mais próximas.
-
-O modelo **C** representa um caso claro de sobreajuste; a precisão do treinamento é muito alta, mas a precisão do teste não é quase tão alta. Essa distinção é subjetiva, mas vem do conhecimento de seu problema e dados e de quais magnitudes de erro são aceitáveis. 
-
-## <a name="classification--regression"></a>Regressão de & de classificação
-
-A classificação e a regressão são os tipos mais comuns de tarefas de aprendizado de máquina. Ambos são tipos de aprendizado supervisionado em que os modelos aprendem a usar dados de treinamento e aplicam esses aprendizados a novos dados. O Azure Machine Learning oferece featurizations especificamente para essas tarefas, como featurizers de texto de rede neural profunda para classificação. Saiba mais sobre [as opções de personalização](how-to-use-automated-ml-for-ml-models.md#featurization). 
-
-A principal meta dos modelos de classificação é prever quais categorias novos dados se encaixarão com base em aprendizados de seus dados de treinamento. Exemplos de classificação comuns incluem detecção de fraudes, reconhecimento de manuscrito e detecção de objetos.  Saiba mais e veja um exemplo de [classificação com o Machine Learning automatizado](tutorial-train-models-with-aml.md).
-
-Diferente da classificação em que os valores de saída previstos são categóricos, os modelos de regressão preveem valores de saída numéricos com base em previsões independentes. Na regressão, o objetivo é ajudar a estabelecer a relação entre as variáveis de previsão independentes, estimando como uma variável afeta as outras. Por exemplo, preço de automóvel com base em recursos como, quilometragem de gás, classificação de segurança etc. Saiba mais e veja um exemplo de [regressão com o aprendizado de máquina automatizado](tutorial-auto-train-models.md).
-
-## <a name="time-series-forecasting"></a>Previsão de série temporal
-
-A criação de previsões é parte integrante de qualquer empresa, seja ela de receita, inventário, vendas ou demanda do cliente. Você pode usar o ML automatizado para combinar técnicas e abordagens e obter uma previsão de série temporal de alta qualidade e recomendada.
-
-Um experimento de série temporal automatizado é tratado como um problema de regressão multivariado. Os valores de série temporal anteriores são "dinamizados" para se tornarem dimensões adicionais para o regressor junto com outros previsões. Essa abordagem, ao contrário dos métodos de série temporal clássica, tem uma vantagem de incorporar naturalmente várias variáveis contextuais e sua relação entre si durante o treinamento. O ML automatizado aprende um modelo único, mas geralmente ramificado internamente para todos os itens no conjunto de e horizontes de previsão. Por isso, mais dados estão disponíveis para estimar os parâmetros de modelo e a generalização para uma série não vista se torna possível.
-
-Saiba mais e veja um exemplo de [Machine Learning automatizado para previsão de série temporal](how-to-auto-train-forecast.md). Ou então, consulte o [notebook de demanda de energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obter exemplos de código detalhados de configuração de previsão avançada, incluindo:
-
-* detecção de feriados e personalização
-* série temporal e aprendizes DNN (auto-ARIMA, Prophet, ForecastTCN)
-* muitos modelos dão suporte ao agrupamento
-* validação cruzada de origem sem interrupção
-* retardo configurável
-* recursos agregados de janela sem interrupção
-
-## <a name="ensemble"></a>Modelos de Ensemble
-
-O aprendizado de máquina automatizado dá suporte a modelos Ensemble, que são habilitados por padrão. O Ensemble Learning melhora os resultados do Machine Learning e o desempenho de previsão combinando vários modelos em oposição ao uso de modelos únicos. As iterações Ensemble são exibidas como as iterações finais da sua execução. O Machine Learning automatizado usa os métodos Ensemble de votação e empilhamento para combinar modelos:
-
-* **Votação**: prevê com base na média ponderada das probabilidades de classe prevista (para tarefas de classificação) ou destinos de regressão previstos (para tarefas de regressão).
-* **Empilhamento**: a empilhamento combina modelos heterogêneos e treina um meta-modelo com base na saída dos modelos individuais. Os metamodelos padrão atuais são LogisticRegression para tarefas de classificação e ElasticNet para tarefas de regressão/previsão.
-
-O [algoritmo de seleção Caruana Ensemble](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) com inicialização Ensemble classificada é usado para decidir quais modelos usar dentro do Ensemble. Em um alto nível, esse algoritmo Inicializa o Ensemble com até cinco modelos com as melhores pontuações individuais e verifica se esses modelos estão dentro do limite de 5% da melhor pontuação para evitar uma Ensemble inicial inadequada. Em seguida, para cada iteração Ensemble, um novo modelo é adicionado ao Ensemble existente e a pontuação resultante é calculada. Se um novo modelo tiver melhorado a pontuação Ensemble existente, o Ensemble será atualizado para incluir o novo modelo.
-
-Consulte a [instruções](how-to-configure-auto-train.md#ensemble) para alterar as configurações de Ensemble padrão no Machine Learning automatizado.
-
-## <a name="imbalance"></a>Dados desequilibrados
-
-Dados desequilibrados geralmente são encontrados em dados para cenários de classificação de aprendizado de máquina e referem-se a dados que contêm uma proporção desproporcional de observações em cada classe. Esse desequilíbrio pode levar a um efeito positivo falso e perceptível da precisão de um modelo, pois os dados de entrada têm a tendência de uma classe, o que resulta no modelo treinado para imitar essa tendência. 
-
-Como parte de seu objetivo de simplificar o fluxo de trabalho do Machine Learning, o ML automatizado tem recursos internos para ajudar a lidar com dados desequilibrados, como 
-
-- Uma **coluna de peso**: o ml automatizado dá suporte a uma coluna ponderada como entrada, fazendo com que as linhas nos dados sejam ponderadas ou reduzidas, o que pode tornar uma classe mais ou menos "importante".
-
-- Os algoritmos usados pelo ML automatizado podem lidar corretamente com o desequilíbrio de até 20:1, o que significa que a classe mais comum pode ter 20 vezes mais linhas nos dados do que a classe menos comum.
-
-### <a name="identify-models-with-imbalanced-data"></a>Identificar modelos com dados desbalanceado
-
-Como os algoritmos de classificação geralmente são avaliados por exatidão, a verificação da Pontuação de precisão de um modelo é uma boa maneira de identificar se ele foi afetado por dados desequilibrados. Tem realmente alta precisão ou precisão muito baixa para determinadas classes?
-
-Além disso, as execuções automáticas de ML geram automaticamente os gráficos a seguir, o que pode ajudá-lo a entender a exatidão das classificações do modelo e identificar os modelos potencialmente afetados por dados desequilibrados.
-
-Gráfico| DESCRIÇÃO
----|---
-[Matriz de confusão](how-to-understand-automated-ml.md#confusion-matrix)| Avalia os rótulos classificados corretamente em relação aos rótulos reais dos dados. 
-[Recall de precisão](how-to-understand-automated-ml.md#precision-recall-chart)| Avalia a proporção de rótulos corretos em relação à taxa de instâncias de rótulo encontradas dos dados 
-[Curvas ROC](how-to-understand-automated-ml.md#roc)| Avalia a proporção de rótulos corretos em relação à taxa de rótulos falsos positivos.
-
-### <a name="handle-imbalanced-data"></a>Lidar com dados desbalanceado 
-
-As técnicas a seguir são opções adicionais para lidar com dados desequilibrados fora do ML automatizado. 
-
-- A reamostragem até mesmo do desequilíbrio de classe, seja por amostragem das classes menores ou da amostragem das classes maiores. Esses métodos exigem experiência para processar e analisar.
-
-- Use uma métrica de desempenho que lida melhor com dados desequilibrados. Por exemplo, a pontuação F1 é uma média ponderada de precisão e RECALL. A precisão mede a exatidão de um classificador – a precisão baixa indica um alto número de falsos positivos--,, enquanto a RECALL mede a integridade de um classificador, a RECALL baixa indica um grande número de falsos negativos. 
-
-## <a name="use-with-onnx-in-c-apps"></a>Usar com ONNX em C# aplicativos
-
-Com Azure Machine Learning, você pode usar o ML automatizado para criar um modelo Python e fazer com que ele seja convertido no formato ONNX. O tempo de execução C#do ONNX dá suporte para que você possa usar o modelo C# criado automaticamente em seus aplicativos sem a necessidade de recodificar ou qualquer uma das latências de rede que os pontos de extremidade REST apresentam. Experimente um exemplo desse fluxo [neste Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+Com o Azure Machine Learning, você pode usar ml automatizado para construir um modelo Python e convertê-lo para o formato ONNX. O tempo de execução do ONNX suporta C#, para que você possa usar o modelo construído automaticamente em seus aplicativos C# sem qualquer necessidade de recodificação ou qualquer uma das latências de rede que os pontos finais REST introduzem. Experimente um exemplo desse fluxo [neste caderno Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>ML automatizado no Azure Machine Learning
 
-O Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado
+Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado
 
-* Para clientes experientes em código, [Azure Machine Learning SDK do Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* Para clientes experientes em código, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
-* Para clientes com experiência limitada/sem código, Azure Machine Learning Studio em [https://ml.azure.com](https://ml.azure.com/)  
+* Para clientes com experiência de código limitado/sem código, o estúdio Azure Machine Learning em[https://ml.azure.com](https://ml.azure.com/)  
 
-A seguir, é resumido os recursos de ML automatizados de alto nível com suporte em cada experiência.
+O seguinte resume os recursos de ML automatizados de alto nível suportados em cada experiência.
 
 <a name="parity"></a>
 
 ### <a name="experiment-settings"></a>Configurações do experimento 
 
-As configurações a seguir permitem que você configure seu experimento de ML automatizado. 
+As seguintes configurações permitem configurar seu experimento ML automatizado. 
 
 | | SDK do Python| Studio
 ----|:----:|:----:
-Dividir dados em conjuntos de treinamento/validação| ✓|✓
-Dá suporte a tarefas de ML: classificação, regressão e previsão| ✓| ✓
+Dividir dados em conjuntos de trem/validação| ✓|✓
+Suporta tarefas ml: classificação, regressão e previsão| ✓| ✓
 Otimiza com base na métrica primária| ✓| ✓
-Dá suporte à computação AML como destino de computação | ✓|✓
-Configurar horizonte de previsão, atraso de destino & janela sem interrupção|✓|✓
+Suporta a computação AML como alvo de computação | ✓|✓
+Configurar horizonte de previsão, meta defasa & janela de rolamento|✓|✓
 Definir critérios de saída |✓|✓ 
 Definir iterações simultâneas| ✓|✓
-Remover colunas| ✓|✓
-Algoritmos de bloco|✓|✓
+Colunas de queda| ✓|✓
+Algoritmos de bloqueio|✓|✓
 Validação cruzada |✓|✓
-Dá suporte ao treinamento em clusters Azure Databricks| ✓|
-Exibir nomes de recursos com engenharia|✓|
-Resumo de personalização| ✓|
-Personalização de Natal|✓|
+Suporta treinamento em clusters Azure Databricks| ✓|
+Exibir nomes de recursos projetados|✓|
+Resumo da featurização| ✓|
+Featurização de feriados|✓|
 Nível de verbosidade para arquivos de log| ✓|
 
-### <a name="model-settings"></a>Configurações de modelo
+### <a name="model-settings"></a>Configurações do modelo
 
-Essas configurações podem ser aplicadas ao melhor modelo como resultado de seu experimento de ML automatizado.
+Essas configurações podem ser aplicadas ao melhor modelo como resultado do seu experimento ml automatizado.
 
 ||SDK do Python|Studio
 ----|:----:|:----:
 Melhor registro de modelo| ✓|✓
 Melhor implantação de modelo| ✓| ✓
-Melhor explicação do modelo| ✓|✓
-Habilitar Ensemble de votação & os modelos de Ensemble de pilha| ✓|✓
-Mostrar o melhor modelo com base na métrica não primária|✓|Habilitar/desabilitar a compatibilidade do modelo de ONNX|✓|
+Melhor explicabilidade do modelo| ✓|✓
+Habilite o conjunto de votação & modelos de conjunto de pilha| ✓|✓
+Mostrar o melhor modelo com base na métrica não primária|✓|
+Ativar/desativar a compatibilidade do modelo ONNX|✓|
 Testar o modelo | ✓| |
 
 ### <a name="run-control-settings"></a>Executar configurações de controle
 
-Essas configurações permitem que você examine e controle suas execuções de experimento e suas execuções filhas. 
+Essas configurações permitem que você revise e controle suas corridas de experimento saem e seu filho é executado. 
 
 ||SDK do Python| Studio
 ----|:----:|:----:
-Tabela de Resumo de execução| ✓|✓
+Executar tabela de resumo| ✓|✓
 Cancelar execução| ✓|✓
-Cancelar execução de filho| ✓| ✓
+Cancelar corrida de crianças| ✓| ✓
 Obter guardrails| ✓|✓
-Pausar execução| ✓| 
+Pausa de execução| ✓| 
 Retomar execução| ✓| 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja exemplos e aprenda a criar modelos usando o aprendizado de máquina automatizado:
+Veja exemplos e aprenda a construir modelos usando aprendizado automático de máquina:
 
-+ Siga o [tutorial: treinar automaticamente um modelo de regressão com Azure Machine Learning](tutorial-auto-train-models.md)
++ Siga o [Tutorial: Treine automaticamente um modelo de regressão com o Azure Machine Learning](tutorial-auto-train-models.md)
 
-+ Defina as configurações para o teste de treinamento automático:
-  + No Azure Machine Learning Studio, [Use estas etapas](how-to-use-automated-ml-for-ml-models.md).
-  + Com o SDK do Python, [Use estas etapas](how-to-configure-auto-train.md).
++ Configure as configurações para experimento de treinamento automático:
+  + No estúdio Azure Machine Learning, [use essas etapas](how-to-use-automated-ml-for-ml-models.md).
+  + Com o Python SDK, [use essas etapas](how-to-configure-auto-train.md).
 
-+ Saiba como treinar automaticamente usando dados de série temporal, [Use estas etapas](how-to-auto-train-forecast.md).
++ Aprenda a treinar automaticamente usando dados de séries tempois, [use essas etapas](how-to-auto-train-forecast.md).
 
-+ Experimente [Jupyter Notebook amostras para o aprendizado de máquina automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
++ Experimente [amostras do Jupyter Notebook para aprendizado automático de máquina](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
-* O ML automatizado também está disponível em outras soluções da Microsoft, como [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
+* O AUTOMATED ML também está disponível em outras soluções da Microsoft, como, [ML.NET,](https://docs.microsoft.com/dotnet/machine-learning/automl-overview) [HDInsight,](../hdinsight/spark/apache-spark-run-machine-learning-automl.md) [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

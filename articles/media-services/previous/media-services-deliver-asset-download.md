@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61465653"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Como: Fornecer um ativo por download  
+# <a name="how-to-deliver-an-asset-by-download"></a>Como: Entregar um ativo por download  
 Este artigo descreve as opções para entregar os ativos de mídia carregados nos Serviços de Mídia. Você pode entregar conteúdo dos Serviços de Mídia em vários cenários de aplicativos. Após a codificação, faça o download dos ativos de mídia gerados ou acesse-os usando um localizador de streaming. Para melhor desempenho e escalabilidade, você também pode fornecer conteúdo usando uma CDN (Rede de Entrega de Conteúdo).
 
 Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no computador local. O código consulta os trabalhos associados à conta dos Serviços de Mídia por ID do trabalho e acessa sua coleção **OutputMediaAssets** (que é o conjunto de um ou mais ativos de mídia de saída que resulta da execução de um trabalho). Este exemplo mostra como baixar os ativos de mídia da saída de um trabalho, mas você pode aplicar a mesma abordagem para baixar outros ativos.
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não upload). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não upload). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -87,6 +87,6 @@ Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no comp
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Fornecer conteúdo de streaming](media-services-deliver-streaming-content.md)
 

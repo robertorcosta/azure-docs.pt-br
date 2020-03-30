@@ -1,29 +1,28 @@
 ---
-title: Gerenciamento Remoto do Windows sobre HTTPS para o Azure | Azure Marketplace
-description: Explica como configurar uma VM do Windows hospedada no Azure para que ela possa ser gerenciada remotamente com o PowerShell.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Gerenciamento remoto do Windows sobre HTTPS para Azure | Mercado Azure
+description: Explica como configurar uma VM baseada no Windows hospedada no Azure para que possa ser gerenciada remotamente com o PowerShell.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pabutler
-ms.openlocfilehash: e39f83b2ed715afbfff69770c151cfc4d527105d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.author: dsindona
+ms.openlocfilehash: 7c799c4a56ee5fc2074e4d644bdbcbc6d2b1ca5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132266"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288743"
 ---
 # <a name="windows-remote-management-over-https"></a>Gerenciamento remoto do Windows por HTTPS
 
 Esta seção explica como configurar uma VM hospedada no Azure, com base no Windows, para que ela possa ser gerenciada e implantada remotamente com o PowerShell.  Para habilitar a comunicação remota do PowerShell, a VM de destino precisa expor um ponto de extremidade HTTPS do WinRM (Gerenciamento Remoto do Windows).  Para obter mais informações sobre a comunicação remota do PowerShell, confira [Executando comandos remotos](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  Para obter mais informações sobre o WinRM, confira [Gerenciamento Remoto do Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Se você tiver criado uma VM usando uma das abordagens "clássicas" do Azure – o portal do Azure Service Manager ou a [API de Gerenciamento de Serviços do Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)) preterida – ela estará configurada automaticamente com um ponto de extremidade do WinRM.  No entanto, se você criar uma VM usando qualquer uma das abordagens "modernas” do Azure, a VM *não* estará configurada para usar WinRM por HTTPS.
+Se você criou uma VM usando uma das abordagens "clássicas" do Azure — seja o Portal do Gerente de Serviços do Azure ou a API de gerenciamento de [serviços do Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))depreciada — ela será configurada automaticamente com um ponto final do WinRM.  No entanto, se você criar uma VM usando qualquer uma das abordagens "modernas” do Azure, a VM *não* estará configurada para usar WinRM por HTTPS.
 
 - Usando o [portal do Azure](https://portal.azure.com/), normalmente de uma base aprovada, conforme descrito na seção [Criar um VHD compatível com o Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Usando os modelos do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
-- Usando o shell de comando do Azure PowerShell ou da CLI do Azure.  Para obter exemplos, consulte [início rápido: criar uma máquina virtual do Windows no Azure com o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [o início rápido: criar uma máquina virtual Linux com o CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
+- Usando o shell de comando do Azure PowerShell ou da CLI do Azure.  Por exemplos, consulte [Quickstart: Crie uma máquina virtual do Windows no Azure com PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) e [Quickstart: Crie uma máquina virtual Linux com o Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli).
 
 Esse ponto de extremidade do WinRM também é necessário para executar o kit da ferramenta de certificação para a integração da VM, conforme descrito em [Certificar sua imagem de VM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
 

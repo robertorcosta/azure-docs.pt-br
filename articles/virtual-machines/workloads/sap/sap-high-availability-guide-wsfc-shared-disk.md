@@ -1,5 +1,5 @@
 ---
-title: Instância do SAP ASCS/SCS do cluster no WSFC usando disco compartilhado no Azure | Microsoft Docs
+title: Cluster sap ascs/scs instância no WSFC usando disco compartilhado no Azure | Microsoft Docs
 description: Saiba como clusterizar uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8156f8706828afae30889b3250cf0b26252bf394
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598469"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -191,10 +191,10 @@ O Windows Server Failover Clustering é a base de uma instalação do SAP ASCS/S
 
 Um cluster de failover é um grupo de 1+n servidores independentes (nós) que funcionam juntos para aumentar a disponibilidade de aplicativos e serviços. Se ocorrer uma falha de nó, o clustering de failover do Windows Server calculará o número de falhas que podem ocorrer e manterá um cluster íntegro para fornecer serviços e aplicativos. Você pode escolher dentre diferentes modos de quorum para obter o clustering de failover.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de iniciar as tarefas neste artigo, examine o seguinte artigo:
 
-* [Arquitetura e cenários de alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver][sap-high-availability-architecture-scenarios]
+* [Arquitetura e Cenários de Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
 
 ## <a name="windows-server-failover-clustering-in-azure"></a>Clustering de Failover do Windows Server no Azure
@@ -219,7 +219,7 @@ No Windows, uma instância do SAP ASCS/SCS contém os serviços centrais do SAP,
 Uma instância do SAP ASCS/SCS tem os seguintes componentes:
 
 * Serviços centrais do SAP:
-    * Dois processos, um servidor de mensagens e de enfileiramento, e um \<nome de host virtual do ASCS/SCS >, que é usado para acessar esses dois processos.
+    * Dois processos, um servidor de mensagens \<e enqueue, e um nome de host virtual ASCS/SCS>, que é usado para acessar esses dois processos.
     * Estrutura do arquivo: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<número da instância\>
 
 
@@ -227,22 +227,22 @@ Uma instância do SAP ASCS/SCS tem os seguintes componentes:
   * Estrutura de arquivos: S:\usr\sap\\&lt;SID&gt;\SYS\..
   * O compartilhamento do arquivo sapmnt, que habilita o acesso a esses arquivos S:\usr\sap\\&lt;SID&gt;\SYS\.. globais usando o seguinte caminho UNC:
 
-    \\\\< nome de host virtual ASCS/SCS\>\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\\><nome de host virtual ASCS/SCS \sapmnt\\&lt;SID&gt;\SYS\...
 
 
 ![Figura 2: Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Figura 2:** Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt do host GLOBAL de uma instância SAP ASCS/SCS_
+_**Figura 2:** Processos, estrutura de arquivos e compartilhamento global de arquivos sapmnt de uma instância SAP ASCS/SCS_
 
 Em uma configuração de alta disponibilidade, você clusteriza instâncias do SAP ASCS/SCS. Nós usamos os *discos compartilhados clusterizados* (unidade S, em nosso exemplo), para posicionarmos os arquivos de host global do SAP ASCS/SCS e do SAP.
 
 ![Figura 3: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8002]
 
-_**Figura 3:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
+_**Figura 3:** Arquitetura HA SAP ASCS/SCS com disco compartilhado_
 
 > [!IMPORTANT]
 > Estes dois componentes são executados sob a mesma instância SAP ASCS/SCS:
->* O mesmo \<nome de host virtual ASCS/SCS > é usado para acessar a mensagem SAP e enfileirar processos de servidor e os arquivos de host global do SAP por meio do compartilhamento de arquivos sapmnt.
+>* O \<mesmo nome de host virtual ASCS/SCS> é usado para acessar os processos de mensagem SAP e servidor enqueue e os arquivos de host globais SAP através do compartilhamento de arquivos sapmnt.
 >* A mesma unidade de disco S compartilhada de cluster é compartilhada entre eles.
 >
 
@@ -275,6 +275,6 @@ _**Figura 5:** Configuração do Clustering de Failover do Windows Server no Azu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e um disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* [Instalar o SAP NetWeaver HA em um cluster de failover do Windows e em um disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]
+* [Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e em um disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]

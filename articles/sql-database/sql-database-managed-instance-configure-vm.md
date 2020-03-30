@@ -1,5 +1,5 @@
 ---
-title: Conectar a instância gerenciada da VM do cliente
+title: Conectar vm cliente - instância gerenciada
 description: Conecte-se a uma Instância Gerenciada do Banco de Dados SQL do Azure usando o SQL Server Management Studio de uma máquina virtual do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839041"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guia de início rápido: configurar a VM do Azure para se conectar a uma Instância Gerenciada do Banco de Dados SQL do Azure
@@ -26,9 +26,9 @@ Este início rápido demonstra como configurar uma máquina virtual do Azure par
 
 Este início rápido usa os recursos criados em [Criar uma Instância Gerenciada](sql-database-managed-instance-get-started.md) como um ponto de partida.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Faça login no [portal Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Criar uma nova sub-rede na VNet de Instância Gerenciada
 
@@ -44,14 +44,14 @@ As etapas a seguir criam uma sub-rede na VNet da Instância Gerenciada para uma 
 
 3. Preencha o formulário usando as informações nesta tabela:
 
-   | Configuração| Valor sugerido | DESCRIÇÃO |
+   | Configuração| Valor sugerido | Descrição |
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualquer nome válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Um intervalo válido | O valor padrão é bom para este início rápido.|
    | **Grupo de segurança de rede** | Nenhum | O valor padrão é bom para este início rápido.|
    | **Tabela de rotas** | Nenhum | O valor padrão é bom para este início rápido.|
-   | **Pontos de extremidade de serviço** | 0 selecionado | O valor padrão é bom para este início rápido.|
-   | **Delegação de sub-rede** | Nenhum | O valor padrão é bom para este início rápido.|
+   | **Pontos finais de serviço** | 0 selecionado | O valor padrão é bom para este início rápido.|
+   | **Delegação da sub-rede** | Nenhum | O valor padrão é bom para este início rápido.|
 
    ![Nova sub-rede de Instância Gerenciada para a VM do cliente](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
@@ -67,26 +67,26 @@ Uma vez que a Instância Gerenciada do SQL é colocada na sua Rede Virtual priva
 
 A maneira mais fácil de criar uma máquina virtual cliente com todas as ferramentas necessárias é usar os modelos do Azure Resource Manager.
 
-1. Verifique se você está conectado ao portal do Azure em outra guia do navegador. Em seguida, selecione o seguinte botão para criar uma máquina virtual do cliente e instalar SQL Server Management Studio:
+1. Certifique-se de que você está conectado ao portal Azure em outra guia do navegador. Em seguida, selecione o botão a seguir para criar uma máquina virtual cliente e instale o SQL Server Management Studio:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. Preencha o formulário usando as informações na tabela a seguir:
 
-   | Configuração| Valor sugerido | DESCRIÇÃO |
+   | Configuração| Valor sugerido | Descrição |
    | ---------------- | ----------------- | ----------- |
    | **Assinatura** | Uma assinatura válida | Precisa ser uma assinatura na qual você tem permissão para criar novos recursos. |
    | **Grupo de recursos** |O grupo de recursos que você especificou no início rápido [Criar Instância Gerenciada](sql-database-managed-instance-get-started.md).|Esse grupo de recursos precisa ser aquele no qual a VNet existe.|
-   | **Localidade** | O local para o grupo de recursos | Esse valor é preenchido com base no grupo de recursos selecionado. |
+   | **Local** | O local para o grupo de recursos | Esse valor é preenchido com base no grupo de recursos selecionado. |
    | **Nome da máquina virtual**  | Qualquer nome válido | Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
-   |**Nome de Usuário do Administrador**|Qualquer nome de usuário válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). Não use "serveradmin", que é uma função de nível de servidor reservada.<br>Você usa esse nome de usuário sempre que você [se conecta à VM](#connect-to-virtual-machine).|
+   |**Nome de usuário do admin**|Qualquer nome de usuário válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). Não use "serveradmin", que é uma função de nível de servidor reservada.<br>Você usa esse nome de usuário sempre que você [se conecta à VM](#connect-to-virtual-machine).|
    |**Senha**|Qualquer senha válida|A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Você usa essa senha sempre que você [se conecta à VM](#connect-to-virtual-machine).|
-   | **Tamanho da Máquina Virtual** | Qualquer tamanho válido | O padrão neste modelo de **Standard_B2s** é suficiente para este início rápido. |
-   | **Localidade**|[resourceGroup().location].| Não altere esse valor. |
-   | **Nome da Rede Virtual**|A rede virtual na qual você criou a Instância Gerenciada.|
+   | **Tamanho da máquina virtual** | Qualquer tamanho válido | O padrão neste modelo de **Standard_B2s** é suficiente para este início rápido. |
+   | **Local**|[resourceGroup().location].| Não altere esse valor. |
+   | **Nome da rede virtual**|A rede virtual na qual você criou a Instância Gerenciada.|
    | **Nome da sub-rede**|O nome da sub-rede que você criou no procedimento anterior| Não escolha a sub-rede na qual você criou a Instância Gerenciada.|
-   | **Localização de artefatos** | [deployment().properties.templateLink.uri] | Não altere esse valor. |
-   | **token SAS de Localização de artefatos** | deixar em branco | Não altere esse valor. |
+   | **artefatos Localização** | [deployment().properties.templateLink.uri] | Não altere esse valor. |
+   | **artefatos Localização Sas token** | deixar em branco | Não altere esse valor. |
 
    ![criar VM cliente](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
@@ -113,7 +113,7 @@ As etapas a seguir mostram como se conectar à sua máquina virtual recém-criad
 
    ![Formulário do RDP](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
-3. Selecione **Baixar Arquivo RDP**.
+3. Selecione **Baixar arquivo RDP**.
 
    > [!NOTE]
    > Você também pode usa SSH para se conectar à VM.
@@ -141,6 +141,6 @@ Depois de se conectar, você pode exibir seus bancos de dados do sistema e do us
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para ver um início rápido que mostra como se conectar de um computador cliente local usando uma conexão ponto a site, confira [Configurar uma conexão ponto a site](sql-database-managed-instance-configure-p2s.md).
+- Para obter uma conexão rápida mostrando como se conectar a partir de um computador cliente local usando uma conexão ponto a local, consulte [Configurar uma conexão ponto a local](sql-database-managed-instance-configure-p2s.md).
 - Para obter uma visão geral das opções de conexão para aplicativos, confira [Conectar seus aplicativos à Instância Gerenciada](sql-database-managed-instance-connect-app.md).
-- Para restaurar um banco de dados do SQL Server existente do local para uma Instância Gerenciada, use o [DMS (Serviço de Migração de Banco de Dados do Azure) para realizar a migração](../dms/tutorial-sql-server-to-managed-instance.md) ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar de um arquivo de backup do banco de dados.
+- Para restaurar um banco de dados SQL Server existente de locais para uma instância gerenciada, você pode usar o [DMS (Azure Database Migration Service, serviço de migração de banco de dados) para migração](../dms/tutorial-sql-server-to-managed-instance.md) ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um arquivo de backup do banco de dados.

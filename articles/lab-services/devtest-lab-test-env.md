@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: c6b458091a8e5e22cca55d401e89e5e13bcf9de9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60623164"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Usar o Azure DevTest Labs para ambientes de teste de VM e PaaS
@@ -80,7 +80,7 @@ Neste artigo, você aprende sobre os diversos recursos do Azure DevTest Labs usa
    
    | Tarefa | O que você aprenderá |
    | --- | --- |
-   | [Crie ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md) |Saiba como você pode implantar várias VMs em um estado consistente no ambiente de teste.|
+   | [Criar ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md) |Saiba como você pode implantar várias VMs em um estado consistente no ambiente de teste.|
 
 4. **Criar artefatos para permitir a personalização de VM flexível**
 
@@ -96,7 +96,7 @@ Neste artigo, você aprende sobre os diversos recursos do Azure DevTest Labs usa
    
    | Tarefa | O que você aprenderá |
    | --- | --- |
-   | [Criar artefatos personalizados para suas VM dos Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md) |Crie seus próprio artefatos personalizados para as máquinas virtuais em seu laboratório.|
+   | [Criar artefatos personalizados para suas VM dos Laboratórios de Desenvolvimento/Teste.](devtest-lab-artifact-author.md) |Crie seus próprio artefatos personalizados para as máquinas virtuais em seu laboratório.|
    | [Adicionar um repositório Git para armazenar os artefatos personalizados e modelos do Azure Resource Manager para uso no Azure DevTest Labs](devtest-lab-add-artifact-repo.md) |Saiba como armazenar os artefatos personalizados em seu próprio repositório de Git privado.|
 
 5. **Controlar os custos**

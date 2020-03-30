@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278526"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerenciar o Cache do Azure para Redis com o Azure PowerShell
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
-> * [CLI do Azure](cache-manage-cli.md)
+> * [Powershell](cache-how-to-manage-redis-cache-powershell.md)
+> * [Azure CLI](cache-manage-cli.md)
 > 
 > 
 
@@ -28,7 +28,7 @@ Este tópico mostra como executar tarefas comuns, como criar, atualizar e dimens
 
 Para obter mais informações sobre o modelo de implantação clássico, consulte [Implantação do Azure Resource Manager versus clássica: Entenda os modelos de implantação e o estado de seus recursos](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão do Azure PowerShell instalada com o comando este comando no prompt de comando do Azure PowerShell.
 
     Get-Module Az | format-table version
@@ -117,7 +117,7 @@ Para obter mais informações sobre o Microsoft Azure Alemanha, consulte [Micros
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Propriedades usadas pelo PowerShell do Cache do Azure para Redis
 A tabela a seguir contém as propriedades e as descrições dos parâmetros usados ao criar e gerenciar suas instâncias do Cache do Azure para Redis usando o Azure PowerShell.
 
-| Parâmetro | DESCRIÇÃO | Padrão |
+| Parâmetro | Descrição | Padrão |
 | --- | --- | --- |
 | Nome |Nome do cache | |
 | Location |Local do cache | |
@@ -134,7 +134,7 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 | KeyType |Especifica qual chave de acesso regenerar durante a renovação das chaves de acesso. Os valores válidos são: Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>propriedades RedisConfiguration
-| Propriedade | DESCRIÇÃO | Tipos de preço |
+| Propriedade | Descrição | Tipos de preço |
 | --- | --- | --- |
 | rdb-backup-enabled |Se [persistência de dados Redis](cache-how-to-premium-persistence.md) está habilitada |Somente Premium |
 | rdb-storage-connection-string |A cadeia de conexão da conta de armazenamento para [persistência de dados Redis](cache-how-to-premium-persistence.md) |Somente Premium |
@@ -714,7 +714,7 @@ O comando a seguir exporta dados de uma instância de Cache do Azure para Redis 
 Você pode reiniciar a instância de Cache do Azure para Redis usando o cmdlet `Reset-AzRedisCache`.
 
 > [!IMPORTANT]
-> A reinicialização está disponível somente para caches do [tipo Premium](cache-premium-tier-intro.md) . Para saber mais sobre a reinicialização de seu cache, confira [Administração de cache - reinicializar](cache-administration.md#reboot).
+> A reinicialização só está disponível para caches [de nível premium.](cache-premium-tier-intro.md) Para saber mais sobre a reinicialização de seu cache, confira [Administração de cache - reinicializar](cache-administration.md#reboot).
 > 
 > 
 

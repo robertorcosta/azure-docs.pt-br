@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c1f321f452b65016c11cb66d08ebab108509cc62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61448385"
 ---
 # <a name="deploy-a-custom-device-simulation-docker-image"></a>Implantar uma imagem personalizada do Docker da Simulação de Dispositivo
@@ -27,7 +27,7 @@ As etapas deste guia de instruções mostram como:
 1. Configurar a Simulação de Dispositivo para usar sua nova imagem do Docker
 1. Executar uma simulação usando a nova imagem
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste guia de instruções, você precisará de:
 

@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212198"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push Avançado dos Hubs de Notificação do Azure
@@ -137,7 +137,7 @@ Em um alto nível:
     }
     ```
 8. Agora, reimplantaremos esse aplicativo em um Site do Azure para torná-lo acessível a partir de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
-9. Selecione o Site do Azure como seu destino de publicação. Faça logon em sua conta do Azure e selecione um site novo ou existente, então anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
+9. Selecione o Site do Azure como seu destino de publicação. Faça login com sua conta do Azure e selecione um site existente ou novo e anote a propriedade url de **destino** na guia **Conexão.** Vamos nos referir a esta URL como seu *ponto final backend* mais tarde neste tutorial. Clique em **Publicar**.
 
 ## <a name="modify-the-ios-project"></a>Modificar o projeto iOS
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 4d4e68d99585522e773e71430b4e4f37ad7b1580
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 7a241d3144b6220d0084b61de2dde7c36a68c257
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67172324"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335138"
 ---
-Os limites a seguir se aplicam a Azure Site Recovery.
+Os seguintes limites se aplicam à Recuperação do Site do Azure.
 
-| Identificador de limite | Limite padrão |
+| Identificador de limite | Limite |
 | --- | --- |
 | Número de cofres por assinatura |500 |     
 | Número de servidores por cofre do Azure |250 |

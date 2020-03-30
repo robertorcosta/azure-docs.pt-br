@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265955"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
@@ -26,15 +26,15 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 Os modelos desta seção permitem personalizar o conteúdo das páginas de API no portal do desenvolvedor.  
   
--   [Lista de APIs](#APIList)  
+-   [Lista de API](#APIList)  
 -   [Operação](#Product)  
 -   [Exemplos de código](#CodeSamples)  
     -   [Curl](#Curl)  
-    -   [C#](#CSharp)  
+    -   [C #](#CSharp)  
     -   [Java](#Stub)  
-    -   [JavaScript](#JavaScript)  
-    -   [Objective C](#ObjectiveC)  
-    -   [PHP](#PHP)  
+    -   [Javascript](#JavaScript)  
+    -   [Objetivo C](#ObjectiveC)  
+    -   [Php](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
 
@@ -45,10 +45,10 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="APIList"></a> Lista de APIs  
+## <a name="api-list"></a><a name="APIList"></a> Lista de APIs  
  O modelo **Lista de APIs** possibilita personalizar o corpo da página de lista de APIs no portal do desenvolvedor.  
   
- ![Lista de APIs do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista de API de modelos do APIM Developer Portal")  
+ ![Lista de API do Portal do Desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Lista de API do Portal de Desenvolvedores aPIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -85,11 +85,11 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [search-control](api-management-page-controls.md#search-control)  
+-   [controle de pesquisa](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`apis`|Coleção de entidades de [Resumo da API](api-management-template-data-model-reference.md#APISummary).|As APIs visíveis para o usuário atual.|  
   
@@ -113,10 +113,10 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-## <a name="Product"></a> Operação  
+## <a name="operation"></a><a name="Product"></a>Operação  
  O modelo **Operação** permite personalizar o corpo da página de operação no portal do desenvolvedor.  
   
- ![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor do APIM")  
+ ![Página de Operação do Portal do Desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação do APIM Developer Portal")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -344,9 +344,9 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
-|`apiId`|string|A ID da API atual.|  
+|`apiId`|string|O ID da API atual.|  
 |`apiName`|string|O nome da API.|  
 |`apiDescription`|string|Uma descrição para a API.|  
 |`api`|Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).|A API atual.|  
@@ -643,28 +643,28 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-## <a name="CodeSamples"></a> Exemplos de código  
+## <a name="code-samples"></a><a name="CodeSamples"></a> Exemplos de código  
  Os modelos a seguir permitem que você personalize o corpo dos exemplos de código individuais na página de operação.  
   
- ![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor APIM")  
+ ![Modelos de código do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Amostras de código")  
   
 -   [Curl](#Curl)  
   
--   [C#](#CSharp)  
+-   [C #](#CSharp)  
   
 -   [Java](#Stub)  
   
--   [JavaScript](#JavaScript)  
+-   [Javascript](#JavaScript)  
   
--   [Objective C](#ObjectiveC)  
+-   [Objetivo C](#ObjectiveC)  
   
--   [PHP](#PHP)  
+-   [Php](#PHP)  
   
 -   [Python](#Python)  
   
 -   [Ruby](#Ruby)  
   
-### <a name="Curl"></a> Curl  
+### <a name="curl"></a><a name="Curl"></a>Onda  
  O modelo **DocumentationSamplesCurl** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -717,7 +717,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="CSharp"></a> C#  
+### <a name="c"></a><a name="CSharp"></a>C #  
  O modelo **DocumentationSamplesCsharp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -896,7 +896,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="Stub"></a> Java  
+### <a name="java"></a><a name="Stub"></a>Java  
  O modelo **DocumentationSamplesJava** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -992,7 +992,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="JavaScript"></a> JavaScript  
+### <a name="javascript"></a><a name="JavaScript"></a>Javascript  
  O modelo **DocumentationSamplesJs** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1081,7 +1081,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="ObjectiveC"></a> Objective C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> Objective C  
  O modelo **DocumentationSamplesObjc** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1193,7 +1193,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="PHP"></a> PHP  
+### <a name="php"></a><a name="PHP"></a>Php  
  O modelo **DocumentationSamplesPhp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1283,7 +1283,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="Python"></a> Python  
+### <a name="python"></a><a name="Python"></a>Python  
  O modelo **DocumentationSamplesPython** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -1401,7 +1401,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="Ruby"></a> Ruby  
+### <a name="ruby"></a><a name="Ruby"></a> Ruby  
  O modelo **DocumentationSamplesRuby** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  

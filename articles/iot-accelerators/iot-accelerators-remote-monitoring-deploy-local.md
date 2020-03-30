@@ -1,5 +1,5 @@
 ---
-title: Implantar solução de monitoramento remoto localmente-VS IDE-Azure | Microsoft Docs
+title: Implantar solução de monitoramento remoto localmente - VS IDE - Azure | Microsoft Docs
 description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto no computador local usando o Visual Studio para teste e desenvolvimento.
 author: avneet723
 manager: hegate
@@ -9,25 +9,25 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890880"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implantar o acelerador da solução de monitoramento remoto localmente - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Você aprenderá como executar os microsserviços no Visual Studio. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: IoT Hub, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
+Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Você aprenderá como executar os microsserviços no Visual Studio. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: Hub IoT, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
 
 Se você quiser executar o acelerador de solução de Monitoramento Remoto no Docker em seu computador local, confira [Implantar o acelerador de solução de Monitoramento Remoto localmente – Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para implantar os serviços do Azure usados pelo acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
-Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Configuração do computador
 
@@ -80,12 +80,12 @@ Cada serviço Web abre uma janela do navegador e do prompt de comando. No prompt
 
 ### <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho do Stream Analytics
 
-Siga estas etapas para iniciar o trabalho de Stream Analytics:
+Execute estas etapas para iniciar o trabalho do Stream Analytics:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome da solução que você escolheu quando executou o script **start.cmd**.
+1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome que você escolheu para sua solução quando executou o script **start.cmd.**
 1. Clique no **trabalho do Stream Analytics** na lista de recursos.
-1. Na página **visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Depois, clique em **Iniciar** para iniciar o trabalho agora.
+1. Na página **visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Clique em **Iniciar** para iniciar o trabalho.
 
 ### <a name="run-the-web-ui"></a>Executar a interface do usuário da Web
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Quando o início for concluído, o navegador exibirá a página **http:\//localhost: 3000/Dashboard**. São esperados erros nessa página. Para exibir o aplicativo sem erros, conclua a etapa a seguir.
+Quando a partida estiver concluída, seu navegador exibe a página **\/http: /localhost:3000/dashboard**. São esperados erros nessa página. Para exibir o aplicativo sem erros, conclua a etapa a seguir.
 
 ### <a name="configure-and-run-nginx"></a>Configurar e executar o NGINX
 
@@ -107,9 +107,9 @@ Configure um servidor proxy reverso para vincular o aplicativo Web e os microsse
 
 Para saber mais sobre como executar **nginx**, confira [nginx para Windows](https://nginx.org/en/docs/windows.html).
 
-### <a name="connect-to-the-dashboard"></a>Conecte-se ao painel
+### <a name="connect-to-the-dashboard"></a>Conectar-se ao painel
 
-Para acessar o painel da solução de monitoramento remoto, navegue até http:\//localhost: 9000 em seu navegador.
+Para acessar o painel de soluções\/de monitoramento remoto, navegue para http: /localhost:9000 no seu navegador.
 
 ## <a name="clean-up"></a>Limpar
 

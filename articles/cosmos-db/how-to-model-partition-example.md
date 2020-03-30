@@ -1,5 +1,5 @@
 ---
-title: Modelar e particionar dados em Azure Cosmos DB com um exemplo do mundo real
+title: Dados de modelo e partição no Azure Cosmos DB com um exemplo do mundo real
 description: Saiba como modelar e particionar um exemplo do mundo real usando a API do núcleo do Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445387"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
@@ -43,21 +43,21 @@ Para facilitar o processo geral a seguir, podemos categorizar essas diferentes s
 Aqui está a lista de solicitações que nossa plataforma terá de expor:
 
 - **[C1]** Criar/editar um usuário
-- **[Q1]** Recuperar um usuário
+- **[Q1]** Recupere um usuário
 - **[C2]** Criar/editar um post
 - **[Q2]** Recuperar um post
 - **[Q3]** Listar os posts de um usuário na forma abreviada
-- **[C3]** Criar um comentário
-- **[Q4]** Listar os comentários de um post
+- **[C3]** Crie um comentário
+- **[Q4]** Liste os comentários de um post
 - **[C4]** Curtir um post
-- **[Q5]**  Listar as curtidas de um post
-- **[Q6]** Listar os *x* posts mais recentes criados na forma abreviada (feed)
+- **[Q5] ** Listar as curtidas de um post
+- **[Q6]** Liste os posts *x* mais recentes criados em forma curta (feed)
 
-Neste estágio, ainda não pensamos sobre os detalhes do que cada entidade (usuário, post etc.) conterá. Essa etapa geralmente está entre os primeiros a serem resolvidos durante a criação em um relational store, pois precisamos descobrir como essas entidades serão traduzidas em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com um banco de dados de documentos que não impõe nenhum esquema na gravação.
+Neste estágio, ainda não pensamos sobre os detalhes do que cada entidade (usuário, post etc.) conterá. Esta etapa geralmente está entre as primeiras a serem abordadas ao projetar contra uma loja relacional, porque temos que descobrir como essas entidades se traduzirão em termos de tabelas, colunas, chaves estrangeiras etc. É muito menos uma preocupação com um banco de dados de documentos que não aplica nenhum esquema na gravação.
 
 O principal motivo pelo qual é importante identificar os nossos padrões de acesso desde o início é porque essa lista de solicitações vai ser o nosso conjunto de testes. Sempre que iteramos pelo nosso modelo de dados, percorremos cada uma das solicitações e verificamos os respectivos desempenho e escalabilidade.
 
-## <a name="v1-a-first-version"></a>V1: uma primeira versão
+## <a name="v1-a-first-version"></a>V1: Uma primeira versão
 
 Começamos com dois contêineres: `users` e `posts`.
 
@@ -140,7 +140,7 @@ A recuperação de um usuário é realizada lendo-se o item correspondente do co
 
 ### <a name="c2-createedit-a-post"></a>[C2] Criar/editar um post
 
-Da mesma forma que **[C1]** , temos apenas que gravar o contêiner `posts`.
+Da mesma forma que **[C1]**, temos apenas que gravar o contêiner `posts`.
 
 ![Gravar um único item no contêiner de posts](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -199,7 +199,7 @@ Embora a consulta principal filtre na chave de partição do contêiner, agregar
 
 ### <a name="c4-like-a-post"></a>[C4] Curtir um post
 
-Assim como **[C3]** , criamos o item correspondente no contêiner `posts`.
+Assim como **[C3]**, criamos o item correspondente no contêiner `posts`.
 
 ![Gravar um único item no contêiner de posts](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -209,7 +209,7 @@ Assim como **[C3]** , criamos o item correspondente no contêiner `posts`.
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Listar as curtidas de um post
 
-Assim como em **[Q4]** , podemos consultar as curtidas desse post e, em seguida, agregar os respectivos nomes de usuário.
+Assim como em **[Q4]**, podemos consultar as curtidas desse post e, em seguida, agregar os respectivos nomes de usuário.
 
 ![Recuperar todas as curtidas de um post e agregar os respectivos dados adicionais](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -223,7 +223,7 @@ Buscamos os posts mais recentes consultando o contêiner `posts` classificado po
 
 ![Recuperar os posts mais recentes e agregar seus dados adicionais](./media/how-to-model-partition-example/V1-Q6.png)
 
-Mais uma vez, nossa consulta inicial não filtra a chave de partição do contêiner `posts`, que dispara um fan-out dispendioso. Essa é ainda pior, pois visamos um conjunto de resultados muito maior e classificamos os resultados com uma cláusula `ORDER BY`, o que o torna mais caro em termos de unidades de solicitação.
+Mais uma vez, nossa consulta inicial não filtra `posts` a chave de partição do contêiner, o que aciona um ventilador caro. Este é ainda pior, pois visamos um conjunto de `ORDER BY` resultados muito maior e classificamos os resultados com uma cláusula, o que o torna mais caro em termos de unidades de solicitação.
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ Examinando os problemas de desempenho com os quais nos deparamos na seção ante
 
 Resolveremos cada um desses problemas, começando com o primeiro deles.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: apresentando a desnormalização para otimizar consultas de leitura
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introdução à desnormalização para otimizar consultas de leitura
 
 O motivo por que temos que emitir solicitações adicionais em alguns casos é porque os resultados da solicitação inicial não contêm todos os dados que precisamos retornar. Ao trabalhar com um armazenamento de dados não relacionais como o Azure Cosmos DB, esse tipo de problema é normalmente resolvido com a desnormalização dos dados em nosso conjunto de dados.
 
@@ -282,7 +282,7 @@ Também podemos modificar itens de comentário e de curtida para adicionar o nom
 
 O que queremos alcançar é que, cada vez que adicionarmos um comentário ou uma curtida, possamos também aumentar o `commentCount` ou o `likeCount` no post correspondente. Como nosso contêiner `posts` é particionado por `postId`, o novo item (comentário ou curtida) e seu post correspondente ficam na mesma partição lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para executar essa operação.
 
-Agora, durante a criação de um comentário ( **[C3]** ), em vez de apenas adicionar um novo item ao contêiner `posts`, podemos chamar o seguinte procedimento armazenado nesse contêiner:
+Agora, durante a criação de um comentário (**[C3]**), em vez de apenas adicionar um novo item ao contêiner `posts`, podemos chamar o seguinte procedimento armazenado nesse contêiner:
 
 ```javascript
 function createComment(postId, comment) {
@@ -394,9 +394,9 @@ Exatamente a mesma situação ao listar as curtidas.
 | --- | --- | --- |
 | 4 ms | 8,92 RU | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: garantindo que todas as solicitações sejam escalonáveis
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Certificando-se de que todas as solicitações são escaláveis
 
-Observando nossas melhorias de desempenho gerais, ainda existem duas solicitações que ainda não otimizamos totalmente: **[Q3]** e **[Q6]** . Elas são as solicitações que envolvem consultas que não filtram na chave de partição dos contêineres aos quais elas se destinam.
+Observando nossas melhorias de desempenho gerais, ainda existem duas solicitações que ainda não otimizamos totalmente: **[Q3]** e **[Q6]**. Elas são as solicitações que envolvem consultas que não filtram na chave de partição dos contêineres aos quais elas se destinam.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Listar os posts de um usuário na forma abreviada
 
@@ -569,10 +569,10 @@ Os aprimoramentos de escalabilidade explorados neste artigo envolvem a desnormal
 
 O feed de alterações que usamos para distribuir atualizações para outros contêineres armazena todas essas atualizações de maneira persistente. Isso torna possível solicitar todas as atualizações desde a criação do contêiner e inicializar exibições desnormalizadas como uma operação de atualização única, mesmo se o sistema já tem muitos dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Após esta introdução ao particionamento e à modelagem de dados de caráter prático, você talvez queira verificar os artigos a seguir para analisar os conceitos abordados:
 
 - [Como trabalhar com bancos de dados, contêineres e itens](databases-containers-items.md)
-- [Particionamento no Azure Cosmos DB](partitioning-overview.md)
+- [Particionamento no BD Cosmos do Azure](partitioning-overview.md)
 - [Feed de alterações no Azure Cosmos DB](change-feed.md)

@@ -2,23 +2,23 @@
 title: Criptografia em repouso do Azure Cosmos DB
 description: Saiba como o Azure Cosmos DB fornece criptografia de dados em repouso e como ela é implementada.
 author: markjbrown
-ms.author: sngun
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 366a8cc2d8b08c9508053eaeb8bf70622fd870cf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: db20388b5277e000ffe7055e9840742d6af7788e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548094"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062593"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Criptografia de dados do Azure Cosmos DB 
 
 A criptografia em repouso é uma frase que normalmente se refere à criptografia de dados em dispositivos de armazenamento não volátil, como SSDs (unidades de estado sólido) e HDDs (discos rígidos). O Cosmos DB armazena seus bancos de dados principais em SSDs. Seus anexos de mídia e backups são armazenados no armazenamento de Blobs do Azure, do qual geralmente é feito backup por HDDs. Com o lançamento da criptografia em repouso no Cosmos DB, todos os bancos de dados, anexos de mídia e backups são criptografados. Os dados agora são criptografados em trânsito (pela rede) e em repouso (armazenamento não volátil), fornecendo criptografia de ponta a ponta.
 
-Como um serviço de PaaS, o Cosmos DB é muito fácil de usar. Como todos os dados de usuário armazenados no Cosmos DB são criptografados em repouso e em transporte, você não precisa realizar ação alguma. Em outras palavras, a criptografia em repouso é "ativada" por padrão. Não existem controles para ativá-lo ou desativá-lo. Azure Cosmos DB usa a criptografia AES-256 em todas as regiões em que a conta está em execução. Fornecemos esse recurso enquanto continuamos atendendo a nossos [SLAs de desempenho e disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+Como um serviço de PaaS, o Cosmos DB é muito fácil de usar. Como todos os dados de usuário armazenados no Cosmos DB são criptografados em repouso e em transporte, você não precisa realizar ação alguma. Em outras palavras, a criptografia em repouso é "ativada" por padrão. Não existem controles para ativá-lo ou desativá-lo. O Azure Cosmos DB usa criptografia AES-256 em todas as regiões onde a conta está sendo executado. Fornecemos esse recurso enquanto continuamos atendendo a nossos [SLAs de desempenho e disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementação de criptografia em repouso para Azure Cosmos DB
 
@@ -46,7 +46,7 @@ R: As chaves são gerenciadas pela Microsoft.
 R: A Microsoft tem um conjunto de diretrizes internas para rotação de chave de criptografia, que o Cosmos DB segue. As diretrizes específicas não são publicadas. A Microsoft publica o [SDL (Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx), que é visto como um subconjunto de orientação interna e tem práticas recomendadas úteis para desenvolvedores.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso usar minhas próprias chaves de criptografia?
-R: Sim agora esse recurso está disponível para as novas contas do cosmos e isso deve ser feito no momento da criação da conta. Consulte o documento [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) para obter mais informações.
+R: Sim, agora este recurso está disponível para as novas contas cosmos e isso deve ser feito no momento da criação da conta. Por favor, consulte o documento [Chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) para obter mais informações.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: Em quais regiões a criptografia está ativada?
 R: A criptografia está ativada para todos os dados do usuário em todas as regiões do Azure Cosmos DB.
@@ -57,7 +57,7 @@ R: Não há nenhum impacto ou alteração nos SLAs de desempenho agora que a cri
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: O emulador local dá suporte à criptografia em repouso?
 R: O emulador é uma ferramenta de desenvolvimento/teste independente e não usa os serviços de gerenciamento de chaves utilizados pelo serviço gerenciado do Cosmos DB. Nossa recomendação é habilitar o BitLocker em unidades em que você está armazenando dados confidenciais de teste do emulador. O [emulador dá suporte à alteração do diretório de dados padrão](local-emulator.md), bem como ao uso de um local conhecido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma visão geral da segurança de Cosmos DB e os aprimoramentos mais recentes, consulte [segurança do banco de dados Cosmos do Azure](database-security.md).
+Para obter uma visão geral da segurança do Cosmos DB e das melhorias mais recentes, consulte [a segurança do banco de dados do Azure Cosmos](database-security.md).
 Para obter mais informações sobre as certificações da Microsoft, confira a [Central de Confiabilidade do Azure](https://azure.microsoft.com/support/trust-center/).

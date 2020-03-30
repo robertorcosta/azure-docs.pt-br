@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62123798"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Usar o serviço do StorSimple Device Manager para administrar o StorSimple Virtual Array
@@ -42,7 +42,7 @@ Após ler este artigo, você saberá como:
 O serviço do StorSimple Device Manager é executado no Microsoft Azure e conecta-se a vários StorSimple Virtual Arrays. Você usa um portal central do Microsoft Azure em execução em um navegador para gerenciar esses dispositivos. Para se conectar ao serviço do StorSimple Device Manager, faça o seguinte.
 
 #### <a name="to-connect-to-the-service"></a>Para conectar-se ao serviço
-1. Vá para [https://ms.portal.azure.com](https://ms.portal.azure.com).
+1. Vá [https://ms.portal.azure.com](https://ms.portal.azure.com)para.
 2. Usando suas credenciais de conta da Microsoft, faça logon no Portal do Microsoft Azure (localizado na parte superior direita do painel).
 3. Navegue para Procurar --> “Filtro” em StorSimple Device Managers para exibir todos os gerenciadores dos seu dispositivo em uma determinada assinatura.
 
@@ -59,7 +59,7 @@ Para obter mais informações sobre cada fluxo de trabalho, clique no procedimen
 | Desativar uma Matriz Virtual</br>Excluir uma Matriz Virtual |[Desativar ou excluir uma matriz virtual](storsimple-virtual-array-deactivate-and-delete-device.md) |
 | Failover de dispositivo e recuperação de desastre</br>Pré-requisitos de failover</br>BCDR (recuperação de desastre de continuidade de negócios)</br>Erros durante a recuperação de desastre |[Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
 | Fazer backup de compartilhamentos e volumes</br>Fazer um backup manual</br>Alterar o agendamento de backup</br>Exibir os backups existentes |[Fazer backup de sua Matriz Virtual StorSimple](storsimple-virtual-array-backup.md) |
-| Clonar compartilhamentos de um conjunto de backup</br>Clonar volumes de um conjunto de backup</br>Recuperação em nível de item (somente servidor de arquivos) |[Clonar de um backup do StorSimple Virtual Array](storsimple-virtual-array-clone.md) |
+| Clonar compartilhamentos de um conjunto de backup</br>Clonar volumes de um conjunto de backup</br>Recuperação em nível de item (somente servidor de arquivos) |[Clonar de um backup da Matriz Virtual StorSimple](storsimple-virtual-array-clone.md) |
 | Sobre contas de armazenamento</br>Adicionar uma conta de armazenamento</br>Editar uma conta de armazenamento</br>Excluir uma conta de armazenamento |[Gerenciar contas de armazenamento para a Matriz Virtual StorSimple](storsimple-virtual-array-manage-storage-accounts.md) |
 | Sobre os registros de controle de acesso</br>Adicionar ou modificar um registro de controle de acesso </br>Excluir um registro de controle de acesso |[Gerenciar registros de controle de acesso para a Matriz Virtual StorSimple](storsimple-virtual-array-manage-acrs.md) |
 | Exibir detalhes do trabalho |[Gerenciar trabalhos do StorSimple Virtual Array](storsimple-virtual-array-manage-jobs.md) |

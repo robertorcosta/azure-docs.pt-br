@@ -1,5 +1,5 @@
 ---
-title: Criar painel de informações do cliente
+title: Crie o painel de insights do cliente
 description: Saiba como você pode gerenciar os comentários dos clientes, dados de mídia social e muito mais, criando um painel de controle do cliente com os Aplicativos Lógicos do Azure e Azure Functions
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
 ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75980435"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar de um painel de informações do cliente em streaming com Aplicativos Lógicos do Azure e Azure Functions
@@ -59,8 +59,8 @@ Para detectar o sentimento por trás de um texto, você pode usar os [Serviços 
 Depois de obter os dados de tweet e informações sobre o tweet, agora você pode usar vários outros conectores relevantes e suas ações:
 
 * **Power BI - Adicionar linhas ao conjunto de dados de streaming**: exibição de tweets de entrada em um painel do Power BI.
-* **Azure Data Lake - Acrescentar arquivo**: adicionar dados do cliente em um conjunto de dados do Azure Data Lake para incluir nos trabalhos de análise.
-* **SQL - Adicionar linhas**: armazenar dados em um banco de dados para recuperação posterior.
+* **Azure Data Lake - Arquivo apêndice**: Adicione dados de clientes a um conjunto de dados do Azure Data Lake para incluir em trabalhos de análise.
+* **SQL - Adicionar linhas**: Armazenar dados em um banco de dados para recuperação posterior.
 * **Slack - Enviar mensagem**: notificar um canal do Slack quando um comentário negativo requer ações.
 
 Você também pode criar uma função do Azure para que você possa executar processamento personalizado em seus dados. 
@@ -104,11 +104,11 @@ Para exibir históricos de execução anteriores no Visual Studio ou no portal d
 
 ## <a name="create-automated-deployment-templates"></a>Criar modelos de implantação automatizados
 
-Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo do Azure Resource Manager](../azure-resource-manager/templates/overview.md) em qualquer região do Azure no mundo. Você pode usar essa funcionalidade para modificar os parâmetros para a criação de versões diferentes do seu aplicativo e para integrar a solução no Azure Pipelines. Você também pode incluir o Azure Functions no seu modelo de implantação, para que você possa gerenciar a solução inteira, com todas as dependências, como um modelo único. Saiba como [automatizar a implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md).
+Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo do Azure Resource Manager](../azure-resource-manager/templates/overview.md) em qualquer região do Azure no mundo. Você pode usar essa funcionalidade para modificar os parâmetros para a criação de versões diferentes do seu aplicativo e para integrar a solução no Azure Pipelines. Você também pode incluir o Azure Functions no seu modelo de implantação, para que você possa gerenciar a solução inteira, com todas as dependências, como um modelo único. Aprenda a automatizar a [implantação de aplicativos lógicos](logic-apps-azure-resource-manager-templates-overview.md).
 
 Para um exemplo de um modelo de implantação com uma função do Azure, verifique o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Localizar outros exemplos e cenários de Aplicativos Lógicos do Azure](logic-apps-examples-and-scenarios.md)
 

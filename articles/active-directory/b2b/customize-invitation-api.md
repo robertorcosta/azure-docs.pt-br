@@ -1,5 +1,5 @@
 ---
-title: API de colaboração B2B e personalização-Azure Active Directory
+title: API de colaboração B2B e personalização - Azure Active Directory
 description: A colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263459"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalização da colaboração B2B do Azure Active Directory
@@ -117,11 +117,11 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>Confira também
 
-Confira a referência de API de convite nas [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Confira o convite de [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)referência da API em .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
-- [The elements of the B2B collaboration invitation email](invitation-email-elements.md) (Os elementos do email de convite para colaboração B2B)
+- [O que é a colaboração Azure AD B2B?](what-is-b2b.md)
+- [Os elementos do email de convite para colaboração B2B](invitation-email-elements.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)
 - [Adicionar usuários de colaboração B2B sem um convite](add-user-without-invite.md)

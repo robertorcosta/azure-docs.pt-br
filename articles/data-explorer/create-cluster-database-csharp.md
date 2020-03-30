@@ -1,5 +1,5 @@
 ---
-title: Criar um cluster de Data Explorer do Azure & DB usandoC#
+title: 'Crie um cluster azure Data Explorer & DB usando C #'
 description: Saiba como criar um cluster e banco de dados do Azure Data Explorer usando C#
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -8,33 +8,33 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 0c32d438ac8551f061343edb747e9fc035b498e2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246403"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster e banco de dados do Azure Data Explorer usando C#
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
-> * [CLI](create-cluster-database-cli.md)
-> * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-csharp.md)
+> * [Cli](create-cluster-database-cli.md)
+> * [Powershell](create-cluster-database-powershell.md)
+> * [C #](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [Modelo do Azure Resource Manager](create-cluster-database-resource-manager.md)
+> * [Modelo de Gerenciador de recursos do Azure](create-cluster-database-resource-manager.md)
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando C#o.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando C#.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+* Se você não tem o Visual 2019 Studio instalado, baixe e use o **Visual Studio 2019 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Certifique-se de que você **habilite o desenvolvimento do Azure** durante a configuração do Visual Studio.
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
 ## <a name="authentication"></a>Autenticação
-Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter as `Directory (tenant) ID`, `Application ID`e `Client Secret`.
+Para executar os exemplos neste artigo, precisamos de um aplicativo Azure AD e um diretor de serviços que possam acessar recursos. Verifique [criar um aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo Ad azure gratuito e adicionar atribuição de função no escopo da assinatura. Também mostra como obter `Directory (tenant) ID` `Application ID`o `Client Secret`, e .
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster do Azure Data Explorer
 
@@ -71,12 +71,12 @@ Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD 
    |---|---|---|
    | clusterName | *mykustocluster* | O nome desejado do cluster.|
    | skuName | *Standard_D13_v2* | O SKU que será usado para o cluster. |
-   | Camada | *Standard* | A camada de SKU. |
-   | ALOCADA | *number* | O número de instâncias do cluster. |
+   | Camada | *Standard* | O nível SKU. |
+   | ALOCADA | *Número* | O número de instâncias do cluster. |
    | resourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
     > [!NOTE]
-    > **Criar um cluster** é uma operação de execução demorada, portanto, é altamente recomendável usar CreateOrUpdateAsync, em vez de CreateOrUpdate. 
+    > **Criar um cluster** é uma operação de longa duração, por isso é altamente recomendável usar CreateOrUpdateAsync, em vez de CreateOrUpdate. 
 
 1. Execute o comando a seguir para verificar se o cluster foi criado com êxito:
 
@@ -118,7 +118,7 @@ Se o resultado contém `ProvisioningState` com o valor `Succeeded`, o cluster fo
 
 Agora você tem um cluster e um banco de dados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 * Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou.
 * Para limpar recursos, exclua o cluster. Quando você exclui um cluster, também exclui todos os bancos de dados nele. Use o seguinte comando para excluir o cluster:
@@ -129,4 +129,4 @@ Agora você tem um cluster e um banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)
+* [Ingerir dados usando o SDK do .NET Standard do Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)

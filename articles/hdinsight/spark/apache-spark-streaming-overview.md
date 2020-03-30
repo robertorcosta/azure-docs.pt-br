@@ -1,6 +1,6 @@
 ---
 title: Spark Streaming no Azure HDInsight
-description: Como usar Apache Spark aplicativos de streaming em clusters Spark do HDInsight.
+description: Como usar aplicativos Apache Spark Streaming em clusters HDInsight Spark.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
 ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74406294"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
@@ -29,7 +29,7 @@ O Spark Streaming é um fluxo contínuo de entrada de dados que usa um *fluxo di
 
 Um DStream oferece uma camada de abstração sobre os dados brutos de evento.
 
-Inicie com um evento único, como uma leitura de temperatura de um termostato conectado. Quando esse evento chega ao seu aplicativo Spark streaming, o evento é armazenado de forma confiável, onde é replicado em vários nós. Essa tolerância a falhas garante que a falha de um único nó não resultará na perda do evento. O núcleo do Spark usa uma estrutura de dados que distribui dados em vários nós no cluster, em que cada nó geralmente mantém seu próprios dados na memória para um melhor desempenho. Essa estrutura de dados é chamada de RDD (*conjunto de dados distribuído resiliente*).
+Inicie com um evento único, como uma leitura de temperatura de um termostato conectado. Quando este evento chega ao seu aplicativo Spark Streaming, o evento é armazenado de forma confiável, onde é replicado em vários nós. Esta tolerância a falhas garante que a falha de qualquer nó único não resultará na perda do seu evento. O núcleo do Spark usa uma estrutura de dados que distribui dados em vários nós no cluster, em que cada nó geralmente mantém seu próprios dados na memória para um melhor desempenho. Essa estrutura de dados é chamada de RDD (*conjunto de dados distribuído resiliente*).
 
 Cada RDD representa os eventos coletados por um período de tempo definido pelo usuário, denominado *intervalo de lote*. Com a expiração de cada intervalo de lote, um novo RDD é produzido, contendo todos os dados desse intervalo. O conjunto contínuo de RDDs é coletado em um DStream. Por exemplo, se o intervalo de lote for de um segundo, o DStream emitirá um lote a cada segundo com um RDD que contém todos os dados ingeridos durante esse segundo. Ao processar o DStream, o evento de temperatura aparece em um desses lotes. Um aplicativo Spark Streaming processa os lotes que contêm os eventos e, por fim, atua nos dados armazenados em cada RDD.
 
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Aguarde cerca de 30 segundos depois de iniciar o aplicativo acima.  Em seguida, você pode consultar o dataframe periodicamente para ver o conjunto atual de valores presentes no lote, por exemplo, usando esta consulta SQL:
+Aguarde cerca de 30 segundos após iniciar a aplicação acima.  Em seguida, você pode consultar o DataFrame periodicamente para ver o conjunto atual de valores presentes no lote, por exemplo, usando esta consulta SQL:
 
 ```sql
 %%sql
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 A saída resultante é semelhante a:
 
-| Valor | tempo real |
+| value | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -222,7 +222,7 @@ ssc.start()
 
 Após o primeiro minuto, há 12 entradas – seis entradas de cada um dos dois lotes coletados na janela.
 
-| Valor | tempo real |
+| value | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

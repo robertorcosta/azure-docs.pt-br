@@ -1,19 +1,18 @@
 ---
-title: Entrar em tempo real | Azure Marketplace
+title: Go Live | Mercado Azure
 description: A API do Go Live inicia o processo de listagem de ofertas em tempo real.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bf7bebf6e72e373811879a311d70255c29988ed6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819677"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288573"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -27,9 +26,9 @@ Essa API inicia o processo de envio de um aplicativo para produção. Essa opera
 
 |  **Nome**      |   **Descrição**                                                           | **Tipo de dados** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificador do publicador da oferta a ser recuperada, por exemplo `contoso`       |  Cadeia de caracteres       |
-| offerId        | O identificador da oferta a ser recuperada                                   |  Cadeia de caracteres       |
-| api-version    | Versão mais recente da API                                                   |  Data         |
+| publisherId    | Identificador do publicador da oferta a ser recuperada, por exemplo `contoso`       |  String       |
+| offerId        | O identificador da oferta a ser recuperada                                   |  String       |
+| api-version    | Última versão da API                                                   |  Data         |
 |  |  |  |
 
 
@@ -63,7 +62,7 @@ Essa API inicia o processo de envio de um aplicativo para produção. Essa opera
 
 | **Código** |  **Descrição**                                                                        |
 | -------- |  ----------------                                                                        |
-|  202     | `Accepted` – A solicitação foi aceita com êxito. A resposta contém um local para rastrear o status da operação. |
+|  202     | `Accepted` – a solicitação foi aceita com êxito. A resposta contém um local para rastrear o status da operação. |
 |  400     | `Bad/Malformed request` – as informações de erro adicionais são encontradas dentro do corpo da resposta. |
-|  404     |  `Not found` - A entidade especificada não existe.                                       |
+|  404     |  `Not found` – a entidade especificada não existe.                                       |
 |  |  |

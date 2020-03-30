@@ -1,5 +1,5 @@
 ---
-title: Usar as APIs REST para fazer o CI/CD para Azure Stream Analytics no IoT Edge
+title: Use APIs REST para fazer CI/CD para análises de fluxo do Azure no IoT Edge
 description: Saiba como implementar um pipeline de implantação e integração contínua para o Azure Stream Analytics usando as APIs REST.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 78f2e06947c2b81ffe5e6cd8a88438db4dabf158
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426413"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80291998"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para Stream Analytics no IoT Edge usando APIs
 
@@ -57,7 +57,7 @@ Para criar o trabalho do Stream Analytics, chame o método PUT usando a API do S
 
 |Método|URL de Solicitação|
 |------|-----------|
-|PUT|https://management.azure.com/subscriptions/{**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview|
+|PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
 Exemplo de uso do comando **curl**:
 
@@ -144,7 +144,7 @@ Para publicar um trabalho de Stream Analytics no IoT Edge, chame o método POST 
 
 |Método|URL de Solicitação|
 |------|-----------|
-|POST|https://management.azure.com/subscriptions/{**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview|
+|POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
 Essa operação assíncrona retorna um status de 202 até que o trabalho tenha sido publicado com êxito. O cabeçalho de resposta de localização contém o URI usado para obter o status do processo. Enquanto o processo está em execução, uma chamada para o URI no cabeçalho de localização retorna um status de 202. Enquanto o processo é finalizado, o URI no cabeçalho de localização retorna um status de 200. 
 
@@ -255,7 +255,7 @@ Exemplo do manifesto de implantação:
 Após a configuração do manifesto de implantação, consulte [Implantar módulos do Azure IoT Edge com CLI do Azure](../iot-edge/how-to-deploy-modules-cli.md) para a implantação.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
  
 * [Azure Stream Analytics no IoT Edge](stream-analytics-edge.md)
 * [ASA no tutorial de IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)

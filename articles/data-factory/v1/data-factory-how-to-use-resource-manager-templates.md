@@ -1,5 +1,5 @@
 ---
-title: Usar modelos do Resource Manager no Data Factory
+title: Use modelos de gerenciador de recursos na fábrica de dados
 description: Saiba como criar e usar modelos do Azure Resource Manager para criar entidades de Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972854"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Ao usar o Azure Data Factory para suas necessidades de integração de dados, talvez você precise reutilizar o mesmo padrão em diversos ambientes ou implementar a mesma tarefa repetidamente na mesma solução. Modelos ajudam você a implementar e gerenciar estes cenários de forma fácil. Modelos no Azure Data Factory são ideais para cenários que envolvem reutilização e repetição.
 
-Considere a situação em que uma organização tem 10 instalações de produção em todo o mundo. Os logs de cada fábrica são armazenados em um banco de dados do SQL Server local separado. A empresa deseja criar uma única data warehouse na nuvem para análise ad hoc. Ele também quer ter a mesma lógica, mas configurações diferentes para ambientes de desenvolvimento, teste e produção.
+Considere a situação em que uma organização tem 10 instalações de produção em todo o mundo. Os logs de cada fábrica são armazenados em um banco de dados do SQL Server local separado. A empresa quer construir um único data warehouse na nuvem para análise ad hoc. Ele também quer ter a mesma lógica, mas configurações diferentes para ambientes de desenvolvimento, teste e produção.
 
 Nesse caso, uma tarefa precisa ser repetida dentro do mesmo ambiente, mas com valores diferentes entre as 10 fábricas de dados para cada fábrica. Na verdade, **repetição** está presente. A modelagem permite a abstração desse fluxo genérico (ou seja, pipelines com as mesmas atividades em cada data factory), mas usa um arquivo de parâmetro separado para cada fábrica.
 

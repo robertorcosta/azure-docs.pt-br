@@ -1,6 +1,6 @@
 ---
-title: Usar um mecanismo de regras para impor HTTPS na CDN do Azure padrão | Microsoft Docs
-description: Use o mecanismo de regras para a rede de distribuição de conteúdo (CDN) do Azure padrão da Microsoft para personalizar como a CDN do Azure lida com solicitações HTTP, incluindo o bloqueio da entrega de determinados tipos de conteúdo, a definição de uma política de cache e a modificação de cabeçalhos HTTP. Neste artigo, saiba como criar uma regra para redirecionar os usuários para HTTPS.
+title: Use um mecanismo de regras para aplicar HTTPS no Standard Azure CDN | Microsoft Docs
+description: Use o mecanismo de regras para o Microsoft Standard Azure Content Delivery Network (Azure CDN) para personalizar como o Azure CDN lida com solicitações HTTP, incluindo o bloqueio da entrega de certos tipos de conteúdo, a definição de uma política de cache e a modificação de cabeçalhos HTTP. Neste artigo, aprenda a criar uma regra para redirecionar os usuários para HTTPS.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
@@ -8,72 +8,72 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 724861305d7a25db409072200ac2bc3bd83f0682
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74171583"
 ---
-# <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configurar o mecanismo de regras padrão para a CDN do Azure
+# <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configure o mecanismo de regras padrão para CDN do Azure
 
-Este artigo descreve como configurar e usar o mecanismo de regras padrão para a rede de distribuição de conteúdo do Azure (CDN do Azure).
+Este artigo descreve como configurar e usar o mecanismo de regras padrão para a Azure Content Delivery Network (Azure CDN).
 
-## <a name="standard-rules-engine"></a>Mecanismo de regras padrão
+## <a name="standard-rules-engine"></a>Motor de regras padrão
 
-Você pode usar o mecanismo de regras padrão para a CDN do Azure para personalizar como as solicitações HTTP são tratadas. Por exemplo, você pode usar o mecanismo de regras para impor a entrega de conteúdo para usar protocolos específicos, para definir uma política de cache ou para modificar um cabeçalho HTTP. Este artigo demonstra como criar uma regra que redireciona automaticamente os usuários para HTTPS. 
+Você pode usar o mecanismo de regras padrão para o Azure CDN para personalizar a forma como as solicitações HTTP são tratadas. Por exemplo, você pode usar o mecanismo de regras para impor a entrega de conteúdo para usar protocolos específicos, para definir uma política de cache ou para modificar um cabeçalho HTTP. Este artigo demonstra como criar uma regra que redireciona automaticamente os usuários para HTTPS. 
 
 > [!NOTE]
-> O mecanismo de regras descrito neste artigo está disponível apenas para a CDN do Azure padrão da Microsoft. 
+> O mecanismo de regras descrito neste artigo está disponível apenas para CDN Standard Azure da Microsoft. 
 
-## <a name="redirect-users-to-https"></a>Redirecionar usuários para HTTPS
+## <a name="redirect-users-to-https"></a>Redirecione os usuários para HTTPS
 
-1. Em seus perfis da Microsoft, vá para rede de distribuição de conteúdo do Azure.
+1. Em seus perfis da Microsoft, vá para a Azure Content Delivery Network.
 
-1. Na página **perfil CDN** , selecione o ponto de extremidade para o qual você deseja criar regras.
+1. Na página de perfil do **CDN,** selecione o ponto final para o que deseja criar.
   
-1. Selecione a guia **mecanismo de regras** .
+1. Selecione a guia **Mecanismo de regras.**
    
-    O painel **mecanismo de regras** é aberto e exibe a lista de regras globais disponíveis. 
+    O painel **Rules Engine** abre e exibe a lista de regras globais disponíveis. 
    
-    [página de novas regras do ![CDN do Azure](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
+    [![Azure CDN página de novas regras](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
    
    > [!IMPORTANT]
-   > A ordem na qual várias regras são listadas afeta a forma como as regras são tratadas. As ações especificadas em uma regra podem ser substituídas por uma regra subsequente.
+   > A ordem na qual várias regras são listadas afeta a forma como as regras são tratadas. As ações especificadas em uma regra podem ser substituídas por uma regra subseqüente.
    >
 
-1. Selecione **Adicionar regra** e insira um nome de regra. Os nomes de regra devem começar com uma letra e podem conter apenas números e letras.
+1. Selecione **Adicionar regra** e digite um nome de regra. Os nomes das regras devem começar com uma letra e podem conter apenas números e letras.
 
-1. Para identificar o tipo de solicitações às quais a regra se aplica, crie uma condição de correspondência:
-    1. Selecione **Adicionar condição**e, em seguida, selecione a condição de correspondência **protocolo de solicitação** .
-    1. Para **operador**, selecione **Equals**.
-    1. Para **valor**, selecione **http**.
+1. Para identificar o tipo de solicitações a que a regra se aplica, crie uma condição de correspondência:
+    1. Selecione **Adicionar condição**e selecione a condição de correspondência de **protocolo de** solicitação.
+    1. Para **Operador**, selecione **É igual a**.
+    1. Para **valor,** selecione **HTTP**.
    
-   [![condição de correspondência da regra da CDN do Azure](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
+   [![Condição de correspondência de regras do Azure CDN](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
    
    > [!NOTE]
-   > Você pode selecionar entre várias condições de correspondência na lista suspensa **Adicionar condição** . Para obter uma lista detalhada das condições de correspondência, consulte [condições de correspondência no mecanismo de regras padrão](cdn-standard-rules-engine-match-conditions.md).
+   > Você pode selecionar entre várias condições de correspondência na lista de itens de isto de **condição de adicionar.** Para obter uma lista detalhada das condições de jogo, consulte [Condições de correspondência no mecanismo de regras padrão](cdn-standard-rules-engine-match-conditions.md).
    
-1. Selecione a ação a ser aplicada às solicitações que atendem à condição de correspondência:
-   1. Selecione **Adicionar ação**e, em seguida, selecione **redirecionamento de URL**.
-   1. Para **tipo**, selecione **encontrado (302)** .
+1. Selecione a ação a ser aplicada às solicitações que satisfaçam a condição de correspondência:
+   1. Selecione **Adicionar ação**e, em seguida, selecione **redirecionar URL**.
+   1. Para **tipo,** selecione **Found (302)**.
    1. Para **Protocolo**, selecione **HTTPS**.
    1. Deixe todos os outros campos em branco para usar os valores de entrada.
    
-   [![ação de regra da CDN do Azure](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
+   [![Ação de regra do Azure CDN](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
    
    > [!NOTE]
-   > Você pode selecionar entre várias ações na lista suspensa **Adicionar ação** . Para obter uma lista detalhada de ações, consulte [ações no mecanismo de regras padrão](cdn-standard-rules-engine-actions.md).
+   > Você pode selecionar entre várias ações na lista de parada de **ação Adicionar.** Para obter uma lista detalhada de ações, consulte [Ações no mecanismo de regras Padrão](cdn-standard-rules-engine-actions.md).
 
-6. Selecione **salvar** para salvar a nova regra. A regra agora está disponível para uso.
+6. Selecione **Salvar** para salvar a nova regra. A regra está agora disponível para uso.
    
    > [!IMPORTANT]
-   > As alterações de regra podem levar até 15 minutos para serem propagadas por meio da CDN do Azure.
+   > As alterações de regras podem levar até 15 minutos para se propagar através do CDN do Azure.
    >
    
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da CDN do Azure](cdn-overview.md)
-- [Referência do mecanismo de regras padrão](cdn-standard-rules-engine-reference.md)
-- [Condições de correspondência no mecanismo de regras padrão](cdn-standard-rules-engine-match-conditions.md)
-- [Ações no mecanismo de regras padrão](cdn-standard-rules-engine-actions.md)
+- [Referência do mecanismo de regras Standard](cdn-standard-rules-engine-reference.md)
+- [Condições de correspondência no motor de regras Padrão](cdn-standard-rules-engine-match-conditions.md)
+- [Ações no mecanismo de regras Padrão](cdn-standard-rules-engine-actions.md)

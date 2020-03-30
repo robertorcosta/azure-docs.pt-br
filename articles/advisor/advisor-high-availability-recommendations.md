@@ -4,10 +4,10 @@ description: Use o Azure Advisor para melhorar a alta disponibilidade das implan
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443101"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade do aplicativo com o Assistente do Azure
@@ -23,7 +23,7 @@ Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou
 
 ## <a name="ensure-availability-set-fault-tolerance"></a>Assegure que haja tolerância a falhas de conjunto de disponibilidade
 
-Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele. Essa configuração garante que, durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA da máquina virtual do Azure. Você pode optar por criar uma máquina virtual ou adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
+Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele.Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos, uma máquina virtual esteja disponível e cumpra o SLA de máquina virtual do Azure.Você pode optar por criar uma máquina virtual ou então por adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Usar o Managed Disks para melhorar a confiabilidade de dados
 
@@ -59,38 +59,38 @@ Habilite a [exclusão reversível](https://docs.microsoft.com/azure/storage/blob
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configure seu gateway de VPN como ativo-ativo para ter resiliência de conexão
 
-Na configuração ativo-ativo, ambas as instâncias de um gateway de VPN estabelecerão túneis VPN S2S para seu dispositivo VPN local. Quando um evento de manutenção planejada ou um evento não planejado ocorrer em uma instância do gateway, o tráfego será mudado para outro túnel IPsec ativo automaticamente. O Assistente do Azure identificará os gateways de VPN que não estão configurados como ativo-ativo e sugerirá que você os configure para alta disponibilidade.
+Na configuração ativa, ambas as instâncias de um gateway VPN estabelecerão túneis Vpn S2S para o seu dispositivo VPN no local. Quando um evento de manutenção planejada ou um evento não planejado ocorrer em uma instância do gateway, o tráfego será mudado para outro túnel IPsec ativo automaticamente. O Assistente do Azure identificará os gateways de VPN que não estão configurados como ativo-ativo e sugerirá que você os configure para alta disponibilidade.
 
-## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Usar gateways de VPN de produção para executar suas cargas de trabalho de produção
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Use gateways VPN de produção para executar suas cargas de trabalho de produção
 
-O Azure Advisor verificará se há gateways de VPN que são uma SKU básica e recomendamos que você use uma SKU de produção. O SKU básico foi projetado para fins de desenvolvimento e teste. As SKUs de produção oferecem um número maior de túneis, suporte a BGP, opções de configuração ativo-ativo, política de IPSec/IKE personalizada e maior estabilidade e disponibilidade.
+O Azure Advisor verificará se há gateways VPN que sejam um SKU básico e recomendará que você use um SKU de produção em vez disso. O SKU Básico foi projetado para fins de desenvolvimento e teste. Os SKUs de produção oferecem um maior número de túneis, suporte a BGP, opções de configuração ativa, política Ipsec/IKE personalizada e maior estabilidade e disponibilidade.
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de log inválidas
 
-O Azure Advisor detectará regras de alerta com consultas inválidas especificadas na seção de condição. Regras de alerta de log são criadas no Azure Monitor e são usadas para executar consultas de análise em intervalos especificados. Os resultados da consulta determinarão se um alerta precisar ser disparado. Consultas de análise podem se tornar inválidas ao longo do tempo devido a alterações em recursos, tabelas ou comandos referenciados. O Advisor recomendará que você corrija a consulta na regra de alerta para impedir que ela seja desabilitada automaticamente e garanta a cobertura de monitoramento de seus recursos no Azure. [Saiba mais sobre como solucionar problemas de regras de alerta](https://aka.ms/aa_logalerts_queryrepair)
+O Azure Advisor detectará regras de alerta que tenham consultas inválidas especificadas em sua seção de condições. Regras de alerta de log são criadas no Azure Monitor e são usadas para executar consultas de análise em intervalos especificados. Os resultados da consulta determinarão se um alerta precisar ser disparado. Consultas de análise podem se tornar inválidas ao longo do tempo devido a alterações em recursos, tabelas ou comandos referenciados. O Advisor recomendará que você corrija a consulta na regra de alerta para evitar que ela seja desativada automaticamente e garanta a cobertura de monitoramento de seus recursos no Azure. [Saiba mais sobre regras de alerta para solução de problemas](https://aka.ms/aa_logalerts_queryrepair)
 
-## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Configurar o modo de indexação consistente na sua coleção de Cosmos DB
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Configure o modo de indexação consistente na coleção Cosmos DB
 
-Azure Cosmos DB contêineres configurados com o modo de indexação lento podem afetar a atualização dos resultados da consulta. O Advisor detectará contêineres configurados dessa maneira e recomendará alternar para o modo consistente. [Saiba mais sobre políticas de indexação no Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+Os recipientes Azure Cosmos DB configurados com o modo de indexação Lazy podem afetar o frescor dos resultados da consulta. O Advisor detectará os recipientes configurados desta forma e recomendará a mudança para o modo Consistente. [Saiba mais sobre políticas de indexação no Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurar os contêineres do Azure Cosmos DB com uma chave de partição
 
-O Azure Advisor identificará Azure Cosmos DB coleções não particionadas que estão se aproximando da cota de armazenamento provisionada. Ele recomendará migrar essas coleções para novas coleções com uma definição de chave de partição para que elas possam ser automaticamente dimensionadas pelo serviço. [Saiba mais sobre como escolher uma chave de partição](https://aka.ms/cosmosdb/choose-partitionkey)
+O Azure Advisor identificará coleções não particionadas do Azure Cosmos DB que estão se aproximando de sua cota de armazenamento provisionada. Ele recomendará migrar essas coleções para novas coleções com uma definição de chave de partição para que elas possam ser automaticamente dimensionadas pelo serviço. [Saiba mais sobre a escolha de uma chave de partição](https://aka.ms/cosmosdb/choose-partitionkey)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Atualizar o SDK do .NET do Azure Cosmos DB para a versão mais recente do Nuget
 
-O assistente do Azure identificará Azure Cosmos DB contas que estão usando versões antigas do SDK do .NET e recomendará atualizar para a versão mais recente do NuGet para as correções mais recentes, aprimoramentos de desempenho e novos recursos de recurso. [Saiba mais sobre o SDK do .NET Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+O Azure Advisor identificará as contas do Azure Cosmos DB que estão usando versões antigas do .NET SDK e recomendará a atualização para a versão mais recente do Nuget para as correções mais recentes, melhorias de desempenho e novos recursos. [Saiba mais sobre cosmos DB .NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Atualizar o SDK do Java do Azure Cosmos DB para a versão mais recente do Maven
 
-O assistente do Azure identificará Azure Cosmos DB contas que estão usando versões antigas do SDK do Java e recomendará atualizar para a versão mais recente do Maven para as correções mais recentes, melhorias de desempenho e novos recursos de recurso. [Saiba mais sobre o SDK do Java Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+O Azure Advisor identificará as contas do Azure Cosmos DB que estão usando versões antigas do Java SDK e recomendará a atualização para a versão mais recente da Maven para as correções mais recentes, melhorias de desempenho e novos recursos. [Saiba mais sobre o Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualizar o Conector do Spark do Azure Cosmos DB para a versão mais recente do Maven
 
-O assistente do Azure identificará Azure Cosmos DB contas que estão usando versões antigas do conector Cosmos DB Spark e recomendará atualizar para a versão mais recente do Maven para as correções mais recentes, melhorias de desempenho e novos recursos de recurso. [Saiba mais sobre o conector do Spark Cosmos DB](https://aka.ms/cosmosdb/spark-connector)
+O Azure Advisor identificará as contas do Azure Cosmos DB que estão usando versões antigas do conector Cosmos DB Spark e recomendará a atualização para a versão mais recente da Maven para as correções mais recentes, melhorias de desempenho e novos recursos. [Saiba mais sobre o conector Cosmos DB Spark](https://aka.ms/cosmosdb/spark-connector)
 
 ## <a name="enable-virtual-machine-replication"></a>Habilitar replicação de máquina virtual
-As máquinas virtuais que não têm replicação habilitada para outra região não são resilientes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso nos negócios durante o tempo de uma interrupção da região do Azure. O Advisor detectará VMs que não têm a replicação habilitada e recomenda habilitar a replicação para que, no caso de uma interrupção, você possa abrir rapidamente suas máquinas virtuais em uma região remota do Azure. [Saiba mais sobre a replicação da máquina virtual](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Máquinas virtuais que não possuem replicação habilitada para outra região não são resistentes a paralisações regionais. Replicar máquinas virtuais reduz qualquer impacto adverso aos negócios durante o tempo de paralisação da região do Azure. O Advisor detectará VMs que não possuem replicação ativada e recomendará a replicação para que, em caso de paralisação, você possa trazer rapidamente suas máquinas virtuais em uma região remota do Azure. [Saiba mais sobre a replicação de máquinas virtuais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 
@@ -98,7 +98,7 @@ As máquinas virtuais que não têm replicação habilitada para outra região n
 
 2.  No painel do Assistente, clique na guia **Alta Disponibilidade**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Introdução ao Azure Advisor](advisor-overview.md)
@@ -106,4 +106,4 @@ Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
-* [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
+* [Recomendações de Excelência Operacional do Orientador](advisor-operational-excellence-recommendations.md)

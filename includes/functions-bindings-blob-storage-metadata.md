@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: functions
 author: craigshoemaker
 manager: gwallace
@@ -10,15 +10,15 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 3788fdb954917f28f64a0dfe035bed4ded0932d5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "69642130"
 ---
 O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que o tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Propriedade  |Tipo  |Descrição  |
+|Propriedade  |Type  |Descrição  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho do blob de gatilho.|
 |`Uri`|`System.Uri`|A URI do blob para o local principal.|

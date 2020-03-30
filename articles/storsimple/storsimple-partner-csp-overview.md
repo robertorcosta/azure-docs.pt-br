@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: e2adccaf1371cf322b5a50b0e1f6ef64dde14b66
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60628652"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>O que é StorSimple para Programa de Provedores de Soluções de Nuvem?
@@ -32,7 +32,7 @@ O StorSimple Virtual Array para CSP (Provedor de Soluções de Nuvem) permite qu
 
 Para saber mais sobre o StorSimple para CSP, visite a página [Visão geral do Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
 
-Para obter mais informações sobre a cobrança, preços, incentivos e como obter suporte no CSP, vá para [StorSimple no CSP: PERGUNTAS FREQUENTES SOBRE](storsimple-partner-csp-faq.md). 
+Para saber mais sobre cobrança, preços, incentivos e como obter suporte no CSP, acesse [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md) (StorSimple no CSP: perguntas frequentes). 
 
 ## <a name="deploy-and-manage-storsimple-for-csp"></a>Implantar e gerenciar o StorSimple para CSP
 
@@ -42,5 +42,5 @@ Para saber mais, acesse [Deploy and manage your StorSimple Virtual Array for CSP
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se você tiver mais dúvidas relacionadas ao StorSimple no CSP, vá para [StorSimple para CSP: Perguntas frequentes](storsimple-partner-csp-faq.md).
+- Se tiver mais dúvidas relacionadas ao StorSimple no CSP, visite [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple para CSP: perguntas frequentes).
 - Se você estiver pronto para implantar seu StorSimple, acesse [Deploy your StorSimple for CSP](storsimple-partner-csp-deploy.md) (Implantar o StorSimple para CSP).

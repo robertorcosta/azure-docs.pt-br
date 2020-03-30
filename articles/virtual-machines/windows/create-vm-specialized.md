@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM do Windows de um VHD especializado no Azure
+title: Crie um Windows VM a partir de um VHD especializado no Azure
 description: Crie uma nova VM do Windows anexando um disco gerenciado especializado como o disco do sistema operacional usando o modelo de implantação do Gerenciador de Recursos.
 services: virtual-machines-windows
 author: cynthn
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243361"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
@@ -33,9 +33,9 @@ Você tem várias opções:
 
 Você também pode usar o portal do Azure para [criar uma nova VM a partir de um VHD especializado](create-vm-specialized-portal.md).
 
-Este artigo mostra como usar discos gerenciados. Se você tiver uma implantação legada que exija o uso de uma conta de armazenamento, consulte [Criar uma VM a partir de um VHD especializado em uma conta de armazenamento](sa-create-vm-specialized.md).
+Este artigo mostra como usar discos gerenciados. Se você tiver uma implantação herdada que requer o uso de uma conta de armazenamento, consulte [Criar uma VM de um VHD especializado em uma conta de armazenamento](sa-create-vm-specialized.md).
 
-Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único VHD ou instantâneo. 
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único VHD ou snapshot. 
 
 ## <a name="option-1-use-an-existing-disk"></a>Opção 1: usar um disco existente
 
@@ -64,13 +64,13 @@ Use o VHD como-é criar uma nova VM.
 
 ### <a name="upload-the-vhd"></a>Carregar o VHD
 
-Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, consulte [carregar um VHD no Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
+Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, consulte [Enviar um VHD para o Azure usando o Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 ## <a name="option-3-copy-an-existing-azure-vm"></a>Opção 3: copiar uma VM existente do Azure
 
 Você pode criar uma cópia de uma VM que usa discos gerenciados, tirando um instantâneo da VM e usando esse instantâneo para criar um novo disco gerenciado e uma nova VM.
 
-Se você quiser copiar uma VM existente para outra região, talvez queira usar o azcopy para [criar uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+Se você quiser copiar uma VM existente para outra região, você pode querer usar a zcópia para [criar uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Tirar um instantâneo do disco do sistema operacional
 
@@ -118,7 +118,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Para usar esse instantâneo para criar uma VM que precisa ser de alto desempenho, adicione o parâmetro `-AccountType Premium_LRS` ao comando New-AzSnapshotConfig. Esse parâmetro cria o instantâneo para que seja armazenado como um disco gerenciado Premium. Os discos gerenciados premium são mais caros que o padrão, portanto, verifique se você precisa do Premium antes de usar esse parâmetro.
+Para usar este instantâneo para criar uma VM que precisa ser `-AccountType Premium_LRS` de alto desempenho, adicione o parâmetro ao comando New-AzSnapshotConfig. Esse parâmetro cria o instantâneo para que seja armazenado como um disco gerenciado Premium. Os discos gerenciados premium são mais caros que o padrão, portanto, verifique se você precisa do Premium antes de usar esse parâmetro.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Criar um novo disco a partir do instantâneo
 
@@ -165,7 +165,7 @@ Criar a [rede virtual](../../virtual-network/virtual-networks-overview.md) e uma
        -AddressPrefix 10.0.0.0/24
     ```
     
-2. Crie a rede virtual. Este exemplo define o nome da rede virtual como *myVnetName*, o local como *West US* e o prefixo de endereço da rede virtual como *10.0.0.0/16*. 
+2. Crie a rede virtual. Este exemplo define o nome da rede virtual como *myVnetName*, o local como * West US * e o prefixo de endereço da rede virtual como * 10.0.0.0/16 *. 
    
     ```powershell
     $vnetName = "myVnetName"
@@ -267,7 +267,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verificar se a VM foi criada
-Você deve ver a VM recém-criada na [portal do Azure](https://portal.azure.com) sob **procurar** > **máquinas virtuais**, ou usando os seguintes comandos do PowerShell.
+Você deve ver a VM recém-criada no **Browse** >  [portal Azure](https://portal.azure.com) em**máquinas Procurar Virtual,** ou usando os seguintes comandos PowerShell.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

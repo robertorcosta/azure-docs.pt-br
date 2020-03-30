@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,18 +9,18 @@ ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9648f4c16e8d266bbdd504d4a7599b67a5c846b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73522209"
 ---
-1. No menu [portal do Azure](https://portal.azure.com) , selecione **criar um recurso**. 
+1. No menu [portal Do Azure,](https://portal.azure.com) selecione **Criar um recurso**. 
 
-   ![Criar um recurso no portal do Azure](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
-2. No campo **Pesquisar no Marketplace** , digite **Gateway de rede local**e pressione **Enter** para pesquisar. Isso retornará uma lista de resultados. Clique em **Gateway de rede local**, depois clique no botão **Criar** para abrir a página **Criar gateway de rede local**.
+   ![Crie um recurso no portal do Azure](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
+2. No **campo Pesquisar o campo de marketplace,** digite **o gateway de rede local**e **pressione Enter** para pesquisar. Isso retornará uma lista de resultados. Clique em **Gateway de rede local**, depois clique no botão **Criar** para abrir a página **Criar gateway de rede local**.
 
-   ![Criar o gateway de rede local](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Criar o gateway de rede local")
+   ![Crie o gateway de rede local](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Criar o gateway de rede local")
 
 3. Na **página Criar gateway de rede local**, especifique os valores para seu objeto de gateway de rede local.
 
@@ -30,6 +30,6 @@ ms.locfileid: "73522209"
    - **Definir as configurações do BGP:** use apenas quando configurar o BGP. Caso contrário, não selecione essa opção.
    - **Assinatura:** verifique se a assinatura correta está sendo exibida.
    - **Grupo de Recursos:** selecione o grupo de recursos que você deseja usar. Você pode criar um novo grupo de recursos ou selecionar um que você já criou.
-   - **Local:** O local é o mesmo que a **região** em outras configurações. Selecione o local em que esse objeto será criado. Você pode querer selecionar o mesmo local onde reside a sua rede virtual, mas não é necessário fazê-lo.
+   - **Localização:** A localização é a mesma **de Região** em outras configurações. Selecione o local em que esse objeto será criado. Você pode querer selecionar o mesmo local onde reside a sua rede virtual, mas não é necessário fazê-lo.
 
 4. Ao terminar de especificar os valores, clique no botão **Criar**, na parte inferior da página, para criar o gateway de rede local.

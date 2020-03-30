@@ -16,12 +16,12 @@ ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 59bf7ae5914f5cc886d95f25b36abccfdf09c4a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331280"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -41,18 +41,18 @@ Não. A Autenticação de Passagem está disponível apenas na instância mundia
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
 
-Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
+Sim. Todos os recursos de acesso condicional, incluindo autenticação multifatorial do Azure, funcionam com autenticação pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A Autenticação de Passagem dá suporte à "ID alternativa" como nome de usuário, em vez de "userPrincipalName"?
-Entrar usando um valor não-UPN, como um email alternativo, está sendo testado no momento em versão prévia privada para autenticação de passagem (PTA) e sincronização de hash de senha (PHS).
+O login usando um valor não-UPN, como um e-mail alternativo, está sendo testado em visualização privada tanto para autenticação de passagem (PTA) quanto para sincronização de hash de senha (PHS).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de senha funciona como um fallback da Autenticação de Passagem?
 
 Não. A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando eu faço para alternar da sincronização de hash de senha para autenticação de passagem?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando eu mudar da sincronização de hash de senha para autenticação de passagem?
 
-Quando você usa Azure AD Connect para alternar o método de entrada da sincronização de hash de senha para autenticação de passagem, a autenticação de passagem torna-se o método de entrada primário para seus usuários em domínios gerenciados. Observe que os hashes de senha de todos os usuários que foram sincronizados anteriormente pela sincronização de hash de senha permanecem armazenados no Azure AD.
+Quando você usa o Azure AD Connect para alternar o método de login da sincronização de hash de senha para autenticação de passagem, a Autenticação de Passagem torna-se o principal método de login para seus usuários em domínios gerenciados. Observe que todos os hashes de senha dos usuários que foram sincronizados anteriormente pela sincronização de hash de senha permanecem armazenados no Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Eu posso instalar um conector de [Proxy de Aplicativo Azure AD](../manage-apps/application-proxy.md) no mesmo servidor que um Agente de Autenticação de Passagem?
 
@@ -75,7 +75,7 @@ Se você não tiver configurado o write-back de senha para um usuário específi
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>O que os Agentes de Autenticação de Passagem comunicam pelas portas 80 e 443?
 
 - Os Agentes de Autenticação fazem solicitações HTTPS pela porta 443 para todas as operações de recurso.
-- Os Agentes de Autenticação fazem solicitações HTTP pela porta 80 para fazer o download de listas de revogação de certificado SSL (CRLs).
+- Os Agentes de Autenticação fazem solicitações HTTP sobre a porta 80 para baixar as listas de revogação de certificados TLS/SSL (CRLs).
 
      >[!NOTE]
      >As atualizações recentes reduziram o número de portas exigidas pelo recurso. Se você tiver versões mais antigas do Azure AD Connect ou do Agente de Autenticação, mantenha estas portas abertas também: 5671, 8080, 9090, 9091, 9350, 9352 e 10100-10120.
@@ -148,7 +148,7 @@ Não, esse cenário _não_ tem suporte.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que eu preciso de uma conta de Administrador Global somente em nuvem para habilitar a autenticação de passagem?
 
-É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../active-directory-users-create-azure-portal.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
+É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba como [adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Como posso desabilitar a Autenticação de Passagem?
 
@@ -174,7 +174,7 @@ Locatários criados depois de 15 de junho de 2015 têm o comportamento padrão d
 
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
 - [Início rápido](how-to-connect-pta-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.

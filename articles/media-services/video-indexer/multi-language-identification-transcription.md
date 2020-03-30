@@ -1,7 +1,7 @@
 ---
-title: Identifique e transcreve automaticamente conteúdo em vários idiomas com Video Indexer
+title: Identifique e transcreva automaticamente conteúdo em vários idiomas com indexador de vídeo
 titleSuffix: Azure Media Services
-description: Este tópico demonstra como identificar e transcrever automaticamente conteúdo em vários idiomas com Video Indexer.
+description: Este tópico demonstra como identificar e transcrever automaticamente conteúdo em vários idiomas com o Indexador de Vídeo.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,39 +11,39 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72968735"
 ---
-# <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identificar e transcrever automaticamente o conteúdo em vários idiomas (visualização)
+# <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identifique e transcreva automaticamente conteúdo em vários idiomas (visualização)
 
-O Video Indexer dá suporte à identificação de idioma e à transcrição automáticas no conteúdo em vários idiomas. Esse processo envolve a identificação automática da linguagem falada em diferentes segmentos do áudio, o envio de cada segmento do arquivo de mídia a ser transcrita e a combinação da transcrição de volta a uma transcrição unificada. 
+O Video Indexer suporta identificação automática de idiomas e transcrição em conteúdo multi-idioma. Esse processo envolve identificar automaticamente a língua falada em diferentes segmentos do áudio, enviando cada segmento do arquivo de mídia para ser transcrito e combinar a transcrição de volta a uma transcrição unificada. 
 
-## <a name="choosing-multilingual-identification-on-indexing-with-portal"></a>Escolhendo a identificação multilíngüe na indexação com o portal
+## <a name="choosing-multilingual-identification-on-indexing-with-portal"></a>Escolhendo identificação multilíngüe na indexação com portal
 
-Você pode escolher a **detecção de vários idiomas** ao carregar e indexar seu vídeo. Como alternativa, você pode escolher a **detecção de vários idiomas** ao reindexar o vídeo. As etapas a seguir descrevem como reindexar:
+Você pode escolher **a detecção de vários idiomas** ao carregar e indexar seu vídeo. Alternativamente, você pode escolher **a detecção de vários idiomas** ao reindexar seu vídeo. As seguintes etapas descrevem como reindexar:
 
 1. Navegue até o site do [Video Indexer](https://vi.microsoft.com/) e entre.
-1. Vá para a página **biblioteca** e passe o mouse sobre o nome do vídeo que você deseja reindexar. 
-1. No canto inferior direito, clique no botão **reindexar vídeo** . 
-1. No diálogo **reindexar vídeo** , escolha **detecção de vários idiomas** na caixa suspensa **idioma da fonte de vídeo** .
+1. Vá para a página **biblioteca** e disvirhe sobre o nome do vídeo que você deseja reindexar. 
+1. No canto inferior direito, clique no botão **Reindexar vídeo.** 
+1. Na **caixa de diálogo de vídeo Reindexe,** escolha a **detecção de vários idiomas** na caixa gotária do idioma de **origem** de vídeo.
 
-    * Quando um vídeo é indexado como vários idiomas, a página Insight incluirá essa opção e um tipo de insight adicional será exibido, permitindo que o usuário veja qual segmento é transcrita em qual idioma "linguagem falada".
-    * A tradução para todos os idiomas está totalmente disponível na transcrição em vários idiomas.
-    * Todas as outras informações serão exibidas na linguagem mestra detectada – ou seja, a linguagem que apareceu mais no áudio.
-    * A legenda codificada no Player também está disponível em vários idiomas.
+    * Quando um vídeo é indexado como multi-idioma, a página de insights incluirá essa opção e um tipo de insight adicional aparecerá, permitindo que o usuário visualize qual segmento é transcrito em qual idioma "linguagem falada".
+    * A tradução para todos os idiomas está totalmente disponível a partir da transcrição em vários idiomas.
+    * Todos os outros insights aparecerão na linguagem de mestrado detectada – que é a linguagem que mais apareceu no áudio.
+    * A legenda fechada no player também está disponível em vários idiomas.
 
 ![Experiência do Portal](./media/multi-language-identification-transcription/portal-experience.png)
 
-## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>Escolhendo a identificação multilíngüe na indexação com a API
+## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>Escolhendo identificação multilíndüe na indexação com API
 
-Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo usando a API, escolha a opção `multi-language detection` no parâmetro `sourceLanguage`.
+Ao indexar ou [reindexar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) um vídeo usando `multi-language detection` a `sourceLanguage` API, escolha a opção no parâmetro.
 
 ### <a name="model-output"></a>Saída do modelo
 
-O modelo irá recuperar todos os idiomas detectados no vídeo em uma lista
+O modelo recuperará todos os idiomas detectados no vídeo em uma lista
 
 ```json
 "sourceLanguage": null,
@@ -53,7 +53,7 @@ O modelo irá recuperar todos os idiomas detectados no vídeo em uma lista
 ],
 ```
 
-Além disso, cada instância na seção transcrição incluirá o idioma no qual ela foi transcrita
+Além disso, cada instância na seção de transcrição incluirá a linguagem em que foi transcrita
 
 ```json
 {
@@ -75,20 +75,20 @@ Além disso, cada instância na seção transcrição incluirá o idioma no qual
 
 ## <a name="guidelines-and-limitations"></a>Diretrizes e limitações
 
-* Conjunto de idiomas com suporte: Inglês, francês, alemão, espanhol.
-* Suporte para conteúdo em vários idiomas com até três idiomas com suporte.
-* Se o áudio contiver idiomas diferentes da lista de suporte acima, o resultado será inesperado.
-* Comprimento mínimo do segmento a ser detectado para cada idioma – 15 segundos.
-* O deslocamento de detecção de idioma é de 3 segundos em média.
-* Espera-se que a fala seja contínua. As alternações frequentes entre linguagens podem afetar o desempenho dos modelos.
-* A fala de alto-falantes não nativos pode afetar o desempenho do modelo (por exemplo, quando os alto-falantes usam sua língua nativa e alternam para outro idioma).
-* O modelo foi projetado para reconhecer uma fala de conversa espontaneável com acústicas de áudio razoáveis (não comandos de voz, assinar, etc.).
-* A criação e edição de projeto não está disponível atualmente para vídeos em vários idiomas.
-* Os modelos de idioma personalizados não estão disponíveis ao usar a detecção de vários idiomas.
-* Não há suporte para a adição de palavras-chave.
-* Ao exportar arquivos de legenda oculta, a indicação de idioma não será exibida.
-* A API de transcrição de atualização não dá suporte a vários arquivos de idiomas.
+* Conjunto de idiomas suportados: inglês, francês, alemão, espanhol.
+* Suporte para conteúdo em vários idiomas com até três idiomas suportados.
+* Se o áudio contiver outros idiomas além da lista suportada acima, o resultado será inesperado.
+* Comprimento mínimo do segmento para detectar para cada idioma – 15 segundos.
+* O deslocamento de detecção de linguagem é de 3 segundos em média.
+* Espera-se que o discurso seja contínuo. Alterações frequentes entre idiomas podem afetar o desempenho dos modelos.
+* A fala de falantes não nativos pode afetar o desempenho do modelo (por exemplo, quando os falantes usam sua língua nativa e mudam para outra língua).
+* O modelo foi projetado para reconhecer uma fala conversacional espontânea com acústica de áudio razoável (não comandos de voz, canto, etc.).
+* Atualmente, a criação e edição de projetos não está disponível para vídeos em vários idiomas.
+* Modelos de idioma personalizados não estão disponíveis ao usar detecção de várias linguagens.
+* A adição de palavras-chave não é suportada.
+* Ao exportar arquivos de legenda fechada, a indicação do idioma não aparecerá.
+* A API de transcrição de atualização não suporta arquivos de vários idiomas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Visão geral do indexador vídeo](video-indexer-overview.md)

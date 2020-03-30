@@ -1,5 +1,5 @@
 ---
-title: Configurar alertas de segurança para funções de recurso do Azure no Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Configure alertas de segurança para funções de recursos do Azure no Privileged Identity Management - Azure Active Directory | Microsoft Docs
 description: Saiba como configurar alertas de segurança para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -16,31 +16,31 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74023079"
 ---
-# <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções de recurso do Azure no Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de recursos do Azure no Gerenciamento de Identidade Privilegiada
 
-Privileged Identity Management (PIM) gera alertas quando há atividade suspeita ou não segura em sua organização do Azure Active Directory (AD do Azure). Quando um alerta é disparado, ele aparece na página Alertas.
+O PIM (Privileged Identity Management, gerenciamento de identidade privilegiado) gera alertas quando há atividadesuspeita ou insegura em sua organização Azure Active Directory (Azure AD). Quando um alerta é disparado, ele aparece na página Alertas.
 
-![Recursos do Azure-alerta de listagem de página de alertas, nível de risco e contagem](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
+![Recursos do Azure - Alertas de listagem de página, nível de risco e contagem](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Revisar alertas
 
-Selecione um alerta para ver um relatório que lista os usuários ou funções que dispararam o alerta, juntamente com diretrizes de correção.
+Selecione um alerta para ver um relatório que liste os usuários ou funções que acionaram o alerta, juntamente com a orientação de correção.
 
-![Relatório de alertas mostrando a hora da última verificação, descrição, etapas de mitigação, tipo, gravidade, impacto de segurança e como evitar a próxima vez](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
+![Relatório de alerta mostrando o tempo da última varredura, descrição, etapas de mitigação, tipo, gravidade, impacto de segurança e como prevenir a próxima vez](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertas
 
-| Alerta | Severity | Gatilho | Recomendações |
+| Alerta | Severity | Gatilho | Recomendação |
 | --- | --- | --- | --- |
-| **Muitos proprietários atribuídos a um recurso** |Média |Muitos usuários têm a função de proprietário. |Examine os usuários na lista e reatribua alguns a funções menos privilegiadas. |
-| **Muitos proprietários permanentes atribuídos a um recurso** |Média |Muitos usuários são permanentemente atribuídos a uma função. |Revise os usuários na lista e reatribua alguns para exigir ativação para o uso da função. |
-| **Duplicar função criada** |Média |Várias funções têm os mesmos critérios. |Use apenas uma dessas funções. |
+| **Muitos proprietários atribuídos a um recurso** |Médio |Muitos usuários têm a função de proprietário. |Examine os usuários na lista e reatribua alguns a funções menos privilegiadas. |
+| **Muitos proprietários permanentes atribuídos a um recurso** |Médio |Muitos usuários são permanentemente atribuídos a uma função. |Revise os usuários na lista e reatribua alguns para exigir ativação para o uso da função. |
+| **Duplicar função criada** |Médio |Várias funções têm os mesmos critérios. |Use apenas uma dessas funções. |
 
 ### <a name="severity"></a>Severity
 
@@ -52,12 +52,12 @@ Selecione um alerta para ver um relatório que lista os usuários ou funções q
 
 Na página Alertas, vá para **Configurações**.
 
-![Página de alertas com configurações realçadas](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+![Página de alertas com Configurações destacadas](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Personalize configurações nos diferentes alertas para trabalhar com seu ambiente e as metas de segurança.
 
-![Página de configuração de um alerta para habilitar e definir configurações](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Definir página para um alerta para ativar e configurar configurações](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configure as configurações de função de recurso do Azure no Gerenciamento de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
