@@ -1,6 +1,6 @@
 ---
-title: Manter os dados de saída no armazenamento do Azure com a API de serviço do lote-lote do Azure
-description: Saiba como usar a API do serviço de lote para manter os dados de saída de trabalho e tarefa do lote no armazenamento do Azure.
+title: Persistir dados de saída para armazenamento Azure com API de serviço em lote - Lote Azure
+description: Saiba como usar a API de serviço em lote para persistir os dados de tarefa em lote e saída de trabalho para o Armazenamento Azure.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -13,10 +13,10 @@ ms.date: 03/05/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 11bd8bc427dd3da35ec5aa0f728f6b04b7d4527d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022844"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
@@ -71,7 +71,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Para especificar os arquivos de saída para uma tarefa, crie uma coleção de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e a atribua para a propriedade de [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa.
 
-O exemplo de código C# a seguir cria uma tarefa que grava números aleatórios para um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` a ser gravado para o contêiner. O exemplo também cria arquivos de saída para os arquivos de log que correspondem ao padrão de arquivo `std*.txt` ( _, por exemplo,_ , `stdout.txt` e `stderr.txt`). A URL do contêiner requer o SAS que foi criado anteriormente para o contêiner. O serviço de lote usa as SAS para autenticar o acesso ao contêiner:
+O exemplo de código C# a seguir cria uma tarefa que grava números aleatórios para um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` a ser gravado para o contêiner. O exemplo também cria arquivos de saída para `std*.txt` quaisquer arquivos de `stderr.txt`log que correspondam ao padrão do arquivo _(por exemplo,_ `stdout.txt` e ). A URL do contêiner requer o SAS que foi criado anteriormente para o contêiner. O serviço de lote usa as SAS para autenticar o acesso ao contêiner:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -177,7 +177,7 @@ Se você estiver desenvolvendo com uma linguagem que não C#, precisará implant
 
 ## <a name="code-sample"></a>Exemplo de código
 
-O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos de código do lote do Azure][github_samples] no github. Essa solução do Visual Studio demonstra como usar a biblioteca de cliente em lotes para .NET para manter a saída da tarefa para o armazenamento durável. Para executar o exemplo, siga estas etapas:
+O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Essa solução do Visual Studio demonstra como usar a biblioteca de cliente em lotes para .NET para manter a saída da tarefa para o armazenamento durável. Para executar o exemplo, siga estas etapas:
 
 1. Abra o projeto no **Visual Studio 2019**.
 2. Adicione suas **credenciais de conta** do Lote e do Armazenamento a **AccountSettings.settings** no projeto Microsoft.Azure.Batch.Samples.Common.
@@ -187,7 +187,7 @@ O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos
 6. Quando solicitado a escolher a tecnologia de persistência a usar para executar o exemplo, digite **2** para executar o exemplo usando a API do serviço de lote para manter a saída da tarefa.
 7. Se desejado, execute o exemplo novamente, inserindo **3** para manter a saída com a API de serviço de lote e também para nomear o contêiner de destino e o caminho de blob de acordo com o padrão de Convenções de Arquivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre persistência de saída de tarefa com a biblioteca de Convenções de Arquivo para .NET, consulte [Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET](batch-task-output-file-conventions.md).
 - Para obter mais informações sobre outras abordagens para manter os dados de saída em lote do Azure, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md).

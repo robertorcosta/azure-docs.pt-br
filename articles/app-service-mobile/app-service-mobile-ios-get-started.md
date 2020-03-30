@@ -1,16 +1,16 @@
 ---
 title: Criar um aplicativo do iOS
-description: Siga este tutorial para começar a usar os back-ends do aplicativo móvel do Azure para o desenvolvimento do iOS em Objective-C ou Swift.
+description: Siga este tutorial para começar a usar backends de aplicativos móveis do Azure para o desenvolvimento do iOS em Objective-C ou Swift.
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 1b1114a22d33689f485aa228a8a1cf65eba719da
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461480"
 ---
 # <a name="create-an-ios-app"></a>Criar um aplicativo do iOS
@@ -26,10 +26,10 @@ Para concluir este tutorial, você precisa de um Mac e [uma conta do Azure](http
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma conexão de banco de dados e configurar o projeto de cliente e servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Crie uma conexão de banco de dados e configure o projeto cliente e servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-ios-app"></a>Executar o aplicativo iOS
+## <a name="run-the-ios-app"></a>Execute o aplicativo para iOS
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

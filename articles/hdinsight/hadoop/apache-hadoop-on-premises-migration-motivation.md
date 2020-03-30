@@ -1,5 +1,5 @@
 ---
-title: 'Benefícios: migrar Apache Hadoop locais para o Azure HDInsight'
+title: 'Benefícios: Migrar no local Apache Hadoop para o Azure HDInsight'
 description: Aprenda a motivação e os benefícios de migrar clusters do Hadoop local para o Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267319"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
@@ -41,26 +41,26 @@ O Azure HDInsight é uma distribuição de nuvem dos componentes do Hadoop. O Az
 
 - **Facilmente escalável** – o HDInsight permite que você [escale](../hdinsight-administer-use-portal-linux.md) as cargas de trabalho para mais ou para menos. O Azure cuida da redistribuição de dados e do rebalanceamento da carga de trabalho sem interromper os trabalhos de processamento de dados.
 
-- **Disponibilidade global** - o HDInsight está disponível em mais [regiões](https://azure.microsoft.com/regions/services/) do que qualquer outra oferta de análise de Big Data. O Azure HDInsight também está disponível no Azure Governamental, na China e na Alemanha, o que permite atender às necessidades da sua empresa nas principais áreas soberanas.
+- **Disponibilidade global** - O HDInsight está disponível em mais [regiões](https://azure.microsoft.com/regions/services/) do que qualquer outra oferta de análise de big data. O Azure HDInsight também está disponível no Azure Governamental, na China e na Alemanha, o que permite atender às necessidades da sua empresa nas principais áreas soberanas.
 
 - **Seguro e em conformidade** – o HDInsight permite a proteção dos ativos de dados empresariais com a [Rede Virtual do Microsoft Azure](../hdinsight-plan-virtual-network-deployment.md),  [criptografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e integração com o [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). O HDInsight também atende aos [padrões de conformidade](https://azure.microsoft.com/overview/trusted-cloud) mais populares do setor e do governo.
 
-- **Gerenciamento de versão simplificado** – o Azure HDInsight gerencia a versão dos componentes do sistema de eco do Hadoop e os mantém atualizado. Atualizações de software geralmente são um processo complexo para implantações locais.
+- **Gerenciamento simplificado de versões** - O Azure HDInsight gerencia a versão dos componentes do sistema ecológico Hadoop e os mantém atualizados. Atualizações de software geralmente são um processo complexo para implantações locais.
 
-- **Clusters menores otimizados para cargas de trabalho específicas com menos dependências entre componentes** - uma configuração típica do Hadoop local usa um único cluster que serve para muitas finalidades. Com o Azure HDInsight, clusters de carga de trabalho específica podem ser criados. A criação de clusters para cargas de trabalho específicas elimina a complexidade de manter um único cluster com complexidade crescente.
+- **Clusters menores otimizados para cargas de trabalho específicas com menos dependências entre componentes** - Uma configuração típica no local hadoop usa um único cluster que serve a muitos propósitos. Com o Azure HDInsight, clusters de carga de trabalho específica podem ser criados. A criação de clusters para cargas de trabalho específicas elimina a complexidade de manter um único cluster com complexidade crescente.
 
 - **Produtividade** – você pode usar várias ferramentas para o Hadoop e o Spark em seu ambiente de desenvolvimento preferido.
 
 - **Extensibilidade com ferramentas personalizadas ou aplicativos de terceiros** – clusters do HDInsight podem ser estendidos com componentes instalados e também podem ser integrados com outras soluções de Big Data usando implantações com [um único clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) do Azure Marketplace.
 
-- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se com [os logs de Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
+- **Fácil gerenciamento, administração e monitoramento** - O Azure HDInsight integra-se aos [logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) do Azure Monitor para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
 
 - **Integração com outros serviços do Azure** – o HDInsight pode ser facilmente integrado a outros serviços populares do Azure, como os seguintes:
 
     - ADF (Azure Data Factory)
-    - Armazenamento do blob do Azure
+    - Armazenamento do Blobs do Azure
     - Azure Data Lake Storage Gen2
-    - BD Cosmos do Azure
+    - Azure Cosmos DB
     - Banco de Dados SQL do Azure
     - Azure Analysis Services
 
@@ -85,7 +85,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 - Detalhes do projeto
 - Requisitos do Azure
 
-### <a name="on-premises-deployment-questionnaire"></a>Questionário de implantação local
+### <a name="on-premises-deployment-questionnaire"></a>Questionário de implantação no local
 
 | **Pergunta** | **Exemplo** | **Resposta** |
 |---|---|---|
@@ -94,16 +94,16 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Componentes do ecossistema de Big Data|HDFS, YARN, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, ZooKeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipos de cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Número de clusters|4|
-|Número de nós mestres|2|
-|Número de nós de trabalho|100|
-|Número de nós de borda| 5|
+|Número de nódulos mestres|2|
+|Número de nódulos operianos|100|
+|Número de nódulos de borda| 5|
 |Total de Espaço em Disco|100 TB|
 |Configuração do Nó Mestre|m/y, cpu, disk, etc.|
 |Configuração de Nós de Dados|m/y, cpu, disk, etc.|
 |Configuração de Nós de Borda|m/y, cpu, disk, etc.|
-|Criptografia de HDFS?|sim|
-|Alta Disponibilidade|HA do HDFS, HA do Metastore|
-|Recuperação de desastre/backup|Realizar backup do cluster?|  
+|Criptografia de HDFS?|Sim|
+|Alta disponibilidade|HA do HDFS, HA do Metastore|
+|Recuperação de desastres / backup|Realizar backup do cluster?|  
 |Sistemas que dependem do Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Integrações com terceiros|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Tópico**: **segurança**|||
@@ -137,10 +137,10 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
 |**Tópico**: **metadados**|||
 |Tipo de banco de dados do Hive|Mysql, Postgres||
-|Número de metastores do hive|2||
-|Número de tabelas do hive|100||
-|Número de políticas de Ranger|20||
-|Número de fluxos de trabalho do Oozie|100||
+|Número de metalojas colmeias|2||
+|Número de mesas colmeias|100||
+|Número de apólices de Ranger|20||
+|Número de fluxos de trabalho Oozie|100||
 |**Tópico**: **escala**|||
 |Volume de dados incluindo Replicação|100 TB||
 |Volume diário de ingestão|50 GB||
@@ -152,8 +152,8 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Espaço em disco usado|75%||
 |% média de rede usada|25%
 |**Tópico**: **equipe**|||
-|Número de administradores|2||
-|Número de desenvolvedores|10||
+|Número de Administradores|2||
+|Número de Desenvolvedores|10||
 |Número de usuários finais|100||
 |Habilidades|Hadoop, Spark||
 |Número de recursos disponíveis para os esforços de migração|2||
@@ -167,8 +167,8 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
 | Região preferida|Leste dos EUA||
-|Rede virtual preferida?|sim||
-|HA/DR necessárias?|sim||
+|Rede virtual preferida?|Sim||
+|HA/DR necessárias?|Sim||
 |Integração com outros serviços de nuvem?|ADF, CosmosDB||
 |**Tópico**: **movimentação de dados**  |||
 |Preferência de carregamento inicial|DistCp, Data Box, ADF, WANDisco||
@@ -177,25 +177,25 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |**Tópico**:   **monitoramento e alertas** |||
 |Usar Monitoramento e Alertas do Azure vs. integrar monitoramento de terceiros|Usar Monitoramento e Alertas do Azure||
 |**Tópico**: **preferências de segurança** |||
-|Pipeline de dados privados e protegidos?|sim||
-|Cluster de domínio ingressado (ESP)?|     sim||
-|Sincronização do AD Local com a Nuvem?|     sim||
-|Número de usuários do AD a serem sincronizados?|          100||
-|OK sincronizar senhas com a nuvem?|    sim||
-|Somente usuários de nuvem?|                 sim||
+|Pipeline de dados privados e protegidos?|Sim||
+|Cluster de domínio ingressado (ESP)?|     Sim||
+|Sincronização do AD Local com a Nuvem?|     Sim||
+|Número de usuários de Anúncios a serem sincronizados?|          100||
+|OK sincronizar senhas com a nuvem?|    Sim||
+|Somente usuários de nuvem?|                 Sim||
 |MFA necessária?|                       Não|| 
-|Requisitos de autorização de dados?|  sim||
-|Controle de Acesso Baseado em Função?|        sim||
-|Auditoria necessária?|                  sim||
-|Criptografia de dados em repouso?|          sim||
-|Criptografia de dados em trânsito?|       sim||
+|Requisitos de autorização de dados?|  Sim||
+|Controle de Acesso Baseado em Função?|        Sim||
+|Auditoria necessária?|                  Sim||
+|Criptografia de dados em repouso?|          Sim||
+|Criptografia de dados em trânsito?|       Sim||
 |**Tópico**: **preferências de redefinição de arquitetura** |||
 |Único cluster vs. tipos específicos de cluster|Tipos específicos de cluster||
 |Armazenamento Colocalizados vs. Armazenamento Remoto?|Armazenamento Remoto||
 |Menor tamanho de cluster já que os dados são armazenados remotamente?|Menor tamanho de cluster||
 |Usar vários clusters menores em vez de um único cluster grande?|Usar vários clusters menores||
-|Usar um metastore remoto?|sim||
-|Compartilhar metastores entre clusters diferentes?|sim||
+|Usar um metastore remoto?|Sim||
+|Compartilhar metastores entre clusters diferentes?|Sim||
 |Desconstruir cargas de trabalho?|Substituir trabalhos do Hive por trabalhos do Spark||
 |Usar ADF para orquestração de dados?|Não||
 

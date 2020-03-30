@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 07502b4c4487a7517e2fe73b62eae0a237a6f22b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70883275"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 para Cofre de Chaves do Azure - Notas de versão e guia de migração
@@ -48,23 +48,23 @@ Certificados do Key Vault x509 certifica e suporta os seguintes comportamentos:
 
 * *Secret* mudou para *SecretBundle*
 * *Dictionary* mudou para *IDictionary*
-* *List\<t >, String []* alterado para *IList\<T >*
+* *Lista\<T>, string []* alterado para *\<IList T>*
 * *NextList* mudou para *NextPageLink*
 
 ## <a name="return-types"></a>Tipos de retorno
 
-* **KeyList** e **secretolist** agora retorna *iPage\<T >* em vez de *ListKeysResponseMessage*
+* **Lista de** chaves e **lista secreta** agora retorna *iPage\<T>* em vez de *ListKeysResponseMessage*
 * O **BackupKeyAsync** gerado agora retorna *BackupKeyResult*, que contém *Value* (blob de backup). Anteriormente, o método era encapsulado e retornava somente o valor.
 
 ## <a name="exceptions"></a>Exceções
 
 * *KeyVaultClientException* mudou para *KeyVaultErrorException*
 * O erro de serviço mudou de *exception.Error* para *exception.Body.Error.Message*.
-* Informações adicionais removidas da mensagem de erro para **[JsonExtensionData]** .
+* Informações adicionais removidas da mensagem de erro para **[JsonExtensionData]**.
 
 ## <a name="constructors"></a>Construtores
 
-* Em vez de aceitar um *HttpClient* como um argumento do construtor, o construtor aceita apenas *HttpClientHandler* ou *DelegatingHandler[]* .
+* Em vez de aceitar um *HttpClient* como um argumento do construtor, o construtor aceita apenas *HttpClientHandler* ou *DelegatingHandler[]*.
 
 ## <a name="downloaded-packages"></a>Pacotes baixados
 
@@ -90,7 +90,7 @@ Quando um cliente processa uma dependência do Key Vault, os seguintes pacotes s
 ## <a name="class-changes"></a>Alterações de classe
 
 * A classe **UnixEpoch** foi removida.
-* A classe **Base64UrlConverter** foi renomeada para **Base64UrlJsonConverter**.
+* A classe **Base64UrlConverter** é renomeada para **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Outras alterações
 
@@ -98,7 +98,7 @@ Quando um cliente processa uma dependência do Key Vault, os seguintes pacotes s
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Para as operações que retornavam um *cofre*, o tipo de retorno era uma classe que continha uma propriedade **Vault**. Agora, o tipo de retorno é *Vault*.
+* Para as operações que devolveram um *cofre,* o tipo de retorno era uma classe que continha uma propriedade **vault.** Agora, o tipo de retorno é *Vault*.
 * *PermissionsToKeys* e *PermissionsToSecrets* agora são *Permissions.Keys* e *Permissions.Secrets*
 * Algumas das alterações de tipos de retorno também se aplicam ao plano de controle.
 

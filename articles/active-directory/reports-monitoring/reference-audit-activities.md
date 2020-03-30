@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007761"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
@@ -267,8 +267,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Chave|Excluir configurações da empresa|
 |Chave|Rebaixar parceiro|
 |Chave|Diretório excluído|
-|outro|Diretório excluído permanentemente|
-|outro|Diretório agendado para exclusão|
+|Outros|Diretório excluído permanentemente|
+|Outros|Diretório agendado para exclusão|
 |Recurso|Promover empresa à condição de parceira|
 |Recurso|Limpar propriedades de gerenciamento de direitos|
 |Recurso|Remover parceiro da empresa|
@@ -348,10 +348,10 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Gerenciamento de unidades administrativas|Baixar um tipo de detecção de risco único|
+|Gerenciamento de unidades administrativas|Baixe um único tipo de detecção de risco|
 |Gerenciamento de unidades administrativas|Baixar administradores e status de aceitação do resumo semanal|
-|Gerenciamento de unidades administrativas|Baixar todos os tipos de detecção de riscos|
-|Gerenciamento de unidades administrativas|Baixar detecções de risco de usuário gratuitas|
+|Gerenciamento de unidades administrativas|Baixe todos os tipos de detecção de risco|
+|Gerenciamento de unidades administrativas|Baixe detecções gratuitas de risco do usuário|
 |Gerenciamento de unidades administrativas|Baixar usuários sinalizados por risco|
 |Gerenciamento de Aplicativos|Convites do Lote processados|
 |Gerenciamento de Aplicativos|Convites do Lote carregados|
@@ -408,14 +408,14 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de diretórios|Obter IDPs para um fluxo específico do administrador|
 |Gerenciamento de diretórios|Obter lista de todos os fluxos de administrador|
 |Gerenciamento de diretórios|Obter lista de marcas de todos os fluxos de administrador para todos os usuários|
-|Gerenciamento de grupos|Membros do grupo de download em massa-iniciados|
-|Gerenciamento de grupos|Membros do grupo de download em massa-concluído|
-|Gerenciamento de grupos|Membros do grupo de importação em massa-iniciados|
-|Gerenciamento de grupos|Membros do grupo de importação em massa-concluídos|
-|Gerenciamento de grupos|Remoção de membros do grupo em massa-iniciada|
-|Gerenciamento de grupos|Remoção de membros do grupo em massa – concluída|
-|Gerenciamento de grupos|Grupos de download em massa-iniciados|
-|Gerenciamento de grupos|Grupos de download em massa-concluídos|
+|Gerenciamento de grupos|Membros do grupo Bulk Download - iniciado|
+|Gerenciamento de grupos|Membros do grupo Bulk Download - concluído|
+|Gerenciamento de grupos|Membros do grupo de importação a granel - iniciado|
+|Gerenciamento de grupos|Membros do grupo de importação a granel - concluídos|
+|Gerenciamento de grupos|Membros do grupo de remoção em massa - iniciado|
+|Gerenciamento de grupos|Membros do grupo de remoção em massa - acabados|
+|Gerenciamento de grupos|Grupos de download em massa - iniciados|
+|Gerenciamento de grupos|Grupos de download em massa - concluídos|
 |Gerenciamento de grupos|Obter lista de locatários de um usuário|
 |Gerenciamento de grupos|Obter declarações autodeclaradas das contas locais|
 |Gerenciamento de grupos|Obter json de recurso localizado|
@@ -475,16 +475,16 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Usuários|Adicionar membro no escopo à função|
 |Gerenciamento de Usuários|Added|
 |Gerenciamento de Usuários|Assign|
-|Gerenciamento de Usuários|Criação de usuários em massa-iniciada|
-|Gerenciamento de Usuários|Criação de usuários em massa – concluída|
-|Gerenciamento de Usuários|Exclusão de usuários em massa – iniciada|
-|Gerenciamento de Usuários|Exclusão de usuários em massa concluída|
-|Gerenciamento de Usuários|Usuários do download em massa-iniciados|
-|Gerenciamento de Usuários|Usuários do download em massa-concluídos|
-|Gerenciamento de Usuários|Restauração em massa de usuários excluídos-iniciado|
-|Gerenciamento de Usuários|Restauração em massa de usuários excluídos-concluído|
-|Gerenciamento de Usuários|Usuários de convite em massa-iniciados|
-|Gerenciamento de Usuários|Usuários de convite em massa-concluídos|
+|Gerenciamento de Usuários|Usuários de criação em massa - iniciados|
+|Gerenciamento de Usuários|Usuários de criação em massa - acabados|
+|Gerenciamento de Usuários|Usuários de exclusão em massa - iniciados|
+|Gerenciamento de Usuários|Usuários de exclusão em massa - concluído|
+|Gerenciamento de Usuários|Usuários de download em massa - iniciado|
+|Gerenciamento de Usuários|Usuários de download em massa - concluído|
+|Gerenciamento de Usuários|Restauração em massa deusuários excluídos - iniciado|
+|Gerenciamento de Usuários|Restauração em massa de usuários excluídos - concluído|
+|Gerenciamento de Usuários|Usuários de convite em massa - iniciado|
+|Gerenciamento de Usuários|Usuários de convite em massa - concluído|
 |Gerenciamento de Usuários|Remover proprietário registrado do dispositivo|
 |Gerenciamento de Usuários|Remover usuários registrados do dispositivo|
 |Gerenciamento de Usuários|Remover membro qualificado da função|
@@ -507,11 +507,11 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de diretórios|Elevate|
 |Gerenciamento de diretórios|Removed|
 |Gerenciamento de diretórios|Alterações na configuração de função|
-|outro|ScanAlertsNow|
-|outro|Inscrever-se|
-|outro|Unelevate|
-|outro|UpdateAlertSettings|
-|outro|UpdateCurrentState|
+|Outros|ScanAlertsNow|
+|Outros|Inscrever-se|
+|Outros|Unelevate|
+|Outros|UpdateAlertSettings|
+|Outros|UpdateCurrentState|
 |Gerenciamento de política|Revisão de acesso encerrada|
 |Gerenciamento de política|Adicionar aprovador para a aprovação de solicitação|
 |Gerenciamento de política|Adicionar revisor para a revisão de acesso|
@@ -523,8 +523,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|outro|Criar solicitação de aprovação|
-|outro|Excluir revisão de acesso|
+|Outros|Criar solicitação de aprovação|
+|Outros|Excluir revisão de acesso|
 |Gerenciamento de Usuários|Remover revisor da revisão de acesso|
 |Gerenciamento de Usuários|Solicitar aplicação dos resultados da análise|
 |Gerenciamento de Usuários|Solicitar interrupção da análise|
@@ -624,5 +624,5 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral dos relatórios do Azure AD](overview-reports.md).
-- [Relatório de logs de auditoria](concept-audit-logs.md). 
-- [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)
+- [Relatório de registros de auditoria](concept-audit-logs.md). 
+- [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

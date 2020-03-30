@@ -1,29 +1,29 @@
 ---
-title: Consultar dados do Azure Blockchain Workbench usando SQL Server Management Studio
+title: Query Dados do Azure Blockchain Workbench usando o SQL Server Management Studio
 description: Saiba como se conectar ao Banco de Dados SQL do Azure Blockchain Workbench pelo SQL Server Management Studio.
 ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 ms.openlocfilehash: f87d1880c90202fa26b0477e3b4dfbed5965bb82
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74326030"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Usando os dados do Azure Blockchain Workbench com o SQL Server Management Studio
 
-Microsoft SQL Server Management Studio permite escrever e testar as consultas rapidamente no Banco de Dados SQL do Azure Blockchain Workbench. Esta seção contém uma explicação passo a passo de como se conectar ao banco de dados SQL do Azure Blockchain Workbench de dentro SQL Server Management Studio.
+Microsoft SQL Server Management Studio permite escrever e testar as consultas rapidamente no Banco de Dados SQL do Azure Blockchain Workbench. Esta seção contém um passo-a-passo de como se conectar ao Banco de Dados SQL do Azure Blockchain Workbench a partir de dentro do SQL Server Management Studio.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Baixe o [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+* Baixe [o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## <a name="connecting-sql-server-management-studio-to-data-in-azure-blockchain-workbench"></a>Conectando o SQL Server Management Studio aos dados no Azure Blockchain Workbench
 
 1. Abra o SQL Server Management Studio e selecione **Conectar**.
-2. Selecione **Mecanismo de Banco de Dados**.
+2. Selecione **O Mecanismo de Banco de Dados**.
 
     ![Mecanismo de banco de dados](./media/data-sql-management-studio/database-engine.png)
 

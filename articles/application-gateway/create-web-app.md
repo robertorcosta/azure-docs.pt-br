@@ -1,5 +1,5 @@
 ---
-title: Configurar o serviço de aplicativo usando o PowerShell
+title: Configurar o serviço de aplicativos usando o PowerShell
 titleSuffix: Azure Application Gateway
 description: Este artigo oferece orientação sobre como configurar aplicativos Web como hosts back-end em um gateway de aplicativo novo ou existente.
 services: application-gateway
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74089504"
 ---
-# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configurar o serviço de aplicativo com o gateway de aplicativo usando o PowerShell
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configure o serviço do aplicativo com gateway de aplicativo usando o PowerShell
 
 O Gateway de Aplicativo permite que você tenha um aplicativo do Serviço de Aplicativo ou outro serviço multilocatário como um membro do pool de back-end. Neste artigo, você aprenderá como configurar um aplicativo do Serviço de Aplicativo com Gateway de Aplicativo. O primeiro exemplo mostra como configurar um gateway de aplicativo existente para usar um aplicativo Web como membro do pool de back-ends. O segundo exemplo mostra como criar um novo gateway de aplicativo com um aplicativo Web como membro do pool de back-ends.
 
@@ -128,9 +128,9 @@ $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity
 $appgw = New-AzApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location EastUs -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Application Gateway
+## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. Para criar o alias, recupere os detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. Isso pode ser feito com o DNS do Azure ou outros provedores de DNS, criando um registro CNAME que aponta para o [endereço IP público](../dns/dns-custom-domain.md#public-ip-address). O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do Application Gateway.
+Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. Para criar o alias, recupere os detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. Isso pode ser feito com o DNS do Azure ou outros provedores de DNS, criando um registro CNAME que aponta para o [endereço IP público](../dns/dns-custom-domain.md#public-ip-address). O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01

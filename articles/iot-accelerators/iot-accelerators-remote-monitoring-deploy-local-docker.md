@@ -1,5 +1,5 @@
 ---
-title: Implantar solução de monitoramento remoto localmente-Docker-Azure | Microsoft Docs
+title: Implantar solução de monitoramento remoto localmente - Docker - Azure | Microsoft Docs
 description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto no computador local usando o Docker para teste e desenvolvimento.
 author: avneet723
 manager: hegate
@@ -9,25 +9,25 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 32b47d9d6d45ff471961f55f8159dbe85eae2dce
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73888832"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implante o acelerador de solução de Monitoramento Remoto localmente - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Você aprenderá como implantar os microsserviços nos contêineres locais do Docker. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: IoT Hub, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
+Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Você aprenderá como implantar os microsserviços nos contêineres locais do Docker. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: Hub IoT, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
 
 Se você quiser executar o acelerador de solução de Monitoramento Remoto em um IDE em seu computador local, consulte [Implantar o acelerador de solução de Monitoramento Remoto localmente – Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para implantar os serviços do Azure usados pelo acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
-Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Configuração do computador
 
@@ -87,16 +87,16 @@ Você pode usar um shell separado para exibir os logs do contêiner. Primeiro, e
 
 ### <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho do Stream Analytics
 
-Siga estas etapas para iniciar o trabalho de Stream Analytics:
+Execute estas etapas para iniciar o trabalho do Stream Analytics:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome da solução que você escolheu quando executou o script **start.cmd**.
+1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome que você escolheu para sua solução quando executou o script **start.cmd.**
 1. Clique no **trabalho do Stream Analytics** na lista de recursos.
-1. Na página **visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Depois, clique em **Iniciar** para iniciar o trabalho agora.
+1. Na página **visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Clique em **Iniciar** para iniciar o trabalho.
 
-### <a name="connect-to-the-dashboard"></a>Conecte-se ao painel
+### <a name="connect-to-the-dashboard"></a>Conectar-se ao painel
 
-Para acessar o painel da solução de monitoramento remoto, navegue até `http://localhost:8080` em seu navegador. Agora você pode usar a IU da Web e os microsserviços de locais.
+Para acessar o painel da solução de Monitoramento Remoto, navegue até `http://localhost:8080` em seu navegador. Agora você pode usar a IU da Web e os microsserviços de locais.
 
 ## <a name="clean-up"></a>Limpar
 

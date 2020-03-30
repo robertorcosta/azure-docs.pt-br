@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755220"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger chaves do Azure Cosmos usando o Azure Key Vault 
@@ -30,7 +30,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-1. Entre no [portal do Azure](https://portal.azure.com/).  
+1. Faça login no [Portal Azure](https://portal.azure.com/).  
 2. Selecione **Criar um recurso > Segurança > Key Vault**.  
 3. A seção **Criar cofre de chaves** fornece as seguintes informações:  
    * **Nome:** forneça um nome exclusivo para seu Key Vault.  
@@ -44,7 +44,7 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 1. Navegue até o Key Vault que você criou na etapa anterior e abra a guia **Segredos**.  
 2. Selecione **+Gerar/Importar**, 
 
-   * Selecione **Manual** para **Opções de upload**.
+   * Selecione **Manual** para **opções de upload**.
    * Forneça um **Nome** para seu segredo
    * Insira a cadeia de conexão da sua conta do Cosmos DB no campo **Valor**. E, em seguida, selecione **Criar**.
 
@@ -89,7 +89,7 @@ Agora, ao executar o aplicativo, você poderá ler o segredo do Key Vault.
  
 Da mesma forma, você pode adicionar um usuário para acessar o Key Vault. Você precisa adicionar você mesmo ao Key Vault selecionando **Políticas de Acesso**. Em seguida, conceda todas as permissões que você precisa para executar o aplicativo usando o Visual Studio. Quando esse aplicativo estiver em execução na área de trabalho, ele usará sua identidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* Para configurar um firewall para o Azure Cosmos DB, consulte o artigo [Suporte de firewall](firewall-support.md).
+* Para configurar um firewall para o Azure Cosmos DB, consulte o artigo [de suporte ao firewall.](firewall-support.md)
 * Para configurar o ponto de extremidade de serviço de rede virtual, confira o artigo [Proteger o acesso usando o ponto de extremidade de serviço da VNET](vnet-service-endpoint.md).

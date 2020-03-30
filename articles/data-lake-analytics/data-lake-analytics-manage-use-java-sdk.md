@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813627"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerenciar o Azure Data Lake Analytics usando um aplicativo Java
@@ -21,7 +21,7 @@ ms.locfileid: "70813627"
 
 Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalhos do Azure Data Lake Analytics usando um aplicativo codificado com o SDK do Java do Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 * **Java Development Kit (JDK) 8** (usando a versão 1.8 do Java).
 * **IntelliJ** ou outro ambiente de desenvolvimento Java adequado. As instruções neste documento usam o IntelliJ.
 * Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, a **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../active-directory/develop/howto-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois que o aplicativo for criado e a chave for gerada.
@@ -33,7 +33,7 @@ O snippet de código a seguir fornece o código para a autenticação **não int
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
 1. Abra o IntelliJ e crie um projeto Java usando o modelo **Aplicativo de linha de comando**.
 2. Clique com o botão direito do mouse no projeto no lado esquerdo da tela e clique em **Adicionar Suporte da Estrutura**. Escolha **Maven** e clique em **OK**.
-3. Abra o arquivo **"pom.xml"** recém-criado e adicione o seguinte snippet de texto entre as marcas **\</version&gt;** e **\</project&gt;** :
+3. Abra o arquivo **"pom.xml"** recém-criado e adicione o seguinte snippet de texto entre as marcas **\</version&gt;** e **\</project&gt;**:
 
 ```
 <dependencies>
@@ -78,7 +78,7 @@ O snippet de código a seguir fornece o código para a autenticação **não int
 
 Acesse **Arquivo > Configurações > Build > Execução > Implantação**. Selecione **Ferramentas de Build > Maven > Importando**. Depois, marque **Importar projetos Maven automaticamente**.
 
-Abra `Main.java` e substitua o bloco de código existente pelo código a seguir:
+Abra `Main.java` e substitua o bloco de código existente pelo seguinte código:
 
 ```java
 import com.microsoft.azure.CloudException;

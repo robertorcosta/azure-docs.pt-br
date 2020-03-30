@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Cordova
+title: Crie um aplicativo Cordova
 description: Siga este tutorial para começar a usar back-ends de aplicativos móveis do Azure para desenvolvimento do Apache Cordova
 keywords: cordova,javascript,móvel,cliente
 ms.assetid: 0b08fc12-0a80-42d3-9cc1-9b3f8d3e3a3f
@@ -8,10 +8,10 @@ ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 99fb4a4b07ecbd4a85abbc62ec52a0f5960654c5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461565"
 ---
 # <a name="create-an-apache-cordova-app"></a>Criar um aplicativo Apache Cordova
@@ -22,7 +22,7 @@ Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a u
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais do Apache Cordova sobre como usar o recurso de Aplicativos Móveis no Serviço de Aplicativo do Azure.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 * Um computador com o [Visual Studio Community 2017] ou mais recente.
@@ -34,7 +34,7 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 ## <a name="create-an-azure-mobile-app-backend"></a>Criar um back-end de aplicativo móvel do Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma conexão de banco de dados e configurar o projeto de cliente e servidor
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Crie uma conexão de banco de dados e configure o projeto cliente e servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-apache-cordova-app"></a>Baixe e execute o aplicativo Apache Cordova
@@ -44,4 +44,4 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 [Azure portal]: https://portal.azure.com/
 
 [Visual Studio Community 2017]: https://www.visualstudio.com/
-[Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Ferramentas visuais do estúdio para Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx

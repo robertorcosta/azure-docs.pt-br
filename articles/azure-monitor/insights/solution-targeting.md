@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: dd3279db67fb45aee43cf1b0ef1bebf49433eef4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663225"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Direcionamento de soluções de monitoramento no Azure Monitor (versão prévia)
@@ -22,13 +22,13 @@ Quando você adiciona uma solução de monitoramento à sua assinatura, ela é i
 Há três etapas para direcionar uma solução, conforme descrito nas próximas seções. 
 
 
-### <a name="1-create-a-computer-group"></a>1. criar um grupo de computadores
+### <a name="1-create-a-computer-group"></a>1. Crie um grupo de computadores
 Especifique os computadores que deseja incluir no escopo criando um [grupo de computadores](../platform/computer-groups.md) no Azure Monitor.  O grupo de computadores pode se basear em uma consulta de logs ou pode ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente computadores conectados diretamente ao Azure Monitor serão incluídos no escopo.
 
 Depois de criar o grupo de computadores em seu workspace, você o incluirá em uma configuração de escopo que pode ser aplicada a uma ou mais soluções.
  
  
-### <a name="2-create-a-scope-configuration"></a>2. criar uma configuração de escopo
+### <a name="2-create-a-scope-configuration"></a>2. Crie uma configuração de escopo
  Uma **Configuração de Escopo** inclui um ou mais grupos de computadores e pode ser aplicada a uma ou mais soluções. 
  
  Crie uma configuração de escopo usando o processo a seguir.  
@@ -42,7 +42,7 @@ Depois de criar o grupo de computadores em seu workspace, você o incluirá em u
  6. Clique em **OK** para criar a configuração de escopo. 
 
 
-### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. aplicar a configuração de escopo a uma solução.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Aplique a configuração do escopo a uma solução.
 Depois que você tiver uma configuração de escopo, poderá aplicá-la a uma ou mais soluções.  Observe que, embora uma única configuração de escopo possa ser usada com várias soluções, cada solução só poderá usar uma configuração de escopo.
 
 Aplique uma configuração de escopo usando o processo a seguir.  
@@ -67,6 +67,6 @@ O direcionamento de solução não pode ser usado com as soluções descritas a 
 
 - Avaliação de Integridade do Agente
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as soluções de monitoramento, incluindo as soluções disponíveis para instalação em seu ambiente, em [Adicionar soluções de monitoramento do Azure Log Analytics a seu workspace](solutions.md).
 - Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em consultas de logs do Azure Monitor](../platform/computer-groups.md).

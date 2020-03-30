@@ -1,5 +1,5 @@
 ---
-title: Problemas ao configurar o SSO de senha para o aplicativo da galeria do Azure AD
+title: Problemas na configuração de senha SSO para o aplicativo Azure AD Gallery
 description: Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos já listados na Galeria do Aplicativo Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159039"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
@@ -59,7 +59,7 @@ Caso as sugestões anteriores não funcionem, pode ser que tenha ocorrido uma al
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para arrumar o problema o mais rápido possível. 
 
-Além disso, **se você estiver em contato com o fornecedor deste aplicativo,** **envie-os nossa maneira** para que possamos trabalhar com eles para integrar nativamente seu aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>A extensão funciona no Chrome e no Firefox, mas não no Internet Explorer
 
@@ -73,7 +73,7 @@ Existem duas principais causas para esse problema:
 
   * Infelizmente, essa situação pode variar dependendo da versão do navegador, da velocidade do computador ou do site visitado. Nesse caso, sugerimos que você contate o suporte para que possamos corrigir a integração para esse aplicativo específico.
 
-Além disso, **se você estiver em contato com o fornecedor deste aplicativo,** **envie-os nossa maneira** para que possamos trabalhar com eles para integrar nativamente seu aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de logon do aplicativo foi alterada recentemente ou exige um campo adicional
 
@@ -81,7 +81,7 @@ Se a página de logon do aplicativo foi drasticamente alterada, às vezes isso c
 
 Ainda que a Microsoft possua tecnologias para detectar automaticamente quando integrações interrompem, talvez não seja possível localizar esses problemas imediatamente ou os problemas levem algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para arrumar o problema o mais rápido possível. 
 
-Além disso, **se você estiver em contato com o fornecedor deste aplicativo,** **envie-os nossa maneira** para que possamos trabalhar com eles para integrar nativamente seu aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
+Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md) para iniciá-los.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
 
@@ -99,7 +99,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
+7.  Faça login no Painel de Acesso e veja se você pode **iniciar** seus aplicativos SSO de senha
 
 Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
 

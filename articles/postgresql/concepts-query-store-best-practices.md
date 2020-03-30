@@ -1,21 +1,21 @@
 ---
-title: Repositório de Consultas práticas recomendadas no banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve as práticas recomendadas para o Repositório de Consultas no banco de dados do Azure para PostgreSQL-servidor único.
+title: Query Store práticas recomendadas no Banco de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve as práticas recomendadas para a Loja de Consulta no Banco de Dados Do Azure para PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 51239f4cf49784dd47470e1272b90508eaf25e6f
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70764227"
 ---
 # <a name="best-practices-for-query-store"></a>Práticas recomendadas para Repositório de Consultas
 
-**Aplica-se a:** Banco de dados do Azure para PostgreSQL-versões de servidor único 9,6, 10, 11
+**Aplica-se a:** Banco de dados Azure para PostgreSQL - Single Server versões 9.6, 10, 11
 
 Este artigo descreve as práticas recomendadas para o uso do Repositório de Consultas no Banco de Dados do Azure para PostgreSQL.
 
@@ -24,14 +24,14 @@ Deixe que o Repositório de Consultas capture os dados que importam para você.
 
 |**pg_qs.query_capture_mode** | **Cenário**|
 |---|---|
-|_Todas_  |Analise sua carga de trabalho cuidadosamente em termos de todas as consultas e das respectivas frequências de execução e outras estatísticas. Identifique novas consultas na carga de trabalho. Detectar se consultas ad hoc são usadas para identificar oportunidades para a parametrização automática ou de usuário. _All_ acompanha um custo de consumo de recursos maior. |
-|_Top_  |Concentre sua atenção nas principais consultas – aquelas emitidas pelos clientes.
+|_Todos_  |Analise sua carga de trabalho cuidadosamente em termos de todas as consultas e das respectivas frequências de execução e outras estatísticas. Identifique novas consultas na carga de trabalho. Detecte se as consultas ad hoc são usadas para identificar oportunidades de parametrização do usuário ou automático. _All_ acompanha um custo de consumo de recursos maior. |
+|_Início_  |Concentre sua atenção nas principais consultas – aquelas emitidas pelos clientes.
 |_Nenhum_ |Você já capturou um conjunto de consultas e a janela de tempo que você deseja investigar, e você deseja eliminar as distrações que outras consultas podem causar. _None_ é adequado para teste e avaliação de desempenho de ambientes. _None_ deve ser usado com cuidado, pois você pode perder a oportunidade de acompanhar e otimizar consultas novas importantes. Você não pode recuperar dados nessas janelas de tempo do passado. |
 
 O Repositório de Consultas também inclui um repositório de estatísticas de espera. Há uma consulta de modo de captura adicional que controla as estatísticas de espera: **pgms_wait_sampling.query_capture_mode** pode ser definido como _none_ ou _all_. 
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode** substitui **pgms_wait_sampling.query_capture_mode**. Se pg_qs.query_capture_mode for _none_, a configuração pgms_wait_sampling.query_capture_mode não terá efeito. 
+> **pg_qs.query_capture_mode** substitui **pgms_wait_sampling.query_capture_mode**. Se pg_qs.query_capture_mode não for _nenhum,_ a configuração pgms_wait_sampling.query_capture_mode não tem efeito. 
 
 
 ## <a name="keep-the-data-you-need"></a>Manter os dados de que precisa

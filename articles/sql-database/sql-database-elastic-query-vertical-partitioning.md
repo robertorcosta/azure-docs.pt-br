@@ -1,5 +1,5 @@
 ---
-title: Consulta entre bancos de dados na nuvem com esquemas diferentes
+title: Consulta em bancos de dados em nuvem com esquemas diferentes
 description: como configurar consultas entre bancos de dados em partições verticais
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: d5983d25685242a696300f293231bbf987e8442d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823723"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bancos de dados na nuvem com esquemas diferentes (visualização)
@@ -36,9 +36,9 @@ Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas
 >
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CRIAR UMA CREDENCIAL NO ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) 
+2. [CRIAR UMA CREDENCIAL COM ESCOPO DE BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [CRIAR UMA FONTE DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
+4. [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx) 
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Criar chave mestra do escopo do banco de dados e credenciais
 
@@ -50,7 +50,7 @@ A credencial é usada pela consulta elástica para se conectar aos bancos de dad
     [;]
 
 > [!NOTE]
-> Verifique se o `<username>` não inclui nenhum sufixo **"\@servername"** . 
+> Certifique-se `<username>` de que o sufixo **"nome\@** do servidor" não inclui. 
 >
 
 ## <a name="create-external-data-sources"></a>Criar fontes de dados externas
@@ -86,7 +86,7 @@ Para recuperar a lista de fontes de dados externas atuais:
 
     select * from sys.external_data_sources; 
 
-### <a name="external-tables"></a>Tabelas externas
+### <a name="external-tables"></a>Tabelas Externas
 
 Sintaxe:
 
@@ -141,7 +141,7 @@ A instrução DDL a seguir remove uma definição existente da tabela externa do
 
 **Permissões para CREATE/DROP EXTERNAL TABLE**: as permissões ALTER ANY EXTERNAL DATA SOURCE são necessárias para a DDL da tabela externa, o que também é necessário para fazer referência à fonte de dados subjacente.  
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 Usuários com acesso à tabela externa têm acesso automaticamente a tabelas remotas subjacentes com a credencial fornecida na definição de fonte de dados externa. Você deve gerenciar cuidadosamente o acesso à tabela externa para evitar a elevação indesejada de privilégios por meio da credencial da fonte de dados externa. Permissões de SQL regulares podem ser usadas para o acesso de GRANT ou REVOKE a uma tabela externa como se ela fosse uma tabela normal.  
 

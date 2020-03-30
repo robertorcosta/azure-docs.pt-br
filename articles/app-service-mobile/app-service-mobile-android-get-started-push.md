@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 6fec85c028e992c15fb9503ffb599023e668c58f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459932"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações por push ao aplicativo Android
@@ -23,7 +23,7 @@ Neste tutorial, você adicionará notificações por push ao projeto de [início
 
 Se você não usar o projeto baixado do início rápido do servidor, deverá adicionar o pacote de extensão de notificação por push ao seu projeto. Para saber mais, veja [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará do seguinte:
 
@@ -78,11 +78,11 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 
 Agora que você concluiu este tutorial, considere continuar com um dos seguintes tutoriais:
 
-* [Adicionar autenticação ao aplicativo Android](app-service-mobile-android-get-started-users.md).
+* [Adicione autenticação ao seu aplicativo para Android](app-service-mobile-android-get-started-users.md).
   Saiba como adicionar autenticação ao projeto de início rápido da lista de tarefas pendentes no Android usando um provedor de identidade com suporte.
 * [Habilitar a sincronização offline para o aplicativo móvel Android](app-service-mobile-android-get-started-offline-data.md).
   Saiba como adicionar suporte offline ao aplicativo usando um back-end dos Aplicativos Móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel &mdash; exibindo, adicionando ou modificando dados &mdash; mesmo quando não há nenhuma conexão de rede.
 
 <!-- URLs -->
 [início rápido do Android]: app-service-mobile-android-get-started.md
-[Adicionar o Firebase ao seu projeto do Android]: https://firebase.google.com/docs/android/setup
+[Adicionar o Firebase ao seu projeto do Android]:https://firebase.google.com/docs/android/setup

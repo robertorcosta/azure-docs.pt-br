@@ -1,5 +1,5 @@
 ---
-title: Migrar para novos trabalhos de banco de dados elástico
+title: Migrar para novos empregos de banco de dados elásticos
 description: Migrar para os novos trabalhos de Banco de Dados Elástico.
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 5a7ed254de7b7ea32f2fb357d860354693e46e92
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827226"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para os novos trabalhos de Banco de Dados Elástico
 
 Uma versão atualizada dos [trabalhos de Banco de Dados Elástico](elastic-jobs-overview.md) está disponível.
 
-Se você tiver uma versão hospedada do cliente existente de trabalhos de banco de dados elástico, os cmdlets de migração e os scripts serão fornecidos para migrar facilmente para a versão mais recente.
+Se você tiver uma versão existente do cliente hospedado dos trabalhos de Banco de Dados Elástico, scripts e cmdlets de migração são fornecidos para migrar facilmente para a versão mais recente.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -92,7 +92,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 Agora que os cmdlets de Trabalhos Elásticos novos e antigos foram inicializados, migre suas credenciais de trabalho, destinos e trabalhos para o *banco de dados de trabalho*.
 
-### <a name="setup"></a>Configuração
+### <a name="setup"></a>Instalação
 
 ```powershell
 $ErrorActionPreference = "Stop";
@@ -375,7 +375,7 @@ Para migrar seus destinos (servidores, bancos de dados e coleções personalizad
 Migrate-TargetGroups $agent
 ```
 
-Exemplo de saída:
+Saída de exemplo:
 
 ```powershell
 # --------------------- Migrating target groups ---------------------
@@ -572,7 +572,7 @@ Para migrar seus trabalhos, conteúdo de trabalho, gatilhos de trabalho e agenda
 Migrate-Jobs $agent
 ```
 
-Exemplo de saída:
+Saída de exemplo:
 ```powershell
 --------------------- Migrating jobs and job steps ---------------------
 Job job1
@@ -629,5 +629,5 @@ $jobs | Set-AzSqlElasticJob -Enable
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar e gerenciar trabalhos elásticos usando o PowerShell](elastic-jobs-powershell.md)
+- [Crie e gerencie trabalhos elásticos usando o PowerShell](elastic-jobs-powershell.md)
 - [Criar e gerenciar Trabalhos Elásticos usando T-SQL (Transact-SQL)](elastic-jobs-tsql.md)

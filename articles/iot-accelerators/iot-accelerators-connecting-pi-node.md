@@ -1,5 +1,5 @@
 ---
-title: Conectar o Raspberry Pi à solução de monitoramento remoto-node. js – Azure | Microsoft Docs
+title: Conecte Raspberry Pi à solução de monitoramento remoto - Node.js - Azure | Microsoft Docs
 description: Descreve como conectar um dispositivo Raspberry Pi ao acelerador de solução de Monitoramento Remoto usando um aplicativo escrito em Node.js.
 author: dominicbetts
 manager: timlt
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: 98d947e8aabf20fbfdb192cb80c9bc881007d5da
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889279"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conectar seu dispositivo Raspberry Pi ao acelerador da solução de monitoramento remoto (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra como conectar um dispositivo físico ao acelerador de solução de monitoramento remoto. Neste tutorial, você usará o Node.js, que é uma boa opção para ambientes com poucas restrições de recursos.
+Este tutorial mostra como conectar um dispositivo real ao acelerador de solução de Monitoramento Remoto. Neste tutorial, você usará o Node.js, que é uma boa opção para ambientes com poucas restrições de recursos.
 
 Se você preferir simular um dispositivo, consulte [Criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
@@ -27,7 +27,7 @@ Se você preferir simular um dispositivo, consulte [Criar e testar um novo dispo
 
 Um computador desktop para que você possa se conectar remotamente à linha de comando no Raspberry Pi.
 
-[Kit de início de IoT da Microsoft para Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) ou componentes equivalentes. Este tutorial usa os seguintes itens do kit:
+[Microsoft IoT Starter Kit para Raspberry Pi 3](https://azure.microsoft.com/develop/iot/starter-kits/) ou componentes equivalentes. Este tutorial usa os seguintes itens do kit:
 
 - Raspberry Pi 3
 - Cartão MicroSD (com NOOBS)

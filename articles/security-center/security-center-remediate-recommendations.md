@@ -1,6 +1,6 @@
 ---
-title: Corrigir recomendações na central de segurança do Azure | Microsoft Docs
-description: Este artigo explica como corrigir recomendações na central de segurança do Azure para proteger seus recursos e obedecer às políticas de segurança.
+title: Remediar recomendações no Azure Security Center | Microsoft Docs
+description: Este artigo explica como corrigir recomendações no Azure Security Center para proteger seus recursos e cumprir as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,89 +14,89 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 6863f4bbfc6aabc4e7bf4314ad26dd4590d31362
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603505"
 ---
-# <a name="remediate-recommendations-in-azure-security-center"></a>Corrigir recomendações na central de segurança do Azure
+# <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de correção na Central de Segurança do Azure
 
-As recomendações fornecem sugestões sobre como proteger melhor seus recursos. Implemente uma recomendação seguindo as etapas de correção fornecidas na recomendação.
+Recomendações dão sugestões de como proteger melhor seus recursos. Você implementa uma recomendação seguindo as etapas de remediação previstas na recomendação.
 
-## Etapas de correção<a name="remediation-steps"></a>
+## <a name="remediation-steps"></a>Etapas de remediação<a name="remediation-steps"></a>
 
-Depois de examinar todas as recomendações, decida qual delas corrigir primeiro. Recomendamos que você use o [impacto de Pontuação segura](security-center-recommendations.md#monitor-recommendations) para ajudar a priorizar o que fazer primeiro.
+Depois de revisar todas as recomendações, decida qual remediar primeiro. Recomendamos que você use o [impacto secure score](security-center-recommendations.md#monitor-recommendations) para ajudar a priorizar o que fazer primeiro.
 
 1. Na lista, clique na recomendação.
 
-1. Siga as instruções na seção **etapas de correção** . Cada recomendação tem seu próprio conjunto de instruções. A captura de tela a seguir mostra as etapas de correção para configurar aplicativos para permitir somente o tráfego por HTTPS.
+1. Siga as instruções na seção **de etapas de Remediação.** Cada recomendação tem seu próprio conjunto de instruções. A captura de tela a seguir mostra etapas de remediação para configurar aplicativos para permitir apenas tráfego em HTTPS.
 
     ![Detalhes da recomendação](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
 
-1. Depois de concluído, uma notificação será exibida informando se a correção foi bem-sucedida.
+1. Uma vez concluída, uma notificação aparece informando se a remediação foi bem sucedida.
 
-## Correção de correção rápida<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Correção de Correção Rápida<a name="one-click"></a>
 
-A correção rápida permite que você corrija rapidamente uma recomendação em vários recursos. Ele só está disponível para recomendações específicas. A correção rápida simplifica a correção e permite que você aumente rapidamente sua pontuação segura, melhorando a segurança do seu ambiente.
+O Quick Fix permite que você remedia rapidamente uma recomendação sobre vários recursos. Só está disponível para recomendações específicas. O Quick Fix simplifica a remediação e permite que você aumente rapidamente seu Secure Score, melhorando a segurança do seu ambiente.
 
-Para implementar a correção rápida de correção:
+Para implementar a correção quick fix:
 
-1. Na lista de recomendações que têm a **correção rápida!** , clique na recomendação.
+1. Da lista de recomendações que possuem o **Quick Fix!** rótulo, clique na recomendação.
 
-    [![selecionar correção rápida!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
+    [![Selecione Correção rápida!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
-1. Na guia **recursos não íntegros** , selecione os recursos em que você deseja implementar a recomendação e clique em **corrigir**.
+1. Na guia **Recursos insalubres,** selecione os recursos em que deseja implementar a recomendação e clique em **Remediar**.
 
     > [!NOTE]
-    > Alguns dos recursos listados podem estar desabilitados, pois você não tem as permissões apropriadas para modificá-los.
+    > Alguns dos recursos listados podem ser desativados, porque você não tem as permissões apropriadas para modificá-los.
 
-1. Na caixa de confirmação, leia os detalhes e as implicações de correção.
+1. Na caixa de confirmação, leia os detalhes e implicações da remediação.
 
     ![Correção rápida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > As implicações são listadas na caixa cinza na janela **corrigir recursos** que é aberta depois de clicar em **corrigir**. Eles listam as alterações que ocorrem ao prosseguir com a correção de correção rápida.
+    > As implicações estão listadas na caixa cinza na janela **Recursos de correção** que se abre após clicar em **Remediar**. Eles listam quais mudanças acontecem ao prosseguir com a correção quick fix.
 
-1. Insira os parâmetros relevantes, se necessário, e aprove a correção.
+1. Insira os parâmetros relevantes, se necessário, e aprove a remediação.
 
     > [!NOTE]
-    > Pode levar vários minutos após a correção ser concluída para ver os recursos na guia **recursos íntegros** . Para exibir as ações de correção, verifique o [log de atividades](#activity-log).
+    > Pode levar vários minutos após a conclusão da remediação para ver os recursos na guia **Recursos Saudáveis.** Para visualizar as ações de remediação, verifique o [registro de atividades](#activity-log).
 
-1. Depois de concluído, uma notificação será exibida informando se a correção foi bem-sucedida.
+1. Uma vez concluída, uma notificação aparece informando se a remediação foi bem sucedida.
 
-## Log de correções de correção rápida no log de atividades<a name="activity-log"></a>
+## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Login de correção rápida no registro de atividades<a name="activity-log"></a>
 
-A operação de correção usa uma implantação de modelo ou chamada à API de PATCH REST para aplicar a configuração no recurso. Essas operações são registradas no [log de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md).
+A operação de remediação usa uma implantação de modelo ou chamada de API REST PATCH para aplicar a configuração no recurso. Essas operações estão registradas no [registro de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md).
 
 
-## <a name="recommendations-with-quick-fix-remediation"></a>Recomendações com a correção rápida de correção
+## <a name="recommendations-with-quick-fix-remediation"></a>Recomendações com correção de correção rápida
 
 |Recomendação|Implicação|
 |---|---|
-|A auditoria em servidores SQL deve ser habilitada|Esta ação habilitará a auditoria do SQL nesses servidores e em seus bancos de dados. <br>**Observação**: <ul><li>Para cada região dos SQL Servers selecionados, uma conta de armazenamento para salvar os logs de auditoria será criada e compartilhada por todos os servidores nessa região.</li><li>Para garantir a auditoria adequada, não exclua nem renomeie o grupo de recursos nem as contas de armazenamento.</li></ul>|
-|A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL|Esta ação habilitará o ADS (segurança de dados avançada) do SQL nas instâncias gerenciadas do SQL selecionadas. <br>**Observação**: <ul><li>Para cada região e grupo de recursos das instâncias gerenciadas do SQL selecionadas, uma conta de armazenamento para salvar os resultados da verificação será criada e compartilhada por todas as instâncias nessa região.</li><li> Os anúncios são cobrados a $15 por instância gerenciada do SQL.</li></ul>|
-|A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL|Esta ação habilitará a avaliação de vulnerabilidade do SQL nas instâncias gerenciadas do SQL selecionadas. <br>**Observação**:<ul><li>A avaliação de vulnerabilidade do SQL faz parte do pacote do SQL Advanced Data Security (ADS). Se o ADS ainda não estiver habilitado, ele será habilitado automaticamente na instância gerenciada.</li><li>Para cada região e grupo de recursos das instâncias gerenciadas do SQL selecionadas, uma conta de armazenamento para armazenar os resultados da verificação será criada e compartilhada por todas as instâncias nessa região.</li><li>Os anúncios são cobrados a $15 por SQL Server.</li></ul>||
-|A segurança de dados avançada deve ser habilitada em seus servidores SQL|Esta ação habilitará o ADS (segurança de dados avançada) nesses servidores selecionados e seus bancos de dado. <br>**Observação**:<ul><li>Para cada região e grupo de recursos dos SQL Servers selecionados, uma conta de armazenamento para armazenar os resultados da verificação será criada e compartilhada por todos os servidores nessa região. <</li><li>Os anúncios são cobrados a $15 por SQL Server.</li></ul>||
-|A avaliação de vulnerabilidade deve ser habilitada em seus servidores SQL|Esta ação habilitará a avaliação de vulnerabilidade do SQL nesses servidores selecionados e seus bancos de dados. <br>**Observação**:<ul><li>A avaliação de vulnerabilidade do SQL faz parte do pacote do SQL Advanced Data Security (ADS). Se o ADS ainda não estiver habilitado, ele será habilitado automaticamente no SQL Server.</li><li>Para cada região e grupo de recursos dos SQL Servers selecionados, uma conta de armazenamento para armazenar os resultados da verificação será criada e compartilhada por todas as instâncias nessa região.</li><li>Os anúncios são cobrados a $15 por SQL Server.</li></ul>||
-|A Transparent Data Encryption em bancos de dados SQL deve ser habilitada|Essa ação habilita o TDE (SQL Database Transparent Data Encryption) nos bancos de dados selecionados. <br>**Observação**: por padrão, as chaves TDE gerenciadas pelo serviço serão usadas.
-|A transferência segura para contas de armazenamento deve ser habilitada|Essa ação atualiza a segurança da conta de armazenamento para permitir somente solicitações por conexões seguras. (HTTPS). <br>**Observação**:<ul><li>Todas as solicitações que usam HTTP serão rejeitadas.</li><li>Quando você estiver usando o serviço arquivos do Azure, a conexão sem criptografia falhará, incluindo cenários usando SMB 2,1, SMB 3,0 sem criptografia e alguns tipos do cliente Linux SMB. Saiba mais.</li></ul>|
-|Aplicativo Web deve ser acessível somente por HTTPS|Essa ação redirecionará todo o tráfego de HTTP para HTTPS nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto de extremidade HTTPS que não tenha um certificado SSL será exibido no navegador com um ' erro de privacidade '. Portanto, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Verifique se os firewalls do aplicativo Web e do pacote estão protegendo o serviço de aplicativo, permitir encaminhamento de sessões HTTPS.</li></ul>|
-|O aplicativo de funções deve ser acessível apenas por HTTPS|Essa ação redirecionará todo o tráfego de HTTP para HTTPS nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto de extremidade HTTPS que não tenha um certificado SSL será exibido no navegador com um ' erro de privacidade '. Portanto, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Verifique se os firewalls do aplicativo Web e do pacote estão protegendo o serviço de aplicativo, permitir encaminhamento de sessões HTTPS.</li></ul>|
-|O aplicativo de API só deve estar acessível via HTTPS|Essa ação redirecionará todo o tráfego de HTTP para HTTPS nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto de extremidade HTTPS que não tenha um certificado SSL será exibido no navegador com um ' erro de privacidade '. Portanto, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Verifique se os firewalls do aplicativo Web e do pacote estão protegendo o serviço de aplicativo, permitir encaminhamento de sessões HTTPS.</li></ul>|
-|Depuração remota deve ser desativada para o aplicativo da Web|Esta ação desabilita a depuração remota.|
-|A depuração remota deve ser desativada para o aplicativo de funções|Esta ação desabilita a depuração remota.|
-|A depuração remota deve ser desligada para o aplicativo de API|Esta ação desabilita a depuração remota.|
-|O CORS não deve permitir que todos os recursos acessem seu aplicativo Web|Essa ação impede que outros domínios acessem seu aplicativo Web. Para permitir domínios específicos, insira-os no campo origens permitidas (separadas por vírgulas). <br>**Observação**: deixar o campo vazio bloqueará todas as chamadas entre origens. "título do campo de parâmetro:" origens permitidas "|
-|O CORS não deve permitir o acesso a todos os recursos ao seu aplicativo de funções|Essa ação impede que outros domínios acessem seu aplicativo de funções. Para permitir domínios específicos, insira-os no campo origens permitidas (separadas por vírgulas). <br>**Observação**: deixar o campo vazio bloqueará todas as chamadas entre origens. "título do campo de parâmetro:" origens permitidas "|
-|O CORS não deve permitir que todos os recursos acessem seu aplicativo de API|Essa ação impede que outros domínios acessem seu aplicativo de API. Para permitir domínios específicos, insira-os no campo origens permitidas (separadas por vírgulas). <br>**Observação**: deixar o campo vazio bloqueará todas as chamadas entre origens. "título do campo de parâmetro:" origens permitidas "|
-|O agente de monitoramento deve ser habilitado em suas máquinas virtuais|Esta ação instala um agente de monitoramento nas máquinas virtuais selecionadas. Selecione um espaço de trabalho para o qual o agente se reportará.<ul><li>Se a política de atualização for definida como automática, ela será implantada em novas instâncias existentes.</li><li>Se a política de atualização estiver definida como manual e você quiser instalar o agente em instâncias existentes, selecione a opção caixa de seleção. [Saiba mais](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
-|Os logs de diagnóstico no Key Vault deve estar habilitados|Esta ação habilita os logs de diagnóstico em cofres de chaves. Os logs de diagnóstico e as métricas são salvos no espaço de trabalho selecionado.|
-|Os logs de diagnóstico no barramento de serviço devem ser habilitados|Essa ação habilita os logs de diagnóstico no barramento de serviço. Os logs de diagnóstico e as métricas são salvos no espaço de trabalho selecionado.|
+|A auditoria em servidores SQL deve ser ativada|Essa ação permitirá a auditoria SQL nesses servidores e em seus bancos de dados. <br>**Observação**: <ul><li>Para cada região dos servidores SQL selecionados, uma conta de armazenamento para salvar logs de auditoria será criada e compartilhada por todos os servidores dessa região.</li><li>Para garantir uma auditoria adequada, não exclua ou renomeie o grupo de recursos ou as contas de armazenamento.</li></ul>|
+|A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL|Essa ação permitirá o ADS (SQL Advanced Data Security, segurança de dados avançados) do SQL nas instâncias selecionadas gerenciadas pelo SQL. <br>**Observação**: <ul><li>Para cada região e grupo de recursos das instâncias gerenciadas sql selecionadas, uma conta de armazenamento para salvar resultados de varredura será criada e compartilhada por todas as instâncias daquela região.</li><li> O ADS é cobrado a US$ 15 por instância gerenciada pelo SQL.</li></ul>|
+|A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL|Essa ação permitirá a avaliação de vulnerabilidade sql nas instâncias gerenciadas pelo SQL selecionadas. <br>**Observação**:<ul><li>A Avaliação de Vulnerabilidade sql faz parte do pacote ADS (SQL Advanced Data Security). Se o ADS ainda não estiver habilitado, ele será ativado automaticamente na instância gerenciada.</li><li>Para cada região e grupo de recursos das instâncias gerenciadas sql selecionadas, uma conta de armazenamento para armazenar resultados de varredura será criada e compartilhada por todas as instâncias daquela região.</li><li>O ADS é cobrado a $15 por servidor SQL.</li></ul>||
+|A segurança avançada de dados deve ser ativada em seus servidores SQL|Essa ação permitirá o ADS (Advanced Data Security, segurança de dados avançado) nesses servidores selecionados e em seus bancos de dados. <br>**Observação**:<ul><li>Para cada região e grupo de recursos dos servidores SQL selecionados, uma conta de armazenamento para armazenar resultados de varredura será criada e compartilhada por todos os servidores daquela região.<</li><li>O ADS é cobrado a $15 por servidor SQL.</li></ul>||
+|A avaliação de vulnerabilidades deve ser ativada em seus servidores SQL|Essa ação permitirá a Avaliação de Vulnerabilidade sql nesses servidores selecionados e seus bancos de dados. <br>**Observação**:<ul><li>A Avaliação de Vulnerabilidade sql faz parte do pacote ADS (SQL Advanced Data Security). Se o ADS ainda não estiver habilitado, ele será ativado automaticamente no servidor SQL.</li><li>Para cada região e grupo de recursos dos servidores SQL selecionados, uma conta de armazenamento para armazenar resultados de varredura será criada e compartilhada por todas as instâncias daquela região.</li><li>O ADS é cobrado a $15 por servidor SQL.</li></ul>||
+|A criptografia de dados transparente em bancos de dados SQL deve ser ativada|Essa ação permite o TDE (SQL Database Database Transparent Data Encryption, criptografia de dados transparente) nos bancos de dados selecionados. <br>**Nota**: Por padrão, as chaves TDE gerenciadas pelo serviço serão usadas.
+|A transferência segura para contas de armazenamento deve ser habilitada|Esta ação atualiza a segurança da sua conta de armazenamento para permitir apenas solicitações por conexões seguras. (HTTPS). <br>**Observação**:<ul><li>Quaisquer solicitações usando HTTP serão rejeitadas.</li><li>Quando você estiver usando o serviço de arquivos Azure, a conexão sem criptografia falhará, incluindo cenários usando SMB 2.1, SMB 3.0 sem criptografia e alguns sabores do cliente Linux SMB. Saiba mais.</li></ul>|
+|Aplicativo Web deve ser acessível somente por HTTPS|Esta ação redirecionará todo o tráfego de HTTP para HTTPS, nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Certifique-se de que os firewalls de aplicativos web e de pacotes protejam o serviço do aplicativo, permitam o encaminhamento de sessões HTTPS.</li></ul>|
+|O aplicativo de funções deve ser acessível apenas por HTTPS|Esta ação redirecionará todo o tráfego de HTTP para HTTPS, nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Certifique-se de que os firewalls de aplicativos web e de pacotes protejam o serviço do aplicativo, permitam o encaminhamento de sessões HTTPS.</li></ul>|
+|O aplicativo de API só deve estar acessível via HTTPS|Esta ação redirecionará todo o tráfego de HTTP para HTTPS, nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto final HTTPS que não tenha um certificado SSL aparecerá no navegador com um 'Erro de Privacidade'. Assim, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Certifique-se de que os firewalls de aplicativos web e de pacotes protejam o serviço do aplicativo, permitam o encaminhamento de sessões HTTPS.</li></ul>|
+|Depuração remota deve ser desativada para o aplicativo da Web|Esta ação desativa a depuração remota.|
+|A depuração remota deve ser desativada para o aplicativo de funções|Esta ação desativa a depuração remota.|
+|A depuração remota deve ser desligada para o aplicativo de API|Esta ação desativa a depuração remota.|
+|O CORS não deve permitir que todos os recursos acessem seu aplicativo Web|Essa ação bloqueia que outros domínios acessem seu Aplicativo Web. Para permitir domínios específicos, insira-os no campo Origens Permitidas (separados por commas). <br>**Nota**: Deixar o campo vazio bloqueará todas as chamadas de origem cruzada.'Título de campo param: 'Origens permitidas'|
+|O CORS não deve permitir o acesso a todos os recursos ao seu aplicativo de funções|Esta ação bloqueia outros domínios de acessar seu aplicativo de função. Para permitir domínios específicos, insira-os no campo Origens Permitidas (separados por commas). <br>**Nota**: Deixar o campo vazio bloqueará todas as chamadas de origem cruzada.'Título de campo param: 'Origens permitidas'|
+|O CORS não deve permitir que todos os recursos tenham acesso ao seu Aplicativo de API|Essa ação bloqueia que outros domínios acessem seu aplicativo de API. Para permitir domínios específicos, insira-os no campo Origens Permitidas (separados por commas). <br>**Nota**: Deixar o campo vazio bloqueará todas as chamadas de origem cruzada.'Título de campo param: 'Origens permitidas'|
+|O agente de monitoramento deve ser ativado em suas máquinas virtuais|Esta ação instala um agente de monitoramento nas máquinas virtuais selecionadas. Selecione um espaço de trabalho para o agente relatar.<ul><li>Se sua política de atualização estiver definida como automática, ela será implantada em novas instâncias existentes.</li><li>Se sua política de atualização estiver definida como manual e você quiser instalar o agente nas instâncias existentes, selecione a opção caixa de seleção. [Saiba mais](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
+|Os logs de diagnóstico no Key Vault deve estar habilitados|Esta ação permite registros de diagnóstico em cofres-chave. Os registros e métricas de diagnóstico são salvos no espaço de trabalho selecionado.|
+|Os registros de diagnóstico no ônibus de serviço devem ser ativados|Esta ação permite registros de diagnóstico no ônibus de serviço. Os registros e métricas de diagnóstico são salvos no espaço de trabalho selecionado.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você mostrou como corrigir recomendações na central de segurança. Para saber mais sobre a central de segurança, consulte os seguintes tópicos:
+Neste documento, foi mostrado como remediar recomendações no Security Center. Para saber mais sobre o Security Center, consulte os seguintes tópicos:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Definindo políticas de segurança no Azure Security Center](tutorial-security-policy.md) - Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.

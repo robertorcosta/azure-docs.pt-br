@@ -1,27 +1,27 @@
 ---
 title: Usar dimensionamento automático para enviar notificações de alerta por email e webhook
-description: Saiba como usar ações de dimensionamento automático para chamar URLs da Web ou enviar notificações por email no Azure Monitor.
+description: Saiba como usar ações de escala automática para chamar URLs da Web ou enviar notificações de e-mail no Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77120697"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
 
 ## <a name="webhooks"></a>Webhooks
-Webhooks permitem rotear as notificações de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Por exemplo, rotear o alerta para serviços que podem lidar com uma solicitação da Web de entrada para enviar SMS, registrar bugs, notificar uma equipe usando serviços de chat ou mensagens, etc. O URI do webhook deve ser um ponto de extremidade HTTP ou HTTPS válido.
+Webhooks permitem rotear as notificações de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Por exemplo, direcionar o alerta para serviços que podem lidar com uma solicitação web recebida para enviar SMS, registrar bugs, notificar uma equipe usando serviços de chat ou mensagens, etc. O WEBHOOK URI deve ser um ponto final HTTP ou HTTPS válido.
 
 ## <a name="email"></a>Email
 O email pode ser enviado para qualquer endereço de email válido. Os administradores e administradores da assinatura em que a regra está em execução também serão notificados.
 
 ## <a name="cloud-services-and-app-services"></a>Serviços de nuvem e serviços de aplicativos
-Você pode optar pelo portal do Azure para serviços de nuvem e farms de servidores (serviços de aplicativos).
+Você pode optar pelo portal Azure para Serviços de Nuvem e Fazendas de Servidores (App Services).
 
 * Escolha a métrica **escalar por** .
 
@@ -29,7 +29,7 @@ Você pode optar pelo portal do Azure para serviços de nuvem e farms de servido
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de escala de Máquina Virtual
 Para ver as Máquinas Virtuais mais novas criadas com o Gerenciador de Recursos (conjuntos de escala da Máquina Virtual), você pode configurar isso usando a API REST, modelos do Gerenciador de Recursos, PowerShell e CLI. Uma interface de portal ainda não está disponível.
-Ao usar a API REST ou o modelo do Resource Manager, inclua o elemento notificações em seu [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) com as opções a seguir.
+Ao usar o modelo REST API ou Resource Manager, inclua o elemento notificações em suas [configurações de escala automática](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) com as seguintes opções.
 
 ```
 "notifications": [
@@ -56,7 +56,7 @@ Ao usar a API REST ou o modelo do Resource Manager, inclua o elemento notificaç
     ]
 ```
 
-| Campo | Obrigatório? | DESCRIÇÃO |
+| Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | operação |sim |o valor deve ser "Scale" |
 | sendToSubscriptionAdministrator |sim |o valor deve ser "true" ou "false" |
@@ -67,7 +67,7 @@ Ao usar a API REST ou o modelo do Resource Manager, inclua o elemento notificaç
 | properties |sim |o valor deve ser vazio {} ou pode conter pares chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
-O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https:\//mysamplealert/Webcallback? tokenid = sometokenid & someparameter = someValue
+O webhook pode autenticar usando autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo,\/https: /mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Escala automática do esquema de carga útil do webhook de notificação
 Quando a notificação de escala automática é gerada, os metadados a seguir são incluídos na carga útil do webhook:
@@ -99,12 +99,12 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 ```
 
 
-| Campo | Obrigatório? | DESCRIÇÃO |
+| Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | status |sim |O status que indica que uma ação de escala automática foi gerada |
 | operação |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
 | contexto |sim |O contexto de ação de escala automática |
-| timestamp |sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
+|  timestamp |sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
 | id |Sim |ID do Gerenciador de Recursos da configuração de autoescala |
 | name |Sim |O nome da configuração de escala automática |
 | detalhes |Sim |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |

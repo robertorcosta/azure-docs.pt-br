@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: roteamento assimétrico'
+title: 'Azure ExpressRoute: Roteamento assimétrico'
 description: Este artigo aborda os problemas que você pode enfrentar com o roteamento assimétrico em uma rede que tem vários links para um destino.
 services: expressroute
 author: osamazia
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
 ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74072151"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Roteamento assimétrico com vários caminhos de rede
@@ -48,7 +48,7 @@ Para entender o efeito que essas duas alterações têm em uma rede, iremos cons
 
 Então, você ativa o ExpressRoute e consome os serviços oferecidos pela Microsoft por meio do ExpressRoute. Todos os outros serviços da Microsoft são consumidos por meio da Internet. Você pode implantar um firewall separado em sua borda conectada à ExpressRoute. A Microsoft anuncia os prefixos mais específicos para sua rede por meio do ExpressRoute dos serviços específicos. Sua infraestrutura de roteamento escolhe o ExpressRoute como o caminho preferido desses prefixos. Se você não estiver anunciando seus endereços IP públicos para a Microsoft no ExpressRoute, a Microsoft se comunicará com seus endereços IP públicos por meio da Internet. O tráfego de encaminhamento de sua rede para a Microsoft usa o ExpressRoute, enquanto o tráfego inverso da Microsoft usa a Internet. Quando o firewall na borda vir um pacote de resposta para um fluxo não encontrado na tabela de estados, ele descartará o tráfego de retorno.
 
-Se você optar por anunciar o mesmo pool de NAT (conversão de endereços de rede) para o ExpressRoute e para a Internet, você verá problemas semelhantes com os clientes em sua rede em endereços IP privados. As solicitações dos serviços como o Windows Update passam pela Internet, pois os endereços IP para esses serviços não são divulgados via ExpressRoute. No entanto, o tráfego de retorno volta via ExpressRoute. Se a Microsoft receber um endereço IP com a mesma máscara de sub-rede da Internet e do ExpressRoute, preferirá o ExpressRoute na Internet. Se um firewall ou outro dispositivo com estado na borda da rede, voltado para o ExpressRoute, não tiver informações anteriores sobre o fluxo, descartará os pacotes que pertencem ao fluxo.
+Se você optar por anunciar o mesmo pool de tradução de endereços de rede (NAT) para o ExpressRoute e para a Internet, você verá problemas semelhantes com os clientes em sua rede em endereços IP privados. As solicitações dos serviços como o Windows Update passam pela Internet, pois os endereços IP para esses serviços não são divulgados via ExpressRoute. No entanto, o tráfego de retorno volta via ExpressRoute. Se a Microsoft receber um endereço IP com a mesma máscara de sub-rede da Internet e do ExpressRoute, preferirá o ExpressRoute na Internet. Se um firewall ou outro dispositivo com estado na borda da rede, voltado para o ExpressRoute, não tiver informações anteriores sobre o fluxo, descartará os pacotes que pertencem ao fluxo.
 
 ## <a name="asymmetric-routing-solutions"></a>Soluções do roteamento assimétrico
 Você tem duas opções principais para resolver o problema do roteamento assimétrico. Uma é por meio do roteamento e a outra é usando a NAT com base na origem (SNAT).

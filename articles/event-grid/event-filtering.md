@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70390186"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
 Este artigo descreve as diferentes maneiras para filtrar quais eventos são enviados para o ponto de extremidade. Ao criar uma assinatura de evento, você tem três opções de filtragem:
 
-* Tipos de eventos
+* Tipos de evento
 * Assunto começa com ou termina com
 * Campos avançados e operadores
 
@@ -61,7 +61,7 @@ Para filtrar por valores nos campos de dados e especificar o operador de compara
 * chave – o campo nos dados do evento que você está usando para filtragem. Ele pode ser um número, booliano ou cadeia de caracteres.
 * valor ou valores: o valor ou os valores a serem comparados com a chave.
 
-Se você especificar um único filtro com vários valores, uma operação **ou** será executada, portanto, o valor do campo de chave deverá ser um desses valores. Veja um exemplo:
+Se você especificar um único filtro com valores múltiplos, uma operação **OR** será realizada, então o valor do campo-chave deve ser um desses valores. Veja um exemplo:
 
 ```json
 "advancedFilters": [
@@ -76,7 +76,7 @@ Se você especificar um único filtro com vários valores, uma operação **ou**
 ]
 ```
 
-Se você especificar vários filtros diferentes, uma operação and será executada, portanto, cada condição **de** filtro deverá ser atendida. Veja um exemplo: 
+Se você especificar vários filtros diferentes, uma **operação E** será realizada, de modo que cada condição do filtro deve ser atendida. Veja um exemplo: 
 
 ```json
 "advancedFilters": [
@@ -97,7 +97,7 @@ Se você especificar vários filtros diferentes, uma operação and será execut
 ]
 ```
 
-### <a name="operator"></a>Operator
+### <a name="operator"></a>Operador
 
 Os operadores disponíveis para os números são:
 
@@ -124,9 +124,9 @@ Todas as comparações de cadeia de caracteres diferenciam maiúsculas de minús
 
 Para eventos no esquema de Grade de Eventos do Azure, use os seguintes valores para a chave:
 
-* id
+* ID
 * Tópico
-* Subject
+* Assunto
 * EventType
 * DataVersion
 * Dados de evento (como Data.key1)
@@ -134,7 +134,7 @@ Para eventos no esquema de Grade de Eventos do Azure, use os seguintes valores p
 Para eventos no esquema de Eventos de Nuvem, use os seguintes valores para a chave:
 
 * EventId
-* Origem
+* Fonte
 * EventType
 * EventTypeVersion
 * Dados de evento (como Data.key1)
@@ -146,9 +146,9 @@ Para o esquema de entrada personalizada, use os campos de dados de evento (como 
 Os valores podem ser:
 
 * número
-* cadeia de caracteres
-* boolean
-* array
+* string
+* booleano
+* matriz
 
 ### <a name="limitations"></a>Limitações
 

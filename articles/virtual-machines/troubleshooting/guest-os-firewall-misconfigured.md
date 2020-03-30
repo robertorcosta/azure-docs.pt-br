@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153886"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Firewall do sistema operacional de convidado VM do Azure está configurado incorretamente
@@ -43,19 +43,19 @@ Para solucionar esse problema, use o Console serial ou [repare a VM off-line](tr
 
 ## <a name="online-mitigations"></a>Reduções online
 
-Conecte-se ao [Console serial e abra uma instância do PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se o Console Serial não estiver habilitado na VM, vá para a seção "Reparar a VM Off-line" do seguinte artigo do Azure:
+Conecte-se ao [ Console serial e abra uma instância do PowerShell ](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se o Console Serial não estiver habilitado na VM, vá para a seção "Reparar a VM Off-line" do seguinte artigo do Azure:
 
- [Ocorre um erro interno quando você tenta se conectar a uma VM do Azure por meio da Área de Trabalho Remota](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
+ [Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
 As regras a seguir podem ser editadas para permitir o acesso à VM (por meio do RDP) ou para fornecer uma experiência de solução de problemas mais fácil:
 
-*   Área de Trabalho Remota (TCP-In): esta é a regra padrão que fornece acesso primário à VM, permitindo RDP no Azure.
+*   Área de Trabalho Remota (TCP-In): Esta é a regra padrão que fornece acesso primário à VM, permitindo RDP no Azure.
 
-*   Gerenciamento Remoto do Windows (HTTP-In): essa regra permite que você se conecte à VM usando o PowerShell. No Azure, esse tipo de acesso permite usar o aspecto de criação de scripts remotos e a solução de problemas.
+*   Gerenciamento Remoto do Windows (HTTP-In): essa regra permite que você se conecte à VM usando o PowerShell. No Azure, esse tipo de acesso permite usar o aspecto de script de scripts remotos e a solução de problemas.
 
-*   Compartilhamento de Arquivos e Impressoras (SMB-In): essa regra habilita o acesso ao compartilhamento de rede como uma opção de solução de problemas.
+*   Compartilhamento de arquivos e impressoras (SMB-In): essa regra permite o acesso ao compartilhamento de rede como uma opção de solução de problemas.
 
-*   Compartilhamento de Arquivos e Impressoras (solicitação de eco – ICMPv4-In): essa regra permite que você execute o ping da VM.
+*   Compartilhamento de arquivos e impressoras (solicitação de eco - ICMPv4-In): essa regra permite executar o ping na VM.
 
 Na instância do Serial Console Access, você pode consultar o status atual da regra de firewall.
 
@@ -98,7 +98,7 @@ Na instância do Serial Console Access, você pode consultar o status atual da r
 
 ### <a name="offline-mitigations"></a>Redução Offline
 
-1.  Para habilitar ou desabilitar regras de firewall, consulte [habilitar ou desabilitar uma regra de firewall em um SO convidado de VM do Azure](enable-disable-firewall-rule-guest-os.md).
+1.  Para ativar ou desativar as regras de firewall, consulte [Ativar ou desativar uma regra de firewall em um Azure VM Guest OS](enable-disable-firewall-rule-guest-os.md).
 
 2.  Verifique se você está no cenário de tráfego de entrada do [Firewall do OS convidado bloqueando](guest-os-firewall-blocking-inbound-traffic.md).
 

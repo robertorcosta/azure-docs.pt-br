@@ -1,6 +1,6 @@
 ---
-title: Processamento de eventos de streaming do Spark & exatamente uma vez – Azure HDInsight
-description: Como configurar Apache Spark streaming para processar um evento apenas uma vez.
+title: Spark Streaming & processamento de eventos exatamente uma vez - Azure HDInsight
+description: Como configurar o Apache Spark Streaming para processar um evento uma vez e apenas uma vez.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74228980"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Crie tarefas do Apache Spark Streaming com processamento de eventos exatamente uma vez
 
-Os aplicativos de processamento de fluxo assumem abordagens diferentes sobre como eles manipulam o reprocessamento de mensagens após alguma falha no sistema:
+Os aplicativos de processamento de fluxo tomam diferentes abordagens de como lidam com mensagens de reprocessamento após alguma falha no sistema:
 
 * Pelo menos uma vez: cada mensagem é garantida para ser processada, mas pode ser processada mais de uma vez.
-* No máximo, uma vez: cada mensagem pode ou não ser processada. Se uma mensagem for processada, ela será processada apenas uma vez.
+* No máximo, uma vez: cada mensagem pode ou não ser processada. Se uma mensagem é processada, ela só é processada uma vez.
 * Exatamente uma vez: cada mensagem é garantida para ser processada uma vez e apenas uma vez.
 
 Este artigo mostra como configurar o streaming do Spark para obter um processamento exatamente uma vez.
@@ -51,7 +51,7 @@ No streaming do Spark, fontes como Hubs de Eventos e Kafka possuem *receptores c
 
 O streaming do Spark fornece suporte para uso de um log write-ahead, onde cada evento recebido é gravado primeiro no diretório do ponto de verificação do Spark em armazenamento tolerante a falhas e, em seguida, armazenado em um RDD (Conjunto de dados distribuídos resilientes). No Azure, o armazenamento tolerante a falhas é o HDFS com suporte pelo Armazenamento do Azure ou Azure Data Lake Storage. No seu aplicativo de streaming do Spark, o log write-ahead é habilitado para todos os receptores, configurando a `spark.streaming.receiver.writeAheadLog.enable` definição de configuração para `true`. O log write-ahead fornece tolerância a falhas para falhas do driver e dos executores.
 
-Para os trabalhos executando tarefas em dados de eventos, cada RDD é, por definição, replicado e distribuído em vários trabalhos. Se uma tarefa falhar porque o trabalho que a executa falhou, a tarefa será reiniciada em outro trabalho que tenha uma réplica dos dados do evento, de modo que o evento não seja perdido.
+Para os trabalhos executando tarefas em dados de eventos, cada RDD é, por definição, replicado e distribuído em vários trabalhos. Se uma tarefa falhar porque o trabalhador executá-lo caiu, a tarefa será reiniciada em outro trabalhador que tenha uma réplica dos dados do evento, para que o evento não seja perdido.
 
 ### <a name="use-checkpoints-for-drivers"></a>Usar pontos de verificação para drivers
 
@@ -79,13 +79,13 @@ Os pontos de verificação são habilitados no streaming do Spark em duas etapas
 
 ### <a name="use-idempotent-sinks"></a>Usar coletores idempotent
 
-O coletor de destino para o qual seu trabalho grava os resultados deve ser capaz de lidar com a situação em que ele recebe o mesmo resultado mais de uma vez. O coletor deverá ser capaz de detectar esses resultados duplicados e ignorá-los. Um coletor *idempotent* pode ser chamado várias vezes com os mesmos dados sem mudança de estado.
+O fundo de destino para o qual seu trabalho escreve resultados deve ser capaz de lidar com a situação em que é dado o mesmo resultado mais de uma vez. O coletor deverá ser capaz de detectar esses resultados duplicados e ignorá-los. Um coletor *idempotent* pode ser chamado várias vezes com os mesmos dados sem mudança de estado.
 
-É possível criar coletores idempotentes implementando a lógica que primeiro verifica a existência do resultado recebido no armazenamento de dados. Se o resultado já existir, a gravação deverá aparecer para ter êxito na perspectiva do trabalho do Spark, mas, na realidade, o armazenamento de dados ignorou os dados duplicados. Se o resultado não existir, o coletor deverá inserir esse novo resultado em seu armazenamento.
+É possível criar coletores idempotentes implementando a lógica que primeiro verifica a existência do resultado recebido no armazenamento de dados. Se o resultado já existir, a gravação deverá aparecer para ter êxito na perspectiva do trabalho do Spark, mas, na realidade, o armazenamento de dados ignorou os dados duplicados. Se o resultado não existir, então a pia deve inserir este novo resultado em seu armazenamento.
 
 Por exemplo, é possível usar um procedimento armazenado com Banco de Dados SQL do Azure que insere eventos em uma tabela. Esse procedimento armazenado primeiro procura o evento por campos-chave e somente quando nenhum evento correspondente é encontrado, o registro será inserido na tabela.
 
-Outro exemplo é usar um sistema de arquivos particionado como blobs de armazenamento do Azure ou Azure Data Lake Storage. Nesse caso, a lógica do coletor não precisa verificar a existência de um arquivo. Se o arquivo que representa o evento existir, ele será simplesmente substituído pelos mesmos dados. Caso contrário, um novo arquivo será criado no caminho computado.
+Outro exemplo é usar um sistema de arquivos particionado como blobs de armazenamento do Azure ou Azure Data Lake Storage. Neste caso, sua lógica de pia não precisa verificar a existência de um arquivo. Se o arquivo que representa o evento existe, ele é simplesmente substituído com os mesmos dados. Caso contrário, um novo arquivo será criado no caminho computado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,13 +1,13 @@
 ---
 title: Fazer backup de cargas de trabalho do SQL Server no Azure Stack
-description: Neste artigo, saiba como configurar o servidor de Backup do Microsoft Azure (MABS) para proteger SQL Server bancos de dados no Azure Stack.
+description: Neste artigo, saiba como configurar o Microsoft Azure Backup Server (MABS) para proteger os bancos de dados do SQL Server no Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172307"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup do SQL Server no Azure Stack
@@ -38,7 +38,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
     ![Selecionar o tipo de Grupo de Proteção - ‘Servidores’](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. Na tela **Selecionar membros do grupo**, a lista de membros disponíveis exibe as várias fontes de dados. Clique em **+** para expandir uma pasta e revelar as subpastas. Clique na caixa de seleção para selecionar um item.
+4. Na tela **Selecionar membros do grupo**, a lista de membros disponíveis exibe as várias fontes de dados. Clique **+** para expandir uma pasta e revelar as subpastas. Clique na caixa de seleção para selecionar um item.
 
     ![Selecione o banco de dados SQL](./media/backup-azure-backup-sql/pg-databases.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73034539"
 ---
 Durante a criação de um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, conforme o sistema é projetado e desenvolvido. É importante projetar o produto desde o início com a segurança em mente porque a compreensão de como um invasor pode conseguir comprometer um sistema ajuda a garantir que as mitigações adequadas estão em vigor desde o início.
@@ -116,7 +116,7 @@ Um gateway de campo é diferente de um mero roteador de tráfego em que ele teve
 
 ### <a name="the-cloud-gateway-zone"></a>A zona de gateway de nuvem
 
-Um gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais, como telefones ou tablets. No contexto discutido aqui, "nuvem" destina-se a se referir a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos ou gateways de campo conectados. Além disso, em uma zona de nuvem, medidas operacionais impedem o acesso físico direcionado e não são necessariamente expostas a uma infraestrutura de "nuvem pública".  
+Um gateway em nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários locais diferentes em todo o espaço de rede pública, tipicamente em direção a um sistema de controle e análise de dados baseado em nuvem, uma federação de tais sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais, como telefones ou tablets. No contexto discutido aqui, "nuvem" destina-se a se referir a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos ou gateways de campo conectados. Além disso, em uma zona de nuvem, medidas operacionais impedem o acesso físico direcionado e não são necessariamente expostas a uma infraestrutura de "nuvem pública".  
 
 Um gateway de nuvem pode potencialmente ser mapeado em uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O gateway de nuvem em si não é um sistema de controle de dispositivo, nem um recurso de processamento ou armazenamento de dados do dispositivo, esses recursos fazem interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele. A borda da zona é uma área de superfície distinta, na qual todas as partes se comunicam.
 
@@ -167,22 +167,22 @@ Esta seção explora a arquitetura descrita anteriormente do ponto de vista de m
 
 Em cada uma das categorias descritas na arquitetura de IoT do Azure, este exemplo tenta atenuar diversas ameaças nos diferentes estágios em que há dados/informações: processo, comunicação e armazenamento. Veja a seguir uma visão geral das ameaças mais comuns para a categoria "processo", assim como práticas recomendadas de mitigação:
 
-**S (Falsificação)** : um invasor pode extrair o material de chave de criptografia de um dispositivo, no nível de software ou hardware e, posteriormente, acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
+**S (Falsificação)**: um invasor pode extrair o material de chave de criptografia de um dispositivo, no nível de software ou hardware e, posteriormente, acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
 
-**D (Negação de Serviço)** : um dispositivo pode ficar incapaz de funcionar ou se comunicar interferindo com frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados de maneira alguma.
+**D (Negação de Serviço)**: um dispositivo pode ficar incapaz de funcionar ou se comunicar interferindo com frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados, de maneira alguma.
 
-**T (Violação)** : um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia que mantêm os materiais de chave estavam disponíveis para o programa ilícito. Por exemplo, um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los por dados falsos que são autenticados com o material da chave roubado.
+**T (Violação)**: um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia que mantêm os materiais de chave estavam disponíveis para o programa ilícito. Por exemplo, um invasor pode aproveitar o material da chave extraído para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-los por dados falsos que são autenticados com o material da chave roubado.
 
-**I (Divulgação não autorizada de informação)** : se o dispositivo estivesse executando software manipulado, tal software manipulado poderia potencialmente vazar dados para partes não autorizadas. Por exemplo, um invasor pode aproveitar o material da chave extraído para se injetar no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou um gateway de nuvem para desviar as informações.
+**I (Divulgação não autorizada de informação)**: se o dispositivo estivesse executando software manipulado, tal software manipulado poderia potencialmente vazar dados para partes não autorizadas. Por exemplo, um invasor pode aproveitar o material da chave extraído para se injetar no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou um gateway de nuvem para desviar as informações.
 
-**E (Elevação de Privilégio)** : um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
+**E (Elevação de Privilégio)**: um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
 
 | **Componente** | **Ameaça** | **Mitigação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
-| Dispositivo |P |Atribuição de identidade para o dispositivo e autenticação do dispositivo |Substituir o dispositivo ou parte dele por outro dispositivo. Como saber se você está se comunicando com o dispositivo certo? |Autenticar o dispositivo, usando o protocolo TLS ou IPsec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Aproveite o Azure AD, o [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Dispositivo |S |Atribuição de identidade para o dispositivo e autenticação do dispositivo |Substituir o dispositivo ou parte dele por outro dispositivo. Como saber se você está se comunicando com o dispositivo certo? |Autenticar o dispositivo, usando o protocolo TLS ou IPsec. A infraestrutura deve dar suporte ao uso da PSK (chave pré-compartilhada) nos dispositivos que não conseguem lidar com a criptografia assimétrica completa. Alavancagem Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Aplicação de mecanismos à prova de violações no dispositivo, por exemplo, tornando difícil e até mesmo impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém está violando o dispositivo (interferência física). Como ter certeza de que o dispositivo não foi adulterado. |A mitigação mais eficaz é uma funcionalidade de TPM (trusted platform module) que permite armazenar chaves em circuitos on-chip especiais nos quais as chaves não podem ser lidas, mas apenas usadas para operações de criptografia que utilizam a chave, mas nunca a divulgam. Criptografia de memória do dispositivo. Gerenciamento de chaves para o dispositivo. Assinar o código. |
 || E |Ter controle de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir que ações individuais sejam executadas com base em comandos de uma fonte externa, ou até mesmo sensores comprometidos, isso permite que o ataque execute operações não acessíveis de outra forma. |Ter um esquema de autorização para o dispositivo |
-| Gateway de campo |P |Autenticação do gateway de campo no gateway de nuvem (por exemplo, baseada em certificado, PSK ou em declarações.) |Se alguém pode falsificar o gateway de campo, pode se apresentar como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações de confirmação e armazenamento de chave dos dispositivos em geral, o melhor caso é usar o TPM. Extensão de 6LowPAN para o IPsec para dar suporte a WSN (Redes de Sensores Sem Fio). |
+| Gateway de campo |S |Autenticação do gateway de campo no gateway de nuvem (por exemplo, baseada em certificado, PSK ou em declarações.) |Se alguém pode falsificar o gateway de campo, pode se apresentar como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações de confirmação e armazenamento de chave dos dispositivos em geral, o melhor caso é usar o TPM. Extensão de 6LowPAN para o IPsec para dar suporte a WSN (Redes de Sensores Sem Fio). |
 || TRID |Proteger o gateway de campo contra violação (TPM?) |Os ataques de falsificação que enganam gateway de nuvem pensando que ele está se comunicando com o gateway de campo podem resultar na divulgação não autorizada de informação e na violação dos dados. |Criptografia da memória, TPM, autenticação. |
 || E |Mecanismo de controle de acesso para o gateway de campo | | |
 
@@ -190,7 +190,7 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 **Falsificação**: um invasor pode extrair o material da chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com outro dispositivo físico ou virtual sob a identidade do dispositivo do qual o material da chave foi obtido.
 
-**Negação de Serviço**: um dispositivo pode ficar incapaz de funcionar ou de se comunicar interferindo em frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados de maneira alguma.
+**Negação de Serviço**: um dispositivo pode ficar incapaz de funcionar ou de se comunicar interferindo em frequências de rádio ou cortando fios. Por exemplo, uma câmera de vigilância que teve sua conexão de rede ou de energia intencionalmente suprimida não relata dados, de maneira alguma.
 
 **Violação**: um invasor pode substituir parcial ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia mantendo os materiais de chave estavam disponíveis para o programa ilícito.
 
@@ -206,7 +206,7 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 **Negação de serviço**: o dispositivo pode ser desativado ou alterado para um modo em que a comunicação não é possível (o que é intencional em muitas máquinas industriais).
 
-**Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente
+**Adulteração**: O dispositivo pode ser reconfigurado para operar em um estado desconhecido do sistema de controle (fora dos parâmetros de calibração conhecidos) e, assim, fornecer dados que podem ser mal interpretados
 
 **Elevação de Privilégio**: um dispositivo que realiza uma função específica pode ser forçado a fazer algo diferente. Por exemplo, uma válvula é programada para abrir a metade do caminho pode ser levada para abrir completamente.
 
@@ -214,7 +214,7 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 **Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora de parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente.
 
-**Violação/falsificação/repúdio**: se não protegido (que raramente é o caso com controles remotos do consumidor), um invasor poderá manipular o estado de um dispositivo anonimamente. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
+**Spoofing/Tampering/Repúdio**: Se não estiver protegido (o que raramente é o caso dos controles remotos do consumidor), um invasor pode manipular o estado de um dispositivo anonimamente. Uma boa ilustração são os controles remotos que podem ligar qualquer TV e são ferramentas populares dos pregadores de peças.
 
 #### <a name="communication"></a>Comunicação
 
@@ -253,7 +253,7 @@ Cada dispositivo e gateway de campo têm alguma forma de armazenamento (temporá
 
 ### <a name="device-and-event-processingcloud-gateway-zone"></a>Zona de gateway de nuvem/processamento de eventos e dispositivo
 
-Um gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais, como telefones ou tablets. No contexto discutido aqui, "nuvem" se refere a um sistema de processamento de dados dedicado não associado ao mesmo site que os gateways de campo ou dispositivos conectados e no qual medidas operacionais impedem o acesso físico direcionado, mas não necessariamente a uma infraestrutura de “nuvem pública”. Um gateway de nuvem pode potencialmente ser mapeado em uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O gateway de nuvem em si não é um sistema de controle de dispositivo, nem um recurso de processamento ou armazenamento de dados do dispositivo, esses recursos fazem interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele.
+Um gateway em nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários locais diferentes em todo o espaço de rede pública, tipicamente em direção a um sistema de controle e análise de dados baseado em nuvem, uma federação de tais sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais, como telefones ou tablets. No contexto discutido aqui, "nuvem" se refere a um sistema de processamento de dados dedicado não associado ao mesmo site que os gateways de campo ou dispositivos conectados e no qual medidas operacionais impedem o acesso físico direcionado, mas não necessariamente a uma infraestrutura de “nuvem pública”. Um gateway de nuvem pode potencialmente ser mapeado em uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O gateway de nuvem em si não é um sistema de controle de dispositivo, nem um recurso de processamento ou armazenamento de dados do dispositivo, esses recursos fazem interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele.
 
 O gateway de nuvem é principalmente uma peça de software personalizada em execução como um serviço com pontos de extremidade expostos aos quais o gateway de campo e os dispositivos se conectam. Como tal, deve ser projetado tendo em mente a segurança. Siga o processo de [SDL](https://www.microsoft.com/sdl) para projetar e criar esse serviço.
 

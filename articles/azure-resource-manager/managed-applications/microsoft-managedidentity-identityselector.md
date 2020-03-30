@@ -1,18 +1,18 @@
 ---
-title: Elemento de interface do usuário IdentitySelector
-description: Descreve o elemento de interface do usuário Microsoft. ManagedIdentity. IdentitySelector para portal do Azure. Use para atribuir identidades gerenciadas a um recurso.
+title: Elemento de IU do Seletor de Identidade
+description: Descreve o elemento Microsoft.ManagedIdentity.IdentitySelector UI para o portal Azure. Use para atribuir identidades gerenciadas a um recurso.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087538"
 ---
-# <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Elemento de interface do usuário Microsoft. ManagedIdentity. IdentitySelector
+# <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.ManagedIdentity.IdentitySelector uI element
 
 Um controle para atribuir [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) para um recurso em uma implantação.
 
@@ -20,15 +20,15 @@ Um controle para atribuir [identidades gerenciadas](../../active-directory/manag
 
 O controle consiste nos seguintes elementos:
 
-![Primeira etapa de Microsoft. ManagedIdentity. IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Microsoft.ManagedIdentity.IdentitySelectou primeira etapa](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
 
-Quando o usuário seleciona **Adicionar**, o formulário a seguir é aberto. O usuário pode selecionar uma ou mais identidades atribuídas pelo usuário para o recurso.
+Quando o usuário seleciona **Adicionar,** o formulário a seguir é aberto. O usuário pode selecionar uma ou mais identidades atribuídas pelo usuário para o recurso.
 
-![Microsoft. ManagedIdentity. IdentitySelector segunda etapa](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Microsoft.ManagedIdentity.IdentitySelectou segunda etapa](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
 
 As identidades selecionadas são exibidas na tabela. O usuário pode adicionar ou excluir itens desta tabela.
 
-![Terceira etapa do Microsoft. ManagedIdentity. IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Microsoft.ManagedIdentity.IdentitySelectou terceira etapa](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -69,14 +69,14 @@ As identidades selecionadas são exibidas na tabela. O usuário pode adicionar o
 
 ## <a name="remarks"></a>Comentários
 
-- Use **DefaultValue. systemAssignedIdentity** para definir um valor inicial para o controle de opções de identidade atribuída pelo sistema. O valor padrão é **Off**. Os seguintes valores são permitidos:
-  - **Em** – uma identidade atribuída pelo sistema é atribuída ao recurso.
-  - **Desativado** – uma identidade atribuída pelo sistema não é atribuída ao recurso.
-  - **Somente** -uma identidade atribuída pelo sistema é atribuída ao recurso. Os usuários não podem editar esse valor durante a implantação.
-  - **OffOnly** – uma identidade atribuída pelo sistema não é atribuída ao recurso. Os usuários não podem editar esse valor durante a implantação.
+- Use **o defaultValue.systemAssignedIdentity** para definir um valor inicial para o controle de opções de identidade atribuídas ao sistema. O valor padrão está **desligado**. Os seguintes valores são permitidos:
+  - **On** – Uma identidade atribuída ao sistema é atribuída ao recurso.
+  - **Off** – Uma identidade atribuída ao sistema não é atribuída ao recurso.
+  - **OnOnly** – Uma identidade atribuída ao sistema é atribuída ao recurso. Os usuários não podem editar esse valor durante a implantação.
+  - **OffOnly** – Uma identidade atribuída ao sistema não é atribuída ao recurso. Os usuários não podem editar esse valor durante a implantação.
 
-- Se **Options. hideSystemAssignedIdentity** for definido como **true**, a interface do usuário para configurar a identidade atribuída ao sistema não será exibida. O valor padrão dessa opção é **false**.
-- Se **Options. hideUserAssignedIdentity** for definido como **true**, a interface de usuário para configurar a identidade atribuída ao usuário não será exibida. O recurso não é atribuído a uma identidade atribuída pelo usuário. O valor padrão dessa opção é **false**.
+- Se **options.hideSystemAssignedIdentity** for definido **como true,** a ui para configurar a identidade atribuída ao sistema não será exibida. O valor padrão para esta opção é **falso**.
+- Se **opções.hideUserAssignedIdentity** for definido **como true,** a ui para configurar a identidade atribuída pelo usuário não será exibida. O recurso não é atribuído a um usuário atribuído identidade. O valor padrão para esta opção é **falso**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

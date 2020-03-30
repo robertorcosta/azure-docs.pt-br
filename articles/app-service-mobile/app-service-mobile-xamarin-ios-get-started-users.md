@@ -1,16 +1,16 @@
 ---
-title: Introdução à autenticação no Xamarin iOS
-description: Saiba como usar aplicativos móveis para autenticar usuários de seu aplicativo Xamarin iOS com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
+title: Comece com a autenticação no IOS Xamarin
+description: Aprenda a usar aplicativos móveis para autenticar usuários do seu aplicativo Xamarin iOS com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 05e936accbcd5c6fa2760c4f8682d907557f23b5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461310"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Adicionar autenticação ao aplicativo Xamarin.iOS
@@ -29,7 +29,7 @@ Você deve primeiro concluir o tutorial [Criar um aplicativo Xamarin.iOS]. Se vo
 
 A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
 
-1. No [portal do Azure](https://portal.azure.com/), selecione sua conta.
+1. No [Portal do Azure](https://portal.azure.com/), selecione seu Serviço de Aplicativo.
 
 2. Clique na opção de menu **Autenticação/Autorização**.
 
@@ -37,7 +37,7 @@ A autenticação segura exige que você defina um novo esquema de URL para seu a
 
 4. Clique em **OK**.
 
-5. Clique em **Save** (Salvar).
+5. Clique em **Salvar**.
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

@@ -1,6 +1,6 @@
 ---
 title: Introdução à linguagem U-SQL no Azure Data Lake Analytics
-description: Conheça os fundamentos da linguagem U-SQL no Azure Data Lake Analytics. Escreva sua primeira consulta usando variáveis para dados adicionais de arquivos, transforme o conjunto de linhas e agregue dados.
+description: Conheça os fundamentos da linguagem U-SQL no Azure Data Lake Analytics. Escreva sua primeira consulta usando variáveis para dados extras de arquivos, transforme o conjunto de linhas e agrege dados.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 8130679dcc519cecd25abf43902c003ad8047df3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672829"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introdução à U-SQL no Azure Data Lake Analytics
@@ -25,9 +25,9 @@ U-SQL é uma linguagem que combina o SQL declarativo com o C# imperativo para pe
 * Para obter informações detalhadas sobre a **sintaxe da linguagem U-SQL**, consulte a [U-SQL Language Reference](https://docs.microsoft.com/u-sql/) (Referência da linguagem U-SQL).
 * Para entender a **filosofia de design do U-SQL**, confira a postagem do blog do Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Apresentando o U-SQL – Uma linguagem que torna fácil o processamento de Big Data).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de percorrer os exemplos de U-SQL neste documento, leia e complete [Tutorial: Desenvolva scripts U-SQL usando as ferramentas de Data Lake para Visual Studio @ no__t-0. Esse tutorial explica a mecânica do uso do U-SQL com as Ferramentas do Azure Data Lake para Visual Studio.
+Antes de percorrer os exemplos do U-SQL nesse documento, leia e conclua o [Tutorial: Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Esse tutorial explica a mecânica do uso do U-SQL com as Ferramentas do Azure Data Lake para Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>Seu primeiro script U-SQL
 
@@ -55,7 +55,7 @@ Esse script não possui nenhuma etapa de transformação. Ele faz a leitura do a
 Observe o ponto de interrogação ao lado do tipo de dados no campo `Duration`. Isso significa que o campo `Duration` pode ser nulo.
 
 ### <a name="key-concepts"></a>Principais conceitos
-* **Variáveis de conjunto de linhas**: Cada expressão de consulta que produz um conjunto de linhas pode ser atribuída a uma variável. O U-SQL segue o padrão de nomenclatura de variável do T-SQL (`@searchlog`, por exemplo) no script.
+* **Variáveis de conjunto de linhas**: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. O U-SQL segue o padrão de nomenclatura de variável do T-SQL (`@searchlog`, por exemplo) no script.
 * A palavra-chave **EXTRACT** lê dados de um arquivo e define o esquema na leitura. `Extractors.Tsv` é um extrator U-SQL interno para arquivos de valores separados por tabulação. Você pode desenvolver extratores personalizados.
 * **OUTPUT** grava dados de um conjunto de linhas em um arquivo. `Outputters.Csv()` é um outputter U-SQL interno para criar um arquivo de valores separados por vírgulas. Você pode desenvolver outputters personalizados.
 
@@ -225,5 +225,5 @@ A cláusula HAVING do U-SQL pode ser usada para restringir a saída aos grupos q
 Para cenários de agregação avançados, consulte a documentação de referência do U-SQL sobre as [funções de agregação, análise e referência](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Desenvolvimento de scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

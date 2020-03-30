@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564849"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Inserção de um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js  
 
 ## <a name="overview"></a>Visão geral
-O MPEG-DASH é um padrão ISO para a transmissão adaptativa de conteúdo de vídeo, o que oferece benefícios significativos para os desenvolvedores que desejam oferecer saída de streaming de vídeo adaptável de alta qualidade. Com o MPEG-DASH, o fluxo de vídeo ajusta automaticamente para uma definição inferior quando a rede ficar congestionada. Isso reduz a probabilidade de o visualizador ver um vídeo "pausado" enquanto o Player baixa alguns segundos para jogar (ou seja, reduz a probabilidade de armazenamento em buffer). À medida que o congestionamento de rede é reduzido, o player de vídeo retorna para um fluxo de qualidade mais alta. Essa capacidade de adaptação da largura de banda necessária também resulta em um tempo de início mais rápido do vídeo. Isso significa que os primeiros segundos podem ser reproduzidos em um segmento de qualidade inferior para rápido download e, em seguida, o vídeo passará a ter uma qualidade mais alta assim que conteúdo suficiente tiver sido armazenado em buffer.
+O MPEG-DASH é um padrão ISO para a transmissão adaptativa de conteúdo de vídeo, o que oferece benefícios significativos para os desenvolvedores que desejam oferecer saída de streaming de vídeo adaptável de alta qualidade. Com o MPEG-DASH, o fluxo de vídeo ajusta automaticamente para uma definição inferior quando a rede ficar congestionada. Isso reduz a probabilidade de o espectador ver um vídeo "pausado" enquanto o jogador baixa os próximos segundos para jogar (ou seja, reduz a probabilidade de buffering). À medida que o congestionamento de rede é reduzido, o player de vídeo retorna para um fluxo de qualidade mais alta. Essa capacidade de adaptação da largura de banda necessária também resulta em um tempo de início mais rápido do vídeo. Isso significa que os primeiros segundos podem ser reproduzidos em um segmento de qualidade inferior para rápido download e, em seguida, o vídeo passará a ter uma qualidade mais alta assim que conteúdo suficiente tiver sido armazenado em buffer.
 
 O dash.js é um player de vídeo MPEG-DASH de software livre escrito em JavaScript. Seu objetivo é fornecer um player robusto de plataforma cruzada que pode ser reutilizado livremente em aplicativos que exigem reprodução de vídeo. Ele fornece reprodução de MPEG-DASH em qualquer navegador que dê suporte ao MSE (Media Source Extensions) da W3C, que hoje são o Chrome, o Microsoft Edge e o IE11 (outros navegadores demonstraram intenção de dar suporte ao MSE). Para obter mais informações sobre o DASH.js, consulte o repositório do dash.js do GitHub.
 
@@ -55,7 +55,7 @@ A primeira etapa é criar uma página padrão HTML contendo o elemento **video**
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Adicionando o player DASH.js
-Para adicionar a implementação de referência Dash. js ao aplicativo, você precisa pegar o arquivo Dash. All. js da versão mais recente do projeto Dash. js. O arquivo deve ser salvo na pasta JavaScript do seu aplicativo. Esse arquivo é um arquivo de conveniência que reúne todo o código dash.js necessário em um único arquivo. Ao explorar o repositório do dash.js, você encontrará os arquivos individuais, o código de teste e muito mais, mas se tudo o que você quer é usar o dash.js, o arquivo dash.all.js é do que você precisa.
+Para adicionar a implementação de referência dash.js ao aplicativo, você precisa pegar o arquivo dash.all.js da versão mais recente do projeto dash.js. O arquivo deve ser salvo na pasta JavaScript do seu aplicativo. Esse arquivo é um arquivo de conveniência que reúne todo o código dash.js necessário em um único arquivo. Ao explorar o repositório do dash.js, você encontrará os arquivos individuais, o código de teste e muito mais, mas se tudo o que você quer é usar o dash.js, o arquivo dash.all.js é do que você precisa.
 
 Para adicionar o player dash.js aos seus aplicativos, adicione uma marca de script à seção de cabeçalho do basicPlayer.html:
 
@@ -112,7 +112,7 @@ Para reproduzir um vídeo, aponte o navegador no arquivo basicPlayback.html e cl
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Consulte também
 
 [Repositório do dash.js do GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
 

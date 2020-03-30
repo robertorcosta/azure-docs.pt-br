@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72249188"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Visão geral da continuidade dos negócios com o Microsoft Genomics
@@ -30,7 +30,7 @@ Embora seja raro, um data center do Azure pode ter uma interrupção, o que pode
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Faça failover manualmente de fluxos de trabalho do Microsoft Genomics para outra região
-Se ocorrer uma interrupção de data center regional, você poderá optar por enviar fluxos de trabalho de Microsoft Genomics em uma região secundária, com base em seus requisitos de soberania de negócios e de continuidade de dados individuais. Para fazer failover manualmente de fluxos de trabalho do Microsoft Genomics, você usaria uma especificação diferente de região. Criar conta do Genomics e enviar o trabalho com credenciais apropriadas da conta de armazenamento e do Genomics específicas da região.
+Se ocorrer uma paralisação regional do data center, você pode optar por enviar fluxos de trabalho da Microsoft Genomics em uma região secundária, com base em sua soberania de dados individuais e requisitos de continuidade de negócios. Para fazer failover manualmente de fluxos de trabalho do Microsoft Genomics, você usaria uma especificação diferente de região. Criar conta do Genomics e enviar o trabalho com credenciais apropriadas da conta de armazenamento e do Genomics específicas da região.
 
 Especificamente, você precisará:
 * Criar uma conta do Genomics na região secundária, usando o Portal do Azure. 

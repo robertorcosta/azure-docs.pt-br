@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS de banco de dados por locatário
+title: Tutorial saas de banco de dados por inquilino
 description: Implante e explore o aplicativo Wingtip Tickets SaaS multilocatário, que demonstra o banco de dados por locatário e outros padrões de SaaS usando o Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73824008"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
 
 Neste tutorial, você implanta e explora o aplicativo de banco de dados por locatário Wingtip Tickets SaaS (Wingtip). O aplicativo usa um padrão de banco de dados por locatário para armazenar os dados de vários locatários. O aplicativo foi projetado para demonstrar os recursos do Banco de dados SQL do Azure que simplificam como habilitar cenários SaaS.
 
-Cinco minutos depois de selecionar **Implantar no Azure**, você tem um aplicativo de SaaS multilocatário. O aplicativo inclui um banco de dados SQL que é executado na nuvem. O aplicativo é implantado com três locatários de exemplo, cada qual com seu próprio banco de dados. Todos os bancos de dados são implantados em um pool elástico do SQL. O aplicativo é implantado em sua assinatura do Azure. Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo. O código C# -fonte do aplicativo e os scripts de gerenciamento estão disponíveis no [repositório GitHub repositório wingtipticketssaas-DbPerTenant][github-wingtip-dpt].
+Cinco minutos depois de selecionar **Implantar no Azure**, você tem um aplicativo de SaaS multilocatário. O aplicativo inclui um banco de dados SQL que é executado na nuvem. O aplicativo é implantado com três locatários de exemplo, cada qual com seu próprio banco de dados. Todos os bancos de dados são implantados em um pool elástico do SQL. O aplicativo é implantado em sua assinatura do Azure. Você tem acesso completo para explorar e trabalhar com os componentes individuais do aplicativo. O código-fonte do aplicativo C# e os scripts de gerenciamento estão disponíveis no [repo WingtipTicketsSaaS-DbPerTenant GitHub][github-wingtip-dpt].
 
 Neste tutorial, você aprende:
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprende:
 > - Como implantar o aplicativo SaaS do Wingtip.
 > - Onde obter o código-fonte do aplicativo e scripts de gerenciamento.
 > - Sobre os servidores, pools e bancos de dados que constituem o aplicativo.
-> - Quantos locatários são mapeados para seus dados com o *catálogo*.
+> - Como os inquilinos são mapeados para seus dados com o *catálogo*.
 > - Como provisionar um novo locatário.
 > - Como monitorar a atividade de locatário no aplicativo.
 
@@ -47,7 +47,7 @@ Para concluir este tutorial, certifique-se de que o Azure PowerShell esteja inst
 Nas etapas desta seção, você fornece um valor de usuário que é usado para certificar-se de que nomes de recursos sejam globalmente exclusivos. Você também pode fornecer um nome para o grupo de recursos que contenha todos os recursos criados por uma implantação do aplicativo. Para uma pessoa fictícia denominada Aline Faria, sugerimos:
 
 - **Usuário**: *af1* é composto de iniciais de Alinen Faria mais um dígito. Se você implantar o aplicativo novamente, use um valor diferente. Um exemplo é af2.
-- **Grupo de recursos:** *wingtip-dpt-af1*indica que esse é o aplicativo de banco de dados por locatário. Anexe o nome de usuário af1 para correlacionar o nome do grupo de recursos com os nomes dos recursos que ele contém.
+- **Grupo de recursos:***wingtip-dpt-af1*indica que esse é o aplicativo de banco de dados por locatário. Anexe o nome de usuário af1 para correlacionar o nome do grupo de recursos com os nomes dos recursos que ele contém.
 
 Escolha seus nomes agora e os escreva.
 
@@ -96,7 +96,7 @@ Os scripts estão localizados na pasta ..\\WingtipTicketsSaaS-DbPerTenant-master
 
 Antes de executar os scripts, atualize os valores grupo de recursos e usuário no arquivo User Config. Defina essas variáveis como os valores definidos durante a implantação.
 
-1. No ISE do PowerShell, abra ...\\Módulos de Aprendizado\\**UserConfig.psm1**
+1. No PowerShell ISE, abra ... \\Módulos\\de**aprendizagem UserConfig.psm1**
 1. Atualize **ResourceGroupName** e **Nomeie** com os valores específicos para sua implantação (somente nas linhas 10 e 11).
 1. Salve as alterações.
 
@@ -114,7 +114,7 @@ Uma página central do **Hub de Eventos** fornece uma lista de links para os loc
 
     ![Hub de Eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Selecione **Fabrikam Jazz Club** no Hub de eventos.
+2. Selecione **Fabrikam Jazz Club** no Hub de Eventos.
 
     ![Eventos](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -126,10 +126,10 @@ O aplicativo Wingtip usa o [*Gerenciador de Tráfego do Azure*](../traffic-mana
 
     As partes do formato anterior são explicadas na tabela a seguir.
 
-    | Parte da URL        | DESCRIÇÃO       |
+    | Parte da URL        | Descrição       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-dpt* distingue a implementação do *banco de dados por locatário* dos tíquetes Wingtip de outras implementações. São exemplos o aplicativo por locatário *único* ( *-sa*) ou as implementações do *banco de dados multilocatário* ( *-mt*). |
-    | . *&lt;usuário&gt;* | *af1* no exemplo. |
+    | http://events.wingtip-dpt | As partes de eventos do aplicativo Wingtip.<br /><br /> *-dpt* distingue a implementação do *banco de dados por locatário* dos tíquetes Wingtip de outras implementações. São exemplos o aplicativo por locatário *único* (*-sa*) ou as implementações do *banco de dados multilocatário* (*-mt*). |
+    | . * &lt;usuário&gt;* | *af1* no exemplo. |
     | .trafficmanager.net/ | Gerenciador de Tráfego, URL base. |
     | fabrikamjazzclub | Identifica o locatário nomeado Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -140,7 +140,7 @@ O aplicativo Wingtip usa o [*Gerenciador de Tráfego do Azure*](../traffic-mana
   - O catálogo é implementado usando *gerenciamento de mapas de fragmentos*.
 - O Hub de Eventos usa metadados estendidos no catálogo para construir a lista de URLs da página de eventos para cada locatário.
 
-Em um ambiente de produção, normalmente, um registro DNS CNAME é criado para [*apontar um domínio da Internet da empresa*](../traffic-manager/traffic-manager-point-internet-domain.md) para o nome DNS do Gerenciador de Tráfego.
+Em um ambiente de produção, normalmente você cria um registro CNAME DNS para [*apontar um domínio*](../traffic-manager/traffic-manager-point-internet-domain.md) de internet da empresa para o nome DNS do Gerenciador de Tráfego.
 
 > [!NOTE]
 > Pode não ser imediatamente óbvio qual é a utilidade do Gerenciador de Tráfego neste tutorial. O objetivo desta série de tutoriais é demonstrar padrões que podem lidar com a escala de um ambiente de produção complexo. Nesse caso, por exemplo, você teria vários aplicativos Web distribuídos pelo mundo localizados em conjunto com os bancos de dados e precisaria de Gerenciador de Tráfego para rotear entre essas instâncias.
@@ -152,7 +152,7 @@ Agora que o aplicativo está implantado, vamos colocá-lo em funcionamento.
 
 O script do PowerShell *Demo-LoadGenerator* começa uma carga de trabalho que é executada em todos os bancos de dados de locatário. A carga real em um aplicativo SaaS é esporádica e imprevisível. Para simular esse tipo de carga, o gerador produz uma carga com picos aleatórias ou de intermitências de atividade em cada locatário. As intermitências ocorrem em intervalos aleatórios. Levará vários minutos para que o padrão de carga surja. Permita que o gerador seja executado por pelo menos três ou quatro minutos antes de monitorar a carga.
 
-1. No ISE do PowerShell, abra o script ...\\Módulos de Aprendizado\\Utilitários\\*Demo-LoadGenerator.ps1*.
+1. No PowerShell ISE, abra o ... \\Módulos\\de\\aprendizagem Utilitários*Demo-LoadGenerator.ps1* script.
 2. Pressione F5 para executar o script e iniciar o gerador de carga. Deixe os valores de parâmetro padrão por ora.
 3. Faça logon na sua conta do Azure e selecione a assinatura que deseja usar, se necessário.
 
@@ -181,7 +181,7 @@ O *Demo-LoadGenerator.ps1* imita uma carga de trabalho ativa de transações de 
     - Por padrão, as tarefas em segundo plano executam por 120 minutos.
     - Cada trabalho causa uma carga baseada em CPU em um banco de dados de locatário, executando *sp_CpuLoadGenerator*. A intensidade e a duração da carga variam de acordo com `$DemoScenario`.
     - O *sp_CpuLoadGenerator* é executado repetidamente em torno de uma instrução SQL SELECT que causa uma alta carga de CPU. O intervalo de tempo entre os problemas do SELECT varia de acordo com os valores dos parâmetros para criar uma carga de CPU controlável. Os níveis de carga e os intervalos são randomizados para simular cargas mais realistas.
-    - Esse arquivo .sql é armazenado em *WingtipTenantDB\\dbo\\StoredProcedures\\* .
+    - Esse arquivo .sql é armazenado em *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
 4. Se `$OneTime = $false`, o gerador de carga inicia os trabalhos em segundo plano e, em seguida, continua a ser executado. A cada 10 segundos, ele monitora quaisquer novos locatários provisionados. Se definir `$OneTime = $true`, o LoadGenerator irá iniciar as tarefas em segundo plano e, em seguida, parar a execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
@@ -202,7 +202,7 @@ A implantação inicial cria três locatários de amostra. Agora você cria outr
 3. Para executar o script, pressione F5. Deixe os valores padrão por ora.
 
    > [!NOTE]
-   > Vários scripts Wingtip SaaS usam *$PSScriptRoot* para navegar em pastas para chamar funções em outros scripts. Essa variável é avaliada apenas quando o script completo é executado ao pressionar F5. Realçar e executar uma seleção com F8 pode resultar em erros. Para executar os scripts, pressione F5.
+   > Vários scripts Wingtip SaaS usam *$PSScriptRoot* para navegar em pastas para chamar funções em outros scripts. Essa variável é avaliada apenas quando o script completo é executado ao pressionar F5.Destacar e executar uma seleção com F8 pode resultar em erros. Para executar os scripts, pressione F5.
 
 O novo banco de dados de locatário é:
 
@@ -210,7 +210,7 @@ O novo banco de dados de locatário é:
 - Inicializado.
 - Registrado no catálogo.
 
-Após o provisionamento bem-sucedido, o site *Eventos* do novo locatário aparecerá no seu navegador.
+Após o provisionamento bem-sucedido, o site *de Eventos* do novo inquilino aparece no seu navegador.
 
 ![Novo locatário](./media/saas-dbpertenant-get-started-deploy/red-maple-racing.png)
 
@@ -220,7 +220,7 @@ Atualize o Hub de Eventos para fazer com que o novo locatário apareça na lista
 
 Agora que você começou a executar uma carga na coleção de locatários, vamos analisar alguns dos recursos que foram implantados.
 
-1. No [portal do Azure](https://portal.azure.com), navegue para sua lista de servidores SQL. Abra o servidor **catalog-dpt-&lt;USER&gt;** .
+1. No [portal do Azure](https://portal.azure.com), navegue para sua lista de servidores SQL. Abra o servidor **catalog-dpt-&lt;USER&gt;**.
     - O servidor de catálogo contém dois bancos de dados, **tenantcatalog** e **basetenantdb** (um banco de dados modelo que é copiado para criar novos locatários).
 
    ![Bancos de dados](./media/saas-dbpertenant-get-started-deploy/databases.png)
@@ -247,7 +247,7 @@ Navegue até o servidor **tenants1-dpt-&lt;usuário&gt;** e selecione **Pool1** 
 - O primeiro gráfico, rotulado **Utilização de recursos**, mostra a utilização de eDTU do pool.
 - O segundo gráfico mostra a utilização de eDTU dos cinco bancos de dados mais ativos no pool.
 
-Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adaptados às cargas de trabalho imprevisíveis do aplicativo SaaS. Os gráficos mostram que quatro bancos de dados são cada um intermitências para até 40 eDTUs e ainda oferecem suporte confortavelmente a todos os bancos de dados para um pool de 50-eDTU. O pool de 50-eDTU pode dar suporte a cargas de trabalho ainda mais pesadas. Se os bancos de dados forem provisionados como bancos de dados individuais, cada um precisará ser um S2 (50 DTU) para dar suporte às intermitências. O custo de quatro bancos de dados S2 individuais é quase três vezes o preço do pool. Em situações reais, os clientes do Banco de Dados SQL executam até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [Tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
+Os dois gráficos ilustram que os pools elásticos e o Banco de Dados SQL são bem adaptados às cargas de trabalho imprevisíveis do aplicativo SaaS. Os gráficos mostram que quatro bancos de dados são cada um intermitências para até 40 eDTUs e ainda oferecem suporte confortavelmente a todos os bancos de dados para um pool de 50-eDTU. O pool de 50-eDTU pode dar suporte a cargas de trabalho ainda mais pesadas. Se os bancos de dados forem provisionados como bancos de dados individuais, cada um precisará ser um S2 (50 DTU) para dar suporte às intermitências. O custo de quatro bancos de dados S2 individuais é quase três vezes o preço do pool. Em situações reais, os clientes do Banco de Dados SQL executam até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -263,12 +263,12 @@ Neste tutorial, você aprendeu:
 > [!div class="checklist"]
 > - Como implantar o aplicativo SaaS Wingtip Tickets.
 > - Sobre os servidores, pools e bancos de dados que constituem o aplicativo.
-> - Quantos locatários são mapeados para seus dados com o *catálogo*.
+> - Como os inquilinos são mapeados para seus dados com o *catálogo*.
 > - Como provisionar novos locatários.
 > - Como exibir a utilização do pool para monitorar a atividade do locatário.
 > - Como excluir recursos de exemplo para interromper a cobrança relacionada.
 
-Em seguida, tente fazer o [Tutorial para provisionar e catalogar](saas-dbpertenant-provision-and-catalog.md).
+Em seguida, experimente o [tutorial provisão e catálogo](saas-dbpertenant-provision-and-catalog.md).
 
 <!-- Link references. -->
 

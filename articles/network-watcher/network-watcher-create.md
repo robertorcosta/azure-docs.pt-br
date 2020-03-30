@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191191"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Criar um Observador de Rede no portal
 
-Navegue até **Todos os Serviços** > **Rede** > **Observador de Rede**. Você pode selecionar todas as assinaturas para as quais deseja habilitar o Observador de Rede. Essa ação cria um Observador de Rede em todas as regiões que ele está disponível.
+Navegue para **todos os serviços** > **networking networking** > **networking watcher**. Você pode selecionar todas as assinaturas para as quais deseja habilitar o Observador de Rede. Essa ação cria um Observador de Rede em todas as regiões que ele está disponível.
 
 ![criar um observador de rede](./media/network-watcher-create/figure1.png)
 
@@ -101,19 +101,19 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
-## <a name="delete-a-network-watcher-in-the-portal"></a>Excluir um observador de rede no portal
+## <a name="delete-a-network-watcher-in-the-portal"></a>Exclua um Observador de Rede no portal
 
-Navegue até **Todos os Serviços** > **Rede** > **Observador de Rede**.
+Navegue para **todos os serviços** > **networking networking** > **networking watcher**.
 
-Selecione a guia Visão geral, se você ainda não estiver lá. Use a lista suspensa para selecionar a assinatura na qual você deseja desabilitar o observador de rede.
-Expanda a lista de regiões para sua assinatura escolhida clicando na seta. Para qualquer dado, use os 3 pontos à direita para acessar o menu de contexto.
-Clique em "desabilitar observador de rede" para iniciar a desabilitação. Você será solicitado a confirmar esta etapa. Clique em Sim para continuar.
-No portal, você precisará fazer isso individualmente para cada região em cada assinatura.
+Selecione a guia visão geral, se você ainda não estiver lá. Use o dropdown para selecionar a assinatura que deseja desativar o observador de rede.
+Expanda a lista de regiões para sua assinatura escolhida clicando na seta. Para qualquer dado, use os 3 pontos no direito de acessar o menu de contexto.
+Clique em "Desativar o observador de rede" para começar a desativar. Você será solicitado a confirmar este passo. Clique em Sim para continuar.
+No portal, você terá que fazer isso individualmente para cada região em cada assinatura.
 
 
-## <a name="delete-a-network-watcher-with-powershell"></a>Excluir um observador de rede com o PowerShell
+## <a name="delete-a-network-watcher-with-powershell"></a>Exclua um observador de rede com powershell
 
-Para excluir uma instância do observador de rede, execute o seguinte exemplo:
+Para excluir uma instância do Network Watcher, execute o seguinte exemplo:
 
 ```powershell
 New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
@@ -127,8 +127,8 @@ Agora que você tem uma instância do Observador de Rede, saiba mais sobre os re
 
 * [Topologia](network-watcher-topology-overview.md)
 * [Captura de pacotes](network-watcher-packet-capture-overview.md)
-* [Verificação de fluxo de IP](network-watcher-ip-flow-verify-overview.md)
+* [Verificação de fluxo IP](network-watcher-ip-flow-verify-overview.md)
 * [Próximo salto](network-watcher-next-hop-overview.md)
-* [Vista de grupo de segurança](network-watcher-security-group-view-overview.md)
+* [Exibição de grupo de segurança](network-watcher-security-group-view-overview.md)
 * [Registro do fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Solução de problemas do Gateway de Rede Virtual](network-watcher-troubleshoot-overview.md)

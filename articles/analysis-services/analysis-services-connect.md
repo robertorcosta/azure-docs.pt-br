@@ -8,21 +8,21 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3231b46060cbb755ada000473c8fbe873cc51ef1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73147305"
 ---
 # <a name="connecting-to-servers"></a>Conectando-se a servidores
 
-Este artigo descreve como se conectar a um servidor usando aplicativos de modelagem e gerenciamento de dados como o SQL Server Management Studio (SSMS) ou o Visual Studio com projetos Analysis Services ou com aplicativos de relatório de cliente como o Microsoft Excel, Power BI Aplicativos de área de trabalho ou personalizados. Conexões ao Azure Analysis Services usam HTTPS.
+Este artigo descreve a conexão a um servidor usando aplicativos de modelagem e gerenciamento de dados como o SQL Server Management Studio (SSMS) ou o Visual Studio com projetos de Serviços de Análise, ou com aplicativos de relatórios de clientes como Microsoft Excel, Power BI Desktop ou aplicativos personalizados. Conexões ao Azure Analysis Services usam HTTPS.
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
 [Obter as bibliotecas de Cliente mais recentes](analysis-services-data-providers.md)
 
-Todas as conexões a um servidor, independentemente do tipo, exigem bibliotecas de cliente OLEDB, ADOMD.NET e AMO atualizadas para a conexão e interface com um servidor do Analysis Services. Para SSMS, Visual Studio, Excel 2016 e posterior e Power BI, as bibliotecas de cliente mais recentes são instaladas ou atualizadas com versões mensais. No entanto, em alguns casos, é possível que um aplicativo não tenha a mais recente. Por exemplo, quando políticas atrasam atualizações ou, as atualizações do Office 365 estão no Canal Adiado.
+Todas as conexões a um servidor, independentemente do tipo, exigem bibliotecas de cliente OLEDB, ADOMD.NET e AMO atualizadas para a conexão e interface com um servidor do Analysis Services. Para SSMS, Visual Studio, Excel 2016 e posterior, e Power BI, as bibliotecas de clientes mais recentes são instaladas ou atualizadas com lançamentos mensais. No entanto, em alguns casos, é possível que um aplicativo não tenha a mais recente. Por exemplo, quando políticas atrasam atualizações ou, as atualizações do Office 365 estão no Canal Adiado.
 
 ## <a name="server-name"></a>Nome do servidor
 
@@ -76,7 +76,7 @@ Com versões mais antigas do Excel, os usuários podem se conectar a um servidor
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Conectar com Excel](analysis-services-connect-excel.md)    
-[Conectar com Power BI](analysis-services-connect-pbi.md)   
+[Conecte-se com o Excel](analysis-services-connect-excel.md)    
+[Conecte-se com power bi](analysis-services-connect-pbi.md)   
 [Gerenciar seu serviço](analysis-services-manage.md)   
 

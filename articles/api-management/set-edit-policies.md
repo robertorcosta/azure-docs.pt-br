@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 2df57477ae5270405a1774b7a4f04ed185fea396
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70071696"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar políticas de Gerenciamento de API do Azure
@@ -29,7 +29,7 @@ Para obter informações detalhadas sobre políticas, consulte [Políticas do Ge
 
 Para definir ou editar uma política, siga as etapas a seguir:
 
-1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até sua instância de APIM.
 3. Clique na guia **APIs**.
 
@@ -38,7 +38,7 @@ Para definir ou editar uma política, siga as etapas a seguir:
 4. Selecione uma das APIs que você importou anteriormente.
 5. Selecione a guia **Design**.
 6. Selecione uma operação à qual você deseja aplicar a política. Se você deseja aplicar a política a todas as operações, selecione **Todas as operações**.
-7. Selecione o **</>** ícone (editor de código) na **processamento de entrada** ou **processamento de saída da seção**.
+7. Selecione **</>** o ícone (editor de código) na seção **De processamento** de entrada ou **saída.**
 8. Cole o código de política desejado em um dos blocos adequados.
 
     ```XML

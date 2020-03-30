@@ -9,15 +9,15 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72299667"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storage Gen2
 
-Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen2. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen2. Antes do Data Lake Storage Gen2, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. O Data Lake Storage Gen2 dá suporte a tamanhos de arquivo individuais tão altos quanto 5 TB e a maioria dos limites rígidos de desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo aborda para que seja possível obter o melhor desempenho com o Data Lake Storage Gen2.
+Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen2. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen2. Antes do Data Lake Storage Gen2, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Data Lake Storage Gen2 suporta tamanhos de arquivos individuais de até 5 TB e a maioria dos limites rígidos para desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo aborda para que seja possível obter o melhor desempenho com o Data Lake Storage Gen2.
 
 ## <a name="security-considerations"></a>Considerações sobre segurança
 
@@ -25,31 +25,31 @@ O Azure Data Lake Storage Gen2 oferece controles de acesso POSIX para grupos e e
 
 ### <a name="use-security-groups-versus-individual-users"></a>Usar grupos de segurança versus usuários individuais
 
-Ao trabalhar com Big Data no Data Lake Storage Gen2, é provável que uma entidade de serviço seja usada para permitir que serviços como o Azure HDInsight trabalhem com os dados. No entanto, poderá haver casos em que usuários individuais também precisarão ter acesso aos dados. Em todos os casos, considere utilizar os [grupos de segurança](../common/storage-auth-aad.md) do Azure Active Directory, em vez de atribuir usuários individuais a diretórios e arquivos.
+Ao trabalhar com big data no Data Lake Storage Gen2, é provável que um diretor de serviço seja usado para permitir que serviços como o Azure HDInsight trabalhem com os dados. No entanto, poderá haver casos em que usuários individuais também precisarão ter acesso aos dados. Em todos os casos, considere utilizar os [grupos de segurança](../common/storage-auth-aad.md) do Azure Active Directory, em vez de atribuir usuários individuais a diretórios e arquivos.
 
 Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Storage Gen2. Isso também ajuda a garantir que você não ultrapasse o número máximo de entradas de controle de acesso por ACL (lista de controle de acesso). Atualmente, esse número é 32, (incluindo as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e diretório): o usuário proprietário, o grupo proprietário, a máscara e outros. Cada diretório pode ter dois tipos de ACL, a ACL de acesso e a ACL padrão, com um total de 64 entradas de controle de acesso. Para obter mais informações sobre essas ACLs, confira [Controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
-Quando você ou seus usuários precisam acessar dados em uma conta de armazenamento com namespace hierárquico habilitado, é melhor usar grupos de segurança do Azure Active Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers**, **WriteAccessUsers**e **FullAccessUsers** para a raiz do contêiner e até mesmo separá-los para subdiretórios de chave. Se houver outros grupos de usuários antecipados que poderão ser adicionados posteriormente, mas ainda não foram identificados, será possível criar grupos de segurança falsos que tenham acesso a determinadas pastas. Usar grupo de segurança garante que você possa evitar tempos de processamento longos ao atribuir novas permissões a milhares de arquivos.
+Quando você ou seus usuários precisam acessar dados em uma conta de armazenamento com namespace hierárquico habilitado, é melhor usar grupos de segurança do Azure Active Directory. Alguns grupos recomendados para começar podem ser **ReadOnlyUsers,** **WriteAccessUsers**e **FullAccessUsers** para a raiz do contêiner e até mesmo separados para subdiretórios-chave. Se houver outros grupos de usuários antecipados que poderão ser adicionados posteriormente, mas ainda não foram identificados, será possível criar grupos de segurança falsos que tenham acesso a determinadas pastas. Usar grupo de segurança garante que você possa evitar tempos de processamento longos ao atribuir novas permissões a milhares de arquivos.
 
 ### <a name="security-for-service-principals"></a>Segurança para entidades de serviço
 
-As entidades de serviço do Azure Active Directory normalmente são usadas por serviços como o Azure Databricks para acessar dados no Data Lake Storage Gen2. Para muitos clientes, uma única entidade de serviço de Azure Active Directory pode ser adequada e pode ter permissões completas na raiz do contêiner de Data Lake Storage Gen2. Outros clientes podem exigir múltiplos clusters com diferentes entidades de serviço onde um cluster tenha acesso total aos dados e outro cluster com apenas acesso de leitura. 
+As entidades de serviço do Azure Active Directory normalmente são usadas por serviços como o Azure Databricks para acessar dados no Data Lake Storage Gen2. Para muitos clientes, um único principal de serviço do Azure Active Directory pode ser adequado, e pode ter permissões completas na raiz do contêiner Data Lake Storage Gen2. Outros clientes podem exigir múltiplos clusters com diferentes entidades de serviço onde um cluster tenha acesso total aos dados e outro cluster com apenas acesso de leitura. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Habilitar o firewall do Data Lake Storage Gen2 com acesso a serviços do Azure
 
-Um Data Lake Storage Gen2 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. O Firewall pode ser habilitado em uma conta de armazenamento no Portal do Azure através das opções **Firewall** > **Habilitar Firewall (ON)**  > **Permitir acesso à serviços do Azure**.
+Um Data Lake Storage Gen2 dá suporte para a opção de ativar um firewall e limitar acesso apenas para serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. O Firewall pode ser habilitado em uma conta de armazenamento no portal Azure através do **Firewall** > **Enable Firewall (ON)** > Permitir o acesso às opções**de serviços do Azure.**
 
-Para acessar sua conta de armazenamento do Azure Databricks, implante Azure Databricks em sua rede virtual e, em seguida, adicione essa rede virtual ao firewall. Consulte [configurar redes virtuais e firewalls de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Para acessar sua conta de armazenamento do Azure Databricks, implante o Azure Databricks na sua rede virtual e adicione essa rede virtual ao seu firewall. Consulte [Configurar firewalls de armazenamento Azure e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## <a name="resiliency-considerations"></a>Considerações de resiliência
 
 Ao arquivar um sistema com Data Lake Storage Gen2 ou qualquer serviço de nuvem, considere os requisitos de disponibilidade e como responder a possíveis interrupções no serviço. Um problema pode ser localizado na instância específica ou mesmo região inteira, portanto, ter um plano para ambos é importante. Dependendo dos SLAs do objetivo do tempo de recuperação e o objetivo de ponto de recuperação para a carga de trabalho, você poderá escolher uma estratégia mais ou menos agressiva para alta disponibilidade e recuperação de desastre.
 
-### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres
+### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastre
 
-A HA (alta disponibilidade) e a DR (recuperação de desastre) às vezes podem ser combinadas em conjunto, embora cada uma tenha uma estratégia ligeiramente diferente, especialmente quando se trata de dados. O Data Lake Storage Gen2 já processa replicação de três vezes nos bastidores para oferecer proteção contra falhas de hardware localizadas. Além disso, outras opções de replicação, como ZRS ou GZRS (versão prévia), melhoram a HA, enquanto GRS & RA-GRS a melhorar o DR. Ao construir um plano para HA, no caso de uma interrupção do serviço, a carga de trabalho precisa acessar os dados mais recentes o mais rápido possível, alternando para uma instância separada replicada localmente ou em uma nova região.
+A HA (alta disponibilidade) e a DR (recuperação de desastre) às vezes podem ser combinadas em conjunto, embora cada uma tenha uma estratégia ligeiramente diferente, especialmente quando se trata de dados. O Data Lake Storage Gen2 já processa replicação de três vezes nos bastidores para oferecer proteção contra falhas de hardware localizadas. Além disso, outras opções de replicação, como ZRS ou GZRS (visualização), melhoram o HA, enquanto o GRS & RA-GRS melhoram o DR. Ao construir um plano para HA, no caso de uma interrupção do serviço, a carga de trabalho precisa acessar os dados mais recentes o mais rápido possível, alternando para uma instância separada replicada localmente ou em uma nova região.
 
 Em uma estratégia DR, para preparar-se para o evento improvável de uma falha catastrófica de uma região, também é importante que os dados sejam replicados para uma região diferente usando replicação de GRS ou RA-GRS. Você também deve considerar os requisitos para casos de borda, como corrupção de dados, em que você deseja criar instantâneos periódicos para fazer fallback. Dependendo da importância e do tamanho dos dados, considere acumular instantâneos de delta de 1, 6 e 24 horas, de acordo com as tolerâncias de risco.
 

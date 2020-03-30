@@ -1,5 +1,5 @@
 ---
-title: Descarregamento de SSL usando o PowerShell-Aplicativo Azure gateway
+title: Descarga SSL usando powershell - Gateway de aplicativo Azure
 description: Este artigo fornece instruções para criar um gateway de aplicativo com descarregamento SSL usando o modelo de implantação clássico do Azure
 services: application-gateway
 author: vhorne
@@ -8,38 +8,38 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047917"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-ssl-portal.md)
+> * [Portal Azure](application-gateway-ssl-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell clássico do Azure](application-gateway-ssl.md)
-> * [CLI do Azure](application-gateway-ssl-cli.md)
+> * [Azure CLI](application-gateway-ssl-cli.md)
 
 O Gateway de Aplicativo do Azure pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
 3. Os servidores que você configura para usar o gateway de aplicativo devem existir ou ter seus pontos de extremidade que são criados na rede virtual, ou com um endereço IP público ou VIP (endereço IP virtual) atribuído.
 
 Para configurar o descarregamento SSL em um gateway de aplicativo, conclua as seguintes etapas na ordem listada:
 
-1. [Criar um Application Gateway](#create-an-application-gateway)
+1. [Criar um gateway de aplicativo](#create-an-application-gateway)
 2. [Carregar certificados SSL](#upload-ssl-certificates)
-3. [Configurar o gateway](#configure-the-gateway)
+3. [Configure o gateway](#configure-the-gateway)
 4. [Definir a configuração do gateway](#set-the-gateway-configuration)
 5. [Iniciar o gateway](#start-the-gateway)
 6. [Verificar o status do gateway](#verify-the-gateway-status)
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
 Para criar o gateway, insira o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
@@ -49,7 +49,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 Para validar esse gateway que foi criado, você pode inserir o cmdlet `Get-AzureApplicationGateway`.
 
-No exemplo, **Description**, **InstanceCount** e **GatewaySize** são parâmetros opcionais. O valor padrão para **InstanceCount** é **2**, com um valor máximo de **10**. O valor padrão para **GatewaySize** é **Medium**. Small e Large são outros valore disponíveis. **VirtualIPs** e **DnsName** são mostrados em branco porque o gateway ainda não foi iniciado. Esses valores serão criados depois que o gateway estiver em estado de execução.
+No exemplo, **Description**, **InstanceCount** e **GatewaySize** são parâmetros opcionais. O valor padrão para **InstanceCount** é **2**, com um valor máximo de **10**. O valor padrão do **GatewaySize** é **Medium**. Small e Large são outros valore disponíveis. **VirtualIPs** e **DnsName** são mostrados como em branco, porque o gateway ainda não foi iniciado. Esses valores serão criados depois que o gateway estiver em estado de execução.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -92,9 +92,9 @@ Uma configuração de gateway de aplicativo consiste em vários valores. Os valo
 
 Os valores são:
 
-* **Pool de servidores back-end**: a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP ou VIP público.
+* **Pool de servidores back-end**: A lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP ou VIP público.
 * **Configurações do pool de servidores back-end**: cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-* **Porta front-end**: essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+* **Porta front-end**: Esta porta é a porta pública que é aberta no gateway de aplicação. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 * **Ouvinte**: o ouvinte tem uma porta front-end, um protocolo (Http ou Https; esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
 * **Regra**: a regra vincula o ouvinte e o pool de servidores back-end e define a qual pool de servidores back-end direcionar o tráfego quando ele atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *básica* é a distribuição de carga round robin.
 
@@ -202,5 +202,5 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
 
 Para saber mais sobre opções de balanceamento de carga no geral, confira:
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [Balanceador de carga azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Gerente de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)

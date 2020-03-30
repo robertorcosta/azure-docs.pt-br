@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastre do Citrix XenDesktop/XenApp com o Azure Site Recovery
+title: Configure a recuperação de desastres Citrix XenDesktop/XenApp com a recuperação do site do Azure
 description: Este artigo descreve como configurar a recuperação de desastres para implantações do Citrix XenDesktop e do XenApp usando o Azure Site Recovery.
 author: ponatara
 manager: abhemraj
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74084548"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação de desastres para uma implantação do Citrix XenApp e XenDesktop multicamada
@@ -26,7 +26,7 @@ Uma boa solução de recuperação de desastres deve permitir a modelagem de pla
 Este documento fornece orientações passo a passo para criar uma solução de recuperação de desastre para suas implantações do Citrix XenApp no local nas plataformas Hyper-V e VMware vSphere. Este documento também descreve como executar um failover de teste (análise de recuperação de desastre) e o failover não planejado para o Azure usando planos de recuperação, as configurações com suporte e os pré-requisitos.
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você precisa entender o seguinte:
 
@@ -54,11 +54,11 @@ Com a finalidade deste artigo, as implantações do Citrix em máquinas virtuais
 
 ### <a name="source-and-target"></a>Origem e destino
 
-**Cenário** | **Para um site secundário** | **Para o Azure**
+**Cenário** | **Para um site secundário** | **Para Azure**
 --- | --- | ---
-**Hyper-V** | Não está no escopo | sim
-**VMware** | Não está no escopo | sim
-**Servidor físico** | Não está no escopo | sim
+**Hyper-V** | Não está no escopo | Sim
+**Vmware** | Não está no escopo | Sim
+**Servidor físico** | Não está no escopo | Sim
 
 ### <a name="versions"></a>Versões
 Os clientes podem implantar componentes do XenApp como máquinas virtuais em execução no Hyper-V ou VMware, ou como servidores físicos. O Azure Site Recovery pode proteger as implantações físicas e virtuais no Azure.
@@ -156,7 +156,7 @@ O plano de recuperação personalizado parece com o seguinte:
    >[!NOTE]     
    >As etapas 4, 6 e 7, que contém ações manuais ou de script, são aplicáveis apenas a um XenApp local > ambiente com catálogos MCS/PVS.
 
-4. Ação manual do grupo 3 ou script: desligar a VM VDA mestra.
+4. Ação manual ou de script do grupo 3: Desligue o Master VDA VM.
 A VM do VDA Master estará em um estado de execução quando houver failover. Para criar novos catálogos do MCS usando a hospedagem do Azure, é necessário que a VM mestre do VDA esteja no estado Parado (de alocado). Desligue a VM do portal do Azure.
 
 5. Grupo de failover 4: controlador de entrega e VMs do servidor StoreFront

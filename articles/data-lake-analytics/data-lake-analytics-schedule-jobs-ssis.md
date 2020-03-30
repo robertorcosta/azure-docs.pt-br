@@ -1,6 +1,6 @@
 ---
 title: Agendar trabalhos do U-SQL do Azure Data Lake Analytics usando SSIS
-description: Saiba como usar SQL Server Integration Services para agendar trabalhos U-SQL com script embutido ou arquivos de consulta do U-SQL.
+description: Aprenda a usar os Serviços de Integração do Servidor SQL para agendar trabalhos U-SQL com script inline ou em arquivos de consulta U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672903"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar trabalhos do U-SQL usando SSIS (SQL Server Integration Services)
 
 Neste documento, você aprende como orquestrar e criar trabalhos do U-SQL usando SSIS (SQL Server Integration Service). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O [Feature Pack do Azure para Serviços de Integração](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) fornece a [tarefa do Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017) e o [Gerenciador de Conexões do Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) que ajuda a conectar o serviço do Azure Data Lake Analytics. Para usar essa tarefa, certifique-se de instalar:
 
-- [Baixe e instale o SSDT (SQL Server Data Tools) para Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)
+- [Baixar e instalar o SSDT (SQL Server Data Tools) para o Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)
 - [Instalar o Feature Pack do Azure para SSIS (Integration Services)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017)
 
 ## <a name="azure-data-lake-analytics-task"></a>Tarefa do Azure Data Lake Analytics
@@ -87,13 +87,13 @@ No modo de exibição de design do pacote SSIS, adicione uma **Tarefa do Sistema
 
 ### <a name="configure-azure-data-lake-analytics-task"></a>Configurar tarefa do Azure Data Lake Analytics 
 
-1. Definir **SourceType** para **FileConnection**.
+1. Defina **SourceType** para **FileConnection**.
 
 2. Defina **FileConnection** como a conexão de arquivo que aponta para os objetos de arquivo retornados do Contêiner do Loop Foreach.
     
     Para criar essa conexão de arquivo:
 
-   1. Escolha **a conexão \<New... >** na configuração de FileConnection.
+   1. Escolha ** \<Nova conexão...>** na configuração FileConnection.
    2. Defina **Tipo de uso** para **Arquivo existente** e defina o **Arquivo** para o caminho de arquivo de qualquer arquivo existente.
 
        ![Configurar o Contêiner do Loop Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -119,7 +119,7 @@ No modo de exibição de design do pacote SSIS, adicione uma **Tarefa do Sistema
 
 É possível usar arquivos do U-SQL no Armazenamento de Blobs do Azure, usando a **Tarefa de Download de Blob do Azure** no Feature Pack do Azure. Essa abordagem permite usar os scripts na nuvem.
 
-As etapas são semelhantes às do [Cenário 2: Usar arquivos do U-SQL no Azure Data Lake Storage](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a Tarefa do Sistema de Arquivos do Azure Data Lake Store para Tarefa de Download de Blob do Azure. [Saiba mais sobre a Tarefa de Download de Blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+As etapas são semelhantes ao [Cenário 2: Use arquivos U-SQL no Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Altere a Tarefa do Sistema de Arquivos do Azure Data Lake Store para Tarefa de Download de Blob do Azure. [Saiba mais sobre a Tarefa de Download de Blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 O fluxo de controle é conforme abaixo.
 
@@ -131,13 +131,13 @@ Além de usar arquivos do U-SQL armazenados na nuvem, você também poderá usar
 
 1. Clique com o botão direito do mouse em **Gerenciadores de Conexões** no projeto SSIS e escolha **Novo Gerenciador de Conexões**.
 
-2. Selecione o tipo de **Arquivo** e clique em **Adicionar...** .
+2. Selecione o tipo de **Arquivo** e clique em **Adicionar...**.
 
 3. Defina **Tipo de uso** para **Arquivo existente** e defina o **Arquivo** para o arquivo no computador local.
 
     ![Adicionar conexão de arquivo ao arquivo local](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-4. Adicione a tarefa do **Azure Data Lake Analytics** e:
+4. Adicionar a tarefa de análise do lago de dados do **Azure** e:
     1. Defina **SourceType** para **FileConnection**.
     2. Defina **FileConnection** para a Conexão do Arquivo criada agora.
 
@@ -169,5 +169,5 @@ Em alguns casos, convém definir dinamicamente o valor da variável do U-SQL no 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Executar pacotes SSIS no Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
-- [Feature Pack do Azure para SSIS (Integration Services)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
+- [Feature Pack do Azure para o Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Agendar trabalhos do U-SQL usando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)

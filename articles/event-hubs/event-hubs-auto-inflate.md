@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: dc6edaebebe89b6d4a35ada58d40795f86a935d3
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72264478"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
@@ -40,19 +40,19 @@ O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](eve
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>Habilitar o Inflar automaticamente em um namespace
 
-Você pode habilitar ou desabilitar o inflar automaticamente em um namespace de hubs de eventos de camada Standard usando um dos seguintes métodos:
+Você pode ativar ou desativar a inflação automática em um namespace de namespace do Standard Tier Event Hubs usando qualquer um dos seguintes métodos:
 
-- O [Portal do Azure](https://portal.azure.com).
+- O [portal Azure.](https://portal.azure.com)
 - Um [modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate).
 
 > [!NOTE]
-> Os namespaces de hubs de eventos de camada básica não dão suporte ao inflar automaticamente.
+> Os namespaces de eventos de nível básico não suportam inflação automática.
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Habilitar Inflar automaticamente por meio do Portal
 
 
 #### <a name="enable-at-the-time-of-creation"></a>Habilitar no momento da criação 
-Você pode habilitar o recurso Inflar Automaticamente **ao criar um namespace de Hubs de Eventos**:
+Você pode ativar o recurso de inflação automática **ao criar um namespace do Event Hubs:**
  
 ![Habilitar inflar automaticamente na criação do hub de eventos de tempo](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
@@ -76,7 +76,7 @@ Também é possível habilitar o recurso Inflar automaticamente e modificar as c
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Habilitar Inflar automaticamente usando um modelo do Azure Resource Manager
 
-Você pode habilitar o Inflar automaticamente durante uma implantação de modelo do Azure Resource Manager. Por exemplo, defina a propriedade `isAutoInflateEnabled` como **true** e defina `maximumThroughputUnits` como 10. Por exemplo:
+Você pode habilitar o Inflar automaticamente durante uma implantação de modelo do Azure Resource Manager. Por exemplo, defina a propriedade `isAutoInflateEnabled` como **true** e defina `maximumThroughputUnits` como 10. Por exemplo: 
 
 ```json
 "resources": [
@@ -126,5 +126,5 @@ Para ver o modelo completo, consulte o modelo [Criar namespace de Hubs de Evento
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 

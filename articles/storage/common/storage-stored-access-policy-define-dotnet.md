@@ -1,6 +1,6 @@
 ---
-title: Definir uma política de acesso armazenada com o .NET-armazenamento do Azure
-description: Saiba como definir uma política de acesso armazenada usando a biblioteca de cliente .NET.
+title: Defina uma política de acesso armazenada com .NET - Azure Storage
+description: Saiba como definir uma política de acesso armazenado usando a biblioteca de clientes .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,17 +10,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 272d676d0a5a55262b1c68d0bae9a9ab229df72c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68990735"
 ---
-# <a name="define-a-stored-access-policy-with-net"></a>Definir uma política de acesso armazenada com o .NET
+# <a name="define-a-stored-access-policy-with-net"></a>Defina uma política de acesso armazenada com .NET
 
-Uma política de acesso armazenada fornece um nível adicional de controle sobre SAS (assinaturas de acesso compartilhado) de nível de serviço no lado do servidor. Definir uma política de acesso armazenada serve para agrupar assinaturas de acesso compartilhado e fornecer restrições adicionais para assinaturas de acesso compartilhado que são associadas pela política. Você pode usar uma política de acesso armazenada para alterar a hora de início, a hora de expiração ou as permissões para uma SAS ou para revogá-la após sua emissão.
+Uma política de acesso armazenado fornece um nível adicional de controle sobre as assinaturas de acesso compartilhado (SAS) em nível de serviço no lado do servidor. A definição de uma política de acesso armazenado serve para agrupar assinaturas de acesso compartilhada e fornecer restrições adicionais para assinaturas de acesso compartilhada satisfatoidas pela política. Você pode usar uma política de acesso armazenada para alterar o tempo de início, o tempo de validade ou as permissões de um SAS ou revogá-la depois de emitido.
   
- Os recursos de armazenamento a seguir dão suporte a políticas de acesso armazenadas:  
+ Os seguintes recursos de armazenamento oferecem suporte às políticas de acesso armazenadas:  
   
 - Contêineres de blob  
 - Compartilhamentos de arquivos  
@@ -28,9 +28,9 @@ Uma política de acesso armazenada fornece um nível adicional de controle sobre
 - Tabelas  
   
 > [!NOTE]
-> Uma política de acesso armazenada em um contêiner pode ser associada a uma assinatura de acesso compartilhado que concede permissões ao próprio contêiner ou aos BLOBs que ele contém. Da mesma forma, uma política de acesso armazenada em um compartilhamento de arquivos pode ser associada a uma assinatura de acesso compartilhado que concede permissões ao compartilhamento em si ou aos arquivos que ele contém.  
+> Uma política de acesso armazenado em um contêiner pode ser associada a uma assinatura de acesso compartilhada concedendo permissões ao próprio contêiner ou às bolhas que ele contém. Da mesma forma, uma política de acesso armazenado em um compartilhamento de arquivos pode ser associada a uma assinatura de acesso compartilhada concedendo permissões ao próprio compartilhamento ou aos arquivos que ele contém.  
 >
-> As políticas de acesso armazenadas têm suporte apenas para SAS de serviço. As políticas de acesso armazenadas não têm suporte para SAS da conta ou SAS de delegação de usuário.  
+> As políticas de acesso armazenadas são suportadas apenas para um SAS de serviço. As políticas de acesso armazenadas não são suportadas para sas de conta ou delegação de usuário SAS.  
 
 ## <a name="create-a-stored-access-policy"></a>Criar uma política de acesso armazenada
 
@@ -58,8 +58,8 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-- [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md)
+- [Conceda acesso limitado aos recursos do Azure Storage usando assinaturas de acesso compartilhado (SAS)](storage-sas-overview.md)
 - [Definir uma política de acesso armazenada](/rest/api/storageservices/define-stored-access-policy)
 

@@ -1,6 +1,6 @@
 ---
-title: Compartilhamento de arquivos do Azure – falha ao excluir arquivos do compartilhamento de arquivos do Azure
-description: Identificar e solucionar problemas de falha ao excluir arquivos do compartilhamento de arquivos do Azure.
+title: Compartilhamento de arquivo do Azure – Falha ao excluir arquivos do compartilhamento de arquivo do Azure
+description: Identifique e soluciona problemas a falha em excluir arquivos do Azure File Share.
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
@@ -11,42 +11,42 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: d3a3763a8964810626bcdc47da230a9ee406f1f8
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74196475"
 ---
-# <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Compartilhamento de arquivos do Azure – falha ao excluir arquivos do compartilhamento de arquivos do Azure
+# <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Compartilhamento de arquivo do Azure – Falha ao excluir arquivos do compartilhamento de arquivo do Azure
 
-A falha ao excluir arquivos do compartilhamento de arquivos do Azure pode ter vários sintomas:
+A falha na exclusão de arquivos do Azure File Share pode ter vários sintomas:
 
 **Sintoma 1:**
 
 Falha ao excluir um arquivo no compartilhamento de arquivos do Azure devido a um dos dois problemas abaixo:
 
 * O arquivo marcado para exclusão
-* O recurso especificado pode estar sendo usado por um cliente SMB
+* O recurso especificado pode estar em uso por um cliente SMB
 
 **Sintoma 2:**
 
-Não há cota suficiente disponível para processar este comando
+Não há cota suficiente para processar este comando
 
 ## <a name="cause"></a>Causa
 
-O erro 1816 ocorre quando você atinge o limite superior de identificadores abertos simultâneos permitidos para um arquivo, no computador em que o compartilhamento de arquivos está sendo montado. Para obter mais informações, consulte a [lista de verificação de escalabilidade e desempenho do armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+O erro 1816 ocorre quando você atinge o limite superior de alças abertas simultâneas permitidas para um arquivo, no computador onde o compartilhamento de arquivos está sendo montado. Para obter mais informações, consulte a [lista de verificação de desempenho e escalabilidade do Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
 
 ## <a name="resolution"></a>Resolução
 
-Reduza o número de identificadores abertos simultâneos fechando alguns identificadores.
+Reduza o número de alças abertas simultâneas fechando algumas alças.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-### <a name="install-the-latest-azure-powershell-module"></a>Instalar o módulo de Azure PowerShell mais recente
+### <a name="install-the-latest-azure-powershell-module"></a>Instale o mais recente módulo Azure PowerShell
 
-* [Instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Instale o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
-### <a name="connect-to-azure"></a>Conectar-se ao Azure:
+### <a name="connect-to-azure"></a>Conecte-se ao Azure:
 
 ```
 # Connect-AzAccount
@@ -64,25 +64,25 @@ Reduza o número de identificadores abertos simultâneos fechando alguns identif
 $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -StorageAccountKey "StorageAccessKey"
 ```
 
-### <a name="get-the-current-open-handles-of-the-file-share"></a>Obtenha os identificadores abertos atuais do compartilhamento de arquivos:
+### <a name="get-the-current-open-handles-of-the-file-share"></a>Obtenha as alças abertas atuais do compartilhamento de arquivos:
 
 ```
 # Get-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Recursive
 ```
 
-## <a name="example-result"></a>Resultado do exemplo:
+## <a name="example-result"></a>Resultado de exemplo:
 
-|Identificadorid|path|ClientIp|ClientPort|Opentime|LastReconnectTime|FileId|ParentId|SessionId|
+|HandleId|Caminho|ClientIp|ClientPort|Tempo de abertura|LastReconnectTime|FileId|Parentid|SessionId|
 |---|---|---|---|---|---|---|---|---|
 |259101229083|---|10.222.10.123|62758|2019-10-05|12:16:50Z|0|0|9507758546259807489|
 |259101229131|---|10.222.10.123|62758|2019-10-05|12:36:20Z|0|0|9507758546259807489|
 |259101229137|---|10.222.10.123|62758|2019-10-05|12:36:53Z|0|0|9507758546259807489|
-|259101229136|Nova pasta/Test. zip|10.222.10.123|62758|2019-10-05|12:36:29Z|13835132822072852480|9223446803645464576|9507758546259807489|
-|259101229135|Test. zip|37.222.22.143|62758|2019-10-05|12:36:24Z|11529250230440558592|0|9507758546259807489|
+|259101229136|Nova pasta/teste.zip|10.222.10.123|62758|2019-10-05|12:36:29Z|13835132822072852480|9223446803645464576|9507758546259807489|
+|259101229135|test.zip|37.222.22.143|62758|2019-10-05|12:36:24Z|11529250230440558592|0|9507758546259807489|
 
-### <a name="close-an-open-handle"></a>Fechar um identificador aberto:
+### <a name="close-an-open-handle"></a>Feche uma alça aberta:
 
-Para fechar um identificador aberto, use o seguinte comando:
+Para fechar uma alça aberta, use o seguinte comando:
 
 ```
 # Close-AzStorageFileHandle -Context $Context -ShareName "FileShareName" -Path 'New folder/test.zip' -CloseAll

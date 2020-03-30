@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74014544"
 ---
 ## <a name="overview"></a>Visão geral
@@ -108,9 +108,9 @@ As etapas a seguir descrevem como restaurar o disco premium *mypremiumdisk* para
 
 ![Restaurar disco por meio de instantâneos](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 Use os links a seguir para saber mais sobre como criar instantâneos de um blob e planejar a infraestrutura de backup da VM.
 
 * [Criando um instantâneo de um Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [Planejar sua Infraestrutura de backup de VM](../articles/backup/backup-azure-vms-introduction.md)
+* [Planeje sua infra-estrutura de backup de VM](../articles/backup/backup-azure-vms-introduction.md)
 

@@ -13,10 +13,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70082023"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Perguntas frequentes sobre o SQL Server nas Máquinas Virtuais Linux do Azure
@@ -32,7 +32,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a> Imagens
+## <a name="images"></a><a id="images"></a>Imagens
 
 1. **Quais imagens da galeria de máquinas virtuais do SQL Server estão disponíveis?**
 
@@ -72,7 +72,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 1. **Posso alterar uma VM para usar minha própria licença do SQL Server se ela foi criada com base em uma das imagens pré-pagas da galeria?**
 
-   Nº Não é possível mudar do licenciamento pago por segundo para o uso de sua própria licença. Você deve criar uma nova VM Linux, instalar o SQL Server e migrar os dados. Consulte a pergunta anterior para obter mais detalhes sobre como trazer sua própria licença.
+   Não. Não é possível mudar do licenciamento pago por segundo para o uso de sua própria licença. Você deve criar uma nova VM Linux, instalar o SQL Server e migrar os dados. Consulte a pergunta anterior para obter mais detalhes sobre como trazer sua própria licença.
 
 ## <a name="administration"></a>Administração
 
@@ -88,7 +88,7 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 1. **Como atualizar para uma nova versão/edição do SQL Server em uma VM do Azure?**
 
-   Atualmente, não existe uma atualização in-loco para o SQL Server em execução em uma VM do Azure. Crie uma nova máquina virtual do Azure com a versão/edição desejada do SQL Server e migre os bancos de dados para o novo servidor usando [técnicas de migração de dados](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview) padrão.
+   Atualmente, não existe uma atualização in-loco para o SQL Server em execução em uma VM do Azure. Crie uma nova máquina virtual do Azure com a versão/edição desejada do SQL Server e, em seguida, migre seus bancos de dados para o novo servidor usando [técnicas padrão de migração de dados](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
 
 ## <a name="general"></a>Geral
 
@@ -102,10 +102,10 @@ Este artigo fornece respostas a algumas das perguntas mais comuns sobre a execu�
 
 * [Visão geral do SQL Server em uma VM Linux](sql-server-linux-virtual-machines-overview.md)
 * [Provisionar uma VM Linux do SQL Server](provision-sql-server-linux-virtual-machine.md)
-* [SQL Server na documentação do Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server na documentação Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 **VMs do Windows**:
 
-* [Visão geral do SQL Server em uma VM do Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Visão geral do SQL Server em um VM windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Provisionar uma VM do Windows do SQL Server](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 * [Perguntas Frequentes (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

@@ -13,23 +13,23 @@ ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
 ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085201"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma de identidade da Microsoft
 
-Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas de autenticação da Microsoft). Normalmente, são 1-2 minutos de duração.
+Conheça a plataforma de identidade da Microsoft e as bibliotecas de autenticação da Microsoft (MSAL). Normalmente têm 1-2 minutos de duração.
 
-## <a name="microsoft-identity-platform-basics"></a>Noções básicas da plataforma Microsoft Identity
+## <a name="microsoft-identity-platform-basics"></a>Noções básicas da plataforma de identidade da Microsoft
 
-**Aprenda os conceitos básicos da plataforma de identidade da Microsoft**
+**Conheça os conceitos básicos da plataforma de identidade da Microsoft**
 
 :::row:::
     :::column:::
-        Visão geral da plataforma Microsoft Identity
+        Visão geral da plataforma de identidade da Microsoft
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
@@ -41,13 +41,13 @@ Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas 
 :::row-end:::
 :::row:::
     :::column:::
-        Introdução às bibliotecas de MSAL
+        Introdução às bibliotecas MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
     :::column:::
-        Como o MSAL facilita a autenticação
+        Como a MSAL facilita a autenticação
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
@@ -61,7 +61,7 @@ Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas 
         > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
     :::column:::
-        O que são agentes
+        O que são corretores
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
@@ -69,13 +69,13 @@ Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas 
 :::row-end:::
 :::row:::
     :::column:::
-        O que os URIs de redirecionamento fazem
+        O que as URIs redirecionam
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
-        Locatários explicados
+        Inquilinos explicaram
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
@@ -83,13 +83,13 @@ Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas 
 :::row-end:::
 :::row:::
     :::column:::
-        Função do Azure AD
+        Papel do Azure AD
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
-        Função de objetos de aplicativo do Azure AD
+        Função dos objetos do aplicativo Azure AD
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
@@ -97,32 +97,32 @@ Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas 
 :::row-end:::
 :::row:::
     :::column:::
-        Diferenças de conta Microsoft organizacional e pessoais
+        Diferenças de conta organizacional e pessoal da Microsoft
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
-        Diferenças de SPA e aplicativo Web
+        Diferenças de SPA e aplicativos web
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
     :::column-end:::
 :::row-end:::
 
-## <a name="migrate-from-v10-to-v20"></a>Migrar de v 1.0 para v 2.0
+## <a name="migrate-from-v10-to-v20"></a>Migrar de v1.0 para v2.0
 
-**Saiba mais sobre como migrar para a versão mais recente da plataforma de identidade da Microsoft**
+**Saiba mais sobre a migração para a versão mais recente da plataforma de identidade da Microsoft**
 
 :::row:::
     :::column:::
-        Pontos de extremidade e os benefícios de mudar para o v 2.0
+        Pontos finais e os benefícios de passar para v2.0
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
-        Migrando sua base de código do ADAL para MSAL
+        Migrando sua base de código ADAL para MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
@@ -130,7 +130,7 @@ Saiba mais sobre a plataforma de identidade da Microsoft e as MSAL (bibliotecas 
 :::row-end:::
 :::row:::
     :::column:::
-        Por que migrar do ADAL para o MSAL
+        Por que migrar da ADAL para a MSAL
     :::column-end:::
     :::column:::
         > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]

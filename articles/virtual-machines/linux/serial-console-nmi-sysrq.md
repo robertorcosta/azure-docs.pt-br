@@ -1,5 +1,5 @@
 ---
-title: Console serial do Azure para chamadas SysRq e NMI
+title: Console serial azure para chamadas SysRq e NMI
 description: Usando o Console Serial para chamadas SysRq e NMI em máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034991"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
 ## <a name="system-request-sysrq"></a>System Request (SysRq)
-SysRq é uma sequência de teclas compreendidas pelo kernel do sistema operacional Linux, que pode disparar um conjunto de ações predefinidas. Esses comandos são frequentemente usados quando a solução de problemas ou recuperação de máquina virtual não puder ser executada por meio da administração tradicional (por exemplo, se a VM não estiver respondendo). Usar o recurso SysRq do Console Serial do Azure irá imitar o pressionamento da tecla SysRq e os caracteres digitados em um teclado físico.
+SysRq é uma sequência de teclas compreendidas pelo kernel do sistema operacional Linux, que pode disparar um conjunto de ações predefinidas. Esses comandos são frequentemente usados quando a solução ou recuperação de problemas da máquina virtual não pode ser executada através da administração tradicional (por exemplo, se a VM não estiver respondendo). Usar o recurso SysRq do Console Serial do Azure irá imitar o pressionamento da tecla SysRq e os caracteres digitados em um teclado físico.
 
 Depois que a sequência SysRq for entregue, a configuração de kernel irá controlar como o sistema responde. Para obter informações sobre como habilitar e desabilitar SysRq, consulte o *Guia do Administrador do SysRq* [texto](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -85,7 +85,7 @@ No Guia do Administrador do SysRq acima:
 Para obter a documentação específica de distribuição em SysRq e as etapas para configurar o Linux para criar um despejo de memória no recebimento de um comando "Crash" de SysRq, consulte os links abaixo:
 
 #### <a name="ubuntu"></a>Ubuntu ####
- - [Despejo de Memória do Kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+ - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
 #### <a name="red-hat"></a>Red Hat ####
 - [O que é o Recurso de SysRq e como usá-lo?](https://access.redhat.com/articles/231663)
@@ -98,7 +98,7 @@ Para obter a documentação específica de distribuição em SysRq e as etapas p
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Interrupção Não Mascarável (NMI) 
-Uma interrupção não mascarável (NMI) foi projetada para criar um sinal que o software em uma máquina virtual não irá ignorar. Historicamente, as NMIs são usadas para monitorar os problemas de hardware em sistemas que necessitam de tempos de resposta específicos.  Atualmente, os programadores e administradores de sistema geralmente usam NMI como um mecanismo para depurar ou solucionar problemas de sistemas que não estão respondendo.
+Uma interrupção não mascarável (NMI) foi projetada para criar um sinal que o software em uma máquina virtual não irá ignorar. Historicamente, as NMIs são usadas para monitorar os problemas de hardware em sistemas que necessitam de tempos de resposta específicos.  Hoje, programadores e administradores de sistemas geralmente usam o NMI como um mecanismo para depurar ou solucionar problemas de sistemas que não estão respondendo.
 
 O Console Serial pode ser usado para enviar uma NMI a uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo. Depois que a NMI for entregue, a configuração de máquina virtual irá controlar como o sistema responde.  Os sistemas operacionais Linux poderão ser configurados para parar e criar um despejo de memória quando o sistema operacional receber uma NMI.
 
@@ -113,7 +113,7 @@ Para sistemas Linux que dão suporte a sysctl para configurar parâmetros de ker
 Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consulte: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
  
 ### <a name="ubuntu"></a>Ubuntu 
- - [Despejo de Memória do Kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+ - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
 ### <a name="red-hat"></a>Red Hat 
  - [O que é uma NMI e para qual finalidade posso usá-la?](https://access.redhat.com/solutions/4127)
@@ -129,5 +129,5 @@ Para obter mais informações sobre configurações de kernel do Linux, incluind
 ## <a name="next-steps"></a>Próximas etapas
 * A página principal da documentação do Linux do Console Serial está localizada [aqui](serial-console.md).
 * Usar o Console Serial para inicializar em [GRUB e entrar no modo de usuário único](serial-console-grub-single-user-mode.md)
-* O Console Serial também está disponível para VMs do [Windows](../windows/serial-console.md)
+* O Console Serial também está disponível para [VMs do Windows](../windows/serial-console.md)
 * Saiba mais sobre [diagnóstico de inicialização](boot-diagnostics.md)

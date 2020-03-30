@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 419a9f9b5ce698c7516edd55856cbea9891ba029
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212171"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Enviar notificações por Push seguro com Hubs de Notificação do Azure
@@ -34,7 +34,7 @@ ms.locfileid: "71212171"
 ## <a name="overview"></a>Visão geral
 
 > [!IMPORTANT]
-> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
+> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 
 O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio de mensagem por push fácil de usar, multiplataforma e expansível que simplifica muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.
 
@@ -60,7 +60,7 @@ Este tutorial mostra como enviar notificações por push seguro. Baseia-se no tu
 
 ## <a name="modify-the-android-project"></a>Modificar o projeto Android
 
-Agora que você modificou o back-end do aplicativo para enviar apenas a *ID* de uma notificação por push, é preciso alterar o aplicativo Android para manipular essa notificação e retornar a chamada do back-end para recuperar a mensagem segura a ser exibida.
+Agora que você modificou o back-end do aplicativo para enviar apenas o *ID* de uma notificação push, você tem que alterar seu aplicativo para Android para lidar com essa notificação e chamar de volta o seu back-end para recuperar a mensagem segura a ser exibida.
 Para atingir essa meta, você deve se certificar de que seu aplicativo Android saiba como se autenticar com o back-end ao receber as notificações por push.
 
 Agora, modifique o fluxo de *logon* para salvar o valor do cabeçalho de autenticação nas preferências compartilhadas de seu aplicativo. Mecanismos análogos podem ser usados para armazenar qualquer token de autenticação (por ex., tokens OAuth) que o aplicativo precisa usar sem solicitar as credenciais do usuário.
@@ -144,5 +144,5 @@ Para executar o aplicativo, faça as seguintes ações:
 
 1. Certifique-se de que o **AppBackend** esteja implantado no Azure. Se estiver usando o Visual Studio, execute o aplicativo da API Web **AppBackend** . Uma página da Web do ASP.NET é exibida.
 2. No Eclipse, execute o aplicativo em um dispositivo Android físico ou no emulador.
-3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas devem ter o mesmo valor.
+3. Na interface do usuário do aplicativo Android, insira um nome de usuário e senha. Pode ser qualquer cadeia de caracteres, mas elas devem ter o mesmo valor.
 4. Na interface do usuário do aplicativo Android, clique em **Logon**. Em seguida, clique em **Enviar push**.

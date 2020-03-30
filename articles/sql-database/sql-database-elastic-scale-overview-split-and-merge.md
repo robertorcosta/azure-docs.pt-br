@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421565"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
@@ -33,12 +33,12 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 ## <a name="documentation"></a>Documentação
 
 1. [Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Configuração de segurança da divisão e mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)
+2. [Configuração de segurança de mesclagem dividida](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [Considerações de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md)
 5. [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md)
-6. [Ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)
-7. [Glossário de ferramentas do banco de dados elástico](sql-database-elastic-scale-glossary.md)
+6. [Ferramentas de banco de dados elásticas](sql-database-elastic-scale-introduction.md)
+7. [Glossário de ferramentas de banco de dados elástico](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>Por que usar a ferramenta de divisão/mesclagem?
 
@@ -190,7 +190,7 @@ O Serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de 
 
   Hora e a data em que a solicitação foi iniciada.
 
-- **OperationId**
+- **Operationid**
 
   GUID que identifica exclusivamente a solicitação. Essa solicitação também pode ser usada para cancelar a operação enquanto ela ainda está em andamento.
 
@@ -219,7 +219,7 @@ O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para obter esses cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para habilitar o monitoramento e diagnóstico usando a configuração de diagnóstico para as funções Web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos usando o Azure PowerShell:
 

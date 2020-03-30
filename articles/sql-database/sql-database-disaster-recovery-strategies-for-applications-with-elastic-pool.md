@@ -1,5 +1,5 @@
 ---
-title: Criar soluções de recuperação de desastre
+title: Projetar soluções de recuperação de desastres
 description: Aprenda a projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825865"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicativos que usam o Pool Elástico do banco de dados SQL
@@ -24,7 +24,7 @@ Ao longo dos anos, aprendemos que os serviços em nuvem não são à prova de fa
 
 Este artigo usa o seguinte padrão de aplicativo de SaaS ISV canônico:
 
-Um aplicativo Web baseado em nuvem moderno provisiona um banco de dados SQL para cada usuário final. O ISV tem um grande número de clientes e, portanto, usa vários bancos de dados, conhecidos como bancos de dados de locatário. Como os bancos de dados do locatário normalmente têm padrões de atividade imprevisíveis, o ISV usa um pool elástico para tornar o custo do banco de dados bastante previsível por longos períodos de tempo. O pool elástico também simplifica o gerenciamento de desempenho quando há picos de atividade de usuário. Além dos bancos de dados de locatário, o aplicativo também usa vários bancos de dados para gerenciar perfis de usuário, segurança, coletar padrões de uso, etc. A disponibilidade dos locatários individuais não afeta a disponibilidade do aplicativo como um todo. No entanto, a disponibilidade e o desempenho dos bancos de dados de gerenciamento são essenciais para o funcionamento do aplicativo. Se os bancos de dados de gerenciamento estiverem offline, todo o aplicativo estará offline.
+Um aplicativo Web baseado em nuvem moderno provisiona um banco de dados SQL para cada usuário final. O ISV tem um grande número de clientes e, portanto, usa vários bancos de dados, conhecidos como bancos de dados de locatário. Como os bancos de dados do locatário normalmente têm padrões de atividade imprevisíveis, o ISV usa um pool elástico para tornar o custo do banco de dados bastante previsível por longos períodos de tempo. O pool elástico também simplifica o gerenciamento de desempenho quando há picos de atividade de usuário. Além dos bancos de dados de inquilinos, o aplicativo também usa vários bancos de dados para gerenciar perfis de usuários, segurança, coletar padrões de uso etc. A disponibilidade dos inquilinos individuais não afeta a disponibilidade do aplicativo como um todo. No entanto, a disponibilidade e o desempenho dos bancos de dados de gerenciamento são essenciais para o funcionamento do aplicativo. Se os bancos de dados de gerenciamento estiverem offline, todo o aplicativo estará offline.
 
 Este artigo discute estratégias de DR que abrangem uma variedade de cenários de aplicativos de inicialização sensíveis ao custo para aqueles com requisitos rígidos de disponibilidade.
 
@@ -61,7 +61,7 @@ Se a interrupção foi temporária, é possível que a região primária seja re
 
 Neste momento, seu aplicativo estará online na região primária com todos os bancos de dados de locatário disponíveis no pool primário.
 
-![A figura 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
+![Figura 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
 A principal **vantagem** dessa estratégia é o baixo custo da redundância da camada de dados. Os backups são usados automaticamente pelo serviço Banco de Dados SQL sem a necessidade de nova codificação do aplicativo e sem nenhum custo adicional.  O custo é incorrido apenas quando os bancos de dados elásticos são restaurados. O **revés** é que a recuperação completa de todos os bancos de dados de locatário levará um tempo significativo. O tempo de recuperação dependerá do número total de restaurações que você iniciar na região de DR e do tamanho geral dos bancos de dados do locatário. Mesmo se você priorizar a restauração de alguns locatários em detrimentos de outros, você estará competindo com todos as outras restaurações iniciadas na mesma região, já que o serviço arbitrará e restringirá para minimizar o impacto geral nos bancos de dados dos clientes existentes. Além disso, a recuperação dos bancos de dados do locatário não poderá ser iniciada até que o novo pool elástico na região da recuperação de desastres seja criado.
 
@@ -164,12 +164,12 @@ Os principais **poréns** são:
 
 ## <a name="summary"></a>Resumo
 
-Este artigo aborda as estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo ISV SaaS multilocatário. A estratégia escolhida é baseada nas necessidades do aplicativo, como o modelo de negócios, o SLA que você deseja oferecer a seus clientes, restrição de orçamento, etc. Cada estratégia descrita descreve os benefícios e a compensação para que você possa tomar uma decisão informada. Além disso, seu aplicativo específico provavelmente incluirá outros componentes do Azure. Sendo assim, você deve examinar suas diretrizes de continuidade de negócios e coordenar com elas a recuperação da camada de banco de dados. Para saber mais sobre o gerenciamento da recuperação de aplicativos de banco de dados no Azure, confira [Como criar soluções de nuvem para recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+Este artigo aborda as estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo ISV SaaS multilocatário. A estratégia escolhida é baseada nas necessidades da aplicação, como o modelo de negócio, o SLA que você deseja oferecer aos seus clientes, restrição orçamentária etc. Cada estratégia descrita descreve os benefícios e a troca para que você possa tomar uma decisão informada. Além disso, seu aplicativo específico provavelmente incluirá outros componentes do Azure. Sendo assim, você deve examinar suas diretrizes de continuidade de negócios e coordenar com elas a recuperação da camada de banco de dados. Para saber mais sobre o gerenciamento da recuperação de aplicativos de banco de dados no Azure, confira [Como criar soluções de nuvem para recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
-* Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-* Para saber mais sobre como usar backups automatizados para recuperação, consulte [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
+* Para uma visão geral da continuidade de negócios e cenários, consulte [visão geral da continuidade de negócios](sql-database-business-continuity.md).
+* Para saber mais sobre o uso de backups automatizados para recuperação, consulte [restaurar um banco de dados a partir dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
 * Para saber mais sobre opções de recuperação mais rápidas, consulte [Replicação geográfica ativa](sql-database-active-geo-replication.md) e [Grupos de failover automático](sql-database-auto-failover-group.md).
 * Para saber mais sobre como usar backups automatizados para arquivamento, confira [Cópia de banco de dados](sql-database-copy.md).

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157849"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 A API dos Serviços de Mídia do Azure é uma API RESTful. Você pode usá-la para executar operações em recursos de mídia usando uma API REST ou os SDKs de cliente disponíveis. Os Serviços de Mídia do Azure oferecem um SDK de cliente dos Serviços de Mídia para o Microsoft .NET. Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. 
 
@@ -32,7 +32,7 @@ Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azur
 Este documento fornece uma visão geral de como acessar a API dos Serviços de Mídia usando as APIs REST ou as APIs do .NET.
 
 > [!NOTE]
-> A autorização de controle de acesso foi preterida em 1º de junho de 2018.
+> A autorização de Controle de Acesso foi depredada em 1º de junho de 2018.
 
 ## <a name="access-control"></a>Controle de acesso
 
@@ -46,8 +46,8 @@ Solicitações não autorizadas falham, com o código de status 401. Se você re
  
 Quando você usar a autenticação do AD Azure com Serviços de Mídia do Azure haverá duas opções de autenticação:
 
-- **Autenticação de usuário**. Autentica uma pessoa que está usando o aplicativo para interagir com os recursos dos Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo. 
-- **Autenticação de entidade de serviço**. Autentica um serviço. Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Entre os exemplos estão aplicativos Web, aplicativos de funções, aplicativos lógicos, APIs e microsserviços.
+- **Autenticação do usuário**. Autentica uma pessoa que está usando o aplicativo para interagir com os recursos dos Serviços de Mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo. 
+- **Autenticação principal do serviço**. Autentica um serviço. Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Entre os exemplos estão aplicativos Web, aplicativos de funções, aplicativos lógicos, APIs e microsserviços.
 
 ### <a name="user-authentication"></a>Autenticação de usuário 
 
@@ -139,7 +139,7 @@ Para obter mais informações sobre como usar a autenticação do Azure AD para 
 
 Se você não estiver usando o SDK de cliente do .NET dos Serviços de Mídia, deverá criar manualmente uma solicitação de token do Azure AD usando os parâmetros descritos na etapa 1. Para obter mais informações, consulte [Como usar a Biblioteca de Autenticação do Azure AD para obter o token do Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Exceção: “O servidor remoto retornou um erro: (401) Não autorizado”.
 
@@ -156,5 +156,5 @@ Os seguintes artigos são visões gerais dos conceitos de autenticação do Azur
 ## <a name="next-steps"></a>Próximas etapas
 
 * Use o portal do Azure para [Acessar a autenticação do Azure AD para consumir a API dos Serviços de Mídia do Azure](media-services-portal-get-started-with-aad.md).
-* Use a autenticação do Azure AD para [acessar a API dos Serviços de Mídia do Azure com o .NET](media-services-dotnet-get-started-with-aad.md).
+* Use a autenticação Azure AD para acessar a [API do Azure Media Services com .NET](media-services-dotnet-get-started-with-aad.md).
 

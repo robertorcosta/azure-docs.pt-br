@@ -1,5 +1,5 @@
 ---
-title: Introdução com o armazenamento do Azure usando o Visual Studio (projetos de trabalho Web)
+title: Começando com armazenamento Azure usando o Visual Studio (projetos WebJob)
 description: Como começar a usar o armazenamento de Tabela do Azure em um projeto WebJobs no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -14,17 +14,17 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e4d8299c06bfa5b0f33bff8fa592a2fa549c695c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74707612"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução ao Armazenamento do Azure (Projetos WebJob do Azure)
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este artigo apresenta exemplos de código em C# para mostrar como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de tabela do Azure. Os exemplos de código usam o [SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versão 1.x.
 
 O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte a [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) para obter mais informações.
@@ -33,7 +33,7 @@ Alguns dos snippets de código mostram o atributo **Table** usado nas funções 
 
 ## <a name="how-to-add-entities-to-a-table"></a>Como adicionar entidades a uma tabela
 
-Para adicionar entidades a uma tabela, use o atributo **Table** com um parâmetro **ICollector\<t >** ou **IAsyncCollector\<t >** , em que **t** especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
+Para adicionar entidades a uma tabela, use o atributo **Tabela** com um **iCollector\<T>** ou **IAsyncCollector\<T>** parâmetro onde **T** especifica o esquema das entidades que deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.
 
 O exemplo de código a seguir adiciona entidades **Person** a uma tabela denominada *Ingress*.
 
@@ -88,7 +88,7 @@ Quando a função é concluída, a página **Detalhes de Invocação** relata o 
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Como ler várias entidades de uma tabela
 
-Para ler uma tabela, use o atributo **Table** com um **parâmetro IQueryable\<t >** em que o tipo **t** deriva de **TableEntity** ou implementa **ITableEntity**.
+Para ler uma tabela, use o atributo **Tabela** com um parâmetro **de>\<IQueryable T** onde o tipo **T** deriva da **TableEntity** ou implementa **iTableEntity**.
 
 O seguinte exemplo de código lê e registra em log todas as linhas da tabela **Ingress** :
 
@@ -161,6 +161,6 @@ Para saber mais sobre como usar o objeto **CloudTable** , consulte [Como usar o 
 
 Para obter informações sobre como lidar com o processamento de tabelas acionado por uma mensagem da fila ou para cenários do SDK de WebJobs não específicos do processamento de tabelas, consulte [Introdução ao Armazenamento de Filas do Azure e aos serviços conectados do Visual Studio (Projetos do WebJob)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar o Azure WebJobs e o SDK do WebJobs, consulte [Recursos de documentação do Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).

@@ -1,6 +1,6 @@
 ---
 title: Visão geral do roteamento de conteúdo baseado na URL do Gateway de Aplicativo do Azure
-description: Este artigo fornece uma visão geral do roteamento de conteúdo baseado em URL Aplicativo Azure gateway, configuração de UrlPathMap e regra PathBasedRouting.
+description: Este artigo fornece uma visão geral do roteamento de conteúdo baseado em URL do Azure Application Gateway, configuração do UrlPathMap e regra PathBasedRouting.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77251831"
 ---
 # <a name="url-path-based-routing-overview"></a>Visão geral do Roteamento Baseado em Caminho de URL
@@ -27,7 +27,7 @@ No exemplo a seguir, o Gateway de Aplicativo está fornecendo tráfego para cont
 As solicitações de http\://contoso.com/video/* são roteadas para VideoServerPool e as de http\://contoso.com/images/* são roteadas para ImageServerPool. O DefaultServerPool será selecionado se nenhum dos padrões de caminho forem compatíveis.
 
 > [!IMPORTANT]
-> Para a SKU v1, as regras são processadas na ordem em que estão listadas no Portal. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte. Para a SKU v2, as correspondências exatas têm precedência mais alta. No entanto, é altamente recomendável configurar primeiro os ouvintes de vários sites antes de configurar um ouvinte básico. Isso garante que o tráfego seja roteado para o back-end correto.
+> Para o V1 SKU, as regras são processadas na ordem em que estão listadas no portal. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte. Para o v2 SKU, as correspondências exatas têm maior precedência. No entanto, é altamente recomendável configurar ouvintes de vários sites primeiro antes de configurar um ouvinte básico. Isso garante que o tráfego seja roteado para o back-end correto.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuração UrlPathMap
 

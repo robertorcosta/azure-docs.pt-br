@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058012"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solucionar um problema de erro geral de protocolo RDP em uma VM do Azure
@@ -64,9 +64,9 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
 
 ### <a name="serial-console"></a>Console Serial
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Etapa 1: Abra a instância CMD no Console serial
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Etapa 1: instância CMD aberta no Console serial
 
-1. Acesso ao [Console Serial](serial-console-windows.md) selecionando **Suporte e solução de problemas** > **Console serial (visualização)** . Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
+1. Acesse o [Console Serial](serial-console-windows.md) selecionando suporte & console serial de solução de >  **problemas****(Preview)**. Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
 
 2. Crie um novo canal para uma instância de CMD. Digite **CMD** para iniciar o canal e obter o nome do canal.
 
@@ -76,7 +76,7 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Etapa 2: Verifique os valores das chaves do registro do RDP:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Etapa 2: Verifique os valores das chaves de registro do RDP:
 
 1. Verifique se o RDP está desabilitado por políticas.
 
@@ -163,23 +163,23 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
 
 Se o problema ainda ocorrer, passe para a etapa 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: Habilitar serviços de área de trabalho remota
+#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: habilitar Serviços de Área de Trabalho Remota
 
 Para obter mais informações, confira [Os Serviços de Área de Trabalho Remota não estão iniciando em uma VM do Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: Redefinir ouvinte RDP
+#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: redefinir o ouvinte RDP
 
 Para obter mais informações, confira [A Área de Trabalho Remota se desconecta com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
 ### <a name="offline-repair"></a>Reparo offline
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Etapa 1: Ativar Área de Trabalho Remota
+#### <a name="step-1-turn-on-remote-desktop"></a>Etapa 1: Ativar a área de trabalho remota
 
-1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Conecte o disco do SISTEMA OPERACIONAL a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
-3. Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Observe a letra da unidade atribuída ao disco do sistema operacional anexado.
-4. Inicie uma conexão de Área de Trabalho Remota à VM de recuperação.
-5. Abra uma sessão de prompt de comandos com privilégios elevados (**Executar como administrador**). Execute os scripts a seguir. Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
+3. Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do SO anexado.
+4. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
+5. Abra uma sessão de prompt de comando elevada **(Execute como administrador).** Execute os scripts a seguir. Nesse script, presumimos que a letra da unidade atribuída ao disco do SO anexado é F. Substitua essa letra da unidade pelo valor apropriado para a VM.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -233,14 +233,14 @@ Para obter mais informações, confira [A Área de Trabalho Remota se desconecta
 
 Se o problema ainda ocorrer, passe para a etapa 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: Habilitar serviços de área de trabalho remota
+#### <a name="step-2-enable-remote-desktop-services"></a>Etapa 2: habilitar Serviços de Área de Trabalho Remota
 
 Para obter mais informações, confira [Os Serviços de Área de Trabalho Remota não estão iniciando em uma VM do Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: Redefinir ouvinte RDP
+#### <a name="step-3-reset-rdp-listener"></a>Etapa 3: redefinir o ouvinte RDP
 
 Para obter mais informações, confira [A Área de Trabalho Remota se desconecta com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

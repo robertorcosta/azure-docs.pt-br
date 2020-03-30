@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: facetas de vários níveis'
+title: 'Exemplo: Facetas multi-nível'
 titleSuffix: Azure Cognitive Search
 description: Saiba como criar estruturas de facetas para taxonomias de vários níveis criando uma estrutura de navegação aninhada que pode ser incluída em páginas de aplicativo.
 author: HeidiSteen
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792952"
 ---
-# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exemplo: facetas de vários níveis no Azure Pesquisa Cognitiva
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exemplo: Facetas multinível na Pesquisa Cognitiva do Azure
 
-Os esquemas de Pesquisa Cognitiva do Azure não dão suporte explicitamente a categorias de taxonomia de vários níveis, mas você pode aproximar-los manipulando o conteúdo antes da indexação e, em seguida, aplicando uma manipulação especial aos resultados. 
+Os esquemas de pesquisa cognitiva do Azure não suportam explicitamente categorias de taxonomia de vários níveis, mas você pode aproximá-las manipulando conteúdo antes da indexação e, em seguida, aplicando algum manuseio especial aos resultados. 
 
 ## <a name="start-with-the-data"></a>Iniciar com os dados
 
-O exemplo neste artigo se baseia em um exemplo anterior, [Modele o banco de dados de inventário AdventureWorks](search-example-adventureworks-modeling.md), para demonstrar a faceta de vários níveis no Azure pesquisa cognitiva.
+O exemplo deste artigo se baseia em um exemplo anterior, [Model the AdventureWorks Inventory database](search-example-adventureworks-modeling.md), para demonstrar faceting multi-nível na Pesquisa Cognitiva do Azure.
 
 O AdventureWorks tem uma taxonomia simples de dois níveis com uma relação pai-filho. Para as profundidades de taxonomia de comprimento fixo dessa estrutura, uma consulta de junção SQL simples pode ser usada para agrupar a taxonomia:
 
@@ -39,7 +39,7 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>Indexação em um campo Collection
 
-No índice que contém essa estrutura, crie um campo de **coleção (EDM. String)** no esquema de pesquisa cognitiva do Azure para armazenar esses dados, certificando-se de que os atributos de campo incluem pesquisáveis, filtráveis, de face e recuperáveis.
+No índice que contém essa estrutura, crie um campo **De coleção (Edm.String)** no esquema de Pesquisa Cognitiva do Azure para armazenar esses dados, certificando-se de que os atributos de campo incluam pesquisáveis, filtrantes, facetable e recuperáveis.
 
 Agora, ao indexar o conteúdo que se refere a uma categoria de taxonomia específica, envie a taxonomia como uma matriz que contém o texto de cada nível da taxonomia. Por exemplo, para uma entidade com `ProductCategoryId = 5 (Mountain Bikes)`, envie o campo como `[ "Bikes", "Bikes|Mountain Bikes"]`
 
@@ -84,19 +84,19 @@ categories.count = sum;
 
 O objeto **categories** agora pode ser usado para renderizar uma árvore de taxonomia recolhível com contagens precisas:
 
-  ![filtro facetado de vários níveis](./media/search-example-adventureworks/multi-level-facet.png "filtro facetado de vários níveis")
+  ![filtro facetado multinível](./media/search-example-adventureworks/multi-level-facet.png "filtro facetado multinível")
 
  
-Cada link na árvore deverá aplicar o filtro relacionado. Por exemplo:
+Cada link na árvore deverá aplicar o filtro relacionado. Por exemplo: 
 
-+ **taxonomy/any**`(x:x eq 'Accessories')` retorna todos os documentos no branch Acessórios
-+ **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` retorna apenas os documentos com uma subcategoria Suportes de Bicicleta no branch Acessórios.
++ **taxonomia/qualquer** `(x:x eq 'Accessories')` devolução de todos os documentos na filial Acessórios
++ **taxonomia/qualquer** `(x:x eq 'Accessories|Bike Racks')` retorna apenas os documentos com uma subcategoria de Bicicletários a filial Acessórios.
 
 Essa técnica será dimensionada para abranger cenários mais complexos como árvores de taxonomia mais profundas e subcategorias duplicadas que ocorrem em diferentes categorias pai (por exemplo, `Bike Components|Forks` e `Camping Equipment|Forks`).
 
 > [!TIP]
 > A velocidade da consulta é afetada pelo número de facetas retornadas. Para dar suporte a conjuntos de taxonomia muito grandes, considere a possibilidade de adicionar um campo **Edm.String** com faceta para conter o valor de taxonomia de nível superior em cada documento. Em seguida, aplique a mesma técnica acima, mas só execute a consulta de faceta de coleção (filtrada no campo de taxonomia raiz) quando o usuário expandir um nó de nível superior. Ou, se um recall de 100% não for necessário, apenas reduza a contagem de facetas para um número razoável e garanta que as entradas de faceta sejam classificadas pela contagem.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 
-[Exemplo: Modele o banco de dados de inventário AdventureWorks para o Azure Pesquisa Cognitiva](search-example-adventureworks-modeling.md)
+[Exemplo: Modele o banco de dados de inventário AdventureWorks para pesquisa cognitiva do Azure](search-example-adventureworks-modeling.md)

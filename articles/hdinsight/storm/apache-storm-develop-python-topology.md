@@ -1,6 +1,6 @@
 ---
-title: Apache Storm com os componentes do Python – Azure HDInsight
-description: Saiba como criar uma topologia de Apache Storm que usa componentes do Python no Azure HDInsight
+title: Tempestade Apache com componentes Python - Azure HDInsight
+description: Saiba como criar uma topologia apache storm que usa componentes Python no Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/16/2019
 ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77460017"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
@@ -22,13 +22,13 @@ Saiba como criar uma topologia [Apache Storm](https://storm.apache.org/) que usa
 > [!IMPORTANT]  
 > As informações neste documento foram testadas usando o Storm no HDInsight 3.6.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Storm no HDInsight. Confira [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** como **Tipo de cluster**.
 
-* Um ambiente de desenvolvimento Storm local (opcional). Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
+* Um ambiente local de desenvolvimento de tempestades (Opcional). Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
-* [Python 2,7 ou superior](https://www.python.org/downloads/).
+* [Python 2.7 ou superior](https://www.python.org/downloads/).
 
 * [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks).
 
@@ -36,7 +36,7 @@ Saiba como criar uma topologia [Apache Storm](https://storm.apache.org/) que usa
 
 ## <a name="storm-multi-language-support"></a>Suporte a várias linguagens no Storm
 
-O Apache Storm foi projetado para trabalhar com componentes escritos usando qualquer linguagem de programação. Os componentes devem entender como trabalhar com a definição de thrift para Storm. Para o Python, é fornecido um módulo como parte do projeto do Apache Storm que permite interagir facilmente com o Storm. Você pode encontrar esse módulo em [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+O Apache Storm foi projetado para trabalhar com componentes escritos usando qualquer linguagem de programação. Os componentes devem entender como trabalhar com a definição do Thrift para Storm. Para o Python, é fornecido um módulo como parte do projeto do Apache Storm que permite interagir facilmente com o Storm. Você pode encontrar [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)este módulo em .
 
 O Storm é um processo Java que é executado na máquina virtual Java (JVM). Componentes escritos em outras linguagens são executados como subprocessos. O Storm comunica-se com esses subprocessos usando mensagens JSON enviadas por stdin/stdout. Mais detalhes sobre a comunicação entre os componentes podem ser encontrados na documentação sobre [Protocolo de várias linguagens](https://storm.apache.org/releases/current/Multilang-protocol.html) .
 
@@ -70,13 +70,13 @@ O Flux espera que os scripts de Python estejam no diretório `/resources`, dentr
 </resource>
 ```
 
-Como mencionado anteriormente, há um arquivo `storm.py` que implementa a definição de thrift para Storm. A estrutura do Flux inclui o `storm.py` automaticamente quando o projeto é compilado, portanto, você não precisa se preocupar em incluí-lo.
+Como mencionado anteriormente, `storm.py` há um arquivo que implementa a definição de Thrift para Tempestade. A estrutura do Flux inclui o `storm.py` automaticamente quando o projeto é compilado, portanto, você não precisa se preocupar em incluí-lo.
 
 ## <a name="build-the-project"></a>Compilar o projeto
 
-1. Faça o download do projeto de [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+1. Baixe o [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)projeto de .
 
-1. Abra um prompt de comando e navegue até a raiz do projeto: `hdinsight-python-storm-wordcount-master`. Insira o seguinte comando:
+1. Abra um prompt de comando e `hdinsight-python-storm-wordcount-master`navegue até a raiz do projeto: . Insira o seguinte comando:
 
     ```cmd
     mvn clean compile package
@@ -86,7 +86,7 @@ Como mencionado anteriormente, há um arquivo `storm.py` que implementa a defini
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>Executar a topologia Storm no HDInsight
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para copiar o arquivo de `WordCount-1.0-SNAPSHOT.jar` para o Storm no cluster HDInsight. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para copiar o arquivo para o `WordCount-1.0-SNAPSHOT.jar` seu cluster Storm no HDInsight. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, digite o comando:
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -106,15 +106,15 @@ Como mencionado anteriormente, há um arquivo `storm.py` que implementa a defini
 
     Após ser iniciada, uma topologia do Storm é executada até ser interrompida.
 
-1. Use a interface do usuário do Storm para exibir a topologia no cluster. A interface do usuário do Storm está localizada em `https://CLUSTERNAME.azurehdinsight.net/stormui`. Substitua `CLUSTERNAME` pelo nome do cluster.
+1. Use a UI da tempestade para ver a topologia no cluster. A interface do usuário do Storm está localizada em `https://CLUSTERNAME.azurehdinsight.net/stormui`. Substitua `CLUSTERNAME` pelo nome do cluster.
 
-1. Pare a topologia do Storm. Use o seguinte comando para interromper a topologia no cluster:
+1. Pare a topologia da tempestade. Use o seguinte comando para parar a topologia no cluster:
 
     ```bash
     storm kill wordcount
     ```
 
-    Como alternativa, você pode usar a interface do usuário do Storm. Em **ações de topologia** para a topologia, selecione **Kill**.
+    Alternativamente, você pode usar a UI tempestade. Em **ações de Topologia** para a topologia, selecione **Kill**.
 
 ## <a name="run-the-topology-locally"></a>Executar a topologia localmente
 
@@ -145,4 +145,4 @@ Para interromper a topologia, use __Ctrl+C__.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte os seguintes documentos para obter outras maneiras de usar o Python com [o HDInsight: como usar UDF (funções definidas pelo usuário) do Python no Apache Pig e Apache Hive](../hadoop/python-udf-hdinsight.md).
+Veja os documentos a seguir para outras maneiras de usar python com HDInsight: [Como usar As Funções Definidas pelo Usuário Python (UDF) em Apache Pig e Apache Hive](../hadoop/python-udf-hdinsight.md).

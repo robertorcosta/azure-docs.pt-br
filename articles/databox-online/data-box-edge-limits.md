@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 9adfc1ef355c31f0bfeeb6c3b194d62426b7b9b3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72244311"
 ---
-# <a name="azure-data-box-edge-limits"></a>Limites de Azure Data Box Edge
+# <a name="azure-data-box-edge-limits"></a>Limites de borda da caixa de dados do Azure
 
 Considere esses limites ao implantar e operar sua solução de Microsoft Azure Data Box Edge.
 
@@ -27,11 +27,11 @@ Considere esses limites ao implantar e operar sua solução de Microsoft Azure D
 
 A tabela a seguir descreve esses limites para o dispositivo do Data Box Edge.
 
-| DESCRIÇÃO | Valor |
+| Descrição | Valor |
 |---|---|
 |Não. de arquivos por dispositivo |100 milhões |
-|Nº de compartilhamentos por dispositivo |24 |
-|Nº de compartilhamentos por contêiner |1 |
+|Não. de compartilhamentos por dispositivo |24 |
+|Não. de compartilhamentos por contêiner |1 |
 |Tamanho máximo do arquivo gravado em um compartilhamento| 5 TB |
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure

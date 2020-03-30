@@ -12,15 +12,15 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
 ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822179"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em vários bancos de dados SQL do Azure
 
-Neste tutorial, você executa consultas distribuídas em todo o conjunto de bancos de dados de locatários para habilitar os relatórios ad hoc interativos. Essas consultas podem extrair insights escondidos nos dados operacionais diários do aplicativo SaaS Wingtip Tickets. Para fazer essas extrações, você implanta um banco de dados de análise adicional no servidor de catálogo e usa a Consulta Elástica para habilitar consultas distribuídas.
+Neste tutorial, você executa consultas distribuídas em todo o conjunto de bancos de dados de locatários para habilitar os relatórios ad hoc interativos. Essas consultas podem extrair informações escondidas nos dados operacionais diários do aplicativo SaaS Wingtip Tickets. Para fazer essas extrações, você implanta um banco de dados de análise adicional no servidor de catálogo e usa a Consulta Elástica para habilitar consultas distribuídas.
 
 
 Neste tutorial, você aprende:
@@ -52,13 +52,13 @@ Esse padrão para análise é explicado no [tutorial de análise de locatário](
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
-Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
+Os scripts de banco de dados multi-inquilinos Wingtip Tickets SaaS e o código-fonte do aplicativo estão disponíveis no repo [WingtipTicketsSaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Criar dados de vendas de ingresso
 
 Para executar consultas em um conjunto de dados mais interessante, crie dados de vendas de ingresso executando o gerador de ingressos.
 
-1. No *ISE do PowerShell*, abra o script ...\\Módulos de Aprendizado\\Operational Analytics\\Adhoc Reporting\\ *Demo-AdhocReporting.ps1* e defina os seguintes valores:
+1. No *ISE do PowerShell*, abra o script ...\\Módulos de Aprendizado\\Operational Analytics\\Adhoc Reporting\\* Demo-AdhocReporting.ps1* e defina os seguintes valores:
    * **$DemoScenario** = 1, **Comprar ingressos de eventos em todos os locais**.
 2. Pressione **F5** para executar o script e gerar vendas de ingresso. Enquanto o script é executado, continue as etapas neste tutorial. Os dados de ingresso são consultados na seção *Executar consultas ad hoc distribuídas*; portanto, aguarde a conclusão do gerador de ingressos.
 
@@ -79,7 +79,7 @@ Este exercício implanta o banco de dados *adhocreporting*. Esse é o banco de d
 
 Na próxima seção, você adiciona o esquema ao banco de dados para que ele possa ser usado para executar consultas distribuídas.
 
-## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados “principal” para executar consultas distribuídas
+## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados ‘principal’ para executar consultas distribuídas
 
 Este exercício adiciona o esquema (a fonte de dados externa e as definições de tabela externa) ao banco de dados de relatórios ad hoc que habilita a consulta em todos os bancos de dados de locatários.
 
@@ -95,7 +95,7 @@ Este exercício adiciona o esquema (a fonte de dados externa e as definições d
 
     ![Criar fonte de dados externa](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   As tabelas externas que referenciam as tabelas de locatários são definidas com **DISTRIBUTION = SHARDED(VenueId)** . Isso encaminha uma consulta de uma *VenueId* específica para o banco de dados apropriado e melhora o desempenho para muitos cenários, conforme mostrado na próxima seção.
+   As tabelas externas que referenciam as tabelas de locatários são definidas com **DISTRIBUTION = SHARDED(VenueId)**. Isso encaminha uma consulta de uma *VenueId* específica para o banco de dados apropriado e melhora o desempenho para muitos cenários, conforme mostrado na próxima seção.
 
     ![criar tabelas externas](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
@@ -138,7 +138,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Essa consulta faz uma união e uma agregação um pouco mais complexas. O que é importante observar é que a maioria do processamento é feita remotamente e novamente, trazemos de volta apenas as linhas que precisamos, retornando apenas uma única linha para a contagem de venda de ingressos agregada por dia de cada local.
 
-   ![query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
+   ![Consulta](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -150,7 +150,7 @@ Neste tutorial, você aprendeu a:
 > * Executar consultas distribuídas entre todos os bancos de dados de locatário
 > * Implante um banco de dados de relatórios ad hoc e adicione o esquema a ele para executar consultas distribuídas.
 
-Agora, experimente o [Tutorial de análise de locatário](saas-multitenantdb-tenant-analytics.md) para explorar a extração de dados para um banco de dados de análise separado para o processamento de análise mais complexo.
+Agora tente o [tutorial do Tenant Analytics](saas-multitenantdb-tenant-analytics.md) para explorar a extração de dados em um banco de dados de análise separado para processamento de análises mais complexas.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

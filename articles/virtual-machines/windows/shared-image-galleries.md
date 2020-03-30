@@ -1,5 +1,5 @@
 ---
-title: Galeria de imagens compartilhadas do Azure
+title: Galeria de Imagens Compartilhadas do Azure
 description: Saiba como usar galerias de imagens compartilhadas para compartilhar imagens de VM na sua organização.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -17,10 +17,10 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: 839ef8d32e9a84005dc47ad90b957bb780090589
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74065622"
 ---
 # <a name="shared-image-gallery-overview"></a>Visão geral da galeria de imagens compartilhadas

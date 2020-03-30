@@ -1,6 +1,6 @@
 ---
-title: Controlar o tráfego de entrada v1
-description: Saiba como controlar o tráfego de entrada para um Ambiente do Serviço de Aplicativo. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
+title: Controle o tráfego de entrada v1
+description: Aprenda a controlar o tráfego de entrada em um ambiente de serviço de aplicativos. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
 author: ccompy
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
@@ -8,15 +8,15 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687385"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
-## <a name="overview"></a>Visão Geral
-Um Ambiente do Serviço de Aplicativo pode ser **criado em uma** rede virtual Azure Resource Manager **ou** em uma [rede virtual][virtualnetwork]do modelo de implantação clássico.  Uma nova rede virtual e uma nova sub-rede podem ser definidas no momento em que um Ambiente de Serviço de Aplicativo é criado.  Como alternativa, um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual e uma sub-rede existentes.  Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados nas redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, endereços privados).  Para obter mais detalhes sobre a criação de um Ambiente do Serviço de Aplicativo consulte [como criar um ambiente do serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
+## <a name="overview"></a>Visão geral
+Um Ambiente de Serviço de Aplicativo pode ser criado **tanto** em uma rede virtual do Azure Resource Manager, **quanto** em uma [rede virtual][virtualnetwork] de modelo de implantação clássico.  Uma nova rede virtual e uma nova sub-rede podem ser definidas no momento em que um Ambiente de Serviço de Aplicativo é criado.  Como alternativa, um Ambiente de Serviço de Aplicativo pode ser criado em uma rede virtual e uma sub-rede existentes.  Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados nas redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, endereços privados).  Para saber mais sobre a criação de um Ambiente de Serviço de Aplicativo, veja [Como criar um ambiente de serviço de aplicativo][HowToCreateAnAppServiceEnvironment].
 
 Um ambiente de serviço de aplicativo sempre deve ser criado em uma sub-rede, porque uma sub-rede fornece um limite de rede que pode ser usado para bloquear o tráfego de entrada por trás de dispositivos e serviços de upstream, de modo que o tráfego HTTP e HTTPS é aceito apenas de endereços IP upstream específicos.
 
@@ -31,8 +31,8 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A seguir está uma lista de portas usadas por um Ambiente de Serviço de Aplicativo. Todas as portas são **TCP**, a menos que indicado o claramente contrário:
 
-* 454: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
-* 455: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 454: **Porta necessária** usada pela infra-estrutura do Azure para gerenciar e manter ambientes de serviço de aplicativos via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 455: **Porta necessária** usada pela infra-estrutura do Azure para gerenciar e manter ambientes de serviço de aplicativos via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
 * 80: porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 * 443: porta padrão para tráfego SSL de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 * 21: canal de controle para FTP.  Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
@@ -45,12 +45,12 @@ A seguir está uma lista de portas usadas por um Ambiente de Serviço de Aplicat
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Requisitos de DNS e conectividade de saída
 Para que um Ambiente de Serviço de Aplicativo funcione corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE está na seção "Conectividade de rede necessária" do artigo [Configuração de rede para o ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
 
-Ambientes de Serviço de Aplicativo exigem uma infraestrutura DNS válida configurada para a rede virtual.  Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS.  Disparar uma reinicialização do ambiente sem interrupção usando o ícone "reiniciar" localizado na parte superior da folha de gerenciamento de Ambiente do Serviço de Aplicativo no [portal do Azure][NewPortal] fará com que o ambiente pegue a nova configuração de DNS.
+Ambientes de Serviço de Aplicativo exigem uma infraestrutura DNS válida configurada para a rede virtual.  Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS.  Acionar uma reinicialização do ambiente sem interrupção usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente de Serviço de Aplicativo no [Portal do Azure][NewPortal] fará com que o ambiente capture a nova configuração de DNS.
 
 Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo.  Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo.  Do mesmo modo, se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
 
 ## <a name="creating-a-network-security-group"></a>Criando um grupo de segurança de rede
-Para obter detalhes completos sobre como os grupos de segurança de rede funcionam, consulte as [informações][NetworkSecurityGroups]a seguir.  O exemplo de Gerenciamento do Serviço do Azure abaixo mostra alguns destaques sobre os grupos de segurança de rede, concentrando-se em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um Ambiente de Serviço de Aplicativo.
+Para saber mais sobre como funcionam os grupos de segurança de rede, veja as seguintes [informações][NetworkSecurityGroups].  O exemplo de Gerenciamento do Serviço do Azure abaixo mostra alguns destaques sobre os grupos de segurança de rede, concentrando-se em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um Ambiente de Serviço de Aplicativo.
 
 **Observação:** os grupos de segurança de rede podem ser configurados graficamente usando o [Portal do Azure](https://portal.azure.com) ou por meio do Azure PowerShell.
 
@@ -79,7 +79,7 @@ Se desejar suporte a FTP, as regras a seguir podem usadas como um modelo para co
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Observação:** o intervalo de portas do canal de dados pode mudar durante o período de visualização.)
+(**Nota:** o intervalo da porta do canal de dados pode ser alterado durante o período de visualização.)
 
 Se a depuração remota com o Visual Studio é usada, as regras a seguir demonstram como conceder acesso.  Há uma regra separada para cada versão do Visual Studio para a qual há suporte, já que cada versão usa uma porta diferente para a depuração remota.  Assim como acontece com acesso ao FTP, o tráfego de depuração remota pode não fluir corretamente por meio de um dispositivo de proxy ou WAF tradicional.  O *SourceAddressPrefix* pode ser definido, em vez disso, como o intervalo de endereços IP dos computadores de desenvolvedor executando o Visual Studio.
 
@@ -112,7 +112,7 @@ Quando um aplicativo em um ASE é configurado para usar IP-SSL, os clientes exte
 ## <a name="getting-started"></a>Introdução
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo][IntroToAppServiceEnvironment]
 
-Para obter detalhes sobre os aplicativos que se conectam com segurança ao recurso de back-end de um Ambiente do Serviço de Aplicativo, consulte [conexão segura com recursos de back-end de um ambiente do serviço de aplicativo][SecurelyConnecttoBackend]
+Para saber mais sobre aplicativos que se conectam com segurança a recursos do back-end a partir de um Ambiente de Serviço de Aplicativo, veja [Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo][SecurelyConnecttoBackend]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

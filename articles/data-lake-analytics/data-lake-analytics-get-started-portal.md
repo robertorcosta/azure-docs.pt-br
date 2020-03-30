@@ -1,5 +1,5 @@
 ---
-title: Criar & Azure Data Lake Analytics de consulta-portal do Azure
+title: Criar & consulta Azure Data Lake Analytics - Portal Azure
 description: Use o portal do Azure para criar uma conta do Azure Data Lake Analytics e enviar um trabalho do U-SQL.
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,10 +9,10 @@ ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315750"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introdução ao Azure Data Lake Analytics usando o Portal do Azure
@@ -20,7 +20,7 @@ ms.locfileid: "71315750"
 
 Este artigo descreve como usar o portal do Azure para criar contas do Azure Data Lake Analytics, definir trabalhos no [U-SQL](data-lake-analytics-u-sql-get-started.md) e enviar trabalhos ao serviço do Data Lake Analytics.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter uma **assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -29,13 +29,13 @@ Antes de começar este tutorial, você deve ter uma **assinatura do Azure**. Con
 Agora, você criará uma conta do Data Lake Analytics e do Azure Data Lake Storage Gen1 ao mesmo tempo.  Esta etapa é simples e demora apenas 60 segundos para ser concluída.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Criar um recurso** >  **Dados + Análise** > **Data Lake Analytics**.
+2. Clique **em Criar um recurso** >  **Data + Analytics** > Data Lake**Analytics**.
 3. Selecione os valores para os seguintes itens:
-   * **Nome**: Nomeie sua conta de Data Lake Analytics (apenas letras minúsculas e números permitidos).
-   * **Assinatura**: Escolha a assinatura do Azure usada para a conta de análise.
-   * **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo.
-   * **Local**. Selecione um datacenter do Azure para a conta da Análise Data Lake.
-   * **Data Lake Storage Gen1**: Siga as instruções para criar uma nova conta de Data Lake Storage Gen1 ou selecione uma existente. 
+   * **Nome**: Nome de sua conta do Data Lake Analytics (são permitidos somente letras minúsculas e números).
+   * **Assinatura**: escolha a assinatura do Azure usada para a conta da Análise.
+   * **Grupo de recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo.
+   * **Localização**. Selecione um datacenter do Azure para a conta da Análise Data Lake.
+   * **Data Lake Storage Gen1**: siga as instruções para criar uma nova conta Data Lake Storage Gen1 ou selecione uma existente. 
 4. Opcionalmente, selecione um tipo de preço para sua conta Data Lake Analytics.
 5. Clique em **Criar**. 
 
@@ -63,9 +63,9 @@ OUTPUT @a
 2. Cole o texto do script U-SQL anterior. Dê um nome para o trabalho. 
 3. Selecione o botão **Enviar** para iniciar o trabalho.   
 4. Monitore o **Status** do trabalho e aguarde até que o status do trabalho mude para **Bem-sucedido**.
-5. Selecione a guia **Dados** e, em seguida, selecione a guia **Saídas**. Selecione o arquivo de saída denominado `data.csv` e exiba os dados de saída.
+5. Selecione a guia **Dados** e selecione a guia `data.csv` **Saídas.** Selecione o arquivo de saída nomeado e visualize os dados de saída.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * Para começar a desenvolver aplicativos U-SQL, consulte [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Para aprender a usar o U-SQL, veja [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

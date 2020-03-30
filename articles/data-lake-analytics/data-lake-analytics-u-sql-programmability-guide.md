@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73162584"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
@@ -133,7 +133,7 @@ Conforme mencionado anteriormente, o U-SQL executa código em um formato de 64 b
 
 Cada arquivo de recurso e DLL de assembly carregado, como um runtime diferente, um assembly nativo ou um arquivo config, pode ter no máximo 400 MB. O tamanho total dos recursos implantados, seja por meio de DEPLOY RESOURCE ou por meio de referências a assemblies e a seus arquivos adicionais, não pode exceder 3 GB.
 
-Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar da versão 7 e da versão 8 da biblioteca NewtonSoft Json.NET, será necessário registrá-las em dois bancos de dados diferentes. Além disso, cada script pode fazer referência apenas a uma versão da DLL de um determinado assembly. Nesse sentido, o U-SQL segue a semântica de controle de versão e gerenciamento do assembly de C#.
+Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar tanto da versão 7 quanto da versão 8 da biblioteca newtonsoft Json.NET, você precisa registrá-los em dois bancos de dados diferentes. Além disso, cada script pode fazer referência apenas a uma versão da DLL de um determinado assembly. Nesse sentido, o U-SQL segue a semântica de controle de versão e gerenciamento do assembly de C#.
 
 ## <a name="use-user-defined-functions-udf"></a>Funções definidas pelo usuário: UDF
 As funções definidas pelo usuário ou UDF do U-SQL são rotinas de programação que aceitam parâmetros, executam uma ação (mo um cálculo complexo)e retornam o resultado dessa ação como um valor. O valor de retorno da UDF pode ser apenas um único escalar. A UDF do U-SQL pode ser chamado no script base U-SQL como qualquer outra função escalar C#.
@@ -496,7 +496,7 @@ using System.IO;
 
 * Defina o tipo definido usado com o atributo SqlUserDefinedType.
 
-**SqlUserDefinedType** é usado para marcar uma definição de tipo em um assembly como um UDT (tipo definido pelo usuário) no U-SQL. As propriedades no atributo refletem as características físicas do UDT. Essa classe não pode ser herdada.
+**SqlUserDefinedType** é usado para marcar uma definição de tipo em um assembly como um UDT (tipo definido pelo usuário) no U-SQL. As propriedades no atributo refletem as características físicas do UDT. Esta classe não pode ser herdada.
 
 SqlUserDefinedType é um atributo necessário para a definição de UDT.
 
@@ -912,7 +912,7 @@ A definição de classe base da agregação definida pelo usuário é a seguinte
     }
 ```
 
-**SqlUserDefinedAggregate** indica que o tipo deve ser registrado como uma agregação definida pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedAggregate** indica que o tipo deve ser registrado como uma agregação definida pelo usuário. Esta classe não pode ser herdada.
 
 O atributo SqlUserDefinedType é **opcional** para a definição de UDAGG.
 
@@ -946,10 +946,10 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: primeiro parâmetro para accumulate
-* T2: segundo parâmetro para acumular
+* T2: Segundo parâmetro a acumular
 * TResult: tipo de retorno de terminate
 
-Por exemplo:
+Por exemplo: 
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1057,7 +1057,7 @@ Geralmente, o UDO é chamado explicitamente no script U-SQL como parte das segui
 
 * EXTRACT
 * OUTPUT
-* PROCESSO
+* PROCESS
 * COMBINE
 * REDUCE
 
@@ -1067,11 +1067,11 @@ Geralmente, o UDO é chamado explicitamente no script U-SQL como parte das segui
 ## <a name="use-user-defined-extractors"></a>Usar extratores definidos pelo usuário
 O U-SQL permite importar dados externos usando uma instrução EXTRACT. Uma instrução EXTRACT pode usar extratores de UDO internos:  
 
-* *Extractors.Text()* : fornece extração dos arquivos de texto delimitados de diferentes codificações.
+* *Extractors.Text()*: fornece extração dos arquivos de texto delimitados de diferentes codificações.
 
-* *Extractors.Csv()* : fornece extração de arquivos CSV (valores separados por vírgula) de diferentes codificações.
+* *Extractors.Csv()*: fornece extração de arquivos CSV (valores separados por vírgula) de diferentes codificações.
 
-* *Extractors.Tsv()* : fornece extração de arquivos TSV (valores separados por tabulação) de diferentes codificações.
+* *Extractors.Tsv()*: fornece extração de arquivos TSV (valores separados por tabulação) de diferentes codificações.
 
 Pode ser útil desenvolver um extrator personalizado. Isso pode ser útil durante a importação de dados para executar uma das seguintes tarefas:
 
@@ -1093,7 +1093,7 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-O atributo **SqlUserDefinedExtractor** indica que o tipo deve ser registrado como um extrator definido pelo usuário. Essa classe não pode ser herdada.
+O atributo **SqlUserDefinedExtractor** indica que o tipo deve ser registrado como um extrator definido pelo usuário. Esta classe não pode ser herdada.
 
 SqlUserDefinedExtractor é um atributo opcional para a definição de UDE. Ele é usado para definir a propriedade AtomicFileProcessing do objeto UDE.
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Usar outputters definidos pelo usuário
 O outputter definido pelo usuário é outro UDO do U-SQL que permite estender uma funcionalidade interna do U-SQL. Assim como o extrator, há vários outputters internos.
 
-* *Outputters.Text()* : grava dados em arquivos de texto delimitados de codificações diferentes.
-* *Outputters.Csv()* : grava dados em arquivos CSV (valores separados por vírgula) de codificações diferentes.
-* *Outputters.Tsv()* : grava dados em arquivos TSV (valores separados por tabulação) de codificações diferentes.
+* *Outputters.Text()*: grava dados em arquivos de texto delimitados de codificações diferentes.
+* *Outputters.Csv()*: grava dados em arquivos CSV (valores separados por vírgula) de codificações diferentes.
+* *Outputters.Tsv()*: grava dados em arquivos TSV (valores separados por tabulação) de codificações diferentes.
 
 O outputter personalizado permite gravar dados em um formato definido personalizado. Isso pode ser útil para as seguintes tarefas:
 
@@ -1271,7 +1271,7 @@ public class MyOutputter : IOutputter
 * A classe Constructor é usada para passar parâmetros ao outputter definido pelo usuário.
 * `Close` é usado para, opcionalmente, substituir e liberar estado caro ou determinar quando a última linha foi gravada.
 
-O atributo **SqlUserDefinedOutputter** indica que o tipo deve ser registrado como um outputter definido pelo usuário. Essa classe não pode ser herdada.
+O atributo **SqlUserDefinedOutputter** indica que o tipo deve ser registrado como um outputter definido pelo usuário. Esta classe não pode ser herdada.
 
 SqlUserDefinedOutputter é um atributo opcional para a definição de um outputter definido pelo usuário. Ele é usado para definir a propriedade AtomicFileProcessing.
 
@@ -1514,7 +1514,7 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-**SqlUserDefinedProcessor** indica que o tipo deve ser registrado como um processador definido pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedProcessor** indica que o tipo deve ser registrado como um processador definido pelo usuário. Esta classe não pode ser herdada.
 
 O atributo SqlUserDefinedProcessor é **opcional** para a definição de UDP.
 
@@ -1635,7 +1635,7 @@ public class ParserApplier : IApplier
 * Apply é chamado para cada linha da tabela outer. Ele retorna o conjunto de linhas de saída `IUpdatableRow`.
 * A classe Constructor é usada para passar parâmetros ao aplicador definido pelo usuário.
 
-**SqlUserDefinedApplier** indica que o tipo deve ser registrado como um aplicador definido pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedApplier** indica que o tipo deve ser registrado como um aplicador definido pelo usuário. Esta classe não pode ser herdada.
 
 O atributo **SqlUserDefinedApplier** é **opcional** para a definição do aplicador definido pelo usuário.
 
@@ -1847,7 +1847,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-O atributo **SqlUserDefinedCombiner** indica que o tipo deve ser registrado como um combinador definido pelo usuário. Essa classe não pode ser herdada.
+O atributo **SqlUserDefinedCombiner** indica que o tipo deve ser registrado como um combinador definido pelo usuário. Esta classe não pode ser herdada.
 
 **SqlUserDefinedCombiner** é usado para definir a propriedade do modo Combinador. É um atributo opcional para a definição do combinador definido pelo usuário.
 
@@ -1873,7 +1873,7 @@ Os principais objetos de programação são:
         IUpdatableRow output
 ```
 
-Os conjuntos de linhas de entrada são passados como tipo `IRowset` **esquerdo** e **direito** da interface. Ambos os conjuntos de linhas precisam ser enumerados para processamento. Você só pode enumerar cada interface uma vez e, portanto, temos que enumerá-las e armazená-las se necessário.
+Os conjuntos de linhas de entrada são passados como tipo de interface **esquerda** e **direita.** `IRowset` Ambos os conjuntos de linhas precisam ser enumerados para processamento. Você só pode enumerar cada interface uma vez e, portanto, temos que enumerá-las e armazená-las se necessário.
 
 Para fins de caching, podemos criar um tipo List\<T\> de estrutura de memória como resultado de uma execução da consulta LINQ, especificamente List<`IRow`>. O tipo de dados anônimo também pode ser usado durante a enumeração.
 
@@ -2107,7 +2107,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-O atributo **SqlUserDefinedReducer** indica que o tipo deve ser registrado como um redutor definido pelo usuário. Essa classe não pode ser herdada.
+O atributo **SqlUserDefinedReducer** indica que o tipo deve ser registrado como um redutor definido pelo usuário. Esta classe não pode ser herdada.
 **SqlUserDefinedReducer** é um atributo opcional para a definição do redutor definido pelo usuário. Ele é usado para definir a propriedade IsRecursive.
 
 * bool     IsRecursive    

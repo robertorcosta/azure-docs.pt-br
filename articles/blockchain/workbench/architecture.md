@@ -1,21 +1,21 @@
 ---
 title: Arquitetura do Azure Blockchain Workbench
-description: Visão geral da arquitetura de visualização do Azure Blockchain Workbench e seus componentes.
+description: Visão geral da arquitetura Azure Blockchain Workbench Preview e seus componentes.
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
 ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324892"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitetura do Azure Blockchain Workbench
 
-A visualização do Azure Blockchain Workbench simplifica o desenvolvimento de aplicativos Blockchain fornecendo uma solução usando vários componentes do Azure. O Blockchain Workbench pode ser implantado usando um modelo de solução no Azure Marketplace. O modelo permite que você escolha módulos e componentes para implantar, incluindo pilha de blockchain, tipo de aplicativo de cliente e suporte para a integração de IoT. Uma vez implantado, o Blockchain Workbench fornece acesso a um aplicativo web, aplicativo iOS e aplicativo Android.
+O Azure Blockchain Workbench Preview simplifica o desenvolvimento de aplicativos blockchain, fornecendo uma solução usando vários componentes do Azure. O Blockchain Workbench pode ser implantado usando um modelo de solução no Azure Marketplace. O modelo permite que você escolha módulos e componentes para implantar, incluindo pilha de blockchain, tipo de aplicativo de cliente e suporte para a integração de IoT. Uma vez implantado, o Blockchain Workbench fornece acesso a um aplicativo web, aplicativo iOS e aplicativo Android.
 
-![Arquitetura do Blockchain Workbench](./media/architecture/architecture.png)
+![Arquitetura blockchain Workbench](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identidade e autenticação
 

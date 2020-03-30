@@ -4,28 +4,28 @@ description: O Azure Functions é compatível com várias versões do runtime. S
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77151948"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar para versões do Azure Functions runtime
 
-Uma execução do aplicativo de funções em uma versão específica do Azure Functions runtime. Há três versões principais: [1. x, 2. x e 3. x](functions-versions.md). Por padrão, os aplicativos de funções são criados na versão 2. x do tempo de execução. Este artigo explica como configurar um aplicativo de funções no Azure para executar a versão que você escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [Código e teste local do Azure Functions](functions-run-local.md).
+Uma execução do aplicativo de funções em uma versão específica do Azure Functions runtime. Existem três versões principais: [1.x, 2.x e 3.x](functions-versions.md). Por padrão, os aplicativos de função são criados na versão 2.x do tempo de execução. Este artigo explica como configurar um aplicativo de funções no Azure para executar a versão que você escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [Código e teste local do Azure Functions](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Atualizações de versão automática e manual
 
-Azure Functions permite que você direcione uma versão específica do tempo de execução usando a configuração de aplicativo `FUNCTIONS_EXTENSION_VERSION` em um aplicativo de funções. O aplicativo de funções é mantido na versão principal especificada até que você escolha explicitamente mudar para uma nova versão.
+O Azure Functions permite que você direcione uma `FUNCTIONS_EXTENSION_VERSION` versão específica do tempo de execução usando a configuração do aplicativo em um aplicativo de função. O aplicativo de funções é mantido na versão principal especificada até que você escolha explicitamente mudar para uma nova versão.
 
-Se você especificar apenas a versão principal, o aplicativo de funções será atualizado automaticamente para novas versões secundárias do tempo de execução quando eles forem disponibilizados. Novas versões secundárias não devem introduzir alterações significativas. Se você especificar uma versão secundária (por exemplo, "2.0.12345"), o aplicativo de funções será fixado nessa versão específica até que seja explicitamente alterado.
+Se você especificar apenas a versão principal, o aplicativo de função será atualizado automaticamente para novas versões menores do tempo de execução quando elas estiverem disponíveis. Novas versões menores não devem introduzir mudanças de quebra. Se você especificar uma versão secundária (por exemplo, "2.0.12345"), o aplicativo de funções será fixado nessa versão específica até que seja explicitamente alterado.
 
 > [!NOTE]
-> Se você fixar em uma versão específica do Azure Functions e tentar publicar no Azure usando o Visual Studio, uma janela de diálogo será exibida solicitando que você atualize para a versão mais recente ou cancele a publicação. Para evitar isso, adicione a propriedade `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` em seu arquivo de `.csproj`.
+> Se você fixar em uma versão específica do Azure Functions e, em seguida, tentar publicar no Azure usando o Visual Studio, uma janela de diálogo aparecerá solicitando que você atualize para a versão mais recente ou cancele a publicação. Para evitar isso, `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` adicione `.csproj` a propriedade em seu arquivo.
 
 Quando uma nova versão está disponível publicamente, um prompt no portal oferece a possibilidade de atualizar para essa versão. Depois de mudar para uma nova versão, você sempre poderá usar a configuração de aplicativo `FUNCTIONS_EXTENSION_VERSION` para voltar para uma versão anterior do tempo de execução.
 
-A tabela a seguir mostra os valores de `FUNCTIONS_EXTENSION_VERSION` para cada versão principal para habilitar as atualizações automáticas:
+A tabela a `FUNCTIONS_EXTENSION_VERSION` seguir mostra os valores de cada versão principal para habilitar atualizações automáticas:
 
 | Versão principal | `FUNCTIONS_EXTENSION_VERSION` valor |
 | ------------- | ----------------------------------- |
@@ -37,7 +37,7 @@ Uma alteração na versão do runtime faz com que seu aplicativo de função rei
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Exibir e atualizar a versão de runtime atual
 
-Você pode alterar a versão de tempo de execução usada pelo seu aplicativo de funções. Devido ao potencial de alterações significativas, você só pode alterar a versão de tempo de execução antes de criar qualquer função em seu aplicativo de funções. 
+Você pode alterar a versão em tempo de execução usada pelo seu aplicativo de função. Devido ao potencial de quebrar alterações, você só pode alterar a versão em tempo de execução antes de criar quaisquer funções em seu aplicativo de função. 
 
 > [!IMPORTANT]
 > Embora a versão de runtime é determinada pelo `FUNCTIONS_EXTENSION_VERSION` configuração, você deve fazer essa alteração no portal do Azure e não, alterando a configuração diretamente. Isso ocorre porque o portal valida as alterações e faz outras alterações relacionadas, conforme necessário.
@@ -47,9 +47,9 @@ Você pode alterar a versão de tempo de execução usada pelo seu aplicativo de
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
-> Usando o portal do Azure, você não pode alterar a versão de tempo de execução de um aplicativo de funções que já contém funções.
+> Usando o portal Azure, você não pode alterar a versão em tempo de execução para um aplicativo de função que já contém funções.
 
-### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Na CLI do Azure
+### <a name="from-the-azure-cli"></a><a name="view-and-update-the-runtime-version-using-azure-cli"></a>Na CLI do Azure
 
 Também é possível exibir e definir o `FUNCTIONS_EXTENSION_VERSION` da CLI do Azure.
 

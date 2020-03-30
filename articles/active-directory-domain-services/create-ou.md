@@ -1,6 +1,6 @@
 ---
-title: Criar uma UO (unidade organizacional) no Azure AD Domain Services | Microsoft Docs '
-description: Saiba como criar e gerenciar uma UO (unidade organizacional) personalizada em um Azure AD Domain Services domínio gerenciado.
+title: Criar uma unidade organizacional (OU) no Azure AD Domain Services | Microsoft Docs
+description: Saiba como criar e gerenciar uma Unidade Organizacional (OU) personalizada em um domínio gerenciado do Azure AD Domain Services.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
 ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614063"
 ---
-# <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma UO (unidade organizacional) em um domínio gerenciado Azure AD Domain Services
+# <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (OU) em um domínio gerenciado do Azure AD Domain Services
 
-As UOs (unidades organizacionais) no Active Directory Domain Services (AD DS) permitem agrupar logicamente objetos, como contas de usuário, contas de serviço ou contas de computador. Em seguida, você pode atribuir administradores a UOs específicas e aplicar a política de grupo para impor as definições de configuração de destino.
+As unidades organizacionais (OUs) no Active Directory Domain Services (AD DS) permitem que você agrupe logicamente objetos como contas de usuário, contas de serviço ou contas de computador. Em seguida, você pode atribuir administradores a OUs específicos e aplicar a diretiva de grupo para impor configurações de configuração direcionadas.
 
-Os domínios gerenciados do Azure AD DS incluem dois *computadores AADDC* e *AADDC usuários*internos. A UO *computadores AADDC* contém objetos de computador para todos os computadores que ingressaram no domínio gerenciado. A UO *usuários do AADDC* inclui usuários e grupos sincronizados no do locatário do Azure AD. Conforme você cria e executa cargas de trabalho que usam o Azure AD DS, talvez seja necessário criar contas de serviço para que os aplicativos se autentiquem. Para organizar essas contas de serviço, você geralmente cria uma UO personalizada no domínio gerenciado AD DS do Azure e, em seguida, cria contas de serviço dentro dessa UO.
+Os domínios gerenciados do Azure AD DS incluem duas OUs incorporadas - *Computadores AADDC* e *Usuários AADDC*. O *AADDC Computers* OU contém objetos de computador para todos os computadores que estão unidos ao domínio gerenciado. O *Ou usuários do AADDC* inclui usuários e grupos sincronizados do inquilino Azure AD. À medida que você cria e executa cargas de trabalho que usam o Azure AD DS, você pode precisar criar contas de serviço para que os aplicativos se autentiquem. Para organizar essas contas de serviço, muitas vezes você cria um OU personalizado no domínio gerenciado pelo Azure AD DS e, em seguida, cria contas de serviço dentro desse OU.
 
-Em um ambiente híbrido, as UOs criadas em um ambiente de AD DS local não são sincronizadas com o AD DS do Azure. Os domínios gerenciados AD DS do Azure usam uma estrutura de UO simples. Todas as contas de usuário e grupos são armazenados no contêiner *AADDC Users* , apesar de serem sincronizados de diferentes domínios ou florestas locais, mesmo que você tenha configurado uma estrutura de UO hierárquica lá.
+Em um ambiente híbrido, as OUs criadas em um ambiente AD DS no local não são sincronizadas com o Azure AD DS. Os domínios gerenciados do Azure AD DS usam uma estrutura OU plana. Todas as contas e grupos de usuários são armazenados no contêiner *Usuários AADDC,* apesar de serem sincronizados de diferentes domínios ou florestas locais, mesmo se você tiver configurado uma estrutura hierárquica de OU lá.
 
-Este artigo mostra como criar uma UO em seu domínio gerenciado AD DS do Azure.
+Este artigo mostra como criar um OU no seu domínio gerenciado pelo Azure AD DS.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -39,52 +39,52 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
-    * Se necessário, conclua o tutorial para [criar e configurar uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Uma VM de gerenciamento do Windows Server que é unida ao domínio gerenciado AD DS do Azure.
-    * Se necessário, conclua o tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
+    * Se necessário, complete o tutorial para [criar e configurar uma instância de Serviços de Domínio do Diretório Ativo do Azure][create-azure-ad-ds-instance].
+* Uma VM de gerenciamento do Windows Server que é acompanhada pelo domínio gerenciado pelo Azure AD DS.
+    * Se necessário, complete o tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
 * Uma conta de usuário que é membro do grupo de *administradores do Azure AD DC* no locatário do Azure AD.
 
-## <a name="custom-ou-considerations-and-limitations"></a>Considerações e limitações de UO personalizadas
+## <a name="custom-ou-considerations-and-limitations"></a>Considerações e limitações personalizadas da U
 
-Ao criar UOs personalizadas em um domínio gerenciado AD DS do Azure, você obterá flexibilidade de gerenciamento adicional para o gerenciamento de usuários e a aplicação da diretiva de grupo. Em comparação com um ambiente de AD DS local, há algumas limitações e considerações ao criar e gerenciar uma estrutura de UO personalizada no Azure AD DS:
+Quando você cria OUs personalizados em um domínio gerenciado pelo Azure AD DS, você ganha flexibilidade de gerenciamento adicional para gerenciamento de usuários e aplicação de política de grupo. Em comparação com um ambiente AD DS no local, existem algumas limitações e considerações ao criar e gerenciar uma estrutura ou personalizada no Azure AD DS:
 
-* Para criar UOs personalizadas, os usuários devem ser membros do grupo de *Administradores do AAD DC* .
-* Um usuário que cria uma UO personalizada recebe privilégios administrativos (controle total) nessa UO e é o proprietário do recurso.
-    * Por padrão, o grupo de *Administradores de DC do AAD* também tem controle total da UO personalizada.
-* Uma UO padrão para *usuários AADDC* é criada contendo todas as contas de usuário sincronizadas do seu locatário do Azure AD.
-    * Não é possível mover usuários ou grupos da UO *usuários do AADDC* para as UOs personalizadas que você criar. Somente contas de usuário ou recursos criados no domínio gerenciado AD DS do Azure podem ser movidos para UOs personalizadas.
-* Contas de usuário, grupos, contas de serviço e objetos de computador que você cria em UOs personalizadas não estão disponíveis no seu locatário do Azure AD.
-    * Esses objetos não aparecem usando a API Microsoft Graph ou na interface do usuário do Azure AD; Eles estão disponíveis somente em seu domínio gerenciado AD DS do Azure.
+* Para criar OUs personalizados, os usuários devem ser um membro do grupo *Administradores AAD DC.*
+* Um usuário que cria um OU personalizado recebe privilégios administrativos (controle total) sobre esse OU e é o proprietário dos recursos.
+    * Por padrão, o grupo *Administradores AAD DC* também tem controle total do OU personalizado.
+* Um OU padrão para *usuários AADDC* é criado que contém todas as contas de usuário sincronizadas do seu inquilino Azure AD.
+    * Você não pode mover usuários ou grupos do OU usuários do *AADDC* para OUs personalizados que você cria. Apenas contas de usuário ou recursos criados no domínio gerenciado pelo Azure AD DS podem ser movidos para OUs personalizados.
+* Contas de usuário, grupos, contas de serviço e objetos de computador que você cria OUs personalizados não estão disponíveis no seu inquilino Azure AD.
+    * Esses objetos não aparecem usando a API do Microsoft Graph ou na UI AD do Azure; eles só estão disponíveis no seu domínio gerenciado pelo Azure AD DS.
 
-## <a name="create-a-custom-ou"></a>Criar uma UO personalizada
+## <a name="create-a-custom-ou"></a>Criar um OU personalizado
 
-Para criar uma UO personalizada, use as ferramentas administrativas Active Directory de uma VM ingressada no domínio. O Centro Administrativo do Active Directory permite exibir, editar e criar recursos em um domínio gerenciado do Azure AD DS, incluindo UOs.
+Para criar um OU personalizado, você usa as Ferramentas Administrativas do Diretório Ativo a partir de uma VM aderida por domínio. O Centro Administrativo do Diretório Ativo permite visualizar, editar e criar recursos em um domínio gerenciado pelo Azure AD DS, incluindo UOs.
 
 > [!NOTE]
-> Para criar uma UO personalizada em um domínio gerenciado AD DS do Azure, você deve estar conectado a uma conta de usuário que seja membro do grupo de *Administradores de DC do AAD* .
+> Para criar um OU personalizado em um domínio gerenciado pelo Azure AD DS, você deve estar conectado a uma conta de usuário que seja membro do grupo *Administradores AAD DC.*
 
-1. Entre na sua VM de gerenciamento. Para obter as etapas sobre como se conectar usando o portal do Azure, consulte [conectar-se a uma VM do Windows Server][connect-windows-server-vm].
-1. Na tela iniciar, selecione **Ferramentas administrativas**. É mostrada uma lista de ferramentas de gerenciamento disponíveis que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
-1. Para criar e gerenciar UOs, selecione **centro administrativo do Active Directory** na lista de ferramentas administrativas.
-1. No painel esquerdo, escolha seu domínio gerenciado AD DS do Azure, como *aaddscontoso.com*. Uma lista de UOs e recursos existentes é mostrada:
+1. Faça login na sua VM de gestão. Para obter etapas sobre como se conectar usando o portal Azure, consulte [Conecte-se a uma VM do Servidor Windows][connect-windows-server-vm].
+1. Na tela Iniciar, selecione **Ferramentas Administrativas**. Uma lista de ferramentas de gerenciamento disponíveis é mostrada que foram instaladas no tutorial para [criar uma VM de gerenciamento][tutorial-create-management-vm].
+1. Para criar e gerenciar UUs, selecione **Centro Administrativo de Diretório Ativo** na lista de ferramentas administrativas.
+1. No painel esquerdo, escolha o domínio gerenciado do Azure AD DS, como *aaddscontoso.com*. Uma lista de UOs e recursos existentes é mostrada:
 
-    ![Selecione seu domínio gerenciado do Azure AD DS no Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
+    ![Selecione o domínio gerenciado do Azure AD DS no Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. O painel **tarefas** é mostrado no lado direito da centro administrativo do Active Directory. No domínio, como *aaddscontoso.com*, selecione **novo > unidade organizacional**.
+1. O painel **Tarefas** é mostrado no lado direito do Centro Administrativo do Diretório Ativo. o domínio, como *aaddscontoso.com,* selecione **Nova > Unidade Organizacional**.
 
-    ![Selecione a opção para criar uma nova UO no Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
+    ![Selecione a opção para criar um novo U no Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 
-1. Na caixa de diálogo **criar unidade organizacional** , especifique um **nome** para a nova UO, como *MyCustomOu*. Forneça uma breve descrição para a UO, como *UO personalizada para contas de serviço*. Se desejar, você também pode definir o campo **gerenciado por** para a UO. Para criar a UO personalizada, selecione **OK**.
+1. Na caixa de diálogo **Criar unidade organizacional,** especifique um **nome** para o novo OU, como *MyCustomOu*. Forneça uma breve descrição para o OU, como *ou personalizado para contas de serviço*. Se desejar, você também pode definir o campo **Gerenciado por** por ou. Para criar o OU personalizado, selecione **OK**.
 
-    ![Criar uma UO personalizada da Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
+    ![Crie um U personalizado a partir do Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 
-1. De volta ao Centro Administrativo do Active Directory, a UO personalizada agora está listada e está disponível para uso:
+1. De volta ao Centro Administrativo do Diretório Ativo, o OU personalizado está agora listado e está disponível para uso:
 
-    ![UO personalizada disponível para uso no Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
+    ![UA personalizado disponível para uso no Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como usar as ferramentas administrativas ou criar e usar contas de serviço, consulte os seguintes artigos:
+Para obter mais informações sobre como usar as ferramentas administrativas ou criar e usar contas de serviços, consulte os seguintes artigos:
 
 * [Centro Administrativo do Active Directory: introdução](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guia passo a passo de contas de serviço](https://technet.microsoft.com/library/dd548356.aspx)

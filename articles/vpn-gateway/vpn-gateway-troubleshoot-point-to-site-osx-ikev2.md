@@ -1,5 +1,5 @@
 ---
-title: 'Gateway de VPN do Azure: solucionar problemas de conexões ponto a site: clientes Mac OS X'
+title: 'Gateway Azure VPN: Solucionando problemas conexões ponto a ponto: clientes Mac OS X'
 description: Etapas para solucionar problemas de conexões de cliente SO P2S Mac OS X VPN
 services: vpn-gateway
 author: anzaman
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
 ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425707"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Solucionar problemas de conexões VPN ponto a site do Azure dos clientes Mac OS X
@@ -25,7 +25,7 @@ Este artigo ajuda você a solucionar problemas de conectividade de Ponto a Site 
 * Versão do SO (10.11 ou superior)
 
 
-## <a name="VPNClient"></a>Solucionar problemas de autenticação baseada em certificado
+## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a>Solucionar problemas de autenticação baseada em certificado
 1. Verifique as configurações do cliente VPN. Vá para a **Configuração de Rede** pressionando o comando + Shift e digite "VPN" para verificar as configurações do cliente VPN. Na lista, clique na entrada VPN que precisa ser investigada.
 
    ![Autenticação baseada em certificado IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
@@ -38,7 +38,7 @@ Este artigo ajuda você a solucionar problemas de conectividade de Ponto a Site 
 6. Verifique se **Certificado** está selecionado na lista suspensa.
 7. Clique no botão **Selecionar** e verifique se o certificado correto está selecionado. Clique em **OK** para salvar quaisquer alterações.
 
-## <a name="ikev2"></a>Solucionar problemas de autenticação do nome de usuário e senha
+## <a name="troubleshoot-username-and-password-authentication"></a><a name="ikev2"></a>Solucionar problemas de autenticação do nome de usuário e senha
 
 1. Verifique as configurações do cliente VPN. Vá para a **Configuração de Rede** pressionando o comando + Shift e digite "VPN" para verificar as configurações do cliente VPN. Na lista, clique na entrada VPN que precisa ser investigada.
 
@@ -51,7 +51,7 @@ Este artigo ajuda você a solucionar problemas de conectividade de Ponto a Site 
    ![Configurações de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verifique se as credenciais corretas estão inseridas.
 
-## <a name="additional"></a>Etapas adicionais
+## <a name="additional-steps"></a><a name="additional"></a>Etapas adicionais
 
 Se você tentar realizar as etapas anteriores e tudo estiver configurado corretamente, faça o download do [Wireshark](https://www.wireshark.org/#download) e execute uma captura de pacote.
 
@@ -60,7 +60,7 @@ Se você tentar realizar as etapas anteriores e tudo estiver configurado correta
 
    ![pacote](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. Se não houver nenhuma resposta de servidor nos rastreamentos de rede, verifique se você habilitou o protocolo IKEv2 na página de configuração do gateway do Azure no site do portal do Azure.
+3. Se não houver resposta do servidor nos rastreamentos da rede, verifique se você habilitou o protocolo IKEv2 na página de configuração do Gateway Azure no site do portal Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

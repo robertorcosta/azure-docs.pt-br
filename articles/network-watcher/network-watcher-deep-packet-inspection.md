@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152917"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com o Observador de Rede do Azure
@@ -51,7 +51,7 @@ Carregue o arquivo **.cap** da captura de pacotes. Esse arquivo pode ser encontr
 
 ### <a name="step-3"></a>Etapa 3
 
-Para exibir o Tempo Resposta inicial (RTT) nas conversas TCP, veremos apenas os dois primeiros pacotes envolvidos no handshake TCP. Usaremos os dois primeiros pacotes no handshake de três vias, que são os pacotes [SYN], [SYN, ACK]. Eles são chamados de sinalizadores definidos no cabeçalho TCP. O último pacote no handshake, o pacote [ACK], não será usado neste cenário. O pacote [SYN] é enviado pelo cliente. Depois de receber, o servidor envia o pacote [ACK] como uma confirmação de recebimento do SYN do cliente. Aproveitando o fato de que a resposta do servidor exige muito pouca sobrecarga, calculamos o RTT subtraindo a hora em que o pacote [SYN, ACK] foi recebido pelo cliente da hora em que o pacote [SYN] foi enviado pelo cliente.
+Para exibir o Tempo Resposta inicial (RTT) nas conversas TCP, veremos apenas os dois primeiros pacotes envolvidos no handshake TCP. Usaremos os dois primeiros pacotes no handshake de três vias, que são os pacotes [SYN], [SYN, ACK]. Eles são chamados de sinalizadores definidos no cabeçalho TCP. O último pacote no handshake, o pacote [ACK], não será usado neste cenário. O pacote [SYN] é enviado pelo cliente. Uma vez recebido, o servidor envia o pacote [ACK] como reconhecimento de receber o SYN do cliente. Aproveitando o fato de que a resposta do servidor exige muito pouca sobrecarga, calculamos o RTT subtraindo a hora em que o pacote [SYN, ACK] foi recebido pelo cliente da hora em que o pacote [SYN] foi enviado pelo cliente.
 
 Usando o WireShark, esse valor é calculado.
 
@@ -77,7 +77,7 @@ Neste exemplo, examinaremos uma captura de pacotes executada antes para os proto
 
 ### <a name="step-1"></a>Etapa 1
 
-Usando a mesma captura no cenário anterior, clique em **Estatísticas** > **Hierarquia de Protocolos**
+Usando a mesma captura no cenário anterior clique em**Hierarquia de Protocolo de** **Estatísticas** > 
 
 ![menu da hierarquia de protocolos][2]
 
@@ -93,7 +93,7 @@ Compreender os tipos de tráfego, pontos de extremidade e portas de comunicaçã
 
 ### <a name="step-1"></a>Etapa 1
 
-Usando a mesma captura no cenário anterior, clique em **Estatísticas** > **Estatísticas IPv4** > **Destinos e Portas**
+Usando a mesma captura no cenário anterior clique em **Estatísticas** > **IPv4 Estatísticas** > **Destinos e Portos**
 
 ![janela de captura de pacotes][4]
 

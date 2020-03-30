@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
 ms.openlocfilehash: 6ea215b6aa826231e940f88c3687bb65591303f2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225312"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurar DHCPv6 para VMs Linux
@@ -54,9 +54,9 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-A partir do Ubuntu 17,10, o mecanismo de configuração de rede padrão é [netplan]( https://netplan.io).  No momento da instalação/instanciação, o netplan lê a configuração de rede nos arquivos de configuração do YAML neste local:/{lib, etc, execute}/netplan/*. YAML.
+Começando com o Ubuntu 17.10, o mecanismo de configuração de rede padrão é [o NETPLAN]( https://netplan.io).  No tempo de instalação/instantiação, o NETPLAN lê a configuração de rede dos arquivos de configuração YAML neste local: /{lib,etc,run}/netplan/*.yaml.
 
-Inclua uma instrução *dhcp6: true* para cada interface Ethernet em sua configuração.  Por exemplo:
+Por favor, inclua uma declaração *dhcp6:true* para cada interface ethernet em sua configuração.  Por exemplo: 
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Inclua uma instrução *dhcp6: true* para cada interface Ethernet em sua configu
             eno1:
               dhcp6: true
 
-Durante a inicialização inicial, o "processador de rede" do netplan grava a configuração em/Run para entregar o controle de dispositivos ao daemon de rede especificado para obter informações de referência sobre o netplan, consulte https://netplan.io/reference.
+Durante a inicialização inicial, o "renderizador de rede" do netplan grava a configuração para /executar para entregar https://netplan.io/referenceo controle dos dispositivos ao daemon de rede especificado Para obter informações de referência sobre o NETPLAN, consulte .
  
 ## <a name="debian"></a>Debian
 

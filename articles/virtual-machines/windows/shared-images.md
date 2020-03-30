@@ -1,5 +1,5 @@
 ---
-title: Criar imagens de VM compartilhadas com Azure PowerShell
+title: Crie imagens compartilhadas de VM com o Azure PowerShell
 description: Saiba como usar o Azure PowerShell para criar uma imagem de máquina virtual compartilhada no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: db877c96167fc011c1a8bd52cc1d0b63260007c9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74066250"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Criar uma galeria de imagem compartilhada com o Azure PowerShell 
@@ -32,18 +32,18 @@ A galeria é um recurso de nível superior que fornece RBAC (controle de acesso 
 
 O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos. Usaremos ou criaremos estes itens neste artigo:
 
-| Recurso | DESCRIÇÃO|
+| Recurso | Descrição|
 |----------|------------|
 | **Imagem gerenciada** | Esta é uma imagem básica que pode ser usada sozinha ou para criar uma **versão da imagem** em uma galeria de imagens. Imagens gerenciadas são criadas de VMs generalizadas. Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para criar várias VMs e agora pode ser usado para criar versões de imagem compartilhada. |
 | **Galeria de imagens** | Como o Azure Marketplace, uma **galeria de imagens** é um repositório para gerenciar e compartilhar imagens, mas você controla quem tem acesso. |
 | **Definição da imagem** | As imagens são definidas dentro de uma galeria e transportam informações sobre a imagem e os requisitos para usá-la internamente. Isso inclui se a imagem é Windows ou Linux, notas sobre a versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. |
 | **Versão da imagem** | Uma **versão da imagem** é usada para criar uma VM ao usar uma galeria. Você pode ter diversas versões de uma imagem conforme necessário para seu ambiente. Como uma imagem gerenciada, quando você usa uma **versão da imagem** para criar uma VM, a versão da imagem é usada para criar novos discos para a VM. Versões de imagem podem ser usadas várias vezes. |
 
-Para cada 20 VMs que você cria simultaneamente, é recomendável manter uma réplica. Por exemplo, se você estiver criando VMs 120 simultaneamente usando a mesma imagem em uma região, sugerimos que você mantenha pelo menos 6 réplicas da sua imagem. Para obter mais informações, consulte [dimensionamento](/azure/virtual-machines/windows/shared-image-galleries#scaling).
+Para cada 20 VMs que você cria simultaneamente, recomendamos que você mantenha uma réplica. Por exemplo, se você estiver criando 120 VMs simultaneamente usando a mesma imagem em uma região, sugerimos que você mantenha pelo menos 6 réplicas de sua imagem. Para obter mais informações, consulte [Scaling](/azure/virtual-machines/windows/shared-image-galleries#scaling).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente. Você pode seguir [o tutorial: criar uma imagem personalizada de uma VM do Azure com Azure PowerShell](tutorial-custom-images.md) para criar uma, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
+Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente. Você pode seguir [tutorial: crie uma imagem personalizada de uma VM Azure com o Azure PowerShell](tutorial-custom-images.md) para criar uma, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
 
 Ao trabalhar com este artigo, substitua o grupo de recursos e os nomes de VM quando for necessário.
 
@@ -52,9 +52,9 @@ Ao trabalhar com este artigo, substitua o grupo de recursos e os nomes de VM qua
  
 ## <a name="create-vms-from-an-image"></a>Criar VMs de uma imagem
 
-Depois que a versão da imagem estiver completa, você poderá criar uma ou mais novas VMs. Usando o cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . 
+Depois que a versão da imagem estiver completa, você poderá criar uma ou mais novas VMs. Usando o [cmdlet New-AzVM.](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 
 
-Este exemplo cria uma VM chamada *myVMfromImage*, no *MyResource* do *sul do EUA Central* datacenter.
+Este exemplo cria uma VM chamada *myVMfromImage*, no *myResourceGroup* no centro de dados *do Centro-Sul dos EUA.*
 
 
 ```azurepowershell-interactive
@@ -97,7 +97,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-O [Construtor de imagens do Azure (visualização)](image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](image-builder-gallery-update-image-version.md). 
+[O Azure Image Builder (preview)](image-builder-overview.md) pode ajudar a automatizar a criação de versões de imagem, você pode até mesmo usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente](image-builder-gallery-update-image-version.md). 
 
 Você também pode criar um recurso de Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 

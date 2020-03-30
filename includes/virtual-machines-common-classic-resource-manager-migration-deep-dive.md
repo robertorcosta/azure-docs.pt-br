@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tanmaygore
 ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77068415"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrar recursos de IaaS do modelo de implantação clássico para o Azure Resource Manager
 Primeiro, é importante compreender a diferença entre as operações de plano de dados e de plano de gerenciamento nos recursos de IaaS (infraestrutura como serviço).
 
-* O *Plano de gerenciamento/controle* descreve as chamadas que vão para o plano de gerenciamento/controle ou para a API para modificar recursos. Por exemplo, operações como a criação de uma VM, reinicialização de uma VM e atualização de uma rede virtual com uma nova sub-rede para gerenciar os recursos em execução. Elas não afetam diretamente a conexão com as VMs.
-* *Plano de dados* (aplicativo) descreve o runtime do próprio aplicativo e envolve a interação com instâncias que não passam pela API do Azure. Por exemplo, o acesso ao seu site ou o pull de dados de uma instância do SQL Server ou servidor MongoDB em execução são plano de dados ou interação com o aplicativo. Outros exemplos incluem copiar um blob de uma conta de armazenamento e acessar um endereço IP público para usar o protocolo RDP ou SSH (Secure Shell) na máquina virtual. Essas operações mantêm o aplicativo em execução entre computação, rede e armazenamento.
+* *O plano de gerenciamento/controle* descreve as chamadas que entram no plano de gerenciamento/controle ou na API para modificar recursos. Por exemplo, operações como a criação de uma VM, reinicialização de uma VM e atualização de uma rede virtual com uma nova sub-rede para gerenciar os recursos em execução. Elas não afetam diretamente a conexão com as VMs.
+* *O data plane* (aplicativo) descreve o tempo de execução do aplicativo em si, e envolve interação com instâncias que não passam pela API do Azure. Por exemplo, o acesso ao seu site ou o pull de dados de uma instância do SQL Server ou servidor MongoDB em execução são plano de dados ou interação com o aplicativo. Outros exemplos incluem copiar um blob de uma conta de armazenamento e acessar um endereço IP público para usar o protocolo RDP ou SSH (Secure Shell) na máquina virtual. Essas operações mantêm o aplicativo em execução entre computação, rede e armazenamento.
 
 O plano de dados é o mesmo entre o modelo de implantação Clássico e a pilha do Gerenciador de Recursos. A diferença é que, durante o processo de migração, a Microsoft converte a representação dos recursos do modelo de implantação Clássico para aquela da pilha do Gerenciador de Recursos. Como resultado, você precisa usar novas ferramentas, APIs e SDKs para gerenciar seus recursos na pilha do Gerenciador de Recursos.
 
@@ -121,7 +121,7 @@ Essa é uma etapa opcional se você quiser reverter as alterações para o model
 Após a conclusão da validação, é possível confirmar a migração. Os recursos não aparecerão mais no modelo de implantação clássico e estão disponíveis apenas no modelo de implantação do Gerenciador de Recursos. Os recursos migrados só podem ser gerenciados no novo portal.
 
 > [!NOTE]
-> Esta é uma operação idempotente. Se ela falhar, repita a operação. Se ele continuar falhando, crie um tíquete de suporte ou crie um fórum no [Microsoft Q & a](https://docs.microsoft.com/answers/index.html)
+> Esta é uma operação idempotente. Se ela falhar, repita a operação. Se ele continuar a falhar, crie um ticket de suporte ou crie um fórum no [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)
 >
 >
 

@@ -1,5 +1,5 @@
 ---
-title: Projetos de código aberto da Comunidade do Azure Maps | Mapas do Microsoft Azure
+title: Azure Maps comunidade Projetos de código aberto | Mapas do Microsoft Azure
 description: Projetos de código aberto coordenados para a plataforma Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -10,41 +10,41 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048904"
 ---
-# <a name="azure-maps-community---open-source-projects"></a>Comunidade do Azure Maps – projetos de código aberto
+# <a name="azure-maps-community---open-source-projects"></a>Comunidade Azure Maps - Projetos de código aberto
 
-Essas iniciativas de software livre, controladas pela Comunidade, são criadas e mantidas pela equipe do Azure Maps. Eles não fazem parte do produto ou das ofertas de serviço padrão.
+Essas iniciativas de código aberto e orientadas pela comunidade são criadas e mantidas pela equipe do Azure Maps. Eles não fazem parte das ofertas padrão de produtos ou serviços.
 
-Veja a seguir uma lista de alguns dos projetos e exemplos mais populares de software livre do Azure Maps.
+A seguir, alguns dos projetos e amostras de código aberto mais populares do Azure Maps.
 
 | Nome do projeto | Descrição |
 |-|-|
-| [Exemplos de código do Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps em aplicativos baseados na Web. |
-| [Exemplos de código de nuvem do Azure Maps gov](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps por meio da nuvem do Azure governamental. |
-| [Exemplos de Azure Active Directory de & do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Uma coleção de exemplos que mostram como usar Azure Active Directory com mapas do Azure. | 
-| [Implementar análise espacial de IoT usando mapas do Azure](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Acompanhar e capturar eventos relevantes que ocorrem em espaço e no tempo é um cenário comum de IoT. |
-| [Exemplos do Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Uma coleção de exemplos do Python usando os serviços REST do Azure Maps. |
-| [Estrutura de bot-ponto de habilidade de interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | A habilidade de ponto de interesse fornece recursos relacionados ao POI para um assistente virtual usando mapas do Azure com o serviço de bot do Azure e a estrutura de bot. |
+| [Amostras de código do Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de amostras de código para usar o Azure Maps em aplicativos baseados na Web. |
+| [Azure Maps Gov Cloud Code Samples](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de amostras de código para o uso do Azure Maps através do Azure Government Cloud. |
+| [Mapas do Azure & Amostras do Diretório Ativo do Azure](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Uma coleção de amostras que mostram como usar o Azure Active Directory com o Azure Maps. | 
+| [Implementar análise espacial de IoT usando o Azure Mapas](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Acompanhar e capturar eventos relevantes que ocorrem em espaço e no tempo é um cenário comum de IoT. |
+| [Azure Maps Jupyter Notebook amostras](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Uma coleção de amostras de python usando os serviços Azure Maps REST. |
+| [Bot Framework - Habilidade de ponto de interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | A Habilidade de Ponto de Interesse fornece recursos relacionados ao POI para um Assistente Virtual usando o Azure Maps com o Azure Bot Service e o Bot Framework. |
 
-Uma lista mais longa que inclui projetos de código aberto criados pela Comunidade está disponível [aqui](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
+Uma lista mais longa que inclui projetos de código aberto criados pela comunidade está disponível [aqui](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 
-## <a name="supportability-of-open-source-projects"></a>Suporte de projetos de código-fonte aberto
+## <a name="supportability-of-open-source-projects"></a>Suporte a projetos de código aberto
 
-As instruções a seguir se aplicam em todos os mapas do Azure criados e mantidos exemplos e projetos de código aberto:
+As seguintes instruções se aplicam em todos os Mapas do Azure criados e mantidos projetos e amostras de código aberto:
 
-- Os projetos e exemplos de código aberto do Azure Maps são criados pela Microsoft e pela Comunidade.
-- Os projetos e exemplos de código aberto do Azure Maps são mantidos pela Microsoft e pela Comunidade.
-- Os projetos e exemplos de software livre do Azure Maps usam técnicas recomendadas e com suporte.
-- Os projetos e exemplos de software livre do Azure Maps são uma iniciativa da Comunidade – pessoas que trabalham na iniciativa para o benefício de outras pessoas e também têm seu trabalho de dia normal.
-- Os projetos e exemplos de software livre do Azure Maps não são um produto e, portanto, não há suporte para Suporte Premier ou outros canais de suporte oficial.
-- Os projetos e exemplos de software livre do Azure Maps são suportados de maneiras semelhantes como outros projetos de código-fonte aberto da Microsoft com suporte da Comunidade pela Comunidade.
+- Os projetos e amostras de código aberto do Azure Maps são criados pela Microsoft e pela comunidade.
+- Os projetos e amostras de código aberto do Azure Maps são mantidos pela Microsoft e pela comunidade.
+- O Azure Maps de código aberto e as amostras usam técnicas suportadas e recomendadas.
+- Os projetos e amostras de código aberto do Azure Maps são uma iniciativa da comunidade – pessoas que trabalham na iniciativa em benefício de outros, e têm seu trabalho normal também.
+- Os projetos e amostras de código aberto do Azure Maps NÃO são um produto e, portanto, não são suportados pelo Premier Support ou outros canais oficiais de suporte.
+- Os projetos e amostras de código aberto do Azure Maps são suportados de forma semelhante a outros projetos de código aberto feitos pela Microsoft com o apoio da comunidade.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Encontre mais projetos de código aberto do Azure Maps.
 

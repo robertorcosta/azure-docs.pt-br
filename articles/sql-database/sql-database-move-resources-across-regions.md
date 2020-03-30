@@ -1,6 +1,6 @@
 ---
 title: Como mover recursos para outra região
-description: Saiba como mover o banco de dados SQL do Azure, o pool elástico do SQL do Azure ou a instância gerenciada do SQL do Azure para outra região.
+description: Saiba como mover seu Banco de Dados SQL Do Azure, pool elástico Azure SQL ou instância gerenciada do Azure SQL para outra região.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,182 +12,182 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: 851ef49a5c066f12a95baa54daf5e267cb4278c5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73821426"
 ---
-# <a name="how-to-move-azure-sql-resources-to-another-region"></a>Como mover recursos do SQL do Azure para outra região
+# <a name="how-to-move-azure-sql-resources-to-another-region"></a>Como mover recursos do Azure SQL para outra região
 
-Este artigo ensina um fluxo de trabalho genérico sobre como mover o banco de dados do banco de dados SQL do Azure, o pool elástico e a instância gerenciada para uma nova região. 
+Este artigo ensina um fluxo de trabalho genérico para como mover seu banco de dados único do Banco de Dados SQL do Azure, pool elástico e instância gerenciada para uma nova região. 
 
 ## <a name="overview"></a>Visão geral
 
-Há vários cenários em que você deseja mover seus recursos do SQL do Azure existentes de uma região para outra. Por exemplo, você expande sua empresa para uma nova região e deseja otimizá-la para a nova base de clientes. Ou você precisa mover as operações para uma região diferente por motivos de conformidade. Ou o Azure lançou uma região totalmente nova que fornece uma proximidade melhor e melhora a experiência do cliente.  
+Existem vários cenários em que você gostaria de mover seus recursos Azure SQL existentes de uma região para outra. Por exemplo, você expande seu negócio para uma nova região e quer otimizá-lo para a nova base de clientes. Ou você precisa mudar as operações para uma região diferente por razões de conformidade. Ou o Azure lançou uma nova região que proporciona uma melhor proximidade e melhora a experiência do cliente.  
 
-Este artigo fornece um fluxo de trabalho geral para mover recursos para uma região diferente. O fluxo de trabalho consiste nas seguintes etapas: 
+Este artigo fornece um fluxo de trabalho geral para a movimentação de recursos para uma região diferente. O fluxo de trabalho consiste nas seguintes etapas: 
 
-- Verificar os pré-requisitos para a movimentação 
-- Preparar para mover os recursos no escopo
-- Monitorar o processo de preparação
-- Testar o processo de movimentação
-- Iniciar a movimentação real 
-- Remover os recursos da região de origem 
+- Verifique os pré-requisitos para a mudança 
+- Prepare-se para mover os recursos no escopo
+- Monitore o processo de preparação
+- Teste o processo de movimento
+- Inicie o movimento real 
+- Remova os recursos da região de origem 
 
 
 > [!NOTE]
-> Este artigo se aplica a migrações na nuvem pública do Azure ou dentro da mesma nuvem soberanas. 
+> Este artigo se aplica às migrações dentro da nuvem pública do Azure, ou dentro da mesma nuvem soberana. 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="move-single-database"></a>Mover banco de dados individual
+## <a name="move-single-database"></a>Mover banco de dados único
 
 ### <a name="verify-prerequisites"></a>Verificar pré-requisitos 
 
 1. Crie um servidor lógico de destino para cada servidor de origem. 
-1. Configure o firewall com as exceções corretas usando o [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).  
-1. Configure os servidores lógicos com os logons corretos. Se você não for o administrador da assinatura ou o administrador do SQL Server, trabalhe com o administrador para atribuir as permissões necessárias. Para obter mais informações, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md). 
-1. Se seus bancos de dados forem criptografados com TDE e usar sua própria chave de criptografia no cofre de chaves do Azure, verifique se o material de criptografia correto está provisionado nas regiões de destino. Para obter mais informações, consulte [Azure SQL Transparent Data Encryption com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md)
-1. Se a auditoria em nível de banco de dados estiver habilitada, desabilite-a e habilite a auditoria no nível de servidor. Após o failover, a auditoria no nível do banco de dados exigirá o tráfego entre regiões, que não será desejado ou possível após a movimentação. 
-1. Para auditorias em nível de servidor, verifique se:
-   - O contêiner de armazenamento, Log Analytics ou Hub de eventos com os logs de auditoria existentes são movidos para a região de destino. 
-   - A auditoria está configurada no servidor de destino. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing.md). 
-1. Se sua instância tiver uma EPD (política de retenção de longo prazo), os backups EPD existentes permanecerão associados ao servidor atual. Como o servidor de destino é diferente, você poderá acessar os backups LTR mais antigos na região de origem usando o servidor de origem, mesmo que o servidor seja excluído. 
+1. Configure o firewall com as exceções certas usando [o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).  
+1. Configure os servidores lógicos com os logins corretos. Se você não é o administrador de assinatura ou administrador do servidor SQL, trabalhe com o administrador para atribuir as permissões que você precisa. Para obter mais informações, consulte [Como gerenciar a segurança do banco de dados Azure SQL após a recuperação de desastres](sql-database-geo-replication-security-config.md). 
+1. Se seus bancos de dados estiverem criptografados com TDE e usarem sua própria chave de criptografia no cofre de chaves do Azure, certifique-se de que o material de criptografia correto seja provisionado nas regiões de destino. Para obter mais informações, consulte [a criptografia de dados transparente sql do Azure com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md)
+1. Se a auditoria em nível de banco de dados estiver ativada, desative-a e habilite a auditoria em nível de servidor. Após o failover, a auditoria do nível do banco de dados exigirá o tráfego transversal, que não será desejado ou possível após a mudança. 
+1. Para auditorias em nível de servidor, certifique-se de que:
+   - O contêiner de armazenamento, o Log Analytics ou o hub de eventos com os registros de auditoria existentes são movidos para a região de destino. 
+   - A auditoria é configurada no servidor de destino. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing.md). 
+1. Se a sua instância tiver uma política de retenção de longo prazo (LTR), os backups LTR existentes permanecerão associados ao servidor atual. Como o servidor de destino é diferente, você poderá acessar os backups LTR mais antigos na região de origem usando o servidor de origem, mesmo que o servidor seja excluído. 
 
   > [!NOTE]
-  > Isso será insuficiente para a movimentação entre a nuvem soberanas e uma região pública. Essa migração exigirá a movimentação dos backups EPD para o servidor de destino, que não tem suporte no momento. 
+  > Isso será insuficiente para se mover entre a nuvem soberana e uma região pública. Essa migração exigirá a movimentação dos backups da LTR para o servidor de destino, que não é suportado no momento. 
 
 ### <a name="prepare-resources"></a>Preparar recursos
 
-1. Crie um [grupo de failover](sql-database-single-database-failover-group-tutorial.md#2---create-the-failover-group) entre o servidor lógico da origem e o servidor lógico do destino.  
-1. Adicione os bancos de dados que você deseja mover para o grupo de failover. 
-    - A replicação de todos os bancos de dados adicionados será iniciada automaticamente. Para obter mais informações, consulte [práticas recomendadas para usar grupos de failover com bancos de dados individuais](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
+1. Crie um [grupo de failover](sql-database-single-database-failover-group-tutorial.md#2---create-the-failover-group) entre o servidor lógico da fonte para o servidor lógico do destino.  
+1. Adicione os bancos de dados que deseja mover para o grupo de failover. 
+    - A replicação de todos os bancos de dados adicionados será iniciada automaticamente. Para obter mais informações, consulte [As melhores práticas para usar grupos de failover com bancos de dados únicos](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
  
-### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
+### <a name="monitor-the-preparation-process"></a>Monitore o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**: 
-   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança. 
-   - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
+Você pode ligar periodicamente para [get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto `Get-AzSqlDatabaseFailoverGroup` de saída de inclui uma propriedade para o **Estado de replicação**: 
+   - **ReplicationState = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser reprovado com segurança. 
+   - **ReplicationState = 0** (SEEDING) indica que o banco de dados ainda não está semeado, e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
 
-Depois que o **replicationstate** é `2`, conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado. 
+Uma vez que `2` **o ReplicationState** esteja, conecte-se a cada `<fog-name>.secondary.database.windows.net` banco de dados ou subconjunto de bancos de dados usando o ponto final secundário e execute qualquer consulta contra os bancos de dados para garantir conectividade, configuração de segurança adequada e replicação de dados. 
 
-### <a name="initiate-the-move"></a>Iniciar a movimentação
+### <a name="initiate-the-move"></a>Inicie o movimento
 
-1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net`.
-1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida. 
-1. Verifique se o comando foi concluído com êxito usando `nslook up <fog-name>.secondary.database.windows.net` para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
+1. Conecte-se ao servidor de `<fog-name>.secondary.database.windows.net`destino usando o ponto final secundário .
+1. Use [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para alternar a instância secundária gerenciada para ser a principal com sincronização completa. Esta operação terá sucesso, ou vai reverter. 
+1. Verifique se o comando foi `nslook up <fog-name>.secondary.database.windows.net` concluído com sucesso usando para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
 
-### <a name="remove-the-source-databases"></a>Remover os bancos de dados de origem
+### <a name="remove-the-source-databases"></a>Remova os bancos de dados de origem
 
-Quando a movimentação for concluída, remova os recursos na região de origem para evitar encargos desnecessários. 
+Uma vez que a mudança seja concluída, remova os recursos na região de origem para evitar cobranças desnecessárias. 
 
-1. Exclua o grupo de failover usando [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). 
-1. Exclua cada banco de dados de origem usando [Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) para cada um dos bancos de dados no servidor de origem. Isso irá encerrar automaticamente os links de replicação geográfica. 
-1. Exclua o servidor de origem usando [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
-1. Remova o cofre de chaves, os contêineres de armazenamento de auditoria, o Hub de eventos, a instância do AAD e outros recursos dependentes para parar de ser cobrados por eles. 
+1. Exclua o grupo failover usando [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). 
+1. Exclua cada banco de dados de origem usando [remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) para cada um dos bancos de dados no servidor de origem. Isso encerrará automaticamente os links de geo-replicação. 
+1. Exclua o servidor de origem usando [remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
+1. Remova o cofre-chave, os contêineres de armazenamento de auditoria, o hub de eventos, a instância AAD e outros recursos dependentes para deixar de ser cobrado por eles. 
 
-## <a name="move-elastic-pools"></a>Mover pools elásticos
+## <a name="move-elastic-pools"></a>Mova piscinas elásticas
 
 ### <a name="verify-prerequisites"></a>Verificar pré-requisitos 
 
 1. Crie um servidor lógico de destino para cada servidor de origem. 
-1. Configure o firewall com as exceções corretas usando o [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
-1. Configure os servidores lógicos com os logons corretos. Se você não for o administrador da assinatura ou o administrador do SQL Server, trabalhe com o administrador para atribuir as permissões necessárias. Para obter mais informações, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md). 
-1. Se seus bancos de dados forem criptografados com TDE e usar sua própria chave de criptografia no cofre de chaves do Azure, verifique se o material de criptografia correto está provisionado na região de destino.
-1. Crie um pool elástico de destino para cada pool elástico de origem, certificando-se de que o pool seja criado na mesma camada de serviço, com o mesmo nome e o mesmo tamanho. 
-1. Se uma auditoria no nível do banco de dados estiver habilitada, desabilite-a e habilite a auditoria no nível do servidor. Após o failover, a auditoria no nível do banco de dados exigirá tráfego entre regiões, o que não é desejado ou possível após a movimentação. 
-1. Para auditorias em nível de servidor, verifique se:
-    - O contêiner de armazenamento, Log Analytics ou Hub de eventos com os logs de auditoria existentes são movidos para a região de destino.
-    - A configuração de auditoria está configurada no servidor de destino. Para obter mais informações, consulte [auditoria do banco de dados SQL](sql-database-auditing.md).
-1. Se sua instância tiver uma EPD (política de retenção de longo prazo), os backups EPD existentes permanecerão associados ao servidor atual. Como o servidor de destino é diferente, você poderá acessar os backups LTR mais antigos na região de origem usando o servidor de origem, mesmo que o servidor seja excluído. 
+1. Configure o firewall com as exceções certas usando [o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
+1. Configure os servidores lógicos com os logins corretos. Se você não é o administrador de assinatura ou administrador do servidor SQL, trabalhe com o administrador para atribuir as permissões que você precisa. Para obter mais informações, consulte [Como gerenciar a segurança do banco de dados Azure SQL após a recuperação de desastres](sql-database-geo-replication-security-config.md). 
+1. Se seus bancos de dados estiverem criptografados com TDE e usarem sua própria chave de criptografia no cofre de chaves do Azure, certifique-se de que o material de criptografia correto seja provisionado na região de destino.
+1. Crie um pool elástico de destino para cada piscina elástica de origem, certificando-se de que a piscina seja criada no mesmo nível de serviço, com o mesmo nome e o mesmo tamanho. 
+1. Se uma auditoria em nível de banco de dados estiver ativada, desative-a e habilite a auditoria em nível de servidor. Após o failover, a auditoria em nível de banco de dados exigirá tráfego transversal, o que não é desejado ou possível após a mudança. 
+1. Para auditorias em nível de servidor, certifique-se de que:
+    - O contêiner de armazenamento, o Log Analytics ou o hub de eventos com os registros de auditoria existentes são movidos para a região de destino.
+    - A configuração de auditoria é configurada no servidor de destino. Para obter mais informações, consulte [auditoria de banco de dados SQL](sql-database-auditing.md).
+1. Se a sua instância tiver uma política de retenção de longo prazo (LTR), os backups LTR existentes permanecerão associados ao servidor atual. Como o servidor de destino é diferente, você poderá acessar os backups LTR mais antigos na região de origem usando o servidor de origem, mesmo que o servidor seja excluído. 
 
   > [!NOTE]
-  > Isso será insuficiente para a movimentação entre a nuvem soberanas e uma região pública. Essa migração exigirá a movimentação dos backups EPD para o servidor de destino, que não tem suporte no momento. 
+  > Isso será insuficiente para se mover entre a nuvem soberana e uma região pública. Essa migração exigirá a movimentação dos backups da LTR para o servidor de destino, que não é suportado no momento. 
 
-### <a name="prepare-to-move"></a>Preparar para mover
+### <a name="prepare-to-move"></a>Prepare-se para se mover
  
-1.  Crie um [grupo de failover](sql-database-elastic-pool-failover-group-tutorial.md#3---create-the-failover-group) separado entre cada pool elástico no servidor lógico de origem e seu pool elástico de contraparte no servidor de destino. 
+1.  Crie um grupo de [failover](sql-database-elastic-pool-failover-group-tutorial.md#3---create-the-failover-group) separado entre cada pool elástico no servidor lógico de origem e seu pool elástico de contrapartida no servidor de destino. 
 1.  Adicione todos os bancos de dados no pool ao grupo de failover. 
-    - A replicação dos bancos de dados adicionados será iniciada automaticamente. Para obter mais informações, consulte [práticas recomendadas para grupos de failover com pools elásticos](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
+    - A replicação dos bancos de dados adicionados será iniciada automaticamente. Para obter mais informações, consulte [as melhores práticas para grupos de failover com piscinas elásticas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
 
   > [!NOTE]
-  > Embora seja possível criar um grupo de failover que inclua vários pools elásticos, é altamente recomendável que você crie um grupo de failover separado para cada pool. Se você tiver um grande número de bancos de dados em vários pools elásticos que você precisa mover, poderá executar as etapas de preparação em paralelo e, em seguida, iniciar a etapa de movimentação em paralelo. Esse processo será dimensionado melhor e levará menos tempo em comparação a ter vários pools elásticos no mesmo grupo de failover. 
+  > Embora seja possível criar um grupo de failover que inclua vários pools elásticos, recomendamos fortemente que você crie um grupo de failover separado para cada pool. Se você tiver um grande número de bancos de dados em vários pools elásticos que você precisa mover, você pode executar as etapas de preparação em paralelo e, em seguida, iniciar a etapa de movimento em paralelo. Este processo irá escalar melhor e levará menos tempo em comparação com ter vários pools elásticos no mesmo grupo de failover. 
 
-### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
+### <a name="monitor-the-preparation-process"></a>Monitore o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**: 
-   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança. 
-   - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
+Você pode ligar periodicamente para [get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto `Get-AzSqlDatabaseFailoverGroup` de saída de inclui uma propriedade para o **Estado de replicação**: 
+   - **ReplicationState = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser reprovado com segurança. 
+   - **ReplicationState = 0** (SEEDING) indica que o banco de dados ainda não está semeado, e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
  
-Depois que o **replicationstate** é `2`, conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado. 
+Uma vez que `2` **o ReplicationState** esteja, conecte-se a cada `<fog-name>.secondary.database.windows.net` banco de dados ou subconjunto de bancos de dados usando o ponto final secundário e execute qualquer consulta contra os bancos de dados para garantir conectividade, configuração de segurança adequada e replicação de dados. 
 
-### <a name="initiate-the-move"></a>Iniciar a movimentação
+### <a name="initiate-the-move"></a>Inicie o movimento
  
-1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net`.
-1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida. 
-1. Verifique se o comando foi concluído com êxito usando `nslook up <fog-name>.secondary.database.windows.net` para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
+1. Conecte-se ao servidor de `<fog-name>.secondary.database.windows.net`destino usando o ponto final secundário .
+1. Use [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para alternar a instância secundária gerenciada para ser a principal com sincronização completa. Esta operação terá sucesso, ou vai reverter. 
+1. Verifique se o comando foi `nslook up <fog-name>.secondary.database.windows.net` concluído com sucesso usando para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
 
-### <a name="remove-the-source-elastic-pools"></a>Remover os pools elásticos de origem
+### <a name="remove-the-source-elastic-pools"></a>Remova as piscinas elásticas de origem
  
-Quando a movimentação for concluída, remova os recursos na região de origem para evitar encargos desnecessários. 
+Uma vez que a mudança seja concluída, remova os recursos na região de origem para evitar cobranças desnecessárias. 
 
-1. Exclua o grupo de failover usando [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup).
+1. Exclua o grupo failover usando [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup).
 1. Exclua cada pool elástico de origem no servidor de origem usando [Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool). 
-1. Exclua o servidor de origem usando [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
-1. Remova o cofre de chaves, os contêineres de armazenamento de auditoria, o Hub de eventos, a instância do AAD e outros recursos dependentes para parar de ser cobrados por eles. 
+1. Exclua o servidor de origem usando [remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
+1. Remova o cofre-chave, os contêineres de armazenamento de auditoria, o hub de eventos, a instância AAD e outros recursos dependentes para deixar de ser cobrado por eles. 
 
 ## <a name="move-managed-instance"></a>Mover instância gerenciada
 
 ### <a name="verify-prerequisites"></a>Verificar pré-requisitos
  
-1. Para cada instância gerenciada de origem, crie uma instância gerenciada de destino do mesmo tamanho na região de destino.  
-1. Configure a rede para uma instância gerenciada. Para obter mais informações, consulte [configuração de rede](sql-database-howto-managed-instance.md#network-configuration).
-1. Configure o banco de dados mestre de destino com os logons corretos. Se você não for o administrador da assinatura ou o administrador do SQL Server, trabalhe com o administrador para atribuir as permissões necessárias. 
-1. Se seus bancos de dados forem criptografados com TDE e usar sua própria chave de criptografia no cofre de chaves do Azure, verifique se o AKV com chaves de criptografia idênticas existe nas regiões de origem e de destino. Para obter mais informações, consulte [TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
-1. Se a auditoria estiver habilitada para a instância, verifique se:
-    - O contêiner de armazenamento ou Hub de eventos com os logs existentes é movido para a região de destino. 
-    - A auditoria está configurada na instância de destino. Para obter mais informações, consulte [auditoria com instância gerenciada](sql-database-managed-instance-auditing.md).
-1. Se sua instância tiver uma EPD (política de retenção de longo prazo), os backups EPD existentes permanecerão associados ao servidor atual. Como o servidor de destino é diferente, você poderá acessar os backups LTR mais antigos na região de origem usando o servidor de origem, mesmo que o servidor seja excluído. 
+1. Para cada instância gerenciada por origem, crie uma instância gerenciada de destino do mesmo tamanho na região de destino.  
+1. Configure a rede para uma instância gerenciada. Para obter mais informações, consulte [a configuração da rede](sql-database-howto-managed-instance.md#network-configuration).
+1. Configure o banco de dados mestre de destino com os logins corretos. Se você não é o administrador de assinatura ou administrador do servidor SQL, trabalhe com o administrador para atribuir as permissões que você precisa. 
+1. Se seus bancos de dados estiverem criptografados com O TDE e usarem sua própria chave de criptografia no cofre de chaves do Azure, certifique-se de que o AKV com chaves de criptografia idênticas exista nas regiões de origem e destino. Para obter mais informações, consulte [o TDE com chaves gerenciadas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
+1. Se a auditoria estiver ativada por exemplo, certifique-se de que:
+    - O contêiner de armazenamento ou o centro de eventos com os registros existentes é movido para a região alvo. 
+    - A auditoria é configurada na instância de destino. Para obter mais informações, consulte [auditoria com instância gerenciada](sql-database-managed-instance-auditing.md).
+1. Se a sua instância tiver uma política de retenção de longo prazo (LTR), os backups LTR existentes permanecerão associados ao servidor atual. Como o servidor de destino é diferente, você poderá acessar os backups LTR mais antigos na região de origem usando o servidor de origem, mesmo que o servidor seja excluído. 
 
   > [!NOTE]
-  > Isso será insuficiente para a movimentação entre a nuvem soberanas e uma região pública. Essa migração exigirá a movimentação dos backups EPD para o servidor de destino, que não tem suporte no momento. 
+  > Isso será insuficiente para se mover entre a nuvem soberana e uma região pública. Essa migração exigirá a movimentação dos backups da LTR para o servidor de destino, que não é suportado no momento. 
 
 ### <a name="prepare-resources"></a>Preparar recursos
 
 Crie um grupo de failover entre cada instância de origem e a instância de destino correspondente.
-    - A replicação de todos os bancos de dados em cada instância será iniciada automaticamente. Consulte [grupos de failover automático](sql-database-auto-failover-group.md) para obter mais informações.
+    - A replicação de todos os bancos de dados em cada instância será iniciada automaticamente. Consulte [grupos de failover automático para](sql-database-auto-failover-group.md) obter mais informações.
 
  
-### <a name="monitor-the-preparation-process"></a>Monitorar o processo de preparação
+### <a name="monitor-the-preparation-process"></a>Monitore o processo de preparação
 
-Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) periodicamente para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto de saída de `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o **replicationstate**: 
-   - **Replicationstate = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ter o failover com segurança. 
-   - **Replicationstate = 0** (propagação) indica que o banco de dados ainda não foi propagado e uma tentativa de failover falhará. 
+Você pode ligar periodicamente para [get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) para monitorar a replicação de seus bancos de dados da origem para o destino. O objeto `Get-AzSqlDatabaseFailoverGroup` de saída de inclui uma propriedade para o **Estado de replicação**: 
+   - **ReplicationState = 2** (CATCH_UP) indica que o banco de dados está sincronizado e pode ser reprovado com segurança. 
+   - **ReplicationState = 0** (SEEDING) indica que o banco de dados ainda não está semeado, e uma tentativa de failover falhará. 
 
 ### <a name="test-synchronization"></a>Sincronização de teste
 
-Depois que o **replicationstate** é `2`, conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado. 
+Uma vez que `2` **o ReplicationState** esteja, conecte-se a cada `<fog-name>.secondary.database.windows.net` banco de dados ou subconjunto de bancos de dados usando o ponto final secundário e execute qualquer consulta contra os bancos de dados para garantir conectividade, configuração de segurança adequada e replicação de dados. 
 
-### <a name="initiate-the-move"></a>Iniciar a movimentação 
+### <a name="initiate-the-move"></a>Inicie o movimento 
 
-1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net`.
-1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida. 
-1. Verifique se o comando foi concluído com êxito usando `nslook up <fog-name>.secondary.database.windows.net` para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
+1. Conecte-se ao servidor de `<fog-name>.secondary.database.windows.net`destino usando o ponto final secundário .
+1. Use [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) para alternar a instância secundária gerenciada para ser a principal com sincronização completa. Esta operação terá sucesso, ou vai reverter. 
+1. Verifique se o comando foi `nslook up <fog-name>.secondary.database.windows.net` concluído com sucesso usando para verificar se a entrada DNS CNAME aponta para o endereço IP da região de destino. Se o comando switch falhar, o CNAME não será atualizado. 
 
-### <a name="remove-the-source-managed-instances"></a>Remover as instâncias gerenciadas de origem
-Quando a movimentação for concluída, remova os recursos na região de origem para evitar encargos desnecessários. 
+### <a name="remove-the-source-managed-instances"></a>Remova as instâncias gerenciadas da fonte
+Uma vez que a mudança seja concluída, remova os recursos na região de origem para evitar cobranças desnecessárias. 
 
-1. Exclua o grupo de failover usando [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). Isso removerá a configuração do grupo de failover e encerrará os links de replicação geográfica entre as duas instâncias. 
+1. Exclua o grupo failover usando [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). Isso soltará a configuração do grupo failover e encerrará os links de georeplicação entre as duas instâncias. 
 1. Exclua a instância gerenciada de origem usando [Remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance). 
-1. Remova todos os recursos adicionais no grupo de recursos, como o cluster virtual, a rede virtual e o grupo de segurança. 
+1. Remova quaisquer recursos adicionais no grupo de recursos, como o cluster virtual, a rede virtual e o grupo de segurança. 
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-[Gerencie](sql-database-manage-after-migration.md) seu banco de dados SQL do Azure depois que ele tiver sido migrado. 
+[Gerencie](sql-database-manage-after-migration.md) seu banco de dados SQL do Azure assim que ele for migrado. 
 

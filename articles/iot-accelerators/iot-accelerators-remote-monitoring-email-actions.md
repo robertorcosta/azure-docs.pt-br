@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168371"
 ---
 # <a name="add-an-email-action"></a>Adicionar uma ação de e-mail
@@ -81,7 +81,7 @@ Siga estas etapas para adicionar uma ação de e-mail ao criar uma nova regra:
 
 Sua regra com uma ação de e-mail está ativada agora. Cada vez que a ação é acionada, um novo e-mail é enviado para os destinatários.
 
-## Entre no Outlook <a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Entre no Outlook <a name="outlook"></a>
 
 Na primeira vez em que você ativar uma ação de e-mail no acelerador de solução, será necessário entrar no Outlook. Esta ação configura a conta de e-mail que envia as notificações por e-mail.
 
@@ -138,7 +138,7 @@ As etapas a seguir ajudam você a fazer login e configurar ações de e-mail:
 
    ![Sinal de sucesso no Outlook](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## Personalize o e-mail HTML <a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>Personalize o e-mail HTML <a name="htmledit"></a>
 
 Fora da caixa, o acelerador de solução de Monitoramento Remoto fornece um modelo HTML básico para e-mails de ação. O modelo de e-mail usa valores das configurações de ação de e-mail. Aqui está um exemplo de e-mail:
 

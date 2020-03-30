@@ -1,5 +1,5 @@
 ---
-title: Análises de recuperação de desastre
+title: Brocas de recuperação de desastres
 description: Aprenda diretrizes e melhores práticas para usar o Banco de Dados SQL do Azure para executar simulações de recuperação de desastre.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825848"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Executar análise de recuperação de desastres
@@ -68,6 +68,6 @@ Conclua a análise verificando a integridade do aplicativo após a recuperação
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre cenários de continuidade dos negócios, consulte [Cenários de continuidade](sql-database-business-continuity.md).
-* Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, consulte [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
-* Para saber mais sobre como usar backups automatizados para recuperação, consulte [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
+* Para saber mais sobre backups automatizados do Azure SQL Database, consulte [backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+* Para saber mais sobre o uso de backups automatizados para recuperação, consulte [restaurar um banco de dados a partir dos backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
 * Para saber mais sobre opções de recuperação mais rápidas, consulte [Replicação geográfica ativa](sql-database-active-geo-replication.md) e [Grupos de failover automático](sql-database-auto-failover-group.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: provisionamento de usuário para Pingboard-Azure AD'
+title: 'Tutorial: Provisão de usuários para Pingboard - Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar contas de usuário automaticamente para o Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -16,22 +16,22 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061268"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que você precisa seguir para habilitar o provisionamento automático e o desprovisionamento de contas de usuário do Azure AD (Active Directory do Azure) para o Pingboard.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Um locatário do Azure AD
-* Uma [Conta Pro](https://pingboard.com/pricing) do locatário do Pingboard
+* Uma conta [Pro](https://pingboard.com/pricing) inquilino pingboard
 * Uma conta de usuário no Pingboard com permissões de administrador
 
 > [!NOTE]
@@ -74,7 +74,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
     b. Entre no [Pingboard](https://pingboard.com/) usando sua conta do administrador.
 
-    c. Selecione **Complementos** > **Integrações** > **Azure Active Directory**.
+    c. Selecione **Integrações** > **adicionais** > **Azure Active Directory**.
 
     d. Acesse a guia **Configurar** e selecione **Habilitar provisionamento de usuário do Azure**.
 
@@ -82,11 +82,11 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 1. No portal do Azure, selecione **Testar Conexão** para testar se o Azure AD pode se conectar ao seu aplicativo Pingboard. Se a conexão falhar, teste a sua conta do Pingboard tem permissões de administrador e tente a **Testar Conexão** etapa novamente.
 
-1. Insira o endereço de email de uma pessoa ou um grupo que você deseja que receba notificações de erro de provisionamento no campo **Email de Notificação**. Marque a caixa de seleção logo abaixo.
+1. Digite o endereço de e-mail de uma pessoa ou grupo que você deseja receber notificações de erro de provisionamento no **E-mail de notificação**. Marque a caixa de seleção logo abaixo.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
-1. Na seção **Mapeamentos**, selecione **Sincronizar usuários do Azure Active Directory com o Pingboard**.
+1. Na seção **Mapeamentos,** selecione **Sincronizar usuários do diretório ativo do Azure para pingboard**.
 
 1. Na seção **Mapeamentos de Atributo**, verifique os atributos do usuário a serem sincronizados entre o Azure AD e o Pingboard. Os atributos selecionados como propriedades de **Correspondência** são usados para associar as contas de usuário no Pingboard para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**. Para obter mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento do usuário](../app-provisioning/customize-application-attributes.md).
 
@@ -100,6 +100,6 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar Logon Único](pingboard-tutorial.md)
+* [Gerenciar o provisionamento de contas de usuário para aplicativos corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configure a inscrição única](pingboard-tutorial.md)

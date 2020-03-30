@@ -1,6 +1,6 @@
 ---
-title: O que é o recurso Autoregistro de zonas privadas do DNS do Azure
-description: Visão geral do recurso de Autoregistro de zonas privadas do DNS do Azure
+title: O que é o recurso de registro automático das zonas privadas do Azure DNS
+description: Visão geral do recurso de registro automático das zonas privadas do Azure DNS
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: 9d1854b459e799d5cbb401de9ac717dd7d0fde1d
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71961209"
 ---
-# <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>O que é o recurso Autoregistro de zonas privadas do DNS do Azure
+# <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qual é o recurso de registro automático das zonas privadas do Azure DNS
 
-O recurso de registro automático de zonas privadas do DNS do Azure elimina o problema do gerenciamento de registros DNS para máquinas virtuais implantadas em uma rede virtual. Quando você [vincula uma rede virtual](./private-dns-virtual-network-links.md) a uma zona DNS privada e habilita o registro automático para todas as máquinas virtuais, os registros DNS para as máquinas virtuais implantadas na rede virtual são criados automaticamente na zona DNS privada. Além de encaminhar registros de aparência (registros A), os registros de pesquisa inversa (registros PTR) também são criados automaticamente para as máquinas virtuais.
-Se você adicionar mais máquinas virtuais à rede virtual, os registros DNS para essas máquinas virtuais também serão criados automaticamente na zona DNS privada vinculada.
+O recurso de registro automático de zonas privadas do Azure DNS tira a dor do gerenciamento de registros DNS para máquinas virtuais implantadas em uma rede virtual. Quando você [vincula uma rede virtual](./private-dns-virtual-network-links.md) a uma zona dns privada e habilita o registro automático para todas as máquinas virtuais, os registros de DNS para as máquinas virtuais implantadas na rede virtual são criados automaticamente na zona de DNS privada. Além dos registros de olhar futuro (Registros A), os registros de busca reversa (registros PTR) também são criados automaticamente para as máquinas virtuais.
+Se você adicionar mais máquinas virtuais à rede virtual, os registros DeDNS para essas máquinas virtuais também serão criados automaticamente na zona de DNS privada vinculada.
 
-Quando você exclui uma máquina virtual, os registros DNS da máquina virtual são automaticamente excluídos da zona DNS privada.
+Quando você exclui uma máquina virtual, os registros De DNS para a máquina virtual são automaticamente excluídos da zona DNS privada.
 
-Você pode habilitar o registro automático selecionando a opção "Habilitar registro auto" ao criar um link de rede virtual.
+Você pode habilitar o registro automático selecionando a opção "Ativar registro automático" ao criar um link de rede virtual.
 
-![Habilitar o registro automático](./media/privatedns-concepts/enable-autoregistration.png)
+![Habilite o registro automático](./media/privatedns-concepts/enable-autoregistration.png)
 
 ## <a name="restrictions"></a>Restrições
 
-* O Autoregistro funciona apenas para máquinas virtuais. Para todos os outros recursos, como balanceadores de carga internos, etc., você pode criar registros DNS manualmente na zona DNS privada vinculada à rede virtual.
-* Os registros DNS são criados automaticamente somente para a NIC de máquina virtual primária. Se suas máquinas virtuais tiverem mais de uma NIC, você poderá criar manualmente os registros DNS para outras interfaces de rede.
-* Não há suporte para o registro em IPv6 (registros AAAA).
+* O registro automático funciona apenas para máquinas virtuais. Para todos os outros recursos, como balanceadores de carga interna, etc., você pode criar registros DNS manualmente na zona dns privada vinculada à rede virtual.
+* Os registros DNS são criados automaticamente apenas para a NIC da máquina virtual primária . Se suas máquinas virtuais tiverem mais de uma NIC, você poderá criar manualmente os registros De DNS para outras interfaces de rede.
+* o registro automático para IPv6 (registros AAAA) não é suportado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
