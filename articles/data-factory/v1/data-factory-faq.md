@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645116"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
@@ -33,7 +33,7 @@ O Data Factory permite que você crie fluxos de trabalho orientados a dados para
 Para obter mais informações, consulte [Visão geral e principais conceitos](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Onde posso encontrar detalhes de preços do Data Factory do Azure?
-Consulte [Data Factory página de detalhes de preços][adf-pricing-details] para obter os detalhes de preços do Azure data Factory.  
+Consulte [a página Detalhes de Preços da Fábrica de Dados][adf-pricing-details] para os detalhes de preços da Fábrica de Dados do Azure.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Como faço para começar a utilizar o Azure Data Factory?
 * Para obter uma visão geral do Azure Data Factory, confira [Introdução ao Azure Data Factory](data-factory-introduction.md).
@@ -41,7 +41,7 @@ Consulte [Data Factory página de detalhes de preços][adf-pricing-details] para
 * Para obter um tutorial sobre como **transformar dados** usando a atividade Hive do HDInsight. Consulte [Processar dados executando o script do Hive no cluster do Hadoop](data-factory-build-your-first-pipeline.md)
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>Qual é a disponibilidade de região do Data Factory?
-O Data Factory está disponível no **Oeste dos EUA** e no **Europa Setentrional**. Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões. Consulte [Regiões com suporte](data-factory-introduction.md#supported-regions).
+O Data Factory está disponível no **Oeste dos EUA** e no **Norte da Europa**. Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões. Consulte [regiões suportadas](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Quais são os limites de número de fábricas/pipelines/atividades/conjuntos de dados?
 Veja a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e restrições da assinatura e do serviço do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
@@ -50,16 +50,16 @@ Veja a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e res
 Você pode criar fábricas de dados usando um dos SDKs/ferramentas a seguir:
 
 * **Visual Studio** Você pode usar o Visual Studio para criar uma fábrica de dados do Azure. Consulte [Criar seu primeiro pipeline de dados usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes.
-* **Azure PowerShell** Veja [Criar e monitorar o Azure Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para ver um tutorial/passo a passo da criação de uma fábrica de dados usando o PowerShell. Consulte [Data Factory][adf-powershell-reference] o conteúdo de referência do cmdlet na biblioteca MSDN para obter uma documentação abrangente dos cmdlets data Factory.
-* **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Consulte [Data Factory referência da biblioteca de classes][msdn-class-library-reference] para obter uma documentação abrangente de data Factory SDK do .net.
-* **REST API** Você também pode usar a API REST exposta pelo serviço do Azure Data Factory para criar e implantar fábricas de dados. Consulte [Data Factory referência da API REST][msdn-rest-api-reference] para obter uma documentação abrangente de data Factory API REST.
+* **Azure PowerShell** Consulte [Criar e monitorar a Fábrica de Dados do Azure usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para obter um tutorial/passo a passo para criar uma fábrica de dados usando o PowerShell. Confira o conteúdo de [Referência de cmdlets do Data Factory][adf-powershell-reference] na Biblioteca do MSDN para obter uma documentação abrangente de cmdlets de Data Factory.
+* **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Confira a [Referência da Biblioteca de Classes de Data Factory][msdn-class-library-reference] para obter uma documentação abrangente sobre o SDK do .NET de Data Factory.
+* **REST API** Você também pode usar a API REST exposta pelo serviço do Azure Data Factory para criar e implantar fábricas de dados. Confira a [Referência da API REST de Data Factory][msdn-rest-api-reference] para obter uma documentação abrangente da API REST de Data Factory.
 * **Modelo do Azure Resource Manager** Consulte [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para obter detalhes.
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear um Data Factory?
 Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Posso mover uma fábrica de dados de uma assinatura do Azure para outra?
-Sim. Use o botão **Mover** na folha do data factory, conforme mostrado no diagrama a seguir:
+Sim. Use o botão **Mover** na lâmina de fábrica de dados, conforme mostrado no diagrama a seguir:
 
 ![Mover o Data Factory](media/data-factory-faq/move-data-factory.png)
 
@@ -69,13 +69,13 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | Ambiente de computação | atividades |
 | --- | --- |
 | [Cluster HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
-| [Lote do Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
+| [Lote do Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) |[Dotnet](data-factory-use-custom-activities.md) |
+| [Aprendizado de máquina do Azure](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades de Machine Learning: execução do Lote e recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como o Azure Data Factory se compara com o SSIS (SQL Server Integration Services)? 
-Consulte a apresentação [Azure data Factory versus SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um de nossos MVPs (profissionais mais valorizados): reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no conjunto de slides. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Nós incorporaremos essas atualizações à comparação das tecnologias de integração de dados da Microsoft, mais tarde neste ano.   
+Veja a apresentação [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) de um de nossos MVPs (Profissionais Mais Valorizados): Reza Rad. Algumas das alterações recentes no Data Factory podem não estar listadas no conjunto de slides. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Estamos continuamente adicionando mais recursos ao Azure Data Factory. Nós incorporaremos essas atualizações à comparação das tecnologias de integração de dados da Microsoft, mais tarde neste ano.   
 
 ## <a name="activities---faq"></a>Atividades - Perguntas frequentes
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quais são os tipos diferentes de atividades que você pode usar em um pipeline do Azure Data Factory?
@@ -105,7 +105,7 @@ Consulte [Movimento de dados globalmente disponível](data-factory-data-movement
 
 ## <a name="hdinsight-activity---faq"></a>Atividade de HDInsight - Perguntas frequentes
 ### <a name="what-regions-are-supported-by-hdinsight"></a>O HDInsight dá suporte a quais regiões?
-Consulte a seção de disponibilidade geográfica no seguinte artigo: ou [detalhes de preços do HDInsight][hdinsight-supported-regions].
+Confira a seção de Disponibilidade Geográfica no artigo a seguir ou em [Detalhes de Preços do HDInsight][hdinsight-supported-regions].
 
 ### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>Qual região é utilizada por um cluster HDInsight sob demanda?
 O cluster HDInsight sob demanda é criado na mesma região onde existe o armazenamento especificado para ser utilizado com o cluster existente.    
@@ -113,8 +113,8 @@ O cluster HDInsight sob demanda é criado na mesma região onde existe o armazen
 ### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>Como associar contas de armazenamento adicionais ao cluster HDInsight?
 Se você estiver usando seu próprio cluster HDInsight (BYOC – traga seu próprio Cluster), confira os tópicos a seguir:
 
-* [Usando um cluster HDInsight com metastores e contas de armazenamento alternativas][hdinsight-alternate-storage]
-* [Usar contas de armazenamento adicionais com o hive do HDInsight][hdinsight-alternate-storage-2]
+* [Usando um Cluster HDInsight com metastores e contas de armazenamento alternativas][hdinsight-alternate-storage]
+* [Usar contas de armazenamento adicionais com o HDInsight Hive][hdinsight-alternate-storage-2]
 
 Se você estiver usando um cluster sob demanda que é criado pelo serviço Data Factory, deverá especificar contas de armazenamento adicionais para o serviço vinculado HDInsight para que o serviço Data Factory possa registrá-los em seu nome. Na definição de JSON para o serviço vinculado sob demanda, use a propriedade **additionalLinkedServiceNames** para especificar contas de armazenamento alternativas, como mostrado no snippet de JSON a seguir:
 
@@ -170,12 +170,12 @@ Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
 * Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Veja [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para obter instruções.   
 * Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal do Azure.
-* Execute o cmdlet **set-AzDataFactorySliceStatus** com o status definido como **aguardando** a fatia.   
+* Executar **set-AzDataFactorySliceStatus** cmdlet com status definido **como Esperando** a fatia.   
 
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Consulte [set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
+  Consulte [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Quanto tempo levou para processar uma fatia?
 Use o Gerenciador de Janela de Atividade no Aplicativo Monitorar e Gerenciar para saber quanto tempo foi necessário para processar uma fatia de dados. Confira [Gerenciador de Janelas de Atividades](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.
@@ -190,7 +190,7 @@ Você também pode fazer o seguinte no portal do Azure:
 6. Você deve ver o campo **DURAÇÃO** com um valor. Esse valor é o tempo necessário para processar a fatia.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Como parar uma fatia em execução?
-Se precisar interromper a execução do pipeline, você poderá usar o cmdlet [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) . Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
+Se você precisar impedir a execução do pipeline, você pode usar o cmdlet [Suspend-AzDataFactoryPipeline.](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) Atualmente, suspender o pipeline não interrompe as execuções de fatia que estão em andamento. Depois de concluir as execuções em andamento, nenhuma fatia extra é coletada.
 
 Se você realmente desejar parar todas as execuções imediatamente, a única maneira seria excluir o pipeline e criá-lo novamente. Se você optar por excluir o pipeline, não é necessário excluir tabelas e serviços vinculados usados pelo pipeline.
 

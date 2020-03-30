@@ -1,41 +1,41 @@
 ---
-title: Configurar SSL-banco de dados do Azure para MySQL
+title: Configurar ssl - banco de dados azure para MySQL
 description: Instruções sobre como configurar apropriadamente o Banco de Dados do Azure para MySQL e aplicativos associados a fim de usar as conexões SSL corretamente
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 3a1c7f6542ebdf1617982fbb50a239b66a6675ba
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 3/18/2020
+ms.openlocfilehash: 557986560eb27beddf939bcab7f4d72a66781e53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926706"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062443"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL
 O Banco de Dados do Azure para MySQL dá suporte à conexão de seu servidor de Banco de Dados do Azure para MySQL para aplicativos cliente usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
-Baixe o certificado necessário para comunicação via SSL com o servidor do Banco de Dados do Azure para MySQL de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e salve o arquivo de certificado no disco local (este tutorial usa c:\ssl por exemplo).
+Baixe o certificado necessário para se comunicar por SSL com seu [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) banco de dados Azure para o servidor MySQL e salve o arquivo de certificado na sua unidade local (este tutorial usa c:\ssl, por exemplo).
 **Para o Microsoft Internet Explorer e Microsoft Edge:** depois que o download for concluído, renomeie o certificado para BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="step-2-bind-ssl"></a>Etapa 2: associar o SSL
 
-Para obter cadeias de conexão de linguagem de programação específica, consulte o [código de exemplo](howto-configure-ssl.md#sample-code) abaixo.
+Para obter seqüências específicas de conexão de linguagem de programação, consulte o [código de amostra](howto-configure-ssl.md#sample-code) abaixo.
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Conectando ao servidor usando o MySQL Workbench sobre SSL
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Conectando-se ao servidor usando mysql workbench sobre SSL
 Configure o MySQL Workbench para se conectar com segurança por SSL. 
 
 1. Na caixa de diálogo Configurar Nova Conexão, navegue até a guia **SSL**. 
 
-1. Atualize o campo **usar SSL** para "exigir".
+1. Atualize o **campo Usar SSL** para "Exigir".
 
-1. No campo **arquivo de AC SSL:** , insira o local do arquivo de **BaltimoreCyberTrustRoot. CRT. pem**. 
+1. No campo **Arquivo de AC SSL**:, insira o local do arquivo de **BaltimoreCyberTrustRoot.crt.pem**. 
     
     ![Salvar configuração SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-Para conexões existentes, você pode associar o SSL clicando com o botão direito do mouse no ícone de conexão e escolhendo Editar. Em seguida, navegue até a guia **SSL** e associe o arquivo de certificado.
+Para conexões existentes, você pode vincular o SSL clicando com o botão direito do mouse no ícone de conexão e escolher editar. Em seguida, navegue até a guia **SSL** e associe o arquivo de certificado.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Conectar-se ao servidor usando a CLI do MySQL sobre SSL
 Outra maneira de associar o certificado SSL é usar a interface de linha de comando do MySQL executando os seguintes comandos. 
@@ -68,7 +68,7 @@ Confirme que a conexão é criptografada, revisando a saída, que deve mostrar: 
 ## <a name="sample-code"></a>Código de exemplo
 Para estabelecer uma conexão segura com o Banco de Dados do Azure para MySQL sobre SSL de seu aplicativo, veja os exemplos de código a seguir:
 
-Consulte a lista de [drivers compatíveis](concepts-compatibility.md) com suporte pelo banco de dados do Azure para o serviço mysql.
+Consulte a lista de [drivers compatíveis](concepts-compatibility.md) suportados pelo banco de dados Azure para o serviço MySQL.
 
 ### <a name="php"></a>PHP
 ```php
@@ -79,7 +79,7 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-### <a name="php-using-pdo"></a>PHP (usando PDO)
+### <a name="php-using-pdo"></a>PHP (Usando PDO)
 ```phppdo
 $options = array(
     PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
@@ -147,7 +147,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
 ```
-### <a name="java-mysql-connector-for-java"></a>Java (conector do MySQL para Java)
+### <a name="java-mysql-connector-for-java"></a>Java (Conector MySQL para Java)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -174,7 +174,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="java-mariadb-connector-for-java"></a>Java (conector do MariaDB para Java)
+### <a name="java-mariadb-connector-for-java"></a>Java (Conector MariaDB para Java)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -219,5 +219,5 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Analise as várias opções de conectividade do aplicativo em [Bibliotecas de conexão para o Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)

@@ -1,41 +1,76 @@
 ---
-title: Como configurar identidades gerenciadas para o cluster de Data Explorer do Azure
-description: Saiba como configurar identidades gerenciadas para o cluster de Data Explorer do Azure.
+title: Como configurar identidades gerenciadas para o cluster Azure Data Explorer
+description: Saiba como configurar identidades gerenciadas para o cluster Azure Data Explorer.
 author: saguiitay
 ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: e76ae2e072bb780ac9788902e9157db871e4f09d
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.date: 03/12/2020
+ms.openlocfilehash: f9592f5d2666684e0cf5eef687b1e69cfb55066c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373379"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065555"
 ---
-# <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configurar identidades gerenciadas para o cluster de Data Explorer do Azure
+# <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configure identidades gerenciadas para o cluster Azure Data Explorer
 
-Uma [identidade gerenciada do Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permite que o cluster acesse facilmente outros recursos protegidos por AAD, como Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Este artigo mostra como criar uma identidade gerenciada para clusters de Data Explorer do Azure. Atualmente, a configuração de identidade gerenciada tem suporte apenas para [habilitar chaves gerenciadas pelo cliente para o cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
+Uma [identidade gerenciada do Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permite que seu cluster acesse facilmente outros recursos protegidos por AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma Azure e não exige que você provisão ou gire quaisquer segredos. Este artigo mostra como criar uma identidade gerenciada para clusters do Azure Data Explorer. A configuração de identidade gerenciada é suportada atualmente apenas para [habilitar chaves gerenciadas pelo cliente para o cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
-> As identidades gerenciadas para o Azure Data Explorer não se comportarão conforme o esperado se seu aplicativo for migrado entre assinaturas ou locatários. O aplicativo precisará obter uma nova identidade, o que pode ser feito desabilitando e reabilitando o recurso usando [remover uma identidade](#remove-an-identity). As políticas de acesso dos recursos downstream também precisarão ser atualizadas para usar a nova identidade.
+> As identidades gerenciadas do Azure Data Explorer não se comportarão como esperado se seu aplicativo for migrado entre assinaturas ou inquilinos. O aplicativo precisará obter uma nova identidade, o que pode ser feito [desativando](#remove-a-system-assigned-identity) e [reativando](#add-a-system-assigned-identity) o recurso. As políticas de acesso aos recursos a jusante também precisarão ser atualizadas para usar a nova identidade.
 
-## <a name="add-a-system-assigned-identity"></a>Adicionar uma identidade atribuída pelo sistema
+## <a name="add-a-system-assigned-identity"></a>Adicionar uma identidade atribuída ao sistema
+                                                                                                    
+Atribuir uma identidade atribuída ao sistema que está vinculada ao seu cluster e é excluído se o cluster for excluído. Um cluster só pode ter uma identidade atribuída ao sistema. Criar um cluster com uma identidade atribuída ao sistema requer que uma propriedade adicional seja definida no cluster. A identidade atribuída ao sistema é adicionada usando C#, modelos ARM ou o portal Azure conforme detalhado abaixo.
 
-O cluster pode ser atribuído a uma **identidade atribuída pelo sistema** que esteja vinculada ao cluster e será excluído se o cluster for excluído. Um cluster só pode ter uma identidade atribuída pelo sistema. A criação de um cluster com uma identidade atribuída pelo sistema requer que uma propriedade adicional seja definida no cluster.
+# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
 
-### <a name="add-a-system-assigned-identity-using-c"></a>Adicionar uma identidade atribuída pelo sistema usandoC#
+### <a name="add-a-system-assigned-identity-using-the-azure-portal"></a>Adicione uma identidade atribuída ao sistema usando o portal Azure
 
-Para configurar uma identidade gerenciada usando o cliente do C# Azure data Explorer, faça o seguinte:
+1. Faça login no [portal Azure](https://portal.azure.com/).
 
-* Instale o [pacote NuGet do Azure data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Instale o [pacote NuGet Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
-* Para executar o exemplo a seguir, [crie um aplicativo do Azure AD e uma](/azure/active-directory/develop/howto-create-service-principal-portal) entidade de serviço que possa acessar recursos. Você pode adicionar a atribuição de função no escopo da assinatura e obter os `Directory (tenant) ID`, `Application ID`e `Client Secret`necessários.
+#### <a name="new-azure-data-explorer-cluster"></a>Novo cluster Azure Data Explorer
 
-#### <a name="create-or-update-your-cluster"></a>Criar ou atualizar seu cluster
+1. [Crie um cluster Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal#create-a-cluster) 
+1. Na guia **Segurança** > **Sistema atribuído identidade, selecione** **Em**. Para remover a identidade atribuída ao sistema, selecione **Desfazer**.
+2. Selecione **Next:Tags>** ou **Review + create** para criar o cluster.
 
-1. Crie ou atualize seu cluster usando a propriedade `Identity`:
+    ![Adicionar identidade atribuída ao sistema ao novo cluster](media/managed-identities/system-assigned-identity-new-cluster.png)
+
+#### <a name="existing-azure-data-explorer-cluster"></a>Cluster Azure Data Explorer existente
+
+1. Abra um cluster azure Data Explorer existente.
+1. Selecione **Configurações** > **Identidade** no painel esquerdo do portal.
+1. Na guia **'Sistema** > painel de **identidade' atribuído:**
+   1. Mova o controle deslizante **de status** para **On**.
+   1. Selecione **Salvar**
+   1. Na janela pop-up, selecione **Sim**
+
+    ![Adicionar identidade atribuída ao sistema](media/managed-identities/turn-system-assigned-identity-on.png)
+
+1. Depois de alguns minutos, a tela mostra: 
+  * **ID de objeto** - usado para chaves gerenciadas pelo cliente 
+  * **Atribuições de funções** - clique em link para atribuir funções relevantes
+
+    ![Identidade atribuída ao sistema em](media/managed-identities/system-assigned-identity-on.png)
+
+# <a name="c"></a>[C #](#tab/c-sharp)
+
+### <a name="add-a-system-assigned-identity-using-c"></a>Adicionar uma identidade atribuída ao sistema usando C #
+
+#### <a name="prerequisites"></a>Pré-requisitos
+
+Para configurar uma identidade gerenciada usando o cliente Azure Data Explorer C#:
+
+* Instale o pacote NuGet do [Azure Data Explorer (Kusto).](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)
+* Instale o [pacote Microsoft.IdentityModel.Clients.ActiveDirectory NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
+* [Crie um aplicativo ad](/azure/active-directory/develop/howto-create-service-principal-portal) e um princípio de serviço do Azure que possam acessar recursos. Você adiciona atribuição de função no `Directory (tenant) ID` `Application ID`escopo `Client Secret`da assinatura e recebe o necessário, e .
+
+#### <a name="create-or-update-your-cluster"></a>Crie ou atualize seu cluster
+
+1. Crie ou atualize `Identity` seu cluster usando a propriedade:
 
     ```csharp
     var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -52,7 +87,7 @@ Para configurar uma identidade gerenciada usando o cliente do C# Azure data Expl
     {
         SubscriptionId = subscriptionId
     };
-    
+                                                                                                    
     var resourceGroupName = "testrg";
     var clusterName = "mykustocluster";
     var location = "Central US";
@@ -65,26 +100,28 @@ Para configurar uma identidade gerenciada usando o cliente do C# Azure data Expl
     await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
     ```
     
-2. Execute o seguinte comando para verificar se o cluster foi criado com êxito ou atualizado com uma identidade:
+2. Execute o seguinte comando para verificar se o cluster foi criado ou atualizado com sucesso com uma identidade:
 
     ```csharp
     kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
-    Se o resultado contiver `ProvisioningState` com o valor `Succeeded`, o cluster foi criado ou atualizado e deverá ter as seguintes propriedades:
-   
+    Se o `ProvisioningState` resultado `Succeeded` contiver o valor, o cluster foi criado ou atualizado e deve ter as seguintes propriedades:
+
     ```csharp
     var principalId = cluster.Identity.PrincipalId;
     var tenantId = cluster.Identity.TenantId;
     ```
 
-    `PrincipalId` e `TenantId` são substituídos por GUIDs. A propriedade `TenantId` identifica o locatário do AAD ao qual a identidade pertence. O `PrincipalId` é um identificador exclusivo para a nova identidade do cluster. No AAD, a entidade de serviço tem o mesmo nome que você deu à sua instância do Serviço de Aplicativo ou das Funções do Azure.
+`PrincipalId`e `TenantId` são substituídos por GUIDs. A `TenantId` propriedade identifica o inquilino AAD ao qual a identidade pertence. O `PrincipalId` é um identificador único para a nova identidade do cluster. No AAD, a entidade de serviço tem o mesmo nome que você deu à sua instância do Serviço de Aplicativo ou das Funções do Azure.
 
-### <a name="add-a-system-assigned-identity-using-an-azure-resource-manager-template"></a>Adicionar uma identidade atribuída pelo sistema usando um modelo de Azure Resource Manager
+# <a name="arm-template"></a>[Modelo ARM](#tab/arm)
 
-Um modelo do Azure Resource Manager pode ser usado para automatizar a implantação de recursos do Azure. Para saber mais sobre como implantar o Data Explorer do Azure, confira [criar um cluster de data Explorer do Azure e um banco de dados usando um modelo de Azure Resource Manager](create-cluster-database-resource-manager.md).
+### <a name="add-a-system-assigned-identity-using-an-azure-resource-manager-template"></a>Adicione uma identidade atribuída ao sistema usando um modelo do Azure Resource Manager
 
-A adição do tipo atribuído pelo sistema informa ao Azure para criar e gerenciar a identidade do cluster. Qualquer recurso do tipo `Microsoft.Kusto/clusters` pode ser criado com uma identidade, incluindo a propriedade a seguir na definição de recurso: 
+Um modelo do Azure Resource Manager pode ser usado para automatizar a implantação de recursos do Azure. Para saber mais sobre a implantação do Azure Data Explorer, consulte [Criar um cluster e banco de dados do Azure Data Explorer usando um modelo do Azure Resource Manager](create-cluster-database-resource-manager.md).
+
+A adição do tipo atribuído ao sistema diz ao Azure para criar e gerenciar a identidade do seu cluster. Qualquer recurso do tipo `Microsoft.Kusto/clusters` pode ser criado com uma identidade, incluindo a propriedade a seguir na definição de recurso: 
 
 ```json
 "identity": {
@@ -92,7 +129,7 @@ A adição do tipo atribuído pelo sistema informa ao Azure para criar e gerenci
 }    
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```json
 {
@@ -123,11 +160,44 @@ Quando o cluster é criado, ele tem as seguintes propriedades adicionais:
 }
 ```
 
-`<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedade `TenantId` identifica o locatário do AAD ao qual a identidade pertence. O `PrincipalId` é um identificador exclusivo para a nova identidade do cluster. No AAD, a entidade de serviço tem o mesmo nome que você deu à sua instância do Serviço de Aplicativo ou das Funções do Azure.
+`<TENANTID>`e `<PRINCIPALID>` são substituídos por GUIDs. A `TenantId` propriedade identifica o inquilino AAD ao qual a identidade pertence. O `PrincipalId` é um identificador único para a nova identidade do cluster. No AAD, a entidade de serviço tem o mesmo nome que você deu à sua instância do Serviço de Aplicativo ou das Funções do Azure.
 
-## <a name="remove-an-identity"></a>Remover uma identidade
+---
 
-A remoção de uma identidade atribuída pelo sistema também a excluirá do AAD. As identidades atribuídas pelo sistema também são removidas automaticamente do AAD quando o recurso de cluster é excluído. Uma identidade atribuída pelo sistema pode ser removida desabilitando o recurso:
+## <a name="remove-a-system-assigned-identity"></a>Remova uma identidade atribuída ao sistema
+
+A remoção de uma identidade atribuída ao sistema também irá excluí-la do AAD. As identidades atribuídas ao sistema também são automaticamente removidas do AAD quando o recurso de cluster é excluído. Uma identidade atribuída ao sistema pode ser removida desativando o recurso.  A identidade atribuída ao sistema é removida usando c#, modelos ARM ou o portal Azure conforme detalhado abaixo.
+
+# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+
+### <a name="remove-a-system-assigned-identity-using-the-azure-portal"></a>Remova uma identidade atribuída ao sistema usando o portal Azure
+
+1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Selecione **Configurações** > **Identidade** no painel esquerdo do portal.
+1. Na guia **'Sistema** > painel de **identidade' atribuído:**
+    1. Mova o controle deslizante **de status** para **desligado**.
+    1. Selecione **Salvar**
+    1. Na janela pop-up, selecione **Sim** para desativar a identidade atribuída ao sistema. O painel **Identidade** reverte para a mesma condição de antes da adição da identidade atribuída ao sistema.
+
+    ![Sistema atribuído identidade off](media/managed-identities/system-assigned-identity.png)
+
+# <a name="c"></a>[C #](#tab/c-sharp)
+
+### <a name="remove-a-system-assigned-identity-using-c"></a>Remova uma identidade atribuída ao sistema usando C #
+
+Execute o seguinte para remover a identidade atribuída ao sistema:
+
+```csharp
+var identity = new Identity(IdentityType.None);
+var cluster = new Cluster(location, sku, identity: identity);
+await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
+```
+
+# <a name="arm-template"></a>[Modelo ARM](#tab/arm)
+
+### <a name="remove-a-system-assigned-identity-using-an-azure-resource-manager-template"></a>Remova uma identidade atribuída ao sistema usando um modelo do Azure Resource Manager
+
+Execute o seguinte para remover a identidade atribuída ao sistema:
 
 ```json
 "identity": {
@@ -135,9 +205,11 @@ A remoção de uma identidade atribuída pelo sistema também a excluirá do AAD
 }
 ```
 
+---
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Proteger clusters de Data Explorer do Azure no Azure](security.md)
-* [Proteja seu cluster no Azure data Explorer-portal do Azure](manage-cluster-security.md) habilitando a criptografia em repouso.
- * [Configurar chaves gerenciadas pelo cliente usando oC#](customer-managed-keys-csharp.md)
- * [Configurar chaves gerenciadas pelo cliente usando o modelo de Azure Resource Manager](customer-managed-keys-resource-manager.md)
+* [Grupos secure Azure Data Explorer no Azure](security.md)
+* [Proteja seu cluster no Azure Data Explorer - portal Azure,](manage-cluster-security.md) ativando a criptografia em repouso.
+ * [Configure as chaves gerenciadas pelo cliente usando C #](customer-managed-keys-csharp.md)
+ * [Configure as chaves gerenciadas pelo cliente usando o modelo do Azure Resource Manager](customer-managed-keys-resource-manager.md)

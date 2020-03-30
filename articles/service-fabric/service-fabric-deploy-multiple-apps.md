@@ -1,18 +1,18 @@
 ---
-title: Implantar um aplicativo node. js que usa o MongoDB
+title: Implantar um aplicativo Node.js que usa o MongoDB
 description: Instruções passo a passo sobre como empacotar executáveis convidados para implantar em um cluster do Service Fabric do Azure
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4538efc8a2426fc20dd20d1a85edaf6f76bfc649
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614461"
 ---
-# <a name="deploy-multiple-guest-executables"></a>Implantar múltiplos executáveis convidados
+# <a name="deploy-multiple-guest-executables"></a>Implantar vários executáveis de convidado
 Este artigo mostra como empacotar e implantar vários executáveis de convidado no Azure Service Fabric. Para criar e implantar um pacote de Service Fabric único, leia como [implantar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).
 
 Embora este passo a passo mostre como implantar um aplicativo com um front-end Node.js que usa MongoDB como o repositório de dados, você pode aplicar as etapas a qualquer aplicativo que tenha dependências de outro aplicativo.   
@@ -24,7 +24,7 @@ Você pode usar o Visual Studio para gerar o pacote de aplicativos que contém v
 * [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empacotar manualmente o aplicativo executável de vários convidados
-Como alternativa, você pode empacotar manualmente o executável de convidado. Para obter detalhes, consulte [empacotar manualmente e implantar um executável existente](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
+Como alternativa, você pode empacotar manualmente o executável de convidado. Para obter detalhes, consulte [manualmente o pacote e implante um executável existente](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
 ### <a name="packaging-the-nodejs-application"></a>Como empacotar o aplicativo Node.js
 Este artigo pressupõe que o Node.js não esteja instalado em nós do cluster do Service Fabric. Como consequência, você precisa adicionar o Node.exe ao diretório raiz de seu aplicativo de nó antes do empacotamento. A estrutura de diretórios do aplicativo Node.js (usando a estrutura da Web Express e o mecanismo de modelagem Jade) deve ser semelhante ao mostrado abaixo:
@@ -195,7 +195,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Depois que o aplicativo for publicado com êxito no cluster local, você poderá acessar o aplicativo node. js na porta que inserimos no manifesto do serviço do aplicativo node. js, por exemplo, http:\//localhost: 3000.
+Uma vez que o aplicativo seja publicado com sucesso no cluster local, você pode acessar o aplicativo Node.js na porta que\/entramos no manifesto de serviço do aplicativo Node.js — por exemplo http: /localhost:3000.
 
 Neste tutorial, você viu como empacotar facilmente dois aplicativos existentes como um único aplicativo do Service Fabric. Você também aprendeu como implantá-lo no Service Fabric para que ele possa beneficiar dos recursos do Service Fabric, como alta disponibilidade e integração do sistema de integridade.
 
@@ -205,7 +205,7 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute `yo azuresfguest:AddService` e forneça os detalhes necessários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como implantar contêineres com a [Visão geral de contêineres e do Service Fabric](service-fabric-containers-overview.md)
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-containers)

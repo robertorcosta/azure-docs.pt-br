@@ -9,35 +9,35 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78384051"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
 O planejamento e a execução da migração dependem muito da complexidade da arquitetura e podem levar alguns meses.  
 
-## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Qual é a definição de um novo cliente em VMs de IaaS (clássico)?
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Qual é a definição de um novo cliente em VMs IaaS (clássico)?
 
-Os clientes que não tiverem VMs IaaS (clássicas) em suas assinaturas no mês de Febrauary 2020 (um mês antes da reprovação iniciada) serão considerados como novos clientes. 
+Os clientes que não possuíam VMs IaaS (clássicos) em suas assinaturas no mês de Fevereiro 2020 (um mês antes do início da depreciação) são considerados novos clientes. 
 
-## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>Qual é a definição de um cliente existente em máquinas virtuais IaaS (clássicas)?
+## <a name="what-is-the-definition-of-an-existing-customer-on-iaas-virtual-machines-classic"></a>Qual é a definição de um cliente existente em Máquinas Virtuais IaaS (clássico)?
 
-O cliente que tinha ativo ou parado, mas alocou VMs IaaS (clássicas) em suas assinaturas no mês de fevereiro de 2020, é considerado como um cliente existente. Somente esses clientes recebem até 1º de março de 2023 para migrar suas VMs do Azure Service Manager para Azure Resource Manager. 
+O cliente que tinha VMs ativas ou paradas, mas alocado iaaS VMs (Classic) em suas assinaturas no mês de fevereiro de 2020, são considerados como um cliente existente. Somente esses clientes têm até 1º de março de 2023 para migrar suas VMs do Azure Service Manager para o Azure Resource Manager. 
 
-## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Por que estou recebendo um erro informando "NewClassicVMCreationNotAllowedForSubscription"?
+## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Por que estou recebendo um erro afirmando "NewClassicVMCreationNotAllowedForSubscription"?
 
-Como parte do processo de aposentadoria, a VM IaaS (clássica) não está mais disponível para novos clientes. Identificamos você como novos clientes e, portanto, sua operação não foi autorizada. É altamente recomendável usar as [máquinas virtuais do Azure usando o ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se você não puder usar VMs do Azure usando o ARM, entre em contato com o suporte para a lista de permissões de assinatura.
+Como parte do processo de aposentadoria, o IaaS VM (clássico) não está mais disponível para novos clientes. Identificamos vocês como novos clientes e, portanto, sua operação não foi autorizada. Recomendamos fortemente o uso [de Máquinas Virtuais Azure usando ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se você não puder usar As VMs do Azure usando o ARM, entre em contato com o suporte para a lista de whitelisting de assinatura.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta qualquer um de meus serviços existentes ou aplicativos executados em máquinas virtuais do Azure? 
 
-Não até 1º de março de 2023 para VMs de IaaS (clássicas). As VMs de IaaS (clássicas) são serviços totalmente suportados em disponibilidade geral. É possível continuar usando esses recursos para expandir seu volume no Microsoft Azure. Em 1º de março de 2023, essas VMs serão totalmente desativadas e todas as VMs ativas ou alocadas serão interrompidas & desalocadas. Não haverá nenhum impacto para outros recursos clássicos, como serviços de nuvem (clássicos), contas de armazenamento (clássicas), etc.   
+Só em 1º de março de 2023 para VMs IaaS (clássico). As VMs IaaS (clássicas) são serviços totalmente suportados em disponibilidade geral. É possível continuar usando esses recursos para expandir seu volume no Microsoft Azure. Em 1º de março de 2023, essas VMs serão totalmente aposentadas e quaisquer VMs ativas ou alocadas serão interrompidas & desalocadas. Não haverá impacto para outros recursos clássicos como Cloud Services (Classic), Storage Accounts (Classic), etc.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>O que acontecerá com minhas VMs se eu não planejar a migração no futuro próximo? 
 
-Em 1º de março de 2023, as VMs de IaaS (clássicas) serão totalmente desativadas e todas as VMs ativas ou alocadas serão interrompidas & desalocadas. Para evitar o impacto nos negócios, nós altamente recomentamos para começar a planejar sua migração hoje mesmo e concluí-la antes de 1º de março de 2023. Não estamos preterindo as APIs clássicas, os serviços de nuvem e o modelo de recursos existentes. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. Recomendamos que você comece a planejar a migração desses recursos para Azure Resource Manager. 
+Em 1º de março de 2023, as VMs IaaS (Classic) serão totalmente aposentadas e quaisquer VMs ativas ou alocadas serão interrompidas & desalocadas. Para evitar o impacto nos negócios, recomentamos muito para começar a planejar sua migração hoje e concluí-la antes de 1º de março de 2023. Não estamos depreciando as APIs clássicas existentes, serviços de nuvem e modelo de recursos. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. Recomendamos que você comece a planejar migrar esses recursos para o Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>O que este plano de migração significa para minhas ferramentas existentes? 
 
@@ -53,7 +53,7 @@ Isso depende do número de recursos que estão sendo migrados. Para implantaçõ
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Poderei reverter minha migração se a operação de confirmação falhar? 
 
-Não será possível anular a migração se a operação de confirmação falhar. Todas as operações de migração, incluindo a operação de confirmação, são idempotentes. Portanto, recomendamos que você repita a operação após um curto período. Se você ainda encontrar um erro, crie um tíquete de suporte.
+Não será possível anular a migração se a operação de confirmação falhar. Todas as operações de migração, incluindo a operação de confirmação, são idempotentes. Portanto, recomendamos que você repita a operação após um curto período. Se você ainda enfrentar um erro, crie um bilhete de suporte.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Será necessário comprar outro circuito de Rota Expressa se eu precisar aproveitar usar a IaaS no Gerenciador de Recursos? 
 
@@ -65,7 +65,7 @@ Durante a migração, os recursos se transformam do clássico para o Gerenciador
 
 ## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Fiz backup de minhas VMs clássicas em um cofre. Posso migrar minhas VMs de modo clássico para modo do Resource Manager e protegê-los em um cofre dos Serviços de Recuperação?
 
-Quando você move uma VM do modo clássico para o Gerenciador de recursos, os backups feitos antes da migração não serão migrados para a VM do Gerenciador de recursos recém migrado. No entanto, caso deseje manter os backups das VMs clássicas, siga estas etapas antes da migração. 
+Quando você mover uma VM do modo clássico para o modo do Resource Manager, os backups feitos antes da migração não serão migrados para a VM recém-migrada do Resource Manager. No entanto, caso deseje manter os backups das VMs clássicas, siga estas etapas antes da migração. 
 
 1. No cofre dos Serviços de Recuperação, acesse a guia **Itens Protegidos** e selecione a VM. 
 2. Clique em Parar Proteção. Deixe a opção *Excluir dados de backup associados***desmarcada**.
@@ -102,6 +102,6 @@ Todos os recursos para os quais você fornecer nomes explicitamente no modelo de
 
 Os circuitos de ExpressRoute que usam links de autorização entre assinaturas não podem ser migrados automaticamente sem tempo de inatividade. Temos orientações sobre como eles podem ser migrados usando as etapas manuais. Confira [Migrar circuitos de ExpressRoute e redes virtuais associadas do modelo de implantação clássico para o Resource Manager](../articles/expressroute/expressroute-migration-classic-resource-manager.md) para obter etapas e mais informações.
 
-## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Recebi a mensagem *"a VM está relatando o status geral do agente como não pronto. Portanto, a VM não pode ser migrada. Verifique se o agente de VM está relatando o status geral do agente como pronto "* ou *" VM contém a extensão cujo status não está sendo relatado da VM. Portanto, essa VM não pode ser migrada ".*
+## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>Recebi a mensagem *"VM está relatando o status geral do agente como Não Está Pronto. Assim, a VM não pode ser migrada. Certifique-se de que o Agente VM está relatando o status geral do agente como Pronto"* ou *"VM contém Extensão cujo Status não está sendo relatado a partir da VM. Portanto, esta VM não pode ser migrada."*
 
 Essa mensagem é recebida quando a VM não tem conectividade de saída com a Internet. O agente de VM utiliza conectividade de saída para acessar a conta de armazenamento do Azure para atualizar o status do agente a cada cinco minutos.

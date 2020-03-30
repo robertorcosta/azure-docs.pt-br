@@ -1,15 +1,15 @@
 ---
-title: Elemento de interface do usuário PublicIpAddressCombo
+title: Elemento de UI PublicIpAddressCombo
 description: Descreve o elemento de interface do usuário Microsoft.Network.PublicIpAddressCombo para o Portal do Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0393673663df8f3ca580ff34e16bee910b955f8d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651911"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.PublicIpAddressCombo
@@ -80,8 +80,8 @@ Se o usuário não seleciona um endereço IP novo ou existente, o controle retor
 }
 ```
 
-- Quando `options.hideNone` for especificado como **true**, `newOrExistingOrNone` terá somente o valor **new** ou **existing**.
-- Quando `options.hideDomainNameLabel` for especificado como **true**, `domainNameLabel` não será declarado.
+- Quando `options.hideNone` for especificado `newOrExistingOrNone` como **verdadeiro,** só terá um valor **de novo** ou **existente**.
+- Quando `options.hideDomainNameLabel` é especificado `domainNameLabel` como **verdadeiro,** não é declarado.
 
 ## <a name="remarks"></a>Comentários
 
@@ -91,7 +91,7 @@ Se o usuário não seleciona um endereço IP novo ou existente, o controle retor
 - Se `options.hideExisting` é true, o usuário não pode escolher um endereço IP público existente. O valor padrão é **false**.
 - Para `zone`, os endereços IP públicos estão disponíveis somente para endereços IP públicos para a zona especificada ou zona resiliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

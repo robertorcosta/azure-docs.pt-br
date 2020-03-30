@@ -9,10 +9,10 @@ ms.date: 01/26/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 33e6ecca0eb4ca05b1f6bf53cdb3bd4ac8c8d8a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978446"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Examinando o Status do trabalho de Importação/Exportação do Azure com cópias de arquivos de log
@@ -28,10 +28,10 @@ Estas são URLs de exemplo para arquivos de log de cópia de um trabalho de impo
 
  Confira [Formato de arquivo de log de serviço de Importação/Exportação](../storage-import-export-file-format-log.md) para obter o formato dos logs de cópia e a lista completa de códigos de status.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
- * [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
- * [Preparação de discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- * [Reparação de um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
+ * [Configuração da ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)   
+ * [Preparando discos rígidos para um trabalho de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ * [Reparando um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
  * [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   
- * [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+ * [Solução de problemas da ferramenta de importação/exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)

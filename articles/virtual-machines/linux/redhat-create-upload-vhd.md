@@ -3,7 +3,7 @@ title: Criar e carregar um VHD Linux do Red Hat Enterprise para uso no Azure
 description: Saiba como criar e carregar um disco rígido virtual (VHD) do Microsoft Azure, que contém um sistema operacional Red Hat Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: mimckitt
-ms.openlocfilehash: a8a0c64a4a68827c77ba54e7f64ecefd7d1ab8af
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: cd0a71c60930e3eb659255a23cdb03360730f2a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251636"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060725"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada no Red Hat para o Azure
-Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar a criação de imagens RHEL, consulte o [Construtor de imagens do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar imagens RHEL de construção, consulte o [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina virtual baseada em Red Hat a partir do Gerenciador do Hyper-V
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e já instalou a imagem do RHEL em um disco rígido virtual (VHD). Para obter mais detalhes sobre como usar o Gerenciador do Hyper-V para instalar uma imagem do sistema operacional, confira [Como instalar a função Hyper-V e configurar uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalação do RHEL**
 
 * O Azure não oferece suporte para o formato VHDX. O Azure suporta apenas VHD fixo. Você pode usar o Gerenciador do Hyper-V para converter o disco em formato VHD, ou pode usar o cmdlet convert-vhd. Quando criar o disco, se você usar o VirtualBox, selecione **Tamanho fixo** em vez da opção padrão alocada dinamicamente.
-* O Azure dá suporte a máquinas virtuais Gen1 (inicialização do BIOS) & Gen2 (inicialização UEFI).
+* O Azure suporta máquinas virtuais Gen1 (inicialização BIOS) & Gen2 (inicialização UEFI).
 * O tamanho máximo permitido para o VHD é 1.023 GB.
 * Gerenciador de Volume lógico (LVM) tem suporte e pode ser usado no disco do sistema operacional ou discos de dados em máquinas virtuais do Azure. No entanto, em geral é recomendável usar partições padrão em disco do sistema operacional em vez de LVM. Essa prática evitará conflitos de nome LVM entre máquinas virtuais clonadas, especialmente se você precisar anexar um disco do sistema operacional em outra máquina virtual idêntica para solução de problemas. Consulte também [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) documentação.
 * É necessário suporte de kernel para montar sistemas de arquivos de formato de disco universal (UDF). Na primeira inicialização no Azure, a configuração de provisionamento é transmitida à máquina virtual do Linux por meio de mídia formatada para UDF, a qual é anexada ao convidado. O agente de Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a máquina virtual.
@@ -109,7 +109,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em /etc/waagent.conf:
+    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e que pode ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em /etc/waagent.conf:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -131,7 +131,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
         # logout
 
-1. Clique em **Ação** > **Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
+1. Clique em **Action** > **Shut Down** no Hyper-V Manager. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina virtual RHEL 7 do Gerenciador do Hyper-V
@@ -154,7 +154,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim
+    PERSISTENT_DHCLIENT=sim NM_CONTROLLED=sim
 
 1. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
@@ -164,7 +164,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -194,7 +194,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
+    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -216,7 +216,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
         # logout
 
-1. Clique em **Ação** > **Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
+1. Clique em **Action** > **Shut Down** no Hyper-V Manager. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Preparar uma máquina virtual baseada no Red Hat para KVM
@@ -318,7 +318,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
         # chkconfig waagent on
 
-1. O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em **/etc/waagent.conf**:
+1. O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o Azure Linux Agent na etapa anterior, modifique os seguintes parâmetros em **/etc/waagent.conf** apropriadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -408,7 +408,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim
+    PERSISTENT_DHCLIENT=sim NM_CONTROLLED=sim
 
 1. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
@@ -418,7 +418,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer essa configuração, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer essa configuração, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -469,7 +469,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
+    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -523,7 +523,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Preparar uma máquina virtual baseada no Red Hat do VMware
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMware. Para saber mais sobre como instalar um sistema operacional no VMware, confira [Guia de instalação do sistema operacional convidado VMware](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * Ao instalar o sistema operacional Linux, recomendamos usar partições-padrão em vez de LVM, que geralmente é o padrão para muitas instalações. Isso evitará conflitos de nome LVM entre a máquina virtual clonada, especialmente se um disco do sistema operacional precisar ser anexado a outra máquina virtual para solução de problemas. Se você preferir, é possível usar LVM ou RAID em discos de dados.
@@ -568,7 +568,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -600,7 +600,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
+    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -666,7 +666,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim
+    PERSISTENT_DHCLIENT=sim NM_CONTROLLED=sim
 
 1. Certifique-se de que o serviço de rede será iniciado durante a inicialização executando o seguinte comando:
 
@@ -676,7 +676,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -716,7 +716,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
 1. Não crie espaço de permuta no disco do sistema operacional.
 
-    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
+    O agente de Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local anexado à máquina virtual, depois da mesma ser provisionada no Azure. Observe que o disco de recurso local é um disco temporário e pode ser esvaziado se a máquina virtual for desprovisionada. Depois de instalar o agente de Linux do Azure na etapa anterior, modifique os seguintes parâmetros em `/etc/waagent.conf`:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -883,7 +883,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim EOF
+    PERSISTENT_DHCLIENT=sim NM_CONTROLLED=sim EOF
 
         # Deprovision and prepare for Azure if you are creating a generalized image
         waagent -force -deprovision
@@ -913,7 +913,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
 Em alguns casos, os instaladores do Linux podem não incluir os drivers para Hyper-V no disco RAM inicial (initrd ou initramfs), a menos que ele detecte que está em execução em um ambiente Hyper-V.
 
-Quando você estiver usando um sistema de virtualização diferente (ou seja, VirtualBox, Xen, etc.) para preparar sua imagem do Linux, talvez seja necessário recompilar a initrd para garantir que pelo menos os módulos de kernel hv_vmbus e hv_storvsc estejam disponíveis no disco RAM inicial. Esse já é um problema conhecido em sistemas com base em distribuição no Red Hat em upstream.
+Quando você está usando um sistema de virtualização diferente (ou seja, VirtualBox, Xen, etc.) para preparar sua imagem Linux, você pode precisar reconstruir o initrd para garantir que pelo menos os módulos de kernel hv_vmbus e hv_storvsc estejam disponíveis no disco DE RAM inicial. Esse já é um problema conhecido em sistemas com base em distribuição no Red Hat em upstream.
 
 Para resolver esse problema, adicione os módulos do Hyper-V nos initramfs e os recompile:
 
@@ -930,4 +930,4 @@ Para obter mais detalhes, consulte as informações sobre [recriação de initra
 ## <a name="next-steps"></a>Próximas etapas
 * Agora, você está pronto para usar o disco rígido virtual Red Hat Enterprise Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd para o Azure, consulte [Criar uma VM do Linux a partir de um disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 * Para obter mais detalhes sobre os hipervisores certificados para execução do Red Hat Enterprise Linux, visite [o site da Red Hat](https://access.redhat.com/certified-hypervisors).
-* Para saber mais sobre como usar imagens BYOS do RHEL prontas para produção, vá para a página de documentação do [BYOS](../workloads/redhat/byos.md).
+* Para saber mais sobre como usar imagens RHEL BYOS prontas para produção, acesse a página de documentação do [BYOS](../workloads/redhat/byos.md).

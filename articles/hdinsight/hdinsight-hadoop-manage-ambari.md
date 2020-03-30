@@ -8,58 +8,58 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: bf780897317d41c7da85140f64313546cf5c31d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063791"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064688"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Apache Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight e é usado para monitorar o cluster e fazer alterações de configuração.
+O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Apache Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído nos clusters HDInsight e é usado para monitorar o cluster e fazer alterações de configuração.
 
 Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com um cluster HDInsight.
 
-## <a id="whatis"></a>O que é o Apache Storm?
+## <a name="what-is-apache-ambari"></a><a id="whatis"></a>O que é o Apache Storm?
 
 O [Apache Ambari](https://ambari.apache.org) simplifica o gerenciamento do Hadoop, fornecendo uma interface do usuário da Web fácil de usar. Você pode usar o Ambari para gerenciar e monitorar clusters do Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ## <a name="connectivity"></a>Conectividade
 
-A interface do usuário da Web do amAmbari está disponível em seu cluster HDInsight em `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
+A UI da Ambari Web está `https://CLUSTERNAME.azurehdinsight.net`disponível `CLUSTERNAME` no cluster HDInsight em , onde está o nome do seu cluster.
 
 > [!IMPORTANT]  
-> Conectar-se ao Ambari no HDInsight requer HTTPS. Quando a autenticação for solicitada, use o nome e a senha da conta do administrador que você forneceu quando o cluster foi criado. Se as credenciais não forem solicitadas, verifique as configurações de rede para confirmar se não há nenhum problema de conectividade entre o cliente e os clusters do Azure HDInsight.
+> Conectar-se ao Ambari no HDInsight requer HTTPS. Quando a autenticação for solicitada, use o nome e a senha da conta do administrador que você forneceu quando o cluster foi criado. Se você não for solicitado para credenciais, verifique as configurações da rede para confirmar que não há problema de conectividade entre o cliente e os Clusters Azure HDInsight.
 
 ## <a name="ssh-tunnel-proxy"></a>Túnel SSH (proxy)
 
-Embora o Ambari para o cluster seja acessível diretamente pela Internet, alguns links da interface do usuário da Web do amAmbari (por exemplo, para o JobTracker) não são expostos na Internet. Para acessar esses serviços, você deve criar um túnel SSH. Para obter mais informações, consulte [Usar túnel SSH com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+Embora o Ambari para o seu cluster esteja acessível diretamente pela Internet, alguns links da Interface do Usuário da Ambari Web (como o JobTracker) não são expostos na internet. Para acessar esses serviços, você deve criar um túnel SSH. Para obter mais informações, consulte [Usar túnel SSH com o HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="ambari-web-ui"></a>Interface do usuário da Ambari Web
 
 > [!WARNING]  
 > Nem todos os recursos da interface do usuário da Web do Ambari têm suporte no HDInsight. Para obter mais informações, consulte a seção [Operações sem suporte](#unsupported-operations) deste documento.
 
-Ao conectar-se à interface do usuário da Web do amAmbari, você será solicitado a autenticar-se na página. Use a senha e o usuário administrador de cluster (Admin padrão) usados durante a criação do cluster.
+Ao se conectar à UI da Web Ambari, você é solicitado a autenticar a página. Use a senha e o usuário administrador de cluster (Admin padrão) usados durante a criação do cluster.
 
 Quando a página se abrir, observe a barra na parte superior. Essa barra contém as seguintes informações e controles:
 
-![Visão geral do painel do Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
+![Visão geral do painel apache ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|Item |DESCRIÇÃO |
+|Item |Descrição |
 |---|---|
-|Logotipo do Ambari|Abre o painel, que pode ser usado para monitorar o cluster.|
-|Nome do cluster # Ops|Exibe o número de operações de Ambari em andamento. A seleção do nome do cluster ou **Nº operações** exibe uma lista de operações em segundo plano.|
-|n º de alertas|Exibe avisos ou alertas críticos, se houver, para o cluster.|
-|Painel|Exibe o painel.|
-|Serviços|Informações e definições de configuração para os serviços no cluster.|
-|Hosts|Informações e definições de configuração para os nós no cluster.|
-|Alertas|Um log de informações, avisos e alertas críticos.|
-|Admin|Pilha de software/serviços que estão instalados no cluster, informações de conta de serviço e segurança Kerberos.|
-|Botão administrador|Gerenciamento de Ambari, configurações de usuário e sair.|
+|Logotipo ambari|Abre o painel, que pode ser usado para monitorar o cluster.|
+|Nome do cluster # ops|Exibe o número de operações ambari em andamento. A seleção do nome do cluster ou **Nº operações** exibe uma lista de operações em segundo plano.|
+|Alertas|Exibe avisos ou alertas críticos, se houver, para o cluster.|
+|Painel|Exibe o painel de instrumentos.|
+|Serviços|Configurações de informações e configuração dos serviços no cluster.|
+|Hosts|Configurações de informações e configurações para os nós no cluster.|
+|Alertas|Um registro de informações, avisos e alertas críticos.|
+|Admin|Pilha/serviços de software instalados no cluster, informações da conta de serviço e segurança Kerberos.|
+|Botão de admin|Gerenciamento de Ambari, configurações do usuário e saída.|
 
 ## <a name="monitoring"></a>Monitoramento
 
@@ -69,34 +69,36 @@ A lista a seguir contém os status de alerta comuns usados pelo Ambari:
 
 * **OK**
 * **Aviso**
-* **CRÍTICO**
-* **UNKNOWN**
+* **Crítico**
+* **DESCONHECIDO**
 
 Os alertas diferentes de **OK** fazem com que a entrada **nº alertas** na parte superior da página exiba o número de alertas. A seleção dessa entrada exibe os alertas e seus status.
 
 Os alertas estão organizados em vários grupos padrão, que podem ser exibidos na página **Alertas** .
 
-![Resumo da página de alertas do Apache Ambari](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
+![Apache Ambari alerta resumo da página](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
 Você pode gerenciar os grupos usando o menu **Ações** e selecionando **Gerenciar Grupos de Alerta**.
 
-![Apache Ambari gerenciar grupos de alertas](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
+![Apache Ambari gerencia grupos de alerta](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-Você também pode gerenciar os métodos de alerta e criar notificações de alerta no menu **ações** selecionando __gerenciar notificações__. Quaisquer notificações atuais são exibidas. Você também pode criar notificações daqui. As notificações podem ser enviadas por **EMAIL** ou **SNMP** quando ocorrerem combinações específicas de alerta/gravidade. Por exemplo, você pode enviar uma mensagem de email quando qualquer um dos alertas no grupo **YARN Padrão** está definido para **Crítico**.
+Você também pode gerenciar métodos de alerta e criar notificações de alerta do menu **Ações** selecionando __Gerenciar notificações__. Quaisquer notificações atuais são exibidas. Você também pode criar notificações daqui. As notificações podem ser enviadas por **EMAIL** ou **SNMP** quando ocorrerem combinações específicas de alerta/gravidade. Por exemplo, você pode enviar uma mensagem de email quando qualquer um dos alertas no grupo **YARN Padrão** está definido para **Crítico**.
 
-![Notificação de alerta de criação do Apache Ambari](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+![Apache Ambari cria notificação de alerta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
 Por fim, selecionar __Gerenciar Definições de Alerta__ do menu __Ações__ permite que você defina o número de vezes que um alerta deve ocorrer antes do envio de uma notificação. Essa configuração pode ser usada para evitar notificações de erros transitórios.
+
+Para obter um tutorial de uma notificação de alerta usando uma [conta sendgrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)gratuita, consulte [Configure notificações de e-mail apache Ambari no Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Cluster
 
 A guia **Métricas** do painel contém uma série de widgets que facilitam monitorar o status do cluster em um relance. Vários widgets, tais como **Uso de CPU**, fornecem informações adicionais quando são clicados.
 
-![Painel do Apache Ambari com métricas](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
+![Painel Apache Ambari com métricas](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
 A guia **Mapa de Dados** exibe as métricas na forma de mapas de dados coloridos, que vão do verde ao vermelho.
 
-![Painel do Apache Ambari com calor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
+![Painel Apache Ambari com mapas de calor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
 Para obter mais informações sobre os nós no cluster, selecione **Hosts**. Em seguida, selecione o nó específico em que você está interessado.
 
@@ -106,7 +108,7 @@ Para obter mais informações sobre os nós no cluster, selecione **Hosts**. Em 
 
 A barra lateral **Serviços** no painel oferece uma visão rápida do status dos serviços em execução no cluster. Ícones diversos são usados para indicar o status ou ações que devem ser realizadas. Por exemplo, um símbolo amarelo de reciclagem será exibido se um serviço precisar ser reciclado.
 
-![Barra lateral dos serviços Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
+![Barra lateral de serviços Apache Ambari](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
 > [!NOTE]  
 > Os serviços exibidos variam de acordo com versões e tipos de cluster HDInsight. Os serviços exibidos aqui podem ser diferentes dos serviços exibidos para o cluster.
@@ -142,7 +144,7 @@ O trabalho com usuários, grupos e permissões tem suporte ao usar um cluster HD
 
 A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga estas etapas.
 
-![Visão geral da página de hosts Apache Ambari](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
+![Apache Ambari hospeda visão geral da página](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
 
 > [!NOTE]  
 > As ações de adicionar, encerrar e reativar um host não devem ser realizadas com clusters HDInsight.
@@ -151,24 +153,24 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
 
 2. Use o menu **Ações** para selecionar a ação que deseja executar:
 
-    |Item |DESCRIÇÃO |
+    |Item |Descrição |
     |---|---|
-    |Iniciar todos os componentes|Inicie todos os componentes no host.|
-    |Parar todos os componentes|Pare todos os componentes no host.|
-    |Reiniciar todos os componentes|Pare e inicie todos os componentes no host.|
-    |Ativar o modo de manutenção|Suprime alertas para o host. Esse modo deve ser habilitado se você estiver executando ações que geram alertas. Por exemplo, parar e iniciar um serviço.|
-    |Desligar o modo de manutenção|Retorna o host para alertas normais.|
-    |Stop|Interrompe datanode ou NodeManagers no host.|
-    |Iniciar|Inicia datanode ou NodeManagers no host.|
-    |Reiniciar|Para e inicia o datanode ou NodeManagers no host.|
-    |Encerrar|Remove um host do cluster. **Não use essa ação em clusters HDInsight.**|
-    |Reativação|Adiciona um host anterior descomissionado ao cluster. **Não use essa ação em clusters HDInsight.**|
+    |Inicie todos os componentes|Inicie todos os componentes no host.|
+    |Pare todos os componentes|Pare todos os componentes do host.|
+    |Reiniciar todos os componentes|Pare e inicie todos os componentes do host.|
+    |Ativar modo de manutenção|Suprime alertas para o hospedeiro. Este modo deve ser ativado se você estiver executando ações que geram alertas. Por exemplo, parar e iniciar um serviço.|
+    |Desligue o modo de manutenção|Retorna o host para alerta normal.|
+    |Stop|Interrompe datanode ou nodeManagers no host.|
+    |Iniciar|Inicia DataNode ou NodeManagers no host.|
+    |Reiniciar|Pára e inicia DataNode ou NodeManagers no host.|
+    |Desprogramar|Remove um host do cluster. **Não use esta ação em clusters HDInsight.**|
+    |Recomissão|Adiciona um host desativado anteriormente ao cluster. **Não use esta ação em clusters HDInsight.**|
 
-### <a id="service"></a>Serviços
+### <a name="services"></a><a id="service"></a>Serviços
 
 Na página **Painel** ou **Serviços**, use o botão **Ações** na parte inferior da lista de serviços para interromper e iniciar todos os serviços.
 
-![Lista de ações do serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+![Lista de ações de serviço apache ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
 
 > [!WARNING]  
 > Enquanto **Adicionar Serviço** estiver listado nesse menu, ele não deverá ser usado para adicionar serviços ao cluster HDInsight. Novos serviços devem ser adicionados usando uma Ação de Script durante o provisionamento do cluster. Para saber mais sobre o uso de ações de script, consulte [Personalizar clusters HDInsight usando ações de script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -179,7 +181,7 @@ Embora o botão **Ações** possa reiniciar todos os serviços, muitas vezes con
 
 2. Na parte superior da guia **Resumo**, use o botão **Ações de Serviço** e selecione a ação a tomar. Isso reinicia o serviço em todos os nós.
 
-    ![Ações de serviço individual do Apache Ambari](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
+    ![Ações de serviço individual apache ambari](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
    > [!NOTE]  
    > Reiniciar alguns serviços enquanto o cluster estiver em execução pode gerar alertas. Para evitar alertas, você pode usar o botão **Ações de Serviço** para habilitar o **Modo de manutenção** para o serviço antes de executar a reinicialização.
@@ -193,7 +195,7 @@ Para configurar um serviço, use as seguintes etapas:
 
 1. Na página **Painel** ou **Serviços**, selecione um serviço.
 
-2. Selecione a guia **configurações** . A configuração atual é exibida. Uma lista das configurações anteriores também é exibida.
+2. Selecione a guia **Configs.** A configuração atual é exibida. Uma lista das configurações anteriores também é exibida.
 
     ![Configuração do serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 

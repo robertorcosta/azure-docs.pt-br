@@ -1,15 +1,15 @@
 ---
-title: Gerenciar o estado nos serviços de Service Fabric do Azure
-description: Saiba mais sobre o estado no Azure Service Fabric, incluindo como definir e gerenciar o estado do serviço nos serviços de Service Fabric.
+title: Gerencie o estado nos serviços de malha de serviço do Azure
+description: Saiba mais sobre o estado no Azure Service Fabric, incluindo como definir e gerenciar o estado de serviço nos serviços de Malha de Serviço.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9acd3031d1071d1822791b333976aaf76161600f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614563"
 ---
 # <a name="service-state"></a>Estado do serviço
@@ -26,7 +26,7 @@ O estado pode ser externalizado ou localizado em conjunto com o código que est�
 
 O estado também pode ser localizado com o código que manipula o estado. Serviços com estado no Service Fabric normalmente são criados usando esse modelo. O Service Fabric fornece a infraestrutura para garantir que esse estado seja altamente disponível, consistente e durável e que serviços criados dessa maneira possam ser dimensionados com facilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artigos:
 
 * [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)

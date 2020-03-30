@@ -1,6 +1,6 @@
 ---
-title: Não é possível fazer logon no cluster HDInsight do Azure
-description: Solucionar problemas por que não é possível fazer logon no cluster Apache Hadoop no Azure HDInsight
+title: Não é possível fazer login no cluster Azure HDInsight
+description: Solução de problemas por que não é possível entrar no cluster Apache Hadoop no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,23 +8,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
 ms.openlocfilehash: 2099d1b7583017733498946a5866ab37de43ba9c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894063"
 ---
-# <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Cenário: não é possível fazer logon no cluster HDInsight do Azure
+# <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Cenário: Não é possível fazer login no cluster Azure HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+Este artigo descreve etapas de solução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Não é possível fazer logon no cluster HDInsight do Azure.
+Não é possível fazer login no cluster Azure HDInsight.
 
 ## <a name="cause"></a>Causa
 
-Os motivos podem variar. Tenha em mente que, ao fazer logon nos painéis do cluster ou do aplicativo, use o "logon do cluster" ou as credenciais HTTP. Ao conectar-se remotamente, use suas credenciais do Secure Shell (SSH) ou a área de trabalho remota.
+As razões podem variar. Tenha em mente que ao fazer login no cluster ou nos painéis do aplicativo, use suas credenciais "cluster login" ou HTTP. Ao conectar-se remotamente, use suas credenciais do Secure Shell (SSH) ou a área de trabalho remota.
 
 ## <a name="resolution"></a>Resolução
 
@@ -32,14 +32,14 @@ Para resolver problemas comuns, tente uma ou mais das etapas a seguir.
 
 * Tente abrir o painel do cluster em uma nova guia do navegador no modo de privacidade.
 
-* Se não for possível lembrar suas credenciais SSH, você poderá [redefinir as credenciais na interface do usuário do amAmbari](../hdinsight-administer-use-portal-linux.md#change-passwords).
+* Se você não conseguir lembrar suas credenciais SSH, você pode [redefinir as credenciais dentro da UI Ambari](../hdinsight-administer-use-portal-linux.md#change-passwords).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através [do Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se você precisar de mais ajuda, você pode enviar uma solicitação de suporte do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o centro **de suporte Ajuda +.** Para obter informações mais detalhadas, consulte [Como criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e suporte ao faturamento está incluído na assinatura do Microsoft Azure, e o suporte técnico é fornecido através de um dos Planos de Suporte do [Azure](https://azure.microsoft.com/support/plans/).

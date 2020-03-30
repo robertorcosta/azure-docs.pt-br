@@ -1,5 +1,5 @@
 ---
-title: Planejar junção de Azure Active Directory híbrida-Azure Active Directory
+title: Planejar a adesão do Azure Active Directory - Azure Active Directory
 description: Saiba como configurar dispositivos adicionados ao Azure Active Directory híbrido.
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 152ff52ce52b573d7f24cbb2fafc944b1794f6d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672340"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129250"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção de Azure Active Directory híbrida
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeje seu Diretório Ativo azure híbrido aderir à implementação
 
 De maneira semelhante a um usuário, um dispositivo é outra identidade principal que você deseja proteger e usá-la para proteger seus recursos a qualquer hora e em qualquer local. É possível atingir essa meta colocando e gerenciando identidades de dispositivo no Azure AD usando um dos métodos a seguir:
 
@@ -26,16 +26,16 @@ De maneira semelhante a um usuário, um dispositivo é outra identidade principa
 - Ingresso no Azure AD Híbrido
 - Registro do Azure AD
 
-Ao colocar os dispositivos no Azure AD, você maximiza a produtividade dos usuários por meio de SSO (logon único) em toda a nuvem e recursos locais. Ao mesmo tempo, você pode proteger o acesso a seus recursos locais e de nuvem com [acesso condicional](../active-directory-conditional-access-azure-portal.md).
+Ao colocar os dispositivos no Azure AD, você maximiza a produtividade dos usuários por meio de SSO (logon único) em toda a nuvem e recursos locais. Ao mesmo tempo, você pode garantir acesso aos recursos da nuvem e do local com [acesso condicional](../active-directory-conditional-access-azure-portal.md).
 
-Se você tiver um ambiente de Active Directory local (AD) e desejar ingressar seus computadores ingressados no domínio do AD no Azure AD, poderá fazer isso fazendo uma junção híbrida do Azure AD. Este artigo fornece as etapas relacionadas para implementar uma associação híbrida do Azure AD em seu ambiente. 
+Se você tem um ambiente de AD (Active Directory) no local e deseja se juntar aos computadores adeptos do domínio AD ao Azure AD, você pode conseguir isso fazendo a adesão híbrida do Azure AD. Este artigo fornece as etapas relacionadas para implementar uma associação híbrida do Azure AD em seu ambiente. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você esteja familiarizado com a [introdução ao gerenciamento de identidade do dispositivo no Azure Active Directory](../device-management-introduction.md).
+Este artigo assume que você está familiarizado com a introdução ao gerenciamento de identidade de [dispositivos no Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> A versão mínima necessária do controlador de domínio para o ingresso no Azure AD híbrido do Windows 10 é o Windows Server 2008 R2.
+> A versão mínima necessária do controlador de domínio para windows 10 híbrido Azure AD join é Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planejar sua implementação
 
@@ -45,9 +45,9 @@ Para planejar sua implementação híbrida do AD do Azure, você deve se familia
 | --- | --- |
 | ![Verificação][1] | Dispositivos com suporte de revisão |
 | ![Verificação][1] | Você deve saber de coisas de revisão |
-| ![Verificação][1] | Examinar a validação controlada do ingresso no Azure AD híbrido |
-| ![Verificação][1] | Selecione seu cenário com base na sua infraestrutura de identidade |
-| ![Verificação][1] | Examine o suporte de UPN do AD local para ingressar no Azure AD híbrido |
+| ![Verificação][1] | Revisar validação controlada do Azure AD híbrido se juntar |
+| ![Verificação][1] | Selecione seu cenário com base em sua infra-estrutura de identidade |
+| ![Verificação][1] | Revise no local o suporte a AD UPN para a adesão híbrida do Azure AD |
 
 ## <a name="review-supported-devices"></a>Dispositivos com suporte de revisão
 
@@ -57,62 +57,65 @@ Ingresso no Azure AD híbrido oferece suporte a dispositivos de uma ampla varied
 
 - Windows 10
 - Windows Server 2016
+  - **Nota**: Os clientes de nuvem do Azure National exigem a versão 1809
 - Windows Server 2019
 
-Para dispositivos que executam o sistema operacional Windows desktop, a versão com suporte está listada neste artigo [informações de versão do Windows 10](/windows/release-information/). Como prática recomendada, a Microsoft recomenda que você atualize para a versão mais recente do Windows 10.
+Para dispositivos que executam o sistema operacional windows desktop, a versão suportada está listada neste artigo [informações de versão do Windows 10](/windows/release-information/). Como uma prática recomendada, a Microsoft recomenda que você atualize para a versão mais recente do Windows 10.
 
 ### <a name="windows-down-level-devices"></a>Dispositivos de nível inferior do Windows
 
 - Windows 8.1
-- O suporte do Windows 7 foi encerrado em 14 de janeiro de 2020. Para obter mais informações, consulte o [suporte para o Windows 7 terminou](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+- O suporte do Windows 7 foi encerrado em 14 de janeiro de 2020. Para obter mais informações, consulte [O suporte para o Windows 7 terminou](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2. Para obter informações de suporte sobre o Windows Server 2008 e 2008 R2, consulte [preparar para o Windows server 2008 fim do suporte](https://www.microsoft.com/cloud-platform/windows-server-2008).
+- Windows Server 2008 R2. Para obter informações sobre suporte no Windows Server 2008 e 2008 R2, consulte [Prepare-se para o fim do suporte do Windows Server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 Como primeira etapa do planejamento, você deve revisar seu ambiente e determinar se precisa dar suporte a dispositivos de baixo nível do Windows.
 
 ## <a name="review-things-you-should-know"></a>Você deve saber de coisas de revisão
 
 ### <a name="unsupported-scenarios"></a>Cenários sem suporte
-- No momento, não há suporte para o ingresso do Azure AD híbrido se seu ambiente consistir em uma única floresta do AD Sincronizando dados de identidade para mais de um locatário do Azure AD.
+- A adesão do Azure AD híbrido não é suportada no momento se o seu ambiente consiste em uma única floresta AD sincronizando dados de identidade para mais de um inquilino Azure AD.
 
-- O ingresso no Azure AD híbrido não tem suporte no Windows Server que executa a função de controlador de domínio (DC).
+- O adesão do Azure AD híbrido não é suportado para o Windows Server executando a função Controlador de Domínio (DC).
 
-- O ingresso no Azure AD híbrido não tem suporte em dispositivos de nível inferior do Windows ao usar a mobilidade de credencial ou o perfil obrigatório ou de roaming de perfil do usuário.
+- O Ad do Azure Híbrido não é suportado em dispositivos de nível baixo do Windows ao usar roaming de credenciais ou roaming de perfil de usuário ou perfil obrigatório.
 
-- O sistema operacional Server Core não dá suporte a nenhum tipo de registro de dispositivo.
+- O Sistema Operacional Core do Servidor não suporta nenhum tipo de registro de dispositivo.
 
-### <a name="os-imaging-considerations"></a>Considerações sobre imagens de so
-- Se você estiver contando com a ferramenta de preparação do sistema (Sysprep) e se estiver usando uma imagem **anterior ao Windows 10 1809** para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure ad como uma junção híbrida do Azure AD.
+### <a name="os-imaging-considerations"></a>Considerações sobre imagem do SISTEMA OPERACIONAL
+- Se você estiver confiando na Ferramenta de Preparação do Sistema (Sysprep) e se estiver usando uma imagem **pré-Windows 10 1809** para instalação, certifique-se de que a imagem não é de um dispositivo que já está registrado no Azure AD como AD Híbrido Azure.
 
-- Se você estiver contando com um instantâneo de VM (máquina virtual) para criar VMs adicionais, verifique se o instantâneo não é de uma VM que já está registrada com o Azure AD como uma junção híbrida do Azure AD.
+- Se você estiver confiando em um instantâneo da Máquina Virtual (VM) para criar VMs adicionais, certifique-se de que o snapshot não é de uma VM que já está registrada no Azure AD como Azure AD híbrido.
 
-- Se você estiver usando o [filtro de gravação unificado](/windows-hardware/customize/enterprise/unified-write-filter) e tecnologias semelhantes que desmarcam alterações no disco na reinicialização, eles deverão ser aplicados depois que o dispositivo for ingressado no Azure ad híbrido. A habilitação dessas tecnologias antes da conclusão da junção híbrida do Azure AD resultará na injunção do dispositivo em cada reinicialização
+- Se você estiver usando [o Unified Write Filter](/windows-hardware/customize/enterprise/unified-write-filter) e tecnologias similares que limpam as alterações no disco na reinicialização, elas devem ser aplicadas após a adesão do Ad Hybrid Azure. Habilitar tais tecnologias antes da conclusão da adesão do Hybrid Azure AD resultará na não conexão do dispositivo em cada reinicialização
 
-### <a name="handling-devices-with-azure-ad-registered-state"></a>Manipulando dispositivos com o estado registrado do Azure AD
-Se seus dispositivos ingressados no domínio do Windows 10 forem [registrados no Azure ad](overview.md#getting-devices-in-azure-ad) para seu locatário, isso poderá levar a um estado duplo de ingressado no Azure ad híbrido e ao dispositivo registrado do Azure AD. É recomendável atualizar para o Windows 10 1803 (com o KB4489894 aplicado) ou superior para resolver esse cenário automaticamente. Em versões anteriores a 1803, você precisará remover manualmente o estado registrado do Azure AD antes de habilitar a junção híbrida do Azure AD. Nas versões 1803 e acima, as seguintes alterações foram feitas para evitar esse estado duplo:
+### <a name="handling-devices-with-azure-ad-registered-state"></a>Dispositivos de manuseio com estado registrado no Azure AD
+Se os dispositivos de adesão ao seu domínio do Windows 10 forem [Azure AD registrados](overview.md#getting-devices-in-azure-ad) no seu inquilino, isso pode levar a um duplo estado de adesão do Hybrid Azure AD e do dispositivo registrado no Azure AD. Recomendamos a atualização para o Windows 10 1803 (com KB4489894 aplicado) ou acima para abordar automaticamente este cenário. Nas versões pré-1803, você precisará remover o estado registrado do Azure AD manualmente antes de habilitar a adesão do Hybrid Azure AD. Em 1803 e acima de versões, as seguintes alterações foram feitas para evitar este estado duplo:
 
-- Qualquer estado registrado do Azure AD existente será removido automaticamente <i>depois que o dispositivo for ingressado no Azure ad híbrido</i>.
-- Você pode impedir que o dispositivo ingressado no domínio seja registrado no Azure AD adicionando essa chave do registro-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
-- No Windows 10 1803, se você tiver o Windows Hello para empresas configurado, o usuário precisará reinstalar o Windows Hello para empresas após a limpeza do estado duplo. Esse problema foi resolvido com o KB4512509
+- Qualquer estado registrado do Azure AD existente para um usuário seria automaticamente removido <i>após o dispositivo ser aderido ao Hybrid Azure AD e o mesmo usuário fizer login</i>. Por exemplo, se o Usuário A tiver um estado De AD do Azure registrado no dispositivo, o estado duplo para o Usuário A será limpo somente quando o Usuário A fizer login no dispositivo. se houver vários usuários no mesmo dispositivo, o estado duplo é limpo individualmente quando esses usuários fazem login.
+- Você pode impedir que seu dispositivo de adesão ao domínio seja registrado no Azure AD adicionando esta chave de registro - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
+- No Windows 10 1803, se você tiver o Windows Hello for Business configurado, o usuário precisa reconfigurar o Windows Hello for Business após a limpeza do estado duplo. Esta questão foi tratada com KB4512509
 
 > [!NOTE]
-> O dispositivo registrado do Azure AD não será removido automaticamente se for gerenciado pelo Intune.
+> O dispositivo registrado no Azure AD não será removido automaticamente se for gerenciado pela Intune.
 
 ### <a name="additional-considerations"></a>Considerações adicionais
-- Se seu ambiente usa VDI (Virtual Desktop Infrastructure), consulte [identidade do dispositivo e virtualização de área de trabalho](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Se o ambiente usar a infra-estrutura virtual de desktop (VDI), consulte [a identidade do dispositivo e a virtualização do desktop](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-- O ingresso no Azure AD híbrido tem suporte para TPM 2,0 compatível com FIPS e sem suporte para TPM 1,2. Se seus dispositivos tiverem o TPM 1,2 compatível com FIPS, você deverá desabilitá-los antes de prosseguir com a junção híbrida do Azure AD. A Microsoft não fornece nenhuma ferramenta para desabilitar o modo FIPS para TPMs, pois depende do fabricante do TPM. Entre em contato com o OEM de hardware para obter suporte. A partir da versão 10 1903 do Windows, TPMs 1,2 não são usadas para o ingresso híbrido do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
+- O Ad do Azure Híbrido é suportado para OTPM 2.0 compatível com FIPS e não suportado para OPm 1.2. Se seus dispositivos tiverem o TPM 1.2 compatível com FIPS, você deve desabilitá-los antes de prosseguir com a adesão do Hybrid Azure AD. A Microsoft não fornece nenhuma ferramenta para desativar o modo FIPS para TPMs, pois depende do fabricante de TPM. Entre em contato com o OEM de hardware para obter suporte. 
 
-## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Examinar a validação controlada do ingresso no Azure AD híbrido
+- A partir da versão do Windows 10 1903, os TPMs 1.2 não são usados com a adesão híbrida do Azure AD e os dispositivos com esses TPMs serão considerados como se não tivessem um TPM.
 
-Quando todos os pré-requisitos estiverem em vigor, os dispositivos Windows serão automaticamente registrados como dispositivos no seu locatário do Azure AD. O estado dessas identidades de dispositivo no Azure AD é chamado de junção híbrida do Azure AD. Mais informações sobre os conceitos abordados neste artigo podem ser encontradas no artigo [introdução ao gerenciamento de identidade do dispositivo no Azure Active Directory](overview.md).
+## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Revisar validação controlada do Azure AD híbrido se juntar
 
-As organizações podem querer fazer uma validação controlada do ingresso no Azure AD híbrido antes de habilitá-lo em toda a organização de uma só vez. Examine o artigo [validação controlada do ingresso no Azure ad híbrido](hybrid-azuread-join-control.md) para entender como realizá-lo.
+Quando todos os pré-requisitos estiverem em vigor, os dispositivos Windows se registrarão automaticamente como dispositivos no seu inquilino Azure AD. O estado dessas identidades de dispositivos no Azure AD é referido como adesão a Azure AD híbrido. Mais informações sobre os conceitos abordados neste artigo podem ser encontradas no artigo [Introdução ao gerenciamento de identidade de dispositivos no Azure Active Directory](overview.md).
 
-## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selecione seu cenário com base na sua infraestrutura de identidade
+As organizações podem querer fazer uma validação controlada da adesão híbrida do Azure AD antes de habilitá-lo em toda a sua organização de uma só vez. Revise a [validação controlada do azure ad híbrido para](hybrid-azuread-join-control.md) entender como realizá-lo.
 
-O ingresso no Azure AD híbrido funciona com ambientes gerenciados e federados dependendo se o UPN é roteável ou não roteável. Veja a parte inferior da página para ver a tabela em cenários com suporte.  
+## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selecione seu cenário com base em sua infra-estrutura de identidade
+
+O Azure AD híbrido funciona com ambientes gerenciados e federados, dependendo se o UPN é roteável ou não. Veja a parte inferior da página para ver os cenários suportados.  
 
 ### <a name="managed-environment"></a>Ambiente de leitura
 
@@ -124,8 +127,8 @@ Esses cenários não exigem que você configure um servidor de federação para 
 
 Um ambiente federado deve ter um provedor de identidade que dá suporte aos requisitos a seguir. Se você tem um ambiente federado usando o AD FS (Serviços de Federação do Active Directory), os requisitos abaixo já são compatíveis.
 
-- **Declaração de WIAORMULTIAUTHN:** Essa declaração é necessária para fazer uma junção híbrida do Azure AD para dispositivos de nível inferior do Windows.
-- **Protocolo WS-Trust:** Esse protocolo é necessário para autenticar dispositivos adicionados ao Azure AD híbridos atuais do Windows com o Azure AD. Quando você estiver usando o AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust: `/adfs/services/trust/2005/windowstransport`  
+- **Alegação WIAORMULTIAUTHN:** Esta reivindicação é necessária para fazer a adesão híbrida do Azure AD para dispositivos de nível baixo do Windows.
+- **Protocolo WS-Trust:** Este protocolo é necessário para autenticar o Azure AD híbrido atual do Windows juntou dispositivos com o Azure AD. Quando você estiver usando o AD FS, será necessário habilitar os seguintes pontos de extremidade WS-Trust: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -133,39 +136,42 @@ Um ambiente federado deve ter um provedor de identidade que dá suporte aos requ
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> O **adfs/services/trust/2005/windowstransport** e também o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [Desabilitar pontos de extremidade do Windows do WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Veja quais pontos de extremidade estão habilitados por meio do console de gerenciamento do AD FS em **Serviço** > **Pontos de extremidade**.
+> O **adfs/services/trust/2005/windowstransport** e também o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desativar os pontos finais do WS-Trust Windows, consulte [Desativar os pontos finais do WS-Trust Windows no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Você pode ver quais pontos finais são habilitados através do console de gerenciamento AD FS em **Service** > **Endpoints**.
 
 > [!NOTE]
 > O Azure AD não dá suporte a cartões inteligentes ou certificados em domínios gerenciados.
 
 A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para configurar o ingresso no Azure AD híbrido. O assistente permite simplificar significativamente o processo de configuração. Se a instalação da versão necessária do Azure AD Connect não for uma opção, consulte [como configurar manualmente o registro do dispositivo](hybrid-azuread-join-manual.md). 
 
-Com base no cenário que corresponde à sua infraestrutura de identidade, consulte:
+Com base no cenário que corresponde à sua infra-estrutura de identidade, veja:
 
-- [Configurar a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)
-- [Configurar a junção de Azure Active Directory híbrida para o ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
+- [Configure diretório ativo híbrido do Azure para ambiente federado](hybrid-azuread-join-federated-domains.md)
+- [Configure o Azure Active Directory híbrido para ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
 
-## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Examine o suporte de UPN do AD local para ingressar no Azure AD híbrido
+## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Revise os usuários de AD no local Suporte upn para aadesão do Hybrid Azure AD
 
-Às vezes, seus UPNs do AD local podem ser diferentes dos UPNs do Azure AD. Nesses casos, o ingresso no Azure AD Híbrido do Windows 10 dá suporte limitado aos UPNs do AD local com base no [método de autenticação](/azure/security/fundamentals/choose-ad-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de UPNs do AD local que podem existir em seu ambiente:
+Às vezes, as UPNs dos usuários de AD no local podem ser diferentes das UPNs AD do Azure. Nesses casos, o ingresso no Azure AD Híbrido do Windows 10 dá suporte limitado aos UPNs do AD local com base no [método de autenticação](/azure/security/fundamentals/choose-ad-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de UPNs do AD local que podem existir em seu ambiente:
 
-- UPN roteável: um UPN roteável tem um domínio verificado válido, que é registrado com um registrador de domínios. Por exemplo, se contoso.com é o domínio primário do Azure AD, contoso.org é o domínio primário no AD local pertencente à Contoso e [verificado no Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
-- UPN não roteável: um UPN não roteável não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio primário no Azure AD, contoso.local é o domínio primário no AD local, mas não é um domínio verificável na Internet e é usado apenas na rede da Contoso.
+- Routable users UPN: Um UPN routable tem um domínio verificado válido, que é registrado em um registrador de domínio. Por exemplo, se contoso.com é o domínio primário do Azure AD, contoso.org é o domínio primário no AD local pertencente à Contoso e [verificado no Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- USUÁRIOS não roteáveis UPN: Uma UPN não routable não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio primário no Azure AD, contoso.local é o domínio primário no AD local, mas não é um domínio verificável na Internet e é usado apenas na rede da Contoso.
+
+> [!NOTE]
+> As informações nesta seção se aplicam apenas a uma UPN de usuários locais. Não se aplica a um sufixo de domínio de computador no local (exemplo: computer1.contoso.local).
 
 A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no ingresso no Azure AD Híbrido do Windows 10
 
-| Tipo de UPN do AD local | Tipo de domínio | Versão do Windows 10 | DESCRIÇÃO |
+| Tipo de UPN do AD local | Tipo de domínio | Versão do Windows 10 | Descrição |
 | ----- | ----- | ----- | ----- |
 | Roteável | Federado | Da versão 1703 | Disponível para o público geral |
 | Não roteável | Federado | Da versão 1803 | Disponível para o público geral |
-| Roteável | Gerenciada | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
+| Roteável | Gerenciada | Da versão 1803 | Geralmente disponível, o Azure AD SSPR na tela de bloqueio do Windows não é suportado |
 | Não roteável | Gerenciada | Sem suporte | |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Configurar a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)
-> [Configurar a junção de Azure Active Directory híbrida para o ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
+> [Configure o Azure Active Directory híbrido para ambiente](hybrid-azuread-join-federated-domains.md)
+> federado[Configure híbrido Azure Active Directory se una para ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

@@ -1,20 +1,20 @@
 ---
-title: Vincular modelos para implantação
+title: Modelos de link para implantação
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274249"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131924"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
-Para implantar soluções complexas, você pode dividir o modelo em muitos modelos relacionados e implantá-los juntos por meio de um modelo principal. Os modelos relacionados podem ser arquivos separados ou a sintaxe de modelo que é inserida no modelo principal. Este artigo usa o termo **vinculado modelo** para se referir a um arquivo de modelo separado que está vinculado a do modelo principal. Ele usa o termo **modelo aninhado** para se referir à sintaxe de modelo incorporado no modelo principal.
+Para implantar soluções complexas, você pode quebrar seu modelo em muitos modelos relacionados e, em seguida, implantá-los juntos através de um modelo principal. Os modelos relacionados podem ser arquivos separados ou sintaxe de modelo sinuosa que está incorporado no modelo principal. Este artigo usa o **modelo vinculado** ao termo para se referir a um arquivo de modelo separado que é referenciado através de um link do modelo principal. Ele usa o termo **modelo aninhado** para se referir à sintaxe de modelo incorporado dentro do modelo principal.
 
-Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem dividir a solução em componentes de destino. Você pode facilmente reutilizar esses modelos para outros cenários.
+Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem que você desfaça a solução em componentes direcionados. Você pode facilmente reutilizar esses modelos para outros cenários.
 
 Para obter um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](template-tutorial-create-linked-templates.md).
 
@@ -24,7 +24,7 @@ Para obter um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Re
 
 ## <a name="nested-template"></a>Modelo aninhado
 
-Para aninhar um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade de **modelo** , especifique a sintaxe do modelo.
+Para aninhar um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **modelo,** especifique a sintaxe do modelo.
 
 ```json
 {
@@ -50,7 +50,7 @@ Para aninhar um modelo, adicione um [recurso de implantações](/azure/templates
 }
 ```
 
-O exemplo a seguir implanta uma conta de armazenamento por meio de um modelo aninhado.
+O exemplo a seguir implanta uma conta de armazenamento através de um modelo aninhado.
 
 ```json
 {
@@ -92,11 +92,11 @@ O exemplo a seguir implanta uma conta de armazenamento por meio de um modelo ani
 }
 ```
 
-### <a name="scope-for-expressions-in-nested-templates"></a>Escopo para expressões em modelos aninhados
+### <a name="expression-evaluation-scope-in-nested-templates"></a>Escopo de avaliação de expressão em modelos aninhados
 
-Ao usar um modelo aninhado, você pode especificar se as expressões de modelo são avaliadas dentro do escopo do modelo pai ou do modelo aninhado. O escopo determina como os parâmetros, as variáveis e as funções, como o [resourcegroup](template-functions-resource.md#resourcegroup) e a [assinatura](template-functions-resource.md#subscription) , são resolvidos.
+Ao usar um modelo aninhado, você pode especificar se as expressões do modelo são avaliadas no escopo do modelo pai ou do modelo aninhado. O escopo determina como parâmetros, variáveis e funções como [resourceGroup](template-functions-resource.md#resourcegroup) e [subscription](template-functions-resource.md#subscription) são resolvidos.
 
-Você define o escopo por meio da propriedade `expressionEvaluationOptions`. Por padrão, a propriedade `expressionEvaluationOptions` é definida como `outer`, o que significa que ele usa o escopo do modelo pai. Defina o valor como `inner` para as expressões de escopo para o modelo aninhado.
+Você define o `expressionEvaluationOptions` escopo através da propriedade. Por padrão, `expressionEvaluationOptions` a propriedade `outer`é definida como , o que significa que ele usa o escopo do modelo pai. Defina o `inner` valor para fazer com que expressões sejam avaliadas no escopo do modelo aninhado.
 
 ```json
 {
@@ -110,7 +110,7 @@ Você define o escopo por meio da propriedade `expressionEvaluationOptions`. Por
   ...
 ```
 
-O modelo a seguir demonstra como as expressões de modelo são resolvidas de acordo com o escopo. Ele contém uma variável chamada `exampleVar` que é definida no modelo pai e no modelo aninhado. Ele retorna o valor da variável.
+O modelo a seguir demonstra como as expressões do modelo são resolvidas de acordo com o escopo. Ele contém uma `exampleVar` variável nomeada que é definida tanto no modelo pai quanto no modelo aninhado. Ele retorna o valor da variável.
 
 ```json
 {
@@ -158,14 +158,14 @@ O modelo a seguir demonstra como as expressões de modelo são resolvidas de aco
 }
 ```
 
-O valor da variável é alterado com base no escopo. A tabela a seguir mostra os resultados para ambos os escopos.
+O valor `exampleVar` das alterações dependendo `scope` do `expressionEvaluationOptions`valor do imóvel em . A tabela a seguir mostra os resultados para ambos os escopos.
 
-| Escopo | Saída |
+| `expressionEvaluationOptions` `scope` | Saída |
 | ----- | ------ |
-| interna | do modelo aninhado |
-| externo (ou padrão) | do modelo pai |
+| interna | a partir de modelo aninhado |
+| exterior (ou padrão) | a partir de modelo pai |
 
-O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a ser usado para a senha. O escopo é definido como `inner` porque cria dinamicamente a ID do cofre de chaves e o passa como um parâmetro para o modelo aninhado.
+O exemplo a seguir implanta um servidor SQL e recupera um segredo do cofre chave para usar para a senha. O escopo é `inner` definido porque cria dinamicamente `adminPassword.reference.keyVault` o ID `parameters`do cofre de chave (veja nos modelos externos ) e passa-o como um parâmetro para o modelo aninhado.
 
 ```json
 {
@@ -215,6 +215,22 @@ O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a s
         "expressionEvaluationOptions": {
           "scope": "inner"
         },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "adminLogin": {
+            "value": "ghuser"
+          },
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+          }
+        },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
@@ -250,22 +266,6 @@ O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a s
               "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
             }
           }
-        },
-        "parameters": {
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "adminLogin": {
-            "value": "ghuser"
-          },
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
-            }
-          }
         }
       }
     }
@@ -277,11 +277,11 @@ O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a s
 
 > [!NOTE]
 >
-> Quando o escopo é definido como `outer`, não é possível usar a função `reference` na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, use o escopo interno ou converta o modelo aninhado em um modelo vinculado.
+> Quando o escopo `outer`é definido para `reference` , você não pode usar a função na seção saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para devolver os valores de um recurso implantado `inner` em um modelo aninhado, use o escopo ou converta seu modelo aninhado em um modelo vinculado.
 
 ## <a name="linked-template"></a>Modelo vinculado
 
-Para vincular um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **templateLink** , ESPECIFIQUE o URI do modelo a ser incluído. O exemplo a seguir contém links para um modelo que implanta uma nova conta de armazenamento.
+Para vincular um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **templateLink,** especifique o URI do modelo a ser incluido. O exemplo a seguir se conecta a um modelo que implanta uma nova conta de armazenamento.
 
 ```json
 {
@@ -308,13 +308,19 @@ Para vincular um modelo, adicione um [recurso de implantações](/azure/template
 }
 ```
 
-Não é possível especificar um arquivo local ou um arquivo que esteja disponível apenas em sua rede local. Você só pode fornecer um valor de URI que inclua **http** ou **https**. O Gerenciador de recursos deve ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
+Ao fazer referência a um `uri` modelo vinculado, o valor de não deve ser um arquivo local ou um arquivo que só está disponível em sua rede local. Você deve fornecer um valor URI que possa ser baixado como **http** ou **https**. 
 
-Você não precisa fornecer a propriedade `contentVersion` para o modelo ou parâmetros. Se você não fornecer um valor de versão do conteúdo, a versão atual do modelo é implantada. Se você fornecer um valor para a versão do conteúdo, ele deve corresponder à versão do modelo vinculado; caso contrário, a implantação falhará com um erro.
+> [!NOTE]
+>
+> Você pode referenciar modelos usando parâmetros que finalmente se resolvem `_artifactsLocation` para algo que usa **http** ou **https**, por exemplo, usando o parâmetro assim:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
-### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo vinculado
 
-Você pode fornecer os parâmetros para o modelo vinculado, seja em um arquivo externo ou embutido. Ao fornecer um arquivo de parâmetro externo, use a propriedade **parametersLink** :
+
+O Gerenciador de Recursos deve ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
+
+### <a name="parameters-for-linked-template"></a>Parâmetros para modelo vinculado
+
+Você pode fornecer os parâmetros para o seu modelo vinculado em um arquivo externo ou inline. Ao fornecer um arquivo de parâmetro externo, use a propriedade **parametersLink:**
 
 ```json
 "resources": [
@@ -325,19 +331,19 @@ Você pode fornecer os parâmetros para o modelo vinculado, seja em um arquivo e
   "properties": {
     "mode": "Incremental",
     "templateLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+      "contentVersion":"1.0.0.0"
     },
     "parametersLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+      "contentVersion":"1.0.0.0"
     }
   }
   }
 ]
 ```
 
-Para passar valores de parâmetro embutidos, use a propriedade **Parameters** .
+Para passar os valores dos parâmetros em linha, use a propriedade **parâmetros.**
 
 ```json
 "resources": [
@@ -361,11 +367,46 @@ Para passar valores de parâmetro embutidos, use a propriedade **Parameters** .
 
 Você não pode usar os dois parâmetros inline e um link para um arquivo de parâmetros. A implementação falha com um erro quando `parametersLink` e `parameters` são especificados.
 
-## <a name="using-copy"></a>Usando a cópia
+## `contentVersion`
 
-Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento Copy no nível do recurso **Microsoft. Resources/Implantations** . Ou, se o escopo for interno, você poderá adicionar a cópia dentro do modelo aninhado.
+Você não tem que `contentVersion` fornecer a `templateLink` `parametersLink` propriedade para a propriedade. Se você não fornecer `contentVersion`um , a versão atual do modelo será implantada. Se você fornecer um valor para a versão do conteúdo, ele deve corresponder à versão do modelo vinculado; caso contrário, a implantação falhará com um erro.
 
-O modelo de exemplo a seguir mostra como usar Copy com um modelo aninhado.
+## <a name="using-variables-to-link-templates"></a>Usando variáveis para vincular modelos
+
+Os exemplos anteriores mostraram valores codificados de URL para os vínculos de modelo. Essa abordagem pode funcionar para um modelo simples, mas não funciona bem para um grande conjunto de modelos modulares. Em vez disso, você pode criar uma variável estática que armazena uma URL de base para o modelo principal e, em seguida, criar dinamicamente URLs para os modelos vinculados dessa URL de base. O benefício desta abordagem é que você pode facilmente mover ou bifurcar o modelo porque você precisa alterar apenas a variável estática no modelo principal. O modelo principal passa os URIs corretos em todo o modelo decomposto.
+
+O exemplo a seguir mostra como usar uma URL base para criar duas URLs para modelos vinculados (**sharedTemplateUrl** e **vmTemplate**).
+
+```json
+"variables": {
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
+}
+```
+
+Você também pode usar [deployment()](template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado ou para evitar embutir URLs no arquivo de modelo. A propriedade templateLink só será retornada ao vincular a um modelo remoto com uma URL. Se você estiver usando um modelo local, essa propriedade não estará disponível.
+
+```json
+"variables": {
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+}
+```
+
+Em última análise, você usaria `uri` a `templateLink` variável na propriedade de uma propriedade.
+
+```json
+"templateLink": {
+ "uri": "[variables('sharedTemplateUrl')]",
+ "contentVersion":"1.0.0.0"
+}
+```
+
+## <a name="using-copy"></a>Usando cópia
+
+Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento de cópia ao nível do recurso **Microsoft.Resources/deployments.** Ou, se o escopo estiver interno, você pode adicionar a cópia dentro do modelo aninhado.
+
+O modelo a seguir mostra como usar a cópia com um modelo aninhado.
 
 ```json
 "resources": [
@@ -410,35 +451,13 @@ O modelo de exemplo a seguir mostra como usar Copy com um modelo aninhado.
 ]
 ```
 
-## <a name="using-variables-to-link-templates"></a>Usando variáveis para vincular modelos
-
-Os exemplos anteriores mostraram valores codificados de URL para os vínculos de modelo. Essa abordagem pode funcionar para um modelo simples, mas não funciona bem quando ao trabalhar com um grande conjunto de modelos modulares. Em vez disso, você pode criar uma variável estática que armazena uma URL de base para o modelo principal e, em seguida, criar dinamicamente URLs para os modelos vinculados dessa URL de base. A vantagem dessa abordagem é mover ou bifurcar o modelo, pois você precisa alterar a variável estática no modelo principal. O modelo principal passa os URIs corretos em todo o modelo decomposto.
-
-O exemplo a seguir mostra como usar uma URL base para criar duas URLs para modelos vinculados (**sharedTemplateUrl** e **vmTemplate**).
-
-```json
-"variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-  "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
-}
-```
-
-Você também pode usar [deployment()](template-functions-deployment.md#deployment) para obter a URL base para o modelo atual e usá-lo para obter a URL para outros modelos no mesmo local. Essa abordagem será útil se o local do modelo é alterado ou para evitar embutir URLs no arquivo de modelo. A propriedade templateLink só será retornada ao vincular a um modelo remoto com uma URL. Se você estiver usando um modelo local, essa propriedade não estará disponível.
-
-```json
-"variables": {
-  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
-}
-```
-
 ## <a name="get-values-from-linked-template"></a>Obter valores de modelos vinculados
 
 Para obter um valor de saída de um modelo vinculado, recupere o valor da propriedade com uma sintaxe semelhante a: `"[reference('deploymentName').outputs.propertyName.value]"`.
 
-Ao obter uma propriedade de saída de um modelo vinculado, o nome da propriedade não pode incluir um traço.
+Ao obter uma propriedade de saída de um modelo vinculado, o nome da propriedade não deve incluir um traço.
 
-Os exemplos a seguir demonstram como fazer referência a um modelo vinculado e recuperar um valor de saída. O modelo vinculado retorna uma mensagem simples.
+Os exemplos a seguir demonstram como fazer referência a um modelo vinculado e recuperar um valor de saída. O modelo vinculado retorna uma mensagem simples.  Primeiro, o modelo vinculado:
 
 ```json
 {
@@ -487,9 +506,9 @@ O modelo principal implanta o modelo vinculado e obtém o valor retornado. Obser
 }
 ```
 
-Assim como outros tipos de recurso, você pode definir dependências entre o modelo vinculado e outros recursos. Quando outros recursos exigirem um valor de saída do modelo vinculado, verifique se o modelo vinculado está implantado antes deles. Ou, quando o modelo vinculado depender de outros recursos, certifique-se que outros recursos foram implantados antes do modelo vinculado.
+Como acontece com outros tipos de recursos, você pode definir dependências entre o modelo vinculado e outros recursos. Quando outros recursos exigirem um valor de saída do modelo vinculado, certifique-se de que o modelo vinculado seja implantado antes deles. Ou, quando o modelo vinculado depender de outros recursos, certifique-se que outros recursos foram implantados antes do modelo vinculado.
 
-O exemplo a seguir mostra um modelo que implanta um endereço IP público e retorna a ID do recurso:
+O exemplo a seguir mostra um modelo que implanta um endereço IP público e retorna o ID de recurso do recurso Azure para esse IP público:
 
 ```json
 {
@@ -524,7 +543,7 @@ O exemplo a seguir mostra um modelo que implanta um endereço IP público e reto
 }
 ```
 
-Para usar o endereço IP público do modelo anterior ao implantar um balanceador de carga, vincule ao modelo e adicione uma dependência no recurso de implantação. O endereço IP público no balanceador de carga é definido como o valor de saída do modelo vinculado.
+Para usar o endereço IP público do modelo anterior ao implantar um balanceador de `Microsoft.Resources/deployments` carga, vincule-o ao modelo e declare uma dependência do recurso. O endereço IP público no balanceador de carga é definido como o valor de saída do modelo vinculado.
 
 ```json
 {
@@ -554,6 +573,7 @@ Para usar o endereço IP público do modelo anterior ao implantar um balanceador
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
+                // this is where the output value from linkedTemplate is used
                 "id": "[reference('linkedTemplate').outputs.resourceID.value]"
               }
             }
@@ -566,6 +586,7 @@ Para usar o endereço IP público do modelo anterior ao implantar um balanceador
         "outboundNatRules": [],
         "inboundNatPools": []
       },
+      // This is where the dependency is declared
       "dependsOn": [
         "linkedTemplate"
       ]
@@ -686,7 +707,7 @@ Ou, script da CLI do Azure em um shell Bash:
 for i in 0 1 2;
 do
   name="linkedTemplate$i";
-  deployment=$(az group deployment show -g examplegroup -n $name);
+  deployment=$(az deployment group show -g examplegroup -n $name);
   ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
   echo "deployment $name returned $ip";
 done
@@ -698,7 +719,7 @@ Embora o modelo vinculado precise estar disponível externamente, ele não preci
 
 O arquivo de parâmetro também pode ter o acesso limitado por meio de um token SAS.
 
-No momento, não é possível vincular a um modelo em uma conta de armazenamento que está atrás de um [Firewall de armazenamento do Azure](../../storage/common/storage-network-security.md).
+Atualmente, você não pode vincular a um modelo em uma conta de armazenamento que esteja por trás [de um firewall de armazenamento azure](../../storage/common/storage-network-security.md).
 
 O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
 
@@ -759,16 +780,16 @@ url=$(az storage blob url \
   --output tsv \
   --connection-string $connection)
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
+az deployment group create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
 Os exemplos a seguir mostram os usos comuns dos modelos vinculados.
 
-|Modelo principal  |Modelo vinculado |DESCRIÇÃO  |
+|Modelo principal  |Modelo vinculado |Descrição  |
 |---------|---------| ---------|
-|[Olá mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a cadeia de caracteres do modelo vinculado. |
+|[Olá, mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a cadeia de caracteres do modelo vinculado. |
 |[Azure Load Balancer com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Retorna o endereço IP público do modelo vinculado e define esse valor no balanceador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo vinculado.  |
 

@@ -1,5 +1,5 @@
 ---
-title: Implementar uma solução distribuída geograficamente
+title: Implementar uma solução geodistribuída
 description: Saiba como configurar o Banco de Dados SQL do Azure e o aplicativo para o failover para um banco de dados replicado e failover de teste.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 1da977f41add19afa6f84b7e5a3dc99c980ac1cf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 58d5bd4a7f3087e11056354f7534c3c9dbebca3c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421130"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067296"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar um banco de dados distribuído geograficamente
 
@@ -29,20 +29,20 @@ Configurar um Banco de Dados SQL do Azure e o aplicativo para o failover para um
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para obter esses cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Um banco de dados individual no banco de dados SQL do Azure. Para criar um, use
+- Um único banco de dados no Banco de Dados SQL do Azure. Para criar um, use
   - [Portal](sql-database-single-database-get-started.md)
-  - [CLI](sql-database-cli-samples.md)
-  - [PowerShell](sql-database-powershell-samples.md)
+  - [Cli](sql-database-cli-samples.md)
+  - [Powershell](sql-database-powershell-samples.md)
 
   > [!NOTE]
   > O tutorial usa o banco de dados de exemplo *AdventureWorksLT*.
@@ -52,13 +52,13 @@ Para concluir o tutorial, verifique se você instalou os seguintes itens:
 > [!IMPORTANT]
 > Não se esqueça de configurar regras de firewall para usar o endereço IP público do computador em que você está executando as etapas nesse tutorial. As regras de firewall no nível do banco de dados serão replicadas automaticamente para o servidor secundário.
 >
-> Para obter informações, confira [Criar uma regra de firewall de nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou, para determinar o endereço IP usado para a regra de firewall de nível de servidor para seu computador, confira [Criar um firewall de nível de servidor](sql-database-server-level-firewall-rule.md).  
+> Para obter [informações, crie uma regra de firewall em nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou para determinar o endereço IP usado para a regra de firewall em nível de servidor para o computador, consulte Criar um firewall em nível de [servidor](sql-database-server-level-firewall-rule.md).  
 
 ## <a name="create-a-failover-group"></a>Criar um grupo de failover
 
 Usando o Azure PowerShell, crie [grupos de failover](sql-database-auto-failover-group.md) entre um SQL Server do Azure existente e um SQL Server do Azure em outra região. Em seguida, adicione o banco de dados ao grupo de failover.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -90,12 +90,12 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
-> Execute `az login` para entrar no Azure.
+> Corra `az login` para entrar no Azure.
 
-```powershell
+```azurecli
 $admin = "<adminName>"
 $password = "<password>"
 $resourceGroup = "<resourceGroupName>"
@@ -118,7 +118,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-As configurações de replicação geográfica também podem ser alteradas no portal do Azure selecionando seu banco de dados, em seguida **Configurações** > **Replicação geográfica**.
+As configurações de geo-replicação também podem ser alteradas no portal Azure, selecionando seu banco de dados e, em seguida, **Configurações** > **De Geo-Replicação**.
 
 ![Configurações da replicação geográfica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
@@ -288,7 +288,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
    }
    ```
 
-1. Salve e feche o arquivo *App.java*.
+1. Salvar e fechar o arquivo *App.java.*
 
 1. No console de comando, execute o seguinte comando:
 
@@ -317,9 +317,9 @@ As configurações de replicação geográfica também podem ser alteradas no po
 
 Execute os scripts a seguir para simular um failover e observe os resultados do aplicativo. Observe como algumas inserções e seleções falharão durante a migração do banco de dados.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
-Você pode verificar a função do servidor de recuperação de desastre durante o teste com o seguinte comando:
+Você pode verificar a função do servidor de recuperação de desastres durante o teste com o seguinte comando:
 
 ```powershell
 (Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
@@ -342,11 +342,11 @@ Para testar um failover:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Você pode verificar a função do servidor de recuperação de desastre durante o teste com o seguinte comando:
+Você pode verificar a função do servidor de recuperação de desastres durante o teste com o seguinte comando:
 
-```azure-cli
+```azurecli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
 ```
 
@@ -354,13 +354,13 @@ Para testar um failover:
 
 1. Inicie um failover manual do grupo de failover:
 
-   ```azure-cli
+   ```azurecli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $drServer
    ```
 
 1. Reverta o grupo de failover de volta para o servidor primário:
 
-   ```azure-cli
+   ```azurecli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
    ```
 
@@ -368,7 +368,7 @@ Para testar um failover:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você configurou um Banco de Dados SQL do Azure e o aplicativo para o failover para uma região remota e testou um plano de failover. Você aprendeu como:
+Neste tutorial, você configurou um Banco de Dados SQL do Azure e o aplicativo para o failover para uma região remota e testou um plano de failover. Você aprendeu a:
 
 > [!div class="checklist"]
 > - Criar um grupo de failover de replicação geográfica

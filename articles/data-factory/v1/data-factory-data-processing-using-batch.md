@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: afc7a7406831568304c2ebd8d9a6c72b497e04e4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972873"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
@@ -41,10 +41,10 @@ Com o serviço em Lotes, você define os recursos de computação do Azure para 
 * [Conceitos básicos do Lote](../../batch/batch-technical-overview.md)
 * [Visão geral do recurso de Lote](../../batch/batch-api-basics.md)
 
-Opcionalmente, para saber mais sobre o lote, consulte [a documentação do lote](https://docs.microsoft.com/azure/batch/).
+Opcionalmente, para saber mais sobre batch, consulte [a documentação do Lote](https://docs.microsoft.com/azure/batch/).
 
-## <a name="why-azure-data-factory"></a>Por que o Azure Data Factory?
-O Data Factory é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a movimentação e a transformação de dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
+## <a name="why-azure-data-factory"></a>Por que usar o Azure Data Factory?
+O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
 
   Caso não esteja familiarizado com o Data Factory, os seguintes artigos ajudarão você a entender a arquitetura/implementação da solução descrita neste artigo:  
 
@@ -71,9 +71,9 @@ A lista a seguir fornece as etapas básicas do processo. A solução inclui cód
 
 * **Crie uma instância do Data Factory** configurada com entidades que representam o armazenamento de blobs, o serviço de computação do Lote, os dados de entrada/saída e um fluxo de trabalho/pipeline com atividades que movem e transformam dados.
 
-* **Crie uma atividade personalizada do .NET no pipeline do Data Factory.** A atividade é seu código de usuário executado no pool do Lote.
+* **Crie uma atividade .NET personalizada no pipeline da Fábrica de Dados.** A atividade é seu código de usuário executado no pool do Lote.
 
-* **Armazene grandes quantidades de dados de entrada como blobs no Armazenamento do Azure.** Os dados são divididos em fatias lógicas (geralmente, por hora).
+* **Armazene grandes quantidades de dados de entrada como blobs no Azure Storage.** Os dados são divididos em fatias lógicas (geralmente, por hora).
 
 * **O Data Factory copia os dados que são processados em paralelo** para a localização secundária.
 
@@ -94,7 +94,7 @@ Se você não tem uma assinatura do Azure, crie uma conta de avaliação gratuit
 Use uma conta de armazenamento para armazenar os dados deste tutorial. Se você não tem uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). A solução de exemplo usa o armazenamento de blobs.
 
 #### <a name="azure-batch-account"></a>Conta do Lote do Azure
-Crie uma conta do Lote usando o [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Você também pode usar o cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para criar uma conta do lote. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
+Crie uma conta do Lote usando o [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Você também pode usar o [cmdlet New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para criar uma conta batch. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo usa o Lote (indiretamente por meio de um pipeline do data factory) para processar dados de forma paralela em um pool de nós de computação (uma coleção gerenciada de VMs).
 
@@ -111,7 +111,7 @@ Crie um pool do Lote com pelo menos dois nós de computação.
 
    a. Insira uma ID para o pool (**ID do Pool**). Anote a ID do pool. Você precisará dela quando criar a solução de data factory.
 
-   b. Especifique **Windows Server 2012 R2** para a configuração **Família de Sistemas Operacionais**.
+   b. Especifique **o Windows Server 2012 R2** para a configuração **Da família do sistema operacional.**
 
    c. Selecione um **camada de preços de nó**.
 
@@ -124,7 +124,7 @@ Crie um pool do Lote com pelo menos dois nós de computação.
 #### <a name="azure-storage-explorer"></a>Gerenciador de Armazenamento do Azure
 Use o [Gerenciador de Armazenamento do Azure 6](https://azurestorageexplorer.codeplex.com/) ou o [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (da ClumsyLeaf Software) para inspecionar e alterar os dados em seus projetos do Armazenamento. Também inspecione e altere os dados nos logs de seus aplicativos hospedados na nuvem.
 
-1. Crie um contêiner chamado **mycontainer** com acesso particular (sem acesso anônimo).
+1. Crie um contêiner chamado **mycontainer** com acesso privado (sem acesso anônimo).
 
 1. Se você usar o CloudXplorer, crie pastas e subpastas com a seguinte estrutura:
 
@@ -182,7 +182,7 @@ O método tem alguns componentes principais que você precisa entender:
 
    b. Selecione **Arquivo** > **Novo** > **Projeto**.
 
-   c. Expanda **Modelos** e selecione **Visual C\#** . Neste passo a passo, você pode usar C\#, mas pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.
+   c. Expanda **Modelos** e selecione **Visual C\#**. Neste passo a passo, você pode usar C\#, mas pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.
 
    d. Selecione **Biblioteca de Classes** na lista de tipos de projeto à direita.
 
@@ -192,7 +192,7 @@ O método tem alguns componentes principais que você precisa entender:
 
    g. Selecione **OK** para criar o projeto.
 
-1. Selecione **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**.
+1. Selecione **ferramentas** > **NuGet Package Manager** > **Package Manager Console**.
 
 1. No Console do Gerenciador de Pacotes, execute o seguinte comando para importar Microsoft.Azure.Management.DataFactories:
 
@@ -556,11 +556,11 @@ Os serviços vinculados vinculam armazenamentos de dados ou serviços de computa
 
    ![Novo armazenamento de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave de conta** com a chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave de conta** com a chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, confira [Gerenciar as chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
 1. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
-   ![Implantação](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Implantar](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Criar um serviço vinculado do Lote do Azure
 Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usado para executar a atividade personalizada do data factory.
@@ -573,12 +573,12 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
 
    b. Substitua **chave de acesso** pela chave de acesso da conta do Lote.
 
-   c. Insira a ID do pool para a propriedade **poolName**. Para essa propriedade, especifique o nome ou a ID do pool.
+   c. Digite o ID do pool para a propriedade **poolName.** Para essa propriedade, especifique o nome ou a ID do pool.
 
    d. Digite o URI do lote para a propriedade JSON **batchUri** .
 
       > [!IMPORTANT]
-      > A URL da folha **Conta do Lote** está no seguinte formato: \<accountname\>.\<region\>.batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover A88 "AccountName". * * da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
+      > A URL da lâmina **Batch Account** está \<no\>seguinte formato: nome da conta . \<região\>.batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover a88"accountname."** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -659,26 +659,26 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
     }
     ```
 
-    Você cria um pipeline posteriormente neste passo a passo com a hora de início: 2015-11-16T00:00:00Z e a hora de término 2015-11-16T05:00:00Z. Ele está agendado para gerar dados por hora, portanto, há cinco fatias de entrada/saída (entre **00**: 00:00-\> **05**: 00:00).
+    Você cria um pipeline posteriormente neste passo a passo com a hora de início: 2015-11-16T00:00:00Z e a hora de término 2015-11-16T05:00:00Z. Ele é agendado para gerar dados de hora em hora; portanto, há cinco fatias de entrada/saída (entre **00**:00:00 -\> **05**:00:00).
 
     A **frequency** e o **interval** do conjunto de dados de entrada são definidos como **Hour** e **1**, o que significa que a fatia de entrada está disponível por hora.
 
     A hora de início de cada fatia é representada pela variável do sistema **SliceStart** no snippet de JSON anterior. Veja a seguir as horas de início de cada fatia.
 
-    | **Fatia** | **Hora de início**          |
+    | **Fatia** | **Horário de início**          |
     |-----------|-------------------------|
     | 1         | 2015-11-16T**00**:00:00 |
-    | 2         | 2015-11-16T**01**:00:00 |
+    | 2         | 2015-11-16T**01**01:00:00 |
     | 3         | 2015-11-16T**02**:00:00 |
     | 4         | 2015-11-16T**03**:00:00 |
     | 5         | 2015-11-16T**04**:00:00 |
 
     O **folderPath** é calculado usando a parte de ano, mês, dia e hora da hora de início da fatia (**SliceStart**). É assim que uma pasta de entrada é mapeada para uma fatia.
 
-    | **Fatia** | **Hora de início**          | **Pasta de entrada**  |
+    | **Fatia** | **Horário de início**          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
+    | 2         | 2015-11-16T**01**01:00:00 | 2015-11-16-**01** |
     | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
     | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
@@ -722,10 +722,10 @@ Nesta etapa, você cria outro conjunto de dados do tipo AzureBlob para represent
 
     Um blob/arquivo de saída é gerado para cada fatia de entrada. Aqui está como um arquivo de saída é chamado para cada fatia. Todos os arquivos de saída são gerados em uma pasta de saída, `mycontainer\\outputfolder`.
 
-    | **Fatia** | **Hora de início**          | **Arquivo de saída**       |
+    | **Fatia** | **Horário de início**          | **Arquivo de saída**       |
     |-----------|-------------------------|-----------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
+    | 2         | 2015-11-16T**01**01:00:00 | 2015-11-16-**01.txt** |
     | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
     | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
@@ -792,7 +792,7 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
    Observe os seguintes pontos:
 
    * Há apenas uma atividade no pipeline e ela é do tipo **DotNetActivity**.
-   * **AssemblyName** é definido com o nome da DLL **MyDotNetActivity.dll**.
+   * **AssemblyName** é definido como o nome do DLL **MyDotNetActivity.dll**.
    * **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente \<namespace\>.\<classname\> no código.
    * **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você usar contas de armazenamento diferentes para arquivos de entrada/saída e o arquivo zip da atividade personalizada, precisará criar outro serviço vinculado do Armazenamento. Este artigo pressupõe que você use a mesma conta de armazenamento.
    * **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato \<containerforthezip\>/\<nameofthezip.zip\>.
@@ -907,7 +907,7 @@ A depuração consiste em algumas técnicas básicas.
 
     Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
     ```
-1. Inclua o arquivo **PDB** no arquivo zip para que os detalhes do erro tenham informações como uma pilha de chamadas quando ocorrer um erro.
+1. Inclua o arquivo **PDB** no arquivo zip para que os detalhes do erro tenham informações como pilha de chamadas quando ocorrer um erro.
 
 1. Todos os arquivos do arquivo zip para a atividade personalizada precisam estar no nível superior sem subpastas.
 
@@ -954,7 +954,7 @@ Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote
 
    Se o pool usar o [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx) padrão, o serviço Lote poderá levar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada. Se o pool usar um autoScaleEvaluationInterval diferente, o serviço Lote poderá levar autoScaleEvaluationInterval, mais 10 minutos.
 
-1. Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Escreva seu próprio método para processar dados de entrada e substitua a chamada do método **Calculate** no método **Execute** por uma chamada ao seu método.
+1. Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Você pode escrever seu próprio método para processar dados de entrada e substituir a chamada do método **Calcular** no método **Executar** por uma chamada para o seu método.
 
 ### <a name="next-steps-consume-the-data"></a>Próximas etapas: consumir os dados
 Depois de processar dados, consuma-os com ferramentas online como o Power BI. Aqui estão links para ajudá-lo a entender o Power BI e como usá-lo no Azure:
@@ -965,7 +965,7 @@ Depois de processar dados, consuma-os com ferramentas online como o Power BI. Aq
 * [Azure e Power BI: visão geral básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referências
-* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Fábrica de Dados Azure](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Introdução ao serviço Data Factory](data-factory-introduction.md)
   * [Introdução ao Data Factory](data-factory-build-your-first-pipeline.md)

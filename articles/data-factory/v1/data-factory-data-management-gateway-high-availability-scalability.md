@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade com o gateway de gerenciamento de dados no Azure Data Factory
+title: Alta disponibilidade com gateway de gerenciamento de dados na Fábrica de Dados do Azure
 description: Este artigo explica como você pode escalar horizontalmente um Gateway de Gerenciamento de Dados adicionando mais nós e escalar verticalmente com o aumento do número de trabalhos simultâneos que podem ser executados em um nó.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932024"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065201"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md). 
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço do Data Factory, consulte [IR auto-hospedado na](../create-self-hosted-integration-runtime.md). 
 
 
 Este artigo ajudará a configurar a solução de alta disponibilidade e escalabilidade com o Gateway/Integração de Gerenciamento de Dados.    
@@ -31,8 +31,8 @@ Este artigo ajudará a configurar a solução de alta disponibilidade e escalabi
 > 
 > **Esse recurso em versão prévia é oficialmente compatível com o Gateway de Gerenciamento de Dados versão 2.12.xxxx.x e superior**. Verifique se você está usando a versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Gateway de Gerenciamento de Dados [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
 
-## <a name="overview"></a>Visão Geral
-Você pode associar gateways de gerenciamento de dados instalados em vários computadores locais a um único gateway lógico por meio do portal. Esses computadores são chamados de **nós**. Você pode ter até **quatro nós** associados a um gateway lógico. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são:  
+## <a name="overview"></a>Visão geral
+Você pode associar gateways de gerenciamento de dados instalados em vários computadores locais a um único gateway lógico por meio do portal. Essas máquinas são chamadas **de nós.** Você pode ter até **quatro nós** associados a um gateway lógico. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são:  
 
 - Melhorar o desempenho de movimentação de dados entre armazenamentos de dados local e na nuvem.  
 - Se um de nós ficar inativo por algum motivo, outros nós ainda estarão disponíveis para mover os dados. 
@@ -53,7 +53,7 @@ Todos esses nós estão **ativos**. Todos eles podem processar trabalhos de movi
 
 Normalmente, você pode começar com um nó e **escalar horizontalmente** para adicionar mais nós, conforme os nós existentes são sobrecarregados com a carga de movimentação de dados. Você também pode **escalar verticalmente** a funcionalidade de movimentação de dados de um nó de gateway, aumentando o número de trabalhos simultâneos que podem ser executados no nó. Essa funcionalidade também está disponível com um gateway de nó único (mesmo quando o recurso de escalabilidade e disponibilidade não está habilitado). 
 
-Um gateway com vários nós mantém as credenciais do armazenamento de dados sincronizadas entre todos os nós. Se houver um problema de conectividade de nó para nó, as credenciais poderão estar fora de sincronia. Quando você define as credenciais para um armazenamento de dados local que usa um gateway, ele salva as credenciais no nó Dispatcher/Worker. O nó dispatcher é sincronizado com outros nós de trabalho. Esse processo é conhecido como **sincronização de credenciais**. O canal de comunicação entre os nós pode ser **criptografado** por um certificado SSL/TLS público. 
+Um gateway com vários nós mantém as credenciais do armazenamento de dados sincronizadas entre todos os nós. Se houver um problema de conectividade nó-a-nó, as credenciais podem estar fora de sincronia. Quando você define credenciais para um armazenamento de dados no local que usa um gateway, ele salva credenciais no nó despachante/trabalhador. O nó dispatcher é sincronizado com outros nós de trabalho. Esse processo é conhecido como **sincronização de credenciais**. O canal de comunicação entre nós pode ser **criptografado** por um certificado SSL/TLS público. 
 
 ## <a name="set-up-a-multi-node-gateway"></a>Configurar um gateway com vários nós
 Esta seção pressupõe que você percorreu os dois artigos a seguir ou está familiarizado com conceitos nesses artigos: 
@@ -133,7 +133,7 @@ Esta seção pressupõe que você percorreu os dois artigos a seguir ou está fa
 Você pode atualizar um gateway existente para usar o recurso de alta disponibilidade e escalabilidade. Esse recurso funciona somente com nós que têm o gateway de gerenciamento de dados da versão >= 2.12.xxxx. Você pode ver a versão do Gateway de Gerenciamento de Dados instalado no computador na guia **Ajuda** do Gerenciador de Configurações do Gateway de Gerenciamento de Dados. 
 
 1. Atualize o gateway no computador local para a versão mais recente, baixando e executando um pacote de instalação MSI do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte a seção [Instalação](data-factory-data-management-gateway.md#installation) para obter detalhes.  
-2. Navegue até o Portal do Azure. Inicie a **página do Data Factory** o seu data factory. Clique no bloco Serviços vinculados para iniciar a **página Serviços vinculados**. Selecione o gateway para iniciar a **página Gateway**. Clique na **Versão Prévia do Recurso** e habilite-a, conforme mostrado na imagem a seguir: 
+2. Navegue até o Portal do Azure. Inicie a **página do Data Factory** o seu data factory. Clique no bloco Serviços vinculados para iniciar a **página Serviços vinculados**. Selecione o gateway para iniciar a **página gateway**. Clique na **Versão Prévia do Recurso** e habilite-a, conforme mostrado na imagem a seguir: 
 
     ![Gateway de Gerenciamento de Dados – habilitar versão prévia do recurso](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. Quando a versão prévia do recurso estiver habilitada no portal, feche todas as páginas. Reabra a **página Gateway** para ver a nova IU (interface do usuário) da versão prévia.
@@ -164,9 +164,9 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 - Cada nó de runtime de integração deve confiar nesse certificado, bem como no computador cliente que está executando o aplicativo do gerenciador de credenciais. 
   > [!NOTE]
   > O aplicativo do gerenciador de credenciais é usado durante a configuração segura da credencial do Assistente para Cópia/Portal do Azure. E isso pode ser disparado de qualquer computador na mesma rede que o armazenamento de dados local/privado.
-- Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar * **.domain.contoso.com** como nome da entidade do certificado.
-- Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo: você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
-- Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
+- Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar ***.domain.contoso.com** como nome da entidade do certificado.
+- Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por ex.: você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
+- Suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados TLS/SSL.
 - Não há suporte para certificado usando chaves CNG.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Perguntas frequentes: Quando eu não habilitaria essa criptografia?
@@ -185,13 +185,13 @@ Você pode habilitar as **Configurações Avançadas** na página **Gateway** pa
 
 Propriedade de monitoramento | Descrição
 :------------------ | :---------- 
-name | Nome do gateway lógico e nós associada ao gateway.  
-Status | Status do gateway lógico e dos nós de gateway. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a seção [status do gateway](#gateway-status) . 
+Nome | Nome do gateway lógico e nós associada ao gateway.  
+Status | Status do gateway lógico e dos nós de gateway. Exemplo: On-line/offline/limitado/etc. Para obter informações sobre esses status, consulte a seção [de status do Gateway.](#gateway-status) 
 Versão | Mostra a versão do gateway lógico e cada nó do gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós no grupo. Se não há nós com versões diferentes na configuração do gateway lógico, somente os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). 
 Memória disponível | Memória disponível em um nó do gateway. Esse valor é um instantâneo quase em tempo real. 
 Utilização da CPU | Utilização da CPU de um nó de gateway. Esse valor é um instantâneo quase em tempo real. 
 Rede (Entrada/Saída) | Utilização de rede de um nó de gateway. Esse valor é um instantâneo quase em tempo real. 
-Trabalhos Simultâneos (Executando/Limite) | Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que a CPU/memória/rede está subutilizada, mas as atividades estão atingindo o tempo limite. Esse recurso também está disponível com um gateway de nó único (mesmo quando o recurso de escalabilidade e disponibilidade não está habilitado). Para obter mais informações, consulte a seção [considerações de dimensionamento](#scale-considerations). 
+Trabalhos Simultâneos (Executando/Limite) | Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar a execução simultânea de trabalho em cenários avançados, onde a CPU/memória/rede é subutilizada, mas as atividades estão se esusando. Esse recurso também está disponível com um gateway de nó único (mesmo quando o recurso de escalabilidade e disponibilidade não está ativado). Para obter mais informações, consulte a seção [considerações de dimensionamento](#scale-considerations). 
 Função | Há dois tipos de funções – Dispatcher e de trabalho. Todos os nós são de trabalho, o que significa que eles podem ser usados para executar trabalhos. Há apenas um nó dispatcher, que é usado para efetuar pull de tarefas/trabalhos dos serviços de nuvem e distribuí-los para nós de trabalho diferentes (incluindo ele próprio). 
 
 ![Gateway de Gerenciamento de Dados – monitoramento avançado de vários nós](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
@@ -203,7 +203,7 @@ A tabela a seguir fornece os possíveis status de um **nó de gateway**:
 Status  | Comentários/Cenários
 :------- | :------------------
 Online | Nó conectado ao serviço Data Factory.
-Off-line | O nó está offline.
+Offline | O nó está offline.
 Atualizando | O nó está sendo atualizado automaticamente.
 Limitado | Devido a problema de conectividade. Pode ser devido a problema 8050 de porta HTTP, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais. 
 Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria.<br/><br/> Um nó pode ficar inativo quando ele não pode se conectar a outros nós. 
@@ -215,7 +215,7 @@ Status | Comentários
 :----- | :-------
 Precisa de Registro | Nenhum nó está registrado ainda para este gateway lógico
 Online | Nós de Gateway estão online
-Off-line | Nenhum nó no status online.
+Offline | Nenhum nó no status online.
 Limitado | Nem todos os nós neste gateway estão em estado íntegro. Esse status é um aviso de que um nó pode estar inativo! <br/><br/>Isso pode ser devido a problema de sincronização de credenciais no nó dispatcher/de trabalho. 
 
 ### <a name="pipeline-activities-monitoring"></a>Monitoramento de atividades/de pipeline
@@ -227,7 +227,7 @@ O Portal do Azure fornece uma experiência de monitoramento de pipeline com deta
 
 ## <a name="scale-considerations"></a>Considerações de escala
 
-### <a name="scale-out"></a>Escalar horizontalmente
+### <a name="scale-out"></a>Expansão
 Quando a **memória disponível está baixa** e o **uso de CPU é alto**, adicionar um novo nó ajuda a escalar horizontalmente a carga entre computadores. Se as atividades estão falhando devido a tempo limite atingido ou ao nó do gateway ficar offline, ajuda adicionar um nó ao gateway.
  
 ### <a name="scale-up"></a>Escalar verticalmente
@@ -238,11 +238,11 @@ Quando a memória e a CPU disponíveis não são bem utilizadas mas a capacidade
 
 ## <a name="known-issuesbreaking-changes"></a>Problemas conhecidas/últimas alterações
 
-- No momento, você pode ter até quatro nós de gateway físico para um único gateway lógico. Se você precisar de mais de quatro nós por motivos de desempenho, envie um email para [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com).
+- No momento, você pode ter até quatro nós de gateway físico para um único gateway lógico. Se você precisar de mais de quatro nós por [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com)razões de desempenho, envie um e-mail para .
 - Você não pode registrar novamente um nó de gateway com a chave de autenticação de outro gateway lógico para o qual mudar do gateway lógico atual. Para registrar novamente, desinstale o gateway do nó, reinstale o gateway e registre-o com a chave de autenticação para o gateway lógico. 
-- Se o proxy HTTP for necessário para todos os seus nós de gateway, defina o proxy em diahost. exe. config e diawp. exe. config e use o Gerenciador de servidores para verificar se todos os nós têm o mesmo diahost. exe. config e diawip. exe. config. Consulte a seção [definir configurações de proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) para obter detalhes. 
+- Se for necessário proxy HTTP para todos os nós do gateway, defina o proxy em diahost.exe.config e diawp.exe.config e use o gerenciador de servidor para garantir que todos os nós tenham o mesmo diahost.exe.config e diawip.exe.config. Consulte a seção [configurar configurações proxy](data-factory-data-management-gateway.md#configure-proxy-server-settings) para obter detalhes. 
 - Para alterar o modo de criptografia para comunicação de nó para nó no Gerenciador de Configurações do Gateway, exclua todos os nós no portal, exceto um. Em seguida, adicione nós novamente depois de alterar o modo de criptografia.
-- Use um certificado SSL oficial se você optar por criptografar o canal de comunicação de nó para nó. Um certificado autoassinado pode causar problemas de conectividade, já que o mesmo certificado pode não ser confiável na lista da autoridade de certificação em outros computadores. 
+- Use um certificado TLS oficial se você optar por criptografar o canal de comunicação nó-a-nó. Um certificado autoassinado pode causar problemas de conectividade, já que o mesmo certificado pode não ser confiável na lista da autoridade de certificação em outros computadores. 
 - Você não pode registrar um nó de gateway para um gateway lógico quando a versão do nó é inferior à versão do gateway lógico. Excluir todos os nós do gateway lógico do portal de forma que você possa registrar um nó de versão inferior (fazer downgrade dele). Se você excluir todos os nós de um gateway lógico, instale manualmente e registre novos nós nesse gateway lógico. Não há suporte para a instalação expressa nesse caso.
 - Você não pode usar a instalação expressa para instalar nós em um gateway lógico existente, que ainda está usando credenciais de nuvem. Você pode verificar onde as credenciais são armazenadas do Gerenciador de Configurações do Gateway na guia Configurações.
 - Você não pode usar a instalação expressa para instalar nós em um gateway lógico existente, que ainda tem criptografia de nó para nó habilitada. Já que a configuração do modo de criptografia consiste em adicionar manualmente os certificados, a instalação expressa não é mais uma opção. 
@@ -255,7 +255,7 @@ Para reverter da versão prévia, exclua todos os nós, com exceção de um. Nã
 Depois de excluí-lo, clique na **versão prévia dos recursos** na mesma página do Portal do Azure e desabilite a versão prévia do recurso. Você redefiniu o gateway para um gateway de um nó de DG (disponibilidade geral).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Examine os seguintes artigos:
 - [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) – fornece uma visão geral detalhada do gateway.
 - [Mover dados entre locais e na nuvem armazenamentos de dados](data-factory-move-data-between-onprem-and-cloud.md) – contém um passo a passo com instruções passo a passo para usar um gateway com um único nó. 

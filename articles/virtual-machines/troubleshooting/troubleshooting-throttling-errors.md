@@ -14,10 +14,10 @@ ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
 ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045368"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Solução de problemas de erros de limitação de API 
@@ -32,7 +32,7 @@ Quando um cliente da API do Azure recebe um erro de limitação, o status HTTP �
 
 ## <a name="call-rate-informational-response-headers"></a>Cabeçalhos de resposta informativa de taxa de chamada 
 
-| Cabeçalho                            | Formato de valor                           | Exemplo                               | Description                                                                                                                                                                                               |
+| Cabeçalho                            | Formato de valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas à API restante para a política de limitação abrangendo o grupo de operações ou o bucket de recursos, incluindo o destino dessa solicitação                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | O número de contagens de chamadas "cobradas" para essa solicitação HTTP para o limite da política aplicável. Geralmente é 1. Solicitações em lote, por exemplo, para dimensionar um conjunto de dimensionamento de máquinas virtuais, podem cobrar várias contagens. |
@@ -98,6 +98,6 @@ Os cmdlets do PowerShell usam uma API de serviço REST, que pode ser facilmente 
 - Se o código de cliente precisar de VMs, discos e instantâneos de um local específico do Azure, use o formulário baseado em localização da consulta, em vez de consultar todas as VMs da assinatura para então filtrar por local no lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` consulta pontos de extremidade regionais do Provedor de Recursos de Computação. 
 -   Ao criar ou atualizar recursos de API em particular, VMs e conjuntos de dimensionamento de máquinas virtuais, é muito mais eficiente rastrear a operação assíncrona retornada para a conclusão do que fazer a sondagem na URL de recurso em si (com base no `provisioningState`).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações orientação de novas tentativas para outros serviços no Azure, veja [Orientação de novas tentativas para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

@@ -9,28 +9,28 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 86d768db7a31c634bdaca6c93f633c7bbaf10a65
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774283"
 ---
-O cmdlet **Get-AzPeeringLocation** do PowerShell retorna uma lista de locais de emparelhamento com o parâmetro obrigatório `Kind`, que você usará em etapas posteriores:
+O cmdlet **Get-AzPeeringLocation** do PowerShell retorna uma lista `Kind`de locais de observação com o parâmetro obrigatório , que você usará em etapas posteriores:
 
 ```powershell
 Get-AzPeeringLocation -Kind Direct
 ```
 
-Os locais de emparelhamento direto contêm os seguintes campos:
-* PeeringLocation 
-* País
+Os locais de peering direto contêm os seguintes campos:
+* Localização de peering 
+* País/Região
 * PeeringDBFacilityId
 * PeeringDBFacilityLink
-* BandwidthOffers
+* Largura de bandaOferece
 
-Valide se você está presente na instalação de emparelhamento desejada fazendo referência a [PeeringDB](https://w www.peeringdb.com).
+Valide se você está presente na instalação de peering desejada, referindo-se ao [PeeringDB](https://wwww.peeringdb.com).
 
-Veja abaixo um exemplo que mostra como usar Seattle como o local de emparelhamento para criar um emparelhamento direto:
+Abaixo está um exemplo que mostra como usar Seattle como o local de peering para criar um peering direto:
 
 ```powershell
 $peeringLocations = Get-AzPeeringLocation -Kind Direct

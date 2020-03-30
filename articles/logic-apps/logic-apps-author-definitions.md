@@ -1,19 +1,19 @@
 ---
-title: Criar, editar ou estender definições de fluxo de trabalho JSON do aplicativo lógico
-description: Como escrever, editar e estender as definições de fluxo de trabalho JSON do aplicativo lógico nos aplicativos lógicos do Azure
+title: Criar, editar ou estender definições de fluxo de trabalho do aplicativo de lógica JSON
+description: Como escrever, editar e estender as definições de fluxo de trabalho JSON do seu aplicativo lógico no Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979386"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Criar, editar ou estender JSON para definições de fluxo de trabalho de aplicativo lógico em aplicativos lógicos do Azure
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Crie, edite ou amplie o JSON para definições de fluxo de trabalho de aplicativos lógicos em Aplicativos de Lógica do Azure
 
 Quando você cria soluções de integração corporativa com fluxos de trabalho automatizados em [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md), as definições de aplicativo lógico subjacentes usam JSON (JavaScript Object Notation) simples e declarativo, junto com o [ Esquema de Linguagem de Definição do Fluxo de Trabalho (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) para sua descrição e validação. Esses formatos tornam as definições do aplicativo lógico mais fáceis de ler e entender sem saber muito sobre o código.
 Quando você quiser automatizar a criação e implantação de aplicativos lógicos, você pode incluir definições de aplicativo lógica como [recursos do Azure](../azure-resource-manager/management/overview.md) dentro de [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md).
@@ -28,7 +28,7 @@ Se ainda não estiver familiarizado com aplicativos lógicos, examine [Como cria
 
 ## <a name="edit-json---azure-portal"></a>Editar o JSON - portal do Azure
 
-1. Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
+1. Faça login no <a href="https://portal.azure.com" target="_blank">portal Azure</a>.
 
 2. No menu à esquerda, escolha **Todos os serviços**.
 Na caixa de pesquisa, localize "aplicativos lógicos" e, em seguida, nos resultados, selecione seu aplicativo lógico.
@@ -65,21 +65,21 @@ Selecione **Abrir com o Designer de Aplicativo Lógico**.
 
 ## <a name="parameters"></a>Parâmetros
 
-O ciclo de vida da implantação geralmente tem ambientes diferentes para desenvolvimento, teste, preparo e produção. Quando você tem valores que deseja reutilizar em seu aplicativo lógico sem codificar ou que variam de acordo com suas necessidades de implantação, você pode criar um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md) para sua definição de fluxo de trabalho para que você também possa automatizar a implantação do aplicativo lógico.
+O ciclo de vida de implantação geralmente tem diferentes ambientes para desenvolvimento, teste, encenação e produção. Quando você tem valores que deseja reutilizar em todo o seu aplicativo lógico sem codificação hardcoding ou que variam de acordo com suas necessidades de implantação, você pode criar um [modelo do Azure Resource Manager](../azure-resource-manager/management/overview.md) para sua definição de fluxo de trabalho para que você também possa automatizar a implantação do aplicativo lógico.
 
-Siga estas etapas gerais para *parametrizar*ou definir e usar parâmetros para, esses valores em vez disso. Em seguida, você pode fornecer os valores em um arquivo de parâmetro separado que passa esses valores para o modelo. Dessa forma, você pode alterar esses valores com mais facilidade, sem precisar atualizar e reimplantar seu aplicativo lógico. Para obter detalhes completos, consulte [visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
+Siga estas etapas gerais para *parametrizar*ou definir e usar parâmetros para esses valores. Em seguida, você pode fornecer os valores em um arquivo de parâmetro separado que passa esses valores para o seu modelo. Dessa forma, você pode alterar esses valores mais facilmente sem ter que atualizar e reimplantar seu aplicativo lógico. Para obter detalhes completos, consulte [Visão geral: Automatize a implantação de aplicativos lógicos com modelos do Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-1. Em seu modelo, defina parâmetros de modelo e parâmetros de definição de fluxo de trabalho para aceitar os valores a serem usados em implantação e tempo de execução, respectivamente.
+1. Em seu modelo, defina parâmetros de modelo e parâmetros de definição de fluxo de trabalho para aceitar os valores a serem usados na implantação e em tempo de execução, respectivamente.
 
-   Parâmetros de modelo são definidos em uma seção de parâmetros que está fora de sua definição de fluxo de trabalho, enquanto parâmetros de definição de fluxo de trabalho são definidos em uma seção de parâmetros que está dentro de sua definição de fluxo de trabalho
+   Os parâmetros do modelo são definidos em uma seção de parâmetros que está fora da definição do fluxo de trabalho, enquanto os parâmetros de definição do fluxo de trabalho são definidos em uma seção de parâmetros que está dentro da definição do fluxo de trabalho.
 
-1. Substitua os valores codificados por expressões que fazem referência a esses parâmetros. Expressões de modelo usam sintaxe que difere das expressões de definição de fluxo de trabalho.
+1. Substitua os valores codificados por expressões que fazem referência a esses parâmetros. As expressões de modelo usam sintaxe que difere das expressões de definição do fluxo de trabalho.
 
-   Evite complicar seu código não usando expressões de modelo, que são avaliadas na implantação, dentro de expressões de definição de fluxo de trabalho, que são avaliadas no tempo de execução. Use apenas expressões de modelo fora de sua definição de fluxo de trabalho. Use somente expressões de definição de fluxo de trabalho dentro de sua definição de fluxo de trabalho.
+   Evite complicar seu código não usando expressões de modelo, que são avaliadas na implantação, dentro de expressões de definição de fluxo de trabalho, que são avaliadas em tempo de execução. Use apenas expressões de modelo fora da definição do fluxo de trabalho. Use apenas expressões de definição de fluxo de trabalho dentro da definição do fluxo de trabalho.
 
-   Ao especificar os valores para seus parâmetros de definição de fluxo de trabalho, você pode referenciar parâmetros de modelo usando a seção de parâmetros que está fora de sua definição de fluxo de trabalho, mas ainda dentro da definição de recurso para seu aplicativo lógico. Dessa forma, você pode passar valores de parâmetro de modelo para seus parâmetros de definição de fluxo de trabalho.
+   Quando você especifica os valores para os parâmetros de definição do fluxo de trabalho, você pode referenciar parâmetros de modelo usando a seção de parâmetros que está fora da definição do fluxo de trabalho, mas ainda dentro da definição de recurso para o seu aplicativo lógico. Dessa forma, você pode passar valores de parâmetro de modelo em seus parâmetros de definição de fluxo de trabalho.
 
-1. Armazene os valores para seus parâmetros em um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md) separado e inclua esse arquivo com a sua implantação.
+1. Armazene os valores para seus parâmetros em um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md) separado e inclua esse arquivo com sua implantação.
 
 ## <a name="process-strings-with-functions"></a>Cadeias de caracteres de processo com funções
 
@@ -127,18 +127,18 @@ Estas etapas descrevem como esse exemplo processa essa cadeia de caracteres, tra
 "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
-1. Obtenha o [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) para o nome da empresa, para obter o número total de caracteres.
+1. Obtenha [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) o nome para a empresa, para que você obtenha o número total de caracteres.
 
 2. Para obter uma cadeia de caracteres mais curta, subtraia `5`.
 
-3. Agora, você obtem [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
+3. Agora pegue [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md)um.
 Comece no `5` do índice e siga pelo restante da cadeia de caracteres.
 
-4. Converter esta subcadeia de caracteres em uma cadeia de caracteres [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md).
+4. Converta esta substring em uma [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md) seqüência.
 
-5. Agora, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) todos os `+` caracteres com `-` caracteres.
+5. Agora [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) todos `+` os `-` personagens com personagens.
 
-6. Finalmente, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) todos os `/` caracteres com `_` caracteres.
+6. Finalmente, [`replace()`](../logic-apps/logic-apps-workflow-definition-language.md) todos `/` os `_` personagens com personagens.
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>Mapeie itens de lista a valores de propriedade e, em seguida, use mapas como parâmetros
 
@@ -147,7 +147,7 @@ Para obter resultados diferentes com base em um valor de propriedade, você pode
 Por exemplo, esse fluxo de trabalho define algumas categorias como parâmetros e um mapa que corresponde essas categorias a uma URL específica.
 Primeiro, o fluxo de trabalho obtém uma lista de artigos. Em seguida, o fluxo de trabalho usa o mapa para localizar a URL correspondente à categoria de cada artigo.
 
-*   A função [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) verifica se a categoria corresponde a uma categoria definida conhecida.
+*   A [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) função verifica se a categoria corresponde a uma categoria definida conhecida.
 
 *   Depois de obter uma categoria correspondente, o exemplo obtém o item do mapa usando colchetes: `parameters[...]`
 
@@ -240,7 +240,7 @@ Por exemplo, essa expressão descobre quanto tempo estão demorando as etapas do
 
    Se o primeiro valor for menor que o segundo valor, mais de um segundo terá decorrido desde o primeiro pedido.
 
-Para formatar datas, você pode usar formatadores de cadeia de caracteres. Por exemplo, para obter RFC1123, use [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+Para formatar datas, você pode usar formatadores de cadeia de caracteres. Por exemplo, para obter o RFC1123, use [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
 Saiba mais sobre [formatação de data](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json
@@ -293,7 +293,7 @@ Saiba mais sobre [formatação de data](../logic-apps/logic-apps-workflow-defini
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)

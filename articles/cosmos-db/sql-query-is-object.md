@@ -1,5 +1,5 @@
 ---
-title: IS_OBJECT na linguagem de consulta Azure Cosmos DB
+title: IS_OBJECT no idioma de consulta do Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL IS_OBJECT no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 43d8237d859249317d7b581e25ed9a2b34d39d00
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303793"
 ---
 # <a name="is_object-azure-cosmos-db"></a>IS_OBJECT (Azure Cosmos DB)
@@ -25,7 +25,7 @@ IS_OBJECT(<expr>)
   
 ## <a name="arguments"></a>Argumentos
   
-*expr*  
+*Expr*  
    É qualquer expressão.  
   
 ## <a name="return-types"></a>Tipos de retorno
@@ -34,7 +34,7 @@ IS_OBJECT(<expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir verifica objetos JSON booliano, número, Cadeia de caracteres, nulo, objeto, matriz e tipos indefinidos usando a função `IS_OBJECT`.  
+  O exemplo a seguir verifica objetos de JSON Boolean, número, string, `IS_OBJECT` nulo, objeto, matriz e tipos indefinidos usando a função.  
   
 ```sql
 SELECT   
@@ -55,10 +55,10 @@ SELECT
 
 ## <a name="remarks"></a>Comentários
 
-Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+Esta função do sistema beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções de verificação de tipo Azure Cosmos DB](sql-query-type-checking-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

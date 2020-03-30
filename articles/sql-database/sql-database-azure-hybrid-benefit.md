@@ -1,6 +1,6 @@
 ---
 title: Benefício Híbrido do Azure
-description: Use licenças de SQL Server existentes para descontos do banco de dados SQL.
+description: Use as licenças existentes do SQL Server para descontos no Banco de Dados SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,28 +10,28 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
 ms.openlocfilehash: d1a59e7ad86191bcc30b7d898d00f327c20fbc5e
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75945615"
 ---
 # <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-Na camada de computação provisionada do modelo de compra baseado em vCore, você pode trocar suas licenças existentes por tarifas com desconto no banco de dados SQL usando [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esse benefício do Azure permite que você economize até 30 por cento ou ainda mais no banco de dados SQL do Azure usando suas licenças de SQL Server locais com o Software Assurance. Use a calculadora de Benefício Híbrido do Azure usando o link mencionado antes para os valores corretos. 
+No nível de computação provisionado do modelo de compras baseado em vCore, você pode trocar suas licenças existentes por taxas com desconto no Banco de Dados SQL usando [o Azure Hybrid Benefit para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Este benefício do Azure permite que você economize até 30% ou até mais no Banco de Dados SQL do Azure usando suas licenças sql server no local com garantia de software. Por favor, use a Calculadora de Benefícios Híbridos Do Azure usando o link mencionado anteriormente para valores corretos. 
 
 > [!NOTE]
-> Alterar para Benefício Híbrido do Azure não requer nenhum tempo de inatividade.
+> A alteração para O Benefício Híbrido Do Azure não requer qualquer tempo de inatividade.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 
-## <a name="choose-a-license-model"></a>Escolher um modelo de licença
+## <a name="choose-a-license-model"></a>Escolha um modelo de licença
 
-Com Benefício Híbrido do Azure, você pode optar por pagar apenas pela infraestrutura subjacente do Azure usando sua licença de SQL Server existente para o próprio mecanismo de banco de dados SQL (preço de computação base) ou pode pagar pela infraestrutura subjacente e pelo SQL Server licença (preço incluído na licença).
+Com o Azure Hybrid Benefit, você pode optar por pagar apenas pela infra-estrutura azure subjacente usando sua licença sql server existente para o próprio mecanismo de banco de dados SQL (preços de Base Compute), ou você pode pagar tanto pela infra-estrutura subjacente quanto pelo SQL Server licença (preços incluídos na licença).
 
-Você pode escolher ou alterar seu modelo de licenciamento usando o portal do Azure ou usando uma das seguintes APIs:
+Você pode escolher ou alterar seu modelo de licenciamento usando o portal Azure ou usando uma das seguintes APIs:
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 Para definir ou atualizar o tipo de licença usando o PowerShell:
 
@@ -40,16 +40,16 @@ Para definir ou atualizar o tipo de licença usando o PowerShell:
 - [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
 - [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Para definir ou atualizar o tipo de licença usando o CLI do Azure:
+Para definir ou atualizar o tipo de licença usando o Azure CLI:
 
 - [az sql db create](/cli/azure/sql/db#az-sql-db-create)
 - [az sql db update](/cli/azure/sql/db#az-sql-db-update)
 - [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
 - [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
 
-# <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+# <a name="rest-api"></a>[REST API](#tab/rest)
 
 Para definir ou atualizar o tipo de licença usando a API REST:
 
@@ -60,7 +60,7 @@ Para definir ou atualizar o tipo de licença usando a API REST:
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Para escolher entre as opções de implantação do banco de dados SQL, consulte [escolher a opção de implantação correta no SQL do Azure](sql-database-paas-vs-sql-server-iaas.md).
-- Para obter uma comparação dos recursos do banco de dados SQL, consulte [recursos do banco de dados SQL do Azure](sql-database-features.md).
+- Para escolher entre as opções de implantação do Banco de Dados SQL, consulte [Escolha a opção de implantação certa no Azure SQL](sql-database-paas-vs-sql-server-iaas.md).
+- Para obter uma comparação dos recursos do Banco de Dados SQL, consulte [Azure SQL Database Features](sql-database-features.md).

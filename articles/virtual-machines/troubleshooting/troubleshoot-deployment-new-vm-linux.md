@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
 ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981413"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
@@ -50,9 +50,9 @@ Para iniciar a solução de problemas, colete os logs de atividades para identif
 
 **N<sup>2</sup>:** se o sistema operacional for Linux especializado e ele for carregado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais.
 
-**Resolução:**
+**Solução:**
 
-Para resolver esses dois erros, carregue o VHD original, disponível no local, com a mesma configuração do sistema operacional (generalizado/especializado). Para carregar como generalizado, lembre-se de executar -deprovision primeiro.
+Para resolver esses dois erros, carregue o VHD original, disponível no local, com a mesma configuração do SISTEMA OPERACIONAL (generalizado/especializado). Para carregar como generalizado, lembre-se de executar -deprovision primeiro.
 
 **Erros de captura:**
 
@@ -60,7 +60,7 @@ Para resolver esses dois erros, carregue o VHD original, disponível no local, c
 
 **N<sup>4</sup>:** se o sistema operacional for Linux especializado e ele for capturado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
 
-**Resolução:**
+**Solução:**
 
 Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
 
@@ -74,9 +74,9 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 * Repita a solicitação com um tamanho de VM menor.
 * Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique em **Grupos de recursos** > *seu grupo de recursos* > **Recursos** > *seu conjunto de disponibilidade* > **Máquinas Virtuais** > *sua máquina virtual* > **Parar**.
+    Clique **em Grupos de** > *recursos* > Recursos**Recursos** > sua disponibilidade*definir* > **Máquinas** > Virtuais sua máquina > *virtual***Stop**.
   * Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
-  * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
+  * Inicie a nova VM primeiro e selecione cada uma das VMs paradas e clique **em Iniciar**.
 
 **Causa 2:** o cluster não tem recursos livres.
 
@@ -87,6 +87,6 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
   * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
   * Adicione a nova VM à mesma rede virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar uma VM do Linux existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager ao reinicializar ou redimensionar uma máquina virtual Linux existente no Azure](../linux/restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

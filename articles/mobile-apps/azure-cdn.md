@@ -1,36 +1,36 @@
 ---
-title: Distribuição e aceleração de conteúdo global segura e confiável com a rede de distribuição de conteúdo do Azure
-description: Saiba mais sobre os serviços para criar fornecimento de conteúdo global seguro e confiável para aplicativos móveis.
-author: elamalani
+title: Entrega e aceleração de conteúdo global segura e confiável com a Azure Content Delivery Network
+description: Conheça os serviços para criar uma entrega de conteúdo global segura e confiável para aplicativos móveis.
+author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: e72118ea0f90cfbb08d81ebded6ca7edf08a06c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 1daff5c610092b009b122d05655ea637d5da5c3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454515"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241035"
 ---
-# <a name="content-delivery-network-on-azure-with-azure-content-delivery-network"></a>Rede de distribuição de conteúdo no Azure com a rede de distribuição de conteúdo do Azure
-A [rede de distribuição de conteúdo do Azure](https://azure.microsoft.com/services/cdn/) oferece aos desenvolvedores uma solução global para fornecimento rápido de conteúdo de alta largura de banda, como vídeos, imagens ou arquivos estáticos a usuários, armazenando em cache seu conteúdo em centenas de pontos de presença em todo o mundo. A rede de distribuição de conteúdo também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, para reduzir os tempos de carregamento, economizar largura de banda e aumentar a capacidade de resposta. Você tem essas vantagens se desenvolve ou gerencia sites ou aplicativos móveis, ou codifica e distribui mídias de streaming, software de jogos, atualizações de firmware ou pontos de extremidade de IoT.
+# <a name="content-delivery-network-on-azure-with-azure-content-delivery-network"></a>Rede de entrega de conteúdo no Azure com a Rede de Entrega de Conteúdo Do Azure
+[O Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) oferece aos desenvolvedores uma solução global para fornecer rapidamente conteúdo de alta largura de banda, como vídeos, imagens ou arquivos estáticos aos usuários, cacheando seu conteúdo a centenas de pontos de presença em todo o mundo. A Content Delivery Network também pode acelerar o conteúdo dinâmico, que não pode ser armazenado em cache, para reduzir os tempos de carga, economizar largura de banda e aumentar a capacidade de resposta. Você ganha essas vantagens se você desenvolver ou gerenciar sites ou aplicativos móveis ou codificar e distribuir mídia de streaming, software de jogos, atualizações de firmware ou pontos finais de IoT.
 
-## <a name="azure-content-delivery-network-features"></a>Recursos da rede de distribuição de conteúdo do Azure
-  - Trabalhe diretamente com os serviços do Azure, como aplicativos Web, serviços de mídia, armazenamento e serviços de nuvem.
-  - Manipule facilmente picos de tráfego e cargas pesadas.
-  - Integre-se com a Akamai e a Verizon para criar e ajustar a estratégia de distribuição de conteúdo.
-  - Use aceleração de site dinâmico.
-  - Controle o comportamento do cache da rede de distribuição de conteúdo com regras de cache.
-  - Obter suporte de domínio personalizado HTTPS.
-  - Exibir logs de diagnóstico do Azure para ver a análise principal e exportá-los para o armazenamento de BLOBs do Azure, hubs de eventos do Azure ou Azure Monitor.
-  - Melhorar o desempenho compactando arquivos.
-  - Use a filtragem para restringir o conteúdo da rede de distribuição de conteúdo por país ou região.
+## <a name="azure-content-delivery-network-features"></a>Recursos da Azure Content Delivery Network
+  - Trabalhe perfeitamente com os serviços do Azure, como aplicativos web, serviços de mídia, armazenamento e serviços em nuvem.
+  - Manuseie facilmente picos de tráfego e cargas pesadas.
+  - Integre-se à Akamai e à Verizon para construir e adaptar a estratégia de entrega de conteúdo.
+  - Use aceleração dinâmica do local.
+  - Controle o comportamento de cache da rede de entrega de conteúdo com regras de cache.
+  - Obtenha suporte de domínio personalizado HTTPS.
+  - Veja os registros de diagnósticos do Azure para ver as análises principais e exportá-las para o armazenamento Azure Blob, Azure Event Hubs ou Azure Monitor.
+  - Melhore o desempenho comprimindo arquivos.
+  - Use geofiltragem para restringir o conteúdo da Rede de Entrega de Conteúdo por país ou região.
 
 ## <a name="references"></a>Referências
-  - [Azure portal](https://portal.azure.com)
-  - [Documentação da rede de distribuição de conteúdo do Azure](/azure/cdn/)
-  - [Introdução à rede de distribuição de conteúdo do Azure](/azure/cdn/cdn-create-new-endpoint)
-  - [Inícios Rápidos](/azure/cdn/cdn-create-new-endpoint)
+  - [Portal Azure](https://portal.azure.com)
+  - [Documentação da Rede de Entrega de Conteúdo do Azure](/azure/cdn/)
+  - [Comece com a Rede de Entrega de Conteúdo do Azure](/azure/cdn/cdn-create-new-endpoint)
+  - [Inícios rápidos](/azure/cdn/cdn-create-new-endpoint)
 

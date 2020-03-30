@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Facebook
-description: Automatizar tarefas e fluxos de trabalho que gerenciam a linha do tempo e a página do Facebook usando aplicativos lógicos do Azure
+title: Conecte-se ao Facebook
+description: Automatize tarefas e fluxos de trabalho que gerenciam sua linha do tempo e página do Facebook usando aplicativos de lógica do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: 803453291b5cab2c51fec6641f8b096f62336325
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75665795"
 ---
-# <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Gerenciar sua linha do tempo e página do Facebook usando aplicativos lógicos do Azure
+# <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Gerencie sua linha do tempo e página do Facebook usando aplicativos azure logic
 
 Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais. Com o Facebook, você pode:
 
@@ -28,7 +28,7 @@ Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de pági
 
 Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Facebook.
 
-1. Entre na sua conta do Facebook.
+1. Faça login em sua conta do Facebook.
 
 2. Selecione **Autorizar**e permita que seus aplicativos lógicos se conectem e usem o Facebook. 
 
@@ -39,6 +39,6 @@ Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autor
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/facebook/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

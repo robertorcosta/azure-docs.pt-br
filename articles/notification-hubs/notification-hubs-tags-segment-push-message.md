@@ -1,6 +1,6 @@
 ---
-title: Expressões de marcação e de roteamento nos hubs de notificação do Azure
-description: Saiba como rotear e marcar expressões para os hubs de notificação do Azure.
+title: Expressões de roteamento e tag em Hubs de Notificação do Azure
+description: Saiba como fazer rotas e tag expressões para os Hubs de Notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,22 +16,22 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: b1162e6070deba7f645298b59ffeb1898eb030a8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062304"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de marca e roteamento
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 As expressões de marcas permitem que você direcione conjuntos específicos de dispositivos, ou mais especificamente, registros, ao enviar uma notificação por push por meio de Hubs de notificação.
 
 ## <a name="targeting-specific-registrations"></a>Como direcionar registros específicos
 
-A única maneira de direcionar registros de notificações específicos é associar marcas a eles e, então, direcionar essas marcas. Conforme discutido no [Gerenciamento de registro](notification-hubs-push-notification-registration-management.md), para receber notificações por push, um aplicativo deve registrar um identificador de dispositivo em um hub de notificação. Depois que o aplicativo cria um registro em um hub de notificação, o back-end do aplicativo pode enviar notificações por push para ele. O back-end do aplicativo pode escolher os registros para direcionar uma notificação específica das seguintes maneiras:
+A única maneira de direcionar registros de notificações específicos é associar marcas a eles e, então, direcionar essas marcas. Conforme discutido no [Gerenciamento de Registro,](notification-hubs-push-notification-registration-management.md)para receber notificações push, um aplicativo deve registrar uma alça de dispositivo em um hub de notificação. Uma vez que o aplicativo crie um registro em um hub de notificação, o backend do aplicativo pode enviar notificações push para ele. O back-end do aplicativo pode escolher os registros para direcionar uma notificação específica das seguintes maneiras:
 
 1. **Difusão**: todos os registros no hub de notificação recebem a notificação.
 2. **Marca**: todos os registros que contêm a marca especificada recebem a notificação.
@@ -39,11 +39,11 @@ A única maneira de direcionar registros de notificações específicos é assoc
 
 ## <a name="tags"></a>Marcas
 
-Uma marca pode ser qualquer cadeia de caracteres, até 120 caracteres, contendo alfanuméricos e os seguintes caracteres não alfanuméricos: '`_`', '`@`', '`#`', '`.`', '`:`', '`-`'. O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de rotear notificações é rotular registros com marcas que representam as diferentes faixas, como na figura a seguir:
+Uma tag pode ser qualquer string, até 120 caracteres, contendo alfanuméricas e os`_`seguintes`@`caracteres`#`não`.`alfanuméricos:`-`' '' '' '', ''' ''' ''' '''''''''''''''.`:` O exemplo a seguir mostra um aplicativo do qual você pode receber notificações de aviso sobre grupos musicais específicos. Nesse cenário, uma maneira simples de encaminhar notificações é rotular registros com tags que representam as diferentes bandas, como na seguinte figura:
 
-![Visão geral de marcas](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
+![Visão geral das tags](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
-Na figura, a mensagem marcada com **Beatles** atinge apenas o Tablet registrado com a marca **Beatles**.
+Na figura, a mensagem marcada com **os Beatles** atinge apenas o tablet que registrou com a tag **Beatles**.
 
 Para mais informações sobre a criação de registros para marcas, consulte [Gerenciamento de registro](notification-hubs-push-notification-registration-management.md).
 
@@ -63,13 +63,13 @@ toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
 outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 ```
 
-As marcas não devem ser previamente provisionadas e podem se referir a vários conceitos específicos do aplicativo. Por exemplo, os usuários deste aplicativo de exemplo podem comentar sobre as bandas e desejar receber notificações do sistema, não apenas dos comentários sobre suas bandas favoritas, mas também de todos os comentários dos seus amigos, independentemente da banda sobre a qual eles estão comentando. A figura a seguir destaca um exemplo desse cenário:
+As tags não devem ser pré-provisionadas e podem se referir a vários conceitos específicos do aplicativo. Por exemplo, os usuários deste aplicativo de exemplo podem comentar sobre as bandas e desejar receber notificações do sistema, não apenas dos comentários sobre suas bandas favoritas, mas também de todos os comentários dos seus amigos, independentemente da banda sobre a qual eles estão comentando. A figura a seguir destaca um exemplo deste cenário:
 
-![Marca amigos](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
+![Tags amigos](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
-Neste exemplo, Alice está interessado em atualizações para o Beatles e Bob está interessado em atualizações para o Wailers. Bob também está interessado nos comentários de Charlie e Charlie está interessado no Wailers. Quando uma notificação é enviada para o comentário de Charlie sobre o Beatles, os hubs de notificação o enviam para Alice e Bob.
+Neste exemplo, Alice está interessada em atualizações para os Beatles, e Bob está interessado em atualizações para os Wailers. Bob também está interessado nos comentários de Charlie, e Charlie está interessado nos Wailers. Quando uma notificação é enviada para o comentário de Charlie sobre os Beatles, o Notification Hubs envia-o tanto para Alice quanto para Bob.
 
-Embora você possa codificar várias preocupações em marcas (por exemplo, `band_Beatles` ou `follows_Charlie`), as marcas são cadeias de caracteres simples e não propriedades com valores. Um registro só corresponde à presença ou à ausência de uma marca específica.
+Embora você possa codificar várias preocupações em tags (por exemplo, `band_Beatles` ou `follows_Charlie`), as tags são strings simples e não propriedades com valores. Um registro corresponde apenas à presença ou ausência de uma tag específica.
 
 Para obter um tutorial passo a passo completo sobre como usar marcas para enviar para grupos de interesse, consulte as [Últimas notícias](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -78,15 +78,15 @@ Para obter um tutorial passo a passo completo sobre como usar marcas para enviar
 
 ## <a name="using-tags-to-target-users"></a>Como usar marcas para usuários de destino
 
-Outra maneira de usar marcas é identificar todos os dispositivos associados a um usuário específico. Você pode marcar um registro com uma marca que contém a ID de usuário, como na figura a seguir:
+Outra maneira de usar tags é identificar todos os dispositivos associados a um determinado usuário. Você pode marcar um Registro com uma tag que contém o ID do usuário, como na seguinte figura:
 
-![Marcar usuários](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
+![Usuários de tag](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-Na figura, a mensagem marcada `user_Alice` atinge todos os dispositivos marcados com `user_Alice`.
+Na figura, a mensagem marcada `user_Alice` atinge todos `user_Alice`os dispositivos marcados com .
 
 ## <a name="tag-expressions"></a>Expressões de marca
 
-Há casos em que as notificações devem ter como destino um conjunto de registros identificados não por uma única marca, mas por uma expressão booleana usando marcas.
+Há casos em que as notificações devem ter como alvo um conjunto de registros identificados não por uma única tag, mas por uma expressão booleana usando tags.
 
 Considere um aplicativo de esportes que envia um lembrete para todos em Boston sobre um jogo entre o Red Sox e o Cardinals. Se o aplicativo cliente registrar marcas sobre interesse em times e localização, a notificação deverá ser direcionada para todos em Boston interessados no Red Sox ou no Cardinals. Essa condição pode ser expressada com a seguinte expressão booliana:
 
@@ -96,9 +96,9 @@ Considere um aplicativo de esportes que envia um lembrete para todos em Boston s
 
 ![Expressões de marca](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-As expressões de marca dão suporte a operadores boolianos comuns, como `AND` (`&&`), `OR` (`||`) e `NOT` (`!`); Eles também podem conter parênteses. Expressões de marca que usam somente operadores de `OR` podem fazer referência a 20 marcas; caso contrário, as expressões de marca são limitadas a 6 marcas.
+As expressões de tag suportam `AND` `&&`operadores booleanos comuns, tais `OR` como (`||`), e `NOT` ( );`!` eles também podem conter parênteses. As expressões `OR` de tags usando apenas operadores podem referenciar 20 tags; expressão `AND` com operadores, mas nenhum `OR` operador pode referenciar 10 tags; caso contrário, as expressões de marcação são limitadas a 6 tags.
 
-Aqui está um exemplo para enviar notificações com expressões de marca usando o SDK:
+Aqui está um exemplo para enviar notificações com expressões de tag usando o SDK:
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;

@@ -1,16 +1,16 @@
 ---
-title: Entrar no Azure Notebooks visualização
+title: Inscreva-se na visualização de notebooks do Azure
 description: Configure sua conta de usuário para blocos de anotações do Azure usando uma conta da Microsoft ou uma conta de trabalho/estudante.
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646289"
 ---
-# <a name="your-user-account-for-azure-notebooks-preview"></a>Sua conta de usuário para Azure Notebooks versão prévia
+# <a name="your-user-account-for-azure-notebooks-preview"></a>Sua conta de usuário para a visualização de notebooks do Azure
 
 Você pode usar o Azure Notebooks com ou sem entrar com uma conta de usuário:
 
@@ -63,7 +63,7 @@ O administrador de uma conta organizacional deve fornecer o consentimento em nom
 
 Para fornecer consentimento como um administrador, use a [página de consentimento do administrador](https://notebooks.azure.com/account/adminConsent), que orienta você pelo processo.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 > [!div class="nextstepaction"]
 > [Editar seu perfil e ID de usuário](azure-notebooks-user-profile.md)

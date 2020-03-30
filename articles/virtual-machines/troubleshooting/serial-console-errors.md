@@ -1,6 +1,6 @@
 ---
-title: Erros do console serial do Azure | Microsoft Docs
-description: Erros comuns no console serial do Azure
+title: Erros do Console Serial Azure | Microsoft Docs
+description: Erros comuns dentro do Console Serial Do Azure
 services: virtual-machines
 documentationcenter: ''
 author: asinn826
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 697f7267437f750bbb751239001145cb1c8af000
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 61ae0ef92fe522a2a038a6076a5e0c0a10ee47b6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060702"
 ---
-# <a name="common-errors-within-the-azure-serial-console"></a>Erros comuns no console serial do Azure
-Há um conjunto de erros conhecidos no console serial do Azure. Esta é uma lista desses erros e etapas de mitigação para eles.
+# <a name="common-errors-within-the-azure-serial-console"></a>Erros comuns dentro do Console Serial Do Azure
+Há um conjunto de erros conhecidos dentro do Console Serial Azure. Esta é uma lista desses erros e etapas de mitigação para eles.
 
 ## <a name="common-errors"></a>Erros comuns
 
-Erro                             |   Redução
+Erro                             |   Atenuação
 :---------------------------------|:--------------------------------------------|
-"O console serial do Azure requer que o diagnóstico de inicialização esteja habilitado. Clique aqui para configurar o diagnóstico de inicialização para sua máquina virtual. " | Verifique se a VM ou o conjunto de dimensionamento de máquinas virtuais tem o [diagnóstico de inicialização](boot-diagnostics.md) habilitado. Se você estiver usando o console serial em uma instância de conjunto de dimensionamento de máquinas virtuais, verifique se sua instância tem o modelo mais recente.
-"O console serial do Azure requer que uma máquina virtual esteja em execução. Use o botão iniciar acima para iniciar sua máquina virtual. "  | A instância do conjunto de dimensionamento de máquinas virtuais ou VM deve estar em um estado iniciado para acessar o console serial (sua VM não deve ser interrompida ou desalocada). Verifique se a instância da VM ou do conjunto de dimensionamento de máquinas virtuais está em execução e tente novamente.
-"O console serial do Azure não está habilitado para esta assinatura, contate o administrador da assinatura para habilitar". | O console serial do Azure pode ser desabilitado em um nível de assinatura. Se você for um administrador de assinatura, poderá [habilitar e desabilitar o console serial do Azure](./serial-console-enable-disable.md). Se você não for um administrador de assinatura, deverá entrar em contato com o administrador da assinatura para as próximas etapas.
+"O Azure Serial Console requer que os diagnósticos de inicialização sejam ativados. Clique aqui para configurar diagnósticos de inicialização para sua máquina virtual." | Certifique-se de que o conjunto de escala de VM ou máquina virtual tenha [diagnósticos de inicialização ativados.](boot-diagnostics.md) Se você estiver usando o console serial em uma instância de conjunto de escala de máquina virtual, certifique-se de que sua instância tenha o modelo mais recente.
+"O Azure Serial Console requer uma máquina virtual para ser executado. Use o botão Iniciar acima para iniciar sua máquina virtual."  | A instância de conjunto de escala de VM ou máquina virtual deve estar em um estado inicial para acessar o console serial (sua VM não deve ser parada ou desalocada). Certifique-se de que a instância de conjunto de escala da vm ou da máquina virtual esteja sendo executado e tente novamente.
+"O Azure Serial Console não está habilitado para esta assinatura, entre em contato com o administrador de assinatura para habilitar." | O Azure Serial Console pode ser desativado em um nível de assinatura. Se você é um administrador de assinatura, você pode [ativar e desativar o Azure Serial Console](./serial-console-enable-disable.md). Se você não é um administrador de assinatura, você deve entrar em contato com o administrador de assinatura para os próximos passos.
 Uma resposta "Proibido" foi encontrada ao acessar a conta de armazenamento do diagnóstico de inicialização desta VM. | Certifique-se de que o diagnóstico de inicialização não tem um firewall de conta. Uma conta de armazenamento do diagnóstico de inicialização acessível é necessária para o console serial funcione. Por design, o console serial não pode funcionar com firewalls de conta de armazenamento habilitados na conta de armazenamento do diagnóstico de inicialização.
-Você não tem as permissões necessárias para usar esta VM com o console serial. Certifique-se de ter pelo menos permissões de função de Colaborador da Máquina Virtual.| O acesso ao console serial exige que você tenha acesso ao nível de colaborador ou acima em sua VM ou conjunto de dimensionamento de máquinas virtuais. Para obter mais informações, consulte a [página Visão geral](serial-console-overview.md).
-Não foi possível encontrar a conta de armazenamento ' ' usada para o diagnóstico de inicialização nesta VM. Verifique se o diagnóstico de inicialização está habilitado para esta VM, se essa conta de armazenamento não foi excluída e se você tem acesso a essa conta de armazenamento. | Verifique se você não excluiu a conta de armazenamento de diagnóstico de inicialização para sua VM ou conjunto de dimensionamento de máquinas virtuais
-A conexão do console serial com a VM encontrou um erro: ' solicitação inadequada ' (400) | Isso pode acontecer se o URI do diagnóstico de inicialização estiver incorreto. Por exemplo, "http://" foi usado em vez de "https://". O URI de diagnóstico de inicialização pode ser corrigido com este comando: `az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
-Você não tem as permissões necessárias para gravar na conta de armazenamento de diagnóstico de inicialização para essa VM. Verifique se você tem pelo menos permissões de colaborador de VM | Console serial acesso requer acesso no nível de colaborador na conta de armazenamento do diagnóstico de inicialização. Para obter mais informações, consulte a [página Visão geral](serial-console-overview.md).
-Não é possível determinar o grupo de recursos para a conta de armazenamento de diagnósticos de inicialização *&lt;STORAGEACCOUNTNAME&gt;* . Verifique se o diagnóstico de inicialização está habilitado para essa VM e se você tem acesso a essa conta de armazenamento. | Console serial acesso requer acesso no nível de colaborador na conta de armazenamento do diagnóstico de inicialização. Para obter mais informações, consulte a [página Visão geral](serial-console-overview.md).
-O provisionamento para esta VM ainda não foi bem-sucedido. Verifique se a VM está totalmente implantada e repita a conexão do console serial. | Sua VM ou conjunto de dimensionamento de máquinas virtuais ainda pode estar Provisionando. Aguarde algum tempo e tente novamente.
-O soquete da Web está fechado ou não pôde ser aberto. | Talvez seja necessário adicionar acesso de firewall ao `*.console.azure.com`. Uma abordagem mais detalhada, mas mais longa, é permitir o acesso de firewall aos [intervalos de IP do datacenter Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são alterados com bastante frequência.
-Console serial não funciona com uma conta de armazenamento usando Azure Data Lake Storage Gen2 com namespaces hierárquicos. | Esse é um problema conhecido com namespaces hierárquicos. Para atenuar, verifique se a conta de armazenamento do diagnóstico de inicialização da VM não foi criada usando Azure Data Lake Storage Gen2. Essa opção só pode ser definida na criação da conta de armazenamento. Talvez seja necessário criar uma conta de armazenamento de diagnóstico de inicialização separada sem Azure Data Lake Storage Gen2 habilitado para atenuar esse problema.
+Você não tem as permissões necessárias para usar esta VM com o console serial. Certifique-se de ter pelo menos permissões de função de Colaborador da Máquina Virtual.| O acesso ao console serial exige que você tenha acesso ao nível do contribuinte ou acima em seu conjunto de escala de VM ou máquina virtual. Para obter mais informações, consulte a [página visão geral](serial-console-overview.md).
+A conta de armazenamento '' usada para diagnósticos de inicialização nesta VM não pôde ser encontrada. Verifique se o diagnóstico de inicialização está ativado para esta VM, esta conta de armazenamento não foi excluída e você tem acesso a esta conta de armazenamento. | Verifique duas vezes se você não excluiu a conta de armazenamento de diagnóstico de inicialização para o seu conjunto de escala de VM ou máquina virtual
+A conexão do console serial com o VM encontrou um erro: 'Solicitação ruim' (400) | Isso pode acontecer se o uri de diagnóstico de inicialização estiver incorreto. Por exemplo, "http://" foi usado em vez de "https://". O URI de diagnóstico de inicialização pode ser corrigido com este comando:`az vm boot-diagnostics enable --name vmName --resource-group rgName --storage https://<storageAccountUri>.blob.core.windows.net/`
+Você não tem as permissões necessárias para escrever na conta de armazenamento de diagnóstico de inicialização desta VM. Por favor, certifique-se de ter pelo menos permissões de contribuinte vm | O acesso ao console serial requer acesso ao nível do contribuinte na conta de armazenamento de diagnóstico de inicialização. Para obter mais informações, consulte a [página visão geral](serial-console-overview.md).
+Não é possível determinar o grupo de * &lt;&gt;* recursos para a conta de armazenamento de diagnóstico de inicialização STORAGEACCOUNTNAME . Verifique se o diagnóstico de inicialização está habilitado para essa VM e se você tem acesso a essa conta de armazenamento. | O acesso ao console serial requer acesso ao nível do contribuinte na conta de armazenamento de diagnóstico de inicialização. Para obter mais informações, consulte a [página visão geral](serial-console-overview.md).
+O provisionamento desta VM ainda não foi bem sucedido. Certifique-se de que a VM está totalmente implantada e tente novamente a conexão do console serial. | Seu conjunto de escala de VM ou máquina virtual ainda pode estar provisionando. Espere algum tempo e tente de novo.
+O soquete da Web está fechado ou não pôde ser aberto. | Você pode precisar adicionar `*.console.azure.com`acesso a firewall a . Uma abordagem mais detalhada, mas mais longa, é permitir o acesso ao firewall às faixas IP do [Microsoft Azure Datacenter,](https://www.microsoft.com/download/details.aspx?id=41653)que mudam regularmente.
+O console serial não funciona com uma conta de armazenamento usando o Azure Data Lake Storage Gen2 com namespaces hierárquicos. | Este é um problema conhecido com namespaces hierárquicos. Para mitigar, certifique-se de que a conta de armazenamento de diagnóstico de inicialização da VM não seja criada usando o Azure Data Lake Storage Gen2. Essa opção só pode ser definida após a criação da conta de armazenamento. Você pode ter que criar uma conta de armazenamento de diagnóstico de inicialização separada sem que o Azure Data Lake Storage Gen2 seja habilitado para mitigar esse problema.
+A conexão serial do console com a VM encontrou um erro: 'Proibido'(SubscriptionNotEnabled) - Nome da assinatura indefinido, id \<de assinatura> está em estado não habilitado indefinido | Esse problema pode ocorrer se a assinatura em que um usuário criou sua conta de armazenamento Cloud Shell foi desativada. Para mitigar, inicie o Cloud Shell e [execute as etapas necessárias](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#unmount-clouddrive-1) para reprovisionar uma conta de armazenamento de backup para o Cloud Shell na assinatura atual.
 
-
-## <a name="next-steps"></a>Próximos passos
-* Saiba mais sobre o [console serial do Azure para VMs Linux](./serial-console-linux.md)
-* Saiba mais sobre o [console serial do Azure para VMs do Windows](./serial-console-windows.md)
+## <a name="next-steps"></a>Próximas etapas
+* Saiba mais sobre o [Console Serial Azure para VMs Linux](./serial-console-linux.md)
+* Saiba mais sobre o [Console Serial Azure para VMs Windows](./serial-console-windows.md)

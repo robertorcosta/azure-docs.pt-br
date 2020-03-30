@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
-description: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure.
+title: Solução de problemas OpenShift Container Platform 3.11 implantação no Azure
+description: Solucionando problemas De plataforma de contêiner OpenShift 3.11 no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd83a1ca731d81edb76a3c1bc07113ce96adb9ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035483"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066598"
 ---
-# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
+# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solução de problemas OpenShift Container Platform 3.11 implantação no Azure
 
 Se o cluster do OpenShift não for implantado com êxito, o portal do Azure fornecerá a saída de erro. A saída pode ser difícil de ler, o que dificulta a identificação do problema. Examine rapidamente essa saída para o código de saída 3, 4 ou 5. A seguir, informações sobre esses três códigos de saída:
 
@@ -31,7 +31,7 @@ Se o cluster do OpenShift não for implantado com êxito, o portal do Azure forn
 
 Para todos os outros códigos de saída, conecte-se ao (s) host (s) via ssh para visualizar os arquivos de log.
 
-**Plataforma de contêiner OpenShift 3,11**
+**OpenShift Container Platform 3.11**
 
 SSH para o host ansioso playbook. Para o modelo ou a oferta do Marketplace, use o host de bastiões. Do bastião, você pode SSH para todos os outros nós no cluster (mestre, infra, CNS, compute). Você precisará ser root para visualizar os arquivos de log. A raiz está desativada para o acesso SSH por padrão, portanto, não use root para SSH em outros nós.
 
@@ -41,9 +41,9 @@ SSH para o host ansioso playbook. Para o modelo OLD (versão 3.9 e anterior), us
 
 ## <a name="log-files"></a>Arquivos de log
 
-Os arquivos de log (stderr e stdout) para os scripts de preparação do host estão localizados em `/var/lib/waagent/custom-script/download/0` em todos os hosts. Se ocorreu um erro durante a preparação do host, exiba esses arquivos de log para determinar o erro.
+Os arquivos de log (stderr e stdout) para `/var/lib/waagent/custom-script/download/0` os scripts de preparação do host estão localizados em todos os hosts. Se ocorreu um erro durante a preparação do host, exiba esses arquivos de log para determinar o erro.
 
-Se os scripts de preparação forem executados com êxito, os arquivos de log no diretório `/var/lib/waagent/custom-script/download/1` do host do guia estratégico Ansible precisarão ser examinados. Se o erro ocorreu durante a instalação real do OpenShift, o arquivo stdout exibirá o erro. Use estas informações para entrar em contato com o Suporte para obter mais assistência.
+Se os scripts de preparação forem `/var/lib/waagent/custom-script/download/1` executados com sucesso, os arquivos de log no diretório do host de playbook ansible precisarão ser examinados. Se o erro ocorreu durante a instalação real do OpenShift, o arquivo stdout exibirá o erro. Use estas informações para entrar em contato com o Suporte para obter mais assistência.
 
 Saída de exemplo
 
@@ -92,17 +92,17 @@ Os erros mais comuns durante a instalação são:
 
 ### <a name="private-key-has-a-passphrase"></a>Chave privada tem uma senha
 
-Você verá um erro de que a permissão foi negada para SSH. SSH para o host do manual do Ansible para verificar uma frase secreta na chave privada.
+Você verá um erro que a permissão foi negada para ssh. ssh para o host ansible playbook para verificar se há uma senha na chave privada.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>O segredo do cofre da chave com chave privada não foi criado corretamente
 
-A chave privada é copiada para o host do guia estratégico Ansible-~/.ssh/id_rsa. Confirme se este arquivo está correto. Teste abrindo uma sessão SSH em um dos nós do cluster a partir do ansible host do manual.
+A chave privada é copiada para o host ansible playbook - ~/.ssh/id_rsa. Confirme se este arquivo está correto. Teste abrindo uma sessão SSH em um dos nós do cluster a partir do ansible host do manual.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>As credenciais do principal de serviço foram inseridas incorretamente
 
 Ao fornecer a entrada para o modelo ou a oferta do Marketplace, as informações incorretas foram fornecidas. Certifique-se de usar o appId (clientId) e a senha (clientSecret) corretos para o principal do serviço. Verifique emitindo o seguinte comando azure cli.
 
-```bash
+```azurecli
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
@@ -110,7 +110,7 @@ az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 
 Se o provedor de nuvem do Azure estiver habilitado, o principal de serviço usado deverá ter acesso de colaborador ao grupo de recursos. Verifique emitindo o seguinte comando azure cli.
 
-```bash
+```azurecli
 az group update -g <openshift resource group> --set tags.sptest=test
 ```
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Para alguns erros, você também pode usar os seguintes comandos para obter mais informações:
 
-1. status do systemctl \<serviço >
+1. > de \<serviço de status do sistemactl
 2. journalctl -xe

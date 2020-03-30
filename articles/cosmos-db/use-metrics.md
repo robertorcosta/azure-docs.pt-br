@@ -1,52 +1,52 @@
 ---
 title: Monitore e depure com métricas no Azure Cosmos DB
 description: Use métricas no Azure Cosmos DB para depurar problemas comuns e monitorar o banco de dados.
-ms.service: cosmos-db
 author: kanshiG
-ms.author: sngun
+ms.author: govindk
+ms.reviewer: sngun
+ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.reviewer: sngun
-ms.openlocfilehash: ef457fe8c21bc7e62f910a78913069df32bea1a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b65bc6097d4841c79a68d4313ac7a3f89f6d1dbb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065926"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 
-O Azure Cosmos DB fornece métricas de taxa de transferência, armazenamento, consistência, disponibilidade e latência. O portal do Microsoft Azure fornece uma visualização agregada dessas métricas. Você também pode exibir métricas do Azure Cosmos DB pela API do Azure Monitor. Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](cosmos-db-azure-monitor-metrics.md) . 
+O Azure Cosmos DB fornece métricas de taxa de transferência, armazenamento, consistência, disponibilidade e latência. O portal do Microsoft Azure fornece uma visualização agregada dessas métricas. Você também pode exibir métricas do Azure Cosmos DB pela API do Azure Monitor. Para saber como visualizar métricas do monitor Do Azure, consulte as métricas Get do artigo [do Azure Monitor.](cosmos-db-azure-monitor-metrics.md) 
 
 Este artigo explica como casos de uso comuns e como as métricas do Azure Cosmos DB podem ser usadas para analisar e depurar esses problemas. As métricas são coletadas a cada cinco minutos e são mantidas por sete dias.
 
-## <a name="view-metrics-from-azure-portal"></a>Exibir métricas de portal do Azure
+## <a name="view-metrics-from-azure-portal"></a>Ver métricas do portal Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com/)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/)
 
-1. Abra o painel **métricas** . Por padrão, o painel de métricas mostra as métricas de armazenamento, índice e unidades de solicitação para todos os bancos de dados em sua conta do Azure Cosmos. Você pode filtrar essas métricas por banco de dados, contêiner ou região. Você também pode filtrar as métricas em uma granularidade de tempo específica. Mais detalhes sobre as métricas de taxa de transferência, armazenamento, disponibilidade, latência e consistência são fornecidos em guias separadas. 
+1. Abra o painel **Métricas.** Por padrão, o painel de métricas mostra as métricas de armazenamento, índice e solicitação de unidades para todos os bancos de dados em sua conta do Azure Cosmos. Você pode filtrar essas métricas por banco de dados, contêiner ou região. Você também pode filtrar as métricas em um momento específico granularidade. Mais detalhes sobre as métricas de throughput, armazenamento, disponibilidade, latência e consistência são fornecidos em guias separadas. 
 
-   ![Cosmos DB métricas de desempenho no portal do Azure](./media/use-metrics/performance-metrics.png)
+   ![Métricas de desempenho do Cosmos DB no portal Azure](./media/use-metrics/performance-metrics.png)
 
-As métricas a seguir estão disponíveis no painel de **métricas** : 
+As seguintes métricas estão disponíveis no painel **Métricas:** 
 
-* **Métricas de taxa de transferência** – essa métrica mostra o número de solicitações consumidas ou com falha (429 de código de resposta) porque a taxa de transferência ou a capacidade de armazenamento provisionada para o contêiner foi excedida.
+* **Métricas de throughput** - Esta métrica mostra o número de solicitações consumidas ou falhadas (código de resposta 429) porque a capacidade de throughput ou armazenamento provisionada para o contêiner excedeu.
 
-* **Métricas de armazenamento** -essa métrica mostra o tamanho do uso de dados e índice.
+* **Métricas de armazenamento** - Esta métrica mostra o tamanho dos dados e o uso do índice.
 
-* **Métricas de disponibilidade** – essa métrica mostra a porcentagem de solicitações bem-sucedidas no total de solicitações por hora. A taxa de sucesso é definida pelos SLAs de Azure Cosmos DB.
+* **Métricas de disponibilidade** - Esta métrica mostra a porcentagem de solicitações bem-sucedidas ao longo do total de solicitações por hora. A taxa de sucesso é definida pelo Azure Cosmos DB SLAs.
 
-* **Métricas de latência** – essa métrica mostra a latência de leitura e gravação observada por Azure Cosmos DB na região em que sua conta está operando. Você pode visualizar a latência entre regiões para uma conta replicada geograficamente. Essa métrica não representa a latência de solicitação de ponta a ponta.
+* **Métricas de latência** - Esta métrica mostra a latência de leitura e gravação observada pelo Azure Cosmos DB na região onde sua conta está operando. Você pode visualizar latência em todas as regiões para uma conta geo-replicada. Essa métrica não representa a latência de solicitação de ponta a ponta.
 
-* **Métricas de consistência** – essa métrica mostra como a eventualidade é a consistência do modelo de consistência escolhido. Para contas de várias regiões, essa métrica também mostra a latência de replicação entre as regiões que você selecionou.
+* **Métricas de consistência** - Esta métrica mostra o quão eventual é a consistência para o modelo de consistência que você escolhe. Para contas de várias regiões, essa métrica também mostra a latência de replicação entre as regiões selecionadas.
 
-* **Métricas do sistema** – essa métrica mostra quantas solicitações de metadados são atendidas pela partição mestre. Ele também ajuda a identificar as solicitações limitadas.
+* **Métricas do sistema** - Esta métrica mostra quantas solicitações de metadados são atendidas pela partição mestre. Também ajuda a identificar os pedidos estrangulados.
 
-As seções a seguir explicam cenários comuns em que você pode usar Azure Cosmos DB métricas. 
+As seções a seguir explicam cenários comuns onde você pode usar métricas azure Cosmos DB. 
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Reconhecimento de quantas solicitações estão tendo sucesso ou causando erros
 
-Para começar, vá até o [Portal do Azure](https://portal.azure.com) e navegue até a folha **Métricas**. Na folha, localize o * * número de solicitações que excedeu a capacidade por gráfico de 1 minuto. Este gráfico mostra um total de solicitações minuto a minuto segmentadas pelo código de status. Para obter mais informações sobre códigos de status HTTP, consulte [Códigos de status HTTP para o banco de dados do Microsoft Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Para começar, vá até o [Portal do Azure](https://portal.azure.com) e navegue até a folha **Métricas**. Na lâmina, encontre o número **de solicitações excedida a capacidade por gráfico de 1 minuto. Este gráfico mostra um total de solicitações minuto a minuto segmentadas pelo código de status. Para obter mais informações sobre códigos de status HTTP, consulte [códigos de status HTTP para Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 O código de status de erro mais comum é 429 (limitação/limitação da taxa). Esse erro significa que as solicitações para o Azure Cosmos DB são mais do que a taxa de transferência provisionada. A solução mais comum para esse problema é [expandir as RUs](./set-throughput.md) para determinada coleção.
 
@@ -111,6 +111,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Agora você aprendeu como monitorar e depurar problemas usando as métricas fornecidas no portal do Azure. Você pode querer aprender mais sobre como melhorar o desempenho do banco de dados lendo os seguintes artigos:
 
-* Para saber mais sobre como exibir as métricas do Azure monitor, consulte o artigo [obter métricas de Azure monitor](cosmos-db-azure-monitor-metrics.md) . 
+* Para saber como visualizar métricas do monitor Do Azure, consulte as métricas Get do artigo [do Azure Monitor.](cosmos-db-azure-monitor-metrics.md) 
 * [Teste de desempenho e escala com o Azure Cosmos DB](performance-testing.md)
 * [Dicas de desempenho para o Azure Cosmos DB](performance-tips.md)

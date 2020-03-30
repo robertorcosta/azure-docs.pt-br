@@ -4,10 +4,10 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como p
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302535"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
@@ -36,7 +36,7 @@ Ao tentar fazer backup, a seleção de uma Conta de Armazenamento para ver os co
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>É possível alterar o Cofre em que faço backup dos meus compartilhamentos de arquivos?
 
-Sim. No entanto, você precisará [interromper a proteção em um compartilhamento de arquivos](manage-afs-backup.md#stop-protection-on-a-file-share) do cofre conectado, [cancelar o registro](troubleshoot-azure-files.md#configuring-backup) dessa conta de armazenamento e, em seguida, protegê-la de um cofre diferente.
+Sim. No entanto, você precisará interromper a [proteção em um compartilhamento](manage-afs-backup.md#stop-protection-on-a-file-share) de arquivos do Cofre conectado, [descadastrar](troubleshoot-azure-files.md#configuring-backup) esta conta de armazenamento e, em seguida, protegê-la de um Cofre diferente.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>Em quais áreas geográficas posso fazer backup de compartilhamentos de arquivo do Azure?
 
@@ -70,20 +70,20 @@ O backup para compartilhamentos de arquivos do Azure está atualmente em versão
 - US Gov – Arizona (UGA)
 - US Gov – Texas (UGT)
 - US Gov – Virgínia (UGV)
-- Central da Austrália (ACL)
-- Índia ocidental (INW)
-- Norte da África do Sul (SAN)
-- Norte dos EAU (UAN)
-- França central (FRC)
-- Norte da Alemanha (GN)                       
-- Centro-oeste da Alemanha (GWC)
-- Oeste da África do Sul (visto)
-- EAU Central (UAC)
-- NÉ (leste da Noruega)     
-- NWW (oeste da Noruega)
-- SZN (Norte da Suíça)
+- Austrália Central (ACL)
+- Índia Ocidental (INW)
+- África do Sul Norte (SAN)
+- Emirados Norte dos Emirados Americanos (UAN)
+- França Central (FRC)
+- Alemanha Norte (GN)                       
+- Alemanha Centro-Oeste (GWC)
+- Sudoeste da África do Sul (SAW)
+- UAe Central (UAC)
+- NWE (Noruega Oriental)     
+- NWW (Noruega Ocidental)
+- SZN (Suíça Norte)
 
-Escreva para [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) caso precise usá-lo em uma área geográfica específica que não esteja listada acima.
+Escreva [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) para se você precisar usá-lo em um geo específico que não está listado acima.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Quantos compartilhamentos de arquivos do Azure posso proteger em um cofre?
 
@@ -103,7 +103,7 @@ No momento, o Backup do Azure é compatível com a configuração de backups age
 
 Você pode ter até 200 instantâneos para um compartilhamento de arquivos a qualquer hora. O limite inclui instantâneos tirados pelo Backup do Azure conforme definido pela sua política. Se os backups começarem a falhar após atingir o limite, exclua pontos de restauração sob demanda para ter êxito nos backups futuros.
 
-## <a name="restore"></a>Restauração
+## <a name="restore"></a>Restaurar
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Posso recuperar a partir de um compartilhamento de arquivos do Azure excluído?
 
@@ -135,7 +135,7 @@ O backup para compartilhamentos de arquivos do Azure oferece a capacidade de con
 
 Quando uma nova política for aplicada em compartilhamento de arquivos, a agenda e a retenção da nova política serão seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política. Se a retenção for reduzida, eles são marcados para remoção no próximo trabalho de limpeza e excluídos.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre outras áreas do Backup do Azure, confira algumas destas outras perguntas frequentes sobre backups:
 

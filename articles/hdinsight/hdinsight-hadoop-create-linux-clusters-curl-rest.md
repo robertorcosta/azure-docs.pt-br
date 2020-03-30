@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435524"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239929"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop usando a API REST do Azure
 
@@ -28,9 +28,9 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
 ## <a name="create-a-template"></a>Criar um modelo
 
-Os modelos de Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos nele (como o HDInsight). Essa abordagem baseada em modelo permite que você defina os recursos necessários para o HDInsight em um modelo.
+Os modelos do Azure Resource Manager são documentos JSON que descrevem um **grupo de recursos** e todos os recursos nele (como o HDInsight.) Essa abordagem baseada em modelos permite definir os recursos necessários para o HDInsight em um modelo.
 
-O documento JSON a seguir é uma mesclagem dos arquivos de parâmetros e modelo de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
+O documento JSON a seguir é uma [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)fusão dos arquivos de modelos e parâmetros de , que cria um cluster baseado em Linux usando uma senha para proteger a conta de usuário SSH.
 
    ```json
    {
@@ -212,7 +212,7 @@ Esse exemplo será usado nas etapas presentes neste documento. Substitua os *val
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="sign-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
 
 Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e conecte-se à sua assinatura usando o `az login` comando.
 
@@ -223,7 +223,7 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.micro
 
 1. Em uma linha de comando, use o seguinte comando para listar as assinaturas do Azure.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -231,7 +231,7 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.micro
 
 2. Use o comando a seguir para criar um aplicativo no Azure Active Directory.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
@@ -244,7 +244,7 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.micro
 
 3. Use o comando a seguir para criar uma entidade de serviço usando a **ID do aplicativo**.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -252,7 +252,7 @@ Siga as etapas documentadas em [Introdução à CLI do Azure](https://docs.micro
 
 4. Atribua a função **Proprietário** à entidade de serviço usando o valor da **ID de Objeto**. Use o valor **ID da assinatura** obtido anteriormente.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
@@ -341,13 +341,13 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Esse comando retorna informações de um documento JSON que contém informações sobre a operação de implantação. O elemento `"provisioningState"` contém o status da implantação. Se esse elemento contiver um valor de `"Succeeded"`, a implantação foi concluída com êxito.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou um cluster HDInsight com êxito, use o seguinte para aprender a trabalhar com o cluster.
+Agora que você criou com sucesso um cluster HDInsight, use o seguinte para aprender como trabalhar com seu cluster.
 
 ### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 
