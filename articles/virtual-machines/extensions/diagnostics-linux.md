@@ -1,5 +1,5 @@
 ---
-title: Computação do Azure-extensão de diagnóstico do Linux
+title: Azure Compute - Extensão de Diagnóstico Linux
 description: Como configurar a Extensão de Diagnóstico Linux (LAD) no Azure para coletar métricas e eventos de log de VMs Linux em execução no Azure.
 services: virtual-machines-linux
 author: axayjo
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: d9375d09219d2655bd9947c0953557f4a1bf8f3c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7a7c1af1193ba391550438229a22c4a8c116e6be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250628"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289168"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -49,10 +49,10 @@ Estas instruções de instalação e uma [configuração de amostra para downloa
 
 A configuração para download é apenas um exemplo; modifique-a para atender às suas necessidades.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
-* **CLI do Azure**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
+* **Azure CLI**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
 * O comando wget, caso ainda não o tenha: execute `sudo apt-get install wget`.
 * Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
 * A lista de distribuições Linux com suporte está em https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
@@ -61,7 +61,7 @@ A configuração para download é apenas um exemplo; modifique-a para atender à
 
 Preencha os valores corretos para as variáveis na primeira seção antes de executar:
 
-```bash
+```azurecli
 # Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
@@ -89,11 +89,11 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-A URL para a configuração de amostra e seu conteúdo estão sujeitos a alterações. Baixe uma cópia do arquivo JSON de configurações do portal e personalize-o de acordo com as suas necessidades. Os modelos ou as automações que você construir deverão usar sua própria cópia em vez de baixar essa URL toda vez.
+A configuração de exemplo baixada nestes exemplos coleta um conjunto de dados padrão e os envia para o armazenamento de tabelas. A URL para a configuração da amostra e seu conteúdo estão sujeitos a alterações. Na maioria dos casos, você deve baixar uma cópia do arquivo JSON de configurações do portal e personalizá-lo para suas necessidades, em seguida, ter quaisquer modelos ou automação que você constrói usar sua própria versão do arquivo de configuração em vez de baixar essa URL cada vez.
 
 #### <a name="powershell-sample"></a>Exemplo do PowerShell
 
-```Powershell
+```powershell
 $storageAccountName = "yourStorageAccountName"
 $storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
 $vmName = "yourVMName"
@@ -163,7 +163,7 @@ storageAccountSasToken | Um [Token de SAS de conta](https://azure.microsoft.com/
 mdsdHttpProxy | (opcional) As informações de proxy de HTTP necessárias para habilitar a extensão para se conectar ao ponto de extremidade e à conta de armazenamento especificados.
 sinksConfig | (opcional) Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados compatível com a extensão são abordados nas seções a seguir.
 
-Para obter um token SAS em um modelo do Resource Manager, use a função **listAccountSas** . Para obter um modelo de exemplo, consulte [exemplo de função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
+Para obter um token SAS dentro de um modelo do Gerenciador de recursos, use a função **listAccountSas.** Para um modelo de exemplo, consulte [Exemplo de função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Você pode facilmente construir o token de SAS necessário por meio do Portal do Azure.
 
@@ -221,11 +221,11 @@ A entrada "sasURL" contém a URL completa, incluindo o token de SAS para o Hub d
 
 Se você tiver criado uma SAS válida até meia-noite UTC em 1 de janeiro de 2018, o valor de sasURL poderá ser:
 
-```url
+```https
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Para obter mais informações sobre como gerar e recuperar informações sobre tokens SAS para hubs de eventos, consulte [esta página da Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
+Para obter mais informações sobre como gerar e recuperar informações sobre tokens SAS para Hubs de Eventos, consulte [esta página da Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>O coletor JsonBlob
 
@@ -339,7 +339,7 @@ Elemento | Valor
 ------- | -----
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métricas agregadas. Todas as métricas agregadas são publicadas em cada coletor listado. Veja [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 type | Identifica o provedor real da métrica.
-class | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
+classe | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
 contador | Junto com "class", identifica a métrica específica dentro do namespace do provedor.
 counterSpecifier | Identifica a métrica específica dentro do namespace de Métricas do Azure.
 condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica se aplica ou seleciona a agregação em todas as instâncias desse objeto. Para saber mais, confira as definições de métricas `builtin`.
@@ -528,7 +528,7 @@ TransfersPerSecond | Operações de leitura ou gravação por segundo
 
 Os valores agregados em todos os sistemas de arquivo podem ser obtidos pela configuração `"condition": "IsAggregate=True"`. Os valores para um sistema de arquivos montado específico, como "/mnt", podem ser obtidos pela configuração `"condition": 'Name="/mnt"'`. 
 
-**Observação**: se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name = '/mnt '
+**NOTA:** Se usar o Portal Azure em vez de JSON, o formulário de campo de condição correto é Name='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métricas internas para a classe Disk
 
@@ -723,7 +723,7 @@ Os dados enviados para coletores JsonBlob são armazenados nos blobs na conta de
 Além disso, você pode usar essas ferramentas de interface do usuário para acessar os dados no Armazenamento do Azure:
 
 * Gerenciador de Servidores do Visual Studio.
-* [Gerenciador do Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Gerenciador de Armazenamento do Azure").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Gerenciador de Armazenamento do Azure").
 
 Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Azure mostra as tabelas do Armazenamento do Azure geradas e os contêineres de uma extensão de LAD 3.0 configurada corretamente em uma VM de teste. A imagem não coincide exatamente com a [configuração de amostra do LAD 3.0](#an-example-lad-30-configuration).
 

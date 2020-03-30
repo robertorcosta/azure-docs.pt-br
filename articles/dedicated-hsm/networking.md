@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70881275"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM Dedicado do Azure
@@ -33,7 +33,7 @@ O HSM Dedicado do Azure dedicado requer um ambiente de rede altamente seguro. Is
 HSMs Dedicados são integrados a uma Rede Virtual e colocados na própria rede privada dos clientes no Azure. Isso permite o acesso aos dispositivos de máquinas virtuais ou recursos de computação na rede virtual.  
 Para obter mais informações sobre como integrar serviços do Azure com a rede virtual e os recursos que ele fornece, consulte a documentação dos serviços da [Rede virtual para os serviços do Azure](../virtual-network/virtual-network-for-azure-services.md).
 
-### <a name="virtual-networks"></a>Redes Virtuais
+### <a name="virtual-networks"></a>Redes virtuais
 
 Antes de provisionar um dispositivo HSM Dedicado, os clientes primeiro precisarão criar uma rede Virtual no Azure ou usar um que já existe na assinatura dos clientes. A rede virtual define o perímetro de segurança para o Dispositivo HSM Dedicado. Para obter mais informações sobre redes virtuais do Azure, consulte [Documentação da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
@@ -60,7 +60,7 @@ Uma rede Virtual Privada de ponto a site é a forma mais simples de conexão seg
 
 ### <a name="site-to-site-vpn"></a>VPN de site a site
 
-Uma rede Virtual privada de site a site permite a comunicação segura entre os HSMs Dedicados baseados no Azure e sua TI no local. Um motivo para fazer isso é ter um recurso de backup para o HSM local e precisar de uma conexão entre os dois para executar o backup.
+Uma rede Virtual privada de site a site permite a comunicação segura entre os HSMs Dedicados baseados no Azure e sua TI no local. Uma razão para fazer isso é ter uma instalação de backup para os hsms no local e precisar de uma conexão entre os dois para executar o backup.
 
 ## <a name="connecting-virtual-networks"></a>Conexão de redes virtuais
 
@@ -91,5 +91,5 @@ Para aplicativos distribuídos globalmente ou para cenários de alta disponibili
 - [Capacidade de suporte](supportability.md)
 - [Alta disponibilidade](high-availability.md)
 - [Segurança física](physical-security.md)
-- [Monitoramento](monitoring.md)
+- <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>Monitoramento<ept i="1000001">&lt;b}</ept>
 - [Arquitetura de implantação](deployment-architecture.md)

@@ -1,19 +1,18 @@
 ---
-title: Publicar oferta de imagem de contêineres do Azure | Azure Marketplace
+title: Publicar oferta de imagem do Azure Containers | Mercado Azure
 description: Como publicar uma oferta de contêiner do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: cf422e3d77fa0722fe10a52073cf89ab2a76dcc0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c612d2234e6c3c4e93c3c984242bb283ed85c27f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823165"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279973"
 ---
 # <a name="publish-container-offer"></a>Publicar oferta de contêiner
 
@@ -28,11 +27,11 @@ O diagrama a seguir mostra as principais etapas no processo de publicação para
 A tabela a seguir descreve cada etapa de publicação. Um tempo estimado para concluir cada etapa também é dado.
 
 
-|  **Etapa de publicação**           | **Hora**    | **Descrição**                                                            |
+|  **Etapa de publicação**           | **Tempo**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar os pré-requisitos         | 15 min   | Informações de oferta e configurações de oferta são validadas.                        |
 | Certificação                  | 1 semana | A oferta é analisada pela equipe de certificação do Azure. A oferta é exeminada em busca de vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se atende aos critérios de qualificação. Para obter mais informações, consulte os [pré-requisitos](./cpp-prerequisites.md) e [preparando seus ativos técnicos](./cpp-create-technical-assets.md). Comentários serão fornecidos se um problema for encontrado. |
-| Empacotamento | 1 hora  | Os ativos técnicos da oferta são empacotados para uso do cliente e os sistemas de Lead são configurados e definidos. |
+| Empacotamento | 1 hora  | Os ativos técnicos da oferta são embalados para uso do cliente e os sistemas de chumbo são configurados e configurados. |
 |  Aprovação do publicador             |  -        | Revisão final do editor e confirmação antes que a oferta seja publicada. Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas a informações de oferta) para verificar se ele atende a todos os seus requisitos.  Selecione **Go Live** para que sua oferta possa passar para a próxima etapa. |
 | Empacotamento                 | 1 hora | A oferta finalizada é replicada nos sistemas e regiões de produção do mercado. | 
 | Live                           | 4 dias |A oferta é lançada, replicada para as regiões exigidas e disponibilizada ao público. |

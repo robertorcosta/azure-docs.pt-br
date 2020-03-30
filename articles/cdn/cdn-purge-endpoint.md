@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
 ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74546211"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Limpar um ponto de extremidade da CDN do Azure
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Os nós de borda da CDN do Azure armazenarão ativos em cache até a TTL (vida útil) do ativo expirar.  Depois que a TTL do ativo expira, quando um cliente solicita o ativo do nó de borda, o nó recupera uma nova cópia atualizada do ativo para atender à solicitação do cliente e atualizar o armazenamento do cache.
 
 A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é verter os ativos para cada atualização e publicá-los como novas URLs.  A CDN recuperará imediatamente os novos ativos para as solicitações do próximo cliente.  Às vezes, convém limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados.  Isso pode ocorrer devido a atualizações do aplicativo Web ou para atualizar rapidamente ativos que contenham informações incorretas.
@@ -52,7 +52,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
    > 
    > 
 4. Selecione os ativos que você deseja limpar dos nós de borda.  Para limpar todos os ativos, clique na caixa de seleção **Limpar todos** .  Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto **Caminho**. Veja abaixo os formatos com suporte no caminho.
-    1. **Limpeza de URL única**: limpe o ativo individual especificando a URL completa, com ou sem a extensão de arquivo, por exemplo, `/pictures/strasbourg.png`; `/pictures/strasbourg`
+    1. **Expurgo de URL único**: Expurgue o ativo individual especificando a`/pictures/strasbourg.png`URL completa, com ou sem a extensão do arquivo, por exemplo;`/pictures/strasbourg`
     2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todos os arquivos, pastas e subpastas em um ponto de extremidade com `/*` no caminho ou limpe todos os arquivos e subpastas em uma determinada pasta especificando a pasta seguida por `/*`, por exemplo, `/pictures/*`.  Observe que, no momento, a limpeza do caractere curinga não é compatível com a CDN do Azure do Akamai. 
     3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
    
@@ -69,11 +69,11 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
     ![Botão Limpar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> As solicitações de limpeza levam cerca de 10 minutos para serem processadas com a **CDN do Azure da Microsoft**, aproximadamente 2 minutos com a **CDN do Azure da Verizon** (Standard e Premium) e aproximadamente 10 segundos com a **CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez no nível do perfil. 
+> As solicitações de expurgo levam aproximadamente 10 minutos para serem processadas com **o Azure CDN da Microsoft,** aproximadamente 2 minutos com **CDN Azure da Verizon** (padrão e premium) e aproximadamente 10 segundos com **CDN Azure da Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez no nível do perfil. 
 > 
 > 
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Confira também
 * [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 * [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](/rest/api/cdn/endpoints)
 

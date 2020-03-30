@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
 ms.openlocfilehash: 11c854491ab030394eb61964979cb04a5a4b489b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433390"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Criar um aplicativo Web mais o Cache Redis do Azure usando um modelo
@@ -79,7 +79,7 @@ O modelo cria o cache no mesmo local que o grupo de recursos.
 ### <a name="web-app"></a>Aplicativo Web
 Cria o aplicativo Web com o nome especificado na variável **webSiteName** .
 
-Observe que o aplicativo Web está configurado com as propriedades de configuração de aplicativo que o habilitam a trabalhar com o Cache Redis do Azure. Essas configurações de aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
+Observe que o aplicativo Web está configurado com as propriedades de configuração de aplicativo que o habilitam a trabalhar com o Cache Redis do Azure. Essas configurações do aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
 
     {
       "apiVersion": "2015-08-01",
@@ -120,5 +120,5 @@ Observe que o aplicativo Web está configurado com as propriedades de configura�
 ### <a name="powershell"></a>PowerShell
     New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup

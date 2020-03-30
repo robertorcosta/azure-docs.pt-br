@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: migrar o RDS SQL Server online para o banco de dados SQL'
+title: 'Tutorial: Migre o RDS SQL Server on-line para o Banco de Dados SQL'
 titleSuffix: Azure Database Migration Service
-description: Aprenda a executar uma migração online do RDS SQL Server para o banco de dados SQL do Azure ou instância gerenciada usando o serviço de migração de banco de dados do Azure.
+description: Aprenda a executar uma migração on-line do RDS SQL Server para o Banco de Dados SQL do Azure ou instância gerenciada usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 8d538deca610fd9981d401d28b6bea1c31c6d4c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255515"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298865"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: migrar RDS SQL Server para o banco de dados SQL do Azure ou uma instância gerenciada do banco de dados SQL do Azure online usando DMS
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migre o RDS SQL Server para o Azure SQL Database ou uma instância gerenciada do Azure SQL On-line usando DMS
 É possível usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server do RDS para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) ou uma [instância gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com tempo de inatividade mínimo. Neste tutorial, você migra o banco de dados **Adventureworks2012** restaurado para uma instância do SQL Server do RDS do SQL Server 2012 (ou posterior) para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure, usando o Serviço de Migração de Banco de Dados do Azure.
 
 Neste tutorial, você aprenderá como:
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 Este artigo descreve uma migração online do SQL Server do RDS para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará:
 
 * Criar um [banco de dados do SQL Server do RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
@@ -52,10 +52,10 @@ Para concluir este tutorial, você precisará:
     > Se você estiver migrando para uma instância gerenciada do Banco de Dados SQL do Azure, siga os detalhes do artigo [Criar uma instância gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) e, em seguida, crie um banco de dados vazio nomeado **AdventureWorks2012**. 
  
 * Fazer download e instalar o [AMD](https://www.microsoft.com/download/details.aspx?id=53595) (Assistente de Migração de Dados) v3.3 ou posterior.
-* Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager. Se você estiver migrando para uma instância gerenciada do banco de dados SQL do Azure, certifique-se de criar a instância DMS na mesma rede virtual usada para a instância gerenciada do banco de dados SQL do Azure, mas em uma sub-rede diferente.  Como alternativa, se você usar uma rede virtual diferente para DMS, precisará criar um emparelhamento de rede virtual entre as duas redes virtuais. Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Crie uma rede virtual do Microsoft Azure para o Serviço de Migração de Banco de Dados Do Azure usando o modelo de implantação do Azure Resource Manager. Se você estiver migrando para uma instância gerenciada do Azure SQL Database, certifique-se de criar a instância DMS na mesma rede virtual usada para a instância gerenciada do Azure SQL Database, mas em uma sub-rede diferente.  Alternativamente, se você usar uma rede virtual diferente para DMS, você precisa criar uma rede virtual de peering entre as duas redes virtuais. Para obter mais informações sobre a criação de uma rede virtual, consulte a [Documentação](https://docs.microsoft.com/azure/virtual-network/)da Rede Virtual e, especialmente, os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
-    > Durante a configuração de rede virtual, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+    > Durante a configuração da rede virtual, se você usar o ExpressRoute com peering de rede para a Microsoft, adicione os [seguintes pontos finais de](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) serviço à sub-rede na qual o serviço será provisionado:
     >
     > * Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade do SQL, ponto de extremidade do Cosmos DB, e assim por diante)
     > * Ponto de extremidade de armazenamento
@@ -63,10 +63,10 @@ Para concluir este tutorial, você precisará:
     >
     > Essa configuração é necessária porque o Serviço de Migração de Banco de Dados do Azure não tem conectividade com a Internet. 
 
-* Verifique se as regras do grupo de segurança de rede de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Certifique-se de que as regras do Grupo de Segurança de Rede de Rede de rede virtual não bloqueiem as seguintes portas de comunicação de entrada para o Serviço de Migração de Banco de Dados Do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego DE Rede Virtual NSG, consulte o artigo [Filtrar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)o tráfego da rede com grupos de segurança da rede .
 * Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que por padrão é porta TCP 1433.
-* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o servidor do Banco de Dados SQL do Azure para permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-rede da rede virtual usada para o serviço de migração de banco de dados do Azure.
+* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o servidor do Banco de Dados SQL do Azure para permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça a faixa de sub-rede da rede virtual usada para o Serviço de Migração de Banco de Dados do Azure.
 * Verifique se as credenciais usadas para se conectar à instância do SQL Server do RDS de origem estão associadas a uma conta que é membro da função de servidor “Processadmin” e um membro das funções de banco de dados “db_owner” em todos os bancos de dados que devem ser migrados.
 * Verifique se as credenciais usadas para conectar a instância do Banco de Dados SQL do Azure de destino têm a permissão CONTROL DATABASE nos bancos de dados SQL de destino do Azure e um membro da função sysadmin, se estiver migrando para uma instância gerenciada do Banco de Dados SQL do Azure.
 * A versão do SQL Server de origem do RDS deve ser o SQL Server 2012 e posterior. Para determinar a versão que a instância do SQL Server está executando, consulte o artigo [Como determinar a versão, a edição e o nível de atualização do SQL Server e de seus componentes](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -146,7 +146,7 @@ Para migrar o **AdventureWorks2012** esquema de banco de dados SQL do Azure, exe
 
     ![Exibir provedores de recursos](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
+3. Procure migração e, em seguida, à direita do **Microsoft.DataMigration,** selecione **Registrar**.
 
     ![Registrar provedor de recursos](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/portal-register-resource-provider.png)    
 
@@ -166,9 +166,9 @@ Para migrar o **AdventureWorks2012** esquema de banco de dados SQL do Azure, exe
 
 5. Selecione uma rede virtual existente ou crie uma nova.
 
-    A rede virtual fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância de destino do banco de dados SQL do Azure.
+    A rede virtual fornece ao Azure Database Migration Service acesso ao SQL Server de origem e à instância de banco de dados SQL do Azure.
 
-    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal Azure, consulte o artigo [Criar uma rede virtual usando o portal Azure](https://aka.ms/DMSVnet).
 
 6. Selecione um tipo de preço; para esta migração online, selecione o tipo de preço Premium.
 
@@ -196,7 +196,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     > [!NOTE]
     > Para o tipo de servidor de Destino, selecione **Banco de Dados SQL do Azure** para migrar para um banco de dados singleton do Banco de Dados SQL do Azure e para uma instância gerenciada do Banco de Dados SQL do Azure.
 
-5. Na seção **Escolher o tipo de atividade**, selecione **Migração de dados online**.
+5. Na seção **Escolher tipo de atividade,** selecione Migração de **dados on-line**.
 
     > [!IMPORTANT]
     > Verifique se você selecionou **Migração de dados online**; não há suporte para migrações offline para esse cenário.
@@ -206,7 +206,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     > [!NOTE]
     > Como alternativa, você pode escolher **Criar somente o projeto** para criar o projeto de migração agora e executar a migração posteriormente.
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 7. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 
@@ -223,13 +223,13 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     Quando não houver um certificado confiável instalado, o SQL Server gerará um certificado autoassinado quando a instância for iniciada. Esse certificado é usado para criptografar as credenciais das conexões de cliente.
 
     > [!CAUTION]
-    > As conexões SSL que são criptografadas usando um certificado autoassinado não oferecem alta segurança. Elas são suscetíveis a ataques “man-in-the-middle”. Você não deve confiar no SSL usando certificados autoassinados em um ambiente de produção ou em servidores conectados à Internet.
+    > As conexões TLS que são criptografadas usando um certificado auto-assinado não fornecem forte segurança. Elas são suscetíveis a ataques “man-in-the-middle”. Você não deve confiar no TLS usando certificados auto-assinados em um ambiente de produção ou em servidores conectados à internet.
 
    ![Detalhes da origem](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
-1. Selecione **Salvar**e, na tela **Detalhes de destino da migração**, especifique os detalhes de conexão para o destino do Servidor de Banco de Dados SQL do Azure, que é o Banco de Dados SQL do Azure pré-provisionado no qual o esquema do **AdventureWorks2012**  foi implantado usando o AMD.
+1. Selecione **Salvar**e, na tela **Detalhes de destino da migração**, especifique os detalhes de conexão para o destino do Servidor de Banco de Dados SQL do Azure, que é o Banco de Dados SQL do Azure pré-provisionado no qual o esquema do **AdventureWorks2012 ** foi implantado usando o AMD.
 
     ![Selecionar o destino](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-select-target3.png)
 
@@ -247,9 +247,9 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 4. Selecione **Salvar** após definir as seguintes **Configurações avançadas de migração online**.
 
-    | Configuração | DESCRIÇÃO |
+    | Configuração | Descrição |
     | ------------- | ------------- |
-    | **Número máximo de tabelas a serem carregadas em paralelo** | Especifica o número de tabelas que o DMS executa em paralelo durante a migração. O valor padrão é 5, mas pode ser definido como um valor ideal para atender às necessidades de migração específicas com base em quaisquer migrações de POC. |
+    | **Número máximo de tabelas a ser carregado em paralelo** | Especifica o número de tabelas que o DMS executa em paralelo durante a migração. O valor padrão é 5, mas pode ser definido como um valor ideal para atender às necessidades de migração específicas com base em quaisquer migrações de POC. |
     | **Quando a tabela de origem é truncada** | Especifica se o DMS trunca a tabela de destino durante a migração. Essa configuração poderá ser útil se uma ou mais tabelas forem truncadas como parte do processo de migração. |
     | **Definir configurações para dados LOB (objetos grandes)** | Especifica se o DMS migra dados LOB ilimitados ou limita os dados LOB migrados a um tamanho específico.  Quando houver um limite nos dados LOB migrados, todos os dados LOB além desse limite serão truncados. Para migrações de produção, é recomendável selecionar **Permitir tamanho de LOB ilimitado** para impedir a perda de dados. Ao especificar essa opção para permitir o tamanho ilimitado de LOB, marque a caixa de seleção **Migrar dados LOB em um único bloco quando o tamanho do LOB for menor que (KB) especificado** para melhorar o desempenho. |
 
@@ -263,7 +263,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 * Selecione **Executar migração**.
 
-    A janela de atividade de migração aparece e o **Status** da atividade está **Inicializando**.
+    A janela de atividade de migração é exibida e o **Status** da atividade é **Inicialização**.
 
     ![Status da atividade: inicializando](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-activity-status2.png)
 

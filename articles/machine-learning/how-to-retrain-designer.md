@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: 264b169eefde18880f50feae2554aa3ca7037b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8791e933882832dc7b0037c860a4c4e1e9a54c7
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368155"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389028"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Readaptar modelos com o designer do Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -54,14 +54,14 @@ Para retreinar um modelo, você precisa de um modelo inicial. Nesta seção, voc
    Para este exemplo, os dados são armazenados em um [datastore do Azure](how-to-access-data.md). Se você ainda não tiver um datastore, você pode criar um agora selecionando **Novo datastore**.
 
 1. Especifique o caminho para seus dados. Você também pode selecionar **o caminho procurar** para navegar no seu datastore. 
-1. Selecione **Executar** na parte superior da tela.
+1. Selecione **Enviar** na parte superior da tela.
     
    > [!NOTE]
    > Se você já tiver definido um cálculo padrão para este rascunho de pipeline, o pipeline será executado automaticamente. Caso contrário, você pode seguir as instruções no painel de configurações para definir um agora.
 
 ### <a name="find-your-trained-model"></a>Encontre seu modelo treinado
 
-O designer salva todas as saídas de pipeline, incluindo modelos treinados, para a conta de armazenamento padrão. Você também pode acessar o modelo treinado diretamente no designer:
+O designer salva todas as saídas de pipeline, incluindo modelos treinados, para a conta de armazenamento padrão. No entanto, você também pode acessar modelos treinados diretamente no designer:
 
 1. Espere o oleoduto terminar de funcionar.
 1. Selecione o módulo **Treinar Modelo**.

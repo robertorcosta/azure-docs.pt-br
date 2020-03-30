@@ -4,10 +4,10 @@ description: Saiba como o gerenciamento de recursos delegado do Azure permite im
 ms.date: 11/8/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456846"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar o Azure Policy em assinaturas delegadas em escala
@@ -61,7 +61,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Após terminar, remova a definição e a atribuição de política criada pela implantação.
 
@@ -88,7 +88,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Azure Policy](../../governance/policy/index.yml).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).

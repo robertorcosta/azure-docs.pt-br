@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: ad81ca75638b9510064b7f2c319d9429881c60d1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c94b670a33f7640d2d6f428287b3ba0fab766bc5
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79475919"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384867"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um namespace do Barramento de Serviço com tópico e assinatura usando um modelo do Azure Resource Manager
 
@@ -38,8 +38,6 @@ Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Ser
 > * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise por **Barramento de Serviço**.
-> 
-> 
 
 ## <a name="what-do-you-deploy"></a>O que você implanta?
 
@@ -58,6 +56,7 @@ Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores
 O modelo define os seguintes parâmetros:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 O nome do namespace do Barramento de Serviço a ser criado.
 
 ```json
@@ -67,6 +66,7 @@ O nome do namespace do Barramento de Serviço a ser criado.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
+
 O nome do tópico criado no namespace do Barramento de Serviço.
 
 ```json
@@ -76,6 +76,7 @@ O nome do tópico criado no namespace do Barramento de Serviço.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
+
 O nome da assinatura criada no namespace do Barramento de Serviço.
 
 ```json
@@ -85,6 +86,7 @@ O nome da assinatura criada no namespace do Barramento de Serviço.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 A versão da API do Barramento de Serviço do modelo.
 
 ```json
@@ -95,7 +97,9 @@ A versão da API do Barramento de Serviço do modelo.
            "description": "Service Bus ApiVersion used by the template" 
        }
 ```
+
 ## <a name="resources-to-deploy"></a>Recursos a implantar
+
 Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com tópico e assinatura.
 
 ```json
@@ -134,19 +138,23 @@ Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com t
 Saiba mais sobre a sintaxe e as propriedades de JSON em [namespaces](/azure/templates/microsoft.servicebus/namespaces), [topics](/azure/templates/microsoft.servicebus/namespaces/topics) e [subscriptions](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure
-```azurecli
+
+```azurecli-interactive
 az group deployment create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos consultando estes artigos:
 
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)

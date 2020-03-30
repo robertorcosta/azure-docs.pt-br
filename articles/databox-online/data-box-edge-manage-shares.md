@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79212935"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Usar o portal do Azure para gerenciar compartilhamentos no Azure Data Box Edge
@@ -23,8 +23,8 @@ Este artigo descreve como gerenciar compartilhamentos no Azure Data Box Edge. Vo
 
 Para transferir dados para o Azure, você precisará criar compartilhamentos no Azure Data Box Edge. Os compartilhamentos adicionados ao dispositivo Data Box Edge podem ser compartilhamentos locais ou compartilhamentos que enviam dados por push para a nuvem.
 
- - **Compartilhamentos locais**: Use esses compartilhamentos quando desejar que os dados sejam processados localmente no dispositivo.
- - **Compartilhamentos**: Use esses compartilhamentos quando desejar que os dados do dispositivo sejam enviados automaticamente para sua conta de armazenamento na nuvem. Todas as funções de nuvem, como **Atualizar** e **Sincronizar chaves de armazenamento**, se aplicam a esses compartilhamentos.
+ - **Ações locais**: Use essas ações quando quiser que os dados sejam processados localmente no dispositivo.
+ - **Ações**: Use essas ações quando quiser que os dados do dispositivo sejam automaticamente empurrados para sua conta de armazenamento na nuvem. Todas as funções de nuvem, como **Atualizar** e **Sincronizar chaves de armazenamento**, se aplicam a esses compartilhamentos.
 
 Neste artigo, você aprenderá como:
 
@@ -54,7 +54,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 5. Na lista suspensa, escolha o **Serviço de armazenamento** entre blob de blocos, blobs de páginas ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nessa instância, queremos que os dados residam como blobs de blocos no Azure, portanto, selecionamos **Blob de Blocos**. Se você escolher **Blob de Páginas**, precisará garantir que os dados sejam alinhados com 512 bytes. Use **Blob de páginas** para VHDs ou VHDX que são sempre alinhados com 512 bytes.
 
    > [!IMPORTANT]
-   > Certifique-se de que a conta de armazenamento do Azure que você usa não tenha políticas de imutabilidade definidas nela se você a estiver usando com um Azure Stack borda ou Gateway do Data Box dispositivo. Para obter mais informações, consulte [definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Certifique-se de que a conta de armazenamento Azure que você usa não tenha políticas de imutabilidade definidas nela se você estiver usando-a com um dispositivo Azure Stack Edge ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerenciar políticas de imutabilidade para armazenamento blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Esta etapa depende do tipo de compartilhamento criado, SMB ou NFS.
     - **Se estiver criando compartilhamento SMB**: no campo **Todos os usuários locais com privilégios**, escolha **Criar novo** ou **Usar existente**. Se a criação for de um novo usuário local, forneça o **nome de usuário**, a **senha** e então confirme a senha. Isso atribui as permissões ao usuário local. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
@@ -157,7 +157,7 @@ Para excluir um compartilhamento, siga estas etapas no portal do Azure.
 
     ![Clique em Excluir](media/data-box-edge-manage-shares/delete-share-2.png)
 
-3. Quando solicitado a confirmar, clique em **Sim**.
+3. Quando solicitada a confirmação, clique em **Sim**.
 
     ![Confirmar exclusão](media/data-box-edge-manage-shares/delete-share-3.png)
 
@@ -182,7 +182,7 @@ Para atualizar um compartilhamento, siga estas etapas no portal do Azure.
 
     ![Clique em atualizar](media/data-box-edge-manage-shares/refresh-share-2.png)
  
-3.   Quando solicitado a confirmar, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local.
+3.   Quando solicitada a confirmação, clique em **Sim**. Um trabalho começa a atualizar o conteúdo do compartilhamento local.
 
     ![Confirmar atualização](media/data-box-edge-manage-shares/refresh-share-3.png)
  
@@ -205,7 +205,7 @@ Execute as seguintes etapas no portal do Azure para sincronizar sua chave de ace
 
     ![Selecione o compartilhamento com a conta de armazenamento relevante](media/data-box-edge-manage-shares/sync-storage-key-1.png)
 
-2. Clique em **Sincronizar chave de armazenamento**. Clique em **Sim** quando solicitada a confirmação.
+2. Clique em **Sincronizar chave de armazenamento**. Clique em **Sim** quando for solicitada a confirmação.
 
      ![Selecionar Sincronizar chave de armazenamento](media/data-box-edge-manage-shares/sync-storage-key-2.png)
 

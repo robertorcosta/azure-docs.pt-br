@@ -4,10 +4,10 @@ description: Este artigo tem informações sobre a solução de problemas que oc
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252383"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solucionar problemas do backup de Compartilhamentos de Arquivos do Azure
@@ -21,7 +21,7 @@ O backup para compartilhamentos de Arquivos do Azure está em versão prévia. H
 - Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
 - A quantidade máxima de backups agendados por dia é de um.
 - A quantidade máxima de backups sob demanda por dia é de quatro.
-- Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
+- Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para evitar a exclusão acidental de backups no cofre dos Serviços de Recuperação.
 - Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
 - Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivos e, portanto, perderá todos os pontos de restauração
 
@@ -38,7 +38,7 @@ A tabela abaixo serve para configurar o backup:
 | A validação ou o registro da Conta de Armazenamento selecionada falhou.| Repita a operação, e se o problema persistir, entre em contato com o suporte.|
 | Não foi possível listar ou localizar os compartilhamentos de arquivos na Conta de Armazenamento selecionada. | <ul><li> Verifique se a Conta de Armazenamento existe no Grupo de Recursos (e se não foi excluída ou movida após a última validação/registro no cofre).<li>Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li>Verifique se a Conta de Armazenamento tem suporte para backup de compartilhamento de arquivos.<li>Verifique se o compartilhamento de arquivos já está protegido no mesmo cofre dos Serviços de Recuperação.|
 | A configuração de compartilhamento de arquivos de backup (ou a configuração de política de proteção) está falhando. | <ul><li>Repita a operação para ver se o problema persiste. <li> Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li> Se estiver tentando proteger vários compartilhamentos de arquivos ao mesmo tempo e alguns deles estiverem falhando, repita a configuração de backup para os compartilhamentos de arquivos com falha. |
-| Não é possível excluir o cofre dos Serviços de Recuperação depois de desproteger um compartilhamento de arquivos. | No portal do Azure, abra o seu Cofre > **Infraestrutura de backup** > **Contas de armazenamento** e clique em **Cancelar o registro** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
+| Não é possível excluir o cofre dos Serviços de Recuperação depois de desproteger um compartilhamento de arquivos. | No portal Azure, abra o Cofre > contas **de armazenamento de infra-estrutura** > **de** backup e clique **em Descadastrar** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensagens de erro para falhas de trabalho de backup ou restauração
 
@@ -69,5 +69,5 @@ A tabela abaixo serve para configurar o backup:
 
 Para obter mais informações sobre o backup de compartilhamentos de arquivos do Azure, confira:
 
-- [Backup de compartilhamentos de arquivos do Azure](backup-afs.md)
+- [Faça backup das ações de arquivos do Azure](backup-afs.md)
 - [Perguntas frequentes sobre backup de compartilhamentos de arquivos do Azure](backup-azure-files-faq.md)

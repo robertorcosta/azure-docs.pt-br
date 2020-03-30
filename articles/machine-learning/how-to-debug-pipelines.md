@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 578e935ee742ad476aeafb53670f0a92035249e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064073"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388977"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "80064073"
 Neste artigo, você aprende como depurar e solucionar [problemas de pipelines](concept-ml-pipelines.md) de aprendizagem de máquina no [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) e [no Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Informações são fornecidas sobre como:
 
 * Depuração usando o Azure Machine Learning SDK
-* Depuração usando o Designer de Aprendizado de Máquina do Azure
+* Depuração usando o designer de Machine Learning do Azure
 * Depuração usando insights de aplicativos
 * Depurar interativamente usando o Visual Studio Code (VS Code) e as Ferramentas Python para O Visual Studio (PTVSD)
 
@@ -91,7 +91,7 @@ A tabela abaixo fornece informações para diferentes opções de depuração pa
 | Biblioteca                    | Type   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SDK do Azure Machine Learning | Métrica | `run.log(name, val)`                                             | UI do Portal de Aprendizagem de Máquina do Azure             | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml.core.Run class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Impressão/registro de python    | Log    | `print(val)`<br>`logging.info(message)`                          | Registros de driver, Azure Machine Learning Designer | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro de python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Impressão/registro de python    | Log    | `print(val)`<br>`logging.info(message)`                          | Registros de driver, designer de Machine Learning do Azure | [Como acompanhar experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro de python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Insights de aplicativos - traces                | [Depurar pipelines no Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Exportadores OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Livro de receitas de registro python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exemplo de opções de registro
@@ -136,8 +136,8 @@ Para pipelines criados no designer, você pode encontrar os **arquivos de log** 
 Quando você envia uma execução de pipeline e permanece na página de autoria, você pode encontrar os arquivos de log gerados para cada módulo.
 
 1. Selecione qualquer módulo na tela de autoria.
-1. No painel direito do módulo, vá para a guia **Saídas+ogs.**
-1. Selecione o arquivo de log`70_driver_log.txt`
+1. No painel direito do módulo, vá para a guia **Saídas + logs.**
+1. Selecione o `70_driver_log.txt`arquivo de log .
 
     ![Registros do módulo da página de autoria](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
@@ -148,8 +148,8 @@ Você também pode encontrar os arquivos de log de executações específicas na
 1. Selecione uma execução de pipeline criada no designer.
     ![Página de execução de pipeline](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Selecione qualquer módulo no painel de visualização.
-1. No painel direito do módulo, vá para a guia **Saídas+ogs.**
-1. Selecione o arquivo de log`70_driver_log.txt`
+1. No painel direito do módulo, vá para a guia **Saídas + logs.**
+1. Selecione o `70_driver_log.txt`arquivo de log .
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuração e solução de problemas em Insights de Aplicativos
 Para obter mais informações sobre como usar a biblioteca OpenCensus Python desta maneira, consulte este guia: [Depurar e solucionar problemas de pipelines de aprendizado de máquina no Application Insights](how-to-debug-pipelines-application-insights.md)

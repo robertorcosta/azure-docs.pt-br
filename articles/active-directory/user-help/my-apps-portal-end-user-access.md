@@ -1,6 +1,6 @@
 ---
-title: Localizar & usar aplicativos no portal meus aplicativos-Azure AD
-description: Saiba como encontrar o portal meus aplicativos e como acessar os aplicativos baseados em nuvem da sua organização.
+title: Localize & usar aplicativos no portal Meus Aplicativos - Azure AD
+description: Saiba como encontrar o portal Meus Aplicativos e, em seguida, como acessar os aplicativos baseados em nuvem da sua organização.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,171 +12,172 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a5dae30c8b8f43602581b39005389211da83cb9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253176"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347164"
 ---
-# <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Entrar e iniciar aplicativos no portal meus aplicativos
+# <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Faça login e inicie aplicativos no portal Meus Aplicativos
 
-Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseado na Web para:
+Você pode usar sua conta de trabalho ou escola com o portal **My Apps** baseado na Web para:
 
-- Exibir e iniciar muitos dos aplicativos baseados em nuvem da sua organização
-- Atualizar suas informações de perfil e conta
-- Ver as informações de seus **grupos**
-- Executar **revisões de acesso** para seus aplicativos e grupos
+- Veja e inicie muitos dos aplicativos baseados em nuvem da sua organização
+- Atualize suas informações de perfil e conta
+- Consulte as informações de seus **grupos**
+- Realize **avaliações de acesso** para seus aplicativos e grupos
 
 Se você não tiver acesso ao portal **Meus Aplicativos**, entre em contato com a assistência técnica para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este conteúdo destina-se aos usuários dos meus aplicativos. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Este conteúdo destina-se aos usuários do portal Meus Aplicativos. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="supported-browsers"></a>Navegadores com suporte
 
-Você pode acessar o portal **meus aplicativos** de qualquer um dos seguintes navegadores da Web:
+Você pode acessar o portal **Meus Aplicativos** a partir de qualquer um dos seguintes navegadores:
 
 - Google Chrome
 
-- Mozilla Firefox, versão 26,0 ou posterior
+- Mozilla Firefox, versão 26.0 ou posterior
 
 - Microsoft Edge
 
 - Internet Explorer, versão 11 (suporte limitado)
 
-## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Baixar e instalar a extensão de entrada segura de meus aplicativos
+## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Baixe e instale a extensão de login seguro meus aplicativos
 
-Baixe e instale a extensão de entrada segura de meus aplicativos, se for solicitado. Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de logon único. Se sua organização já tiver configurado para logon único, a extensão será instalada automaticamente e você poderá ignorar esta seção.
+Baixe e instale a extensão de login seguro meus aplicativos, se você for solicitado. Essa extensão ajuda você a iniciar qualquer um dos aplicativos em nuvem da sua organização que exigem que você use um único processo de login. Se sua organização já tiver configurado para o único login, a extensão será instalada automaticamente e você pode pular esta seção.
 
-Essa extensão ajuda você a:
+Esta extensão ajuda você:
 
-- Entre diretamente em aplicativos da página de entrada.
+- Faça login diretamente nos aplicativos da página de login.
 
-- Inicie todos os aplicativos usando o recurso **pesquisa rápida** .
+- Inicie quaisquer aplicativos usando o recurso **de pesquisa rápida.**
 
-- Consulte os últimos aplicativos usados na seção **usado recentemente** .
+- Veja os últimos aplicativos usados na seção **Usado recentemente.**
 
-- Use URLs internas da empresa enquanto estiver remoto com o [proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Use URLs internos da empresa enquanto remotamente com [proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
 ### <a name="to-download-and-install-the-extension"></a>Para baixar e instalar a extensão
 
 Baixe e instale a extensão, com base no navegador que você está usando:
 
-- **Google Chrome.** No repositório da Web do Chrome, vá para o recurso de [extensão de entrada segura meus aplicativos](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) e, em seguida, selecione **Adicionar ao Chrome**.
+- **Google Chrome.** Na Chrome Web Store, vá para o recurso [Extensão de login seguro meus aplicativos](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) e selecione Adicionar ao **Chrome**.
 
-- **Mozilla Firefox** Na página **Complementos do Firefox** , vá para o recurso de [extensão de entrada segura meus aplicativos](https://addons.mozilla.org/firefox/addon/access-panel-extension/) e, em seguida, selecione **Adicionar ao Firefox**.
+- **Mozilla Firefox** Na página de complementos do **Firefox,** vá para o recurso [Extensão de login seguro meus aplicativos](https://addons.mozilla.org/firefox/addon/access-panel-extension/) e, em seguida, **selecione Adicionar ao Firefox**.
 
-- **Microsoft Edge** Na Microsoft Store, vá para o recurso de [extensão de entrada segura meus aplicativos](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) e, em seguida, selecione **obter**.
+- **Microsoft Edge** Na Microsoft Store, vá para o recurso [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) e selecione **Obter** para obter a extensão para o navegador legado Microsoft Edge.  
+Se você estiver usando o novo navegador Microsoft Edge (Edge on Chromium), então você pode obter a extenção da [Microsoft Edge Addons Store](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
 
-Um ícone é adicionado à direita da barra de **endereços** , permitindo que você entre e personalize a extensão.
+Um ícone é adicionado à direita da barra **de endereços,** permitindo que você faça login e personalize a extensão.
 
-## <a name="to-change-your-my-apps-portal-using-the-extension"></a>Para alterar o portal meus aplicativos usando a extensão
+## <a name="to-change-your-my-apps-portal-using-the-extension"></a>Para alterar seu portal Meus Aplicativos usando a extensão
 
-Você pode escolher quantos aplicativos exibir na seção **usado recentemente** e decidir se deseja permitir que as URLs internas da sua organização redirecionem.
+Você pode escolher quantos aplicativos devem ser visualizados na seção **Usado recentemente** e decidir se permite que os URLs internos da sua organização sejam redirecionados.
 
-1. Selecione o ícone de **extensão de entrada segura do novo aplicativo meus aplicativos** ![ícone de extensão](media/my-apps-portal/my-apps-portal-extension-icon.png) à direita da barra de **endereços** e, em seguida, selecione **entrar para começar**.
+1. Selecione o novo ![ícone](media/my-apps-portal/my-apps-portal-extension-icon.png) de **extensão de login seguro meus aplicativos** à direita da barra de **endereços** e selecione **Entrar para começar**.
 
-2. Clique com o botão direito do mouse no ícone de **configurações** ![ícone de configurações](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)e selecione **configurações**.
+2. Clique com o botão ![direito](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)do mouse no ícone **Configurações** Configurações e, em seguida, selecione **Configurações**.
 
-3. Na caixa **configurações** , selecione o número de aplicativos recentes que você deseja ver no portal e se deseja permitir que as URLs internas da sua organização redirecionem para que você possa usá-las remotamente.
+3. Na caixa **Configurações,** selecione o número de aplicativos recentes que deseja ver no portal e se permite que os URLs internos da sua organização sejam redirecionados para que você possa usá-los remotamente.
 
-    ![Página Configurações da extensão, mostrando as personalizações disponíveis](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
+    ![Página de configurações da extensão, mostrando as personalizações disponíveis](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-## <a name="access-and-use-the-my-apps-portal-by-device"></a>Acessar e usar o portal meus aplicativos por dispositivo
+## <a name="access-and-use-the-my-apps-portal-by-device"></a>Acesse e use o portal Meus Aplicativos por dispositivo
 
-Você pode acessar e usar o portal meus aplicativos em seu computador, em um navegador gerenciado pelo Intune ou em um dispositivo móvel iOS ou Android.
+Você pode acessar e usar o portal Meus Aplicativos em seu computador, a partir de um navegador gerenciado pelo Intune, ou a partir de um dispositivo móvel iOS ou Android.
 
-![Página de aplicativos no portal meus aplicativos](media/my-apps-portal/my-apps-portal-apps-page.png)
+![Página de aplicativos no portal Meus Aplicativos](media/my-apps-portal/my-apps-portal-apps-page.png)
 
-### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Acessar e usar o portal meus aplicativos em seu computador
+### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Acesse e use o portal Meus Aplicativos em seu computador
 
-Se você tiver permissão para acessar e usar os aplicativos baseados em nuvem da sua organização, poderá acessá-los por meio do portal **meus aplicativos** .
+Se você tiver permissão para acessar e usar os aplicativos baseados em nuvem da sua organização, você pode obtê-los através do portal **Meus Aplicativos.**
 
-1. Entre em sua conta corporativa ou de estudante no seu computador.
+1. Faça login na sua conta de trabalho ou escola no seu computador.
 
-2. Em um navegador da Web com suporte, abra e vá para https://myapps.microsoft.com, ou use o link fornecido pela sua organização se o direcionar para uma página personalizada, como `https://myapps.microsoft.com/contoso.com`.
+2. Em um navegador da Web suportado, abra e vá para https://myapps.microsoft.com, ou use o link fornecido `https://myapps.microsoft.com/contoso.com`pela sua organização se eles o direcionarem para uma página personalizada, como .
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização que estão disponíveis para uso.
+    A página **Aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem de sua organização que estão disponíveis para você usar.
 
-3. Na página **aplicativos** , selecione o aplicativo que você deseja começar a usar.
+3. Na página **Aplicativos,** selecione o aplicativo que deseja começar a usar.
 
-    Uma nova página é aberta para o aplicativo, onde você pode entrar (se necessário) ou começar a usar o aplicativo.
+    Uma nova página é aberta para o aplicativo, onde você pode fazer login (se necessário) ou começar a usar o aplicativo.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Acessar e usar o portal meus aplicativos em um navegador gerenciado pelo Intune
+### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Acesse e use o portal Meus Aplicativos em um navegador gerenciado pelo Intune
 
-Exiba e use os aplicativos da sua organização de um Intune Managed Browser em seus dispositivos iOS e Android.
+Visualize e use os aplicativos da sua organização a partir de um navegador gerenciado intune em seus dispositivos iOS e Android.
 
-1. Em seu dispositivo móvel, baixe e instale o aplicativo Intune Managed Browser da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e o [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. Em seu dispositivo móvel, baixe e instale o aplicativo Intune Managed Browser na [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e na Google Play [Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Abra o aplicativo Intune Managed Browser, acesse https://myapps.microsoft.comou use o link fornecido pela sua organização se o direcionar a uma página personalizada, como https://myapps.microsoft.com/contoso.com.
+2. Abra o aplicativo Intune Managed https://myapps.microsoft.comBrowser, vá para , ou use o link fornecido pela https://myapps.microsoft.com/contoso.comsua organização se eles o direcionarem para uma página personalizada, como .
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
+    A página **Aplicativos** é exibida, mostrando todos os aplicativos baseados na nuvem de sua organização e disponíveis para você usar.
 
-3. Na página **aplicativos** , selecione o aplicativo que você deseja começar a usar.
+3. Na página **Aplicativos,** selecione o aplicativo que deseja começar a usar.
 
-    Uma nova página é aberta para o aplicativo, onde você pode entrar (se necessário) ou começar a usar o aplicativo.
+    Uma nova página é aberta para o aplicativo, onde você pode fazer login (se necessário) ou começar a usar o aplicativo.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Acessar e usar o portal meus aplicativos em um dispositivo iOS
+### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Acesse e use o portal Meus Aplicativos em um dispositivo iOS
 
-Exiba e use o portal **meus aplicativos** de um dispositivo iPhone ou iPad, executando o IOS versão 7 ou posterior. Você também pode instalar o [aplicativo móvel meus aplicativos](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) para acessar os aplicativos da sua organização em seus dispositivos IOS.
+Veja e use o portal **Meus Aplicativos** a partir de um dispositivo iPhone ou iPad, executando a versão 7 ou posterior do iOS. Você também pode instalar o [aplicativo móvel My Apps](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) para acessar os aplicativos da sua organização em seus dispositivos iOS.
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Safari.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização se ele direcionar você para uma página personalizada, como https://myapps.microsoft.com/contoso.com.
+2. Vá https://myapps.microsoft.compara , ou use o link fornecido pela sua organização se https://myapps.microsoft.com/contoso.comeles o direcionarem para uma página personalizada, como .
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização que estão disponíveis para uso.
+    A página **Aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem de sua organização que estão disponíveis para você usar.
 
-3. Na página **aplicativos** , selecione o aplicativo que você deseja começar a usar.
+3. Na página **Aplicativos,** selecione o aplicativo que deseja começar a usar.
 
-    Uma nova página é aberta para o aplicativo, onde você pode entrar (se necessário) ou começar a usar o aplicativo.
+    Uma nova página é aberta para o aplicativo, onde você pode fazer login (se necessário) ou começar a usar o aplicativo.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Acessar e usar o portal meus aplicativos em um dispositivo Android
+### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Acesse e use o portal Meus Aplicativos em um dispositivo Android
 
-Exibir e usar o portal **meus aplicativos** em um dispositivo Android.
+Veja e use o portal **Meus Aplicativos** em um dispositivo Android.
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Google Chrome.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização se ele direcionar você para uma página personalizada, como https://myapps.microsoft.com/contoso.com.
+2. Vá https://myapps.microsoft.compara , ou use o link fornecido pela sua organização se https://myapps.microsoft.com/contoso.comeles o direcionarem para uma página personalizada, como .
 
-    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
+    A página **Aplicativos** é exibida, mostrando todos os aplicativos baseados na nuvem de sua organização e disponíveis para você usar.
 
-3. Na página **aplicativos** , selecione o aplicativo que você deseja começar a usar.
+3. Na página **Aplicativos,** selecione o aplicativo que deseja começar a usar.
 
-    Uma nova página é aberta para o aplicativo, onde você pode entrar (se necessário) ou começar a usar o aplicativo.
+    Uma nova página é aberta para o aplicativo, onde você pode fazer login (se necessário) ou começar a usar o aplicativo.
 
-## <a name="add-a-new-app-to-the-my-apps-portal"></a>Adicionar um novo aplicativo ao portal meus aplicativos
+## <a name="add-a-new-app-to-the-my-apps-portal"></a>Adicione um novo aplicativo ao portal Meus Aplicativos
 
-Se o administrador tiver concedido a você permissão, você poderá adicionar um novo aplicativo à página **aplicativos** .
+Se o administrador lhe deu permissão, você pode adicionar um novo aplicativo à página **Aplicativos.**
 
-1. Na página **aplicativos** , siga um destes procedimentos:
-    - Se você estiver na experiência original meus aplicativos, selecione **Adicionar aplicativo** , conforme mostrado.
+1. Na página **Aplicativos,** faça um dos seguintes:
+    - Se você estiver na experiência original dos Meus Aplicativos, **selecione Adicionar app** como mostrado.
 
-      ![Página Adicionar aplicativos, no portal meus aplicativos](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+      ![Adicionar página de aplicativos, no portal Meus Aplicativos](media/my-apps-portal/my-apps-portal-add-apps-page.png)
 
-    - Se você estiver na experiência atualizar meus aplicativos, selecione **adicionar aplicativos de autoatendimento**.
+    - Se você estiver na experiência atualizada dos Meus Aplicativos, selecione **Adicionar aplicativos de autoatendimento**.
 
-       ![Adicionar a página de aplicativos, no portal meus aplicativos em myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
+       ![Adicionar página de aplicativos, no portal Meus Aplicativos em myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-2. Selecione o aplicativo que você deseja adicionar na lista fornecida e, em seguida, selecione **Adicionar**.
+2. Selecione o aplicativo que deseja adicionar na lista fornecida e, em seguida, **selecione Adicionar**.
 
-3. O aplicativo é adicionado à lista na página de **aplicativos** .
+3. O aplicativo é adicionado à lista na página **Aplicativos.**
 
-    Alguns aplicativos podem exigir aprovação do administrador antes de serem adicionados. Quando isso acontece, o aplicativo não é adicionado à página de **aplicativos** até que o administrador o aprove.
+    Alguns aplicativos podem exigir a aprovação do administrador antes de serem adicionados. Quando isso acontece, o aplicativo não é adicionado à página **Aplicativos** até que o administrador o aprove.
 
-## <a name="start-a-cloud-based-app"></a>Iniciar um aplicativo baseado em nuvem
+## <a name="start-a-cloud-based-app"></a>Inicie um aplicativo baseado em nuvem
 
-Você pode iniciar qualquer um dos aplicativos baseados em nuvem disponíveis no portal **meus aplicativos** . Você só verá os aplicativos que você tem permissão para usar.
+Você pode iniciar qualquer um dos aplicativos disponíveis na nuvem a partir do portal **My Apps.** Você só verá aplicativos que você tem permissão para usar.
 
-- Na página **aplicativos** , selecione o aplicativo que você deseja começar a usar.
+- Na página **Aplicativos,** selecione o aplicativo que deseja começar a usar.
 
-    Uma nova página é aberta para o aplicativo, onde você pode entrar (se necessário) ou começar a usar o aplicativo.
+    Uma nova página é aberta para o aplicativo, onde você pode fazer login (se necessário) ou começar a usar o aplicativo.
 
-## <a name="activities-in-the-my-apps-portal"></a>Atividades no portal meus aplicativos
+## <a name="activities-in-the-my-apps-portal"></a>Atividades no portal Meus Aplicativos
 
-Depois de acessar o portal **meus aplicativos** , você pode:
+Depois de chegar ao portal **Meus Aplicativos,** você pode:
 
 - Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para obter mais informações, confira [Acessar e usar coleções no portal Meus Aplicativos](my-applications-portal-workspaces.md).
 
@@ -187,7 +188,7 @@ Depois de acessar o portal **meus aplicativos** , você pode:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de acessar a página de **aplicativos** , você pode:
+Depois de chegar à página **Aplicativos,** você pode:
 
 - [Alterar as informações do seu perfil](my-apps-portal-end-user-update-profile.md)
 

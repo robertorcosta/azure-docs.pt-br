@@ -1,22 +1,22 @@
 ---
 title: 'Início Rápido: criar um classificador de carga de trabalho – T-SQL'
 description: Use o T-SQL para criar um classificador de carga de trabalho com alta importância.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: workload-management
+ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 183743c276d4223e80a190af05a8f2a4f69f2cfe
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9d41aa3447caebfeeffc05c36b5073f57c3e16cd
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80124435"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350817"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Início Rápido: Criar um classificador de carga de trabalho usando o T-SQL
 

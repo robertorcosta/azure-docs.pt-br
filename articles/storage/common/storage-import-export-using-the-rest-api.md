@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978859"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Usando a API REST do serviço de Importação/Exportação do Azure
@@ -35,7 +35,7 @@ As solicitações para o serviço de Importação/Exportação devem especificar
 
 ## <a name="importexport-service-operations"></a>Operações do serviço de Importação/Exportação
 
-[Criação de um trabalho de importação](../storage-import-export-creating-an-import-job.md)
+[Criando um trabalho de importação](../storage-import-export-creating-an-import-job.md)
 
 [Criação de um trabalho de exportação](../storage-import-export-creating-an-export-job.md)
 
@@ -45,10 +45,10 @@ As solicitações para o serviço de Importação/Exportação devem especificar
 
 [Cancelamento e exclusão de trabalhos](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Backup de manifestos da unidade](../storage-import-export-backing-up-drive-manifests.md)
+[Backup de manifestos de unidade](../storage-import-export-backing-up-drive-manifests.md)
 
-[Diagnóstico e recuperação de erro para trabalhos de Importação/Exportação](../storage-import-export-diagnostics-and-error-recovery.md)
+[Diagnóstico e recuperação de erros para empregos de importação/exportação](../storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport)

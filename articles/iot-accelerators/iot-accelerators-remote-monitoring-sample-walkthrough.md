@@ -1,6 +1,6 @@
 ---
 title: Visão geral do acelerador de solução de monitoramento remoto | Microsoft Docs
-description: Este artigo fornece uma visão geral de alguns dos principais elementos da solução de monitoramento remoto para permitir que você entenda como ele funciona.
+description: Este artigo fornece uma visão geral de alguns dos elementos-chave da solução de Monitoramento Remoto para permitir que você entenda como ele funciona.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73824825"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Monitoramento Remoto
@@ -32,7 +32,7 @@ O código do acelerador de solução de monitoramento remoto está disponível n
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
-O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitoramento remoto sobreposta na [arquitetura da IoT](../iot-fundamentals/iot-introduction.md):
+O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitoramento remoto sobreposto na [arquitetura IoT:](../iot-fundamentals/iot-introduction.md)
 
 ![Arquitetura lógica](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -127,7 +127,7 @@ O [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) �
 O [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) armazena a telemetria dos dispositivos conectada ao acelerador da solução. Ele também permite visualizar e consultar a telemetria do dispositivo na web de solução da interface do usuário.
 
 > [!NOTE]
-> Os Insights de Séries Temporais não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
+> Os Time Series Insights não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
 
 ### <a name="configuration-microservice"></a>Microsserviço de configuração
 
@@ -170,4 +170,4 @@ Se você quiser explorar a documentação do desenvolvedor e do código-fonte, i
 Diagramas detalhados de arquitetura de solução:
 * [ Acelerador de solução para arquitetura de monitoramento remoto ](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Para obter informações mais conceituais sobre o acelerador de solução de monitoramento remoto, consulte [ Personalizar o acelerador de solução ](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Para obter informações mais conceituais sobre o acelerador de soluções de monitoramento remoto, consulte [Personalizar o acelerador de soluções](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

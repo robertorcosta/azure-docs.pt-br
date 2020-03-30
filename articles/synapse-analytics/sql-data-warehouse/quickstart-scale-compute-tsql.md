@@ -1,22 +1,22 @@
 ---
 title: Escalar a computação no Azure Synapse Analytics – T-SQL
 description: Escale a computação no Azure Synapse Analytics usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
-services: sql-data-warehouse
+services: synapse-analytics
 author: Antvgski
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: implement
+ms.subservice: ''
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8e8bd7c7638ca220d7a7d4264fe9edbfd486efd1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ba0bcc61cbfbb16652021045a3b25bbcee72df2c
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79539232"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350774"
 ---
 # <a name="quickstart-scale-compute-in-azure-synapse-analytics-using-t-sql"></a>Início Rápido: Escalar a computação no Azure Synapse Analytics usando o T-SQL
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 2a8a0bf1e63f06bbe6b6a073af6b3da8904dcaeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61450204"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar seu dispositivo ao acelerador da solução de monitoramento remoto (Windows)
@@ -25,7 +25,7 @@ Assim como acontece com a maioria dos aplicativos inseridos que são executados 
 
 Se você preferir simular um dispositivo, consulte [Criar e testar um novo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste guia de instruções, siga as etapas em [configurar o ambiente de desenvolvimento Windows](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) para adicionar as bibliotecas e ferramentas de desenvolvimento necessárias para seu computador Windows.
 

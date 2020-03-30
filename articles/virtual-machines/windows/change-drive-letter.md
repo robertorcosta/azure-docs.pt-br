@@ -1,5 +1,5 @@
 ---
-title: 'Tornar a unidade D: de uma VM um disco de dados '
+title: 'Faça o D: unidade de uma VM um disco de dados '
 description: 'Descreve como alterar letras de unidade de uma VM do Windows para que seja possível usar a unidade D: como uma unidade de dados.'
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033644"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usar a unidade D: como uma unidade de dados em uma VM do Windows

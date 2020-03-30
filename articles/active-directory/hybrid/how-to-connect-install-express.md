@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Introdução ao uso de configurações expressas | Microsoft Docs'
+title: Introdução ao Azure AD Connect usando configurações expressas | Microsoft Docs
 description: Saiba como baixar, instalar e executar o assistente de instalação do Azure AD Connect.
 services: active-directory
 author: billmath
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60244570"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect usando configurações expressas
@@ -38,7 +38,7 @@ Você pode ver essas etapas em ação na seção de [vídeos](#videos) .
 4. Na tela de configurações expressas, clique em **Usar configurações expressas**.  
    ![Bem-vindo ao Azure AD Connect](./media/how-to-connect-install-express/express.png)
 5. Na tela Conectar AD do Azure, insira o nome de usuário e senha de um administrador global do seu AD do Azure. Clique em **Avançar**.  
-   ![Conecte-se ao Azure AD](./media/how-to-connect-install-express/connectaad.png)  
+   ![Conecte-se ao AD do Azure](./media/how-to-connect-install-express/connectaad.png)  
    Se você encontrar um erro e tiver problemas de conectividade, confira [Solucionar problemas de conectividade](tshoot-connect-connectivity.md).
 6. Na tela Conectar AD DS, digite o nome de usuário e senha para uma conta de administrador corporativa. Você pode inserir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrador ou fabrikam.com\administrador. Clique em **Avançar**.  
    ![Conectar-se ao AD DS](./media/how-to-connect-install-express/connectad.png)
@@ -67,7 +67,7 @@ Saiba mais sobre estes recursos, que foram habilitados com a instalação: [Atua
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](how-to-connect-sync-feature-scheduler.md).
 
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
 
 ## <a name="related-documentation"></a>documentação relacionada
 

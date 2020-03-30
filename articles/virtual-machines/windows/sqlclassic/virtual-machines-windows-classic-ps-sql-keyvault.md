@@ -1,5 +1,5 @@
 ---
-title: Integrar Key Vault com uma VM clássica do Azure SQL Server
+title: Integre o Key Vault com um VM clássico do Azure SQL Server
 description: Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre de Chaves do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,26 +17,26 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f878c6f7a59328e2f68ffbaee066bba4a5b6c898
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978140"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a Integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Clássicas)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
+> * [Gerenciador de recursos](../sql/virtual-machines-windows-ps-sql-keyvault.md)
 > * [Clássico](../classic/ps-sql-keyvault.md)
 > 
 > 
 
-## <a name="overview"></a>Visão Geral
-Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (criptografia de nível de coluna)](https://msdn.microsoft.com/library/ms173744.aspx) e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço Cofre da Chave do Azure (AKV) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [SQL Server Connector](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Cofre da Chave do Azure.
+## <a name="overview"></a>Visão geral
+Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (criptografia de nível de coluna)](https://msdn.microsoft.com/library/ms173744.aspx) e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço Cofre da Chave do Azure (AKV) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [conector sql server](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Azure Key Vault.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e Classic](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
-Se você estiver executando o SQL Server em máquinas locais, existirão [etapas a serem seguidas para acessar o Cofre de Chaves do Azure do computador local com SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Mas, para o SQL Server em VMs do Azure, você pode economizar tempo usando o recurso *Integração do Cofre da Chave do Azure* . Com alguns cmdlets do Azure PowerShell para habilitar esse recurso, você poderá automatizar a configuração necessária para que uma VM do SQL acesse seu cofre da chave.
+Se você estiver executando o SQL Server com máquinas locais, [existem etapas que você pode seguir para acessar o Azure Key Vault a partir de sua máquina SQL Server no local.](https://msdn.microsoft.com/library/dn198405.aspx) Mas para o SQL Server em VMs Azure, você pode economizar tempo usando o recurso *Azure Key Vault Integration.* Com alguns cmdlets do Azure PowerShell para habilitar esse recurso, você poderá automatizar a configuração necessária para que uma VM do SQL acesse seu cofre da chave.
 
 Quando esse recurso está habilitado, ele instala automaticamente o SQL Server Connector, configura o provedor de EKM a fim de acessar o Cofre da Chave do Azure e cria a credencial para permitir que você acesse seu cofre. Ao examinar as etapas da documentação local mencionada anteriormente, é possível ver que esse recurso automatiza as etapas 2 e 3. A única coisa que você ainda precisará fazer manualmente é criar o cofre da chave e as chaves. A partir daí, toda a configuração de sua VM do SQL será automatizada. Quando esse recurso concluir a configuração, você poderá executar instruções T-SQL para começar a criptografar seus bancos de dados ou backups como faria normalmente.
 
@@ -51,10 +51,10 @@ Primeiro, [instale a extensão IaaS do SQL Server](../classic/sql-server-agent-e
 ### <a name="understand-the-input-parameters"></a>Compreender os parâmetros de entrada
 A tabela a seguir lista os parâmetros necessários para executar o script do PowerShell na próxima seção.
 
-| Parâmetro | Description | Exemplo |
+| Parâmetro | Descrição | Exemplo |
 | --- | --- | --- |
 | **$akvURL** |**A URL do cofre da chave** |"https:\//contosokeyvault.vault.azure.net/" |
-| **$spName** |**Nome da Entidade de Serviço** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spName** |**Nome principal do serviço** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Segredo da Entidade de Serviço** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nome da credencial**: a integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial. |"mycred1" |
 | **$vmName** |**Nome da máquina virtual**: o nome de uma VM SQL criada anteriormente. |"myvmname" |

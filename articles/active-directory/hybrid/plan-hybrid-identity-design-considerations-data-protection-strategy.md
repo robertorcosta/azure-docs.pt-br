@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109366"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir estratégia de proteção de dados para sua solução de identidade híbrida
@@ -82,14 +82,14 @@ Uma parte essencial do gerenciamento de conteúdo é entender quem está acessan
 
 | Opções de gerenciamento de conteúdo | Vantagens | Desvantagens |
 | --- | --- | --- |
-| Centralizado no local (servidor do Active Directory Rights Management) |Controle total sobre a infraestrutura de servidor responsável por classificar os dados <br> Recurso interno no Windows Server, não é necessária nenhuma licença nem assinatura adicional <br> Pode ser integrado ao AD do Azure em um cenário híbrido <br> Oferece suporte a recursos de IRM (Gerenciamento de Direitos de Informação) no Microsoft Online Services, como o Exchange Online e o SharePoint Online, bem como o Office 365 <br> Oferece suporte aos produtos de servidor Microsoft no local, como Exchange Server, SharePoint Server e servidores de arquivos que executam o Windows Server e a FCI (Infraestrutura de Classificação de Arquivos). |Manutenção de nível mais alto (acompanhamento de atualizações, configuração e possíveis upgrades), uma vez que a TI é proprietária do servidor <br> Requer uma infraestrutura de servidor local<br> Não aproveita nativamente os recursos do Azure |
-| Centralizado na nuvem (Azure RMS) |Mais fácil de gerenciar em comparação com a solução local <br> Pode ser integrado ao AD DS em um cenário híbrido <br>  Totalmente integrado ao AD do Azure <br> Não requer um servidor local para implantar o serviço <br> Oferece suporte aos produtos de servidor Microsoft no local, como Exchange Server, SharePoint Server e servidores de arquivos que executam o Windows Server e a FCI (Infraestrutura de Classificação de Arquivos) <br> A TI pode ter controle total da chave de seus locatários com o recurso BYOK. |Sua organização deve ter uma assinatura de nuvem que ofereça suporte ao RMS <br> Sua organização deve ter um diretório do AD do Azure para oferecer suporte à autenticação de usuário do RMS |
-| Híbrido (Azure RMS integrado ao servidor do Active Directory Rights Management local) |Este cenário acumula as vantagens dos outros dois, centralizado no local e na nuvem. |Sua organização deve ter uma assinatura de nuvem que ofereça suporte ao RMS <br> Sua organização deve ter um diretório do AD do Azure para oferecer suporte à autenticação de usuário do RMS <br> Exige uma conexão entre o serviço de nuvem do Azure e a infraestrutura local |
+| Centralizado no local (servidor do Active Directory Rights Management) |Controle total sobre a infraestrutura de servidor responsável por classificar os dados  <br> Recurso interno no Windows Server, não é necessária nenhuma licença nem assinatura adicional <br> Pode ser integrado ao AD do Azure em um cenário híbrido <br> Oferece suporte a recursos de IRM (Gerenciamento de Direitos de Informação) no Microsoft Online Services, como o Exchange Online e o SharePoint Online, bem como o Office 365 <br>  Oferece suporte aos produtos de servidor Microsoft no local, como Exchange Server, SharePoint Server e servidores de arquivos que executam o Windows Server e a FCI (Infraestrutura de Classificação de Arquivos). |Manutenção de nível mais alto (acompanhamento de atualizações, configuração e possíveis upgrades), uma vez que a TI é proprietária do servidor <br> Requer uma infraestrutura de servidor local<br> Não aproveita nativamente os recursos do Azure |
+| Centralizado na nuvem (Azure RMS) |Mais fácil de gerenciar em comparação com a solução local  <br> Pode ser integrado ao AD DS em um cenário híbrido <br>  Totalmente integrado ao AD do Azure <br> Não requer um servidor local para implantar o serviço <br> Oferece suporte aos produtos de servidor Microsoft no local, como Exchange Server, SharePoint Server e servidores de arquivos que executam o Windows Server e a FCI (Infraestrutura de Classificação de Arquivos) <br> A TI pode ter controle total da chave de seus locatários com o recurso BYOK. |Sua organização deve ter uma assinatura de nuvem que ofereça suporte ao RMS  <br>  Sua organização deve ter um diretório do AD do Azure para oferecer suporte à autenticação de usuário do RMS |
+| Híbrido (Azure RMS integrado ao servidor do Active Directory Rights Management local) |Este cenário acumula as vantagens dos outros dois, centralizado no local e na nuvem. |Sua organização deve ter uma assinatura de nuvem que ofereça suporte ao RMS  <br> Sua organização deve ter um diretório do AD do Azure para oferecer suporte à autenticação de usuário do RMS <br>  Exige uma conexão entre o serviço de nuvem do Azure e a infraestrutura local |
 
 ## <a name="define-access-control-options"></a>Definir opções de controle de acesso
 Ao aproveitar os recursos de autenticação, autorização e controle de acesso disponíveis no Azure Active Directory, você pode permitir que sua empresa use um repositório de identidade central ao mesmo tempo que permite aos usuários e parceiros usarem o SSO (logon único), como mostrado na figura a seguir:
 
-![gerenciamento centralizado](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![gestão centralizada](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Gerenciamento centralizado e integração completa a outros diretórios
 
@@ -106,7 +106,7 @@ O Active Directory do Azure fornece logon único a milhares de aplicativos SaaS 
 >
 >
 
-Usando o suporte do AD do Azure, os aplicativos de negócios móveis podem usar a mesma experiência fácil de autenticação dos Serviços Móveis para permitir que os funcionários entrem em seus aplicativos móveis com as respectivas credenciais corporativas do Active Directory. Com esse recurso, o Azure Active Directory tem suporte como um provedor de identidade nos Serviços Móveis ao lado de outros provedores de identidade já suportados (que incluem Contas da Microsoft, ID do Facebook, ID do Google e ID do Twitter). Se os aplicativos locais usarem a credencial do usuário localizada no AD DS da empresa, o acesso de parceiros e usuários pela nuvem deverá ser transparente. Você pode gerenciar o controle de acesso condicional do usuário para aplicativos web (baseados em nuvem), API da web, serviços de nuvem da Microsoft, aplicativos de SaaS de terceiros e aplicativos cliente (móveis) nativos e ter os benefícios de segurança, auditoria, relatórios, tudo em um local. No entanto, é recomendável validar a implementação em um ambiente que não seja de produção ou com uma quantidade limitada de usuários.
+Usando o suporte do AD do Azure, os aplicativos de negócios móveis podem usar a mesma experiência fácil de autenticação dos Serviços Móveis para permitir que os funcionários entrem em seus aplicativos móveis com as respectivas credenciais corporativas do Active Directory. Com esse recurso, o Azure Active Directory tem suporte como um provedor de identidade nos Serviços Móveis ao lado de outros provedores de identidade já suportados (que incluem Contas da Microsoft, ID do Facebook, ID do Google e ID do Twitter). Se os aplicativos locais usarem a credencial do usuário localizada no AD DS da empresa, o acesso de parceiros e usuários pela nuvem deverá ser transparente. Você pode gerenciar o controle de acesso condicional do usuário para aplicativos web (baseados em nuvem), API web, serviços de nuvem da Microsoft, aplicativos SaaS de terceiros e aplicativos clientes nativos (móveis) e ter os benefícios de segurança, auditoria, relatórios de todos em um Lugar. No entanto, é recomendável validar a implementação em um ambiente que não seja de produção ou com uma quantidade limitada de usuários.
 
 > [!TIP]
 > É importante mencionar que o Azure AD não tem uma Política de Grupo como o AD DS. Para aplicar a política de dispositivos, você precisa de uma solução de gerenciamento de dispositivo móvel, como o [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx).
@@ -119,32 +119,32 @@ Quando o usuário é autenticado usando o Azure Active Directory, é importante 
 
 Cada interação no diagrama mostrado na Figura X representa um cenário de controle de acesso que pode ser coberto pelo AD do Azure. Abaixo, você tem uma descrição de cada cenário:
 
-1. Acesso condicional para aplicativos que estão hospedados localmente: É possível usar dispositivos registrados com políticas de acesso para aplicativos configurados para usar o AD FS com o Windows Server 2012 R2.
+1. Acesso Condicional a aplicativos que são hospedados localmente: é possível usar dispositivos registrados com políticas de acesso para aplicativos configurados para usar o AD FS com o Windows Server 2012 R2.
 
-2. Controle de Acesso no portal do Azure:  O Azure também permite controlar o acesso ao portal usando o RBAC (Controle de Acesso Baseado em Função). Esse método permite à empresa restringir a quantidade de operações que um indivíduo pode realizar no Portal do Azure. Ao usar o RBAC para controlar o acesso ao portal, os administradores de TI podem delegar o acesso usando as seguintes abordagens de gerenciamento de acesso:
+2. Controle de acesso ao Portal do Azure: o Azure também permite controlar o acesso ao Portal usando o RBAC (Controle de Acesso Baseado em Função). Esse método permite à empresa restringir a quantidade de operações que um indivíduo pode realizar no Portal do Azure. Ao usar o RBAC para controlar o acesso ao portal, os administradores de TI podem delegar o acesso usando as seguintes abordagens de gerenciamento de acesso:
 
-   - Atribuição de função baseada em grupo: É possível atribuir acesso aos grupos do Azure AD que podem ser sincronizados no Active Directory local. Isso permite que você aproveite os investimentos existentes que sua organização já fez em ferramentas e processos para gerenciar os grupos. Também é possível usar o recurso de gerenciamento de grupos delegado do Azure AD Premium.
-   - Usar funções internas no Azure: É possível usar três funções: Proprietário, Colaborador e Leitor para garantir que os usuários e grupos tenham permissão para realizar apenas as tarefas necessárias para concluir seus respectivos trabalhos.
-   -  Acesso granular a recursos: É possível atribuir funções a usuários e grupos de uma determinada assinatura, grupo de recursos ou recurso individual do Azure, como um site ou banco de dados. Dessa forma, é possível garantir que os usuários tenham acesso a todos os recursos necessários e nenhum acesso a recursos que não precisem gerenciar.
+   - Atribuição de função com base em grupo: você pode atribuir acesso a grupos do AD do Azure que podem ser sincronizados do seu Active Directory local. Isso permite que você aproveite os investimentos existentes que sua organização já fez em ferramentas e processos para gerenciar os grupos. Também é possível usar o recurso de gerenciamento de grupos delegado do Azure AD Premium.
+   - Usar funções internas do Azure: você pode usar três funções: Proprietário, Colaborador e Leitor para garantir que os usuários e grupos tenham permissão para realizar apenas as tarefas necessárias para concluir seus respectivos trabalhos.
+   -  Acesso granular aos recursos: você pode atribuir funções a usuários e grupos de uma determinada assinatura, grupo de recursos ou recurso individual do Azure, como um site ou banco de dados. Dessa forma, é possível garantir que os usuários tenham acesso a todos os recursos necessários e nenhum acesso a recursos que não precisem gerenciar.
 
    > [!NOTE]
    > Se você está criando aplicativos e quer personalizar o controle de acesso para eles, também é possível usar as Funções de Aplicativo do Azure AD para autorização. Examine este [exemplo de WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) em como criar aplicativo para usar esse recurso.
 
 
-3. Acesso condicional para aplicativos do Office 365 com o Microsoft Intune:  Os administradores de TI podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos, ao mesmo tempo permitindo que os operadores de informações em dispositivos compatíveis acessem os serviços. 
+3. Acesso Condicional para aplicativos do Office 365 com o Microsoft Intune: os administradores de TI podem provisionar políticas de dispositivos de acesso condicional para proteger recursos corporativos e, ao mesmo tempo, permitir que os trabalhadores de informações em dispositivos compatíveis acessem os serviços. 
   
-4. Acesso condicional para aplicativos SaaS: [Esse recurso](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite configurar as regras de acesso de autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável. Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização.
+4. Acesso Condicional para aplicativos SaaS: [esse recurso](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite configurar regras de acesso da autenticação multifator por aplicativo e a capacidade de bloquear o acesso de usuários que não estão em uma rede confiável. Você pode aplicar as regras de autenticação multifator a todos os usuários atribuídos ao aplicativo ou apenas aos usuários nos grupos de segurança especificados. Os usuários podem ser excluídos do requisito de autenticação multifator se estiverem acessando o aplicativo de um endereço IP de dentro da rede da organização.
 
 Como as opções de controle de acesso usam uma abordagem multicamada, a comparação entre essas opções não são aplicáveis para esta tarefa. Verifique se você está aproveitando todas as opções disponíveis para cada cenário que exige o controle de acesso aos recursos.
 
 ## <a name="define-incident-response-options"></a>Definir opções de resposta a incidentes
 O Azure Active Directory pode ajudar a TI a identificar possíveis riscos de segurança no ambiente, monitorando a atividade do usuário. A TI pode usar os relatórios de uso e de acesso do Azure Active Directory para obter visibilidade quanto à integridade e segurança do diretório da sua organização. Com essas informações, um administrador de TI pode determinar melhor onde podem estar os possíveis riscos à segurança, de modo que pode fazer planos adequados para reduzi-los.  [assinatura do Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) tem um conjunto de relatórios de segurança que podem permitir à TI obter essas informações. Os [relatórios do Azure Active Directory](../reports-monitoring/overview-reports.md) são categorizados como mostrado abaixo:
 
-* **Relatórios de anomalias**: Contêm eventos de entrada que identificamos como anômalos. A meta é que você fique ciente dessas atividades e permitir que você tome uma decisão quanto a um evento ser suspeito ou não.
-* **Relatórios de aplicativos integrados**: Fornecem um insights de como os aplicativos de nuvem estão sendo usados na sua organização. O Active Directory do Azure oferece integração com milhares de aplicativos em nuvem.
-* **Relatórios de erros**: Indicam erros que podem ocorrer ao provisionar contas para aplicativos externos.
-* **Relatórios específicos do usuário**: Exibem dados de atividade de entrada/dispositivo de um usuário específico.
-* **Logs de atividades**: Contêm um registro de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias ou últimos 30 dias, incluindo alterações de atividades de grupo e atividades de registro e redefinição de senha.
+* **Relatórios de anomalias**: contêm eventos de entrada que identificamos como anômalos. A meta é que você fique ciente dessas atividades e permitir que você tome uma decisão quanto a um evento ser suspeito ou não.
+* **Relatórios de aplicativos integrados**: fornecem um panorama de como os aplicativos em nuvem estão sendo usados na sua organização. O Active Directory do Azure oferece integração com milhares de aplicativos em nuvem.
+* **Relatórios de erros**: indicam erros que podem ocorrer ao provisionar contas para aplicativos externos.
+* **Relatórios específicos do usuário**: exibem dados de atividade de entrada/dispositivo de um usuário específico.
+* **Logs de atividades**: contêm um registro de todos os eventos auditados nas últimas 24 horas, nos últimos 7 dias ou últimos 30 dias, bem como alterações de atividades do grupo e atividades de registro e redefinição de senha.
 
 > [!TIP]
 > Outro relatório que também pode ajudar a equipe de Resposta a Incidentes a trabalhar em um caso é o relatório [Usuário com credenciais vazadas](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) . Esse relatório revela as correspondências entre a lista de credenciais vazadas e seu locatário.
@@ -171,5 +171,5 @@ Como as opções de reposta a incidentes usam uma abordagem multicamada, a compa
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar tarefas de gerenciamento de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)

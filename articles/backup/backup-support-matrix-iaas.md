@@ -3,12 +3,12 @@ title: Matriz de suporte para backup de VM do Azure
 description: Fornece um resumo de configurações compatíveis e limitações ao fazer backup de VMs do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: c30a1d1b30fcc7a12449b44d35704b3b43daa385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247898"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389283"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -115,7 +115,6 @@ Pontos de recuperação no disco do DPM/MABS | 64 para servidores de arquivos e 
 **Restauração** | **Suportado**
 --- | ---
 Restaurar arquivos entre sistemas operacionais | Você pode restaurar os arquivos de qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Consulte a [tabela do sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements).
-Restaurar arquivos em VMs clássicas | Sem suporte.
 Restaurar arquivos de VMs criptografadas | Sem suporte.
 Restaurar arquivos de contas de armazenamento restritas à rede | Sem suporte.
 Restaurar arquivos em máquinas virtuais usando Espaços de Armazenamento do Windows | Não há suporte para restaurar a mesma VM.<br/><br/> Em vez disso, restaure os arquivos em uma VM compatível.

@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics erros de dados de log de diagnóstico
+title: Erros de dados de registro de diagnóstico do Azure Stream Analytics
 description: Este artigo explica os diferentes erros de dados de entrada e saída que podem ocorrer ao usar o Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
@@ -7,21 +7,21 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 0546464b4d1bcc9eaa4fbffe265486985d9c58f3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465036"
 ---
-# <a name="azure-stream-analytics-data-errors"></a>Erros de dados de Azure Stream Analytics
+# <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
-Erros de dados são erros que ocorrem durante o processamento dos dados.  Esses erros ocorrem com mais frequência durante as operações de serialização de dados, serialização e gravação.  Quando ocorrem erros de dados, Stream Analytics grava informações detalhadas e eventos de exemplo nos logs de diagnóstico.  Em alguns casos, o resumo dessas informações também é fornecido por meio de notificações do Portal.
+Erros de dados são erros que ocorrem durante o processamento dos dados.  Esses erros ocorrem mais frequentemente durante a desserialização, serialização e gravação de operações de desserialização de dados.  Quando ocorrem erros de dados, o Stream Analytics grava informações detalhadas e eventos de exemplo nos registros de diagnóstico.  Em alguns casos, o resumo dessas informações também é fornecido através de notificações de portal.
 
-Este artigo descreve os diferentes tipos de erro, as causas e os detalhes do log de diagnóstico para erros de dados de entrada e saída.
+Este artigo descreve os diferentes tipos de erro, causas e detalhes do registro de diagnóstico para erros de dados de entrada e saída.
 
 ## <a name="diagnostic-log-schema"></a>Esquema de log de diagnóstico
 
-Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstico](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) para ver o esquema para logs de diagnóstico. O JSON a seguir é um valor de exemplo para o campo de **Propriedades** de um log de diagnóstico para um erro de dados.
+Consulte [Solucionar problemas do Azure Stream Analytics usando registros de diagnósticopara](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) ver o esquema dos registros de diagnóstico. O JSON a seguir é um exemplo de valor para o campo **Propriedades** de um registro de diagnóstico para um erro de dados.
 
 ```json
 {
@@ -41,12 +41,12 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
-* Causa: o tipo de compactação de entrada selecionado não corresponde aos dados.
+* Causa: O tipo de compactação de entrada selecionado não corresponde aos dados.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: mensagens com qualquer erro de desserialização, incluindo tipo de compactação inválido, são removidas da entrada.
+* Nível de registro de diagnóstico: Aviso
+* Impacto: As mensagens com quaisquer erros de desserialização, incluindo o tipo de compactação inválida, são retiradas da entrada.
 * Detalhes do log
-   * Identificador de mensagem de entrada. Para o Hub de eventos, o identificador é a PartitionID, o deslocamento e o número de sequência.
+   * Identificador de mensagem de entrada. Para o Event Hub, o identificador é o PartitionId, Offset e Sequence Number.
 
 **Mensagem de erro**
 
@@ -56,13 +56,13 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
-* Causa: o cabeçalho dos dados de entrada é inválido. Por exemplo, um CSV tem colunas com nomes duplicados.
+* Causa: O cabeçalho dos dados de entrada é inválido. Por exemplo, um CSV tem colunas com nomes duplicados.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: as mensagens com qualquer erro de desserialização, incluindo cabeçalho inválido, são descartadas da entrada.
+* Nível de registro de diagnóstico: Aviso
+* Impacto: As mensagens com quaisquer erros de desserialização, incluindo cabeçalho inválido, são retiradas da entrada.
 * Detalhes do log
    * Identificador de mensagem de entrada. 
-   * Carga real de até poucos kilobytes.
+   * Carga real até poucos kilobytes.
 
 **Mensagem de erro**
 
@@ -72,14 +72,14 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
-* Causa: as colunas de entrada definidas com CREATE TABLE ou por meio de carimbo de data/hora não existem.
+* Causa: As colunas de entrada definidas com CREATE TABLE ou através do TIMESTAMP BY não existem.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: os eventos com colunas ausentes são removidos da entrada.
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Eventos com colunas ausentes são retirados da entrada.
 * Detalhes do log
    * Identificador de mensagem de entrada. 
-   * Nomes das colunas que estão ausentes. 
-   * Carga real até alguns quilobytes.
+   * Nomes das colunas que estão faltando. 
+   * Carga real até alguns kilobytes.
 
 **Mensagens de erro**
 
@@ -93,10 +93,10 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
-* Causa: não é possível converter a entrada para o tipo especificado na instrução CREATE TABLE.
+* Causa: Não é possível converter a entrada para o tipo especificado na declaração TABELA CRIAR.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: eventos com erro de conversão de tipo são descartados da entrada.
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Eventos com erro de conversão de tipo são retirados da entrada.
 * Detalhes do log
    * Identificador de mensagem de entrada. 
    * Nome da coluna e tipo esperado.
@@ -113,13 +113,13 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
-* Causa: os dados de entrada não estão no formato correto. Por exemplo, a entrada não é um JSON válido.
+* Causa: Os dados de entrada não estão no formato certo. Por exemplo, a entrada não é JSON válida.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: todos os eventos na mensagem depois que um erro de dados inválido foi encontrado são removidos da entrada.
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Todos os eventos na mensagem após um erro de dados inválido sumido são retirados da entrada.
 * Detalhes do log
    * Identificador de mensagem de entrada. 
-   * Carga real de até poucos kilobytes.
+   * Carga real até poucos kilobytes.
 
 **Mensagens de erro**
 
@@ -133,14 +133,14 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
-* Causa: o valor do carimbo de data/hora por expressão não pode ser convertido em DateTime.
+* Causa: O valor da expressão TIMESTAMP BY não pode ser convertido em data-hora.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: eventos com carimbo de data/hora de entrada inválido são removidos da entrada.
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Eventos com carimbo de entrada inválido são retirados da entrada.
 * Detalhes do log
    * Identificador de mensagem de entrada. 
    * Mensagem de erro. 
-   * Carga real de até poucos kilobytes.
+   * Carga real até poucos kilobytes.
 
 **Mensagem de erro**
 
@@ -150,12 +150,12 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
-* Causa: o valor de TIMESTAMP por sobre timestampColumn é nulo.
+* Causa: O valor do CARIMBO DE TEMPO POR OVER TimestampColumn é NULO.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: eventos com chave de carimbo de data/hora de entrada inválida são removidos da entrada.
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Eventos com chave de carimbo de tempo de entrada inválida são retirados da entrada.
 * Detalhes do log
-   * A carga real de até alguns quilobytes.
+   * A carga real até poucos kilobytes.
 
 **Mensagem de erro**
 
@@ -163,15 +163,15 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 "BriefMessage": "Unable to get value of TIMESTAMP BY OVER COLUMN"
 ```
 
-### <a name="lateinputevent"></a>LateInputEvent
+### <a name="lateinputevent"></a>Evento de entrada tardia
 
-* Causa: a diferença entre a hora do aplicativo e a hora de chegada é maior do que a janela de tolerância de chegada tardia.
-* Notificação do portal fornecida: não
-* Nível de log de diagnóstico: informações
-* Impacto: os eventos de entrada tardias são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Causa: A diferença entre o tempo de aplicação e o tempo de chegada é maior do que a janela de tolerância de chegada tardia.
+* Notificação do portal fornecida: Não
+* Nível de registro de diagnóstico: Informações
+* Impacto: Os eventos de entrada tardia são tratados de acordo com a configuração "Lidar com outros eventos" na seção Deordem de eventos da configuração do trabalho. Para obter mais informações, consulte [Políticas de manipulação de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do log
-   * Hora e hora de chegada do aplicativo. 
-   * Carga real de até poucos kilobytes.
+   * Hora da aplicação e tempo de chegada. 
+   * Carga real até poucos kilobytes.
 
 **Mensagem de erro**
 
@@ -181,13 +181,13 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
-* Causa: a diferença entre a hora do aplicativo e a hora de chegada é maior que 5 minutos.
-* Notificação do portal fornecida: não
-* Nível de log de diagnóstico: informações
-* Impacto: os eventos de entrada antecipados são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Causa: A diferença entre o tempo de aplicação e o tempo de chegada é superior a 5 minutos.
+* Notificação do portal fornecida: Não
+* Nível de registro de diagnóstico: Informações
+* Impacto: Os eventos de entrada antecipada são tratados de acordo com a configuração "Lidar com outros eventos" na seção Deordem de eventos da configuração do trabalho. Para obter mais informações, consulte [Políticas de manipulação de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do log
-   * Hora e hora de chegada do aplicativo. 
-   * Carga real de até poucos kilobytes.
+   * Hora da aplicação e tempo de chegada. 
+   * Carga real até poucos kilobytes.
 
 **Mensagem de erro**
 
@@ -195,14 +195,14 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 "BriefMessage": "Input event arrival time '2019-01-01' is earlier than input event application timestamp '2019-01-02' by more than 5 minutes."
 ```
 
-### <a name="outoforderevent"></a>OutOfOrderEvent
+### <a name="outoforderevent"></a>Evento de soforder
 
-* Causa: o evento é considerado fora de ordem de acordo com a janela de tolerância para fora de ordem definida.
-* Notificação do portal fornecida: não
-* Nível de log de diagnóstico: informações
-* Impacto: eventos fora de ordem são tratados de acordo com a configuração "manipular outros eventos" na seção ordenação de eventos da configuração do trabalho. Para obter mais informações, consulte [políticas de tratamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Causa: O evento é considerado fora de ordem de acordo com a janela de tolerância fora da ordem definida.
+* Notificação do portal fornecida: Não
+* Nível de registro de diagnóstico: Informações
+* Impacto: Eventos fora de ordem são tratados de acordo com a configuração "Lidar com outros eventos" na seção Deordem de eventos da configuração do trabalho. Para obter mais informações, consulte [Políticas de manipulação de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do log
-   * Carga real de até poucos kilobytes.
+   * Carga real até poucos kilobytes.
 
 **Mensagem de erro**
 
@@ -212,14 +212,14 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ## <a name="output-data-errors"></a>Erros de dados de saída
 
-### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
+### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.requiredColunaausente
 
-* Causa: a coluna necessária para a saída não existe. Por exemplo, uma coluna definida como tabela do Azure PartitionKey does't existe.
+* Causa: A coluna necessária para a saída não existe. Por exemplo, uma coluna definida como Azure Table PartitionKey não existe.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo a coluna necessária ausente, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Todos os erros de conversão de dados de saída, incluindo a coluna necessária ausente, são tratados de acordo com a configuração [Política de dados de](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) saída.
 * Detalhes do log
-   * Nome da coluna e o identificador de registro ou parte do registro.
+   * Nome da coluna e identificador de registro ou parte do registro.
 
 **Mensagem de erro**
 
@@ -227,14 +227,14 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 "Message": "The output record does not contain primary key property: [deviceId] Ensure the query output contains the column [deviceId] with a unique non-empty string less than '255' characters."
 ```
 
-### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
+### <a name="outputdataconversionerrorcolumnnameinvalid"></a>SaídaDataErroconversãodeerro.ColunaNomeInvalid
 
-* Causa: o valor da coluna não está de acordo com a saída. Por exemplo, o nome da coluna não é uma coluna de tabela do Azure válida.
+* Causa: O valor da coluna não está de acordo com a saída. Por exemplo, o nome da coluna não é uma coluna de tabela azure válida.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo nome de coluna inválido, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Todos os erros de conversão de dados de saída, incluindo o nome da coluna inválida, são tratados de acordo com a configuração [Política de dados de](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) saída.
 * Detalhes do log
-   * Nome da coluna e o identificador de registro ou parte do registro.
+   * Nome da coluna e identificador de registro ou parte do registro.
 
 **Mensagem de erro**
 
@@ -244,13 +244,13 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
-* Causa: uma coluna não pode ser convertida em um tipo válido na saída. Por exemplo, o valor da coluna é incompatível com restrições ou tipo definido na tabela SQL.
+* Causa: Uma coluna não pode ser convertida em um tipo válido na saída. Por exemplo, o valor da coluna é incompatível com restrições ou tipo definido na tabela SQL.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo erro de conversão de tipo, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Todos os erros de conversão de dados de saída, incluindo erro de conversão de tipo, são tratados de acordo com a configuração [Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
 * Detalhes do log
    * Nome da coluna.
-   * O identificador de registro ou parte do registro.
+   * Ou identificador de registro ou parte do registro.
 
 **Mensagem de erro**
 
@@ -260,12 +260,12 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
-* Causa: o valor da mensagem é maior que o tamanho de saída com suporte. Por exemplo, um registro é maior que 1 MB para uma saída do hub de eventos.
+* Causa: O valor da mensagem é maior do que o tamanho de saída suportado. Por exemplo, um registro é maior que 1 MB para uma saída do Event Hub.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo o limite de tamanho excedido do registro, são manipulados de acordo com a configuração da [política de dados](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Todos os erros de conversão de dados de saída, incluindo o limite de tamanho superior ao registro, são tratados de acordo com a configuração [Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
 * Detalhes do log
-   * O identificador de registro ou parte do registro.
+   * Ou identificador de registro ou parte do registro.
 
 **Mensagem de erro**
 
@@ -275,20 +275,20 @@ Consulte [solucionar problemas Azure Stream Analytics usando logs de diagnóstic
 
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
-* Causa: um registro já contém uma coluna com o mesmo nome de uma coluna do sistema. Por exemplo, CosmosDB saída com uma coluna chamada ID quando a coluna ID é para uma coluna diferente.
+* Causa: Um registro já contém uma coluna com o mesmo nome de uma coluna do Sistema. Por exemplo, a saída do CosmosDB com uma coluna chamada ID quando a coluna ID é para uma coluna diferente.
 * Notificação do portal fornecida: Sim
-* Nível de log de diagnóstico: aviso
-* Impacto: todos os erros de conversão de dados de saída, incluindo chave duplicada, são tratados de acordo com a configuração de [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Nível de registro de diagnóstico: Aviso
+* Impacto: Todos os erros de conversão de dados de saída, incluindo a tecla duplicada, são tratados de acordo com a configuração [Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
 * Detalhes do log
    * Nome da coluna.
-   * O identificador de registro ou parte do registro.
+   * Ou identificador de registro ou parte do registro.
 
 ```json
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Solucionar problemas Azure Stream Analytics usando logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
+* [Solucionar problemas do Stream Analytics do Azure usando logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 
-* [Entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md)
+* [Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas](stream-analytics-monitoring.md)

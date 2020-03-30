@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171597"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -18,16 +18,16 @@ ms.locfileid: "67171597"
 
 Agora que você tem uma tabela, vamos examinar como gerenciar entidades ou linhas, na tabela. 
 
-Entidades podem ter até 255 propriedades, incluindo três propriedades do sistema: **PartitionKey**, **RowKey**, e **Timestamp**. Você é responsável por inserir e atualizar os valores de **PartitionKey** e **RowKey**. O servidor gerencia o valor de **carimbo de hora**, que não pode ser modificado. Juntas, **PartitionKey** e **RowKey** identificam exclusivamente cada entidade dentro de uma tabela.
+As entidades podem ter até 255 propriedades, incluindo três propriedades do sistema: **PartitionKey**, **RowKey**e **Timestamp**. Você é responsável por inserir e atualizar os valores de **PartitionKey** e **RowKey**. O servidor gerencia o valor do Carimbo de **Tempo**, que não pode ser modificado. Juntas, **PartitionKey** e **RowKey** identificam exclusivamente cada entidade dentro de uma tabela.
 
-* **PartitionKey**: Determina a partição que a entidade está armazenada.
-* **RowKey**: Identifica exclusivamente a entidade dentro da partição.
+* **PartitionKey**: determina a partição em que a entidade está armazenada.
+* **RowKey**: identifica exclusivamente a entidade dentro da partição.
 
 Você pode definir até 252 propriedades personalizadas para uma entidade. 
 
 ### <a name="add-table-entities"></a>Adicionar entidades de tabela
 
-Adicionar entidades a uma tabela usando **AzTableRow adicionar**. Esses exemplos usam chaves de partição com valores `partition1` e `partition2`, e chaves de linha iguais para abreviações de estado. As propriedades em cada entidade são `username` e `userid`. 
+Adicione entidades a uma tabela usando **Add-AzTableRow**. Esses exemplos usam teclas `partition1` `partition2`de partição com valores e , e teclas de linha iguais às abreviaturas de estado. As propriedades em `username` cada `userid`entidade são e . 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -57,10 +57,10 @@ Add-AzTableRow `
 
 ### <a name="query-the-table-entities"></a>Consultar as entidades de tabela
 
-Você pode consultar as entidades em uma tabela usando o **Get-AzTableRow** comando.
+Você pode consultar as entidades em uma tabela usando o comando **Get-AzTableRow.**
 
 > [!NOTE]
-> Os cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, e  **Get-AzureStorageTableRowByCustomFilter** foram preteridas e serão removidos em uma atualização de versão futura.
+> Os cmdlets **Get-AzureStorageTableRowAll,** **Get-AzureStorageTableRowByPartitionKey,** **Get-AzureStorageTableByColumnName**e **Get-AzureStorageTableRowByCustomFilter** são preteridos e serão removidos em uma futura atualização da versão.
 
 #### <a name="retrieve-all-entities"></a>Recuperar todas as entidades
 
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Este comando gera resultados semelhantes à seguinte tabela:
 
-| userid | username | partition | rowkey |
+| userid | Nome de Usuário | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Os resultados são parecidos com a seguinte tabela:
 
-| userid | username | partition | rowkey |
+| userid | Nome de Usuário | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -104,7 +104,7 @@ Essa consulta recupera um registro.
 |field|value|
 |----|----|
 | userid | 1 |
-| username | Chris |
+| Nome de Usuário | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -121,13 +121,13 @@ Essa consulta recupera um registro.
 |field|value|
 |----|----|
 | userid | 1 |
-| username | Chris |
+| Nome de Usuário | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
 ### <a name="updating-entities"></a>Atualizando entidades 
 
-Há três etapas para a atualização de entidades. Primeiro, recupere a entidade para alterar. Em segundo lugar, faça a alteração. Em terceiro lugar, confirme a alteração usando **AzTableRow atualização**.
+Há três etapas para a atualização de entidades. Primeiro, recupere a entidade para alterar. Em segundo lugar, faça a alteração. Em terceiro lugar, comprometa a alteração usando **Update-AzTableRow**.
 
 Atualize a entidade com o nome de usuário = “Jessie” para ter o nome de usuário = “Jessie2”. Este exemplo também mostra outra maneira de criar um filtro personalizado usando tipos .NET.
 
@@ -156,7 +156,7 @@ Os resultados mostram o registro Jessie2.
 |field|value|
 |----|----|
 | userid | 2 |
-| username | Jessie2 |
+| Nome de Usuário | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 
@@ -166,7 +166,7 @@ Você pode excluir uma entidade ou todas as entidades da tabela.
 
 #### <a name="deleting-one-entity"></a>Excluindo uma entidade
 
-Para excluir uma única entidade, obtenha uma referência a essa entidade e redirecione-a em **AzTableRow remover**.
+Para excluir uma única entidade, obtenha uma referência a essa entidade e **pipe-a em Remove-AzTableRow**.
 
 ```powershell
 # Set filter.

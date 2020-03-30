@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: d7d4d7b331198982f7c5513d23420bdde9455c66
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5478163a6103bcc84b4f3608d7513c6e7cb11c01
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529332"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  
@@ -27,14 +27,14 @@ O mapa padrão acima destaca algumas relações entre padrões (azul) e antipadr
 Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** (na mesma partição) para permitir pesquisas rápidas e eficientes, bem como ordens de classificação alternativas usando valores diferentes de **RowKey**. Atualizações entre as cópias podem ser mantidas consistentes usando EGTs.  
 
 ### <a name="context-and-problem"></a>Contexto e problema
-O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores de **PartitionKey** e **RowKey**). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.
+O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e o ID do funcionário (os valores **PartitionKey** e **RowKey).** Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.
 
 ![Image06](media/storage-table-design-guide/storage-table-design-IMAGE06.png)
 
 Se você quiser ser capaz de encontrar uma entidade funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o serviço Tabela não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem **RowKey** .  
 
 ### <a name="solution"></a>Solução
-Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor diferente de **RowKey** . Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **RowKey**, "empid_" e "email_" permitem consultar um único funcionário ou um intervalo de funcionários usando um intervalo de endereços de email ou de IDs de funcionários.  
+Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor diferente de **RowKey** . Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para a **Linha De**Chaves, "empid_" e "email_" permitem consultar um único funcionário ou uma série de funcionários usando uma série de endereços de e-mail ou IDs de funcionários.  
 
 ![Entidades de funcionário](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -80,13 +80,13 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Armazene várias cópias de cada entidade usando valores diferentes de **RowKey** em partições ou tabelas separadas para permitir pesquisas rápidas e eficientes, bem como ordens de classificação alternativas usando valores diferentes de **RowKey**.  
 
 ### <a name="context-and-problem"></a>Contexto e problema
-O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores de **PartitionKey** e **RowKey**). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.  
+O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e o ID do funcionário (os valores **PartitionKey** e **RowKey).** Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.  
 
 ![ID do funcionário](media/storage-table-design-guide/storage-table-design-IMAGE09.png)
 
 Se você quiser ser capaz de encontrar uma entidade funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o serviço Tabela não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem **RowKey** .  
 
-Você está prevendo um alto volume de transações em relação a essas entidades e deseja minimizar o risco de a limitação do serviço de tabela de seu cliente.  
+Você está antecipando um alto volume de transações contra essas entidades e quer minimizar o risco do serviço de Tabela estrangular seu cliente.  
 
 ### <a name="solution"></a>Solução
 Para solucionar a falta de índices secundários, você pode armazenar várias cópias de cada entidade com cada cópia usando valores diferentes de **PartitionKey** e **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **PartitionKey**, "empid_" e "email_" permitem que você identifique o índice que deseja usar para uma consulta.  
@@ -101,7 +101,7 @@ Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma p
 
 Ao consultar um intervalo de entidades de funcionário, você poderá, usando uma consulta às entidades com o prefixo apropriado em **RowKey**, especificar um intervalo classificado por ordem de ID de funcionário ou por ordem de endereços de email.  
 
-* Para localizar todos os funcionários do departamento de vendas com uma ID de funcionário no intervalo de **000100** a **000199**, classificados por ordem de ID de funcionário, use: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+* Encontrar todos os funcionários do departamento de Vendas com um ID de funcionário na faixa **000100** a **000199** classificados no uso de pedidos de ID dos funcionários: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para localizar todos os funcionários do departamento de vendas com um endereço de email que comece com 'a', classificados por ordem de endereço de email, use: $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
 A sintaxe de filtro usada nos exemplos acima é proveniente da API REST do serviço Tabela. Para saber mais, confira [Consultar Entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -117,7 +117,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
   
    ![Entidade de funcionário (índice secundário)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
 
-* Normalmente, é melhor armazenar dados duplicados e garantir que você possa recuperar todos os dados necessários com uma única consulta do que usar uma consulta para localizar uma entidade usando o índice secundário e outra para pesquisar os dados necessários no índice primário.  
+* Normalmente é melhor armazenar dados duplicados e garantir que você possa recuperar todos os dados necessários com uma única consulta do que usar uma consulta para localizar uma entidade usando o índice secundário e outra para procurar os dados necessários no índice principal.  
 
 ### <a name="when-to-use-this-pattern"></a>Quando usar esse padrão
 Use esse padrão quando o aplicativo cliente precisar recuperar entidades usando uma variedade de chaves diferentes, quando o cliente precisar recuperar entidades em diferentes ordens de classificação, e onde é possível identificar cada entidade usando uma variedade de valores exclusivos. Use esse padrão quando quiser evitar exceder os limites de escalabilidade da partição durante a execução de pesquisas de entidade usando os valores diferentes de **RowKey** .  
@@ -140,11 +140,11 @@ EGTs habilitam transações atômicas entre várias entidades que compartilham a
 * Entidades armazenadas em duas partições diferentes na mesma tabela, em tabelas diferentes ou em diferentes contas de armazenamento.  
 * Uma entidade armazenada no serviço Tabela e um blob armazenado no serviço Blob.  
 * Uma entidade armazenada no serviço Tabela e um arquivo em um sistema de arquivos.  
-* Uma entidade armazenada no serviço tabela ainda indexada usando o serviço de Pesquisa Cognitiva do Azure.  
+* Uma entidade armazenada no serviço Table ainda indexada usando o serviço de Pesquisa Cognitiva do Azure.  
 
 ### <a name="solution"></a>Solução
 Ao usar as filas do Azure, você pode implementar uma solução que fornece consistência eventual em duas ou mais partições ou sistemas de armazenamento.
-Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar entidades antigas de funcionário. Entidades antigas de funcionário raramente são consultadas e devem ser excluídas de todas as atividades que lidam com funcionários atuais. Para implementar esse requisito, você armazena os funcionários ativos na tabela **atual** e os funcionários antigos na tabela de **arquivamento** . O arquivamento de um funcionário exige a exclusão da entidade da tabela **Atual** e a adição da entidade à tabela **Arquivo morto**, mas não é possível usar uma EGT para executar essas duas operações. Para evitar o risco de que uma falha faça com que uma entidade seja exibida nas tabelas ou em nenhuma, a operação de arquivamento deve ser eventualmente consistente. O diagrama de sequência a seguir descreve as etapas nesta operação. Mais detalhes são fornecidos para caminhos de exceção no seguinte texto.  
+Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar entidades antigas de funcionário. Entidades antigas de funcionário raramente são consultadas e devem ser excluídas de todas as atividades que lidam com funcionários atuais. Para implementar esse requisito, você armazena funcionários ativos na tabela **Atual** e funcionários antigos na tabela **Arquivo.** O arquivamento de um funcionário exige a exclusão da entidade da tabela **Atual** e a adição da entidade à tabela **Arquivo morto**, mas não é possível usar uma EGT para executar essas duas operações. Para evitar o risco de que uma falha faça com que uma entidade seja exibida nas tabelas ou em nenhuma, a operação de arquivamento deve ser eventualmente consistente. O diagrama de sequência a seguir descreve as etapas nesta operação. Mais detalhes são fornecidos para caminhos de exceção no seguinte texto.  
 
 ![Solução de filas do Azure](media/storage-table-design-guide/storage-table-design-IMAGE12.png)
 
@@ -184,14 +184,14 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Mantenha entidades de índice para habilitar pesquisas eficientes que retornam listas de entidades.  
 
 ### <a name="context-and-problem"></a>Contexto e problema
-O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando uma consulta de ponto. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode recuperar de maneira eficiente uma entidade de funcionário individual pelo uso do nome do departamento e da ID do funcionário (**PartitionKey** e **RowKey**).  
+O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando uma consulta de ponto. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode recuperar eficientemente uma entidade de funcionário individual usando o nome do departamento e o ID do funcionário (a **PartitionKey** e **rowKey**).  
 
 ![Entidade de funcionário](media/storage-table-design-guide/storage-table-design-IMAGE13.png)
 
 Se você quiser ser capaz de recuperar uma lista de entidades de funcionário com base no valor de outra propriedade não exclusiva, como seu sobrenome, deve usar uma verificação de partição menos eficiente para localizar correspondências em vez de usar um índice para examiná-las diretamente. Isso ocorre porque o serviço Tabela não fornece índices secundários.  
 
 ### <a name="solution"></a>Solução
-Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada acima, você deve manter listas de IDs de funcionários. Se você quiser recuperar as entidades de funcionário com um sobrenome específico, como Jones, deverá primeiro localizar a lista de IDs de funcionários para funcionários com Jones como seu sobrenome e, em seguida, recuperar essas entidades de funcionário. Há três opções principais para armazenar as listas de IDs de funcionários:  
+Para habilitar a pesquisa por sobrenome com a estrutura da entidade mostrada acima, você deve manter listas de IDs de funcionários. Se você quiser recuperar as entidades de funcionários com um sobrenome específico, como Jones, você deve primeiro localizar a lista de ids de funcionários para funcionários com Jones como seu sobrenome, e, em seguida, recuperar essas entidades de funcionários. Existem três opções principais para armazenar as listas de IDs de funcionários:  
 
 * Use o armazenamento de blobs.  
 * Crie entidades de índice na mesma partição que as entidades do funcionário.  
@@ -199,7 +199,7 @@ Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada aci
 
 <u>Opção n°. 1: usar o armazenamento de blob</u>  
 
-Para a primeira opção, crie um blob para todos os sobrenomes exclusivos e em cada repositório de blobs uma lista de valores **PartitionKey** (departamento) e **RowKey** (ID do funcionário) para os funcionários com esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.  
+Para a primeira opção, você cria uma bolha para cada sobrenome único e, em cada blob, armazena uma lista dos valores **partitionKey** (departamento) e **RowKey** (ID do funcionário) para funcionários que têm esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.  
 
 <u>Opção 2:</u> Criar entidades de índice na mesma partição  
 
@@ -207,12 +207,12 @@ Para a segunda opção, use as entidades de índice que armazenam os dados a seg
 
 ![Entidade de índice do funcionário](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
 
-A propriedade **employeeids** contém uma lista de IDs de funcionários para funcionários com o último nome armazenado no **RowKey**.  
+A propriedade **EmployeeIDs** contém uma lista de IDs de funcionários para funcionários com o sobrenome armazenado no **RowKey**.  
 
-As etapas a seguir descrevem o processo que você deve seguir ao adicionar um novo funcionário, se você estiver usando a segunda opção. Neste exemplo, estamos adicionando um funcionário com a ID 000152 e um sobrenome Jones no departamento de vendas:  
+As etapas a seguir descrevem o processo que você deve seguir ao adicionar um novo funcionário, se você estiver usando a segunda opção. Neste exemplo, estamos adicionando um funcionário com ID 000152 e um sobrenome Jones no departamento de Vendas:  
 
 1. Recupere a entidade de índice com um valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias". Salve o ETag dessa entidade para usar na etapa 2.  
-2. Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insira a nova entidade de funcionário (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "000152") e atualize a entidade de índice (valor de **PartitionKey** igual a "Vendas" e valor de **RowKey** igual a "Dias"), adicionando a ID do novo funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção Transações de grupo de entidades.  
+2. Crie uma transação de grupo de entidades (ou seja, uma operação em lote) que insira a nova entidade de funcionários (**PartitionKey** value "Sales" e **RowKey** value "000152"), e atualize a entidade do índice **(PartitionKey** value "Sales" e **RowKey** value "Jones") adicionando o novo ID do funcionário à lista no campo EmployeeIDs. Para saber mais sobre transações de grupo de entidades, confira a seção Transações de grupo de entidades.  
 3. Se a transação de grupo de entidades falhar devido a um erro de simultaneidade otimista (alguém modificou a entidade de índice), será necessário recomeçar na etapa 1.  
 
 Você pode usar uma abordagem semelhante à exclusão de um funcionário se usar a segunda opção. Alterar o sobrenome do funcionário é um pouco mais complexo, pois você precisará executar uma transação de grupo de entidades que atualiza as três entidades: a entidade funcionário, a entidade de índice para o sobrenome antigo e a entidade de índice para o novo sobrenome. Você deve recuperar cada entidade antes de fazer alterações para recuperar os valores de ETag que depois pode usar para executar as atualizações usando a simultaneidade otimista.  
@@ -230,21 +230,21 @@ Para a terceira opção, use as entidades de índice que armazenam os dados a se
 ![Entidade de índice de funcionário em uma partição separada](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
 
 
-A propriedade **employeeids** contém uma lista de IDs de funcionários para funcionários com o último nome armazenado no **RowKey**.  
+A propriedade **EmployeeIDs** contém uma lista de IDs de funcionários para funcionários com o sobrenome armazenado no **RowKey**.  
 
-Com a terceira opção, você não pode usar EGTs para manter a consistência porque as entidades de índice estão em uma partição separada das entidades de funcionário. Verifique se as entidades de índice são eventualmente consistentes com as entidades de funcionário.  
+Com a terceira opção, você não pode usar EGTs para manter a consistência porque as entidades de índice estão em uma partição separada das entidades de funcionário. Certifique-se de que as entidades de índice são eventualmente consistentes com as entidades de funcionários.  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
 
 * Essa solução exige, pelo menos, duas consultas para recuperar entidades correspondentes: uma para consultar as entidades de índice para obter a lista de valores de **RowKey** e consultas para recuperar cada entidade na lista.  
-* Considerando que uma entidade individual tem um tamanho máximo de 1 MB, a opção #2 e a opção #3 na solução pressupõem que a lista de IDs de funcionário para qualquer sobrenome especificado nunca seja maior que 1 MB. Se a lista de IDs de funcionários for provavelmente maior que 1 MB de tamanho, use a opção #1 e armazene os dados de índice no armazenamento de BLOBs.  
+* Dado que uma entidade individual tem um tamanho máximo de 1 MB, a opção #2 e opção #3 na solução suponha que a lista de IDs de funcionário para qualquer sobrenome nunca seja superior a 1 MB. Se a lista de IDs de funcionários provavelmente for maior que 1 MB de tamanho, use a opção #1 e armazene os dados de índice no armazenamento blob.  
 * Se você usar a opção n. 2 (usando EGTs para controlar a adição e exclusão de funcionários e alterar o sobrenome do funcionário), você deverá avaliar se o volume de transações abordará os limites de escalabilidade em uma determinada partição. Se esse for o caso, você deve considerar uma solução eventualmente consistente (opção nº1 ou 3) que usa filas para manipular solicitações de atualização e permite que você armazene suas entidades de índice em uma partição separada das entidades de funcionário.  
 * A opção nº2 nesta solução pressupõe que você deseja pesquisar por sobrenome dentro de um departamento: por exemplo, você quer recuperar uma lista de funcionários com um sobrenome Jones no departamento de Vendas. Para pesquisar todos os funcionários com um sobrenome Jones em toda a organização, use a opção nº1 ou 3.
 * É possível implementar uma solução baseada em fila que fornece consistência eventual (veja [Padrão de transações eventualmente consistentes](#eventually-consistent-transactions-pattern) para obter mais detalhes).  
 
 ### <a name="when-to-use-this-pattern"></a>Quando usar esse padrão
-Use esse padrão quando desejar pesquisar um conjunto de entidades que compartilham um valor de propriedade comum, como todos os funcionários com o sobrenome Jones.  
+Use este padrão quando quiser procurar um conjunto de entidades que compartilhem um valor de propriedade comum, como todos os funcionários com o sobrenome Jones.  
 
 ### <a name="related-patterns-and-guidance"></a>Diretrizes e padrões relacionados
 Os padrões e diretrizes a seguir também podem ser relevantes ao implementar esse padrão:  
@@ -263,7 +263,7 @@ Em um banco de dados relacional, você geralmente normaliza dados para remover a
 ![Entidade de departamento e funcionário](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Solução
-Em vez de armazenar os dados em duas entidades separadas, desnormalize os dados e mantenha uma cópia dos detalhes do gerente na entidade de departamento. Por exemplo:  
+Em vez de armazenar os dados em duas entidades separadas, desnormalize os dados e mantenha uma cópia dos detalhes do gerente na entidade de departamento. Por exemplo:   
 
 ![Entidade de departamento](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -286,7 +286,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 * [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>Padrão de chave composta
-Use valores **RowKey** compostos para permitir que um cliente pesquise dados relacionados com uma única consulta de ponto.  
+Use valores compound **RowKey** para permitir que um cliente procure dados relacionados com uma consulta de ponto único.  
 
 ### <a name="context-and-problem"></a>Contexto e problema
 Em um banco de dados relacional, é neutro usar junções em consultas para retornar partes relacionadas de dados para o cliente em uma única consulta. Por exemplo, você pode usar a ID do funcionário para pesquisar uma lista de entidades relacionadas que contém o desempenho e analisar os dados desse funcionário.  
@@ -306,7 +306,7 @@ Armazene um novo tipo de entidade em sua tabela original usando entidades com a 
 
 ![Solução para estrutura de entidade de funcionário](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
 
-Observe como a **RowKey** agora é uma chave composta de ID de funcionário e o ano dos dados de revisão que permitem recuperar o desempenho do funcionário e analisar os dados com uma única solicitação para uma única entidade.  
+Observe como o **RowKey** é agora uma chave composta composta pelo ID do funcionário e o ano dos dados de revisão que permite recuperar o desempenho do funcionário e revisar os dados com uma única solicitação para uma única entidade.  
 
 O exemplo a seguir descreve como você pode recuperar todos os dados de revisão de um funcionário específico (por exemplo, um funcionário 000123 no departamento de Vendas):  
 
@@ -333,12 +333,12 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Recupere as *n* entidades adicionadas recentemente em uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
 
 ### <a name="context-and-problem"></a>Contexto e problema
-Um requisito comum é poder recuperar as entidades criadas mais recentemente, por exemplo, as 10 declarações de despesas mais recentes enviadas por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de consulta de um conjunto: não há uma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  
+Um requisito comum é capaz de recuperar as entidades mais recentemente criadas, por exemplo, as 10 reivindicações de despesas mais recentes apresentadas por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de consulta de um conjunto: não há uma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  
 
 ### <a name="solution"></a>Solução
 Armazene as entidades usando uma **RowKey** que classifica naturalmente em ordem inversa de data/hora. Fazendo isso, a entrada mais recente será sempre a primeira na tabela.  
 
-Por exemplo, para poder recuperar as 10 solicitações de despesas mais recentes enviadas por um funcionário, você pode usar um valor de tique inverso derivado da data/hora atual. O seguinte exemplo de código C# mostra uma maneira de criar um valor adequado de "escala invertida" para uma **RowKey** que classifica do mais recente ao mais antigo:  
+Por exemplo, para poder recuperar as 10 reivindicações de despesas mais recentes enviadas por um funcionário, você pode usar um valor de tique-taque reverso derivado da data/hora atual. O seguinte exemplo de código C# mostra uma maneira de criar um valor adequado de "escala invertida" para uma **RowKey** que classifica do mais recente ao mais antigo:  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
@@ -574,13 +574,13 @@ if (retrieveResult.Result != null)
 Observe como esse exemplo espera que a entidade recuperada seja do tipo **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Recuperando várias entidades usando LINQ
-Você pode usar o LINQ para recuperar várias entidades do serviço tabela ao trabalhar com Microsoft Azure biblioteca padrão da tabela Cosmos. 
+Você pode usar o LINQ para recuperar várias entidades do serviço Table ao trabalhar com a Biblioteca Padrão da Tabela Do Microsoft Azure Cosmos. 
 
-```cli
+```azurecli
 dotnet add package Microsoft.Azure.Cosmos.Table
 ```
 
-Para que os exemplos a seguir funcionem, você precisará incluir namespaces:
+Para fazer os exemplos abaixo funcionarem, você precisará incluir namespaces:
 
 ```csharp
 using System.Linq;
@@ -588,9 +588,9 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable é um objeto Cloudtable que implementa um método CreateQuery\<ITableEntity > (), que retorna um TableQuery\<ITableEntity >. Objetos desse tipo implementam um IQueryable e permitem o uso de expressões de consulta LINQ e a sintaxe de notação de ponto.
+O employeeTable é um objeto CloudTable que\<implementa um método CreateQuery ITableEntity>() que retorna um TableQuery\<ITableEntity>. Objetos deste tipo implementam um IQueryable e permitem usar tanto expressões de consulta LINQ quanto sintaxe de notação de dot.
 
-Recuperar várias entidades e ser obtido especificando uma consulta com uma cláusula **Where** . Para evitar uma verificação de tabela, você sempre deve incluir o valor de **PartitionKey** na cláusula where e, se possível, o valor de **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. 
+Recuperando várias entidades e ser alcançado especificando uma consulta com uma cláusula **onde.** Para evitar uma verificação de tabela, você sempre deve incluir o valor de **PartitionKey** na cláusula where e, se possível, o valor de **RowKey** para evitar verificações de tabela e de partição. O serviço Tabela dá suporte a um conjunto limitado de operadores de comparação (maior que, maior que ou igual a, menor que, menor que ou igual a, igual a, e diferente de) para usar na cláusula where. 
 
 O seguinte snippet de código em C# localiza todos os funcionários cujo sobrenome começa com "B" (supondo que **RowKey** armazena o sobrenome) no departamento de vendas (supondo que **PartitionKey** armazena o nome do departamento):  
 
@@ -607,7 +607,7 @@ var employees = query.Execute();
 
 Observe como a consulta especifica uma **RowKey** e também uma **PartitionKey** para garantir um melhor desempenho.  
 
-O exemplo de código a seguir mostra a funcionalidade equivalente sem usar a sintaxe LINQ:  
+A seguinte amostra de código mostra funcionalidade equivalente sem usar a sintaxe LINQ:  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = 
@@ -740,7 +740,7 @@ O serviço Tabela é um armazenamento de tabela *sem esquema* , o que significa 
 <table>
 <tr>
 <th>Nome</th>
-<th>Sobrenome</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -760,7 +760,7 @@ O serviço Tabela é um armazenamento de tabela *sem esquema* , o que significa 
 <table>
 <tr>
 <th>Nome</th>
-<th>Sobrenome</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -797,7 +797,7 @@ O serviço Tabela é um armazenamento de tabela *sem esquema* , o que significa 
 <table>
 <tr>
 <th>Nome</th>
-<th>Sobrenome</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -833,12 +833,12 @@ Cada entidade deve ter ainda os valores de **PartitionKey**, **RowKey** e **Time
 <tr>
 <th>EntityType</th>
 <th>Nome</th>
-<th>Sobrenome</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
 <tr>
-<td>Funcionário</td>
+<td>Employee</td>
 <td></td>
 <td></td>
 <td></td>
@@ -855,12 +855,12 @@ Cada entidade deve ter ainda os valores de **PartitionKey**, **RowKey** e **Time
 <tr>
 <th>EntityType</th>
 <th>Nome</th>
-<th>Sobrenome</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
 <tr>
-<td>Funcionário</td>
+<td>Employee</td>
 <td></td>
 <td></td>
 <td></td>
@@ -896,12 +896,12 @@ Cada entidade deve ter ainda os valores de **PartitionKey**, **RowKey** e **Time
 <tr>
 <th>EntityType</th>
 <th>Nome</th>
-<th>Sobrenome</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
 <tr>
-<td>Funcionário</td>
+<td>Employee</td>
 <td></td>
 <td></td>
 <td></td>
@@ -959,7 +959,7 @@ foreach (var e in entities)
 }  
 ```
 
-Para recuperar outras propriedades, você deve usar o método **TryGetValue** na propriedade **Properties** da classe **DynamicTableEntity** .  
+Para recuperar outras propriedades, você deve usar o método **TryGetValue** na propriedade **Propriedades** da classe **DynamicTableEntity.**  
 
 Uma terceira opção é combinar o uso do tipo **DynamicTableEntity** e uma instância **EntityResolver**. Isso permite que você resolver para vários tipos POCO na mesma consulta. Neste exemplo, o **EntityResolver** delegado usa a propriedade **EntityType** para distinguir entre os dois tipos de entidade retornados pela consulta. O método **Resolve** usa o **resolvedor** delegado para resolver instâncias **DynamicTableEntity** para instâncias **TableEntity**.  
 

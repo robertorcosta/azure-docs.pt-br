@@ -1,6 +1,6 @@
 ---
 title: Usar o DevTest Labs no build do Azure Pipelines e em pipelines de lançamento
-description: Saiba como usar Azure DevTest Labs em pipelines de Build e versão do Azure Pipelines.
+description: Saiba como usar o Azure DevTest Labs em Azure Pipelines para construir e liberar pipelines.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -13,43 +13,43 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: e16f3c5a0c0b2b86d6a893f541cefb275a8e7d07
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169232"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usar o DevTest Labs no build do Azure Pipelines e em pipelines de lançamento
-Este artigo fornece informações sobre como os DevTest Labs podem ser usados em pipelines de Build e versão Azure Pipelines. 
+Este artigo fornece informações sobre como o DevTest Labs pode ser usado em pipelines de construção e lançamento de pipelines do Azure Pipelines. 
 
 ## <a name="overall-flow"></a>Fluxo geral
-O fluxo básico é ter um **pipeline de compilação** que faça as seguintes tarefas:
+O fluxo básico é ter um **pipeline de construção** que faça as seguintes tarefas:
 
-1. Crie o código do aplicativo.
-1. Crie o ambiente base no DevTest Labs.
+1. Construa o código da aplicação.
+1. Crie o ambiente base em DevTest Labs.
 1. Atualize o ambiente com informações personalizadas.
-1. Implantar o aplicativo no ambiente do DevTest Labs
+1. Implantar o aplicativo no ambiente DevTest Labs
 1. Teste o código. 
 
-Depois que a compilação for concluída com êxito, o **pipeline de lançamento** usará os artefatos de compilação para implantar o preparo ou a produção. 
+Uma vez que a compilação tenha sido concluída com sucesso, o **oleoduto de liberação** usará os artefatos de construção para implantar a encenação ou a produção. 
 
-Uma das instalações necessárias é que todas as informações necessárias para recriar o ecossistema testado estão disponíveis nos artefatos de compilação, incluindo a configuração dos recursos do Azure. Como os recursos do Azure incorrem em um custo quando usados, as empresas desejam controlar ou controlar o uso desses recursos. Em algumas situações, Azure Resource Manager modelos usados para criar e configurar os recursos podem ser gerenciados por outro departamento como ele. E esses modelos podem ser armazenados em um repositório diferente. Ele leva a uma situação interessante em que uma compilação será criada e testada, e o código e a configuração precisarão ser armazenados nos artefatos de compilação para recriar corretamente o sistema em produção. 
+Uma das premissas necessárias é que todas as informações necessárias para recriar o ecossistema testado estão disponíveis dentro dos artefatos de construção, incluindo a configuração dos recursos do Azure. Como os recursos do Azure incorrem em um custo quando usados, as empresas querem controlar ou rastrear o uso desses recursos. Em algumas situações, os modelos do Azure Resource Manager usados para criar e configurar os recursos podem ser gerenciados por outro departamento como a TI. E, esses modelos podem ser armazenados em um repositório diferente. Isso leva a uma situação interessante onde uma compilação será criada e testada, e tanto o código quanto a configuração precisarão ser armazenados dentro dos artefatos de construção para recriar adequadamente o sistema em produção. 
 
-Usando o DevTest Labs durante a fase de compilação/teste, você pode adicionar Azure Resource Manager modelos e arquivos de suporte às fontes de compilação, de modo que durante a fase de lançamento, a configuração exata usada para testar é implantada na produção. A tarefa **criar ambiente de Azure DevTest Labs** com a configuração apropriada salvará os modelos do Resource Manager nos artefatos de compilação. Para este exemplo, você usará o código do [tutorial: criar um aplicativo Web do .NET Core e do banco de dados SQL no serviço Azure app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)para implantar e testar o aplicativo Web no Azure.
+Usando o DevTest Labs durante a fase de compilação/teste, você pode adicionar modelos do Azure Resource Manager e arquivos de suporte às fontes de compilação para que durante a fase de lançamento a configuração exata usada para testar seja implantada na produção. A **tarefa Criar Azure DevTest Labs Environment** com a configuração adequada salvará os modelos do Gerenciador de recursos dentro dos artefatos de compilação. Para este exemplo, você estará usando o código do [Tutorial: Crie um aplicativo web .NET Core e SQL Database no Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md), para implantar e testar o aplicativo web no Azure.
 
 ![Fluxo geral](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
 ## <a name="set-up-azure-resources"></a>Configurar recursos do Azure
-Há alguns itens que precisam ser criados antecipadamente:
+Há alguns itens que precisam ser criados de antemão:
 
-- Dois repositórios. A primeira com o código do tutorial e um modelo do Resource Manager com duas VMs adicionais. O segundo conterá o modelo de Azure Resource Manager base (configuração existente).
-- Um grupo de recursos para implantação do código de produção e da configuração.
-- Um laboratório precisa ser configurado com uma conexão com [o repositório de configuração](devtest-lab-create-environment-from-arm.md) para o pipeline de compilação. O modelo do Resource Manager precisa ser verificado no repositório de configuração como azuredeploy. JSON com o Metadata. JSON para permitir que o DevTest Labs reconheça e implante o modelo.
+- Dois repositórios. O primeiro com o código do tutorial e um modelo de Gerenciador de Recursos com duas VMs adicionais. O segundo conterá o modelo base Azure Resource Manager (configuração existente).
+- Um grupo de recursos para implantação do código de produção e configuração.
+- Um laboratório precisa ser configurado com uma [conexão com o repositório de configuração](devtest-lab-create-environment-from-arm.md) para o pipeline de construção. O modelo resource manager precisa ser verificado no repositório de configuração como azuredeploy.json com o metadata.json para permitir que o DevTest Labs reconheça e implante o modelo.
 
-O pipeline de compilação criará um ambiente do DevTest Labs e implantará o código para teste.
+O pipeline de compilação criará um ambiente DevTest Labs e implantará o código para testes.
 
-## <a name="set-up-a-build-pipeline"></a>Configurar um pipeline de compilação
-Em Azure Pipelines, crie um pipeline de compilação usando o código do [tutorial: criar um aplicativo Web .NET Core e do banco de dados SQL no serviço Azure app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use o modelo **ASP.NET Core** , que preencherá a tarefa necessária para compilar, testar e publicar o código.
+## <a name="set-up-a-build-pipeline"></a>Monte um pipeline de construção
+No Azure Pipelines, crie um pipeline de compilação usando o código do [Tutorial: Crie um aplicativo web .NET Core e SQL Database no Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use o modelo **ASP.NET Core,** que preencherá a tarefa necessária para construir, testar e publicar o código.
 
 ![Selecione o modelo ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -57,46 +57,46 @@ Você precisa adicionar três tarefas adicionais para criar o ambiente no DevTes
 
 ![Pipeline com três tarefas](./media/use-devtest-labs-build-release-pipelines/pipeline-tasks.png)
 
-### <a name="create-environment-task"></a>Tarefa criar ambiente
-Na tarefa criar ambiente (**Azure DevTest Labs tarefa criar ambiente** ), use as listas suspensas para selecionar os seguintes valores:
+### <a name="create-environment-task"></a>Criar tarefa de ambiente
+Na tarefa criar ambiente **(a tarefa Azure DevTest Labs Criar ambiente)** use as listas de saque para selecionar os seguintes valores:
 
 - Assinatura do Azure
 - nome do laboratório
 - nome do repositório
-- nome do modelo (que mostra a pasta em que o ambiente está armazenado). 
+- nome do modelo (que mostra a pasta onde o ambiente é armazenado). 
 
-Recomendamos que você use as listas suspensas na página em vez de inserir as informações manualmente. Se você inserir manualmente as informações, insira as IDs de recursos do Azure totalmente qualificadas. A tarefa exibe os nomes amigáveis em vez de IDs de recurso. 
+Recomendamos que você use listas de baixa na página em vez de inserir as informações manualmente. Se você inserir manualmente as informações, digite IDs de recursos do Azure totalmente qualificados. A tarefa exibe os nomes amigáveis em vez de ids de recurso. 
 
-O nome do ambiente é o nome exibido mostrado no DevTest Labs. Deve ser um nome exclusivo para cada compilação. Por exemplo: **TestEnv $ (Build. BuildId)** . 
+O nome do ambiente é o nome exibido mostrado no DevTest Labs. Deve ser um nome único para cada compilação. Por exemplo: **TestEnv$(Build.BuildId)**. 
 
-Você pode especificar o arquivo de parâmetros ou parâmetros para passar informações para o modelo do Resource Manager. 
+Você pode especificar parâmetros de arquivo ou parâmetros para passar informações para o modelo do Gerenciador de recursos. 
 
-Selecione **criar variáveis de saída com base na opção de saída do modelo de ambiente** e insira um nome de referência. Para este exemplo, insira **BaseEnv** para o nome de referência. Você usará esse BaseEnv ao configurar a próxima tarefa. 
+Selecione as variáveis Criar saída com base na opção **de saída do modelo de ambiente** e digite um nome de referência. Para este exemplo, **digite BaseEnv** para obter o nome de referência. Você usará este BaseEnv ao configurar a próxima tarefa. 
 
-![Criar tarefa de ambiente de Azure DevTest Labs](./media/use-devtest-labs-build-release-pipelines/create-environment.png)
+![Crie a tarefa de ambiente do Azure DevTest Labs](./media/use-devtest-labs-build-release-pipelines/create-environment.png)
 
 ### <a name="populate-environment-task"></a>Preencher tarefa de ambiente
-A segunda tarefa (**Azure DevTest Labs popular** tarefa de ambiente) é atualizar o ambiente existente do DevTest Labs. A tarefa criar ambiente gera **BaseEnv. environmentResourceId** que é usado para configurar o nome do ambiente para essa tarefa. O modelo do Resource Manager para este exemplo tem dois parâmetros- **adminUserName** e **adminPassword**. 
+A segunda tarefa (**Azure DevTest Labs Populate Environment** task) é atualizar o ambiente existente do DevTest Labs. A tarefa Criar saídas de ambiente **BaseEnv.environmentResourceId** que é usada para configurar o nome do ambiente para essa tarefa. O modelo do Gerenciador de recursos para este exemplo tem dois parâmetros - **adminUserName** e **adminPassword**. 
 
-![Tarefa popular ambiente de Azure DevTest Labs](./media/use-devtest-labs-build-release-pipelines/populate-environment.png)
+![Preencher a tarefa de ambiente do Azure DevTest Labs](./media/use-devtest-labs-build-release-pipelines/populate-environment.png)
 
-## <a name="app-service-deploy-task"></a>Tarefa de implantação do serviço de aplicativo
-A terceira tarefa é a tarefa de **implantação do serviço Azure app** . O tipo de aplicativo é definido como **aplicativo Web** e o nome do serviço de aplicativo é definido como **$ (site)** .
+## <a name="app-service-deploy-task"></a>Serviço de aplicativo implantar tarefa
+A terceira tarefa é a **tarefa Azure App Service Deploy.** O tipo de aplicativo é definido como **Web App** e o nome do App Service é definido **como $(WebSite)**.
 
-![Tarefa de implantação do serviço de aplicativo](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
+![Tarefa de implantação do serviço de aplicativos](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
 ## <a name="set-up-release-pipeline"></a>Configurar o pipeline de liberação
-Você cria um pipeline de liberação com duas tarefas: **implantação do Azure: criar ou atualizar o grupo de recursos** e **implantar Azure app serviço**. 
+Você cria um pipeline de versão com duas tarefas: **Implantação do Azure: Criar ou atualizar o grupo de recursos** e implantar o serviço de aplicativos do **Azure.** 
 
-Para a primeira tarefa, especifique o nome e o local do grupo de recursos. O local do modelo é um artefato vinculado. Se o modelo do Resource Manager incluir modelos vinculados, uma implantação de grupo de recursos personalizada precisará ser implementada. O modelo está no artefato de soltar publicado. Substitua os parâmetros do modelo do modelo do Resource Manager. Você pode deixar as configurações restantes com valores padrão. 
+Para a primeira tarefa, especifique o nome e a localização do grupo de recursos. A localização do modelo é um artefato ligado. Se o modelo do Gerenciador de recursos incluir modelos vinculados, uma implantação de grupo de recursos personalizado susta a implantação será implementada. O modelo está no artefato de gota publicado. Substituir parâmetros do modelo para o modelo do Gerenciador de recursos. Você pode deixar as configurações restantes com valores padrão. 
 
-Para a segunda tarefa **implantar Azure app serviço**, especifique a assinatura do Azure, selecione **aplicativo Web** para o **tipo de aplicativo**e **$ (site)** para o **nome do serviço de aplicativo**. Você pode deixar as configurações restantes com valores padrão. 
+Para a segunda tarefa, implante o **serviço de aplicativos do Azure,** especifique a assinatura do Azure, selecione o Web **App** para o **tipo App**e **$(WebSite)** para o **nome do Serviço de Aplicativo**. Você pode deixar as configurações restantes com valores padrão. 
 
 ## <a name="test-run"></a>Execução de teste
-Agora que ambos os pipelines estão configurados, enfileirar manualmente uma compilação e vê-la funcionar. A próxima etapa é definir o gatilho apropriado para a compilação e conectar a compilação ao pipeline de lançamento.
+Agora que ambos os gasodutos estão configurados, faça fila manual de uma compilação e veja-a funcionar. O próximo passo é definir o gatilho apropriado para a construção e conectar a compilação ao pipeline de liberação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 
-- [Integre o Azure DevTest Labs em seu Azure Pipelines pipeline de integração e entrega contínua](devtest-lab-integrate-ci-cd-vsts.md)
-- [Integre ambientes a seus Azure Pipelines pipelines de CI/CD](integrate-environments-devops-pipeline.md)
+- [Integre o Azure DevTest Labs em seu pipeline de integração e entrega contínua do Azure Pipelines](devtest-lab-integrate-ci-cd-vsts.md)
+- [Integre ambientes em seus gasodutos CI/CD do Azure Pipelines](integrate-environments-devops-pipeline.md)

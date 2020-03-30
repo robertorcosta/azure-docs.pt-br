@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60822837"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDKs de Grade de Eventos para o gerenciamento e publicação
@@ -24,9 +24,9 @@ Grade de Eventos fornece SDKs que permitem gerenciar seus recursos e lançar eve
 Os SDKs de gerenciamento permitem criar, atualizar e excluir assinaturas e tópicos de grade de eventos. No momento, os seguintes SDKs estão disponíveis:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
-* [Go](https://github.com/Azure/azure-sdk-for-go)
+* [Ir](https://github.com/Azure/azure-sdk-for-go)
 * [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
-* [Node](https://www.npmjs.com/package/azure-arm-eventgrid)
+* [Nó](https://www.npmjs.com/package/azure-arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)
 
@@ -35,9 +35,9 @@ Os SDKs de gerenciamento permitem criar, atualizar e excluir assinaturas e tópi
 Os SDKs de plano de dados permitem que você publique eventos para tópicos, tomando cuidado de autenticar, formar o evento, e publicar de forma assíncrona ao endpoint especificado. Elas também permitem que você consuma eventos de terceiros primeiro. No momento, os seguintes SDKs estão disponíveis:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
-* [Go](https://github.com/Azure/azure-sdk-for-go)
+* [Ir](https://github.com/Azure/azure-sdk-for-go)
 * [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)
-* [Node](https://www.npmjs.com/package/azure-eventgrid)
+* [Nó](https://www.npmjs.com/package/azure-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_event_grid)
 

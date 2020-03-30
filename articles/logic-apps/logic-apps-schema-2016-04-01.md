@@ -1,5 +1,5 @@
 ---
-title: Atualizações de esquema de junho a 1-2016
+title: Atualizações do esquema junho-1-2016
 description: Versão de esquema 2016-06-01 atualizada para definições de aplicativo lógico nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792883"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - 1º de junho de 2016
@@ -110,7 +110,7 @@ Para atualizar para o [esquema mais recente](https://schema.management.azure.com
    É retornada a definição atualizada, que você pode copiar e colar em uma definição de recurso, se necessário. 
 
    > [!IMPORTANT]
-   > *Certifique-se de*  escolher **Salvar Como** para que todas as referências de conexão permaneçam válidas no aplicativo lógico atualizado.
+   > *Certifique-se de * escolher **Salvar Como** para que todas as referências de conexão permaneçam válidas no aplicativo lógico atualizado.
 
 3. Na barra de ferramentas da folha de atualização, escolha **Salvar como**.
 
@@ -153,7 +153,7 @@ Os loops `foreach` e `until` são restritos a uma única ação.
 
 ### <a name="new-trackedproperties-for-actions"></a>Novo 'trackedProperties' para ações
 
-Agora as ações podem ter uma propriedade adicional chamada `trackedProperties`, que é irmã das propriedades `runAfter` e `type`. Esse objeto especifica determinadas entradas de ação ou saídas que você deseja incluir na telemetria de Diagnóstico do Azure, emitida como parte de um fluxo de trabalho. Por exemplo:
+Agora as ações podem ter uma propriedade adicional chamada `trackedProperties`, que é irmã das propriedades `runAfter` e `type`. Esse objeto especifica determinadas entradas de ação ou saídas que você deseja incluir na telemetria de Diagnóstico do Azure, emitida como parte de um fluxo de trabalho. Por exemplo: 
 
 ``` json
 {
@@ -172,10 +172,10 @@ Agora as ações podem ter uma propriedade adicional chamada `trackedProperties`
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar definições de fluxo de trabalho para aplicativos lógicos](../logic-apps/logic-apps-author-definitions.md)
-* [Automatizar a implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatizar implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

@@ -1,19 +1,18 @@
 ---
-title: Preços para ofertas de máquina virtual | Azure Marketplace
+title: Preços para ofertas de máquinas virtuais | Mercado Azure
 description: Explica os três métodos para especificar o preço das ofertas de máquina virtual.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b96dcfa6a140d5c16208fd8183003a7462b1aa56
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827333"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280432"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Preços das ofertas de máquina virtual
 ==================================
@@ -24,7 +23,7 @@ Há três maneiras de especificar preços para as ofertas de máquina virtual: p
 <a name="customized-core-pricing"></a>Preço de núcleo personalizado
 -----------------------
 
-O preço é específico para cada combinação de núcleo e região. Cada região na lista de vendas deve ser especificada na seção **virtualMachinePricing**/**regionPrices** da definição.  Use os códigos de moeda corretos de cada [região](#regions) na solicitação.  O exemplo a seguir demonstra esses requisitos:
+O preço é específico para cada combinação de núcleo e região. Todas as regiões da lista de vendas devem ser especificadas na seção **virtualMachinePricingPrices**/**regionPrices** da definição.  Use os códigos de moeda corretos de cada [região](#regions) na solicitação.  O exemplo a seguir demonstra esses requisitos:
 
 ``` json
     "virtualMachinePricing": 
@@ -101,10 +100,10 @@ O editor também pode carregar a planilha de preços em um local de armazenament
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Novos tamanhos de núcleo adicionados em 7/2/2019
+<a name="new-core-sizes-added-on-722019"></a>Novos tamanhos de núcleo adicionados em 02/07/2019
 ---------------------------
 
-Os editores de VM foram notificados em 2 de julho de 2019 da adição de novos preços para novos tamanhos de máquina virtual do Azure (com base no número de núcleos).  Os novos preços são para os tamanhos de núcleos 10, 44, 48, 60, 120, 208 e 416.  Para a VM existente oferece novos preços para esses tamanhos de núcleos calculados automaticamente com base nos preços atuais.  Os editores têm até 1º de agosto de 2019 para examinar os preços adicionais e fazer as alterações desejadas.  Após essa data, se ainda não tiver sido publicado novamente pelo Publicador, os preços calculados automaticamente para esses novos tamanhos de núcleo entrarão em vigor.
+Os editores da VM foram notificados em 2 de julho de 2019 sobre a adição de novos preços para novos tamanhos de máquinas virtuais do Azure (com base no número de núcleos).  Os novos preços são para os tamanhos 10, 44, 48, 60, 120, 208 e 416.  Para a VM existente, os novos preços para esses tamanhos de núcleo foram automaticamente calculados com base nos preços atuais.  Os editores têm até 1º de agosto de 2019 para revisar os preços adicionais e fazer quaisquer alterações desejadas.  Após essa data, se ainda não for republicado pelo editor, os preços calculados automaticamente para esses novos tamanhos principais entrarão em vigor.
 
 
 <a name="regions"></a>Regiões
@@ -123,7 +122,7 @@ A tabela a seguir mostra as diferentes regiões que você pode especificar para 
 | BE         | Bélgica              | EUR               |
 | BR         | Brasil               | USD               |
 | BG         | Bulgária             | BGN               |
-| CA         | Canadá               | CAD               |
+| CA         | Canada               | CAD               |
 | CL         | Chile                | CLP               |
 | CO         | Colômbia             | COP               |
 | CR         | Costa Rica           | CRC               |
@@ -168,7 +167,7 @@ A tabela a seguir mostra as diferentes regiões que você pode especificar para 
 | NL         | Países Baixos          | EUR               |
 | NZ         | Nova Zelândia          | NZD               |
 | NG         | Nigéria              | NGN               |
-| NÃO         | Noruega               | NOK               |
+| Não         | Noruega               | NOK               |
 | OM         | Omã                 | OMR               |
 | PK         | Paquistão             | PKR               |
 | PA         | Panamá               | USD               |
@@ -198,7 +197,7 @@ A tabela a seguir mostra as diferentes regiões que você pode especificar para 
 | TR         | Turquia               | TRY               |
 | UA         | Ucrânia              | UAH               |
 | AE         | Emirados Árabes Unidos | EUR               |
-| GB         | Reino Unido       | GBP               |
+| GB         | United Kingdom       | GBP               |
 | EUA         | Estados Unidos        | USD               |
 | UY         | Uruguai              | UYU               |
 | VE         | Venezuela            | USD               |

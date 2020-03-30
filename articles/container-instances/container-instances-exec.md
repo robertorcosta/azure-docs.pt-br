@@ -4,10 +4,10 @@ description: Saiba como executar um comando em um contêiner que está sendo exe
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247196"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Executar um comando em uma Instância de Contêiner do Azure
@@ -16,7 +16,7 @@ As Instâncias de Contêiner do Azure oferecem suporte à execução de um coman
 
 ## <a name="run-a-command-with-azure-cli"></a>Executar um comando com a CLI do Azure
 
-Execute um comando em um contêiner em execução com [AZ container exec][az-container-exec] no [CLI do Azure][azure-cli]:
+Executar um comando em um contêiner em execução com [az container exec][az-container-exec] na [CLI do Azure][azure-cli]:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -82,7 +82,7 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Restrições
 
-Atualmente, as instâncias de contêiner do Azure dão suporte à inicialização de um único processo com [AZ container exec][az-container-exec], e você não pode passar argumentos de comando. Por exemplo, não é possível encadear comandos, como em `sh -c "echo FOO && echo BAR"`, ou executar `echo FOO`.
+Instâncias de Contêiner do Azure atualmente oferecem suporte à inicialização de um único processo com [az container exec][az-container-exec] e você não pode passar argumentos de comando. Por exemplo, não é possível encadear comandos, como em `sh -c "echo FOO && echo BAR"`, ou executar `echo FOO`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

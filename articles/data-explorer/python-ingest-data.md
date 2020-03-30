@@ -1,34 +1,34 @@
 ---
 title: Ingerir dados usando a biblioteca Python do Azure Data Explorer
-description: Neste artigo, você aprenderá a ingerir (carregar) dados no Azure Data Explorer usando o Python.
+description: Neste artigo, você aprende como ingerir dados (carregar) no Azure Data Explorer usando Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 28151476ce96fabc92e04078396119d0eb8c2f17
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79251720"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389351"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Ingerir dados usando a biblioteca Python do Azure Data Explorer
 
-Neste artigo, você ingerirá dados usando a biblioteca do Azure Data Explorer Python. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Data Explorer do Azure fornece duas bibliotecas de cliente para Python: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Essas bibliotecas permitem que você ingerir, ou carregar, dados em um cluster e consultar dados do seu código.
+Neste artigo, você ingere dados usando a biblioteca Python do Azure Data Explorer. O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Data Explorer do Azure fornece duas bibliotecas de cliente para Python: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Essas bibliotecas permitem que você ingera ou carregue dados em um cluster e consulta dados do seu código.
 
 Primeiro, crie uma tabela e um mapeamento de dados em um cluster. Você, em seguida, enfileira ao cluster e valida os resultados.
 
-Este artigo também está disponível como um [bloco de anotações do Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+Este artigo também está disponível como [um Notebook Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
-* [Um cluster e um banco de dados](create-cluster-database-portal.md).
+* [Um cluster e um banco de dados.](create-cluster-database-portal.md)
 
 ## <a name="install-the-data-and-ingest-libraries"></a>Instalar os dados e bibliotecas de ingestão
 
@@ -70,7 +70,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE = "<DatabaseName>"
 ```
 
-Agora, construa a cadeia de caracteres de conexão. Este exemplo usa a autenticação do dispositivo para acessar o cluster. Você também pode usar o [certificado de aplicativo AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), a [chave de aplicativo AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) e o [usuário e a senha do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
+Agora, construa a cadeia de caracteres de conexão. Este exemplo usa a autenticação do dispositivo para acessar o cluster. Você também pode usar [certificado de aplicativo AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24) [chave de aplicativo AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)e [usuário e senha AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 Criar a tabela de destino e o mapeamento em uma etapa posterior.
 
@@ -87,7 +87,7 @@ DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
 
 ## <a name="set-source-file-information"></a>Definir informações de arquivo de origem
 
-Importar classes adicionais e definir constantes para o arquivo de fonte de dados. Este exemplo usa um arquivo de exemplo hospedado no armazenamento de BLOBs do Azure. O conjunto de dados de amostra **StormEvents** contém dados relacionados ao clima dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
+Importar classes adicionais e definir constantes para o arquivo de fonte de dados. Este exemplo usa um arquivo de exemplo hospedado no armazenamento de BLOBs do Azure. O conjunto de dados da amostra **StormEvents** contém dados relacionados ao clima dos [Centros Nacionais de Informações Ambientais](https://www.ncdc.noaa.gov/stormevents/).
 
 ```python
 from azure.storage.blob import BlockBlobService
@@ -105,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
 
 ## <a name="create-a-table-on-your-cluster"></a>Criar uma tabela no cluster
 
-Criar uma tabela que corresponde ao esquema dos dados no arquivo StormEvents.csv. Quando esse código é executado, ele retorna uma mensagem como a seguinte: *Para entrar, use um navegador da web para abrir a página https://microsoft.com/devicelogin e digite o código F3W4VWZDM para autenticar*. Siga as etapas para entrar e retorne para executar o próximo bloco de código. Blocos de código subsequente que compõem uma conexão exigem que você entre novamente.
+Criar uma tabela que corresponde ao esquema dos dados no arquivo StormEvents.csv. Quando esse código é executado, ele retorna uma mensagem como a seguinte: *Para entrar, use um navegador da web para abrir a páginahttps://microsoft.com/devicelogin e digite o código F3W4VWZDM para autenticar*. Siga as etapas para entrar e retorne para executar o próximo bloco de código. Blocos de código subsequente que compõem uma conexão exigem que você entre novamente.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)
@@ -136,7 +136,7 @@ Enfileirar uma mensagem para extrair dados do armazenamento de BLOBs e ingerir e
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
-INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv,
+INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.CSV,
                                            mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
 # FILE_SIZE is the raw size of the data in bytes
 BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
@@ -160,7 +160,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="run-troubleshooting-queries"></a>Executar consultas de solução de problemas
 
-Conectar [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e conectar ao seu cluster. Execute o seguinte comando no banco de dados para ver se houve alguma falha de ingestão nas últimas quatro horas. Substitua o nome do banco de dados antes da execução.
+Faça login [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e conecte-se ao seu cluster. Execute o seguinte comando no banco de dados para ver se houve alguma falha de ingestão nas últimas quatro horas. Substitua o nome do banco de dados antes da execução.
 
 ```Kusto
 .show ingestion failures
@@ -175,7 +175,7 @@ Execute o seguinte comando para exibir o status de todas as operações de inges
 | summarize arg_max(LastUpdatedOn, *) by OperationId
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou. Caso contrário, execute o seguinte comando no seu banco de dados para limpar a tabela StormEvents.
 

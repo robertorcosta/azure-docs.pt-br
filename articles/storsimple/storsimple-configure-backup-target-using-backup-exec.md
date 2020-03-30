@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
 ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75561636"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>O StorSimple como destino de backup com o Backup Exec
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O Azure StorSimple é uma solução de armazenamento de nuvem híbrida da Microsoft. O StorSimple atende às complexidades do crescimento exponencial de dados, usando uma conta de armazenamento do Azure como uma extensão da solução local e dos dados postos em camadas automaticamente no armazenamento local e no armazenamento em nuvem.
 
@@ -55,8 +55,8 @@ Assim como acontece com qualquer solução de armazenamento, o sucesso depende d
 
 O StorSimple foi projetado para oferecer armazenamento a aplicativos que operam em um conjunto de dados de trabalho bem definido (dados mais acessados). Nesse modelo, o conjunto de dados de trabalho é armazenado nas camadas locais e o conjunto de dados que não é de trabalho/menos acessado/arquivado restante é colocado em camadas na nuvem. Esse modelo é representado na figura a seguir. A linha verde quase reta representa os dados armazenados nas camadas locais do dispositivo StorSimple. A linha vermelha representa o volume total de dados armazenados na solução StorSimple em todas as camadas. O espaço entre a linha verde reta e a curva vermelha exponencial representa a quantidade total de dados armazenados na nuvem.
 
-**Disposição em camadas do StorSimple**
-![Diagrama da disposição em camadas do StorSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
+**Diagrama de hierar**
+![simples storSimple](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 Com essa arquitetura em mente, você descobrirá que o StorSimple é ideal para operar como um destino de backup. Você pode usar o StorSimple para:
 -   Realize suas restaurações mais frequentes do conjunto de dados de trabalho local.
@@ -233,7 +233,7 @@ Configure sua solução de acordo com as diretrizes indicadas nas seções a seg
 -   O StorSimple dá suporte a backups completos e incrementais do Backup Exec. Não é recomendável usar backups diferenciais e sintéticos.
 -   Os arquivos de dados de backup devem conter apenas dados de um trabalho específico. Por exemplo, não são permitidos acréscimos de mídia em vários trabalhos diferentes.
 -   Desabilite a verificação do trabalho. Se necessário, a verificação deve ser agendada após o trabalho de backup mais recente. É importante compreender que esse trabalho afeta sua janela de backup.
--   Selecione **Armazenamento** > **Seu disco** > **Detalhes** > **Propriedades**. Desligue **Pré-alocar espaço em disco**.
+-   Selecione **Armazenamento** > Propriedades**dos detalhes** > **do****disco** > . Desligue **Pré-alocar espaço em disco**.
 
 Para as definições mais recentes do Backup Exec e as práticas recomendadas sobre como implementar esses requisitos, consulte [o site da Veritas](https://www.veritas.com).
 
@@ -255,7 +255,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 | Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Completo semanal | 1 | 4  | 4 |
-| Incremental diário | 0,5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
+| Incremental diário | 0.5 | 20 (ciclos, igual ao número de semanas por mês) | 12 (2 para a cota adicional) |
 | Mensal completo | 1 | 12 | 12 |
 | Anual completo | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
@@ -267,7 +267,7 @@ Com base nas premissas anteriores, crie um volume em camadas StorSimple de 26 Ti
 
 ### <a name="to-set-up-backup-exec-storage"></a>Para configurar o armazenamento de Backup Exec
 
-1.  No console de gerenciamento do Backup Exec, selecione **Armazenamento** > **Configurar Armazenamento** > **Armazenamento Baseado em Disco** > **Avançar**.
+1.  No console de gerenciamento do Backup Exec, selecione **Armazenamento** > **Configurar armazenamento** > **baseado em disco em** > **seguida**.
 
     ![Console de gerenciamento do Backup Exec, página de configuração de armazenamento](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -313,7 +313,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 | Frequência/tipo de backup | Completo | Incremental (1 a 5 dias)  |   
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
-| Gasto mensal  | Sábado  |   |
+| Mensal  | Sábado  |   |
 | Anual | Sábado  |   |
 
 
@@ -323,7 +323,7 @@ A sequência a seguir pressupõe que o Backup Exec e o host de destino estão co
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Para atribuir volumes do StorSimple a um trabalho de backup do Backup Exec
 
-1.  No console de gerenciamento do Backup Exec, selecione **Host** > **Backup** > **Backup em Disco**.
+1.  No console de gerenciamento Do Gerenciamento de Backup Exec, selecione **Host** > **Backup** > **Backup to Disk**.
 
     ![No console de gerenciamento do Backup Exec, selecione o host, backup e backup em disco](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -387,7 +387,7 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 | Semana 2 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
-| Gasto mensal | StorSimple mensal |   |   |   |   |   |
+| Mensal | StorSimple mensal |   |   |   |   |   |
 | Anual | StorSimple anual  |   |   |   |   |   |
 
 
@@ -395,11 +395,11 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Para atribuir volumes StorSimple a um trabalho de arquivamento e eliminação de duplicação do Backup Exec
 
-1.  No console de gerenciamento do Backup Exec, clique com o botão direito do mouse no trabalho que você deseja que realize arquivamento em um volume do StorSimple e selecione **Propriedades de Definição de Backup** > **Editar**.
+1.  No console de gerenciamento Do Gerenciamento de Backup Exec, clique com o botão direito do mouse no trabalho que deseja arquivar para um volume StorSimple e, em seguida, selecione **'Propriedades de definição de** > backup **'**.
 
     ![Console de gerenciamento do Backup Exec, guia Propriedades de Definição de Backup](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Selecione **Adicionar Estágio** > **Duplicado em Disco** > **Editar**.
+2.  Selecione Adicionar > **duplicata de** >  **estágio**à**edição de**disco .
 
     ![Console de gerenciamento de Backup Exec, adicionar estágio](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
@@ -487,7 +487,7 @@ Os documentos a seguir foram mencionados neste artigo:
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como [restaurar de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Sobre mais sobre como executar [failover e recuperação de desastre no dispositivo](storsimple-device-failover-disaster-recovery.md).

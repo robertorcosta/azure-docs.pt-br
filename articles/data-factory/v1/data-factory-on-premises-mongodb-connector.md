@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281334"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
@@ -26,14 +26,14 @@ ms.locfileid: "79281334"
 > Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do MongoDB na V2](../connector-mongodb.md).
 
 
-Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MongoDB local. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
+Esse artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de um banco de dados MongoDB local. Ele se baseia no artigo [Atividades de Movimentação](data-factory-data-movement-activities.md) de Dados, que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
-Você pode copiar dados de um armazenamento de dados local do MongoDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de repositórios de dados com suporte como coletores da atividade de cópia, confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MongoDB para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MongoDB.
+Você pode copiar dados de um armazenamento de dados local do MongoDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados suportados como sinks pela atividade de cópia, consulte a tabela [de armazenamento de dados suportado.](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Atualmente, o data factory dá suporte apenas à movimentação de dados de um armazenamento de dados MongoDB para outros repositórios de dados, mas não à movimentação de dados de outros repositórios de dados para um armazenamento de dados MongoDB.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para o serviço Azure Data Factory poder se conectar ao banco de dados MongoDB no local, você deve instalar os seguintes componentes:
 
-- As versões do MongoDB com suporte são: 2,4, 2,6, 3,0, 3,2, 3,4 e 3,6.
+- As versões mongodb suportadas são: 2.4, 2.6, 3.0, 3.2, 3.4 e 3.6.
 - Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados. Consulte o artigo [Mover dados de pontos locais para a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções detalhadas sobre como configurar um pipeline de dados para o gateway a fim de mover dados.
 
     Quando você instala o gateway, ele instala automaticamente um driver ODBC do Microsoft MongoDB usado para se conectar ao banco de dados MongoDB.
@@ -46,7 +46,7 @@ Você pode criar um pipeline com atividade de cópia que mova dados de um armaze
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio,** **Azure PowerShell,** **azure Resource Manager,** **.NET API**e **REST API**. Consulte [o tutorial de atividade copiar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -61,7 +61,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade do tipo deve ser definida como: **OnPremisesMongoDb** |Sim |
 | Servidor |Endereço IP ou nome do host do servidor MongoDB. |Sim |
@@ -77,27 +77,27 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
+A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **MongoDbCollection** tem as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
 
-As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
+As propriedades disponíveis na seção **typePropriedades** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
 
 Quando a fonte é do tipo **MongoDbSource** , as seguintes propriedades estão disponíveis na seção typeProperties:
 
-| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | Consulta |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: select * from MyTable. |Não (se **collectionName** de **dataset** for especificado) |
 
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Exemplo de JSON: copiar dados do MongoDB para o Blob do Azure
-Este exemplo fornece definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de um banco de dados MongoDB local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+Este exemplo fornece definições de JSON de amostra que você pode usar para criar um pipeline usando [o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de um banco de dados MongoDB local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 O exemplo tem as seguintes entidades de data factory:
 
@@ -134,7 +134,7 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 }
 ```
 
-**Serviço vinculado de armazenamento do Azure:**
+**Serviço vinculado ao Azure Storage:**
 
 ```json
 {
@@ -148,7 +148,7 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 }
 ```
 
-**Conjunto de dados de entrada do MongoDB:** Configurar “external” como “true” informa ao serviço Data Factory que a tabela é externa ao Data Factory e não é produzido por uma atividade no Data Factory.
+**Conjunto de dados de entrada Do MongoDB:** Configuração "externa": "verdadeiro" informa ao serviço Data Factory que a tabela é externa à fábrica de dados e não é produzida por uma atividade na fábrica de dados.
 
 ```json
 {
@@ -168,7 +168,7 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 }
 ```
 
-**Conjunto de dados de saída de Blob do Azure:**
+**Conjunto de dados de saída do Azure Blob:**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
@@ -360,7 +360,7 @@ Tabela "TabelaDeExemplo_Classificações":
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
-Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Consulte [Leitura repetível de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

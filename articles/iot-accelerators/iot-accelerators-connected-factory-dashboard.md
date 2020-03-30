@@ -1,6 +1,6 @@
 ---
 title: Usar o dashboard Connected Factory - Azure | Microsoft Docs
-description: Este artigo descreve como usar os recursos do painel de fábrica conectado para monitorar e gerenciar seus dispositivos IoT industriais.
+description: Este artigo descreve como usar os recursos do painel Connected Factory para monitorar e gerenciar seus dispositivos IoT industriais.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
 ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820170"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Use funcionalidades no painel do acelerador de solução da Fábrica Conectada
@@ -33,7 +33,7 @@ Você pode filtrar as informações exibidas no painel ou no painel **locais de 
 
 1. O filtro é aplicado. O ícone de funil extra indica que um filtro é aplicado:
 
-    [![Filtros do acelerador de solução da Fábrica Conectada aplicada](./media/iot-accelerators-connected-factory-dashboard/filterapplied-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterapplied-expanded.png#lightbox)
+    [![Filtro de acelerador de solução connected factory aplicado](./media/iot-accelerators-connected-factory-dashboard/filterapplied-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterapplied-expanded.png#lightbox)
 
     > [!NOTE]
     > Um filtro ativo não afeta os valores OEE e KPI exibidos. Ele apenas filtra o conteúdo da lista.
@@ -46,17 +46,17 @@ Ao implantar o acelerador de solução, você provisiona automaticamente servido
 
 1. Clique no **ícone do navegador** na barra de navegação do painel:
 
-    [![Navegador do servidor do acelerador de solução da Fábrica Conectada](./media/iot-accelerators-connected-factory-dashboard/browser-inline.png)](./media/iot-accelerators-connected-factory-dashboard/browser-expanded.png#lightbox)
+    [![Navegador do servidor de servidor de soluções de fábrica conectada](./media/iot-accelerators-connected-factory-dashboard/browser-inline.png)](./media/iot-accelerators-connected-factory-dashboard/browser-expanded.png#lightbox)
 
 1. Escolha um dos servidores da lista que mostra os servidores implantados no Acelerador de solução:
 
-    [![Lista do servidor do acelerador de solução da Fábrica Conectada](./media/iot-accelerators-connected-factory-dashboard/serverlist-inline.png)](./media/iot-accelerators-connected-factory-dashboard/serverlist-expanded.png#lightbox)
+    [![Lista de servidores do acelerador de soluções Connected Factory](./media/iot-accelerators-connected-factory-dashboard/serverlist-inline.png)](./media/iot-accelerators-connected-factory-dashboard/serverlist-expanded.png#lightbox)
 
 1. Clique em **Conectar**. Uma caixa de diálogo de segurança será exibida. Para a simulação, é seguro clicar em **Continuar**.
 
 1. Clique em um dos nós na árvore de servidor para expandi-lo. Nós que estão publicando telemetria têm uma marcação ao lado deles:
 
-    [![Árvore do servidor do acelerador de solução da Fábrica Conectada](./media/iot-accelerators-connected-factory-dashboard/servertree-inline.png)](./media/iot-accelerators-connected-factory-dashboard/servertree-expanded.png#lightbox)
+    [![Árvore do servidor do servidor de soluções de fábrica conectada](./media/iot-accelerators-connected-factory-dashboard/servertree-inline.png)](./media/iot-accelerators-connected-factory-dashboard/servertree-expanded.png#lightbox)
 
 1. Clique com o botão direito do mouse em um item para ler, gravar, publicar ou chamar esse nó. As ações disponíveis para você dependem de suas permissões e dos atributos do nó. A opção de leitura exibe um painel de contexto mostrando o valor do nó específico. A opção de gravação exibe um painel de contexto em que você pode inserir um novo valor. A opção de chamada exibe um nó em que você pode inserir os parâmetros para a chamada.
 
@@ -68,11 +68,11 @@ Ao procurar um *servidor OPC UA simulado*, você também pode optar por publicar
 
 1. Clique com o botão direito do mouse no nó. Clicar em **Publicar**:
 
-    [![Nó de publicação do acelerador de solução Connected Factory](./media/iot-accelerators-connected-factory-dashboard/publishnode-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishnode-expanded.png#lightbox)
+    [![Acelerador de solução Connected Factory publicar nó](./media/iot-accelerators-connected-factory-dashboard/publishnode-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishnode-expanded.png#lightbox)
 
 1. É exibido um painel de contexto que informa que a publicação foi bem-sucedida. O nó aparece na exibição do nível de estação com uma marca de seleção ao lado dele:
 
-    [![Sucesso de publicação do acelerador de solução Connected Factory](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-expanded.png#lightbox)
+    [![Acelerador de soluções Connected Factory publica sucesso](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-expanded.png#lightbox)
 
 ## <a name="command-and-control"></a>Comando e controle
 
@@ -82,11 +82,11 @@ A Fábrica Conectada permite que você comande e controle os dispositivos do set
 
 1. Escolha o comando que você deseja usar. Clique com botão direito do nó **OpenPressureReleaseValve**. Clique em **Chamar**:
 
-    [![Comando de chamada do acelerador de solução da Fábrica Conectada](./media/iot-accelerators-connected-factory-dashboard/callcommand-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callcommand-expanded.png#lightbox)
+    [![Comando de chamada do acelerador de solução Connected Factory](./media/iot-accelerators-connected-factory-dashboard/callcommand-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callcommand-expanded.png#lightbox)
 
 1. É exibido um painel de contexto que informa o método que você está prestes a chamar e quaisquer detalhes de parâmetros. Clique em **Chamar**:
 
-    [![Parâmetros de chamada do acelerador de solução da Fábrica Conectada](./media/iot-accelerators-connected-factory-dashboard/callpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callpanel-expanded.png#lightbox)
+    [![Parâmetros de chamada de chamada do acelerador de solução Connected Factory](./media/iot-accelerators-connected-factory-dashboard/callpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callpanel-expanded.png#lightbox)
 
 1. O painel de contexto é atualizado para informar que a chamada de método foi bem-sucedida. Você pode verificar se a chamada foi bem-sucedida lendo o valor do nó de pressão atualizado como resultado da chamada.
 
@@ -96,7 +96,7 @@ A Fábrica Conectada permite que você comande e controle os dispositivos do set
 
 Ao implantar um acelerador de solução, o processo de implantação criará vários recursos na assinatura do Azure que você selecionou. Você pode exibir esses recursos no [portal](https://portal.azure.com) do Azure. O processo de implantação cria um **grupo de recursos** com um nome baseado no nome escolhido para seu acelerador de solução:
 
-[![Grupo de recurso do acelerador de solução da Fábrica Conectada](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-inline.png)](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-expanded.png#lightbox)
+[![Grupo de recursos do acelerador de soluções Connected Factory](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-inline.png)](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-expanded.png#lightbox)
 
 Você pode exibir as configurações de cada recurso selecionando-o na lista de recursos no grupo de recursos.
 
@@ -111,5 +111,5 @@ Quando você terminar, poderá excluir o acelerador de solução de sua assinatu
 
 Agora que você implantou um acelerador de solução de trabalho, poderá continuar a introdução aos aceleradores de solução IoT lendo os seguintes artigos:
 
-* [Configurar o acelerador de solução de fábrica conectada](iot-accelerators-connected-factory-configure.md)
+* [Configurar o acelerador da solução Connected Factory](iot-accelerators-connected-factory-configure.md)
 * [Permissões no site azureiotsolutions.com](iot-accelerators-permissions.md)

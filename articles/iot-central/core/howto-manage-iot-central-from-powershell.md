@@ -1,27 +1,27 @@
 ---
 title: Gerenciar o IoT Central do Azure PowerShell | Microsoft Docs
-description: Este artigo descreve como criar e gerenciar seus aplicativos de IoT Central do Azure PowerShell.
+description: Este artigo descreve como criar e gerenciar seus aplicativos IoT Central do Azure PowerShell.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2020
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 1598451ce184db5a25cac28870b70a446aef123c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 42d853c9cf53c1c6921fbd1816ec2298c9c3583e
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198813"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365544"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gerenciar o IoT Central do Azure PowerShell
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-Em vez de criar e gerenciar IoT Central aplicativos no site [do Azure IOT central Application Manager](https://aka.ms/iotcentral) , você pode usar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para gerenciar seus aplicativos.
+Em vez de criar e gerenciar aplicativos IoT Central no site do [gerenciador de aplicativos Azure IoT Central,](https://aka.ms/iotcentral) você pode usar [o Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para gerenciar seus aplicativos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Se você preferir executar o Azure PowerShell em seu computador local, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Quando você executar o Azure PowerShell localmente, use o cmdlet **AzAccount Connect** para entrar antes de experimentar os cmdlets neste artigo.
 
 > [!TIP]
-> Se você precisar executar seus comandos do PowerShell em uma assinatura do Azure diferente, consulte [alterar a assinatura ativa](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
+> Se você precisar executar seus comandos PowerShell em uma assinatura diferente do Azure, consulte [Alterar a assinatura ativa](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
 
 ## <a name="install-the-iot-central-module"></a>Instalar o módulo do IoT Central
 
@@ -48,7 +48,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 
-Use o cmdlet [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) para criar um aplicativo do IoT Central na sua assinatura do Azure. Por exemplo:
+Use o cmdlet [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) para criar um aplicativo do IoT Central na sua assinatura do Azure. Por exemplo: 
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -66,13 +66,13 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 
 Primeiro, o script cria um grupo de recursos na região Leste dos EUA para o aplicativo. A tabela a seguir descreve os parâmetros usados com o comando **New-AzIotCentralApp**:
 
-|Parâmetro         |DESCRIÇÃO |
+|Parâmetro         |Descrição |
 |------------------|------------|
 |ResourceGroupName |O grupo de recursos que contém o aplicativo. Esse grupo de recursos já precisa existir na sua assinatura. |
-|Location |Por padrão, esse cmdlet usa a localização do grupo de recursos. No momento, você pode criar um aplicativo IoT Central na **Austrália**, **Pacífico Asiático**, **Europa**ou **Estados Unidos** geografia.  |
+|Location |Por padrão, esse cmdlet usa a localização do grupo de recursos. Atualmente, você pode criar uma aplicação IoT Central nas geografias **Austrália**, **Ásia-Pacífico**, **Europa**, **Estados Unidos,** **Reino Unido**e **Japão.** |
 |Nome              |Digite o nome do aplicativo no portal do Azure. |
-|Subdomínio         |O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é https://mysubdomain.azureiotcentral.com. |
-|Sku               |No momento, você pode usar **ST1** ou **ST2**. Confira [Preço do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
+|Subdomínio         |O subdomínio na URL do aplicativo. No exemplo, a URL do aplicativo é `https://mysubdomain.azureiotcentral.com`. |
+|Sku               |Atualmente, você pode usar **ST1** ou **ST2**. Confira [Preço do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modelo          | O modelo de aplicativo a usar. Para obter mais informações, confira a tabela a seguir. |
 |DisplayName       |O nome do aplicativo, conforme exibido na interface do usuário. |
 
@@ -94,7 +94,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 ## <a name="remove-an-application"></a>Remover um aplicativo
 
-Use o cmdlet [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) para excluir um aplicativo do IoT Central. Por exemplo:
+Use o cmdlet [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) para excluir um aplicativo do IoT Central. Por exemplo: 
 
 ```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
@@ -106,4 +106,4 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 Agora que você aprendeu a gerenciar os aplicativos do Azure IoT Central no Azure PowerShell, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Administrar o aplicativo](howto-administer.md)
+> [Administrar seu aplicativo](howto-administer.md)

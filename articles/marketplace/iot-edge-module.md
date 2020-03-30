@@ -1,20 +1,18 @@
 ---
 title: Módulos do Azure IoT Edge
 description: A oferta Módulo do IoT Edge no Azure Marketplace para editores de aplicativos e serviços.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: pabutler
-ms.openlocfilehash: db501c34a4418bc7b08b19105a9b28585288f877
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823059"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286142"
 ---
 # <a name="iot-edge-modules"></a>Módulos do IoT Edge
 
@@ -36,7 +34,7 @@ O Azure IoT Edge permite implantar e gerenciar a lógica de negócios na borda e
 
 **Qual é a diferença entre um tipo de oferta de contêiner e um tipo de oferta de módulo do IoT Edge?**
 
-O tipo de oferta de módulo do IoT Edge é um tipo específico de contêiner em execução em um dispositivo do IoT Edge. Ele vem com definições de configuração padrão para ser executado no contexto do IoT Edge e, opcionalmente, usa o SDK do módulo do IoT Edge para ser integrado ao tempo de execução do IoT Edge.
+O tipo de oferta de módulo do IoT Edge é um tipo específico de contêiner em execução em um dispositivo do IoT Edge. Ele vem com definições de configuração padrão para ser executado no contexto do IoT Edge e, opcionalmente, usa o SDK do módulo do IoT Edge para ser integrado ao runtime do IoT Edge.
 
 ## <a name="publishing-your-iot-edge-module"></a>Publicando o módulo do IoT Edge
 
@@ -44,7 +42,7 @@ O tipo de oferta de módulo do IoT Edge é um tipo específico de contêiner em 
 
 Os módulos do IoT Edge só são publicados no Azure Marketplace. O AppSource não se aplica.  Para obter mais informações sobre as diferenças e a audiência das vitrines, confira [Determinando a opção de publicação para sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
  
-**Opções de cobrança**
+**Opções de faturamento**
 
 No momento, o Marketplace dá suporte às opções de cobrança **Gratuito** e **BYOL (traga sua própria licença)** para os módulos do IoT Edge.
  
@@ -71,13 +69,13 @@ Para publicar um módulo do IoT Edge no Azure Marketplace, você precisa atender
     - Documentação
     - Contatos de suporte
 
-**Requisitos técnicos**
+**Requisitos Técnicos**
 
 Os principais requisitos técnicos de um IoT Edge Module, para que ele seja certificado e publicado no Azure Marketplace, estão detalhados no [Prepare os recursos técnicos do módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
 
 ## <a name="documentation-and-resources"></a>Documentação e recursos
 
-[Criar uma oferta de módulo IOT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) --as etapas para publicar uma nova oferta de módulo IOT Edge com o portal de publicação na nuvem.
+[Crie uma oferta de módulo IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -- As etapas para publicar uma nova oferta de módulo IoT Edge com o Portal de Publicação em Nuvem.
 
 ## <a name="next-steps"></a>Próximas etapas
 

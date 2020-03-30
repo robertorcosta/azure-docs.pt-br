@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722230"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implantar modelos para produção para desempenhar um papel ativo na tomada de decisões de negócios
@@ -25,7 +25,7 @@ A implantação de produção permite que um modelo execute uma função ativa e
 
 Há várias abordagens e plataformas para colocar modelos em produção. Veja algumas opções:
 
-- [Onde implantar modelos com Azure Machine Learning](../how-to-deploy-and-where.md)
+- [Onde implantar modelos com o Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Implantação de um modelo no SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -39,8 +39,8 @@ Há várias abordagens e plataformas para colocar modelos em produção. Veja al
 
 ## <a name="ab-testing"></a>Testes de A/B
 
-Quando vários modelos estão em produção, os [testes a/B](https://en.wikipedia.org/wiki/A/B_testing) podem ser usados para comparar o desempenho do modelo. 
+Quando vários modelos estão em produção, [o teste A/B](https://en.wikipedia.org/wiki/A/B_testing) pode ser usado para comparar o desempenho do modelo. 
  
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 

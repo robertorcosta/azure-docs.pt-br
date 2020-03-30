@@ -1,14 +1,14 @@
 ---
 title: Ofertas de Serviços Gerenciados no Azure Marketplace
 description: As ofertas de serviços gerenciados permitem que os provedores de serviços vendam ofertas de gerenciamento de recursos a clientes no Azure Marketplace.
-ms.date: 12/16/2019
+ms.date: 03/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b4f0d7457a74afe710a48f429cfe47535a9b122
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2d6e39f753736c0582e9d91870a99b66ae41255b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453580"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500790"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Ofertas de Serviços Gerenciados no Azure Marketplace
 
@@ -31,13 +31,13 @@ Planos públicos permitem que você promova serviços para novos clientes. Norma
 Se apropriado, você pode incluir planos públicos e privados na mesma oferta.
 
 > [!IMPORTANT]
-> Depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, não é possível restringir a disponibilidade para determinados clientes ou até mesmo para um determinado número de clientes (embora você possa deixar de vender completamente o plano se optar por fazê-lo). Atualmente, não há nenhum mecanismo para rejeitar ou remover delegações depois que um cliente aceita uma oferta, embora você sempre possa entrar em contato com um cliente e pedir que ele [remova seu acesso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Uma vez que um plano tenha sido publicado como público, você não pode mudá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, você não pode restringir a disponibilidade a certos clientes ou mesmo a um certo número de clientes (embora você possa parar de vender o plano completamente se você optar por fazê-lo). Você pode [remover o acesso a uma delegação](../how-to/onboard-customer.md#remove-access-to-a-delegation) depois que um cliente aceitar uma oferta somente se você incluiu uma **autorização** com a definição **de função** definida como Função [de Exclusão de Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando você publicou a oferta. Você também pode entrar em contato com o cliente e pedir-lhe para [remover seu acesso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ## <a name="publish-managed-service-offers"></a>Publicar ofertas de serviços gerenciados
 
 Para saber como publicar uma oferta de serviços gerenciados, confira [Publicar uma oferta de Serviços Gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md). Para obter informações gerais sobre como publicar no Azure Marketplace usando o Portal do Cloud Partner, confira [Guia de publicação do Azure Marketplace e AppSource](../../marketplace/marketplace-publishers-guide.md) e [Gerenciar ofertas do Azure e do AppSource Marketplace](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [gerenciamento de recursos delegados do Azure](azure-delegated-resource-management.md) e [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
-- [Publique ofertas de serviços gerenciados](../how-to/publish-managed-services-offers.md) no Azure Marketplace.
+- [Publique ofertas de serviços gerenciados](../how-to/publish-managed-services-offers.md) ao Azure Marketplace.

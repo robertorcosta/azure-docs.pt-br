@@ -1,5 +1,5 @@
 ---
-title: Conectar redes virtuais com emparelhamento VNet-CLI do Azure
+title: Conecte redes virtuais com peering VNet - Azure CLI
 description: Neste artigo, você aprende a conectar redes virtuais com o emparelhamento de rede virtual, usando a CLI do Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4ba37ea99ddc0903e1febd53f8d8fbd84b417b87
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: aa2d75173b14e768a207336b54b3dc10a8c3ea5c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201375"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235156"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conectar redes virtuais com o emparelhamento de rede virtual usando a CLI do Azure
 
@@ -35,11 +35,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Caso opte por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Caso opte por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
-Antes de criar uma rede virtual, será necessário criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Antes de criar uma rede virtual, será necessário criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no *local eastus.*
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -143,7 +143,7 @@ az vm create \
 
 Crie uma VM na rede virtual *myVirtualNetwork2*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm2 \
@@ -155,7 +155,7 @@ az vm create \
 
 A VM demora alguns minutos para criar. Quando a VM estiver criada, a CLI do Azure mostra informações semelhantes ao exemplo a seguir: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",
@@ -174,13 +174,13 @@ Anote o **publicIpAddress**. Esse endereço será usado para acessar a VM da int
 
 Use o comando a seguir para criar uma sessão SSH com a VM *myVm2*. Substitua `<publicIpAddress>` pelo endereço IP público de sua VM. No exemplo anterior, o endereço IP público é *13.90.242.231*.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
 Execute o ping da VM em *myVirtualNetwork1*.
 
-```bash 
+```bash
 ping 10.0.0.4 -c 4
 ```
 
@@ -188,11 +188,11 @@ Você receberá quatro respostas.
 
 Feche a sessão SSH da VM *myVm2*. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

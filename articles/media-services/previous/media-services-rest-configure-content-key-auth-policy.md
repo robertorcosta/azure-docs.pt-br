@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773690"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
  Você pode usar os Serviços de Mídia do Microsoft Azure para distribuir o conteúdo criptografado (dinamicamente) com a criptografia AES (usando chaves de criptografia de 128 bits) e a criptografia de gerenciamento de direitos digitais (DRM) do PlayReady ou Widevine. Os Serviços de Mídia também fornecem um serviço de entrega de chaves e licenças do PlayReady/Widevine a clientes autorizados.
 
 Se você desejar que os Serviços de Mídia criptografem um ativo, associe uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo. Para saber mais, confira [Criar chaves de conteúdo com REST](media-services-rest-create-contentkey.md). Você também precisa configurar políticas de autorização para a chave (conforme descrito neste artigo).
@@ -63,7 +63,7 @@ Restrição aberta significa que o sistema entrega a chave a qualquer pessoa que
 
 O exemplo a seguir cria uma política de autorização aberta e o adiciona à chave de conteúdo.
 
-#### <a id="ContentKeyAuthorizationPolicies"></a>Criar ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>Criar ContentKeyAuthorizationPolicies
 Solicitação:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -99,7 +99,7 @@ Resposta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Criar ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a><a id="ContentKeyAuthorizationPolicyOptions"></a>Criar ContentKeyAuthorizationPolicyOptions
 Solicitação:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -135,7 +135,7 @@ Resposta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Link ContentKeyAuthorizationPolicies com opções
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Link ContentKeyAuthorizationPolicies with Options
 Solicitação:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies('nb%3Ackpid%3AUUID%3A0baa438b-8ac2-4c40-a53c-4d4722b78715')/$links/Options HTTP/1.1
@@ -156,7 +156,7 @@ Resposta:
 
     HTTP/1.1 204 No Content
 
-#### <a id="AddAuthorizationPolicyToKey"></a>Adicionar uma política de autorização para a chave de conteúdo
+#### <a name="add-an-authorization-policy-to-the-content-key"></a><a id="AddAuthorizationPolicyToKey"></a>Adicionar uma política de autorização para a chave de conteúdo
 Solicitação:
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -183,7 +183,7 @@ Esta seção descreve como criar uma política de autorização de chave de cont
 Para configurar a opção de restrição de token, você precisa usar um XML para descrever os requisitos da autorização do token. O XML de configuração de restrição de token deve estar de acordo com o esquema XML a seguir:
 
 
-#### <a id="schema"></a>Esquema de restrição de token
+#### <a name="token-restriction-schema"></a><a id="schema"></a>Esquema de restrição de token
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -283,14 +283,14 @@ Adicionar AuthorizationPolicy ao ContentKey, conforme mostrado na seção "[Adic
 ## <a name="playready-dynamic-encryption"></a>Criptografia dinâmica do PlayReady
 Você pode usar os Serviços de Mídia para configurar os direitos e restrições que você deseja para que o runtime do PlayReady DRM imponha quando um usuário tentar reproduzir conteúdo protegido. 
 
-Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](media-services-playready-license-template-overview.md). 
+Quando você protege seu conteúdo com o PlayReady, uma das coisas que você precisa especificar em sua política de autorização é uma seqüência XML que define o [modelo de licença PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Restrição aberta
 Restrição aberta significa que o sistema entrega a chave a qualquer pessoa que faça uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
 
 O exemplo a seguir cria uma política de autorização aberta e o adiciona à chave de conteúdo.
 
-#### <a id="ContentKeyAuthorizationPolicies2"></a>Criar ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>Criar ContentKeyAuthorizationPolicies
 Solicitação:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -417,8 +417,8 @@ Link ContentKeyAuthorizationPolicies com opções, como mostrado na seção "[Cr
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Adicionar uma política de autorização para a chave de conteúdo
 Adicionar AuthorizationPolicy ao ContentKey, conforme mostrado na seção "[Adicionar uma política de autorização para a chave de conteúdo](#AddAuthorizationPolicyToKey)."
 
-## <a id="types"></a>Tipos usados ao definir ContentKeyAuthorizationPolicy
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipos usados ao definir ContentKeyAuthorizationPolicy
+### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -431,7 +431,7 @@ Adicionar AuthorizationPolicy ao ContentKey, conforme mostrado na seção "[Adic
 > A restrição de IP em políticas de autorização de chaves de conteúdo ainda não está disponível no serviço.
 
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
         None = 0,
@@ -450,6 +450,6 @@ Adicionar AuthorizationPolicy ao ContentKey, conforme mostrado na seção "[Adic
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora que você configurou a política de autorização da chave de conteúdo, consulte [Configurar uma política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 

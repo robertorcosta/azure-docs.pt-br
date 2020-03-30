@@ -8,10 +8,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 3492f35d54dd3ee61ab8d29a3af06e4998bbd477
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277778"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(PRETERIDO) Gerenciamento de contêiner de DC/sistema operacional por meio da API REST do Marathon
@@ -28,7 +28,7 @@ Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurad
 * [Conexão a um cluster do Serviço de Contêiner do Azure](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Acessar as APIs de DC/sistema operacional
-Depois que você estiver conectado ao cluster do serviço de contêiner do Azure, poderá acessar o DC/so e as APIs REST relacionadas por meio de http:\//localhost: local-Port. Os exemplos neste documento pressupõem que você crie um túnel na porta 80. Por exemplo, os pontos de extremidade Marathon podem ser acessados em URIs começando com http:\//localhost/Marathon/v2/. 
+Depois de conectado ao cluster Azure Container Service, você pode acessar as APIs DC/OS e REST relacionadas através de http:\//localhost:local-port. Os exemplos neste documento pressupõem que você crie um túnel na porta 80. Por exemplo, os pontos finais da Maratona podem\/ser alcançados em URIs começando com http: /localhost/marathon/v2/. 
 
 Para saber mais sobre as várias APIs, confira a documentação da Mesosphere para a [API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e a [API Chronos](https://mesos.github.io/chronos/docs/api.html) e a documentação do Apache para a [API do Agendador do Mesos](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -112,7 +112,7 @@ A saída do servidor Nginx deverá ser semelhante à seguinte:
 
 
 ## <a name="scale-your-containers"></a>Dimensionar seus contêineres
-Você pode usar a API do Marathon para escalar ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
+Você pode usar a API do Marathon para expandir ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
 
 ```json
 { "instances": 3 }
@@ -121,7 +121,7 @@ Você pode usar a API do Marathon para escalar ou reduzir horizontalmente as imp
 De sua conexão por túnel, execute o comando a seguir para escalar horizontalmente o aplicativo.
 
 > [!NOTE]
-> O URI é http:\//localhost/Marathon/v2/apps/seguido pela ID do aplicativo a ser dimensionado. Se você estiver usando o exemplo Nginx fornecido aqui, o URI seria http:\//localhost/Marathon/v2/apps/nginx.
+> O URI é\/http: /localhost/marathon/v2/apps/ seguido do ID do aplicativo para escala. Se você estiver usando a amostra nginx fornecida aqui,\/o URI estaria http: /localhost/marathon/v2/apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -169,7 +169,7 @@ Para implantar um contêiner Docker formatado, armazene o arquivo JSON em um loc
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-Você também pode usar a API do Marathon para escalar ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
+Você também pode usar a API do Marathon para expandir ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
 
 ```json
 { "instances": 3 }
@@ -178,13 +178,13 @@ Você também pode usar a API do Marathon para escalar ou reduzir horizontalment
 Execute o comando a seguir para escalar horizontalmente o aplicativo:
 
 > [!NOTE]
-> O URI é http:\//localhost/Marathon/v2/apps/seguido pela ID do aplicativo a ser dimensionado. Se você estiver usando o exemplo Nginx fornecido aqui, o URI seria http:\//localhost/Marathon/v2/apps/nginx.
+> O URI é\/http: /localhost/marathon/v2/apps/ seguido do ID do aplicativo para escala. Se você estiver usando a amostra nginx fornecida aqui, o URI estaria http:\//localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Leia mais sobre os pontos de extremidade HTTP Mesos](https://mesos.apache.org/documentation/latest/endpoints/)
 * [Leia mais sobre a API REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

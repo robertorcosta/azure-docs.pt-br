@@ -1,21 +1,21 @@
 ---
-title: Acessar logs de consulta lentos-CLI do Azure-banco de dados do Azure para MariaDB
-description: Este artigo descreve como acessar os logs lentos no banco de dados do Azure para MariaDB usando o utilitário de linha de comando CLI do Azure.
+title: Acesse registros de consulta lenta - Azure CLI - Banco de dados Azure para MariaDB
+description: Este artigo descreve como acessar os logs lentos no Banco de Dados Do Azure para MariaDB usando o utilitário de linha de comando Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: f33a02ff0e287c135a7d63277cf3d8d3c0cd13d4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767374"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527649"
 ---
-# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurar e acessar logs de consulta lentos usando CLI do Azure
-Você pode baixar o banco de dados do Azure para MariaDB logs de consulta lento usando CLI do Azure, o utilitário de linha de comando do Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configure e acesse registros de consulta lenta usando o Azure CLI
+Você pode baixar o banco de dados do Azure para logs de consulta lenta do MariaDB usando o Azure CLI, o utilitário de linha de comando do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
@@ -38,7 +38,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Listar logs para o servidor do Banco de Dados do Azure para MariaDB
-Para listar os arquivos de log de consulta lenta disponíveis para seu servidor, execute o comando [AZ MariaDB Server-logs List](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) .
+Para listar os arquivos de log de consulta lenta disponíveis para o servidor, execute o comando [az mariadb server-logs list.](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list)
 
 Você pode listar os arquivos de log para o servidor **mydemoserver.mariadb.database.azure.com** no grupo de recursos **myresourcegroup**. Em seguida, direcione-os para um arquivo de texto chamado **log\_files\_list.txt**.
 ```azurecli-interactive
@@ -52,5 +52,5 @@ Use o exemplo a seguir para baixar o arquivo de log específico para o servidor 
 az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="next-steps"></a>Próximos passos
-- Saiba mais sobre [logs de consulta lentos no banco de dados do Azure para MariaDB](concepts-server-logs.md).
+## <a name="next-steps"></a>Próximas etapas
+- Saiba mais sobre [os logs de consulta lenta no Banco de Dados Do Azure para MariaDB](concepts-server-logs.md).

@@ -1,16 +1,16 @@
 ---
-title: Despejar e restaurar-banco de dados do Azure para PostgreSQL-servidor único
-description: Descreve como extrair um banco de dados PostgreSQL em um arquivo de despejo e restaurá-lo a partir de um arquivo criado por pg_dump no banco de dados do Azure para PostgreSQL-servidor único.
+title: Despejo e restauração - Banco de Dados Azure para PostgreSQL - Servidor Único
+description: Descreve como extrair um banco de dados PostgreSQL em um arquivo de despejo e restaurar a partir de um arquivo criado por pg_dump no Banco de Dados Azure para PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: 4365338efa56593e80edcc19cba5944b213d2b72
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770230"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar seu banco de dados PostgreSQL usando despejar e restaurar
@@ -34,7 +34,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Restaurar os dados para o banco de dado de destino do Azure para PostgreSQL usando pg_restore
+## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Restaurar os dados no banco de dados azure de destino para PostgreSQL usando pg_restore
 Depois de criar o banco de dados de destino, você poderá usar o comando pg_restore e o parâmetro -d, --dbname para restaurar os dados no banco de dados de destino do arquivo de despejo.
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
@@ -61,7 +61,7 @@ Uma maneira de migrar seu banco de dados PostgreSQL existente para o serviço Ba
 >
 
 ### <a name="for-the-backup"></a>Para o backup
-- Faça o backup com a opção -Fc para que você possa executar a restauração em paralelo para acelerá-la. Por exemplo:
+- Faça o backup com a opção -Fc para que você possa executar a restauração em paralelo para acelerá-la. Por exemplo: 
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,7 +72,7 @@ Uma maneira de migrar seu banco de dados PostgreSQL existente para o serviço Ba
 
 - Isso já deve estar feito por padrão, mas abra o arquivo de despejo para verificar se as instruções create index estão após a inserção dos dados. Se não estiverem, coloque as instruções create index após a inserção dos dados.
 
-- Restauração com as opções -Fc e -j *#* para paralelizar a restauração. *#* é o número de núcleos no servidor de destino. Você também pode experimentar com *#* definido como duas vezes o número de núcleos do servidor de destino para ver o impacto. Por exemplo:
+- Restaurar com os interruptores -Fc e -j *#* para paraleleterizar a restauração. *#* é o número de núcleos no servidor de destino. Você também pode *#* tentar definir com o dobro do número de núcleos do servidor de destino para ver o impacto. Por exemplo: 
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
@@ -89,6 +89,6 @@ Uma maneira de migrar seu banco de dados PostgreSQL existente para o serviço Ba
 
 Lembre-se de testar e validar esses comandos em um ambiente de teste antes de usá-los em produção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Para migrar um banco de dados PostgreSQL usando exportar e importar, veja [Migrar seu banco de dados PostgreSQL usando exportar e importar](howto-migrate-using-export-and-import.md).
 - Para obter mais informações de como migrar bancos de dados para o Banco de Dados do Azure para PostgreSQL, confira o [Guia de Migração de Banco de Dados](https://aka.ms/datamigration).

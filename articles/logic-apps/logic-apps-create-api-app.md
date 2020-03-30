@@ -1,5 +1,5 @@
 ---
-title: Criar APIs Web & APIs REST para aplicativos lógicos do Azure
+title: Criar APIs web & APIs REST para aplicativos de lógica do Azure
 description: Criar APIs Web e APIs REST para chamar suas APIs, serviços ou sistemas para integrações do sistema nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -7,21 +7,21 @@ ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270531"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
-Embora os aplicativos lógicos do Azure ofereçam [centenas de conectores](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez você queira chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
+Embora o Azure Logic Apps ofereça [centenas de conectores](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativos lógicos, você pode querer chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
 
 * Estender os fluxos de trabalho de integração de dados e integração do sistema.
 * Ajudar os clientes a usar seu serviço para gerenciar tarefas profissionais ou pessoais.
 * Expandir o alcance, a descoberta e o uso do seu serviço.
 
-Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou node. js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
+Basicamente, conectores são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. Como os conectores são APIs REST que se comunicam através de pontos finais HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou Node.js, para criar conectores. Você também pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma das maneiras mais fáceis, mais escaláveis e melhores de hospedar a API. 
 
 Para que as APIs personalizadas funcionem com aplicativos lógicos, sua API pode fornecer [*ações*](./logic-apps-overview.md#logic-app-concepts) que executam tarefas específicas em fluxos de trabalho de aplicativos lógicos. Sua API também pode atuar como um [*gatilho*](./logic-apps-overview.md#logic-app-concepts) que inicia um fluxo de trabalho do aplicativo lógico quando novos dados ou um evento atendem a uma condição especificada. Este tópico descreve padrões comuns que você pode seguir para criar ações e gatilhos em sua API, com base no comportamento que a API deve fornecer.
 
@@ -30,10 +30,10 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 > [!TIP] 
 > Embora você possa implantar suas APIs como aplicativos Web, considere implantar suas APIs como aplicativos de API, o que pode facilitar o trabalho quando você criar, hospedar e consumir APIs locais e na nuvem. Você não precisa alterar o código em suas APIs; basta implantar seu código para um aplicativo de API. Por exemplo, saiba como criar aplicativos de API criados com estas linguagens: 
 > 
-> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
+> * [ASP.NET.](../app-service/app-service-web-get-started-dotnet.md) 
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
+> * [Php](../app-service/app-service-web-get-started-php.md)
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
@@ -41,7 +41,7 @@ Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-servic
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como as APIs personalizadas diferem dos conectores personalizados?
 
-APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam por meio de pontos de extremidade HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou node. js, para criar APIs e conectores personalizados.
+APIs personalizadas e [conectores personalizados](../logic-apps/custom-connector-overview.md) são APIs Web que usam REST para interfaces conectáveis, [formatos de metadados do Swagger](https://swagger.io/specification/) para documentação e JSON como formato de troca de dados. E como essas APIs e conectores são APIs REST que se comunicam através de pontos finais HTTP, você pode usar qualquer linguagem, como .NET, Java, Python ou Node.js, para construir APIs e conectores personalizados.
 
 APIs personalizadas permitem que você chame APIs que não são conectores e forneça pontos de extremidade que você pode chamar com HTTP + Swagger, Gerenciamento de API do Azure ou Serviços de Aplicativos. Conectores personalizados funcionam como APIs personalizadas, mas também têm estes atributos:
 
@@ -49,7 +49,7 @@ APIs personalizadas permitem que você chame APIs que não são conectores e for
 * Aparecem com ícones ao lado de conectores gerenciados pela Microsoft no Designer de Aplicativos Lógicos.
 * Disponível somente para usuários de aplicativos lógicos e autores de conectores que têm o mesmo locatário do Azure Active Directory e a assinatura do Azure na região em que os aplicativos lógicos são implantados.
 
-Você também pode nominar conectores registrados para certificação da Microsoft. Esse processo verifica se os conectores registrados atendem aos critérios de uso público e disponibilizam esses conectores para os usuários na energia automatizada e no Microsoft Power apps.
+Você também pode nominar conectores registrados para certificação da Microsoft. Este processo verifica se os conectores registrados atendem aos critérios de uso público e disponibiliza esses conectores para usuários em Power Automate e Microsoft Power Apps.
 
 Para obter mais informações sobre conectores personalizados, consulte 
 
@@ -206,9 +206,9 @@ Os gatilhos de webhook atuam como as [ações de webhook](#webhook-actions) desc
 > [!TIP]
 > Para um padrão de webhook de exemplo, reveja o [ exemplo de controlador de gatilho webhook no GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Melhorar a segurança para chamadas para suas APIs de aplicativos lógicos
+## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Melhore a segurança para chamadas para suas APIs a partir de aplicativos lógicos
 
-Depois de criar suas APIs personalizados, configure a autenticação para suas APIs para que você possa chamá-las com segurança de aplicativos lógicos. Saiba [como melhorar a segurança para chamadas para APIs personalizadas de aplicativos lógicos](../logic-apps/logic-apps-custom-api-authentication.md).
+Depois de criar suas APIs personalizados, configure a autenticação para suas APIs para que você possa chamá-las com segurança de aplicativos lógicos. Saiba [como melhorar a segurança para chamadas para APIs personalizadas a partir de aplicativos lógicos](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## <a name="deploy-and-call-your-apis"></a>Implantar e chamar suas APIs
 
@@ -218,11 +218,11 @@ Depois de configurar a autenticação, configure a implantação para suas APIs.
 
 Para disponibilizar seu APIs personalizadas para outros usuários de aplicativos lógicos no Azure, você deve adicionar a segurança e registrá-los como conectores do Aplicativo Lógico. Para obter mais informações, consulte [Visão geral de conectores personalizados](../logic-apps/custom-connector-overview.md). 
 
-Para disponibilizar suas APIs personalizadas para todos os usuários em aplicativos lógicos, Power Automate e Microsoft Power apps, você deve adicionar segurança, registrar suas APIs como conectores de aplicativos lógicos e indicar seus conectores para o [programa Microsoft Azure certificado](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Para disponibilizar suas APIs personalizadas para todos os usuários em Logic Apps, Power Automate e Microsoft Power Apps, você deve adicionar segurança, registrar suas APIs como conectores logic app e nomear seus conectores para o [programa Certificado Microsoft Azure.](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) 
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
-* Para obter ajuda específica com APIs personalizadas, entre em contato com [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
+* Para obter ajuda específica com [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)APIs personalizadas, entre em contato .
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 

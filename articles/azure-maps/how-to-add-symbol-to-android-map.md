@@ -1,33 +1,33 @@
 ---
-title: Adicionar uma camada de símbolo aos mapas do Android | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá como renderizar dados de ponto em um mapa adicionando uma camada de símbolo a ele usando o SDK do Android mapas de Microsoft Azure.
-author: farah-alyasari
-ms.author: v-faalya
+title: Adicione uma camada de símbolo aos mapas do Android | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a renderizar dados de pontos em um mapa adicionando uma camada de símbolo a ele usando o Microsoft Azure Maps Android SDK.
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e323d99c11df7f482e6caf81e8d38bf64d160859
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 0eca73b5acae715283c05125181e12729ed5a772
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209980"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335584"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma camada de símbolo a um mapa usando o Azure Maps SDK do Android
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adicione uma camada de símbolo a um mapa usando o Azure Maps Android SDK
 
-Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma camada de símbolo em um mapa usando o SDK do Android do Azure Maps.
+Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma camada de símbolo em um mapa usando o Azure Maps Android SDK.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir as etapas deste artigo, você precisa instalar o [Azure Maps SDK do Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para seguir completamente as etapas deste artigo, você precisa instalar [o Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
 
 ## <a name="add-a-symbol-layer"></a>Adicionar uma camada de símbolo
 
 Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas abaixo:
 
-1. Edite o **layout** de > **res** > **activity_main. xml** para que ele se pareça com o seguinte XML:
+1. Editar**o layout** >  **res** > **activity_main.xml** para que pareça o seguinte XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
     </FrameLayout>
     ```
 
-2. Copie o trecho de código a seguir para o método **OnCreate ()** da sua classe `MainActivity.java`.
+2. Copie o seguinte trecho de código no método `MainActivity.java` **onCreate()** da sua classe.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
     
     ```
     
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Em seguida, ele adiciona um **recurso** que contém uma geometria de ponto a ele. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** usa texto ou ícones para renderizar dados baseados em pontos encapsulados na fonte de dados como símbolo no mapa. Em seguida, uma camada de símbolo é criada e a fonte de dados é passada para ela para renderização e, em seguida, é adicionada às camadas do mapa.
+    O trecho de código acima obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **onReady().** Em seguida, cria um objeto de origem de dados usando a classe **DataSource** e adiciona-o ao mapa. Em seguida, adiciona **um Recurso** contendo uma geometria point a ele. Uma imagem de marcador vermelho é então definida como ícone para o símbolo. Uma **camada de símbolo** usa texto ou ícones para renderizar dados baseados em pontos envoltos na fonte de dados como símbolo no mapa. Uma camada de símbolo é então criada e a fonte de dados é passada para ela para renderizar e, em seguida, é adicionada às camadas do mapa.
     
-    Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve ser semelhante ao seguinte:
+    Depois de adicionar o trecho `MainActivity.java` de código acima, você deve se parecer com o abaixo:
     
     ```Java
     package com.example.myapplication;
@@ -166,19 +166,19 @@ Para adicionar um marcador no mapa usando a camada de símbolo, siga as etapas a
     }
     ```
     
-Neste ponto, se você executar seu aplicativo, verá um marcador no mapa, como mostrado aqui:
+Neste ponto, se você executar sua aplicação, você deve ver um marcador no mapa, como mostrado aqui:
 
 <center>
 
-![PIN do mapa do Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Marcador de mapa do Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para adicionar mais coisas ao mapa, consulte:
+Para adicionar mais coisas ao seu mapa, veja:
 
 > [!div class="nextstepaction"]
-> [Adicionar formas a um mapa do Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adicionar formas a um mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
 > [!div class="nextstepaction"]
 > [Exibir informações do recurso](display-feature-information-android.md)

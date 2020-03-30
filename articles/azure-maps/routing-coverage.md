@@ -1,29 +1,29 @@
 ---
 title: Cobertura de roteamento | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre regiões com cobertura de roteamento para mapas de Microsoft Azure.
-author: jingjing-z
+description: Neste artigo, você aprenderá sobre regiões com cobertura de roteamento para o Microsoft Azure Maps.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b8b3dbf515aa3bcc9075a748b9d717cfa36b6ab0
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: b59816abf0cd03450c9fc4ebb8417c62df7e3288
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648914"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529384"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
 
-Este artigo fornece informações de cobertura para rota nos Mapas do Azure. Após uma consulta de pesquisa, o Azure Maps retorna uma rota ideal do local A para o local B. Você é fornecido com tempos de viagem precisos, atualizações ao vivo de informações de viagem e instruções de rota. Você também pode adicionar parâmetros de pesquisa adicionais, como o tráfego atual, o tipo de veículo e as condições a serem evitadas. A otimização da rota depende da região. Isso porque, o mapas do Azure tem vários níveis de informações e precisão para diferentes regiões. A tabela a seguir lista as regiões e o tipo de informações que você pode solicitar para elas.
+Este artigo fornece informações de cobertura para rota nos Mapas do Azure. Após uma consulta de pesquisa, o Azure Maps retorna uma rota ideal do local A para o local B. Você é fornecido com tempos de viagem precisos, atualizações ao vivo de informações de viagem e instruções de rota. Você também pode adicionar parâmetros adicionais de pesquisa, como tráfego atual, tipo de veículo e condições a serem evitadas. A otimização da rota depende da região. Isso porque, o Azure Maps tem vários níveis de informação e precisão para diferentes regiões. A tabela a seguir lista as regiões e que tipo de informação você pode solicitar para elas.
  
 Fazer check-out de cobertura para [**Geocodificação**](geocoding-coverage.md).       
 Fazer check-out de cobertura para [**Tráfego**](traffic-coverage.md).  
 Fazer check-out de cobertura para [**Renderização**](render-coverage.md).
 <br>  
-**Legenda**
+**Lenda**
 
 | Símbolo             | Significado                                |
 |--------------------|----------------------------------------|
@@ -39,7 +39,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 
 ## <a name="africa"></a>África
 
-| País/Região                 | Roteamento         | Roteamento com tráfego | Roteamento de caminhão |
+| País/Região                 | Roteamento         | Roteamento com Tráfego | Roteamento de caminhões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argélia                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
@@ -49,9 +49,9 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Burundi                        |        ✓       |                       |             |
 | Camarões                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
-| Congo-Brazzaville Kinshasa    |        ✓       |                       |             |
-| Congo-Kinshasa                |        ✓       |                       |             |
-| Côte d' Ivoire                  |        ✓       |                       |             |
+| Congo- Brazzaville Kinshasa    |        ✓       |                       |             |
+| Congo- Kinshasa                |        ✓       |                       |             |
+| côte d'ivoire                  |        ✓       |                       |             |
 | Egito                          |        ✓       |         ✓            |             |
 | Gabão                          |        ✓       |                       |             |
 | Gâmbia                         |        ✓       |                       |             |
@@ -82,7 +82,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 
 ## <a name="americas"></a>Américas
 
-| País/Região                 | Roteamento         | Roteamento com tráfego | Roteamento de caminhão |
+| País/Região                 | Roteamento         | Roteamento com Tráfego | Roteamento de caminhões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentina                      |        ✓       |         ✓            |     ✓       |
 | Antígua e Barbuda            |        ✓       |                      |             |
@@ -111,26 +111,26 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Panamá                         |        ✓       |                      |             |
 | Paraguai                       |        ✓       |                      |             |
 | Peru                           |        ✓       |         ✓            |             |
-| São Cristóvão e Névis            |        ✓       |                      |             |
+| São Cristóvão e Nevis            |        ✓       |                      |             |
 | Santa Lúcia                      |        ✓       |                      |             |
 | São Vicente & Granadinas       |        ✓       |                      |             |
 | Suriname                       |        ✓       |                      |             |
 | Trinidad & Tobago              |        ✓       |                      |             |
 | Estados Unidos                  |        ✓       |         ✓            |     ✓      | 
-| \+ Samoa Americana                |        ✓       |                      |             |
-| \+ Ilhas Marianas do Norte      |        ✓       |                      |             |
+| +Samoa Americana                |        ✓       |                      |             |
+| +Ilhas Marianas do Norte      |        ✓       |                      |             |
 | +Porto Rico                   |        ✓       |                      |             |
-| \+ Ilhas Virgens dos EUA           |        ✓       |                      |             |
+| +Ilhas Virgens Americanas           |        ✓       |                      |             |
 | Uruguai                        |        ✓       |         ✓            |     ✓      | 
 | Venezuela                      |        ✓       |                      |             |
 
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-| País/Região                 | Roteamento         | Roteamento com tráfego | Roteamento de caminhão |
+| País/Região                 | Roteamento         | Roteamento com Tráfego | Roteamento de caminhões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Austrália                      |        ✓       |         ✓            |     ✓       |
-| \+ Ilha Christmas              |        ✓       |                      |             |
+| +Ilha de Natal              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Camboja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
@@ -154,7 +154,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 
 ## <a name="europe"></a>Europa
 
-| País/Região                 | Roteamento         | Roteamento com tráfego | Roteamento de caminhão |
+| País/Região                 | Roteamento         | Roteamento com Tráfego | Roteamento de caminhões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albânia                        |        ✓       |                      |             |
 | Andorra                        |        ✓       |         ✓            |             |
@@ -168,15 +168,15 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Chipre                         |        ✓       |                      |             |
 | República Tcheca                 |        ✓       |         ✓            |     ✓      |
 | Dinamarca                        |        ✓       |         ✓            |     ✓      |
-| \+ Ilhas Faroe                 |        ✓       |                      |             |
+| +Ilhas Faroé                 |        ✓       |                      |             |
 | Estônia                        |        ✓       |         ✓            |     ✓      |
 | Finlândia                        |        ✓       |         ✓            |     ✓      |
 | França                         |        ✓       |         ✓            |     ✓      | 
-| \+ Guadalupe                    |        ✓       |                      |             |
-| \+ Martinica                    |        ✓       |                      |             |
-| \+ St. Bartolomeu                |        ✓       |                      |             |
-| \+ St. Martin                    |        ✓       |                      |             |
-| \+ St. Pierre & Miquelon         |        ✓       |                      |             |
+| +Guadalupe                    |        ✓       |                      |             |
+| +Martinica                    |        ✓       |                      |             |
+| +St. Barthélemy                |        ✓       |                      |             |
+| +St. Martin                    |        ✓       |                      |             |
+| +St. Pierre & Miquelon         |        ✓       |                      |             |
 | Geórgia                        |        ✓       |                      |             |
 | Alemanha                        |        ✓       |         ✓            |     ✓      | 
 | Grécia                         |        ✓       |         ✓            |     ✓      |  
@@ -196,10 +196,10 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Mônaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Países Baixos                    |        ✓       |         ✓            |     ✓      | 
-| \+ Aruba                         |        ✓       |                      |             | 
-| \+ Caribe Países Baixos         |        ✓       |                      |             |
-| \+ Curaçao                       |        ✓       |                      |             |
-| \+ Santo Maarten                  |        ✓       |                      |             |
+| +Aruba                         |        ✓       |                      |             | 
+| +Países Baixos do Caribe         |        ✓       |                      |             |
+| +Curaçao                       |        ✓       |                      |             |
+| +Sint Maarten                  |        ✓       |                      |             |
 | Noruega                         |        ✓       |         ✓            |     ✓      | 
 | Polônia                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
@@ -215,20 +215,20 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Turquia                         |        ✓       |         ✓            |     ✓      | 
 | Ucrânia                        |        ✓       |         ✓            |             | 
 | United Kingdom                 |        ✓       |         ✓            |     ✓      | 
-| \+ Anguila                      |        ✓       |                      |             |
-| \+ Bermuda                       |        ✓       |                      |             |
-| \+ Ilhas Virgens Britânicas        |        ✓       |                      |             |
-| \+ Ilhas Cayman                |        ✓       |                      |             |
+| +Anguilla                      |        ✓       |                      |             |
+| +Bermudas                       |        ✓       |                      |             |
+| +Ilhas Virgens Britânicas        |        ✓       |                      |             |
+| +Ilhas Cayman                |        ✓       |                      |             |
 | +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| \+ Ilhas Turks e Caicos      |        ✓       |                      |             |
+| +Ilhas Turks e Caicos      |        ✓       |                      |             |
 | Cidade do Vaticano                   |        ✓       |         ✓            |             |
 | Ilha de Man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Oriente Médio
 
-| País/Região                 | Roteamento         | Roteamento com tráfego | Roteamento de caminhão |
+| País/Região                 | Roteamento         | Roteamento com Tráfego | Roteamento de caminhões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Bahrein                        |        ✓       |         ✓            |             |
 | Iraque                           |        ✓       |                      |             |
@@ -245,4 +245,4 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o roteamento do Azure Maps, consulte as páginas de referência de [Roteamento](https://docs.microsoft.com/rest/api/maps/route) .
+Para obter mais informações sobre o roteamento do Azure Maps, consulte as páginas de referência [de roteamento.](https://docs.microsoft.com/rest/api/maps/route)

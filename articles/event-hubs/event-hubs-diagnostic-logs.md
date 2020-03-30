@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162303"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
 É possível exibir dois tipos de logs para os Hubs de Eventos do Azure:
 
-* **[Logs de atividade](../azure-monitor/platform/platform-logs-overview.md)** : esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
-* **[Logs diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : é possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
+* **[Logs de atividade](../azure-monitor/platform/platform-logs-overview.md)**: esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
+* **[Logs diagnóstico](../azure-monitor/platform/platform-logs-overview.md)**: é possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="enable-diagnostic-logs"></a>Habilitar logs de diagnóstico
 
@@ -48,7 +48,7 @@ Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de
 
     ![Alterar o status dos logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Defina o destino de arquivo desejado; por exemplo, uma conta de armazenamento, um hub de eventos ou logs de Azure Monitor.
+5.  Defina o alvo de arquivamento que você deseja; por exemplo, uma conta de armazenamento, um hub de eventos ou logs do Monitor Do Azure.
 
 6.  Salve as novas configurações de diagnóstico.
 
@@ -71,7 +71,7 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 
 As cadeias de caracteres JSON do log de arquivo morto incluem os elementos listados na seguinte tabela:
 
-Nome | DESCRIÇÃO
+Nome | Descrição
 ------- | -------
 TaskName | Descrição da tarefa que falhou.
 ActivityId | ID interna, usada para acompanhamento.
@@ -109,7 +109,7 @@ O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arqu
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
-Nome | DESCRIÇÃO
+Nome | Descrição
 ------- | -------
 ActivityId | ID interna, usada para fins de rastreamento.
 EventName | Nome da operação.  
@@ -145,4 +145,4 @@ Example:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [Javascript](get-started-java-send-v2.md)

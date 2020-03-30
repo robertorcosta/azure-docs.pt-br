@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com o SDK do servidor back-end do node. js
+title: Trabalhe com o SDK de backup do Node.js
 description: Aprenda a trabalhar com o SDK do Servidor back-end do Node.js para Aplicativos Móveis do Serviço de Aplicativo do Azure.
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.tgt_pltfrm: mobile-multiple
@@ -7,10 +7,10 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.openlocfilehash: 566b6db829c9694a7e5e83cc25695e71ada0bc8d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249939"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis
@@ -19,7 +19,7 @@ ms.locfileid: "79249939"
 
 Este artigo fornece informações detalhadas e exemplos de como trabalhar com um back-end do Node.js no recurso Aplicativos Móveis do Serviço de Aplicativo do Azure.
 
-## <a name="Introduction"></a>Introdução
+## <a name="introduction"></a><a name="Introduction"></a>Introdução
 
 Os Aplicativos Móveis fornecem a capacidade de adicionar uma API Web de acesso a dados otimizada para mobilidade a um aplicativo Web. O SDK de Aplicativos é fornecido para aplicativos Web ASP.NET e Node.js. O SDK oferece as seguintes operações:
 
@@ -39,7 +39,7 @@ O SDK do Node.js dá suporte a dois drivers de banco de dados:
 * O driver node-mssql dá suporte ao Banco de Dados SQL do Azure e instâncias do SQL Server locais.  
 * O driver sqlite3 dá suporte a bancos de dados SQLite somente em uma instância única.
 
-### <a name="howto-cmdline-basicapp"></a>Criar um back-end do Node.js básico usando a linha de comando
+### <a name="create-a-basic-nodejs-back-end-by-using-the-command-line"></a><a name="howto-cmdline-basicapp"></a>Criar um back-end do Node.js básico usando a linha de comando
 
 Cada back-end do Node.js dos Aplicativos Móveis inicia como um aplicativo ExpressJS. ExpressJS é a estrutura de serviços Web mais popular disponível para o Node.js. Você pode criar um aplicativo [Express] básico da seguinte maneira:
 
@@ -84,19 +84,19 @@ Esse aplicativo cria uma API Web otimizada para celular com um único ponto de e
 * [Início rápido do cliente Android]
 * [Início rápido do cliente Apache Cordova]
 * [Início rápido do Cliente iOS]
-* [Início rápido do cliente Windows Store]
+* [Início rápido do cliente do Windows Store]
 * [Início rápido do cliente Xamarin.iOS]
-* [Início rápido do cliente Xamarin.Android]
-* [Início rápido do cliente Xamarin.Forms]
+* [Xamarin.Android cliente quickstart]
+* [Xamarin.Forms cliente quickstart]
 
 Você pode encontrar o código para esse aplicativo básico no [exemplo de aplicativo básico no GitHub].
 
-### <a name="howto-vs2015-basicapp"></a>Criar um back-end do Node.js usando o Visual Studio 2015
+### <a name="create-a-nodejs-back-end-by-using-visual-studio-2015"></a><a name="howto-vs2015-basicapp"></a>Criar um back-end do Node.js usando o Visual Studio 2015
 
 O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no IDE. Para começar, instale as [Ferramentas do Node.js 1.1 para Visual Studio]. Ao concluir a instalação, crie um aplicativo Express 4.x:
 
 1. Abra a caixa de diálogo **Novo Projeto** (do **Arquivo** > **Novo** > **Projeto**).
-1. Expanda **Modelos** > **JavaScript** > **Node. js**.
+1. Expandir **modelos** > **JavaScript** > **Node.js**.
 1. Selecione **Aplicativo Node.js Express 4 Básico do Azure**.
 1. Preencha o nome do projeto. Selecione **OK**.
 
@@ -127,18 +127,18 @@ O Visual Studio 2015 exige uma extensão para desenvolver aplicativos Node.js no
 
     Salve o arquivo.
 
-1. Execute o aplicativo localmente (a API é servida no `http://localhost:3000`) ou publique no Azure.
+1. Execute o aplicativo localmente (a API é servida ) ou publique no `http://localhost:3000`Azure.
 
-### <a name="create-node-backend-portal"></a>Criar um back-end do Node.js usando o Portal do Azure
+### <a name="create-a-nodejs-back-end-by-using-the-azure-portal"></a><a name="create-node-backend-portal"></a>Criar um back-end do Node.js usando o Portal do Azure
 
-É possível criar um back-end de Aplicativos Móveis diretamente no [Azure portal]. Você pode concluir as etapas a seguir ou criar um cliente e um servidor juntos, acompanhando o tutorial [Criar um aplicativo móvel](app-service-mobile-ios-get-started.md). O tutorial contém uma versão simplificada dessas instruções e funciona melhor para projetos de prova de conceito.
+É possível criar um back-end de Aplicativos Móveis diretamente no [Portal do Azure]. Você pode concluir as etapas a seguir ou criar um cliente e um servidor juntos, acompanhando o tutorial [Criar um aplicativo móvel](app-service-mobile-ios-get-started.md). O tutorial contém uma versão simplificada dessas instruções e funciona melhor para projetos de prova de conceito.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 De volta ao painel **Introdução**, em **Criar uma API de tabela**, escolha **Node.js** como a linguagem de back-end.
 Selecione a caixa **Estou ciente de que isso substituirá todo o conteúdo do site** e, em seguida, clique em **Criar tabela TodoItem**.
 
-### <a name="download-quickstart"></a>Baixar o projeto de código de início rápido do back-end do Node.js usando Git
+### <a name="download-the-nodejs-back-end-quickstart-code-project-by-using-git"></a><a name="download-quickstart"></a>Baixar o projeto de código de início rápido do back-end do Node.js usando Git
 
 Ao criar um back-end de Aplicativos Móveis do Node.js usando o painel **Início Rápido** do portal, um projeto do Node.js é criado e implantado em seu site. No portal, você pode adicionar tabelas e APIs, e editar arquivos de código para o back-end do Node.js. Também é possível usar várias ferramentas de implantação para baixar o projeto de back-end para que você possa adicionar ou modificar tabelas e APIs e, em seguida, republicar o projeto. Para obter mais informações, consulte o [Guia de implantação do Serviço de Aplicativo do Azure].
 
@@ -161,7 +161,7 @@ O procedimento a seguir usa um repositório Git para baixar o código do projeto
 
 O site é publicado novamente sempre que um novo conjunto de confirmações é enviado ao site.
 
-### <a name="howto-publish-to-azure"></a>Publicar o back-end do Node.js no Azure
+### <a name="publish-your-nodejs-back-end-to-azure"></a><a name="howto-publish-to-azure"></a>Publicar o back-end do Node.js no Azure
 
 O Microsoft Azure fornece muitos mecanismos para publicar o back-end do Node.js dos Aplicativos Móveis para o serviço Azure. Esses mecanismos incluem ferramentas de implantação integradas no Visual Studio, ferramentas de linha de comando e opções de implantação contínua baseada em controle do código-fonte. Para obter mais informações, consulte o [Guia de implantação do Serviço de Aplicativo do Azure].
 
@@ -170,7 +170,7 @@ O Serviço de Aplicativo do Azure tem recomendações específicas para aplicati
 * Como [especificar a versão do Node]
 * Como [usar módulos do Node]
 
-### <a name="howto-enable-homepage"></a>Habilitar uma home page para o aplicativo
+### <a name="enable-a-home-page-for-your-application"></a><a name="howto-enable-homepage"></a>Habilitar uma home page para o aplicativo
 
 Muitos aplicativos são uma combinação de aplicativos móveis e da Web. Você pode utilizar a estrutura ExpressJS para combinar as duas facetas. No entanto, às vezes você pode querer implementar apenas uma interface móvel. É útil fornecer uma home page para garantir que o serviço de aplicativo esteja em execução. Você pode fornecer sua própria home page ou habilitar uma home page temporária. Para habilitar uma home page temporária, use o código a seguir para criar uma instância de Aplicativos Móveis:
 
@@ -180,11 +180,11 @@ var mobile = azureMobileApps({ homePage: true });
 
 Se você quiser apenas essa opção disponível ao desenvolver localmente, é possível adicionar essa configuração ao arquivo azureMobile.js.
 
-## <a name="TableOperations"></a>Operações de tabela
+## <a name="table-operations"></a><a name="TableOperations"></a>Operações de tabela
 
 O SDK do servidor do Node.js do azure-mobile-apps fornece mecanismos para expor tabelas de dados armazenadas no Banco de Dados SQL do Azure como uma API Web. Ele fornece cinco operações:
 
-| Operação | DESCRIÇÃO |
+| Operação | Descrição |
 | --- | --- |
 | GET /tables/*tablename* |Obter todos os registros na tabela. |
 | GET /tables/*tablename*/:id |Obter um registro específico na tabela. |
@@ -194,7 +194,7 @@ O SDK do servidor do Node.js do azure-mobile-apps fornece mecanismos para expor 
 
 Essa Web API dá suporte para [OData] e estende o esquema da tabela para dar suporte à [sincronização de dados offline].
 
-### <a name="howto-dynamicschema"></a>Definir tabelas usando um esquema dinâmico
+### <a name="define-tables-by-using-a-dynamic-schema"></a><a name="howto-dynamicschema"></a>Definir tabelas usando um esquema dinâmico
 
 Antes de poder usar uma tabela, será necessário defini-la. Você pode definir tabelas usando um esquema estático (onde você define as colunas no esquema) ou dinamicamente (onde o SDK controla o esquema baseado em solicitações de entrada). Além disso, é possível controlar aspectos específicos da API Web, adicionando código JavaScript à definição.
 
@@ -236,7 +236,7 @@ As tabelas usam um esquema dinâmico por padrão. Para desativar o esquema dinâ
 
 Você pode encontrar um exemplo completo no [exemplo de tarefas pendentes no GitHub].
 
-### <a name="howto-staticschema"></a>Definir tabelas usando um esquema estático
+### <a name="define-tables-by-using-a-static-schema"></a><a name="howto-staticschema"></a>Definir tabelas usando um esquema estático
 
 É possível definir explicitamente as colunas que serão expostas usando a API Web. O SDK do Node.js do azure-mobile-apps adiciona automaticamente as colunas extras necessárias à sincronização de dados offline para a lista fornecida por você. Por exemplo, os aplicativos clientes de inicio rápido exigem uma tabela com duas colunas: `text` (uma cadeia de caracteres) e `complete` (uma booliana).  
 A tabela pode ser definida no arquivo JavaScript de definição de tabela (localizado no diretório `tables`), conforme a seguir:
@@ -260,7 +260,7 @@ module.exports = table;
 
 Se você definir tabelas estaticamente, será necessário também chamar o `tables.initialize()` método para criar o esquema de banco de dados ao inicializar. O `tables.initialize()` método retorna uma [promessa] para que o serviço Web não atenda as solicitações antes que o banco de dados seja inicializado.
 
-### <a name="howto-sqlexpress-setup"></a>Usar o SQL Server Express como um armazenamento de dados de desenvolvimento no computador local
+### <a name="use-sql-server-express-as-a-development-data-store-on-your-local-machine"></a><a name="howto-sqlexpress-setup"></a>Usar o SQL Server Express como um armazenamento de dados de desenvolvimento no computador local
 
 O SDK do Node.js de Aplicativos Móveis fornece três opções para servir dados sem a necessidade de:
 
@@ -268,7 +268,7 @@ O SDK do Node.js de Aplicativos Móveis fornece três opções para servir dados
 * Usar o driver **MSSQL** para fornecer um repositório de dados do SQL Server Express para desenvolvimento.
 * Usar o driver **MSSQL** para fornecer um armazenamento de dados do Banco de Dados SQL do Azure para produção.
 
-O SDK do Node.js dos Aplicativos Móveis usa o [pacote de Node.js mssql] para estabelecer e usar uma conexão tanto para o Banco de Dados SQL como para o SQL Server Express. Este pacote exige que você habilite as conexões TCP na instância do SQL Server Express.
+O SDK do Node.js dos Aplicativos Móveis usa o [pacote do Node.js do MSSQL] para estabelecer e usar uma conexão tanto para o Banco de Dados SQL como para o SQL Server Express. Este pacote exige que você habilite as conexões TCP na instância do SQL Server Express.
 
 > [!TIP]
 > O driver de memória não fornece um conjunto completo de recursos para teste. Se você quiser testar o back-end local, é recomendável o uso de um armazenamento de dados do SQL Server Express e do driver MSSQL.
@@ -280,7 +280,7 @@ O SDK do Node.js dos Aplicativos Móveis usa o [pacote de Node.js mssql] para es
 
    b. Selecione **Protocolos para SQLEXPRESS**.
 
-   c. Clique com o botão direito do mouse em **TCP/IP** e escolha **Habilitar**. Selecione **OK** caixa de diálogo popup.
+   c. Clique com o botão direito do mouse **TCP/IP** e selecione **Ativar**. Selecione **OK** caixa de diálogo popup.
 
    d. Clique com o botão direito do mouse em **TCP/IP** e escolha **Propriedades**.
 
@@ -306,7 +306,7 @@ O SDK do Node.js dos Aplicativos Móveis usa o [pacote de Node.js mssql] para es
    1. Selecione **OK**.
 
       ![Configurar a autenticação do SQL Server Express][4]
-   1. Expanda a **Segurança** > **Logons** no Pesquisador de Objetos.
+   1. Expanda**os logins de** **segurança** > no Object Explorer.
    1. Clique com o botão direito do mouse em **Logons** e selecione **Novo Logon**.
    1. Insira um nome de logon. Selecione **Autenticação do SQL Server**. Insira uma senha e, em seguida, insira a mesma senha em **Confirmar senha**. A senha deve atender aos requisitos de complexidade do Windows.
    1. Selecione **OK**.
@@ -326,9 +326,9 @@ O aplicativo Node.js lê a variável de ambiente `SQLCONNSTR_MS_TableConnectionS
 
 Acesse o banco de dados por meio de uma conexão TCP/IP. Forneça um nome de usuário e senha para a conexão.
 
-### <a name="howto-config-localdev"></a>Configurar seu projeto para desenvolvimento local
+### <a name="configure-your-project-for-local-development"></a><a name="howto-config-localdev"></a>Configurar seu projeto para desenvolvimento local
 
-Os Aplicativos Móveis leem um arquivo JavaScript chamado *azureMobile.js* no sistema de arquivos local. Não use esse arquivo para configurar o SDK de Aplicativos Móveis em produção. Em vez disso, use **Configurações de aplicativo** no [Azure portal].
+Os Aplicativos Móveis leem um arquivo JavaScript chamado *azureMobile.js* no sistema de arquivos local. Não use esse arquivo para configurar o SDK de Aplicativos Móveis em produção. Em vez disso, use **Configurações de aplicativo** no [Portal do Azure].
 
 O arquivo azureMobile.js deve exportar um objeto de configuração. As configurações mais comuns são:
 
@@ -336,7 +336,7 @@ O arquivo azureMobile.js deve exportar um objeto de configuração. As configura
 * Configurações de registro em log de diagnóstico
 * Configurações de CORS alternativas
 
-Esse exemplo de arquivo **azureMobile.js** implementa as configurações de banco de dados anteriores:
+Este exemplo de arquivo **azureMobile.js** implementa as configurações anteriores do banco de dados:
 
 ```javascript
 module.exports = {
@@ -356,13 +356,13 @@ module.exports = {
 };
 ```
 
-Recomendamos que você adicione **azureMobile.js** ao arquivo **.gitignore** (ou outro arquivo de controle do código-fonte a ser ignorado) para impedir que as senhas sejam armazenadas na nuvem. Sempre defina as configurações de produção em **Configuração de Aplicativo** no [Azure portal].
+Recomendamos que você adicione **o azureMobile.js** ao seu arquivo **.gitignore** (ou outro arquivo de código fonte ignorar) para evitar que senhas sejam armazenadas na nuvem. Sempre defina as configurações de produção em **Configuração de Aplicativo** no [Portal do Azure].
 
-### <a name="howto-appsettings"></a>Definir configurações de aplicativo para seu aplicativo móvel
+### <a name="configure-app-settings-for-your-mobile-app"></a><a name="howto-appsettings"></a>Definir configurações de aplicativo para seu aplicativo móvel
 
-A maioria das configurações no arquivo azureMobile.js tem uma Configuração do Aplicativo equivalente no [Azure portal]. Use a lista a seguir para configurar seu aplicativo nas **Configurações de Aplicativo**:
+A maioria das configurações no arquivo azureMobile.js tem uma Configuração do Aplicativo equivalente no [Portal do Azure]. Use a lista a seguir para configurar seu aplicativo nas **configurações do aplicativo**:
 
-| Configurações de aplicativo | Configuração azureMobile.js | DESCRIÇÃO | Valores válidos |
+| Configurações de aplicativo | Configuração azureMobile.js | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |Nome do aplicativo |string |
 | **MS_MobileLoggingLevel** |logging.level |Nível de log mínimo das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, simples |
@@ -374,29 +374,29 @@ A maioria das configurações no arquivo azureMobile.js tem uma Configuração d
 
 Para definir uma configuração de Aplicativo:
 
-1. Entre no [Azure portal].
+1. Faça login no [portal Azure].
 1. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e, em seguida, selecione o nome do aplicativo móvel.
 1. O painel **Configurações** abre por padrão. Se não abrir, selecione **Configurações**.
 1. No menu **GERAL**, selecione **Configurações de aplicativo**.
-1. Role até a seção **Configurações de aplicativo**.
+1. Role até a seção **de configurações** do aplicativo.
 1. Se a configuração do seu aplicativo já existir, selecione o valor da configuração de aplicativo para editar o valor.
    Se a configuração do seu aplicativo não existir, insira a configuração de aplicativo na caixa **Chave** e o valor na caixa **Valor**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 A alteração da maioria das Configurações do Aplicativo requer o reinício do serviço.
 
-### <a name="howto-use-sqlazure"></a>Usar o Banco de Dados SQL como o armazenamento de dados de produção
+### <a name="use-sql-database-as-your-production-data-store"></a><a name="howto-use-sqlazure"></a>Usar o Banco de Dados SQL como o armazenamento de dados de produção
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 O uso do Banco de Dados SQL do Azure como armazenamento de dados é idêntico em todos os tipos de aplicativo do Serviço de Aplicativo do Azure. Se você ainda não fez isso, siga estas etapas para criar um back-end de Aplicativos Móveis:
 
-1. Entre no [Azure portal].
-1. No canto superior esquerdo da janela, selecione o botão **+ novo** > **Web + celular** > **aplicativo móvel**e forneça um nome para o back-end dos seus aplicativos móveis.
+1. Faça login no [portal Azure].
+1. No canto superior esquerdo da janela, selecione o botão **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e, em seguida, forneça um nome para o back-end de Aplicativos Móveis.
 1. Na caixa **Grupo de Recursos** , digite o mesmo nome do aplicativo.
 1. O Plano do Serviço de Aplicativo padrão é selecionado. Se você quiser alterar o Plano do Serviço de Aplicativo:
 
-   a. Selecione **Plano do Serviço de Aplicativo** >  **+Criar novo**.
+   a. Selecione **o Plano de Serviço do** > Aplicativo **+Crie Novo**.
 
    b. Forneça um nome ao novo Plano de Serviço de Aplicativo e selecione um local apropriado.
 
@@ -414,7 +414,7 @@ Você pode escolher conectar um banco de dados SQL existente ao seu back-end de 
 > [!NOTE]
 > Se já houver um banco de dados no mesmo local do back-end de Aplicativos móveis, você poderá selecionar **Usar um banco de dados existente** e selecionar esse banco de dados. É recomendável o uso de um banco de dados em um local diferente devido a latências mais altas.
 
-1. No novo back-end de Aplicativos Móveis, selecione **Configurações** > **Aplicativos Móveis** > **Dados** >  **+Adicionar**.
+1. No back-end dos novos aplicativos móveis, selecione **Configurações** > De**dados** > **de aplicativos** > móveis **+Adicione**.
 1. No painel **Adicionar conexão de dados**, selecione **Banco de Dados SQL - Definir configurações necessárias** > **Criar um novo banco de dados**. Insira o nome do novo banco de dados na caixa **Nome**.
 1. Selecione o **Servidor**. No painel **Novo servidor**, insira um nome de servidor exclusivo na caixa **Nome do servidor** e forneça um logon do administrador do servidor e senha adequados. Certifique-se de que **Permitir que os serviços do Azure acessem o servidor** está selecionado. Selecione **OK**.
 
@@ -425,11 +425,11 @@ Você pode escolher conectar um banco de dados SQL existente ao seu back-end de 
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-A criação do banco de dados pode levar alguns minutos. Use a área **Notificações** para monitorar o progresso da implantação. Não continue até que o banco de dados seja implantado com êxito. Depois que o banco de dados é implantado, uma cadeia de conexão é criada para a instância do Banco de Dados SQL nas configurações de aplicativo de back-end de Aplicativos Móveis. É possível ver essa configuração de aplicativo em **Configurações** > **Configurações do aplicativo** > **Cadeias de conexão**.
+A criação do banco de dados pode levar alguns minutos. Use a área **Notificações** para monitorar o progresso da implantação. Não continue até que o banco de dados seja implantado com êxito. Depois que o banco de dados é implantado, uma cadeia de conexão é criada para a instância do Banco de Dados SQL nas configurações de aplicativo de back-end de Aplicativos Móveis. Você pode ver esta configuração do aplicativo em **Configurações** > **Configurações configurações** > **seqüências de conexão**.
 
-### <a name="howto-tables-auth"></a>Exigir autenticação para acesso às tabelas
+### <a name="require-authentication-for-access-to-tables"></a><a name="howto-tables-auth"></a>Exigir autenticação para acesso às tabelas
 
-Se você quiser usar a Autenticação do Serviço de Aplicativo com o ponto de extremidade`tables`, primeiro será necessário configurar a Autenticação do Serviço de Aplicativo no [Azure portal]. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende utilizar:
+Se você quiser usar a Autenticação do Serviço de Aplicativo com o ponto de extremidade`tables`, primeiro será necessário configurar a Autenticação do Serviço de Aplicativo no [Portal do Azure]. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende utilizar:
 
 * [Configurar a autenticação do Microsoft Azure Active Directory]
 * [Configurar a autenticação do Facebook]
@@ -467,7 +467,7 @@ A propriedade de acesso pode assumir um dentre três valores:
 
 Se a propriedade de acesso estiver indefinida, o acesso não autenticado será permitido.
 
-### <a name="howto-tables-getidentity"></a>Usar declarações de autenticação com as tabelas
+### <a name="use-authentication-claims-with-your-tables"></a><a name="howto-tables-getidentity"></a>Usar declarações de autenticação com as tabelas
 Você pode configurar várias declarações que são solicitadas durante a configuração da autenticação. Normalmente, essas declarações não estão disponíveis por meio do objeto `context.user` . No entanto, é possível recuperá-las utilizando o `context.user.getIdentity()` método. O método `getIdentity()` retorna uma promessa que resolve um objeto. O objeto é inserido pelo método de autenticação (`facebook`, `google`, `twitter`, `microsoftaccount`, ou `aad`).
 
 Por exemplo, se você configurar a autenticação de Conta da Microsoft e solicitar a declaração dos endereços de email, será possível adicionar o endereço de email ao registro com o seguinte controlador de tabela:
@@ -529,7 +529,7 @@ module.exports = table;
 
 Para ver quais declarações estão disponíveis, use um navegador da Web para exibir o ponto de extremidade do `/.auth/me` de seu site.
 
-### <a name="howto-tables-disabled"></a>Desabilitar o acesso a operações de tabela específicas
+### <a name="disable-access-to-specific-table-operations"></a><a name="howto-tables-disabled"></a>Desabilitar o acesso a operações de tabela específicas
 
 Além de aparecer na tabela, a propriedade de acesso pode ser usada para controlar operações individuais. Há quatro operações:
 
@@ -554,7 +554,7 @@ table.delete.access = 'disabled';
 module.exports = table;
 ```
 
-### <a name="howto-tables-query"></a>Ajustar a consulta usada em operações de tabela
+### <a name="adjust-the-query-that-is-used-with-table-operations"></a><a name="howto-tables-query"></a>Ajustar a consulta usada em operações de tabela
 
 Um requisito comum para operações de tabela é fornecer uma exibição restrita dos dados. Por exemplo, você pode fornecer uma tabela que é marcada com a ID de usuário autenticado, de modo que só possa ler ou atualizar seus próprios registros. A definição da tabela abaixo fornece essa funcionalidade:
 
@@ -595,7 +595,7 @@ As operações que normalmente executam uma consulta possuem uma propriedade de 
 context.query.where('myfield eq ?', 'value');
 ```
 
-### <a name="howto-tables-softdelete"></a>Configurar a exclusão reversível em uma tabela
+### <a name="configure-a-soft-delete-on-a-table"></a><a name="howto-tables-softdelete"></a>Configurar a exclusão reversível em uma tabela
 
 A exclusão reversível não exclui registros. Em vez disso, ela os marca como excluídos no banco de dados definindo a coluna excluída como true. O SDK de Aplicativos Móveis remove automaticamente registros com exclusão reversível dos resultados, exceto se o SDK de Cliente Móvel usar `IncludeDeleted()`. Para configurar uma tabela para exclusão reversível, defina a propriedade `softDelete` no arquivo de definição de tabela:
 
@@ -624,7 +624,7 @@ module.exports = table;
 
 Você deve estabelecer um mecanismo para excluir registros: um aplicativo cliente, um WebJob, um Azure Function ou uma API personalizada.
 
-### <a name="howto-tables-seeding"></a>Propagar seu banco de dados com dados
+### <a name="seed-your-database-with-data"></a><a name="howto-tables-seeding"></a>Propagar seu banco de dados com dados
 
 Quando você está criando um novo aplicativo, é possível que você queira propagar uma tabela com dados. Você pode fazer isso no arquivo de JavaScript da definição da tabela da seguinte maneira:
 
@@ -656,7 +656,7 @@ A propagação de dados ocorre apenas quando você usou o SDK de Aplicativos Mó
 
 Recomendamos que você chame explicitamente o método `tables.initialize()` para criar a tabela quando o serviço começar a ser executado.
 
-### <a name="Swagger"></a>Habilitar o suporte para o Swagger
+### <a name="enable-swagger-support"></a><a name="Swagger"></a>Habilitar o suporte para o Swagger
 Os Aplicativos Móveis vêm com suporte do [Swagger]. Para habilitar o suporte do Swagger, primeiro instale a swagger-ui como uma dependência:
 
     npm install --save swagger-ui
@@ -677,11 +677,11 @@ O ponto de extremidade `swagger` está localizado em http://*seusite*.azurewebsi
 
 Também será possível adicionar a opção do Swagger ao arquivo azureMobile.js se você quiser o suporte do Swagger durante o desenvolvimento local.
 
-## <a name="a-namepushpush-notifications"></a><a name="push"/>Notificações por Push
+## <a name="push-notifications"></a><a name="push"/>Notificações por Push
 
 Os Aplicativos Móveis integram-se aos Hubs de Notificação do Azure para que você possa enviar notificações por push direcionadas para milhões de dispositivos em todas as plataformas principais. Usando os Hubs de Notificação, você pode enviar notificações por push para iOS, Android e dispositivos com Windows. Para saber mais sobre tudo o que você pode fazer com os Hubs de Notificação, consulte a [Visão geral dos Hubs de Notificação](../notification-hubs/notification-hubs-push-notification-overview.md).
 
-### <a name="send-push"></a>Enviar notificações por push
+### <a name="send-push-notifications"></a><a name="send-push"></a>Enviar notificações por push
 
 O código a seguir mostra como usar o objeto `push` para enviar uma notificação de push de difusão para dispositivos iOS registrados:
 
@@ -717,7 +717,7 @@ if (context.push) {
 }
 ```
 
-### <a name="push-user"></a>Enviar notificações por push para um usuário autenticado usando marcações
+### <a name="send-push-notifications-to-an-authenticated-user-by-using-tags"></a><a name="push-user"></a>Enviar notificações por push para um usuário autenticado usando marcações
 Quando um usuário autenticado se registra para notificações por push, uma marca de ID de usuário é adicionada automaticamente ao registro. Usando essa marca, você pode enviar notificações por push para todos os dispositivos registrados por um usuário específico. O código abaixo obtém a SID do usuário que fez a solicitação e envia um modelo de notificação por push para cada registro de dispositivo do usuário:
 
 ```javascript
@@ -734,13 +734,13 @@ if (context.push) {
 
 Ao se registrar para notificações por push de um cliente autenticado, certifique-se de que a autenticação foi concluída antes de tentar o registro.
 
-## <a name="CustomAPI"></a> APIs personalizadas
+## <a name="custom-apis"></a><a name="CustomAPI"></a>APIs personalizadas
 
-### <a name="howto-customapi-basic"></a>Definir uma API personalizada
+### <a name="define-a-custom-api"></a><a name="howto-customapi-basic"></a>Definir uma API personalizada
 
 Além da API de Acesso a Dados por meio do ponto de extremidade `/tables`, os Aplicativos Móveis podem fornecer cobertura API personalizada. As APIs personalizadas são definidas de forma semelhante às definições de tabela e pode acessar todos os mesmos recursos, incluindo autenticação.
 
-Se você quiser usar a Autenticação do Serviço de Aplicativo com uma API Personalizada, primeiro será necessário configurar a Autenticação do Serviço de Aplicativo no [Azure portal]. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende utilizar:
+Se você quiser usar a Autenticação do Serviço de Aplicativo com uma API Personalizada, primeiro será necessário configurar a Autenticação do Serviço de Aplicativo no [Portal do Azure]. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende utilizar:
 
 * [Configurar a autenticação do Microsoft Azure Active Directory]
 * [Configurar a autenticação do Facebook]
@@ -788,7 +788,7 @@ module.exports = api;
 
 Cada parâmetro é um dos verbos padrão RESTful: GET, POST, PATCH ou DELETE. O método é uma função padrão [ExpressJS middleware] que envia a saída necessária.
 
-### <a name="howto-customapi-auth"></a>Solicitar autenticação para acesso a uma API personalizada
+### <a name="require-authentication-for-access-to-a-custom-api"></a><a name="howto-customapi-auth"></a>Solicitar autenticação para acesso a uma API personalizada
 
 O SDK de Aplicativos Móveis implementa a autenticação da mesma forma para o ponto de extremidade `tables` e APIs personalizadas. Para adicionar autenticação à API desenvolvida na seção anterior, adicione uma propriedade `access`:
 
@@ -822,7 +822,7 @@ module.exports = api;
 
 O mesmo token que é usado para o ponto de extremidade `tables` deve ser utilizado para APIs personalizadas que requerem autenticação.
 
-### <a name="howto-customapi-auth"></a>Manipular transferências de arquivos grandes
+### <a name="handle-large-file-uploads"></a><a name="howto-customapi-auth"></a>Manipular transferências de arquivos grandes
 
 O SDK de Aplicativos Móveis usa o [body-parser middleware](https://github.com/expressjs/body-parser) para aceitar e decodificar o conteúdo do corpo em seu envio. Você pode pré-configurar o body-parser para aceitar carregamentos de arquivos maiores:
 
@@ -850,7 +850,7 @@ app.listen(process.env.PORT || 3000);
 
 O arquivo é codificado em base 64 antes da transmissão. Essa codificação aumenta o tamanho do upload real (e o tamanho que você deve considerar).
 
-### <a name="howto-customapi-sql"></a>Executar instruções SQL personalizadas
+### <a name="execute-custom-sql-statements"></a><a name="howto-customapi-sql"></a>Executar instruções SQL personalizadas
 
 O SDK de aplicativos móveis permite acesso a todo o contexto por meio do objeto de solicitação. Você pode executar instruções SQL parametrizadas com facilidade para o provedor de dados definido:
 
@@ -883,9 +883,9 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>Pura
+## <a name="debugging"></a><a name="Debugging"></a>Depuração
 
-### <a name="howto-diagnostic-logs"></a>Depurar, diagnosticar e solucionar problemas dos Aplicativos Móveis
+### <a name="debug-diagnose-and-troubleshoot-mobile-apps"></a><a name="howto-diagnostic-logs"></a>Depurar, diagnosticar e solucionar problemas dos Aplicativos Móveis
 
 O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de solução de problemas para aplicativos Node.js.
 Para a introdução em solução de problemas de back-end de Aplicativos Móveis do Node.js, consulte os artigos a seguir:
@@ -894,7 +894,7 @@ Para a introdução em solução de problemas de back-end de Aplicativos Móveis
 * [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure]
 * [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio]
 
-Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico. Internamente, o SDK do Node.js dos Aplicativos Móveis usa o [Winston] para o registro em log de diagnóstico. O registro em log é habilitado automaticamente quando você habilita o modo de depuração ou define a configuração do aplicativo `MS_DebugMode` como verdadeiro no [Azure portal]. Logs gerados aparecem nos logs de diagnóstico no [Azure portal].
+Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico. Internamente, o SDK do Node.js dos Aplicativos Móveis usa o [Winston] para o registro em log de diagnóstico. O registro em log é habilitado automaticamente quando você habilita o modo de depuração ou define a configuração do aplicativo `MS_DebugMode` como verdadeiro no [Portal do Azure]. Logs gerados aparecem nos logs de diagnóstico no [Portal do Azure].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -907,13 +907,13 @@ Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de dia
 
 <!-- URLs -->
 [Início rápido do cliente Android]: app-service-mobile-android-get-started.md
-[Início rápido do Cliente Apache Cordova]: app-service-mobile-cordova-get-started.md
+[Cliente Apache Cordova quickstart]: app-service-mobile-cordova-get-started.md
 [Início rápido do Cliente iOS]: app-service-mobile-ios-get-started.md
-[Início rápido do Cliente Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Xamarin.iOS Cliente quickstart]: app-service-mobile-xamarin-ios-get-started.md
 [Início rápido do Cliente Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Início rápido do Cliente Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Início rápido do cliente Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
-[sincronização de dados offline]: app-service-mobile-offline-data-sync.md
+[à sincronização de dados offline]: app-service-mobile-offline-data-sync.md
 [Configurar a autenticação do Microsoft Azure Active Directory]: ../app-service/configure-authentication-provider-aad.md
 [Configurar a autenticação do Facebook]: ../app-service/configure-authentication-provider-facebook.md
 [Configurar a autenticação do Google]: ../app-service/configure-authentication-provider-google.md
@@ -930,8 +930,8 @@ Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de dia
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Azure portal]: https://portal.azure.com/
-[OData]: https://www.odata.org
+[Portal Azure]: https://portal.azure.com/
+[Odata]: https://www.odata.org
 [Promessa]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [exemplo de aplicativo básico no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [exemplo de tarefas pendentes no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo

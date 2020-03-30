@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 3fec04a1a45f8b154e27a1e5303e44111f4cb421
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71211881"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registrar o usuário atual para notificações por push usando o ASP.NET
@@ -36,13 +36,13 @@ Este tópico mostra como solicitar o registro de notificações por push com os 
 
 1. No MainStoryboard_iPhone.storyboard, adicione os seguintes componentes da biblioteca de objetos:
 
-   * **Rótulo**: "Push to User with Notification Hubs"
-   * **Rótulo**: "InstallationId"
-   * **Rótulo**: "User"
-   * **Campo de texto**: "User"
-   * **Rótulo**: "Password"
-   * **Campo de texto**: "Password"
-   * **Botão**: "Login"
+   * **Label**: "Push to User with Notification Hubs"
+   * **Label**: "InstallationId"
+   * **Label**: "User"
+   * **Text Field**: "User"
+   * **Label**: "Password"
+   * **Text Field**: "Password"
+   * **Button**: "Login"
 
      Neste ponto, o storyboard é semelhante ao seguinte:
 
@@ -257,5 +257,5 @@ Agora que o aplicativo cliente foi atualizado, retorne para [Notificar usuários
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notificar usuários com Hubs de Notificação]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notificar usuários com os Hubs de Notificação]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Introdução aos Hubs de Notificação]: notification-hubs-ios-apple-push-notification-apns-get-started.md

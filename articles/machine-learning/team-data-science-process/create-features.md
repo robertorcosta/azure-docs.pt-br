@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721125"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
@@ -48,7 +48,7 @@ Ao começar a usar o Azure Machine Learning, é mais fácil entender esse proces
 * Um exemplo de classificação de mineração de texto usando [Hash de recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: adicionar recursos temporais para um modelo de regressão
-Vamos usar o experimento "Previsão de demanda de bicicletas" em Azure Machine Learning Studio (clássico) para demonstrar como desenvolver recursos para uma tarefa de regressão. O objetivo do experimento é prever a demanda de bicicletas, ou seja, o número de locações de bicicletas dentro de um mês/dia/hora específica. O “Conjunto de dados de UCI de locação de bicicletas” é usado como os dados brutos de entrada. Esse conjunto de dados baseia-se em dados reais da empresa Capital Bikeshare, que mantém uma rede de aluguel de bicicletas em Washington, D.C. nos Estados Unidos. O conjunto de dados representa o número de locações de bicicletas em uma hora específica de um dia nos anos 2011 e 2012 e contém 17379 linhas e 17 colunas. O conjunto de recursos brutos contém condições climáticas (temperatura/umidade/velocidade do vento) e o tipo de dia (feriado/dia da semana). O campo a prever é a contagem ' CNT ', que representa a locações de bicicletas em uma hora específica e que varia de 1 a 977.
+Vamos usar o experimento "Demand forecasting of bikes" no Azure Machine Learning Studio (clássico) para demonstrar como projetar recursos para uma tarefa de regressão. O objetivo do experimento é prever a demanda de bicicletas, ou seja, o número de locações de bicicletas dentro de um mês/dia/hora específica. O “Conjunto de dados de UCI de locação de bicicletas” é usado como os dados brutos de entrada. Esse conjunto de dados baseia-se em dados reais da empresa Capital Bikeshare, que mantém uma rede de aluguel de bicicletas em Washington, D.C. nos Estados Unidos. O conjunto de dados representa o número de locações de bicicletas em uma hora específica de um dia nos anos 2011 e 2012 e contém 17379 linhas e 17 colunas. O conjunto de recursos brutos contém condições climáticas (temperatura/umidade/velocidade do vento) e o tipo de dia (feriado/dia da semana). O campo a ser previsto é a contagem 'cnt', que representa os aluguéis de bicicletas dentro de uma hora específica e que varia de 1 a 977.
 
 Com o objetivo de construir recursos efetivos nos dados de treinamento, quatro modelos de regressão são criados usando o mesmo algoritmo, mas com quatro conjuntos de dados de treinamento diferentes. Os quatro conjuntos de dados representam os mesmos dados de entrada brutos, mas com um número crescente de características definido. Os recursos são agrupados em quatro categorias:
 
@@ -57,7 +57,7 @@ Com o objetivo de construir recursos efetivos nos dados de treinamento, quatro m
 3. C = número de bicicletas que foram alugadas em cada um dos últimos 12 dias, na mesma hora
 4. D = número de bicicletas que foram alugadas em cada uma das últimas 12 semanas, na mesma hora e mesmo dia
 
-Além do conjunto de recursos A, que já existe nos dados brutos originais, três outros conjuntos de recursos são criados por meio do processo de engenharia de recursos. O conjunto de recursos B captura a demanda recente pelas bicicletas. O conjunto de recursos C captura a demanda por bicicletas em uma hora específica. O conjunto de recursos D captura a demanda por bicicletas em uma hora específica de um dia específico da semana. Os quatro conjuntos de dados de treinamento incluem os conjuntos de recursos A, A + B, A + B + C e A + B + C + D, respectivamente.
+Além do conjunto de recursos A, que já existe nos dados brutos originais, três outros conjuntos de recursos são criados por meio do processo de engenharia de recursos. O conjunto de recursos B captura a demanda recente pelas motos. O conjunto de recursos C captura a demanda por bicicletas em uma hora específica. O conjunto de recursos D captura a demanda por bicicletas em uma hora específica de um dia específico da semana. Os quatro conjuntos de dados de treinamento incluem os conjuntos de recursos A, A + B, A + B + C e A + B + C + D, respectivamente.
 
 No experimento do Azure Machine Learning, esses quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada pré-processado. Exceto pela ramificação mais à esquerda, cada uma dessas ramificações contém um módulo [Executar Script R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), no qual os recursos derivados (conjuntos de recursos B, C e D) são construídos e acrescentados ao conjunto de dados importado. A figura a seguir demonstra o script R sendo usado para criar o conjunto de recursos B na segunda ramificação à esquerda.
 
@@ -67,14 +67,14 @@ Uma comparação dos resultados de desempenho dos quatro modelos é resumida na 
 
 ![comparação de resultados](./media/create-features/result1.png)
 
-Os melhores resultados são mostrados pelos recursos A + B + C. A taxa de erros diminui quando um conjunto de recursos adicional é incluído nos dados de treinamento. Isso confirma a suposição de que o conjunto de recursos B, C fornece informações adicionais relevantes para a tarefa de regressão. Mas adicionar o recurso D não parece fornecer qualquer redução adicional da taxa de erro.
+Os melhores resultados são mostrados pelos recursos A + B + C. A taxa de erro diminui quando o conjunto de recursos adicionais é incluído nos dados de treinamento. Isso confirma a suposição de que o conjunto de recursos B, C fornece informações adicionais relevantes para a tarefa de regressão. Mas adicionar o recurso D não parece fornecer qualquer redução adicional da taxa de erro.
 
-## <a name="example2"></a> Exemplo 2: criando recursos com mineração de texto
+## <a name="example-2-creating-features-in-text-mining"></a><a name="example2"></a>Exemplo 2: Criação de recursos na mineração de texto
 A engenharia de recursos é amplamente aplicada a tarefas relacionadas à mineração de texto, como classificação de documentos e análise de sentimento. Por exemplo, quando se quer classificar documentos em várias categorias, um pressuposto típico é que as palavras/expressões incluídas em uma categoria de documentos têm menor probabilidade de ocorrer em outra categoria de documentos. Em outras palavras, a frequência da distribuição de palavras/expressões é capaz de caracterizar diferentes categorias de documentos. Para aplicações associadas à mineração de texto, como trechos individuais do conteúdo de texto normalmente funcionam como dados de entrada, o processo de engenharia de recurso é necessário para criar os recursos que envolvem frequências de palavra/expressão.
 
 Para realizar essa tarefa, uma técnica chamada **hash de recursos** é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/expressões) a um índice em particular, este método funciona aplicando uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
 
-No Azure Machine Learning, há um módulo de [hash de recurso](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) que cria recursos de palavra/frase convenientemente. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo de [Hash de Recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) é recuperar um monte de novos recursos que mostram a frequência de ocorrência das palavras/expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, conclua as seguintes etapas:
+No Azure Machine Learning, há um módulo [de hashing de recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) que cria recursos de palavra/frase convenientemente. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo de [Hash de Recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) é recuperar um monte de novos recursos que mostram a frequência de ocorrência das palavras/expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, conclua as seguintes etapas:
 
 * Primeiro, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
 * Em segundo lugar, defina "Bitsize de hashing" como 8, o que significa que 2^8 = 256 recursos serão criados. A palavra/expressão em todo o texto será colocada em hash, em 256 índices. O parâmetro "Bitsize de hashing" varia de 1 a 31. As palavras/expressões têm menos probabilidades de serem colocadas em hash no mesmo índice se a configuração for para um número maior.

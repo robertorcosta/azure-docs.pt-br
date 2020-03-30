@@ -1,6 +1,6 @@
 ---
 title: Esquema Media Encoder Standard | Microsoft Docs
-description: Este artigo descreve alguns dos elementos e tipos do esquema XML no qual Media Encoder Standard predefinições são baseadas.
+description: Este artigo descreve alguns dos elementos e tipos do esquema XML nos quais as predefinições do Media Encoder Standard se baseiam.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 622f14beabb1f2f109dff5d28c1591ffdd5aa000
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74901444"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema do Media Encoder Standard
 Este artigo descreve alguns dos elementos e tipos do esquema XML nos quais as [predefinições do Media Encoder Standard](media-services-mes-presets-overview.md) se baseiam. O artigo fornece uma explicação sobre os elementos e seus valores válidos.  
 
-## <a name="Preset"></a> Predefinição (elemento raiz)
+## <a name="preset-root-element"></a><a name="Preset"></a> Predefinição (elemento raiz)
 Define uma predefinição de codificação.  
 
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Codificação** |[Codificação](media-services-mes-schema.md#Encoding) |Elemento raiz, indica que as fontes de entrada devem ser codificadas. |
 | **Saídas** |[Saídas](media-services-mes-schema.md#Output) |Coleção dos arquivos de saída desejados. |
@@ -36,16 +36,16 @@ Define uma predefinição de codificação.
 
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| **Versão**<br/><br/> obrigatórios |**xs: decimal** |A versão predefinida. As seguintes restrições se aplicam: xs:fractionDigits value="1" e xs:minInclusive value="1" Por exemplo, **version="1.0"** . |
+| **Versão**<br/><br/> Obrigatório |**xs: decimal** |A versão predefinida. As seguintes restrições se aplicam: xs:fractionDigits value="1" e xs:minInclusive value="1" Por exemplo, **version="1.0"**. |
 
-## <a name="Encoding"></a> Codificação
+## <a name="encoding"></a><a name="Encoding"></a>Codificação
 Contém uma sequência dos elementos a seguir:  
 
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Configurações de codificação de vídeo H.264. |
 | **AACAudio** |[AACAudio](media-services-mes-schema.md#AACAudio) |Configurações de codificação de áudio AAC. |
@@ -53,35 +53,35 @@ Contém uma sequência dos elementos a seguir:
 | **PngImage** |[PngImage](media-services-mes-schema.md#PngImage) |Configurações de imagem Png. |
 | **JpgImage** |[JpgImage](media-services-mes-schema.md#JpgImage) |Configurações de imagem Jpg. |
 
-## <a name="H264Video"></a> H264Video
+## <a name="h264video"></a><a name="H264Video"></a>H264Vídeo
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Atualmente, há suporte apenas para a codificação em uma passo. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina o espaçamento fixo entre quadros IDR em unidades de segundos. Também referido como a duração de GOP. Consulte **SceneChangeDetection** para controlar se o codificador pode desviar-se desse valor. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs: boolean** |Se definido como true, codificador tenta detectar alteração de cena no vídeo e insere um quadro IDR. |
-| **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controla a compensação entre a qualidade de vídeo e a velocidade de codificação. Pode ser um dos seguintes valores: **velocidade**, **Equilibrado** ou **Qualidade**<br/><br/> Padrão: **Balanced** |
-| **SyncMode**<br/><br/> minOccurs="0" | |O recurso será exposto em uma versão futura. |
+| **Complexidade**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controla a compensação entre a qualidade de vídeo e a velocidade de codificação. Pode ser um dos seguintes valores: **velocidade**, **Equilibrado** ou **Qualidade**<br/><br/> Padrão: **Balanced** |
+| **Modo de sincronização**<br/><br/> minOccurs="0" | |O recurso será exposto em uma versão futura. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Coleção de camadas de vídeo de saída. |
 
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| **Condição** |**xs:string** | Quando a entrada não tiver vídeo, talvez você queira forçar o codificador a inserir uma faixa de vídeo monocromática. Para fazer isso, use Condition = "InsertBlackIfNoVideoBottomLayerOnly" (para inserir um vídeo somente na taxa de bits mais baixa) ou Condition = "InsertBlackIfNoVideo" (para inserir um vídeo em todas as taxas de bits de saída). Para saber mais, confira [este artigo](media-services-advanced-encoding-with-mes.md#no_video).|
+| **Condição** |**xs:string** | Quando a entrada não tiver vídeo, você pode querer forçar o codificador a inserir uma faixa de vídeo monocromática. Para fazer isso, use Condition="InsertBlackIfNoVideoBottomLayerOnly" (para inserir um vídeo apenas na taxa de bits mais baixa) ou Condition="InsertBlackIfNoVideo" (para inserir um vídeo em todas as taxas de bits de saída). Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) artigo.|
 
-## <a name="H264Layers"></a> H264Layers
+## <a name="h264layers"></a><a name="H264Layers"></a>H264Layers
 
-Por padrão, se você enviar uma entrada para o codificador que contém apenas áudio e sem vídeo, o ativo de saída conterá apenas arquivos com dados de áudio. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. É possível utilizar a configuração de atributo **InsertBlackIfNoVideo** do H264Video para forçar o codificador a adicionar uma faixa de vídeo para a saída nesse cenário. Para saber mais, confira [este artigo](media-services-advanced-encoding-with-mes.md#no_video).
+Por padrão, se você enviar uma entrada para o codificador que contém apenas áudio e sem vídeo, o ativo de saída conterá apenas arquivos com dados de áudio. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. É possível utilizar a configuração de atributo **InsertBlackIfNoVideo** do H264Video para forçar o codificador a adicionar uma faixa de vídeo para a saída nesse cenário. Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) artigo.
               
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Uma coleção de camadas de H264. |
+| **Camada H264**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[Camada H264](media-services-mes-schema.md#H264Layer) |Uma coleção de camadas de H264. |
 
-## <a name="H264Layer"></a> H264Layer
+## <a name="h264layer"></a><a name="H264Layer"></a> H264Layer
 > [!NOTE]
 > Limites de vídeo se baseiam nos valores descritos na tabela [Níveis H264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels).  
 > 
@@ -89,10 +89,10 @@ Por padrão, se você enviar uma entrada para o codificador que contém apenas �
 
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Perfil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** |Pode ser de um dos seguintes valores **xs: string**: **Auto**, **Baseline**, **Main**, **High**. |
-| **Level**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** | |
+| **Nível**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs: string** | |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |A taxa de bits usada para esta camada de vídeo, especificada em kbps. |
 | **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |A taxa de bits máxima usada para esta camada de vídeo, especificada em kbps. |
 | **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |Comprimento do buffer de vídeo. |
@@ -105,20 +105,20 @@ Por padrão, se você enviar uma entrada para o codificador que contém apenas �
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |Cópia do Codificador de Mídia do Azure |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determina em quantas fatias um quadro é dividido. É recomendável usar o padrão. |
 
-## <a name="AACAudio"></a> AACAudio
+## <a name="aacaudio"></a><a name="AACAudio"></a> AACAudio
  Contém uma sequência dos elementos e grupos a seguir.  
 
  Para saber mais sobre AAC, veja [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Perfil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Poderia ser um dos seguintes valores: **AACLC**, **HEAACV1** ou **HEAACV2**. |
 
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Condição** |**xs: string** |Para forçar o codificador a produzir um ativo que contenha uma faixa de áudio silenciosa quando a entrada não tiver áudio, especifique o valor de "InsertSilenceIfNoAudio".<br/><br/> Por padrão, se você enviar uma entrada para o codificador que contenha apenas vídeo e sem áudio, o ativo de saída conterá os arquivos que contêm apenas dados de vídeo. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. Você pode usar essa configuração para forçar o codificador a adicionar uma faixa de áudio silenciosa à saída nesse cenário. |
 
@@ -128,12 +128,12 @@ Por padrão, se você enviar uma entrada para o codificador que contém apenas �
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Veja a descrição de [AudioGroup](media-services-mes-schema.md#AudioGroup) para saber o número apropriado de canais, a taxa de amostragem e a taxa de bits que podem ser definidas para cada perfil. |
 
-## <a name="AudioGroup"></a> AudioGroup
+## <a name="audiogroup"></a><a name="AudioGroup"></a>AudioGroup
 Para obter detalhes sobre quais valores são válidos para cada perfil, veja a tabela "Detalhes de codec de áudio" a seguir.  
 
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Canais**<br/><br/> minOccurs="0" |**xs: int** |O número de canais de áudio codificados. A seguir estão as opções válidas: 1, 2, 5, 6, 8.<br/><br/> Padrão: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |A taxa de amostragem de áudio, especificada em Hz. |
@@ -147,20 +147,20 @@ Codec de áudio|Detalhes
 **HEAACV1** |1:<br/><br/> - 22050: taxa de bits = 8<br/><br/> - 24000: 8 &lt;= taxa de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= taxa de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 88200: taxa de bits = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= taxa de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= taxa de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= taxa de bits &lt;= 128<br/><br/> - 88200 : 96 &lt;= taxa de bits &lt;= 128<br/><br/> - 96000: 96 &lt;= taxa de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= taxa de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= taxa de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= taxa de bits &lt;= 320<br/><br/> - 88200 : 256 &lt;= taxa de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= taxa de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= taxa de bits &lt;= 448<br/><br/> - 44100: 96 &lt;= taxa de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= taxa de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= taxa de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= taxa de bits &lt;= 448  
 **HEAACV2** |2:<br/><br/> - 22050: 8 &lt;= taxa de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= taxa de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= taxa de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= taxa de bits &lt;= 64  
   
-## <a name="Clip"></a> Clip
+## <a name="clip"></a><a name="Clip"></a> Clip
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Especifica a hora de início de uma apresentação. O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro de vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 ou maior. |
 | **Duração** |**xs:duration** |Especifica a duração de uma apresentação (por exemplo, a aparência de uma sobreposição no vídeo). |
 
-## <a name="Output"></a> Output
+## <a name="output"></a><a name="Output"></a>Saída
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| **FileName** |**xs:string** |O nome do arquivo de saída.<br/><br/> Você pode usar as macros descritas na tabela a seguir para compilar os nomes dos arquivos de saída. Por exemplo:<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **Filename** |**xs:string** |O nome do arquivo de saída.<br/><br/> Você pode usar as macros descritas na tabela a seguir para compilar os nomes dos arquivos de saída. Por exemplo: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
 
@@ -170,22 +170,22 @@ Codec de áudio|Detalhes
 | **{Codec}** |Mapeia "H264" para vídeo e "AAC" para áudio. |
 | **{Bitrate}** |A taxa de bits de vídeo de destino se o arquivo de saída contiver áudio e vídeo, ou então taxa de bits de áudio de destino se o arquivo de saída contiver somente áudio. O valor usado é a taxa de bits em kbps. |
 | **{Channel}** |Contagem de canais de áudio se o arquivo contiver áudio. |
-| **{Width}** |Largura do vídeo em pixels no arquivo de saída, se o arquivo contiver vídeo. |
-| **{Height}** |Altura do vídeo em pixels no arquivo de saída, se o arquivo contiver vídeo. |
-| **{Extension}** |Herda a propriedade "Type" para o arquivo de saída. O nome do arquivo de saída tem uma extensão que é uma entre: "mp4", "ts", "jpg", "png" ou "bmp". |
-| **{Index}** |Obrigatório para a miniatura. Deve estar presente apenas uma vez. |
+| **{Largura}** |Largura do vídeo em pixels no arquivo de saída, se o arquivo contiver vídeo. |
+| **{Altura}** |Altura do vídeo em pixels no arquivo de saída, se o arquivo contiver vídeo. |
+| **{Extensão}** |Herda a propriedade "Type" para o arquivo de saída. O nome do arquivo de saída tem uma extensão que é uma entre: "mp4", "ts", "jpg", "png" ou "bmp". |
+| **{Índice}** |Obrigatório para a miniatura. Deve estar presente apenas uma vez. |
 
-## <a name="Video"></a> Video (o tipo complexo herda do Codec)
+## <a name="video-complex-type-inherits-from-codec"></a><a name="Video"></a> Video (o tipo complexo herda do Codec)
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
-| **Iniciar** |**xs:string** | |
-| **Step** |**xs:string** | |
-| **Range** |**xs:string** | |
-| **PreserveResolutionAfterRotation** |**xs:boolean** |Para obter explicações detalhadas, consulte a seção a seguir: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
+| **Início** |**xs:string** | |
+| **Etapa** |**xs:string** | |
+| **Gama** |**xs:string** | |
+| **PreservarResoluçãoApósrotação** |**xs:boolean** |Para obter explicações detalhadas, consulte a seção a seguir: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
-### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
+### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
 É recomendável usar o sinalizador **PreserveResolutionAfterRotation** em combinação com valores de resolução expressos em termos percentuais (Width="100%" , Height="100%").  
 
 Por padrão, as configurações de resolução de codificação (Width, Height) em predefinições do MES (Media Encoder Standard) são destinadas a vídeos com 0 grau de rotação. Por exemplo, se o vídeo de entrada tiver as dimensões 1280x720 com zero grau de rotação, as predefinições padrão asseguram que a saída tem a mesma resolução.  
@@ -196,51 +196,51 @@ Se o vídeo de entrada tiver sido capturado com rotação diferente de zero (por
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterRotation** e defini-lo como "true" (o padrão é "false"). Então, se a predefinição tiver Largura = "100%", Altura = "100%" e PreserveResolutionAfterRotation definido como "true", um vídeo de entrada que tem 1280 pixels de largura e 720 pixels de altura com 90 graus de rotação produzirá uma saída com zero grau de rotação, mas 720 pixels de largura e 1280 pixels de altura. Confira a seguinte figura:  
+Alternativamente, você pode fazer uso do sinalizador **PreserveResolutionAfterRotation** e configurá-lo como "verdadeiro" (o padrão é "falso"). Então, se a predefinição tiver Largura = "100%", Altura = "100%" e PreserveResolutionAfterRotation definido como "true", um vídeo de entrada que tem 1280 pixels de largura e 720 pixels de altura com 90 graus de rotação produzirá uma saída com zero grau de rotação, mas 720 pixels de largura e 1280 pixels de altura. Confira a seguinte figura:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
-## <a name="FormatGroup"></a> FormatGroup (grupo)
+## <a name="formatgroup-group"></a><a name="FormatGroup"></a> FormatGroup (grupo)
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
 | **PngFormat** |**PngFormat** | |
 | **JpgFormat** |**JpgFormat** | |
 
-## <a name="BmpLayer"></a> BmpLayer
+## <a name="bmplayer"></a><a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Elemento
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Condição** |**xs:string** | |
 
-## <a name="PngLayer"></a> PngLayer
+## <a name="pnglayer"></a><a name="PngLayer"></a>PngLayer
 ### <a name="element"></a>Elemento
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Condição** |**xs:string** | |
 
-## <a name="JpgLayer"></a> JpgLayer
+## <a name="jpglayer"></a><a name="JpgLayer"></a>JpgLayer
 ### <a name="element"></a>Elemento
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -248,56 +248,56 @@ Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterR
 
 ### <a name="attributes"></a>Atributos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Condição** |**xs:string** | |
 
-## <a name="PngLayers"></a> PngLayers
+## <a name="pnglayers"></a><a name="PngLayers"></a>PngLayers
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
-## <a name="BmpLayers"></a> BmpLayers
+## <a name="bmplayers"></a><a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
-## <a name="JpgLayers"></a> JpgLayers
+## <a name="jpglayers"></a><a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
-## <a name="BmpImage"></a> BmpImage (o tipo complexo herda do Vídeo)
+## <a name="bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a> BmpImage (o tipo complexo herda do Vídeo)
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Camadas de Png |
 
-## <a name="JpgImage"></a> JpgImage (o tipo complexo herda do Vídeo)
+## <a name="jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a> JpgImage (o tipo complexo herda do Vídeo)
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Camadas de Png |
 
-## <a name="PngImage"></a> PngImage (o tipo complexo herda do Vídeo)
+## <a name="pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a> PngImage (o tipo complexo herda do Vídeo)
 ### <a name="elements"></a>Elementos
 
-| name | Type | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Camadas de Png |
 
 ## <a name="examples"></a>Exemplos
 Consulte exemplos de predefinições XML que são criadas com base neste esquema, veja [Predefinições de tarefa para MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

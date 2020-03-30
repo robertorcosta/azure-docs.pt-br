@@ -1,38 +1,38 @@
 ---
 title: Solução de problemas comuns
-description: Saiba como solucionar problemas com vários SDKs ao consultar recursos do Azure com o grafo de recursos do Azure.
+description: Aprenda a solucionar problemas com os vários SDKs enquanto consulta os recursos do Azure com o Azure Resource Graph.
 ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74303910"
 ---
-# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solucionar erros usando o grafo de recursos do Azure
+# <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solucionando problemas usando o Gráfico de Recursos do Azure
 
-Você pode encontrar erros ao consultar recursos do Azure com o grafo de recursos do Azure. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
+Você pode encontrar erros ao consultar os recursos do Azure com o Gráfico de Recursos do Azure. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="finding-error-details"></a>Encontrar detalhes do erro
 
-A maioria dos erros é o resultado de um problema durante a execução de uma consulta com o grafo de recursos do Azure. Quando uma consulta falha, o SDK fornece detalhes sobre a consulta com falha. Essas informações indicam o problema para que ele possa ser corrigido e uma consulta posterior seja realizada com sucesso.
+A maioria dos erros é o resultado de um problema durante a execução de uma consulta com o Gráfico de Recursos do Azure. Quando uma consulta falha, o SDK fornece detalhes sobre a consulta com falha. Essas informações indicam o problema para que possam ser corrigidos e uma consulta posterior seja bem sucedida.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="toomanysubscription"></a>Cenário: muitas assinaturas
+### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Cenário: Muitas assinaturas
 
 #### <a name="issue"></a>Problema
 
-Os clientes com acesso a mais de 1000 assinaturas, incluindo assinaturas entre locatários com o [Azure Lighthouse](../../../lighthouse/overview.md), não podem buscar dados em todas as assinaturas em uma única chamada para o grafo de recursos do Azure.
+Os clientes com acesso a mais de 1000 assinaturas, incluindo assinaturas entre inquilinos com [o Azure Lighthouse,](../../../lighthouse/overview.md)não podem obter dados em todas as assinaturas em uma única chamada para o Azure Resource Graph.
 
 #### <a name="cause"></a>Causa
 
-CLI do Azure e o PowerShell encaminham apenas as primeiras assinaturas 1000 para o grafo de recursos do Azure. A API REST para o grafo de recursos do Azure aceita um número máximo de assinaturas para executar a consulta.
+A Cli e powerShell do Azure encaminham apenas as primeiras 1000 assinaturas ao Azure Resource Graph. A API REST for Azure Resource Graph aceita um número máximo de assinaturas para executar a consulta.
 
 #### <a name="resolution"></a>Resolução
 
-Solicitações em lote para a consulta com um subconjunto de assinaturas para permanecer sob o limite de assinatura 1000. A solução está usando o parâmetro de **assinatura** no PowerShell.
+Solicitações em lote para a consulta com um subconjunto de assinaturas para ficar abaixo do limite de assinatura de 1000. A solução está usando o parâmetro **De assinatura** no PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
@@ -57,38 +57,38 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="rest-contenttype"></a>Cenário: cabeçalho REST de tipo de conteúdo sem suporte
+### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Cenário: Cabeçalho RESTO do tipo de conteúdo não suportado
 
 #### <a name="issue"></a>Problema
 
-Os clientes que consultam a API REST do grafo de recursos do Azure obtêm uma resposta _500_ (erro interno do servidor) retornada.
+Os clientes que consultarem a API Rest do Gráfico de Recursos do Azure recebem uma resposta _de 500_ (Erro interno do servidor) retornada.
 
 #### <a name="cause"></a>Causa
 
-A API REST do grafo de recursos do Azure só dá suporte a uma `Content-Type` do **aplicativo/JSON**. Algumas ferramentas REST ou agentes assumem o padrão de **text/plain**, que não é suportado pela API REST.
+A API rest do Gráfico de `Content-Type` recursos do Azure só suporta um **de aplicativo/json**. Algumas ferramentas REST ou agentes padrão para **texto/planície,** que não é suportado pela API REST.
 
 #### <a name="resolution"></a>Resolução
 
-Valide se a ferramenta ou o agente que você está usando para consultar o grafo de recursos do Azure tem o cabeçalho da API REST `Content-Type` configurado para **Application/JSON**.
+Valide se a ferramenta ou agente que você está usando para consultar `Content-Type` o Gráfico de Recursos do Azure tem o cabeçalho rest API configurado para **aplicativo/json**.
 
-### <a name="rest-403"></a>Cenário: nenhuma permissão de leitura para todas as assinaturas na lista
+### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Cenário: Sem permissão de leitura para todas as assinaturas na lista
 
 #### <a name="issue"></a>Problema
 
-Os clientes que passam explicitamente uma lista de assinaturas com uma consulta do grafo de recursos do Azure obtêm uma resposta de _403_ (proibido).
+Os clientes que passam explicitamente uma lista de assinaturas com uma consulta do Azure Resource Graph recebem uma resposta _403_ (Proibida).
 
 #### <a name="cause"></a>Causa
 
-Se o cliente não tiver permissão de leitura para todas as assinaturas fornecidas, a solicitação será negada devido à falta de direitos de segurança apropriados.
+Se o cliente não tiver permissão de leitura para todas as assinaturas fornecidas, a solicitação será negada devido à falta de direitos de segurança adequados.
 
 #### <a name="resolution"></a>Resolução
 
-Inclua pelo menos uma assinatura na lista de assinaturas que o cliente que está executando a consulta tenha pelo menos acesso de leitura ao. Para obter mais informações, consulte [permissões no grafo de recursos do Azure](../overview.md#permissions-in-azure-resource-graph).
+Inclua pelo menos uma assinatura na lista de assinaturas à qual o cliente que executa a consulta tenha pelo menos acesso à leitura. Para obter mais informações, consulte [Permissões no Gráfico de Recursos do Azure](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-- Obtenha respostas de especialistas do Azure por meio dos [fóruns do Azure](https://azure.microsoft.com/support/forums/).
-- Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
-- Se precisar de mais ajuda, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
+- Obtenha respostas de especialistas do Azure através [do Azure Forums](https://azure.microsoft.com/support/forums/).
+- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
+- Se precisar de mais ajuda, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e **selecione Obter suporte**.

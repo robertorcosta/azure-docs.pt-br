@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774296"
 ---
-O exemplo a seguir mostra como criar um emparelhamento direto do 10 Gbps em Seattle.
+O exemplo a seguir mostra como criar um peering direct de 10Gbps em Seattle.
 
-Use o cmdlet **New-AzPeeringDirectConnectionObject** do PowerShell para criar DirectConnections que devem ser usados na nova solicitação de emparelhamento.
+Use o cmdlet PowerShell **New-AzPeeringDirectConnectionObject** para criar DirectConnections que devem ser usadas na nova solicitação de peering.
 
-Veja abaixo um exemplo para criar um DirectConnection:
+Abaixo está um exemplo para criar uma Conexão Direta:
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> O <index> para $peeringLocation [<index>] no exemplo acima deve corresponder ao local de emparelhamento de sua escolha
+> O <index> para<index>$peeringLocation no exemplo acima deve corresponder ao local de peering de sua escolha
 
-Crie outra conexão caso precise de redundância em um determinado local de emparelhamento:
+Crie outra conexão no caso de você precisar de redundância no determinado local de peering:
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Use o cmdlet **New-AzPeering** do PowerShell para criar um novo emparelhamento direto. Este comando requer uma ID de recurso ASN que pode ser recuperada conforme mostrado abaixo.
+Use o PowerShell cmdlet **New-AzPeering** para criar um novo peering direto. Este comando requer iD de recurso ASN que pode ser recuperado como mostrado abaixo.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Abaixo está um exemplo de resposta quando a solicitação foi processada com êxito:
+Abaixo está uma resposta de exemplo quando a solicitação foi processada com sucesso:
 
 ```powershell
 
@@ -78,4 +78,4 @@ Abaixo está um exemplo de resposta quando a solicitação foi processada com ê
     Tags                 : {}
 
 ```
-Observe que no lugar de **{SubscriptionId}** na saída acima, a ID da assinatura real será exibida.
+Observe que no lugar de **{subscriptionId}** na saída acima, o ID de assinatura real será exibido.

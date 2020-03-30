@@ -1,5 +1,5 @@
 ---
-title: Política de gerenciamento de API do Azure de exemplo-use OAuth2 para autorização entre gateway e back-end
+title: Caneta política de gerenciamento de API do Azure - Use OAuth2 para autorização entre gateway e backend
 titleSuffix: Azure API Management
 description: Exemplo de política de gerenciamento de API do Azure – Demonstra como usar OAuth2 para autorização entre o gateway e um back-end. Ele mostra como obter um token de acesso do AAD e encaminhá-lo para o back-end.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 09d51759c07e7dacc25d5b5ffce9698831c37a7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442363"
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Usar o OAuth2 para autorização entre o gateway e um back-end
@@ -34,7 +34,7 @@ Cole o código no bloco de **entrada**.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as políticas de APIM:
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
 ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593710"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerenciar a expiração do conteúdo da Web na CDN do Azure
@@ -66,21 +66,21 @@ O método preferencial para configurar um cabeçalho `Cache-Control` do servidor
 
    Essa regra de cache global define uma duração de cache de uma hora e afeta todas as solicitações para o ponto de extremidade. Ela substitui todos os cabeçalhos HTTP `Cache-Control` ou `Expires` que são enviados pelo servidor de origem especificado pelo ponto de extremidade.   
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 **Para definir os cabeçalhos de Controle de Cache do servidor Web usando regras de cache personalizadas:**
 
 1. Em **Personalizar regras de cache**, crie duas condições de combinação:
 
-     a. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/*` para o **Valor de correspondência**. Defina o **Comportamento de cache**  para **Substituição** e insira 4 na caixa **Horas**.
+     a. Para a primeira condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/*` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 4 na caixa **Horas**.
 
-     b. Para a segunda condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/file1.txt` para o **Valor de correspondência**. Defina o **Comportamento de cache**  para **Substituição** e insira 2 na caixa **Horas**.
+     b. Para a segunda condição de correspondência, ajuste **Condição de correspondência** para **Path** e insira `/webfolder1/file1.txt` para o **Valor de correspondência**. Defina o **Comportamento de cache ** para **Substituição** e insira 2 na caixa **Horas**.
 
     ![Exemplo de regras de cache personalizadas da CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     A primeira regra de cache personalizada estabelece uma duração de cache de quatro horas para qualquer arquivo na pasta `/webfolder1` no servidor de origem especificado pelo ponto de extremidade. A segunda regra substitui a primeira regra somente para o arquivo `file1.txt` e define uma duração de cache de duas horas para isso.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Configurando cabeçalhos de Cache-Control usando arquivos de configuração
@@ -106,7 +106,7 @@ O exemplo do arquivo de configuração XML a seguir mostra como configurar o ele
 </configuration>
 ```
 
-Para usar o atributo **cacheControlMaxAge**, você deve definir o valor do atributo **cacheControlMode** como `UseMaxAge`. Essa configuração fez o cabeçalho HTTP e a diretiva, `Cache-Control: max-age=<nnn>`, serem adicionados à resposta. O formato do valor do intervalo de tempo para o atributo **cacheControlMaxAge** é `<days>.<hours>:<min>:<sec>`. Seu valor é convertido em segundos e é usado como o valor da diretiva `Cache-Control` `max-age`. Para obter mais informações sobre o `<clientCache>` elemento, consulte [Cache do cliente \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Para usar o atributo **cacheControlMaxAge**, você deve definir o valor do atributo **cacheControlMode** como `UseMaxAge`. Essa configuração fez o cabeçalho HTTP e a diretiva, `Cache-Control: max-age=<nnn>`, serem adicionados à resposta. O formato do valor do intervalo de tempo para o atributo **cacheControlMaxAge** é `<days>.<hours>:<min>:<sec>`. Seu valor é convertido em segundos e é `Cache-Control` `max-age` usado como o valor da diretiva. Para obter mais `<clientCache>` informações sobre o elemento, consulte [Client Cache \<clientCache cache cache cache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Configurando cabeçalhos Cache-Control programaticamente
 Para aplicativos ASP.NET, você controla o comportamento de cache de CDN programaticamente configurando a propriedade **HttpResponse.Cache** da API do .NET. Para obter informações sobre a propriedade **HttpResponse.Cache**, consulte [Propriedade HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) e [Classe HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  
@@ -133,5 +133,5 @@ Você pode facilmente verificar as configurações TTL do seu conteúdo da Web. 
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia os detalhes sobre o elemento **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Leia a documentação sobre a propriedade **HttpResponse.Cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
-* [Leia a documentação da **Classe HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
+* [Leia a documentação da **classe HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
 * [Saiba mais sobre conceitos de cache](cdn-how-caching-works.md)

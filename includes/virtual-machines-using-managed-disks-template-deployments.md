@@ -9,10 +9,10 @@ ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
 ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76037879"
 ---
 Este documento aborda as diferenças entre discos gerenciados e não gerenciados ao utilizar os modelos do Azure Resource Manager para provisionar máquinas virtuais. O exemplo ajuda você a atualizar os modelos existentes que estão usando Discos não gerenciados para os discos gerenciados. Para referência, estamos usando o modelo [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) como um guia. É possível visualizar o modelo utilizando ambos os [Discos gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) e uma versão anterior utilizando [discos não gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json), se você deseja compará-los diretamente.
@@ -94,16 +94,16 @@ Com o Azure Managed Disks, o disco torna-se um recurso de nível superior e não
 
 ### <a name="default-managed-disk-settings"></a>Configurações de disco gerenciados padrão
 
-Para criar uma VM com discos gerenciados, você não precisa mais criar o recurso de conta de armazenamento. Fazendo referência ao exemplo de modelo abaixo, há algumas diferenças dos exemplos de discos não-gerenciadas anteriores a serem observados:
+Para criar uma VM com discos gerenciados, você não precisa mais criar o recurso da conta de armazenamento. Fazendo referência ao exemplo do modelo abaixo, existem algumas diferenças em relação aos exemplos de disco não manged anteriores a serem observados:
 
-- O `apiVersion` é uma versão que dá suporte a discos gerenciados.
-- `osDisk` e `dataDisks` não se referem mais a um URI específico para o VHD.
-- Ao implantar sem especificar propriedades adicionais, o disco usará um tipo de armazenamento com base no tamanho da VM. Por exemplo, se você estiver usando um tamanho de VM que dá suporte ao armazenamento Premium (tamanhos com "s" em seu nome, como Standard_D2s_v3), os discos Premium serão configurados por padrão. Você pode alterar isso usando a configuração de SKU do disco para especificar um tipo de armazenamento.
-- Se nenhum nome para o disco for especificado, ele usará o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do sistema operacional e `<VMName>_disk<#>_<randomstring>` para cada disco de dados.
-  - Se uma VM estiver sendo criada a partir de uma imagem personalizada, as configurações padrão para o tipo de conta de armazenamento e o nome do disco serão recuperadas das propriedades do disco definidas no recurso de imagem personalizada. Eles podem ser substituídos especificando-se valores para eles no modelo.
-- Por padrão, a criptografia de disco do Azure está desabilitada.
-- Por padrão, o cache de disco é de leitura/gravação para o disco do sistema operacional e nenhum para discos de dados.
-- No exemplo abaixo, ainda há uma dependência de conta de armazenamento, embora isso seja apenas para o armazenamento de diagnósticos e não seja necessário para o armazenamento em disco.
+- A `apiVersion` é uma versão que suporta discos gerenciados.
+- `osDisk`e `dataDisks` não se referem mais a um URI específico para o VHD.
+- Ao implantar sem especificar propriedades adicionais, o disco usará um tipo de armazenamento com base no tamanho da VM. Por exemplo, se você estiver usando um tamanho de VM que suporta armazenamento premium (tamanhos com "s" em seu nome, como Standard_D2s_v3), os discos premium serão configurados por padrão. Você pode alterar isso usando a configuração sku do disco para especificar um tipo de armazenamento.
+- Se nenhum nome para o disco for especificado, ele leva o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do SISTEMA OPERACIONAL e `<VMName>_disk<#>_<randomstring>` para cada disco de dados.
+  - Se uma VM estiver sendo criada a partir de uma imagem personalizada, as configurações padrão para o tipo de conta de armazenamento e o nome do disco serão recuperadas das propriedades do disco definidas no recurso de imagem personalizado. Estes podem ser substituídos especificando valores para estes no modelo.
+- Por padrão, a criptografia de disco do Azure está desativada.
+- Por padrão, o cache de disco é Leitura/Gravação para o disco do SISTEMA OPERACIONAL e Nenhum para discos de dados.
+- No exemplo abaixo ainda há uma dependência de conta de armazenamento, embora isso seja apenas para armazenamento de diagnósticos e não seja necessário para armazenamento em disco.
 
 ```json
 {
@@ -254,7 +254,7 @@ Para obter um exemplo de modelo completo de como criar um disco SSD padrão com 
 
 Para encontrar informações completas sobre as especificações de API REST, revise [criar uma documentação de API REST de disco gerenciado](/rest/api/manageddisks/disks/disks-create-or-update). Você encontrará cenários adicionais, assim como valores padrão e aceitáveis que podem ser enviados para a API por meio de implantações de modelos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para modelos completos que utilizam discos gerenciados, visite os seguintes links do Repositório de Início Rápido do Azure.
     * [VM do Windows VM com disco gerenciado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
