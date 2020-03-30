@@ -1,5 +1,5 @@
 ---
-title: Remover atribuições de usuário ou grupo de um aplicativo no Azure AD
+title: Remova as atribuições do usuário ou grupo de um aplicativo no Azure AD
 description: Como remover a atribuição de acesso de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,26 +17,26 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: edf918b57212cf2adfbffb358a0257d9dbea85e9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275873"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover a atribuição de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 
-É fácil remover um usuário ou um grupo do acesso atribuído a um de seus aplicativos empresariais no Azure Active Directory (AD do Azure). Você precisa das permissões apropriadas para gerenciar o aplicativo empresarial. E você deve ser administrador global para o diretório.
+É fácil remover um usuário ou um grupo do acesso atribuído a um de seus aplicativos corporativos no Azure Active Directory (Azure AD). Você precisa das permissões apropriadas para gerenciar o aplicativo corporativo. E, você deve ser o diretor global para o diretório.
 
 > [!NOTE]
 > Para aplicativos da Microsoft (como aplicativos do Office 365), use o PowerShell para remover usuários em um aplicativo empresarial.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Como fazer para remover uma atribuição de usuário ou grupo em um aplicativo empresarial no Portal do Azure?
 
-1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório.
-1. Selecione **Todos os serviços**, insira **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
-1. Na página **Azure Active Directory- *DirectoryName***  (ou seja, a página do Azure ad para o diretório que você está gerenciando), selecione **aplicativos empresariais**.
-1. Na página **aplicativos empresariais – todos os aplicativos** , você verá uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
-1. Na página Visão geral do ***AppName*** (ou seja, a página com o nome do aplicativo selecionado no título), selecione **usuários & grupos**.
+1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+1. Selecione **Todos os serviços,** **digite o Diretório Ativo do Azure** na caixa de texto e, em seguida, **selecione Enter**.
+1. Na **página Azure Active Directory - *directoryname* ** (ou seja, a página Azure AD para o diretório que você está gerenciando), selecione **aplicativos Corporativos**.
+1. Nos **aplicativos Enterprise - Todas as** páginas de aplicativos, você verá uma lista dos aplicativos que você pode gerenciar. Selecione um aplicativo.
+1. Na página de visão geral do nome do ***aplicativo*** (ou seja, a página com o nome do aplicativo selecionado no título), selecione Usuários **& Grupos**.
 1. Na página ***nomedoaplicativo*** **- Atribuição de Usuário e Grupo**, selecione um dos usuários ou grupos e, em seguida, selecione o comando **Remover**. Confirme sua decisão na solicitação.
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Como fazer para remover uma atribuição de usuário ou grupo em um aplicativo empresarial usando o PowerShell?
@@ -47,7 +47,7 @@ ms.locfileid: "74275873"
    > Você precisa instalar o módulo do Azure AD (use o comando `Install-Module -Name AzureAD`). Se solicitado a instalar um módulo do NuGet ou o novo módulo do Azure Active Directory V2 PowerShell, digite Y e pressione ENTER.
 
 1. Execute `Connect-AzureAD` e entre com uma conta de usuário de Administrador Global.
-1. Use o script a seguir para remover um usuário e uma função de um aplicativo:
+1. Use o seguinte script para remover um usuário e função de um aplicativo:
 
     ```powershell
     # Store the proper parameters

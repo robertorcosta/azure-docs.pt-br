@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
 ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672219"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar a camada PremiumV2 para o Serviço de Aplicativo do Azure
@@ -56,7 +56,7 @@ Dependendo do seu ambiente de hospedagem, a expansão poderá exigir etapas adic
 
 No <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>, abra a página do seu aplicativo do Serviço de Aplicativo.
 
-No painel de navegação à esquerda da página do seu aplicativo do Serviço de Aplicativo, selecione **Expandir (Plano do Serviço de Aplicativo)** .
+No painel de navegação à esquerda da página do seu aplicativo do Serviço de Aplicativo, selecione **Expandir (Plano do Serviço de Aplicativo)**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
@@ -68,7 +68,7 @@ Se a operação for concluída com êxito, a página de visão geral do aplicati
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
-### <a name="if-you-get-an-error"></a>Se você obtiver um erro
+### <a name="if-you-get-an-error"></a>Se você receber um erro
 
 Alguns planos de serviço de aplicativo podem não expandir para a camada PremiumV2 se a implantação do Serviço de Aplicativo subjacente não oferecer suporte para PremiumV2.  Consulte [Expandir de uma combinação de regiões e de um grupo de recursos sem suporte](#unsupported) para obter mais detalhes.
 
@@ -89,7 +89,7 @@ Se o aplicativo for executado em uma implantação do Serviço de Aplicativo em 
 
 Você pode automatizar a criação do aplicativo no tipo de preço **PremiumV2** com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
 
 O comando a seguir cria um Plano de Serviço de Aplicativo em _P1V2_. Você pode executá-lo no Cloud Shell. As opções para `--sku` são P1V2, _P2V2_ e _P3V2_.
 

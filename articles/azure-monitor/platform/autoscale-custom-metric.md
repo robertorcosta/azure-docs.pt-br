@@ -5,22 +5,22 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425112"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introdução ao dimensionamento automático usando métricas personalizadas no Azure
 Este artigo descreve como dimensionar seu recurso usando métricas personalizadas no portal do Azure.
 
-Azure Monitor dimensionamento automático se aplica somente a [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicativo-aplicativos Web](https://azure.microsoft.com/services/app-service/web/), [cluster de data Explorer do Azure](https://azure.microsoft.com/services/data-explorer/) ,   
-Serviços de [Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)e ambiente de serviço de integração.
+A escala automática do Azure Monitor aplica-se apenas a [conjuntos de escala de máquinas virtuais,](https://azure.microsoft.com/services/virtual-machine-scale-sets/) [serviços de nuvem,](https://azure.microsoft.com/services/cloud-services/) [serviço de aplicativos - aplicativos web,](https://azure.microsoft.com/services/app-service/web/)cluster [azure Data Explorer,](https://azure.microsoft.com/services/data-explorer/)   
+Serviçode Integração serviços e [serviços de gerenciamento de API.](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
 
 ## <a name="lets-get-started"></a>Vamos começar
-Este artigo pressupõe que você tenha um aplicativo Web com o Application Insights configurado. Se você ainda não tiver um, poderá [configurar Application insights para o site do ASP.net][1]
+Este artigo pressupõe que você tenha um aplicativo Web com o Application Insights configurado. Se ainda não tiver um, você poderá [configurar o Application Insights para seu site do ASP.NET][1]
 
-- Abrir [portal do Azure][2]
+- Portal [Aberto Azure][2]
 - Clique no ícone do Azure Monitor no painel de navegação à esquerda.
   ![Inicie o Azure Monitor][3]
 - Clique na configuração do dimensionamento automático para exibir todos os recursos a que ele se aplica, bem como o status de dimensionamento automático atual ![Descobrir o dimensionamento automático no Azure Monitor][4]

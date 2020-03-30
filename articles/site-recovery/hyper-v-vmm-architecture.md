@@ -1,5 +1,5 @@
 ---
-title: Arquitetura – recuperação de desastre do Hyper-V em um site secundário com Azure Site Recovery
+title: Recuperação de desastres arquitetura-Hyper-V para um site secundário com recuperação do site do Azure
 description: Este artigo apresenta uma visão geral da arquitetura para recuperação de desastre de VMs Hyper-V locais para um site VMM do System Center secundário com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133002"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitetura – replicação do Hyper-V para um site secundário
@@ -23,9 +23,9 @@ a
 
 A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados para replicação do Hyper-V para um site secundário.
 
-**Componente** | **Requisito** | **Detalhes**
+**Componente** | **Exigência** | **Detalhes**
 --- | --- | ---
-**As tabelas** | Assinatura do Azure | Crie um cofre dos Serviços de Recuperação na assinatura do Azure para orquestrar e gerenciar a replicação entre os locais do VMM.
+**Azure** | Assinatura do Azure | Crie um cofre dos Serviços de Recuperação na assinatura do Azure para orquestrar e gerenciar a replicação entre os locais do VMM.
 **Servidor VMM** | Você precisa de locais primário e secundário para o VMM. | Recomendamos um servidor VMM no site primário e um no site secundário.
 **Servidor Hyper-V** |  Um ou mais servidores de host do Hyper-V nas nuvens do VMM primárias e secundárias. | Os dados são replicados entre os servidores de host Hyper-V primários e secundários pela LAN ou VPN usando a autenticação Kerberos ou autenticação de certificado.  
 **VMs Hyper-V** | No servidor de host do Hyper-V. | O servidor host de origem deve ter pelo menos uma VM que você deseja replicar.

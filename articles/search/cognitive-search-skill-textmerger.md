@@ -1,7 +1,7 @@
 ---
 title: Habilidade de percepção do Text Merge
 titleSuffix: Azure Cognitive Search
-description: Mescle o texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Mescle o texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento de IA na Busca Cognitiva do Azure.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162337"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Habilidade de percepção do Text Merge
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.MergeSkill
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | insertPreTag  | Cadeia de caracteres a serem incluídas antes de cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |
 | insertPostTag | Cadeia de caracteres a ser incluída antes de cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |

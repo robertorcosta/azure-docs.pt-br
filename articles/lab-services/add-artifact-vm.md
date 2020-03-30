@@ -1,6 +1,6 @@
 ---
-title: Adicionar um artefato a uma VM no Azure DevTest Labs | Microsoft Docs
-description: Saiba como adicionar um artefato a uma máquina virtual em um laboratório no Azure DevTest Labs
+title: Adicione um artefato a uma VM no Azure DevTest Labs | Microsoft Docs
+description: Aprenda a adicionar um artefato a uma máquina virtual em um laboratório no Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 27fec279582d845972b87ac635c87c16c239924e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73901320"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Adicionar um artefato a uma VM
-Ao criar uma VM, você pode adicionar artefatos existentes a ela. Esses artefatos podem ser do [repositório do git do DevTest Labs público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou de seu próprio repositório git. Este artigo mostra como adicionar artefatos no portal do Azure e usando Azure PowerShell. 
+Ao criar uma VM, você pode adicionar artefatos existentes a ele. Esses artefatos podem ser do [repositório público Do DevTest Labs Git](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) ou do seu próprio repositório Git. Este artigo mostra como adicionar artefatos no portal Azure e usando o Azure PowerShell. 
 
-Os *artefatos* do Azure DevTest Labs permitem que você especifique *ações* que são executadas quando a VM é provisionada, como executar scripts do Windows PowerShell, executando comandos Bash e instalar software. Os *parâmetros* de artefato permitem que você personalize o artefato para seu cenário específico.
+Os *artefatos* do Azure DevTest Labs permitem que você especifique *ações* que são executadas quando a VM é provisionada, como executar scripts do Windows PowerShell, executando comandos Bash e instalar software. Os *parâmetros* do artefato permitem personalizar o artefato para o seu cenário específico.
 
-Para saber mais sobre como criar artefatos personalizados, consulte o artigo: [criar artefatos personalizados](devtest-lab-artifact-author.md).
+Para saber como criar artefatos personalizados, consulte o artigo: [Crie artefatos personalizados.](devtest-lab-artifact-author.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 1. Na lista de laboratórios, selecione o laboratório contendo a VM com a qual você quer trabalhar.  
 1. Selecione **Minhas máquinas virtuais**.
@@ -65,7 +65,7 @@ As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefa
 1. Selecione **OK** para fechar o painel **Artefatos selecionados**.
 
 ## <a name="use-powershell"></a>Usar o PowerShell
-O script a seguir aplica o artefato especificado à VM especificada. O comando [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) é aquele que executa a operação.  
+O script a seguir aplica o artefato especificado à VM especificada. O [comando Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) é o que executa a operação.  
 
 ```powershell
 #Requires -Module Az.Resources
@@ -164,9 +164,9 @@ if ($virtualMachine -ne $null) {
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os seguintes artigos sobre artefatos:
+Veja os seguintes artigos sobre artefatos:
 
-- [Especificar artefatos obrigatórios para seu laboratório](devtest-lab-mandatory-artifacts.md)
+- [Especifique artefatos obrigatórios para o seu laboratório](devtest-lab-mandatory-artifacts.md)
 - [Criar artefatos personalizados](devtest-lab-artifact-author.md)
 - [Adicionar um repositório de artefatos a um laboratório](devtest-lab-artifact-author.md)
 - [Diagnosticar falhas do artefato](devtest-lab-troubleshoot-artifact-failure.md)

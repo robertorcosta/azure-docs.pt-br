@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
 ms.openlocfilehash: 0bfae10d3b3b491c3662385055b23cc585a6e24d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471152"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
@@ -26,20 +26,20 @@ ms.locfileid: "77471152"
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de dados MySQL. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 >[!NOTE]
->Para copiar dados de ou para o serviço [de banco do dados do Azure para MySQL](../mysql/overview.md) , use o [conector do banco de dados do Azure especializado para MySQL](connector-azure-database-for-mysql.md).
+>Para copiar dados do banco de dados Do Azure para o serviço [MySQL,](../mysql/overview.md) use o [banco de dados Azure especializado para conector MySQL](connector-azure-database-for-mysql.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector MySQL tem suporte para as seguintes atividades:
+Este conector MySQL é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procurar](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um banco de dados MySQL para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Especificamente, este conector do MySQL dá suporte ao MySQL **versão 5.6 e 5.7**.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -59,13 +59,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do MySQL:
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **MySql** | Sim |
 | connectionString | Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL.<br/> Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `password` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 Uma cadeia de conexão válida é `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Mais propriedades que podem ser definidas para seu caso:
 
-| Propriedade | Descrição | {1&gt;Opções&lt;1} | Obrigatório |
+| Propriedade | Descrição | Opções | Obrigatório |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Esta opção especifica se o driver usa criptografia SSL e verificação ao se conectar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / PREFERENCIAL (1) **(padrão)** / NECESSÁRIO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
+| SSLMode | Esta opção especifica se o driver usa criptografia SSL e verificação ao se conectar ao MySQL. E.g.`SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / PREFERENCIAL (1) **(padrão)** / NECESSÁRIO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
 | UseSystemTrustStore | Esta opção especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo PEM especificado. Por ex.: `UseSystemTrustStore=<0/1>;`| Ativado (1) / Desativado (0) **(Padrão)** | Não |
 
 **Exemplo:**
@@ -140,13 +140,13 @@ Se estava usando o serviço vinculado do MySQL com a seguinte carga útil, ele a
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do MySQL.
+Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do MySQL.
 
-Para copiar dados do MySQL, há suporte para as seguintes propriedades:
+Para copiar dados do MySQL, as seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **mysqltable** | Sim |
+| type | A propriedade do tipo do conjunto de dados deve ser definida como: **MySqlTable** | Sim |
 | tableName | Nome da tabela no banco de dados MySQL. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -167,7 +167,7 @@ Para copiar dados do MySQL, há suporte para as seguintes propriedades:
 }
 ```
 
-Se você estivesse usando `RelationalTable` dataset tipado, ele ainda tem suporte como está, enquanto você é sugerido para usar o novo no futuro.
+Se você `RelationalTable` estava usando conjunto de dados digitado, ele ainda é suportado como está, enquanto você é sugerido para usar o novo daqui para frente.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
@@ -175,12 +175,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="mysql-as-source"></a>MySQL como fonte
 
-Para copiar dados do MySQL, há suporte para as seguintes propriedades na seção **origem** da atividade de cópia:
+Para copiar dados do MySQL, as seguintes propriedades são suportadas na seção **origem da** atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **mysqlname** | Sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
+| type | A propriedade tipo da fonte de atividade de cópia deve ser definida como: **MySqlSource** | Sim |
+| Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 
@@ -214,7 +214,7 @@ Para copiar dados do MySQL, há suporte para as seguintes propriedades na seçã
 ]
 ```
 
-Se você estivesse usando `RelationalSource` fonte tipada, ainda há suporte no estado em que se encontra, enquanto você é sugerido para usar o novo no futuro.
+Se você `RelationalSource` estava usando fonte digitada, ela ainda é suportada como está, enquanto você é sugerido para usar a nova daqui para frente.
 
 ## <a name="data-type-mapping-for-mysql"></a>Mapeamento de tipo de dados para o MySQL
 
@@ -264,9 +264,9 @@ Ao copiar dados do MySQL, os seguintes mapeamentos são usados de tipos de dados
 | `year` |`Int` |
 
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

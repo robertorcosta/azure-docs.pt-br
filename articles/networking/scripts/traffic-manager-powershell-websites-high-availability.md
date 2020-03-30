@@ -1,5 +1,5 @@
 ---
-title: Rotear o tráfego para HA de aplicativos-Azure PowerShell-Gerenciador de tráfego
+title: Tráfego de rota para HA de aplicativos - Azure PowerShell - Gerenciador de tráfego
 description: Exemplo de script do Azure PowerShell – Rotear o tráfego para alta disponibilidade de aplicativos
 services: traffic-manager
 documentationcenter: traffic-manager
@@ -13,21 +13,21 @@ ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: 183599fccfad1806faae3cb90de225d388b77da8
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74049242"
 ---
-# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Rotear o tráfego para alta disponibilidade de aplicativos-Azure PowerShell
+# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Tráfego de rota para alta disponibilidade de aplicativos - Azure PowerShell
 
 Este script cria um grupo de recursos, dois planos de serviço de aplicativo, dois aplicativos web, um perfil do Gerenciador de tráfego e dois pontos de extremidade de Gerenciador de tráfego. O Gerenciador de Tráfego direciona o tráfego para o aplicativo em uma região como a região primária, e para a região secundária quando o aplicativo na região primária não estiver disponível. Antes de executar o script, você deve alterar os valores MyWebApp, MyWebAppL1 e MyWebAppL2 para valores exclusivos no Azure. Depois de executar o script, você pode acessar o aplicativo na região primária com a URL mywebapp.trafficmanager.net.
 
-Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Connect-AzAccount` para criar uma conexão com o Azure.
+Se necessário, instale o Azure PowerShell usando a instrução encontrada `Connect-AzAccount` no [guia Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)e execute para criar uma conexão com o Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -44,7 +44,7 @@ Remove-AzResourceGroup -Name myResourceGroup2
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicativo Web, o perfil do Gerenciador de tráfego e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicativo Web, o perfil do Gerenciador de tráfego e todos os recursos relacionados. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
@@ -57,6 +57,6 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, o aplicat
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

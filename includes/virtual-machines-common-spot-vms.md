@@ -9,98 +9,98 @@ ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77179142"
 ---
-O uso de VMs pontuais permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
+O uso de VMs Spot permite que você aproveite nossa capacidade não utilizada com uma economia significativa de custos. A qualquer momento em que o Azure precisar da capacidade de volta, a infra-estrutura do Azure despejará VMs spot. Portanto, as VMs spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lote, ambientes de dev/teste, grandes cargas de trabalho de computação e muito mais.
 
-A quantidade de capacidade disponível pode variar com base no tamanho, região, hora do dia e muito mais. Ao implantar VMs Spot, o Azure alocará as VMs se houver capacidade disponível, mas não haverá SLA para essas VMs. Uma VM Spot não oferece nenhuma garantia de alta disponibilidade. A qualquer momento quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuadas com um aviso de 30 segundos. 
+A quantidade de capacidade disponível pode variar de acordo com o tamanho, região, hora do dia e muito mais. Ao implantar VMs Spot, o Azure alocará as VMs se houver capacidade disponível, mas não há SLA para essas VMs. Uma VM Spot não oferece garantias de alta disponibilidade. A qualquer momento em que o Azure precisar da capacidade de volta, a infra-estrutura do Azure despejará VMs spot com 30 segundos de antecedência. 
 
 > [!IMPORTANT]
-> Atualmente, as instâncias especiais estão em visualização pública.
-> Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As instâncias spot estão atualmente em visualização pública.
+> Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-## <a name="eviction-policy"></a>Política de remoção
+## <a name="eviction-policy"></a>Política de despejo
 
-As VMs podem ser removidas com base na capacidade ou no preço máximo definido. Para máquinas virtuais, a política de remoção é definida como *desalocar* que move suas VMs removidas para o estado parado e desalocado, permitindo que você reimplante as VMs removidas posteriormente. No entanto, a realocação de VMs pontuais dependerá da capacidade Spot disponível. As VMs desalocadas serão contadas em relação à sua cota vCPU Spot e você será cobrado pelos discos subjacentes. 
+As VMs podem ser despejadas com base na capacidade ou no preço máximo que você definir. Para máquinas virtuais, a política de despejo é definida para *Delocar,* que move suas VMs despejadas para o estado desalocado parado, permitindo que você reimplante as VMs despejadas posteriormente. No entanto, a realocação de VMs spot dependerá da disponibilidade da capacidade spot. As VMs desalocadas contarão com a sua cota spot vCPU e você será cobrado pelos discos subjacentes. 
 
-Os usuários podem optar por receber notificações na VM por meio [do Azure eventos agendados](../articles/virtual-machines/linux/scheduled-events.md). Isso notificará você se suas VMs estiverem sendo removidas e você terá 30 segundos para concluir todos os trabalhos e realizar tarefas de desligamento antes da remoção. 
+Os usuários podem optar por receber notificações in-VM através [do Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Isso irá notificá-lo se suas VMs estão sendo despejadas e você terá 30 segundos para terminar qualquer trabalho e executar tarefas de desligamento antes do despejo. 
 
 
 | Opção | Resultado |
 |--------|---------|
-| O preço máximo é definido como > = o preço atual. | A VM será implantada se a capacidade e a cota estiverem disponíveis. |
-| O preço máximo é definido para < o preço atual. | A VM não está implantada. Você receberá uma mensagem de erro informando que o preço máximo precisa ser > = preço atual. |
-| Reiniciar uma VM de parar/desalocar se o preço máximo for > = o preço atual | Se houver capacidade e cota, a VM será implantada. |
-| Reiniciar uma VM de parar/desalocar se o preço máximo for < o preço atual | Você receberá uma mensagem de erro informando que o preço máximo precisa ser > = preço atual. | 
-| O preço da VM foi concluído e agora está > o preço máximo. | A VM é removida. Você Obtém uma notificação de 30s antes da remoção real. | 
-| Após a remoção, o preço da VM volta a ser < o preço máximo. | A VM não será reiniciada automaticamente. Você pode reiniciar a VM por conta própria e ela será cobrada com o preço atual. |
-| Se o preço máximo for definido como `-1` | A VM não será removida por motivos de preço. O preço máximo será o preço atual, até o preço das VMs padrão. Você nunca será cobrado acima do preço padrão.| 
-| Alterando o preço máximo | Você precisa desalocar a VM para alterar o preço máximo. Desaloque a VM, defina t um novo preço máximo e, em seguida, atualize a VM. |
+| O preço máximo está definido para >= o preço atual. | A VM é implantada se houver capacidade e cota disponíveis. |
+| O preço máximo está definido para < o preço atual. | O VM não está implantado. Você receberá uma mensagem de erro de que o preço máximo precisa ser >= preço atual. |
+| Reiniciar um VM stop/deallocate se o preço máximo for >= o preço atual | Se houver capacidade e cota, então a VM será implantada. |
+| Reiniciar um VM stop/deallocate se o preço máximo estiver < preço atual | Você receberá uma mensagem de erro de que o preço máximo precisa ser >= preço atual. | 
+| O preço da VM subiu e agora está > o preço máximo. | A VM é despejada. Você recebe uma notificação dos anos 30 antes do despejo real. | 
+| Após o despejo o preço da VM volta a ser < o preço máximo. | A VM não será reiniciada automaticamente. Você mesmo pode reiniciar o VM, e ele será cobrado pelo preço atual. |
+| Se o preço máximo estiver definido para`-1` | A VM não será despejada por razões de preços. O preço máximo será o preço atual, até o preço das VMs padrão. Você nunca será cobrado acima do preço padrão.| 
+| Alterando o preço máximo | Você precisa desalocar o VM para alterar o preço máximo. Desaloque a VM, defina um novo preço máximo e atualize a VM. |
 
 ## <a name="limitations"></a>Limitações
 
-Os seguintes tamanhos de VM não têm suporte para VMs spot:
+Os seguintes tamanhos de VM não são suportados para VMs spot:
  - Série B
- - Versões promocionais de qualquer tamanho (como Dv2, NV, NC, tamanhos promocionais de H)
+ - Versões promocionais de qualquer tamanho (como dv2, NV, NC, tamanhos de promoção H)
 
-As VMs pontuais não podem usar atualmente discos do sistema operacional efêmero.
+As VMs spot não podem usar discos efêmeros do sistema operacional.
 
-As VMs pontuais podem ser implantadas em qualquer região, exceto Microsoft Azure a 21Vianet da China.
+As VMs spot podem ser implantadas em qualquer região, exceto no Microsoft Azure China 21Vianet.
 
 ## <a name="pricing"></a>Preços
 
-Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Os preços das VMs spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços da VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 
-Com o preço variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1`, a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível.
+Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, `0.98765`o valor seria um preço máximo de US$ 0,98765 por hora. Se você definir o `-1`preço máximo para ser, a VM não será despejada com base no preço. O preço da VM será o preço atual para spot ou o preço de uma VM padrão, que seja menor, desde que haja capacidade e cota disponíveis.
 
 
 ##  <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-**P:** Depois de criada, é uma VM Spot a mesma que a VM normal padrão?
+**Q:** Uma vez criado, uma VM Spot é a mesma da VM padrão regular?
 
-**R:** Sim, exceto que não há SLA para VMs pontuais e elas podem ser removidas a qualquer momento.
-
-
-**P:** O que fazer ao ser removido, mas ainda precisa de capacidade?
-
-**R:** Recomendamos que você use VMs padrão em vez de VMs pontuais se precisar de capacidade imediatamente.
+**A:** Sim, exceto que não há SLA para VMs spot e eles podem ser despejados a qualquer momento.
 
 
-**P:** Como a cota é gerenciada para VMs pontuais?
+**Q:** O que fazer quando for despejado, mas ainda precisa de capacidade?
 
-**R:** As VMs pontuais terão um pool de cotas separado. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-
-
-**P:** Posso solicitar uma cota adicional para o ponto?
-
-**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs pontuais por meio do [processo de solicitação de cota padrão](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A:** Recomendamos que você use VMs padrão em vez de VMs Spot se você precisar de capacidade imediatamente.
 
 
-**P:** Quais canais dão suporte a VMs pontuais?
+**Q:** Como a cota é gerenciada para VMs Spot?
 
-**R:** Consulte a tabela abaixo para encontrar a disponibilidade da VM.
+**A:** As VMs spot terão um pool de cotas separado. A cota spot será compartilhada entre VMs e instâncias definidas em escala. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+
+
+**Q:** Posso solicitar uma cota adicional para spot?
+
+**A:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs Spot através do [processo padrão de solicitação de cotas.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
+
+
+**Q:** Quais canais suportam VMs spot?
+
+**A:** Veja a tabela abaixo para disponibilidade spot VM.
 
 <a name="channel"></a>
 
-| Canais do Azure               | Disponibilidade de VMs de ponto do Azure       |
+| Canais Azure               | Disponibilidade de VMs do Azure Spot       |
 |------------------------------|-----------------------------------|
 | Contrato Enterprise         | Sim                               |
-| Pré-pago                | Sim                               |
+| Pago Conforme o Uso                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
 | Avaliação gratuita                   | Não disponível                     |
 
 
-**P:** Onde posso postar perguntas?
+**Q:** Onde posso postar perguntas?
 
-**R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Q & A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** Você pode postar e `azure-spot` marcar sua pergunta com [em Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 
 

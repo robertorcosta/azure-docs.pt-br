@@ -1,28 +1,28 @@
 ---
-title: Referência da API do agente do insights Aplicativo Azure
-description: Referência de API do agente Application Insights. Set-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
+title: Referência de API do Azure Application Insights Agent
+description: Referência de API do Agente de Insights de Aplicativos. Set-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com ASP.NET aplicativos web hospedados no local, em VMs ou no Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 1226b3e10adf786ed3335844a5d3f4e530911705
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671232"
 ---
-# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API do agente de Application Insights: Set-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API do agente de insights de aplicativos: Set-ApplicationInsightsMonitoringConfig
 
-Este documento descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Este documento descreve um cmdlet que é um membro do [módulo Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Descrição
 
 Define o arquivo de configuração sem fazer uma reinstalação completa.
-Reinicie o IIS para que suas alterações entrem em vigor.
+Reinicie o IIS para que suas alterações surtam efeito.
 
 > [!IMPORTANT] 
-> Este cmdlet requer uma sessão do PowerShell com permissões de administrador.
+> Este cmdlet requer uma sessão PowerShell com permissões de admin.
 
 
 ## <a name="examples"></a>Exemplos
@@ -34,14 +34,14 @@ Neste exemplo, todos os aplicativos no computador atual serão atribuídos a uma
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa de chave de instrumentação
+### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa-chave de instrumentação
 Neste exemplo:
-- `MachineFilter` corresponde ao computador atual usando o curinga `'.*'`.
-- `AppFilter='WebAppExclude'` fornece uma chave de instrumentação de `null`. O aplicativo especificado não será instrumentado.
-- `AppFilter='WebAppOne'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- `AppFilter='WebAppTwo'` atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- Por fim, `AppFilter` também usa o curinga `'.*'` para corresponder a todos os aplicativos Web que não são correspondentes pelas regras anteriores e atribuir uma chave de instrumentação padrão.
-- Os espaços são adicionados para facilitar a leitura.
+- `MachineFilter`corresponde ao computador atual `'.*'` usando o curinga.
+- `AppFilter='WebAppExclude'`fornece `null` uma chave de instrumentação. O aplicativo especificado não será instrumentado.
+- `AppFilter='WebAppOne'`atribui ao aplicativo especificado uma chave de instrumentação única.
+- `AppFilter='WebAppTwo'`atribui ao aplicativo especificado uma chave de instrumentação única.
+- Finalmente, `AppFilter` também `'.*'` usa o curinga para combinar com todos os aplicativos da Web que não são compatíveis com as regras anteriores e atribuem uma chave de instrumentação padrão.
+- Espaços são adicionados para legibilidade.
 
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
@@ -53,38 +53,38 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 ## <a name="parameters"></a>Parâmetros
 
-### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Obrigatório.** Use esse parâmetro para fornecer uma chave de instrumentação única para uso por todos os aplicativos no computador de destino.
+### <a name="-instrumentationkey"></a>-Chave de Instrumentação
+**Necessário.** Use este parâmetro para fornecer uma única chave de instrumentação para uso por todos os aplicativos no computador de destino.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Obrigatório.** Use esse parâmetro para fornecer várias chaves de instrumentação e um mapeamento das chaves de instrumentação usadas por cada aplicativo.
-Você pode criar um único script de instalação para vários computadores definindo `MachineFilter`.
+**Necessário.** Use este parâmetro para fornecer várias teclas de instrumentação e um mapeamento das teclas de instrumentação usadas por cada aplicativo.
+Você pode criar um único script `MachineFilter`de instalação para vários computadores definindo .
 
 > [!IMPORTANT]
-> Os aplicativos serão compatíveis com as regras na ordem em que as regras são fornecidas. Portanto, você deve especificar as regras mais específicas primeiro e as regras mais genéricas por último.
+> Os aplicativos corresponderão às regras na ordem de que as regras sejam fornecidas. Então você deve especificar as regras mais específicas primeiro e as regras mais genéricas por último.
 
-#### <a name="schema"></a>Schema
+#### <a name="schema"></a>Esquema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** é um Regex C# necessário do computador ou nome da VM.
-    - '. * ' corresponderá a todos
-    - ' ComputerName ' corresponderá apenas a computadores com o nome especificado.
-- **AppFilter** é um Regex C# necessário do computador ou nome da VM.
-    - '. * ' corresponderá a todos
-    - ' ApplicationName ' corresponderá apenas aos aplicativos IIS com o nome especificado.
-- **InstrumentationKey** é necessário para habilitar o monitoramento dos aplicativos que correspondem aos dois filtros anteriores.
-    - Deixe esse valor NULL se você quiser definir regras para excluir o monitoramento.
+- **MachineFilter** é um regex C# necessário do computador ou nome VM.
+    - '.*' vai corresponder a todos
+    - 'ComputerName' corresponderá apenas computadores com o nome especificado.
+- **AppFilter** é um regex C# necessário do computador ou nome VM.
+    - '.*' vai corresponder a todos
+    - 'ApplicationName' corresponderá apenas aos aplicativos IIS com o nome especificado.
+- **O InstrumentationKey** é necessário para habilitar o monitoramento dos aplicativos que correspondem aos dois filtros anteriores.
+    - Deixe esse valor nulo se quiser definir regras para excluir o monitoramento.
 
 
 ### <a name="-verbose"></a>-Verbose
-**Parâmetro comum.** Use essa opção para exibir logs detalhados.
+**Parâmetro comum.** Use este interruptor para exibir registros detalhados.
 
 
 ## <a name="output"></a>Saída
 
 Por padrão, nenhuma saída.
 
-#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Exemplo de saída detalhada da configuração do arquivo de configuração via-InstrumentationKey
+#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Exemplo de saída verbose a partir da configuração do arquivo de configuração via -InstrumentationKey
 
 ```
 VERBOSE: Operation: InstallWithIkey
@@ -96,7 +96,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Exemplo de saída detalhada da configuração do arquivo de configuração via-InstrumentationKeyMap
+#### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Exemplo de saída verbose a partir da configuração do arquivo de configuração via -InstrumentationKeyMap
 
 ```
 VERBOSE: Operation: InstallWithIkeyMap
@@ -110,20 +110,20 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
   Exiba sua telemetria:
- - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.
-- [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
-- [Use a análise](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
-- [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
+ - [Explorar métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.
+- [Pesquise eventos e registros](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+- [Use analytics](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
+- [Criar painéis](../../azure-monitor/app/overview-dashboard.md).
  
  Adicione mais telemetria:
- - [Crie testes da Web](monitor-web-app-availability.md) para garantir que seu site permaneça ativo.
-- [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
-- [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log
+ - [Crie testes na Web](monitor-web-app-availability.md) para ter a certeza de que seu site continua ativo.
+- [Adicione telemetria do cliente web](../../azure-monitor/app/javascript.md) para ver exceções do código da página da Web e para ativar chamadas de rastreamento.
+- [Adicione o Application Insights SDK ao seu código para](../../azure-monitor/app/asp-net.md) que você possa inserir chamadas de rastreamento e registro
  
- Faça mais com Application Insights agente:
- - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.
- - [Obtenha a configuração](status-monitor-v2-api-get-config.md) para confirmar que as configurações foram registradas corretamente.
+ Faça mais com o Agente de Insights de Aplicativos:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Agente de Insights de Aplicativos.
+ - [Obtenha a configuração](status-monitor-v2-api-get-config.md) para confirmar que suas configurações foram gravadas corretamente.
  - [Obtenha o status](status-monitor-v2-api-get-status.md) para inspecionar o monitoramento.

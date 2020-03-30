@@ -1,13 +1,13 @@
 ---
-title: Detectar vazamento de memória-detecção inteligente de insights de Aplicativo Azure
+title: Detectar vazamento de memória - Azure Application Insights Smart Detection
 description: Monitorar aplicativos com o Azure Application Insights para possíveis perdas de memória.
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.openlocfilehash: 85d138518dfb1313a810657016e9fe3143887b6d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671691"
 ---
 # <a name="memory-leak-detection-preview"></a>Detecção de perda de memória (visualização)

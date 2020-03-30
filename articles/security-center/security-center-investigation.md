@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
 ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603985"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigar incidentes e alertas na central de segurança do Azure (desativado)
-Este documento ajuda você a usar o recurso de investigação (versão prévia) na central de segurança do Azure para investigar incidentes de segurança e alertas.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Investigue incidentes e alertas no Azure Security Center (Aposentado)
+Este documento ajuda você a usar o recurso de investigação (Preview) no Azure Security Center para investigar incidentes e alertas de segurança.
 
 > [!NOTE]
-> A experiência de investigação de alertas e incidentes (versão prévia) foi desativada em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> A experiência de investigação de alertas e incidentes (Preview) foi aposentada em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [os recursos do Centro de Aposentadoria da Segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>O que é a investigação na Central de Segurança?
 O recurso de investigação na Central de Segurança permite que você faça triagem, compreenda o escopo e rastreie a causa raiz de um possível [incidente de segurança](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -34,7 +34,7 @@ A intenção é facilitar o processo de investigação vinculando todas as entid
 
 > [!NOTE]
 > * [Alertas personalizados](security-center-custom-alert.md) não têm suporte no recurso de investigação da Central de segurança.
-> * A investigação só tem suporte para alertas baseados em dados coletados de servidores Windows.
+> * A investigação só é suportada para alertas com base em dados coletados de servidores Windows.
 
 
 ## <a name="how-investigation-works"></a>Como a investigação funciona?
@@ -72,7 +72,7 @@ A guia **Pesquisa** apresenta todos os tipos de log que estão disponíveis para
 
 ### <a name="exploration"></a>Exploração
 
-A guia **Exploração** permite que o investigador examine os dados relacionados a vários problemas relacionados à entidade. Por exemplo, quando um computador é investigado, a lista de processos executados nele é apresentada na guia exploração. Em alguns casos, a guia exploração apresenta dados que podem indicar um problema suspeito. O investigador pode examinar os dados na guia ou abri-los na tela de pesquisa para examinar grandes conjuntos de dados e usar opções de pesquisa avançada, como filtragem e exportação para o Excel.
+A guia **Exploração** permite que o investigador examine os dados relacionados a vários problemas relacionados à entidade. Por exemplo, quando uma máquina é investigada, a lista de processos executados nela é apresentada na guia de exploração. Em alguns casos, a guia de exploração apresenta dados que podem indicar um problema suspeito. O investigador pode examinar os dados na guia ou abri-los na tela de pesquisa para examinar grandes conjuntos de dados e usar opções de pesquisa avançada, como filtragem e exportação para o Excel.
 
 ![Exploração](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -98,7 +98,7 @@ Os seguintes itens serão apresentados independentemente do escopo de tempo sele
 
 ## <a name="how-to-perform-an-investigation"></a>Como executar uma investigação?
 
-Você pode iniciar a investigação de um incidente de segurança ou de um alerta; a opção que você escolher varia de acordo com suas necessidades. As etapas a seguir são usadas para iniciar uma investigação de um alerta:
+Você pode iniciar a investigação de um incidente de segurança ou de um alerta; a opção que você escolher varia de acordo com suas necessidades. Os passos a seguir são usados para iniciar uma investigação a partir de um alerta:
 
 1.  Abra o painel **Central de Segurança**.
 2.  Clique em **Alertas de Segurança**e selecione o incidente que você deseja investigar.
@@ -115,6 +115,6 @@ Daqui, você pode explorar as entidades que estão associadas ao incidente e exp
 ## <a name="see-also"></a>Confira também
 Neste documento, você aprendeu a usar o recurso de investigação na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
-* [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
+* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
+* [Monitoramento de segurança em segurança no Azure Security Center](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
+* [Entendendo os alertas de segurança no Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.

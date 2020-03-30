@@ -1,6 +1,6 @@
 ---
-title: Criar uma conexão de dados do hub de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager
-description: Neste artigo, você aprenderá a criar uma conexão de dados do hub de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager.
+title: Crie uma conexão de dados do Event Hub para o Azure Data Explorer usando o modelo do Azure Resource Manager
+description: Neste artigo, você aprende como criar uma conexão de dados do Event Hub para o Azure Data Explorer usando o modelo do Azure Resource Manager.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,32 +8,32 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
 ms.openlocfilehash: fec8ab7db85eefb1a614511a3f810cc39f69fb68
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74669201"
 ---
-# <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Criar uma conexão de dados do hub de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager
+# <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Crie uma conexão de dados do Event Hub para o Azure Data Explorer usando o modelo do Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-hub.md)
-> * [C#](data-connection-event-hub-csharp.md)
+> * [C #](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
-> * [Modelo do Azure Resource Manager](data-connection-event-hub-resource-manager.md)
+> * [Modelo de Gerenciador de recursos do Azure](data-connection-event-hub-resource-manager.md)
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece ingestão (carregamento de dados) de hubs de eventos, hubs IoT e Blobs gravados em contêineres de BLOB. Neste artigo, você cria uma conexão de dados do hub de eventos para o Azure Data Explorer usando o modelo Azure Resource Manager.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece ingestão (carregamento de dados) de Hubs de Eventos, Hubs ioT e blobs escritos para recipientes blob. Neste artigo, você cria uma conexão de dados do Event Hub para o Azure Data Explorer usando o modelo do Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* Criar [um cluster e um banco de dados](create-cluster-database-portal.md)
-* Criar [uma tabela e um mapeamento de coluna](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
-* Criar [um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Crie [um cluster e um banco de dados](create-cluster-database-portal.md)
+* Crie [um mapeamento de tabela e coluna](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
+* Crie [um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-## <a name="azure-resource-manager-template-for-adding-an-event-hub-data-connection"></a>Azure Resource Manager modelo para adicionar uma conexão de dados do hub de eventos
+## <a name="azure-resource-manager-template-for-adding-an-event-hub-data-connection"></a>Modelo do Azure Resource Manager para adicionar uma conexão de dados do Event Hub
 
-O exemplo a seguir mostra um modelo de Azure Resource Manager para adicionar uma conexão de dados do hub de eventos.  Você pode [Editar e implantar o modelo no portal do Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando o formulário.
+O exemplo a seguir mostra um modelo do Azure Resource Manager para adicionar uma conexão de dados do Event Hub.  Você pode [editar e implantar o modelo no portal Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando o formulário.
 
 ```json
 {

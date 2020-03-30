@@ -1,29 +1,29 @@
 ---
-title: Cláusula FROM em Azure Cosmos DB
-description: Saiba mais sobre a sintaxe SQL e o exemplo da cláusula FROM para Azure Cosmos DB. Este artigo também mostra exemplos de escopo de resultados e obter subitens usando a cláusula FROM.
+title: Cláusula no Azure Cosmos DB
+description: Saiba mais sobre a sintaxe SQL e o exemplo da cláusula FROM para Azure Cosmos DB. Este artigo também mostra exemplos de resultados de escopo e obter subitens usando a cláusula FROM.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587678"
 ---
-# <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM em Azure Cosmos DB
+# <a name="from-clause-in-azure-cosmos-db"></a>Cláusula no Azure Cosmos DB
 
-A cláusula FROM (`FROM <from_specification>`) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo o contêiner de `Families`. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
+A cláusula`FROM <from_specification>`DE ( ) é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta `SELECT * FROM Families` como enumera todo `Families` o recipiente. Você também pode usar o identificador especial ROOT para o contêiner em vez de usar o nome do contêiner.
 
 A cláusula FROM impõe as seguintes regras por consulta:
 
-* O contêiner pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o alias para `Families`. Como é uma palavra-chave opcional para [alias](sql-query-aliasing.md) do identificador.  
+* O contêiner pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` está o `Families`pseudônimo para . AS é uma palavra-chave opcional para [alias](sql-query-aliasing.md) o identificador.  
 
-* Depois de alias, o nome de origem original não pode ser associado. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválido porque o identificador `Families` foi alias e não pode mais ser resolvido.  
+* Uma vez aliased, o nome de origem original não pode ser vinculado. Por exemplo, `SELECT Families.id FROM Families f` é sintáticamente inválido `Families` porque o identificador foi aliased e não pode mais ser resolvido.  
 
-* Todas as propriedades referenciadas devem ser totalmente qualificadas para evitar associações ambíguas na ausência da adesão estrita ao esquema. Por exemplo, `SELECT id FROM Families f` é sintaticamente inválido porque a propriedade `id` não está associada.
+* Todas as propriedades referenciadas devem ser totalmente qualificadas, para evitar quaisquer ligações ambíguas na ausência de estrita adesão ao esquema. Por exemplo, `SELECT id FROM Families f` é sintáticamente inválido porque a propriedade `id` não está vinculada.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -81,7 +81,7 @@ FROM <from_specification>
   
 - `<container_expression> '.' property_name`  
   
-  Especifica que o documento deve ser recuperado acessando a propriedade `property_name`.  
+  Especifica que esse documento deve ser `property_name` recuperado acessando a propriedade.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -105,9 +105,9 @@ Uma expressão contêiner pode ter escopo no contêiner ou no escopo do document
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="get-subitems-by-using-the-from-clause"></a>Obter subitens usando a cláusula FROM
+### <a name="get-subitems-by-using-the-from-clause"></a>Obtenha subitens usando a cláusula FROM
 
-A cláusula FROM pode reduzir a origem para um subconjunto menor. Para enumerar apenas uma subárvore em cada item, a subraiz pode se tornar a origem, conforme mostrado no exemplo a seguir:
+A cláusula FROM pode reduzir a fonte para um subconjunto menor. Para enumerar apenas uma subárvore em cada item, a subraiz pode se tornar a fonte, como mostrado no exemplo a seguir:
 
 ```sql
     SELECT *
@@ -147,7 +147,7 @@ Os resultados são:
     ]
 ```
 
-A consulta anterior usou uma matriz como a origem, mas você também pode usar um objeto como a origem. A consulta considera qualquer valor JSON válido e definido na fonte para inclusão no resultado. O exemplo a seguir excluiria `Families` que não têm um valor de `address.state`.
+A consulta anterior usou uma matriz como fonte, mas você também pode usar um objeto como fonte. A consulta considera qualquer valor JSON válido e definido na fonte de inclusão no resultado. O exemplo a `Families` seguir excluiria `address.state` que não tenha um valor.
 
 ```sql
     SELECT *
@@ -165,6 +165,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Guia de Introdução](sql-query-getting-started.md)
+- [Começando](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Cláusula WHERE](sql-query-where.md)
+- [CLÁUSULA WHERE](sql-query-where.md)

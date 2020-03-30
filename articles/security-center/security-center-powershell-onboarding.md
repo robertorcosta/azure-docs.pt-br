@@ -1,5 +1,5 @@
 ---
-title: Integração à central de segurança do Azure com o PowerShell
+title: A bordo do Azure Security Center com powershell
 description: Este documento orienta você pelo processo de integração da Central de Segurança do Azure usando os cmdlets do PowerShell.
 services: security-center
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
 ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603680"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar integração da Central de Segurança do Azure usando o PowerShell
@@ -31,17 +31,17 @@ Este artigo fornece um exemplo de script do PowerShell que pode ser modificado e
 
 Neste exemplo, habilitaremos a Central de Segurança em uma assinatura com a ID: d07c0080-170c-4c24-861d-9c817742786c e aplicaremos as configurações recomendadas que fornecem um alto nível de proteção, com a implementação da camada Padrão da Central de Segurança que oferece proteção avançada contra ameaças e recursos de detecção de ameaças:
 
-1. Defina o [nível de proteção padrão da central de segurança](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Defina o [nível padrão de proteção do Security Center.](https://azure.microsoft.com/pricing/details/security-center/) 
  
 2. Defina o espaço de trabalho do Log Analytics para o qual o Microsoft Monitoring Agent enviará os dados coletados nas VMs associadas à assinatura. Neste exemplo, um espaço de trabalho definido pelo usuário existente (myWorkspace).
 
 3. Ative o provisionamento de agente automático da Central de Segurança que [implanta o Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Defina o ciso da organização [como o contato de segurança para alertas da central de segurança e eventos notáveis](security-center-provide-security-contact-details.md).
+5. Defina o [CISO](security-center-provide-security-contact-details.md)da organização como o contato de segurança para alertas do Security Center e eventos notáveis .
 
 6. Atribua as [políticas de segurança padrão da](tutorial-security-policy.md) Central de Segurança.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Essas etapas devem ser realizadas antes de executar os cmdlets da Central de Segurança:
 
@@ -104,5 +104,5 @@ Para saber mais sobre como você pode usar o PowerShell para automatizar a integ
 
 Para saber mais sobre a Central de Segurança, confira o seguinte artigo:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
+* [Definindo políticas de segurança no Azure Security Center](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) -- Saiba como gerenciar e responder a alertas de segurança.

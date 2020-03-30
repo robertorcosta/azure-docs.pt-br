@@ -1,5 +1,5 @@
 ---
-title: Listar recursos de armazenamento C++ do Azure com biblioteca de cliente
+title: Liste os recursos de armazenamento do Azure com a biblioteca de clientes C++
 description: Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
 ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74269441"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
@@ -34,7 +34,7 @@ Cada um desses métodos é mostrado usando sobrecargas diferentes para diferente
 
 ## <a name="asynchronous-versus-synchronous"></a>Assíncrono versus síncrono
 
-Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST](https://github.com/Microsoft/cpprestsdk), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo:
+Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST](https://github.com/Microsoft/cpprestsdk), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo: 
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -196,9 +196,9 @@ Neste artigo, discutimos diferentes sobrecargas para listar as APIs de vários o
 
 Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de Cliente para C++, consulte os seguintes recursos.
 
-* [Como usar o Armazenamento de Blobs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Como usar o Blob Storage do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como usar o Armazenamento de Tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Como usar o Armazenamento de Filas do C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Como usar o armazenamento de filas do C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
-* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentação de armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

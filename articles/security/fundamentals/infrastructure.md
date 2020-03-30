@@ -1,6 +1,6 @@
 ---
-title: Segurança de infraestrutura do Azure | Microsoft Docs
-description: O artigo descreve como a Microsoft trabalha para proteger nossos data centers do Azure.
+title: Segurança da infraestrutura do Azure | Microsoft Docs
+description: O artigo descreve como a Microsoft trabalha para proteger nossos datacenters do Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,31 +16,31 @@ ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
 ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72595399"
 ---
-# <a name="azure-infrastructure-security"></a>Segurança de infraestrutura do Azure
-O Microsoft Azure é executado em data centers gerenciados e operados pela Microsoft. Esses data centers dispersos geograficamente estão em conformidade com os principais padrões do setor, como ISO/IEC 27001:2013 e NIST SP 800-53, para segurança e confiabilidade. Os data centers são gerenciados, monitorados e administrados pela equipe de operações da Microsoft. A equipe de operações tem anos de experiência no fornecimento do maior serviços online do mundo com continuidade de 24 x 7.
+# <a name="azure-infrastructure-security"></a>Segurança da infraestrutura do Azure
+O Microsoft Azure é executado em datacenters gerenciados e operados pela Microsoft. Esses datacenters geograficamente dispersos estão em conformidade com os principais padrões do setor, como ISO/IEC 27001:2013 e o NIST SP 800-53, em relação a segurança e confiabilidade. Os datacenters são gerenciados, monitorados e administrados pela equipe de operações da Microsoft. A equipe de operações tem anos de experiência no fornecimento dos maiores serviços online do mundo, com continuidade 24 horas por dia, 7 dias por semana.
 
-## <a name="securing-the-azure-infrastructure"></a>Protegendo a infraestrutura do Azure
-Esta série de artigos fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure. O endereço do artigo:
+## <a name="securing-the-azure-infrastructure"></a>Protegendo a infra-estrutura do Azure
+Esta série de artigos fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure. O artigos aborda:
 
 - [Segurança física](physical-security.md)
 - [Disponibilidade](infrastructure-availability.md)
 - [Componentes e limites](infrastructure-components.md)
 - [Arquitetura de rede](infrastructure-network.md)
 - [Rede de produção](production-network.md)
-- [Banco de Dados SQL](infrastructure-sql.md)
+- [Banco de dados SQL](infrastructure-sql.md)
 - [Operações](infrastructure-operations.md)
-- [Monitoramento](infrastructure-monitoring.md)
-- [Verifica](infrastructure-integrity.md)
+- <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>Monitoramento<ept i="1000001">&lt;b}</ept>
+- [Integridade](infrastructure-integrity.md)
 - [Proteção de dados](protection-customer-data.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Entenda sua [responsabilidade compartilhada na nuvem](shared-responsibility.md).
+- Entenda sua [responsabilidade compartilhada na nuvem.](shared-responsibility.md)
 
-- Saiba como a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/) pode ajudá-lo a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança de seus recursos do Azure.
+- Saiba como [o Azure Security Center](https://azure.microsoft.com/services/security-center/) pode ajudá-lo a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança de seus recursos do Azure.

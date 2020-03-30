@@ -1,6 +1,6 @@
 ---
-title: Como instalar e usar as exibições do log Analytics | Microsoft Docs
-description: Saiba como instalar e usar as exibições do log Analytics para Azure Active Directory
+title: Como instalar e usar as visualizações de análise de log | Microsoft Docs
+description: Saiba como instalar e usar as visualizações de análise de log para o Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014414"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
@@ -31,7 +31,7 @@ As exibições do Log Analytics do Azure Active Directory ajuda você a analisar
 * Logs de auditoria: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) dá acesso ao histórico de todas as tarefas executadas em seu locatário.
 * Logs de entrada: com o [relatório de atividades de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório das trilhas de auditoria.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar as exibições do Log Analytics, você precisará de:
 

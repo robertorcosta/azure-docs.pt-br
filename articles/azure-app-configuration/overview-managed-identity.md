@@ -1,6 +1,6 @@
 ---
-title: Configurar identidades gerenciadas com a configuração Azure App
-description: Saiba como as identidades gerenciadas funcionam na configuração do Azure App e como configurar uma identidade gerenciada
+title: Configure identidades gerenciadas com a configuração do aplicativo Azure
+description: Saiba como as identidades gerenciadas funcionam na configuração do aplicativo Azure e como configurar uma identidade gerenciada
 author: jpconnock
 ms.topic: article
 ms.date: 02/25/2020
@@ -8,49 +8,49 @@ ms.author: jeconnoc
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 ms.openlocfilehash: fe66466395a100221e6a3cdebdef870bdf195afc
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623038"
 ---
-# <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Como usar identidades gerenciadas para configuração de Azure App
+# <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Como usar identidades gerenciadas para configuração do aplicativo Azure
 
-Este tópico mostra como criar uma identidade gerenciada para Azure App configuração. Uma identidade gerenciada do Azure Active Directory (AAD) permite que Azure App configuração acesse facilmente outros recursos protegidos por AAD, como Azure Key Vault. A identidade é gerenciada pela plataforma do Azure. Ele não exige que você provisione ou gire segredos. Para obter mais informações sobre identidades gerenciadas no AAD, veja [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Este tópico mostra como criar uma identidade gerenciada para a configuração do aplicativo Azure. Uma identidade gerenciada do Azure Active Directory (AAD) permite que a configuração do aplicativo Azure acesse facilmente outros recursos protegidos por AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma Azure. Não exige que você provimento ou gire quaisquer segredos. Para obter mais informações sobre identidades gerenciadas no AAD, veja [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Seu aplicativo pode receber dois tipos de identidades:
 
-- Uma **identidade atribuída pelo sistema** é vinculada ao seu repositório de configuração. Ele será excluído se o repositório de configuração for excluído. Um repositório de configurações só pode ter uma identidade atribuída pelo sistema.
-- Uma **identidade atribuída pelo usuário** é um recurso autônomo do Azure que pode ser atribuído ao seu repositório de configuração. Um repositório de configurações pode ter várias identidades atribuídas pelo usuário.
+- Uma **identidade atribuída ao sistema** está vinculada ao seu armazenamento de configuração. É excluído se sua configuração de armazenamento for excluída. Um armazenamento de configuração só pode ter uma identidade atribuída ao sistema.
+- Uma **identidade atribuída pelo usuário** é um recurso autônomo do Azure que pode ser atribuído à sua loja de configuração. Uma loja de configuração pode ter várias identidades atribuídas pelo usuário.
 
 ## <a name="adding-a-system-assigned-identity"></a>Adicionando uma identidade designada pelo sistema
 
-A criação de um repositório de configurações de aplicativo com uma identidade atribuída pelo sistema requer que uma propriedade adicional seja definida no repositório.
+Criar uma loja de configuração de aplicativos com uma identidade atribuída ao sistema requer uma propriedade adicional a ser definida na loja.
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
 
-Para configurar uma identidade gerenciada usando o CLI do Azure, use o comando [atribuir identidade do AZ appconfig] para um repositório de configuração existente. Você tem três opções para executar os exemplos nesta seção:
+Para configurar uma identidade gerenciada usando o Azure CLI, use o comando [az appconfig identity atribuição] contra um armazenamento de configuração existente. Você tem três opções para executar os exemplos nesta seção:
 
 - Usar o [Azure Cloud Shell](../cloud-shell/overview.md) do portal do Azure.
-- Use o Azure Cloud Shell inserido por meio do botão "experimentar", localizado no canto superior direito de cada bloco de código abaixo.
-- [Instale a versão mais recente do CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2,1 ou posterior) se preferir usar um console local da CLI.
+- Use o Azure Cloud Shell incorporado através do botão "Try It", localizado no canto superior direito de cada bloco de código abaixo.
+- [Instale a versão mais recente do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.1 ou posterior) se preferir usar um console CLI local.
 
-As etapas a seguir mostrarão como criar um repositório de configuração de aplicativo e atribuir a ele uma identidade usando a CLI:
+As etapas a seguir irão levá-lo através da criação de uma loja de configuração de aplicativos e atribuindo-lhe uma identidade usando o CLI:
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az]. Use uma conta que esteja associada à sua assinatura do Azure:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az]. Use uma conta associada à sua assinatura do Azure:
 
     ```azurecli-interactive
     az login
     ```
 
-1. Crie um repositório de configuração de aplicativo usando a CLI. Para obter mais exemplos de como usar a CLI com Azure App configuração, consulte [exemplos de CLI de configuração de aplicativo](scripts/cli-create-service.md):
+1. Crie uma loja de configuração de aplicativos usando o CLI. Para obter mais exemplos de como usar o CLI com a configuração do aplicativo Azure, consulte [amostras de CLI de configuração do aplicativo](scripts/cli-create-service.md):
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location eastus
     az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
     ```
 
-1. Execute o comando [atribuir identidade do AZ appconfig] para criar a identidade atribuída pelo sistema para este repositório de configuração:
+1. Execute o comando [az appconfig identity atribuição] de identidade para criar a identidade atribuída ao sistema para esta configuração:
 
     ```azurecli-interactive
     az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup
@@ -58,40 +58,40 @@ As etapas a seguir mostrarão como criar um repositório de configuração de ap
 
 ## <a name="adding-a-user-assigned-identity"></a>Adicionando uma identidade atribuída pelo usuário
 
-A criação de um repositório de configurações de aplicativo com uma identidade atribuída pelo usuário requer que você crie a identidade e, em seguida, atribua seu identificador de recurso à sua loja.
+Criar uma loja de configuração de aplicativos com uma identidade atribuída pelo usuário requer que você crie a identidade e, em seguida, atribua seu identificador de recursos à sua loja.
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
 
-Para configurar uma identidade gerenciada usando o CLI do Azure, use o comando [atribuir identidade do AZ appconfig] para um repositório de configuração existente. Você tem três opções para executar os exemplos nesta seção:
+Para configurar uma identidade gerenciada usando o Azure CLI, use o comando [az appconfig identity atribuição] contra um armazenamento de configuração existente. Você tem três opções para executar os exemplos nesta seção:
 
 - Usar o [Azure Cloud Shell](../cloud-shell/overview.md) do portal do Azure.
-- Use o Azure Cloud Shell inserido por meio do botão "experimentar", localizado no canto superior direito de cada bloco de código abaixo.
+- Use o Azure Cloud Shell incorporado através do botão "Try It", localizado no canto superior direito de cada bloco de código abaixo.
 - [Instale a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 ou mais recente) se você preferir usar um console da CLI local.
 
-As etapas a seguir mostrarão como criar uma identidade atribuída pelo usuário e um repositório de configuração de aplicativo e, em seguida, atribuir a identidade à loja usando a CLI:
+As etapas a seguir o acompanharão através da criação de uma identidade atribuída pelo usuário e de uma loja de configuração de aplicativos e, em seguida, atribuirá a identidade à loja usando o CLI:
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az]. Use uma conta que esteja associada à sua assinatura do Azure:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az]. Use uma conta associada à sua assinatura do Azure:
 
     ```azurecli-interactive
     az login
     ```
 
-1. Crie um repositório de configuração de aplicativo usando a CLI. Para obter mais exemplos de como usar a CLI com Azure App configuração, consulte [exemplos de CLI de configuração de aplicativo](scripts/cli-create-service.md):
+1. Crie uma loja de configuração de aplicativos usando o CLI. Para obter mais exemplos de como usar o CLI com a configuração do aplicativo Azure, consulte [amostras de CLI de configuração do aplicativo](scripts/cli-create-service.md):
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location eastus
     az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
     ```
 
-1. Crie uma identidade atribuída pelo usuário chamada `myUserAssignedIdentity` usando a CLI.
+1. Crie uma identidade atribuída `myUserAssignedIdentity` pelo usuário chamada usando o CLI.
 
     ```azurecli-interactive
     az identity create -resource-group myResourceGroup --name myUserAssignedIdentity
     ```
 
-    Na saída desse comando, observe o valor da propriedade `id`.
+    Na saída deste comando, observe o `id` valor da propriedade.
 
-1. Execute o comando [atribuir identidade do AZ appconfig] para atribuir a nova identidade atribuída pelo usuário a esse repositório de configuração. Use o valor da propriedade `id` que você anotou na etapa anterior.
+1. Execute o comando [az appconfig identity atribuir] para atribuir a nova identidade atribuída pelo usuário a esta configuração. Use o valor `id` do imóvel que você anotou na etapa anterior.
 
     ```azurecli-interactive
     az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/[subscription id]/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity
@@ -99,12 +99,12 @@ As etapas a seguir mostrarão como criar uma identidade atribuída pelo usuário
 
 ## <a name="removing-an-identity"></a>Removendo uma identidade
 
-Uma identidade atribuída pelo sistema pode ser removida desabilitando o recurso usando o comando [AZ AppConfig Identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) no CLI do Azure. As identidades atribuídas pelo usuário podem ser removidas individualmente. Remover uma identidade atribuída pelo sistema dessa maneira também a excluirá do AAD. As identidades atribuídas pelo sistema também são automaticamente removidas do AAD quando o recurso do aplicativo é excluído.
+Uma identidade atribuída ao sistema pode ser removida desativando o recurso usando o comando [az appconfig identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) no Azure CLI. As identidades atribuídas pelo usuário podem ser removidas individualmente. Remover uma identidade atribuída pelo sistema dessa maneira também a excluirá do AAD. As identidades atribuídas pelo sistema também são automaticamente removidas do AAD quando o recurso do aplicativo é excluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um aplicativo ASP.NET Core com a configuração Azure App](quickstart-aspnet-core-app.md)
+> [Crie um aplicativo ASP.NET Core com a configuração do aplicativo Azure](quickstart-aspnet-core-app.md)
 
-[atribuir identidade do AZ appconfig]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
-[logon az]: /cli/azure/reference-index#az-login
+[az appconfig identidade atribuir]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
+[login az]: /cli/azure/reference-index#az-login

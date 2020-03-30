@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: adicionar um gateway a uma VNet: PowerShell'
+title: 'Azure ExpressRoute: Adicione um gateway a um VNet: PowerShell'
 description: Este artigo ensina como adicionar gateway de VNet a uma VNet do Resource Manager já existente do ExpressRoute.
 services: expressroute
 author: charwen
@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 6e6d79afa1126acb26cb8856c39ba486cce31a5e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74037422"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurar um gateway de rede virtual para ExpressRoute usando PowerShell
@@ -24,11 +24,11 @@ ms.locfileid: "74037422"
 > 
 > 
 
-Este artigo ensina como adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma rede virtual já existente. As etapas para essa configuração se aplicam ao VNets que foram criados usando o modelo de implantação do Gerenciador de recursos para uma configuração do ExpressRoute. Para obter mais informações, confira [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
+Este artigo ensina como adicionar, redimensionar e remover um gateway de VNet (rede virtual) para uma rede virtual já existente. As etapas para esta configuração se aplicam aos VNets que foram criados usando o modelo de implantação do Resource Manager para uma configuração ExpressRoute. Para obter mais informações, confira [Sobre os gateways de rede virtual para ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 ## <a name="before-beginning"></a>Antes de começar
 
-### <a name="working-with-powershell"></a>Trabalhando com o PowerShell
+### <a name="working-with-powershell"></a>Trabalhando com powershell
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 

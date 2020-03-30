@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604186"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança dos Dados da Central de Segurança do Azure
@@ -49,9 +49,9 @@ A Central de Segurança do Azure analisa os dados das seguintes fontes para forn
 |-------------------------------------|---------------|
 | Estados Unidos, Brasil, África do Sul | Estados Unidos |
 | Canada                              | Canada        |
-| Europa (excluindo o Reino Unido)   | Europa        |
+| Europa (Excluindo Reino Unido)   | Europa        |
 | United Kingdom                      | United Kingdom |
-| Ásia (exceto Índia, Japão, Coreia, China)   | Pacífico Asiático  |
+| Ásia (excluindo Índia, Japão, Coréia, China)   | Pacífico Asiático  |
 | Coreia do Sul                              | Pacífico Asiático  |
 | Índia                               | Índia         |
 | Japão                               | Japão         |
@@ -80,8 +80,8 @@ Se você estiver usando a Central de Segurança do Azure Gratuita, também poder
 
 Os clientes podem consumir dados relacionados à Central de Segurança de diferentes fluxos de dados, conforme mostrado abaixo:
 
-* **Atividade do Azure**: todos os alertas de segurança, solicitações [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas da central de segurança e todos os alertas gerados por [controles de aplicativo adaptáveis](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Logs de Azure monitor**: todos os alertas de segurança.
+* **Atividade do Azure**: todos os alertas de segurança, solicitações [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas do Security Center e todos os alertas gerados por [controles adaptativos de aplicativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Logs do Monitor do Azure:** todos os alertas de segurança.
 
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Os clientes podem consumir dados relacionados à Central de Segurança de difere
 Neste documento, você aprendeu como os dados são gerenciados e protegidos na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, consulte:
 
 * [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e responder aos alertas de segurança
-* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
+* [Monitoramento de segurança no Azure Security Center](security-center-monitoring.md) — Saiba como monitorar a saúde dos seus recursos do Azure
+* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) — Saiba como gerenciar e responder a alertas de segurança
+* [Monitoramento de soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorar o estado de saúde das soluções de seus parceiros.
+* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) — Encontre posts no blog sobre segurança e conformidade do Azure

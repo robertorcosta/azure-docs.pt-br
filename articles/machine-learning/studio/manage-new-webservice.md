@@ -1,7 +1,7 @@
 ---
 title: Gerenciar serviços Web
 titleSuffix: ML Studio (classic) - Azure
-description: Gerencie seus Machine Learning serviços Web novos e clássicos usando o portal de serviços Web do Microsoft Azure Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
+description: Gerencie seus serviços web novos e clássicos de aprendizado de máquina usando o portal Microsoft Azure Machine Learning Web Services. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: 2277aa3de5955efe5a3e4cb938fa557352f89006
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217968"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerenciar um serviço Web usando o portal de serviços Web Azure Machine Learning Studio (clássico)
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerencie um serviço web usando o portal De Serviços Web do Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -32,7 +32,7 @@ No portal de Serviços Web do Azure Machine Learning você pode:
 * Adicionar e excluir pontos de extremidade (somente Clássico)
 
 >[!NOTE]
->Você também pode gerenciar serviços Web clássicos no [Machine Learning Studio (clássico)](https://studio.azureml.net) na guia **Serviços Web** .
+>Você também pode gerenciar serviços web clássicos no [Machine Learning Studio (clássico)](https://studio.azureml.net) na guia **serviços web.**
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerenciar os Novos serviços Web baseados no Resource Manager
 
@@ -40,9 +40,9 @@ Os Novos serviços Web são implantados como recursos do Azure. Assim, você dev
 
 Se o usuário não tiver as permissões corretas para acessar os recursos no portal dos Serviços Web do Azure Machine Learning, ele receberá o seguinte erro ao tentar implantar um serviço Web:
 
-*Falha na implantação do serviço Web. Essa conta não tem acesso suficiente à assinatura do Azure que contém o espaço de trabalho. Para implantar um serviço Web no Azure, a mesma conta deve ser convidada para o espaço de trabalho e receber acesso à assinatura do Azure que contém o espaço de trabalho.*
+*Falha na implantação do Serviço Web. Esta conta não tem acesso suficiente à assinatura do Azure que contém o Workspace. Para implantar um Web Service no Azure, a mesma conta deve ser convidada para o Workspace e ter acesso à assinatura do Azure que contém o Workspace.*
 
-Para obter mais informações sobre como criar um espaço de trabalho, consulte [criar e compartilhar um Azure Machine Learning Studio (clássico) espaço de trabalho](create-workspace.md).
+Para obter mais informações sobre a criação de um espaço de trabalho, consulte [Criar e compartilhar um espaço de trabalho (clássico) do Azure Machine Learning Studio](create-workspace.md).
 
 Para obter mais informações sobre como definir permissões de acesso, confira [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -85,11 +85,11 @@ Clique na opção de menu **CONFIGURAR** .
 
 Você pode atualizar as seguintes propriedades:
 
-* **Descrição** permite inserir uma descrição para o serviço Web.
-* **Título** permite inserir um título para o serviço Web
+* **A descrição** permite que você digite uma descrição para o serviço web.
+* **O título** permite que você insira um título para o serviço web
 * **Chaves** permite girar as chaves de API principais e secundárias.
 * **Chave da conta de armazenamento** permite atualizar a chave da conta de armazenamento associada às alterações de serviço Web. 
-* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio (clássico), os dados de exemplo serão obtidos dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
+* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço web no Machine Learning Studio (clássico), os dados de amostra são retirados dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
 
 ### <a name="managing-billing-plans"></a>Gerenciando planos de cobranças
 Clique na opção de menu **Planos** da página de início rápido de serviços Web. Você também pode clicar no plano associado com o serviço Web específico para gerenciar o plano.
@@ -105,13 +105,13 @@ O painel de plano fornece as seguintes informações:
 
 * **Descrição do plano** exibe informações sobre os custos e a capacidade associada ao plano.
 * **Uso do plano** exibe o número de transações e as horas de computação que serão cobradas em relação ao plano.
-* **Serviços Web** exibe o número de serviços Web que estão usando este plano.
+* **O Web Services** exibe o número de serviços da Web que estão usando esse plano.
 * **Principais serviços Web por chamadas** exibe os quatro principais serviços Web que estão fazendo chamadas que são cobradas em relação ao plano.
 * **Principais serviços Web por horas de computação** exibe os quatro principais serviços Web que estão usando recursos de computação que são cobrados em relação ao plano.
 
 ## <a name="manage-classic-web-services"></a>Gerenciar Serviços Web clássicos
 > [!NOTE]
-> Os procedimentos nesta seção são relevantes para o gerenciamento de serviços Web clássicos no portal de Serviços Web do Azure Machine Learning. Para obter informações sobre como gerenciar serviços Web clássicos por meio do Machine Learning Studio (clássico) e do portal do Azure, consulte [gerenciar um espaço de trabalho Azure Machine Learning Studio (clássico)](manage-workspace.md).
+> Os procedimentos nesta seção são relevantes para o gerenciamento de serviços Web clássicos no portal de Serviços Web do Azure Machine Learning. Para obter informações sobre como gerenciar serviços clássicos da Web através do Machine Learning Studio (clássico) e do portal Azure, consulte [Gerenciar um espaço de trabalho (clássico) do Azure Machine Learning Studio](manage-workspace.md).
 > 
 > 
 
@@ -152,8 +152,8 @@ Clique na opção de menu **CONFIGURAR** .
 
 Você pode atualizar as seguintes propriedades:
 
-* **Descrição** permite inserir uma descrição para o serviço Web. Descrição é um campo obrigatório.
+* **A descrição** permite que você digite uma descrição para o serviço web. Descrição é um campo obrigatório.
 * **Registrar em log** permite habilitar ou desabilitar o registro de erros em log no ponto de extremidade. Para obter mais informações sobre Registrar em Log, veja Habilitar [registro em log de serviços Web do Machine Learning](web-services-logging.md).
-* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio (clássico), os dados de exemplo serão obtidos dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
+* **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço web no Machine Learning Studio (clássico), os dados de amostra são retirados dos dados que você usou para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
 
 

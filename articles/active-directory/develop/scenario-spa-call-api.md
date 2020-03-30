@@ -1,6 +1,6 @@
 ---
-title: Compilar aplicativo de página única chamando uma API Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo de página única que chama uma API da Web
+title: Construa um aplicativo de página única chamando uma API web - plataforma de identidade da Microsoft | Azure
+description: Saiba como criar um aplicativo de uma página única que chama uma API web
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -15,21 +15,21 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: ccece6c840033913ec6d96b446dcb98c4befb32f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159991"
 ---
-# <a name="single-page-application-call-a-web-api"></a>Aplicativo de página única: chamar uma API da Web
+# <a name="single-page-application-call-a-web-api"></a>Aplicativo de uma página: Chame uma API web
 
-Recomendamos que você chame o método `acquireTokenSilent` para adquirir ou renovar um token de acesso antes de chamar uma API da Web. Depois de ter um token, você pode chamar uma API Web protegida.
+Recomendamos que você `acquireTokenSilent` ligue para o método para adquirir ou renovar um token de acesso antes de chamar uma API web. Depois de ter um token, você pode chamar uma API da Web protegida.
 
 ## <a name="call-a-web-api"></a>Chamar uma API da Web
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Use o token de acesso adquirido como um portador em uma solicitação HTTP para chamar qualquer API da Web, como Microsoft Graph API. Por exemplo:
+Use o token de acesso adquirido como portador em uma solicitação HTTP para chamar qualquer API web, como a API do Microsoft Graph. Por exemplo: 
 
 ```javascript
     var headers = new Headers();
@@ -47,13 +47,13 @@ Use o token de acesso adquirido como um portador em uma solicitação HTTP para 
         }
 ```
 
-# <a name="angulartabangular"></a>[Angular](#tab/angular)
+# <a name="angular"></a>[Angular](#tab/angular)
 
-O wrapper angular MSAL aproveita o interceptador HTTP para adquirir automaticamente tokens de acesso silenciosamente e anexá-los às solicitações HTTP para APIs. Para obter mais informações, consulte [adquirir um token para chamar uma API](scenario-spa-acquire-token.md).
+O invólucro MSAL Angular aproveita o interceptor HTTP para adquirir automaticamente tokens de acesso silenciosamente e anexá-los às solicitações HTTP às APIs. Para obter mais informações, consulte [Obter um token para chamar uma API](scenario-spa-acquire-token.md).
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Mover para produção](scenario-spa-production.md)
+> [Mover para ambiente de produção](scenario-spa-production.md)

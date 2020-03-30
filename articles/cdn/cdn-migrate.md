@@ -1,5 +1,5 @@
 ---
-title: Migrar o perfil da CDN do Azure da Verizon Standard para Verizon Premium
+title: Migrar o perfil CDN do Azure da Verizon Standard para o Verizon Premium
 description: Saiba mais sobre os detalhes da migração de um perfil da Verizon Standard para o Verizon Premium.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 06/21/2018
 ms.author: magattus
 ms.custom: ''
 ms.openlocfilehash: 8ab66117be4f05550b00defafc883108646be283
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083049"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migre um perfil Azure CDN do Verizon Standard para o Verizon Premium

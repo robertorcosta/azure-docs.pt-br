@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: fbdf8e316368be02ebd0c4bfd320917c20d80777
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069448"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Use o roteamento dependente dos dados para rotear uma consulta para o banco de dados apropriado
 
 O **roteamento dependente de dados** é a capacidade de usar os dados em uma consulta para encaminhar a solicitação para um banco de dados apropriado. O roteamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dados fragmentados. O contexto da solicitação também poderá ser usado para encaminhar a solicitação, especialmente se a chave de fragmentação não fizer parte da consulta. Cada consulta ou transação específica em um aplicativo que usa o roteamento dependente de dados é restrita a acessar um único banco de dados por solicitação. Para as ferramentas do Banco de Dados SQL do Azure Elástico, este roteamento é feito com a classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)).
 
-O aplicativo não precisa controlar a várias cadeias de caracteres de conexão ou locais de BD associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de Mapa de Fragmento](sql-database-elastic-scale-shard-map-management.md) abre as conexões no banco de dados correto quando necessário, com base nos dados do mapa do fragmento e o valor da chave de fragmentação é o destino da solicitação do aplicativo. A chave é geralmente a *customer_id*, a *tenant_id*, a *date_key* ou outro identificador específico que seja um parâmetro fundamental da solicitação do banco de dados.
+O aplicativo não precisa controlar a várias cadeias de caracteres de conexão ou locais de BD associados a diferentes subconjuntos de dados no ambiente fragmentado. Em vez disso, o [Gerenciador de Mapa de Fragmento](sql-database-elastic-scale-shard-map-management.md) abre as conexões no banco de dados correto quando necessário, com base nos dados do mapa do fragmento e o valor da chave de fragmentação é o destino da solicitação do aplicativo. A chave é tipicamente o *customer_id*, *tenant_id*, *date_key*, ou algum outro identificador específico que é um parâmetro fundamental da solicitação de banco de dados.
 
 Para obter mais informações, confira [Scaling Out SQL Server with Data-Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx) (Escalando horizontalmente o SQL Server com roteamento dependente de dados).
 

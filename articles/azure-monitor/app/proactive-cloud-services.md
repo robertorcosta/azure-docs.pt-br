@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669736"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos Serviços de Nuvem do Azure usando a integração do diagnóstico do Azure com o Azure Application Insights
@@ -90,7 +90,7 @@ Na janela **Criar regra**, na seção **Definir condição do alerta**, clique e
 
 Na caixa **Consulta de pesquisa**, cole a consulta combinada que você preparou na etapa anterior.
 
-Em seguida, continue para a caixa **Limite** e defina seu valor como 0. Opcionalmente, é possível ajustar os **campos** **Período** e Frequência.
+Em seguida, continue para a caixa **Limite** e defina seu valor como 0. Opcionalmente, é possível ajustar os **campos****Período** e Frequência.
 Clique em **Concluído**.
 
 ![Captura de tela da configuração de consulta lógica de sinal](./media/proactive-cloud-services/003.png)
@@ -107,11 +107,11 @@ Na seção **Definir grupo de ação**, é possível selecionar um **Grupo de a�
 
 Após definir o Grupo de ação, confirme suas alterações e clique em **Criar regra de alerta**.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como detectar automaticamente:
 
-[Anomalias de falha](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[Vazamentos de memória](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[Anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Anomalias](../../azure-monitor/app/proactive-failure-diagnostics.md)
+de falha[de memória vazam](../../azure-monitor/app/proactive-potential-memory-leak.md)
+[anomalias de desempenho](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

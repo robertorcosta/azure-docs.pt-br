@@ -1,5 +1,5 @@
 ---
-title: Conectar o Forcepoint DLP ao Azure sentinela | Microsoft Docs
+title: Conecte o Forcepoint DLP ao Azure Sentinel| Microsoft Docs
 description: Saiba como conectar o Forcepoint DLP ao Azure Sentinel.
 services: sentinel
 author: yelevin
@@ -13,45 +13,45 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 3bdb9d2b23ce05929ba5612e0c6a03fe1aab05de
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588239"
 ---
-# <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Conectar seu Forcepoint DLP ao Azure Sentinel
+# <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Conecte seu Forcepoint DLP ao Azure Sentinel
 
 > [!IMPORTANT]
-> O conector de dados de DLP (prevenção de perda de dados) do Forcepoint no Azure Sentinel está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> O conector de dados Forcepoint Data Loss Prevention (DLP) no Azure Sentinel está atualmente em visualização pública. Este recurso é fornecido sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-O conector do Forcepoint DLP permite que você exporte automaticamente os dados de incidente de DLP para o Azure Sentinel. Você pode usá-lo para obter visibilidade de atividades do usuário e incidentes de perda de dados. Ele também permite correlações com dados de cargas de trabalho do Azure e outros feeds, além de aprimorar a capacidade de monitoramento com as planilhas dentro do Azure Sentinel.
+O conector DLP Forcepoint permite exportar automaticamente dados de incidentes DLP para o Azure Sentinel. Você pode usá-lo para obter visibilidade nas atividades do usuário e incidentes de perda de dados. Ele também permite correlações com dados de cargas de trabalho do Azure e outros feeds, e melhora a capacidade de monitoramento com workbooks dentro do Azure Sentinel.
 
 > [!NOTE]
-> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
+> Os dados serão armazenados na localização geográfica do espaço de trabalho em que você está executando o Azure Sentinel.
 
-## <a name="configure-and-connect-forcepoint-dlp"></a>Configurar e conectar o Forcepoint DLP
+## <a name="configure-and-connect-forcepoint-dlp"></a>Configure e conecte o Forcepoint DLP
 
-Configure o Forcepoint DLP para encaminhar dados de incidentes no formato JSON para seu espaço de trabalho do Azure por meio da API REST, conforme explicado no [Guia de integração do FORCEPOINT DLP](https://frcpnt.com/dlp-sentinel).
+Configure o Forcepoint DLP para encaminhar dados de incidentes no formato JSON para o seu espaço de trabalho Azure via API REST, conforme explicado no [Guia de Integração do Forcepoint DLP](https://frcpnt.com/dlp-sentinel).
 
 
 ## <a name="find-your-data"></a>Encontre seus dados
 
-Depois que o conector do Forcepoint DLP for configurado, os dados aparecerão em Log Analytics em CustomLogs **ForcepointDLPEvents_CL**.
+Depois que o conector DLP forcepoint estiver configurado, os dados aparecerão no Log Analytics em CustomLogs **ForcepointDLPEvents_CL**.
 
 
-Para usar o esquema relevante no Log Analytics para o Forcepoint DLP, procure **ForcepointDLPEvents_CL**.
+Para usar o esquema relevante no Log Analytics para Forcepoint DLP, procure **ForcepointDLPEvents_CL**.
 
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
 
-Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
+Pode levar mais de 20 minutos até que seus registros comecem a aparecer no Log Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a conectar o Forcepoint DLP ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar o Forcepoint DLP ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+- [Use as cadernetas](tutorial-monitor-your-data.md) para monitorar seus dados.

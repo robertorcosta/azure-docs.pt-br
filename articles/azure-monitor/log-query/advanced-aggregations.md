@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662171"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas nas consultas de log do Azure Monitor
@@ -113,7 +113,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>Handling missing bins
-Um aplicativo útil do `mvexpand` é a necessidade de preencher valores padrão no para compartimentos ausentes. Por exemplo, suponha que você esteja procurando o tempo de atividade de um determinado computador explorando sua pulsação. Você também deseja ver a origem da pulsação que está na coluna _categoria_. Normalmente, usaríamos um simples resumir instrução da seguinte maneira:
+Uma aplicação `mvexpand` útil é a necessidade de preencher valores padrão para lixeiras ausentes. Por exemplo, suponha que você está procurando o tempo de atividade de uma determinada máquina explorando seus batimentos cardíacos. Você também deseja ver a origem da pulsação que está na coluna _categoria_. Normalmente, usaríamos um simples resumir instrução da seguinte maneira:
 
 ```Kusto
 Heartbeat
@@ -177,11 +177,11 @@ WindowsFirewall
 | where Computer in (ComputersNeedingUpdate)
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte outras lições para usar a [linguagem de consulta Kusto](/azure/kusto/query/) com os dados de log do Azure Monitor:
 
-- [Operações de cadeia de caracteres](string-operations.md)
+- [Operações da cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)
 - [Funções de agregação](aggregations.md)
 - [Agregações avançadas](advanced-aggregations.md)

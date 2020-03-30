@@ -1,6 +1,6 @@
 ---
-title: Criar VLANs/sub-redes-solução do Azure VMware por CloudSimple
-description: Soluções do Azure VMware por CloudSimple – descreve como criar e gerenciar VLANs/sub-redes para suas nuvens privadas e, em seguida, aplicar regras de firewall.
+title: Criar VLANs/sub-redes - Solução Azure VMware por CloudSimple
+description: Azure VMware Solutions by CloudSimple - Descreve como criar e gerenciar VLANs/sub-redes para suas Nuvens Privadas e, em seguida, aplicar regras de firewall.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -9,28 +9,28 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c0160513eb9abca54adbc3819b982348dc202c90
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77565988"
 ---
-# <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Criar e gerenciar VLANs/sub-redes para suas nuvens privadas
+# <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Crie e gerencie VLANs/sub-redes para suas nuvens privadas
 
-Abra a guia VLANs/sub-redes na página rede para criar e gerenciar VLANs/sub-redes para suas nuvens privadas. Depois de criar uma VLAN/sub-rede, você pode aplicar regras de firewall.
+Abra a guia VLANs/Subnets na página Rede para criar e gerenciar VLANs/sub-redes para suas Nuvens Privadas. Depois de criar uma VLAN/sub-rede, você pode aplicar regras de firewall.
 
 ## <a name="create-a-vlansubnet"></a>Criar uma VLAN/sub-rede
 
-1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md) e selecione **rede** no menu lateral.
+1. [Acesse o portal CloudSimple](access-cloudsimple-portal.md) e selecione **Rede** no menu lateral.
 2. Selecione **VLANs/sub-redes**.
-3. Clique em **criar VLAN/sub-rede**.
+3. Clique **em Criar VLAN/Sub-net**.
 
     ![Página VLAN/sub-rede](media/vlan-subnet-page.png)
 
-4. Selecione a nuvem privada para a nova VLAN/sub-rede.
-5. Insira uma ID de VLAN.
-6. Insira o nome da sub-rede.
-7. Para habilitar o roteamento na VLAN (sub-rede), especifique o intervalo de CIDR da sub-rede. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma de suas sub-redes locais, sub-redes do Azure ou sub-rede de gateway.
+4. Selecione a Nuvem Privada para a nova VLAN/sub-rede.
+5. Digite um ID VLAN.
+6. Digite o nome da sub-rede.
+7. Para habilitar o roteamento na VLAN (sub-rede), especifique o intervalo CIDR da sub-rede. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma de suas sub-redes no local, sub-redes Azure ou sub-rede de gateway.
 8. Clique em **Enviar**.
 
     ![Criar VLAN/sub-rede](media/create-new-vlan-subnet-details.png)
@@ -39,15 +39,15 @@ Abra a guia VLANs/sub-redes na página rede para criar e gerenciar VLANs/sub-red
 > [!IMPORTANT]
 > Há uma cota de 30 VLANs por nuvem privada. Esses limites podem ser aumentados [entrando em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Usar informações de VLAN para configurar um grupo de portas distribuídas no vSphere
+## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Use informações de VLAN para configurar um grupo de portas distribuídas no vSphere
 
-Para criar um grupo de portas distribuídas no vSphere, siga as instruções no tópico "adicionar um grupo de portas distribuídas" do VMware no <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">Guia de rede do vSphere</a>. Ao configurar o grupo de portas distribuídas, forneça as informações de VLAN da configuração CloudSimple.
+Para criar um grupo de porta distribuída no vSphere, siga as instruções no tópico VMware 'Adicionar um grupo de porta distribuída' no <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">guia de rede vSphere</a>. Ao configurar o grupo de portas distribuídas, forneça as informações da VLAN a partir da configuração CloudSimple.
 
-![Grupo de portas distribuídas](media/distributed-port-group.png)
+![Grupo Portuário Distribuído](media/distributed-port-group.png)
 
-## <a name="select-a-firewall-table"></a>Selecionar uma tabela de firewall
+## <a name="select-a-firewall-table"></a>Selecione uma tabela de firewall
 
-As tabelas de firewall e as regras associadas são definidas na página **tabelas de firewall > de rede** . Para selecionar a tabela de firewall a ser aplicada à VLAN/sub-rede para uma nuvem privada, selecione a VLAN/sub-rede clique em **anexo de tabela de firewall** na página **VLANs/sub-redes** . Consulte [tabelas de firewall](firewall.md) para obter instruções sobre como configurar tabelas de firewall e definir regras.
+As tabelas de firewall e as regras associadas são definidas na página **tabelas > de de firewall** de rede. Para selecionar a tabela de firewall para aplicar à VLAN/sub-rede para uma Nuvem Privada, selecione o anexo da tabela VLAN/sub-rede com base em **Firewall** na página **VLANs/Subnets.** Consulte [tabelas de firewall](firewall.md) para obter instruções sobre como configurar tabelas de firewall e definir regras.
 
 ![Link de tabela de firewall](media/vlan-subnet-firewall-link.png)
 
@@ -56,8 +56,8 @@ As tabelas de firewall e as regras associadas são definidas na página **tabela
 
 ## <a name="edit-a-vlansubnet"></a>Editar uma VLAN/sub-rede
 
-Para editar as configurações de uma VLAN/sub-rede, selecione-a na página **VLANs/sub-redes** e clique no ícone **Editar** . Faça alterações e clique em **submet**.
+Para editar as configurações de uma VLAN/Sub-rede, selecione-a na página **VLANs/Subnets** e clique no ícone **Editar.** Faça alterações e clique **em Submet**.
 
-## <a name="delete-a-vlansubnet"></a>Excluir uma VLAN/sub-rede
+## <a name="delete-a-vlansubnet"></a>Exclua uma VLAN/sub-rede
 
-Para excluir uma VLAN/sub-rede, selecione-a na página **VLANs/sub-redes** e clique no ícone **excluir** . Clique em **excluir** para confirmar.
+Para excluir uma VLAN/Sub-rede, selecione-a na página **VLANs/Subnets** e clique no ícone **Excluir.** Clique **em Excluir** para confirmar.

@@ -1,5 +1,5 @@
 ---
-title: Usar o DNS interno para a resolução de nome da VM com o CLI do Azure
+title: Use DNS interno para resolução de nomes VM com o Azure CLI
 description: Como criar adaptadores de rede de rede virtual e usar DNS interno para resolução de nomes de VM no Azure com a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
 ms.openlocfilehash: acfdfd4edf90b90998a913fa0c6479bedf0028b7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034740"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar placas de adaptador de rede virtual e usar DNS interno para resolução de nome da VM no Azure
@@ -32,7 +32,7 @@ Esses requisitos são:
 * [arquivos de chave SSH pública e privada](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough). Para realizar essas etapas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index).
+Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Informações e contexto mais detalhados para cada etapa podem ser encontrados no restante do documento, [a partir daqui.](#detailed-walkthrough) Para realizar essas etapas, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index).
 
 Pré-requisitos: grupo de recursos, rede virtual e sub-rede, grupo de segurança de rede com o SSH de entrada.
 
@@ -94,7 +94,7 @@ az network vnet create \
 ## <a name="create-the-network-security-group"></a>Criar o grupo de segurança de rede
 Os grupos de segurança de rede do Azure são equivalentes a um firewall na camada de rede. Para obter mais informações sobre os grupos de segurança de rede, confira [Como criar NSGs na CLI do Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg). O exemplo a seguir cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
+Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg). O seguinte exemplo cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create \
@@ -165,4 +165,4 @@ Ao usar sinalizadores da CLI para chamar os recursos existentes, instruímos o A
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Criar uma VM do Linux no Azure usando modelos](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Crie um VM Linux no Azure usando modelos](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

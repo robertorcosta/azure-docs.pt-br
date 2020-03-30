@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
 ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249601"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas entre logs de recursos no Azure Monitor  
@@ -19,11 +19,11 @@ Anteriormente, com o Azure Monitor, você só podia analisar dados no workspace 
 
 Agora você pode consultar não apenas em vários workspaces de Application Insights, mas também os dados de um aplicativo Application Insights específico no mesmo grupo de recursos, outro grupo de recursos ou outra assinatura. Isso fornece uma exibição de seus dados de todo o sistema. Esses tipos de consultas só podem ser realizados no [Log Analytics](portals.md).
 
-## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 
+## <a name="cross-resource-query-limits"></a>Limites de consulta de recursos cruzados 
 
-* O número de recursos de Application Insights e espaços de trabalho de Log Analytics que você pode incluir em uma única consulta é limitado a 100.
-* Não há suporte para a consulta entre recursos no designer de exibição. Você pode criar uma consulta em Log Analytics e fixá-la no painel do Azure para [Visualizar uma consulta de log](../learn/tutorial-logs-dashboards.md). 
-* Há suporte para a consulta entre recursos em alertas de log na nova [API do scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor usa a [API herdada de alertas do Log Analytics](../platform/api-alerts.md) para a criação de novas regras de alertas de log do portal do Azure, mas você pode mudar para a [API herdada de alertas de log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta de recursos cruzados. Você pode criar regras de alerta de log de consulta de recurso cruzado sem fazer a alternância usando o [modelo de Azure Resource Manager para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável, embora a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não de portal do Azure.
+* O número de recursos do Application Insights e dos espaços de trabalho do Log Analytics que você pode incluir em uma única consulta é limitado a 100.
+* A consulta de recursos cruzados não é suportada no View Designer. Você pode criar uma consulta no Log Analytics e fixá-la no painel do Azure para [visualizar uma consulta de log](../learn/tutorial-logs-dashboards.md). 
+* A consulta de recursos cruzados nos alertas de log é compatível com a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, o Azure Monitor usa a [API herdada de alertas do Log Analytics](../platform/api-alerts.md) para a criação de novas regras de alertas de log do portal do Azure, mas você pode mudar para a [API herdada de alertas de log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta de recursos cruzados. Você pode criar regras de alerta de log de consulta de recursos cruzados sem fazer a troca usando o [modelo do Azure Resource Manager para a API programávelQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável embora [a API de regras de consulta](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) programadaee, e não do portal Azure.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em workspaces do Log Analytics e do Application Insights
@@ -38,7 +38,7 @@ A identificação de um workspace pode ser realizada de várias maneiras:
 
     `workspace("contosoretail-it").Update | count`
 
-* Nome qualificado – é o "nome completo" do workspace, composto pelo nome da assinatura, pelo grupo de recursos e pelo nome do componente neste formato: *subscriptionName/resourceGroup/componentName*. 
+* Nome qualificado - é o "nome completo" do espaço de trabalho, composto pelo nome da assinatura, grupo de recursos e nome do componente neste formato: *subscriptionNome/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
@@ -52,7 +52,7 @@ A identificação de um workspace pode ser realizada de várias maneiras:
 
 * ID de recurso do Azure – a identidade exclusiva definida pelo Azure do workspace. Use a ID do Recurso quando o nome do recurso for ambíguo.  Para workspaces, o formato é: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspacess/componentName*.  
 
-    Por exemplo:
+    Por exemplo: 
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -60,14 +60,14 @@ A identificação de um workspace pode ser realizada de várias maneiras:
 ### <a name="identifying-an-application"></a>Identificar um aplicativo
 Os exemplos a seguir retornam uma contagem resumida de solicitações feitas em relação a um aplicativo chamado *fabrikamapp* no Application Insights. 
 
-A identificação de um aplicativo no Application Insights pode ser realizada com a expressão *app(Identifier)* .  O argumento *Identificador* especifica o aplicativo usando um dos seguintes:
+A identificação de um aplicativo no Application Insights pode ser realizada com a expressão *app(Identifier)*.  O argumento *Identificador* especifica o aplicativo usando um dos seguintes:
 
 * Nome de recurso – é um nome legível do aplicativo, também conhecido como o *nome do componente*.  
 
     `app("fabrikamapp")`
 
     >[!NOTE]
-    >A identificação de um aplicativo por nome pressupõe exclusividade em todas as assinaturas acessíveis. Se você tiver vários aplicativos com o nome especificado, a consulta falhará devido à ambiguidade. Nesse caso, você deve usar um dos outros identificadores.
+    >Identificar um aplicativo por nome pressupõe exclusividade em todas as assinaturas acessíveis. Se você tiver vários aplicativos com o nome especificado, a consulta falhará devido à ambiguidade. Nesse caso, você deve usar um dos outros identificadores.
 
 * Nome qualificado – é o "nome completo" do aplicativo, composto pelo nome da assinatura, pelo grupo de recursos e pelo nome do componente neste formato: *subscriptionName/resourceGroup/componentName*. 
 
@@ -83,7 +83,7 @@ A identificação de um aplicativo no Application Insights pode ser realizada co
 
 * ID de recurso do Azure – a identidade exclusiva definida pelo Azure do aplicativo. Use a ID do Recurso quando o nome do recurso for ambíguo. O formato é: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.  
 
-    Por exemplo:
+    Por exemplo: 
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -129,7 +129,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->Esse método não pode ser usado com alertas de log porque a validação de acesso dos recursos de regra de alerta, incluindo espaços de trabalho e aplicativos, é executada no momento da criação do alerta. Não há suporte para a adição de novos recursos à função após a criação do alerta. Se preferir usar a função para o escopo de recursos em alertas de log, você precisará editar a regra de alerta no portal ou com um modelo do Resource Manager para atualizar os recursos com escopo. Como alternativa, você pode incluir a lista de recursos na consulta de alerta de log.
+>Este método não pode ser usado com alertas de log porque a validação de acesso dos recursos da regra de alerta, incluindo espaços de trabalho e aplicativos, é realizada na hora da criação do alerta. Adicionando novos recursos à função após a criação do alerta não ser suportado. Se você preferir usar a função para escopo de recursos em alertas de log, você precisa editar a regra de alerta no portal ou com um modelo de Gerenciador de recursos para atualizar os recursos com escopo. Alternativamente, você pode incluir a lista de recursos na consulta de alerta de log.
 
 
 ![Gráfico de tempo](media/cross-workspace-query/chart.png)

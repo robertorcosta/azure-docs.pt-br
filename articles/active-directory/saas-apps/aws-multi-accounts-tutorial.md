@@ -17,10 +17,10 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: edd54352b1328c95ae2c3e466003b64eaa0fcfde
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77368006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Azure Active Directory com várias contas Amazon Web Services (AWS)
@@ -33,7 +33,7 @@ A integração do AWS (Amazon Web Services) ao Azure AD oferece os seguintes ben
 - Você pode habilitar seus usuários a fazerem logon automaticamente no AWS (Amazon Web Services) (logon único) com suas contas do Microsoft Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se você quiser saber mais detalhes sobre a integração do aplicativo SaaS com o Azure AD, veja [o que é acesso ao aplicativo e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ![AWS (Amazon Web Services) na lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
@@ -42,7 +42,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 **Tenha em atenção que não recomendamos a utilização desta abordagem pelas seguintes razões:**
 
-* Você precisa usar a abordagem do Microsoft Graph Explorer para corrigir todas as funções para o aplicativo. Não recomendamos o uso da abordagem de arquivo de manifesto.
+* Você tem que usar a abordagem do Microsoft Graph Explorer para corrigir todas as funções para o aplicativo. Não recomendamos o uso da abordagem de arquivo de manifesto.
 
 * Vimos clientes relatando que, depois de adicionar ~ 1200 funções de aplicativos para um único aplicativo da AWS, qualquer operação no aplicativo começou a gerar erros relacionados ao tamanho. Há um limite rígido de tamanho no objeto de aplicativo.
 
@@ -50,7 +50,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 
 * Todas as contas da AWS usarão o mesmo arquivo XML de Metadados da Federação e, no momento da substituição do certificado, você terá que realizar esse exercício gigantesco para atualizar o certificado em todas as contas da AWS ao mesmo tempo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o AWS (Amazon Web Services), você precisa dos seguintes itens:
 
@@ -69,7 +69,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* A AWS (Amazon Web Services) dá suporte ao SSO iniciado por **SP e IDP**
+* Amazon Web Services (AWS) suporta **SP e IDP** iniciado sSO
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionar o AWS (Amazon Web Services) da galeria
 
@@ -77,7 +77,7 @@ Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, voc�
 
 **Para adicionar o AWS (Amazon Web Services) da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -89,11 +89,11 @@ Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, voc�
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **AWS (Amazon Web Services)** , selecione **AWS (Amazon Web Services)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **AWS (Amazon Web Services)**, selecione **AWS (Amazon Web Services)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![AWS (Amazon Web Services) na lista de resultados](common/search-new-app.png)
 
-5. Depois que o aplicativo for adicionado, vá para a página **Propriedades** e copie a **ID de Objeto**.
+5. Uma vez que o aplicativo seja adicionado, vá para a página **Propriedades** e copie o **ID do objeto**.
 
     ![AWS (Amazon Web Services) na lista de resultados](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
 
@@ -109,7 +109,7 @@ Para configurar e testar o logon único do Azure AD com o AWS (Amazon Web Servic
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único da AWS (Amazon Web Services)](#configure-amazon-web-services-aws-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
-3. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+3. **[Teste a única sinalização](#test-single-sign-on)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -117,11 +117,11 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 **Para configurar o logon único do Azure AD com o AWS (Amazon Web Services), execute as seguintes etapas:**
 
-1. 758405No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Amazon Web Services (AWS)** , selecione **Logon único**.
+1. 758405No [Portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **Amazon Web Services (AWS)**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+2. Na **caixa de diálogo Seleção de um único método de login,** selecione o modo **SAML/WS-Fed** para ativar o login único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
@@ -133,7 +133,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![image](common/preintegrated.png)
 
-5. Aplicativo Amazon Web Services (AWS) espera as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML**, clique no botão **Editar** para abrir a caixa de diálogo **User Attributes & Claims**.
+5. Aplicativo Amazon Web Services (AWS) espera as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página ** Configurar logon único com SAML **, clique no botão ** Editar ** para abrir a caixa de diálogo **User Attributes & Claims**.
 
     ![image](common/edit-attribute.png)
 
@@ -153,15 +153,15 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Na caixa de texto **Namespace**, digite o valor de namespace mostrado para essa linha.
+    c. Na caixa de texto **Namespace,** digite o valor Namespace mostrado para essa linha.
 
     d. Escolha Origem como **Atributo**.
 
     e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    f. Clique em **Ok**
+    f. Clique **em Ok**
 
-    g. Clique em **Save** (Salvar).
+    g. Clique em **Salvar**.
 
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
 
@@ -247,7 +247,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 16. Execute a etapa acima para todas as funções em todas as contas e armazene todas elas em formato **de Função ARN, Entidades Confiáveis** em um bloco de notas.
 
-17. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
+17. Abra [o Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
 
     a. Entre no site do Explorador do Graph usando as credenciais de Administrador/Coadministrador globais para o locatário.
 
@@ -323,11 +323,11 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     ```
 
     > [!Note]
-    > Você pode apenas adicionar as novas funções depois do **msiam_access** para a operação de patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua Organização. O Microsoft Azure AD enviará o **valor** dessas funções conforme o valor de solicitação na resposta SAML.
+    > Você pode apenas adicionar as novas funções depois do **msiam_access** para a operação de patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua Organização. O Azure AD enviará o **valor** dessas funções como o valor da reivindicação na resposta SAML.
 
-    j. Volte para Microsoft Graph Explorer e altere o método de **Get** para **patch**. Atualize o objeto da Entidade de Serviço para ter as funções desejadas, atualizando a propriedade appRoles semelhante àquela exibida acima no exemplo. Clique em **Executar Consulta** para executar o operação de patch. Uma mensagem confirma a criação da função do seu aplicativo Amazon Web Services.
+    j. Volte para o Microsoft Graph Explorer e altere o método de **GET** para **PATCH**. Atualize o objeto da Entidade de Serviço para ter as funções desejadas, atualizando a propriedade appRoles semelhante àquela exibida acima no exemplo. Clique em **Executar Consulta** para executar o operação de patch. Uma mensagem confirma a criação da função do seu aplicativo Amazon Web Services.
 
-    ![Caixa de diálogo Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Caixa de diálogo do Explorador do Microsoft Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 18. Após a atualização da Entidade de Serviço com mais funções, será possível atribuir Usuários/Grupos às respectivas funções. Isso pode ser feito, acessando o portal e navegando até o aplicativo Amazon Web Services. Clique na guia **Usuários e Grupos** na parte superior.
 
@@ -359,13 +359,13 @@ Você também pode verificar a resposta SAML para ver as funções sendo passada
 
 ![Configurar logon único Add](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_saml.png)
 
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Como configurar o provisionamento usando APIs de Microsoft Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Como configurar o provisionamento usando APIs do Microsoft Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
+* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

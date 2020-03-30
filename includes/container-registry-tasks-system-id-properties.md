@@ -9,13 +9,13 @@ ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 700dbfde3be2f24eb57acbdeb9d2841ef2bdfe44
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77112287"
 ---
-Na saída do comando, a seção `identity` mostra uma identidade do tipo `SystemAssigned` está definida na tarefa. O `principalId` é a ID principal da identidade da tarefa:
+Na saída de `identity` comando, a seção mostra que uma identidade de tipo `SystemAssigned` é definida na tarefa. A `principalId` é a principal identificação da identidade da tarefa:
 
 ```console
 [...]
@@ -28,7 +28,7 @@ Na saída do comando, a seção `identity` mostra uma identidade do tipo `System
   "location": "eastus",
 [...]
 ``` 
-Use o comando [AZ ACR Task show][az-acr-task-show] para armazenar a PrincipalId em uma variável, para usar em comandos posteriores. Substitua o nome de sua tarefa e o registro pelo seguinte comando:
+Use o comando [az acr task show][az-acr-task-show] para armazenar o principalId em uma variável, para usar em comandos posteriores. Substitua o nome da sua tarefa e seu registro no seguinte comando:
 
 ```azurecli
 principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)

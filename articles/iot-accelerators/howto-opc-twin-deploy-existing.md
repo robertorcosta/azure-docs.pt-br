@@ -1,6 +1,6 @@
 ---
-title: Como implantar um módulo OPC Myem um projeto existente do Azure | Microsoft Docs
-description: Este artigo descreve como implantar o OPC maquery em um projeto existente. Você também pode aprender a solucionar problemas de falhas de implantação.
+title: Como implantar um módulo OPC Twin em um projeto Azure existente | Microsoft Docs
+description: Este artigo descreve como implantar o OPC Twin em um projeto existente. Você também pode aprender como solucionar falhas de implantação.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -9,105 +9,105 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73824112"
 ---
-# <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o OPC "an" em um projeto existente
+# <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o OPC Twin em um projeto existente
 
-O módulo OPC myé executado em IoT Edge e fornece vários serviços de borda para os serviços de registro e registros OPC.
+O módulo OPC Twin é executado no IoT Edge e fornece vários serviços de borda para os serviços OPC Twin and Registry.
 
-O microserviço OPC maseriais facilita a comunicação entre os operadores de fábrica e os dispositivos de servidor OPC UA no chão de fábrica por meio de um módulo de IoT Edge do OPC. O Microservice expõe os serviços OPC UA (procurar, ler, gravar e executar) por meio de sua API REST. 
+O microserviço OPC Twin facilita a comunicação entre operadores de fábrica e dispositivos de servidor OPC UA no chão de fábrica através de um módulo OPC Twin IoT Edge. O microserviço expõe os serviços oPC UA (Procurar, Ler, Gravar e Executar) através de sua API REST. 
 
-O microserviço de registro do dispositivo OPC UA fornece acesso a aplicativos do OPC UA registrados e seus pontos de extremidade. Operadores e administradores podem registrar e cancelar o registro de novos aplicativos OPC UA e procurar os existentes, incluindo seus pontos de extremidade. Além do gerenciamento de aplicativos e de pontos de extremidade, o serviço de registro também cataloga módulos de IoT Edge do OPC. A API do serviço oferece controle da funcionalidade do módulo do Edge, por exemplo, iniciar ou parar a descoberta do servidor (serviços de verificação) ou ativar o novo ponto de extremidade gêmeos que pode ser acessado usando o microserviço OPC.
+O microserviço de registro de dispositivos OPC UA fornece acesso a aplicativos OPC UA registrados e seus pontos finais. Os operadores e administradores podem registrar e cancelar o registro de novos aplicativos OPC UA e navegar pelos já existentes, incluindo seus pontos finais. Além do gerenciamento de aplicativos e pontos finais, o serviço de registro também cataloga módulos OPC Twin IoT Edge registrados. A API de serviço oferece controle da funcionalidade do módulo de borda, por exemplo, iniciando ou parando a detecção de servidores (serviços de varredura) ou ativando novos gêmeos de ponto final que podem ser acessados usando o microserviço OPC Twin.
 
-O núcleo do módulo é a identidade do supervisor. O supervisor gerencia o ponto de extremidade de MyPoint, que corresponde aos pontos de extremidades do servidor do OPC UA que são ativados usando a API de registro do OPC UA correspondente. Esse ponto de extremidade gêmeos converte OPC UA JSON recebido do microserviço OPC MyService em execução na nuvem em mensagens binárias de OPC UA, que são enviadas por um canal seguro com estado para o ponto de extremidade gerenciado. O supervisor também fornece serviços de descoberta que enviam eventos de descoberta de dispositivo para o serviço de integração de dispositivos OPC UA para processamento, onde esses eventos resultam em atualizações no registro OPC UA.  Este artigo mostra como implantar o módulo OPC Myem um projeto existente.
+O núcleo do módulo é a identidade do Supervisor. O supervisor gerencia o endpoint twin, que corresponde aos pontos finais do servidor OPC UA que são ativados usando a API de registro OPC UA correspondente. Este ponto final gêmeos traduzem OPC UA JSON recebido do microserviço OPC Twin rodando na nuvem em mensagens binárias OPC UA, que são enviadas através de um canal seguro stateful para o ponto final gerenciado. O supervisor também fornece serviços de descoberta que enviam eventos de detecção de dispositivos para o serviço de onboarding de dispositivos OPC UA para processamento, onde esses eventos resultam em atualizações para o registro oPC UA.  Este artigo mostra como implantar o módulo OPC Twin em um projeto existente.
 
 > [!NOTE]
-> Para obter mais informações sobre detalhes de implantação e instruções, consulte o [repositório](https://github.com/Azure/azure-iiot-opc-twin-module)github.
+> Para obter mais informações sobre detalhes e instruções de implantação, consulte o [repositório](https://github.com/Azure/azure-iiot-opc-twin-module)GitHub .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Verifique se você tem o PowerShell e as extensões do [PowerShell do AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instaladas. Se você ainda não tiver feito isso, clone este repositório GitHub. Execute os seguintes comandos no PowerShell:
+Certifique-se de que as extensões PowerShell e [AzureRM PowerShell estão](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instaladas. Se você ainda não fez isso, clone este repositório do GitHub. Execute os seguintes comandos no PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
-## <a name="deploy-industrial-iot-services-to-azure"></a>Implantar serviços de IoT industrial no Azure
+## <a name="deploy-industrial-iot-services-to-azure"></a>Implantar serviços industriais de IoT para o Azure
 
-1. Na sua sessão do PowerShell, execute:
+1. Em sua sessão powershell, execute:
 
     ```powershell
     set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
     .\deploy.cmd
     ```
 
-2. Siga os prompts para atribuir um nome ao grupo de recursos da implantação e um nome para o site.   O script implanta os microserviços e suas dependências de plataforma do Azure no grupo de recursos em sua assinatura do Azure.  O script também registra um aplicativo em seu locatário do Azure Active Directory (AAD) para oferecer suporte à autenticação baseada em OAUTH.  A implantação levará vários minutos.  Um exemplo do que você veria quando a solução for implantada com êxito:
+2. Siga as instruções para atribuir um nome ao grupo de recursos da implantação e um nome ao site.   O script implanta os microserviços e suas dependências da plataforma Azure no grupo de recursos em sua assinatura do Azure.  O script também registra um aplicativo no seu inquilino Azure Active Directory (AAD) para suportar a autenticação baseada em OAUTH.  A implantação levará vários minutos.  Um exemplo do que você veria quando a solução for implantada com sucesso:
 
-   ![Industrial de IoT OPC para o projeto existente](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
+   ![Industrial IoT OPC Twin implantar para projeto existente](media/howto-opc-twin-deploy-existing/opc-twin-deploy-existing1.png)
 
-   A saída inclui a URL do ponto de extremidade público. 
+   A saída inclui a URL do ponto final público. 
 
-3. Quando o script for concluído com êxito, selecione se deseja salvar o arquivo de `.env`.  Você precisará do arquivo de ambiente `.env` se quiser se conectar ao ponto de extremidade de nuvem usando ferramentas como o console ou implantar módulos para desenvolvimento e depuração.
+3. Uma vez que o script seja concluído `.env` com sucesso, selecione se deseja salvar o arquivo.  Você precisa `.env` do arquivo de ambiente se quiser se conectar ao ponto final da nuvem usando ferramentas como o Console ou implantar módulos para desenvolvimento e depuração.
 
-## <a name="troubleshooting-deployment-failures"></a>Solucionando problemas de falhas de implantação
+## <a name="troubleshooting-deployment-failures"></a>Falhas de implantação de solução de problemas
 
 ### <a name="resource-group-name"></a>Nome do grupo de recursos
 
-Certifique-se de usar um nome de grupo de recursos curto e simples.  O nome também é usado para nomear recursos, pois ele deve estar em conformidade com os requisitos de nomenclatura de recursos.  
+Certifique-se de usar um nome de grupo de recursos curto e simples.  O nome também é usado para nomear recursos como tal, ele deve cumprir os requisitos de nomeação de recursos.  
 
-### <a name="website-name-already-in-use"></a>O nome do site já está em uso
+### <a name="website-name-already-in-use"></a>Nome do site já em uso
 
-É possível que o nome do site já esteja em uso.  Se você encontrar esse erro, precisará usar um nome de aplicativo diferente.
+É possível que o nome do site já esteja em uso.  Se você encontrar esse erro, você precisa usar um nome de aplicativo diferente.
 
 ### <a name="azure-active-directory-aad-registration"></a>Registro do Azure Active Directory (AAD)
 
-O script de implantação tenta registrar dois aplicativos AAD no Azure Active Directory.  Dependendo de seus direitos para o locatário do AAD selecionado, a implantação poderá falhar. Há duas opções:
+O script de implantação tenta registrar dois aplicativos AAD no Azure Active Directory.  Dependendo dos seus direitos para o inquilino AAD selecionado, a implantação pode falhar. Há duas opções:
 
-1. Se você escolher um locatário do AAD de uma lista de locatários, reinicie o script e escolha um diferente na lista.
-2. Como alternativa, implante um locatário particular do AAD em outra assinatura, reinicie o script e selecione para usá-lo.
+1. Se você escolheu um inquilino AAD de uma lista de inquilinos, reinicie o script e escolha um diferente da lista.
+2. Alternativamente, implante um inquilino AAD privado em outra assinatura, reinicie o script e selecione para usá-lo.
 
 > [!WARNING]
-> Nunca continue sem autenticação.  Se você optar por fazer isso, qualquer pessoa poderá acessar seus pontos de extremidade do OPC/Internet não autenticados.   Você sempre pode escolher a [opção de implantação "local"](howto-opc-twin-deploy-dependencies.md) para iniciar os aros.
+> NUNCA continue sem autenticação.  Se você optar por fazê-lo, qualquer pessoa pode acessar seus pontos finais OPC Twin da Internet não autenticados.   Você sempre pode escolher a [opção de implantação "local"](howto-opc-twin-deploy-dependencies.md) para chutar os pneus.
 
-## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Implantar uma demonstração de serviços IoT todos-em-um industrial
+## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Implantar uma demonstração de serviços de IoT industrial tudo-em-um
 
-Em vez de apenas os serviços e as dependências, você também pode implantar uma demonstração All-in-One.  O tudo em uma demonstração contém três servidores OPC UA, o módulo OPC My, todos os microserviços e um aplicativo Web de exemplo.  Ele destina-se a fins de demonstração.
+Em vez de apenas os serviços e dependências, você também pode implantar uma demonstração all-in-one.  A demonstração em uma contém três servidores OPC UA, o módulo OPC Twin, todos os microsserviços e uma amostra de Aplicativo Web.  Destina-se a fins de demonstração.
 
-1. Verifique se você tem um clone do repositório (veja acima). Abra um prompt do PowerShell na raiz do repositório e execute:
+1. Certifique-se de ter um clone do repositório (veja acima). Abra um prompt PowerShell na raiz do repositório e execute:
 
     ```powershell
     set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
     .\deploy -type demo
     ```
 
-2. Siga os prompts para atribuir um novo nome ao grupo de recursos e um nome para o site.  Depois de implantado com êxito, o script exibirá a URL do ponto de extremidade do aplicativo Web.
+2. Siga as instruções para atribuir um novo nome ao grupo de recursos e um nome ao site.  Uma vez implantado com sucesso, o script exibirá a URL do ponto final do aplicativo web.
 
 ## <a name="deployment-script-options"></a>Opções de script de implantação
 
-O script usa os seguintes parâmetros:
+O script toma os seguintes parâmetros:
 
 ```powershell
 -type
 ```
 
-O tipo de implantação (VM, local, demonstração)
+O tipo de implantação (vm, local, demonstração)
 
 ```powershell
 -resourceGroupName
 ```
 
-Pode ser o nome de um grupo de recursos existente ou um novo.
+Pode ser o nome de um grupo de recursos existente ou de um novo.
 
 ```powershell
 -subscriptionId
 ```
 
-Opcional, a ID da assinatura na qual os recursos serão implantados.
+Opcional, o ID de assinatura onde os recursos serão implantados.
 
 ```powershell
 -subscriptionName
@@ -119,19 +119,19 @@ Ou o nome da assinatura.
 -resourceGroupLocation
 ```
 
-Opcional, um local do grupo de recursos. Se for especificado, tentará criar um novo grupo de recursos neste local.
+Opcional, um local de grupo de recursos. Se especificado, tentará criar um novo grupo de recursos neste local.
 
 ```powershell
 -aadApplicationName
 ```
 
-Um nome para o aplicativo do AAD a ser registrado.
+Um nome para o aplicativo AAD para registrar em.
 
 ```powershell
 -tenantId
 ```
 
-Locatário do AAD a ser usado.
+Inquilino AAD para usar.
 
 ```powershell
 -credentials
@@ -139,7 +139,7 @@ Locatário do AAD a ser usado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a implantar o OPC "em um projeto existente, aqui está a próxima etapa sugerida:
+Agora que você aprendeu como implantar o OPC Twin em um projeto existente, aqui está o próximo passo sugerido:
 
 > [!div class="nextstepaction"]
-> [Comunicação segura do cliente OPC UA e do OPC UA PLC](howto-opc-vault-secure.md)
+> [Comunicação segura do Cliente OPC UA e OPC UA PLC](howto-opc-vault-secure.md)

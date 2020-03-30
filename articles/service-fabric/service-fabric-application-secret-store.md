@@ -1,20 +1,20 @@
 ---
-title: Repositório de segredos do Azure Service Fabric central
-description: Este artigo descreve como usar o repositório de segredos centrais no Azure Service Fabric.
+title: Loja de segredos centrais de malha de serviço do Azure
+description: Este artigo descreve como usar a Central Secrets Store no Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: 11fb94a9fba40e6f2474ad64f5eb0c454be28ca0
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77589157"
 ---
-# <a name="central-secrets-store-in-azure-service-fabric"></a>Repositório de segredos centrais no Azure Service Fabric 
-Este artigo descreve como usar o armazenamento de segredos centrais (CSS) no Azure Service Fabric para criar segredos em aplicativos Service Fabric. O CSS é um cache de repositório de segredo local que mantém dados confidenciais, como senha, tokens e chaves, criptografados na memória.
+# <a name="central-secrets-store-in-azure-service-fabric"></a>Loja central de segredos em tecido de serviço azure 
+Este artigo descreve como usar a Central Secrets Store (CSS) no Azure Service Fabric para criar segredos em aplicativos de Malha de Serviço. CSS é um cache de loja secreta local que mantém dados confidenciais, como senha, tokens e chaves, criptografados na memória.
 
-## <a name="enable-central-secrets-store"></a>Habilitar repositório de segredos centrais
-Adicione o script a seguir à sua configuração de cluster em `fabricSettings` para habilitar o CSS. Recomendamos que você use um certificado diferente de um certificado de cluster para CSS. Verifique se o certificado de criptografia está instalado em todos os nós e se `NetworkService` tem permissão de leitura para a chave privada do certificado.
+## <a name="enable-central-secrets-store"></a>Habilite a Loja Central secrets
+Adicione o script a seguir `fabricSettings` à configuração de cluster para ativar o CSS. Recomendamos que você use um certificado diferente de um certificado de cluster para CSS. Certifique-se de que o certificado de criptografia `NetworkService` está instalado em todos os nós e que tenha permissão de leitura para a chave privada do certificado.
   ```json
     "fabricSettings": 
     [
@@ -46,12 +46,12 @@ Adicione o script a seguir à sua configuração de cluster em `fabricSettings` 
         ...
      ]
 ```
-## <a name="declare-a-secret-resource"></a>Declarar um recurso secreto
-Você pode criar um recurso secreto usando o modelo de Azure Resource Manager ou a API REST.
+## <a name="declare-a-secret-resource"></a>Declare um recurso secreto
+Você pode criar um recurso secreto usando o modelo do Azure Resource Manager ou a API REST.
 
-### <a name="use-resource-manager"></a>Usar o Gerenciador de recursos
+### <a name="use-resource-manager"></a>Usar o Resource Manager
 
-Use o modelo a seguir para usar o Gerenciador de recursos para criar o recurso secreto. O modelo cria um `supersecret` recurso secreto, mas nenhum valor é definido para o recurso secreto ainda.
+Use o modelo a seguir para usar o Resource Manager para criar o recurso secreto. O modelo `supersecret` cria um recurso secreto, mas nenhum valor é definido para o recurso secreto ainda.
 
 
 ```json
@@ -73,18 +73,18 @@ Use o modelo a seguir para usar o Gerenciador de recursos para criar o recurso s
 
 ### <a name="use-the-rest-api"></a>Usar a API REST
 
-Para criar um `supersecret` recurso secreto usando a API REST, faça uma solicitação PUT para `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. Você precisa do certificado do cluster ou do certificado do cliente administrador para criar um recurso secreto.
+Para criar `supersecret` um recurso secreto usando a API `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`REST, faça uma solicitação PUT para . Você precisa do certificado de cluster ou do certificado de cliente administrador para criar um recurso secreto.
 
 ```powershell
 $json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "description": "supersecret"}}'
 Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint> -Body $json
 ```
 
-## <a name="set-the-secret-value"></a>Definir o valor secreto
+## <a name="set-the-secret-value"></a>Defina o valor secreto
 
-### <a name="use-the-resource-manager-template"></a>Usar o modelo do Resource Manager
+### <a name="use-the-resource-manager-template"></a>Use o modelo Gerenciador de recursos
 
-Use o modelo do Resource Manager a seguir para criar e definir o valor secreto. Este modelo define o valor secreto para o `supersecret` recurso secreto como versão `ver1`.
+Use o modelo seguinte do Gerenciador de recursos para criar e definir o valor secreto. Este modelo define o `supersecret` valor secreto `ver1`para o recurso secreto como versão .
 ```json
   {
   "parameters": {
@@ -129,15 +129,15 @@ Use o script a seguir para usar a API REST para definir o valor secreto.
 $Params = '{"properties": {"value": "mysecretpassword"}}'
 Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/ver1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
 ```
-### <a name="examine-the-secret-value"></a>Examinar o valor secreto
+### <a name="examine-the-secret-value"></a>Examine o valor secreto
 ```powershell
 Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -Uri "https:<clusterfqdn>/Resources/Secrets/supersecret/values/ver1/list_value?api-version=6.4-preview"
 ```
-## <a name="use-the-secret-in-your-application"></a>Usar o segredo em seu aplicativo
+## <a name="use-the-secret-in-your-application"></a>Use o segredo em sua aplicação
 
 Siga estas etapas para usar o segredo em seu aplicativo Service Fabric.
 
-1. Adicione uma seção no arquivo **Settings. xml** com o trecho a seguir. Observe aqui que o valor está no formato {`secretname:version`}.
+1. Adicione uma seção no arquivo **settings.xml** com o seguinte trecho. Observe aqui que o valor`secretname:version`está no formato { }.
 
    ```xml
      <Section Name="testsecrets">
@@ -145,7 +145,7 @@ Siga estas etapas para usar o segredo em seu aplicativo Service Fabric.
      </Section>
    ```
 
-1. Importe a seção em **ApplicationManifest. xml**.
+1. Importe a seção em **ApplicationManifest.xml**.
    ```xml
      <ServiceManifestImport>
        <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
@@ -158,12 +158,12 @@ Siga estas etapas para usar o segredo em seu aplicativo Service Fabric.
      </ServiceManifestImport>
    ```
 
-   A variável de ambiente `SecretPath` apontará para o diretório onde todos os segredos são armazenados. Cada parâmetro listado na seção `testsecrets` é armazenado em um arquivo separado. O aplicativo agora pode usar o segredo da seguinte maneira:
+   A variável `SecretPath` ambiente apontará para o diretório onde todos os segredos são armazenados. Cada parâmetro listado `testsecrets` na seção é armazenado em um arquivo separado. O aplicativo agora pode usar o segredo da seguinte forma:
    ```C#
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
-1. Monte os segredos em um contêiner. A única alteração necessária para tornar os segredos disponíveis dentro do contêiner é `specify` um ponto de montagem no `<ConfigPackage>`.
-O trecho a seguir é o **ApplicationManifest. xml**modificado.  
+1. Monte os segredos em um contêiner. A única mudança necessária para disponibilizar os `specify` segredos dentro `<ConfigPackage>`do contêiner é um ponto de montagem em .
+O trecho a seguir é o **aplicativo modificadoManifest.xml**.  
 
    ```xml
    <ServiceManifestImport>
@@ -179,9 +179,9 @@ O trecho a seguir é o **ApplicationManifest. xml**modificado.
        </Policies>
      </ServiceManifestImport>
    ```
-   Os segredos estão disponíveis no ponto de montagem dentro de seu contêiner.
+   Segredos estão disponíveis o ponto de montagem dentro do seu recipiente.
 
-1. Você pode associar um segredo a uma variável de ambiente de processo especificando `Type='SecretsStoreRef`. O trecho a seguir é um exemplo de como associar a versão de `supersecret` `ver1` à variável de ambiente `MySuperSecret` no **manifesto. xml**.
+1. Você pode vincular um segredo a uma `Type='SecretsStoreRef`variável de ambiente de processo especificando . O trecho a seguir é um exemplo `supersecret` `ver1` de como `MySuperSecret` vincular a versão à variável ambiente em **ServiceManifest.xml**.
 
    ```xml
    <EnvironmentVariables>
@@ -190,4 +190,4 @@ O trecho a seguir é o **ApplicationManifest. xml**modificado.
    ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a [segurança de aplicativos e serviços](service-fabric-application-and-service-security.md).
+Saiba mais sobre [segurança de aplicativos e serviços.](service-fabric-application-and-service-security.md)

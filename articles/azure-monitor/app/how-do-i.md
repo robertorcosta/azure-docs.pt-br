@@ -4,10 +4,10 @@ description: Perguntas Frequentes no Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663850"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
@@ -73,8 +73,8 @@ Considere o seguinte:
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetria separada de versões diferentes
 
-* Várias funções em um aplicativo: Use um único recurso de Application Insights e filtre [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Separação de desenvolvimento, teste e versões de lançamento: usar recursos diferentes do Application Insights. Pegue as chaves de instrumentação em Web. config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Várias funções em um aplicativo: Use um único recurso do Application Insights e filtre no [cloud_Rolename](../../azure-monitor/app/app-map.md).
+* Separação de desenvolvimento, teste e versões de lançamento: usar recursos diferentes do Application Insights. Pegue as teclas de instrumentação da web.config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
 * Relatando versões de build: adicionar uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar servidores de back-end e aplicativos de desktop
@@ -94,11 +94,11 @@ Ou
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrar usuários anônimos ou autenticados
-Se os usuários entrarem, você poderá definir a [ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Isso não ocorre automaticamente.)
+Se seus usuários fizerem login, você pode definir o ID do [usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Isso não ocorre automaticamente.)
 
 Em seguida, você pode:
 
-* Pesquisar IDs de usuário específicas
+* Pesquisar em IDs de usuário específicos
 
 ![](./media/how-do-i/110-search.png)
 
@@ -110,12 +110,12 @@ Em seguida, você pode:
 Crie um [filtro](../../azure-monitor/app/api-filtering-sampling.md#filtering). Isso permite modificar ou filtrar a telemetria antes que ela seja enviada do seu aplicativo para o Application Insights.
 
 ## <a name="list-specific-users-and-their-usage"></a>Listar usuários específicos e seu uso
-Se você quiser apenas [Pesquisar usuários específicos](#search-specific-users), poderá definir a [ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+Se você quiser apenas [procurar usuários específicos,](#search-specific-users)você pode definir o ID do [usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 Se você quiser uma lista de usuários com os dados como, por exemplo, quais páginas eles exibem e com qual frequência eles fazem logon, você terá duas opções:
 
-* [Defina a ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [exporte para um banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) e use ferramentas adequadas para analisar os dados do usuário ali.
-* Se você tiver apenas um pequeno número de usuários, envie eventos personalizados ou métricas, usando os dados de interesse como o valor da métrica ou o nome do evento e definindo a ID de usuário como uma propriedade. Para analisar os modos de exibição de página, substitua a chamada trackPageView JavaScript padrão. Para analisar a telemetria do lado do servidor, use um inicializador de telemetria para adicionar a ID de usuário a toda a telemetria do servidor. Em seguida, você pode filtrar e segmentar métricas e pesquisas na ID de usuário.
+* [Defina id de usuário autenticado,](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) [exporte para um banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) e use ferramentas adequadas para analisar os dados do usuário lá.
+* Se você tiver apenas um pequeno número de usuários, envie eventos ou métricas personalizadas, usando os dados de interesse como o valor métrico ou nome do evento e definindo o ID do usuário como uma propriedade. Para analisar os modos de exibição de página, substitua a chamada trackPageView JavaScript padrão. Para analisar a telemetria do lado do servidor, use uma inicialização de telemetria para adicionar o ID do usuário a toda telemetria do servidor. Em seguida, você pode filtrar e segmentar métricas e pesquisas no ID do usuário.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Reduzir o tráfego do meu aplicativo no Application Insights
 * Em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), desabilite todos os módulos dos quais você não precisa, como o coletor do contador de desempenho.
@@ -128,7 +128,7 @@ Saiba mais sobre [preços e cotas](../../azure-monitor/app/pricing.md).
 ## <a name="disable-telemetry"></a>Desabilitar telemetria
 Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria do servidor:
 
-### <a name="aspnet-classic-applications"></a>Aplicativos clássicos ASP.NET
+### <a name="aspnet-classic-applications"></a>ASP.NET aplicações Clássicas
 
 ```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
@@ -137,16 +137,16 @@ Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria d
 ```
 
 ### <a name="other-applications"></a>Outros aplicativos
-Não é recomendável usar `TelemetryConfiguration.Active` singleton no console ou em aplicativos ASP.NET Core.
-Se você criou `TelemetryConfiguration` instância por conta própria, defina `DisableTelemetry` como `true`.
+Não é recomendável `TelemetryConfiguration.Active` usar singleton no console ou ASP.NET aplicativos Core.
+se você `TelemetryConfiguration` mesmo criou `DisableTelemetry` instância `true`- definido para .
 
-Para ASP.NET Core aplicativos, você pode acessar `TelemetryConfiguration` instância usando [ASP.NET Core injeção de dependência](/aspnet/core/fundamentals/dependency-injection/). Encontre mais detalhes no artigo [ApplicationInsights for ASP.NET Core Applications](../../azure-monitor/app/asp-net-core.md) .
+Para ASP.NET aplicativos Core, `TelemetryConfiguration` você pode acessar a instância usando [ASP.NET injeção de dependência core](/aspnet/core/fundamentals/dependency-injection/). Por favor, encontre mais detalhes no [artigo applicationInsights para ASP.NET Principais.](../../azure-monitor/app/asp-net-core.md)
 
-## <a name="disable-selected-standard-collectors"></a>Desabilitar coletores padrão selecionados
-Você pode desabilitar os coletores padrão (por exemplo, contadores de desempenho, solicitações HTTP ou dependências)
+## <a name="disable-selected-standard-collectors"></a>Desativar coletores padrão selecionados
+Você pode desativar coletores padrão (por exemplo, contadores de desempenho, solicitações HTTP ou dependências)
 
-* **Aplicativos ASP.net** -exclua ou comente as linhas relevantes em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **ASP.NET Core aplicativos** – siga as opções de configuração dos módulos de telemetria no [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **ASP.NET aplicativos** - Exclua ou comente as linhas relevantes em [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET principais aplicativos** - Siga as opções de configuração dos módulos de telemetria no [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Exibir contadores de desempenho do sistema
 Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto de contadores de desempenho do sistema. Há uma folha predefinida intitulada **Servidores** que exibe vários deles.
@@ -156,7 +156,7 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 ### <a name="if-you-see-no-performance-counter-data"></a>Se você não vir dados do contador de desempenho
 * **Servidor IIS** em seu próprio computador ou em uma VM. [Instalar Monitor de Status](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Site do Azure** - ainda não há suporte para contadores de desempenho. Existem várias métricas que você pode obter como parte padrão do painel de controle do site do Azure.
-* **Servidor Unix** - [Instalar collectd](../../azure-monitor/app/java-collectd.md)
+* **Servidor Unix** - [Instalar coletado](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
 * Primeiro, [adicione um novo gráfico](../../azure-monitor/app/metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.

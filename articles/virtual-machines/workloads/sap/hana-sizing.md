@@ -14,21 +14,21 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 404f8318816edcc2cfd1c50ca42304ff6ec93039
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616901"
 ---
 # <a name="sizing"></a>Dimensionamento
 
 O dimensionamento do HANA em Instâncias Grandes não é diferente do dimensionamento do HANA em geral. Para sistemas existentes e implantados que você deseja migrar de outro RDBMS para o HANA, o SAP fornece vários relatórios que são executados nos sistemas SAP existentes. Se o banco de dados é movido para o HANA, esses relatórios verificam os dados e calculam os requisitos de memória para a instância do HANA. Para obter mais informações sobre como executar esses relatórios e obter os patches ou versões mais recentes, leia as seguintes Notas SAP:
 
-- [Nota SAP nº 1793345 – Dimensionamento do SAP Suite no HANA](https://launchpad.support.sap.com/#/notes/1793345)
-- [Nota SAP nº 1872170 – Relatório de dimensionamento do Suite no HANA e S/4 HANA](https://launchpad.support.sap.com/#/notes/1872170)
-- [Nota SAP nº 2121330 – Perguntas frequentes: relatório de dimensionamento do SAP BW no HANA](https://launchpad.support.sap.com/#/notes/2121330)
-- [Nota SAP nº 1736976 – Relatório de dimensionamento do BW no HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [Nota SAP nº 2296290 – Novo relatório de dimensionamento do BW no HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [SAP Note nº 1793345 - dimensionamento do SAP Suite no HANA](https://launchpad.support.sap.com/#/notes/1793345)
+- [SAP Note nº 1872170 - relatório de dimensionamento do Suite no HANA e S/4 HANA](https://launchpad.support.sap.com/#/notes/1872170)
+- [Nota SAP #2121330 - FAQ: SAP BW no relatório de dimensionamento HANA](https://launchpad.support.sap.com/#/notes/2121330)
+- [Nota SAP #1736976 - Relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [Nota SAP #2296290 - Novo relatório de dimensionamento para BW no HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
 Para implementações de campo verde Sizer rápida SAP está disponível para calcular os requisitos de memória da implementação de software SAP sobre HANA.
 

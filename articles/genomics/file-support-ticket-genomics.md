@@ -1,7 +1,7 @@
 ---
-title: Como arquivar uma solicitação de suporte
+title: Como fazer uma solicitação de suporte
 titleSuffix: Microsoft Genomics
-description: Este artigo descreve como arquivar uma solicitação de suporte para contatar o Microsoft Genomics se você não conseguir resolver o problema com o guia de solução de problemas ou perguntas frequentes.
+description: Este artigo descreve como arquivar uma solicitação de suporte para entrar em contato com a Microsoft Genomics se você não for capaz de resolver seu problema com o guia de solução de problemas ou PERGUNTAS FREQUENTES.
 keywords: solução de problemas, erro, depuração, suporte
 services: genomics
 author: grhuynh
@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248603"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Quando entrar em contato com o Suporte do Microsoft Genomics
@@ -24,7 +24,7 @@ Esta visão geral descreve como enviar uma solicitação de suporte para o Micro
 ## <a name="file-a-support-ticket-through-the-azure-portal"></a>Abra um tíquete de suporte por meio do portal do Azure
 Primeiro, entre no portal do Azure e faça logon na sua conta do Azure. Clique no ponto de interrogação no canto superior direito e selecione `Help + support`.
 
-![Entre em contato com suporte no portal do Azure](./media/file-support-ticket/genomics-contact-support.png "Entre em contato com suporte no portal do Azure") 
+![Suporte de contato no portal Azure](./media/file-support-ticket/genomics-contact-support.png "Suporte de contato no portal Azure") 
 
 
 

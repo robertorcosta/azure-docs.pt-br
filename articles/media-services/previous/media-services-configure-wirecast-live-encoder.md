@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
 ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77134968"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única 
@@ -34,9 +34,9 @@ Este artigo mostra como configurar o codificador ativo [Telestream Wirecast](htt
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> Os codificadores devem dar suporte a TLS 1,2 ao usar protocolos RTMPS. Use o Wirecast versão 13.0.2 ou superior devido ao requisito de TLS 1,2.
+> Os codificadores devem suportar o TLS 1.2 ao usar protocolos RTMPS. Use a versão Wirecast 13.0.2 ou superior devido ao requisito TLS 1.2.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 * Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
@@ -48,7 +48,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
+1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...**  no menu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -65,14 +65,14 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 >
 >
 
-Enquanto o canal é iniciado, você pode [configurar o codificador](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+Enquanto o canal estiver iniciando, você pode [configurar o codificador](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
 > A cobrança começa assim que o Canal entra em um estado pronto. Para obter mais informações, veja [Estados do canal](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurar o codificador do Telestream Wirecast
+## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurar o codificador do Telestream Wirecast
 Neste tutorial, são usadas as configurações de saída abaixo. O restante desta seção descreve as etapas de configuração mais detalhadamente.
 
 **Vídeo**:
@@ -83,7 +83,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 * Quadro-chave: 2 segundos (60 segundos)
 * Taxa de quadros: 30
 
-**Áudio**:
+**Áudio:**
 
 * Codec: AAC (LC)
 * Taxa de bits: 192 kbps
@@ -91,13 +91,13 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
 ### <a name="configuration-steps"></a>Etapas de configuração
 1. Abra o aplicativo do Telestream Wirecast no computador que está sendo usado e configure a transmissão RTMP.
-2. Configure a saída navegando até a guia **Saída** e selecionando **Configurações de Saída...** .
+2. Configure a saída navegando até a guia **Saída** e selecionando **Configurações de Saída...**.
 
     Certifique-se de que o **Destino de Saída** está definido como **Servidor RTMP**.
 3. Clique em **OK**.
 4. Na página de configurações, defina o campo **Destino** como **Serviços de Mídia do Azure**.
 
-    O perfil de Codificação é pré-selecionado para **Azure H.264 720p 16:9 (1280x720)** . Para personalizar essas configurações, selecione o ícone de engrenagem à direita da lista suspensa e escolha **Nova Predefinição**.
+    O perfil de Codificação é pré-selecionado para **Azure H.264 720p 16:9 (1280x720)**. Para personalizar essas configurações, selecione o ícone de engrenagem à direita da lista suspensa e escolha **Nova Predefinição**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configure as predefinições do codificador.
@@ -156,7 +156,7 @@ Se a transmissão for exibida no player, isso significa que o codificador foi co
 Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Confira o artigo de [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.  
 
 ## <a name="create-a-program"></a>Criar um programa
-1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ativo** na ferramenta AMSE, clique com o botão direito do mouse na área do programa e selecione **Criar Novo Programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Viver** na ferramenta AMSE, clique com o botão direito do mouse na área do programa e selecione **Criar novo programa**.  
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de quatro horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.  
@@ -166,7 +166,7 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
    >[!NOTE]
    >A criação do programa leva menos tempo do que a criação do canal.
        
-5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do mouse do programa e navegando até **Reproduzir o(s) programa(s)** , em seguida, selecionando **com o Player de Mídia do Azure**.  
+5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do mouse do programa e navegando até **Reproduzir o(s) programa(s)**, em seguida, selecionando **com o Player de Mídia do Azure**.  
 6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copiar a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
 A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.  

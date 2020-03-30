@@ -4,14 +4,14 @@ description: Exportar dados continuamente do Application Insights para o SQL usa
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663668"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
-Este artigo mostra como mover os dados de telemetria de [aplicativo Azure informações][start] para um banco de dado SQL do Azure usando a exportação e a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) [contínuas][export] . 
+Este artigo mostra como mover os dados de telemetria do [Azure Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 A exportação contínua move os dados de telemetria no Armazenamento do Azure no formato JSON. Vamos analisar objetos JSON usando o Azure Stream Analytics e criando linhas em uma tabela de banco de dados.
 
@@ -21,7 +21,7 @@ Vamos começar supondo que você já tenha o aplicativo que você deseja monitor
 
 Neste exemplo, usaremos os dados de exibição de página, mas o mesmo padrão pode ser facilmente ampliado para outros tipos de dados como exceções e eventos personalizados. 
 
-## <a name="add-application-insights-to-your-application"></a>Adicionar o Application Insights ao seu aplicativo
+## <a name="add-application-insights-to-your-application"></a>Adicione o Application Insights ao seu aplicativo
 Introdução:
 
 1. [Configurar o Application Insights para sua página da Web](../../azure-monitor/app/javascript.md). 
@@ -73,7 +73,7 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
 Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é escrever um código para mover os dados para um banco de dados SQL. Isso nos permitirá executar diversas consultas interessantes.
 
 ## <a name="create-an-azure-sql-database"></a>Criar um Banco de Dados SQL do Azure
-Mais uma vez, a partir de sua assinatura no [portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você escreverá os mesmos.
+Mais uma vez, na sua assinatura no [portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) onde você vai gravar os dados.
 
 ![Novo, Dados, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -153,7 +153,7 @@ Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamen
 
 #### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
 
-**Defina o Formato de Data como AAAA-MM-DD (com traços).**
+**Certifique-se de definir o formato de data para YYYY-MM-DD (com traços).**
 
 O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
@@ -239,7 +239,7 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
     FROM [dbo].[PageViewsTable]
 
 
-## <a name="related-articles"></a>{1&gt;{2&gt;Artigos relacionados&lt;2}&lt;1}
+## <a name="related-articles"></a>Artigos relacionados
 * [Exportar para Power BI usando o Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](../../azure-monitor/app/export-data-model.md)
 * [Exportação Contínua no Application Insights](../../azure-monitor/app/export-telemetry.md)

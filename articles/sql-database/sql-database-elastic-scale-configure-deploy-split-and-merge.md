@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421038"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
@@ -36,9 +36,9 @@ A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados f
 
 Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do Serviço de divisão e mesclagem no subdiretório **content\splitmerge\service** e os scripts de divisão e mesclagem do PowerShell (e as dlls do cliente necessárias) no subdiretório **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [portal Azure.](https://portal.azure.com) Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
 1. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall**, verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada**. Clique no botão “Salvar”.
 
@@ -57,13 +57,13 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 1. Crie um novo banco de dados ou escolha um já existente para servir como o banco de dados de status para as operações de Divisão/Mesclagem e recupere a cadeia de conexão do banco de dados.
 
    > [!IMPORTANT]
-   > Neste momento, o banco de dados de status deve usar a ordenação latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obter mais informações, confira [Nome da ordenação do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > Neste momento, o banco de dados de status deve usar a ordenação latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obter mais informações, confira [Nome de ordenação do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
    Com o Banco de Dados SQL do Azure, a cadeia de caracteres de conexão normalmente tem o seguinte formato:
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Insira essa cadeia de conexão no arquivo *. cscfg* nas seções de função **SplitMergeWeb** e **SplitMergeWorker** na configuração ElasticScaleMetadata.
+1. Insira essa seqüência de conexão no arquivo *.cscfg* nas seções de função **SplitMergeWeb** e **SplitMergeWorker** na configuração ElasticScaleMetadata.
 
 1. Para a função **SplitMergeWorker**, digite uma cadeia de caracteres de conexão válida para o armazenamento do Azure para a configuração **WorkerRoleSynchronizationStorageAccountConnectionString**.
 
@@ -73,7 +73,7 @@ Para obter instruções detalhadas configurar a segurança do serviço, consulte
 
 Para fins de implantação de teste simples para este tutorial, um conjunto mínimo de etapas de configuração será executado para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
 
-### <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
+### <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Crie um novo diretório e, nesse diretório, execute o seguinte comando usando uma janela de [Prompt de comando do desenvolvedor para o Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) :
 
@@ -107,7 +107,7 @@ Execute o seguinte comando na mesma janela onde o makecert foi executado; use a 
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Carregue o arquivo PFX para o serviço de nuvem
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Vá para o [portal Azure.](https://portal.azure.com)
 2. Selecione os **Serviços de nuvem**.
 3. Selecione o serviço de nuvem criado anteriormente para o serviço de Divisão/Mesclagem.
 4. Clique em **Certificados** no menu superior.
@@ -140,11 +140,11 @@ Observe que para implantações de produção devem ser usados certificados sepa
 
 ## <a name="deploy-your-service"></a>Implantar o serviço
 
-1. Vá para o [Portal do Azure](https://portal.azure.com)
+1. Vá para [o portal Azure](https://portal.azure.com)
 2. Selecione o serviço de nuvem que você já criou.
 3. Clique em **Visão Geral**.
 4. Escolha o ambiente de preparo e clique em **Carregar**.
-5. Na caixa de diálogo, digite um rótulo de implantação. Para 'Pacote' e 'Configuração', clique em 'Do local' e escolha o arquivo *SplitMergeService.cspkg* e seu arquivo cscfg configurado anteriormente.
+5. Na caixa de diálogo, digite um rótulo de implantação. Para 'Pacote' e 'Configuração', clique em 'De local' e escolha o arquivo *SplitMergeService.cspkg* e o arquivo cscfg que você configurou anteriormente.
 6. Certifique-se de que a caixa de seleção rotulada **Implantar mesmo se uma ou mais funções contiverem uma única instância** esteja marcada.
 7. Clique no botão de escala no canto inferior direito para iniciar a implantação. Isso poderá levar alguns minutos para ser concluído.
 
@@ -160,14 +160,14 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-- Verifique se o nome do servidor não começa com **https://** .
+- Verifique se o nome do servidor não começa com **https://**.
 - Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra o banco de dados no portal e verifique se a configuração **Permitir acesso aos serviços do Azure** está definida como **Habilitada** **.
 
 ## <a name="test-the-service-deployment"></a>Testar a implantação do serviço
 
 ### <a name="connect-with-a-web-browser"></a>Conectar-se com um navegador da Web
 
-Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Encontre-o no portal acessando a **Visão geral** do serviço de nuvem e procurando em **URL do Site** no lado direito. Substitua **http://** por **https://** , uma vez que as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
+Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Encontre-o no portal acessando a **Visão geral** do serviço de nuvem e procurando em **URL do Site** no lado direito. Substitua **http://** por **https://**, uma vez que as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
 
 ### <a name="test-with-powershell-scripts"></a>Testes com scripts do PowerShell
 
@@ -230,13 +230,13 @@ Os arquivos de script incluídos são:
 2. Crie um servidor do Banco de Dados SQL do Azure (ou escolha um servidor existente) em que o gerenciador do mapa do fragmento e os fragmentos serão criados.
 
    > [!NOTE]
-   > O script *SetupSampleSplitMergeEnvironment. ps1* cria todos esses bancos de dados no mesmo servidor por padrão para manter o script simples. Isso não é uma restrição do Serviço de Divisão-Mesclagem em si.
+   > O script *SetupSampleMergeMergeEnvironment.ps1* cria todos esses bancos de dados no mesmo servidor por padrão para manter o script simples. Isso não é uma restrição do Serviço de Divisão-Mesclagem em si.
 
    Um logon de autenticação do SQL com acesso de leitura/gravação para os bancos de dados será necessário para que o serviço de Divisão-Mesclagem mova os dados e atualize o mapa do fragmento. Desde que o Serviço de Divisão-Mesclagem seja executado na nuvem, ele atualmente não dá suporte à Autenticação integrada.
 
    Verifique se o SQL Server do Azure está configurado para permitir acesso do endereço IP do computador que executa esses scripts. Você pode encontrar essa configuração em SQL Server do Azure / configuração / endereços de IP permitidos.
 
-3. Execute o script *SetupSampleSplitMergeEnvironment. ps1* para criar o ambiente de exemplo.
+3. Execute o *script SetupSampleMergeMergeEnvironment.ps1* para criar o ambiente de amostra.
 
    A execução desse script apagará quaisquer estruturas de dados de gerenciamento de mapa do fragmento existentes no banco de dados do gerenciador do mapa do fragmento e nos fragmentos. Ele pode ser útil para executar novamente o script, se desejar reinicializar o mapa do fragmento ou os fragmentos.
 
@@ -254,7 +254,7 @@ Os arquivos de script incluídos são:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute o script *ExecuteSampleSplitMerge. ps1* para executar uma operação de divisão (movendo metade dos dados no primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de mesclagem (movendo os dados de volta para o primeiro fragmento). Se você configurou o SSL e deixou o ponto de extremidade http desabilitado, verifique se, ao invés disso, usou o ponto de extremidade https://.
+5. Execute o script *ExecuteMergeMerge.ps1* para executar uma operação dividida (movendo metade dos dados do primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de fusão (movendo os dados de volta para o primeiro fragmento). Se você configurou o SSL e deixou o ponto de extremidade http desabilitado, verifique se, ao invés disso, usou o ponto de extremidade https://.
 
    Linha de comando de exemplo:
 
@@ -327,7 +327,7 @@ Um exemplo disso pode ser visto no script SetupSampleSplitMergeEnvironment.ps1.
 
 O serviço de Divisão-Mesclagem não cria para você o banco de dados de destino (ou o esquema para todas as tabelas no banco de dados). Eles devem ser criados previamente antes de enviar uma solicitação ao serviço.
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Você pode ver a mensagem abaixo ao executar os scripts do powershell de exemplo:
 

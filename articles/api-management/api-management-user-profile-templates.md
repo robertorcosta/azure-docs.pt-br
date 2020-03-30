@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243946"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de usuário no Gerenciamento de API do Azure
@@ -40,10 +40,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="Profile"></a> Perfil  
+##  <a name="profile"></a><a name="Profile"></a>Perfil  
  O modelo **perfil** permite que você personalize a seção de perfil do usuário da página correspondente no portal do desenvolvedor.  
   
- ![Página perfil do usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil de usuário do APIM")  
+ ![Página de Perfil do Usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil do usuário APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -98,14 +98,14 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode não usar nenhum [controle de página](api-management-page-controls.md).  
+ Este modelo não pode usar nenhum [controle de página](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -185,10 +185,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="Subscriptions"></a> Assinaturas  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a>Assinaturas  
  O modelo **Assinaturas** permite que você personalize a seção de assinaturas da página de perfil do usuário no portal do desenvolvedor.  
   
- ![Página de assinatura do usuário](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de assinatura de usuário do APIM")  
+ ![Página de Assinatura do Usuário](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de assinatura do usuário do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -317,16 +317,16 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Este modelo pode usar os [seguintes controles de página](api-management-page-controls.md).  
   
--   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
+-   [assinatura-cancelar](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -406,10 +406,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="Applications"></a> Aplicativos  
+##  <a name="applications"></a><a name="Applications"></a>Aplicativos  
  O modelo **Aplicativos** permite que você personalize a seção de aplicativos da página de perfil do usuário no portal do desenvolvedor.  
   
- ![Página aplicativos de conta de usuário](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de aplicativos da conta de usuário do APIM")  
+ ![Página de Aplicativos de Conta de Usuário](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de Aplicativos de Conta de Usuário da APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -480,16 +480,16 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Este modelo pode usar os [seguintes controles de página](api-management-page-controls.md).  
   
--   [app-actions](api-management-page-controls.md#app-actions)  
+-   [ações de aplicativos](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
 >  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
 |`lastName`|string|O sobrenome do usuário atual.|  
@@ -569,10 +569,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="UpdateAccountInfo"></a> Atualizar informações da conta  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> Atualizar informações da conta  
  O modelo **Atualizar informações da conta** permite que você personalize a página **Atualizar informações da conta** no portal do desenvolvedor.  
   
- ![Página de informações da conta de usuário modelos do portal do desenvolvedor](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Página de informações da conta de usuário do APIM modelos do portal do desenvolvedor")  
+ ![Modelos do portal do desenvolvedor da página de informações da conta do usuário](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modelos do Portal de Desenvolvedores da Página de Informações da Conta de Usuário da APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -607,7 +607,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode não usar nenhum [controle de página](api-management-page-controls.md).  
+ Este modelo não pode usar nenhum [controle de página](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
  Entidade [Informações de conta de usuário](api-management-template-data-model-reference.md#UserAccountInfo).  

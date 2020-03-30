@@ -1,46 +1,46 @@
 ---
-title: Visão geral do İSTİO
-description: Obtenha uma visão geral do İSTİO
+title: Visão geral de Istio
+description: Obtenha uma visão geral de Istio
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593893"
 ---
-# <a name="istio"></a>İSTİO
+# <a name="istio"></a>Istio
 
 ## <a name="overview"></a>Visão geral
 
-O [İSTİO][istio] é uma malha de serviço completa em destaque, personalizável e extensível.
+[Istio][istio] é uma malha de serviço completa, personalizável e extensível.
 
 ## <a name="architecture"></a>Arquitetura
 
-O İSTİO fornece um plano de dados composto por sidecars baseados em [Envoy][envoy-proxy]. Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho em malha.
+Istio fornece um plano de dados que é composto por sidecars baseados em [Envoy.][envoy-proxy] Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho.
 
-O plano de controle gerencia a configuração, a política e a telemetria por meio dos seguintes [componentes][what-is-istio]:
+O plano de controle gerencia a configuração, a política e a telemetria através dos [seguintes componentes:][what-is-istio]
 
-- **Mixer** -impõe políticas de uso e controle de acesso. Coleta telemetria dos proxies que são enviados para o [Prometheus][prometheus].
+- **Mixer** - Impõe políticas de controle de acesso e uso. Coleta telemetria dos proxies que são empurrados [para Prometheus][prometheus].
 
-- **Piloto** -fornece a política/configuração de descoberta de serviço e gerenciamento de tráfego para os proxies.
+- **Piloto** - Fornece política/configuração de detecção de serviços e gerenciamento de tráfego para os proxies.
 
-- **Citadel** -fornece recursos de identidade e segurança que permitem a MTLS entre serviços.
+- **Citadel** - Fornece recursos de identidade e segurança que permitem o mTLS entre os serviços.
 
-- **Galé** -abstrai e fornece configuração aos componentes.
+- **Galera** - Abstratos e fornece configuração para componentes.
 
-O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e do plano de controle interagem.
+O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e plano de controle interagem.
 
 
-![Visão geral dos componentes e da arquitetura do İSTİO.](media/servicemesh/istio/about-architecture.png)
+![Visão geral dos componentes e arquitetura do Istio.](media/servicemesh/istio/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-É importante entender e considerar as seguintes áreas ao avaliar İSTİO para suas cargas de trabalho:
+É importante entender e considerar as seguintes áreas ao avaliar istio para suas cargas de trabalho:
 
 - [Metas de design](#design-goals)
 - [Funcionalidades](#capabilities)
@@ -49,36 +49,36 @@ O diagrama de arquitetura a seguir demonstra como os vários componentes dentro 
 
 ### <a name="design-goals"></a>Metas de design
 
-As metas de design a seguir [guiam][design-goals] o projeto İSTİO:
+As seguintes metas de design [guiam][design-goals] o projeto Istio:
 
-- **Maximizar transparência** – permitir a adoção com a quantidade mínima de trabalho para obter o valor real do sistema.
+- **Maximizar a transparência** - Permitir a adoção com a quantidade mínima de trabalho para obter valor real do sistema.
 
-- **Extensibilidade** -deve ser capaz de crescer e adaptar-se às necessidades em constante mudança.
+- **Extensibilidade** - Deve ser capaz de crescer e se adaptar com as necessidades em mudança.
 
-- **Portabilidade** -execute facilmente em diferentes tipos de ambientes – nuvem, local.
+- **Portabilidade** - Funcionar facilmente em diferentes tipos de ambientes - nuvem, no local.
 
-- **Uniformidade de política** -consistência na definição de política em vários recursos.
+- **Uniformidade da Política** - Consistência na definição de políticas entre a variedade de recursos.
 
 
 ### <a name="capabilities"></a>Funcionalidades
 
-O İSTİO fornece o seguinte conjunto de recursos:
+A Istio fornece o seguinte conjunto de recursos:
 
-- **Malha** – gateways (vários clusters), máquinas virtuais (expansão de malha)
+- **Malha** – gateways (multicluster), máquinas virtuais (expansão de malha)
 
-- **Gerenciamento de tráfego** – roteamento, divisão, tempos limite, separadores de circuito, repetições, entrada, saída
+- **Gerenciamento de Tráfego** – roteamento, divisão, intervalos, disjuntores, repetições, ingress, saída
 
-- **Política** – controle de acesso, limite de taxa, cota, adaptadores de política personalizada
+- **Política** – controle de acesso, limite de taxa, cota, adaptadores de políticas personalizadas
 
-- **Segurança** – autenticação (JWT), autorização, criptografia (MTLS), CA externa (cofre HashiCorp)
+- **Segurança** – autenticação (jwt), autorização, criptografia (mTLS), CA externa (HashiCorp Vault)
 
-- **Observação** – métricas Golden, espelho, rastreamento, adaptadores personalizados, Prometheus, grafana
+- **Observabilidade** – métricas douradas, espelho, rastreamento, adaptadores personalizados, prometeu, grafana
 
 ### <a name="scenarios"></a>Cenários
 
-O İSTİO é adequado e sugerido para os seguintes cenários:
+Istio é bem adequado e sugerido para os seguintes cenários:
 
-- Exigir extensibilidade e conjunto avançado de recursos
+- Requerem extensibilidade e rico conjunto de capacidades
 
 - Expansão de malha para incluir cargas de trabalho baseadas em VM
 
@@ -86,15 +86,15 @@ O İSTİO é adequado e sugerido para os seguintes cenários:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A documentação a seguir descreve como você pode instalar o İSTİO no AKS (serviço kubernetes do Azure):
+A documentação a seguir descreve como você pode instalar o Istio no Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Instalar o İSTİO no serviço kubernetes do Azure (AKS)][istio-install]
+> [Instalar Istio no AKS (Serviço de Kubernetes do Azure)][istio-install]
 
-Você também pode explorar ainda mais conceitos de İSTİO e modelos de implantação adicionais:
+Você também pode explorar ainda mais os conceitos de Istio e modelos adicionais de implantação:
 
-- [Conceitos de İSTİO][what-is-istio]
-- [Modelos de implantação do İSTİO][deployment-models]
+- [Conceitos istio][what-is-istio]
+- [Modelos de implantação de Istio][deployment-models]
 
 <!-- LINKS - external -->
 [istio]: https://istio.io

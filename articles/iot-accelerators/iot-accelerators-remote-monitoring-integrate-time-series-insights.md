@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564637"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com o Monitoramento Remoto
@@ -24,11 +24,11 @@ O acelerador de solução de monitoramento remoto agora fornece implantação e 
 > [!NOTE]
 > Os Time Series Insights não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa já ter implantado uma solução de monitoramento remoto:
 
-* [Implemente o acelerador de solução de monitoramento remoto](quickstart-remote-monitoring-deploy.md)
+* [Implantar o acelerador de soluções de monitoramento remoto](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Criar um grupo de consumidores
 
@@ -49,9 +49,9 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Em seguida, implante os Insights do Time Series como um recurso adicional em sua solução de monitoramento remoto e conecte-o ao hub da IoT.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 
-1. Selecione **Criar um recurso** > **Internet das Coisas** > **Time Series Insights**.
+1. Selecione **Criar um recurso** > **Internet of Things** > **Time Series Insights**.
 
     ![Novo Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
@@ -61,7 +61,7 @@ Em seguida, implante os Insights do Time Series como um recurso adicional em sua
     | ------- | ----- |
     | Nome do ambiente | A captura de tela a seguir usa o nome **contorosrmtsi**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
-    | Resource group | **Usar existente**. Selecione o nome do seu grupo de recursos existente de Monitoramento Remoto. |
+    | Resource group | **Use o existente**. Selecione o nome do seu grupo de recursos existente de Monitoramento Remoto. |
     | Location | Estamos usando **Leste dos EUA**. Crie seu ambiente na mesma região da sua solução de monitoramento remoto, se possível. |
     | Sku |**S1** |
     | Capacity | **1** |
@@ -136,7 +136,7 @@ A próxima etapa é configurar o microsserviço do Azure Stream Analytics Manage
 
 1. Escolha o grupo de recursos **ContosoRM**.
 
-1. Encontre o Stream Analytics ASA (Azure) o trabalho na lista de recursos de streaming. O nome do recurso começa com **streamingjobs-** .
+1. Encontre o Stream Analytics ASA (Azure) o trabalho na lista de recursos de streaming. O nome do recurso começa com **streamingjobs-**.
 
 1. Na parte superior, clique no botão para interromper os trabalhos de streaming do ASA.
 
@@ -191,7 +191,7 @@ Java:
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
-## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>*[Opcional]*  Configurar a interface da web para vincular ao Gerenciador de Time Series Insights
+## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>*[Opcional] * Configurar a interface da web para vincular ao Gerenciador de Time Series Insights
 
 Para visualizar facilmente seus dados no explorador de Insights do Time Series, recomendamos personalizar a interface do usuário para vincular-se facilmente ao ambiente. Para fazer isso, puxe as alterações mais recentes para a UI da Web usando o seguinte comando:
 
@@ -209,13 +209,13 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 
 1. No portal do Azure, clique na guia **Azure Active Directory** no painel à esquerda.
 
-1. Clique em **registros de aplicativo**.
+1. Clique em **inscrições de aplicativos**.
 
 1. Pesquise e clique no seu aplicativo **ContosoRM**.
 
-1. Navegue até **Configurações** > **Chaves** e crie uma nova chave para o seu aplicativo. Certifique-se de copiar o valor-chave para um local seguro.
+1. Navegue até **as teclas de configuração** > **Keys** e crie uma nova chave para o seu aplicativo. Certifique-se de copiar o valor-chave para um local seguro.
 
-1. Efetue pull do [arquivo yaml mais recente do Docker Compose](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) do repositório do GitHub usando a tag mais recente. 
+1. Puxe o [mais recente arquivo de yaml](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) de composição do GitHub usando a tag mais recente. 
 
 1. SSH na VM seguindo as etapas descritas em [como criar e usar chaves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
@@ -238,7 +238,7 @@ Configure o ambiente da implementação de `basic` para os microsserviços atual
 1. Reinicie os contêineres docker usando `sudo ./start.sh` da VM.
 
 > [!NOTE]
-> A configuração acima de variáveis de ambiente é válida para versões de monitoramento remoto antes de 1.0.2
+> A configuração acima das variáveis de ambiente é válida para versões de Monitoramento Remoto antes de 1.0.2
 
 ### <a name="standard-deployments"></a>Implantações padrão
 

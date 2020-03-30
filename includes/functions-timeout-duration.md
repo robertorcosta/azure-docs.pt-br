@@ -9,17 +9,17 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: eca2d3359614875e5bff0c9bb67f006f0a8cdba1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77198319"
 ---
-## <a name="timeout"></a>Duração do tempo limite do aplicativo de funções 
+## <a name="function-app-timeout-duration"></a><a name="timeout"></a>Duração do tempo do tempo do aplicativo de função 
 
-A duração do tempo limite de um aplicativo de funções é definida pela propriedade `functionTimeout` no arquivo de projeto [host. JSON](../articles/azure-functions/functions-host-json.md#functiontimeout) . A tabela a seguir mostra os valores padrão e máximo em minutos para os planos e para as diferentes versões de tempo de execução:
+A duração do tempo de um `functionTimeout` aplicativo de função é definida pela propriedade no arquivo do projeto [host.json.](../articles/azure-functions/functions-host-json.md#functiontimeout) A tabela a seguir mostra os valores padrão e máximo em minutos para ambos os planos e as diferentes versões em tempo de execução:
 
-| Plano | Versão de tempo de execução | Padrão | Máximo |
+| Plano | Versão em tempo de execução | Padrão | Máximo |
 |------|---------|---------|---------|
 | Consumo | 1.x | 5 | 10 |
 | Consumo | 2. x | 5 | 10 |
@@ -32,4 +32,4 @@ A duração do tempo limite de um aplicativo de funções é definida pela propr
 | Serviço de Aplicativo | 3.x | 30 | Ilimitado |
 
 > [!NOTE] 
-> Independentemente da configuração do tempo limite do aplicativo de funções, 230 segundos é a quantidade máxima de tempo que uma função disparada por HTTP pode levar para responder a uma solicitação. Isso ocorre devido ao [tempo limite de ociosidade padrão de Azure Load Balancer](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds). Para tempos de processamento mais longos, considere usar o [padrão assíncrono Durable Functions](../articles/azure-functions/durable/durable-functions-overview.md#async-http) ou [adiar o trabalho real e retornar uma resposta imediata](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).
+> Independentemente da configuração de tempo limite do aplicativo de função, 230 segundos é o tempo máximo que uma função acionada HTTP pode levar para responder a uma solicitação. Isso se deve ao [tempo de espera padrão do Azure Load Balancer](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds). Para tempos de processamento mais longos, considere usar o [padrão de assincronia funções duráveis](../articles/azure-functions/durable/durable-functions-overview.md#async-http) ou [adiar o trabalho real e retornar uma resposta imediata](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).

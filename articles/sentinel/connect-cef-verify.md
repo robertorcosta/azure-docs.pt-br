@@ -1,6 +1,6 @@
 ---
-title: Validar a conectividade com o Azure Sentinel | Microsoft Docs
-description: Valide a conectividade da solução de segurança para garantir que as mensagens CEF sejam encaminhadas para o Azure Sentinel.
+title: Valide a conectividade com o Azure Sentinel| Microsoft Docs
+description: Valide a conectividade de sua solução de segurança para garantir que as mensagens CEF estejam sendo encaminhadas para o Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: e224f6d5cfd82dfc6cb1ce107d111ee0e031247b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588426"
 ---
-# <a name="step-3-validate-connectivity"></a>ETAPA 3: validar a conectividade
+# <a name="step-3-validate-connectivity"></a>PASSO 3: Validar a conectividade
 
 
 
@@ -29,17 +29,17 @@ Depois de implantar o agente e configurar sua solução de segurança para encam
 
 ## <a name="how-to-validate-connectivity"></a>Como validar a conectividade
 
-1. Abra Log Analytics para garantir que os logs sejam recebidos usando o esquema CommonSecurityLog.<br> Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics. 
+1. Abra o Log Analytics para garantir que os logs sejam recebidos usando o esquema CommonSecurityLog.<br> Pode levar mais de 20 minutos até que seus registros comecem a aparecer no Log Analytics. 
 
-1. Antes de executar o script, recomendamos que você envie mensagens de sua solução de segurança para certificar-se de que elas estão sendo encaminhadas para o computador proxy de syslog configurado. 
-1. Você deve ter permissões elevadas (sudo) em seu computador. Verifique se você tem o Python em seu computador usando o seguinte comando: `python –version`
-1. Execute o script a seguir para verificar a conectividade entre o agente, o Azure Sentinel e sua solução de segurança. Ele verifica se o encaminhamento do daemon está configurado corretamente, escuta as portas corretas e se nada está bloqueando a comunicação entre o daemon e o agente de Log Analytics. O script também envia as mensagens de simulação ' TestCommonEventFormat ' para verificar a conectividade de ponta a ponta. <br>
+1. Antes de executar o script, recomendamos que você envie mensagens de sua solução de segurança para ter certeza de que elas estão sendo encaminhadas para a máquina proxy Syslog que você configurou. 
+1. Você deve ter permissões elevadas (sudo) em sua máquina. Certifique-se de que você tem Python na máquina usando o seguinte comando:`python –version`
+1. Execute o seguinte script para verificar a conectividade entre o agente, o Azure Sentinel e sua solução de segurança. Ele verifica se o encaminhamento do daemon está configurado corretamente, ouve as portas corretas e que nada está bloqueando a comunicação entre o daemon e o agente log analytics. O script também envia mensagens falsas 'TestCommonEventFormat' para verificar a conectividade de ponta a ponta. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu a conectar os dispositivos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar aparelhos CEF ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).
-- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+- [Use as cadernetas](tutorial-monitor-your-data.md) para monitorar seus dados.
 

@@ -1,5 +1,5 @@
 ---
-title: Exemplo de gráfico de métrica Azure Monitor
+title: Exemplo de gráfico métrico do Azure Monitor
 description: Saiba mais sobre como visualizar seus dados do Azure Monitor.
 author: vgorbenko
 services: azure-monitor
@@ -8,13 +8,13 @@ ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660863"
 ---
-# <a name="metric-chart-examples"></a>Exemplos de gráfico de métrica 
+# <a name="metric-chart-examples"></a>Exemplos de gráficos métricos 
 
 A plataforma do Azure oferece [mais de mil métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), muitas das quais têm dimensões. Ao usar [filtros de dimensão](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), aplicar a [divisão](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), controlar o tipo de gráfico e ajustar as configurações do gráfico você pode criar painéis e exibições de diagnóstico poderosos que fornecem insight sobre a integridade da sua infraestrutura e seus aplicativos. Este artigo mostra alguns exemplos dos gráficos que podem ser criados usando o [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) e explica as etapas necessárias para configurar cada um deles.
 
@@ -50,7 +50,7 @@ O recurso da conta de armazenamento está enfrentando um volume de transações 
 
 No seletor de métrica, selecione sua conta de armazenamento e a métrica **Transações**. Alterne o tipo de gráfico para **Gráfico de barras**. Clique em **Aplicar a divisão** e selecione a dimensão **Nome da API**. Em seguida, clique em **Adicionar filtro** e escolha a dimensão **Nome da API** novamente. Na caixa de diálogo de filtro, selecione as APIs que deseja plotar no gráfico.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [Pastas de Trabalho](../../azure-monitor/app/usage-workbooks.md) do Azure Monitor
 * Saiba mais sobre o [Metrics Explorer](metrics-charts.md)

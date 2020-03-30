@@ -1,5 +1,5 @@
 ---
-title: Falha ao criar ou excluir o banco de BD ou a tabela no Azure Data Explorer
+title: Falha em criar ou excluir DB ou tabela no Azure Data Explorer
 description: Este artigo descreve etapas de solução de problemas para criar e excluir bancos de dados e tabelas no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562387"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Solução de problema: falha ao criar ou excluir um banco de dados ou uma tabela no Azure Data Explorer
@@ -50,7 +50,7 @@ Certifique-se de ter as permissões adequadas. Para excluir ou renomear uma tabe
 
 Para obter mais informações sobre permissões, consulte [Gerenciar permissões de banco de dados](manage-database-permissions.md).
 
-## <a name="general-guidance"></a>Orientação geral
+## <a name="general-guidance"></a>Diretrizes gerais
 
 1. Verifique o [painel de integridade do serviço do Azure](https://azure.microsoft.com/status/). Procure o status do Azure Data Explorer na região em que você está tentando trabalhar com um banco de dados ou uma tabela.
 

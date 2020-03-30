@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre tecnologias de código aberto
-description: Obtenha respostas para perguntas frequentes sobre tecnologias de software livre no Azure App Service.
+description: Obtenha respostas para perguntas frequentes sobre tecnologias de código aberto no Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672438"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
@@ -27,14 +27,14 @@ Este artigo apresenta perguntas frequentes (FAQs) sobre problemas com tecnologia
 Para ativar o registro em log de PHP:
 
 1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. No menu superior, selecione **Console de Depuração** > **CMD**.
+2. No menu superior, selecione **Debug Console** > **CMD**.
 3. Selecione a pasta **Site**.
 4. Selecione a pasta **wwwroot**.
-5. Selecione o **+** ícone e, em seguida, selecione **Novo arquivo**.
+5. Selecione **+** o ícone e selecione **Arquivo Novo**.
 6. Defina o nome de arquivo para **.user.ini**.
 7. Selecione o ícone de lápis ao lado de **.user.ini**.
 8. No arquivo, adicione este código:`log_errors=on`
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 10. Selecione o ícone de lápis ao lado de **wp-config.php**.
 11. Adicione o texto para o código a seguir:
     ```php
@@ -138,7 +138,7 @@ Para resolver o erro:
 
 1. Remova o arquivo sqljdbc*.jar da pasta do app/lib.
 2. Se você estiver usando o servidor web Tomcat personalizado ou o Azure Marketplace Tomcat, copie esse arquivo. jar para a pasta lib Tomcat.
-3. Se você estiver habilitando Java do portal do Azure (selecione **Java 1.8** > **servidor Tomcat**), copie o arquivo jar sqljdbc.* na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath para o arquivo web.config:
+3. Se você estiver habilitando java a partir do portal Azure (selecione **Java 1.8** > **Tomcat server**), copie o arquivo de jar sqljdbc.* na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath para o arquivo web.config:
 
     ```xml
     <httpPlatform>
@@ -171,7 +171,7 @@ Outra solução alternativa é gravar um WebJob que é executado em um agendamen
 
 Para o Marketplace e implantações personalizadas, o arquivo de log está na pasta D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs. Observe que o local da pasta depende da versão do Jetty que você está usando. Por exemplo, o caminho fornecido aqui é para Jetty 9.1.2. Procure jetty_*YYYY_MM_DD*.stderrout.log.
 
-Para implantações de Configuração do aplicativo do portal, o arquivo de log está em D:\home\LogFiles. Procure jetty_*YYYY_MM_DD*.stderrout.log
+Para implantações de Configuração do aplicativo do portal, o arquivo de log está em D:\home\LogFiles. Procure por*jetty_ YYYY_MM_DD*.stderrout.log
 
 ## <a name="can-i-send-email-from-my-azure-web-app"></a>Posso enviar email de meu aplicativo web do Azure?
 

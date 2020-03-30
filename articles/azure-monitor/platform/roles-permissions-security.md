@@ -1,5 +1,5 @@
 ---
-title: Funções, permissões e segurança no Azure Monitor
+title: Funções, permissões e segurança no Monitor Do Azure
 description: Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento.
 author: johnkemnetz
 services: azure-monitor
@@ -8,17 +8,17 @@ ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658958"
 ---
-# <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Azure Monitor
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Funções, permissões e segurança no Monitor Do Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de DevOps) ou se usar um provedor de serviços gerenciados, talvez você queira conceder a eles acesso apenas aos dados de monitoramento e restringir sua capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
+Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tem membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de DevOps) ou se você usa um provedor de serviços gerenciado, você pode querer conceder-lhes acesso a apenas dados de monitoramento, restringindo sua capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
 
 ## <a name="built-in-monitoring-roles"></a>Funções internas de monitoramento
 As funções internas do Azure Monitor são projetadas para ajudar a limitar o acesso aos recursos em uma assinatura, permitindo que as pessoas responsáveis pelo monitoramento da infra-estrutura obtenham e configurem os dados que precisam. O Azure Monitor fornece duas funções integradas: um Leitor de monitoramento e um Colaborador de monitoramento.
@@ -37,10 +37,10 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 * Acessar os dados do Application Insights e exiba os dados na Análise de AI.
 * Pesquisar dados do espaço de trabalho do Log Analytics, incluindo dados de uso do espaço de trabalho.
 * Exibir grupos de gerenciamento do Log Analytics.
-* Recupere o esquema de pesquisa no espaço de trabalho Log Analytics.
-* Liste pacotes de monitoramento no espaço de trabalho Log Analytics.
-* Recuperar e executar pesquisas salvas no espaço de trabalho Log Analytics.
-* Recupere a configuração de armazenamento do espaço de trabalho Log Analytics.
+* Recupere o esquema de pesquisa no espaço de trabalho do Log Analytics.
+* Liste pacotes de monitoramento no espaço de trabalho do Log Analytics.
+* Recuperar e executar pesquisas salvas no espaço de trabalho do Log Analytics.
+* Recupere a configuração de armazenamento do espaço de trabalho do Log Analytics.
 
 > [!NOTE]
 > Essa função não concede acesso de leitura aos dados de log que foram transmitidos para um hub de eventos ou armazenados em uma conta de armazenamento. [Veja abaixo](#security-considerations-for-monitoring-data) para obter informações sobre como configurar o acesso a esses recursos.
@@ -51,16 +51,16 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 Pessoas atribuídas à função de Colaborador de monitoramento podem exibir todos os dados de monitoramento em uma assinatura e criar ou modificar as configurações de monitoramento, mas não podem modificar outros recursos. Essa função é um superconjunto da função Leitor de monitoramento e é apropriada para membros de uma equipe de monitoramento ou provedores de serviços gerenciados de uma organização que, além das permissões acima, também precisam ser capazes de:
 
 * Publicra os painéis de monitoramentos como um painel compartilhado.
-* Definir [configurações de diagnóstico](diagnostic-settings.md) para um recurso.\*
+* Defina [as configurações de diagnóstico](diagnostic-settings.md) para um recurso.\*
 * Defina o [perfil de log](activity-log-export.md) para uma assinatura.\*
 * Defina a atividade das regras de alerta e as configurações por meio dos [Alertas do Azure](alerts-overview.md).
 * Criar testes Web e componentes do Application Insights.
 * Listar as chaves compartilhadas do espaço de trabalho do Log Analytics.
-* Habilite ou desabilite pacotes de monitoramento no espaço de trabalho Log Analytics.
-* Crie e exclua e execute pesquisas salvas no espaço de trabalho Log Analytics.
-* Crie e exclua a configuração de armazenamento Log Analytics espaço de trabalho.
+* Habilite ou desative pacotes de monitoramento no espaço de trabalho do Log Analytics.
+* Crie e exclua e execute pesquisas salvas no espaço de trabalho do Log Analytics.
+* Crie e exclua a configuração de armazenamento do espaço de trabalho log analytics.
 
-\*usuário também deve receber a permissão ListKeys no recurso de destino (conta de armazenamento ou namespace do hub de eventos) para definir um perfil de log ou uma configuração de diagnóstico.
+\*o usuário também deve receber separadamente a permissão ListKeys no recurso de destino (conta de armazenamento ou espaço de nome do hub de eventos) para definir um perfil de log ou configuração de diagnóstico.
 
 > [!NOTE]
 > Essa função não concede acesso de leitura aos dados de log que foram transmitidos para um hub de eventos ou armazenados em uma conta de armazenamento. [Veja abaixo](#security-considerations-for-monitoring-data) para obter informações sobre como configurar o acesso a esses recursos.
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 Um padrão semelhante pode ser seguido com hubs de eventos, mas primeiro você precisa criar uma regra de autorização de escuta dedicada. Se você deseja conceder acesso a um aplicativo que precisa apenas escutar os hubs de eventos relacionados ao monitoramento, faça o seguinte:
 
 1. Crie uma política de acesso compartilhado no(s) hubs de eventos que foram criados para transmitir dados de monitoramento com somente declarações de escuta. Isso pode ser feito no portal. Por exemplo, você pode chamá-la de "monitoringReadOnly." Se possível, dê essa chave diretamente ao consumidor e ignore a próxima etapa.
-2. Se o consumidor precisar ser capaz de obter a chave ad hoc, conceda ao usuário a ação ListKeys para o Hub de eventos. Isso é necessário também para os usuários que precisam ser capazes de definir uma configuração de diagnóstico ou de perfil de log para transmissão para hubs de eventos. Por exemplo, você pode criar uma regra RBAC:
+2. Se o consumidor precisar obter a chave ad hoc, conceda ao usuário a ação ListKeys para esse hub de eventos. Isso é necessário também para os usuários que precisam ser capazes de definir uma configuração de diagnóstico ou de perfil de log para transmissão para hubs de eventos. Por exemplo, você pode criar uma regra RBAC:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -181,12 +181,12 @@ O Azure Monitor precisa de acesso aos seus recursos do Azure para fornecer os se
 ### <a name="secured-storage-accounts"></a>Contas de Armazenamento protegidas 
 
 Os dados de monitoramento costumam ser gravados em uma conta de armazenamento. Convém verificar se os dados copiados para uma Conta de Armazenamento não podem ser acessados por usuários não autorizados. Para obter mais segurança, bloqueie o acesso à rede para permitir que somente os recursos autorizados e os serviços de confiança da Microsoft acessem uma conta de armazenamento restringindo uma conta de armazenamento para usar "redes selecionadas".
-![](./media/roles-permissions-security/secured-storage-example.png) de diálogo Configurações do armazenamento do Azure Azure Monitor é considerado um destes "serviços confiáveis da Microsoft" se você permitir que serviços da Microsoft confiáveis acessem seu armazenamento protegido, o Azure monitor terá acesso à sua conta de armazenamento protegido; habilitar a gravação Azure Monitor logs de recursos, o log de atividades e as métricas para sua conta de armazenamento nessas condições protegidas. Isso também permitirá que o Log Analytics leia os logs do armazenamento protegido.   
+![Diálogo de configurações](./media/roles-permissions-security/secured-storage-example.png) de armazenamento do Azure O Azure Monitor é considerado um desses "serviços confiáveis da Microsoft" Se você permitir que serviços confiáveis da Microsoft acessem seu armazenamento protegido, o monitor do Azure terá acesso à sua conta de armazenamento segura; habilitar a gravação de registros de recursos do Azure Monitor, registro de atividades e métricas para sua conta de armazenamento nessas condições protegidas. Isso também permitirá que o Log Analytics leia os logs do armazenamento protegido.   
 
 
 Para saber mais, confira [Segurança de rede e Armazenamento do Azure](../../storage/common/storage-network-security.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../../role-based-access-control/overview.md)
 * [Leia a visão geral do monitoramento no Azure](../../azure-monitor/overview.md)
 

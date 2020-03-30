@@ -1,5 +1,5 @@
 ---
-title: Instalar extensão do navegador do painel de acesso do aplicativo-Azure AD
+title: Instalar extensão do navegador do painel de acesso ao aplicativo - Azure AD
 description: Corrija os erros comuns encontrados quando você instala a extensão do navegador do painel de acesso.
 services: active-directory
 documentationcenter: ''
@@ -17,19 +17,19 @@ ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 771ba79f067cbff1ab8bbfece64f4028b4ca50b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275850"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
-O painel de acesso é um portal baseado na Web. Caso você tenha uma conta corporativa ou de estudante no Azure Active Directory (Azure AD), pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD concedeu acesso. 
+O painel de acesso é um portal baseado na Web. Se você tiver uma conta de estudante ou corporativa no Azure Active Directory (Azure AD), você pode usar o painel de acesso para exibir e iniciar aplicativos baseados em nuvem para os quais um administrador do Azure AD tenha concedido acesso. 
 
 Se você estiver usando as edições do Azure AD, você também pode usar grupos de autoatendimento e recursos de gerenciamento de aplicativo por meio do painel de acesso. 
 
-O painel de acesso é separado do portal do Azure. Não é preciso ter uma assinatura do Azure.
+O painel de acesso é separado do portal do Azure. Ele não requer que você tenha uma assinatura do Azure.
 
 ## <a name="web-browser-requirements"></a>Requisitos de navegador da Web
 
@@ -71,7 +71,7 @@ Você também pode baixar a extensão para o Chrome e para o Microsoft Edge dire
    1. Enquanto você *não* estiver conectado à extensão, clique com o botão direito do mouse no ícone de extensão.
    2. No menu, selecione **URL dos Meus aplicativos**.
    3. Selecione a URL padrão.
-   4. Selecione o ícone da extensão.
+   4. Selecione o ícone de extensão.
    5. Para conectar-se à extensão, selecione **Conectar-se para começar**.
 
 * Para conectar-se diretamente a um aplicativo no navegador, faça o seguinte:
@@ -89,8 +89,8 @@ Você também pode baixar a extensão para o Chrome e para o Microsoft Edge dire
        Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
        
 * Para usar URLs internas da empresa ao remoto, faça o seguinte:
-    1. [Configurar Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
-    2. [Publicar o aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
+    1. [Configure proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) em seu inquilino
+    2. [Publique o aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e a URL através do Proxy do aplicativo
     3. Instale a extensão, conecte-se a ela selecionando Conectar-se para começar
     4. Agora você pode navegar para a URL interna da empresa, mesmo em remoto
 
@@ -121,11 +121,11 @@ Para acessar uma ferramenta de diagnóstico e informações sobre como configura
 Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
 
 -   ID de erro de correlação
--   UPN (endereço de email do usuário)
+-   UPN (endereço de email de usuário)
 -   TenantID
 -   Tipo de navegador
 -   Fuso horário e a hora ou o período de tempo durante o qual o erro ocorreu
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
-[O que é o acesso a aplicativos e logon único com o Azure Active Directory?](what-is-single-sign-on.md)
+[O que é acesso ao aplicativo e logon único com o Azure Active Directory?](what-is-single-sign-on.md)

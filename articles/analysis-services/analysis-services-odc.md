@@ -1,5 +1,5 @@
 ---
-title: Conectar-se a Azure Analysis Services com um arquivo. odc | Microsoft Docs
+title: Conecte-se aos Serviços de Análise do Azure com um arquivo .odc | Microsoft Docs
 description: Saiba como criar um arquivo de conexão de dados do Office e se conectar e obter dados de um servidor do Analysis Services no Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: a4e2dc09c54b39d58b0193e7ac9f585236886722
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572682"
 ---
 # <a name="create-an-office-data-connection-file"></a>Criar um arquivo de conexão de dados do Office

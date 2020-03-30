@@ -1,16 +1,16 @@
 ---
 title: Adicionar autenticação no Android
-description: Saiba como usar o serviço de Azure App para autenticar usuários de seu aplicativo Android com provedores de identidade, como Google, Facebook, Twitter e Microsoft.
+description: Aprenda a usar o Azure App Service para autenticar usuários do seu aplicativo para Android com provedores de identidade como Google, Facebook, Twitter e Microsoft.
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 705ebb5809840155e6bbf3f8eef091eb95f63e63
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461633"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Adicionar autenticação ao aplicativo do Android
@@ -19,14 +19,14 @@ ms.locfileid: "77461633"
 ## <a name="summary"></a>Resumo
 Neste tutorial, você adiciona autenticação ao projeto de início rápido da lista de tarefas pendentes no Android usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [Introdução aos Aplicativos Móveis] , que você deve concluir primeiro.
 
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo do Azure
+## <a name="register-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo do Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
 
 A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
 
-1. No [Azure portal], selecione sua conta.
+1. No [Portal do Azure], selecione seu Serviço de Aplicativo.
 
 2. Clique na opção de menu **Autenticação/Autorização**.
 
@@ -36,7 +36,7 @@ A autenticação segura exige que você defina um novo esquema de URL para seu a
 
 5. Clique em **Salvar**.
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 * No Android Studio, abra o projeto concluído com o tutorial [Introdução aos Aplicativos Móveis]. No menu **Executar**, clique em **Executar aplicativo** e verifique se uma exceção sem tratamento com um código de status 401 (Não autorizado) é acionada depois que o aplicativo é iniciado.
@@ -50,13 +50,13 @@ Em seguida, você atualiza o aplicativo para autenticar os usuários antes de so
 
 
 
-## <a name="cache-tokens"></a>Armazenar em cache tokens de autenticação no cliente
+## <a name="cache-authentication-tokens-on-the-client"></a><a name="cache-tokens"></a>Armazenar em cache tokens de autenticação no cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
-* [Adicionar notificações por push ao aplicativo Android](app-service-mobile-android-get-started-push.md).
+* [Adicione notificações push ao seu aplicativo para Android](app-service-mobile-android-get-started-push.md).
   Saiba como configurar o back-end dos Aplicativos Móveis para usar os hubs de notificação do Azure para enviar notificações por push.
 * [Habilitar a sincronização offline para o aplicativo móvel Android](app-service-mobile-android-get-started-offline-data.md).
   Saiba como adicionar suporte offline ao aplicativo usando um back-end dos Aplicativos Móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel &mdash; exibindo, adicionando ou modificando dados &mdash; mesmo quando não há nenhuma conexão de rede.
@@ -72,4 +72,4 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 
 <!-- URLs. -->
 [Introdução aos Aplicativos Móveis]: app-service-mobile-android-get-started.md
-[Azure portal]: https://portal.azure.com/
+[Portal Azure]: https://portal.azure.com/

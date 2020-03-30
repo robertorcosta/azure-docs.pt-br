@@ -1,5 +1,5 @@
 ---
-title: Conectar uma proteção de identidade ao Azure Sentinel | Microsoft Docs
+title: Conecte uma proteção de identidade ao Azure Sentinel| Microsoft Docs
 description: Saiba como conectar uma proteção de identidade ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,33 +15,33 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588137"
 ---
-# <a name="connect-one-identity-safeguard"></a>Conectar uma proteção de identidade
-O conector de dados de proteção de uma identidade aprimora o conector CEF (formato de evento comum) padrão com proteção para painéis específicos de sessões privilegiadas. Use esse conector para começar facilmente a usar os eventos gerados pelo seu dispositivo para visualização, alertas, investigações e muito mais.
+# <a name="connect-one-identity-safeguard"></a>Conecte uma proteção de identidade
+O conector de dados One Identity Safeguard aprimora o conector CEF (Common Event Format, formato de evento comum) padrão com os painéis específicos de sessões privilegiadas. Use este conector para começar facilmente a usar os eventos gerados pelo seu dispositivo para visualização, alertas, investigações e muito mais.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Permissões de leitura e gravação para o espaço de trabalho do Azure Sentinel.
+- Leia e escreva permissões para o espaço de trabalho do Azure Sentinel.
 
-## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Conectar o Azure Sentinel a uma proteção de identidade
+## <a name="connect-azure-sentinel-to-one-identity-safeguard"></a>Conecte o Azure Sentinel a uma proteção de identidade
 
-1. Na portal do Azure, navegue até **Azure Sentinel** > **conectores de dados** e, em seguida, selecione o conector de **proteção de uma identidade** .
+1. No portal Azure, navegue até os**conectores** de dados **do Azure Sentinel** > e selecione o conector **De proteção de identidade.**
 
-2. Selecione a **página abrir conector**.
+2. Selecione **Abrir a página do conector**.
 
-3. Siga as instruções na página de **proteção de uma identidade** .
+3. Siga as instruções na página **De Proteção de Identidade.**
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu a conectar uma proteção de identidade ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar uma proteção de identidade ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+- [Use as cadernetas](tutorial-monitor-your-data.md) para monitorar seus dados.
 
 

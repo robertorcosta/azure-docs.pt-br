@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672368"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
@@ -46,9 +46,9 @@ O registro TXT necessário depende do registro DNS que você deseja migrar. Para
 
 | Exemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
-| \@ (raiz) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
-| \* (curinga) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
+| \@ (raiz) | _awverify_ | _&lt;nome de aplicativo>.azurewebsites.net_ |
+| www (sub) | _awverify.www_ | _&lt;nome de aplicativo>.azurewebsites.net_ |
+| \* (curinga) | _awverify.\*_ | _&lt;nome de aplicativo>.azurewebsites.net_ |
 
 Na página de registros DNS, anote o tipo de registro do nome DNS que você deseja migrar. O Serviço de Aplicativo dá suporte a mapeamentos de CNAME e registros A.
 
@@ -111,11 +111,11 @@ Novamente na página de registros DNS do provedor de domínio, selecione o regis
 
 Para o exemplo de domínio raiz `contoso.com`, remapeie o registro A ou CNAME como os exemplos na seguinte tabela: 
 
-| Exemplo de FQDN | Tipo de registro | Host | Value |
+| Exemplo de FQDN | Tipo de registro | Host | Valor |
 | - | - | - | - |
-| contoso.com (raiz) | A | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
-| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
-| \*.contoso.com (curinga) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
+| contoso.com (raiz) | Um | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;nome de aplicativo>.azurewebsites.net_ |
+| \*.contoso.com (curinga) | CNAME | _\*_ | _&lt;nome de aplicativo>.azurewebsites.net_ |
 
 Salve suas configurações.
 
@@ -123,13 +123,13 @@ As consultas DNS devem começar a serem resolvidas para o aplicativo Serviço de
 
 ## <a name="active-domain-in-azure"></a>Domínio ativo no Azure
 
-Você pode migrar um domínio personalizado ativo no Azure, entre assinaturas ou dentro da mesma assinatura. No entanto, essa migração sem tempo de inatividade requer que o aplicativo de origem e o aplicativo de destino recebam o mesmo domínio personalizado em um determinado momento. Portanto, você precisa certificar-se de que os dois aplicativos não sejam implantados na mesma unidade de implantação (internamente conhecida como espaço Web). Um nome de domínio pode ser atribuído a apenas um aplicativo em cada unidade de implantação.
+Você pode migrar um domínio personalizado ativo no Azure, entre assinaturas ou dentro da mesma assinatura. No entanto, essa migração sem tempo de inatividade requer o aplicativo de origem e o aplicativo de destino é atribuído ao mesmo domínio personalizado em um determinado momento. Portanto, você precisa ter certeza de que os dois aplicativos não estão implantados na mesma unidade de implantação (internamente conhecida como webspace). Um nome de domínio pode ser atribuído a apenas um aplicativo em cada unidade de implantação.
 
-Você pode encontrar a unidade de implantação para seu aplicativo examinando o nome de domínio da URL do FTP/S `<deployment-unit>.ftp.azurewebsites.windows.net`. Verifique e certifique-se de que a unidade de implantação seja diferente entre o aplicativo de origem e o aplicativo de destino. A unidade de implantação de um aplicativo é determinada pelo [plano do serviço de aplicativo](overview-hosting-plans.md) em que ele está. Ele é selecionado aleatoriamente pelo Azure quando você cria o plano e não pode ser alterado. O Azure só garante que dois planos estejam na mesma unidade de implantação quando você [os cria no mesmo grupo de recursos *e* na mesma região](app-service-plan-manage.md#create-an-app-service-plan), mas não tem nenhuma lógica para garantir que os planos estejam em unidades de implantação diferentes. A única maneira de criar um plano em uma unidade de implantação diferente é continuar criando um plano em um novo grupo de recursos ou região até obter uma unidade de implantação diferente.
+Você pode encontrar a unidade de implantação do seu aplicativo olhando `<deployment-unit>.ftp.azurewebsites.windows.net`para o nome de domínio da URL FTP/S . Verifique e certifique-se de que a unidade de implantação é diferente entre o aplicativo de origem e o aplicativo de destino. A unidade de implantação de um aplicativo é determinada pelo [plano app service](overview-hosting-plans.md) em que está. Ele é selecionado aleatoriamente pelo Azure quando você cria o plano e não pode ser alterado. O Azure só garante que dois planos estejam na mesma unidade de implantação quando você [os cria no mesmo grupo de recursos *e* na mesma região,](app-service-plan-manage.md#create-an-app-service-plan)mas não tem lógica para garantir que os planos estejam em unidades de implantação diferentes. A única maneira de você criar um plano em uma unidade de implantação diferente é continuar criando um plano em um novo grupo de recursos ou região até obter uma unidade de implantação diferente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como associar um certificado SSL personalizado ao Serviço de Aplicativo.
 
 > [!div class="nextstepaction"]
-> [Associar um certificado SSL ao serviço Azure App](configure-ssl-bindings.md)
+> [Vincular um certificado SSL ao serviço de aplicativos do Azure](configure-ssl-bindings.md)

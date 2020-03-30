@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162872"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 A partir do windowsazure.mediaservices 4.0.0.4, os Serviços de Mídia do Azure dão suporte à autenticação baseada no Azure AD (Azure Active Directory). Este tópico mostra como usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o Microsoft .NET.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure. Para obter detalhes, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Uma conta do Azure. Para obter detalhes, consulte [a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Uma conta dos Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure](media-services-portal-create-account.md).
 - O último pacote [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices).
 - Familiaridade com o tópico [Acessando API de serviços de mídia do Azure a visão geral de autenticação do Azure Active Directory](media-services-use-aad-auth-to-access-ams-api.md). 
@@ -90,7 +90,7 @@ O seguinte exemplo de código cria um token:
     var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
     var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
   
-Para começar a programar nos Serviços de Mídia, você precisa criar uma instância **CloudMediaContext** que representa o contexto de servidor. O **CloudMediaContext** inclui referências para coleções importantes incluindo trabalhos, ativos, arquivos, políticas de acesso e localizadores. 
+Para iniciar a programação contra os Serviços de Mídia, você precisa criar uma instância **CloudMediaContext** que represente o contexto do servidor. O **CloudMediaContext** inclui referências para coleções importantes incluindo trabalhos, ativos, arquivos, políticas de acesso e localizadores. 
 
 Você também precisa passar o **URI de recurso dos Serviços de Mídia REST** para o construtor **CloudMediaContext**. Para obter o URI de recurso dos Serviços REST de Mídia, entre no portal do Azure, selecione sua conta dos Serviços de Mídia do Azure, selecione **Acesso à API** e, em seguida, selecione **Conectar aos Serviços de Mídia do Azure com a autenticação de usuário**. 
 
@@ -133,7 +133,7 @@ Para se conectar à API dos Serviços de Mídia do Azure com a opção de entida
 
 - Ponto de extremidade do locatário do Azure AD. As informações do locatário podem ser recuperadas no portal do Azure. Focalize o usuário conectado no canto superior direito.
 - URI de recurso dos Serviços de Mídia.
-- Valores do aplicativo do Azure AD: a **ID do Cliente** e o **Segredo do cliente**.
+- Valores do aplicativo Azure AD: o **Customer ID** e **o client secret**.
 
 Os valores dos parâmetros **ID do Cliente** e **Segredo do cliente** podem ser encontrados no portal do Azure. Para obter mais informações, consulte [Introdução à autenticação do Azure AD usando o portal do Azure](media-services-portal-get-started-with-aad.md).
 
@@ -153,7 +153,7 @@ Para obter instruções sobre como criar e configurar um certificado em um forma
                                 new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
                                 AzureEnvironments.AzureCloudEnvironment);
 
-Para começar a programar nos Serviços de Mídia, você precisa criar uma instância **CloudMediaContext** que representa o contexto de servidor. Você também precisa passar o **URI de recurso dos Serviços de Mídia REST** para o construtor **CloudMediaContext**. Também obtenha o valor do **URI de recurso dos Serviços REST de Mídia** no portal do Azure.
+Para iniciar a programação contra os Serviços de Mídia, você precisa criar uma instância **CloudMediaContext** que represente o contexto do servidor. Você também precisa passar o **URI de recurso dos Serviços de Mídia REST** para o construtor **CloudMediaContext**. Também obtenha o valor do **URI de recurso dos Serviços REST de Mídia** no portal do Azure.
 
 O seguinte exemplo de código cria uma instância **CloudMediaContext**:
 

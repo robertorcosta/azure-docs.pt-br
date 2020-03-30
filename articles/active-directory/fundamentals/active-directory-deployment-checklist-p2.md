@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063638"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implantação de recursos do Azure Active Directory
@@ -26,9 +26,9 @@ Uma infraestrutura de identidade bem planejada e executada abre o caminho para o
 
 Além disso, os clientes podem verificar a respectiva [classificação de segurança da identidade](identity-secure-score.md) para ver o quão alinhados eles estão com as práticas recomendadas da Microsoft. Verifique a sua classificação de segurança antes e depois de implementar essas recomendações para ver o seu desempenho em comparação com outros integrantes do setor e outras organizações do mesmo tamanho.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Muitas das recomendações neste guia podem ser implementadas com Azure AD Gratuito ou sem licença. Quando as licenças são necessárias, declaramos qual licença é necessária, no mínimo, para realizar a tarefa.
+Muitas das recomendações deste guia podem ser implementadas com o Azure AD Free ou sem licença. Quando as licenças são necessárias, declaramos qual licença é necessária, no mínimo, para realizar a tarefa.
 
 Informações adicionais sobre licenciamento podem ser encontradas nas seguintes páginas:
 
@@ -37,7 +37,7 @@ Informações adicionais sobre licenciamento podem ser encontradas nas seguintes
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Diretrizes de licenciamento B2B do Azure Active Directory](../b2b/licensing-guidance.md)
 
-## <a name="phase-1-build-a-foundation-of-security"></a>Fase 1: criar uma base de segurança
+## <a name="phase-1-build-a-foundation-of-security"></a>Fase 1: Construa uma base de segurança
 
 Nessa fase, os administradores habilitam recursos de segurança básicos para criar um alicerce mais seguro e fácil de usar no Azure Active Directory antes de importar ou criar contas de usuário normais. Essa fase inicial garante que você esteja em um estado mais seguro desde o início e que os usuários finais tenham que ser introduzidos a novos conceitos apenas uma vez.
 
@@ -47,18 +47,18 @@ Nessa fase, os administradores habilitam recursos de segurança básicos para cr
 | [Usar funções administrativas não globais sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Dê aos administradores acesso apenas às áreas de que precisam. Nem todos os administradores precisam ser administradores globais. | AD do Azure Gratuito |
 | [Habilitar o Privileged Identity Management para rastreamento do uso da função administrativa](../privileged-identity-management/pim-getting-started.md) | Habilite o Privileged Identity Management para começar a rastrear o uso da função administrativa. | Azure AD Premium P2 |
 | [Distribuir a redefinição de senha de autoatendimento](../authentication/howto-sspr-deployment.md) | Reduza as chamadas à assistência técnica para redefinir senhas permitindo que a equipe redefina as suas próprias senhas com políticas que você define como controlador de administradores. | |
-| [Criar uma lista de senhas banidas personalizada específica da organização](../authentication/howto-password-ban-bad-configure.md) | Impeça os usuários de criarem senhas que contenham palavras ou frases comuns da organização ou da área. | |
+| [Crie uma lista de senhas personalizadas específicas da organização](../authentication/howto-password-ban-bad-configure.md) | Impeça os usuários de criarem senhas que contenham palavras ou frases comuns da organização ou da área. | |
 | [Habilitar a integração local à proteção de senha do Azure Active Directory](../authentication/concept-password-ban-bad-on-premises.md) | Estenda a lista de senhas banidas para o seu diretório local, de modo a garantir que as senhas locais definidas também estejam em conformidade com a lista de senhas específicas banidas do locatário e globais. | Azure AD Premium P1 |
 | [Habilitar diretrizes de senha da Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Pare de exigir que os usuários alterem as respectivas senhas em um intervalo definido, desabilite os requisitos de complexidade e os usuários estarão mais propensos a lembrar de suas senhas e mantê-las em segurança. | AD do Azure Gratuito |
 | [Desabilitar redefinições de senha periódicas para contas de usuário baseadas em nuvem](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | As redefinições de senha periódicas incentivam os usuários a incrementar as senhas existentes. Siga as orientações do documento de diretrizes de senha da Microsoft e espelhe a política local para os usuários apenas de nuvem. | AD do Azure Gratuito |
 | [Personalizar o bloqueio inteligente do Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Impeça que os bloqueios de usuários baseados na nuvem sejam replicados para os usuários locais do Active Directory | |
 | [Habilitar o bloqueio inteligente da Extranet para o AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | O bloqueio de Extranet do AD FS protege contra ataques de detecção de senha de força bruta, ao mesmo tempo que permite aos usuários com AD FS válido continuar usando as respectivas contas. | |
-| [Implantar a autenticação multifator do Azure AD usando políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) | Exigir que os usuários executem a verificação em duas etapas ao acessar aplicativos confidenciais usando políticas de acesso condicional. | Azure AD Premium P1 |
+| [Implantar autenticação multifatorial AD do Azure usando políticas de acesso condicional](../authentication/howto-mfa-getstarted.md) | Exige que os usuários realizem a verificação em duas etapas ao acessar aplicativos sensíveis usando políticas de acesso condicional. | Azure AD Premium P1 |
 | [Ativar a proteção de identidade do Active Directory do Azure](../identity-protection/overview-identity-protection.md) | Habilite o rastreamento de conexões arriscadas e credenciais comprometidas para usuários da sua organização. | Azure AD Premium P2 |
-| [Usar as detecções de risco para disparar a autenticação multifator e as alterações de senha](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite a automação que pode disparar eventos como autenticação multifator, redefinição de senha e bloqueio de conexões com base no risco. | Azure AD Premium P2 |
+| [Use detecções de risco para ativar autenticação multifatorial e alterações de senha](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite a automação que pode disparar eventos como autenticação multifator, redefinição de senha e bloqueio de conexões com base no risco. | Azure AD Premium P2 |
 | [Habilite o registro convergente para redefinição de senha de autoatendimento e Autenticação de Vários Fator do Azure AD (visualização)](../authentication/concept-registration-mfa-sspr-converged.md) | Permita que os usuários se registrem de uma experiência comum na Autenticação Multifator do Microsoft Azure e no autoatendimento de redefinição de senha. | Azure AD Premium P1 |
 
-## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: importar usuários, habilitar a sincronização e gerenciar dispositivos
+## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importar usuários, ativar a sincronização e gerenciar dispositivos
 
 A seguir, fazemos inclusões na base criada na fase 1 importando usuários e habilitando a sincronização, planejando o acesso de convidado e preparando o suporte a recursos adicionais.
 
@@ -68,13 +68,13 @@ A seguir, fazemos inclusões na base criada na fase 1 importando usuários e hab
 | [Implementar a sincronização de Hash de senha](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Sincronize os hashes de senha para permitir a replicação das alterações de senha, a detecção e a correção de senhas incorretas, bem como relatos de credenciais vazadas. | AD do Azure Gratuito |
 | [Implementar o write-back de senha](../authentication/howto-sspr-writeback.md) | Permita que as alterações de senha na nuvem sejam gravadas em um ambiente local do Windows Server Active Directory. | Azure AD Premium P1 |
 | [Implementar o Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Habilite o monitoramento das principais estatísticas de integridade para servidores do Azure AD Connect, servidores do AD FS e controladores de domínio. | Azure AD Premium P1 |
-| [Atribuir licenças aos usuários por associação de grupo no Active Directory do Azure](../users-groups-roles/licensing-groups-assign.md) | Economize tempo e esforço criando grupos de licenciamento que habilitam ou desabilitam recursos por grupo, em vez de configurar cada usuário. | |
+| [Atribuir licenças a usuários por meio da associação a grupos no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Economize tempo e esforço criando grupos de licenciamento que habilitam ou desabilitam recursos por grupo, em vez de configurar cada usuário. | |
 | [Criar um plano para acesso do usuário convidado](../b2b/what-is-b2b.md) | Colabore com usuários convidados permitindo que eles se conectem a seus aplicativos e serviços com as próprias contas corporativas, de estudante ou identidades sociais. | [Diretrizes de licenciamento B2B do Azure Active Directory](../b2b/licensing-guidance.md) |
 | [Decida a estratégia de gerenciamento de dispositivos](../devices/overview.md) | Decida o que é permitido pela organização em relação aos dispositivos. Registro versus ingresso, traga o seu próprio dispositivo versus fornecido pela empresa. | |
-| [Implantar o Windows Hello para Empresas na sua organização](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Preparar a autenticação com senha usando o Windows Hello | |
-| [Implantar métodos de autenticação com senha para seus usuários](../authentication/concept-authentication-passwordless.md) | Forneça aos seus usuários métodos de autenticação convenientes sem senha | Azure AD Premium P1 |
+| [Implantar o Windows Hello para Empresas na sua organização](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare-se para autenticação sem senha usando o Windows Hello | |
+| [Implantar métodos de autenticação sem senha para seus usuários](../authentication/concept-authentication-passwordless.md) | Forneça aos seus usuários métodos convenientes de autenticação sem senha | Azure AD Premium P1 |
 
-## <a name="phase-3-manage-applications"></a>Fase 3: gerenciar aplicativos
+## <a name="phase-3-manage-applications"></a>Fase 3: Gerenciar aplicativos
 
 Conforme continuamos o trabalho iniciado nas fases anteriores, identificamos aplicativos candidatos à migração e integração ao Azure Active Directory, e concluímos a configuração desses aplicativos.
 
@@ -84,7 +84,7 @@ Conforme continuamos o trabalho iniciado nas fases anteriores, identificamos apl
 | [Integrar aplicativos SaaS compatíveis à galeria](../manage-apps/add-application-portal.md) | O Azure Active Directory tem uma galeria que contém milhares de aplicativos pré-integrados. Alguns dos aplicativos que a sua organização usa provavelmente estão na galeria, que pode ser acessada pelo portal do Azure. | AD do Azure Gratuito |
 | [Usar o Proxy de Aplicativo para integrar aplicativos locais](../manage-apps/application-proxy-add-on-premises-application.md) | O Proxy de Aplicativo permite que os usuários acessem aplicativos locais entrando com a respectiva conta do Azure Active Directory. | |
 
-## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: auditar identidades com privilégios, concluir uma revisão de acesso e gerenciar o ciclo de vida do usuário
+## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Fase 4: Audite identidades privilegiadas, complete uma revisão de acesso e gerencie o ciclo de vida do usuário
 
 Na Fase 4 os administradores impõem princípios de privilégio mínimo para a administração, executando suas primeiras revisões de acesso e habilitando a automação de tarefas comuns do ciclo de vida do usuário.
 

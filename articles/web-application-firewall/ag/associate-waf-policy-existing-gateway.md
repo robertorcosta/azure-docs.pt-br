@@ -1,6 +1,6 @@
 ---
-title: Associar uma política de firewall do aplicativo Web a um gateway de Aplicativo Azure existente
-description: Saiba como associar uma política de firewall do aplicativo Web a um gateway de Aplicativo Azure existente.
+title: Associe uma política de firewall de aplicativos da Web com um Gateway de aplicativo Azure existente
+description: Aprenda a associar uma política de Firewall de aplicativos da Web com um Gateway de aplicativo Azure existente.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,17 +8,17 @@ ms.service: web-application-firewall
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: 1ed2e0cf8cc8cd841d8779462d62ba4852774a3a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083899"
 ---
-# <a name="associate-a-waf-policy-with-an-existing-application-gateway"></a>Associar uma política de WAF a um gateway de aplicativo existente
+# <a name="associate-a-waf-policy-with-an-existing-application-gateway"></a>Associar uma política WAF a um gateway de aplicativo existente
 
-Você pode usar Azure PowerShell para [criar uma política de WAF](create-waf-policy-ag.md), mas talvez você já tenha um gateway de aplicativo e queira apenas associar uma política de WAF a ele. Neste artigo, você faz exatamente isso; você cria uma política de WAF e a associa a um gateway de aplicativo já existente. 
+Você pode usar o Azure PowerShell para [criar uma política WAF,](create-waf-policy-ag.md)mas você pode já ter um Gateway de aplicativo e só deseja associar uma política WAF a ela. Neste artigo, você faz exatamente isso; você cria uma política WAF e a associa a um Gateway de aplicativo já existente. 
 
-1. Obtenha o gateway de aplicativo e a política de firewall. Se você não tiver uma política de firewall existente, consulte a etapa 2. 
+1. Obtenha sua política de gateway de aplicativo e firewall. Se você não tiver uma Política de Firewall existente, consulte o passo 2. 
 
    ```azurepowershell-interactive
       Connect-AzAccount
@@ -29,17 +29,17 @@ Você pode usar Azure PowerShell para [criar uma política de WAF](create-waf-po
       $policy = Get-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>`
    ```
 
-2. Adicional Criar uma política de firewall.
+2. (Opcional) Crie uma política de firewall.
 
    ```azurepowershell-interactive
       New-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>'
       $policy = Get-AzApplicationGatewayFirewallPolicy -Name <policy name> -ResourceGroupName <RG name>`
    ```
    > [!NOTE]
-   > Se você estiver criando essa política de WAF para fazer a transição de uma configuração de WAF para uma política de WAF, a política precisará ser uma cópia exata de sua configuração antiga. Isso significa que cada exclusão, regra personalizada, grupo de regras desabilitado, etc., precisa ser exatamente o mesmo que está na configuração de WAF.
-3. Adicional Você pode configurar a política de WAF para atender às suas necessidades. Isso inclui regras personalizadas, desabilitando regras/grupos de regra, exclusões, definindo limites de carregamento de arquivo, etc. Se você ignorar essa etapa, todos os padrões serão selecionados. 
+   > Se você está criando esta Diretiva WAF para a transição de uma configuração WAF para uma diretiva WAF, então a Diretiva precisa ser uma cópia exata da sua antiga Configuração. Isso significa que toda exclusão, regra aduaneira, grupo de regras desativado, etc. precisa ser exatamente o mesmo que é na Configuração WAF.
+3. (Opcional) Você pode configurar a política waf para atender às suas necessidades. Isso inclui regras personalizadas, desabilitação de regras/grupos de regras, exclusões, definição de limites de upload de arquivos, etc. Se você pular esta etapa, todos os padrões serão selecionados. 
    
-4. Salve a política e anexe-a ao seu gateway de aplicativo. 
+4. Salve a diretiva e anexe-a ao gateway de aplicativo. 
    
    ```azurepowershell-interactive
       #Save the policy itself

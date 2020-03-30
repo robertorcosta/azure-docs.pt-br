@@ -1,5 +1,5 @@
 ---
-title: Um conjunto incorreto de usuários é provisionado para um aplicativo da galeria do Azure AD
+title: O conjunto errado de usuários é provisionado para um aplicativo azure AD Gallery
 description: Descubra por que um conjunto diferente de usuários está sendo provisionado para um aplicativo em vez dos usuários esperados
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c94388011605da73666e82011bb8ef56d2af8d30
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522774"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD
@@ -33,7 +33,7 @@ Use os recursos a seguir para saber como verificar quais usuários e grupos fora
 
 Para atribuir um ou mais usuários a um aplicativo diretamente, siga estas etapas:
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -43,7 +43,7 @@ Para atribuir um ou mais usuários a um aplicativo diretamente, siga estas etapa
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
@@ -71,7 +71,7 @@ Se o provisionamento estiver configurado e em execução para um aplicativo, nov
 
 Para atribuir um ou mais usuários diretamente a um aplicativo, siga estas etapas:
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1. Abra o [**portal Azure**](https://portal.azure.com/) e faça login como **administrador global.**
 
 2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
@@ -81,7 +81,7 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga estas etapa
 
 5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não ver o aplicativo que deseja aparecer aqui, use o controle **Filtro** na parte superior da **Lista todos os aplicativos** e defina a opção **Mostrar** para Todos **os Aplicativos.**
 
 6. Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
@@ -113,4 +113,4 @@ Se o provisionamento estiver configurado e em execução para um aplicativo, nov
 Se o provisionamento de grupos é habilitado, certifique-se de rever os mapeamentos de atributos para garantir que um campo apropriado está sendo usado para a "ID correspondente". Essa ID correspondente pode ser o nome de exibição ou o alias do email. O grupo e seus membros não serão provisionados se a propriedade correspondente estiver vazia ou não for populada para um grupo no Microsoft Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](user-provisioning.md)
+[Automatize o provisionamento e o desprovisionamento do usuário para aplicativos SaaS com o Azure Active Directory](user-provisioning.md)

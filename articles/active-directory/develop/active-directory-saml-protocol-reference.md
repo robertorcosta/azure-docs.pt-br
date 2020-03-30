@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: dc7771f29fb5d00aedfe5162a98f5f0c14544a7b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161164"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Como o Azure AD usa o protocolo SAML
@@ -32,8 +32,8 @@ O Azure AD usa o **URI de Metadados** do serviço de nuvem para recuperar a chav
 
 O Azure Active Directory expõe pontos de extremidade de logon único e logout único comuns e específicos de locatário (independente do locatário). Essas URLs representam os locais endereçáveis (não são apenas identificadores) para que você possa ir ao ponto de extremidade ler os metadados.
 
-* O ponto de extremidade específico do locatário está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. O espaço reservado *\<TenantDomainName >* representa um nome de domínio registrado ou um GUID tenantid de um locatário do Azure AD. Por exemplo, os metadados de federação do locatário contoso.com estão em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* O ponto de extremidade específico do locatário está localizado em `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. O espaço reservado * \<de>TenantDomainName* representa um nome de domínio registrado ou Guia TenantID de um inquilino Azure AD. Por exemplo, os metadados de federação do locatário contoso.com estão em: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * O ponto de extremidade independente de locatário está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. No endereço desse ponto de extremidade, **comum** é exibido, em vez de um nome de domínio do locatário ou ID.
 
-Para saber mais sobre os documentos de metadados federados que o Azure AD publica, confira [Metadados Federados](../azuread-dev/azure-ad-federation-metadata.md).
+Para obter informações sobre os documentos de metadados da federação que o Azure AD publica, consulte [Metadados da Federação](../azuread-dev/azure-ad-federation-metadata.md).

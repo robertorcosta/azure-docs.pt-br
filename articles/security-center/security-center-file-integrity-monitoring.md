@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
 ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604279"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
@@ -37,10 +37,10 @@ A Central de Segurança recomenda entidades para serem monitoradas, nas quais vo
 > [!NOTE]
 > O recurso de FIM (Monitoramento de Integridade de Arquivo) funciona para computadores e VMs Windows e Linux e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 
-O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [controle de alterações detalhes da coleta de dados](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para controle de alterações do Azure.
+O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade do arquivo é ativado, você tem um recurso de rastreamento de **alteração** da solução de **tipo**. Para obter detalhes da freqüência de coleta de dados, consulte [Os detalhes da coleta de dados](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) do Alterar para o Azure Change Tracking.
 
 > [!NOTE]
-> Se você remover o recurso de **controle de alterações** , desabilitará também o recurso de monitoramento de integridade de arquivo na central de segurança.
+> Se você remover o recurso **'Alterar rastreamento',** você também desativará o recurso De monitoramento de integridade de arquivos no Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>Quais arquivos devo monitorar?
 Você deve pensar sobre os arquivos que são críticos para seu sistema e aplicativos ao escolher quais arquivos monitorar. Considere a possibilidade de escolher os arquivos que você não pretende alterar sem planejamento. Escolher arquivos que são alterados com frequência por aplicativos ou sistema operacional (como arquivos de log e arquivos de texto) cria muito ruído que torna difícil de identificar um ataque.
@@ -93,7 +93,7 @@ O painel do **Monitoramento de integridade de arquivo** é exibido para workspac
 
 ![Painel do Monitoramento de Integridade de Arquivo][6]
 
-O painel do FIM de um espaço de trabalho exibe os seguintes detalhes:
+O painel FIM para um espaço de trabalho exibe os seguintes detalhes:
 
 - Número total de computadores conectados ao workspace
 - Número total de alterações que ocorreram durante o período selecionado
@@ -109,7 +109,7 @@ A guia **Computadores** (mostrada acima) lista todos os computadores que se repo
 - Total de alterações que ocorreram durante o período selecionado
 - Uma divisão do total de alterações como alterações de arquivo ou do Registro
 
-A **pesquisa de logs** é aberta quando você insere um nome de computador no campo de pesquisa ou seleciona um computador listado na guia computadores. a pesquisa de log exibe todas as alterações feitas durante o período de tempo selecionado para o computador. Você pode expandir uma alteração para obter mais informações.
+**A pesquisa de log** é aberta quando você digita um nome de máquina no campo de pesquisa ou seleciona uma máquina listada na guia Computadores. Log Search exibe todas as alterações feitas durante o período de tempo selecionado para a máquina. Você pode expandir uma alteração para obter mais informações.
 
 ![Pesquisa de log][8]
 
@@ -177,7 +177,7 @@ Em **Editar para Controle de Alterações** você pode:
 
    ![Definir Habilitado como false][19]
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitoramento usando caracteres curinga
 
@@ -199,13 +199,13 @@ Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações 
 4. Selecione **Remover** para desabilitar.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a usar o FIM (monitoramento de integridade de arquivo) na central de segurança. Para saber mais sobre a central de segurança, consulte as seguintes páginas:
+Neste artigo, você aprendeu a usar o File Integrity Monitoring (FIM) no Security Center. Para saber mais sobre o Security Center, consulte as seguintes páginas:
 
-* [Configurando políticas de segurança](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Definindo políticas de segurança](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar recomendações de segurança](security-center-recommendations.md): saiba como as recomendações ajudam a proteger seus recursos do Azure.
 * [Monitoramento da integridade da segurança](security-center-monitoring.md): saiba como monitorar a integridade dos seus recursos do Azure.
 * [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitorar as soluções de parceiros](security-center-partner-solutions.md): saiba como monitorar o status da integridade de suas soluções de parceiros.
+* [Monitoramento de soluções de parceiros](security-center-partner-solutions.md) -- Saiba como monitorar o estado de saúde das soluções de seu parceiro.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->

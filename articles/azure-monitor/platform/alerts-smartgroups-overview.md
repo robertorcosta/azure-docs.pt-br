@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665486"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
@@ -56,7 +56,7 @@ A página de detalhes do grupo inteligente inclui as seções a seguir.
 
 O nome de um grupo inteligente é o nome do seu primeiro alerta. Você não pode criar ou renomear um grupo inteligente.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Gerenciar grupos inteligentes](https://aka.ms/managing-smart-groups)
 - [Alterar o estado do grupo inteligente e o alerta](https://aka.ms/managing-alert-smart-group-states)

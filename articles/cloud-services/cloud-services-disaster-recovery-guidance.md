@@ -1,5 +1,5 @@
 ---
-title: Lidando com uma interrupção de serviço do Azure que afeta os serviços de nuvem do Azure
+title: Lidar com uma interrupção de serviço do Azure que impacta os Serviços de Nuvem do Azure
 titleSuffix: Azure Cloud Services
 description: Saiba o que fazer no caso uma interrupção de serviço do Azure que afete os Serviços de Nuvem do Azure.
 services: cloud-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
 ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157499"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer no caso de uma interrupção de serviço do Azure que afete os Serviços de Nuvem do Azure
@@ -46,7 +46,7 @@ Para obter mais detalhes sobre como criar e implantar um aplicativo de serviço 
 
 Dependendo das fontes de dados do aplicativo, você precisa verificar os procedimentos de recuperação para a fonte de dados do aplicativo.
 
-* Para as fontes de dados do armazenamento do Azure, consulte [redundância de armazenamento do Azure](../storage/common/storage-redundancy.md) para verificar as opções disponíveis com base no modelo de redundância escolhido para seu aplicativo.
+* Para fontes de dados do Azure Storage, consulte [a redundância do Azure Storage](../storage/common/storage-redundancy.md) para verificar as opções disponíveis com base no modelo de redundância escolhido para o seu aplicativo.
 * Para fontes de Banco de Dados SQL, confira [Visão geral: continuidade de negócios em nuvem e recuperação de desastre de banco de dados com o Banco de Dados SQL](../sql-database/sql-database-business-continuity.md) para conhecer as opções disponíveis com base no modelo de replicação escolhido para o aplicativo.
 
 

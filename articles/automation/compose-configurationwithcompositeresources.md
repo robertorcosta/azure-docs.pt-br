@@ -7,10 +7,10 @@ ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
 ms.openlocfilehash: e5083ec55ee0a57cd7defd466f5baf1704336320
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77370656"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compor configurações de DSC na configuração do estado de automação do Azure (DSC) usando recursos compostos
@@ -18,26 +18,26 @@ ms.locfileid: "77370656"
 Quando um recurso precisa ser gerenciado com mais de uma configuração de configuração de estado desejado (DSC), o melhor caminho é usar [recursos compostos](/powershell/scripting/dsc/resources/authoringresourcecomposite). Um recurso composto é uma configuração aninhada e parametrizada sendo usada como um recurso DSC em outra configuração. Isso permite a criação de configurações complexas, permitindo que os recursos compostos subjacentes (configurações parametrizadas) sejam gerenciados e construídos individualmente.
 
 A Automação do Azure permite a [importação e a compilação de recursos compostos](automation-dsc-compile.md).
-Depois que os recursos compostos tiverem sido importados para sua conta de automação, você poderá usar a experiência **Compor configuração** na página **Configuração do estado (DSC)** .
+Depois que os recursos compostos tiverem sido importados para sua conta de automação, você poderá usar a experiência **Compor configuração** na página **Configuração do estado (DSC)**.
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Compor uma configuração a partir de recursos compostos
 
-Antes de atribuir uma configuração feita a partir de recursos compostos no portal do Azure, você deve escrevê-la. Isso pode ser feito usando **Configuração do Compose** na página **Configuração de Estado (DSC)** enquanto estiver nas guias **Configurações** ou  **Configuração Compilada**.
+Antes de atribuir uma configuração feita a partir de recursos compostos no portal do Azure, você deve escrevê-la. Isso pode ser feito usando **Configuração do Compose** na página **Configuração de Estado (DSC)** enquanto estiver nas guias **Configurações** ou ** Configuração Compilada**.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
-1. Na página **Conta de Automação**, selecione **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
-1. Na página **Configuração de estado (DSC)** , clique na guia **Configurações** ou **Configurações compiladas** e clique em **Compor configuração** no menu em o topo da página.
+1. Na página **da conta Automação,** selecione **Configuração de Estado (DSC)** em **Gerenciamento de Configuração**.
+1. Na página **Configuração de estado (DSC)**, clique na guia **Configurações** ou **Configurações compiladas** e clique em **Compor configuração** no menu em o topo da página.
 1. Na etapa **Básico**, forneça o novo nome de configuração (obrigatório) e clique em qualquer lugar na linha de cada recurso composto que você deseja incluir em sua nova configuração. Em seguida, clique em **Avançar** ou clique no passo **código fonte**. Para as etapas a seguir, selecionamos **PSExecutionPolicy** e **recursos compostos de RenameAndDomainJoin**.
    ![Captura de tela da etapa básica da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. O **código-fonte** etapa mostra a aparência a configuração composta dos recursos de composição selecionados. Você pode ver a mesclagem de todos os parâmetros e como eles são passados para o recurso composto. Quando você terminar de revisar o novo código-fonte, clique em **Próximo** ou clique na etapa **Parâmetros**.
    ![Captura de tela da etapa de código de origem da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
-1. Na etapa **Parâmetros**, o parâmetro que cada recurso composto possui está exposto para que eles possam ser fornecidos. Se um parâmetro tiver uma descrição, ele será exibido ao lado do campo do parâmetro. Se um campo for um parâmetro do tipo **PSCredential**, o menu suspenso a configurar fornecerá uma lista de objetos **Credential** na conta de automação atual. Uma opção **+ Adicionar uma credencial** também está disponível. Depois que todos os parâmetros necessários tiverem sido fornecidos, clique em **Salvar e compilar**.
+1. Na etapa **Parâmetros**, o parâmetro que cada recurso composto possui está exposto para que eles possam ser fornecidos. Se um parâmetro tiver uma descrição, ele será exibido ao lado do campo do parâmetro. Se um campo for um parâmetro do tipo **PSCredential**, o menu suspenso a configurar fornecerá uma lista de objetos **Credential** na conta de automação atual. A + Adicionar uma opção **de credencial** também está disponível. Depois que todos os parâmetros necessários tiverem sido fornecidos, clique em **Salvar e compilar**.
    ![Captura de tela da etapa de parâmetros da página de configuração de composição](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 Depois que a nova configuração é salva, ela é enviada para compilação. O status do trabalho de compilação pode ser visualizado como qualquer configuração importada. Para mais informações, consulte [Visualizando um trabalho de compilação](automation-dsc-getting-started.md#viewing-a-compilation-job).
 
-Quando a compilação for concluída com êxito, a nova configuração aparecerá na guia **configurações compiladas** . Quando estiver visível nessa guia, ela poderá ser atribuída a um nó gerenciado usando as etapas em [reatribuir um nó a uma configuração de nó diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Quando a compilação for concluída com sucesso, a nova configuração será exibida na guia **Configurações Compiladas.** Uma vez visível nesta guia, ele pode ser atribuído a um nó gerenciado usando as etapas em [Reatribuir um nó a uma configuração de nó diferente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Próximas etapas
 

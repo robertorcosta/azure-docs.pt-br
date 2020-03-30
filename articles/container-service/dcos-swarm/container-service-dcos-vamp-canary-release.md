@@ -8,10 +8,10 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77189101"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços da versão Canário com Vamp no cluster de DC/SO do Serviço de Contêiner do Azure
@@ -42,13 +42,13 @@ A [versão canário](https://martinfowler.com/bliki/CanaryRelease.html) é uma e
 
 ## <a name="set-up-vamp"></a>Configurar o Vamp
 
-Agora que você tem um cluster DC/OS em execução, é possível instalar o modestas da interface do usuário do DC/OS (http:\//localhost: 80). 
+Agora que você tem um cluster DC/OS em execução, você pode\/instalar vamp a partir da UI DC/OS (http: /localhost:80). 
 
 ![Interface do usuário do DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
 A instalação é feita em duas etapas:
 
-1. **Implantar Elasticsearch**.
+1. **Implantar o Elasticsearch**.
 
 2. Em seguida, **Implantar Vamp** instalando o pacote universal do DC/SO do Vamp.
 
@@ -151,7 +151,7 @@ Esse cenário usa um aplicativo monolítico de exemplo chamado [**sava**](https:
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. Clique em **Save** (Salvar). O Vamp inicia a implantação.
+4. Clique em **Salvar**. O Vamp inicia a implantação.
 
 A implantação é listada na página **Implantações**. Clique na implantação para monitorar seu status.
 
@@ -211,7 +211,7 @@ Para mesclar o novo serviço sava 1.1 com a implantação em execução:
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Clique em **Save** (Salvar). O plano gráfico é armazenado e listado na página **Planos gráficos**.
+3. Clique em **Salvar**. O plano gráfico é armazenado e listado na página **Planos gráficos**.
 
 4. Abra o menu de ação no plano gráfico do sava: 1.1 e clique em **Mesclar para**.
 

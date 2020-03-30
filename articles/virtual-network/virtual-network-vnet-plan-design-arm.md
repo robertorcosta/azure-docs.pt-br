@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
 ms.openlocfilehash: 6e066d28afc4b0959b15284378cde682fbc05615
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190474"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
@@ -77,12 +77,12 @@ Você pode filtrar o tráfego de rede para e de recursos em uma rede virtual usa
 - Se diferentes VMs dentro de uma sub-rede estiverem dentro das regras de segurança aplicadas a elas, você pode associar a interface de rede na VM a um ou mais grupos de segurança do aplicativo. Uma regra de segurança pode especificar um grupo de segurança do aplicativo em sua origem, destino ou ambos. Essa regra, em seguida, só se aplica às interfaces de rede que são membros do grupo de segurança de aplicativos. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [grupos de segurança de aplicativo](security-overview.md#application-security-groups).
 - O Azure cria várias regras de segurança padrão dentro de cada grupo de segurança de rede. Uma regra padrão permite que todo o tráfego flua entre todos os recursos em uma rede virtual. Para substituir esse comportamento, use os grupos de segurança de rede, personalizar roteamento para rotear o tráfego a um NVA, ou ambos. É recomendável que você se familiarize com todas regras de segurança padrão do Azure [padrão de regras de segurança](security-overview.md#default-security-rules) e compreenda como as regras de grupo de segurança de rede são aplicadas a um recurso.
 
-Você pode exibir os designs de exemplo para implementar uma rede de perímetro (também conhecida como DMZ) entre o Azure e a Internet usando um [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+Você pode visualizar projetos de exemplo para implementar uma rede de perímetro (também conhecida como DMZ) entre o Azure e a internet usando um [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Roteamento de tráfego
 
 O Azure cria várias rotas padrão para tráfego de saída de uma sub-rede. Você pode substituir o roteamento padrão do Azure criando uma tabela de roteamento e associando-a a uma sub-rede. Os motivos comuns para a substituição padrão do roteamento do Azure são:
-- Porque você deseja que o tráfego entre as sub-redes flua por uma NVA. Para saber mais sobre como [configurar tabelas de rotas para forçar o tráfego por meio de uma NVA](tutorial-create-route-table-portal.md).
+- Porque você deseja que o tráfego entre as sub-redes flua por uma NVA. Para saber mais sobre como [configurar tabelas de rotas para forçar o tráfego através de um NVA](tutorial-create-route-table-portal.md).
 - Porque deseja forçar todo o tráfego direcionado à internet por meio de uma NVA, ou no local, por meio de um gateway de VPN do Azure. Forçar o tráfego de internet no local para inspeção e registro em log também é conhecido como túnel forçado. Saiba mais sobre como configurar o [túnel forçado](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 Se você precisar implementar roteamento personalizado, é recomendável que você se familiarize com [roteamento no Azure](virtual-networks-udr-overview.md).
@@ -99,7 +99,7 @@ Ao usar [emparelhamento de rede virtual](virtual-network-peering-overview.md), a
 
 Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure para se conectar a uma rede virtual para sua rede local usando um [VPN site a site](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou usando uma conexão dedicada ao Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-É possível combinar emparelhamento e um gateway de VPN para criar [redes de spoke e hub](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), em que as redes virtuais spoke conectam-se a uma rede virtual do hub e o hub conecta-se a uma rede local, por exemplo.
+Você pode combinar peering e um gateway VPN para criar [redes de hub e spoke,](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)onde redes virtuais faladas se conectam a uma rede virtual de hub, e o hub se conecta a uma rede local, por exemplo.
 
 ### <a name="name-resolution"></a>Resolução de nomes
 
@@ -113,7 +113,7 @@ O Azure utiliza o [controle de acesso com base na regra](../role-based-access-co
 
 O Azure Policy habilita que você crie, atribua ou gerencie definições de política. As definições de políticas impõem regras diferentes sobre os recursos, portanto, os recursos permanecem em conformidade com os padrões organizacionais e contratos de nível de serviço. O Azure Policy executa uma avaliação dos recursos, verificando os recursos que não estão em conformidade com as definições de política que você tem. Por exemplo, é possível definir e aplicar uma política que permita a criação de redes virtuais em apenas um grupo ou região de recursos específicos. Outra política pode exigir que cada sub-rede tenha um grupo de segurança de rede associado a ela. As políticas então são avaliadas durante a criação e a atualização de recursos.
 
-As políticas são aplicadas à hierarquia a seguir: grupo de gerenciamento, assinatura e grupo de recursos. Saiba mais sobre os modelos da [política do Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implantar uma rede virtual [modelo de política](policy-samples.md).
+As políticas são aplicadas à seguinte hierarquia: grupo de gerenciamento, assinatura e grupo de recursos. Saiba mais sobre os modelos da [política do Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implantar uma rede virtual [modelo de política](policy-samples.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

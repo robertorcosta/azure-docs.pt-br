@@ -1,5 +1,5 @@
 ---
-title: Código do arquivo de evento XEvent
+title: Código de arquivo de evento XEvent
 description: Fornece PowerShell e Transact-SQL para um exemplo de código de duas fases que demonstra o destino de Arquivo de evento em um evento estendido no Banco de Dados SQL do Azure. O Armazenamento do Azure é uma parte obrigatória deste cenário.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
 ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213988"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino do Arquivo de evento para eventos estendidos no Banco de Dados SQL
@@ -34,14 +34,14 @@ Este tópico apresenta um exemplo de código em duas fases:
   - Para atribuir o contêiner de Armazenamento do Azure a um destino de Arquivo de evento.
   - Para criar e iniciar a sessão de evento etc.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para obter esses cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
-- Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma conta e uma assinatura do Azure. Você pode se inscrever para um [teste gratuito.](https://azure.microsoft.com/pricing/free-trial/)
 - Qualquer banco de dados no qual você possa criar uma tabela.
   
   - Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
@@ -54,7 +54,7 @@ Este tópico apresenta um exemplo de código em duas fases:
 
 - Você deve ter os [módulos do Azure PowerShell](https://go.microsoft.com/?linkid=9811175) instalados.
 
-  - Os módulos fornecem comandos como- **New-AzStorageAccount**.
+  - Os módulos fornecem comandos como - **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código do PowerShell para o contêiner de Armazenamento do Azure
 
@@ -74,7 +74,7 @@ O script começa com comandos para limpeza após uma possível execução anteri
 
 ### <a name="powershell-code"></a>Código do PowerShell
 
-Este script do PowerShell pressupõe que você já instalou o módulo AZ. Para obter informações, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
+Este script PowerShell pressupõe que você já instalou o módulo Az. Para obter informações, consulte [Instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -442,9 +442,9 @@ GO
 
 ## <a name="output"></a>Saída
 
-Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event_data_XML**. Um **\<elemento > de evento** é exibido, que mostra uma instrução UPDATE.
+Após a conclusão do script Transact-SQL, clique em uma célula sob o cabeçalho da coluna **event_data_XML**. Um ** \<elemento>de evento** é exibido que mostra uma declaração UPDATE.
 
-Aqui está um **\<** elemento de > de evento que foi gerado durante o teste:
+Aqui está ** \<** um evento>elemento que foi gerado durante o teste:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -510,7 +510,7 @@ Para saber mais sobre contas e contêineres no serviço de Armazenamento do Azur
 - [Como usar o Armazenamento de blob do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [Nomeando e referenciando contêineres, blobs e metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Trabalhando com o contêiner raiz](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lição 1: Criar uma política de acesso armazenado e uma assinatura de acesso compartilhado em um contêiner do Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+- [Lição 1: Crie uma política de acesso armazenada e uma assinatura de acesso compartilhada em um contêiner Azure](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lição 2: Criar uma credencial do SQL Server usando uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Eventos estendidos para o Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 

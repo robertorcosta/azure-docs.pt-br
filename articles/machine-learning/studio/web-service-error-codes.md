@@ -1,5 +1,5 @@
 ---
-title: Códigos de erro da API REST-Azure Machine Learning Studio (clássico) | Microsoft Docs
+title: Códigos de erro rest API - Azure Machine Learning Studio (clássico) | Microsoft Docs
 description: Esses códigos de erro podem ser retornados por uma operação em um serviço Web do Machine Learning do Azure.
 keywords: ''
 services: machine-learning
@@ -13,23 +13,23 @@ ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
 ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217767"
 ---
-# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Códigos de erro da API REST do Azure Machine Learning Studio (clássico)
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (clássico) CÓDIGOS de erro da API REST
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
-Os códigos de erro a seguir podem ser retornados por uma operação em um serviço Web Azure Machine Learning Studio (clássico).
+Os seguintes códigos de erro podem ser devolvidos por uma operação em um serviço web do Azure Machine Learning Studio (clássico).
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (código de status HTTP 400)
  
 Argumento inválido fornecido.
  
-Essa classe de erros significa que um argumento fornecido em algum lugar foi inválido. Isso pode ser uma credencial ou um local de armazenamento do Azure para algo passado para o serviço Web. Consulte o campo "código" do erro na seção "detalhes" para diagnosticar qual argumento específico era inválido.
+Essa classe de erros significa que um argumento fornecido em algum lugar foi inválido. Isso pode ser uma credencial ou um local de armazenamento do Azure para algo passado para o serviço Web. Por favor, olhe para o campo "código" de erro na seção "detalhes" para diagnosticar qual argumento específico era inválido.
  
 | Código do erro | Mensagem do usuário |
 | ---------- |--------------|
@@ -67,7 +67,7 @@ Essa classe de erros significa que um argumento fornecido em algum lugar foi inv
 | MissingWebServicePackage | Nenhum pacote de Serviço Web fornecido. Forneça um pacote de serviço Web válido e tente novamente. |
 | MissingWorkspaceId | Nenhuma Id do workspace fornecida. Forneça uma Id do workspace válida e tente novamente. |
 | ModelConfigurationInvalid | Configuração do modelo inválida no pacote do modelo. Verifique se a configuração do modelo contém a definição do(s) ponto(s) de extremidade de saída, ponto de extremidade de erro padrão, ponto de extremidade de saída padrão e tente novamente. |
-| ModelPackageIdInvalid | ID de pacote de modelo inválida. Verifique se a ID do pacote de modelo está correta e tente novamente. |
+| ModelPackageIdInvalid | Identificação do pacote do modelo inválido. Verifique se o ID do pacote do modelo está correto e tente novamente. |
 | RequestBodyInvalid | Não há corpo de solicitação fornecido ou erro ao desserializar o corpo da solicitação. |
 | RequestIsEmpty | Nenhuma solicitação fornecida. Forneça uma solicitação válida e tente novamente. |
 | UnexpectedParameter | Parâmetros inesperados fornecidos. Verifique se todos os nomes de parâmetro estão escritos corretamente, somente os parâmetros esperados são passados e tente novamente. |

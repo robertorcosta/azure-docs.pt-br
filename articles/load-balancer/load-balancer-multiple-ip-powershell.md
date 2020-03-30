@@ -1,7 +1,7 @@
 ---
 title: Balanceamento de carga em várias configurações de IP na CLI do Azure
 titleSuffix: Azure Load Balancer
-description: Neste artigo, saiba mais sobre o balanceamento de carga nas configurações de IP primário e secundário usando CLI do Azure.
+description: Neste artigo, aprenda sobre balanceamento de carga entre configurações ip primárias e secundárias usando o Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 6ac9e362314cc45e6adbdcf1390f70cbe6b05de8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075972"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Balanceamento de carga em várias configurações de IP usando o PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](load-balancer-multiple-ip.md)
-> * [CLI](load-balancer-multiple-ip-cli.md)
-> * [PowerShell](load-balancer-multiple-ip-powershell.md)
+> * [Cli](load-balancer-multiple-ip-cli.md)
+> * [Powershell](load-balancer-multiple-ip-powershell.md)
 
 
 Este artigo descreve como usar o Azure Load Balancer com vários endereços IP em uma interface de rede secundária (NIC). Para este cenário, temos duas VMs executando o Windows, cada uma com uma NIC principal e uma secundária. Cada uma das NICs secundárias tem duas configurações de IP. Cada VM hospeda os sites contoso.com e fabrikam.com. Cada site está associado a uma das configurações de IP na NIC secundária. Usamos o Azure Load Balancer para expor dois endereços IP front-end, um para cada site, a fim de distribuir o tráfego para a respectiva configuração de IP do site. Esse cenário usa o mesmo número de porta entre os front-ends, bem como os dois endereços IP do pool de back-end.
@@ -143,4 +143,4 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas do balanceador de carga nos [logs de Azure monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba como usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas do balanceador de carga nos [registros do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

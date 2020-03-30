@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77566056"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET  
@@ -27,12 +27,12 @@ ms.locfileid: "77566056"
 
 Este tutorial o orienta ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de VoD (Vídeo sob Demanda) com o aplicativo AMS (Serviços de Mídia do Azure) usando o SDK .NET dos Serviços de Mídia do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os itens a seguir são necessários para concluir o tutorial:
 
-* Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
+* Uma conta do Azure. Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de serviços de mídia](media-services-portal-create-account.md).
 * .NET Framework 4.0 ou posterior.
 * Visual Studio.
 
@@ -66,7 +66,7 @@ Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?a
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns o fornecimento de vídeo via streaming de taxa de bits adaptável. Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
+>Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar a embalagem dinâmica e a criptografia dinâmica, o ponto final de streaming a partir do qual você deseja transmitir conteúdo tem que estar no estado **em execução.**
 
 Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
@@ -81,7 +81,7 @@ Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+1. Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
 2. Crie uma nova pasta (a pasta pode estar em qualquer lugar na unidade local) e copie um arquivo .mp4 que você deseja codificar e transmitir ou baixar progressivamente. Este exemplo usa o caminho "C:\VideoFiles".
 
 ## <a name="connect-to-the-media-services-account"></a>Conectar-se à conta dos Serviços de Mídia
@@ -152,11 +152,11 @@ A função **Main** chama métodos que serão definidos posteriormente nesta se�
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Criar um novo ativo e carregar um arquivo de vídeo
 
-No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming adicionais. Os arquivos no ativo são chamados **Arquivos de Ativo**.
+No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legendas fechadas (e os metadados sobre esses arquivos.)  Uma vez que os arquivos são carregados, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming posteriores. Os arquivos no ativo são chamados **Arquivos de Ativo**.
 
 O método **UploadFile** definido abaixo chama **CreateFromFile** (definido em extensões do SDK .NET). **CreateFromFile** cria um novo ativo no qual o arquivo de origem especificado é carregado.
 
-O método **CreateFromFile** contém **AssetCreationOptions**, o que permite especificar uma das seguintes opções de criação de ativos:
+O método **CreateFromFile** leva **AssetCreationOptions**, o que permite especificar uma das seguintes opções de criação de ativos:
 
 * **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
   Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
@@ -246,7 +246,7 @@ Depois de criar os localizadores, você pode criar as URLs que seriam usadas par
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Uma URL de streaming para MPEG DASH tem o seguinte formato:
 
-{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest **(format=mpd-time-csf)**
+{streaming endpoint name-media services conta nome}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest **(format=mpd-time-csf)**
 
 #### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Uma URL de streaming para HLS tem o seguinte formato:
 
@@ -378,7 +378,7 @@ Para testar o download progressivo, cole uma URL em um navegador (por exemplo, I
 Para obter mais informações, consulte estes tópicos:
 
 - [Reprodução de seu conteúdo com players existentes](media-services-playback-content-with-existing-players.md)
-- [Inserindo um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+- [Inserção de um vídeo de streaming adaptável MPEG-DASH em um aplicativo HTML5 com DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Baixar exemplo
 O exemplo de código a seguir contém o código que você criou neste tutorial: [exemplo](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).

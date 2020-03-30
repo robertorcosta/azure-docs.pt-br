@@ -4,20 +4,20 @@ description: Saiba como testar a unidade das Funções Duráveis.
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74231217"
 ---
 # <a name="durable-functions-unit-testing"></a>Testes de unidade de Funções Duráveis
 
-Os testes de unidade são uma parte importante de modernas práticas de desenvolvimento de software. Testes de unidade verificam o comportamento de lógica de negócios e protegem contra a introdução de alterações com falhas despercebidas no futuro. As Funções Duráveis podem facilmente aumentar a complexidade, então introduzir testes de unidade ajudará a evitar alterações com falha. As seções a seguir explicam como testar a unidade dos três tipos de função: o cliente de orquestração, o Orchestrator e as funções de atividade.
+Os testes de unidade são uma parte importante de modernas práticas de desenvolvimento de software. Testes de unidade verificam o comportamento de lógica de negócios e protegem contra a introdução de alterações com falhas despercebidas no futuro. As Funções Duráveis podem facilmente aumentar a complexidade, então introduzir testes de unidade ajudará a evitar alterações com falha. As seções a seguir explicam como testar os três tipos de função - Funções de orchestração, orquestrador e atividade.
 
 > [!NOTE]
-> Este artigo fornece diretrizes para testes de unidade para Durable Functions aplicativos direcionados Durable Functions 1. x. Ele ainda não foi atualizado para considerar as alterações introduzidas no Durable Functions 2. x. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> Este artigo fornece orientação para testes unitários para aplicativos de funções duráveis direcionados a Funções Duráveis 1.x. Ele ainda não foi atualizado para explicar as alterações introduzidas nas Funções Duráveis 2.x. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os exemplos neste artigo requerem conhecimento sobre os conceitos e as estruturas a seguir:
 
@@ -31,7 +31,7 @@ Os exemplos neste artigo requerem conhecimento sobre os conceitos e as estrutura
 
 ## <a name="base-classes-for-mocking"></a>Classes base para a simulação
 
-Há suporte para a simulação por meio de três classes abstratas no Durable Functions 1. x:
+O mocking é suportado através de três classes abstratas em Funções Duráveis 1.x:
 
 * `DurableOrchestrationClientBase`
 
@@ -39,9 +39,9 @@ Há suporte para a simulação por meio de três classes abstratas no Durable Fu
 
 * `DurableActivityContextBase`
 
-Essas classes são classes base para `DurableOrchestrationClient`, `DurableOrchestrationContext`e `DurableActivityContext` que definem os métodos de cliente de orquestração, orquestrador e atividade. As simulações definirão o comportamento esperado para métodos de classe base para que o teste de unidade possa verificar a lógica de negócios. Há um fluxo de trabalho de duas etapas para testes de unidade da lógica de negócios em Cliente de Orquestração e Orchestrator:
+Essas classes são `DurableOrchestrationClient`classes `DurableOrchestrationContext`básicas `DurableActivityContext` para , e que definem os métodos de Cliente de Orquestração, Orquestrador e Atividade. As simulações definirão o comportamento esperado para métodos de classe base para que o teste de unidade possa verificar a lógica de negócios. Há um fluxo de trabalho de duas etapas para testes de unidade da lógica de negócios em Cliente de Orquestração e Orchestrator:
 
-1. Use as classes base em vez da implementação concreta ao definir as assinaturas de cliente de orquestração e de função de orquestrador.
+1. Use as classes base em vez da implementação concreta ao definir assinaturas de função de orquestração e orquestrador.
 2. Nos testes de unidade, simule o comportamento das classes base e verifique a lógica de negócios.
 
 Encontre mais detalhes nos parágrafos a seguir para testar funções que usam a associação de cliente de orquestração e a associação de orquestrador.
@@ -52,9 +52,9 @@ Nesta seção, o teste de unidade validará a lógica da seguinte função de ga
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-A tarefa de teste de unidade será verificar o valor do cabeçalho `Retry-After` fornecido na carga de resposta. Portanto, o teste de unidade simulará alguns dos métodos `DurableOrchestrationClientBase` para garantir um comportamento previsível.
+A tarefa de teste de unidade será verificar o valor do cabeçalho `Retry-After` fornecido na carga de resposta. Assim, o teste da `DurableOrchestrationClientBase` unidade zombará de alguns métodos para garantir um comportamento previsível.
 
-Primeiro, uma simulação da classe base é necessária, `DurableOrchestrationClientBase`. A simulação pode ser uma nova classe que implementa `DurableOrchestrationClientBase`. No entanto, o uso de uma estrutura de simulação como [moq](https://github.com/moq/moq4) simplifica o processo:
+Primeiro, uma simulação da classe `DurableOrchestrationClientBase`base é necessária, . O simulado pode ser uma `DurableOrchestrationClientBase`nova classe que implementa. No entanto, o uso de uma estrutura de simulação como [moq](https://github.com/moq/moq4) simplifica o processo:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -172,7 +172,7 @@ Nesta seção, o teste de unidade validará o comportamento da função de Ativi
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-E os testes de unidade verificarão o formato da saída. Os testes de unidade podem usar os tipos de parâmetro diretamente ou simular `DurableActivityContextBase` classe:
+E os testes de unidade verificarão o formato da saída. Os testes unitários podem usar `DurableActivityContextBase` os tipos de parâmetros diretamente ou simular classe:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

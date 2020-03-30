@@ -1,35 +1,35 @@
 ---
-title: Monitoramento de desempenho de aplicativos Web Java-insights de Aplicativo Azure
+title: Monitoramento de desempenho de aplicativos web Java - Azure Application Insights
 description: Desempenho e monitoramento de uso estendidos do seu site Java com o Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657020"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de métodos em aplicativos web Java
 
 
-Se você tiver [instrumentado seu aplicativo Web Java com Application insights][java], poderá usar o agente Java para obter informações mais aprofundadas, sem nenhuma alteração de código:
+Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
-  * As **chamadas http de saída** feitas via Apache HttpClient, OkHttp e `java.net.HttpURLConnection` são capturadas.
-  * **Chamadas Redis** feitas por meio do cliente Jedis são capturadas.
-  * **Consultas JDBC** – para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente relatará o plano de consulta.
+  * **As chamadas HTTP de saída** feitas via `java.net.HttpURLConnection` Apache HttpClient, OkHttp e são capturadas.
+  * **As chamadas de Redis** feitas através do cliente Jedi são capturadas.
+  * **Consultas JDBC** - Para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente informa o plano de consulta.
 
-* **Log de aplicativo:** Capturar e correlacionar os logs de aplicativo com solicitações HTTP e outras telemetrias
-  * **Log4J 1,2**
+* **Registro de aplicativos:** Capture e correlaciona seus registros de aplicativos com solicitações HTTP e outras telemetrias
+  * **Log4j 1.2**
   * **Log4j2**
   * **Logback**
 
-* **Melhor nomenclatura de operação:** (usada para agregação de solicitações no Portal)
-  * Baseado na **mola** `@RequestMapping`.
-  * **JAX-RS** -baseado em `@Path`. 
+* **Melhor nomeação de operação:** (usado para agregação de solicitações no portal)
+  * **Primavera** - `@RequestMapping`baseada em .
+  * **JAX-RS** - `@Path`baseado em . 
 
-Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java Application insights][java]. 
+Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
 1. No computador que está executando o servidor Java, [baixe o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se de baixar a mesma versão do Agente Java que o núcleo e os pacotes da Web do SDK de Java do Application Insights.
@@ -75,23 +75,23 @@ Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omit
 </ApplicationInsightsAgent>
 ```
 
-## <a name="additional-config-spring-boot"></a>Configuração adicional (Spring boot)
+## <a name="additional-config-spring-boot"></a>Config adicional (Bota de Mola)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-Para Azure App serviços, faça o seguinte:
+Para os serviços de aplicativos do Azure, faça o seguinte:
 
 * Selecione Configurações > Configurações do Aplicativo
 * Em configurações do aplicativo, adicione um novo par de chave/valor:
 
-Chave: `JAVA_OPTS` valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Chave: `JAVA_OPTS` Valor:`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-Para obter a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
+Para a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas de desenvolvimento** > **ferramentas avançadas** > **console de depuração** e examinando o conteúdo do diretório do site.    
+O agente deve ser embalado como um recurso em seu projeto de tal forma que ele acabe no diretório D:/home/site/wwwroot/. Você pode confirmar que seu agente está no diretório correto do App Service indo para **o Development Tools** > **Advanced Tools** > **Debug Console** e examinando o conteúdo do diretório do site.    
 
-* Salve as configurações e reinicie o aplicativo. (Essas etapas se aplicam somente aos serviços de aplicativo em execução no Windows.)
+* Salve as configurações e Reinicie seu aplicativo. (Essas etapas só se aplicam aos Serviços de Aplicativos em execução no Windows.)
 
 > [!NOTE]
 > IA-Agent.xml e o arquivo jar do agente devem estar na mesma pasta. Frequentemente, eles são colocados juntos na pasta `/resources` do projeto.  
@@ -116,9 +116,9 @@ Idealmente, esse seria o caso quando todos os seus serviços fossem atualizados 
 Verifique se **ambas as configurações de [entrada](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e saídas (agente)** são exatamente as mesmas.
 
 ## <a name="view-the-data"></a>Exibir os dados
-No recurso Application Insights, a dependência remota agregada e os tempos de execução [do método aparecem no bloco desempenho][metrics].
+No recurso Application Insights, os tempos agregados de dependência remota e execução do método aparecem [sob o bloco performance][metrics].
 
-Para pesquisar instâncias individuais de dependência, exceção e relatórios de método, abra a [pesquisa][diagnostic].
+Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic].
 
 [Diagnosticando problemas de dependência – Saiba mais](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 

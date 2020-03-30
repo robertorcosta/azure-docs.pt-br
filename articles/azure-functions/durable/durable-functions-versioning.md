@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232749"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de Versão nas Funções Duráveis (Azure Functions)
@@ -20,11 +20,11 @@ ms.locfileid: "74232749"
 
 Há vários exemplos de alterações que causam interrupção a serem considerados. Este artigo discute os mais comuns. O tema principal por trás delas é que tanto orquestrações de função novas quando as já existentes são afetadas por alterações no código da função.
 
-### <a name="changing-activity-or-entity-function-signatures"></a>Alterando assinaturas de atividade ou função de entidade
+### <a name="changing-activity-or-entity-function-signatures"></a>Mudança de atividade ou assinaturas de função de entidade
 
-Uma alteração de assinatura é uma alteração no nome, na entrada ou na saída de uma função. Se esse tipo de alteração for feito em uma função de atividade ou entidade, ele poderá interromper qualquer função de orquestrador que dependa dela. Se atualizar a função de orquestrador para acomodar essa alteração, você poderá interromper instâncias existentes em curso.
+Uma alteração de assinatura é uma alteração no nome, na entrada ou na saída de uma função. Se esse tipo de mudança for feita para uma função de atividade ou entidade, ela pode quebrar qualquer função orquestradora que dependa dela. Se atualizar a função de orquestrador para acomodar essa alteração, você poderá interromper instâncias existentes em curso.
 
-Por exemplo, suponha que tenhamos a seguinte função de orquestrador.
+Como exemplo, suponha que temos a seguinte função orquestradora.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Essa função simples obtém os resultados de **Foo** e os transmite para **Bar**. Digamos que precisemos alterar o valor retornado de **Foo** de `bool` para `int` para dar suporte a uma variedade maior de valores de resultado. O resultado é semelhante a:
+Essa função simples obtém os resultados de **Foo** e os transmite para **Bar**. Digamos que precisemos alterar o valor retornado de **Foo** de `bool` para `int` para dar suporte a uma variedade maior de valores de resultado. O resultado será semelhante a este:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,11 +47,11 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Os exemplos C# anteriores têm como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> Os exemplos c# anteriores visam funções duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
-Essa alteração funciona bem para todas as novas instâncias da função de orquestrador, mas interrompe todas as instâncias em curso. Por exemplo, considere o caso em que uma instância de orquestração chama uma função chamada `Foo`, retorna um valor booliano e, em seguida, pontos de verificação. Se a alteração da assinatura for implantada nesse ponto, a instância que passou pela verificação falhará imediatamente quando for retomada e reproduzir a chamada para `context.CallActivityAsync<int>("Foo")`. Essa falha ocorre porque o resultado na tabela de histórico é `bool`, mas o novo código tenta desserializá-la em `int`.
+Essa alteração funciona bem para todas as novas instâncias da função de orquestrador, mas interrompe todas as instâncias em curso. Por exemplo, considere o caso em que `Foo`uma instância de orquestração chama uma função chamada, recebe de volta um valor booleano e, em seguida, verificações de pontos de verificação. Se a alteração da assinatura for implantada nesse ponto, a instância que passou pela verificação falhará imediatamente quando for retomada e reproduzir a chamada para `context.CallActivityAsync<int>("Foo")`. Essa falha acontece porque o resultado `bool` na tabela de história é, `int`mas o novo código tenta desserializá-lo em .
 
-Este exemplo é apenas uma das várias maneiras diferentes pelas quais uma alteração de assinatura pode interromper instâncias existentes. De modo geral, se um orquestrador precisar alterar a forma como chama uma função, provavelmente a alteração será um problema.
+Este exemplo é apenas uma das muitas maneiras diferentes de que uma alteração de assinatura pode quebrar instâncias existentes. De modo geral, se um orquestrador precisar alterar a forma como chama uma função, provavelmente a alteração será um problema.
 
 ### <a name="changing-orchestrator-logic"></a>Alterando a lógica do orquestrador
 
@@ -85,9 +85,9 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Os exemplos C# anteriores têm como alvo Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> Os exemplos c# anteriores visam funções duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
-Essa alteração adiciona uma nova chamada de função a **SendNotification**, entre **Foo** e **Bar**. Não há nenhuma alteração de assinatura. O problema surge quando uma instância existente é retomada da chamada para **Bar**. Durante a repetição, se a chamada original para **foo** retornou `true`, a reprodução do orquestrador chamará **SendNotification**, que não está em seu histórico de execução. Como resultado, o Framework de Tarefa Durável falhará com um `NonDeterministicOrchestrationException`, porque encontrou uma chamada para **SendNotification** quando esperava encontrar uma chamada para **Bar**. O mesmo tipo de problema pode ocorrer ao adicionar qualquer chamada a APIs "duráveis", incluindo `CreateTimer`, `WaitForExternalEvent`, etc.
+Essa alteração adiciona uma nova chamada de função a **SendNotification**, entre **Foo** e **Bar**. Não há nenhuma alteração de assinatura. O problema surge quando uma instância existente é retomada da chamada para **Bar**. Durante o replay, se **Foo** a `true`chamada original para Foo retornou, então o replay do orquestrador ligará para **SendNotification,** o que não está em seu histórico de execução. Como resultado, o Framework de Tarefa Durável falhará com um `NonDeterministicOrchestrationException`, porque encontrou uma chamada para **SendNotification** quando esperava encontrar uma chamada para **Bar**. O mesmo tipo de problema pode ocorrer ao adicionar quaisquer `CreateTimer` `WaitForExternalEvent`chamadas a APIs "duráveis", incluindo , etc.
 
 ## <a name="mitigation-strategies"></a>Estratégias de mitigação
 
@@ -101,11 +101,11 @@ Veja algumas das estratégias para lidar com desafios de controle de versão:
 
 A maneira mais fácil de lidar com uma alteração que causa interrupção é deixar que as instâncias de orquestração em curso falhem. Novas instâncias executarão com êxito o código alterado.
 
-Se esse tipo de falha é um problema, depende da importância de suas instâncias em andamento. Se você estiver em um desenvolvimento ativo e não se preocupar com instâncias em curso, isso pode ser suficiente. No entanto, você precisará lidar com exceções e erros em seu pipeline de diagnóstico. Se quiser evitar essas coisas, considere as outras opções de controle de versão.
+Se esse tipo de falha é um problema depende da importância de suas instâncias de voo. Se você estiver em um desenvolvimento ativo e não se preocupar com instâncias em curso, isso pode ser suficiente. No entanto, você precisará lidar com exceções e erros em seu pipeline de diagnósticos. Se quiser evitar essas coisas, considere as outras opções de controle de versão.
 
 ### <a name="stop-all-in-flight-instances"></a>Parar todas as instâncias em curso
 
-Outra opção é parar todas as instâncias em curso. A interrupção de todas as instâncias pode ser feita limpando o conteúdo das filas de fila de **controle** interno e de filas **de trabalho** . As instâncias ficarão paralisadas para sempre onde estiverem, mas elas não obstruirão seus logs com mensagens de falha. Essa abordagem é ideal no desenvolvimento rápido de protótipos.
+Outra opção é parar todas as instâncias em curso. A interrupção de todas as instâncias pode ser feita limpando o conteúdo das filas **de controle** interno e fila **de trabalho.** As instâncias ficarão para sempre presas onde estão, mas não irão bagunçar seus registros com mensagens de falha. Esta abordagem é ideal no desenvolvimento rápido de protótipos.
 
 > [!WARNING]
 > Os detalhes dessas filas podem mudar ao longo do tempo, portanto, não use essa técnica para cargas de trabalho de produção.
@@ -114,9 +114,9 @@ Outra opção é parar todas as instâncias em curso. A interrupção de todas a
 
 A maneira mais infalível de garantir que alterações que causam interrupção sejam implantadas com segurança é implantá-las lado a lado com as versões mais antigas. Isso pode ser feito usando qualquer uma das seguintes técnicas:
 
-* Implante todas as atualizações como funções totalmente novas, deixando as funções existentes como estão. Isso pode ser complicado porque os chamadores das novas versões de função devem ser atualizados e seguir as mesmas diretrizes.
+* Implante todas as atualizações como funções inteiramente novas, deixando as funções existentes como estão. Isso pode ser complicado porque os chamadores das novas versões de função devem ser atualizados, bem como seguir as mesmas diretrizes.
 * Implantar todas as atualizações como um novo aplicativo de funções com uma conta de armazenamento diferente.
-* Implante uma nova cópia do aplicativo de funções com a mesma conta de armazenamento, mas com um nome de `taskHub` atualizado. Implantações lado a lado é a técnica recomendada.
+* Implante uma nova cópia do aplicativo de função com `taskHub` a mesma conta de armazenamento, mas com um nome atualizado. Implantações lado a lado é a técnica recomendada.
 
 ### <a name="how-to-change-task-hub-name"></a>Como alterar o nome do hub de tarefas
 
@@ -132,7 +132,7 @@ O hub de tarefas pode ser configurado no arquivo *host.json* da seguinte forma:
 }
 ```
 
-#### <a name="functions-20"></a>Funções 2,0
+#### <a name="functions-20"></a>Funções 2.0
 
 ```json
 {
@@ -144,14 +144,14 @@ O hub de tarefas pode ser configurado no arquivo *host.json* da seguinte forma:
 }
 ```
 
-O valor padrão para Durable Functions v1. x é `DurableFunctionsHub`. A partir do Durable Functions v 2.0, o nome do hub de tarefas padrão é o mesmo que o nome do aplicativo de funções no Azure, ou `TestHubName` se estiver sendo executado fora do Azure.
+O valor padrão para Funções Duráveis v1.x é `DurableFunctionsHub`. A partir de Funções Duráveis v2.0, o nome padrão do hub de `TestHubName` tarefas é o mesmo que o nome do aplicativo de função no Azure ou se estiver sendo executado fora do Azure.
 
-Todas as entidades do Armazenamento do Azure são nomeadas com base no valor de configuração `hubName`. Fornecendo um novo nome ao hub de tarefas, você garante que filas e uma tabela de histórico diferentes sejam criadas para a nova versão de seu aplicativo. O aplicativo de funções, no entanto, interromperá o processamento de eventos para orquestrações ou entidades criadas sob o nome do hub de tarefas anterior.
+Todas as entidades do Armazenamento do Azure são nomeadas com base no valor de configuração `hubName`. Fornecendo um novo nome ao hub de tarefas, você garante que filas e uma tabela de histórico diferentes sejam criadas para a nova versão de seu aplicativo. O aplicativo de função, no entanto, interromperá o processamento de eventos para orquestrações ou entidades criadas o nome anterior do centro de tarefas.
 
 É recomendável implantar a nova versão do aplicativo de funções em um novo [Slot de implantação](../functions-deployment-slots.md). Os slots de implantação permitem que você execute várias cópias de seu aplicativo de funções lado a lado, com apenas uma delas como o slot de *produção* ativo. Quando você estiver pronto para expor a nova lógica de orquestração para sua infraestrutura existente, isso pode ser tão simples quanto colocar a nova versão no slot de produção.
 
 > [!NOTE]
-> Essa estratégia funciona melhor quando você usa gatilhos de webhook e HTTP para funções de orquestrador. Para gatilhos não HTTP, como filas ou hubs de eventos, a definição do gatilho deve [derivar de uma configuração de aplicativo](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que é atualizada como parte da operação de permuta.
+> Essa estratégia funciona melhor quando você usa gatilhos de webhook e HTTP para funções de orquestrador. Para gatilhos não-HTTP, como filas ou Hubs de eventos, a definição de gatilho deve [derivar de uma configuração de aplicativo](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que é atualizada como parte da operação de swap.
 
 ## <a name="next-steps"></a>Próximas etapas
 

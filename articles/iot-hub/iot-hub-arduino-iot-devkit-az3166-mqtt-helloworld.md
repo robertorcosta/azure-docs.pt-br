@@ -1,6 +1,6 @@
 ---
-title: Enviar mensagens para um servidor MQTT usando a biblioteca de cliente MQTT do Azure
-description: Saiba como usar a biblioteca de cliente do MQTT para enviar mensagens para um agente do MQTT. Saiba também como configurar seu mXChip IoT DevKit para ser um cliente MQTT.
+title: Envie mensagens para um servidor MQTT usando a biblioteca de clientes Do Azure MQTT
+description: Aprenda a usar a biblioteca do Cliente MQTT para enviar mensagens a um corretor MQTT. Aprenda também como configurar seu mXChip IoT DevKit para ser um cliente MQTT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
 ms.openlocfilehash: 14feb02fbac800cd37da882a1872beb8269d9938
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954233"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
@@ -80,7 +80,7 @@ Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenv
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Como conectar o IoT DevKit AZ3166 ao Hub IoT na nuvem](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Shake, Shake para um Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
@@ -90,4 +90,4 @@ Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenv
 Agora que você aprendeu a configurar seu MXChip Iot DevKit como um cliente MQTT e usar a biblioteca de clientes MQTT para enviar mensagens a um agente MQTT, aqui estão as próximas etapas sugeridas:
 
 * [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+* [Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)

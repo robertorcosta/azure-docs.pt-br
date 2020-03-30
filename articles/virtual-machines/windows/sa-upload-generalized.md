@@ -1,5 +1,5 @@
 ---
-title: Carregar um VHD generalizado para criar várias VMs no Azure
+title: Carregue um VHD generalizado para criar várias VMs no Azure
 description: Carregar um VHD generalizado para uma conta de armazenamento do Azure para criar uma VM Windows para utilizar com o modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: 933b648f15418c4838d3da1ea8379267765c784b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073337"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Upload de um VHD generalizado para o Azure para criar uma nova VM
@@ -42,7 +42,7 @@ Um VHD generalizado teve todas as informações da sua conta pessoal removidas u
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalizar uma máquina virtual do Windows usando o Sysprep
 Esta seção mostra como generalizar a máquina virtual do Windows para usar como uma imagem. O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
-Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [o suporte ao Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Se você estiver executando o Sysprep antes de carregar o VHD para o Azure pela primeira vez, verifique se você [preparou sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar o Sysprep. 
@@ -145,7 +145,7 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído.
+Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando poderá demorar um pouco para concluir.
 
 
 ## <a name="create-a-new-vm"></a>Criar uma nova VM 
@@ -181,7 +181,7 @@ Crie a vNet e a sub-rede da [rede virtual](../../virtual-network/virtual-network
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Criar um endereço IP público e um adaptador de rede
-Para habilitar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
+Para habilitar a comunicação com a máquina virtual na rede virtual, são necessários um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e um adaptador de rede.
 
 1. Criar um endereço IP público. Este exemplo cria um endereço IP público chamado **myPip**. 
    
@@ -224,7 +224,7 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>Criar a VM
-O script do PowerShell a seguir mostra como definir as configurações da máquina virtual e usar a imagem da VM carregada como a fonte para a nova instalação.
+O script do PowerShell a seguir mostra como definir as configurações da máquina virtual e usar a imagem da VM carregada como a fonte da nova instalação.
 
 
 

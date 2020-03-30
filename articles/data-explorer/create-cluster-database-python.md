@@ -1,5 +1,5 @@
 ---
-title: Criar um cluster de Data Explorer do Azure & BD usando Python
+title: Crie um cluster azure Data Explorer & DB usando Python
 description: Saiba como criar um cluster e um banco de dados do Azure Data Explorer usando o Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -8,31 +8,31 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 8425058c9f6ac5b90c37a99f749a810672b406fc
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560500"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster e um banco de dados do Azure Data Explorer usando Python
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
-> * [CLI](create-cluster-database-cli.md)
-> * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-csharp.md)
+> * [Cli](create-cluster-database-cli.md)
+> * [Powershell](create-cluster-database-powershell.md)
+> * [C #](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [Modelo de ARM](create-cluster-database-resource-manager.md)
+> * [Modelo ARM](create-cluster-database-resource-manager.md)
 
-Neste artigo, você cria um cluster de Data Explorer do Azure e um banco de dados usando Python. O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Data Explorer do Azure, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, ingerir, ou carregar, dados em um banco de dado para que você possa executar consultas nele.
+Neste artigo, você cria um cluster e banco de dados do Azure Data Explorer usando python. O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, ingera ou carrega dados em um banco de dados para que você possa executar consultas contra ele.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
-* [Um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Obter valores para `Directory (tenant) ID`, `Application ID`e `Client Secret`.
+* [Um aplicativo ad azure e um princípio de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Obter valores `Application ID`para `Client Secret` `Directory (tenant) ID`, e .
 
 ## <a name="install-python-package"></a>Instalar o pacote do Python
 
@@ -43,7 +43,7 @@ pip install azure-common
 pip install azure-mgmt-kusto
 ```
 ## <a name="authentication"></a>Autenticação
-Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter as `Directory (tenant) ID`, `Application ID`e `Client Secret`.
+Para executar os exemplos neste artigo, precisamos de um aplicativo Azure AD e um diretor de serviços que possam acessar recursos. Verifique [criar um aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo Ad azure gratuito e adicionar atribuição de função no escopo da assinatura. Também mostra como obter `Directory (tenant) ID` `Application ID`o `Client Secret`, e .
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster do Azure Data Explorer
 
@@ -86,12 +86,12 @@ Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD 
    |---|---|---|
    | cluster_name | *mykustocluster* | O nome desejado do cluster.|
    | sku_name | *Standard_D13_v2* | O SKU que será usado para o cluster. |
-   | Camada | *Standard* | A camada de SKU. |
-   | ALOCADA | *number* | O número de instâncias do cluster. |
+   | Camada | *Standard* | O nível SKU. |
+   | ALOCADA | *Número* | O número de instâncias do cluster. |
    | resource_group_name | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
     > [!NOTE]
-    > **Criar um cluster** é uma operação de execução longa. O método **create_or_update** retorna uma instância de LROPoller, consulte a [classe LROPoller](/python/api/msrest/msrest.polling.lropoller?view=azure-python) para obter mais informações.
+    > **Criar um cluster** é uma operação de longa duração. Método **create_or_update** retorna uma instância do LROPoller, consulte [a classe LROPoller](/python/api/msrest/msrest.polling.lropoller?view=azure-python) para obter mais informações.
 
 1. Execute o comando a seguir para verificar se o cluster foi criado com êxito:
 
@@ -141,7 +141,7 @@ Se o resultado contém `provisioningState` com o valor `Succeeded`, o cluster fo
 
 Agora você tem um cluster e um banco de dados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 * Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou.
 * Para limpar recursos, exclua o cluster. Quando você exclui um cluster, também exclui todos os bancos de dados nele. Use o seguinte comando para excluir o cluster:

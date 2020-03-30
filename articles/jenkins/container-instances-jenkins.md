@@ -1,20 +1,20 @@
 ---
-title: Jenkins Build na instância de contêiner
-description: Saiba como configurar um servidor Jenkins para executar trabalhos de compilação sob demanda em instâncias de contêiner do Azure
+title: Jenkins construir em instância de contêiner
+description: Saiba como configurar um servidor Jenkins para executar trabalhos de construção sob demanda em Instâncias de Contêineres do Azure
 ms.topic: article
 ms.date: 08/31/2018
 ms.openlocfilehash: 8bb84895fb581053248fbad326ea7b2c8d1873a2
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617964"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usar as Instâncias de Contêiner do Azure como um agente de build Jenkins
 
 As instâncias de contêiner do Azure (ACI) fornecem um ambiente sob demanda, expansível e isolado para executar as cargas de trabalho em contêiner. Devido a esses atributos, ACI faz uma grande plataforma para executar os trabalhos internos de Jenkins em grande escala. Este artigo percorre a implantação e o uso de um servidor Jenkins pré-configurado com o ACI como um destino de compilação.
 
-Para obter mais informações sobre as instâncias de contêiner do Azure, consulte [sobre as instâncias de contêiner do Azure](../container-instances/container-instances-overview.md).
+Para obter mais informações sobre as Instâncias de Contêiner do Azure, consulte [Sobre Instâncias de Contêiner do Azure](../container-instances/container-instances-overview.md).
 
 ## <a name="deploy-a-jenkins-server"></a>Implantar um servidor Jenkins
 
@@ -31,7 +31,7 @@ Para obter mais informações sobre as instâncias de contêiner do Azure, consu
 
    ![Configurações básicas da implantação do Portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
 
-3. No formulário de **Configurações Adicionis** preencha os itens a seguir:
+3. No **formulário Configurações adicionais,** preencha os seguintes itens:
 
    - **Tamanho** - Selecione a opção de tamanho apropriado para sua máquina virtual de Jenkins.
    - **Tipo de disco de VM** - Especifique **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
@@ -43,7 +43,7 @@ Para obter mais informações sobre as instâncias de contêiner do Azure, consu
 
    ![Configurações adicionais de implantação do portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Para a integração da entidade de serviço, selecione **automático (MSI)** para que as [identidades gerenciadas dos recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) criem automaticamente uma identidade de autenticação para a instância Jenkins. Selecione **Manual** para fornecer as próprias credenciais da entidade de serviço.
+4. Para integração da entidade de serviço, selecione **Auto(MSI)** para ter [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) e criar automaticamente uma identidade de autenticação para a instância do Jenkins. Selecione **Manual** para fornecer as próprias credenciais da entidade de serviço.
 
 5. Agentes de nuvem configuram uma plataforma baseada em nuvem para trabalhos de build do Jenkins. Para o propósito deste documento, selecione **ACI**. Com o agente de nuvem ACI, cada trabalho de build do Jenkins é executado em uma instância de contêiner.
 
@@ -101,7 +101,7 @@ Agora, um trabalho de build do Jenkins é criado para demonstrar builds dos Jenk
 
    ![Guia "Criar" com as seleções para a etapa de compilação](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ## <a name="run-the-build-job"></a>Executar o trabalho de build
 

@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616915"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Implantação do SAP HANA (instâncias grandes) 
@@ -36,7 +36,7 @@ A Microsoft requer as seguintes informações para implantar unidades de instân
 - Para cada região de implantação do Azure:
     - Um intervalo de endereços IP /29 para conexões de ER-P2P que conectar redes virtuais do Azure para instâncias grandes HANA.
     - Um bloco CIDR /24 usado para o pool de IPs de servidores de instâncias grandes HANA.
-    - Opcional ao usar o [ExpressRoute alcance global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para habilitar o roteamento direto do local para as unidades de instância grande do Hana ou o roteamento entre unidades de instância grande do Hana em diferentes regiões do Azure, você precisa reservar outro/29 intervalo de endereços IP. Esse intervalo específico não pode se sobrepor a nenhum dos outros intervalos de endereços IP definidos anteriormente.
+    - Opcional ao usar [o ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para permitir o roteamento direto das unidades de configuração de grande instância do HANA para as unidades hana de grande instância em diferentes regiões do Azure, você precisa reservar outra faixa de endereço IP /29. Este intervalo em particular pode não se sobrepor a nenhuma das outras faixas de endereçoIP que você definiu antes.
 - Os valores de intervalo de endereços IP usados no atributo de espaço de endereço de rede virtual de cada rede virtual do Azure que se conecta às instâncias grandes do HANA.
 - Dados para cada sistema de instâncias grandes HANA:
   - Nome de host desejado - o ideal é usar o nome de domínio totalmente qualificado.
@@ -50,7 +50,7 @@ Depois de fornecer as informações acima, a Microsoft provisiona SAP HANA no Az
 
 Use a seguinte sequência para se conectar a instâncias grandes do HANA depois que a Microsoft implantou:
 
-1. [Conectar as VMs do Azure para instâncias grandes do HANA](hana-connect-azure-vm-large-instances.md)
-2. [Conectar uma VNet ao ExpressRoute do HANA em instâncias grandes](hana-connect-vnet-express-route.md)
+1. [Conectando VMs Azure a grandes instâncias hana](hana-connect-azure-vm-large-instances.md)
+2. [Conectando um VNet a grandes instâncias hana ExpressRoute](hana-connect-vnet-express-route.md)
 3. [Requisitos de rede adicionais (opcional)](hana-additional-network-requirements.md)
 

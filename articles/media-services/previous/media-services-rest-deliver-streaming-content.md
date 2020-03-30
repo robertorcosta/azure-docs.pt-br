@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77049997"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [REST](media-services-rest-deliver-streaming-content.md)
+> * [Resto](media-services-rest-deliver-streaming-content.md)
 > * [Portal](media-services-portal-publish.md)
 > 
 > 
@@ -33,12 +33,12 @@ Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
 
-Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra como criar URLs de download progressivo.
+Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra como construir URLs de download progressivos.
 
 A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.   
 
 > [!NOTE]
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md).
 > 
 
 ## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
@@ -62,7 +62,7 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
 ### <a name="create-an-access-policy"></a>Crie uma política de acesso
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não upload). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não upload). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Solicitação:
 
@@ -169,7 +169,7 @@ exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Tipos de enum
+## <a name="enum-types"></a><a id="types"></a>Tipos de enum
     [Flags]
     public enum AccessPermissions
     {
@@ -194,7 +194,7 @@ exemplo:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Confira também
-[Visão geral da API REST das Operações dos Serviços de Mídia](media-services-rest-how-to-use.md)
+[Visão geral das operações de Serviços de Mídia REST API](media-services-rest-how-to-use.md)
 
-[Configurar política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
+[Configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
 

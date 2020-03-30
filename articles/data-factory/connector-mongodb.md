@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: a7bb74c09b45429a160a3ec481c23073575cfe3c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251707"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB usando o Azure Data Factory
@@ -32,7 +32,7 @@ Você pode copiar dados de um banco de dados MongoDB para qualquer armazenamento
 
 Especificamente, este conector do MongoDB dá suporte a **versões até 3.4**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -46,12 +46,12 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade Type deve ser definida como: **MongoDbV2** |Sim |
-| connectionString |Especifique a cadeia de conexão MongoDB, por exemplo, `mongodb://[username:password@]host[:port][/[database][?options]]`. Confira o [manual do MongoDB na cadeia de conexão](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br /> Você também pode colocar uma senha em Azure Key Vault e efetuar pull do `password` configuração fora da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
+| type |A propriedade do tipo deve ser definida como: **MongoDbV2** |Sim |
+| connectionString |Especifique a cadeia de conexão MongoDB, por exemplo, `mongodb://[username:password@]host[:port][/[database][?options]]`. Confira o [manual do MongoDB na cadeia de conexão](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br /> Você também pode colocar uma senha no Azure Key Vault e puxar a `password` configuração para fora da seqüência de conexão. Consulte as [credenciais da Loja no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
 | Banco de Dados | O nome do banco de dados que você deseja criar. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
 
@@ -76,9 +76,9 @@ As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 
 Para obter uma lista completa de seções e propriedades disponíveis para definição de conjuntos de dados, consulte [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md). As propriedades a seguir têm suporte para o conjunto de dados do MongoDB:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **MongoDbV2Collection** | Sim |
+| type | A propriedade do tipo do conjunto de dados deve ser definida como: **MongoDbV2Collection** | Sim |
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
 **Exemplo:**
@@ -106,11 +106,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="mongodb-as-source"></a>MongoDB como fonte
 
-As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
+As seguintes propriedades são suportadas na seção **de origem da** atividade de cópia:
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **MongoDbV2Source** | Sim |
+| type | A propriedade tipo da fonte de atividade de cópia deve ser definida como: **MongoDbV2Source** | Sim |
 | filtro | Especifica o filtro de seleção usando operadores de consulta. Para retornar todos os documentos em uma coleção, omita esse parâmetro ou passe um documento vazio ({}). | Não |
 | cursorMethods.project | Especifica os campos a serem retornados nos documentos para projeção. Para retornar todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
 | cursorMethods.sort | Especifica a ordem na qual a consulta retorna documentos correspondentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |

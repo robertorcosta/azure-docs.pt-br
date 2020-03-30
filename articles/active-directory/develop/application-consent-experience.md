@@ -1,5 +1,5 @@
 ---
-title: Experiências de consentimento de aplicativo do Azure AD
+title: Experiências de consentimento do aplicativo Azure AD
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as experiências de consentimento do Microsoft Azure Active Directory para ver como você pode usá-lo ao gerenciar e desenvolver aplicativos no Microsoft Azure Active Directory
 services: active-directory
@@ -15,10 +15,10 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.openlocfilehash: c9b449b65a8f8def9dc28a668cd9ee3671124cb0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484495"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Noções básicas sobre experiências de consentimento de aplicativo do Microsoft Azure Active Directory
@@ -84,4 +84,4 @@ Aqui estão as experiências de consentimento que um usuário pode ver em cenár
 ## <a name="next-steps"></a>Próximas etapas
 - Tenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure AD implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Para se aprofundar, veja [como um aplicativo multilocatário pode usar a estrutura de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar consentimento de "usuário" e "administrador", dando suporte a padrões mais avançados de aplicativos de várias camadas.
-- Saiba [como configurar o domínio do Publicador do aplicativo](howto-configure-publisher-domain.md).
+- Saiba [como configurar o domínio do editor do aplicativo](howto-configure-publisher-domain.md).

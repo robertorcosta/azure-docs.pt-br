@@ -1,5 +1,5 @@
 ---
-title: Tutorial de SaaS de vários locatários
+title: Tutorial saas de vários inquilinos
 description: Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
 ms.openlocfilehash: 02682a18f14e7ecbf5b42783ab84a1b55a4bb77b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133135"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisionar e catalogar novos locatários usando o padrão de aplicativo autônomo
@@ -67,7 +67,7 @@ Um modelo do Azure Resource Manager é usado para implantar e configurar o aplic
 
 No final deste tutorial, você terá um conjunto de aplicativos de locatário autônomo, com cada banco de dados registrado no catálogo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
@@ -76,12 +76,12 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 ## <a name="provision-the-catalog"></a>Provisionar o catálogo
 
-Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar todos os bancos de dados de locatário. Você irá:
+Nesta tarefa, você aprenderá como provisionar o catálogo usado para registrar todos os bancos de dados de locatário. Você vai:
 
 * **Provisionar o banco de dados do catálogo** usando um modelo de gerenciamento de recursos do Azure. O banco de dados é inicializado, importando um arquivo bacpac.
 * **Registre os aplicativos de locatário de exemplo** que você implantou anteriormente.  Cada locatário é registrado usando uma chave construída a partir de um hash do nome do locatário.  O nome do locatário também é armazenado em uma tabela de extensão no catálogo.
 
-1. No PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* e atualize o **\<usuário\>** para o valor utilizado ao implementar os três aplicativos de exemplo.  **Salve o arquivo**.
+1. No PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* e atualize o **\<usuário\>** para o valor utilizado ao implementar os três aplicativos de exemplo.  **Salvar o arquivo**.
 1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e defina **$Scenario = 1**. Implante o catálogo de locatário e registre os locatários predefinidos.
 
 1. Adicione um ponto de interrupção, colocando o cursor em qualquer lugar na linha indicando, `& $PSScriptRoot\New-Catalog.ps1`, e, em seguida, pressione **F9**.
@@ -98,7 +98,7 @@ Quando o script for concluído, o catálogo existirá e todos os locatários de 
 Agora, analise os recursos que você criou.
 
 1. Abra o [Portal do Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo de recursos **wingtip-sa-catalog-\<do usuário \>** anote o servidor de catálogo e o banco de dados.
-1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando de logon e digite a senha = **P\@ssword1**.
+1. Abra o banco de dados no portal e selecione *Data Explorer* no menu à esquerda.  Clique no comando Login e digite a Senha = **P\@ssword1**.
 
 
 1. Explore o esquema do banco de dados *tenantcatalog*.
@@ -115,7 +115,7 @@ Agora, analise os recursos que você criou.
 
 ## <a name="provision-a-new-tenant-application"></a>Provisionar uma nova solicitação de aplicativo de locatário
 
-Nesta tarefa, você aprenderá como provisionar um aplicativo de locatário único. Você irá:
+Nesta tarefa, você aprenderá como provisionar um aplicativo de locatário único. Você vai:
 
 * **Criar um novo grupo de recursos** para o locatário.
 * **Provisione o aplicativo e o banco de dados** no novo grupo de recursos, utilizando um modelo de gerenciamento de recursos do Azure.  Esta ação inclui a inicialização do banco de dados com dados de referência e esquema comuns, importando um arquivo bacpac.

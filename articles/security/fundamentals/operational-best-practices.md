@@ -17,70 +17,70 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500299"
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de Segurança Operacional do Azure
 Este artigo fornece um conjunto de práticas recomendadas operacionais para proteger seus dados, aplicativos e outros ativos no Azure.
 
-As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. As opiniões e tecnologias mudam ao longo do tempo e este artigo é atualizado regularmente para refletir essas alterações.
+As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. Opiniões e tecnologias mudam ao longo do tempo e este artigo é atualizado regularmente para refletir essas mudanças.
 
-## <a name="define-and-deploy-strong-operational-security-practices"></a>Definir e implantar práticas fortes de segurança operacional
+## <a name="define-and-deploy-strong-operational-security-practices"></a>Defina e implante fortes práticas de segurança operacional
 A segurança operacional do Azure refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Azure. A segurança operacional do Azure se baseia em uma estrutura que incorpora o conhecimento adquirido por recursos exclusivos da Microsoft, incluindo [o SDL (Security Development Lifecycle)](https://www.microsoft.com/sdl), o programa [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) e o conhecimento profundo do cenário de ameaças de segurança cibernética.
 
-## <a name="manage-and-monitor-user-passwords"></a>Gerenciar e monitorar senhas de usuário
-A tabela a seguir lista algumas das práticas recomendadas relacionadas ao gerenciamento de senhas de usuário:
+## <a name="manage-and-monitor-user-passwords"></a>Gerencie e monitore senhas de usuário
+A tabela a seguir lista algumas práticas recomendadas relacionadas ao gerenciamento de senhas de usuário:
 
-**Prática recomendada**: Verifique se você tem o nível apropriado de proteção por senha na nuvem.   
-**Detalhe**: siga as orientações em [diretrizes de senha da Microsoft](https://www.microsoft.com/research/publication/password-guidance/), que tem como escopo os usuários das plataformas de identidade da microsoft (Azure Active Directory, Active Directory e conta Microsoft).
+**Melhores práticas**: Certifique-se de ter o nível adequado de proteção por senha na nuvem.   
+**Detalhe**: Siga a orientação no [Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance/), que é escopo para usuários das plataformas de identidade da Microsoft (Azure Active Directory, Active Directory e Conta Microsoft).
 
-**Prática recomendada**: monitorar ações suspeitas relacionadas às suas contas de usuário.   
-**Detalhe**: Monitore para [usuários em risco](/azure/active-directory/reports-monitoring/concept-user-at-risk) e [entradas arriscadas](../../active-directory/reports-monitoring/concept-risk-events.md) usando os relatórios de segurança do Azure AD.
+**Melhores práticas**: Monitore ações suspeitas relacionadas às suas contas de usuário.   
+**Detalhe**: Monitorpara [usuários em risco](/azure/active-directory/reports-monitoring/concept-user-at-risk) e [logins arriscados](../../active-directory/reports-monitoring/concept-risk-events.md) usando relatórios de segurança do Azure AD.
 
-**Prática recomendada**: detectar e corrigir automaticamente as senhas de alto risco.   
-**Detalhe**: [Azure ad Identity Protection](/azure/active-directory/identity-protection/overview) é um recurso da edição Azure ad Premium P2 que permite que você:
+**Melhor prática**: Detectar e remediar senhas de alto risco automaticamente.   
+**Detalhe**: [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview) é um recurso da edição Azure AD Premium P2 que permite:
 
-- Detectar possíveis vulnerabilidades que afetam as identidades da sua organização
+- Detecte potenciais vulnerabilidades que afetam as identidades da sua organização
 - Configurar respostas automatizadas para ações suspeitas detectadas que se relacionem com as identidades da sua organização
-- Investigue incidentes suspeitos e execute as ações apropriadas para resolvê-los
+- Investigue incidentes suspeitos e tome as medidas apropriadas para resolvê-los
 
-## <a name="receive-incident-notifications-from-microsoft"></a>Receber notificações de incidentes da Microsoft
-Certifique-se de que sua equipe de operações de segurança receba notificações de incidentes do Azure da Microsoft. Uma notificação de incidente permite que sua equipe de segurança saiba que você comprometeu os recursos do Azure para que eles possam responder rapidamente e corrigir possíveis riscos de segurança.
+## <a name="receive-incident-notifications-from-microsoft"></a>Receba notificações de incidentes da Microsoft
+Certifique-se de que sua equipe de operações de segurança receba notificações de incidentes do Azure da Microsoft. Uma notificação de incidente permite que sua equipe de segurança saiba que você comprometeu os recursos do Azure para que eles possam responder e remediar rapidamente potenciais riscos de segurança.
 
-No portal de registro do Azure, você pode garantir que as informações de contato do administrador incluem detalhes que notificam as operações de segurança. Informações de contato são um número de telefone e um endereço de email.
+No portal de inscrição do Azure, você pode garantir que as informações de contato do administrador incluam detalhes que notifiquem as operações de segurança. Informações de contato são um número de telefone e um endereço de email.
 
-## <a name="organize-azure-subscriptions-into-management-groups"></a>Organizar assinaturas do Azure em grupos de gerenciamento
-Se a organização tiver muitas assinaturas, talvez seja necessário gerenciar de maneira eficiente o acesso, as políticas e a conformidade dessas assinaturas. Os [grupos de gerenciamento do Azure](/azure/governance/management-groups/create) fornecem um nível de escopo acima das assinaturas. Você organiza as assinaturas em contêineres chamados grupos de gerenciamento e aplica suas condições de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo de gerenciamento.
+## <a name="organize-azure-subscriptions-into-management-groups"></a>Organize as assinaturas do Azure em grupos de gestão
+Se a organização tiver muitas assinaturas, talvez seja necessário gerenciar de maneira eficiente o acesso, as políticas e a conformidade dessas assinaturas. [Os grupos de gerenciamento do Azure](/azure/governance/management-groups/create) fornecem um nível de escopo acima das assinaturas. Você organiza assinaturas em contêineres chamados grupos de gerenciamento e aplica suas condições de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo de gerenciamento.
 
-Você pode criar uma estrutura flexível de grupos de gerenciamento e assinaturas em um diretório. Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento raiz. Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. O grupo de gerenciamento raiz permite que as políticas globais e as atribuições de RBAC sejam aplicadas no nível do diretório.
+Você pode construir uma estrutura flexível de grupos de gerenciamento e assinaturas em um diretório. Cada diretório recebe um único grupo de gerenciamento de alto nível chamado grupo de gerenciamento raiz. Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. O grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicadas no nível do diretório.
 
-Aqui estão algumas práticas recomendadas para o uso de grupos de gerenciamento:
+Aqui estão algumas práticas recomendadas para usar grupos de gestão:
 
-**Prática recomendada**: Verifique se as novas assinaturas aplicam elementos de governança como políticas e permissões à medida que são adicionadas.   
-**Detalhe**: Use o grupo de gerenciamento raiz para atribuir elementos de segurança de toda a empresa que se aplicam a todos os ativos do Azure. Políticas e permissões são exemplos de elementos.
+**Melhores práticas**: Certifique-se de que novas assinaturas apliquem elementos de governança, como políticas e permissões à medida que são adicionadas.   
+**Detalhe**: Use o grupo de gerenciamento raiz para atribuir elementos de segurança em toda a empresa que se aplicam a todos os ativos do Azure. Políticas e permissões são exemplos de elementos.
 
-**Prática recomendada**: Alinhe os principais níveis de grupos de gerenciamento com a estratégia de segmentação para fornecer um ponto para a consistência de controle e de política dentro de cada segmento.   
-**Detalhe**: Crie um único grupo de gerenciamento para cada segmento no grupo de gerenciamento raiz. Não crie nenhum outro grupo de gerenciamento na raiz.
+**Melhores práticas**: Alinhar os principais níveis dos grupos de gestão com a estratégia de segmentação para fornecer um ponto de controle e consistência de políticas dentro de cada segmento.   
+**Detalhe**: Crie um único grupo de gestão para cada segmento o grupo de gerenciamento raiz. Não crie outros grupos de gerenciamento a raiz.
 
-**Prática recomendada**: limite a profundidade do grupo de gerenciamento para evitar confusão que atrasa as operações e a segurança.   
-**Detalhe**: limite sua hierarquia a três níveis, incluindo a raiz.
+**Melhores práticas**: Limitar a profundidade do grupo de gerenciamento para evitar confusão que dificulte tanto as operações quanto a segurança.   
+**Detalhe:** Limite sua hierarquia a três níveis, incluindo a raiz.
 
-**Prática recomendada**: selecione cuidadosamente quais itens aplicar a toda a empresa com o grupo de gerenciamento raiz.   
-**Detalhe**: Verifique se os elementos do grupo de gerenciamento raiz têm uma clara necessidade de serem aplicados em todos os recursos e se eles têm baixo impacto.
+**Melhores práticas**: Selecione cuidadosamente quais itens aplicar para toda a empresa com o grupo de gerenciamento raiz.   
+**Detalhe**: Certifique-se de que os elementos do grupo de gerenciamento raiz tenham uma necessidade clara de serem aplicados em todos os recursos e que sejam de baixo impacto.
 
-Os bons candidatos incluem:
+Bons candidatos incluem:
 
-- Requisitos regulatórios que têm um impacto comercial claro (por exemplo, restrições relacionadas à soberania de dados)
-- Os requisitos com um impacto negativo quase zero potencial em operações, como política com efeito de auditoria ou atribuições de permissão de RBAC que foram revisadas cuidadosamente
+- Requisitos regulatórios que tenham um claro impacto nos negócios (por exemplo, restrições relacionadas à soberania de dados)
+- Requisitos com impacto negativo potencial próximo de zero nas operações, como política com efeito de auditoria ou atribuições de permissão rbac que foram cuidadosamente revisadas
 
-**Prática recomendada**: Planeje e teste cuidadosamente todas as alterações em toda a empresa no grupo de gerenciamento raiz antes de aplicá-las (política, modelo de RBAC e assim por diante).   
-**Detalhe**: as alterações no grupo de gerenciamento raiz podem afetar cada recurso no Azure. Embora eles forneçam uma maneira poderosa de garantir a consistência em toda a empresa, os erros ou o uso incorreto podem afetar negativamente as operações de produção. Testar todas as alterações no grupo de gerenciamento raiz em um laboratório de teste ou em um piloto de produção.
+**Práticas recomendadas**: Planeje e teste cuidadosamente todas as mudanças em toda a empresa no grupo de gerenciamento raiz antes de aplicá-las (política, modelo RBAC e assim por diante).   
+**Detalhe**: As alterações no grupo de gerenciamento raiz podem afetar todos os recursos do Azure. Embora eles forneçam uma maneira poderosa de garantir a consistência em toda a empresa, erros ou uso incorreto podem afetar negativamente as operações de produção. Teste todas as alterações no grupo de gerenciamento de raízes em um laboratório de teste ou piloto de produção.
 
-## <a name="streamline-environment-creation-with-blueprints"></a>Simplifique a criação do ambiente com plantas
-[O serviço de plantas do Azure](/azure/governance/blueprints/overview) permite que os arquitetos de nuvem e os grupos de tecnologia da informação central definam um conjunto repetível de recursos do Azure que implementam e aderem aos padrões, padrões e requisitos de uma organização. As plantas do Azure possibilitam que as equipes de desenvolvimento compilem e criem rapidamente novos ambientes com um conjunto de componentes internos e a confiança de que eles estão criando esses ambientes dentro da conformidade organizacional.
+## <a name="streamline-environment-creation-with-blueprints"></a>Simplifique a criação de ambientes com projetos
+O serviço [Azure Blueprints](/azure/governance/blueprints/overview) permite que arquitetos em nuvem e grupos centrais de tecnologia da informação definam um conjunto repetível de recursos do Azure que implementa e adere aos padrões, padrões e requisitos de uma organização. O Azure Blueprints permite que as equipes de desenvolvimento construam e se levantem rapidamente em novos ambientes com um conjunto de componentes incorporados e a confiança de que estão criando esses ambientes dentro da conformidade organizacional.
 
 ## <a name="monitor-storage-services-for-unexpected-changes-in-behavior"></a>Monitorar serviços de armazenamento quanto a mudanças inesperadas no comportamento
 Questões de diagnóstico e de solução de problemas em um aplicativo distribuído hospedado em um ambiente de nuvem podem ser mais complexas que em ambientes tradicionais. Aplicativos podem ser implantados em uma infraestrutura PaaS ou IaaS, local, em um dispositivo móvel ou em alguma combinação desses ambientes. Tráfego de rede do seu aplicativo pode passar por redes públicas e privadas, e seu aplicativo poderá usar várias tecnologias de armazenamento.
@@ -90,39 +90,39 @@ Você deve monitorar continuamente os serviços de armazenamento que o aplicativ
 A [Análise de Armazenamento do Azure](../../storage/common/storage-analytics.md) executa o registro em log e fornece dados de métrica para uma conta de armazenamento do Azure. Recomendamos que você use esses dados para rastrear solicitações, analisar tendências de uso e diagnosticar problemas com sua conta de armazenamento.
 
 ## <a name="prevent-detect-and-respond-to-threats"></a>Evitar, detectar e reagir a ameaças
-A [central de segurança do Azure](../../security-center/security-center-intro.md) ajuda você a prevenir, detectar e responder a ameaças, fornecendo maior visibilidade sobre (e controlar) a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com um diversas soluções de segurança.
+[O Azure Security Center](../../security-center/security-center-intro.md) ajuda você a prevenir, detectar e responder a ameaças, fornecendo maior visibilidade (e controle sobre) a segurança de seus recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com um diversas soluções de segurança.
 
-A camada gratuita da central de segurança oferece segurança limitada apenas para os recursos do Azure. A camada Standard estende esses recursos para locais e outras nuvens. A central de segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. Recomendamos que você [Atualize sua assinatura do Azure para a central de segurança Standard](../../security-center/security-center-get-started.md).
+O nível gratuito do Security Center oferece segurança limitada apenas para os recursos do Azure. A camada Standard estende esses recursos para locais e outras nuvens. O Security Center Standard ajuda você a encontrar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e aplicativos para bloquear atividades maliciosas, detectar ameaças usando análises e inteligência e responder rapidamente quando estiver ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. Recomendamos que você [atualize sua assinatura do Azure para o Security Center Standard](../../security-center/security-center-get-started.md).
 
-Use a central de segurança para obter uma exibição central do estado de segurança de todos os seus recursos do Azure. Verifique rapidamente se os controles de segurança apropriados estão em vigor e configurados de maneira correta, além disso, identifique com rapidez os recursos que exigem atenção.
+Use o Security Center para obter uma visão central do estado de segurança de todos os seus recursos do Azure. Verifique rapidamente se os controles de segurança apropriados estão em vigor e configurados de maneira correta, além disso, identifique com rapidez os recursos que exigem atenção.
 
-A central de segurança também se integra à [ATP (proteção avançada contra ameaças) do Microsoft defender](../../security-center/security-center-wdatp.md), que fornece recursos de EDR (detecção e resposta de ponto de extremidade) abrangentes. Com a integração do Microsoft defender ATP, você pode identificar anormalidades. Você também pode detectar e responder a ataques avançados em pontos de extremidade de servidor monitorados pela central de segurança.
+O Security Center também se integra ao [ATP (AtC) (Final Threat Protection, proteção de ameaças avançadas) do Microsoft Defender,](../../security-center/security-center-wdatp.md)que fornece recursos abrangentes de Detecção e Resposta de Endpoint (EDR). Com a integração do Microsoft Defender ATP, você pode detectar anormalidades. Você também pode detectar e responder a ataques avançados em pontos finais de servidor monitorados pelo Security Center.
 
-Quase todas as organizações empresariais têm um sistema SIEM (gerenciamento de informações e eventos de segurança) para ajudar a identificar ameaças emergentes, consolidando informações de log de diferentes dispositivos de coleta de sinais. Os logs são então analisados por um sistema de análise de dados para ajudar a identificar o que é "interessante" do ruído que é inevitável em todas as soluções de coleta e análise de logs.
+Quase todas as organizações corporativas têm um sistema de gerenciamento de informações e eventos de segurança (SIEM) para ajudar a identificar ameaças emergentes, consolidando informações de log de diversos dispositivos de coleta de sinais. Os logs são então analisados por um sistema de análise de dados para ajudar a identificar o que é "interessante" a partir do ruído que é inevitável em todas as soluções de coleta e análise de logs.
 
-O [Azure Sentinel](/azure/sentinel/overview) é uma solução de disparar (gerenciamento de informações de segurança e segurança) escalonável, nativa de nuvem, de Siem (Information and Event Management). O Azure Sentinel fornece análise de segurança inteligente e inteligência contra ameaças por meio de detecção de alertas, visibilidade de ameaças, busca proativa e resposta automatizada contra ameaças.
+[O Azure Sentinel](/azure/sentinel/overview) é uma solução escalável, nativa na nuvem, de gerenciamento de informações de segurança e eventos (SIEM) e de uma solução de resposta automatizada de orquestração de segurança (SOAR). O Azure Sentinel fornece análises inteligentes de segurança e inteligência de ameaças por meio de detecção de alertas, visibilidade de ameaças, caça proativa e resposta automatizada de ameaças.
 
-Aqui estão algumas práticas recomendadas para impedir, detectar e responder a ameaças:
+Aqui estão algumas práticas recomendadas para prevenir, detectar e responder a ameaças:
 
-**Prática recomendada**: aumente a velocidade e a escalabilidade de sua solução Siem usando um Siem baseado em nuvem.   
-**Detalhe**: investigue os recursos e as capacidades do [Azure Sentinel](/azure/sentinel/overview) e compare-os com os recursos do que você está usando no momento. Considere a adoção do Azure Sentinel se ele atender aos requisitos de SIEM de sua organização.
+**Práticas recomendadas**: Aumente a velocidade e a escalabilidade da sua solução SIEM usando um SIEM baseado em nuvem.   
+**Detalhe**: Investigue os recursos e recursos do [Azure Sentinel](/azure/sentinel/overview) e compare-os com as capacidades do que você está usando no local. Considere adotar o Azure Sentinel se ele atender aos requisitos de SIEM da sua organização.
 
-**Prática recomendada**: Encontre as vulnerabilidades de segurança mais sérias para que você possa priorizar a investigação.   
-**Detalhe**: examine sua [Pontuação de segurança do Azure](../../security-center/security-center-secure-score.md) para ver as recomendações resultantes das políticas e iniciativas do Azure criadas na central de segurança do Azure. Essas recomendações ajudam a resolver os principais riscos, como atualizações de segurança, proteção de ponto de extremidade, criptografia, configurações de segurança, WAF ausentes, VMs conectadas à Internet e muito mais.
+**Melhores práticas**: Encontre as vulnerabilidades de segurança mais graves para que você possa priorizar a investigação.   
+**Detalhe**: Revise sua [pontuação segura do Azure](../../security-center/security-center-secure-score.md) para ver as recomendações resultantes das políticas e iniciativas do Azure incorporadas ao Azure Security Center. Essas recomendações ajudam a lidar com os principais riscos, como atualizações de segurança, proteção contra ponto final, criptografia, configurações de segurança, WAF ausente, VMs conectados à Internet e muito mais.
 
-A pontuação segura, que é baseada em controles de CIS (Center for Internet Security), permite que você benchmark a segurança do Azure de sua organização em relação a fontes externas. A validação externa ajuda a validar e enriquecer a estratégia de segurança da sua equipe.
+A pontuação segura, que é baseada nos controles do Center for Internet Security (CIS), permite que você faça benchmarkda segurança do Azure da sua organização em relação a fontes externas. A validação externa ajuda a validar e enriquecer a estratégia de segurança da sua equipe.
 
-**Prática recomendada**: monitorar a postura de segurança de máquinas, redes, armazenamento e serviços de dados e aplicativos para descobrir e priorizar possíveis problemas de segurança.  
-**Detalhe**: siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) na central de segurança iniciando, com os itens de prioridade mais alta.
+**Melhores práticas**: Monitorar a postura de segurança de máquinas, redes, armazenamento e serviços de dados e aplicativos para descobrir e priorizar possíveis problemas de segurança.  
+**Detalhe**: Siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) no Security Center a partir, com os itens de maior prioridade.
 
-**Prática recomendada**: integre alertas da central de segurança à sua solução de Siem (gerenciamento de informações e eventos de segurança).   
-**Detalhe**: a maioria das organizações com um Siem o utiliza como uma câmara de compensação central para alertas de segurança que exigem uma resposta de analista. Os eventos processados produzidos pela central de segurança são publicados no log de atividades do Azure, um dos logs disponíveis por meio de Azure Monitor. O Azure Monitor oferece um pipeline consolidado para qualquer um dos seus dados de monitoramentos de roteamento para uma ferramenta do SIEM. Consulte [integrar soluções de segurança na central de segurança](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) para obter instruções. Se você estiver usando o Azure Sentinel, consulte [conectar a central de segurança do Azure](../../sentinel/connect-azure-security-center.md).
+**Melhores práticas**: Integre alertas do Security Center em sua solução de gerenciamento de informações de segurança e eventos (SIEM).   
+**Detalhe**: A maioria das organizações com um SIEM usa-o como uma central de compensação para alertas de segurança que requerem uma resposta de analistas. Os eventos processados produzidos pelo Security Center são publicados no Azure Activity Log, um dos logs disponíveis através do Azure Monitor. O Azure Monitor oferece um pipeline consolidado para qualquer um dos seus dados de monitoramentos de roteamento para uma ferramenta do SIEM. Consulte [Integrar soluções de segurança no Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) para obter instruções. Se você estiver usando o Azure Sentinel, consulte [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
-**Prática recomendada**: integre os logs do Azure ao Siem.   
-**Detalhe**: use [Azure monitor para coletar e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Essa prática é essencial para habilitar a investigação de incidentes de segurança e a retenção de log online é limitada. Se você estiver usando o Azure Sentinel, consulte [conectar fontes de dados](../../sentinel/connect-data-sources.md).
+**Melhores práticas**: Integre os logs do Azure com o seu SIEM.   
+**Detalhe**: Use [o Monitor Azure para coletar e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Essa prática é fundamental para permitir a investigação de incidentes de segurança e a retenção de registros on-line é limitada. Se você estiver usando o Azure Sentinel, consulte [Conectar fontes de dados](../../sentinel/connect-data-sources.md).
 
-**Prática recomendada**: Acelere seus processos de investigação e busca e reduza os falsos positivos integrando recursos de EDR (detecção de ponto de extremidade e resposta) à sua investigação de ataque.   
-**Detalhe**: [habilitar a integração do Microsoft defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) por meio da sua política de segurança da central de segurança. Considere usar o Azure Sentinel para a busca de ameaças e a resposta a incidentes.
+**Práticas recomendadas**: Acelere seus processos de investigação e caça e reduza falsos positivos integrando recursos de Detecção e Resposta ao Endpoint (EDR) em sua investigação de ataque.   
+**Detalhe**: [Habilite a integração do Microsoft Defender ATP](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) através da política de segurança do Security Center. Considere usar o Azure Sentinel para caça a ameaças e resposta a incidentes.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Acompanhar monitoramento de rede baseado em cenário de ponta a ponta
 Os clientes criam uma rede de ponta a ponta no Azure, combinando recursos de rede como rede virtual, ExpressRoute, Gateway de Aplicativo e balanceadores de carga. O monitoramento está disponível em cada um dos recursos da rede.
@@ -149,20 +149,20 @@ Use as seguintes práticas recomendadas de DevOps para garantir que suas equipes
 Você pode usar o [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) para provisionar seus aplicativos usando um modelo declarativo. Em um modelo único, você pode implantar vários serviços, juntamente com suas dependências. Use o mesmo modelo para implantar repetidamente seu aplicativo em cada estágio do ciclo de vida do aplicativo.
 
 **Melhor prática**: compile e implante automaticamente serviços de nuvem ou aplicativos Web do Azure.  
-**Detalhe**: você pode configurar seu Azure DevOps Projects para [Compilar e implantar automaticamente](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) em aplicativos Web ou serviços de nuvem do Azure. O Azure DevOps implanta automaticamente os binários depois de fazer uma compilação no Azure após cada check-in de código. O processo de build do pacote é equivalente ao comando Package no Visual Studio, e as etapas de publicação equivalem ao comando Publish do Visual Studio.
+**Detalhe**: Você pode configurar seus Projetos Azure DevOps para [criar e implantar automaticamente em](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) aplicativos web do Azure ou serviços em nuvem. O Azure DevOps implanta automaticamente os binários depois de fazer uma compilação no Azure após cada check-in de código. O processo de build do pacote é equivalente ao comando Package no Visual Studio, e as etapas de publicação equivalem ao comando Publish do Visual Studio.
 
 **Melhor prática**: automatizar o gerenciamento de versão.  
-**Detalhe:** [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) é uma solução para automatizar a implantação em vários estágios e gerenciar o processo de lançamento. Crie pipelines de implantação gerenciados e contínuos, a fim de lançar com rapidez, facilidade e frequência. Com o Azure Pipelines, você pode automatizar o processo de liberação e pode ter fluxos de trabalho de aprovação predefinidos. Implante localmente e na nuvem, estenda e personalize conforme a necessidade.
+**Detalhe:**[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) é uma solução para automatizar a implantação em vários estágios e gerenciar o processo de lançamento. Crie pipelines de implantação gerenciados e contínuos, a fim de lançar com rapidez, facilidade e frequência. Com o Azure Pipelines, você pode automatizar o processo de liberação e pode ter fluxos de trabalho de aprovação predefinidos. Implante localmente e na nuvem, estenda e personalize conforme a necessidade.
 
 **Melhor prática**: verifique o desempenho de seu aplicativo antes de inicializá-lo ou implantar atualizações na produção.  
-**Detalhe**: executar [testes de carga](/azure/devops/test/load-test/overview#alternatives) baseados em nuvem para:
+**Detalhe**: Execute testes de [carga baseados](/azure/devops/test/load-test/overview#alternatives) em nuvem para:
 
 - Localizar problemas de desempenho em seu aplicativo Web.
 - Melhorar a qualidade da implantação.
 - Garantir que seu aplicativo esteja sempre disponível.
 - Garantir que seu aplicativo possa lidar com o tráfego da sua próxima campanha de marketing ou de seu próximo lançamento.
 
-O [Apache JMeter](https://jmeter.apache.org/) é uma ferramenta de software livre gratuita e popular com um forte suporte de comunidade.
+[Apache JMeter](https://jmeter.apache.org/) é uma ferramenta de código aberto livre e popular com um forte apoio da comunidade.
 
 **Melhor prática**: monitorar o desempenho do aplicativo.  
 **Detalhe**: o [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) é um serviço de APM (gerenciamento de desempenho de aplicativo) extensível para desenvolvedores da Web em várias plataformas. Use o Application Insights para monitorar seu aplicativo Web em tempo real. Ele detecta anomalias de desempenho automaticamente. Ele inclui ferramentas de análise para ajudar você a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo. Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo.
@@ -200,30 +200,30 @@ O Azure tem duas [ofertas de serviço](../../virtual-network/ddos-protection-ove
 - A proteção básica é integrada à plataforma do Azure por padrão, sem custos adicionais. A escala e a capacidade da rede implantada globalmente do Azure fornecem defesa contra ataques de camada de rede comum por meio de monitoramento de tráfego sempre ativo e mitigação em tempo real. A básica não exige nenhuma alteração ao aplicativo ou à configuração do usuário e ajuda a proteger todos os serviços do Azure, incluindo serviços de PaaS, como o DNS do Azure.
 - A proteção Standard fornece funcionalidades avançadas de atenuação de DDoS contra ataques de rede. Se ajusta automaticamente para proteger os recursos específicos do Azure. É muito simples habilitar a proteção durante a criação de redes virtuais. Isso também pode ser feito após a criação e não requer nenhuma alteração de aplicativo ou recurso.
 
-## <a name="enable-azure-policy"></a>Habilitar Azure Policy
-[Azure Policy](/azure/governance/policy/overview) é um serviço no Azure que você usa para criar, atribuir e gerenciar políticas. Essas políticas impõem regras e efeitos sobre seus recursos, para que esses recursos permaneçam em conformidade com seus padrões corporativos e contratos de nível de serviço. O Azure Policy atende a essa necessidade, avaliando os recursos quanto a não conformidade com políticas atribuídas.
+## <a name="enable-azure-policy"></a>Habilitar a política do Azure
+[A Azure Policy](/azure/governance/policy/overview) é um serviço no Azure que você usa para criar, atribuir e gerenciar políticas. Essas políticas impõem regras e efeitos sobre seus recursos, de modo que esses recursos permanecem em conformidade com seus padrões corporativos e contratos de nível de serviço. O Azure Policy atende a essa necessidade, avaliando os recursos quanto a não conformidade com políticas atribuídas.
 
-Habilite Azure Policy para monitorar e impor a política de escrita da sua organização. Isso garantirá a conformidade com os requisitos de sua empresa ou de segurança regulatória gerenciando centralmente políticas de segurança em suas cargas de trabalho de nuvem híbrida. Saiba como [criar e gerenciar políticas para impor a conformidade](../../governance/policy/tutorials/create-and-manage.md). Consulte [estrutura de definição de Azure Policy](../../governance/policy/concepts/definition-structure.md) para obter uma visão geral dos elementos de uma política.
+Habilite a Política Do Azure para monitorar e aplicar a política escrita da sua organização. Isso garantirá a conformidade com os requisitos de segurança da sua empresa ou regulamentador, gerenciando centralmente as políticas de segurança em suas cargas de trabalho na nuvem híbrida. Aprenda a [criar e gerenciar políticas para impor o cumprimento.](../../governance/policy/tutorials/create-and-manage.md) Consulte [a estrutura de definição da Diretiva Azure](../../governance/policy/concepts/definition-structure.md) para obter uma visão geral dos elementos de uma política.
 
-Aqui estão algumas práticas recomendadas de segurança a serem seguidas depois que você adotar Azure Policy:
+Aqui estão algumas práticas recomendadas de segurança a seguir depois de adotar a Política Do Azure:
 
-**Prática recomendada**: a política dá suporte a vários tipos de efeitos. Você pode ler sobre eles na [estrutura de definição de Azure Policy](../../governance/policy/concepts/definition-structure.md#policy-rule). As operações de negócios podem ser afetadas negativamente pelo efeito de **negação** e o efeito de **correção** , portanto, comece com o efeito de **auditoria** para limitar o risco de impacto negativo da política.   
-**Detalhe**: [inicie as implantações de política no modo de auditoria](../../governance/policy/concepts/definition-structure.md#policy-rule) e, posteriormente, progresso para **negar** ou **corrigir**. Teste e examine os resultados do efeito de auditoria antes de mover para **negar** ou **corrigir**.
+**Melhores práticas**: A política suporta vários tipos de efeitos. Você pode ler sobre eles na [estrutura de definição da Política Do Azure](../../governance/policy/concepts/definition-structure.md#policy-rule). As operações comerciais podem ser afetadas negativamente pelo efeito **de negação** e pelo efeito **reparador,** então comece com o efeito **de auditoria** para limitar o risco de impacto negativo da política.   
+**Detalhe**: [Inicie implantações de políticas no modo de auditoria](../../governance/policy/concepts/definition-structure.md#policy-rule) e, posteriormente, progrida para **negar** ou **remediar**. Teste e revise os resultados do efeito de auditoria antes de se mover para **negar** ou **remediar**.
 
-Para obter mais informações, consulte [criar e gerenciar políticas para impor a conformidade](../../governance/policy/tutorials/create-and-manage.md).
+Para obter mais informações, consulte [Criar e gerenciar políticas para impor o cumprimento](../../governance/policy/tutorials/create-and-manage.md).
 
-**Prática recomendada**: identificar as funções responsáveis pelo monitoramento de violações de política e garantir que a ação de correção correta seja executada rapidamente.   
-**Detalhe**: tenha a conformidade do monitor de função atribuída por meio da [portal do Azure](../../governance/policy/how-to/get-compliance-data.md#portal) ou por meio da [linha de comando](../../governance/policy/how-to/get-compliance-data.md#command-line).
+**Melhores práticas**: Identificar os papéis responsáveis pelo monitoramento das violações das políticas e garantir que as ações de remediação corretas sejam tomadas rapidamente.   
+**Detalhe**: Tenha a função atribuída monitorar a conformidade através do [portal Azure](../../governance/policy/how-to/get-compliance-data.md#portal) ou através da [linha de comando](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Prática recomendada**: Azure Policy é uma representação técnica das políticas escritas de uma organização. Mapeie todas as políticas do Azure para políticas organizacionais para reduzir a confusão e aumentar a consistência.   
-**Detalhe**: mapeamento de documento na documentação da sua organização ou na própria política do Azure adicionando uma referência à política organizacional na [Descrição da política](../../governance/policy/concepts/definition-structure.md#display-name-and-description) do Azure ou na descrição da [iniciativa](../../governance/policy/concepts/definition-structure.md#initiatives) de política do Azure.
+**Melhores práticas**: A Azure Policy é uma representação técnica das políticas escritas de uma organização. Mapeie todas as políticas do Azure para políticas organizacionais para reduzir a confusão e aumentar a consistência.   
+**Detalhe**: Mapeamento de documentos na documentação da sua organização ou na própria política do Azure, adicionando uma referência à política organizacional na descrição da [política](../../governance/policy/concepts/definition-structure.md#display-name-and-description) do Azure ou na descrição da [iniciativa](../../governance/policy/concepts/definition-structure.md#initiatives) de política do Azure.
 
-## <a name="monitor-azure-ad-risk-reports"></a>Monitorar relatórios de risco do Azure AD
-A grande maioria das violações de segurança ocorre quando os invasores conseguem acessar a um ambiente roubando a identidade de um usuário. Descobrir identidades comprometidas não é uma tarefa fácil. O Azure AD usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas às contas do usuário. Cada ação suspeita detectada é armazenada em um registro chamado [detecção de risco](../../active-directory/reports-monitoring/concept-risk-events.md). As detecções de risco são registradas nos relatórios de segurança do Azure AD. Para obter mais informações, leia sobre o [relatório de segurança de usuários em risco](../../active-directory/reports-monitoring/concept-user-at-risk.md) e o [relatório de segurança de entradas arriscadas](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
+## <a name="monitor-azure-ad-risk-reports"></a>Monitore os relatórios de risco do Azure AD
+A grande maioria das violações de segurança ocorre quando os invasores conseguem acessar a um ambiente roubando a identidade de um usuário. Descobrir identidades comprometidas não é uma tarefa fácil. O Azure AD usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas às contas do usuário. Cada ação suspeita detectada é armazenada em um registro chamado [dedetecção de risco](../../active-directory/reports-monitoring/concept-risk-events.md). As detecções de risco são registradas nos relatórios de segurança do Azure AD. Para obter mais informações, leia sobre o relatório de [segurança de riscos](../../active-directory/reports-monitoring/concept-user-at-risk.md) dos usuários e o relatório de segurança de [logins de risco](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – o local em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou por email para secure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou por e-mail parasecure@microsoft.com

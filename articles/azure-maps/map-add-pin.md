@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de símbolo a um mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá como usar a camada de símbolo para personalizar um símbolo e adicionar símbolos em um mapa usando o SDK da Web do Microsoft Azure Maps.
+title: Adicione uma camada de símbolo a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre como usar a camada Símbolo para personalizar um símbolo e adicionar símbolos em um mapa usando o Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,22 +10,22 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209691"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo a um mapa
 
-Conecte um símbolo a uma fonte de dados e use-o para renderizar um ícone ou um texto em um determinado ponto. 
+Conecte um símbolo a uma fonte de dados e use-o para renderizar um ícone ou um texto em um dado ponto. 
 
-As camadas de símbolo são renderizadas usando o WebGL. Use uma camada de símbolo para renderizar grandes coleções de pontos no mapa. Em comparação com o marcador HTML, a camada de símbolo renderiza um grande número de dados de ponto no mapa, com melhor desempenho. No entanto, a camada de símbolo não dá suporte a elementos CSS tradicionais e HTML para estilização.  
+As camadas de símbolo são renderizadas usando o WebGL. Use uma camada de símbolo para renderizar grandes coleções de pontos no mapa. Em comparação com o marcador HTML, a camada de símbolo renderiza um grande número de dados de ponto no mapa, com melhor desempenho. No entanto, a camada de símbolo não suporta elementos CSS e HTML tradicionais para estilo.  
 
 > [!TIP]
-> Por padrão, as camadas de Símbolo renderizarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de geometria de ponto, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`, se desejar, você também pode incluir recursos do MultiPoint.
+> Por padrão, as camadas de Símbolo renderizarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de tal forma que `filter` ela só renderiza `['==', ['geometry-type'], 'Point']` `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` recursos de geometria de ponto definir a propriedade da camada para ou se você quiser, você pode incluir recursos do MultiPoint também.
 
-A imagem de mapas do Gerenciador de Sprite carrega imagens personalizadas usadas pela camada de símbolo. Ele dá suporte aos seguintes formatos de imagem:
+O gerenciador de sprite de imagem de mapas carrega imagens personalizadas usadas pela camada de símbolo. Ele suporta os seguintes formatos de imagem:
 
 - JPEG
 - PNG
@@ -35,9 +35,9 @@ A imagem de mapas do Gerenciador de Sprite carrega imagens personalizadas usadas
 
 ## <a name="add-a-symbol-layer"></a>Adicionar uma camada de símbolo
 
-Para poder adicionar uma camada de símbolo ao mapa, você precisa executar algumas etapas. Primeiro, crie uma fonte de dados e adicione-a ao mapa. Crie uma camada de símbolo. Em seguida, passe a fonte de dados para a camada de símbolo para recuperar os dados da fonte de dados. Por fim, adicione dados à fonte de dados para que haja algo a ser renderizado. 
+Antes de adicionar uma camada de símbolo ao mapa, você precisa dar alguns passos. Primeiro, crie uma fonte de dados e adicione-a ao mapa. Crie uma camada de símbolo. Em seguida, passe a fonte de dados para a camada de símbolos, para recuperar os dados da fonte de dados. Finalmente, adicione dados na fonte de dados, para que haja algo a ser renderizado. 
 
-O código a seguir demonstra o que deve ser adicionado ao mapa depois que ele é carregado. Este exemplo renderiza um único ponto no mapa usando uma camada de símbolo. 
+O código abaixo demonstra o que deve ser adicionado ao mapa depois de carregado. Esta amostra renderiza um único ponto no mapa usando uma camada de símbolo. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -54,14 +54,14 @@ map.layers.add(layer);
 dataSource.add(new atlas.data.Point([0, 0]));
 ```
 
-Há quatro tipos diferentes de dados de ponto que podem ser adicionados ao mapa:
+Existem quatro tipos diferentes de dados de ponto que podem ser adicionados ao mapa:
 
-- Geometria de ponto geojson-esse objeto contém apenas uma coordenada de um ponto e nada mais. A classe auxiliar `atlas.data.Point` pode ser usada para criar facilmente esses objetos.
-- Geojson MultiPoint Geometry-este objeto contém as coordenadas de vários pontos e nada mais. A classe auxiliar `atlas.data.MultiPoint` pode ser usada para criar facilmente esses objetos.
-- Recurso geojson – esse objeto consiste em qualquer geometria geojson e um conjunto de propriedades que contêm metadados associados à geometria. A classe auxiliar `atlas.data.Feature` pode ser usada para criar facilmente esses objetos.
-- `atlas.Shape` classe é semelhante ao recurso geojson. Ambos consistem em uma geometria geojson e um conjunto de propriedades que contêm metadados associados à geometria. Se um objeto geojson for adicionado a uma fonte de dados, ele poderá ser facilmente renderizado em uma camada. No entanto, se a propriedade coordenadas desse objeto geojson for atualizada, a fonte de dados e o mapa não serão alterados. Isso porque não há nenhum mecanismo no objeto JSON para disparar uma atualização. A classe Shape fornece funções para atualizar os dados que ela contém. Quando uma alteração é feita, a fonte de dados e o mapa são automaticamente notificados e atualizados. 
+- Geometria do ponto GeoJSON - Este objeto contém apenas uma coordenada de um ponto e nada mais. A `atlas.data.Point` classe auxiliar pode ser usada para criar facilmente esses objetos.
+- Geometria GeoJSON MultiPoint - Este objeto contém as coordenadas de vários pontos e nada mais. A `atlas.data.MultiPoint` classe auxiliar pode ser usada para criar facilmente esses objetos.
+- GeoJSON Feature - Este objeto consiste em qualquer geometria GeoJSON e um conjunto de propriedades que contêm metadados associados à geometria. A `atlas.data.Feature` classe auxiliar pode ser usada para criar facilmente esses objetos.
+- `atlas.Shape`classe é semelhante ao recurso GeoJSON. Ambos consistem em uma geometria GeoJSON e um conjunto de propriedades que contêm metadados associados à geometria. Se um objeto GeoJSON for adicionado a uma fonte de dados, ele pode ser facilmente renderizado em uma camada. No entanto, se a propriedade coordenada desse objeto GeoJSON for atualizada, a fonte de dados e o mapa não mudarão. Isso porque não há mecanismo no objeto JSON para ativar uma atualização. A classe de forma fornece funções para atualizar os dados que contém. Quando uma alteração é feita, a fonte de dados e o mapa são automaticamente notificados e atualizados. 
 
-O exemplo de código a seguir cria uma geometria de ponto geojson e a transmite para a classe `atlas.Shape` para facilitar a atualização. O centro do mapa é usado inicialmente para renderizar um símbolo. Um evento de clique é adicionado ao mapa de modo que, quando ele é acionado, as coordenadas do mouse são usadas com as formas `setCoordinates` função. As coordenadas do mouse são registradas no momento do evento de clique. Em seguida, o `setCoordinates` atualiza o local do símbolo no mapa.
+A amostra de código a seguir cria uma geometria GeoJSON Point e passa-a para a `atlas.Shape` classe para facilitar a atualização. O centro do mapa é inicialmente usado para renderizar um símbolo. Um evento de clique é adicionado ao mapa de modo que, quando ele `setCoordinates` é acionado, as coordenadas do mouse são usadas com a função de formas. As coordenadas do mouse são gravadas no momento do evento do clique. Em seguida, as `setCoordinates` atualizações da localização do símbolo no mapa.
 
 <br/>
 
@@ -69,11 +69,11 @@ O exemplo de código a seguir cria uma geometria de ponto geojson e a transmite 
 </iframe>
 
 > [!TIP]
-> Por padrão, as camadas de símbolo otimizam a renderização de símbolos, ocultando os símbolos que se sobrepõem. À medida que você amplia, os símbolos ocultos se tornam visíveis. Para desabilitar esse recurso e renderizar todos os símbolos em todos os momentos, defina a propriedade `allowOverlap` das opções de `iconOptions` como `true`.
+> Por padrão, as camadas de símbolos otimizam a renderização de símbolos ocultando símbolos que se sobrepõem. À medida que você amplia, os símbolos ocultos se tornam visíveis. Para desativar esse recurso e renderizar todos os `allowOverlap` símbolos `iconOptions` o `true`tempo todo, defina a propriedade das opções para .
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adicionar um ícone personalizado a uma camada de símbolo
 
-As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recursos, como imagens de ícone, precisam ser carregados no contexto do WebGL. Este exemplo mostra como adicionar um ícone personalizado aos recursos de mapa. Esse ícone é usado para renderizar dados de ponto com um símbolo personalizado no mapa. A propriedade `textField` da camada de símbolo exige a especificação de uma expressão. Nesse caso, queremos renderizar a propriedade de temperatura. Como a temperatura é um número, ela precisa ser convertida em uma cadeia de caracteres. Além disso, queremos acrescentar "° f" a ele. Uma expressão pode ser usada para fazer essa concatenação; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recursos, como imagens de ícone, precisam ser carregados no contexto do WebGL. Esta amostra mostra como adicionar um ícone personalizado aos recursos do mapa. Este ícone é então usado para renderizar dados de ponto com um símbolo personalizado no mapa. A propriedade `textField` da camada de símbolo exige a especificação de uma expressão. Neste caso, queremos tornar a propriedade da temperatura. Uma vez que a temperatura é um número, ele precisa ser convertido em uma seqüência. Além disso, queremos anexar "°F" a ele. Uma expressão pode ser usada para fazer essa concatenação; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -81,7 +81,7 @@ As camadas de símbolo são renderizadas usando o WebGL. Assim, todos os recurso
 </iframe>
 
 > [!TIP]
-> O SDK da Web do Azure Maps fornece vários modelos de imagem personalizáveis que você pode usar com a camada de símbolo. Para obter mais informações, consulte o documento [como usar modelos de imagem](how-to-use-image-templates-web-sdk.md) .
+> O SDK web Do Azure Maps fornece vários modelos de imagem personalizáveis que você pode usar com a camada de símbolo. Para obter mais informações, consulte o documento [Como usar modelos de imagem.](how-to-use-image-templates-web-sdk.md)
 
 ## <a name="customize-a-symbol-layer"></a>Personalizar uma camada de símbolo 
 
@@ -93,7 +93,7 @@ A camada de símbolo tem muitas opções de estilo disponíveis. Veja a seguir u
 </iframe>
 
 > [!TIP]
-> Quando você quiser renderizar apenas o texto com uma camada de símbolo, poderá ocultar o ícone definindo a propriedade `image` das opções de ícone como `'none'`.
+> Quando você deseja renderizar apenas texto com uma camada de `image` símbolo, você `'none'`pode ocultar o ícone definindo a propriedade das opções de íconepara .
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -109,7 +109,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 > [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [Textoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
@@ -132,7 +132,7 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Adicionar uma camada de polígono](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolhas](map-add-bubble-layer.md)
+> [Adicione uma camada de bolha](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [Adicionar marcadores HTML](map-add-bubble-layer.md)

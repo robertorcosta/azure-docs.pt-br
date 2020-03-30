@@ -1,5 +1,5 @@
 ---
-title: Provisionar em SaaS multilocatário
+title: Provisão em SaaS multi-inquilino
 description: Saiba como provisionar e catalogar novos locatários em um aplicativo SaaS multilocatário do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
 ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133138"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo de SaaS usando um banco de dados SQL do Azure multilocatário fragmentado do Azure
@@ -61,7 +61,7 @@ Usar um catálogo permite que o nome ou o local de um banco de dados de locatár
 
 O catálogo também pode indicar se um locatário está offline para manutenção ou outras ações. E o catálogo pode ser estendido para armazenar metadados adicionais do locatário ou do banco de dados, como os seguintes itens:
 - A camada de serviço ou a edição de um banco de dados.
-- A versão do esquema do banco de dados.
+- A versão do esquema de banco de dados.
 - O nome do locatário e seu SLA (Contrato de Nível de Serviço).
 - Informações para habilitar o gerenciamento de aplicativos, o suporte ao cliente ou os processos de DevOps.
 
@@ -69,7 +69,7 @@ O catálogo também pode ser usado para habilitar relatórios entre locatários,
 
 ### <a name="elastic-database-client-library"></a>Biblioteca de cliente do Banco de Dados Elástico
 
-Em Wingtip, o catálogo é implementado no banco de dados *tenantcatalog*. O *tenantcatalog* é criado usando os recursos de gerenciamento de fragmento da [EDCL (Biblioteca de Clientes do Banco de Dados Elástico)](sql-database-elastic-database-client-library.md). A biblioteca permite que um aplicativo crie, gerencie e use um *mapa de fragmentos* que é armazenado em um banco de dados. Um mapa de fragmentos cruza referências da chave de locatário com seu fragmento, o que significa seu banco de dados fragmentado.
+Em Wingtip, o catálogo é implementado no banco de dados *tenantcatalog*. O *tenantcatalog* é criado usando os recursos de gerenciamento de fragmento da [EDCL (Biblioteca de Clientes do Banco de Dados Elástico)](sql-database-elastic-database-client-library.md). A biblioteca permite que um aplicativo crie, gerencie e use um *mapa de fragmentos* armazenado em um banco de dados. Um mapa de fragmentos cruza referências da chave de locatário com seu fragmento, o que significa seu banco de dados fragmentado.
 
 Durante o provisionamento de locatários, as funções EDCL podem ser usadas em aplicativos ou em scripts do PowerShell para criar as entradas no mapa de fragmentos. Mais tarde, as funções EDCL podem ser usadas para conectar-se ao banco de dados correto. O EDCL armazena as informações de conexão em cache para minimizar o tráfego no banco de dados do catálogo e acelerar o processo de conexão.
 
@@ -78,7 +78,7 @@ Durante o provisionamento de locatários, as funções EDCL podem ser usadas em 
 
 ## <a name="tenant-provisioning-pattern"></a>Padrão de provisionamento de locatários
 
-#### <a name="checklist"></a>Lista de Verificação
+#### <a name="checklist"></a>Lista de verificação
 
 Quando você quiser provisionar um novo locatário em um banco de dados compartilhado existente, responda às seguintes perguntas em relação ao banco de dados compartilhado:
 - Ele tem espaço suficiente para o novo locatário?
@@ -114,7 +114,7 @@ Os dados de locatário são inicializados e registrados no mapa de fragmentos de
 
 ## <a name="tutorial-begins"></a>Início do tutorial
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Provisionar um locatário em um banco de dados multilocatário
@@ -122,16 +122,16 @@ Neste tutorial, você aprenderá a:
 > * Provisionar um lote de locatários em bancos de dados multilocatários e de locatário único
 > * Registrar um banco de dados e o mapeamento de locatários em um catálogo
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
 - O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-- O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, consulte [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
+- O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, confira [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 
 - Obtenha os scripts e o código-fonte do Wingtip:
-    - Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) do GitHub.
+    - Os scripts de banco de dados multi-inquilinos Wingtip Tickets SaaS e o código-fonte do aplicativo estão disponíveis no repo [WingtipTicketsSaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub.
     - Consulte as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts do Wingtip.
 
 ## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>Provisionar um locatário em um banco de dados *compartilhado* com outros locatários
@@ -145,7 +145,7 @@ A seguir, estão os principais elementos do fluxo de trabalho de provisionamento
 - **Calcular a nova chave do locatário**: uma função de hash é usada para criar a chave do locatário por meio do nome do locatário.
 - **Verificar se a chave do locatário já existe**: o catálogo é verificado para garantir que a chave ainda não foi registrada.
 - **Inicializar o locatário no banco de dados de locatário padrão**: o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.
-- **Registrar o locatário no catálogo**: o mapeamento entre a nova chave do locatário e o banco de dados tenants1 existente é adicionado ao catálogo.
+- **Registro do inquilino no catálogo**: O mapeamento entre a nova chave de inquilino e o banco de dados de inquilinos existente1 é adicionado ao catálogo.
 - **Adicionar o nome do locatário em uma tabela de extensão de catálogo**: o nome do local é adicionado à tabela Locatários no catálogo.  Essa adição mostra como o banco de dados de catálogo pode ser estendido para permitir dados específicos do aplicativo adicionais.
 - **Abrir a página de eventos para o novo locatário**: a página de eventos *Bushwillow Blues* é aberta no navegador.
 
@@ -157,8 +157,8 @@ Para entender como o aplicativo Wingtip implementa o provisionamento do novo loc
 
 1. No *ISE do PowerShell*, abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e defina estes parâmetros:
    - **$TenantName** = **Bushwillow Blues**, o nome de um novo local.
-   - **$VenueType** = **blues**, um dos tipos de local predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (letras minúsculas, sem espaços).
-   - **$DemoScenario** = **1**, para provisionar um locatário em um banco de dados compartilhado com outros locatários.
+   - **$VenueType** = **blues**, um dos tipos de local pré-definidos: blues, música clássica, dança, jazz, judô, automobilismo, multiuso, ópera, rockmusic, futebol (minúsculas, sem espaços).
+   - **$DemoScenario** = **1**, para prover um inquilino em um banco de dados compartilhado com outros inquilinos.
 
 2. Adicione um ponto de interrupção, colocando o cursor em qualquer local na linha 38, que contém: *New-Tenant `* e pressione **F9**.
 
@@ -174,7 +174,7 @@ Para entender como o aplicativo Wingtip implementa o provisionamento do novo loc
 
 Para saber mais sobre como depurar scripts do PowerShell, confira [Dicas sobre como trabalhar e depurar scripts do PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
-## <a name="provision-a-tenant-in-its-own-database"></a>Provisionar um locatário no seu *próprio* banco de dados
+## <a name="provision-a-tenant-in-its-own-database"></a>Provisão de um inquilino em seu *próprio* banco de dados
 
 #### <a name="major-actions-of-provisioning"></a>Principais ações de provisionamento
 
@@ -185,7 +185,7 @@ A seguir, estão os principais elementos do fluxo de trabalho que você percorre
 - **Criar um novo banco de dados de locatário**: o banco de dados é criado, copiando o banco de dados *basetenantdb* usando um modelo do Resource Manager.  O nome do novo banco de dados é baseado no nome do locatário.
 - **Adicionar banco de dados ao catálogo**: o novo banco de dados de locatário é registrado como um fragmento no catálogo.
 - **Inicializar o locatário no banco de dados de locatário padrão**: o banco de dados de locatário será atualizado para adicionar as novas informações de locatário.
-- **Registrar locatário em um catálogo**: o mapeamento entre a nova chave de locatário e o banco de dados *sequoiasoccer* é adicionado ao catálogo.
+- **Registro de inquilino no catálogo**: O mapeamento entre a nova chave de inquilino e o banco de dados de *sequoiasoccer* é adicionado ao catálogo.
 - **O nome do locatário é adicionado ao catálogo**: o nome do local é adicionado à tabela de extensão Locatários no catálogo.
 - **Abrir página de eventos para o novo locatário**: a página de eventos *Sequoia Soccer* é aberta no navegador.
 
@@ -197,10 +197,10 @@ Agora, percorra o processo de script ao criar um locatário em seu próprio banc
 
 1. Ainda em ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, defina estes parâmetros:
    - **$TenantName** = **Sequoia Soccer**, o nome de um novo local.
-   - **$VenueType** = **soccer**, um dos tipos de local predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (em minúsculas, sem espaços).
-   - **$DemoScenario** = **2**, para provisionar um locatário em seu próprio banco de dados.
+   - **$VenueType** = **futebol**, um dos tipos de espaço pré-definidos: blues, música clássica, dança, jazz, judô, automobilismo, multiuso, ópera, rockmusic, futebol (minúscula, sem espaços).
+   - **$DemoScenario** = **2**, para prover um inquilino em seu próprio banco de dados.
 
-2. Adicione um novo ponto de interrupção posicionando seu cursor em qualquer lugar na linha 57, que diz: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* e pressione **F9**.
+2. Adicione um novo ponto de breakpoint colocando seu cursor em qualquer lugar na linha 57, a linha que diz: * & &nbsp;$PSScriptRoot\New-TenantAndDatabase '* e pressione **F9**.
 
    ![ponto de interrupção](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
@@ -213,7 +213,7 @@ Agora, percorra o processo de script ao criar um locatário em seu próprio banc
 Este exercício provisiona um lote com 17 locatários. É recomendável provisionar esse lote de locatários antes de iniciar outros tutoriais do Wingtip Tickets, de forma que haja mais bancos de dados com os quais trabalhar.
 
 1. No *ISE do PowerShell*, abra ...\\Módulos de Aprendizagem\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e altere o parâmetro *$DemoScenario* para 4:
-   - **$DemoScenario** = **4** para provisionar um lote de locatários em um banco de dados compartilhado.
+   - **$DemoScenario** = **4**, para prover um lote de inquilinos em um banco de dados compartilhado.
 
 2. Pressione **F5** e execute o script.
 
@@ -236,7 +236,7 @@ A lista completa de locatários e o banco de dados correspondente para cada um e
 - O nome do locatário é armazenado na tabela Locatários.
 - O nome do banco de dados é armazenado nas tabelas de gerenciamento de fragmentos.
 
-1. No SQL Server Management Studio (SSMS), conecte-se ao servidor de locatários em **Catalog-Mt.\<usuário\>. Database.Windows.net**, com login = **Developer**e password = **P\@ssword1**
+1. No SQL Server Management Studio (SSMS), conecte-se ao servidor de inquilinos no **catalog-mt.\<USER\>.database.windows.net**, com Login = **desenvolvedor**, e Senha = P **\@ssword1**
 
     ![caixa de diálogo de conexão do SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
@@ -263,7 +263,7 @@ Esse tipo de serviço automatizado pode ser simples ou complexo. Por exemplo, a 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
-- [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md)
+- [Biblioteca de clientes de banco de dados elástico](sql-database-elastic-database-client-library.md)
 - [Como depurar scripts no ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 

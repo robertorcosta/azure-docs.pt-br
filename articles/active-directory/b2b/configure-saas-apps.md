@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicativos SaaS para colaboração B2B – Azure AD
+title: Configure aplicativos SaaS para colaboração B2B - Azure AD
 description: Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272946"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicativos SaaS para colaboração B2B
@@ -54,7 +54,7 @@ Para permitir que os usuários façam logon usando suas contas da organização,
 
 5. Entre no Dropbox com a URL de logon na página **Logon único**.
 
-   ![Captura de tela mostrando a página de entrada do Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Captura de tela mostrando a página de login do Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. No menu, selecione **Console Admin**.
 
@@ -79,9 +79,9 @@ Você pode permitir que os usuários autentiquem os usuários convidados do Box 
 
 2. Configure o logon único na seguinte ordem:
 
-   ![Captura de tela mostrando as definições de configuração de logon único](media/configure-saas-apps/configure-box-sso.png)
+   ![Captura de tela mostrando as configurações de configuração de login único](media/configure-saas-apps/configure-box-sso.png)
 
-   a. Na caixa **URL de Logon**, verifique se a URL de Logon está definida corretamente para o Box no portal do Azure. Essa é a URL do seu locatário Box.com. Ela deve seguir a convenção de nomenclatura *https://.box.com* .  
+   a. Na caixa **URL de Logon**, verifique se a URL de Logon está definida corretamente para o Box no portal do Azure. Essa é a URL do seu locatário Box.com. Ele deve seguir *https://.box.com*a convenção de nomeação.  
    O **Identificador** não se aplica a esse aplicativo, mas ainda aparece como um campo obrigatório.
 
    b. Na caixa **Identificador do usuário**, digite **user.mail** (para o SSO das contas de convidado).
@@ -102,8 +102,8 @@ Como os convidados do Dropbox, os convidados do Box também devem resgatar seu c
 
 Consulte os seguintes artigos na colaboração B2B do Azure AD:
 
-- [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
+- [O que é a colaboração Azure AD B2B?](what-is-b2b.md)
 - [Grupos dinâmicos e colaboração B2B](use-dynamic-groups.md)
-- [Mapeamento de declarações do usuário de colaboração B2B](claims-mapping.md)
+- [Mapeamento de declarações de usuário de colaboração B2B](claims-mapping.md)
 - [Compartilhamento externo do Office 365](o365-external-user.md)
 

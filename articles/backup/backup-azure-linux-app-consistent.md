@@ -1,14 +1,14 @@
 ---
-title: Backups consistentes com o aplicativo de VMs Linux
+title: Backups consistentes com aplicativos de VMs Linux
 description: Criar backups consistentes com o aplicativo para máquinas virtuais do Linux no Azure. Este artigo explica como configurar a estrutura de script para fazer backup de VMs Linux implantadas no Azure. Este artigo também inclui informações de solução de problemas.
 ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172998"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
@@ -19,7 +19,7 @@ Ao fazer instantâneos de backup de suas VMs, consistência com o aplicativo sig
 
 A estrutura fornece uma opção para executar pré e pós-scripts personalizados ao obter instantâneos de VM. Os pré-scripts são executados imediatamente antes de você obter o instantâneo da VM e os pós-scripts são executados imediatamente após você obter o instantâneo da VM. Pré-scripts e pós-scripts oferecem a flexibilidade para controlar seus aplicativos e o ambiente enquanto está obtendo instantâneos da VM.
 
-Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas seções, e liberam o conteúdo da memória para o disco. Essas ações garantem que o instantâneo seja consistente com aplicativo. Os pós-scripts usam APIs de aplicativo nativo para descongelar o IOs, o que permite que o aplicativo retome as operações normais após o instantâneo da VM.
+Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas seções, e liberam o conteúdo da memória para o disco. Essas ações garantem que o instantâneo seja consistente com aplicativo. Os post-scripts usam APIs de aplicativos nativos para descongelar os IOs, que permitem que o aplicativo retome as operações normais após o instantâneo da VM.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Etapas para configurar o pré-script e o pós-script
 
@@ -63,11 +63,11 @@ Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas s
 
     - **fsFreezeEnabled**: especifique se Linux fsfreeze deve ser chamado durante a obtenção do instantâneo da VM para garantir a consistência do sistema de arquivos. Recomendamos manter essa configuração como **true**, a menos que seu aplicativo tenha dependência na desabilitação do fsfreeze.
 
-    - **ScriptsExecutionPollTimeSeconds**: defina a hora em que a extensão deve ser suspensa entre cada sondagem para a execução do script. Por exemplo, se o valor for 2, a extensão verificará se a execução do script anterior/posterior foi concluída a cada 2 segundos. O valor mínimo e máximo que pode levar é 1 e 5, respectivamente. O valor deve ser estritamente um inteiro.
+    - **ScriptsExecutionPollTimeSeconds**: Defina o tempo que a extensão tem para dormir entre cada pesquisa e a execução do script. Por exemplo, se o valor for 2, a extensão verifica se a execução do script pré/post é concluída a cada 2 segundos. O valor mínimo e máximo que pode levar é 1 e 5, respectivamente. O valor deve ser estritamente um inteiro.
 
 6. A estrutura de script está configurada. Se o backup da VM já estiver configurado, o próximo backup invocará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure-o usando [Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Adicione os logs apropriados ao escrever seu pré-script e pós-script e examine os logs de script para corrigir quaisquer problemas de script. Se você ainda tiver problemas para executar scripts, veja a tabela a seguir para obter mais informações.
 

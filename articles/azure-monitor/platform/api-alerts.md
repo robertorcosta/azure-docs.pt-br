@@ -1,14 +1,14 @@
 ---
 title: Usando a API REST de alerta do Log Analytics
-description: A API REST do alerta de Log Analytics permite criar e gerenciar alertas no Log Analytics, que faz parte do Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
+description: A API de alerta de log analytics REST permite criar e gerenciar alertas no Log Analytics, que faz parte do Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: a85dad2ba638505233e5df769e55fa5bd7b8dafd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664993"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST 
@@ -16,11 +16,11 @@ ms.locfileid: "77664993"
 A API REST de alerta do Log Analytics permite criar e gerenciar alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
 
 > [!IMPORTANT]
-> Conforme [anunciado anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), os espaços de trabalho do log Analytics criados após *1º de junho de 2019* – poderão gerenciar regras de alerta usando **apenas** a [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)do Azure scheduledQueryRules, o [modelo Manager de recursos do Azure](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e o [cmdlet do PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Os clientes podem facilmente [alternar seus meios preferenciais de gerenciamento de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para aproveitar Azure monitor scheduledQueryRules como padrão e obter muitos [novos benefícios](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos do PowerShell, um período de tempo de lookback maior em regras, a criação de regras em um grupo de recursos ou assinatura separado e muito mais.
+> Como [anunciado anteriormente,](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)o log analytics workspace(s) criado após *1 º de junho de 2019* - será capaz de gerenciar regras de alerta usando **apenas** a Api, a [Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) [Resource Mananger Template](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) e o [cmdlet PowerShell.](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell) Os clientes podem facilmente [mudar seus meios preferidos de gerenciamento de regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para aproveitar o azure Monitor scheduledQueryRules como padrão e ganhar muitos novos [benefícios,](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets nativos do PowerShell, aumento do período de tempo de retorno nas regras, criação de regras em grupo de recursos separados ou assinatura e muito mais.
 
 A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API REST do Azure Resource Manager. Neste documento, você encontrará exemplos em que a API é acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient e do PowerShell é uma das muitas opções para acessar a API de Pesquisa do Log Analytics. Com essas ferramentas, você pode utilizar a API do RESTful Azure Resource Manager para fazer chamadas para espaços de trabalho do Log Analytics e executar comandos de pesquisa dentro deles. A API produzirá resultados da pesquisa para você no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 Atualmente, os alertas somente podem ser criados com uma pesquisa salva no Log Analytics.  Você pode consultar a [API REST da Pesquisa de Log](../../azure-monitor/log-query/log-query-overview.md) para obter mais informações.
 
 ## <a name="schedules"></a>Agendas
@@ -31,7 +31,7 @@ Os agendamentos têm as propriedades indicadas na tabela a seguir.
 |:--- |:--- |
 | Intervalo |A frequência com que a pesquisa é executada. Medida em minutos. |
 | QueryTimeSpan |O intervalo durante o qual os critérios são avaliados. Deve ser igual ou maior que Interval. Medida em minutos. |
-| {1&gt;Version&lt;1} |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
+| Versão |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
 
 Por exemplo, considere uma consulta de evento com um Interval (Intervalo) de 15 minutos e Timespan (Período) de 30 minutos. Nesse caso, a consulta deverá ser executada a cada 15 minutos e um alerta deverá ser disparado se os critérios continuarem a ser resolvidos como verdadeiro por um período de 30 minutos.
 
@@ -61,7 +61,7 @@ A seguir está um exemplo de resposta para um agendamento.
 ```
 
 ### <a name="creating-a-schedule"></a>Criando uma agenda
-Use o método Put com uma ID de agendamento única para criar um novo agendamento.  Dois agendamentos não podem ter a mesma ID, mesmo se estiverem associados a pesquisas salvas diferentes.  Quando você cria um agendamento no console do Log Analytics, um GUID é criado para o ID do agendamento.
+Use o método Put com uma ID de agendamento única para criar um novo agendamento.  Dois horários não podem ter o mesmo ID, mesmo que estejam associados a diferentes pesquisas salvas.  Quando você cria um agendamento no console do Log Analytics, um GUID é criado para o ID do agendamento.
 
 > [!NOTE]
 > O nome para todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em letras minúsculas.
@@ -70,7 +70,7 @@ Use o método Put com uma ID de agendamento única para criar um novo agendament
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Editando um agendamento
-Use o método Put com uma ID de agendamento existente para a mesma pesquisa salva para modificar esse agendamento; no exemplo a seguir, o agendamento está desabilitado. O corpo da solicitação deve incluir a *etag* do agendamento.
+Use o método Put com uma ID de agendamento existente para a mesma pesquisa salva para modificar esse agendamento; no exemplo a seguir, o agendamento está desabilitado. O corpo da solicitação deve incluir *a etiqueta* do cronograma.
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
@@ -137,7 +137,7 @@ Os limites têm as propriedades indicadas na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| `Operator` |Operador de comparação de limite. <br> gt = Maior Que <br> lt = Menor Que |
+| `Operator` |Operador de comparação de limite. <br> gt = Maior Que <br>  lt = Menor Que |
 | `Value` |Valor para o limite. |
 
 Por exemplo, considere uma consulta de evento com um Interval (Intervalo) de 15 minutos, Timespan (Período) de 30 minutos e Threshold (Limite) maior que 10. Nesse caso, a consulta deverá ser executada a cada 15 minutos e um alerta deverá ser disparado se ela retornar 10 eventos criados dentro de um período de 30 minutos.
@@ -334,9 +334,9 @@ Use o método Put com uma ID de ação existente para modificar um Grupo de Aç�
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Use a [API REST para executar pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics.
-* Saiba mais sobre os [alertas de log no Azure monitor](../../azure-monitor/platform/alerts-unified-log.md)
-* Como [criar, editar ou gerenciar regras de alerta de log no Azure monitor](../../azure-monitor/platform/alerts-log.md)
+* Saiba mais sobre [alertas de log no monitor do Azure](../../azure-monitor/platform/alerts-unified-log.md)
+* Como [criar, editar ou gerenciar regras de alerta de log no monitor do Azure](../../azure-monitor/platform/alerts-log.md)
 

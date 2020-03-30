@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
 ms.openlocfilehash: e30103589c1baf9a165839cd041ff511a119c5ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204368"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Suplemento do Excel para serviços Web Azure Machine Learning Studio (clássico)
+# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complemento do Excel para serviços web do Azure Machine Learning Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escrever nenhum código.
@@ -39,38 +39,38 @@ O Excel torna fácil chamar serviços Web diretamente, sem a necessidade de escr
    
     ![Seção Prever](./media/excel-add-in-for-web-services/image1.png)
 
-Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre como implantar um serviço Web, consulte [tutorial 3: implantar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
+Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre a implantação de um serviço web, consulte [tutorial 3: implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 
 Obtenha a chave de API para o seu serviço Web. O local em que você executa essa ação depende se você publicou um serviço Web Clássico do Machine Learning ou um Novo serviço Web do Machine Learning.
 
-**Usar um serviço Web Clássico** 
+**Use um serviço web Clássico** 
 
-1. Em Machine Learning Studio (clássico), clique na seção **Serviços Web** no painel esquerdo e selecione o serviço Web.
+1. No Machine Learning Studio (clássico), clique na seção **WEB SERVICES** no painel esquerdo e selecione o serviço web.
    
     ![Selecione um serviço Web do Studio](./media/excel-add-in-for-web-services/image4.png)
 2. Copie a chave de API para o serviço Web.
    
     ![Chave de API do Studio](./media/excel-add-in-for-web-services/image5.png)
-3. Na guia **PAINEL** do serviço Web, clique no link **SOLICITAÇÃO/RESPOSTA**.
+3. Na guia **DASHBOARD** para o serviço web, clique no link **SOLICITAÇÃO/RESPOSTA.**
 4. Procure a seção **URI da solicitação** .  Copie e salve a URL.
 
 > [!NOTE]
-> Agora é possível entrar no portal dos [Serviços Web do Azure Machine Learning](https://services.azureml.net) para obter a chave de API para um serviço Web Clássico do Machine Learning.
+> Agora é possível entrar no portal [Azure Machine Learning Web Services](https://services.azureml.net) para obter a chave aPI para um serviço web clássico de Machine Learning.
 > 
 > 
 
-**Usar um Novo serviço Web**
+**Use um novo serviço web**
 
-1. No portal dos [Serviços Web do Azure Machine Learning](https://services.azureml.net), clique em **Serviços Web** e selecione o serviço Web. 
+1. No portal [Azure Machine Learning Web Services,](https://services.azureml.net) clique **em Web Services**e selecione seu serviço web. 
 2. Clique em **Consumo**.
 3. Procure a seção **Informações básicas de consumo** . Copie e salve a **Chave primária** e a URL de **solicitação-resposta**.
 
 ## <a name="steps-to-add-a-new-web-service"></a>Etapas para adicionar um Novo serviço Web
 
-1. Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre como implantar um serviço Web, consulte [tutorial 3: implantar modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
+1. Implante um serviço Web ou use um serviço Web existente. Para obter mais informações sobre a implantação de um serviço web, consulte [tutorial 3: implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 2. Clique em **Consumo**.
 3. Procure a seção **Informações básicas de consumo** . Copie e salve a **Chave primária** e a URL de **solicitação-resposta**.
-4. No Excel, vá para a seção **Serviços Web** (se você estiver na seção **Prever**, clique na seta para voltar para ir para a lista de serviços Web).
+4. No Excel, vá para a seção **Serviços web** (se você estiver na seção **Prever,** clique na seta traseira para ir à lista de serviços da Web).
    
     ![Vá para a seleção de serviço Web](./media/excel-add-in-for-web-services/image3.png)
 5. Clique em **Adicionar Serviço Web**.

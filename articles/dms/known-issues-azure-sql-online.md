@@ -1,7 +1,7 @@
 ---
-title: 'Problemas conhecidos: migrações online para o banco de dados SQL'
+title: 'Problemas conhecidos: Migrações on-line para banco de dados SQL'
 titleSuffix: Azure Database Migration Service
-description: Saiba mais sobre problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure usando o serviço de migração de banco de dados do Azure.
+description: Saiba mais sobre problemas/limitações de migração conhecidas com migrações on-line para o Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,18 +13,18 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: e7efdb7244e2c7e4651a4507b538123f8d320c1e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650768"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Problemas conhecidos/limitações de migração com migrações online para o banco de dados SQL do Azure
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Problemas/limitações de migração conhecidas com migrações on-line para o Banco de Dados SQL do Azure
 
 Os problemas conhecidos e as limitações associados às migrações online do SQL Server para o Banco de Dados SQL do Azure são descritos abaixo.
 
 > [!IMPORTANT]
-> Com as migrações online do SQL Server para o banco de dados SQL do Azure, não há suporte para a migração de tipos de dado de SQL_variant.
+> Com migrações on-line do SQL Server para o Azure SQL Database, a migração de SQL_variant tipos de dados não é suportada.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>A migração das tabelas temporais não é compatível
 
@@ -106,29 +106,29 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Solução alternativa**
 
-Se você tiver uma coluna LOB maior que 32 KB, entre em contato com a equipe de engenharia em [solicitar migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Se você tiver uma coluna LOB maior que 32 KB, entre em contato com a equipe de engenharia da [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problemas com colunas de carimbo de data/hora
 
 **Sintoma**
 
-O serviço de migração de banco de dados do Azure não migra o valor de timestamp de origem; em vez disso, o serviço de migração de banco de dados do Azure gera um novo valor timestamp na tabela de destino.
+O Azure Database Migration Service não migra o valor do carimbo de data-hora de origem; em vez disso, o Azure Database Migration Service gera um novo valor de carimbo de tempo na tabela de destino.
 
 **Solução alternativa**
 
-Se você precisar do serviço de migração de banco de dados do Azure para migrar o valor exato do carimbo de data/hora armazenado na tabela de origem, contate a equipe de engenharia em [solicitar migrações de banco de dados](mailto:AskAzureDatabaseMigrations@service.microsoft.com)
+Se você precisar do Azure Database Migration Service para migrar o valor exato do carimbo de tempo armazenado na tabela de origem, entre em contato com a equipe de engenharia do [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Os erros de migração de dados não fornecem detalhes adicionais sobre a folha status detalhado do banco de dados
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Erros de migração de dados não fornecem detalhes adicionais sobre a lâmina de status detalhada do banco de dados
 
 **Sintoma**
 
-Quando você se depara com falhas de migração na exibição de status detalhes de bancos de **dados** , a seleção do link de erros de migração de dados na faixa de visão superior pode não fornecer detalhes adicionais específicos para as falhas de migração.
+Quando você se deparar com falhas de migração nos bancos de dados detalha a exibição de status, a seleção do link **de erros de migração de dados** na faixa superior pode não fornecer detalhes adicionais específicos para as falhas de migração.
 
 ![exemplos de erros de migração de dados sem detalhes](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Solução alternativa**
 
-Para obter detalhes específicos da falha, use as etapas a seguir.
+Para obter detalhes específicos de falha, use as seguintes etapas.
 
 1. Feche a folha de status detalhado do banco de dados para exibir a tela Atividade de migração.
 
@@ -136,26 +136,26 @@ Para obter detalhes específicos da falha, use as etapas a seguir.
 
 2. Selecione **Ver detalhes do erro** para exibir mensagens de erro específicas que ajudam você a solucionar problemas de erros de migração.
 
-### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>Tipo de dados de Geografia sem suporte na migração online do SQLDB
+### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>Tipo de dados de geografia não suportado na migração on-line SQLDB
 
 **Sintoma**
 
-A migração falha com uma mensagem de erro que contém o seguinte texto:
+A migração falha com uma mensagem de erro contendo o seguinte texto:
 
      “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
 
 **Solução alternativa**
 
-Embora o serviço de migração de banco de dados do Azure dê suporte ao tipo de dado geography para migrações offline para o Azure SQL Database, para migrações online, não há suporte para o DataType geography. Experimente os métodos alternativos para alterar o tipo de dados na origem para um Type com suporte antes de tentar usar o serviço de migração de banco de dados do Azure para uma migração online desse banco de dados.
+Embora o Azure Database Migration Service suporte o tipo de dados geografia para migrações off-line para o Banco de Dados SQL do Azure, para migrações on-line, o tipo de dados Geografia não é suportado. Tente métodos alternativos para alterar o tipo de dados na origem para um tipo suportado antes de tentar usar o Azure Database Migration Service para uma migração on-line deste banco de dados.
 
 ### <a name="supported-editions"></a>Edições com suporte
 
 **Sintoma**
 
-A migração falha com uma mensagem de erro que contém o seguinte texto:
+A migração falha com uma mensagem de erro contendo o seguinte texto:
 
     Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
 
 **Solução alternativa**
 
-O suporte para migrações online para o banco de dados SQL do Azure usando o serviço de migração de banco de dados do Azure se estende somente às edições Enterprise, Standard e Developer. Certifique-se de que você está usando uma edição com suporte antes de iniciar o processo de migração.
+O suporte para migrações on-line para o Banco de Dados SQL do Azure usando o Azure Database Migration Service se estende apenas às edições Enterprise, Standard e Developer. Certifique-se de que você está usando uma edição suportada antes de iniciar o processo de migração.

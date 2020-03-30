@@ -1,40 +1,40 @@
 ---
-title: Personalizar o CoreDNS para o AKS (serviço kubernetes do Azure)
-description: Saiba como personalizar o CoreDNS para adicionar subdomínios ou estender pontos de extremidade DNS personalizados usando o AKS (serviço kubernetes do Azure)
+title: Personalizar CoreDNS para a aknetes (AKS)
+description: Aprenda a personalizar o CoreDNS para adicionar subdomínios ou estender pontos finais de DNS personalizados usando o AkS Service (AKS)
 services: container-service
 author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
 ms.openlocfilehash: 78132a53313f4a8ee5c10af340c8dab08c3e42c2
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77595817"
 ---
-# <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o serviço kubernetes do Azure
+# <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o Serviço de Kubernetes do Azure
 
-O AKS (serviço kubernetes do Azure) usa o projeto [CoreDNS][coredns] para a resolução e o gerenciamento de DNS do cluster com todos os clusters *1.12. x* e superior. Anteriormente, o projeto Kube-DNS foi usado. Este projeto Kube-DNS agora está preterido. Para obter mais informações sobre personalização e kubernetes do CoreDNS, consulte a [documentação do upstream oficial][corednsk8s].
+O Azure Kubernetes Service (AKS) usa o projeto [CoreDNS][coredns] para gerenciamento e resolução de DNS de cluster com todos os *clusters 1.12.x* e superiores. Anteriormente, o projeto kube-dns foi usado. Este projeto kube-dns está agora preterido. Para obter mais informações sobre a personalização do CoreDNS e os Kubernetes, consulte a [documentação oficial upstream][corednsk8s].
 
-Como o AKS é um serviço gerenciado, você não pode modificar a configuração principal para CoreDNS (um *corefile*). Em vez disso, você usa um kubernetes *ConfigMap* para substituir as configurações padrão. Para ver o padrão AKS CoreDNS ConfigMaps, use o comando `kubectl get configmaps --namespace=kube-system coredns -o yaml`.
+Como o AKS é um serviço gerenciado, não é possível modificar a configuração principal do CoreDNS (um *CoreFile*). Em vez disso, você usa um Kubernetes *ConfigMap* para substituir as configurações padrão. Para ver o AKS CoreDNS ConfigMaps padrão, use o `kubectl get configmaps --namespace=kube-system coredns -o yaml` comando.
 
-Este artigo mostra como usar o ConfigMaps para as opções básicas de personalização do CoreDNS no AKS. Essa abordagem difere da configuração do CoreDNS em outros contextos, como o uso do corefile. Verifique a versão do CoreDNS que você está executando, pois os valores de configuração podem ser alterados entre as versões.
+Este artigo mostra como usar o ConfigMaps para opções básicas de personalização do CoreDNS em AKS. Essa abordagem difere da configuração do CoreDNS em outros contextos, como o uso do CoreFile. Verifique a versão do CoreDNS que você está executando, pois os valores de configuração podem mudar entre as versões.
 
 > [!NOTE]
-> `kube-dns` ofereceu diferentes [Opções de personalização][kubednsblog] por meio de um mapa de configuração do kubernetes. CoreDNS **não** é compatível com versões anteriores com Kube-DNS. Todas as personalizações que você usou anteriormente devem ser atualizadas para uso com CoreDNS.
+> `kube-dns`ofereceu diferentes [opções de personalização][kubednsblog] através de um mapa de configuração Kubernetes. O CoreDNS **não** é retrocompatível com kube-dns. Quaisquer personalizações que você usou anteriormente devem ser atualizadas para uso com CoreDNS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
 
-## <a name="what-is-supportedunsupported"></a>O que tem suporte/sem suporte
+## <a name="what-is-supportedunsupported"></a>O que é suportado/sem suporte
 
-Todos os plug-ins CoreDNS internos têm suporte. Nenhum complemento/plug-in de terceiros tem suporte.
+Todos os plugins CoreDNS incorporados são suportados. Não são suportados plugins adicionais/terceiros.
 
-## <a name="rewrite-dns"></a>Reescrever o DNS
+## <a name="rewrite-dns"></a>Reescrever DNS
 
-Um cenário que você tem é executar regravações de nome DNS imediata. No exemplo a seguir, substitua `<domain to be written>` pelo seu próprio nome de domínio totalmente qualificado. Crie um arquivo chamado `corednsms.yaml` e cole a seguinte configuração de exemplo:
+Um cenário que você tem é executar regravações de nomes DNS em tempo real. No exemplo a `<domain to be written>` seguir, substitua por seu próprio nome de domínio totalmente qualificado. Crie um `corednsms.yaml` arquivo nomeado e cole a seguinte configuração de exemplo:
 
 ```yaml
 apiVersion: v1
@@ -52,30 +52,30 @@ data:
     }
 ```
 
-Crie o ConfigMap usando o comando [kubectl Apply ConfigMap][kubectl-apply] e especifique o nome do seu manifesto YAML:
+Crie o ConfigMap usando o comando [kubectl apply configmap][kubectl-apply] e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f corednsms.yaml
 ```
 
-Para verificar se as personalizações foram aplicadas, use [kubectl Get configmaps][kubectl-get] e especifique seu ConfigMap *coredns-Custom* :
+Para verificar se as personalizações foram aplicadas, use o [kubectl get configmaps][kubectl-get] e especifique seus *coredns-custom* ConfigMap:
 
 ```
 kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 ```
 
-Agora Force CoreDNS a recarregar o ConfigMap. O comando de [Pod kubectl Delete][kubectl delete] não é destrutivo e não causa tempo de inatividade. Os pods de `kube-dns` são excluídos e o Agendador kubernetes os recria. Esses novos pods contêm a alteração no valor TTL.
+Agora force o CoreDNS a recarregar o ConfigMap. O comando [kubectl delete pod][kubectl delete] não é destrutivo e não causa tempo de inatividade. Os `kube-dns` pods são excluídos, e o Agendador Kubernetes os recria. Estes novos pods contêm a alteração no valor TTL.
 
 ```console
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> O comando acima está correto. Enquanto estamos alterando `coredns`, a implantação está sob o nome **DNS Kube** .
+> O comando acima está correto. Enquanto estamos `coredns`mudando, a implantação está o nome **kube-dns.**
 
-## <a name="custom-forward-server"></a>Servidor de encaminhamento personalizado
+## <a name="custom-forward-server"></a>Servidor avançado personalizado
 
-Se você precisar especificar um servidor de encaminhamento para o tráfego de rede, poderá criar um ConfigMap para personalizar o DNS. No exemplo a seguir, atualize o nome do `forward` e o endereço com os valores para seu próprio ambiente. Crie um arquivo chamado `corednsms.yaml` e cole a seguinte configuração de exemplo:
+Se você precisar especificar um servidor avançado para o tráfego de rede, você pode criar um ConfigMap para personalizar o DNS. No exemplo a seguir, atualize o nome e o `forward` endereço com os valores para o seu próprio ambiente. Crie um `corednsms.yaml` arquivo nomeado e cole a seguinte configuração de exemplo:
 
 ```yaml
 apiVersion: v1
@@ -90,18 +90,18 @@ data:
     }
 ```
 
-Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl Apply ConfigMap][kubectl-apply] e especifique o nome do manifesto do YAML. Em seguida, Force CoreDNS a recarregar o ConfigMap usando o [kubectl Delete Pod][kubectl delete] para o Agendador kubernetes para recriá-los:
+Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl apply configmap][kubectl-apply] e especifique o nome do seu manifesto YAML. Em seguida, force o CoreDNS a recarregar o ConfigMap usando o [pod kubectl delete][kubectl delete] para o Agendador Kubernetes para recriá-los:
 
 ```console
 kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
-## <a name="use-custom-domains"></a>Usar domínios personalizados
+## <a name="use-custom-domains"></a>Use domínios personalizados
 
-Talvez você queira configurar domínios personalizados que só podem ser resolvidos internamente. Por exemplo, talvez você queira resolver o domínio personalizado *puglife. local*, que não é um domínio de nível superior válido. Sem um ConfigMap de domínio personalizado, o cluster AKS não pode resolver o endereço.
+Você pode querer configurar domínios personalizados que só podem ser resolvidos internamente. Por exemplo, você pode querer resolver o domínio personalizado *puglife.local*, que não é um domínio de nível superior válido. Sem um domínio personalizado ConfigMap, o cluster AKS não pode resolver o endereço.
 
-No exemplo a seguir, atualize o domínio personalizado e o endereço IP para direcionar o tráfego para com os valores para seu próprio ambiente. Crie um arquivo chamado `corednsms.yaml` e cole a seguinte configuração de exemplo:
+No exemplo a seguir, atualize o domínio personalizado e o endereço IP para direcionar o tráfego com os valores para o seu próprio ambiente. Crie um `corednsms.yaml` arquivo nomeado e cole a seguinte configuração de exemplo:
 
 ```yaml
 apiVersion: v1
@@ -118,16 +118,16 @@ data:
     }
 ```
 
-Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl Apply ConfigMap][kubectl-apply] e especifique o nome do manifesto do YAML. Em seguida, Force CoreDNS a recarregar o ConfigMap usando o [kubectl Delete Pod][kubectl delete] para o Agendador kubernetes para recriá-los:
+Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl apply configmap][kubectl-apply] e especifique o nome do seu manifesto YAML. Em seguida, force o CoreDNS a recarregar o ConfigMap usando o [pod kubectl delete][kubectl delete] para o Agendador Kubernetes para recriá-los:
 
 ```console
 kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
-## <a name="stub-domains"></a>Domínios de stub
+## <a name="stub-domains"></a>Domínios stub
 
-CoreDNS também pode ser usado para configurar domínios stub. No exemplo a seguir, atualize os domínios personalizados e os endereços IP com os valores para seu próprio ambiente. Crie um arquivo chamado `corednsms.yaml` e cole a seguinte configuração de exemplo:
+O CoreDNS também pode ser usado para configurar domínios de stub. No exemplo a seguir, atualize os domínios personalizados e endereços IP com os valores para o seu próprio ambiente. Crie um `corednsms.yaml` arquivo nomeado e cole a seguinte configuração de exemplo:
 
 ```yaml
 apiVersion: v1
@@ -150,16 +150,16 @@ data:
 
 ```
 
-Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl Apply ConfigMap][kubectl-apply] e especifique o nome do manifesto do YAML. Em seguida, Force CoreDNS a recarregar o ConfigMap usando o [kubectl Delete Pod][kubectl delete] para o Agendador kubernetes para recriá-los:
+Como nos exemplos anteriores, crie o ConfigMap usando o comando [kubectl apply configmap][kubectl-apply] e especifique o nome do seu manifesto YAML. Em seguida, force o CoreDNS a recarregar o ConfigMap usando o [pod kubectl delete][kubectl delete] para o Agendador Kubernetes para recriá-los:
 
 ```console
 kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
-## <a name="hosts-plugin"></a>Hospeda plug-in
+## <a name="hosts-plugin"></a>Plugin hosts
 
-Como todos os plug-ins internos têm suporte, isso significa que o plug-in CoreDNS [hosts][coredns hosts] também está disponível para personalização:
+Como todos os plugins incorporados são suportados, isso significa que o plugin CoreDNS [Hosts][coredns hosts] também está disponível para personalizar:
 
 ```yaml
 apiVersion: v1
@@ -175,9 +175,9 @@ data:
           }
 ```
 
-## <a name="enable-logging-for-dns-query-debugging"></a>Habilitar o log para depuração de consulta DNS 
+## <a name="enable-logging-for-dns-query-debugging"></a>Habilite o registro para depuração de consulta de DNS 
 
-Para habilitar o log de consultas DNS, aplique a seguinte configuração em seu ConfigMap coredns-personalizado:
+Para habilitar o registro de consulta de DNS, aplique a seguinte configuração em seu ConfigMap personalizado de coredns:
 
 ```yaml
 apiVersion: v1
@@ -192,9 +192,9 @@ data:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo mostrou alguns cenários de exemplo para a personalização do CoreDNS. Para obter informações sobre o projeto CoreDNS, consulte [a página projeto upstream do CoreDNS][coredns].
+Este artigo mostrou alguns exemplos de cenários para personalização do CoreDNS. Para obter informações sobre o projeto CoreDNS, consulte [a página do projeto upstream CoreDNS][coredns].
 
-Para saber mais sobre os principais conceitos de rede, consulte [conceitos de rede para aplicativos no AKs][concepts-network].
+Para saber mais sobre os conceitos principais de rede, consulte [conceitos de rede para aplicações em AKS][concepts-network].
 
 <!-- LINKS - external -->
 [kubednsblog]: https://www.danielstechblog.io/using-custom-dns-server-for-domain-specific-name-resolution-with-azure-kubernetes-service/

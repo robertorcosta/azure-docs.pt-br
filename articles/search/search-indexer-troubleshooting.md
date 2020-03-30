@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas comuns do indexador de pesquisa
+title: Solucionar problemas comuns de indexador de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Corrija erros e problemas comuns com indexadores no Azure Pesquisa Cognitiva, incluindo conexão de fonte de dados, firewall e documentos ausentes.
+description: Corrigir erros e problemas comuns com indexadores no Azure Cognitive Search, incluindo conexão de origem de dados, firewall e documentos ausentes.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,15 +9,15 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1e3692920c35a6965a23c0305aeeebfc80505d85
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190926"
 ---
-# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Solucionando problemas comuns do indexador no Azure Pesquisa Cognitiva
+# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Solução de problemas comuns de indexador no Azure Cognitive Search
 
-Os indexadores podem ter vários problemas ao indexar dados no Azure Pesquisa Cognitiva. As principais categorias de dados são:
+Os indexadores podem encontrar uma série de problemas ao indexar dados na Pesquisa Cognitiva do Azure. As principais categorias de dados são:
 
 * [Conectando-se a uma fonte de dados ou outros recursos](#connection-errors)
 * [Processamento de documentos](#document-processing-errors)
@@ -26,48 +26,48 @@ Os indexadores podem ter vários problemas ao indexar dados no Azure Pesquisa Co
 ## <a name="connection-errors"></a>Erros de conexão
 
 > [!NOTE]
-> Os indexadores têm suporte limitado para acessar fontes de dados e outros recursos protegidos pelos mecanismos de segurança de rede do Azure. Atualmente, os indexadores só podem acessar fontes de dados por meio de mecanismos de restrição de intervalo de endereços IP correspondentes ou regras NSG quando aplicável. Os detalhes para acessar cada fonte de dados com suporte podem ser encontrados abaixo.
+> Os indexadores têm suporte limitado para acessar fontes de dados e outros recursos que são protegidos pelos mecanismos de segurança da rede Azure. Atualmente, os indexadores só podem acessar fontes de dados através de mecanismos de restrição de faixa de endereço IP correspondentes ou regras de NSG quando aplicável. Os detalhes para acessar cada fonte de dados suportada podem ser encontrados abaixo.
 >
-> Você pode encontrar o endereço IP do serviço de pesquisa executando ping no nome de domínio totalmente qualificado (por exemplo, `<your-search-service-name>.search.windows.net`).
+> Você pode descobrir o endereço IP do seu serviço de pesquisa pingando seu nome de domínio totalmente qualificado (por exemplo, `<your-search-service-name>.search.windows.net`).
 >
-> Você pode descobrir o intervalo de endereços IP de `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) usando [arquivos JSON baixáveis](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou por meio da [API de descoberta de marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). O intervalo de endereços IP é atualizado semanalmente.
+> Você pode descobrir a faixa `AzureCognitiveSearch` [de](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) serviço do endereço IP usando [arquivos JSON para download](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou através da [API de detecção](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)de marca de serviço . A gama de endereços IP é atualizada semanalmente.
 
 ### <a name="configure-firewall-rules"></a>Configurar regras de firewall
 
-O armazenamento do Azure, o CosmosDB e o SQL do Azure fornecem um firewall configurável. Não há nenhuma mensagem de erro específica quando o firewall estiver habilitado. Normalmente, os erros de firewall são genéricos e parecem `The remote server returned an error: (403) Forbidden` ou `Credentials provided in the connection string are invalid or have expired`.
+O Azure Storage, o CosmosDB e o Azure SQL fornecem um firewall configurável. Não há nenhuma mensagem de erro específica quando o firewall estiver habilitado. Normalmente, os erros de `The remote server returned an error: (403) Forbidden` firewall `Credentials provided in the connection string are invalid or have expired`são genéricos e parecem ou .
 
-Há duas opções para permitir que os indexadores acessem esses recursos em uma instância desse tipo:
+Existem 2 opções para permitir que os indexadores acessem esses recursos em tal instância:
 
 * Desabilite o firewall, permitindo o acesso de **todas as redes** (se possível).
-* Como alternativa, você pode permitir o acesso para o endereço IP do serviço de pesquisa e o intervalo de endereços IP da [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` nas regras de firewall do recurso (restrição de intervalo de endereços IP).
+* Alternativamente, você pode permitir o acesso ao endereço IP do `AzureCognitiveSearch` seu serviço de pesquisa e à faixa de endereço IP de tag de [serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) nas regras de firewall do seu recurso (restrição do intervalo de endereçoIP).
 
-Os detalhes para configurar restrições de intervalo de endereços IP para cada tipo de fonte de dados podem ser encontrados nos seguintes links:
+Detalhes para configurar restrições de intervalo de endereçoIP para cada tipo de fonte de dados podem ser encontrados a partir dos seguintes links:
 
-* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
 * [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
 * [SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
 
-**Limitação**: conforme indicado na documentação acima para o armazenamento do Azure, as restrições de intervalo de endereços IP só funcionarão se o serviço de pesquisa e sua conta de armazenamento estiverem em regiões diferentes.
+**Limitação**: Conforme indicado na documentação acima para o Azure Storage, as restrições da gama de endereços IP só funcionarão se o serviço de pesquisa e sua conta de armazenamento estiverem em diferentes regiões.
 
-O Azure Functions (que pode ser usado como uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md)) também dá suporte a [restrições de endereço IP](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). A lista de endereços IP a serem configurados seria o endereço IP do serviço de pesquisa e o intervalo de endereços IP da marca de serviço `AzureCognitiveSearch`.
+As funções do Azure (que podem ser usadas como uma [habilidade de Api Web personalizada)](cognitive-search-custom-skill-web-api.md)também suportam [restrições de endereço IP](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). A lista de endereços IP a serem configurados seria o endereço `AzureCognitiveSearch` IP do seu serviço de pesquisa e a faixa de endereço IP da tag de serviço.
 
-Os detalhes para acessar dados no SQL Server em uma VM do Azure são descritos [aqui](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+Detalhes para acessar dados no servidor SQL em uma VM Azure são descritos [aqui](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
-### <a name="configure-network-security-group-nsg-rules"></a>Configurar regras do NSG (grupo de segurança de rede)
+### <a name="configure-network-security-group-nsg-rules"></a>Configure as regras do Grupo de Segurança de Rede (NSG)
 
-Ao acessar dados em uma instância gerenciada do SQL ou quando uma VM do Azure é usada como o URI do serviço Web para uma [habilidade personalizada da API Web](cognitive-search-custom-skill-web-api.md), os clientes não precisam se preocupar com endereços IP específicos.
+Ao acessar dados em uma instância gerenciada por SQL ou quando uma VM do Azure é usada como uri de serviço web para uma [habilidade de Api Web personalizada,](cognitive-search-custom-skill-web-api.md)os clientes não precisam se preocupar com endereços IP específicos.
 
-Nesses casos, a VM do Azure ou a instância gerenciada do SQL podem ser configuradas para residir em uma rede virtual. Em seguida, um grupo de segurança de rede pode ser configurado para filtrar o tipo de tráfego de rede que pode fluir para dentro e fora das sub-redes e interfaces de rede da rede virtual.
+Nesses casos, a VM do Azure ou a instância gerenciada pelo SQL podem ser configuradas para residir dentro de uma rede virtual. Em seguida, um grupo de segurança de rede pode ser configurado para filtrar o tipo de tráfego de rede que pode fluir para dentro e para fora das sub-redes de rede virtuais e interfaces de rede.
 
-A marca de serviço `AzureCognitiveSearch` pode ser usada diretamente nas regras de [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) de entrada sem a necessidade de Pesquisar seu intervalo de endereços IP.
+A `AzureCognitiveSearch` tag de serviço pode ser usada diretamente nas regras do [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) de entrada sem precisar procurar sua gama de endereços IP.
 
-Mais detalhes para acessar dados em uma instância gerenciada do SQL são descritos [aqui](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+Mais detalhes para acessar dados em uma instância gerenciada pelo SQL são descritos [aqui](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
-### <a name="cosmosdb-indexing-isnt-enabled"></a>A "indexação" do CosmosDB não está habilitada
+### <a name="cosmosdb-indexing-isnt-enabled"></a>A "Indexação" do CosmosDB não está habilitada
 
-O Azure Pesquisa Cognitiva tem uma dependência implícita na indexação de Cosmos DB. Se você desativar a indexação automática no Cosmos DB, o Pesquisa Cognitiva do Azure retornará um estado bem-sucedido, mas falhará ao indexar o conteúdo do contêiner. Para obter instruções sobre como verificar as configurações e ative a indexação, consulte [Gerenciar a indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+A Pesquisa Cognitiva do Azure tem uma dependência implícita da indexação do Cosmos DB. Se você desativar a indexação automática no Cosmos DB, a Pesquisa Cognitiva do Azure retorna um estado de sucesso, mas não consegue indexar o conteúdo do contêiner. Para obter instruções sobre como verificar as configurações e ative a indexação, consulte [Gerenciar a indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Erros de processamento de documentos
 
@@ -90,7 +90,7 @@ api-key: [admin key]
 
 O indexador de Blob [localiza e extrai o texto de blobs em um contêiner](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Alguns problemas com a extração de texto incluem:
 
-* O documento contém apenas imagens digitalizadas. Blobs PDF que têm conteúdo não textual, como imagens digitalizadas (JPGs), não produzem resultados em um pipeline de indexação de Blob padrão. Se você tiver conteúdo de imagem com elementos de texto, poderá usar a [pesquisa cognitiva](cognitive-search-concept-image-scenarios.md) para localizar e extrair o texto.
+* O documento contém apenas imagens digitalizadas. Blobs PDF que têm conteúdo não textual, como imagens digitalizadas (JPGs), não produzem resultados em um pipeline de indexação de Blob padrão. Se você tem conteúdo de imagem com elementos de texto, você pode usar a [pesquisa cognitiva](cognitive-search-concept-image-scenarios.md) para encontrar e extrair o texto.
 * O indexador de Blob está configurado para metadados do índice. Para extrair o conteúdo, o indexador de Blob deve ser configurado para [extrair o conteúdo e metadados](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
@@ -113,5 +113,5 @@ Os indexadores encontram documentos de uma [fonte de dados](https://docs.microso
 * O documento ainda não foi indexado. Verifique o portal para uma execução bem-sucedida do indexador.
 * O documento foi atualizado após o execução do indexador. Se o indexador estiver em um [agendamento](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), eventualmente será executado novamente e pegará o documento.
 * A [consulta](/rest/api/searchservice/create-data-source) especificada nos dados de origem exclui o documento. Os indexadores não podem indexar documentos que não fazem parte da fonte de dados.
-* Os [mapeamentos de campo](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou o [enriquecimento de ai](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) alteraram o documento e parecem diferentes do esperado.
+* [Mapeamentos de campo](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou [enriquecimento de IA](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) mudaram o documento e parece diferente do que você espera.
 * Use a [API Procurar documento](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para localizar seu documento.

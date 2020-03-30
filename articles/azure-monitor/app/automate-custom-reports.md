@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655116"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
@@ -70,7 +70,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Relatório de resumo agendado de Application Insights
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Computação** > **Aplicativo de funções**.
+1. No portal Azure, selecione **Criar um aplicativo de** > função de**computação** > **de recursos**.
 
    ![Criar um screenshot do Azure Resource Function App](./media/automate-custom-reports/function-app-01.png)
 
@@ -84,10 +84,10 @@ availabilityResults
 
    ![Criar um novo screenshot de funções](./media/automate-custom-reports/function-app-03.png)
 
-5. Selecionar **_Modelo de resumo agendado de Application Insights_** .
+5. Selecionar **_Modelo de resumo agendado de Application Insights_**.
 
      > [!NOTE]
-     > Por padrão, os aplicativos de funções são criados com a versão de tempo de execução 2. x. Você deve [direcionar Azure Functions tempo de execução versão](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** para usar o modelo de resumo Application insights agendado.  ](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png) de captura de tela do ![Runtime
+     > Por padrão, os aplicativos de função são criados com a versão 2.x em tempo de execução. Você deve segmentar a versão **1.x** [do Azure Functions em tempo de execução](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) para usar o modelo de digestão programado do Application Insights.  ![captura de tela de tempo de execução](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 
@@ -97,7 +97,7 @@ availabilityResults
 
    ![Screenshot de Configurações de Função](./media/automate-custom-reports/function-app-05.png)
 
-7. Selecione **Aplicativo Função** > **Recursos da plataforma** > **Configurações de aplicativo**.
+7. Selecione os**recursos** > da plataforma **do aplicativo** > Function **.**
 
     ![Configurações de aplicativo do Azure](./media/automate-custom-reports/function-app-07.png)
 
@@ -114,7 +114,7 @@ availabilityResults
      > [!NOTE]
      > Se não tiver uma conta SendGrip, você poderá criar uma. Documentação SendGrip para Funções do Azure está [aqui](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Se você quiser uma explicação mínima sobre como configurar SendGrip e gerar uma chave API, ela será fornecida no final deste artigo. 
 
-9. Selecionar **Integrar** e sob Saídas clique **SendGrip ($retorno)** .
+9. Selecionar **Integrar** e sob Saídas clique **SendGrip ($retorno)**.
 
      ![Captura de tela de saída](./media/automate-custom-reports/function-app-09.png)
 
@@ -142,7 +142,7 @@ Este passos apenas aplicam se você não tiver já uma conta SendGrip configurad
 
      ![Screenshot Chave API Configurações](./media/automate-custom-reports/function-app-14.png)
 
-3. Isto inicializará o site SendGrip. Selecione **Configurações** > **Chaves API**.
+3. Isto inicializará o site SendGrip. Selecione**Teclas aPI de** **configurações** > .
 
      ![Criar e Ver Screenshot de Aplicativo de Chave API](./media/automate-custom-reports/function-app-15.png)
 
@@ -154,7 +154,7 @@ Este passos apenas aplicam se você não tiver já uma conta SendGrip configurad
 
    ![Copiar screenshot chave API](./media/automate-custom-reports/function-app-17.png)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como criar [consultas do Analytics](../../azure-monitor/log-query/get-started-queries.md).
 * Saiba mais sobre [dados consultando programaticamente do Application Insights](https://dev.applicationinsights.io/)

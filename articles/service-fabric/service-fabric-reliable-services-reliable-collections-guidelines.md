@@ -1,13 +1,13 @@
 ---
-title: Diretrizes para coleções confiáveis
-description: Diretrizes e recomendações para usar Service Fabric coleções confiáveis em um aplicativo de Service Fabric do Azure.
+title: Diretrizes para Coleções Confiáveis
+description: Diretrizes e recomendações para o uso de coleções confiáveis de malha de serviço em um aplicativo de malha de serviço do Azure.
 ms.topic: conceptual
 ms.date: 12/10/2017
 ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645473"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
@@ -21,7 +21,7 @@ As diretrizes são organizadas como recomendações simples prefixadas com *uma 
 * Não use uma transação depois que ela tiver sido confirmada, anulada ou descartada.
 * Não use uma enumeração fora do escopo da transação que em foi criado.
 * Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
-* Não crie um estado confiável com `IReliableStateManager.GetOrAddAsync` e use o estado confiável na mesma transação. Isso resulta em uma InvalidOperationException.
+* Não crie estado `IReliableStateManager.GetOrAddAsync` confiável com e use o estado confiável na mesma transação. Isso resulta em uma Operação Operacional InválidaExcede.
 * Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende de `IComparable<TKey>` para mesclar os pontos de verificação.
 * Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
 * Considere manter o número de Coleções Confiáveis por partição inferior a 1000. Prefira Coleções Confiáveis com mais itens em vez de mais Coleções Confiáveis com menos itens.
@@ -41,14 +41,14 @@ Eis aqui algumas coisas que se deve manter em mente:
   As leituras do Primário são sempre estáveis: elas nunca podem ter um progresso falso.
 * Segurança/privacidade dos dados persistidos pelo seu aplicativo em uma coleção confiável é a sua decisão e estão sujeitas às proteções fornecidas pelo seu gerenciamento de armazenamento; OU SEJA Criptografia de disco do sistema operacional pode ser usada para proteger seus dados em repouso.  
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Próximas etapas
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
-* [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* [Transações e Bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gerenciando dados
-  * [Backup e restauração](service-fabric-reliable-services-backup-restore.md)
+  * [Backup e Restauração](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
-* Diversos
-  * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+* Outras pessoas
+  * [Início rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
   * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

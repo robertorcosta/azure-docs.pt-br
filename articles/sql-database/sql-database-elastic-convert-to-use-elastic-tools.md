@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c776f4ac09626f0abd1eb754cde391a1c5447627
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421213"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
@@ -100,7 +100,7 @@ Para utilizar esse padrão de mapeamento, os valores de ID do locatário precisa
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: listar mapeamentos em um banco de dados individual
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: Listar mapeamentos em um banco de dados individual
 
 A configuração desse padrão também exige a criação de um mapa de lista conforme mostrado na etapa 2, opção 1.
 
@@ -163,7 +163,7 @@ Use a ferramenta de divisão e mesclagem para mover dados de/para um modelo mult
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatários, confira [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 

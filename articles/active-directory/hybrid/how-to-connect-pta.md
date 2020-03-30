@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77185513"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
@@ -47,7 +47,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
   - Não são necessárias implantações locais ou configurações de rede complexas.
   - É necessário apenas que um agente leve seja instalado localmente.
   - Não há sobrecarga de gerenciamento. O agente recebe automaticamente melhorias e correções de bugs.
-- *Proteger*
+- *Seguro*
   - Senhas locais nunca são armazenadas na nuvem, em formato nenhum.
   - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), [bloqueando autenticação herdada](../conditional-access/concept-conditional-access-conditions.md) e [filtrando ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
   - O agente estabelece conexões de saída apenas de dentro de sua rede. Portanto, não há nenhum requisito de instalar o agente em uma rede de perímetro, também conhecida como DMZ.
@@ -59,24 +59,24 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 
 - Dá suporte à entrada do usuário em todos os aplicativos baseados em navegador da Web e em aplicativos de cliente do Microsoft Office que usam [autenticação moderna](https://aka.ms/modernauthga).
 - Os nomes de usuário de entrada podem ser o nome de usuário local padrão (`userPrincipalName`) ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID`).
-- O recurso funciona diretamente com recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md) , como o MFA (autenticação multifator) para ajudar a proteger seus usuários.
+- O recurso funciona perfeitamente com recursos [de Acesso Condicional,](../active-directory-conditional-access-azure-portal.md) como A Autenticação Multifatorial (MFA) para ajudar a proteger seus usuários.
 - Integrado com [gerenciamento de senha de autoatendimento](../authentication/active-directory-passwords-overview.md) baseado em nuvem, incluindo write-back de senha para o Active Directory local e a proteção de senha por proibição de senhas usadas normalmente.
 - Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do AD e se o encaminhamento de sufixo de nome estiver configurado corretamente.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
-- Ele pode ser habilitado por meio do [Azure AD Connect](whatis-hybrid-identity.md).
+- Ele pode ser habilitado através [do Azure AD Connect](whatis-hybrid-identity.md).
 - Ele usa um agente local leve que escuta e responde a solicitações de validação de senha.
 - Instalar vários agentes fornece alta disponibilidade de solicitações de entrada.
 - Isso [protege](../authentication/howto-password-smart-lockout.md) suas contas locais contra ataques de senha de força bruta na nuvem.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início rápido](how-to-connect-pta-quick-start.md) -obtenha a autenticação de passagem do Azure AD.
+- [Quickstart](how-to-connect-pta-quick-start.md) - Suba e execute a autenticação de passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
-- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md) – configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
-- [Limitações Atuais](how-to-connect-pta-current-limitations.md) – saiba quais cenários têm suporte e quais não têm.
+- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md) – configura a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [Limitações atuais](how-to-connect-pta-current-limitations.md) - Saiba quais cenários têm suporte e quais não têm.
 - [Aprofundamento técnico](how-to-connect-pta-how-it-works.md) – entenda como esse recurso funciona.
 - [Perguntas frequentes](how-to-connect-pta-faq.md) – respostas para perguntas frequentes.
 - [Solução de problemas](tshoot-connect-pass-through-authentication.md) – saiba como resolver problemas comuns do recurso.
 - [Aprofundamento em Segurança](how-to-connect-pta-security-deep-dive.md) – informações técnicas aprofundadas adicionais sobre o recurso.
-- [SSO contínuo do Azure AD](how-to-connect-sso.md) – saiba mais sobre esse recurso complementar.
+- [SSO contínuo do Azure AD](how-to-connect-sso.md) – Saiba mais sobre esse recurso complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
