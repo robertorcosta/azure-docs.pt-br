@@ -1,5 +1,5 @@
 ---
-title: Planejar a capacidade de recuperação de desastres do VMware com o Azure Site Recovery
+title: Capacidade de plano para recuperação de desastres vMware com recuperação do site do Azure
 description: Este artigo pode ajudar você planejar a capacidade e o dimensionamento ao configurar sua recuperação de desastre de VMs do VMware para o Azure usando o Azure Site Recovery.
 author: nsoneji
 manager: garavd
@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257609"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planejar a capacidade e o dimensionamento da recuperação de desastre do VMware para o Azure
@@ -30,7 +30,7 @@ Componente | Detalhes
 --- | ---
 **Replicação** | **Taxa de alteração diária máxima**: um computador protegido pode usar apenas um servidor de processo. Um único servidor de processo pode lidar com uma taxa de alteração diária de até 2 TB. Assim, 2 TB é a taxa de alteração diária máxima com suporte para um computador protegido.<br /><br /> **Taxa de transferência máxima**: Uma máquina replicada pode pertencer a uma conta de armazenamento no Azure. Uma conta de Armazenamento do Azure padrão pode lidar com um máximo de 20 mil solicitações por segundo. É recomendável limitar o número de IOPS (operações de entrada/saída por segundo) em um computador de origem a 20 mil. Por exemplo, se você tiver um computador de origem com cinco discos e cada disco gere 120 IOPS (8 K de tamanho) no computador de origem, o computador de origem estará dentro do limite de 500 IOPS por disco do Azure. (O número de contas de armazenamento necessário é igual ao total de IOPS do computador de origem, dividido por 20 mil.)
 **Servidor de configuração** | O servidor de configuração deve ser capaz de lidar com a capacidade de taxa de alteração diária em todas as cargas de trabalho em execução em computadores protegidos. O computador de configuração deve ter largura de banda suficiente para replicar continuamente os dados no Armazenamento do Azure.<br /><br /> Uma melhor prática é alocar o servidor de configuração na mesma rede e no mesmo segmento de LAN que os computadores que deseja proteger. Você pode colocar o servidor de configuração em uma rede diferente, mas os computadores que você deseja proteger devem ter visibilidade de rede de camada 3.<br /><br /> As recomendações de tamanho para o servidor de configuração são resumidas na tabela da seção a seguir.
-**Servidor de processo** | O primeiro servidor de processo é instalado por padrão no servidor de configuração. Você pode implantar servidores de processo adicionais par dimensionar seu ambiente. <br /><br /> O servidor de processo recebe dados de replicação de computadores protegidos. O servidor de processo otimiza os dados por meio de caching, compactação e criptografia. Em seguida, o servidor de processo envia os dados para o Azure. O computador do servidor de processo deve ter recursos suficientes para executar essas tarefas.<br /><br /> O servidor de processo usa o cache baseado em disco. Use um disco de cache separado de 600 GB ou mais para lidar com alterações de dados que são armazenadas caso ocorra um gargalo ou interrupção da rede.
+**Servidor de processos** | O primeiro servidor de processo é instalado por padrão no servidor de configuração. Você pode implantar servidores de processo adicionais par dimensionar seu ambiente. <br /><br /> O servidor de processo recebe dados de replicação de computadores protegidos. O servidor de processo otimiza os dados por meio de caching, compactação e criptografia. Em seguida, o servidor de processo envia os dados para o Azure. O computador do servidor de processo deve ter recursos suficientes para executar essas tarefas.<br /><br /> O servidor de processo usa o cache baseado em disco. Use um disco de cache separado de 600 GB ou mais para lidar com alterações de dados que são armazenadas caso ocorra um gargalo ou interrupção da rede.
 
 ## <a name="size-recommendations-for-the-configuration-server-and-inbuilt-process-server"></a>Recomendações de tamanho para o servidor de rede de configuração e servidor de processo integrado
 
@@ -78,17 +78,17 @@ A maneira como você escala seus servidores depende de sua preferência por um m
 Depois de usar o [Planejador de Implantação do Site Recovery](site-recovery-deployment-planner.md) para calcular a largura de banda necessária para a replicação (replicação inicial e então delta), há duas opções para controlar a quantidade de largura de banda usada para replicação:
 
 * **Restringir a largura de banda**: o tráfego VMware que replica para o Azure passa por um servidor de processo específico. Você pode limitar a largura de banda nos computadores em execução como servidores de processo.
-* **Influenciar a largura de banda**: você pode influenciar a largura de banda usada para replicação usando algumas chaves do registro:
+* **Influência largura de banda**: Você pode influenciar a largura de banda usada para replicação usando algumas teclas de registro:
   * O valor de registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** especifica o número de threads usados para a transferência de dados (replicação inicial ou delta) de um disco. Um valor mais alto aumenta a largura de banda de rede usada para replicação.
   * O valor de Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** especifica o número de threads usados para transferência de dados durante o failback.
 
 ### <a name="throttle-bandwidth"></a>Limitar largura de banda
 
-1. Abra o snap-in do MMC do Backup do Azure no computador que você usa como o servidor de processo. Por padrão, um atalho para o backup está disponível na área de trabalho ou na seguinte pasta: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
+1. Abra o snap-in do MMC do Backup do Azure no computador que você usa como o servidor de processo. Por padrão, um atalho para backup está disponível na área de trabalho ou na seguinte pasta: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
 2. No snap-in, selecione **Alterar as Propriedades**.
 
     ![Captura de tela da opção de snap-in do MMC do Backup do Azure para alterar propriedades](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Na guia **Limitação**, selecione **Habilitar limitação de uso da largura de banda de Internet para operações de backup**. Defina os limites para horas de trabalho e folga. Os intervalos válidos são de 512 Kbps a 1.023 Mbps.
+3. Na guia **Estrangulação,** **selecione Ativar o estrangulamento do uso da largura de banda da Internet para operações de backup**. Defina os limites para horas de trabalho e folga. Os intervalos válidos são de 512 Kbps a 1.023 Mbps.
 
     ![Captura de tela da caixa de diálogo Propriedades de Backup do Azure](./media/site-recovery-vmware-to-azure/throttle2.png)
 
@@ -114,17 +114,17 @@ Antes de configurar a infraestrutura do Site Recovery, acesse o ambiente para me
 1. Para medir esses parâmetros, execute o Planejador de Implantação da do Site Recovery no seu ambiente. Para obter diretrizes úteis, veja [Sobre o Planejador de Implantação do Site Recovery para VMware no Azure](site-recovery-deployment-planner.md).
 2. Implante um servidor de configuração que cumpra as [recomendações de tamanho para o servidor de configuração](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Se sua carga de trabalho de produção exceder 650 máquinas de virtuais, implante outro servidor de configuração.
 3. Com base na taxa de alteração de dados diária medida, implante [servidores de processo de expansão](vmware-azure-set-up-process-server-scale.md#download-installation-file) com a ajuda das [diretrizes de tamanho](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Se você esperar que a taxa de alteração de dados de uma máquina virtual de disco exceda 2 MBps, certifique-se de usar discos gerenciados Premium. O Planejador de Implantação do site Recovery é executado por um período específico. Picos na taxa de alteração de dados em outros momentos podem não ser capturados no relatório.
+4. Se você espera que a taxa de alteração de dados de uma máquina virtual de disco exceda 2 MBps, certifique-se de usar discos gerenciados premium. O Planejador de Implantação do site Recovery é executado por um período específico. Picos na taxa de alteração de dados em outros momentos podem não ser capturados no relatório.
 5. [Defina a largura de banda de rede](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) com base no RPO que você deseja atingir.
 6. Quando a infraestrutura estiver configurada, habilite a recuperação de desastre para sua carga de trabalho. Para saber como, veja [Configurar o ambiente de origem para replicação de VMware no Azure](vmware-azure-set-up-source.md).
 
 ## <a name="deploy-additional-process-servers"></a>Implantar servidores de processo adicionais
 
-Se você aumentar sua implantação além de 200 computadores de origem ou tiver uma taxa diária de rotatividade total acima de 2 TB, deverá adicionar servidores de processo para tratar do volume de tráfego. Aprimoramos o produto na versão 9,24 para fornecer [alertas do servidor de processo](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre quando configurar um servidor de processo de expansão. [Configure o servidor de processo](vmware-azure-set-up-process-server-scale.md) para proteger novos computadores de origem ou [Equilibre a carga](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
+Se você aumentar sua implantação além de 200 computadores de origem ou tiver uma taxa diária de rotatividade total acima de 2 TB, deverá adicionar servidores de processo para tratar do volume de tráfego. Nós aprimoramos o produto na versão 9.24 para fornecer [alertas de servidor de processo](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre quando configurar um servidor de processo de escala. [Configure o servidor de processo](vmware-azure-set-up-process-server-scale.md) para proteger novas máquinas de origem ou equilibrar a [carga](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar computadores para usar o novo servidor de processo
 
-1. Selecione **Configurações** > **Servidores do Site Recovery**. Selecione o servidor de configuração e, em seguida, expanda **Servidores de processo**.
+1. Selecione **Configurações** > **Servidores de recuperação do site**. Selecione o servidor de configuração e, em seguida, expanda **Servidores de processo**.
 
     ![Captura de tela da caixa de diálogo Servidor de Processo](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 2. Clique com o botão direito do mouse no servidor em processo atualmente em uso e selecione **Alternar**.
@@ -144,12 +144,12 @@ Para saber como adicionar um servidor de destino mestre a uma máquina virtual b
 
 Para adicionar um servidor de destino mestre para uma máquina virtual do Windows:
 
-1. Vá para **Cofre dos Serviços de Recuperação** > **Infraestrutura do Site Recovery** > **Servidores de configuração**.
+1. Vá para servidores **de** > configuração**de configuração** > de configuração do site do vault**de serviços de**recuperação .
 2. Selecione o servidor de configuração necessário e, em seguida, selecione **Servidor de Destino Mestre**.
 
     ![Captura de tela que mostra o botão Adicionar Servidor de Destino Mestre](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Baixe o arquivo de configuração unificado e, em seguida, execute o arquivo na VM para configurar o servidor de destino mestre.
-4. Selecione **Instalar destino mestre** > **Avançar**.
+4. Selecione **Instalar o alvo** > mestre**seguinte**.
 
     ![Captura de tela que mostra como selecionar a opção Instalar destino mestre](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
 5. Selecione o local de instalação padrão e, em seguida, **Instalar**.
@@ -163,7 +163,7 @@ Para adicionar um servidor de destino mestre para uma máquina virtual do Window
     ![Captura de tela que mostra em que local inserir o endereço IP e a frase secreta para o servidor de configuração](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Selecione **Registrar**. Ao final do registro, selecione **Concluir**.
 
-Quando o registro for concluído com êxito, o servidor será listado no portal do Azure em **Cofre dos Serviços de Recuperação** > **Infraestrutura do Site Recovery** > **Servidores de Configuração** nos servidores de destino mestre do servidor de configuração.
+Quando o registro termina com sucesso, o servidor é listado no portal Azure **em** > **servidores de configuração de configuração** > do**site do Vault Vault,** nos servidores-alvo mestre do servidor de configuração.
 
  > [!NOTE]
  > Baixe a versão mais recente do [arquivo de configuração unificado do servidor de destino mestre para Windows](https://aka.ms/latestmobsvc).

@@ -1,6 +1,6 @@
 ---
-title: Escalabilidade-hubs de eventos do Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como dimensionar os hubs de eventos do Azure usando partições e unidades de produtividade.
+title: Escalabilidade - Hubs de Eventos Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como escalar o Azure Event Hubs usando partições e unidades de throughput.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,21 +15,21 @@ ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
 ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280944"
 ---
-# <a name="scaling-with-event-hubs"></a>Dimensionamento com hubs de eventos
+# <a name="scaling-with-event-hubs"></a>Dimensionamento com Hubs de Eventos
 
-Há dois fatores que influenciam o dimensionamento com os hubs de eventos.
+Existem dois fatores que influenciam o dimensionamento com os Event Hubs.
 *   Unidades de transferência
 *   Partições
 
 ## <a name="throughput-units"></a>Unidades de transferência
 
-A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única taxa de transferência permite que você:
+A capacidade de throughput do Event Hubs é controlada por *unidades de throughput*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Um único throughput permite:
 
 * Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro).
 * Entrada: até 2 MB por segundo ou 4096 eventos por segundo.
@@ -45,7 +45,7 @@ O recurso **inflar automaticamente** dos Hubs de Eventos escala verticalmente au
 
 O serviço de Hubs de Eventos aumenta a taxa de transferência quando a carga aumentar ultrapassando o limite mínimo, sem quaisquer solicitações com falha com erros de ServerBusy. 
 
-Para obter mais informações sobre o recurso de inflar automaticamente, consulte [dimensionar automaticamente unidades de produtividade](event-hubs-auto-inflate.md).
+Para obter mais informações sobre o recurso de inflação automática, consulte [Dimensionar automaticamente unidades de throughput](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partições
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -60,5 +60,5 @@ O editor de eventos só está ciente da sua chave de partição, não da partiç
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-- [Dimensionar automaticamente as unidades de taxa de transferência](event-hubs-auto-inflate.md)
+- [Dimensionar automaticamente unidades de transferência](event-hubs-auto-inflate.md)
 - [Visão geral do serviço dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)

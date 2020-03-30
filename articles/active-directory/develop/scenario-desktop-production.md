@@ -1,6 +1,6 @@
 ---
-title: Mover o aplicativo de desktop chamando APIs da Web para produção-plataforma de identidade da Microsoft | Azure
-description: Saiba como mover um aplicativo de área de trabalho que chama APIs da Web para produção
+title: Mover aplicativo de desktop chamando APIs web para produção - plataforma de identidade Microsoft | Azure
+description: Saiba como mover um aplicativo de desktop que chama APIs da Web para a produção
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,33 +17,33 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c8a9cf0c05d8af14d52bb1efb536dc8bbe7db84d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262562"
 ---
-# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de área de trabalho que chama APIs da Web: mover para produção
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de desktop que chama APIs da Web: Mude para a produção
 
-Neste artigo, você aprende a mover seu aplicativo de área de trabalho que chama APIs da Web para produção.
+Neste artigo, você aprende como mover seu aplicativo de desktop que chama APIs da Web para a produção.
 
-## <a name="handle-errors-in-desktop-applications"></a>Tratar erros em aplicativos de área de trabalho
+## <a name="handle-errors-in-desktop-applications"></a>Lidar com erros em aplicativos de desktop
 
-Nos fluxos diferentes, você aprendeu como lidar com os erros dos fluxos silenciosos, conforme mostrado nos trechos de código. Você também viu que há casos em que a interação é necessária, como no consentimento incremental e no acesso condicional.
+Nos diferentes fluxos, você aprendeu a lidar com os erros para os fluxos silenciosos, como mostrado nos trechos de código. Você também viu que há casos em que a interação é necessária, como no consentimento incremental e no acesso condicional.
 
-## <a name="have-the-user-consent-upfront-for-several-resources"></a>Ter o consentimento do usuário antecipado para vários recursos
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>Tenha o consentimento do usuário antecipadamente para vários recursos
 
 > [!NOTE]
-> A obtenção de consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure Active Directory (Azure AD) B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
+> Obter consentimento para vários recursos funciona para a plataforma de identidade Microsoft, mas não para o Azure Active Directory (Azure AD) B2C. O Azure AD B2C suporta apenas o consentimento do administrador, não o consentimento do usuário.
 
-Você não pode obter um token para vários recursos de uma vez com o ponto de extremidade da plataforma Microsoft Identity (v 2.0). O parâmetro `scopes` pode conter escopos para um único recurso. Você pode garantir que o usuário tenha o mesmo consentimento para vários recursos usando o parâmetro `extraScopesToConsent`.
+Você não pode obter um token para vários recursos ao mesmo tempo com o ponto final da plataforma de identidade Microsoft (v2.0). O `scopes` parâmetro pode conter escopos para apenas um único recurso. Você pode garantir que o usuário pré-consentir `extraScopesToConsent` com vários recursos usando o parâmetro.
 
 Por exemplo, você pode ter dois recursos que têm dois escopos cada:
 
-- `https://mytenant.onmicrosoft.com/customerapi` com os escopos `customer.read` e `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi` com os escopos `vendor.read` e `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`com os `customer.read` escopos e`customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`com os `vendor.read` escopos e`vendor.write`
 
-Neste exemplo, use o modificador `.WithAdditionalPromptToConsent` que tem o parâmetro `extraScopesToConsent`.
+Neste exemplo, use `.WithAdditionalPromptToConsent` o modificador `extraScopesToConsent` que tem o parâmetro.
 
 Por exemplo:
 
@@ -68,7 +68,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-### <a name="in-msal-for-ios-and-macos"></a>No MSAL para iOS e macOS
+### <a name="in-msal-for-ios-and-macos"></a>Em MSAL para iOS e macOS
 
 Objective-C:
 
@@ -98,17 +98,17 @@ interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
 ```
 
-Essa chamada Obtém um token de acesso para a primeira API Web.
+Esta chamada lhe dá um token de acesso para a primeira API web.
 
-Quando você precisar chamar a segunda API da Web, chame a API `AcquireTokenSilent`.
+Quando precisar chamar a segunda API `AcquireTokenSilent` web, ligue para a API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>A conta pessoal da Microsoft requer o reconsentimento sempre que o aplicativo é executado
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>A conta pessoal da Microsoft requer reconsentimento cada vez que o aplicativo é executado
 
-Para usuários de contas pessoais da Microsoft, solicitar o consentimento de cada chamada de cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade nativa do cliente é inerentemente insegura, o que é contrário da identidade confidencial do aplicativo cliente. Os aplicativos cliente confidenciais trocam um segredo com a plataforma de identidade da Microsoft para provar sua identidade. A plataforma de identidade da Microsoft optou por mitigar essa insegurança para os serviços do consumidor solicitando o consentimento do usuário sempre que o aplicativo for autorizado.
+Para usuários de conta pessoal da Microsoft, solicitar o consentimento em cada chamada de cliente nativo (desktop ou aplicativo móvel) para autorizar é o comportamento pretendido. A identidade do cliente nativo é inerentemente insegura, o que é contrário à identidade confidencial do aplicativo do cliente. Aplicativos confidenciais de clientes trocam um segredo com a plataforma Microsoft Identity para provar sua identidade. A plataforma de identidade da Microsoft optou por mitigar essa insegurança para os serviços ao consumidor, solicitando ao usuário o consentimento cada vez que o aplicativo é autorizado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
