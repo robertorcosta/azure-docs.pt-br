@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 528b961ca07ec86ad502ee1b589772e354564a3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75421691"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrando do Orchestrator para a Automação do Azure (Beta)
@@ -27,7 +27,7 @@ Eis o processo básico para converter runbooks do Orchestrator para a Automaçã
 6. Crie manualmente ativos do Orchestrator necessários na Automação do Azure, já que o Runbook Converter não converte esses recursos.
 7. Configure um [Hybrid Runbook Worker](#hybrid-runbook-worker) em seu data center local para executar runbooks convertidos que acessarão recursos locais.
 
-## <a name="service-management-automation"></a>Service Management Automation
+## <a name="service-management-automation"></a>Automação de Gerenciamento de Serviços
 [Automação de Gerenciamento de Serviços](https://technet.microsoft.com/library/dn469260.aspx) ) armazena e executa runbooks em seu data center local, como o Orchestrator, e usa os mesmo módulos de integração que a Automação do Azure. O [Runbook Converter](#runbook-converter) converte runbooks do Orchestrator em runbooks gráficos, que, no entanto, não têm suporte no SMA.  Você ainda pode instalar o [Módulo de Atividades Standard](#standard-activities-module) e os [Módulos de Integração do System Center Orchestrator](#system-center-orchestrator-integration-modules) no SMA, mas deve [reescrever seus runbooks](https://technet.microsoft.com/library/dn469262.aspx) manualmente.
 
 ## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
@@ -126,7 +126,7 @@ Os runbooks no Orchestrator iniciam outros runbooks com a atividade **Invocar Ru
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
-* [Automação de Gerenciamento de Serviço](https://technet.microsoft.com/library/dn469260.aspx)
+* [Automação de Gerenciamento de Serviços](https://technet.microsoft.com/library/dn469260.aspx)
 * [Runbook Worker Híbrido](automation-hybrid-runbook-worker.md)
 * [Atividades padrão do Orchestrator](https://technet.microsoft.com/library/hh403832.aspx)
 * [Baixar o Kit de Ferramentas de Migração do System Center Orchestrator](https://www.microsoft.com/en-us/download/details.aspx?id=47323)

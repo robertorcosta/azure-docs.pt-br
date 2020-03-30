@@ -1,13 +1,13 @@
 ---
-title: 'Segurança de Cluster Service Fabric: funções de cliente'
+title: 'Segurança do cluster de malha de serviço: funções do cliente'
 description: Este artigo descreve as duas funções de clientes e as permissões fornecidas para as funções.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451893"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controle de acesso baseado em função para clientes do Service Fabric
@@ -91,7 +91,7 @@ O Controle de Acesso de administrador também tem acesso às operações anterio
 ## <a name="changing-default-settings-for-client-roles"></a>Alterando as configurações padrão para funções do cliente
 No arquivo de manifesto do cluster,você pode fornecer recursos de administração ao cliente, se for necessário. Você pode alterar os padrões ao acessar a opção **Configurações da Malha** durante a [criação do cluster](service-fabric-cluster-creation-via-portal.md) e fornecer as configurações anteriores nos campos **nome**, **administrador**, **usuário** e **valor**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)
 
 [Criação de cluster do Service Fabric](service-fabric-cluster-creation-via-portal.md)

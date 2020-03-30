@@ -1,5 +1,5 @@
 ---
-title: Copiar dados do Oracle Responsys (visualização)
+title: Copiar dados da Oracle Responsys (Preview)
 description: Saiba como copiar dados de Oracle Responsys para armazenamentos de dados do coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 ms.author: jingwang
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 67c737423b0b2be4c666974feb2f10ca5cdf1111
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929094"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados do Oracle Responsys usando o Azure Data Factory (Visualização)
@@ -23,14 +23,14 @@ ms.locfileid: "74929094"
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados da Oracle Responsys. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!IMPORTANT]
-> Este conector está atualmente em pré-visualização. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
+> Atualmente, esse conector está em versão prévia. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector do Oracle Responsys tem suporte para as seguintes atividades:
+Este conector Oracle Responsys é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procurar](control-flow-lookup-activity.md)
 
 Você pode copiar dados de Oracle Responsys em qualquer armazenamento de dados do coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -38,7 +38,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Consulte [o tutorial de atividade copiar](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector Oracle Responsys.
 
@@ -46,15 +46,15 @@ As seções a seguir fornecem detalhes sobre as propriedades que são usadas par
 
 As propriedades a seguir têm suporte para o serviço Oracle Responsys vinculado:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Responsys** | SIM |
-| endpoint | O ponto de extremidade do servidor Respopnsys  | SIM |
-| clientId | A ID do cliente associada ao aplicativo Responsys.  | SIM |
-| clientSecret | O segredo do cliente associado ao aplicativo Responsys. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | SIM |
-| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
-| useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não |
-| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conectam por meio de SSL. O valor padrão é true.  | Não |
+| type | A propriedade type deve ser definida como: **Responsys** | Sim |
+| endpoint | O ponto de extremidade do servidor Respopnsys  | Sim |
+| clientId | A ID do cliente associada ao aplicativo Responsys.  | Sim |
+| clientSecret | O segredo do cliente associado ao aplicativo Responsys. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
+| useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é verdadeiro.  | Não |
+| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é verdadeiro.  | Não |
 
 **Exemplo:**
 
@@ -81,13 +81,13 @@ As propriedades a seguir têm suporte para o serviço Oracle Responsys vinculado
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista de propriedades com suporte do conjunto de dados Oracle Responsys.
+Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista de propriedades com suporte do conjunto de dados Oracle Responsys.
 
 Para copiar dados de Oracle Responsys, defina a propriedade type do conjunto de dados para **ResponsysObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **ResponsysObject** | SIM |
+| type | A propriedade do tipo do conjunto de dados deve ser definida como: **ResponsysObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -114,12 +114,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="oracle-responsys-as-source"></a>Oracle Responsys como fonte
 
-Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de cópia para **ResponsysSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
+Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de cópia para **ResponsysSource**. As seguintes propriedades são suportadas na seção **de origem da** atividade de cópia:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte de atividade de cópia deve ser definida como: **ResponsysSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
+| type | A propriedade type da fonte de atividade de cópia deve ser definida como: **ResponsysSource** | Sim |
+| Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 
@@ -153,10 +153,10 @@ Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de c�
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

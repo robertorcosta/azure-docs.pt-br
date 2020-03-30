@@ -1,5 +1,5 @@
 ---
-title: Política de gerenciamento de API de exemplo – solicitação de rota com base no tamanho do corpo da mensagem
+title: Política de gerenciamento de API de amostra - Solicitação de rota com base no tamanho do corpo de mensagem
 titleSuffix: Azure API Management
 description: 'Exemplo de política de gerenciamento de API do Azure: demonstra como rotear solicitações com base no tamanho dos corpos.'
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 8cee2c13386a076f0321619754468cfc1e9fb31c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442421"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>Rotear a solicitação com base no tamanho do corpo
@@ -30,7 +30,7 @@ Cole o código no bloco de **entrada**.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Route requests based on size.policy.xml)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as políticas de APIM:
 

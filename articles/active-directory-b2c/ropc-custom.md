@@ -1,7 +1,7 @@
 ---
-title: Configurar o fluxo de credenciais de senha do proprietário do recurso com políticas personalizadas
+title: Configure o fluxo de credenciais de senha do proprietário de recursos com políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Saiba como configurar o fluxo de credenciais de senha do proprietário do recurso (ROPC) usando políticas personalizadas no Azure Active Directory B2C.
+description: Saiba como configurar o fluxo de credenciais de senha do proprietário de recursos (ROPC) usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,21 +12,21 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 55b4750d2c601a4d3c66bcd8235a9718d6daaf9d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186976"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure Active Directory B2C usando uma política personalizada
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), o fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo de autenticação padrão do OAuth. Nesse fluxo, um aplicativo, também conhecido como a terceira parte confiável, troca de credenciais válidas para tokens. As credenciais incluem um ID de usuário e senha. Os tokens retornados são um ID de token, um token de acesso e um token de atualização.
+No Azure Active Directory B2C (Azure AD B2C), o fluxo de credenciais de senha do proprietário de recursos (ROPC) é um fluxo de autenticação padrão OAuth. Nesse fluxo, um aplicativo, também conhecido como a terceira parte confiável, troca de credenciais válidas para tokens. As credenciais incluem um ID de usuário e senha. Os tokens retornados são um ID de token, um token de acesso e um token de atualização.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas em [Introdução às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -124,7 +124,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Azure Active
     </TechnicalProfile>
     ```
 
-    Substitua o **DefaultValue** de **client_id** pela ID do aplicativo ProxyIdentityExperienceFramework que você criou no tutorial de pré-requisito. Em seguida, substitua **DefaultValue** de **resource_id** pela ID do aplicativo IdentityExperienceFramework que você também criou no tutorial de pré-requisito.
+    Substitua o **PadrãoValor** de **client_id** pelo ID do aplicativo ProxyIdentityExperienceFramework que você criou no tutorial pré-requisito. Em seguida, **substitua o DefaultValue** de **resource_id** com o ID de aplicativo do aplicativo IdentityExperienceFramework que você também criou no tutorial pré-requisito.
 
 5. Adicionar os seguintes elementos **ClaimsProvider** com seus perfis técnicos para o elemento **ClaimsProviders**:
 
@@ -239,7 +239,7 @@ Em seguida, atualize o arquivo de terceira parte confiável que iniciará o perc
     ```
 
 5. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-6. Habilite **substituir a política se ela existir**e, em seguida, navegue até e selecione o arquivo *ROPC_Auth. xml* .
+6. Habilitar **substituir a diretiva se ela existir**e, em seguida, navegar e selecionar o arquivo *ROPC_Auth.xml.*
 7. Clique em **Carregar**.
 
 ## <a name="test-the-policy"></a>Testar a política

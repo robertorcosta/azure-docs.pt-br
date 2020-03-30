@@ -1,6 +1,6 @@
 ---
 title: Referência da sintaxe SQLFilter do Barramento de Serviços do Azure | Microsoft Docs
-description: Este artigo fornece detalhes sobre a gramática do sqlfilter. Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.
+description: Este artigo fornece detalhes sobre a gramática SQLFilter. Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759656"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
@@ -60,7 +60,7 @@ Um objeto *SqlFilter* é uma instância da [classe SqlFilter](/dotnet/api/micros
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
+-   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O `sys` valor indica `<property_name>` o escopo do sistema onde está um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o `<property_name>` escopo do usuário onde está uma chave do dicionário de [classe BrokeredMessage.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
   
 ## <a name="remarks"></a>Comentários
 
@@ -239,11 +239,11 @@ Considere a seguinte semântica de [SqlFilter](/dotnet/api/microsoft.servicebus.
   
   Avaliação desconhecida em `[NOT] LIKE`:  
   
-- Se um operando for avaliado como **desconhecido**, o resultado será **desconhecido**.  
+- Se algum operand for avaliado como **desconhecido,** então o resultado é **desconhecido.**  
   
   Avaliação desconhecida em `[NOT] IN`:  
   
-- Se o operando esquerdo for avaliado como **desconhecido**, o resultado será **desconhecido**.  
+- Se o opere esquerdo é avaliado como **desconhecido,** então o resultado é **desconhecido**.  
   
   Avaliação desconhecida no operador **AND**:  
   
@@ -279,7 +279,7 @@ Considere a seguinte semântica de [SqlFilter](/dotnet/api/microsoft.servicebus.
   
 -   Operadores aritméticos, como `+`, `-`, `*`, `/` e `%` seguem a mesma semântica que a associação do operador do C# em promoções de tipo de dados e conversões implícitas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Classe SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)

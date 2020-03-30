@@ -8,10 +8,10 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76271105"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(PRETERIDO) Monitorar um cluster Kubernetes do Serviço de Contêiner do Azure com o CoScale
@@ -59,7 +59,7 @@ az acs kubernetes install-cli
 ```
 
 ## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Instalar o agente do CoScale com um DaemonSet
-[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) são usados pelo Kubernetes para executar uma única instância de um contêiner em cada host no cluster.
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) são usados pelos Kubernetes para executar uma única instância de um contêiner em cada host no cluster.
 Eles são perfeitos para a execução de agentes de monitoramento, como o agente do CoScale.
 
 Depois de fazer logon no CoScale, acesse a [página do agente](https://app.coscale.com/) para instalar agentes do CoScale em seu cluster usando um DaemonSet. A interface do usuário do CoScale fornece etapas de configuração interativas para criar um agente e começar a monitorar todo seu cluster Kubernetes.
@@ -77,7 +77,7 @@ Para iniciar o agente no cluster, execute o comando fornecido:
 O agente do CoScale é implantado automaticamente em novas máquinas no cluster. O agente é atualizado automaticamente quando uma nova versão é lançada.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte a [documentação do CoScale](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) e [blog](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog) para obter mais informações sobre soluções de monitoramento CoScale. 
 

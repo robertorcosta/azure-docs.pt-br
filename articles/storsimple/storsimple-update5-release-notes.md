@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275163"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notas de versão da Atualização 5 para o StorSimple Série 8000
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos abertos da Atualização 5 para o StorSimple Série 8000. Elas também contêm uma lista das atualizações de software do StorSimple incluídas nesta versão.
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um conjunto de dimensionamento do Azure que usa Zonas de Disponibilidade
+title: Crie um conjunto de escala sinuoso que usa zonas de disponibilidade
 description: Saiba como criar conjunto de dimensionamento de máquinas virtuais do Azure que usam Zonas de Disponibilidade para aumentar a redundância contra interrupções
 author: cynthn
 tags: azure-resource-manager
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76274417"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
@@ -28,42 +28,42 @@ Quando você implanta um conjunto de dimensionamento em uma ou mais zonas a part
 
 Com a distribuição máxima, você verá apenas um domínio de falha na exibição da VM do conjunto de dimensionamento e nos metadados de instância, independentemente de em quantos domínios de falha as VMs estão espalhadas. A distribuição dentro de cada região é implícita.
 
-Para usar a distribuição máxima, defina *platformFaultDomainCount* como *1*. Para usar a distribuição estática de cinco domínios de falha, defina *platformFaultDomainCount* como *5*. Na API versão *2017-12-01*, *platformFaultDomainCount* tem como padrão *1* para conjuntos de dimensionamento de única zona e entre zonas. Atualmente, somente a distribuição estática de cinco domínios de falha tem suporte para conjuntos de dimensionamento regionais (não zonais).
+Para usar a propagação máxima, defina *a plataformaFaultDomainCount* para *1*. Para usar a distribuição estática de cinco domínios de falha, defina *platformFaultDomainCount* como *5*. Na versão aPI *2017-12-01*, *a plataformaFaultDomainCount* é padrão para *1* para conjuntos de escala de zona única e entre zonas. Atualmente, apenas a disseminação de domínio de cinco falhas estáticas é suportada para conjuntos de escala regionais (não zonais).
 
 ### <a name="placement-groups"></a>Grupos de posicionamento
 
-Quando você implanta um conjunto de escala, você também tem a opção de implantar um único [grupo posicionamento](./virtual-machine-scale-sets-placement-groups.md) por Zona de Disponibilidade ou com vários por região. Para conjuntos de dimensionamento regionais (não zonais), a escolha é ter um único grupo de posicionamento na região ou ter vários na região. Para a maioria das cargas de trabalho, é recomendável vários grupos de posicionamento, o que permite maior dimensionamento. Na API versão *2017-12-01*, os conjuntos de dimensionamento usam como padrão vários grupos de posicionamento para conjuntos de dimensionamento de zona única e entre zonas, mas eles assumem como padrão um grupo de posicionamento único para conjuntos de dimensionamento regionais (não zonais).
+Quando você implanta um conjunto de escala, você também tem a opção de implantar um único [grupo posicionamento](./virtual-machine-scale-sets-placement-groups.md) por Zona de Disponibilidade ou com vários por região. Para conjuntos de escalaregionais (não zonais), a escolha é ter um único grupo de colocação na região ou ter múltiplos na região. Para a maioria das cargas de trabalho, é recomendável vários grupos de posicionamento, o que permite maior dimensionamento. Na versão API *2017-12-01*, a escala define o padrão para vários grupos de colocação para conjuntos de escala de zona única e entre zonas, mas eles são padrão para um único grupo de colocação para conjuntos de escala regionais (não zonais).
 
 > [!NOTE]
 > Se você usar a distribuição máxima, deverá usar vários grupos de posicionamento.
 
 ### <a name="zone-balancing"></a>Balanceamento de zona
 
-Por fim, para conjuntos de dimensionamento implantados em várias regiões, você também tem a opção de escolher "melhor balanceamento de zona possível" ou "balanceamento de zona estrito". Um conjunto de dimensionamento é considerado "balanceado" se em cada zona tiver o mesmo número de VMs ou +\\- 1 VM em todas as outras zonas para o conjunto de dimensionamento. Por exemplo:
+Por fim, para conjuntos de dimensionamento implantados em várias regiões, você também tem a opção de escolher "melhor balanceamento de zona possível" ou "balanceamento de zona estrito". Um conjunto de dimensionamento é considerado "balanceado" se em cada zona tiver o mesmo número de VMs ou +\\- 1 VM em todas as outras zonas para o conjunto de dimensionamento. Por exemplo: 
 
 - Um conjunto de dimensionamento com 2 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerado balanceado. Há apenas uma zona com uma contagem de VM diferente e ela é apenas 1 a menos do que outras zonas. 
 - Um conjunto de dimensionamento com 1 VM na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerado não balanceado. Zona 1 tem 2 VMs a menos do que as zonas 2 e 3.
 
 É possível que as VMs no conjunto de dimensionamento sejam criadas com êxito, mas extensões nessas VMs falham na implantação. Essas VMs com falhas de extensão ainda são contadas ao determinar se um conjunto de dimensionamento está balanceado. Por exemplo, um conjunto de dimensionamento com 3 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerado balanceado mesmo se todas as extensões falham na zona 1 e todas as extensões obtêm êxito nas zonas 2 e 3.
 
-Com melhor balanceamento de zona possível, o conjunto de dimensionamento tenta reduzir e expandir mantendo o balanceamento. No entanto, se por algum motivo isso não for possível (por exemplo, se uma zona ficar inativa, o conjunto de dimensionamento não poderá criar uma nova VM nessa zona), o conjunto de dimensionamento permitirá o desequilíbrio temporário para reduzir ou reduzir com êxito. Em tentativas de expansão subsequentes, o conjunto de dimensionamento adiciona VMs a zonas que precisam de mais VMs para que o conjunto de dimensionamento seja balanceado. De forma semelhante, em tentativas de redução subsequentes, o conjunto de dimensionamento remove VMs de zonas que precisam de menos VMs para que o conjunto de dimensionamento seja balanceado. Com "balanceamento de zona estrito", o conjunto de dimensionamento falhará em qualquer tentativa de expandir ou reduzir que cause desbalanceamento.
+Com melhor balanceamento de zona possível, o conjunto de dimensionamento tenta reduzir e expandir mantendo o balanceamento. No entanto, se por algum motivo isso não for possível (por exemplo, se uma região cair, o conjunto de escalas não pode criar uma nova VM nessa região), o conjunto de escalas permite que o desequilíbrio temporário seja dimensionado com sucesso dentro ou fora. Nas tentativas subseqüentes de escala, o conjunto de escala adiciona VMs a regiões que precisam de mais VMs para que a escala definida seja equilibrada. De forma semelhante, em tentativas de redução subsequentes, o conjunto de dimensionamento remove VMs de zonas que precisam de menos VMs para que o conjunto de dimensionamento seja balanceado. Com "balanceamento de zona estrito", o conjunto de dimensionamento falhará em qualquer tentativa de expandir ou reduzir que cause desbalanceamento.
 
-Para usar o melhor balanceamento de zona possível, defina *zoneBalance* como *false*. Esta é a configuração padrão na versão de API *2017-12-01*. Para usar o balanceamento de zona estrito, defina *zoneBalance* como *true*.
+Para usar o melhor balanceamento de zona possível, defina *zoneBalance* como *false*. Esta é a configuração padrão na versão de API *2017-12-01*. Para usar o equilíbrio rigoroso da zona, defina *a zonaBalance* to *true*.
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Conjuntos de dimensionamento única zona e redundância de zona
 
 Quando você implanta um conjunto de dimensionamento de máquinas virtuais, você pode optar por usar uma única Zona de Disponibilidade em uma região ou várias zonas.
 
-Quando você cria um conjunto de dimensionamento em uma única zona, você controla em qual zona todas as instâncias VM serão executadas, e o conjunto de dimensionamento é gerenciado e escalado automaticamente somente dentro dessa zona. Um conjunto de dimensionamento com redundância de zona permite criar um conjunto de dimensionamento único que abrange várias zonas. Conforme são criadas instâncias VM, por padrão elas são balanceadas igualmente em zonas. Se ocorrer uma interrupção em uma das zonas, um conjunto de dimensionamento não dimensionará automaticamente para escalar horizontalmente a capacidade. Uma prática recomendada seria configurar regras de dimensionamento automático com base no uso de CPU ou memória. As regras de dimensionamento automático permitem que o conjunto de dimensionamento responda a uma perda das instâncias de VM em uma zona expandindo novas instâncias nas zonas operacionais restantes.
+Quando você cria um conjunto de dimensionamento em uma única zona, você controla em qual zona todas as instâncias VM serão executadas, e o conjunto de dimensionamento é gerenciado e escalado automaticamente somente dentro dessa zona. Um conjunto de dimensionamento com redundância de zona permite criar um conjunto de dimensionamento único que abrange várias zonas. Conforme são criadas instâncias VM, por padrão elas são balanceadas igualmente em zonas. Se ocorrer uma interrupção em uma das zonas, um conjunto de dimensionamento não dimensionará automaticamente para aumentar a capacidade. Uma prática recomendada seria configurar regras de dimensionamento automático com base no uso de CPU ou memória. As regras de dimensionamento automático permitem que o conjunto de dimensionamento responda a uma perda das instâncias de VM em uma zona expandindo novas instâncias nas zonas operacionais restantes.
 
 Para usar Zonas de Disponibilidade, seu conjunto de dimensionamento deve ser criado em uma [região do Azure com suporte](../availability-zones/az-overview.md#services-support-by-region). Você pode criar um conjunto de dimensionamento que usa Zonas de Disponibilidade com um dos seguintes métodos:
 
-- [Azure portal](#use-the-azure-portal)
-- Azure CLI
-- [PowerShell do Azure](#use-azure-powershell)
-- [Modelos do Gerenciador de Recursos do Azure](#use-azure-resource-manager-templates)
+- [Portal Azure](#use-the-azure-portal)
+- CLI do Azure
+- [Azure PowerShell](#use-azure-powershell)
+- [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates)
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 O processo para criar um conjunto de dimensionamento que use uma Zona de Disponibilidade é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Quando você seleciona uma região do Azure com suporte, pode criar um conjunto de dimensionamento em uma ou mais zonas disponíveis, conforme mostrado no exemplo a seguir:
 
@@ -109,7 +109,7 @@ az vmss create \
 
 Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjunto de dimensionamento na zona especificada por você. Para obter um exemplo completo de um conjunto de dimensionamento com redundância de zona e recursos de rede, consulte [este script CLI de exemplo](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
 
-## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
 Para usar Zonas de Disponibilidade, você deve criar seu conjunto de dimensionamento em uma região do Azure com suporte. Adicione o parâmetro `-Zone` ao comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e especifique qual zona usar (como zona *1*, *2* ou *3*).
 
@@ -213,6 +213,6 @@ Se você criar um endereço IP público ou um balanceador de carga, especifique 
 
 Para obter um exemplo completo de um conjunto de dimensionamento com redundância de zona e recursos de rede, consulte [este Resource Manager de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você criou conjunto de dimensionamento em uma Zona de Disponibilidade, você pode aprender como [Implantar aplicativos em conjuntos de dimensionamento de máquina virtual](tutorial-install-apps-cli.md) ou [Usar o dimensionamento automático com conjuntos de dimensionamento de máquina virtual](tutorial-autoscale-cli.md).

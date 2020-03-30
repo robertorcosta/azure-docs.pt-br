@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 52084b065ef65a69a6691b6646d1e199f011910d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171757"
 ---
-### <a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway
+### <a name="to-modify-the-local-network-gateway-ip-address---no-gateway-connection"></a><a name="gwipnoconnection"></a> Para modificar o endereço IP do gateway de rede local - sem conexão de gateway
 
 Use o exemplo para modificar um gateway de rede local que não tenha uma conexão de gateway. Ao modificar esse valor, você também pode modificar os prefixos do endereço ao mesmo tempo.
 
@@ -23,7 +23,7 @@ Use o exemplo para modificar um gateway de rede local que não tenha uma conexã
 2. Na caixa **Endereço IP**, modifique o endereço IP.
 3. Clique em **Salvar** para salvar as configurações.
 
-### <a name="gwipwithconnection"></a>Para modificar o endereço IP do gateway de rede local - conexão de gateway existente
+### <a name="to-modify-the-local-network-gateway-ip-address---existing-gateway-connection"></a><a name="gwipwithconnection"></a>Para modificar o endereço IP do gateway de rede local - conexão de gateway existente
 
 Para modificar um gateway de rede local com uma conexão, você precisa primeiro remover a conexão. Após a conexão ser removida, você pode modificar o endereço IP do gateway e recriar uma nova conexão. Você também pode modificar os prefixos do endereço ao mesmo tempo. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar o endereço IP de gateway, você não precisa excluir o gateway de VPN. Você precisa apenas remover a conexão.
  

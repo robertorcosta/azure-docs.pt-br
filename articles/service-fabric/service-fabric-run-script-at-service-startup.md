@@ -1,15 +1,15 @@
 ---
-title: Executar um script quando um serviço de Service Fabric do Azure for iniciado
+title: Execute um script quando um serviço de malha de serviço do Azure for iniciado
 description: Saiba como configurar uma política para um ponto de entrada de configuração de serviço do Service Fabric e executar um script no momento de inicialização do serviço.
 author: athinanthny
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464277"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de inicialização do serviço como uma conta de usuário ou sistema local
@@ -229,7 +229,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre segurança de aplicativo e serviço](service-fabric-application-and-service-security.md)
 * [Entenda o modelo de aplicativo](service-fabric-application-model.md)
 * [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)

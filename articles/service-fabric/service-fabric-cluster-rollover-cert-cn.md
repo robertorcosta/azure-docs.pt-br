@@ -1,13 +1,13 @@
 ---
-title: Sobrepor um certificado de Cluster Service Fabric do Azure
-description: Saiba como estender um certificado de Cluster Service Fabric identificado pelo nome comum do certificado.
+title: Rolar um certificado de cluster de malha de serviço do Azure
+description: Saiba como rolar um certificado de cluster service fabric identificado pelo nome comum do certificado.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451972"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Sobrepor manualmente um certificado de cluster do Service Fabric
@@ -75,5 +75,5 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [segurança de cluster](service-fabric-cluster-security.md).
+* Saiba mais sobre [segurança de clusters](service-fabric-cluster-security.md).
 * [Atualizar e gerenciar certificados do cluster](service-fabric-cluster-security-update-certs-azure.md)

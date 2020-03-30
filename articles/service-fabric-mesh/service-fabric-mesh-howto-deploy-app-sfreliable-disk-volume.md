@@ -1,5 +1,5 @@
 ---
-title: Service Fabric volume de disco confiável com malha de Service Fabric
+title: Volume de disco confiável da malha de malha da malha de malha da malha de malha da malha de malha de malha de malha de malha de serviço
 description: Saiba como armazenar estado em uma plicativo da Malha do Service Fabric montando o volume baseado em Disco Confiável do Service Fabric dentro do contêiner usando a CLI do Azure.
 author: ashishnegi
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75497960"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte o volume baseado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível em um aplicativo de Malha do Service Fabric 
@@ -81,7 +81,7 @@ Exclua com frequência os recursos que não estão mais sendo utilizados no Azur
 az group delete --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Exiba o aplicativo de exemplo do Disco de para Volume Confiável do Service Fabric no [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Para saber mais sobre o modelo de recursos do Service Fabric, consulte [modelo de recursos de Malha do Service Fabric](service-fabric-mesh-service-fabric-resources.md).

@@ -1,6 +1,6 @@
 ---
 title: Usando o PowerShell para gerenciar o Gerenciador de Tráfego no Azure
-description: Com este roteiro de aprendizagem, comece a usar o Azure PowerShell para o Gerenciador de tráfego.
+description: Com este caminho de aprendizado, comece a usar o Azure PowerShell para Traffic Manager.
 services: traffic-manager
 documentationcenter: na
 author: rohinkoul
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938506"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Usando o PowerShell para gerenciar o Gerenciador de Tráfego
@@ -38,7 +38,7 @@ Cada perfil do Gerenciador de Tráfego é representado por um recurso do tipo "T
 
 Essas instruções usam o Microsoft Azure PowerShell. O artigo a seguir explica como instalar e configurar o Azure PowerShell.
 
-* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
+* [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 
 Os exemplos neste artigo presumem que você tenha um grupo de recursos existente. Você pode criar um grupo de recursos usando o seguinte comando:
 
@@ -59,7 +59,7 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 A tabela a seguir lista os parâmetros:
 
-| Parâmetro | Description |
+| Parâmetro | Descrição |
 | --- | --- |
 | Nome |O nome do recurso para o recurso do perfil do Gerenciador de Tráfego. Perfis no mesmo grupo de recursos devem ter nomes exclusivos. Esse nome é diferente do nome DNS usado para consultas de DNS. |
 | ResourceGroupName |O nome do grupo de recursos que contém o recurso do perfil. |
@@ -115,7 +115,7 @@ Em todos os três casos, os pontos de extremidade podem ser adicionados de duas 
 
 Os pontos de extremidade do Azure fazem referência a serviços hospedados no Azure. Há suporte para dois tipos de pontos de extremidade do Azure:
 
-1. Serviço de Aplicativos do Azure
+1. Serviço de aplicativo do Azure
 2. Recursos PublicIpAddress do Azure (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). O PublicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
 
 Em cada caso:
@@ -125,7 +125,7 @@ Em cada caso:
 * A especificação de “Weight” é opcional. Os pesos só serão usados se o perfil for configurado para usar o método de roteamento de tráfego “Weighted”. Caso contrário, eles serão ignorados. Se especificado, o valor deve ser um número entre 1 e 1000. O valor padrão é '1'.
 * A especificação de “Priority” é opcional. As prioridades só serão usadas se o perfil for configurado para usar o método de roteamento de tráfego “Priority”. Caso contrário, eles serão ignorados. Os valores válidos são de 1 a 1000; valores mais baixos indicam uma prioridade mais alta. Se especificados para um ponto de extremidade, deverão ser especificados para todos os pontos de extremidade. Se omitidos, os valores padrão começando por 1 serão aplicados na ordem em que os pontos de extremidade forem listados.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Exemplo 1: adicionando pontos de extremidade do serviço de aplicativo usando `Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Exemplo 1: Adicionar pontos finais do Serviço de Aplicativos usando`Add-AzTrafficManagerEndpointConfig`
 
 Neste exemplo, podemos criar um perfil do Gerenciador de Tráfego e adicionar dois pontos de extremidade do Serviço de Aplicativo usando o cmdlet `Add-AzTrafficManagerEndpointConfig`.
 
@@ -210,7 +210,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Adicionar pontos de extremidade de outra assinatura
 
-O Gerenciador de Tráfego pode trabalhar com pontos de extremidade de assinaturas diferentes. É necessário alternar para a assinatura com o ponto de extremidade que você deseja adicionar para recuperar a entrada necessária para o Gerenciador de Tráfego. Em seguida, você precisa alternar para as assinaturas com o perfil do Gerenciador de tráfego e adicionar o ponto de extremidade a ele. O exemplo abaixo mostra como fazer isso com um endereço IP público.
+O Gerenciador de Tráfego pode trabalhar com pontos de extremidade de assinaturas diferentes. É necessário alternar para a assinatura com o ponto de extremidade que você deseja adicionar para recuperar a entrada necessária para o Gerenciador de Tráfego. Em seguida, você precisa mudar para as assinaturas com o perfil do Gerenciador de tráfego e adicionar o ponto final a ele. O exemplo abaixo mostra como fazer isso com um endereço IP público.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
@@ -321,7 +321,7 @@ Essa sequência também pode ser transferida:
 Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzTrafficManagerProfile [-Force]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 

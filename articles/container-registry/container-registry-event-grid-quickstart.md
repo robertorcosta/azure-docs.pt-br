@@ -1,17 +1,17 @@
 ---
-title: Início rápido – enviar eventos para a grade de eventos
+title: Quickstart - Envie eventos para event grid
 description: Neste início rápido, você habilita os eventos da Grade de Eventos para o registro de contêiner e, em seguida, efetua push de imagens de contêiner e exclui eventos para um aplicativo de exemplo.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78403229"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: enviar eventos do registro de contêiner privado para a grade de eventos
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Envie eventos do registro privado de contêineres para event grid
 
 A Grade de Eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que fornece consumo uniforme de eventos usando um modelo de publicação-assinatura. Neste início rápido, você usa a CLI do Azure para criar um registro de contêiner, assinar eventos de registro e, em seguida, implantar um aplicativo Web de exemplo para receber os eventos. Por fim, você dispara os eventos `push` e `delete` da imagem de contêiner e exibe a carga do evento no aplicativo de exemplo.
 
@@ -27,7 +27,7 @@ Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash*
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de recursos chamado *MyResource* Group na região *eastus* . Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O seguinte comando [az group create][az-group-create] cria um grupo de recursos nomeado *myResourceGroup* na região *eastus*. Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -37,7 +37,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Em seguida, implante um registro de contêiner no grupo de recursos com os seguintes comandos. Antes de executar o comando [AZ ACR Create][az-acr-create] , defina `ACR_NAME` como um nome para o registro. O nome deve ser exclusivo no Azure e é restrito a 5 a 50 caracteres alfanuméricos.
+Em seguida, implante um registro de contêiner no grupo de recursos com os seguintes comandos. Antes de executar o comando [az acr create][az-acr-create], defina `ACR_NAME` como um nome para o registro. O nome deve ser exclusivo no Azure e é restrito a 5 a 50 caracteres alfanuméricos.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -96,7 +96,7 @@ Você deve ver o aplicativo de exemplo renderizado sem nenhuma mensagem de event
 
 ## <a name="subscribe-to-registry-events"></a>Assinar eventos de registro
 
-Na Grade de Eventos, você assina um *tópico* para informar quais eventos quer acompanhar e para onde enviá-los. O comando [AZ eventgrid Event-Subscription Create][az-eventgrid-event-subscription-create] a seguir assina o registro de contêiner que você criou e especifica a URL do seu aplicativo Web como o ponto de extremidade para o qual ele deve enviar eventos. As variáveis de ambiente que você preencheu nas seções anteriores são reutilizadas aqui, portanto, nenhuma edição é necessária.
+Na Grade de Eventos, você assina um *tópico* para informar quais eventos quer acompanhar e para onde enviá-los. O seguinte comando [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] assina o registro de contêiner criado e especifica a URL do aplicativo Web como o ponto de extremidade para o qual deve enviar eventos. As variáveis de ambiente que você preencheu nas seções anteriores são reutilizadas aqui, portanto, nenhuma edição é necessária.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -179,7 +179,7 @@ A marca "v1" da imagem que você compilou deve aparecer na saída, semelhante à
 
 ### <a name="delete-the-image"></a>Excluir a imagem
 
-Agora, gere um evento de `ImageDeleted` excluindo a imagem com o comando [AZ ACR Repository Delete][az-acr-repository-delete] :
+Agora, gere um evento `ImageDeleted` excluindo a imagem com o comando [az acr repository delete][az-acr-repository-delete]:
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1
@@ -202,7 +202,7 @@ A captura de tela a seguir mostra o aplicativo de exemplo com os três eventos e
 
 Parabéns! Se você visualizar os eventos `ImagePushed` e `ImageDeleted`, isso significa que o registro está enviando eventos para a Grade de Eventos e a Grade de Eventos está encaminhando esses eventos para o ponto de extremidade do aplicativo Web.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Após concluir os recursos criados neste início rápido, você poderá excluí-los com o seguinte comando da CLI do Azure. Quando você excluir um grupo de recursos, todos os recursos nele contidos serão permanentemente excluídos.
 

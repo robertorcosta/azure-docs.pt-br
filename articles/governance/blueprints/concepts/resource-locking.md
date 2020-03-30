@@ -1,27 +1,27 @@
 ---
 title: Compreender o bloqueio de recursos
-description: Saiba mais sobre as opções de bloqueio em plantas do Azure para proteger recursos ao atribuir um plano gráfico.
+description: Conheça as opções de bloqueio no Azure Blueprints para proteger os recursos ao atribuir um projeto.
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199692"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
-A criação de ambientes consistentes em escala só é realmente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em Blueprints do Azure. Para ver um exemplo de bloqueio de recursos e aplicação de _atribuições de negação_, consulte o tutorial [protegendo novos recursos](../tutorials/protect-new-resources.md) .
+A criação de ambientes consistentes em escala só é realmente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em Blueprints do Azure. Para ver um exemplo de bloqueio de recursos e aplicação de _atribuições_de negação, consulte o tutorial [de proteção de novos recursos.](../tutorials/protect-new-resources.md)
 
 ## <a name="locking-modes-and-states"></a>Estados e modos de bloqueio
 
-O modo de bloqueio se aplica à atribuição Blueprint e tem três opções: **não bloquear**, **somente leitura**ou **não excluir**. O modo de bloqueio é configurado durante a implantação de artefato em uma atribuição de blueprint. Um modo de bloqueio diferente pode ser definido pela atualização da atribuição de blueprint.
+O modo de bloqueio se aplica à atribuição do projeto e tem três opções: **Não bloquear,** **Ler apenas**ou Não **Excluir**. O modo de bloqueio é configurado durante a implantação de artefato em uma atribuição de blueprint. Um modo de bloqueio diferente pode ser definido pela atualização da atribuição de blueprint.
 No entanto, os modos de bloqueio não podem ser alterados fora dos blueprints.
 
-Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Estados: **não bloqueado**, **somente leitura**, **não é possível editar/Excluir**ou **não pode excluir**. Cada tipo de artefato pode estar no estado **Não Bloqueado**. A seguinte tabela pode ser usada para determinar o estado de um recurso:
+Os recursos criados por artefatos em uma atribuição de projeto têm quatro estados: **Não bloqueado,** **Somente leitura,** **não pode editar / excluir**ou não **pode excluir**. Cada tipo de artefato pode estar no estado **Não Bloqueado**. A seguinte tabela pode ser usada para determinar o estado de um recurso:
 
-|Mode|Tipo de recurso do artefato|Estado|DESCRIÇÃO|
+|Mode|Tipo de recurso do artefato|Estado|Descrição|
 |-|-|-|-|
 |Não Bloquear|*|Não Bloqueado|Os recursos não são protegidos pelos blueprints. Esse estado também é usado para recursos adicionados a um artefato do grupo de recursos **Somente Leitura** ou **Não Excluir** fora de uma atribuição de blueprint.|
 |Somente leitura|Resource group|Não é Possível Editar/Excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
@@ -34,19 +34,19 @@ Normalmente, é possível que alguém com o [controle de acesso baseado em funç
 
 Isso protege a consistência do plano gráfico em definido e o ambiente em que ele foi projetado para criar a partir de exclusão acidental ou através de programação ou de alteração.
 
-### <a name="assign-at-management-group"></a>Atribuir no grupo de gerenciamento
+### <a name="assign-at-management-group"></a>Atribuir no grupo de gestão
 
-Uma opção adicional para impedir que os proprietários da assinatura removam uma atribuição de Blueprint é atribuir o plano gráfico a um grupo de gerenciamento. Nesse cenário, somente os **proprietários** do grupo de gerenciamento têm as permissões necessárias para remover a atribuição do Blueprint.
+Uma opção adicional para impedir que os proprietários de assinatura removessem uma atribuição de projeto é atribuir o projeto a um grupo de gerenciamento. Nesse cenário, apenas **os proprietários** do grupo de gestão têm as permissões necessárias para remover a atribuição do projeto.
 
-Para atribuir o Blueprint a um grupo de gerenciamento em vez de uma assinatura, a chamada à API REST muda para esta aparência:
+Para atribuir o projeto a um grupo de gerenciamento em vez de uma assinatura, a chamada da API REST muda para ficar assim:
 
 ```http
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
 ```
 
-O grupo de gerenciamento definido por `{assignmentMG}` deve estar dentro da hierarquia do grupo de gerenciamento ou ser o mesmo grupo de gerenciamento em que a definição do Blueprint é salva.
+O grupo de `{assignmentMG}` gerenciamento definido por deve estar dentro da hierarquia do grupo de gerenciamento ou ser o mesmo grupo de gerenciamento onde a definição do projeto é salva.
 
-O corpo da solicitação da atribuição Blueprint tem esta aparência:
+O corpo de solicitação da atribuição do projeto é assim:
 
 ```json
 {
@@ -82,10 +82,10 @@ O corpo da solicitação da atribuição Blueprint tem esta aparência:
 }
 ```
 
-A principal diferença nesse corpo de solicitação e um que está sendo atribuído a uma assinatura é a propriedade `properties.scope`. Essa propriedade necessária deve ser definida como a assinatura à qual a atribuição de Blueprint se aplica. A assinatura deve ser um filho direto da hierarquia do grupo de gerenciamento em que a atribuição de Blueprint está armazenada.
+A principal diferença neste órgão de solicitação e um `properties.scope` sendo atribuído a uma assinatura é a propriedade. Essa propriedade necessária deve ser definida na assinatura a que a atribuição do projeto se aplica. A assinatura deve ser um filho direto da hierarquia do grupo de gerenciamento onde a atribuição do projeto é armazenada.
 
 > [!NOTE]
-> Um plano gráfico atribuído ao escopo do grupo de gerenciamento ainda funciona como uma atribuição de plano de nível de assinatura. A única diferença é onde a atribuição Blueprint é armazenada para impedir que os proprietários da assinatura removam a atribuição e os bloqueios associados.
+> Um projeto atribuído ao escopo do grupo de gerenciamento ainda funciona como uma atribuição de projeto de nível de assinatura. A única diferença é quando a atribuição do projeto é armazenada para evitar que os proprietários de assinatura removessem a atribuição e os bloqueios associados.
 
 ## <a name="removing-locking-states"></a>Removendo os estados de bloqueio
 
@@ -100,21 +100,21 @@ Quando a atribuição é removida, os bloqueios criados por planos gráficos sã
 
 Uma ação de negação [negar atribuições](../../../role-based-access-control/deny-assignments.md) do RBAC é aplicada aos recursos de artefato durante a atribuição de um blueprint se a atribuição selecionou a opção **Somente Leitura** ou **Não Excluir**. A ação de negação é adicionada pela identidade gerenciada da atribuição de blueprint e só pode ser removida dos recursos de artefato pela mesma identidade gerenciada. Essa medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio do blueprint fora do Blueprints.
 
-![Atribuição de negação de plano gráfico no grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
+![Projeto nega atribuição em grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
 
-As [Propriedades de atribuição de negação](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
+As propriedades de atribuição de [negação](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
 
-|Mode |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
+|Mode |Permissões.Ações |Permissões.NotActions |Diretores[i]. Tipo |ExcluaDiretores[i]. Id | NãoaplicarApplyToChildScopes |
 |-|-|-|-|-|-|
-|Somente leitura |**\*** |**\*/Read** |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
-|Não exclua |**\*/Delete** | |SystemDefined (todos) |atribuição de Blueprint e definida pelo usuário em **excludedPrincipals** |Grupo de recursos- _verdadeiro_; Recurso- _falso_ |
+|Somente leitura |**\*** |**\*/leia** |Sistemadefinido (Todos) |atribuição de projeto e definidos pelo usuário em **excluídosPrincipais** |Grupo de recursos - _verdadeiro_; Recurso - _falso_ |
+|Não exclua |**\*/delete** | |Sistemadefinido (Todos) |atribuição de projeto e definidos pelo usuário em **excluídosPrincipais** |Grupo de recursos - _verdadeiro_; Recurso - _falso_ |
 
 > [!IMPORTANT]
 > O Gerenciador de Recursos do Azure armazena em cache os detalhes da atribuição de função por até 30 minutos. Como resultado, a ação de negação das atribuições de negação nos recursos de blueprint pode não entrar imediatamente em vigor. Durante esse período, talvez seja possível excluir um recurso destinado a ser protegido por bloqueios de blueprint.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir uma entidade de segurança de uma atribuição de negação
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclua um diretor de uma atribuição de negação
 
-Em alguns cenários de design ou segurança, pode ser necessário excluir uma entidade da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) criada pela atribuição Blueprint. Essa etapa é feita na API REST adicionando até cinco valores à matriz **excludedPrincipals** na propriedade **Locks** ao [criar a atribuição](/rest/api/blueprints/assignments/createorupdate). A definição de atribuição a seguir é um exemplo de um corpo de solicitação que inclui **excludedPrincipals**:
+Em alguns cenários de design ou segurança, pode ser necessário excluir um principal da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) que a atribuição de projeto cria. Esta etapa é feita na API REST, somando até cinco valores à matriz **excludedPrincipals** na propriedade **locks** ao [criar a atribuição](/rest/api/blueprints/assignments/createorupdate). A seguinte definição de atribuição é um exemplo de um órgão de solicitação que inclui **diretores excluídos:**
 
 ```json
 {
@@ -156,9 +156,9 @@ Em alguns cenários de design ou segurança, pode ser necessário excluir uma en
 }
 ```
 
-## <a name="exclude-an-action-from-a-deny-assignment"></a>Excluir uma ação de uma atribuição de negação
+## <a name="exclude-an-action-from-a-deny-assignment"></a>Exclua uma ação de uma atribuição de negação
 
-Semelhante à [exclusão de uma entidade de segurança](#exclude-a-principal-from-a-deny-assignment) em uma [atribuição de negação](../../../role-based-access-control/deny-assignments.md) em uma atribuição de Blueprint, você pode excluir [operações RBAC](../../../role-based-access-control/resource-provider-operations.md)específicas. No bloco **Properties. Locks** , no mesmo lugar em que **excludedPrincipals** é, um **excludedActions** pode ser adicionado:
+Semelhante à [exclusão de um principal](#exclude-a-principal-from-a-deny-assignment) em uma [atribuição de negação](../../../role-based-access-control/deny-assignments.md) em uma atribuição de projeto, você pode excluir [operações específicas de RBAC](../../../role-based-access-control/resource-provider-operations.md). Dentro do bloco **properties.locks,** no mesmo lugar que **excluiPrincipais,** pode ser adicionada uma **excludedActions:**
 
 ```json
 "locks": {
@@ -174,12 +174,12 @@ Semelhante à [exclusão de uma entidade de segurança](#exclude-a-principal-fro
 },
 ```
 
-Embora **excludedPrincipals** deva ser explícito, as entradas de **excludedActions** podem fazer uso de `*` para correspondência de curingas de operações de RBAC.
+Embora **os excluídosPrincipais** devem ser explícitos, as entradas **excluídas de ações** podem fazer uso para a correspondência curinga `*` das operações rbac.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Siga o tutorial [proteger novos recursos](../tutorials/protect-new-resources.md) .
-- Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
+- Siga o tutorial [de proteção de novos recursos.](../tutorials/protect-new-resources.md)
+- Conheça o [ciclo de vida](lifecycle.md)do projeto .
 - Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).

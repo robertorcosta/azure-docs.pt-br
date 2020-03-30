@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 02/28/2020
 ms.author: victorh
 ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78196681"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Firewall do Azure com o Azure Standard Load Balancer
 
 Você pode integrar um Firewall do Azure em uma rede virtual com um Azure Standard Load Balancer (público ou interno). 
 
-O design preferencial é integrar um balanceador de carga interno com o Firewall do Azure, pois esse é um design muito mais simples. Você pode usar um balanceador de carga público se já tiver um implantado e desejar mantê-lo em vigor. No entanto, você precisa estar ciente de um problema de roteamento assimétrico que pode interromper a funcionalidade com o cenário de balanceador de carga público.
+O design preferido é integrar um balanceador de carga interna com o firewall do Azure, já que este é um design muito mais simples. Você pode usar um balanceador de carga pública se você já tiver um implantado e quiser mantê-lo no lugar. No entanto, você precisa estar ciente de um problema de roteamento assimétrico que pode interromper a funcionalidade com o cenário de balanceador de carga público.
 
 Para obter mais informações sobre o Azure Load Balancer, confira [O que é o Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -28,20 +28,20 @@ Com um balanceador de carga público, o balanceador de carga é implantado com u
 
 ### <a name="asymmetric-routing"></a>Roteamento assimétrico
 
-O roteamento assimétrico ocorre quando um pacote usa um caminho para o destino e outro caminho para retornar para a origem. Isso ocorre quando uma sub-rede tem uma rota padrão que vai para o endereço IP privado do firewall e você está usando um balanceador de carga público. Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoração de estado, ele descarta o pacote de retorno porque o firewall não está ciente dessa sessão estabelecida.
+O roteamento assimétrico ocorre quando um pacote usa um caminho para o destino e outro caminho para retornar para a origem. Isso ocorre quando uma sub-rede tem uma rota padrão que vai para o endereço IP privado do firewall e você está usando um balanceador de carga público. Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Uma vez que o firewall é imponente, ele descarta o pacote de retorno porque o firewall não está ciente de uma sessão tão estabelecida.
 
 ### <a name="fix-the-routing-issue"></a>Corrigir o problema de roteamento
 
-Quando você implanta um Firewall do Azure em uma sub-rede, uma etapa é criar uma rota padrão para a sub-rede, direcionando os pacotes por meio do endereço IP privado do firewall localizado no AzureFirewallSubnet. Para obter mais informações, consulte [tutorial: implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
+Quando você implanta um Firewall do Azure em uma sub-rede, uma etapa é criar uma rota padrão para a sub-rede, direcionando os pacotes por meio do endereço IP privado do firewall localizado no AzureFirewallSubnet. Para obter mais informações, consulte [Tutorial: Implante e configure o Firewall Do Azure usando o portal Azure](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
 Quando introduz o firewall em seu cenário de balanceador de carga, você deseja que o tráfego de Internet entre por meio do endereço IP público do firewall. Daí, o firewall aplica suas regras de firewall e NATs aos pacotes para o endereço IP público do balanceador de carga. E o problema ocorre aí. Os pacotes chegam no endereço IP público do firewall, mas retornam para o firewall por meio do endereço IP privado (usando a rota padrão).
 Para evitar esse problema, crie uma rota de host adicional para o endereço IP público do firewall. Pacotes que vão para o endereço IP público do firewall são roteadas pela Internet. Isso evita o uso da rota padrão para o endereço IP privado do firewall.
 
 ![Roteamento assimétrico](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-### <a name="route-table-example"></a>Exemplo de tabela de rotas
+### <a name="route-table-example"></a>Exemplo de tabela de rota
 
-Por exemplo, as rotas a seguir são para um firewall no endereço IP público 20.185.97.136 e o endereço IP privado 10.0.1.4.
+Por exemplo, as seguintes rotas são para um firewall no endereço IP público 20.185.97.136 e endereço IP privado 10.0.1.4.
 
 > [!div class="mx-imgBorder"]
 > ![Tabela de rotas](media/integrate-lb/route-table.png)
@@ -51,11 +51,11 @@ Por exemplo, as rotas a seguir são para um firewall no endereço IP público 20
 No exemplo a seguir, uma regra NAT traduz o tráfego RDP para o firewall em 20.185.97.136 para o balanceador de carga em 20.42.98.220:
 
 > [!div class="mx-imgBorder"]
-> ![regra NAT](media/integrate-lb/nat-rule-02.png)
+> ![Regra NAT](media/integrate-lb/nat-rule-02.png)
 
 ### <a name="health-probes"></a>Investigações de integridade
 
-Lembre-se de que você precisa ter um serviço Web em execução nos hosts no pool do balanceador de carga se usar investigações de integridade TCP para porta 80 ou investigações HTTP/HTTPS.
+Lembre-se, você precisa ter um serviço web em execução nos hosts no pool de balanceadores de carga se você usar testes de saúde TCP para porta80 ou testes HTTP/HTTPS.
 
 ## <a name="internal-load-balancer"></a>Balanceador de carga interno
 
@@ -73,7 +73,7 @@ Por exemplo, você pode criar um NSG na sub-rede de back-end em que se encontram
 
 ![Grupo de segurança de rede](media/integrate-lb/nsg-01.png)
 
-Para obter mais informações sobre os NSGs, confira [Grupos de segurança](../virtual-network/security-overview.md).
+Para obter mais informações sobre os NSGs, consulte [grupos de segurança](../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

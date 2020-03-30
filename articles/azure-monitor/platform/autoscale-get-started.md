@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75396344"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
@@ -19,7 +19,7 @@ O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Descobrir as configurações de dimensionamento automático na sua assinatura
 Você pode descobrir todos os recursos a que o dimensionamento automático se aplica no Azure Monitor. Use as etapas a seguir para obter uma explicação passo a passo:
 
-1. Abra o [portal do Azure.][1]
+1. Abra o [portal Azure.][1]
 1. Clique no ícone do Azure Monitor no painel esquerdo.
   ![Abra o Azure Monitor][2]
 1. Clique em **Dimensionamento automático** para exibir todos os recursos para os quais o dimensionamento automático é aplicável, juntamente com o status atual.
@@ -37,7 +37,7 @@ Para cada recurso, você encontrará a contagem de instâncias atual e o status 
 
 Agora, vamos percorrer um passo a passo simples para criar sua primeira configuração de dimensionamento automático.
 
-1. Abra a folha **Dimensionamento Automático** no Azure Monitor e selecione um recurso que deseja dimensionar. (As etapas a seguir usam um plano do serviço de aplicativo associado a um aplicativo Web. Você pode [criar seu primeiro aplicativo web ASP.net no Azure em 5 minutos.][4])
+1. Abra a folha **Dimensionamento Automático** no Azure Monitor e selecione um recurso que deseja dimensionar. (As etapas a seguir usam um plano do serviço de aplicativo associado a um aplicativo Web. Você pode [criar seu primeiro aplicativo Web ASP.NET no Azure em 5 minutos.][4])
 1. Observe que a contagem da instância atual é 1. Clique em **Habilitar dimensionamento automático**.
   ![Configuração de dimensionamento para um novo aplicativo Web][5]
 1. Forneça um nome para a configuração de dimensionamento e clique em **Adicionar uma regra**. Observe as opções de regra de dimensionamento que são abertas como um painel de contexto no lado direito. Por padrão, ele define a opção de dimensionar sua contagem de instâncias em 1 se o percentual de CPU do recurso ultrapassar 70%. Deixe-o com seus valores padrão e clique em **Adicionar**.
@@ -54,7 +54,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -110,7 +110,7 @@ Agora, você pode definir o número de instâncias para o qual deseja dimensiona
 
 Você sempre pode retornar para o dimensionamento automático clicando em **Habilitar dimensionamento automático** e **Salvar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

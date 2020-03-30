@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78899276"
 ---
-# <a name="authorizing-access-to-event-grid-resources"></a>Autorizando o acesso aos recursos da grade de eventos
+# <a name="authorizing-access-to-event-grid-resources"></a>Autorizando o acesso aos recursos da Event Grid
 A Grade de Eventos do Azure permite que você controle o nível de acesso concedido a usuários diferentes para execução de várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. O Event Grid usa o controle de acesso baseado em função (RBAC) do Azure.
 
 ## <a name="operation-types"></a>Tipos de operação
@@ -33,11 +33,11 @@ As últimas três operações retornam informações possivelmente secretas, as 
 
 ## <a name="built-in-roles"></a>Funções internas
 
-Grade de eventos fornece duas funções internas para gerenciar assinaturas de evento. Eles são importantes ao implementar [domínios de evento](event-domains.md) porque fornecem aos usuários as permissões de que eles precisam para assinar tópicos em seu domínio de evento. Essas funções são focadas em assinaturas de eventos e não concedem acesso a ações como a criação de tópicos.
+Grade de eventos fornece duas funções internas para gerenciar assinaturas de evento. Eles são importantes na implementação de [domínios de eventos](event-domains.md) porque dão aos usuários as permissões necessárias para subscrever tópicos em seu domínio de eventos. Essas funções são focadas em assinaturas de eventos e não concedem acesso a ações como a criação de tópicos.
 
 Você pode [atribua essas funções para um usuário ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**Colaborador do EventGrid EventSubscription**: gerenciar operações de assinatura da grade de eventos
+**Contribuinte de assinatura de eventos EventGrid:** gerencie as operações de assinatura da Event Grid
 
 ```json
 [
@@ -73,7 +73,7 @@ Você pode [atribua essas funções para um usuário ou grupo](../role-based-acc
 ]
 ```
 
-**Leitor de EventSubscription EventGrid**: ler assinaturas de grade de eventos
+**EventGrid EventSubscription Reader**: leia assinaturas da Grade de Eventos
 
 ```json
 [
@@ -181,8 +181,8 @@ Você pode criar funções personalizadas com [PowerShell](../role-based-access-
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
-Todos os eventos ou dados gravados no disco pelo serviço de grade de eventos são criptografados por uma chave gerenciada pela Microsoft, garantindo que ele seja criptografado em repouso. Além disso, o período máximo de tempo que os eventos ou os dados retidos é de 24 horas em conformidade com a [política de repetição de grade de eventos](delivery-and-retry.md). A grade de eventos excluirá automaticamente todos os eventos ou dados após 24 horas ou a vida útil do evento, o que for menor.
+Todos os eventos ou dados gravados em disco pelo serviço Event Grid são criptografados por uma chave gerenciada pela Microsoft, garantindo que ele seja criptografado em repouso. Além disso, o período máximo de tempo que os eventos ou dados retidos são de 24 horas em adesão à [política de reteste da Grade de Eventos](delivery-and-retry.md). Event Grid excluirá automaticamente todos os eventos ou dados após 24 horas, ou o tempo de evento para viver, o que for menor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para ver uma introdução à Grade de Eventos, confira [Sobre a Grade de Eventos](overview.md)
+* Para uma introdução ao Event Grid, consulte [Sobre a Grade de Eventos](overview.md)

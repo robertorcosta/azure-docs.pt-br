@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186379"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -38,14 +38,14 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 
 O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Obrigatório | Descrição |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sim | A versão do esquema a ser usado para executar a política. O valor deve ser `0.3.0.0` |
-| TenantObjectId | Não | O identificador de objeto exclusivo do locatário Azure Active Directory B2C (Azure AD B2C). |
+| TenantObjectId | Não | O identificador de objeto exclusivo do inquilino Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sim | O identificador exclusivo do locatário ao qual essa política pertence. |
 | PolicyId | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
 | PublicPolicyUri | Sim | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
-| DeploymentMode | Não | Valores possíveis: `Production`ou `Development`. O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
+| DeploymentMode | Não | Valores `Production`possíveis: `Development`, ou . O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 
 
@@ -72,7 +72,7 @@ Esses tipos de arquivos de política normalmente são usados em um percurso do u
 
 Um aplicativo de terceira parte confiável chama o arquivo de política de RP para executar uma tarefa específica. Por exemplo, para iniciar o fluxo de entrada. A Estrutura de Experiência de Identidade no Azure AD B2C adiciona todos os elementos primeiro do arquivo Base, então do arquivo de Extensões e, por fim, do arquivo de política de RP para montar a política atual em vigor. Elementos do mesmo tipo e nome no arquivo RP substituem aqueles nas Extensões, e as Extensões substituem a Base. O diagrama a seguir mostra a relação entre os arquivos de política e os aplicativos de terceira parte confiável.
 
-![Diagrama mostrando o modelo de herança de política de estrutura confiável](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![Diagrama mostrando o modelo de herança da política de confiança](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 O modelo de herança é assim:
 
@@ -88,7 +88,7 @@ Para herdar de uma política de outra política, um elemento **BasePolicy** deve
 
 O elemento **BasePolicy** contém os seguintes elementos:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | O identificador do locatário do Azure AD B2C. |
 | PolicyId | 1:1 | O identificador da política pai. |
@@ -116,7 +116,7 @@ O exemplo a seguir mostra como especificar uma política de base. Essa política
 
 ## <a name="policy-execution"></a>Execução de política
 
-Um aplicativo de terceira parte confiável, como um aplicativo Web, móvel ou da área de trabalho, chama a [política de RP (terceira parte confiável)](relyingparty.md). O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir senha ou editar perfil. A política de RP configura a lista de declarações que o aplicativo de terceira parte confiável recebe como parte do token emitido. Vários aplicativos podem usar a mesma política. Todos os aplicativos recebem o mesmo token com declarações e o usuário passa pela mesma jornada do usuário. Um único aplicativo pode usar várias políticas.
+Um aplicativo de terceira parte confiável, como um aplicativo Web, móvel ou da área de trabalho, chama a [política de RP (terceira parte confiável)](relyingparty.md). O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir senha ou editar perfil. A política de RP configura a lista de declarações que o aplicativo de terceira parte confiável recebe como parte do token emitido. Vários aplicativos podem usar a mesma política. Todos os aplicativos recebem o mesmo token com reclamações, e o usuário passa pela mesma jornada de usuário. Um único aplicativo pode usar várias políticas.
 
 Dentro do arquivo de política RP, você deve especificar o elemento **DefaultUserJourney**, que aponta para [UserJourney](userjourneys.md). O percurso do usuário geralmente é definido na política de Base ou de Extensões.
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy:
 
 Um percurso do usuário define a lógica de negócios pela qual um usuário passa. Cada percurso do usuário é um conjunto de etapas de orquestração que executa uma série de ações em sequência em termos de coleta de informações e autenticação.
 
-O arquivo de política **SocialAndLocalAccounts** no [starter pack](custom-policy-get-started.md#custom-policy-starter-pack) contém os percursos do usuário SignUpOrSignIn, ProfileEdit, PasswordReset. Você pode adicionar mais viagens de usuário para outros cenários, como alterar um endereço de email ou vincular e desvincular uma conta social.
+O arquivo de política **SocialAndLocalAccounts** no [starter pack](custom-policy-get-started.md#custom-policy-starter-pack) contém os percursos do usuário SignUpOrSignIn, ProfileEdit, PasswordReset. Você pode adicionar mais jornadas de usuário para outros cenários, como alterar um endereço de e-mail ou vincular e desvincular uma conta social.
 
 As etapas de orquestração podem chamar um [Perfil Técnico](technicalprofiles.md). Um perfil técnico fornece uma estrutura com um mecanismo interno para se comunicar com diferentes tipos de partes. Por exemplo, um perfil técnico pode executar estas ações, entre outras:
 

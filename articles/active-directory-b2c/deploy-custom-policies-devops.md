@@ -1,7 +1,7 @@
 ---
-title: Implantar políticas personalizadas com o Azure Pipelines
+title: Implantar políticas personalizadas com pipelines Azure
 titleSuffix: Azure AD B2C
-description: Saiba como implantar Azure AD B2C políticas personalizadas em um pipeline de CI/CD usando Azure Pipelines no Azure DevOps Services.
+description: Saiba como implantar políticas personalizadas Azure AD B2C em um pipeline de CI/CD usando pipelines Azure nos Serviços Azure DevOps.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,55 +12,55 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b23b60ae49a4973fa04e6fa5f795f99536e32e7f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188742"
 ---
-# <a name="deploy-custom-policies-with-azure-pipelines"></a>Implantar políticas personalizadas com o Azure Pipelines
+# <a name="deploy-custom-policies-with-azure-pipelines"></a>Implantar políticas personalizadas com pipelines Azure
 
-Usando um pipeline de CI/CD (integração e entrega contínuas) que você configura no [Azure pipelines][devops-pipelines], você pode incluir suas Azure ad B2C políticas personalizadas em sua distribuição de software e automação de controle de código. Conforme você implanta em diferentes ambientes de Azure AD B2C, por exemplo, desenvolvimento, teste e produção, recomendamos que você remova processos manuais e execute testes automatizados usando Azure Pipelines.
+Usando um pipeline de integração e entrega contínua (CI/CD) que você configura no [Azure Pipelines,][devops-pipelines]você pode incluir suas políticas personalizadas Azure AD B2C em sua entrega de software e automação de controle de código. À medida que você se desloca para diferentes ambientes Azure AD B2C, por exemplo, dev, teste e produção, recomendamos que você remova processos manuais e realize testes automatizados usando o Azure Pipelines.
 
-Há três etapas principais necessárias para habilitar Azure Pipelines gerenciar políticas personalizadas no Azure AD B2C:
+Existem três etapas principais necessárias para permitir que o Azure Pipelines gerencie políticas personalizadas dentro do Azure AD B2C:
 
-1. Criar um registro de aplicativo Web em seu locatário Azure AD B2C
-1. Configurar um repositório do Azure
-1. Configurar um pipeline do Azure
+1. Crie um registro de aplicativo web no seu inquilino Azure AD B2C
+1. Configure um Azure Repo
+1. Configure um pipeline Azure
 
 > [!IMPORTANT]
-> O gerenciamento de Azure AD B2C políticas personalizadas com um pipeline do Azure atualmente usa operações de **Visualização** disponíveis no ponto de extremidade `/beta` API de Microsoft Graph. Não há suporte para o uso dessas APIs em aplicativos de produção. Para obter mais informações, consulte a [referência de ponto de extremidade beta da API REST do Microsoft Graph](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> O gerenciamento de políticas personalizadas azure AD B2C com um Azure `/beta` Pipeline atualmente usa operações **de visualização** disponíveis no ponto final da API do Microsoft Graph. Não há suporte para o uso dessas APIs em aplicativos de produção. Para obter mais informações, consulte a referência de ponto final beta da [API do Microsoft Graph REST](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-* [Azure ad B2C locatário](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função de [administrador da política IEF B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
-* [Políticas personalizadas](custom-policy-get-started.md) carregadas para seu locatário
-* [Aplicativo de gerenciamento](microsoft-graph-get-started.md) registrado em seu locatário com a Microsoft Graph política de permissão de API *. ReadWrite. TrustFramework*
-* [Pipeline do Azure](https://azure.microsoft.com/services/devops/pipelines/)e acesso a um [projeto Azure DevOps Services][devops-create-project]
+* [Inquilino Azure AD B2C](tutorial-create-tenant.md)e credenciais para um usuário no diretório com a função [de administrador de políticas b2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Políticas personalizadas](custom-policy-get-started.md) enviadas ao seu inquilino
+* [Aplicativo de gerenciamento](microsoft-graph-get-started.md) registrado em seu inquilino com a política de permissão da API do Microsoft *Graph.ReadWrite.TrustFramework*
+* [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/)e acesso a [um projeto de Serviços Azure DevOps][devops-create-project]
 
-## <a name="client-credentials-grant-flow"></a>Fluxo de concessão de credenciais de cliente
+## <a name="client-credentials-grant-flow"></a>Fluxo de concessão de credenciais do cliente
 
-O cenário descrito aqui faz uso de chamadas de serviço a serviço entre Azure Pipelines e Azure AD B2C usando o fluxo de concessão de [credenciais de cliente](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md)do OAuth 2,0. Esse fluxo de concessão permite que um serviço Web como Azure Pipelines (o cliente confidencial) Use suas próprias credenciais em vez de representar um usuário para autenticar ao chamar outro serviço Web (a API de Microsoft Graph, nesse caso). Azure Pipelines Obtém um token de forma não interativa e, em seguida, faz solicitações para a API de Microsoft Graph.
+O cenário descrito aqui faz uso de chamadas de serviço para serviço entre a Azure Pipelines e o Azure AD B2C usando o fluxo de [concessão de credenciais de cliente](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md)oAuth 2.0 . Esse fluxo de concessão permite que um serviço web como o Azure Pipelines (o cliente confidencial) use suas próprias credenciais em vez de se passar por um usuário para autenticar ao chamar outro serviço web (a API do Microsoft Graph, neste caso). O Azure Pipelines obtém um token não interativo e, em seguida, faz solicitações à API do Microsoft Graph.
 
-## <a name="register-an-application-for-management-tasks"></a>Registrar um aplicativo para tarefas de gerenciamento
+## <a name="register-an-application-for-management-tasks"></a>Registre um aplicativo para tarefas de gerenciamento
 
-Conforme mencionado em [pré-requisitos](#prerequisites), você precisa de um registro de aplicativo que os scripts do PowerShell – executados pelo Azure pipelines--podem usar o para acessar os recursos em seu locatário.
+Como mencionado nos [pré-requisitos,](#prerequisites)você precisa de um registro de aplicativo que seus scripts PowerShell — executados pelo Azure Pipelines — possam usar para acessar os recursos em seu inquilino.
 
-Se você já tiver um registro de aplicativo que você usa para tarefas de automação, verifique se recebeu a permissão **Microsoft Graph** > **política** > **política. ReadWrite. TrustFramework** nas **permissões de API** do registro do aplicativo.
+Se você já tiver um registro de aplicativo que você usa para tarefas de automação, certifique-se de que foi concedida a política de > **política** > do **Microsoft****GraphPolicy.ReadWrite.TrustFramework** permissão dentro das permissões de **API** do registro do aplicativo.
 
-Para obter instruções sobre como registrar um aplicativo de gerenciamento, consulte [gerenciar Azure ad B2C com Microsoft Graph](microsoft-graph-get-started.md).
+Para obter instruções sobre como registrar um aplicativo de gerenciamento, consulte [Gerenciar o Azure AD B2C com o Microsoft Graph](microsoft-graph-get-started.md).
 
-## <a name="configure-an-azure-repo"></a>Configurar um repositório do Azure
+## <a name="configure-an-azure-repo"></a>Configure um Azure Repo
 
-Com um aplicativo de gerenciamento registrado, você está pronto para configurar um repositório para seus arquivos de política.
+Com um aplicativo de gerenciamento registrado, você está pronto para configurar um repositório para seus arquivos de diretiva.
 
-1. Entre em sua organização do Azure DevOps Services.
+1. Faça login na organização Azure DevOps Services.
 1. [Crie um novo projeto][devops-create-project] ou selecione um projeto existente.
-1. Em seu projeto, navegue até **repositórios** e selecione a página **arquivos** . Selecione um repositório existente ou crie um para este exercício.
-1. Crie uma pasta chamada *B2CAssets*. Nomeie o arquivo de espaço reservado necessário *README.MD* e **confirme** o arquivo. Você pode remover esse arquivo mais tarde, se desejar.
-1. Adicione seus arquivos de política de Azure AD B2C à pasta *B2CAssets* Isso inclui o *TrustFrameworkBase. xml*, o *TrustFrameWorkExtensions. xml*, o *SignUpOrSignin. xml*, o *ProfileEdit. xml*, o *PasswordReset. xml*e todas as outras políticas que você criou. Registre o nome de arquivo de cada Azure AD B2C de política para uso em uma etapa posterior (eles são usados como argumentos de script do PowerShell).
-1. Crie uma pasta chamada *scripts* no diretório raiz do repositório, nomeie o arquivo de espaço reservado *DeployToB2c. ps1*. Não confirme o arquivo neste ponto, você fará isso em uma etapa posterior.
-1. Cole o script do PowerShell a seguir em *DeployToB2c. ps1*e, em seguida, **confirme** o arquivo. O script adquire um token do Azure AD e chama a API de Microsoft Graph para carregar as políticas na pasta *B2CAssets* para seu locatário Azure ad B2C.
+1. Em seu projeto, navegue até **Repos** e selecione a página **Arquivos.** Selecione um repositório existente ou crie um para este exercício.
+1. Crie uma pasta chamada *B2CAssets*. Nomeie o arquivo de espaço reservado necessário *README.md* e **Comprometa** o arquivo. Você pode remover este arquivo mais tarde, se quiser.
+1. Adicione seus arquivos de diretiva Azure AD B2C à pasta *B2CAssets.* Isso inclui o *TrustFrameworkBase.xml,* *TrustFrameWorkExtensions.xml,* *SignUpOrSignin.xml,* *ProfileEdit.xml,* *PasswordReset.xml*e quaisquer outras políticas criadas. Grave o nome de arquivo de cada arquivo de diretiva AD B2C do Azure para uso em uma etapa posterior (eles são usados como argumentos de script PowerShell).
+1. Crie uma pasta chamada *Scripts* no diretório raiz do repositório, nomeie o arquivo de espaço reservado *DeployToB2c.ps1*. Não comprometa o arquivo neste momento, você vai fazê-lo em uma etapa posterior.
+1. Cole o seguinte script PowerShell em *DeployToB2c.ps1*e, em seguida, **comprometa** o arquivo. O script adquire um token do Azure AD e chama a API do Microsoft Graph para carregar as políticas dentro da pasta *B2CAssets* para o seu inquilino Azure AD B2C.
 
     ```PowerShell
     [Cmdletbinding()]
@@ -107,74 +107,74 @@ Com um aplicativo de gerenciamento registrado, você está pronto para configura
     exit 0
     ```
 
-## <a name="configure-your-azure-pipeline"></a>Configurar seu pipeline do Azure
+## <a name="configure-your-azure-pipeline"></a>Configure seu pipeline Azure
 
-Com seu repositório inicializado e populado com seus arquivos de política personalizada, você está pronto para configurar o pipeline de liberação.
+Com seu repositório inicializado e preenchido com seus arquivos de diretiva personalizados, você está pronto para configurar o pipeline de liberação.
 
 ### <a name="create-pipeline"></a>Criar um pipeline
 
-1. Entre em sua organização do Azure DevOps Services e navegue até o seu projeto.
-1. Em seu projeto, selecione **pipelines** > **versões** > **novo pipeline**.
-1. Em **selecionar um modelo**, selecione **trabalho vazio**.
-1. Insira um **nome de estágio**, por exemplo *DeployCustomPolicies*, e feche o painel.
-1. Selecione **Adicionar um artefato**e, em **tipo de origem**, selecione **repositório do Azure**.
-    1. Escolha o repositório de origem que contém a pasta *scripts* que você preencheu com o script do PowerShell.
-    1. Escolha uma **ramificação padrão**. Se você criou um novo repositório na seção anterior, o Branch padrão é *Master*.
-    1. Deixe a configuração de **versão padrão** do *mais recente do Branch padrão*.
-    1. Insira um **alias de origem** para o repositório. Por exemplo, *policyRepo*. Não inclua nenhum espaço no nome do alias.
+1. Faça login na organização Azure DevOps Services e navegue até o seu projeto.
+1. Em seu projeto, selecione **Pipelines** > **Releases** > **New pipeline**.
+1. Em **Selecionar um modelo,** **selecione Esvaziar o trabalho**.
+1. Digite um **nome de palco,** por *exemplo, DeployCustomPolicies*, e feche o painel.
+1. Selecione **Adicionar um artefato**e, em **tipo de origem,** selecione **O Repositório Azure**.
+    1. Escolha o repositório de origem que contém a pasta *Scripts* que você preencheu com o script PowerShell.
+    1. Escolha um **ramo Padrão**. Se você criou um novo repositório na seção anterior, o ramo padrão será *master*.
+    1. Deixe a **configuração de versão Padrão** do *Mais Recente no ramo padrão*.
+    1. Digite um **alias de Origem** para o repositório. Por exemplo, *policyRepo*. Não inclua nenhum espaço no nome do pseudônimo.
 1. Selecione **Adicionar**
-1. Renomeie o pipeline para refletir sua intenção. Por exemplo, *implante pipeline de política personalizada*.
-1. Selecione **salvar** para salvar a configuração de pipeline.
+1. Renomeie o oleoduto para refletir sua intenção. Por exemplo, *implantar pipeline de políticas personalizadas*.
+1. Selecione **Salvar** para salvar a configuração do pipeline.
 
 ### <a name="configure-pipeline-variables"></a>Configurar variáveis de pipeline
 
-1. Selecione a guia **variáveis** .
-1. Adicione as seguintes variáveis em **variáveis de pipeline** e defina seus valores conforme especificado:
+1. Selecione a guia **Variáveis.**
+1. Adicione as seguintes variáveis em **variáveis pipeline** e defina seus valores conforme especificado:
 
     | Nome | Valor |
     | ---- | ----- |
-    | `clientId` | **ID do aplicativo (cliente)** do aplicativo que você registrou anteriormente. |
-    | `clientSecret` | O valor do **segredo do cliente** que você criou anteriormente. <br /> Altere o tipo de variável para **segredo** (selecione o ícone de cadeado). |
-    | `tenantId` | `your-b2c-tenant.onmicrosoft.com`, em que *seu locatário-B2C* é o nome do seu locatário Azure ad B2C. |
+    | `clientId` | ID de aplicação **(cliente)** do aplicativo que você registrou anteriormente. |
+    | `clientSecret` | O valor do segredo do **cliente** que você criou anteriormente. <br /> Alterar o tipo de variável para **secreto** (selecione o ícone de bloqueio). |
+    | `tenantId` | `your-b2c-tenant.onmicrosoft.com`, onde *seu inquilino b2c* é o nome do seu inquilino Azure AD B2C. |
 
-1. Selecione **salvar** para salvar as variáveis.
+1. Selecione **Salvar** para salvar as variáveis.
 
 ### <a name="add-pipeline-tasks"></a>Adicionar tarefas de pipeline
 
-Em seguida, adicione uma tarefa para implantar um arquivo de política.
+Em seguida, adicione uma tarefa para implantar um arquivo de diretiva.
 
-1. Selecione a guia **tarefas** .
-1. Selecione **trabalho do agente**e, em seguida, selecione o sinal de adição ( **+** ) para adicionar uma tarefa ao trabalho do agente.
-1. Pesquise e selecione **PowerShell**. Não selecione "Azure PowerShell", "PowerShell em computadores de destino" ou outra entrada do PowerShell.
-1. Selecione tarefa de **script do PowerShell** recém-adicionada.
-1. Insira os seguintes valores para a tarefa Script do PowerShell:
-    * **Versão da tarefa**: 2. *
-    * **Nome de exibição**: o nome da política que esta tarefa deve carregar. Por exemplo, *B2C_1A_TrustFrameworkBase*.
-    * **Tipo**: caminho do arquivo
-    * **Caminho do script**: selecione as reticências (***...***), navegue até a pasta *scripts* e, em seguida, selecione o arquivo *DeployToB2C. ps1* .
-    * **Argumentos**
+1. Selecione a guia **Tarefas.**
+1. Selecione **o trabalho de Agente****+** e selecione o sinal de mais () para adicionar uma tarefa ao trabalho de Agente.
+1. Procure e selecione **PowerShell**. Não selecione "Azure PowerShell", "PowerShell em máquinas de destino" ou outra entrada PowerShell.
+1. Selecione a tarefa **PowerShell Script** recém-adicionada.
+1. Insira os seguintes valores para a tarefa PowerShell Script:
+    * **Versão da tarefa:** 2.*
+    * **Nome de exibição**: O nome da política que esta tarefa deve carregar. Por exemplo, *B2C_1A_TrustFrameworkBase.*
+    * **Tipo:** Caminho do arquivo
+    * **Caminho de script**: Selecione a elipse ***( ...***), navegue até a pasta *Scripts* e selecione o arquivo *DeployToB2C.ps1.*
+    * **Argumentos:**
 
-        Insira os valores a seguir para **argumentos**. Substitua `{alias-name}` pelo alias especificado na seção anterior.
+        Digite os **seguintes**valores para Argumentos . Substitua-o `{alias-name}` pelo alias especificado na seção anterior.
 
         ```PowerShell
         # Before
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/TrustFrameworkBase.xml
         ```
 
-        Por exemplo, se o alias especificado for *policyRepo*, a linha de argumento deverá ser:
+        Por exemplo, se o alias especificado for *policyRepo,* a linha de argumento deve ser:
 
         ```PowerShell
         # After
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
         ```
 
-1. Selecione **salvar** para salvar o trabalho do agente.
+1. Selecione **Salvar** para salvar o trabalho do Agente.
 
-A tarefa que você acabou de adicionar carrega *um* arquivo de política para Azure ad B2C. Antes de continuar, acione manualmente o trabalho (**criar versão**) para garantir que ele seja concluído com êxito antes de criar tarefas adicionais.
+A tarefa que você acabou de adicionar carrega *um* arquivo de diretiva para o Azure AD B2C. Antes de prosseguir, acione manualmente o trabalho **(Criar versão)** para garantir que ele seja concluído com sucesso antes de criar tarefas adicionais.
 
-Se a tarefa for concluída com êxito, adicione tarefas de implantação executando as etapas anteriores para cada um dos arquivos de política personalizada. Modifique os valores de argumento `-PolicyId` e `-PathToFile` para cada política.
+Se a tarefa for concluída com sucesso, adicione tarefas de implantação executando as etapas anteriores para cada um dos arquivos de diretiva personalizados. Modificar `-PolicyId` os `-PathToFile` valores e argumentos para cada política.
 
-O `PolicyId` é um valor encontrado no início de um arquivo de política XML dentro do nó TrustFrameworkPolicy. Por exemplo, o `PolicyId` no seguinte XML de política é *B2C_1A_TrustFrameworkBase*:
+O `PolicyId` valor encontrado no início de um arquivo de diretiva XML dentro do nó TrustFrameworkPolicy. Por exemplo, `PolicyId` a seguinte política XML é *B2C_1A_TrustFrameworkBase*:
 
 ```XML
 <TrustFrameworkPolicy
@@ -187,31 +187,31 @@ PolicyId= "B2C_1A_TrustFrameworkBase"
 PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
-Ao executar os agentes e carregar os arquivos de política, verifique se eles foram carregados nesta ordem:
+Ao executar os agentes e carregar os arquivos de diretiva, certifique-se de que eles são carregados nesta ordem:
 
-1. *TrustFrameworkBase. xml*
-1. *TrustFrameworkExtensions. xml*
-1. *SignUpOrSignin. xml*
-1. *ProfileEdit. xml*
-1. *PasswordReset. xml*
+1. *TrustFrameworkBase.xml*
+1. *TrustFrameworkExtensions.xml*
+1. *Inscreva-seOuOrSignin.xml*
+1. *ProfileEdit.xml*
+1. *PasswordReset.xml*
 
-A estrutura de experiência de identidade impõe essa ordem, pois a estrutura do arquivo é criada em uma cadeia hierárquica.
+O Identity Experience Framework impõe essa ordem à medida que a estrutura do arquivo é construída em uma cadeia hierárquica.
 
 ## <a name="test-your-pipeline"></a>Testar o pipeline
 
-Para testar o pipeline de lançamento:
+Para testar seu pipeline de liberação:
 
-1. Selecione **pipelines** e, em seguida, **versões**.
-1. Selecione o pipeline que você criou anteriormente, por exemplo, *DeployCustomPolicies*.
-1. Selecione **criar versão**e, em seguida, selecione **criar** para enfileirar a versão.
+1. Selecione **Pipelines** e, em seguida, **Lançamentos**.
+1. Selecione o pipeline que você criou anteriormente, por *exemplo, DeployCustomPolicies*.
+1. Selecione **Criar versão**e selecione **Criar** para enfileirar a versão.
 
-Você deverá ver uma faixa de notificação informando que uma liberação foi enfileirada. Para exibir seu status, selecione o link na faixa de notificação ou selecione-o na lista na guia **versões** .
+Você deve ver um banner de notificação que diz que uma versão foi enfileirada. Para exibir seu status, selecione o link no banner de notificação ou selecione-o na lista na guia **Lançamentos.**
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre:
 
-* [Chamadas de serviço a serviço usando credenciais do cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+* [Chamadas de serviço para serviço usando credenciais do cliente](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 * [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->

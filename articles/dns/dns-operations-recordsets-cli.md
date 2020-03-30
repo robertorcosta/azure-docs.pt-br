@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
 ms.openlocfilehash: 4e017dc940e1d32888ff279904e44d34db1fd5c3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936896"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gerenciar registros DNS e conjuntos de registros no DNS do Azure usando a CLI do Azure
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI do Azure](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
+> * [Powershell](dns-operations-recordsets.md)
 
 Este artigo mostra como gerenciar registros DNS para sua zona DNS usando a CLI do Azure de plataforma cruzada, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-recordsets.md) ou o [Portal do Azure](dns-operations-recordsets-portal.md).
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 ## <a name="create-a-dns-record"></a>Criar um registro DNS
 
-Para criar um registro DNS, use o comando `az network dns record-set <record-type> add-record` (em que `<record-type>` é o tipo do registro, ou seja, a, SRV, txt, etc.) Para obter ajuda, consulte `az network dns record-set --help`.
+Para criar um registro DNS, use o comando `az network dns record-set <record-type> add-record` (em que `<record-type>` é o tipo do registro, ou seja, a, srv, txt, etc.) Para obter `az network dns record-set --help`ajuda, veja.
 
 Ao criar um registro, você precisa especificar o nome do grupo de recursos, o nome da zona, o nome do conjunto de registros, o tipo do registro e os detalhes do registro que está sendo criado. O nome do conjunto de registros fornecido deve ser um nome *relativo*, significando que ele deve excluir o nome da zona.
 
@@ -289,7 +289,7 @@ az network dns record-set a delete --resource-group myresourcegroup --zone-name 
 
 Será solicitado que você confirme a operação de exclusão. Para suprimir esse prompt, use a opção `--yes`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as [zonas e os registros no DNS do Azure](dns-zones-records.md).
 <br>

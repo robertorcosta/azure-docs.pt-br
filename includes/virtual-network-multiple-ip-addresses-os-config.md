@@ -9,19 +9,19 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76159593"
 ---
-## <a name="os-config"></a>Adicionar endereços IP em um sistema operacional da VM
+## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Adicionar endereços IP em um sistema operacional da VM
 
 Conecte-se e faça logon em uma VM criada com vários endereços IP privados. Você deve adicionar manualmente todos os endereços IP privados (incluindo o principal) que você adicionou à VM. Complete as etapas a seguir para seu sistema operacional VM.
 
 ### <a name="windows"></a>Windows
 
-1. Em um prompt de comando, digite *ipconfig /all*.  Você vê apenas o endereço IP privado *Primário* (por meio do DHCP).
+1. A partir de um prompt de comando, digite *ipconfig /all*.  Você vê apenas o endereço IP privado *Primário* (por meio do DHCP).
 2. Digite *ncpa.cpl* no prompt de comando para abrir a janela **Conexões de rede**.
 3. Abra as propriedades do adaptador apropriado: **Conexão de Área Local**.
 4. Clique duas vezes em versão do Protocolo de Internet 4 (IPv4).
@@ -38,7 +38,7 @@ Conecte-se e faça logon em uma VM criada com vários endereços IP privados. Vo
 
     * Clique em **OK** para fechar as configurações de TCP/IP e, em seguida, em **OK** novamente para fechar as configurações do adaptador. A conexão RDP é restabelecida.
 
-6. Em um prompt de comando, digite *ipconfig /all*. Todos os endereços IP que você adicionou são mostrados e o DHCP está desativado.
+6. A partir de um prompt de comando, digite *ipconfig /all*. Todos os endereços IP que você adicionou são mostrados e o DHCP está desativado.
 7. Configure o Windows para usar o endereço IP privado da configuração de IP primário no Azure como o endereço IP primário para o Windows. Consulte [Sem acesso à Internet de VM do Windows Azure que tem vários endereços IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) para obter detalhes. 
 
 ### <a name="validation-windows"></a>Validação (Windows)
@@ -53,7 +53,7 @@ ping -S 10.0.0.5 hotmail.com
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
 
-É recomendável observar a documentação mais recente para sua distribuição do Linux. 
+Recomendamos olhar para a documentação mais recente para sua distribuição Linux. 
 
 1. Abra uma janela de terminal.
 2. Verifique se você é o usuário raiz. Se não for, digite o seguinte comando:
@@ -112,9 +112,9 @@ ping -S 10.0.0.5 hotmail.com
 
    Você verá o endereço IP adicionado como parte da lista.
 
-### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
 
-O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o gerenciamento de rede do so. É recomendável observar a documentação mais recente para sua distribuição do Linux. 
+O Ubuntu 18.04 ou `netplan` superior mudou para o gerenciamento de rede do Sistema Operacional. Recomendamos olhar para a documentação mais recente para sua distribuição Linux. 
 
 1. Abra uma janela de terminal.
 2. Verifique se você é o usuário raiz. Se não for, digite o seguinte comando:
@@ -129,7 +129,7 @@ O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o geren
     vi /etc/netplan/60-static.yaml
     ```
 
-4. Adicione as seguintes linhas ao arquivo, substituindo `10.0.0.6/24` pelo seu IP/máscara de rede:
+4. Adicione as seguintes linhas ao `10.0.0.6/24` arquivo, substituindo-a por sua máscara IP/net:
 
     ```bash
     network:
@@ -146,16 +146,16 @@ O Ubuntu 18, 4 e versões superiores foram alterados para `netplan` para o geren
     :wq
     ```
 
-6. Teste as alterações usando o [netplan tente](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) confirmar a sintaxe:
+6. Teste as alterações usando [o netplan tente](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) confirmar a sintaxe:
 
     ```bash
     netplan try
     ```
 
 > [!NOTE]
-> `netplan try` aplicará as alterações temporariamente e reverterá as alterações após 120 segundos. Se houver uma perda de conectividade, aguarde 120 segundos e, em seguida, reconecte-se. Nesse momento, as alterações serão revertidas.
+> `netplan try`aplicará as alterações temporariamente e reverterá as alterações após 120 segundos. Se houver uma perda de conectividade, por favor, aguarde 120 segundos e, em seguida, reconecte-se. Nesse momento, as mudanças terão sido revertidas.
 
-7. Supondo que não haja problemas com `netplan try`, aplique as alterações de configuração:
+7. Supondo que `netplan try`não haja problemas com, aplique as alterações de configuração:
 
     ```bash
     netplan apply

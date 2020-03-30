@@ -1,28 +1,28 @@
 ---
-title: Como parar de monitorar o cluster do Azure Red Hat OpenShift | Microsoft Docs
-description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres.
+title: Como parar de monitorar seu cluster Azure Red Hat OpenShift | Microsoft Docs
+description: Este artigo descreve como você pode parar de monitorar o seu cluster Azure Red Hat OpenShift com o Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250726"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Como parar de monitorar o cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Como parar de monitorar seu cluster Azure Red Hat OpenShift com o Monitor Azure para contêineres
 
-Depois de habilitar o monitoramento do cluster do Azure Red Hat OpenShift, você poderá parar de monitorar o cluster se decidir que não deseja mais monitorá-lo. Este artigo mostra como fazer isso usando os modelos de Azure Resource Manager fornecidos.  
+Depois de habilitar o monitoramento do cluster Azure Red Hat OpenShift, você pode parar de monitorar o cluster se decidir que não deseja mais monitorá-lo. Este artigo mostra como conseguir isso usando os modelos do Azure Resource Manager fornecidos.  
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
-São fornecido dois modelos do Azure Resource Manager para dar suporte para remover os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON que especifica a configuração para interromper o monitoramento e o outro contém valores de parâmetro que você configura para especificar a ID de recurso de cluster OpenShift e a região do Azure na qual o cluster é implantado.
+São fornecido dois modelos do Azure Resource Manager para dar suporte para remover os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um deles é um modelo JSON especificando a configuração para interromper o monitoramento e o outro contém valores de parâmetro sustais que você configura para especificar o ID de recurso do cluster OpenShift e a região Azure em que o cluster está implantado.
 
 Se você não estiver familiarizado com o conceito de implantação de recursos usando um modelo, veja:
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a versão 2.0.65 do Azure CLI ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Criar modelo
 
@@ -84,7 +84,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
     }
     ```
 
-4. Edite os valores de **aroResourceId** e **aroResourceLocation** usando os valores do cluster OpenShift, que podem ser encontrados na página de **Propriedades** do cluster selecionado.
+4. Edite os valores para **aroResourceId** e **aroResourceLocation** usando os valores do cluster OpenShift, que você pode encontrar na página **Propriedades** para o cluster selecionado.
 
     ![Página de propriedades do contêiner](media/container-insights-optout-openshift/cluster-properties-page.png)
 
@@ -94,7 +94,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Remover a solução usando a CLI do Azure
 
-Execute o comando a seguir com CLI do Azure no Linux para remover a solução e limpar a configuração no cluster.
+Execute o seguinte comando com o Azure CLI no Linux para remover a solução e limpar a configuração em seu cluster.
 
 ```azurecli
 az login   
@@ -112,7 +112,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Execute os seguintes comandos do PowerShell na pasta que contém o modelo para remover a solução e limpar a configuração do cluster.    
+Execute os seguintes comandos PowerShell na pasta que contém o modelo para remover a solução e limpar a configuração do cluster.    
 
 ```powershell
 Connect-AzAccount
@@ -128,4 +128,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [Excluir um espaço de trabalho do Azure Log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).

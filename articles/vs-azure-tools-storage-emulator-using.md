@@ -1,6 +1,6 @@
 ---
 title: Configurando e usando o Emulador de Armazenamento com o Visual Studio | Microsoft Docs
-description: Configurar e usar o emulador de armazenamento, um utilitário que simula os serviços de armazenamento de BLOBs, filas e tabelas disponíveis no Azure em seu computador de desenvolvimento local.
+description: Configuração e uso do emulador de armazenamento, um utilitário que simula os serviços de armazenamento Blob, Fila e Tabela disponíveis no Azure em sua máquina de desenvolvimento local.
 services: visual-studio-online
 author: ghogen
 manager: jillfra
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
 ms.openlocfilehash: a6f853924416cce2440ca15767044029b20e651f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75450739"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurando e usando o emulador de armazenamento com o Visual Studio
 
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O ambiente de desenvolvimento SDK do Azure inclui o emulador de armazenamento, um utilitário que simula os serviços Blob, Fila e Tabela disponíveis no Azure em seu computador de desenvolvimento local. Se você estiver criando um serviço de nuvem que utiliza os serviços de armazenamento do Azure, ou escrevendo qualquer aplicativo externos que chama os serviços de armazenamento, você pode testar seu código localmente no emulador de armazenamento. As Ferramentas do Azure para o Microsoft Visual Studio integram o gerenciamento do emulador de armazenamento no Visual Studio. As Ferramentas do Azure inicializam o banco de dados do emulador de armazenamento no primeiro uso, iniciam o serviço do emulador de armazenamento quando você executa ou depura seu código do Visual Studio e fornecem acesso somente leitura aos dados de emulador de armazenamento por meio do Gerenciador de Armazenamento do Azure.
 
@@ -41,7 +41,7 @@ Para acessar o emulador de armazenamento do código dentro de uma função, voc�
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>Inicializando e executando o emulador de armazenamento
 
-Você pode especificar que, quando você executa ou depura seu serviço no Visual Studio, o Visual Studio inicia automaticamente o emulador de armazenamento. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do **Azure** e escolha **Propriedades**. Na guia **Desenvolvimento**, na lista **Iniciar o Emulador de Armazenamento do Azure**, escolha **Verdadeiro** (se ainda não estiver definido para esse valor).  Alguns tipos de projeto não têm a guia **desenvolvimento** . Se esse for o caso, você poderá habilitar ou desabilitar a inicialização do emulador de armazenamento definindo o elemento `StartDevelopmentStorage` no arquivo de projeto. Defina-a como **true** para habilitá-la ou **false** para desabilitá-la.  Por exemplo, em um projeto Azure Functions, abra o arquivo de projeto para editar e modifique o código XML da seguinte maneira:
+Você pode especificar que, quando você executa ou depura seu serviço no Visual Studio, o Visual Studio inicia automaticamente o emulador de armazenamento. No Gerenciador de Soluções, abra o menu de atalho para o seu projeto do **Azure** e escolha **Propriedades**. Na guia **Desenvolvimento**, na lista **Iniciar o Emulador de Armazenamento do Azure**, escolha **Verdadeiro** (se ainda não estiver definido para esse valor).  Alguns tipos de projeto não têm a guia **Desenvolvimento.** Se esse for o caso, você pode ativar ou desativar a `StartDevelopmentStorage` inicialização do emulador de armazenamento definindo o elemento no arquivo do projeto. Configure-o **como True** para ativá-lo ou **False** para desativá-lo.  Por exemplo, em um projeto Azure Functions, abra o arquivo do projeto para edição e modifique o código XML da seguinte forma:
 
 ```xml
   <PropertyGroup>

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: df3c8d2abf59de6c9f685ad8d93e6689738df8e6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302518"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar uploads de arquivo do Hub IoT usando a CLI do Azure
@@ -23,13 +23,13 @@ Para [carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md), pri
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Uma conta ativa do Azure. Se você não tiver uma conta, você pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* Um Hub IoT do Azure. Caso não tenha um Hub IoT, você poderá usar o [`az iot hub create` comando](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) para criar um ou [Criar um Hub IoT usando o portal](iot-hub-create-through-portal.md).
+* Um Hub IoT do Azure. Se você não tiver um hub de IoT, você pode usar o [ `az iot hub create` comando](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) para criar um ou criar um hub de [IoT usando o portal](iot-hub-create-through-portal.md).
 
-* Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento do Azure, poderá usar o CLI do Azure para criar uma. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
+* Uma conta de armazenamento do Azure. Se você não tiver uma conta do Azure Storage, você pode usar o Azure CLI para criar uma. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Entre e configure sua conta do Azure
 
@@ -43,7 +43,7 @@ Entre na sua conta do Azure e selecione sua assinatura.
 
     Siga as instruções de autenticação usando o código e entre em sua conta do Azure por meio de um navegador da Web.
 
-2. Se você tiver várias assinaturas do Azure, entrar o Azure lhe dará acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte comando [para listar as contas do Azure](https://docs.microsoft.com/cli/azure/account) disponíveis para você usar:
+2. Se você tiver várias assinaturas do Azure, entrar o Azure lhe dará acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte [comando para listar as contas do Azure](https://docs.microsoft.com/cli/azure/account) disponíveis para você:
 
     ```azurecli
     az account list
@@ -131,18 +131,18 @@ Você pode examinar a configuração de upload de arquivo em seu hub IoT usando 
 az iot hub show --name {your iot hub name}
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre os recursos de upload de arquivos do Hub IoT, consulte [Upload de arquivos de um dispositivo](iot-hub-devguide-file-upload.md).
+Para saber mais sobre os recursos de upload de arquivo do Hub IoT, consulte [Carregar arquivos de um dispositivo](iot-hub-devguide-file-upload.md).
 
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerenciamento em massa de dispositivos IoT](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitoramento de operações](iot-hub-operations-monitoring.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [Guia de desenvolvedores do IoT Hub](iot-hub-devguide.md)
 * [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

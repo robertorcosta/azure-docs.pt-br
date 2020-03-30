@@ -1,18 +1,18 @@
 ---
-title: Recuperação de desastre e distribuição geográfica do Azure Durable Functions
+title: Recuperação de desastres e geodistribuição Funções Duráveis do Azure
 description: Saiba mais sobre recuperação de desastre e distribuição geográfica em Funções Duráveis.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433342"
 ---
-# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Recuperação de desastre e distribuição geográfica no Azure Durable Functions
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Recuperação de desastres e geodistribuição em Funções Duráveis do Azure
 
 Nas Durable Functions, todos os estados são persistentes no Armazenamento do Azure. Um [hub de tarefas](durable-functions-task-hubs.md) é um contêiner lógico dos recursos do Armazenamento do Azure usado para orquestrações. Funções de orquestrador e atividade só podem interagir entre si quando pertencem ao mesmo hub de tarefas.
 Os cenários descritos propõem opções de implantação para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastre.
@@ -81,6 +81,6 @@ Assim como acontece com os outros cenários, há considerações importantes:
 
 ![Diagrama mostrando o cenário 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode ler mais sobre [Projetar aplicativos altamente disponíveis usando RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)

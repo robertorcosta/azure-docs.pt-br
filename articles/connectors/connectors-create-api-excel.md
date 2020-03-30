@@ -1,6 +1,6 @@
 ---
-title: Gerenciar dados, planilhas e tabelas no Excel online
-description: Gerenciar dados em planilhas e tabelas no Excel online for Business ou Excel online para OneDrive usando aplicativos lógicos do Azure
+title: Gerencie dados, planilhas e tabelas no Excel Online
+description: Gerencie dados em planilhas e tabelas no Excel Online for Business ou Excel Online para OneDrive usando aplicativos azure logic
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445877"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerenciar dados do Excel Online com Aplicativos Lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector do [Excel online for Business](/connectors/excelonlinebusiness/) ou [Excel online para onedrive](/connectors/excelonline/) , você pode criar tarefas e fluxos de trabalho automatizados com base em seus dados no Excel online para empresas ou onedrive. Esse conector fornece ações que ajudam você a trabalhar com seus dados e gerenciar planilhas, por exemplo:
+Com [o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o [Conector Excel Online for Business](/connectors/excelonlinebusiness/) ou excel online para conector [OneDrive,](/connectors/excelonline/) você pode criar tarefas e fluxos de trabalho automatizados com base em seus dados no Excel Online for Business ou OneDrive. Esse conector fornece ações que ajudam você a trabalhar com seus dados e gerenciar planilhas, por exemplo:
 
 * Crie novas planilhas e tabelas.
 * Obter e gerenciar planilhas, tabelas e linhas.
@@ -24,7 +24,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
 Em seguida, você pode usar as saídas dessas ações com ações para outros serviços. Por exemplo, se você usa uma ação que cria planilhas a cada semana, você pode usar outra ação que envia email de confirmação por meio do conector do Office 365 Outlook.
 
-Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
 > Os conectores do [Excel Online for Business](/connectors/excelonlinebusiness/) e do [Excel Online for OneDrive](/connectors/excelonline/) funcionam com os Aplicativos Lógicos do Azure e diferem do [conector do Excel para o PowerApps](/connectors/excel/).
@@ -51,9 +51,9 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
 1. Na caixa de pesquisa, insira "excel" como filtro. Na lista de ações, selecione a ação desejada.
 
    > [!NOTE]
-   > O designer do aplicativo lógico não pode carregar tabelas que tenham 100 ou mais colunas. Se possível, reduza o número de colunas na tabela selecionada para que o designer possa carregar a tabela.
+   > O Logic App Designer não pode carregar tabelas com 100 ou mais colunas. Se possível, reduza o número de colunas na tabela selecionada para que o designer possa carregar a tabela.
 
-1. Se solicitado, entre na sua conta do Office 365.
+1. Se solicitado, faça login na sua conta do Office 365.
 
    Suas credenciais autorizam o aplicativo lógico a criar uma conexão com o Excel Online e acessar seus dados.
 
@@ -61,11 +61,11 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelos arquivos OpenAPI (anteriormente Swagger) do conector, consulte estas páginas de referência do conector:
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelos arquivos OpenAPI (anteriormente Swagger) do conector, consulte essas páginas de referência do conector:
 
 * [Excel Online for Business](/connectors/excelonlinebusiness/)
 * [Excel Online for OneDrive](/connectors/excelonline/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

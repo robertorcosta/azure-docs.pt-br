@@ -1,6 +1,6 @@
 ---
-title: Gerenciar uma conexão de ponto de extremidade privado no Azure
-description: Saiba como gerenciar conexões de ponto de extremidade privadas no Azure
+title: Gerenciar uma conexão private endpoint no Azure
+description: Saiba como gerenciar conexões de ponto final privado no Azure
 services: private-link
 author: malopMSFT
 ms.service: private-link
@@ -8,84 +8,84 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452972"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gerenciar uma conexão de ponto de extremidade privado
-O link privado do Azure funciona em um modelo de fluxo de chamadas de aprovação no qual o consumidor do serviço de vínculo privado pode solicitar uma conexão com o provedor de serviços para consumir o serviço. O provedor de serviços pode decidir se deseja permitir que o consumidor se conecte ou não. O link privado do Azure permite que os provedores de serviços gerenciem a conexão de ponto de extremidade particular em seus recursos. Este artigo fornece instruções sobre como gerenciar as conexões de ponto de extremidade privadas.
+O Azure Private Link funciona em um modelo de fluxo de chamada de aprovação no qual o consumidor do serviço Private Link pode solicitar uma conexão com o provedor de serviços para consumir o serviço. O provedor de serviços pode então decidir se permite que o consumidor se conecte ou não. O Azure Private Link permite que os provedores de serviços gerenciem a conexão de ponto final privado em seus recursos. Este artigo fornece instruções sobre como gerenciar as conexões private endpoint.
 
-![Gerenciar pontos de extremidade privados](media/manage-private-endpoint/manage-private-endpoint.png)
+![Gerenciar pontos finais privados](media/manage-private-endpoint/manage-private-endpoint.png)
 
-Há dois métodos de aprovação de conexão que um consumidor de serviço de vínculo privado pode escolher:
-- **Automático**: se o consumidor de serviço tiver permissões RBAC no recurso do provedor de serviço, o consumidor poderá escolher o método de aprovação automática. Nesse caso, quando a solicitação atinge o recurso do provedor de serviços, nenhuma ação é necessária do provedor de serviços e a conexão é aprovada automaticamente. 
-- **Manual**: por contrário, se o consumidor de serviço não tiver permissões de RBAC no recurso de provedor de serviço, o consumidor poderá escolher o método de aprovação manual. Nesse caso, a solicitação de conexão é exibida nos recursos de serviço como **pendentes**. O provedor de serviços deve aprovar manualmente a solicitação antes que as conexões possam ser estabelecidas. Em casos manuais, o consumidor de serviço também pode especificar uma mensagem com a solicitação para fornecer mais contexto ao provedor de serviços. O provedor de serviços tem as seguintes opções para escolher para todas as conexões de ponto de extremidade particulares: **aprovada**, **rejeitar**, **remover**.
+Existem dois métodos de aprovação de conexão que um consumidor de serviço Private Link pode escolher:
+- **Automático**: Se o consumidor de serviço tiver permissões RBAC no recurso do prestador de serviços, o consumidor poderá escolher o método de aprovação automática. Neste caso, quando a solicitação chega ao recurso do prestador de serviços, nenhuma ação é necessária do prestador de serviços e a conexão é automaticamente aprovada. 
+- **Manual**: Ao contrário, se o consumidor de serviço não tiver permissões rbac no recurso do prestador de serviços, o consumidor pode escolher o método de aprovação manual. Neste caso, a solicitação de conexão aparece nos recursos do serviço como **Pendentes**. O provedor de serviços tem que aprovar manualmente a solicitação antes que as conexões possam ser estabelecidas. Em casos manuais, o consumidor de serviços também pode especificar uma mensagem com a solicitação para fornecer mais contexto ao prestador de serviços. O provedor de serviços tem as seguintes opções para escolher para todas as conexões private endpoint: **Aprovado,** **Rejeitado**, **Remover**.
 
-A tabela abaixo mostra as várias ações do provedor de serviços e os Estados de conexão resultantes para pontos de extremidade privados.  O provedor de serviços também pode alterar o estado de conexão da conexão de ponto de extremidade particular em um momento posterior, sem intervenção do consumidor. A ação atualizará o estado do ponto de extremidade no lado do consumidor. 
+A tabela abaixo mostra as várias ações do provedor de serviços e os estados de conexão resultantes para Private Endpoints.  O provedor de serviços também pode alterar o estado de conexão da conexão de ponto final privado posteriormente sem intervenção do consumidor. A ação atualizará o estado do ponto final no lado do consumidor. 
 
 
-|Ação do provedor de serviço   |Estado do ponto de extremidade particular do consumidor de serviço   |Description   |
+|Ação do provedor de serviços   |Estado de ponto final privado do consumidor de serviços   |Descrição   |
 |---------|---------|---------|
-|Nenhum    |    Pendente     |    A conexão é criada manualmente e está pendente para aprovação pelo proprietário do recurso de link privado.       |
+|Nenhum    |    Pendente     |    A conexão é criada manualmente e está pendente de aprovação pelo proprietário do recurso Private Link.       |
 |Aprovar    |  Aprovado       |  A conexão foi aprovada automaticamente ou manualmente e está pronta para ser usada.     |
-|Rejeitar     | Rejeitado        | A conexão foi rejeitada pelo proprietário do recurso de link privado.        |
-|Remover    |  Desconectado       | A conexão foi removida pelo proprietário do recurso de link privado, o ponto de extremidade privado torna-se informativo e deve ser excluído para limpeza.        |
+|Rejeitar     | Rejeitado        | A conexão foi rejeitada pelo proprietário do recurso do link privado.        |
+|Remover    |  Desconectado       | A conexão foi removida pelo proprietário do recurso de link privado, o ponto final privado torna-se informativo e deve ser excluído para limpeza.        |
 |   |         |         |
    
 ## <a name="manage-private-endpoint-connections-on-azure-paas-resources"></a>Gerenciar conexões de ponto de extremidade privado nos recursos de PaaS do Azure
-O portal é o método preferencial para o gerenciamento de conexões de ponto de extremidade privado nos recursos de PaaS do Azure. No momento, não temos suporte do PowerShell/CLI para gerenciar conexões nos recursos de PaaS do Azure.
+Portal é o método preferido para gerenciar conexões de ponto final privado nos recursos do Azure PaaS. Atualmente, não temos suporte ao PowerShell/CLI para gerenciar conexões com recursos do Azure PaaS.
 1. Entre no Portal do Azure em https://portal.azure.com.
-2. Navegue até o centro de links privado.
-3. Em **recursos**, selecione o tipo de recurso para o qual você deseja gerenciar as conexões de ponto de extremidade privado.
-4. Para cada tipo de recurso, você pode exibir o número de conexões de ponto de extremidade privadas associadas a ela. Você pode filtrar os recursos conforme necessário.
-5. Selecione as conexões de ponto de extremidade privado.  Nas conexões listadas, selecione a conexão que você deseja gerenciar. 
-6. Você pode alterar o estado da conexão selecionando as opções na parte superior.
+2. Navegue até o Private Link Center.
+3. Em **Resources,** selecione o tipo de recurso que deseja gerenciar as conexões de ponto final privado.
+4. Para cada um de seus tipos de recursos, você pode visualizar o número de conexões de ponto final privado associadas a ele. Você pode filtrar os recursos conforme necessário.
+5. Selecione as conexões de ponto final privado.  Nas conexões listadas, selecione a conexão que deseja gerenciar. 
+6. Você pode alterar o estado da conexão selecionando entre as opções na parte superior.
 
-## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Gerenciar conexões de ponto de extremidade privado em um serviço de link privado de cliente/parceiro pertencente
+## <a name="manage-private-endpoint-connections-on-a-customerpartner-owned-private-link-service"></a>Gerenciar conexões de ponto final privado em um serviço de Private Link de propriedade do cliente/parceiro
 
-Azure PowerShell e CLI do Azure são os métodos preferenciais para gerenciar conexões de ponto de extremidade privadas nos serviços de parceiro da Microsoft ou serviços de Propriedade do cliente. No momento, não temos nenhum suporte ao portal para gerenciar conexões em um serviço de vínculo privado.  
+O Azure PowerShell e o Azure CLI são os métodos preferidos para gerenciar conexões privadas endpoint em Serviços de Parceiros Microsoft ou serviços de propriedade do cliente. Atualmente, não temos nenhum suporte de portal para gerenciar conexões em um serviço de Private Link.  
  
 ### <a name="powershell"></a>PowerShell 
   
-Use os comandos do PowerShell a seguir para gerenciar conexões de ponto de extremidade privadas.  
-#### <a name="get-private-link-connection-states"></a>Obter Estados de conexão de link privado 
-Use o cmdlet `Get-AzPrivateLinkService` para obter as conexões de ponto de extremidade particulares e seus Estados.  
+Use os seguintes comandos PowerShell para gerenciar conexões de ponto final privados.  
+#### <a name="get-private-link-connection-states"></a>Obtenha estados de conexão Private Link 
+Use `Get-AzPrivateLinkService` o cmdlet para obter as conexões Private Endpoint e seus estados.  
 ```azurepowershell
 Get-AzPrivateLinkService -Name myPrivateLinkService -ResourceGroupName myResourceGroup 
  ```
  
-#### <a name="approve-a-private-endpoint-connection"></a>Aprovar uma conexão de ponto de extremidade particular 
+#### <a name="approve-a-private-endpoint-connection"></a>Aprove uma conexão private endpoint 
  
-Use o cmdlet `Approve-AzPrivateEndpointConnection` para aprovar uma conexão de ponto de extremidade privada. 
+Use `Approve-AzPrivateEndpointConnection` o cmdlet para aprovar uma conexão Private Endpoint. 
  
 ```azurepowershell
 Approve-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
 ```
  
-#### <a name="deny-private-endpoint-connection"></a>Negar conexão de ponto de extremidade privado 
+#### <a name="deny-private-endpoint-connection"></a>Negar conexão private endpoint 
  
-Use o cmdlet `Deny-AzPrivateEndpointConnection` para rejeitar uma conexão de ponto de extremidade privada. 
+Use `Deny-AzPrivateEndpointConnection` o cmdlet para rejeitar uma conexão Private Endpoint. 
 ```azurepowershell
 Deny-AzPrivateEndpointConnection -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService 
 ```
-#### <a name="remove-private-endpoint-connection"></a>Remover conexão de ponto de extremidade particular 
+#### <a name="remove-private-endpoint-connection"></a>Remover conexão de ponto final privado 
  
-Use o cmdlet `Remove-AzPrivateEndpointConnection` para remover uma conexão de ponto de extremidade privada. 
+Use `Remove-AzPrivateEndpointConnection` o cmdlet para remover uma conexão Private Endpoint. 
 ```azurepowershell
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```
  
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>CLI do Azure 
  
-Use `az network private-link-service update` para gerenciar suas conexões de ponto de extremidade privadas. O estado da conexão é especificado no parâmetro ```azurecli connection-status```. 
+Use `az network private-link-service update` para gerenciar suas conexões private endpoint. O estado de conexão ```azurecli connection-status``` é especificado no parâmetro. 
 ```azurecli
 az network private-link-service connection update -g myResourceGroup -n myPrivateEndpointConnection1 --service-name myPLS --connection-status Approved 
 ```
 
    
 
-## <a name="next-steps"></a>Próximos passos
-- [Saiba mais sobre pontos de extremidade privados](private-endpoint-overview.md)
+## <a name="next-steps"></a>Próximas etapas
+- [Saiba mais sobre pontos de final privados](private-endpoint-overview.md)
  

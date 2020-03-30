@@ -1,14 +1,14 @@
 ---
-title: Perguntas comuns sobre Microsoft Azure Service Fabric
-description: Perguntas frequentes sobre Service Fabric, incluindo recursos, casos de uso e cenários comuns.
+title: Perguntas comuns sobre o Microsoft Azure Service Fabric
+description: Perguntas frequentes sobre o Service Fabric, incluindo recursos, casos de uso e cenários comuns.
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254895"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
@@ -94,7 +94,7 @@ Se você quiser criar clusters para testar seu aplicativo antes da implantação
 Embora estejamos trabalhando em uma experiência aprimorada, no momento você é responsável pela atualização. Você deve atualizar a imagem do sistema operacional nas máquinas virtuais do cluster em uma VM por vez. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso criptografar discos de dados anexados em um tipo de nó de cluster (conjunto de dimensionamento de máquinas virtuais)?
-Sim.  Para obter mais informações, consulte [criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [Azure Disk Encryption para conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/disk-encryption-overview.md).
+Sim.  Para obter mais informações, consulte [Criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e criptografia de disco [Azure para conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/disk-encryption-overview.md).
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Posso usar VMs de baixa prioridade em um tipo de nó de cluster (conjunto de escala de máquina virtual)?
 Não. Não há suporte para VMs de baixa prioridade. 
@@ -126,7 +126,7 @@ Não. Não há suporte para VMs de baixa prioridade.
 A seguir, os meios para o seu aplicativo obter credenciais para autenticação no KeyVault:
 
 a. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
-B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do keyvault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. Para os hosts habilitados para MSI, você pode desenvolver uma simples configuração PowerShellEntryPoint para o seu aplicativo SF para obter [um token de acesso a partir do ponto final do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design do aplicativo
 
@@ -136,8 +136,8 @@ Coleções Confiáveis normalmente são [particionadas](service-fabric-concepts-
 
 - Criar um serviço que consulte todas as partições de outro serviço para obter os dados necessários.
 - Criar um serviço que possa receber dados de todas as partições de outro serviço.
-- Enviar dados por push periodicamente de cada serviço para um repositório externo. Essa abordagem só será apropriada se as consultas que você estiver executando não fizerem parte da lógica de negócios principal, pois os dados do repositório externo ficarão obsoletos.
-- Como alternativa, armazene dados que devem dar suporte à consulta em todos os registros diretamente em um repositório de dados em vez de em uma coleção confiável. Isso elimina o problema com dados obsoletos, mas não permite que as vantagens das coleções confiáveis sejam aproveitadas.
+- Enviar dados por push periodicamente de cada serviço para um repositório externo. Essa abordagem só é apropriada se as consultas que você está realizando não fizerem parte da sua lógica de negócios principal, pois os dados do armazenamento externo serão obsoletos.
+- Alternativamente, armazene dados que devem suportar consultas em todos os registros diretamente em um armazenamento de dados, em vez de em uma coleta confiável. Isso elimina o problema com dados obsoletos, mas não permite que as vantagens de coleções confiáveis sejam aproveitadas.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Qual a melhor maneira de consultar dados entre os meus atores?

@@ -11,10 +11,10 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: 331a2317f11fbb6f0dd1437a0b41f7ad110a63c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928017"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpar os logs do SSISDB com Trabalhos de Banco de Dados Elástico do Azure
@@ -260,10 +260,10 @@ SELECT * FROM jobs.job_executions WHERE is_active = 1
 ORDER BY start_time DESC
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para tarefas de gerenciamento e monitoramento relacionadas ao Azure-SSIS Integration Runtime, confira os artigos a seguir. O Azure-SSIS IR é o mecanismo de runtime para pacotes SSIS armazenados no SSISDB no Banco de Dados SQL do Azure.
 
--   [Reconfigurar o Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
+-   [Reconfigurar o runtime de integração do Azure-SSIS](manage-azure-ssis-integration-runtime.md)
 
 -   [Monitorar o Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).

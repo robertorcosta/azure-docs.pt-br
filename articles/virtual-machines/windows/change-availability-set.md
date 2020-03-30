@@ -1,22 +1,22 @@
 ---
 title: Alterar um conjunto de disponibilidade de VMs
-description: Saiba como alterar o conjunto de disponibilidade para sua máquina virtual usando Azure PowerShell.
+description: Saiba como alterar o conjunto de disponibilidade para sua máquina virtual usando o Azure PowerShell.
 ms.service: virtual-machines
 author: cynthn
 ms.topic: article
 ms.date: 01/31/2020
 ms.author: cynthn
 ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964916"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Alterar a conjunto de disponibilidade para uma VM
 As etapas a seguir descrevem como alterar o conjunto de disponibilidade de uma VM usando o Azure PowerShell. Uma VM só pode ser adicionada a um conjunto de disponibilidade quando ela é criada. Para alterar o conjunto de disponibilidade é necessário excluir e recriar a máquina virtual. 
 
-Este artigo se aplica a VMs do Linux e do Windows.
+Este artigo se aplica tanto a VMs Linux quanto Windows.
 
 Este artigo foi testado pela última vez em 12/02/2019 usando o [Azure Cloud Shell](https://shell.azure.com/powershell) e o [módulo do Az PowerShell ](https://docs.microsoft.com/powershell/azure/install-az-ps) versão 1.2.0.
 
@@ -102,7 +102,7 @@ O script a seguir fornece um exemplo de como coletar as informações necessári
        -DisableBginfoExtension
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Adicione armazenamento adicional à sua VM incluindo um [disco de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
 

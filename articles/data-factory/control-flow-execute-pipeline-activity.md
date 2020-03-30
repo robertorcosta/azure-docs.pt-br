@@ -1,5 +1,5 @@
 ---
-title: Atividade de execução de pipeline no Azure Data Factory
+title: Executar a atividade do pipeline na fábrica de dados do Azure
 description: Saiba como você pode usar a atividade de execução de pipeline para invocar um pipeline do Data Factory de outro pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440434"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
@@ -59,7 +59,7 @@ A atividade de execução de pipeline permite que um pipeline do Data Factory in
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Description | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 name | Nome da atividade de execução de pipeline. | String | Sim
 type | Deve ser definido como: **ExecutePipeline**. | String | Sim
@@ -251,10 +251,10 @@ O pipeline mestre encaminha esses valores para o pipeline invocado, conforme mos
 }
 
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade web](control-flow-web-activity.md)

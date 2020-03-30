@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 4a885f183dcec49ac857777ae552e97060c656f4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930862"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiar dados do Zoho usando Azure Data Factory (versão prévia)
@@ -23,14 +23,14 @@ ms.locfileid: "74930862"
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Zoho. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 > [!IMPORTANT]
-> Este conector está atualmente em pré-visualização. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
+> Atualmente, esse conector está em versão prévia. Você pode experimentá-lo e oferecer comentários. Se você quiser uma dependência de conectores em versão prévia em sua solução, entre em contato com [suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector do Zoho tem suporte para as seguintes atividades:
+Este conector Zoho é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procurar](control-flow-lookup-activity.md)
 
 
 Você pode copiar dados do Zoho para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -47,14 +47,14 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Zoho:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Zoho** | SIM |
-| endpoint | O endpoint do servidor do Zoho (`crm.zoho.com/crm/private`). | SIM |
-| accessToken | O token de acesso para autenticação Zoho. Marque esse campo como um SecureString para armazená-lo de forma segura no Data Factory, ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
-| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não |
-| useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não |
-| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conectam por meio de SSL. O valor padrão é true.  | Não |
+| type | A propriedade type deve ser definida como: **Zoho** | Sim |
+| endpoint | O endpoint do servidor do Zoho (`crm.zoho.com/crm/private`). | Sim |
+| accessToken | O token de acesso para autenticação Zoho. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
+| useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é verdadeiro.  | Não |
+| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é verdadeiro.  | Não |
 
 **Exemplo:**
 
@@ -76,13 +76,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do Zoho:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Zoho.
+Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Zoho.
 
 Para copiar dados do Zoho, defina a propriedade type do conjunto de dados como **ZohoObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **ZohoObject** | SIM |
+| type | A propriedade do tipo do conjunto de dados deve ser definida como: **ZohoObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -108,12 +108,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="zoho-as-source"></a>Zoho como origem
 
-Para copiar dados de Zoho, defina o tipo de fonte na atividade de cópia como **ZohoSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
+Para copiar dados de Zoho, defina o tipo de fonte na atividade de cópia como **ZohoSource**. As seguintes propriedades são suportadas na seção **de origem da** atividade de cópia:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **ZohoSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se "tableName" no conjunto de dados for especificado) |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **ZohoSource** | Sim |
+| Consulta | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 
@@ -147,9 +147,9 @@ Para copiar dados de Zoho, defina o tipo de fonte na atividade de cópia como **
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

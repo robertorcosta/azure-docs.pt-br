@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
@@ -9,45 +9,45 @@ ms.date: 06/20/2019
 ms.author: crdun
 ms.custom: include file
 ms.openlocfilehash: 72a69359d412a7560472fbb73ec525ab5d4a4fce
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67325786"
 ---
-1. Entre no [Portal do Azure].
+1. Faça login no [portal Azure].
 
-2. Clique em **Criar um recurso**.
+2. Clique **em Criar um recurso**.
 
-3. Na caixa de pesquisa, digite **aplicativo Web**.
+3. Na caixa de pesquisa, digite **Web App**.
     
-4. Na lista de resultados, selecione **aplicativo Web** do Marketplace.
+4. Na lista de resultados, selecione **Web App** do Marketplace.
 
-5. Selecione suas **assinatura** e **grupo de recursos** (selecione um grupo de recursos _ou_ criar um novo (usando o mesmo nome que seu aplicativo)).
+5. Selecione seu **Grupo de Assinaturas** e **Recursos** (selecione um grupo de recursos existente _ou_ crie um novo (usando o mesmo nome do seu aplicativo)).
 
-6. Escolha um único **nome** do seu aplicativo web.
+6. Escolha um **nome** exclusivo do seu aplicativo web.
 
-7. Escolha o padrão **Publish** opção como **código**.
+7. Escolha a opção **Publicar** padrão como **Código**.
 
-8. No **pilha de tempo de execução**, você precisa selecionar uma versão sob **ASP.NET** ou **nó**. Se você estiver criando um back-end .NET, selecione uma versão em ASP.NET. Caso contrário, se você estiver direcionando um aplicativo de nó com base em, selecione uma da versão do nó.
+8. Na **pilha De tempo de execução,** você precisa selecionar uma versão em **ASP.NET** ou **Node**. Se você estiver construindo um backend .NET, selecione uma versão em ASP.NET. Caso contrário, se você estiver mirando em um aplicativo baseado em nó, selecione uma das versões do Nó.
 
-9. Selecione o direito **sistema operacional**, Linux ou Windows. 
+9. Selecione o **sistema operacional**certo, seja Linux ou Windows. 
 
-10. Selecione o **região** onde gostaria que este aplicativo a ser implantado. 
+10. Selecione a **Região** onde deseja que este aplicativo seja implantado. 
 
-11. Selecionar as devidas **plano do serviço de aplicativo** e clique em **revisão e criar**. 
+11. Selecione o Plano de **Serviço de Aplicativo** apropriado e aperte Revisão e **crie**. 
 
 12. Em **Grupo de Recursos**, selecione um grupo de recursos existente _ou_ crie um novo (usando o mesmo nome que o aplicativo).
 
 13. Clique em **Criar**. Aguarde alguns minutos para que o serviço seja implantado com êxito antes de continuar. Observe o ícone de notificações (sino) no cabeçalho do portal para atualizações de status.
 
-14. Depois que a implantação for concluída, clique no **detalhes de implantação** seção e, em seguida, clique no recurso do tipo **Microsoft**. Ele você navegará para o aplicativo de Web do serviço de aplicativo que você acabou de criar. 
+14. Uma vez concluída a implantação, clique na seção **Desemeamento de detalhes** e clique no recurso do tipo **Microsoft.Web/sites**. Ele irá navegar até o App Service Web App que você acabou de criar. 
 
-15. Clique no **configuração** folha sob **configurações** e, no **as configurações do aplicativo**, clique no **nova configuração de aplicativo** botão.
+15. Clique na **lâmina de configuração** em **Configurações** e nas configurações do **aplicativo,** clique no botão **Configuração Do novo aplicativo.**
 
-16. No **Adicionar/Editar configuração de aplicativo** , insira **nome** como **MobileAppsManagement_EXTENSION_VERSION** e o valor como **mais recente** e Pressione Okey.
+16. Na página **de configuração de aplicativo Adicionar/Editar,** digite **Nome** como **MobileAppsManagement_EXTENSION_VERSION** e Valor como **mais recente** e aperte OK.
 
-Você está pronto para usar esse aplicativo Web do serviço de aplicativo como um aplicativo móvel de recém-criado.
+Você está pronto para usar este aplicativo web recém-criado do App Service como um aplicativo mobile.
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com/
+[Portal Azure]: https://portal.azure.com/

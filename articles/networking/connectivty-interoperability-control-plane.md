@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873838"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilidade em recursos de conectividade de back-end do Azure: análise do plano de controle
 
-Este artigo descreve a análise do plano de controle da [configuração do teste][Setup]. Você também pode examinar a [configuração][Configuration] de configuração de teste e a [análise do plano de dados][Data-Analysis] da configuração do teste.
+Este artigo descreve a análise do plano de controle da [configuração do teste][Setup]. Também é possível examinar a [configuração do teste][Configuration] e a [análise do plano de dados][Data-Analysis] da configuração do teste.
 
 A análise do plano de controle examina essencialmente as rotas que são trocadas entre redes dentro de uma topologia. A análise do plano de controle pode ajudá-lo a reconhecer como diferentes redes exibem a topologia.
 
@@ -29,7 +29,7 @@ A figura a seguir ilustra a rede a partir da perspectiva de uma VNet (rede virtu
 
 ![1][1]
 
-O ASN do gateway do Azure ExpressRoute da VNet é diferente do ASN dos MSEEs (Microsoft Enterprise Edge Routers). Um gateway do ExpressRoute usa um ASN privado (um valor de **65515**) e os MSEEs usam um ASN público (um valor de **12076**) globalmente. Ao configurar o emparelhamento de ExpressRoute, porque MSEE é o par, você usará **12076** como o ASN do par. No lado do Azure, o MSEE estabelece o emparelhamento de eBGP com o gateway do ExpressRoute. O emparelhamento de eBGP duplo que o MSEE estabelece para cada emparelhamento do ExpressRoute é transparente no nível do plano de controle. Portanto, quando você exibe uma tabela de rotas do ExpressRoute, verá o ASN do gateway do ExpressRoute da VNet para os prefixos da VNet. 
+O ASN do gateway do Azure ExpressRoute da VNet é diferente do ASN dos MSEEs (Microsoft Enterprise Edge Routers). Um gateway do ExpressRoute usa um ASN privado (um valor de **65515**) e os MSEEs usam um ASN público (um valor de **12076**) globalmente. Quando você configura o peering ExpressRoute, porque o MSEE é o peer, você usa **12076** como asn de pares. No lado do Azure, o MSEE estabelece o emparelhamento de eBGP com o gateway do ExpressRoute. O emparelhamento de eBGP duplo que o MSEE estabelece para cada emparelhamento do ExpressRoute é transparente no nível do plano de controle. Portanto, quando você exibe uma tabela de rotas do ExpressRoute, verá o ASN do gateway do ExpressRoute da VNet para os prefixos da VNet. 
 
 A figura a seguir mostra uma tabela de rotas do ExpressRoute: 
 
@@ -55,11 +55,11 @@ A Localização 2 local é conectada a uma VNet de hub via emparelhamento privad
 
 ![4][4]
 
-## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute e conectividade VPN site a site em conjunto
+## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Conectividade do ExpressRoute e VPN site a site em conjunto
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN site a site pelo ExpressRoute
 
-É possível configurar uma VPN site a site, usando emparelhamento do Microsoft ExpressRoute para trocar dados em modo privado entre a rede local e as VNets do Azure. Com essa configuração, é possível trocar dados com confidencialidade, autenticidade e integridade. A troca de dados também é antirreprodução. Para obter mais informações sobre como configurar uma VPN IPsec site a site no modo de túnel usando o emparelhamento da Microsoft do ExpressRoute, consulte [VPN site a site sobre o emparelhamento da Microsoft do expressroute][S2S-Over-ExR]. 
+É possível configurar uma VPN site a site, usando emparelhamento do Microsoft ExpressRoute para trocar dados em modo privado entre a rede local e as VNets do Azure. Com essa configuração, é possível trocar dados com confidencialidade, autenticidade e integridade. A troca de dados também é antirreprodução. Para obter mais informações sobre como configurar uma VPN IPsec site a site no modo de túnel usando emparelhamento do ExpressRoute da Microsoft, consulte [VPN site a site sobre emparelhamento do Microsoft Azure ExpressRoute][S2S-Over-ExR]. 
 
 A principal limitação da configuração de uma VPN site a site que usa o emparelhamento da Microsoft é a taxa de transferência. A taxa de transferência no túnel IPsec é limitada pela capacidade do gateway de VPN. A taxa de transferência do gateway de VPN é menor que a taxa de transferência do ExpressRoute. Nesse cenário, o uso do túnel IPsec para tráfego altamente seguro e o uso de emparelhamento privado para todos os outros tráfegos ajuda a otimizar a utilização da largura de banda do ExpressRoute.
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre como configurar conexões coexistentes para 
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade de VNet do spoke usando emparelhamento VNet
 
-A arquitetura da VNet do hub e do spoke é amplamente usada. O hub é uma VNet no Azure que funciona como um ponto central de conectividade entre as VNets do spoke e a rede local. Os spokes são VNets que emparelham-se com o hub e que podem ser utilizadas para isolar as cargas de trabalho. O tráfego flui entre o datacenter local e o hub por meio de uma conexão ExpressRoute ou VPN. Para obter mais informações sobre a arquitetura, consulte [implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
+A arquitetura da VNet do hub e do spoke é amplamente usada. O hub é uma VNet no Azure que funciona como um ponto central de conectividade entre as VNets do spoke e a rede local. Os spokes são VNets que emparelham-se com o hub e que podem ser utilizadas para isolar as cargas de trabalho. O tráfego flui entre o datacenter local e o hub por meio de uma conexão de VPN ou ExpressRoute. Para obter mais informações sobre a arquitetura, confira [Implementar uma topologia de rede hub-spoke no Azure][Hub-n-Spoke].
 
 Em emparelhamento VNet dentro de uma região, as VNets do spoke podem usar gateways de VNet do hub (ambos gateways de VPN e ExpressRoute) para comunicarem-se com redes remotas.
 
@@ -81,24 +81,24 @@ Em emparelhamento VNet dentro de uma região, as VNets do spoke podem usar gatew
 
 Talvez você queira que as VNets de branch, que estão em regiões diferentes, e as redes locais comuniquem-se entre si por meio de uma VNet de hub. A solução nativa do Azure para essa configuração é a conectividade de VPN site a site usando uma VPN. Uma alternativa é usar uma NVA (solução de virtualização de rede) para roteamento no hub.
 
-Para obter mais informações, consulte [o que é o gateway de VPN?][VPN] e [implantar um NVA altamente disponível][Deploy-NVA].
+Para obter mais informações, consulte [O que é Gateway de VPN? ][VPN] e [Implantar um NVA altamente disponível][Deploy-NVA].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a [análise do plano de dados][Data-Analysis] da configuração de teste e as exibições de recurso de monitoramento de rede do Azure.
+Saiba mais sobre a [análise de plano de dados][Data-Analysis] da configuração do teste e das exibições do recurso de monitoramento de rede do Azure.
 
-Consulte as [perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
+Consulte as [Perguntas frequentes sobre o ExpressRoute][ExR-FAQ] para:
 -   Saber quantos circuitos do ExpressRoute podem ser conectados a um gateway do ExpressRoute.
 -   Saiba quantos gateways do ExpressRoute podem ser conectados a um circuito do ExpressRoute.
--   Saiba mais sobre outros limites de escala do ExpressRoute.
+-   Saber mais sobre outros limites de escala do ExpressRoute.
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubView.png "Perspectiva do Hub e da VNet do spoke da topologia"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "Local 1 e perspectiva de VNet remota da topologia via ExpressRoute 1"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "Localização 1 e perspectiva da VNet de ramificação da topologia por meio de uma VPN site a site"
-[4]: ./media/backend-interoperability/Loc2View.png "Ponto de vista local 2 da topologia"
-[5]: ./media/backend-interoperability/ExR1-RouteTable.png "Tabela de rotas do ExpressRoute 1"
+[1]: ./media/backend-interoperability/HubView.png "Hub e falou vnet perspectiva da topologia"
+[2]: ./media/backend-interoperability/Loc1ExRView.png "Localização 1 e perspectiva vnet remota da topologia via ExpressRoute 1"
+[3]: ./media/backend-interoperability/Loc1VPNView.png "Localização 1 e perspectiva de ramificação vnet da topologia através de uma VPN site-to-site"
+[4]: ./media/backend-interoperability/Loc2View.png "Localização 2 perspectiva da topologia"
+[5]: ./media/backend-interoperability/ExR1-RouteTable.png "Tabela de rotas ExpressRoute 1"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

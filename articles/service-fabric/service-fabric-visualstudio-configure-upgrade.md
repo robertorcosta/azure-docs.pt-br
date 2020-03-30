@@ -1,15 +1,15 @@
 ---
-title: Configura a atualização de um aplicativo do Service Fabric
+title: Configure a atualização de um aplicativo de malha de serviço
 description: Saiba como definir as configurações para atualizar um aplicativo do Service Fabric usando o Microsoft Visual Studio.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mikhegn
 ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464069"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurar a atualização de um aplicativo do Service Fabric no Visual Studio
@@ -77,5 +77,5 @@ O exemplo a seguir mostra como aplicar uma política de verificação de integri
     </HealthPolicy>
 </Policies>
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como atualizar um aplicativo, consulte [Atualizar um aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md).

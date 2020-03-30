@@ -1,6 +1,6 @@
 ---
-title: Proteção avançada contra ameaças do Microsoft defender – central de segurança do Azure
-description: Este documento apresenta a integração entre a central de segurança do Azure e a proteção avançada contra ameaças do Microsoft defender.
+title: Microsoft Defender Advanced Threat Protection - Azure Security Center
+description: Este documento introduz a integração entre o Azure Security Center e o Microsoft Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,54 +13,54 @@ ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
 ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206258"
 ---
-# <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
+# <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft Defender com o Azure Security Center
 
-A central de segurança do Azure está estendendo sua oferta de plataformas de proteção de carga de trabalho de nuvem integrando com [o Microsoft defender ATP (proteção avançada contra ameaças](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp)
-Essa alteração traz recursos abrangentes de EDR (detecção e resposta de ponto de extremidade). Com a integração do Microsoft defender ATP, você pode identificar anormalidades. Você também pode detectar e responder a ataques avançados em pontos de extremidade de servidor monitorados pela Central de Segurança do Azure.
+O Azure Security Center está ampliando sua oferta de plataformas de proteção de carga de trabalho na nuvem, integrando-se ao [Microsoft Defender Advanced Threat Protection](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) (ATP).
+Essa alteração traz recursos abrangentes de EDR (detecção e resposta de ponto de extremidade). Com a integração do Microsoft Defender ATP, você pode detectar anormalidades. Você também pode detectar e responder a ataques avançados em pontos de extremidade de servidor monitorados pela Central de Segurança do Azure.
 
-## <a name="microsoft-defender-atp-features-in-security-center"></a>Recursos do Microsoft defender ATP na central de segurança
+## <a name="microsoft-defender-atp-features-in-security-center"></a>Recursos do Microsoft Defender ATP no Security Center
 
-Ao usar o Microsoft defender ATP, você obtém:
+Quando você usa o Microsoft Defender ATP, você recebe:
 
-- **Sensores avançados de detecção de pós-violação**: os sensores do Microsoft defender ATP para Windows Servers coletam uma vasta gama de sinais comportamentais.
+- **Sensores avançados de detecção pós-violação**: os sensores Microsoft Defender ATP para servidores Windows coletam uma vasta gama de sinais comportamentais.
 
-- **Detecção de pós-violação com base em análise, baseada em nuvem**: o Microsoft defender ATP se adapta rapidamente às ameaças em constante mudança. Ele usa análise avançada e Big Data. O Microsoft defender ATP é amplificado pelo poder do Gráfico de Segurança Inteligente com sinais entre o Windows, o Azure e o Office para detectar ameaças desconhecidas. Ele fornece alertas acionáveis e permite que você responda rapidamente.
+- **Detecção de violação de post**baseada em analytics e alimentada por nuvem : o Microsoft Defender ATP se adapta rapidamente às ameaças em mudança. Ele usa análise avançada e Big Data. O Microsoft Defender ATP é amplificado pelo poder do Gráfico de Segurança Inteligente com sinais no Windows, Azure e Office para detectar ameaças desconhecidas. Ele fornece alertas acionáveis e permite que você responda rapidamente.
 
-- **Inteligência contra ameaças**: o Microsoft defender ATP gera alertas ao identificar ferramentas, técnicas e procedimentos do invasor. Ele usa dados gerados pelos caçadores de ameaças da Microsoft e pelas equipes de segurança, incrementados por inteligência oferecida por parceiros.
+- **Inteligência de ameaças**: O Microsoft Defender ATP gera alertas quando identifica ferramentas, técnicas e procedimentos do atacante. Ele usa dados gerados pelos caçadores de ameaças da Microsoft e pelas equipes de segurança, incrementados por inteligência oferecida por parceiros.
 
-Os seguintes recursos agora estão disponíveis na central de segurança do Azure:
+Os seguintes recursos estão agora disponíveis no Azure Security Center:
 
-- **Integração automatizada**: o sensor do Microsoft defender ATP é habilitado automaticamente para servidores Windows que são integrados à central de segurança do Azure.
+- **Onboarding automatizado**: O sensor MICROSOFT Defender ATP é ativado automaticamente para servidores Windows que estão a bordo do Azure Security Center.
 
-- **Painel único de vidro**: o console da central de segurança do Azure exibe alertas do Microsoft defender ATP.
+- **Painel único de vidro**: O console Azure Security Center exibe alertas microsoft Defender ATP.
 
-- **Investigação de máquina detalhada**: os clientes da central de segurança do Azure podem usar o console do Microsoft defender ATP para realizar uma investigação detalhada para descobrir o escopo de uma violação.
+- **Investigação detalhada da máquina**: os clientes do Azure Security Center podem usar o console ATP do Microsoft Defender para realizar uma investigação detalhada para descobrir o escopo de uma violação.
 
 ![Central de Segurança do Azure, exibindo uma lista de alertas e informações gerais sobre cada alerta](media/security-center-wdatp/image1.png)
 
-Para investigar ainda mais, use o Microsoft defender ATP. O Microsoft defender ATP fornece informações adicionais, como a árvore de processo de alerta e o grafo de incidentes. Você também pode ver uma linha do tempo detalhada do computador, mostrando cada comportamento por um período de histórico de até seis meses.
+Para investigar mais, use o Microsoft Defender ATP. O Microsoft Defender ATP fornece informações adicionais, como a árvore do processo de alerta e o gráfico de incidentes. Você também pode ver uma linha do tempo detalhada do computador, mostrando cada comportamento por um período de histórico de até seis meses.
 
-![Página do Microsoft defender ATP com informações detalhadas sobre um alerta](media/security-center-wdatp/image3.png)
+![Página do Microsoft Defender ATP com informações detalhadas sobre um alerta](media/security-center-wdatp/image3.png)
 
 ## <a name="platform-support"></a>Suporte a plataforma
 
-O Microsoft defender ATP na central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1, para VMs do Azure, você precisa de uma assinatura de camada Standard e para VMs não Azure, você precisa da camada Standard somente no nível do espaço de trabalho.
+O Microsoft Defender ATP no Security Center suporta a detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1, para VMs Azure você precisa de uma assinatura de nível Padrão e para VMs não-Azure você precisa de nível Padrão apenas no nível de espaço de trabalho.
 
 > [!NOTE]
-> Quando você usa a central de segurança do Azure para monitorar servidores, um locatário do Microsoft defender ATP é criado automaticamente e os dados do Microsoft defender ATP são armazenados na Europa por padrão. Se você precisar mover seus dados para outro local, precisará entrar em contato com Suporte da Microsoft para redefinir o locatário. O monitoramento de ponto de extremidade do servidor que utiliza essa integração foi desabilitado para clientes do Office 365 GCC.
+> Quando você usa o Azure Security Center para monitorar servidores, um inquilino do Microsoft Defender ATP é criado automaticamente e os dados do Microsoft Defender ATP são armazenados na Europa por padrão. Se você precisar mover seus dados para outro local, você precisa entrar em contato com o Suporte da Microsoft para redefinir o inquilino. O monitoramento do ponto final do servidor utilizando essa integração foi desativado para clientes do Office 365 GCC.
 
 ## <a name="onboarding-servers-to-security-center"></a>Integração de servidores à Central de Segurança 
 
-Para integrar servidores à central de segurança, clique em **ir para a central de segurança do Azure para integrar servidores** da integração do servidor do Microsoft defender ATP.
+Para acessar servidores a bordo do Security Center, clique em **Ir ao Azure Security Center para acessar servidores** a bordo do servidor ATP do Microsoft Defender.
 
-1. Na área de **integração** , selecione ou crie um espaço de trabalho no qual armazenar os dados. <br>
-2. Se você não conseguir ver todos os seus workspaces, pode ser devido à falta de permissões, verifique se que seu workspace está definido na camada Standard de Segurança do Azure. Para obter mais informações, consulte [atualizar para a camada Standard da central de segurança para aumentar a segurança](security-center-pricing.md).
+1. Na área **onboarding,** selecione ou crie um espaço de trabalho para armazenar os dados. <br>
+2. Se você não conseguir ver todos os seus workspaces, pode ser devido à falta de permissões, verifique se que seu workspace está definido na camada Standard de Segurança do Azure. Para obter mais informações, consulte [Upgrade para o nível Padrão do Security Center para obter maior segurança](security-center-pricing.md).
     
 3. Selecione **Adicionar servidores** para exibir instruções sobre como instalar o Microsoft Monitoring Agent. 
 
@@ -68,34 +68,34 @@ Para integrar servidores à central de segurança, clique em **ir para a central
 
    ![Integrar computadores](media/security-center-wdatp/onboard-computers.png)
 
-## <a name="enable-microsoft-defender-atp-integration"></a>Habilitar a integração do Microsoft defender ATP
+## <a name="enable-microsoft-defender-atp-integration"></a>Habilite a integração do Microsoft Defender ATP
 
-Para exibir se a integração do Microsoft defender ATP está habilitada, selecione **central de segurança** > **preço & configurações** > clique em sua assinatura.
+Para ver se a integração do Microsoft Defender ATP está ativada, selecione As**configurações de & de preços do** security **center** > > clique em sua assinatura.
 Aqui você pode ver as integrações habilitadas no momento.
 
-  ![Página de configurações de detecção de ameaças da central de segurança do Azure com integração do Microsoft defender ATP habilitada](media/security-center-wdatp/enable-integrations.png)
+  ![Página de configurações de detecção de ameaças do Azure Security Center com integração do Microsoft Defender ATP ativada](media/security-center-wdatp/enable-integrations.png)
 
-- Se você já integrou os servidores à camada Standard da Central de Segurança do Azure, nenhuma ação adicional é necessária. A central de segurança do Azure integrará automaticamente os servidores ao Microsoft defender ATP. A integração pode levar até 24 horas.
+- Se você já integrou os servidores à camada Standard da Central de Segurança do Azure, nenhuma ação adicional é necessária. O Azure Security Center abordo automaticamente os servidores para o Microsoft Defender ATP. O embarque pode levar até 24 horas.
 
 - Se você nunca integrou os servidores à camada Standard da Central de Segurança do Azure, integre-os à Central de Segurança do Azure como de costume.
 
-- Se você tiver integrado os servidores por meio do Microsoft defender ATP:
+- Se você tiver embarcado nos servidores através do Microsoft Defender ATP:
   - Veja a documentação para obter diretrizes sobre [como remover computadores de servidor](https://go.microsoft.com/fwlink/p/?linkid=852906).
   - Integre esses servidores à Central de Segurança do Azure.
 
-## <a name="access-to-the-microsoft-defender-atp-portal"></a>Acesso ao portal do Microsoft defender ATP
+## <a name="access-to-the-microsoft-defender-atp-portal"></a>Acesso ao portal Microsoft Defender ATP
 
 Siga as instruções em [Atribuir acesso de usuário ao portal](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
 ## <a name="set-the-firewall-configuration"></a>Definir a configuração do firewall
 
-Se você tiver um proxy ou firewall que esteja bloqueando o tráfego anônimo, como um sensor do Microsoft defender ATP está se conectando a partir do contexto do sistema, verifique se o tráfego anônimo é permitido. Siga as instruções em [habilitar o acesso às URLs de serviço do Microsoft defender ATP no servidor proxy](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+Se você tiver um proxy ou firewall que esteja bloqueando o tráfego anônimo, pois um sensor MICROSOFT Defender ATP está se conectando a partir do contexto do sistema, certifique-se de que o tráfego anônimo seja permitido. Siga as instruções em [Habilitar o acesso aos URLs](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)de serviço ATP do Microsoft Defender no servidor proxy .
 
 ## <a name="test-the-feature"></a>Testar o recurso
 
-Para gerar um alerta de teste benigno do Microsoft defender ATP:
+Para gerar um alerta de teste ATP do Microsoft Defender benigno:
 
-1. Crie uma pasta ' C:\test-MDATP-test '.
+1. Criar uma pasta 'C:\test-MDATP-test'.
 
 1. Use a Área de Trabalho Remota para acessar uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016. Abra uma janela de linha de comando.
 
@@ -107,11 +107,11 @@ Para gerar um alerta de teste benigno do Microsoft defender ATP:
 
    ![Uma janela do prompt de comando com o comando acima](media/security-center-wdatp/image4.jpeg)
 
-3. Se o comando for bem-sucedido, você verá um novo alerta no painel da central de segurança do Azure e no portal do Microsoft defender ATP. Esse alerta pode levar alguns minutos para aparecer.
+3. Se o comando for bem sucedido, você verá um novo alerta no painel do Azure Security Center e no portal microsoft defender ATP. Esse alerta pode levar alguns minutos para aparecer.
 
-4. Para examinar o alerta na central de segurança, acesse **alertas de segurança** > **linha de comando do PowerShell suspeito**.
+4. Para revisar o alerta no Security Center, vá para **alertas** > de segurança**suspeitos PowerShell CommandLine**.
 
-5. Na janela investigação, selecione o link para acessar o portal do Microsoft defender ATP.
+5. Na janela de investigação, selecione o link para ir ao portal do Microsoft Defender ATP.
 
 ## <a name="next-steps"></a>Próximas etapas
 

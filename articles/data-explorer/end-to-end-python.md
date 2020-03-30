@@ -1,6 +1,6 @@
 ---
-title: Ingestão de blob de ponta a ponta no Azure Data Explorer por meio do Python
-description: Neste artigo, você aprende a ingerir BLOBs no Azure Data Explorer com um exemplo de ponta a ponta que usa o Python.
+title: Inserção de blob de ponta a ponta no Azure Data Explorer através do Python
+description: Neste artigo, você aprende a ingerir bolhas no Azure Data Explorer com um exemplo completo que usa Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,22 +8,22 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 61864c51c2ab99e5266e39f2c9a7344aaf7413c1
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964286"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>Ingestão de blob de ponta a ponta no Azure Data Explorer por meio do Python
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>Inserção de blob de ponta a ponta no Azure Data Explorer através do Python
 
 > [!div class="op_single_selector"]
-> * [C#](end-to-end-csharp.md)
+> * [C #](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Este artigo fornece um exemplo de ponta a ponta de como ingerir dados do armazenamento de BLOBs do Azure para o Azure Data Explorer. 
+O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Este artigo fornece um exemplo completo de como ingerir dados do armazenamento Azure Blob no Azure Data Explorer. 
 
-Você aprenderá como criar programaticamente um grupo de recursos, uma conta de armazenamento e um contêiner, um hub de eventos e um cluster de Data Explorer do Azure e um banco de dados. Você também aprenderá como configurar programaticamente o Data Explorer do Azure para ingerir dados da nova conta de armazenamento.
+Você aprenderá como criar programáticamente um grupo de recursos, uma conta de armazenamento e um contêiner, um hub de eventos e um cluster e banco de dados do Azure Data Explorer. Você também aprenderá como configurar programáticamente o Azure Data Explorer para ingerir dados da nova conta de armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ pip install azure-storage-blob
 
 O exemplo de código a seguir fornece um processo passo a passo que resulta na ingestão de dados no Azure Data Explorer. 
 
-Primeiro, você cria um grupo de recursos. Você também cria recursos do Azure, como uma conta de armazenamento e um contêiner, um hub de eventos e um cluster Data Explorer do Azure e um banco de dados e adiciona entidades de segurança. Em seguida, você cria uma assinatura da grade de eventos do Azure, juntamente com um mapeamento de tabela e coluna, no banco de dados Data Explorer do Azure. Por fim, você cria a conexão de dados para configurar o Azure Data Explorer para ingerir dados da nova conta de armazenamento.
+Primeiro você cria um grupo de recursos. Você também cria recursos do Azure, como uma conta de armazenamento e contêiner, um hub de eventos e um cluster e banco de dados do Azure Data Explorer e adiciona os princípios. Em seguida, você cria uma assinatura do Azure Event Grid, juntamente com um mapeamento de tabela e coluna, no banco de dados do Azure Data Explorer. Finalmente, você cria a conexão de dados para configurar o Azure Data Explorer para ingerir dados da nova conta de armazenamento.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -192,12 +192,12 @@ poller.wait()
 ```
 |**Configuração** | **Descrição do campo**|
 |---|---|---|
-| tenant_id | ID do locatário. Ele também é conhecido como uma ID de diretório.|
-| subscription_id | A ID da assinatura que você usa para a criação de recursos.|
-| client_id | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
-| client_secret | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário. |
+| tenant_id | ID do locatário. Também é conhecido como id de diretório.|
+| subscription_id | O ID de assinatura que você usa para criação de recursos.|
+| client_id | O ID do cliente do aplicativo que pode acessar recursos em seu inquilino.|
+| client_secret | O segredo do cliente do aplicativo que pode acessar recursos em seu inquilino. |
 
-## <a name="test-the-code-example"></a>Testar o exemplo de código
+## <a name="test-the-code-example"></a>Teste o exemplo de código
 
 1. Carregue um arquivo na conta de armazenamento.
 
@@ -211,9 +211,9 @@ poller.wait()
     ```
     |**Configuração** | **Descrição do campo**|
     |---|---|---|
-    | account_key | A chave de acesso da conta de armazenamento criada programaticamente.|
+    | account_key | A chave de acesso da conta de armazenamento criada programáticamente.|
 
-2. Executar uma consulta de teste no Azure Data Explorer.
+2. Execute uma consulta de teste no Azure Data Explorer.
 
     ```python
     kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
@@ -224,7 +224,7 @@ poller.wait()
     print(response.primary_results[0].rows_count)
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para excluir o grupo de recursos e limpar os recursos, use o seguinte comando:
 
@@ -234,9 +234,9 @@ poller = resource_client.resource_groups.delete(resource_group_name=resource_gro
 poller.wait()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-*  Para saber mais sobre outras maneiras de criar um cluster e um banco de dados, consulte [criar um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-python.md).
-* Para saber mais sobre os métodos de ingestão, confira [ingestão de dados do Azure data Explorer](ingest-data-overview.md).
-* Para saber mais sobre o aplicativo Web, consulte [início rápido: consultar dados na interface do usuário da Web do Azure data Explorer](web-query-data.md).
+*  Para saber mais sobre outras formas de criar um cluster e um banco de dados, consulte [Criar um cluster e banco de dados do Azure Data Explorer](create-cluster-database-python.md).
+* Para saber mais sobre os métodos de ingestão, consulte [a ingestão de dados do Azure Data Explorer](ingest-data-overview.md).
+* Para saber mais sobre o aplicativo web, consulte [Quickstart: Query data data in the Azure Data Explorer web UI](web-query-data.md).
 * [Escreva consultas](write-queries.md) com linguagem de consulta Kusto.

@@ -1,16 +1,16 @@
 ---
-title: Como usar o Redis-CLI com o cache do Azure para Redis
-description: Saiba como usar o *Redis-CLI. exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente.
+title: Como usar redis-cli com Cache Azure para Redis
+description: Aprenda a usar *redis-cli.exe* como uma ferramenta de linha de comando para interagir com um Cache Azure para Redis como cliente.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75412680"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como usar a ferramenta de linha de comando Redis com Cache do Azure para Redis
@@ -19,7 +19,7 @@ O *redis-cli.exe* é uma ferramenta de linha de comando popular para interagir c
 
 A ferramenta está disponível para as plataformas Windows baixando as [Ferramentas de linha de comando Redis para Windows](https://github.com/MSOpenTech/redis/releases/). 
 
-Se você quiser executar a ferramenta de linha de comando em outra plataforma, baixe o Cache do Azure para Redis a partir de [https://redis.io/download](https://redis.io/download).
+Se você quiser executar a ferramenta de linha de comando em outra [https://redis.io/download](https://redis.io/download)plataforma, baixe Azure Cache for Redis de .
 
 ## <a name="gather-cache-access-information"></a>Coletar informações de acesso do cache
 
@@ -40,7 +40,7 @@ Nesta seção, você vai recuperar as chaves do Portal do Azure.
 
 Com o Cache do Azure para Redis, somente a porta SSL (6380) é habilitada por padrão. A ferramenta de linha de comando `redis-cli.exe` não oferece suporte a SSL. Você tem duas opções de configuração para usá-lo:
 
-1. [Habilitar a porta não SSL (6379)](cache-configure.md#access-ports) - **Essa configuração não é recomendada** porque nessa configuração, as chaves de acesso são enviadas por meio de TCP em texto não criptografado. Essa alteração pode comprometer o acesso ao seu cache. O único cenário em que você pode considerar essa configuração é quando você está acessando apenas um cache de teste.
+1. [Habilite a porta não-SSL (6379)](cache-configure.md#access-ports) - **Essa configuração não é recomendada** porque, nesta configuração, as chaves de acesso são enviadas via TCP em texto claro. Essa alteração pode comprometer o acesso ao seu cache. O único cenário em que você pode considerar essa configuração é quando você está acessando apenas um cache de teste.
 
 2. Baixar e instalar o [stunnel](https://www.stunnel.org/downloads.html).
 
@@ -48,7 +48,7 @@ Com o Cache do Azure para Redis, somente a porta SSL (6380) é habilitada por pa
 
     Clique com o botão direito no ícone da barra de tarefas para o servidor stunnel e clique em **Mostrar janela de log**.
 
-    No menu da janela Log stunnel, clique em **Configuração** > **Editar configuração** para abrir o arquivo de configuração atual.
+    No menu stunnel Log Window, clique em **Configuração** > **Editar configuração** para abrir o arquivo de configuração atual.
 
     Adicione a seguinte entrada para *redis-cli.exe* sob a seção **Definições de serviço**. Insira o nome real do cache em vez de `yourcachename`. 
 
@@ -61,7 +61,7 @@ Com o Cache do Azure para Redis, somente a porta SSL (6380) é habilitada por pa
 
     Salve e feche o arquivo de configuração. 
   
-    No menu da janela Log stunnel, clique em **Configuração** > **Recarregar configuração**.
+    No menu stunnel Log Window, clique **em Configuração** > **de recarga**.
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Conecte-se usando a ferramentas de linha de comando do Redis.
@@ -85,7 +85,7 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como usar o [Console Redis](cache-configure.md#redis-console) para emitir comandos.
 

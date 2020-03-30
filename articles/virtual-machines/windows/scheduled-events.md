@@ -1,5 +1,5 @@
 ---
-title: Eventos Agendados para VMs do Windows no Azure
+title: Eventos agendados para VMs do Windows no Azure
 description: Agendado eventos usando o serviço de metadados do Azure para em suas máquinas virtuais do Windows.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944454"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
@@ -45,9 +45,9 @@ Usando eventos agendados, seu aplicativo pode descobrir quando a manutenção oc
 
 Os eventos agendados fornecem eventos nos seguintes casos de uso:
 - [Manutenção iniciada pela plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, reinicialização de VM, migração ao vivo ou atualizações de preservação de memória para host)
-- A máquina virtual está em execução no [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que é previsto para falhar em breve
+- A máquina virtual está sendo executado em [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que está previsto para falhar em breve
 - Manutenção iniciada pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
-- [Detectar](spot-vms.md) as remoções de instância de VM e [conjunto de escala de spot](../../virtual-machine-scale-sets/use-spot.md)
+- [Despejos](spot-vms.md) de instâncias de [configuração](../../virtual-machine-scale-sets/use-spot.md) spot VM e Spot
 
 ## <a name="the-basics"></a>Noções básicas  
 
@@ -65,8 +65,8 @@ O serviço de eventos agendados tem controle de versão. As versões são obriga
 
 | Versão | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - |
-| 2019-01-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para conjuntos de dimensionamento de máquinas virtuais EventType ' Terminate ' |
-| 2017-11-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para o EventType de remoção de VM spot ' preempt '<br> | 
+| 2019-01-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para conjuntos de escala de máquina virtual EventType 'Terminate' |
+| 2017-11-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para o despejo spot VM EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | Visualização | Todos |<li>Versão inicial |
 
@@ -116,10 +116,10 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos:
 O DocumentIncarnation é uma ETag e fornece uma maneira fácil de inspecionar se a carga de eventos foi alterada desde a última consulta.
 
 ### <a name="event-properties"></a>Propriedades do evento
-|Propriedade  |  DESCRIÇÃO |
+|Propriedade  |  Descrição |
 | - | - |
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: a máquina virtual está agendada para pausar por alguns segundos. A conectividade de CPU e de rede pode ser suspensa, mas não há nenhum impacto na memória ou em arquivos abertos. <li>`Reboot`: a Máquina Virtual está agendada para reiniciar (a memória é apagada). <li>`Redeploy`: a Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: a máquina virtual Spot está sendo excluída (discos efêmeros são perdidos). <li> `Terminate`: a máquina virtual está agendada para ser excluída. |
+| EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está programada para pausar por alguns segundos. A conectividade de CPU e rede pode ser suspensa, mas não há impacto na memória ou arquivos abertos. <li>`Reboot`: a Máquina Virtual está agendada para reiniciar (a memória é apagada). <li>`Redeploy`: a Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: A Máquina Virtual Spot está sendo excluída (discos efêmeros são perdidos). <li> `Terminate`: A Máquina Virtual está programada para ser excluída. |
 | ResourceType | Tipo de recurso que esse evento impacta. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Lista de recursos que esse evento impacta. Isso é garantido para conter máquinas de no máximo um [Domínio de Atualização](manage-availability.md), mas pode não conter todas as máquinas no UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Status do evento | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: esse evento está agendado para iniciar após o tempo especificado na propriedade `NotBefore`.<li>`Started`: esse evento foi iniciado.</ul> Não `Completed` status semelhante já foi fornecido; o evento não será mais retornado quando o evento for concluído.
@@ -133,11 +133,11 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 | Congelamento| 15 minutos |
 | Reboot | 15 minutos |
 | Reimplantar | 10 minutos |
-| Ocupa | 30 segundos |
-| Encerrar | [Configurável pelo usuário](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): 5 a 15 minutos |
+| Antecipar | 30 segundos |
+| Terminate | [Configurável do usuário:](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications)5 a 15 minutos |
 
 > [!NOTE] 
-> Em alguns casos, o Azure é capaz de prever a falha do host devido ao hardware degradado e tentará reduzir a interrupção em seu serviço agendando uma migração. As máquinas virtuais afetadas receberão um evento agendado com um `NotBefore` que normalmente é de alguns dias no futuro. O tempo real varia dependendo da avaliação de risco de falha prevista. O Azure tenta dar um aviso de adiantamento de sete dias quando possível, mas o tempo real varia e pode ser menor se a previsão é que há uma grande chance de o hardware falhar de forma iminente. Para minimizar o risco para seu serviço no caso de falha do hardware antes da migração iniciada pelo sistema, é recomendável reimplantar a máquina virtual novamente assim que possível.
+> Em alguns casos, o Azure é capaz de prever a falha do host devido ao hardware degradado e tentará mitigar a interrupção do seu serviço agendando uma migração. As máquinas virtuais afetadas `NotBefore` receberão um evento agendado com um que normalmente é de alguns dias no futuro. O tempo real varia dependendo da avaliação de risco de falha prevista. O Azure tenta dar um aviso prévio de 7 dias quando possível, mas o tempo real varia e pode ser menor se a previsão é que há uma grande chance do hardware falhar iminentemente. Para minimizar o risco ao seu serviço no caso de o hardware falhar antes do sistema iniciar a migração, recomenda-se que auto-implante sua máquina virtual o mais rápido possível.
 
 ### <a name="event-scope"></a>Escopo do Evento     
 Os eventos agendados são entregues a:
@@ -234,6 +234,6 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>Próximas etapas 
 
 - Inspecionar uma [Demonstração de Eventos Agendados](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) no Azure Friday. 
-- Examine os exemplos de código de Eventos Agendados no [Repositório GitHub de Eventos Agendados dos Metadados de Instância do Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
-- Leia mais sobre as API disponíveis no [serviço Metadados da Instância](instance-metadata-service.md).
-- Saiba mais sobre a [manutenção planejada para máquinas virtuais do Windows no Azure](planned-maintenance.md).
+- Revise as amostras de código de eventos programados no [Repositório de Eventos Programados de Metadados da Ocorrência do Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Leia mais sobre as APIs disponíveis no [serviço Instance Metadata](instance-metadata-service.md).
+- Conheça a [manutenção planejada para máquinas virtuais Windows no Azure](planned-maintenance.md).

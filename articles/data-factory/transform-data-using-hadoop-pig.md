@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade Pig do Hadoop
+title: Transformar dados usando a atividade do Hadoop Pig
 description: Saiba como usar a Atividade Pig em uma data factory do Azure para executar scripts Pig em um cluster sob demanda/próprio do HDInsight.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: 4064d62a6dc826b23ff1f51e9f61e48d362ae695
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912927"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Pig do Hadoop no Azure Data Factory
@@ -57,26 +57,26 @@ Se você é novo no Azure Data Factory, leia a [Introduction to Azure Data Facto
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade            | Descrição                              | obrigatórios |
+| Propriedade            | Descrição                              | Obrigatório |
 | ------------------- | ---------------------------------------- | -------- |
-| Nome                | Nome da atividade                     | SIM      |
-| Descrição         | Texto que descreve qual a utilidade da atividade | Não       |
-| type                | Para a atividade do Hive, o tipo de atividade é HDinsightPig | SIM      |
-| linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | SIM      |
+| name                | Nome da atividade                     | Sim      |
+| descrição         | Texto que descreve qual a utilidade da atividade | Não       |
+| type                | Para a atividade do Hive, o tipo de atividade é HDinsightPig | Sim      |
+| linkedServiceName   | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
 | scriptLinkedService | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar o script do Pig a ser executado. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
 | scriptPath          | Forneça o caminho para o arquivo de script armazenado no Armazenamento do Azure referenciado por scriptLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não       |
 | getDebugInfo        | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não       |
 | argumentos           | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
 | defines             | Especifique os parâmetros como pares chave-valor para referências no script do Pig. | Não       |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
-* [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
+* [Atividade de faísca](transform-data-using-spark.md)
+* [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
-* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
+* [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)

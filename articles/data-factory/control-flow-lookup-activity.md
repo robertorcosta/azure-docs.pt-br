@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440466"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
@@ -53,10 +53,10 @@ As seguintes fontes de dados são compatíveis com a atividade Lookup. O maior n
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Nome | Description | Tipo | Obrigatório?
+Nome | Descrição | Type | Obrigatório?
 ---- | ----------- | ---- | --------
 dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes na seção **Propriedades do conjunto de dados** em cada artigo de conector correspondente. | Pares chave/valor | Sim
-source | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes na seção **Propriedades da atividade Copy** em cada artigo de conector correspondente. | Pares chave/valor | Sim
+source | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes da seção **Propriedades Copy Activity** em cada artigo do conector correspondente. | Pares chave/valor | Sim
 firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Boolean | Não. O padrão é `true`.
 
 > [!NOTE]
@@ -69,7 +69,7 @@ firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as li
 
 O resultado de pesquisa é retornado na seção `output` do resultado da execução de atividade.
 
-* **Quando `firstRowOnly` é definido como `true` (padrão)** , o formato de saída é como mostrado no código a seguir. O resultado da pesquisa fica sob um chave `firstRow` fixa. Para usar o resultado na atividade subsequente, use o padrão de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Quando `firstRowOnly` é definido como `true` (padrão)**, o formato de saída é como mostrado no código a seguir. O resultado da pesquisa fica sob um chave `firstRow` fixa. Para usar o resultado na atividade subsequente, use o padrão de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -81,7 +81,7 @@ O resultado de pesquisa é retornado na seção `output` do resultado da execuç
     }
     ```
 
-* **Quando `firstRowOnly` for definido como `false` (padrão)** , o formato de saída será como mostrado no código a seguir. Um campo `count` indica quantos registros são retornados. Os valores detalhados são exibidos em uma matriz `value` fixa. Nesse caso, a atividade Lookup é seguida por uma [atividade Foreach](control-flow-for-each-activity.md). Passe a matriz `value` para o campo `items` da atividade ForEach usando o padrão de `@activity('MyLookupActivity').output.value`. Para acessar elementos na matriz `value`, use a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Um exemplo é `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Quando `firstRowOnly` for definido como `false` (padrão)**, o formato de saída será como mostrado no código a seguir. Um campo `count` indica quantos registros são retornados. Os valores detalhados são exibidos em uma matriz `value` fixa. Nesse caso, a atividade Lookup é seguida por uma [atividade Foreach](control-flow-for-each-activity.md). Passe a matriz `value` para o campo `items` da atividade ForEach usando o padrão de `@activity('MyLookupActivity').output.value`. Para acessar elementos na matriz `value`, use a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Um exemplo é `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -189,7 +189,7 @@ O conjunto de dados de **pesquisa** é o arquivo **sourcetable.json** na pasta d
 ```
 
 ### <a name="source-dataset-for-copy-activity"></a>Conjunto de dados de **origem** da atividade Copy
-O conjunto de dados de **origem** usa a saída da atividade Lookup, que é o nome da tabela SQL. A atividade Copy copia dados dessa tabela SQL para um local no armazenamento de Blobs do Azure. O local é especificado pelo conjunto de dados do **coletor**. 
+O conjunto de dados de **origem** usa a saída da atividade Procurar, que é o nome da tabela SQL. A atividade Copy copia dados dessa tabela SQL para um local no armazenamento de Blobs do Azure. O local é especificado pelo conjunto de dados do **coletor**. 
 
 ```json
 {
@@ -300,10 +300,10 @@ Aqui estão algumas limitações da atividade de pesquisa e soluções alternati
 | A atividade de pesquisa tem um máximo de 5.000 linhas e um tamanho máximo de 2 MB. | Crie um pipeline de dois níveis onde o pipeline externo itera em um pipeline interno que recupera os dados que não excedem o máximo de linhas ou o tamanho. |
 | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
-- [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
+- [Executar atividade de pipeline](control-flow-execute-pipeline-activity.md)
 - [Atividade ForEach](control-flow-for-each-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 - [Atividade da Web](control-flow-web-activity.md)

@@ -16,20 +16,20 @@ ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74968690"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS 
 
-> [!div class="op_single_selector" title1="Selecione a versão dos serviços de mídia que você está usando:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos Serviços de Mídia que você está usando:"]
 > * [Versão 3](../latest/offline-fairplay-for-ios.md)
 > * [Versão 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Mídia do Azure fornecem um conjunto de [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) bem projetados, que abrangem:
 
@@ -43,8 +43,8 @@ A criptografia de gerenciamento de direitos digitais (DRM)/AES do conteúdo é e
 Além de proteger o conteúdo de streaming online por meio de vários protocolos de streaming, o modo offline para conteúdo protegido também é um recurso que normalmente é solicitado. O suporte ao modo offline é necessário para os seguintes cenários:
 
 * Reprodução quando a conexão de Internet não estiver disponível, como durante viagens.
-* Alguns provedores de conteúdo podem impedir a entrega de licença do DRM além da borda de um país/região. Se os usuários desejarem assistir ao conteúdo durante a viagem fora do país/região, o download offline será necessário.
-* Em alguns países/regiões, a disponibilidade e/ou a largura de banda da Internet ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em uma resolução que seja alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, o problema geralmente não é a disponibilidade da rede, mas largura de banda de rede limitada. Os provedores de over-the-top (OTT)/plataforma de vídeo online (OVP) solicitam suporte para o modo offline.
+* Alguns provedores de conteúdo podem proibir a entrega de licenças DRM além da fronteira de um país/região. Se os usuários quiserem assistir conteúdo enquanto viajam fora do país/região, o download off-line é necessário.
+* Em alguns países/regiões, a disponibilidade de internet e/ou largura de banda ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em uma resolução que seja alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, o problema geralmente não é a disponibilidade da rede, mas largura de banda de rede limitada. Os provedores de over-the-top (OTT)/plataforma de vídeo online (OVP) solicitam suporte para o modo offline.
 
 Este artigo aborda o suporte ao modo offline de Streaming de FairPlay (FPS), focando em dispositivos que executam o iOS 10 ou posterior. Não há suporte para esse recurso para outras plataformas da Apple, como watchOS, tvOS ou Safari no macOS.
 
@@ -201,14 +201,14 @@ Três exemplos de teste nos Serviços de Mídia abrangem os três cenários a se
 Você pode encontrar esses exemplos [neste site de demonstração](https://aka.ms/poc#22), com o certificado correspondente do aplicativo hospedado em um aplicativo Web do Azure.
 Observamos que com o exemplo da versão 3 ou versão 4 de SDK do Servidor de FPS, se uma lista de reprodução mestre contiver áudio alternativo, durante o modo offline, ela toca somente o áudio. Portanto, você precisa da faixa de áudio alternativo. Em outras palavras, o segundo e terceiro exemplos listados anteriormente trabalham nos modos online e offline. O exemplo listado reproduz primeiro somente o áudio durante o modo offline, enquanto o streaming online funciona sem problemas.
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>Perguntas frequentes
 As perguntas frequentes a seguir fornecem assistência com a solução de problemas:
 
-- **Por que apenas o áudio toca, mas nenhum vídeo aparece durante o modo offline?** Esse comportamento parece estar relacionado ao design do aplicativo de exemplo. Quando uma faixa de áudio alternativa está presente (que é o caso de HLS) durante o modo offline, o iOS 10 e o iOS 11 têm como padrão a faixa de áudio alternativa. Para compensar esse comportamento para o modo offline de FPS, remova a faixa de áudio alternativa do fluxo. Para fazer isso nos Serviços de Mídia, adicione o filtro de manifestação dinâmica “audio-only=false”. Em outras palavras, uma URL de HLS termina com .ism/manifest(format=m3u8-aapl,audio-only=false). 
+- **Por que apenas o áudio toca, mas nenhum vídeo aparece durante o modo offline?** Esse comportamento parece estar relacionado ao design do aplicativo de exemplo. Quando uma faixa de áudio alternativa está presente (que é o caso do HLS) durante o modo offline, tanto o iOS 10 quanto o iOS 11 são padrão para a faixa de áudio alternativa. Para compensar esse comportamento para o modo offline FPS, remova a faixa de áudio alternativa do fluxo. Para fazer isso nos Serviços de Mídia, adicione o filtro de manifestação dinâmica “audio-only=false”. Em outras palavras, uma URL de HLS termina com .ism/manifest(format=m3u8-aapl,audio-only=false). 
 - **Por que ela ainda toca áudio somente sem vídeo durante o modo offline após eu adicionar audio-only=false?** Dependendo do design da chave do cache de rede de distribuição de conteúdo (CDN), o conteúdo pode ser armazenado em cache. Limpe o cache.
 - **O modo de FPS offline também tem suporte em iOS 11 além do iOS 10?** Sim. O modo offline de FPS tem suporte para iOS 10 e iOS 11.
 - **Por que eu não consigo encontrar o documento “Reprodução Offline com o Streaming de FairPlay e HTTP Live Streaming no SDK do Servidor de FPS”?** Desde a versão 4 do SDK do Servidor de FPS, este documento foi mesclado no “Guia de Programação de Streaming de FairPlay”.
-- **O que o último parâmetro significa na seguinte API para o modo de FPS offline?** 
+- **Qual é o último parâmetro no seguinte modo API para FPS offline?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     Para obter a documentação para essa API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguel offline com hora como a unidade.
@@ -247,7 +247,7 @@ Um arquivo de exemplo boot.xml:
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="summary"></a>Resumo
 Este documento inclui as seguintes etapas e informações que você pode usar para implementar o modo offline de FPS:
@@ -257,6 +257,6 @@ Este documento inclui as seguintes etapas e informações que você pode usar pa
 * Vídeos de FPS de exemplo são usados para testar o streaming em modo offline e online.
 * Perguntas Frequentes responde a perguntas sobre o modo offline de FPS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

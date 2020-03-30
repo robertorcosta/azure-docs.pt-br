@@ -1,6 +1,6 @@
 ---
-title: EXP na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre a função de sistema SQL do expoente (EXP) no Azure Cosmos DB para retornar o valor exponencial da expressão numérica especificada
+title: EXP no azure Cosmos DB linguagem de consulta
+description: Conheça a função do sistema Expoente (EXP) SQL no Azure Cosmos DB para retornar o valor exponencial da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873311"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
@@ -34,7 +34,7 @@ EXP (<numeric_expr>)
   
 ## <a name="remarks"></a>Comentários
   
-  A constante **e** (2,718281...) é a base dos logaritmos naturais.  
+  A constante **e** (2,718281...), é a base dos logaritmos naturais.  
   
   O expoente de um número é a constante **e** elevado à potência do número. Por exemplo, EXP(1.0) = e^1.0 = 2.71828182845905 e EXP(10) = e^10 = 22026.4657948067.  
   
@@ -66,8 +66,8 @@ SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2
 [{exp1: 19.999999999999996, exp2: 20}]  
 ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

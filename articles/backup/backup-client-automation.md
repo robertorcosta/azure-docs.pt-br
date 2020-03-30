@@ -1,13 +1,13 @@
 ---
 title: Usar o PowerShell para fazer backup do Windows Server no Azure
-description: Neste artigo, saiba como usar o PowerShell para configurar o backup do Azure no Windows Server ou um cliente do Windows e gerenciar o backup e a recuperação.
+description: Neste artigo, saiba como usar o PowerShell para configurar o Backup do Azure no Windows Server ou um cliente do Windows e gerenciar backup e recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673181"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
@@ -18,7 +18,7 @@ Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no W
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para começar, [Instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps).
+Para começar, [instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -36,7 +36,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. Use o cmdlet **New-AzRecoveryServicesVault** para criar o novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
+3. Use o **cmdlet New-AzRecoveryServicesVault** para criar o novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -56,9 +56,9 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Exibir os cofres em uma assinatura
 
-Use **Get-AzRecoveryServicesVault** para exibir a lista de todos os cofres na assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
+Use **get-AzRecoveryServicesVault** para visualizar a lista de todos os cofres na assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
 
-Execute o comando, **Get-AzRecoveryServicesVault**e todos os cofres na assinatura são listados.
+Execute o comando, **Get-AzRecoveryServicesVault**e todos os cofres da assinatura estão listados.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -95,15 +95,15 @@ Para instalar o agente, execute o comando a seguir em um console do Azure PowerS
 MARSAgentInstaller.exe /q
 ```
 
-Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu* , a janela de **Windows Update** será aberta no final da instalação para verificar se há atualizações. Uma vez instalado, o agente será exibido na lista de programas instalados.
+Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu,* então a janela **Atualização do Windows** será aberta no final da instalação para verificar se há atualizações. Uma vez instalado, o agente será exibido na lista de programas instalados.
 
-Para ver a lista de programas instalados, vá para **Painel de controle** > **Programas** > **Programas e recursos**.
+Para ver a lista de programas instalados, vá para > **Programas** > e**Recursos**do Painel de **Controle**.
 
 ![Agente instalado](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opções de instalação
 
-Para ver todas as opções disponíveis por meio da linha de comando, use o seguinte comando:
+Para ver todas as opções disponíveis através da linha de comando, use o seguinte comando:
 
 ```powershell
 MARSAgentInstaller.exe /?
@@ -133,12 +133,12 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
-### <a name="registering-using-the-ps-az-module"></a>Registrando usando o módulo PS AZ
+### <a name="registering-using-the-ps-az-module"></a>Registrando-se usando o módulo PS Az
 
 > [!NOTE]
-> Um bug com a geração de certificado de cofre é corrigido na versão AZ 3.5.0. Use a versão de lançamento do AZ 3.5.0 ou superior para baixar um certificado de cofre.
+> Um bug com geração de certificado de cofre é corrigido na versão Az 3.5.0. Use a versão az 3.5.0 ou superior para baixar um certificado de cofre.
 
-No módulo AZ mais recente do PowerShell, devido a limitações da plataforma subjacente, o download das credenciais do cofre requer um certificado autoassinado. O exemplo a seguir mostra como fornecer um certificado autoassinado e baixar as credenciais do cofre.
+No mais recente módulo Az do PowerShell, devido às limitações subjacentes da plataforma, baixar as credenciais do cofre requer um certificado auto-assinado. O exemplo a seguir mostra como fornecer um certificado auto-assinado e baixar as credenciais do cofre.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -148,7 +148,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 No computador cliente do Windows Server ou do Windows, execute o cmdlet [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration?view=winserver2012-ps) para registrar o computador no cofre.
-Isso, e outros cmdlets usados para backup, são do módulo MSONLINE, que o Mars AgentInstaller adicionou como parte do processo de instalação.
+Este, e outros cmdlets usados para backup, são do módulo MSONLINE, que o Mars AgentInstaller adicionou como parte do processo de instalação.
 
 O instalador do agente não atualiza a variável $Env:PSModulePath. Isso significa que o carregamento automático do módulo falhará. Para resolver isso, você pode fazer o seguinte:
 
@@ -209,7 +209,7 @@ Server properties updated successfully.
 
 Os dados de backup enviados para o Backup do Azure são criptografados para proteger a confidencialidade dos dados. A senha de criptografia é a "senha" para descriptografar os dados no momento da restauração.
 
-Você deve gerar um PIN de segurança selecionando **gerar**, em **configurações** > **Propriedades** > **PIN de segurança** na seção **cofre dos serviços de recuperação** do portal do Azure. Em seguida, use-o como o `generatedPIN` no comando:
+Você deve gerar um pino de segurança selecionando **Gerar**, em > **Configurá-lo** **Settings** > **Propriedades**DE Segurança PIN na seção **cofre serviços** de recuperação do portal Azure. Em seguida, use `generatedPIN` isso como o no comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -243,10 +243,10 @@ Neste momento, a política está vazia e outros cmdlets são necessários para d
 
 ### <a name="configuring-the-backup-schedule"></a>Configurando o agendamento de backup
 
-A primeira das três partes de uma política é o agendamento de backup, que é criado usando o cmdlet [New-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obschedule?view=winserver2012-ps) . O agendamento de backup define quando os backups precisam ser executados. Ao criar uma agenda, você precisa especificar dois parâmetros de entrada:
+A primeira das três partes de uma política é o cronograma de backup, que é criado usando o cmdlet [New-OBSchedule.](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obschedule?view=winserver2012-ps) O agendamento de backup define quando os backups precisam ser executados. Ao criar um cronograma, você precisa especificar dois parâmetros de entrada:
 
 * **dias da semana** nos quais o backup deve ser executado. Você pode executar o trabalho de backup em apenas um dia ou em todos os dias da semana, ou qualquer combinação entre essas opções.
-* **horários do dia** quando o backup deve ser executado. Você pode definir até três horas diferentes do dia em que o backup será disparado.
+* **horários do dia** quando o backup deve ser executado. Você pode definir até três horas diferentes do dia em que o backup será acionado.
 
 Por exemplo, você poderia configurar uma política de backup que é executada às 16h todo sábado e domingo.
 
@@ -266,7 +266,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 
 ### <a name="configuring-a-retention-policy"></a>Configurando uma política de retenção
 
-A política de retenção define por quanto tempo os pontos de recuperação criados por meio de trabalhos de backup são mantidos. Ao criar uma nova política de retenção usando o cmdlet [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy?view=winserver2012-ps) , você pode especificar o número de dias durante os quais os pontos de recuperação de backup precisam ser mantidos com o Backup do Azure. O exemplo a seguir define uma política de retenção de sete dias.
+A política de retenção define por quanto tempo os pontos de recuperação criados por meio de trabalhos de backup são mantidos. Ao criar uma nova política de retenção usando o cmdlet [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy?view=winserver2012-ps) , você pode especificar o número de dias durante os quais os pontos de recuperação de backup precisam ser mantidos com o Backup do Azure. O exemplo abaixo define uma política de retenção de sete dias.
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -309,7 +309,7 @@ Um objeto `OBFileSpec` define os arquivos a serem incluídos e excluídos em um 
 
 A última opção é obtida usando o sinalizador -NonRecursive no comando New-OBFileSpec.
 
-No exemplo a seguir, vamos fazer backup dos volumes C: e D: e excluir os binários do sistema operacional na pasta do Windows e em quaisquer pastas temporárias. Para fazer isso, criaremos duas especificações de arquivo usando o cmdlet [New-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obfilespec?view=winserver2012-ps) , uma para inclusão e outra para exclusão. Depois que as especificações de arquivo são criadas, elas são associadas à política usando o cmdlet [Add-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/add-obfilespec?view=winserver2012-ps) .
+No exemplo a seguir, vamos fazer backup dos volumes C: e D: e excluir os binários do sistema operacional na pasta do Windows e em quaisquer pastas temporárias. Para isso, criaremos duas especificações de arquivo usando o cmdlet [New-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obfilespec?view=winserver2012-ps) - um para inclusão e outro para exclusão. Depois que as especificações de arquivo são criadas, elas são associadas à política usando o cmdlet [Add-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/add-obfilespec?view=winserver2012-ps) .
 
 ```powershell
 $Inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -405,7 +405,7 @@ PolicyState     : Valid
 
 ### <a name="applying-the-policy"></a>Aplicando a política
 
-Agora, o objeto de política está concluído e tem um agendamento de backup associado, política de retenção e uma lista de inclusão/exclusões de arquivos. Esta política agora pode ser confirmada para uso pelo Backup do Azure. Antes de aplicar a política recém-criada, verifique se não há nenhuma política de backup existente associada ao servidor usando o cmdlet [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) . Remover a política gerará uma solicitação de confirmação. Para ignorar a confirmação, use o sinalizador `-Confirm:$false` com o cmdlet.
+Agora, o objeto de política está concluído e tem um agendamento de backup associado, política de retenção e uma lista de inclusão/exclusões de arquivos. Esta política agora pode ser confirmada para uso pelo Backup do Azure. Antes de aplicar a diretiva recém-criada, certifique-se de que não existem políticas de backup existentes associadas ao servidor usando o cmdlet [Remove-OBPolicy.](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) Remover a política gerará uma solicitação de confirmação. Para pular a confirmação, use a `-Confirm:$false` bandeira com o cmdlet.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -415,7 +415,7 @@ Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-A confirmação do objeto de política é realizada usando o cmdlet [Set-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) . Isso também gerará uma solicitação de confirmação. Para ignorar a confirmação, use o sinalizador `-Confirm:$false` com o cmdlet.
+A confirmação do objeto de política é realizada usando o cmdlet [Set-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) . Isso também gerará uma solicitação de confirmação. Para pular a confirmação, use a `-Confirm:$false` bandeira com o cmdlet.
 
 ```powershell
 Set-OBPolicy -Policy $NewPolicy
@@ -516,9 +516,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-on-demand-backup"></a>Executando um backup sob demanda
+### <a name="performing-an-on-demand-backup"></a>Realizando um backup demanda
 
-Após a definição de uma política de backup, os backups ocorrerão de acordo com o agendamento. O disparo de um backup sob demanda também é possível usando o cmdlet [Start-OBBackup](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obbackup?view=winserver2012-ps) :
+Uma vez definida uma política de backup, os backups ocorrerão de acordo com o cronograma. Também é possível ativar um backup demanda usando o cmdlet [Start-OBBackup:](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obbackup?view=winserver2012-ps)
 
 ```powershell
 Get-OBPolicy | Start-OBBackup
@@ -537,9 +537,9 @@ Job completed.
 The backup operation completed successfully.
 ```
 
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Fazer backup do estado do sistema do Windows Server no agente do MABS
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Fazer backup do Estado do Sistema do Servidor Windows no agente MABS
 
-Esta seção aborda o comando do PowerShell para configurar o estado do sistema no agente do MABS
+Esta seção abrange o comando PowerShell para configurar o Estado do Sistema no agente MABS
 
 ### <a name="schedule"></a>Agenda
 
@@ -553,7 +553,7 @@ $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Fri
 $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
 ```
 
-### <a name="configuring-schedule-and-retention"></a>Configurando agendamento e retenção
+### <a name="configuring-schedule-and-retention"></a>Configuração de cronograma e retenção
 
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
@@ -571,7 +571,7 @@ Esta seção o orientará pelas etapas para automatizar a recuperação de dados
 
 1. Selecionar o volume de origem
 2. Escolher um ponto de backup para restaurar
-3. Especificar um item a ser restaurado
+3. Especifique um item para restaurar
 4. Disparar o processo de restauração
 
 ### <a name="picking-the-source-volume"></a>Selecionar o volume de fonte
@@ -595,7 +595,7 @@ ServerName : myserver.microsoft.com
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Escolhendo um ponto de backup do qual restaurar
 
-Você recupera uma lista de pontos de backup ao executar o cmdlet [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) com os parâmetros apropriados. Em nosso exemplo, escolheremos o ponto de backup mais recente para o volume de origem *C:* e o utilizaremos para recuperar um arquivo específico.
+Você recupera uma lista de pontos de backup ao executar o cmdlet [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) com os parâmetros apropriados. Em nosso exemplo, escolheremos o ponto de backup mais recente para o volume de origem *C:* e o usaremos para recuperar um arquivo específico.
 
 ```powershell
 $Rps = Get-OBRecoverableItem $Source[0]
@@ -629,9 +629,9 @@ ItemLastModifiedTime :
 
 O objeto `$Rps` é uma matriz de pontos de backup. O primeiro elemento é o ponto mais recente e o enésimo elemento é o ponto mais antigo. Para escolher o último ponto, usaremos `$Rps[0]`.
 
-### <a name="specifying-an-item-to-restore"></a>Especificando um item a ser restaurado
+### <a name="specifying-an-item-to-restore"></a>Especificando um item para restaurar
 
-Para restaurar um arquivo específico, especifique o nome do arquivo relativo ao volume raiz. Por exemplo, para recuperar C:\Test\Cat.job, execute o comando a seguir.
+Para restaurar um arquivo específico, especifique o nome do arquivo em relação ao volume raiz. Por exemplo, para recuperar C:\Test\Cat.job, execute o seguinte comando.
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE
@@ -654,7 +654,7 @@ ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 
 ### <a name="triggering-the-restore-process"></a>Disparando o processo de restauração
 
-Para disparar o processo de restauração, primeiro precisamos especificar as opções de recuperação. Isso pode ser feito usando o cmdlet [New-OBRecoveryOption](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obrecoveryoption?view=winserver2012-ps) . Para este exemplo, vamos supor que desejamos restaurar os arquivos para *C:\temp*. Vamos supor também que queremos ignorar os arquivos que já existem na pasta de destino *C:\temp*. Para criar essa opção de recuperação, use o seguinte comando:
+Para disparar o processo de restauração, primeiro precisamos especificar as opções de recuperação. Isso pode ser feito usando o cmdlet [New-OBRecoveryOption](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obrecoveryoption?view=winserver2012-ps) . Para este exemplo, vamos supor que queremos restaurar os arquivos em *C:\temp*. Vamos também assumir que queremos pular arquivos que já existem na pasta de destino *C:\temp*. Para criar essa opção de recuperação, use o seguinte comando:
 
 ```powershell
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -737,7 +737,7 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o backup do Azure para Windows Server/cliente:
+Para obter mais informações sobre o Backup do Azure para O Windows Server/Cliente:
 
 * [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 * [Fazer backup de servidores Windows](backup-windows-with-mars-agent.md)

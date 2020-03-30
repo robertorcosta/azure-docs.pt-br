@@ -1,15 +1,15 @@
 ---
-title: Limitação no Gerenciador de recursos de Cluster Service Fabric
+title: Estrangulamento no gerenciador de recursos do cluster Service Fabric
 description: Aprenda a configurar os limitadores fornecidos pelo Resource Manager de Cluster do Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b4d78b339bab02b5c44a31939e0da769dc21c3ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452169"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Restringindo o Gerenciador de Recursos de Cluster do Service Fabric
@@ -82,6 +82,6 @@ Essas informações são fornecidas para o caso em que você tenha clusters mais
 
 A configuração para essas restrições segue o mesmo padrão que a restrição baseada em porcentagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
-- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de malha de serviço](service-fabric-cluster-resource-manager-cluster-description.md)

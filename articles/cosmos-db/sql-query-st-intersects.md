@@ -1,5 +1,5 @@
 ---
-title: ST_INTERSECTS na linguagem de consulta Azure Cosmos DB
+title: ST_INTERSECTS no idioma de consulta do Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL ST_INTERSECTS no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303130"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
@@ -26,7 +26,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *spatial_expr*  
-   É uma expressão de objeto de ponto geojson, polígono ou LineString.  
+   É uma expressão de objeto GeoJSON Point, Polygon ou LineString.  
   
 ## <a name="return-types"></a>Tipos de retorno
   
@@ -53,10 +53,10 @@ WHERE ST_INTERSECTS(a.location, {
 
 ## <a name="remarks"></a>Comentários
 
-Essa função de sistema se beneficiará de um [índice geoespacial](index-policy.md#spatial-indexes).
+Esta função do sistema beneficiará de um [índice geoespacial.](index-policy.md#spatial-indexes)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções espaciais Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

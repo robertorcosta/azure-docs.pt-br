@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 43a31d588ff6616d7200d9773883ce5da570b100
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927353"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorar programaticamente um Azure Data Factory
@@ -151,6 +151,6 @@ Para ver um passo a passo completo da criação e monitoramento de um pipeline u
 
 Para ver uma documentação abrangente sobre os cmdlets do PowerShell, consulte [Referência de cmdlets do PowerShell do Data Factory](/powershell/module/az.datafactory).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Monitor pipelines usando o Azure Monitor](monitor-using-azure-monitor.md) para saber mais sobre como usar o Azure Monitor para monitorar os pipelines do Data Factory. 
 

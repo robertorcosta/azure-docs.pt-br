@@ -1,5 +1,5 @@
 ---
-title: Integrar o gerenciamento de API do Azure com o Aplicativo Azure insights
+title: Integre o gerenciamento de API do Azure com o Azure Application Insights
 titleSuffix: Azure API Management
 description: Saiba como registrar e exibir eventos do Gerenciamento de API do Azure no Azure Application Insights.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442723"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar o Gerenciamento de API do Azure ao Azure Application Insights
@@ -34,16 +34,16 @@ Para que você possa usar as informações do Azure Application Insights, primei
 
 1. Abra o **portal do Azure** e navegue até o **Application Insights**.  
     ![Criar Application Insights](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
-2. Clique em **+ Adicionar**.  
+2. Clique **+ Adicionar**.  
     ![Criar Application Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Preencha o formulário. Selecione **Geral** como o **Tipo de Aplicativo**.
 4. Clique em **Criar**.
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Criar uma conexão entre a instância de serviço do Azure Application Insights e o Gerenciamento de API do Azure
 
-1. Navegue até a **instância de serviço do Gerenciamento de API do Azure** no **portal do Azure**.
+1. Navegue até a instância de serviço de gerenciamento da API do **Azure** no **portal Azure**.
 2. Selecione **Application Insights** no menu à esquerda.
-3. Clique em **+ Adicionar**.  
+3. Clique **+ Adicionar**.  
     ![Agente do Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Selecione a instância do **Application Insights** já criada e forneça uma descrição resumida.
 5. Clique em **Criar**.
@@ -55,7 +55,7 @@ Para que você possa usar as informações do Azure Application Insights, primei
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitar o log do Application Insights para sua API
 
-1. Navegue até a **instância de serviço do Gerenciamento de API do Azure** no **portal do Azure**.
+1. Navegue até a instância de serviço de gerenciamento da API do **Azure** no **portal Azure**.
 2. Selecione **APIs** no menu à esquerda.
 3. Clique na API, nesse caso a **API de Conferência de Demonstração**.
 4. Acesse a guia **Configurações** na barra superior.
@@ -64,7 +64,7 @@ Para que você possa usar as informações do Azure Application Insights, primei
 6. Marque a caixa **Habilitar**.
 7. Selecione o agente anexado na lista suspensa **Destino**.
 8. Insira **100** como **Amostragem (%)** e marque a caixa de seleção **Sempre registrar erros**.
-9. Clique em **Save** (Salvar).
+9. Clique em **Salvar**.
 
 > [!WARNING]
 > Substituir o valor padrão **0** no campo **Primeiros bytes do corpo** pode diminuir significativamente o desempenho de suas APIs.
@@ -72,7 +72,7 @@ Para que você possa usar as informações do Azure Application Insights, primei
 > [!NOTE]
 > Nos bastidores, uma entidade [Diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) chamada 'applicationinsights' é criada no nível da API.
 
-| Nome da configuração                        | Tipo de valor                        | Description                                                                                                                                                                                                                                                                                                                                      |
+| Nome da configuração                        | Tipo de valor                        | Descrição                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Habilitar                              | booleano                           | Especifica se o log desta API está habilitado.                                                                                                                                                                                                                                                                                                |
 | Destino                         | Agente do Azure Application Insights | Especifica o agente do Azure Application Insights a ser usado                                                                                                                                                                                                                                                                                           |
@@ -80,7 +80,7 @@ Para que você possa usar as informações do Azure Application Insights, primei
 | Sempre registrar erros                   | booleano                           | Se essa configuração for selecionada, todas as falhas serão registradas no Azure Application Insights, independentemente da configuração de **Amostragem**.                                                                                                                                                                                                                  |
 | Opções básicas: cabeçalhos              | list                              | Especifica os cabeçalhos que serão registrados no Azure Application Insights para solicitações e respostas.  Padrão: nenhum cabeçalho é registrado.                                                                                                                                                                                                             |
 | Opções básicas: primeiros bytes do corpo  | inteiro                           | Especifica quantos primeiros bytes do corpo são registrados no Azure Application Insights para solicitações e respostas.  Padrão: o corpo não é registrado.                                                                                                                                                                                                    |
-| Opções avançadas: detalhes         |                                   | Especifica o nível de verbosidade. Somente rastreamentos personalizados com nível de severidade mais alto serão registrados. Padrão: informações.                                                                                                                                                                                                                               |
+| Opções avançadas: Verbosity         |                                   | Especifica o nível de verbosidade. Somente vestígios personalizados com maior nível de gravidade serão registrados. Padrão: Informações.                                                                                                                                                                                                                               |
 | Opções avançadas: solicitação de front-end  |                                   | Especifica se e como as *solicitações de front-end* serão registradas no Azure Application Insights. A *solicitação de front-end* é uma solicitação recebida no serviço de Gerenciamento de API do Azure.                                                                                                                                                                        |
 | Opções avançadas: resposta de front-end |                                   | Especifica se e como as *respostas de front-end* serão registradas no Azure Application Insights. A *resposta de front-end* é uma resposta de saída no serviço de Gerenciamento de API do Azure.                                                                                                                                                                   |
 | Opções avançadas: solicitação de back-end   |                                   | Especifica se e como as *solicitações de back-end* serão registradas no Azure Application Insights. A *solicitação de back-end* é uma solicitação de saída do serviço de Gerenciamento de API do Azure.                                                                                                                                                                        |
@@ -124,7 +124,7 @@ Ignorar o registro do cabeçalho e do corpo das solicitações e respostas tamb�
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 + Saiba mais sobre o [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
 + Considere o [registro com Hubs de Eventos do Azure](api-management-howto-log-event-hubs.md).

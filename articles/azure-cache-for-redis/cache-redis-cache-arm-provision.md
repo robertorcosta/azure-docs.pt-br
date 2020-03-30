@@ -1,16 +1,16 @@
 ---
-title: Implantar o cache do Azure para Redis com o Azure Resource Manager
-description: Saiba como usar um modelo de Azure Resource Manager para implantar um cache do Azure para o recurso Redis. Os modelos são fornecidos para cenários comuns.
+title: Implantar cache do Azure para Redis com o Gerenciador de Recursos do Azure
+description: Aprenda a usar um modelo do Azure Resource Manager para implantar um recurso Do Azure Cache for Redis. Modelos são fornecidos para cenários comuns.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75412400"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Criar um Cache Redis do Azure usando um modelo
@@ -28,9 +28,9 @@ Para obter o modelo completo, consulte [Modelo do Cache Redis do Azure](https://
 > [!NOTE]
 > Os modelos do Resource Manager para a nova [camada Premium](cache-premium-tier-intro.md) estão disponíveis. 
 > 
-> * [Criar um Cache Redis do Azure Premium com clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
+> * [Criar um Cache do Azure para Redis Premium com clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Criar um Cache Redis do Azure Premium com persistência de dados](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Criar um cache Redis Premium implantado em uma rede virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Criar cache Premium Redis implantado em uma rede virtual](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > Para verificar os modelos mais recentes, consulte [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e procure por `Azure Cache for Redis`.
 > 
@@ -123,5 +123,5 @@ Cria o Cache Redis do Azure.
 
     New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI do Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup

@@ -1,6 +1,6 @@
 ---
-title: Criar o armazenamento de tabelas do Azure para consultas | Microsoft Docs
-description: Projetar tabelas para consultas no armazenamento de tabelas do Azure.
+title: Design azure Table armazenamento para consultas | Microsoft Docs
+description: Projete tabelas para consultas no armazenamento da tabela Azure.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457633"
 ---
 # <a name="design-for-querying"></a>Design para consulta
@@ -35,12 +35,12 @@ Esta seção se concentra nos principais problemas que você deve abordar ao pro
 ## <a name="how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance"></a>Como sua escolha de PartitionKey e RowKey afeta o desempenho da consulta
 Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de funcionário com a seguinte estrutura (a maioria dos exemplos omite a propriedade **Timestamp** por motivos de clareza):  
 
-| *Nome da coluna* | *Data type* |
+| *Nome da coluna* | *Tipo de dados* |
 | --- | --- |
 | **PartitionKey** (nome de departamento) |String |
 | **RowKey** (Id do funcionário) |String |
-| **Nome** |String |
-| **Sobrenome** |String |
+| **Firstname** |String |
+| **LastName** |String |
 | **Idade** |Integer |
 | **EmailAddress** |String |
 
@@ -92,13 +92,13 @@ O serviço Tabela retorna entidades classificadas em ordem crescente com base em
 
 Muitos aplicativos têm requisitos para usar dados classificados em ordens diferentes: por exemplo, classificação de funcionários por nome ou por data de ingresso. Os seguintes padrões abordam como alternar as ordens de classificação para suas entidades:  
 
-* [Padrão de índice secundário intrapartição](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey (na mesma partição), para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores de RowKey diferentes.  
+* [Padrão de índice secundário intrapartição](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - armazene várias cópias de cada entidade usando valores diferentes de RowKey (na mesma partição) para permitir pesquisas rápidas e eficientes, bem como ordens de classificação alternativas usando valores de RowKey diferentes.  
 * [Padrão de índice secundário entre partições](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Armazene várias cópias de cada entidade usando valores diferentes de RowKey em partições e tabelas separadas, para permitir pesquisas rápidas e eficientes e ordens de classificação alternativas usando valores diferentes de RowKey.
 * [Padrão de rastro do log](table-storage-design-patterns.md#log-tail-pattern) - Recupere as entidades *n* adicionadas recentemente em uma partição, usando um valor **RowKey** que classifica em ordem de data e hora inversa.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- [Padrões de design de tabela](table-storage-design-patterns.md)
+- [Padrões de design de mesa](table-storage-design-patterns.md)
 - [Relações de modelagem](table-storage-design-modeling.md)
 - [Criptografar dados de tabela](table-storage-design-encrypt-data.md)
 - [Design para modificação de dados](table-storage-design-for-modification.md)

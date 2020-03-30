@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: 88500ecbc56b34551a0cbd3ca94727ba4bbcda9f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930655"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir Atividade Variável no Azure Data Factory
@@ -24,16 +24,16 @@ Use a atividade Definir Variável para definir o valor de uma variável existent
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | obrigatórios
+Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-Nome | Nome da atividade no pipeline | SIM
-Descrição | Texto descrevendo o que a atividade realiza | não
-type | Tipo de atividade é SetVariable | Sim
-value | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | Sim
-variableName | Nome da variável que será definida por essa atividade | Sim
+name | Nome da atividade no pipeline | Sim
+descrição | Texto descrevendo o que a atividade realiza | não
+type | Tipo de atividade é SetVariable | sim
+value | Literal de cadeia de caracteres ou valor do objeto de expressão usado para definir a variável especificada | sim
+variableName | Nome da variável que será definida por essa atividade | sim
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre uma atividade de fluxo de controle relacionada com suporte pelo Data Factory: 
 
 - [Acrescentar Atividade Variável](control-flow-append-variable-activity.md)

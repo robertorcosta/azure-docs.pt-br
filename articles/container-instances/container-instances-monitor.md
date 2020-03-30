@@ -1,23 +1,23 @@
 ---
-title: Monitorar instâncias de contêiner
+title: Monitorar instâncias de contêineres
 description: Como monitorar o consumo de recursos de computação, como CPU e memória, pelos contêineres nas Instâncias de Contêiner do Azure.
 ms.topic: article
 ms.date: 04/24/2019
 ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250026"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorar os recursos de contêiner em Instâncias de Contêiner do Azure
 
-O [Azure Monitor][azure-monitoring] fornece insights sobre os recursos de computação usados pelas instâncias de contêineres. Esses dados de uso de recursos ajudam você a determinar as melhores configurações de recurso para seus grupos de contêiner. O Azure Monitor também fornece métricas que rastreiam a atividade de rede em suas instâncias de contêiner.
+[O Azure Monitor][azure-monitoring] fornece informações sobre os recursos de computação usados pelas instâncias de seus contêineres. Esses dados de uso de recursos ajudam você a determinar as melhores configurações de recurso para seus grupos de contêiner. O Azure Monitor também fornece métricas que rastreiam a atividade de rede em suas instâncias de contêiner.
 
 Este documento detalha a coleta de métricas do Azure Monitor para instâncias de contêiner usando o portal do Azure e a CLI do Azure.
 
 > [!IMPORTANT]
-> No momento, as métricas do Azure Monitor em Instâncias de Contêiner do Azure estão em versão prévia e algumas [limitações se aplicam](#preview-limitations). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+> No momento, as métricas do Azure Monitor em Instâncias de Contêiner do Azure estão em versão prévia e algumas [limitações se aplicam](#preview-limitations). As visualizações são disponibilizadas para você com a condição de que você concorde com os [termos de uso suplementar][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 

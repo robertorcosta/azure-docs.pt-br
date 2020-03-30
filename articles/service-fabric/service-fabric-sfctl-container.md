@@ -1,15 +1,15 @@
 ---
-title: CLI do Azure Service Fabric-contêiner sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para contêineres.
+title: Azure Service Fabric CLI-sfctl container
+description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para contêineres.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 07861e2b67eea67740b341cbea994de978973664
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906124"
 ---
 # <a name="sfctl-container"></a>sfctl container
@@ -17,7 +17,7 @@ Execute comandos relacionados ao contêiner em um nó de cluster.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
 | invocar api | Invoca a API de contêiner em um contêiner implantado em um nó do Service Fabric para o pacote de código fornecido. |
 | logs | Obtém os logs de contêiner para um contêiner implantado em um nó do Service Fabric. |
@@ -27,7 +27,7 @@ Invoca a API de contêiner em um contêiner implantado em um nó do Service Fabr
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --id do aplicativo [requerido] | A identidade do aplicativo. <br><br> Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | -código de pacote-id-instância-[requerido] | ID que identifica exclusivamente uma instância de pacote de código implantada em um nó do Service Fabric. <br><br> Pode ser recuperada usando "service code-package-list". |
@@ -42,7 +42,7 @@ Invoca a API de contêiner em um contêiner implantado em um nó do Service Fabr
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -55,7 +55,7 @@ Obtém os logs de contêiner para um contêiner implantado em um nó do Service 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --id do aplicativo [requerido] | A identidade do aplicativo. <br><br> Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | -código de pacote-id-instância-[requerido] | ID de instância do pacote de código, que pode ser recuperada por 'serviço código--lista de pacotes'. |
@@ -67,7 +67,7 @@ Obtém os logs de contêiner para um contêiner implantado em um nó do Service 
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -76,6 +76,6 @@ Obtém os logs de contêiner para um contêiner implantado em um nó do Service 
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximos passos
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
+## <a name="next-steps"></a>Próximas etapas
+- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

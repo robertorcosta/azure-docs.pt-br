@@ -4,10 +4,10 @@ description: Use o Assistente para otimizar o desempenho das implantações do A
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443050"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure com o Assistente do Azure
@@ -22,12 +22,12 @@ O Azure Advisor identifica os perfis do Gerenciador de Tráfego com um TTL mais 
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Melhorar o desempenho do banco de dados com o Assistente do BD SQL
 
-O Advisor fornece uma exibição consistente e consolidada de recomendações para todos os seus recursos do Azure. Ele se integra ao Advisor do Banco de Dados SQL para fornecer recomendações de melhoria de desempenho para o banco de dados do SQL Azure. Assistente do Banco de Dados SQL avalia o desempenho de seus bancos de dados do SQL Azure analisando seu histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para execução da carga de trabalho típica do banco de dados.
+O Advisor fornece uma exibição consistente e consolidada de recomendações para todos os seus recursos do Azure. Ele se integra ao Advisor do Banco de Dados SQL para fornecer recomendações de melhoria de desempenho para o banco de dados do SQL Azure.O Advisor do Banco de Dados SQL avalia o desempenho dos bancos de dados do SQL Azure analisando o histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para execução da carga de trabalho típica do banco de dados.
 
 > [!NOTE]
 > Para obter recomendações, um banco de dados deve ter aproximadamente uma semana de uso e dentro dessa semana deve haver atividades consistentes. O Assistente do Banco de Dados SQL pode ser otimizado com mais facilidade para padrões de consulta consistentes do que para intermitências irregulares de atividade.
 
-Para obter mais informações sobre o Assistente do Banco de Dados SQL, consulte [Assistente do Banco de Dados SQL](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+Para obter mais informações sobre o SQL Database Advisor, consulte [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Melhorar o desempenho e a confiabilidade do Serviço de Aplicativo
 
@@ -68,42 +68,42 @@ O Assistente identifica tabelas que não são replicadas, mas que se beneficiari
 Migre seu modelo de implantação da Conta de Armazenamento para o Azure Resource Manager (Resource Manager) e usufrua das implantações de modelo, de mais opções de segurança e da capacidade de atualizar para uma conta GPv2 a fim de poder usar os recursos mais recentes do Armazenamento do Azure. O Assistente identificará quaisquer contas de armazenamento autônomo que estão usando o modelo de implantação clássico e recomenda a migração para o modelo de implantação do Resource Manager.
 
 > [!NOTE]
-> Os alertas clássicos no Azure Monitor foram desativados em agosto de 2019. Recomendamos que você atualize sua conta de armazenamento clássica para usar o Resource Manager e manter a funcionalidade de alerta com a nova plataforma. Para saber mais, confira [Desativação dos alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
+> Alertas clássicos no Azure Monitor foram retirados em agosto de 2019. Recomendamos que você atualize sua conta de armazenamento clássica para usar o Resource Manager e manter a funcionalidade de alerta com a nova plataforma. Para saber mais, confira [Desativação dos alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
 
-## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Projete suas contas de armazenamento para evitar atingir o limite máximo de assinaturas
+## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Projete suas contas de armazenamento para evitar atingir o limite máximo de assinatura
 
-Uma região do Azure pode dar suporte a um máximo de 250 contas de armazenamento por assinatura. Depois que o limite for atingido, você não poderá criar mais contas de armazenamento nessa combinação de região/assinatura. O Advisor verificará suas assinaturas e recomendações de superfície para você projetar para menos contas de armazenamento para qualquer um que esteja próximo de atingir o limite máximo.
+Uma região do Azure pode suportar um máximo de 250 contas de armazenamento por assinatura. Uma vez que o limite seja atingido, você não poderá criar mais contas de armazenamento nessa combinação região/assinatura. O Advisor verificará suas assinaturas e recomendações de superfície para que você projete para menos contas de armazenamento para qualquer uma que esteja perto de atingir o limite máximo.
 
-## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Otimizar o desempenho do Azure MySQL, Azure PostgreSQL e servidores MariaDB do Azure 
+## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Otimize o desempenho dos servidores Azure MySQL, Azure PostgreSQL e Azure MariaDB 
 
-### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Corrija a pressão da CPU de seus servidores Azure MySQL, PostgreSQL do Azure e MariaDB do Azure com afunilamentos de CPU
-A utilização muito alta da CPU por um período estendido pode causar um desempenho de consulta lento para sua carga de trabalho. Aumentar o tamanho da CPU ajudará a otimizar o tempo de execução das consultas de banco de dados e melhorar o desempenho geral. O assistente do Azure identificará os servidores com uma alta utilização da CPU que provavelmente está executando cargas de trabalho restritas de CPU e recomendará dimensionar sua computação.
+### <a name="fix-the-cpu-pressure-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-with-cpu-bottlenecks"></a>Corrija a pressão da CPU dos servidores Azure MySQL, Azure PostgreSQL e Azure MariaDB com gargalos de CPU
+A utilização muito alta da CPU durante um período prolongado pode causar um desempenho lento de consulta para sua carga de trabalho. Aumentar o tamanho da CPU ajudará a otimizar o tempo de execução das consultas do banco de dados e melhorar o desempenho geral. O Azure Advisor identificará servidores com uma alta utilização de CPU que provavelmente estão executando cargas de trabalho restritas da CPU e recomendará o dimensionamento do seu cálculo.
 
-### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Reduzir as restrições de memória em seus servidores Azure MySQL, PostgreSQL do Azure e MariaDB do Azure ou mover para um SKU otimizado para memória
-Uma taxa de acertos de cache baixa pode resultar em um desempenho de consulta mais lento e maior IOPS. Isso pode ser devido a um plano de consulta inadequado ou à execução de uma carga de trabalho com uso intensivo de memória. Corrigir o plano de consulta ou [aumentar a memória](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) do servidor de banco de dados do Azure para PostgreSQL, servidor de banco de dados MySQL do Azure ou Azure MariaDB Server ajudará a otimizar a execução da carga de trabalho do banco de dados. O Azure Advisor identifica os servidores afetados devido a essa alta variação do pool de buffers e recomenda a correção do plano de consulta, a mudança para um SKU superior com mais memória ou o aumento do tamanho do armazenamento para obter mais IOPS.
+### <a name="reduce-memory-constraints-on-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Reduza as restrições de memória em seus servidores Azure MySQL, Azure PostgreSQL e Azure MariaDB ou mude para um SKU otimizado para memória
+Uma taxa de acerto de cache baixa pode resultar em um desempenho de consulta mais lento e aumento do IOPS. Isso pode ser devido a um plano de consulta ruim ou a execução de uma carga de trabalho intensiva de memória. Corrigir o plano de consulta ou [aumentar a memória](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) do banco de dados Azure para servidor de banco de dados PostgreSQL, servidor de banco de dados Azure MySQL ou servidor Azure MariaDB ajudará a otimizar a execução da carga de trabalho do banco de dados. O Azure Advisor identifica servidores afetados devido a esse alto churn de pool de buffer e recomenda a fixação do plano de consulta, a mudança para um SKU mais alto com mais memória ou o aumento do tamanho do armazenamento para obter mais IOPS.
 
-### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Use uma réplica de leitura do Azure MySQL ou Azure PostgreSQL para expandir leituras para cargas de trabalho com uso intensivo de leitura
-O Azure Advisor aproveita a heurística baseada em carga de trabalho, como a taxa de leituras para gravações no servidor nos últimos sete dias para identificar cargas de trabalho com uso intensivo de leitura. O recurso de banco de dados do Azure para PostgreSQL ou de banco de dados do Azure para MySQL com uma taxa de leitura/gravação muito alta pode resultar em contenções de CPU e/ou memória que levam ao desempenho de consulta lento. Adicionar uma [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ajudará a expandir as leituras para o servidor de réplica, impedindo restrições de CPU e/ou memória no servidor primário. O Advisor identificará os servidores com cargas de trabalho com alto volume de leitura e recomendará adicionar uma [réplica de leitura](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) para descarregar algumas das cargas de trabalho de leitura.
+### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Use uma réplica de leitura do Azure MySQL ou do Azure PostgreSQL para dimensionar leituras para leitura de cargas de trabalho intensivas
+O Azure Advisor aproveita a heurística baseada em carga de trabalho, como a proporção de leituras para gravações no servidor nos últimos sete dias para identificar cargas de trabalho com uso intensivo de leitura. O banco de dados Do Zure para recursos PostgreSQL ou banco de dados Azure para recursos MySQL com uma relação de leitura/gravações muito alta pode resultar em disputas de CPU e/ou memória, levando a um desempenho lento de consulta. A [adição](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) de uma réplica ajudará a dimensionar leituras para o servidor de réplicas, impedindo restrições de CPU e/ou memória no servidor principal. O Advisor identificará servidores com cargas de trabalho tão altas e intensivas em leitura e recomendará adicionar uma [réplica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) de leitura para descarregar algumas das cargas de trabalho lidas.
 
 
-### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Dimensione seu Azure MySQL, Azure PostgreSQL ou Azure MariaDB Server para uma SKU superior para evitar restrições de conexão
-Cada nova conexão com o servidor de banco de dados ocupa alguma memória. O desempenho do servidor de banco de dados degrada se as conexões com o servidor estão falhando devido a um [limite superior](https://docs.microsoft.com/azure/postgresql/concepts-limits) na memória. O assistente do Azure identificará os servidores em execução com muitas falhas de conexão e recomendará atualizar os limites de conexões do servidor para fornecer mais memória ao servidor, expandindo a computação ou usando SKUs com otimização de memória, que têm mais computação por núcleo.
+### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Dimensione seu servidor Azure MySQL, Azure PostgreSQL ou Azure MariaDB para um SKU mais alto para evitar restrições de conexão
+Cada nova conexão com seu servidor de banco de dados ocupa alguma memória. O desempenho do servidor de banco de dados se degrada se as conexões ao servidor estiverem falhando devido a um [limite superior](https://docs.microsoft.com/azure/postgresql/concepts-limits) na memória. O Azure Advisor identificará servidores em execução com muitas falhas de conexão e recomendará atualizar os limites de conexões do servidor para fornecer mais memória ao seu servidor, aumentando a computação ou usando SKUs otimizados de memória, que têm mais computação por núcleo.
 
-## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Dimensione seu cache para um tamanho ou SKU diferente para melhorar o desempenho do aplicativo e do cache
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Dimensione seu cache para um tamanho ou SKU diferente para melhorar o cache e o desempenho do aplicativo
 
-As instâncias de cache têm melhor desempenho quando não estão sendo executadas sob alta pressão de memória, alta carga de servidor ou alta largura de banda de rede, o que pode fazer com que elas não respondam, experimentem a perda de dados ou fiquem indisponíveis. O Advisor identificará as instâncias de cache nessas condições e recomendará aplicar as práticas recomendadas para reduzir a pressão de memória, a carga do servidor ou a largura de banda da rede ou o dimensionamento para um tamanho ou SKU diferente com mais capacidade.
+As instâncias de cache funcionam melhor quando não são realizadas sob alta pressão de memória, alta carga do servidor ou alta largura de banda de rede, o que pode fazer com que elas não respondam, experimentem perda de dados ou se tornem indisponíveis. O Advisor identificará instâncias de cache nessas condições e recomendará a aplicação de práticas recomendadas para reduzir a pressão de memória, a carga do servidor ou a largura de banda da rede ou o dimensionamento para um tamanho diferente ou SKU com mais capacidade.
 
-## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Adicionar regiões com tráfego à sua conta de Azure Cosmos DB
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Adicione regiões com tráfego à sua conta Azure Cosmos DB
 
-O Advisor detectará Azure Cosmos DB contas que têm tráfego de uma região que não está configurada no momento e recomendamos a adição dessa região. Isso melhorará a latência de solicitações provenientes dessa região e garantirá a disponibilidade em caso de interrupções de região. [Saiba mais sobre a distribuição de dados globais com o Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+O Advisor detectará contas do Azure Cosmos DB que tenham tráfego de uma região que não está configurada no momento e recomendará adicionar essa região. Isso melhorará a latência para solicitações provenientes daquela região e garantirá a disponibilidade em caso de paralisação da região. [Saiba mais sobre a distribuição global de dados com o Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
 
-## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Configurar a política de indexação de Azure Cosmos DB com os caminhos incluídos ou excluídos do cliente
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Configure sua política de indexação Azure Cosmos DB com caminhos incluídos ou excluídos pelo cliente
 
-O assistente do Azure identificará Cosmos DB contêineres que estão usando a política de indexação padrão, mas pode se beneficiar de uma política de indexação personalizada com base no padrão de carga de trabalho. A política de indexação padrão indexa todas as propriedades, mas usar uma política de indexação personalizada com caminhos explícitos incluídos ou excluídos usados em filtros de consulta pode reduzir o RUs e o armazenamento consumidos para indexação. [Saiba mais sobre como modificar políticas de índice](https://aka.ms/cosmosdb/modify-index-policy)
+O Azure Advisor identificará os contêineres Cosmos DB que estão usando a política de indexação padrão, mas podem se beneficiar de uma política de indexação personalizada com base no padrão de carga de trabalho. A política de indexação padrão indexa todas as propriedades, mas usar uma política de indexação personalizada com caminhos explícitos incluídos ou excluídos usados em filtros de consulta pode reduzir as RUs e o armazenamento consumidos para indexação. [Saiba mais sobre como modificar políticas de índice](https://aka.ms/cosmosdb/modify-index-policy)
 
 ## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configurar o tamanho da página de consulta do Azure Cosmos DB (MaxItemCount) como -1 
 
-O assistente do Azure identificará Azure Cosmos DB contêineres que estão usando o tamanho da página de consulta de 100 e recomendamos usar um tamanho de página de-1 para verificações mais rápidas. [Saiba mais sobre a contagem máxima de itens](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+O Azure Advisor identificará os contêineres Azure Cosmos DB que estão usando o tamanho da página de consulta de 100 e recomendará o uso de um tamanho de página de -1 para varreduras mais rápidas. [Saiba mais sobre a Contagem de Itens Max](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 
@@ -111,7 +111,7 @@ O assistente do Azure identificará Azure Cosmos DB contêineres que estão usan
 
 2.  No painel do Assistente, clique na guia **Desempenho**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre as recomendações do Assistente, consulte:
 
@@ -120,4 +120,4 @@ Para saber mais sobre as recomendações do Assistente, consulte:
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
-* [Recomendações de excelência operacional do Advisor](advisor-operational-excellence-recommendations.md)
+* [Recomendações de Excelência Operacional do Orientador](advisor-operational-excellence-recommendations.md)

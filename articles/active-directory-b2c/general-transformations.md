@@ -1,7 +1,7 @@
 ---
-title: Exemplos de transformação de declarações gerais para políticas personalizadas
+title: Exemplos gerais de transformação de sinistros para políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Exemplos gerais de transformação de declarações para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+description: Exemplos gerais de transformação de sinistros para o esquema IEF (Identity Experience Framework, estrutura de experiência de identidade) do Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,28 +12,28 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188538"
 ---
 # <a name="general-claims-transformations"></a>Transformações de declarações gerais
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações gerais do esquema de estrutura de experiência de identidade em Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para o uso de transformações gerais de reivindicações do esquema Identity Experience Framework no Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="copyclaim"></a>CopyClaim
 
-Copiar o valor de uma declaração para outra. Ambas as declarações devem ser do mesmo tipo.
+Copiar o valor de uma reivindicação para outra. Ambas as reivindicações devem ser do mesmo tipo.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | Cadeia de caracteres, int | O tipo de declaração que deve ser copiada. |
-| OutputClaim | outputClaim | Cadeia de caracteres, int | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| InputClaim | InputClaim | string, int | O tipo de reclamação que deve ser copiado. |
+| OutputClaim | outputClaim | string, int | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
-Use essa transformação de declarações para copiar um valor de uma declaração de cadeia de caracteres ou numérica para outra declaração. O exemplo a seguir copia o valor de declaração externalEmail para a declaração de email.
+Use essa transformação de sinistros para copiar um valor de uma reclamação de seqüência ou numérica, para outra reivindicação. O exemplo a seguir copia o valor de reivindicação de e-mail externo para reclamação por e-mail.
 
 ```XML
 <ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
@@ -49,9 +49,9 @@ Use essa transformação de declarações para copiar um valor de uma declaraç�
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**: bob@contoso.com
+    - **inputClaim**:bob@contoso.com
 - Declarações de saída:
-    - **outputClaim**: bob@contoso.com
+    - **saídaReclamação:**bob@contoso.com
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
@@ -78,7 +78,7 @@ Use essa transformação de declarações para verificar se uma declaração exi
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim**: someone@contoso.com
+  - **inputClaim**:someone@contoso.com
 - Declarações de saída:
   - **outputClaim**: true
 
@@ -90,7 +90,7 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | texto não criptografado | string | A declaração de entrada a ser criptografada |
 | InputClaim | sal | string | O parâmetro sal. Você pode criar um valor aleatório, usando a transformação de declarações `CreateRandomString`. |
-| InputParameter | randomizerSecret | string | Aponta para uma chave de **política**de Azure ad B2C existente. Para criar uma nova chave de política: em seu locatário do Azure AD B2C, em **gerenciar**, selecione **estrutura de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis em seu locatário. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **segredo** , insira qualquer segredo que você queira usar, como 1234567890. Para **Uso de chave**, selecione **Assinatura**. Selecione **Criar**. |
+| InputParameter | randomizerSecret | string | Aponta para uma chave de **política**Azure AD B2C existente . Para criar uma nova chave de política: No inquilino Azure AD B2C, em **Manage**, selecione **Identity Experience Framework**. Selecione **as teclas de** diretiva para visualizar as chaves disponíveis no seu inquilino. Selecione **Adicionar**. Em **Opções** selecione **Manual**. Forneça um nome (o prefixo *B2C_1A_* pode ser adicionado automaticamente.). Na caixa de texto **Segredo,** digite qualquer segredo que você queira usar, como 1234567890. Para **Uso de chave**, selecione **Assinatura**. Selecione **Criar**. |
 | OutputClaim | hash | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. A declaração configurada na inputClaim `plaintext`. |
 
 ```XML
@@ -111,7 +111,7 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **texto não criptografado**: MyPass@word1
+  - **texto simples:**MyPass@word1
   - **sal**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Declarações de saída:

@@ -1,6 +1,6 @@
 ---
 title: Verificar as Configurações do Gerenciador de Tráfego do Azure
-description: Neste artigo, saiba como verificar as configurações do Traffic Manager e testar o método de roteamento de tráfego.
+description: Neste artigo, saiba como verificar as configurações do Gerenciador de Tráfego e testar o método de roteamento de tráfego.
 services: traffic-manager
 author: rohinkoul
 ms.service: traffic-manager
@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 94ab5e550f0053fa19b9b93f1d67690211543325
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938391"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificar as configurações do Gerenciador de Tráfego
@@ -66,7 +66,7 @@ Para testar efetivamente um método de roteamento de tráfego de desempenho, voc
 
 Como alternativa, há serviços gratuitos e disponíveis de dig e pesquisa de DNS baseados na Web. Algumas dessas ferramentas possibilitam que você verifique a resolução de nome DNS a partir de vários locais no mundo. Pesquise "Pesquisa de DNS" para obter exemplos. Serviços de terceiros, como Gomez ou Keynote, podem ser usados para confirmar que os perfis estão distribuindo o tráfego conforme o esperado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 * [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)

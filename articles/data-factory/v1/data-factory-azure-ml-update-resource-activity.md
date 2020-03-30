@@ -1,6 +1,6 @@
 ---
-title: Atualizar modelos de Machine Learning usando Azure Data Factory
-description: Descreve como criar pipelines preditivas usando Azure Data Factory e Azure Machine Learning
+title: Atualizar modelos de machine learning usando a fábrica de dados do Azure
+description: Descreve como criar pipelines preditivos usando a Fábrica de Dados Azure e o Azure Machine Learning
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,37 +12,37 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978706"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Atualizando os modelos do Machine Learning do Azure usando a Atividade de Recurso de Atualização
 
-> [!div class="op_single_selector" title1="Atividades de transformação"]
-> * [Atividade de Hive](data-factory-hive-activity.md) 
+> [!div class="op_single_selector" title1="Atividades de Transformação"]
+> * [Atividade colmeia](data-factory-hive-activity.md) 
 > * [Atividade Pig](data-factory-pig-activity.md)
-> * [Atividade MapReduce](data-factory-map-reduce.md)
-> * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Mapearreduzir a atividade](data-factory-map-reduce.md)
+> * [Atividade de streaming hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade do Spark](data-factory-spark.md)
-> * [Atividade de Execução em Lote do Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de execução em lote de aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md)
 > * [Atividade do Recurso de Atualização do Machine Learning](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
+> * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [atualizar modelos de aprendizado de máquina no Data Factory](../update-machine-learning-models.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [atualizar modelos de aprendizado de máquina no Data Factory](../update-machine-learning-models.md).
 
 Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Depois de concluir o novo treinamento, você deseja atualizar o serviço Web de pontuação com o modelo do AM treinado novamente. As etapas típicas para habilitar novos treinamentos e a atualização de modelos do AM do Azure por meio de serviços Web são:
 
 1. Crie um experimento no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
-2. Quando estiver satisfeito com o modelo, use Azure Machine Learning Studio (clássico) para publicar serviços Web para o teste de **treinamento** e a pontuação/**teste de previsão**.
+2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para o **experimento de treinamento** quanto para o experimento de pontuação/preditivo .**predictive experiment**
 
 A tabela a seguir descreve os serviços Web usados neste exemplo.  Confira [Readaptar os modelos do Machine Learning de forma programática](../../machine-learning/machine-learning-retrain-models-programmatically.md) para obter detalhes.
 
@@ -58,7 +58,7 @@ Você pode invocar o **training web service** usando o **Atividade de Execução
 Você pode invocar o **scoring web service** usando o **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado. Os exemplos a seguir fornecem as definições de serviço vinculado: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Serviço web de pontuação é um serviço web clássico
-Se o serviço Web de pontuação é um **serviço Web clássico**, crie o segundo **ponto de extremidade não padrão e atualizável** usando o Portal do Azure. Confira o artigo [Criar pontos de extremidade](../../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, execute as seguintes etapas:
+Se o serviço web de pontuação for um **serviço web clássico,** crie o segundo **ponto final não padrão e updatable** usando o portal Azure. Confira o artigo [Criar pontos de extremidade](../../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, execute as seguintes etapas:
 
 * Clique em **EXECUÇÃO EM LOTE** para obter o valor do URI para a propriedade JSON **mlEndpoint**.
 * Clique no link **ATUALIZAR RECURSO** para obter o valor do URI para a propriedade JSON **updateResourceEndpoint**. A chave de API está na própria página do ponto de extremidade (no canto inferior direito).
@@ -88,7 +88,7 @@ Se o serviço web é o novo tipo de serviço da web que expõe um ponto de extre
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). O novo tipo de ponto de extremidade de recursos de atualização requer um token do AAD (Azure Active Directory). Especifique **servicePrincipalName** e **servicePrincipalKey** no serviço vinculado Azure Machine Learning. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Aqui está um exemplo de definição de serviço AzureML vinculado: 
+Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). O novo tipo de ponto de extremidade de recursos de atualização requer um token do AAD (Azure Active Directory). Especifique **o serviçoPrincipalId** e **o serviçoPrincipalKey** key no serviço vinculado ao Azure Machine Learning. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../../active-directory/develop/howto-create-service-principal-portal.md). Aqui está um exemplo de definição de serviço AzureML vinculado: 
 
 ```json
 {
@@ -138,7 +138,7 @@ Veja a definição JSON de exemplo do serviço vinculado:
 ```
 
 ### <a name="training-input-dataset"></a>Conjunto de dados de entrada do treinamento:
-O DataSet a seguir representa os dados de treinamento de entrada para o serviço Web de treinamento Azure Machine Learning. A atividade de execução de Azure Machine Learning lote usa esse conjunto de dados como uma entrada.
+O conjunto de dados a seguir representa os dados de treinamento de entrada para o serviço web de treinamento de aprendizado de máquina do Azure. A atividade azure Machine Learning Batch Execution toma esse conjunto de dados como uma entrada.
 
 ```JSON
 {
@@ -192,7 +192,7 @@ O conjunto de dados a seguir representa o arquivo do iLearner de saída do servi
 }
 ```
 
-### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Serviço vinculado para Azure Machine Learning ponto de extremidade de treinamento
+### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Serviço vinculado para o ponto final de treinamento de aprendizado de máquina do Azure
 O snippet JSON a seguir define um serviço vinculado de Azure Machine Learning que aponta para o ponto de extremidade padrão do serviço Web de treinamento.
 
 ```JSON
@@ -208,12 +208,12 @@ O snippet JSON a seguir define um serviço vinculado de Azure Machine Learning q
 }
 ```
 
-Em **Azure Machine Learning Studio (clássico)** , faça o seguinte para obter valores para **mlEndpoint** e **apiKey**:
+No **Azure Machine Learning Studio (clássico)**, faça o seguinte para obter valores para **mlEndpoint** e **apiKey**:
 
 1. Clique em **SERVIÇOS WEB** no menu à esquerda.
 2. Clique no **serviço Web de treinamento** na lista de serviços Web.
 3. Clique em Copiar ao lado da caixa de texto **Chave de API** . Cole a chave na área de transferência e no editor JSON do Data Factory.
-4. No **Azure Machine Learning Studio (clássico)** , clique no link **execução em lote** .
+4. No **Azure Machine Learning Studio (clássico),** clique no link **EXECUÇÃO EM LOTE.**
 5. Copie o **URI da Solicitação** da seção **Solicitação** e cole-o no editor de JSON do Data Factory.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Serviço Vinculado para o ponto de extremidade de pontuação atualizável do AM do Azure:

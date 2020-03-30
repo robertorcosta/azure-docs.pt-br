@@ -1,15 +1,15 @@
 ---
-title: Conectar-se e comunicar-se com serviços no Azure Service Fabric
+title: Conecte-se e comunique-se com os serviços no Azure Service Fabric
 description: Saiba como resolver, conectar-se e comunicar-se com serviços no Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458233"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Conectar e se comunicar com serviços no Service Fabric
@@ -23,7 +23,7 @@ O Service Fabric ajuda a gerenciar o ciclo de vida dos seus serviços, mas ele n
 ![pontos de extremidade de serviço][1]
 
 ## <a name="service-discovery-and-resolution"></a>Resolução e descoberta de serviço
-Em um sistema distribuído, os serviços podem passar de um computador para outro ao com o passar do tempo. Isso pode ocorrer por vários motivos, incluindo balanceamento de recursos, atualizações, failovers ou expansão. Isso significa que os endereços de ponto de extremidade de serviço são alterados conforme o serviço é movido para nós com endereços IP diferentes e podem ser abertos em portas diferentes se o serviço usar uma porta selecionada dinamicamente.
+Em um sistema distribuído, os serviços podem passar de um computador para outro ao com o passar do tempo. Isso pode acontecer por várias razões, incluindo balanceamento de recursos, upgrades, failovers ou scale-out. Isso significa que os endereços de ponto final de serviço mudam à medida que o serviço se move para nós com diferentes endereços IP e podem ser abertos em diferentes portas se o serviço usar uma porta selecionada dinamicamente.
 
 ![Distribuição de serviços][7]
 
@@ -169,7 +169,7 @@ A estrutura do Reliable Services vem com várias opções de comunicação prede
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Usando protocolos personalizados e outras estruturas de comunicação
 Os serviços poderão usar qualquer protocolo ou estrutura para comunicação, independentemente de esse ser um protocolo binário personalizado via soquetes TCP ou eventos de streaming por meio de [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) ou [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/). O Service Fabric fornece APIs de comunicação aos quais você pode conectar sua pilha de comunicação, enquanto todo o trabalho de descoberta e conexão é omitido. Consulte este artigo sobre o [modelo de comunicação de serviço confiável](service-fabric-reliable-services-communication.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os conceitos e as APIs disponíveis no [modelo de comunicação dos Reliable Services](service-fabric-reliable-services-communication.md) e começar rapidamente com a [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md) ou aprofunde-se para aprender a escrever um ouvinte de comunicação usando [API da Web com auto-hospedagem de OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png

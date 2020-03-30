@@ -1,6 +1,6 @@
 ---
-title: Entrega segura de webhook com o Azure AD na grade de eventos do Azure
-description: Descreve como entregar eventos a pontos de extremidade HTTPS protegidos por Azure Active Directory usando a grade de eventos do Azure
+title: Entrega segura do WebHook com a Azure AD na grade de eventos do Azure
+description: Descreve como entregar eventos em endpoints HTTPS protegidos pelo Azure Active Directory usando o Azure Event Grid
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
 ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931549"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para Azure Active Directory pontos de extremidade protegidos
+# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para os pontos finais protegidos do Azure Active Directory
 
-Este artigo descreve como aproveitar Azure Active Directory para proteger a conexão entre sua assinatura de evento e seu ponto de extremidade do webhook. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, consulte [visão geral da plataforma Microsoft Identity (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Este artigo descreve como aproveitar o Azure Active Directory para garantir a conexão entre sua Assinatura de Evento e seu ponto final do webhook. Para obter uma visão geral dos aplicativos ad e dos princípios de serviços do Azure, consulte [a visão geral da plataforma de identidade da Microsoft (v2.0).](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
-Este artigo usa a portal do Azure para demonstração, no entanto, o recurso também pode ser habilitado usando a CLI, o PowerShell ou os SDKs.
+Este artigo usa o portal Azure para demonstração, no entanto, o recurso também pode ser habilitado usando CLI, PowerShell ou SDKs.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="create-an-azure-ad-application"></a>Criar um aplicativo do Azure AD
+## <a name="create-an-azure-ad-application"></a>Criar um aplicativo AD do Azure
 
-Comece criando um aplicativo do Azure AD para seu ponto de extremidade protegido. Confira https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+Comece criando um aplicativo Azure AD para o seu ponto final protegido. Consulte https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure sua API protegida para ser chamada por um aplicativo daemon.
     
-## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Habilitar a grade de eventos para usar seu aplicativo do Azure AD
+## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Habilite a grade de eventos para usar seu aplicativo Azure AD
 
-Use o script do PowerShell abaixo para criar uma função e uma entidade de serviço em seu aplicativo do Azure AD. Você precisará da ID do locatário e da ID de objeto do seu aplicativo do Azure AD:
+Use o script PowerShell abaixo para criar um princípio de função e serviço em seu aplicativo Azure AD. Você precisará do ID do inquilino e do ID do objeto do aplicativo Azure AD:
 
     > [!NOTE]
     > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
     
-1. Modifique o $myTenantId do script do PowerShell para usar sua ID de locatário do Azure AD.
-1. Modificar o $myAzureADApplicationObjectId do script do PowerShell para usar a ID de objeto do seu aplicativo do Azure AD
+1. Modifique o $myTenantId do script PowerShell para usar o ID do inquilino azure AD.
+1. Modifique o $myAzureADApplicationObjectId do script PowerShell de usar o ID do objeto do seu aplicativo Azure AD
 1. Execute o script modificado.
 
 ```PowerShell
@@ -110,20 +110,20 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
     
-## <a name="configure-the-event-subscription"></a>Configurar a assinatura de evento
+## <a name="configure-the-event-subscription"></a>Configure a assinatura do evento
 
-No fluxo de criação para sua assinatura de evento, selecione tipo de ponto de extremidade ' gancho da Web '. Depois de receber o URI do ponto de extremidade, clique na guia recursos adicionais na parte superior da folha criar assinaturas de evento.
+No fluxo de criação da assinatura do evento, selecione o tipo de ponto final 'Web Hook'. Depois de dar seu URI de ponto final, clique na guia de recursos adicionais na parte superior da lâmina de assinaturas de eventos criar.
 
-![Selecione o tipo de ponto de extremidade webhook](./media/secure-webhook-delivery/select-webhook.png)
+![Selecione webhook tipo ponto final](./media/secure-webhook-delivery/select-webhook.png)
 
-Na guia recursos adicionais, marque a caixa "usar autenticação do AAD" e configure a ID do locatário e a ID do aplicativo:
+Na guia recursos adicionais, marque a caixa para 'Usar autenticação AAD' e configure o ID do inquilino e o ID do aplicativo:
 
-* Copie a ID de locatário do Azure AD da saída do script e insira-a no campo ID de locatário do AAD.
-* Copie a ID do aplicativo do Azure AD da saída do script e insira-a no campo ID do aplicativo do AAD.
+* Copie o ID do inquilino Azure AD da saída do script e digite-o no campo ID do inquilino AAD.
+* Copie o ID do aplicativo Azure AD da saída do script e digite-o no campo ID da aplicação AAD.
 
-    ![Ação proteger webhook](./media/secure-webhook-delivery/aad-configuration.png)
+    ![Ação secure Webhook](./media/secure-webhook-delivery/aad-configuration.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre o monitoramento de entregas de evento, consulte [Entrega de mensagens da Grade de Eventos do Monitor](monitor-event-delivery.md).
 * Para saber mais sobre a chave de autenticação, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).

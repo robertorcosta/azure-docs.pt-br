@@ -1,57 +1,57 @@
 ---
-title: CLI do Azure Service Fabric-eventos sfctl
-description: Descreve os comandos Service Fabric CLI sfctl Events.
+title: Azure Service Fabric CLI- eventos sfctl
+description: Descreve os comandos de eventos CLI sfctl do fabric de serviço.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 635bddef1a98d6ed2b112662d8c9c44fe65e9e32
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906096"
 ---
-# <a name="sfctl-events"></a>eventos de sfctl
-Recupere eventos do repositório de eventos (se o serviço EventStore já estiver instalado).
+# <a name="sfctl-events"></a>eventos sfctl
+Recupere eventos da loja de eventos (se o serviço EventStore já estiver instalado).
 
-O serviço do sistema EventStore pode ser adicionado por meio de uma atualização de configuração para qualquer cluster SFRP que esteja executando > = 6.4. Verifique a URL a seguir\: https\://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-eventstore.
+O serviço do sistema EventStore pode ser adicionado através de uma atualização de configuração para qualquer cluster SFRP em execução >=6.4. Por favor,\: verifique\:a url a seguir https //docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-eventstore.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
-| todos os aplicativos – lista | Obtém todos os eventos relacionados a aplicativos. |
-| todos os nós-lista | Obtém todos os eventos relacionados a nós. |
-| todas as partições-lista | Obtém todos os eventos relacionados a partições. |
-| todos os serviços-lista | Obtém todos os eventos relacionados a serviços. |
-| lista de aplicativos | Obtém eventos relacionados ao aplicativo. |
-| lista de clusters | Obtém todos os eventos relacionados ao cluster. |
-| lista de nós | Obtém eventos relacionados a nós. |
-| partição-todas as réplicas-lista | Obtém todos os eventos relacionados a réplicas para uma partição. |
-| lista de partições | Obtém eventos relacionados à partição. |
-| partição-réplica-List | Obtém eventos relacionados à réplica de partição. |
-| lista de serviços | Obtém eventos relacionados ao serviço. |
+| lista de todos os aplicativos | Obtém todos os eventos relacionados a aplicativos. |
+| lista de todos nós | Recebe todos os Eventos Relacionados com Nós. |
+| lista de partições | Obtém todos os eventos relacionados a Partições. |
+| lista de todos os serviços | Recebe todos os eventos relacionados aos Serviços. |
+| lista de aplicativos | Obtém eventos relacionados a aplicativos. |
+| cluster-list | Obtém todos os eventos relacionados ao Cluster. |
+| lista de nó | Recebe um evento relacionado ao Nó. |
+| partição-todas-réplicas-lista | Obtém todos os eventos relacionados a réplicas para uma partição. |
+| lista de partição | Obtém eventos relacionados à partição. |
+| lista de réplicas de partição | Obtém um parto de eventos relacionados à réplica. |
+| lista de serviços | Recebe um serviço relacionado a eventos. |
 
-## <a name="sfctl-events-all-applications-list"></a>sfctl eventos All-Applications-List
+## <a name="sfctl-events-all-applications-list"></a>sfctl eventos todos os aplicativos-lista
 Obtém todos os eventos relacionados a aplicativos.
 
-A resposta é uma lista de objetos ApplicationEvent.
+A resposta é a lista de objetos ApplicationEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -59,25 +59,25 @@ A resposta é uma lista de objetos ApplicationEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-all-nodes-list"></a>sfctl eventos todos-nós-lista
-Obtém todos os eventos relacionados a nós.
+## <a name="sfctl-events-all-nodes-list"></a>sfctl eventos all-nodes-list
+Recebe todos os Eventos Relacionados com Nós.
 
-A resposta é uma lista de objetos NodeEvent.
+A resposta é a lista de objetos NodeEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -85,25 +85,25 @@ A resposta é uma lista de objetos NodeEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-all-partitions-list"></a>sfctl eventos All-Partitions-List
-Obtém todos os eventos relacionados a partições.
+## <a name="sfctl-events-all-partitions-list"></a>sfctl eventos all-partições-list
+Obtém todos os eventos relacionados a Partições.
 
-A resposta é uma lista de objetos PartitionEvent.
+A resposta é lista de objetos PartitionEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -111,25 +111,25 @@ A resposta é uma lista de objetos PartitionEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-all-services-list"></a>sfctl eventos All-lista de serviços
-Obtém todos os eventos relacionados a serviços.
+## <a name="sfctl-events-all-services-list"></a>sfctl eventos todos os serviços-lista
+Recebe todos os eventos relacionados aos Serviços.
 
-A resposta é uma lista de objetos irregulares.
+A resposta é a lista de objetos ServiceEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -137,26 +137,26 @@ A resposta é uma lista de objetos irregulares.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-application-list"></a>aplicativo de eventos sfctl – lista
-Obtém eventos relacionados ao aplicativo.
+## <a name="sfctl-events-application-list"></a>sfctl eventos lista de aplicativos
+Obtém eventos relacionados a aplicativos.
 
-A resposta é uma lista de objetos ApplicationEvent.
+A resposta é a lista de objetos ApplicationEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -164,25 +164,25 @@ A resposta é uma lista de objetos ApplicationEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-cluster-list"></a>lista de clusters de eventos sfctl
-Obtém todos os eventos relacionados ao cluster.
+## <a name="sfctl-events-cluster-list"></a>sfctl eventos cluster-list
+Obtém todos os eventos relacionados ao Cluster.
 
-A resposta é uma lista de objetos ClusterEvent.
+A resposta é a lista de objetos do ClusterEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -190,26 +190,26 @@ A resposta é uma lista de objetos ClusterEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-node-list"></a>lista de nós de eventos do sfctl
-Obtém eventos relacionados a nós.
+## <a name="sfctl-events-node-list"></a>sfctl eventos nó-lista
+Recebe um evento relacionado ao Nó.
 
-A resposta é uma lista de objetos NodeEvent.
+A resposta é a lista de objetos NodeEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
 | --node-name      [Obrigatório] | O nome do nó. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -217,26 +217,26 @@ A resposta é uma lista de objetos NodeEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-partition-all-replicas-list"></a>sfctl de eventos partição-todas as réplicas-lista
+## <a name="sfctl-events-partition-all-replicas-list"></a>sfctl eventos partição-todas-réplicas-lista
 Obtém todos os eventos relacionados a réplicas para uma partição.
 
-A resposta é uma lista de objetos ReplicaEvent.
+A resposta é a lista de objetos ReplicaEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
 | --partition-id   [Obrigatório] | A identidade da partição. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -244,26 +244,26 @@ A resposta é uma lista de objetos ReplicaEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-partition-list"></a>partição de eventos sfctl – lista
+## <a name="sfctl-events-partition-list"></a>sfctl eventos partição-lista
 Obtém eventos relacionados à partição.
 
-A resposta é uma lista de objetos PartitionEvent.
+A resposta é lista de objetos PartitionEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
 | --partition-id   [Obrigatório] | A identidade da partição. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -271,27 +271,27 @@ A resposta é uma lista de objetos PartitionEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-partition-replica-list"></a>sfctl de eventos de partição – lista de réplicas
-Obtém eventos relacionados à réplica de partição.
+## <a name="sfctl-events-partition-replica-list"></a>sfctl eventos partição-réplica-lista
+Obtém um parto de eventos relacionados à réplica.
 
-A resposta é uma lista de objetos ReplicaEvent.
+A resposta é a lista de objetos ReplicaEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
 | --partition-id   [Obrigatório] | A identidade da partição. |
-| --ID da réplica [obrigatório] | O identificador da réplica. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --replica-id [Obrigatório] | O identificador da réplica. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -299,26 +299,26 @@ A resposta é uma lista de objetos ReplicaEvent.
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-events-service-list"></a>serviço de eventos sfctl – lista
-Obtém eventos relacionados ao serviço.
+## <a name="sfctl-events-service-list"></a>sfctl eventos lista de serviços
+Recebe um serviço relacionado a eventos.
 
-A resposta é uma lista de objetos irregulares.
+A resposta é a lista de objetos ServiceEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
+| --fim-tempo-utc [Obrigatório] | O tempo final de uma consulta de consulta no ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
 | --service-id          [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
-| --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
-| --eventos-tipos-filtro | Esta é uma cadeia de caracteres separada por vírgula que especifica os tipos de FabricEvents que só devem ser incluídos na resposta. |
-| --Exclude-Analysis-Events | Esse parâmetro desabilita a recuperação de AnalysisEvents se true for passado. |
-| --Skip-correlationion-Lookup | Esse parâmetro desabilita a pesquisa de informações de CorrelatedEvents se true for passado. caso contrário, o campo CorrelationEvents Get processado e HasCorrelatedEvents em cada FabricEvent será populado. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --start-time-utc [Obrigatório] | O tempo de início de uma consulta de consulta no ISO UTC\:\:yyyy-MM-ddTHH mm ssZ. |
+| --eventos-tipos-filtro | Esta é uma seqüência separada de comuma especificando os tipos de FabricEvents que só devem ser incluídos na resposta. |
+| --exclua-análise-eventos | Este param desativa a recuperação de AnalysisEvents se for aprovado. |
+| --skip-correlation-lookup | Este param desativa a pesquisa de informações de CorrelatedEvents se a verdade for aprovada. caso contrário, o campo CorrelationEvents é processado e o campo HasCorrelatedEvents em cada FabricEvent é preenchido. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |

@@ -1,13 +1,13 @@
 ---
-title: Criar um aplicativo Java do Azure Service Fabric Reliable Actors no Linux
+title: Crie um aplicativo Java de atores confiáveis do Azure Service Fabric no Linux
 description: Saiba como criar e implantar um aplicativo de reliable actors do Java Service Fabric em cinco minutos.
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458171"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Crie seu primeiro aplicativo Java de Reliable Actors do Service Fabric no Linux
@@ -34,7 +34,7 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
 ## <a name="basic-concepts"></a>Conceitos básicos
 Para começar a usar os Reliable Actors, você só precisa entender alguns conceitos básicos:
 
-* **Serviço do ator**. Os Reliable Actors são empacotados em Reliable Services que podem ser implantados na infraestrutura do Service Fabric. As instâncias de ator são ativadas em uma instância de serviço nomeado.
+* **Serviço de ator**. Os Reliable Actors são empacotados em Reliable Services que podem ser implantados na infraestrutura do Service Fabric. As instâncias de ator são ativadas em uma instância de serviço nomeado.
 * **Registro do ator**. Como ocorre com Reliable Services, um serviço de Reliable Actor precisa ser registrado com o runtime do Service Fabric. Além disso, o tipo de ator precisa ser registrado com o runtime do ator.
 * **Interface do Ator**. A interface do ator é usada para definir uma interface pública fortemente tipada de um ator. Na terminologia do modelo de Reliable Actor, a interface do ator define os tipos de mensagem que o ator pode entender e processar. A interface do ator é usada por outros atores ou aplicativos cliente para “enviar” (de modo assíncrono) mensagens ao ator. Os Reliable Actors pode implantar várias interfaces.
 * **Classe ActorProxy**. A classe ActorProxy é usada por aplicativos cliente para invocar os métodos expostos por meio de suas interfaces de ator. A classe ActorProxy apresenta duas funcionalidades importantes:
@@ -232,7 +232,7 @@ Atores não fazem nada por conta própria, eles precisam de outro serviço ou cl
     watch -n 1 ./testclient.sh
     ```
 
-2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3. A réplica do serviço primária é responsável pelas operações de leitura e gravação.  As alterações no estado do serviço são então replicadas para as réplicas secundárias, em execução nos nós 0 e 1 na captura de tela abaixo.
+2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3. A réplica do serviço primária é responsável pelas operações de leitura e gravação.  As alterações no estado de serviço são então replicadas para as réplicas secundárias, sendo executados nos nós 0 e 1 na captura de tela abaixo.
 
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 
@@ -292,7 +292,7 @@ Suporte de Reliable Services do Service Fabric para seu aplicativo.
   }
   ```
 
-### <a name="others"></a>Diversos
+### <a name="others"></a>Outras pessoas
 #### <a name="transport"></a>Transporte
 
 Suporte da camada de transporte para aplicativo Java do Service Fabric. Você não precisa adicionar explicitamente essa dependência aos seus aplicativos Reliable Actor ou Service, a menos que programe na camada de transporte.
@@ -335,12 +335,12 @@ Suporte no nível do sistema para o Service Fabric, que se comunica com a execu�
   }
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Como criar seu primeiro aplicativo em Java do Service Fabric no Linux usando o Eclipse](service-fabric-get-started-eclipse.md)
-* [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+* [Saiba mais sobre atores confiáveis](service-fabric-reliable-actors-introduction.md)
 * [Interagir com os clusters do Service Fabric usando a CLI do Service Fabric](service-fabric-cli.md)
-* Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
+* Conheça as [opções de suporte ao Service Fabric](service-fabric-support.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->

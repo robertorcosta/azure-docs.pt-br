@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2017
 ms.author: damendo
 ms.openlocfilehash: 69aca5e0901a0da8aa98fe310ac220898bf650b2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844999"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Introdução à verificação de fluxo de IP no Observador de Rede do Azure
@@ -28,7 +28,7 @@ Uma instância do Observador de Rede precisa ser criada em todas as regiões nas
 
 ![1][1]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Visite o seguinte artigo para saber se um pacote é permitido ou negado para uma máquina virtual por meio do portal. [Verifique se o tráfego é permitido em uma VM com uma Verificação de Fluxo de IP usando o portal](diagnose-vm-network-traffic-filtering-problem.md)
 

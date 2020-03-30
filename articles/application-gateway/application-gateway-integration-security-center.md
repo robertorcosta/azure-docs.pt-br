@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277183"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure
 
-Saiba como o Gateway de Aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. O firewall do aplicativo Web do Gateway de aplicativo (WAF) integra-se com a [Central de Segurança do Azure](../security-center/security-center-intro.md) para fornecer uma visualização perfeita para evitar, detectar e reagir às ameaças a aplicativos Web desprotegidos no seu ambiente.
+Saiba como o Gateway de Aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. O WAF (Application Gateway Web [Security Center](../security-center/security-center-intro.md) Application Firewall, firewall de aplicativos web gateway de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de aplicativos de si no ambiente) se integra ao Security Center.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O WAF do Gateway de Aplicativo é uma recomendação na Central de segurança para proteger aplicativos Web contra explorações e vulnerabilidades. Recursos da Web que não estão protegidos por WAF são exibidos na central de segurança como recomendações de severidade alta. Recomendações para firewalls de aplicativo Web são mostradas na página **Visão geral** em **Aplicativos**.
 
@@ -30,7 +30,7 @@ Clicando em uma recomendação sobre o firewall do aplicativo Web abre uma nova 
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Adicionar o firewall do aplicativo Web a um recurso existente
 
-Navegue até **Todos os serviços** > **Segurança + Identidade** > **Central de Segurança** e em **Central de Segurança - Visão geral**, clique em **Aplicativos**. Em **Central de Segurança - Aplicativos**, a tabela contém uma lista de aplicativos que a Central de Segurança detectou na sua assinatura.
+Navegue para **Todos os serviços** > **Security + Identity** > **Security Center** e no Security Center - Visão **geral,** clique **em Aplicativos**. Em **Central de Segurança - Aplicativos**, a tabela contém uma lista de aplicativos que a Central de Segurança detectou na sua assinatura.
 
 ![aplicativos Web][3]
 
@@ -44,13 +44,13 @@ Se você não tiver um Gateway de Aplicativo existente ou quiser criar um novo, 
 
 Se você tiver um gateway de aplicativo existente, é possível escolhê-lo em **Usar solução existente**
 
-![Página para adicionar um firewall do aplicativo Web][4]
+![Página para adicionar um firewall de aplicativo web][4]
 
 Adicionar um aplicativo Web a um gateway de aplicativo através da Central de Segurança do Azure não adiciona o recurso como um membro do pool de back-end. Isso deve ser feito diretamente no recurso de gateway do aplicativo.
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Adicionar um recurso a um firewall do aplicativo Web existente
 
-Navegue até **Todos os serviços** > **Segurança + Identidade** > **Central de Segurança** e em **Central de Segurança - Visão geral**, clique em **Soluções de Parceiro**. Gateways de aplicativo com reconhecimento da Central de Segurança do Azure existentes na página **Soluções de Parceiros**.
+Navegue para **todos os serviços** > **Security + Identity** > **Security Center** e no Security Center - Visão **geral,** clique em **soluções de parceiros**. Gateways de aplicativo com reconhecimento da Central de Segurança do Azure existentes na página **Soluções de Parceiros**.
 
 ![soluções de parceiros][7]
 
@@ -62,11 +62,11 @@ Clique em **Vincular Aplicativo** para abrir **Vincular Aplicativos**, aqui voc�
 
 A Central de segurança controla os aplicativos adicionados a um gateway de aplicativo como um recurso protegido.  Ela monitora a integridade desse recurso e garante que ele seja protegido por um gateway de aplicativo. A próxima etapa é adicionar o IP privado, o IP público ou a NIC de sua máquina virtual para o pool de back-end do gateway de aplicativo. Até que isso seja feito, uma recomendação adicional de **Finalizar a proteção do aplicativo** é mostrada até que o recurso seja adicionado.
 
-![Página para adicionar um firewall do aplicativo Web][5]
+![Página para adicionar um firewall de aplicativo web][5]
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
-Na Central de segurança, navegue até **DETECÇÃO** > **Alertas de segurança**.  Aqui você encontra alertas do WAF para seus gateways de aplicativo. Os alertas são divididos pela regra do WAF.
+Dentro do Security Center navegue para**alertas de segurança de** **detecção** > .  Aqui você encontra alertas do WAF para seus gateways de aplicativo. Os alertas são divididos pela regra do WAF.
 
 ![alertas de segurança][8]
 
@@ -74,9 +74,9 @@ A seleção de uma regra fornecerá uma lista de alertas para essa regra WAF esp
  
 ![detalhes do alerta][9]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para saber como ativar o firewall de aplicativo Web em um Gateway de Aplicativo existente, visite [Criar ou atualizar um Gateway de Aplicativo do Azure com o firewall de aplicativo Web](application-gateway-web-application-firewall-portal.md).
+Para saber como ativar o firewall de aplicativos web em um gateway de aplicativo existente, visite [Criar ou atualizar um Gateway de aplicativo Do Azure com firewall de aplicativos web](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

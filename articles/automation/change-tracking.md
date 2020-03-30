@@ -6,31 +6,31 @@ ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
 ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844795"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
-Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução acompanha as seguintes alterações de configuração para ajudá-lo a identificar problemas operacionais:
+Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução rastreia as seguintes alterações de configuração para ajudá-lo a identificar problemas operacionais:
 
 - Software do Windows
 - Software Linux (pacotes)
 
     >[!NOTE]
-    >Controle de Alterações controla apenas o software gerenciado com o Gerenciador de pacotes da distribuição.
+    >O Rastreamento de alterações apenas rastreia o software gerenciado com o gerenciador de pacotes da distribuição.
 
-- Arquivos do Windows e Linux
-- Chaves do registro do Windows
+- Arquivos Windows e Linux
+- Chaves de registro do Windows
 - Serviços do Windows
 - Daemons Linux
 
-As alterações no software instalado, nos serviços do Windows, no registro e nos arquivos do Windows e nos daemons do Linux nos servidores monitorados são enviadas para o serviço de Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+Alterações no software instalado, serviços do Windows, registro do Windows e arquivos e daemons Linux nos servidores monitorados são enviadas para o serviço Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
 > [!NOTE]
-> A automação do Azure Controle de Alterações controla as alterações nas máquinas virtuais. Para rastrear Azure Resource Manager alterações de propriedade, consulte [histórico de alterações](../governance/resource-graph/how-to/get-resource-changes.md)do grafo de recursos do Azure.
+> A automação do Azure Altera as alterações nas máquinas virtuais. Para acompanhar as alterações de propriedade do Azure Resource Manager, consulte o histórico de [alterações](../governance/resource-graph/how-to/get-resource-changes.md)do Gráfico de Recursos do Azure .
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
 
@@ -60,7 +60,7 @@ As seguintes distribuições Linux têm suporte oficialmente. No entanto, o agen
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS and 16.04 LTS
 
-## <a name="onboard"></a>Habilitar Controle de Alterações e Inventário
+## <a name="enable-change-tracking-and-inventory"></a><a name="onboard"></a>Habilitar Controle de Alterações e Inventário
 
 Para iniciar o controle de alterações, é necessário habilitar a solução Controle de Alterações e Inventário. Há muitas maneiras de integrar computadores ao Controle de Alterações e Inventário. A seguir estão as maneiras recomendadas e compatíveis de integrar a solução.
 
@@ -71,27 +71,27 @@ Para iniciar o controle de alterações, é necessário habilitar a solução Co
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o Controle de Alterações e Inventário
 
-Para saber como integrar computadores para a solução, visite: [Integração das soluções de Automação do Azure](automation-onboard-solutions-from-automation-account.md). Quando você tiver uma integração de máquina com a solução de Controle de Alterações e inventário, poderá configurar os itens a serem acompanhados. Quando você habilita um novo arquivo ou chave do registro a ser acompanhado, ele é habilitado para Controle de Alterações e inventário.
+Para saber como integrar computadores para a solução, visite: [Integração das soluções de Automação do Azure](automation-onboard-solutions-from-automation-account.md). Depois de ter uma máquina embarcando com a solução De rastreamento e inventário de alterações, você pode configurar os itens a serem rastreados. Quando você habilita uma nova chave de arquivo ou registro para rastrear, ela é ativada tanto para o Rastreamento de Alterações quanto para o Inventário.
 
 Para rastrear alterações em arquivos no Windows e Linux, os hashes MD5 dos arquivos são usados. Esses hashes são usados para detectar se uma alteração foi feita desde o último inventário.
 
 ### <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 
-A central de segurança do Azure adicionou o FIM (monitoramento de integridade de arquivo) criado no Azure Controle de Alterações. Embora o FIM monitore arquivos e registros apenas, a solução de Controle de Alterações completa também inclui:
+O Azure Security Center adicionou o File Integrity Monitoring (FIM) construído no Azure Change Tracking. Embora a FIM monitore apenas arquivos e registros, a solução completa de Rastreamento de Alterações também inclui:
 
-- Alterações de software
-- Serviços do Windows
-- Daemons do Linux
+- Mudanças de software
+- Serviços Windows
+- Linux Daemons
 
-Se você já tiver habilitado o FIM e quiser experimentar a solução de Controle de Alterações completa, você precisará executar as etapas a seguir. As configurações não são removidas por esse processo.
+Se você já habilitou a FIM e gostaria de experimentar a solução completa de Rastreamento de Alterações, você precisa executar as seguintes etapas. As configurações não são removidas por este processo.
 
 > [!NOTE]
-> A habilitação da solução de Controle de Alterações completa pode causar encargos adicionais, para obter mais informações, consulte [preços de automação](https://azure.microsoft.com/pricing/details/automation/).
+> Ativar a solução completa de rastreamento de alterações pode causar cobranças adicionais, para obter mais informações, consulte [Preços de Automação](https://azure.microsoft.com/pricing/details/automation/).
 
-1. Remova a solução de monitoramento navegando até o espaço de trabalho e localizando-a na [lista de soluções de monitoramento instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
-2. Clique no nome da solução para abrir sua página de resumo e, em seguida, clique em excluir, conforme detalhado em [remover uma solução de monitoramento](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Habilite novamente a solução navegando até a conta de automação e selecionando **controle de alterações** no menu de recursos em **Gerenciamento de configuração**.
-4. Confirme os detalhes de configuração do espaço de trabalho e clique em **habilitar**.
+1. Remova a solução de monitoramento navegando até o espaço de trabalho e localizando-a na [Lista de soluções de monitoramento instaladas.](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions)
+2. Clique no nome da solução para abrir sua página de resumo e, em seguida, clique em Excluir, conforme detalhado em [Remover uma solução de monitoramento](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Reative a solução navegando na conta automação e selecionando o rastreamento de **alterações** no menu de recursos em **Gerenciamento de Configuração**.
+4. Confirme os detalhes da configuração do espaço de trabalho e clique **em Ativar**.
 
 ### <a name="configure-linux-files-to-track"></a>Configurar arquivos do Linux para controle
 
@@ -99,9 +99,9 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 
 1. Na sua Conta de Automação, selecione **Controle de Alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO**. Clique em **Editar Configurações** (o símbolo de engrenagem).
 2. Na página **Controle de Alterações**, selecione **Arquivos Linux** e, em seguida, clique em **+ Adicionar** para adicionar o novo arquivo para controle.
-3. Em **Adicionar o Arquivo do Linux para o Controle de Alterações**, insira as informações para o arquivo ou para o diretório rastrear e clique em **Salvar**.
+3. No **Adicionar arquivo Linux para rastreamento de alterações,** digite as informações do arquivo ou diretório para rastrear e clicar **em Salvar**.
 
-|Propriedade  |Description  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
@@ -110,7 +110,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 |Tipo de caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório.        |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
-|Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** – ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
+|Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** – ignora os links simbólicos e não inclui os arquivos/diretórios referenciados.<br>**Seguir** - Segue os links simbólicos durante a recursão e também inclui os arquivos/diretórios referenciados.<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do conteúdo retornado.     |
 |Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
 
 > [!NOTE]
@@ -124,7 +124,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 2. Na página **Controle de Alterações**, selecione **Arquivos do Windows** e, em seguida, clique em **+ Adicionar** para adicionar o novo arquivo para controle.
 3. Em **Adicionar o Arquivo do Windows para o Controle de Alterações**, insira as informações para o arquivo a controlar e clique em **Salvar**.
 
-|Propriedade  |Description  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
@@ -156,7 +156,7 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 2. Na página **Controle de Alterações**, selecione **Registro do Windows** e, em seguida, clique em **+ Adicionar** para adicionar um novo registro para controle.
 3. Em **Adicionar Registro do Windows para Controle de Alterações**, insira as informações para a chave rastrear e clique em **Salvar**.
 
-|Propriedade  |Description  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável da chave de registro a ser rastreada.        |
@@ -169,8 +169,8 @@ A solução de Controle de Alterações atualmente não dá suporte ao seguinte:
 
 * Recursão para o rastreamento de registro do Windows
 * Sistemas de arquivos de rede
-* Diferentes métodos de instalação não são acompanhados
-* arquivos *. exe não são rastreados para Windows
+* Diferentes métodos de instalação não são rastreados
+* *.arquivos exe não são rastreados para windows
 
 Outras limitações:
 
@@ -184,13 +184,13 @@ Outras limitações:
 Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
 
 * Atualizações de hotfix não são coletadas em computadores Windows Server 2016 Core RS3.
-* Os daemons do Linux podem mostrar um estado alterado mesmo que não houvesse nenhuma alteração. Isso ocorre devido a como o campo de `SvcRunLevels` é capturado.
+* Os Daemons Linux podem mostrar um estado alterado, mesmo que não tenha havido mudança. Isso é devido `SvcRunLevels` à forma como o campo é capturado.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalhes de coleta de dados do Controle de Alterações
 
 A tabela a seguir mostra a frequência da coleta de dados para os tipos de alterações. Para cada tipo, o instantâneo de dados do estado atual também é atualizado pelo menos a cada 24 horas:
 
-| **Alterar tipo** | **Frequência** |
+| **Tipo de alteração** | **Freqüência** |
 | --- | --- |
 | Registro do Windows | 50 minutos |
 | Arquivo do Windows | 30 minutos |
@@ -253,7 +253,7 @@ O objetivo de monitorar alterações às chaves do registro é identificar os po
 
 Os seguintes endereços são necessários especificamente para o controle de alterações. A comunicação para esses endereços é feita pela porta 443.
 
-|Público do Azure  |Azure Governamental  |
+|Público do Azure  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
@@ -264,7 +264,7 @@ Os seguintes endereços são necessários especificamente para o controle de alt
 
 Depois que a solução estiver habilitada, você poderá exibir o resumo das alterações de seus computadores monitorados, selecionando **Controle de Alterações** em **GERENCIAMENTO DE CONFIGURACÃO** na sua conta de Automação.
 
-É possível exibir as alterações nos computadores e, em seguida, analisar detalhadamente cada evento. Os menus suspensos estão disponíveis na parte superior do gráfico para limitar o gráfico e as informações detalhadas com base no tipo de alteração e intervalos de tempo. Você também pode clicar e arrastrar no gráfico para selecionar um intervalo de tempo personalizado. **O tipo de alteração** será um dos seguintes **eventos**de valores, **daemons**, **arquivos**, **registro**, **software**e serviços do **Windows**. Categoria mostra o tipo de alteração e pode ser **adicionada**, **modificada**ou **removida**.
+É possível exibir as alterações nos computadores e, em seguida, analisar detalhadamente cada evento. Os menus suspensos estão disponíveis na parte superior do gráfico para limitar o gráfico e as informações detalhadas com base no tipo de alteração e intervalos de tempo. Você também pode clicar e arrastrar no gráfico para selecionar um intervalo de tempo personalizado. **Tipo de alteração** será um dos seguintes valores **Eventos,** **Daemons,** **Arquivos,** **Registro,** **Software,** **Serviços Windows**. A categoria mostra o tipo de alteração e pode ser **adicionada,** **modificada**ou **removida.**
 
 ![imagem do painel Controle de Alterações](./media/change-tracking/change-tracking-dash01.png)
 
@@ -274,13 +274,13 @@ Ao clicar em uma alteração ou evento, as informações detalhadas sobre essa a
 
 ## <a name="search-logs"></a>Pesquisa da logs
 
-Além dos detalhes fornecidos no portal, é possível fazer as pesquisas nos logs. Com a página **controle de alterações** aberta, clique em **log Analytics**, isso abrirá a página **logs** .
+Além dos detalhes fornecidos no portal, é possível fazer as pesquisas nos logs. Com a página **Alterar rastreamento** aberta, clique em **Log Analytics**, isso abre a página **Logs.**
 
 ### <a name="sample-queries"></a>Consultas de exemplo
 
 A tabela a seguir fornece pesquisas de logs de exemplo para os registros de alterações coletados por essa solução:
 
-|Consulta  |Description  |
+|Consulta  |Descrição  |
 |---------|---------|
 |ConfigurationData<br>&#124; onde   ConfigDataType == "WindowsServices" e SvcStartupType == "Auto"<br>&#124; onde SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) por SoftwareName, Computer         | Mostra os registros de inventário mais recentes para os Serviços do Windows que foram configurados para Automático, mas foram relatados como Parados<br>Os resultados estão limitados ao registro mais recente desse SoftwareName e Computador      |
 |ConfigurationChange<br>&#124; onde ConfigChangeType == "Software" e ChangeCategory == "Removed"<br>&#124; ordenar por TimeGenerated desc|Mostra os registros de alterações do software removido|
@@ -309,7 +309,7 @@ Após configurar os parâmetros e a lógica, podemos aplicar o alerta ao ambient
 
 Embora os alertas sobre alterações ao arquivo de Hosts sejam uma boa aplicação de alertas para Controle de Alterações ou dados de Inventário, há muitos outros cenários para alertas, incluindo casos definidos juntamente com suas consultas de exemplo na seção a seguir.
 
-|Consulta  |Description  |
+|Consulta  |Descrição  |
 |---------|---------|
 |ConfigurationChange <br>&#124; em que ConfigChangeType == "Files" e FileSystemPath contêm " c:\\windows\\system32\\drivers\\"|Útil para controlar alterações a arquivos críticos do sistema|
 |ConfigurationChange <br>&#124; em que FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Útil para controlar modificações a arquivos de configuração chave|
@@ -317,14 +317,14 @@ Embora os alertas sobre alterações ao arquivo de Hosts sejam uma boa aplicaç�
 |ConfigurationChange <br>&#124; em que ConfigChangeType == "Daemons" e SvcName contêm "ssh" e SvcState != "Running"|Útil para controlar alterações a serviços críticos do sistema|
 |ConfigurationChange <br>&#124; em que ConfigChangeType == "Software" e ChangeCategory == "Added"|Útil para ambientes que precisam bloquear configurações de software|
 |ConfigurationData <br>&#124; em que SoftwareName contém "Monitoring Agent" e CurrentVersion != "8.0.11081.0"|Útil para ver quais computadores têm uma versão de software desatualizada ou não em conformidade instalada. Relata o último estado de configuração relatada, não as alterações.|
-|ConfigurationChange <br>&#124;onde RegistryKey = = @ "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para controlar alterações a chaves antivírus cruciais|
-|ConfigurationChange <br>&#124;onde RegistryKey contém @ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Útil para controlar alterações em configurações de firewall|
+|ConfigurationChange <br>&#124; onde RegistryKey ==\\\\@"HKEY_LOCAL_MACHINE SOFTWARE Microsoft\\Windows CurrentVersion\\\\QualityCompat"| Útil para controlar alterações a chaves antivírus cruciais|
+|ConfigurationChange <br>&#124; onde RegistryKey contém\\\\@"HKEY_LOCAL_MACHINE\\\\SISTEMA CurrentControlSet Services SharedAccess\\Parameters\\FirewallPolicy"| Útil para controlar alterações em configurações de firewall|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Visite o tutorial sobre Controle de Alterações para saber mais sobre o uso da solução:
 
 > [!div class="nextstepaction"]
 > [Solucionar problemas de alterações em seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Use [pesquisas de log em logs de Azure monitor](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados de controle de alterações.
+* Use [pesquisas de log nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para visualizar dados de rastreamento de alterações detalhados.

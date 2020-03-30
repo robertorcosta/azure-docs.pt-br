@@ -1,6 +1,6 @@
 ---
-title: DNS reverso para serviços do Azure-DNS do Azure
-description: Com este roteiro de aprendizagem, comece Configurando pesquisas reversas de DNS para serviços hospedados no Azure.
+title: DNS reverso para serviços Do Azure - Azure DNS
+description: Com esse caminho de aprendizado, comece a configurar as consultas de DNS reversa para serviços hospedados no Azure.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
 ms.openlocfilehash: 073e84ece11f6817bfe2c5a94735ec6e16dac4fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76932363"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurar DNS reverso para serviços hospedados no Azure
@@ -93,7 +93,7 @@ Para adicionar o DNS reverso a um PublicIpAddress existente que ainda não tenha
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI do Azure
 
 Para adicionar o DNS reverso ao PublicIpAddress existente:
 
@@ -123,7 +123,7 @@ New-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Loc
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI do Azure
 
 ```azurecli
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
@@ -145,7 +145,7 @@ Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 azure network public-ip show -n PublicIp -g MyResourceGroup
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI do Azure
 
 ```azurecli
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
@@ -169,7 +169,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pip
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>CLI do Azure
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn ""
@@ -212,7 +212,7 @@ Para remover uma propriedade de DNS reverso de um Serviço de Nuvem existente:
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 
 ### <a name="how-much-do-reverse-dns-records-cost"></a>Qual é o custo dos registros DNS reversos?
 
@@ -250,7 +250,7 @@ Não. O Azure atualmente oferece suporte a DNS reverso somente para recursos Pub
 
 A capacidade técnica de enviar email diretamente de uma implantação do Azure depende do tipo de assinatura. Independentemente do tipo de assinatura, a Microsoft recomenda o uso de serviços de retransmissão de email confiáveis para enviar emails de saída. Para mais detalhes, consulte [Segurança reforçada do Azure para envio de Emails - atualização de novembro de 2017](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre DNS reverso, confira [Pesquisa de DNS reverso na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
