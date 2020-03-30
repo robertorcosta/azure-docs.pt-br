@@ -8,10 +8,10 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699391"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
@@ -47,9 +47,9 @@ pip install azure-storage-file
 Para métodos de instalação alternativos, visite o [SDK do Armazenamento do Microsoft Azure para Python no GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="view-the-sample-application"></a>Visualizar o aplicativo de exemplo
-f Para exibir e executar um aplicativo de exemplo que mostra como usar o Python com Arquivos do Azure, consulte [Armazenamento do Azure: Introdução aos Arquivos do Azure no Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+f Para visualizar e executar um aplicativo de exemplo que mostra como usar python com arquivos Azure, consulte [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
-Para executar o aplicativo de exemplo, verifique se você instalou ambos os pacotes `azure-storage-file` e `azure-storage-common`.
+Para executar o aplicativo de exemplo, verifique se você instalou os pacotes `azure-storage-file` e `azure-storage-common`.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Configurar seu aplicativo para usar os Arquivos do Azure
 Adicione o seguinte próximo à parte superior de qualquer arquivo de origem Python no qual você deseja acessar o Armazenamento do Azure com programação.
@@ -73,7 +73,7 @@ file_service.create_share('myshare')
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
-Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código a seguir criará um subdiretório chamado **sampledir** no diretório raiz.
+Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código abaixo criará um subdiretório chamado **sampledir** o diretório raiz.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -180,5 +180,5 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 Agora que você aprendeu como manipular s Arquivos do Azure com o Python, siga estes links para saber mais.
 
 * [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
-* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Storage Services REST API Reference](https://msdn.microsoft.com/library/azure/dd179355) (Referência de API REST dos Serviços de Armazenamento do Azure)
 * [SDK do Armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python)

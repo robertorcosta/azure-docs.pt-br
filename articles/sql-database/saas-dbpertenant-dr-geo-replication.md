@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre para aplicativos SaaS com replicação geográfica
+title: Recuperação de desastres para aplicativos SaaS com replicação geo
 description: Saiba como usar réplicas geográficas do Banco de Dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0668ccf5ceb972dd120e4e3f37be6d879a12d0a7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73811716"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastre para um aplicativo SaaS multilocatário usando replicação geográfica do banco de dados
@@ -51,7 +51,7 @@ Um plano de recuperação de desastre com base em replicação geográfica inclu
 
 Todas as partes precisam ser consideradas com cuidado, especialmente se estiverem operando em escala. Em geral, o plano deve atingir várias metas:
 
-* Configuração
+* Instalação
     * Estabelecer e manter um ambiente de imagem espelho da região de recuperação. Criar pools elásticos e replicar quaisquer bancos de dados nesse ambiente de recuperação reserva capacidade na região de recuperação. Manter esse ambiente inclui a replicação de novos bancos de dados de locatário conforme eles são provisionados.  
 * Recuperação
     * Em que um ambiente de recuperação reduzido é usado para minimizar os custos diários, pools e bancos de dados precisam ser expandidos para adquirir capacidade completamente operacional na região de recuperação
@@ -91,8 +91,8 @@ Mais tarde, em uma etapa de repatriação separada, você faz failover dos banco
 Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
 1. No navegador da Web, abra o Hub de eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net – substitua &lt;user&gt; com o valor de usuário da implantação).
     * Role até a parte inferior da página e observe o nome do servidor de catálogo e a localização no rodapé. A localização é a região em que você implantou o aplicativo.
-    *DICA: passe o mouse sobre o local para ampliar a exibição.* 
-    ![Estado íntegro do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *DICA: Passe o mouse sobre o local para ampliar o display.* 
+    Hub de eventos estado saudável na região ![original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Clique no locatário Contoso Concert Hall e abra sua página de eventos.
     * No rodapé, observe o nome do servidor de locatário. A localização será igual à localização do servidor de catálogo.
@@ -105,12 +105,12 @@ Antes de iniciar o processo de recuperação, examine o estado de integridade no
 Nesta tarefa, você inicia um processo que sincroniza a configuração dos servidores, dos pools elásticos e dos bancos e dados com o catálogo de locatário. O processo mantém essas informações atualizadas no catálogo.  O processo funciona com o catálogo ativo, se estiver na região original ou na região de recuperação. As informações de configuração são usadas como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original e posteriormente, durante a repatriação para garantir que a região original seja tornada consistente com as alterações feitas no ambiente de recuperação. O catálogo também é usado para controlar o estado de recuperação de recursos de locatário
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriação de longa execução são implementados nesses tutoriais como trabalhos locais do PowerShell ou sessões que são executadas no logon de usuário do cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriação de longa duração são implementados nesses tutoriais como trabalhos ou sessões locais do PowerShell que são executados o login do usuário do cliente. Os tokens de autenticação emitidos quando seu logon expirar após várias horas e então os trabalhos falham. Em um cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure confiáveis de algum tipo, em execução sob uma entidade de serviço. Consulte [Usar o Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. No _ISE do PowerShell_, abra o arquivo ...\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo.  Salve o arquivo!
 
 2. No *ISE do PowerShell*, abra o script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 e defina:
-    * **$DemoScenario = 1**, inicie um trabalho em segundo plano que sincroniza o servidor de locatário e informações de configuração do pool com o catálogo
+    * **$DemoScenario = 1**, Iniciar um trabalho em segundo plano que sincroniza o servidor de locatário e informações de configuração do pool com o catálogo
 
 3. Pressione **F5** para executar o script de sincronização. Uma nova sessão do PowerShell é aberta para sincronizar a configuração de recursos de locatário.
 ![Processo de sincronização](media/saas-dbpertenant-dr-geo-replication/sync-process.png)
@@ -238,11 +238,11 @@ Quando o processo de recuperação for concluída, o aplicativo e todos os locat
    * As versões de recuperação dos servidores de catálogo e locatários1 com o sufixo _-recovery_.  Os bancos de dados restaurados de catálogo e de locatário nesses servidores têm os nomes usados na região original.
 
    * O servidor SQL _tenants2-dpt-&lt;user&gt;-recovery_.  Este servidor é usado para provisionar novos locatários durante a interrupção.
-   * O Serviço de Aplicativo chamado _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;usuário&gt_;, que é a instância de recuperação do aplicativo Eventos. 
+   * O Serviço de Aplicativo nomeado, _&lt;&gt;-&lt;usuário de recuperação_de ponta de eventos&gt ;, que é a instância de recuperação do aplicativo Eventos. 
 
      ![Recursos de recuperação do Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
-4. Abra o servidor SQL _tenants2-dpt-&lt;user&gt;-recovery_.  Observe que ele contém o banco de dados _hawthornhall_ e o pool elástico, _Pool1_.  O banco de dados _hawthornhall_ está configurado como um banco de dados elástico no pool elástico _Pool1_.
+4. Abra o servidor SQL _tenants2-dpt-&lt;usuário&gt;-recovery_.  Observe que ele contém o banco de dados _hawthornhall_ e o pool elástico, _Pool1_.  O banco de dados _hawthornhall_ está configurado como um banco de dados elástico no pool elástico _Pool1_.
 
 5. Navegue de volta para o grupo de recursos e clique no banco de dados do Contoso Concert Hall no servidor _tenants1-dpt-&lt;user&gt;-recovery_. Clique na replicação geográfica no lado esquerdo.
     
@@ -261,7 +261,7 @@ Nesta tarefa, você atualiza um dos bancos de dados de locatário.
 
 Essa tarefa repatria o aplicativo para sua região original. Em um cenário real, você iniciaria a repatriação quando a interrupção fosse resolvida.
 
-### <a name="repatriation-process-overview"></a>Visão geral do processo repatriação
+### <a name="repatriation-process-overview"></a>Visão geral do processo de repatriação
 
 ![Arquitetura de repatriação](media/saas-dbpertenant-dr-geo-replication/repatriation-architecture.png)
 
@@ -274,16 +274,16 @@ O processo de repatriação:
 O failover move de forma eficiente o banco de dados para a região original. Quando o banco de dados falha, todas as conexões abertas são descartadas e o banco de dados fica indisponível por alguns segundos. Aplicativos devem ser escritos com lógica de repetição para garantir que se conectem novamente.  Embora essa breve desconexão geralmente não seja observada, você pode optar por repatriar bancos de dados fora do horário comercial. 
 
 
-### <a name="run-the-repatriation-script"></a>Executar o script de repatriação
+### <a name="run-the-repatriation-script"></a>Executar o script repatriação
 Agora vamos imaginar que a interrupção foi resolvida e o script de repatriação está sendo executado.
 
 1. No *ISE do PowerShell*, no script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1.
 
-2. Verifique se o processo de sincronização de catálogo ainda está em execução em sua instância do PowerShell.  Se necessário, reinicie-o ao definir:
+2. Verifique se o processo de Sincronização de Catálogo ainda está em execução em sua instância do PowerShell.  Se necessário, reinicie-o ao definir:
     * **$DemoScenario = 1**, Iniciar a sincronização do servidor locatário, o pool e informações de configuração do banco de dados para o catálogo
     * Pressione **F5** para executar o script.
 
-3.  Em seguida, para iniciar o processo de repatriação, defina:
+3.  Então, para iniciar o processo de repatriação, defina:
     * **$DemoScenario = 6**, Repatrie o aplicativo para sua região original
     * Pressione **F5** para executar o script de recuperação em uma nova janela do PowerShell.  A repatriação levará vários minutos e pode ser monitorada na janela do PowerShell.
     ![Processo de repatriação](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
@@ -295,7 +295,7 @@ Agora vamos imaginar que a interrupção foi resolvida e o script de repatriaç�
     ![Hub de eventos repatriados](media/saas-dbpertenant-dr-geo-replication/events-hub-repatriated.png)
 
 
-## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Projetando o aplicativo para garantir que ele e o banco de dados sejam colocados 
+## <a name="designing-the-application-to-ensure-app-and-database-are-colocated"></a>Como projetar o aplicativo para garantir que ele e o banco de dados sejam colocados 
 O aplicativo foi projetado para sempre se conectar de uma instância na mesma região do banco de dados de locatário. Esse design reduz a latência entre o aplicativo e o banco de dados. Essa otimização assume que a interação do aplicativo no banco de dados é mais ativa que a interação do usuário com o aplicativo.  
 
 Os bancos de dados de locatário podem ser distribuídos por regiões originais e de recuperação por algum tempo durante a repatriação. Para cada banco de dados, o aplicativo procura a região na qual o banco de dados está localizado, fazendo uma pesquisa de DNS no nome do servidor de locatário. No Banco de Dados SQL, o nome do servidor é um alias. O nome de servidor com alias contém o nome da região. Se o aplicativo não estiver na mesma região do que o banco de dados, ele redirecionará para a instância na mesma região que o servidor de banco de dados.  Redirecionar a instância na mesma região que o banco de dados minimiza a latência entre o aplicativo e o banco de dados. 

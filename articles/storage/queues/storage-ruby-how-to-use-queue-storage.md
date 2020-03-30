@@ -1,5 +1,5 @@
 ---
-title: Como usar o armazenamento de fila do Ruby-armazenamento do Azure
+title: Como usar o armazenamento na fila do Ruby - Azure Storage
 description: Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos gravados no Ruby.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68721277"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como usar o Armazenamento de fila do Ruby
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Configurar uma conexão de armazenamento do Azure
-O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::QueueService** com o seguinte código:
+O módulo azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** para obter informações necessárias para se conectar à sua conta de armazenamento Do Zure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::QueueService** com o seguinte código:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -61,7 +61,7 @@ Para obter esses valores de uma conta de armazenamento clássico ou do Resource 
 4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas. 
 5. Clique no ícone de cópia para copiar a chave para a área de transferência. 
 
-## <a name="how-to-create-a-queue"></a>Como: Criar uma Fila
+## <a name="how-to-create-a-queue"></a>Como criar uma fila
 O código a seguir cria o objeto **Azure::QueueService** , permitindo que você trabalhe com filas.
 
 ```ruby
@@ -78,7 +78,7 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Como: inserir uma mensagem em uma fila
+## <a name="how-to-insert-a-message-into-a-queue"></a>Como inserir uma mensagem em uma fila
 Para inserir uma mensagem em uma fila, use o método **create_message()** para criar uma nova mensagem e adicione-a à fila.
 
 ```ruby
@@ -86,20 +86,20 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Como: espiar a próxima mensagem
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages()** . Por padrão, o **peek\_messages()** inspeciona uma única mensagem. Você também pode especificar quantas mensagens deseja inspecionar.
+Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages()**. Por padrão, **as mensagens de espia()\_** espia uma única mensagem. Você também pode especificar quantas mensagens deseja inspecionar.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Como: Remover a próxima mensagem da fila
+## <a name="how-to-dequeue-the-next-message"></a>Como: remover a próxima mensagem da fila
 É possível remover uma mensagem da fila em duas etapas.
 
-1. Quando você chamar **list\_messages()** , receberá a próxima mensagem em uma fila por padrão. Você também pode especificar quantas mensagens deseja obter. As mensagens retornadas de **list\_messages()** se tornam invisíveis para todas as outras mensagens de leitura de código da fila. Passe o tempo limite de visibilidade em segundos como um parâmetro.
-2. Para concluir a remoção da mensagem da fila, chame também **delete_message()** .
+1. Quando você chamar **list\_messages()**, receberá a próxima mensagem em uma fila por padrão. Você também pode especificar quantas mensagens deseja obter. As mensagens retornadas de **list\_messages()** se tornam invisíveis para todas as outras mensagens de leitura de código da fila. Passe o tempo limite de visibilidade em segundos como um parâmetro.
+2. Para terminar de remover a mensagem da fila, você também deve ligar **para delete_message()**.
 
-Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **delete\_message()** logo depois que a mensagem é processada.
+Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Suas chamadas de código **excluem\_a mensagem()** logo após o processamento da mensagem.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -107,7 +107,7 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: alterar o conteúdo de uma mensagem na fila
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: alterar o conteúdo de uma mensagem em fila
 Você pode alterar o conteúdo de uma mensagem in-loco na fila. O código a seguir usa o método **update_message()** para atualizar uma mensagem. O método retornará uma tupla que contém o recebimento pop da mensagem da fila e um valor de data/hora UTC que representa quando a mensagem estará visível na fila.
 
 ```ruby
@@ -117,7 +117,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Como: Opções adicionais para remover mensagens da fila
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Como adicionar opções para remover mensagens da fila
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
 
 1. Você pode obter um lote de mensagens.
@@ -133,7 +133,7 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Como: obter o tamanho da fila
+## <a name="how-to-get-the-queue-length"></a>Como obter o comprimento da fila
 Você pode obter uma estimativa do número de mensagens na fila. O método **get\_queue\_metadata()** solicita que o serviço Fila retorne os metadados e a contagem de mensagens aproximados sobre a fila.
 
 ```ruby
@@ -141,7 +141,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
   "test-queue")
 ```
 
-## <a name="how-to-delete-a-queue"></a>Como: excluir uma fila
+## <a name="how-to-delete-a-queue"></a>Como excluir uma fila
 Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete\_queue()** no objeto de fila.
 
 ```ruby
@@ -152,6 +152,6 @@ azure_queue_service.delete_queue("test-queue")
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 * Visite o [Blog da Equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
-* Visite o repositório [SDK do Azure para o nó](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub.
+* Visite o [Azure SDK para](https://github.com/WindowsAzure/azure-sdk-for-ruby) o repositório Ruby no GitHub
 
 Para fazer uma comparação entre o serviço Fila do Azure discutido neste artigo e as filas do Barramento de Serviço do Azure discutidas no artigo [How to use Service Bus Queues](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) (Como usar o Barramento de Serviço), confira [Filas do Azure e filas do Barramento de Serviço — comparações e contrastes](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

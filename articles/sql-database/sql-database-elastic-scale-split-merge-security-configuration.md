@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823522"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
@@ -120,7 +120,7 @@ A configuração padrão nega todo os acessos ao ponto de extremidade HTTP. Esta
 A configuração padrão permite todo os acessos ao ponto de extremidade HTTPS. Essa configuração pode ser mais restrita.
 
 ### <a name="changing-the-configuration"></a>Alterando a configuração
-O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremidade são configurados na seção **\<EndpointAcls >** no **arquivo de configuração de serviço**.
+O grupo de regras de controle de acesso que se aplicam e o **service configuration file** ** \<** ponto final estão configurados na seção EndpointAcls>no arquivo de configuração de serviço .
 
 ```xml
 <EndpointAcls>
@@ -129,7 +129,7 @@ O grupo de regras de controle de acesso que se aplicam ao e ao ponto de extremid
 </EndpointAcls>
 ```
 
-As regras em um grupo de controle de acesso são configuradas em uma seção \<AccessControl Name = "" > do arquivo de configuração de serviço. 
+As regras em um grupo de \<controle de acesso são configuradas em um nome AccessControl=""> seção do arquivo de configuração do serviço. 
 
 O formato é explicado na documentação de listas de controle de acesso à rede.
 Por exemplo, para permitir que apenas IPs no intervalo 100.100.0.0 para 100.100.255.255 acessem o ponto de extremidade HTTPS, as regras teriam esta aparência:
@@ -189,7 +189,7 @@ Este tópico é apenas para referência. Siga as etapas de configuração descri
 * Configurar o certificado SSL
 * Configurar certificados de cliente
 
-## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 Execute:
 
     makecert ^
@@ -357,8 +357,8 @@ Cada pessoa para quem um certificado cliente tiver sido emitido deve seguir esta
 * Na caixa de diálogo certificado é aberta, selecione a guia Detalhes
 * Certifique-se de que mostrar está exibindo todos
 * Selecione o campo denominado impressão digital na lista
-* Copiar o valor da impressão digital
-  * Excluir caracteres Unicode não visíveis na frente do primeiro dígito
+* Copie o valor da impressão digital
+  * Exclua caracteres Unicode não visíveis na frente do primeiro dígito
   * Excluir todos os espaços
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>Configurar clientes permitidos no arquivo de configuração de serviço
@@ -422,7 +422,7 @@ Siga estas etapas:
 3. Selecione **Certificados**.
 4. Clique em **Adicionar**.
 5. Escolha o local do repositório de certificados.
-6. Clique em **Concluir**.
+6. Clique em **concluir**.
 7. Clique em **OK**.
 8. Expanda **Certificados**.
 9. Expanda o nó do repositório de certificados.
@@ -442,7 +442,7 @@ No **Assistente para Exportação de Certificados**:
 8. Clique em **Avançar**.
 9. Digite ou procure um nome de arquivo onde o certificado deverá ser armazenado (use uma extensão .PFX).
 10. Clique em **Avançar**.
-11. Clique em **Concluir**.
+11. Clique em **concluir**.
 12. Clique em **OK**.
 
 ## <a name="import-certificate"></a>Importar certificado
@@ -460,13 +460,13 @@ No Assistente para importação de certificados:
 5. Selecione para “Colocar” os certificados no repositório a seguir
 6. Clique em **Procurar**.
 7. Selecione o repositório desejado.
-8. Clique em **Concluir**.
+8. Clique em **concluir**.
    
    * Se o repositório da autoridade de certificação raiz confiável foi escolhido, clique em **Sim**.
 9. Clique em **OK** em todas as janelas de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar um certificado
-No [Portal do Azure](https://portal.azure.com/)
+No [portal Azure](https://portal.azure.com/)
 
 1. Selecione os **Serviços de nuvem**.
 2. Selecione o serviço de nuvem.

@@ -1,7 +1,7 @@
 ---
 title: Balanceamento de carga em várias configurações de IP – Portal do Azure
 titleSuffix: Azure Load Balancer
-description: Neste artigo, saiba mais sobre o balanceamento de carga nas configurações de IP primário e secundário usando o portal do Azure.
+description: Neste artigo, aprenda sobre balanceamento de carga entre configurações de IP primárias e secundárias usando o portal Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74077001"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](load-balancer-multiple-ip.md)
-> * [PowerShell](load-balancer-multiple-ip-powershell.md)
-> * [CLI](load-balancer-multiple-ip-cli.md)
+> * [Powershell](load-balancer-multiple-ip-powershell.md)
+> * [Cli](load-balancer-multiple-ip-cli.md)
 
 
 Neste artigo, mostraremos como usar o Azure Load Balancer com vários endereços IP em um NIC (controlador de adaptador de rede). O diagrama a seguir ilustra nosso cenário:
@@ -42,7 +42,7 @@ Em nosso cenário, estamos usando a seguinte configuração:
 - O Azure Load Balancer é usado para expor os dois endereços IP de front-end, um para cada site. Os endereços de front-end são usados para distribuir o tráfego para a respectiva configuração de IP de cada site.
 - O mesmo número da porta é usado para endereços IP de front-end e endereços IP do pool de back-end.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Nosso cenário pressupõe que você tem um grupo de recursos denominado **contosofabrikam** com a seguinte configuração:
 
@@ -88,7 +88,7 @@ Crie seu balanceador de carga para a configuração:
 
 1. Navegue até o Portal do Azure: https://portal.azure.com. Faça logon usando sua conta do Azure.
 
-2. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Balanceador de carga**. Em seguida, selecione **Criar**.
+2. No canto superior esquerdo da tela, selecione Criar um**balanceador**de carga**de** > rede de **recursos** > . Em seguida, selecione **Criar**.
 
 3. Em **Criar balanceador de carga**, digite um nome para o balanceador de carga. Neste cenário, estamos usando o nome **mylb**.
 
@@ -124,7 +124,7 @@ Configure o pool de IPs de front-end no balanceador de carga para cada site (con
 
 6. Digite um nome para o endereço IP de front-end (por exemplo, **contosofe** ou **fabrikamfe**).
 
-7. <a name="step3-7"></a>Selecione **Endereço IP**. Em **Escolher Endereço IP público**, selecione os endereços IP do seu front-end (**PublicIP1** ou **PublicIP2**).
+7. <a name="step3-7"></a>Selecione **endereço IP**. Em **Escolher Endereço IP público**, selecione os endereços IP do seu front-end (**PublicIP1** ou **PublicIP2**).
 
 8. Crie o segundo endereço IP de front-end repetindo a <a href="#step3-3">etapa 3</a> até a <a href="#step3-7">etapa 7</a> nesta seção.
 
@@ -138,7 +138,7 @@ Configure o pool de endereços de back-end no balanceador de carga para cada sit
 
 2. Selecione o balanceador de carga (**mylb**) ao qual você deseja adicionar o pool de back-end.
 
-3. Em **Configurações**, selecione **Pools de Back-end**. Digite um nome para o pool de back-end (por exemplo, **contosopool** ou **fabrikampool**). No próximo painel, selecione **Adicionar** na parte superior. 
+3. Em **Configurações,** selecione **Pools backend**. Digite um nome para o pool de back-end (por exemplo, **contosopool** ou **fabrikampool**). No próximo painel, selecione **Adicionar** na parte superior. 
 
 4. Para **Associado a**, selecione **Conjunto de disponibilidade**.
 
@@ -172,7 +172,7 @@ Configure uma investigação de integridade para o balanceador de carga:
 
 Configure as regras de balanceamento de carga para cada site (contoso.com e fabrikam.com):
     
-1. <a name="step6-1"></a>Em **Configurações**, selecione **Carregar regras de balanceamento de carga**. No próximo painel, selecione **Adicionar** na parte superior. 
+1. <a name="step6-1"></a>Em **Configurações,** selecione **Regras de balanceamento de carga**. No próximo painel, selecione **Adicionar** na parte superior. 
 
 2. Para **Nome**, digite um nome para a regra de balanceamento de carga (por exemplo, **HTTPc** para Contoso ou **HTTPf** para Fabrikam).
 
@@ -180,7 +180,7 @@ Configure as regras de balanceamento de carga para cada site (contoso.com e fabr
 
 4. Para **Porta** e **Porta de back-end**, mantenha o valor padrão de **80**.
 
-5. Para **IP Flutuante (retorno de servidor direto)** , selecione **Desabilitado**.
+5. Para **IP Flutuante (retorno de servidor direto)**, selecione **Desabilitado**.
 
 6. <a name="step6-6"></a>Selecione **OK**.
 
@@ -194,4 +194,4 @@ Como a última etapa, configure os registros de recurso DNS para apontar para os
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como você pode usar diferentes tipos de logs para gerenciar e solucionar problemas do balanceador de carga em [logs de Azure monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba como usar diferentes tipos de logs para gerenciar e solucionar problemas do balanceador de carga nos [registros do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

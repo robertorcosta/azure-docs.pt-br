@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79209414"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como usar o Banco de Dados SQL do Azure
@@ -26,8 +26,8 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 
 - [Copiar um banco de dados individual ou em pool dentro do Azure](sql-database-copy.md)
 - [Importar um BD de um BACPAC](sql-database-import.md)
-- [Exportar um BD para um BACPAC](sql-database-export.md)
-- [Carregar dados com o BCP](sql-database-load-from-csv-with-bcp.md)
+- [Exportar um BD de um BACPAC](sql-database-export.md)
+- [Carregar dados com BCP](sql-database-load-from-csv-with-bcp.md)
 - [Carregar dados com o ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Sincronização de dados
@@ -36,8 +36,8 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Agente de Sincronização de Dados](sql-database-data-sync-agent.md)
 - [Replicar alterações de esquema](sql-database-update-sync-schema.md)
 - [Monitorar com o OMS](sql-database-sync-monitor-oms.md)
-- [Melhores práticas para a sincronização de dados](sql-database-best-practices-data-sync.md)
-- [Solucionar problemas da sincronização de dados](sql-database-troubleshoot-data-sync.md)
+- [Práticas recomendadas para a Sincronização de Dados](sql-database-best-practices-data-sync.md)
+- [Solucionar problemas da Sincronização de Dados](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="monitoring-and-tuning"></a>Monitoramento e ajuste
 
@@ -57,7 +57,7 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 ## <a name="configure-features"></a>Configurar recursos
 
 - [Configurar a autenticação do Azure AD](sql-database-aad-authentication-configure.md)
-- [Configurar o acesso condicional](sql-database-conditional-access.md)
+- [Configurar acesso condicional](sql-database-conditional-access.md)
 - [Autenticação multifator do AAD](sql-database-ssms-mfa-authentication.md)
 - [Configurar autenticação multifator](sql-database-ssms-mfa-authentication-configure.md)
 - [Configurar a política de retenção temporal](sql-database-temporal-tables-retention-policy.md)
@@ -71,10 +71,10 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 
 - [Conectividade](sql-database-libraries.md)
 - [Usar o Conector do Spark](sql-database-spark-connector.md)
-- [Autenticar aplicativo](sql-database-client-id-keys.md)
+- [Aplicativo de autenticação](sql-database-client-id-keys.md)
 - [Usar o envio em lote para obter melhor desempenho](sql-database-use-batching-to-improve-performance.md)
 - [Diretrizes de conectividade](sql-database-connectivity-issues.md)
-- [Aliases de DNS](dns-alias-overview.md)
+- [Aliases DNS](dns-alias-overview.md)
 - [Configurar PowerShell de alias do DNS](dns-alias-powershell.md)
 - [Portas - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C e C ++](sql-database-develop-cplusplus-simple.md)

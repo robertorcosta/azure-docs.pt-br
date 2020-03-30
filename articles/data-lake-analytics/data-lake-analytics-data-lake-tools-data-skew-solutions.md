@@ -1,5 +1,5 @@
 ---
-title: Resolver dados-distorção-Ferramentas do Azure Data Lake para Visual Studio
+title: Resolver data-skew - Azure Data Lake Tools for Visual Studio
 description: Solucione problemas em possíveis soluções para problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio.
 services: data-lake-analytics
 author: yanancai
@@ -9,10 +9,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71802550"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados usando as Ferramentas do Azure Data Lake para Visual Studio
@@ -22,33 +22,33 @@ ms.locfileid: "71802550"
 Resumidamente, distorção de dados é a super-representação de um valor. Imagine que você atribuiu 50 fiscais de impostos para auditar o imposto de renda, um examinador para cada estado dos EUA. Já que a população de Wyoming é pequena, o fiscal de lá tem pouco o que fazer. Na Califórnia, no entanto, o fiscal permanece muito ocupado devido à grande população do estado.
     ![Exemplo de problema de distorção de dados](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
 
-Em nosso cenário, os dados são distribuídos de modo desigual entre todos os fiscais de impostos, o que significa que alguns fiscais devem trabalhar mais do que outros. Em seu próprio trabalho, com frequência você enfrentar situações como o exemplo do fiscal de impostos fornecido aqui. Em termos mais técnicos, um vértice obtém muito mais dados do que seus colegas, uma situação que faz com que o vértice funcione mais do que os outros e isso eventualmente torna todo um trabalho mais lento. O que é pior, o trabalho pode falhar, pois vértices podem ter, por exemplo, uma limitação de 5 horas de tempo de execução e uma limitação de 6 GB de memória.
+Em nosso cenário, os dados são distribuídos de modo desigual entre todos os fiscais de impostos, o que significa que alguns fiscais devem trabalhar mais do que outros. Em seu próprio trabalho, com frequência você enfrentar situações como o exemplo do fiscal de impostos fornecido aqui. Em termos mais técnicos, um vértice obtém muito mais dados do que seus colegas, uma situação que faz com que o vértice funcione mais do que os outros e isso eventualmente torna todo um trabalho mais lento. O que é pior, o trabalho pode falhar, pois vértices podem ter, por exemplo, uma limitação de 5 horas de runtime e uma limitação de 6 GB de memória.
 
 ## <a name="resolving-data-skew-problems"></a>Resolvendo problemas de distorções de dados
 
 As Ferramentas do Azure Data Lake para Visual Studio podem ajudar a detectar se o trabalho tem um problema de distorção de dados. Se algum problema existir, você poderá resolvê-lo experimentando as soluções nesta seção.
 
-## <a name="solution-1-improve-table-partitioning"></a>Solução 1: Melhorar o particionamento de tabela
+## <a name="solution-1-improve-table-partitioning"></a>Solução 1: melhorar o particionamento da tabela
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opção 1: Filtrar o valor da chave distorcida com antecedência
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opção 1: Filtrar o valor chave distorcido com antecedência
 
 Se isso não afetar sua lógica de negócios, você poderá filtrar os valores mais frequentes com antecedência. Por exemplo, se houver muito 000-000-000 na coluna GUID, não convém agregar esse valor. Antes de você agregar, você pode escrever “WHERE GUID != “000-000-000”” para filtrar o valor de alta frequência.
 
-### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opção 2: Escolha uma partição ou chave de distribuição diferente
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opção 2: separar uma chave de partição ou distribuição diferente
 
-No exemplo anterior, se você quiser apenas verificar a carga de trabalho de auditoria de imposto em todo o país/região, você pode melhorar a distribuição de dados selecionando o número de ID como sua chave. Às vezes, separar uma chave de partição/distribuição diferente pode distribuir os dados mais uniformemente, mas você precisa certificar-se de que essa escolha não afeta sua lógica de negócios. Por exemplo, para calcular a soma de imposto para cada estado, talvez você queira designar _Estado_ como a chave de partição. Se você continuar a ter esse problema, tente usar a Opção 3.
+No exemplo anterior, se você quiser apenas verificar a carga de trabalho de auditoria fiscal em todo o país/região, você pode melhorar a distribuição de dados selecionando o número de ID como sua chave. Às vezes, separar uma chave de partição/distribuição diferente pode distribuir os dados mais uniformemente, mas você precisa certificar-se de que essa escolha não afeta sua lógica de negócios. Por exemplo, para calcular a soma de imposto para cada estado, talvez você queira designar _Estado_ como a chave de partição. Se você continuar a ter esse problema, tente usar a Opção 3.
 
-### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opção 3: Adicionar mais chaves de partição ou distribuição
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opção 3: adicionar mais chaves de partição ou distribuição
 
 Em vez de usar apenas _Estado_ como uma chave de partição, você pode usar mais de uma chave para o particionamento. Por exemplo, considere adicionar _CEP_ como uma chave de partição adicional para reduzir os tamanhos das partições de dados e distribuir os dados mais uniformemente.
 
-### <a name="option-4-use-round-robin-distribution"></a>Opção 4: Usar a distribuição Round Robin
+### <a name="option-4-use-round-robin-distribution"></a>Opção 4: usar a distribuição round robin
 
-Se você não encontrar uma chave adequada para a partição e distribuição, poderá tentar usar a distribuição round robin. A distribuição round robin trata cada linha igualmente e as coloca aleatoriamente nos buckets correspondentes. Os dados são distribuídos uniformemente mas perdem as informações de localidade, um inconveniente que também pode reduzir o desempenho do trabalho para algumas operações. Além disso, se você estiver agregando para a chave distorcida mesmo assim, o problema de distorção de dados ainda permanecerá. Para saber mais sobre a distribuição Round Robin, consulte a seção distribuições de tabela do U- [SQL em CREATE TABLE (U-SQL): Criando uma tabela com esquema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
+Se você não encontrar uma chave adequada para a partição e distribuição, poderá tentar usar a distribuição round robin. A distribuição round robin trata cada linha igualmente e as coloca aleatoriamente nos buckets correspondentes. Os dados são distribuídos uniformemente mas perdem as informações de localidade, um inconveniente que também pode reduzir o desempenho do trabalho para algumas operações. Além disso, se você estiver agregando para a chave distorcida mesmo assim, o problema de distorção de dados ainda permanecerá. Para saber mais sobre a distribuição round robin, consulte a seção Distribuições de Tabela U-SQL em [CREATE TABLE (U-SQL): criando uma tabela com esquema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
-## <a name="solution-2-improve-the-query-plan"></a>Solução 2: Melhorar o plano de consulta
+## <a name="solution-2-improve-the-query-plan"></a>Solução 2: melhorar o plano de consulta
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: Usar a instrução CREATE STATISTICs
+### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: usar a instrução CREATE STATISTICS
 
 O U-SQL fornece a instrução CREATE STATISTICS em tabelas. Essa instrução fornece mais informações sobre as características dos dados, assim como distribuição de valor, ao otimizador de consulta; essas informações são então armazenadas em uma tabela. Para a maioria das consultas, o otimizador de consulta já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Ocasionalmente, talvez seja necessário melhorar o desempenho de consulta, criando estatísticas adicionais com CREATE STATISTICS ou modificando o design da consulta. Para obter mais informações, consulte a página [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics).
 
@@ -97,7 +97,7 @@ Exemplo de código:
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
-### <a name="option-3-use-rowcount"></a>Opção 3: Usar número de linhas  
+### <a name="option-3-use-rowcount"></a>Opção 3: usar ROWCOUNT  
 Além de SKEWFACTOR, para casos específicos de junção de chaves com distorção, se você souber que o outro conjunto de linhas unido é pequeno, você poderá informar o otimizador adicionando uma dica ROWCOUNT na instrução U-SQL antes de JOIN. Dessa forma, o otimizador pode escolher uma estratégia de junção de difusão para ajudar a melhorar o desempenho. Lembre-se de que ROWCOUNT não resolve o problema de distorção de dados, mas ele pode oferecer alguma ajuda adicional.
 
     OPTION(ROWCOUNT = n)
@@ -122,11 +122,11 @@ Exemplo de código:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solução 3: Melhorar o redutor e o combinador definidos pelo usuário
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Solução 3: Melhorar o combinador e o redutor definidos pelo usuário
 
 Às vezes você pode gravar um operador definido pelo usuário para lidar com uma lógica de processo complicada e um redutor e um combinador bem escritos podem mitigar um problema de distorção de dados em alguns casos.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opção 1: Usar um redutor recursivo, se possível
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opção 1: usar um redutor recursivo, se possível
 
 Por padrão, um redutor definido pelo usuário será executado no modo não recursivo, o que significa que o trabalho de redução para uma chave será distribuído em um único vértice. Mas se os dados estiverem distorcidos, os grandes conjuntos de dados poderão ser processados em um único vértice e serem executados por um longo tempo.
 
@@ -150,7 +150,7 @@ Exemplo de código:
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opção 2: Use o modo combinador de nível de linha, se possível
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opção 2: usar o modo combinador no nível de linha, se possível
 
 Semelhante à dica ROWCOUNT para casos específicos de junção de chave distorcida, o modo combinador tenta distribuir grandes conjuntos de valores de chave distorcida em vários vértices, de forma que o trabalho possa ser executado simultaneamente. O modo combinador não pode resolver problemas de distorção de dados, mas pode auxiliar em casos de grandes conjuntos de valores de chaves distorcidas.
 
@@ -165,13 +165,13 @@ O exemplo a seguir mostra um conjunto de linhas à esquerda separado. Cada linha
 
 Atributos do modo de combinador:
 
-- SqlUserDefinedCombiner (Mode = CombinerMode. Full): Cada linha de saída pode depender de todas as linhas de entrada da esquerda e da direita com o mesmo valor de chave.
+- SqlUserDefinedCombiner (Mode=CombinerMode.Full): Cada linha de saída depende potencialmente de todas as linhas de entrada da esquerda e da direita com o mesmo valor-chave.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Cada linha de saída depende de uma única linha de entrada da esquerda (e potencialmente de todas as linhas da direita com o mesmo valor de chave).
+- SqlUserDefinedCombiner(Mode=CombinerMode.Left): cada linha de saída depende de uma única linha de entrada da esquerda (e potencialmente de todas as linhas da direita com o mesmo valor de chave).
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): Cada linha de saída depende de uma única linha de entrada da direita (e potencialmente de todas as linhas da esquerda com o mesmo valor de chave).
+- SqlUserDefinedCombiner(Mode=CombinerMode.Right): cada linha de saída depende de uma única linha de entrada da direita (e potencialmente de todas as linhas da esquerda com o mesmo valor de chave).
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Cada linha de saída depende de uma única linha de entrada da esquerda e da direita com o mesmo valor.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): cada linha de saída depende de uma única linha de entrada da direita e da esquerda com o mesmo valor.
 
 Exemplo de código:
 

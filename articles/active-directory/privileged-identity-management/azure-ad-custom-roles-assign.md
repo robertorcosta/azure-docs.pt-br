@@ -1,5 +1,5 @@
 ---
-title: Atribuir PIM (função personalizada do Azure AD Privileged Identity Management)
+title: Atribuir a função personalizada do Azure AD - Controle de Identidade Privilegiada (PIM)
 description: Como atribuir uma função personalizada do Azure AD para atribuição do PIM (Privileged Identity Management)
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77499240"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir uma função personalizada do Azure AD no PIM (Privileged Identity Management)
@@ -29,10 +29,10 @@ Este artigo informa como usar o PIM (Privileged Identity Management) para criar 
 
 - Para saber mais sobre como criar funções personalizadas para delegar o gerenciamento de aplicativos no Azure AD, confira [Funções Administrador personalizadas no Azure Active Directory (versão prévia)](../users-groups-roles/roles-custom-overview.md).
 - Se você ainda não usou o Privileged Identity Management, obtenha mais informações em [Começar a usar o Privileged Identity Management](pim-getting-started.md).
-- Para obter informações sobre como conceder a outro administrador acesso para gerenciar Privileged Identity Management, consulte [conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+- Para obter informações sobre como conceder a outro administrador acesso para gerenciar o Gerenciamento de Identidade Privilegiada, consulte [Conceder acesso a outros administradores para gerenciar o Gerenciamento de Identidade Privilegiada](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
-> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir a seguinte faixa, essas funções deverão ser gerenciadas [na experiência de funções internas](pim-how-to-activate-role.md) e este artigo não se aplicará:
+> As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir o banner a seguir, essas funções devem ser gerenciadas [na experiência de funções incorporadas](pim-how-to-activate-role.md) e este artigo não se aplica:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
@@ -41,7 +41,7 @@ Este artigo informa como usar o PIM (Privileged Identity Management) para criar 
 O Privileged Identity Management pode gerenciar funções personalizadas que você cria no gerenciamento de aplicativos do Azure AD (Active Directory).  As etapas a seguir fazem uma atribuição qualificada para uma função do diretório personalizada.
 
 1. Entre no [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) no portal do Azure com uma conta de usuário atribuída à função de administrador de funções com privilégios.
-1. Selecione **funções personalizadas do Azure AD (versão prévia)** .
+1. Selecione **funções personalizadas do Azure AD (versão prévia)**.
 
     ![Selecione a versão prévia das funções personalizadas do Azure AD para ver as atribuições de função elegíveis](./media/azure-ad-custom-roles-assign/view-custom.png)
 
@@ -74,7 +74,7 @@ O Privileged Identity Management pode gerenciar funções personalizadas que voc
 1. Se a caixa de seleção **Permanente** estiver presente e disponível (dependendo das configurações de função), você poderá especificar se a atribuição é permanente. Marque a caixa de seleção para tornar a atribuição permanentemente qualificada ou permanentemente atribuída. Desmarque a caixa de seleção para especificar a duração de uma atribuição.
 1. Para criar a atribuição de função, clique em **Salvar** e, em seguida, em **Adicionar**. Uma notificação do status do processo da atribuição é exibida.
 
-Para verificar a atribuição de função, em uma função aberta, selecione **Atribuições** > **Atribuir** e verifique se sua atribuição de função é identificada adequadamente como qualificada ou ativa.
+Para verificar a atribuição da função, em uma função aberta, selecione **Atribuições** > **de Atribuições** e verifique se sua atribuição de função está devidamente identificada como elegível ou ativa.
 
  ![Marque para ver se a atribuição de função está visível como qualificada ou ativa](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

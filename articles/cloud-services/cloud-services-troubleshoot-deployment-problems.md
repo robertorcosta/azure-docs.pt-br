@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: ccb08f853ae0f941dd5f9c0eca8c77f0f650905a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71122743"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Solucionar problemas de implantação do serviço de nuvem
@@ -35,14 +35,14 @@ Você pode encontrar o painel **Propriedades** da seguinte maneira:
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problema: Não consigo acessar meu site, mas minha implantação foi iniciada e todas as instâncias de função estão prontas
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problema: não consigo acessar meu site, mas minha implantação foi iniciada e todas as instâncias de função estão prontas
 O link da URL do site exibido no portal não inclui a porta. A porta padrão para sites é 80. Se o seu aplicativo for configurado para ser executado em uma porta diferente, você deverá adicionar o número de porta correto à URL ao acessar o site.
 
 1. No portal do Azure, clique na implantação do serviço de nuvem.
 2. No painel **Propriedades** do Portal do Azure, verifique as portas para as instâncias de função (em **Pontos de Extremidade de Entrada**).
 3. Se a porta não for 80, adicione o valor de porta correto à URL ao acessar o aplicativo. Para especificar uma porta não padrão, digite a URL, seguida de dois-pontos (:) e do número da porta sem espaços.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problema: Minhas instâncias de função recicladas sem me fazer nada
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problema: minhas instâncias de funções foram recicladas sem que eu tenha realizado nenhuma ação
 A recuperação de serviço ocorre automaticamente quando o Azure detecta nós com problemas e, assim, move as instâncias de função para novos nós. Quando isso ocorrer, você poderá ver suas instâncias de função serem recicladas automaticamente. Para descobrir se a recuperação de serviço ocorreu:
 
 1. No portal do Azure, clique na implantação do serviço de nuvem.
@@ -51,7 +51,7 @@ A recuperação de serviço ocorre automaticamente quando o Azure detecta nós c
 As funções também serão recicladas aproximadamente uma vez por mês durante as atualizações do SO host e do SO convidado.  
 Para saber mais, confira a postagem no blog [A instância de função é reinicializada devido às atualizações do SO](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: Não consigo fazer uma permuta de VIP e recebo um erro
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: não consigo fazer uma permuta de VIP. Recebi uma mensagem de erro
 Uma permuta de VIP não é permitida se uma atualização de implantação estiver em andamento. As atualizações de implantação podem ocorrer automaticamente quando:
 
 * Um novo sistema operacional convidado está disponível e você está configurado para receber atualizações automáticas.
@@ -60,19 +60,19 @@ Uma permuta de VIP não é permitida se uma atualização de implantação estiv
 Para descobrir se uma atualização automática está impedindo que você faça uma permuta de VIP:
 
 1. No portal do Azure, clique na implantação do serviço de nuvem.
-2. No painel **Propriedades** do Portal do Azure, observe o valor de **Status**. Se ele estiver **Pronto**, verifique a **Última operação** para ver se ocorreu uma operação recentemente que possa impedir a permuta de VIP.
+2. No painel **Propriedades** do Portal do Azure, observe o valor de **Status**. Se for **Pronto**, verifique **Última operação** para ver se aconteceu alguma recentemente que possa impedir a permuta de VIP.
 3. Repita as etapas 1 e 2 para a implantação de produção.
 4. Se uma atualização automática estiver em andamento, aguarde sua conclusão antes de tentar fazer a permuta de VIP.
 
-## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Uma instância de função está fazendo um loop entre iniciado, inicializando, ocupado e parado
+## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: uma instância de função está alternando entre os estados Iniciado, Inicializando, Ocupado e Parado
 Essa condição pode indicar um problema com o código, pacote ou arquivo de configuração do aplicativo. Nesse caso, você deverá ver o status sendo alterado em intervalos de alguns minutos e o Portal do Azure poderá indicar algo como **Reciclando**, **Ocupado** ou **Inicializando**. Isso indica que há algo errado com o aplicativo que está impedindo a execução da instância de função.
 
 Para saber mais sobre como solucionar o problema, confira a postagem de blog [Dados de Diagnóstico de Computação do Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) e [Problemas comuns que fazem as funções serem recicladas](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-## <a name="problem-my-application-stopped-working"></a>Problema: Meu aplicativo parou de funcionar
+## <a name="problem-my-application-stopped-working"></a>Problema: meu aplicativo parou de funcionar
 1. No portal do Azure, clique na instância de função.
 2. No painel **Propriedades** do Portal do Azure, considere as seguintes condições para resolver o problema:
-   * Se a instância de função tiver sido interrompida recentemente (é possível verificar o valor de **Anular contagem**), a implantação pode estar sendo atualizada. Aguarde para ver se a instância de função retoma o funcionamento por conta própria.
+   * Se a instância de função tiver sido interrompida recentemente (você pode verificar o valor de **Contagem de anulações**), a implantação pode estar sendo atualizada. Aguarde para ver se a instância de função retoma o funcionamento por conta própria.
    * Se a instância de função estiver **Ocupada**, verifique o código do aplicativo para ver se o evento [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) foi manipulado. Talvez seja necessário adicionar ou corrigir algum código que manipula esse evento.
    * Examine os dados de diagnóstico e os cenários de solução de problemas na postagem no blog [Dados de diagnóstico de computação de PaaS do Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 

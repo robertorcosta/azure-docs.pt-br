@@ -1,25 +1,25 @@
 ---
-title: UDFs (funções definidas pelo usuário) no Azure Cosmos DB
-description: Saiba mais sobre as funções definidas pelo usuário no Azure Cosmos DB.
+title: Funções definidas pelo usuário (UDFs) no Azure Cosmos DB
+description: Saiba mais sobre funções definidas pelo usuário no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69614324"
 ---
-# <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>UDFs (funções definidas pelo usuário) no Azure Cosmos DB
+# <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funções definidas pelo usuário (UDFs) no Azure Cosmos DB
 
-A API do SQL fornece suporte para UDFs (funções definidas pelo usuário). Com UDFs escalares, você pode passar zero ou muitos argumentos e retornar um único resultado de argumento. A API verifica cada argumento para valores JSON válidos.  
+A API SQL fornece suporte para funções definidas pelo usuário (UDFs). Com UDFs escalares, você pode passar em zero ou muitos argumentos e retornar um único resultado de argumento. A API verifica cada argumento por serem valores JSON legais.  
 
-A API estende a sintaxe SQL para dar suporte à lógica de aplicativo personalizada usando UDFs. Você pode registrar UDFs com a API do SQL e referenciá-los em consultas SQL. Na verdade, as UDFs são projetadas de maneira especial para serem chamadas por consultas. Como um registro, os UDFs não têm acesso ao objeto de contexto como outros tipos de JavaScript, como procedimentos armazenados e gatilhos. As consultas são somente leitura e podem ser executadas em réplicas primárias ou secundárias. UDFs, ao contrário de outros tipos de JavaScript, são projetados para serem executados em réplicas secundárias.
+A API estende a sintaxe SQL para suportar a lógica de aplicativos personalizados usando UDFs. Você pode registrar UDFs com a API SQL e referencia-los em consultas SQL. Na verdade, as UDFs são projetadas de maneira especial para serem chamadas por consultas. Como corolário, os UDFs não têm acesso ao objeto de contexto como outros tipos JavaScript, como procedimentos armazenados e gatilhos. As consultas são somente leitura e podem ser executadas em réplicas primárias ou secundárias. Os UDFs, ao contrário de outros tipos javaScript, são projetados para serem executados em réplicas secundárias.
 
-O exemplo a seguir registra um UDF em um contêiner de item no banco de dados Cosmos. O exemplo cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores `input` de cadeia de caracteres JSON e `pattern`verifica se o primeiro corresponde ao padrão especificado no segundo usando a função do `string.match()` JavaScript.
+O exemplo a seguir registra um UDF em um contêiner de itens no banco de dados Cosmos. O exemplo cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de `input` `pattern`seqüência JSON e , e verifica se o `string.match()` primeiro corresponde ao padrão especificado no segundo usando a função JavaScript.
 
 ## <a name="examples"></a>Exemplos
 
@@ -37,7 +37,7 @@ O exemplo a seguir registra um UDF em um contêiner de item no banco de dados Co
            regexMatchUdf).Result;  
 ```
 
-Agora, use essa UDF em uma projeção de consulta. Você deve qualificar UDFs com o prefixo `udf.` que diferencia maiúsculas de minúsculas ao chamá-los de dentro de consultas.
+Agora, use este UDF em uma projeção de consulta. Você deve qualificar uDFs com `udf.` o prefixo sensível a maiúsculas e minúsculas ao chamá-los de consultas internas.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -74,9 +74,9 @@ Os resultados são:
     }]
 ```
 
-Em essência, as UDFs são expressões escalares válidas que você pode usar em projeções e filtros.
+Em essência, UDFs são expressões escalares válidas que você pode usar tanto em projeções quanto em filtros.
 
-Para expandir o poder das UDFs, observe outro exemplo com a lógica condicional:
+Para expandir o poder das UDFs, veja outro exemplo com lógica condicional:
 
 ```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
@@ -100,7 +100,7 @@ Para expandir o poder das UDFs, observe outro exemplo com a lógica condicional:
                 seaLevelUdf);
 ```
 
-O exemplo a seguir exercita o UDF:
+O exemplo a seguir exerce o UDF:
 
 ```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
@@ -122,9 +122,9 @@ Os resultados são:
     ]
 ```
 
-Se as propriedades referenciadas pelos parâmetros UDF não estiverem disponíveis no valor JSON, o parâmetro será considerado como indefinido e a invocação de UDF será ignorada. Da mesma forma, se o resultado do UDF for indefinido, ele não será incluído no resultado.
+Se as propriedades referidas pelos parâmetros UDF não estão disponíveis no valor JSON, o parâmetro é considerado indefinido e a invocação do UDF é ignorada. Da mesma forma, se o resultado do UDF é indefinido, ele não está incluído no resultado.
 
-Como mostram os exemplos anteriores, as UDFs integram o poder da linguagem JavaScript com a API do SQL. As UDFs fornecem uma rica interface programável para realizar um procedimento complexo, lógica condicional, com a ajuda de recursos internos de tempo de execução do JavaScript. A API do SQL fornece os argumentos para as UDFs de cada item de origem no estágio atual de cláusula WHERE ou SELECT do processamento. O resultado é incorporado diretamente no pipeline de execução geral. Em resumo, as UDFs são ótimas ferramentas para fazer uma lógica de negócios complexa como parte das consultas.
+Como mostram os exemplos anteriores, os UDFs integram o poder da linguagem JavaScript com a API SQL. Os UDFs fornecem uma interface programável rica para fazer uma lógica complexa e condicional com a ajuda de recursos de tempo de execução JavaScript incorporados. A API SQL fornece os argumentos aos UDFs para cada item de origem na fase atual de cláusula SI ou SELECT de processamento. O resultado é perfeitamente incorporado no pipeline de execução geral. Em resumo, os UDFs são ótimas ferramentas para fazer lógica de negócios complexa como parte de consultas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

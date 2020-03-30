@@ -16,19 +16,19 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73161200"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração do Atlassian Jira e Confluence para Azure Active Directory
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 O plug-in de logon único (SSO) do Azure Active Directory (AD do Azure) permite que os clientes do Microsoft Azure Active Directory usem sua conta corporativa ou de estudante para entrar no Atlassian Jira e produtos com base em Confluence Server. Ele implementa SSO baseado em SAML 2.0.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Quando os usuários desejam entrar no aplicativo Atlassian Jira ou Confluence, eles veem o botão **Logon com Microsoft Azure AD** na página de entrada. Quando eles o selecionam, precisam entrar usando a página de entrada da organização do Microsoft Azure AD (ou seja, sua conta corporativa ou de estudante).
 
@@ -95,7 +95,7 @@ Para instalar o plug-in, siga estas etapas:
 
 2. Vá para o console de administração do Jira/Confluence e selecione **Complementos**.
 
-3. No Microsoft Download Center, baixe o [Microsoft SAML SSO Plugin para Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO Plugin para Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
+3. A partir do Microsoft Download Center, baixe o [Plugin SSO do Microsoft SAML para Plugin SSO Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAmL para Confluência](https://www.microsoft.com/download/details.aspx?id=56503).
 
    A versão apropriada do plug-in é exibida nos resultados da pesquisa.
 
@@ -113,11 +113,11 @@ A imagem a seguir mostra a tela de configuração no JIRA e no Confluence:
 
 * **URL de metadados**: a URL para obter metadados de federação do Microsoft Azure AD.
 
-* **Identificadores**: a URL utilizada pelo Microsoft Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https:// *\<domain: port >* /.
+* **Identificadores**: a URL utilizada pelo Microsoft Azure AD para validar a origem da solicitação. Ela mapeia para o elemento **Identificador** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como*\<https:// domínio:porta>*/.
 
-* **URL de resposta**: a URL de resposta no seu provedor de identidade (IdP) que inicia a entrada do SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https:// *\<domain: port >* /plugins/servlet/SAML/auth.
+* **URL de resposta**: a URL de resposta no seu provedor de identidade (IdP) que inicia a entrada do SAML. Ela mapeia para o elemento **URL de Resposta** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https://*\<domínio:porta>*/plugins/servlet/saml/auth.
 
-* **URL de logon**: a URL de logon no seu IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https:// *\<domain: port >* /plugins/servlet/SAML/auth.
+* **URL de logon**: a URL de logon no seu IdP que inicia a entrada SAML. Ela mapeia para o elemento **Logon** no Microsoft Azure AD. O plug-in deriva automaticamente essa URL como https://*\<domínio:porta>*/plugins/servlet/saml/auth.
 
 * **ID da Entidade do IdP**: a ID de entidade que o IdP usa. Essa caixa é preenchida quando a URL de metadados é resolvida.
 
@@ -139,13 +139,13 @@ A imagem a seguir mostra a tela de configuração no JIRA e no Confluence:
 
 * **Habilitar saída única**: a seleção a ser feita caso você deseje sair do Azure Active Directory quando um usuário sair do Jira ou do Confluence.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 * **Você está obtendo vários erros de certificado**: entre no Azure Active Directory e remova os vários certificados que estão disponíveis com relação ao aplicativo. Certifique-se de que apenas um certificado esteja presente.
 
 * **Um certificado está prestes a expirar no Azure Active Directory**: complementos cuidam da sobreposição automática do certificado. Quando um certificado estiver prestes a expirar, um novo certificado deverá ser marcado como ativo e os certificados não utilizados deverão ser excluídos. Quando um usuário tenta entrar no Jira nesse cenário, o plug-in efetua fetch e salva o novo certificado.
 
-* **Você deseja desabilitar o WebSudo (desabilite a sessão de administrador segura)** :
+* **Você deseja desabilitar o WebSudo (desabilite a sessão de administrador segura)**:
 
   * Para Jira, sessões de administrador seguras (ou seja, confirmação de senha antes de acessar as funções de administração) são habilitadas por padrão. Se você deseja remover esse recurso em sua instância de Jira, especifique a seguinte linha no arquivo jira-config: `ira.websudo.is.disabled = true`
 
@@ -163,7 +163,7 @@ A imagem a seguir mostra a tela de configuração no JIRA e no Confluence:
 
 * **Há um erro de "Aplicativo não encontrado" no Azure Active Directory**: veja se a URL apropriada está mapeada para o aplicativo no Azure Active Directory.
 
-* **Você precisa de suporte**: contate a [Equipe de integração de SSP do Microsoft Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipe responde em 24-48 horas de negócios.
+* **Você precisa de suporte**: contate a [Equipe de integração de SSP do Microsoft Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipe responde entre 24 e 48 horas dentro do horário comercial.
 
   Também é possível criar um ticket de suporte com a Microsoft por meio do canal do Portal do Azure.
 
@@ -215,7 +215,7 @@ Uma reinicialização não é necessária. Você pode começar a usar o plug-in 
 
 ### <a name="how-do-i-get-support-for-the-plug-in"></a>Como fazer para obter suporte para o plug-in?
 
-Você pode entrar em contato com a [Equipe de Integração de SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) se precisar de suporte com o plug-in. A equipe responde em 24-48 horas de negócios.
+Você pode entrar em contato com a [Equipe de Integração de SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) se precisar de suporte com o plug-in. A equipe responde entre 24 e 48 horas dentro do horário comercial.
 
 Também é possível criar um ticket de suporte com a Microsoft por meio do canal do Portal do Azure.
 

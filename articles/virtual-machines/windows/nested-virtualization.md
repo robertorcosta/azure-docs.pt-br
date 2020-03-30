@@ -12,10 +12,10 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033131"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
@@ -26,7 +26,7 @@ Este artigo demonstra como habilitar o Hyper-V em uma VM do Azure e configurar a
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Criar uma VM do Azure com capacidade de aninhamento
 
-Crie uma nova VM do Windows Server 2016 do Azure.  Para referência rápida, todas as máquinas virtuais v3 dão suporte à virtualização aninhada. Para obter uma lista completa dos tamanhos de máquinas virtuais que dão suporte para aninhamento, confira o [artigo da Unidade de Computação do Azure](acu.md).
+Crie uma nova VM do Windows Server 2016 do Azure.  Para referência rápida, todas as máquinas virtuais v3 suportam virtualização aninhada. Para obter uma lista completa dos tamanhos de máquinas virtuais que dão suporte para aninhamento, confira o [artigo da Unidade de Computação do Azure](acu.md).
 
 Escolha um tamanho de VM grande o suficiente para dar suporte às demandas de uma máquina virtual convidada. Neste exemplo, estamos usando uma VM do Azure com um tamanho D3_v3. 
 
@@ -122,7 +122,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->O agente convidado do Azure não tem suporte em VMs aninhadas e pode causar problemas no host e nas VMs aninhadas. Não instale o agente do Azure em VMs aninhadas e não use uma imagem para criar as VMs aninhadas que já têm o agente convidado do Azure instalado.
+>O agente convidado do Azure não é suportado em VMs aninhados e pode causar problemas tanto nas VMs host quanto nas AvMs aninhadas. Não instale o agente Azure em VMs aninhados e não use uma imagem para criar as VMs aninhadas que já têm o agente convidado do Azure instalado.
 
 1. Abra o Gerenciador do Hyper-V e crie uma nova máquina virtual. Configure a máquina virtual para usar a nova rede Interna criada.
     
@@ -172,7 +172,7 @@ Se você não configurou o DHCP para atribuir dinamicamente um endereço IP à m
 
 2. Clique com o botão direito do mouse na máquina virtual convidada e clique em Conectar.
 
-3. Entre na máquina virtual convidada.
+3. Faça login na máquina virtual convidada.
 
 4. Na máquina virtual convidada, abra a Central de Rede e Compartilhamento.
 

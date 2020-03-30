@@ -1,6 +1,6 @@
 ---
 title: Backup e restauração do banco de dados do Analysis Services do Azure | Microsoft Docs
-description: Este artigo descreve como fazer backup e restaurar dados e metadados do modelo de um banco de Azure Analysis Services.
+description: Este artigo descreve como fazer backup e restaurar metadados e dados do modelo de um banco de dados do Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573443"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
@@ -23,7 +23,7 @@ O backup de bancos de dados de modelos tabulares no Azure Analysis Services é m
 > 
 > 
 
-Os backups são salvos com uma extensão. ABF. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas.
+Os backups são salvos com uma extensão .abf. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas.
 
 
 ## <a name="configure-storage-settings"></a>Definir as configurações de armazenamento
@@ -55,7 +55,7 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 
 1. No SSMS, clique com o botão direito do mouse em um banco de dados > **Backup**.
 
-2. Em **Banco de Dados de Backup** > **Arquivo de Backup**, clique em **Navegar**.
+2. No arquivo **backup do banco de dados** > **de backup,** clique **em Procurar**.
 
 3. Na caixa de diálogo **Salvar arquivo como** verifique o caminho da pasta e digite um nome para o arquivo de backup. 
 

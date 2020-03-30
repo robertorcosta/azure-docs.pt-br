@@ -1,6 +1,6 @@
 ---
-title: Conectar-se à área de trabalho virtual do Windows do iOS-Azure
-description: Como se conectar à área de trabalho virtual do Windows usando o cliente iOS.
+title: Conecte-se ao Windows Virtual Desktop do iOS - Azure
+description: Como se conectar ao Windows Virtual Desktop usando o cliente iOS.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
@@ -9,43 +9,43 @@ ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3bf9ea6c68e4cbbe721705639e6c6416c0e93c9d
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128262"
 ---
 # <a name="connect-with-the-ios-client"></a>Conectar-se ao cliente iOS
 
-> Aplica-se a: iOS 13,0 ou posterior. Compatível com iPhone, iPad e iPod Touch.
+> Aplica-se a: iOS 13.0 ou posterior. Compatível com iPhone, iPad e iPod touch.
 
-Você pode acessar os recursos da área de trabalho virtual do Windows em seu dispositivo iOS com nosso cliente baixável. Este guia lhe dirá como configurar o cliente iOS.
+Você pode acessar os recursos do Windows Virtual Desktop a partir do seu dispositivo iOS com o nosso cliente para download. Este guia lhe dirá como configurar o cliente iOS.
 
-## <a name="install-the-ios-client"></a>Instalar o cliente iOS
+## <a name="install-the-ios-client"></a>Instale o cliente iOS
 
-Para começar, [Baixe](https://aka.ms/rdios) e instale o cliente em seu dispositivo IOS.
+Para começar, [baixe](https://aka.ms/rdios) e instale o cliente em seu dispositivo iOS.
 
 ## <a name="subscribe-to-a-feed"></a>Assinar um feed
 
-Assine o feed fornecido pelo administrador para obter a lista de recursos gerenciados que você pode acessar em seu dispositivo iOS.
+Inscreva-se no feed fornecido pelo seu admin para obter a lista de recursos gerenciados que você pode acessar em seu dispositivo iOS.
 
 Para assinar um feed:
 
-1. No centro de conexões, toque em **+** e, em seguida, toque em **adicionar espaço de trabalho**.
-2. Insira a URL do feed no campo **URL do feed** . A URL do feed pode ser uma URL ou um endereço de email.
-   - Se você usar uma URL, use aquela que o administrador lhe forneceu. Normalmente, a URL é <https://rdweb.wvd.microsoft.com>.
-   - Para usar o email, insira seu endereço de email. Isso instrui o cliente a procurar uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
-3. Toque **em Avançar**.
+1. No Centro de **+** Conexões, toque e toque em **Adicionar espaço de trabalho**.
+2. Insira a URL de alimentação no campo **feed URL.** A URL do feed pode ser uma URL ou um endereço de e-mail.
+   - Se você usar uma URL, use a que seu admin lhe deu. Normalmente, a <https://rdweb.wvd.microsoft.com>URL é .
+   - Para usar o e-mail, insira seu endereço de e-mail. Isso diz ao cliente para procurar uma URL associada ao seu endereço de e-mail se o seu admin configurou o servidor dessa forma.
+3. Toque **em Next**.
 4. Forneça suas credenciais quando solicitado.
-   - Para **nome de usuário**, dê ao nome de usuário permissão para acessar recursos.
-   - Para **senha**, forneça a senha associada ao nome de usuário.
-   - Você também poderá ser solicitado a fornecer fatores adicionais se o administrador configurou a autenticação dessa maneira.
-5. Toque em **salvar**.
+   - Para **nome de usuário,** dê ao nome de usuário permissão para acessar recursos.
+   - Para **Senha,** forneça a senha associada ao nome de usuário.
+   - Você também pode ser solicitado a fornecer fatores adicionais se o seu admin configurou a autenticação dessa forma.
+5. Toque em **Salvar**.
 
-Depois disso, a central de conexões deve exibir os recursos remotos.
+Depois disso, o Centro de Conexão deve exibir os recursos remotos.
 
-Após a assinatura de um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
+Uma vez subscrito em um feed, o conteúdo do feed será atualizado automaticamente regularmente. Os recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo administrador.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como usar o cliente iOS, confira a documentação [introdução ao cliente Ios](/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios/) .
+Para saber mais sobre como usar o cliente iOS, confira o Get started com a documentação [do cliente do iOS.](/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios/)

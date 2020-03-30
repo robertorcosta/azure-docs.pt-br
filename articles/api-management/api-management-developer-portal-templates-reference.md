@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73176798"
 ---
 # <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor
@@ -30,23 +30,23 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-##  <a name="DeveloperPortalTemplates"></a> Modelos de portal do desenvolvedor  
+##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> Modelos de portal do desenvolvedor  
   
--   [APIs](api-management-api-templates.md)  
-    -   [Lista de APIs](api-management-api-templates.md#APIList)  
+-   [Apis](api-management-api-templates.md)  
+    -   [Lista de API](api-management-api-templates.md#APIList)  
     -   [Operação](api-management-api-templates.md#Product)  
     -   [Exemplos de código](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
-        -   [C#](api-management-api-templates.md#CSharp)  
+        -   [C #](api-management-api-templates.md#CSharp)  
         -   [Java](api-management-api-templates.md#Stub)  
-        -   [JavaScript](api-management-api-templates.md#JavaScript)  
-        -   [Objective C](api-management-api-templates.md#ObjectiveC)  
-        -   [PHP](api-management-api-templates.md#PHP)  
+        -   [Javascript](api-management-api-templates.md#JavaScript)  
+        -   [Objetivo C](api-management-api-templates.md#ObjectiveC)  
+        -   [Php](api-management-api-templates.md#PHP)  
         -   [Python](api-management-api-templates.md#Python)  
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [Produtos](api-management-product-templates.md)  
     -   [Lista de produtos](api-management-product-templates.md#ProductList)  
-    -   [Produto](api-management-product-templates.md#Product)  
+    -   [Product](api-management-product-templates.md#Product)  
 -   [Aplicativos](api-management-application-templates.md)  
     -   [Lista de aplicativos](api-management-application-templates.md#ProductList)  
     -   [Aplicativo](api-management-application-templates.md#Application)  
@@ -59,10 +59,10 @@ Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o 
     -   [Atualizar informações da conta](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [Páginas](api-management-page-templates.md)  
     -   [Entrar](api-management-page-templates.md#SignIn)  
-    -   [Inscrever-se](api-management-page-templates.md#SignUp)  
+    -   [Inscrição](api-management-page-templates.md#SignUp)  
     -   [Página não encontrada](api-management-page-templates.md#PageNotFound)
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 + [Referência de modelo](api-management-developer-portal-templates-reference.md)  
 + [Referência de modelo de dados](api-management-template-data-model-reference.md)  

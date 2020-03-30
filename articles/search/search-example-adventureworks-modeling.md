@@ -1,7 +1,7 @@
 ---
-title: 'Exemplo: Modele o banco de dados de inventário AdventureWorks'
+title: 'Exemplo: Modele o banco de dados de inventário adventureworks'
 titleSuffix: Azure Cognitive Search
-description: Saiba como modelar dados relacionais, transformando-os em um conjunto de dados mesclado, para indexação e pesquisa de texto completo no Azure Pesquisa Cognitiva.
+description: Aprenda a modelar dados relacionais, transformando-os em um conjunto de dados achatado, para indexação e pesquisa completa de texto na Pesquisa Cognitiva do Azure.
 author: HeidiSteen
 manager: nitinme
 ms.service: cognitive-search
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
 ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793003"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exemplo: Modele o banco de dados de inventário AdventureWorks para o Azure Pesquisa Cognitiva
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exemplo: Modele o banco de dados de inventário AdventureWorks para pesquisa cognitiva do Azure
 
-O Azure Pesquisa Cognitiva aceita um conjunto de linhas achatado como entradas para o [pipeline de indexação (ingestão de dados)](search-what-is-an-index.md). Se os dados de origem forem provenientes de um SQL Server banco de dado relacional, este artigo demonstra uma abordagem para criar um conjunto de linhas achatado antes da indexação, usando o banco de dados de exemplo AdventureWorks como exemplo.
+A Azure Cognitive Search aceita um conjunto de linhas achatado como entrada suscitado pelo [pipeline de indexação (ingestão de dados).](search-what-is-an-index.md) Se os dados de origem forem originados de um banco de dados relacional do SQL Server, este artigo demonstrará uma abordagem para criar um conjunto de linhas achatados antes da indexação, usando o banco de dados de amostra do AdventureWorks como exemplo.
 
 ## <a name="about-adventureworks"></a>Sobre o AdventureWorks
 
-Se você tiver uma instância do SQL Server, talvez esteja familiarizado com o [banco de dados de exemplo AdventureWorks](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Entre as tabelas incluídas nesse banco de dados estão cinco tabelas que expõem informações sobre o produto.
+Se você tiver uma instância do SQL Server, você pode estar familiarizado com o [banco de dados de amostra do AdventureWorks](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Entre as tabelas incluídas nesse banco de dados estão cinco tabelas que expõem informações sobre o produto.
 
 + **ProductModel**: nome
 + **Produto**: nome, cor, custo, tamanho, peso, imagem, categoria (cada linha ingressa um ProductModel específico)
@@ -29,7 +29,7 @@ Se você tiver uma instância do SQL Server, talvez esteja familiarizado com o [
 + **ProductModelProductDescription**: localidade (cada linha ingressa um ProductModel a um ProductDescription específico para uma linguagem específica)
 + **ProductCategory**: nome, categoria pai
 
-Combinar todos esses dados em um conjunto de linhas achatado que pode ser ingerido em um índice de pesquisa é o objetivo deste exemplo. 
+A combinação de todos esses dados em um conjunto de linhas achatados que pode ser ingerido em um índice de pesquisa é o objetivo deste exemplo. 
 
 ## <a name="considering-our-options"></a>Considerando as opções
 
@@ -43,13 +43,13 @@ Resolver esse problema não é tão simples quanto mover o índice de destino pa
 
 ## <a name="use-a-collection-data-type"></a>Usar um tipo de dados de Coleção
 
-A "abordagem correta" é utilizar um recurso de esquema de pesquisa que não tenha um paralelo direto no modelo de banco de dados: **coleção (EDM. String)** . Esse constructo é definido no esquema do índice de Pesquisa Cognitiva do Azure. Um tipo de dados de coleção é usado quando você precisa representar uma lista de cadeias de caracteres individuais, em vez de uma cadeia de caracteres muito longa (única). Se houver marcas ou palavras-chave, é possível usar um tipo de dados de Coleção para esse campo.
+A "abordagem correta" é utilizar um recurso de esquema de pesquisa que não tenha um paralelo direto no modelo de banco de dados: **Collection(Edm.String)**. Este construto é definido no esquema de índice de pesquisa cognitiva do Azure. Um tipo de dados de coleta é usado quando você precisa representar uma lista de strings individuais, em vez de uma seqüência muito longa (única). Se houver marcas ou palavras-chave, é possível usar um tipo de dados de Coleção para esse campo.
 
 Ao definir campos de índice de vários valores de **Collection(Edm.String)** para "cor", "tamanho" e "imagem", as informações auxiliares são retidas para facetamento e filtragem sem poluir o índice com entradas duplicadas. Da mesma forma, aplique funções de agregação aos campos do Produto numérico, indexando **minListPrice** em vez de cada produto individual **listPrice**.
 
 Dado um índice com essas estruturas, uma busca por "mountain bikes" mostraria modelos de bicicletas discretos, preservando metadados importantes como cor, tamanho e menores preços. A captura de tela a seguir fornece uma ilustração.
 
-  ![Exemplo de pesquisa de bicicletas de montanha](./media/search-example-adventureworks/mountain-bikes-visual.png "Exemplo de pesquisa de bicicletas de montanha")
+  ![Exemplo de pesquisa de mountain bike](./media/search-example-adventureworks/mountain-bikes-visual.png "Exemplo de pesquisa de mountain bike")
 
 ## <a name="use-script-for-data-manipulation"></a>Usar script para manipulação de dados
 
@@ -160,7 +160,7 @@ WHERE
   md.Culture='en'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Exemplo: taxonomias de faceta de vários níveis no Azure Pesquisa Cognitiva](search-example-adventureworks-multilevel-faceting.md)
+> [Exemplo: Taxonomies de faceta multinível na Pesquisa Cognitiva do Azure](search-example-adventureworks-multilevel-faceting.md)

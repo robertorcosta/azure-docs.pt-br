@@ -1,5 +1,5 @@
 ---
-title: Executar trabalhos de ponta a ponta usando modelos – lote do Azure
+title: Executar trabalhos de ponta a ponta usando modelos - Azure Batch
 description: Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes.
 services: batch
 author: LauraBrenner
@@ -12,10 +12,10 @@ ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020158"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
@@ -24,7 +24,7 @@ Ao usar a extensão do Lote do Microsoft Azure é possível executar trabalhos d
 
 Criar e usar arquivos de modelo JSON com a CLI do Azure para criar pools de Lote, trabalhos e tarefas. Use os comandos de extensão CLI para carregar facilmente os arquivos de entrada de trabalho na conta de armazenamento associada à conta do Lote e baixe os arquivos de saída de trabalho.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Uma extensão da CLI do Azure permite que o Lote seja usado de ponta a ponta por usuários que não são desenvolvedores. Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes. Nenhum código adicional é necessário. Execute os comandos CLI diretamente ou integre-os aos scripts.
 
@@ -143,7 +143,7 @@ Se o arquivo de modelo foi nomeado _pool-ffmpeg.json_, invoque o modelo conforme
 az batch pool create --template pool-ffmpeg.json
 ```
 
-A CLI solicita que você forneça valores para o `poolId` e `nodeCount` parâmetros. Você também pode fornecer os parâmetros em um arquivo JSON. Por exemplo:
+A CLI solicita que você forneça valores para o `poolId` e `nodeCount` parâmetros. Você também pode fornecer os parâmetros em um arquivo JSON. Por exemplo: 
 
 ```json
 {
@@ -260,7 +260,7 @@ Você pode carregar um modelo de CLI do lote para o aplicativo de desktop do [Az
 
 Para carregar um modelo:
 
-1. No Azure Batch Explorer, selecione **Galeria** > **Modelos locais**.
+1. No Batch Explorer, selecione **modelos do Gallery** > **Local**.
 
 2. Selecione, ou arraste e solte, um pool local ou o modelo de trabalho.
 
@@ -290,7 +290,7 @@ Atualmente, o suporte à transferência de arquivo e de modelo foi adicionado so
 
 Experimente a extensão do Lote para a CLI do Azure e forneça comentários ou sugestões, seja nos comentários deste artigo ou no [repositório da Comunidade do Lote](https://github.com/Azure/Batch).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Documentação detalhada de instalação e uso, amostras e código-fonte estão disponíveis no [repositório GitHub do Azure](https://github.com/Azure/azure-batch-cli-extensions).
 

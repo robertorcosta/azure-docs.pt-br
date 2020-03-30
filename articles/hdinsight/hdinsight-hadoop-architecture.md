@@ -1,6 +1,6 @@
 ---
 title: Arquitetura do Apache Hadoop - Azure HDInsight
-description: Descreve Apache Hadoop armazenamento e processamento em clusters HDInsight do Azure.
+description: Descreve o armazenamento e o processamento do Apache Hadoop nos clusters Azure HDInsight.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162201"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
-[Apache Hadoop](https://hadoop.apache.org/) inclui dois componentes principais: o [Sistema de Arquivos Distribuídos do Apache Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) que fornece armazenamento, e o [Apache Hadoop ainda Outro Negociador de Recursos (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) que fornece em processamento. Com capacidades de armazenamento e processamento, um cluster torna-se capaz de executar programas [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) para executar o processamento de dados desejado.
+[Apache Hadoop](https://hadoop.apache.org/) inclui dois componentes principais: o [Sistema de Arquivos Distribuídos do Apache Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) que fornece armazenamento, e o [Apache Hadoop ainda Outro Negociador de Recursos (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) que fornece em processamento. Com os recursos de armazenamento e processamento, um cluster torna-se capaz de executar programas [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) para executar o processamento de dados desejado.
 
 > [!NOTE]  
 > Normalmente, um HDFS não é implantado no Cluster HDInsight para fornecer armazenamento. Em vez disso, uma camada de interface compatível com HDFS é utilizada pelos componentes do Hadoop. A capacidade de armazenamento real é fornecida pelo Armazenamento do Azure ou pelo Azure Data Lake Storage. Para o Hadoop, os trabalhos MapReduce executados no Cluster HDInsight funcionam como se um HDFS estivesse presente e, portanto, não exigem alterações para dar suporte às necessidades de armazenamento. No Hadoop, no HDInsight, o armazenamento é terceirizado, mas o processamento YARN continua sendo um componente principal. Para obter mais informações, consulte [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md).
@@ -47,26 +47,26 @@ Todos os tipos de Cluster HDInsight implantam o YARN. O ResourceManager é impla
 
 ![Apache YARN no Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
-## <a name="soft-delete"></a>Exclusão reversível
+## <a name="soft-delete"></a>Exclusão suave
 
-Para restaurar um arquivo da sua conta de armazenamento, consulte:
+Para desexcluir um arquivo da sua conta de armazenamento, consulte:
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
 * [Exclusão reversível para blobs do Armazenamento do Azure ](../storage/blobs/storage-blob-soft-delete.md)
-* [Restaurar blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+* [Bolha sem exclusão](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
 
 ### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
-[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+[Restaurar-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
 
-[Problemas conhecidos com o Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+[Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs](../storage/blobs/data-lake-storage-known-issues.md)
 
-## <a name="trash-purging"></a>Descarte de lixo
+## <a name="trash-purging"></a>Purga de lixo
 
-A propriedade `fs.trash.interval` do **HDFS** > **Core-site avançado** deve permanecer no valor padrão `0` porque você não deve armazenar dados no sistema de arquivos local. Esse valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
+A `fs.trash.interval` propriedade do **hdfs** > **advanced core-site** `0` deve permanecer no valor padrão porque você não deve armazenar nenhum dado no sistema de arquivos local. Esse valor não afeta contas de armazenamento remotas (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Próximas etapas
 

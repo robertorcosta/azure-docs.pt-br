@@ -1,7 +1,7 @@
 ---
 title: Enriquecimento incremental (visualização)
 titleSuffix: Azure Cognitive Search
-description: Conteúdo intermediário de cache e alterações incrementais do pipeline de enriquecimento de AI no armazenamento do Azure para preservar investimentos em documentos processados existentes. Esse recurso está atualmente em visualização pública.
+description: Cache conteúdo intermediário e alterações incrementais do pipeline de enriquecimento de IA no Azure Storage para preservar investimentos em documentos processados existentes. Esse recurso está atualmente em visualização pública.
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
@@ -9,28 +9,28 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024136"
 ---
-# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introdução ao Caching e enriquecimento incremental no Azure Pesquisa Cognitiva
+# <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introdução ao enriquecimento incremental e cache na Pesquisa Cognitiva do Azure
 
 > [!IMPORTANT] 
-> O enriquecimento incremental está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-versão prévia](search-api-preview.md) fornece esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
+> O enriquecimento incremental está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-versão prévia](search-api-preview.md) fornece esse recurso. Não há suporte a portal ou .NET SDK no momento.
 
-A sofisticação incremental adiciona cache e monitoração de estado a um pipeline de enriquecimento, preservando seu investimento na saída existente, ao mesmo tempo em que altera apenas os documentos afetados por determinada modificação. Isso não apenas preserva seu investimento monetário em processamento (em particular, processamento de OCR e imagens), mas também torna um sistema mais eficiente. Quando estruturas e conteúdo são armazenados em cache, um indexador pode determinar quais habilidades foram alteradas e executar apenas aquelas que foram modificadas, bem como quaisquer habilidades dependentes de downstream. 
+O enriquecimento incremental adiciona cache e statefulness a um pipeline de enriquecimento, preservando seu investimento na produção existente, ao mesmo tempo em que altera apenas os documentos impactados por uma modificação particular. Isso não só preserva seu investimento monetário no processamento (em particular, OCR e processamento de imagem), mas também torna um sistema mais eficiente. Quando estruturas e conteúdo são armazenados em cache, um indexador pode determinar quais habilidades mudaram e executar apenas aqueles que foram modificados, bem como quaisquer habilidades dependentes a jusante. 
 
 ## <a name="indexer-cache"></a>Cache do indexador
 
-O enriquecimento incremental adiciona um cache ao pipeline de enriquecimento. O indexador armazena em cache os resultados de quebra de documento mais as saídas de cada habilidade para cada documento. Quando um conjunto de habilidades é atualizado, somente as habilidades alteradas ou downstream são executadas novamente. Os resultados atualizados são gravados no cache e o documento é atualizado no índice de pesquisa ou na loja de conhecimento.
+O enriquecimento incremental adiciona um cache ao gasoduto de enriquecimento. O indexador armazena os resultados da quebra do documento mais as saídas de cada habilidade para cada documento. Quando um conjunto de habilidades é atualizado, somente as habilidades alteradas ou downstream são executadas novamente. Os resultados atualizados são escritos no cache e o documento é atualizado no índice de pesquisa ou no armazenamento de conhecimento.
 
-Fisicamente, o cache é armazenado em um contêiner de BLOB em sua conta de armazenamento do Azure. O cache também usa o armazenamento de tabela para um registro interno de atualizações de processamento. Todos os índices em um serviço de pesquisa podem compartilhar a mesma conta de armazenamento para o cache do indexador. Cada indexador recebe um identificador de cache exclusivo e imutável para o contêiner que está usando.
+Fisicamente, o cache é armazenado em um recipiente blob em sua conta de armazenamento Azure. O cache também usa o armazenamento de tabela para um registro interno de atualizações de processamento. Todos os índices em um serviço de pesquisa podem compartilhar a mesma conta de armazenamento para o cache do indexador. Cada indexador é atribuído um identificador de cache único e imutável ao contêiner que está usando.
 
 ## <a name="cache-configuration"></a>Configuração do cache
 
-Você precisará definir a propriedade `cache` no indexador para iniciar o beneficiando do enriquecimento incremental. O exemplo a seguir ilustra um indexador com Caching habilitado. Partes específicas dessa configuração são descritas nas seções a seguir. Para obter mais informações, consulte [Configurar o enriquecimento incremental](search-howto-incremental-index.md).
+Você precisará definir a `cache` propriedade no indexador para começar a se beneficiar do enriquecimento incremental. O exemplo a seguir ilustra um indexador com cache ativado. Partes específicas desta configuração são descritas em seções a seguir. Para obter mais informações, consulte [Configurar o enriquecimento incremental](search-howto-incremental-index.md).
 
 ```json
 {
@@ -48,60 +48,60 @@ Você precisará definir a propriedade `cache` no indexador para iniciar o benef
 }
 ```
 
-Definir essa propriedade em um indexador existente exigirá que você redefina e execute novamente o indexador, o que fará com que todos os documentos na fonte de dados sejam processados novamente. Essa etapa é necessária para eliminar todos os documentos aprimorados pelas versões anteriores do Configurador de habilidades. 
+A configuração dessa propriedade em um indexador existente exigirá que você reset e reexecute o indexador, o que resultará em todos os documentos em sua fonte de dados sendo processados novamente. Esta etapa é necessária para eliminar quaisquer documentos enriquecidos por versões anteriores do skillset. 
 
 ## <a name="cache-management"></a>Gerenciamento de cache
 
-O ciclo de vida do cache é gerenciado pelo indexador. Se a propriedade `cache` no indexador for definida como nula ou a cadeia de conexão for alterada, o cache existente será excluído na próxima execução do indexador. O ciclo de vida do cache também está vinculado ao ciclo de vida do indexador. Se um indexador for excluído, o cache associado também será.
+O ciclo de vida do cache é gerenciado pelo indexador. Se `cache` a propriedade no indexador estiver definida como nula ou a seqüência de conexões for alterada, o cache existente será excluído na próxima execução do indexador. O ciclo de vida do cache também está vinculado ao ciclo de vida do indexador. Se um indexador for excluído, o cache associado também será.
 
-Embora o aperfeiçoamento incremental seja projetado para detectar e responder a alterações sem intervenção de sua parte, há parâmetros que podem ser usados para substituir os comportamentos padrão:
+Embora o enriquecimento incremental seja projetado para detectar e responder a alterações sem intervenção de sua parte, existem parâmetros que você pode usar para substituir comportamentos padrão:
 
 + Priorizar novos documentos
-+ Ignorar verificações de conferentes
-+ Ignorar verificações da fonte de dados
-+ Forçar avaliação do conforçador de habilidades
++ Verificações de habilidades de bypass
++ Verificações de origem de dados de bypass
++ Avaliação de skillset de força
 
 ### <a name="prioritize-new-documents"></a>Priorizar novos documentos
 
-Defina a propriedade `enableReprocessing` para controlar o processamento de documentos de entrada já representados no cache. Quando `true` (padrão), os documentos que já estão no cache são reprocessados quando você executa novamente o indexador, supondo que a atualização de suas habilidades afete esse documento. 
+Defina `enableReprocessing` a propriedade para controlar o processamento sobre documentos de entrada já representados no cache. Quando `true` (padrão), os documentos que já estão no cache são reprocessados quando você executa o indexador, assumindo que sua atualização de habilidade afeta esse doc. 
 
-Quando `false`, os documentos existentes não são reprocessados, priorizando efetivamente o conteúdo novo e recebido sobre o conteúdo existente. Você só deve definir `enableReprocessing` para `false` em uma base temporária. Para garantir a consistência em todo o corpus, `enableReprocessing` deve ser `true` na maior parte do tempo, garantindo que todos os documentos, novos e existentes, sejam válidos de acordo com a definição atual do Configurador de qualificações.
+Quando `false`, os documentos existentes não são reprocessados, priorizando efetivamente conteúdo novo e de entrada sobre o conteúdo existente. Você só `enableReprocessing` deve `false` definir em uma base temporária. Para garantir a consistência `enableReprocessing` em `true` todo o corpus, deve ser a maior parte do tempo, garantindo que todos os documentos, tanto novos quanto existentes, sejam válidos de acordo com a definição atual de skillset.
 
-### <a name="bypass-skillset-evaluation"></a>Ignorar avaliação do contorno de habilidades
+### <a name="bypass-skillset-evaluation"></a>Avaliação de skillset de bypass
 
-A modificação de um conjunto de qualificações e o reprocessamento desse conjunto de qualificações normalmente se encontram em mãos. No entanto, algumas alterações em um conjunto de qualificações não devem resultar em reprocessamento (por exemplo, implantação de uma habilidade personalizada em um novo local ou com uma nova chave de acesso). Provavelmente, essas são modificações periféricas que não têm nenhum impacto original sobre a substância do próprio próprio configurador. 
+Modificar um skillset e reprocessamento desse skillset normalmente andam lado a lado. No entanto, algumas alterações em um skillset não devem resultar em reprocessamento (por exemplo, implantar uma habilidade personalizada em um novo local ou com uma nova chave de acesso). Provavelmente, são modificações periféricas que não têm impacto genuíno na substância do próprio skillset. 
 
-Se você sabe que uma alteração no conjunto de qualificações é realmente superficial, você deve substituir a avaliação do conconjunto de qualificações definindo o parâmetro `disableCacheReprocessingChangeDetection` como `true`:
+Se você sabe que uma mudança no skillset é realmente superficial, `disableCacheReprocessingChangeDetection` você `true`deve substituir a avaliação de skillset definindo o parâmetro para :
 
-1. Chame Update Skillble e modifique a definição do conskillr.
-1. Acrescente o parâmetro `disableCacheReprocessingChangeDetection=true` na solicitação.
-1. Envie a alteração.
+1. Chamada Update Skillset e modifique a definição de skillset.
+1. Anexar o `disableCacheReprocessingChangeDetection=true` parâmetro na solicitação.
+1. Envie a mudança.
 
-A definição desse parâmetro garante que apenas as atualizações da definição do conjunto de qualificações sejam confirmadas e a alteração não seja avaliada quanto a efeitos no Corpus existente.
+A definição deste parâmetro garante que apenas as atualizações para a definição de skillset sejam cometidas e que a alteração não seja avaliada para efeitos no corpus existente.
 
-O exemplo a seguir mostra uma solicitação Updateset de atualização com o parâmetro:
+O exemplo a seguir mostra uma solicitação Update Skillset com o parâmetro:
 
 ```http
 PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
-### <a name="bypass-data-source-validation-checks"></a>Ignorar verificações de validação da fonte de dados
+### <a name="bypass-data-source-validation-checks"></a>Verificações de validação de fontes de dados de bypass
 
-A maioria das alterações em uma definição de fonte de dados invalidará o cache. No entanto, para cenários em que você sabe que uma alteração não deve invalidar o cache, como alterar uma cadeia de conexão ou girar a chave na conta de armazenamento, acrescente o parâmetro`ignoreResetRequirement` na atualização da fonte de dados. Definir esse parâmetro como `true` permite que a confirmação Continue, sem disparar uma condição de redefinição que resultaria em todos os objetos recriados e populados a partir do zero.
+A maioria das alterações em uma definição de fonte de dados invalidará o cache. No entanto, para cenários em que você sabe que uma alteração não deve invalidar o cache`ignoreResetRequirement` - como alterar uma seqüência de conexões ou girar a chave na conta de armazenamento - anexar o parâmetro na atualização de origem de dados. Definir este parâmetro `true` para permitir que o compromisso passe, sem desencadear uma condição de reset que resultaria em todos os objetos sendo reconstruídos e povoados do zero.
 
 ```http
 PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
 ```
 
-### <a name="force-skillset-evaluation"></a>Forçar avaliação do conforçador de habilidades
+### <a name="force-skillset-evaluation"></a>Avaliação de skillset de força
 
-A finalidade do cache é evitar o processamento desnecessário, mas suponha que você faça uma alteração em uma habilidade que o indexador não detecta (por exemplo, alterando algo no código externo, como uma habilidade personalizada).
+O objetivo do cache é evitar o processamento desnecessário, mas suponha que você faça uma alteração em uma habilidade que o indexador não detecta (por exemplo, mudando algo em código externo, como uma habilidade personalizada).
 
-Nesse caso, você pode usar as [habilidades de redefinição](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades de downstream que tenham uma dependência na saída dessa habilidade. Essa API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e marcadas para reprocessamento. Após a redefinição das habilidades, execute o indexador para invocar o pipeline.
+Neste caso, você pode usar as [Habilidades de Reset](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades a jusante que tenham uma dependência da saída dessa habilidade. Esta API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e marcadas para reprocessamento. Depois de Redefinir Skills, execute o indexador para invocar o pipeline.
 
 ## <a name="change-detection"></a>Detecção de alteração
 
-Depois de habilitar um cache, o indexador avalia as alterações na composição do pipeline para determinar qual conteúdo pode ser reutilizado e que exige reprocessamento. Esta seção enumera as alterações que invalidam o cache de forma totalmente seguida por alterações que disparam o processamento incremental. 
+Uma vez que você habilita um cache, o indexador avalia alterações na composição do pipeline para determinar qual conteúdo pode ser reutilizado e qual precisa ser reprocessado. Esta seção enumera alterações que invalidam o cache imediatamente, seguidas de alterações que desencadeiam o processamento incremental. 
 
 ### <a name="changes-that-invalidate-the-cache"></a>Alterações que invalidam o cache
 
@@ -123,9 +123,9 @@ Uma alteração que causa invalidação faz com que o cache inteiro deixe de ser
     * Raiz do documento
     * Ação de imagem (alterações de como as imagens são extraídas)
 
-### <a name="changes-that-trigger-incremental-processing"></a>Alterações que disparam o processamento incremental
+### <a name="changes-that-trigger-incremental-processing"></a>Mudanças que desencadeiam o processamento incremental
 
-O processamento incremental avalia sua definição de qualificações e determina quais habilidades executar novamente, atualizando seletivamente as partes afetadas da árvore de documentos. Aqui está a lista completa de alterações que resultam em enriquecimento incremental:
+O processamento incremental avalia a definição de suas habilidades e determina quais habilidades executar, atualizando seletivamente as partes afetadas da árvore de documentos. Aqui está a lista completa de mudanças que resultam em enriquecimento incremental:
 
 * A habilidade no conjunto de habilidades tem um tipo diferente. O tipo odata da habilidade é atualizado
 * Atualização de parâmetros específicos da habilidade, por exemplo, a URL, padrões ou outros parâmetros
@@ -136,27 +136,27 @@ O processamento incremental avalia sua definição de qualificações e determin
 * Alterações nas projeções do repositório de conhecimento resultam na reprojeção de documentos
 * Alterações nos mapeamentos do campo de saída de um indexador resultam na reprojeção de documentos para o índice
 
-## <a name="api-reference"></a>Referência da API
+## <a name="api-reference"></a>Reference API
 
-A versão da API REST `2019-05-06-Preview` fornece aprimoramentos incrementais por meio de propriedades adicionais em indexadores, habilidades e fontes de dados. Além da documentação de referência, consulte [Configurar o Caching para aprimoramento incremental](search-howto-incremental-index.md) para obter detalhes sobre como chamar as APIs.
+A versão `2019-05-06-Preview` da API REST fornece enriquecimento incremental através de propriedades adicionais em indexadores, skillsets e fontes de dados. Além da documentação de referência, consulte [Configurar cache para enriquecimento incremental](search-howto-incremental-index.md) para obter detalhes sobre como chamar as APIs.
 
-+ [Criar indexador (versão da API = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Criar indexador (api-versão=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-+ [Atualizar indexador (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Indexador de atualização (api-versão=2019-05-06-Visualização)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-+ [Atualizar o qualificable (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (novo parâmetro Uri na solicitação)
++ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (Novo parâmetro URI na solicitação)
 
-+ [Redefinir habilidades (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
++ [Redefinir habilidades (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ Indexadores de banco de dados (SQL do Azure, Cosmos DB). Alguns indexadores recuperam dados por meio de consultas. Para consultas que recuperam dados, a [fonte de dados de atualização](https://docs.microsoft.com/rest/api/searchservice/update-data-source) dá suporte a um novo parâmetro em uma solicitação **ignoreResetRequirement**, que deve ser definida como `true` quando a ação de atualização não deve invalidar o cache. 
++ Indexadores de banco de dados (Azure SQL, Cosmos DB). Alguns indexadores recuperam dados através de consultas. Para consultas que recuperam dados, [a Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) suporta um novo parâmetro em uma solicitação **ignoreResetRequirement**, que deve ser definido para `true` quando sua ação de atualização não deve invalidar o cache. 
 
-  Use o **ignoreResetRequirement** com moderação, pois isso pode levar à inconsistência indesejada em seus dados que não serão detectados com facilidade.
+  Use **ignoreResetRequirement** com moderação, pois pode levar a inconsistências não intencionais em seus dados que não serão detectadas facilmente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-O aprimoramento incremental é um recurso poderoso que estende o controle de alterações para o habilidades e o enriquecimento de ia. O enriquecimento de AIncremental permite a reutilização de conteúdo processado existente à medida que você itera sobre o design do skillset.
+O enriquecimento incremental é um recurso poderoso que estende o rastreamento de alterações a habilidades e enriquecimento de IA. O enriquecimento Incremental permite a reutilização do conteúdo processado existente à medida que você itera sobre o design de skillset.
 
-Como uma próxima etapa, habilite o Caching em um indexador existente ou adicione um cache ao definir um novo indexador.
+Como próximo passo, habilite o cache em um indexador existente ou adicione um cache ao definir um novo indexador.
 
 > [!div class="nextstepaction"]
-> [Configurar o Caching para enriquecimento incremental](search-howto-incremental-index.md)
+> [Configurar cache para enriquecimento incremental](search-howto-incremental-index.md)

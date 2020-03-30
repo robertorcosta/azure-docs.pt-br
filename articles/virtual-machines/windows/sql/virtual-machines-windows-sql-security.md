@@ -16,10 +16,10 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031349"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Azure
@@ -41,7 +41,7 @@ As próximas seções fornecem sugestões sobre como considerar esses pontos.
 
 ## <a name="secure-connections"></a>Conexões seguras
 
-Quando você cria uma máquina virtual do SQL Server com uma imagem da galeria, a opção **Conectividade do SQL Server** fornece as opções **Local (dentro da VM)** , **Privada (dentro da Rede Virtual)** ou **Pública (Internet)** .
+Quando você cria uma máquina virtual do SQL Server com uma imagem da galeria, a opção **Conectividade do SQL Server** fornece as opções **Local (dentro da VM)**, **Privada (dentro da Rede Virtual)** ou **Pública (Internet)**.
 
 ![Conectividade do SQL Server](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
@@ -59,7 +59,7 @@ Por fim, considere a possibilidade de habilitar as conexões criptografadas na i
 
 ## <a name="encryption"></a>Criptografia
 
-O Managed disks oferece criptografia do lado do servidor e Azure Disk Encryption. A [criptografia do lado do servidor](/azure/virtual-machines/windows/disk-encryption) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa a tecnologia BITLOCKER ou DM-cript e integra-se com Azure Key Vault para criptografar o sistema operacional e os discos de dados. 
+Os discos gerenciados oferecem criptografia lateral do servidor e criptografia de disco do Azure. [A Criptografia Lateral do Servidor](/azure/virtual-machines/windows/disk-encryption) fornece criptografia em repouso e protege seus dados para atender aos seus compromissos de segurança organizacional e conformidade. [A Criptografia de Disco do Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa a tecnologia Bitlocker ou DM-Crypt e se integra ao Azure Key Vault para criptografar o Sistema Operacional e os discos de dados. 
 
 ## <a name="use-a-non-default-port"></a>Usar uma porta não padrão
 
@@ -69,7 +69,7 @@ Por padrão, o SQL Server escuta uma porta conhecida, 1433. Para uma maior segur
 
 Para configurar isso após o provisionamento, você tem duas opções:
 
-- Para VMs do Gerenciador de recursos, você pode selecionar **segurança** no [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource). Isso fornece uma opção para alterar a porta.
+- Para VMs do Gerenciador de recursos, você pode selecionar **Segurança** a partir do [recurso de máquinas virtuais SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource). Isso fornece uma opção para alterar a porta.
 
   ![Alteração da porta TCP no portal](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 
@@ -93,20 +93,20 @@ Você não deseja que os invasores adivinhem nomes de contas ou senhas facilment
   - Crie uma conta do SQL com um nome exclusivo que tem a associação **sysadmin**. Faça isso no portal habilitando a **Autenticação SQL** durante o provisionamento.
 
     > [!TIP] 
-    > Se você não habilitar a Autenticação SQL durante o provisionamento, deverá alterar manualmente o modo de autenticação para **Modo de Autenticação do SQL Server e do Windows**. Para obter mais informações, consulte [Alterar Modo de Autenticação do Servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Se você não habilitar a Autenticação SQL durante o provisionamento, deverá alterar manualmente o modo de autenticação para **Modo de Autenticação do SQL Server e do Windows**. Para obter mais informações, consulte [Alterar modo de autenticação do servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode).
 
   - Se precisar usar o logon **SA**, habilite o logon depois de provisionar e atribuir uma nova senha forte.
 
 ## <a name="additional-best-practices"></a>Melhores práticas adicionais
 
-Além das práticas descritas neste tópico, recomendamos que você examine e implemente as práticas recomendadas de segurança de práticas de segurança locais tradicionais, bem como as práticas recomendadas de segurança de máquina virtual. 
+Além das práticas descritas neste tópico, recomendamos que você revise e implemente as práticas recomendadas de segurança tanto das práticas tradicionais de segurança no local, quanto das práticas recomendadas de segurança de máquinas virtuais. 
 
-Para obter mais informações sobre práticas de segurança locais, consulte [considerações de segurança para uma instalação de SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) e a [central de segurança](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
+Para obter mais informações sobre práticas de segurança no local, consulte [Considerações de segurança para uma instalação do servidor SQL](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) e o [centro de segurança](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
 
-Para obter mais informações sobre a segurança da máquina virtual, consulte a [visão geral de segurança de máquinas virtuais](/azure/security/fundamentals/virtual-machines-overview).
+Para obter mais informações sobre segurança de máquinas virtuais, consulte a visão geral da segurança das [máquinas virtuais](/azure/security/fundamentals/virtual-machines-overview).
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Se você também estiver interessado em práticas recomendadas sobre desempenho, veja [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
 

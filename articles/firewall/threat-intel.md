@@ -1,5 +1,5 @@
 ---
-title: Filtragem baseada em inteligência de ameaças do firewall do Azure
+title: Filtragem baseada em inteligência de ameaças do Azure Firewall
 description: A filtragem contra ameaças baseada em inteligência pode ser habilitada para o seu firewall de forma a alertar e rejeitar o tráfego de/para endereços IP e domínios mal-intencionados.
 services: firewall
 author: vhorne
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: c291dbe9c1eb37e68174a2353e296a376c7d0896
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168663"
 ---
-# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em inteligência contra ameaças do firewall do Azure
+# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Filtragem baseada em inteligência baseada em ameaças do Azure Firewall
 
 A filtragem contra ameaças baseada em inteligência pode ser habilitada para o seu firewall de forma a alertar e rejeitar o tráfego de/para endereços IP e domínios mal-intencionados. Os endereços IP e os domínios são originados do feed de inteligência de ameaças da Microsoft. O [Grafo de Segurança Inteligente](https://www.microsoft.com/en-us/security/operations/intelligence) potencializa a inteligência contra ameaças da Microsoft e é usado por vários serviços, incluindo a Central de Segurança do Azure.
 
-![Inteligência contra ameaças de firewall](media/threat-intel/firewall-threat.png)
+![Inteligência de ameaças de firewall](media/threat-intel/firewall-threat.png)
 
-Se você tiver habilitado a filtragem baseada em inteligência contra ameaças, as regras associadas serão processadas antes de qualquer uma das regras de NAT, regras de rede ou regras de aplicativo.
+Se você habilitou a filtragem baseada em inteligência de ameaças, as regras associadas serão processadas antes de qualquer uma das regras do NAT, regras de rede ou regras de aplicativo.
 
-Você pode optar por apenas registrar um alerta quando uma regra é disparada ou pode escolher o modo de alerta e de negação.
+Você pode optar por apenas registrar um alerta quando uma regra é acionada, ou você pode escolher o modo alerta e negar.
 
-Por padrão, a filtragem baseada em inteligência contra ameaças está habilitada no modo de alerta. Você não pode desativar esse recurso ou alterar o modo até que a interface do portal fique disponível em sua região.
+Por padrão, a filtragem baseada em inteligência de ameaças é ativada no modo de alerta. Você não pode desativar esse recurso ou alterar o modo até que a interface do portal esteja disponível na sua região.
 
-![Interface do portal de filtragem baseada em inteligência contra ameaças](media/threat-intel/threat-intel-ui.png)
+![Interface de portal de filtragem baseada em inteligência de ameaças](media/threat-intel/threat-intel-ui.png)
 
 ## <a name="logs"></a>Logs
 
-O trecho de log a seguir mostra uma regra disparada:
+O trecho de log a seguir mostra uma regra desencadeada:
 
 ```
 {
@@ -44,14 +44,14 @@ O trecho de log a seguir mostra uma regra disparada:
 }
 ```
 
-## <a name="testing"></a>Testando
+## <a name="testing"></a>Testes
 
-- **Teste de saída** -alertas de tráfego de saída devem ser uma ocorrência rara, pois isso significa que seu ambiente foi comprometido. Para ajudar a testar os alertas de saída estão funcionando, um FQDN de teste foi criado e dispara um alerta. Use **testmaliciousdomain.eastus.cloudapp.Azure.com** para seus testes de saída.
+- **Testes de saída** - Os alertas de tráfego de saída devem ser uma ocorrência rara, pois significa que seu ambiente foi comprometido. Para ajudar a testar os alertas de saída, foi criado um teste FQDN que dispara um alerta. Use **testmaliciousdomain.eastus.cloudapp.azure.com** para seus testes de saída.
 
-- **Teste de entrada** -você pode esperar ver alertas sobre o tráfego de entrada se as regras do DNAT estiverem configuradas no firewall. Isso é verdadeiro mesmo se apenas fontes específicas forem permitidas na regra DNAT e o tráfego for negado. O Firewall do Azure não alerta todos os scanners de porta conhecidos; somente em scanners que também são conhecidos por se envolver em atividades mal-intencionadas.
+- **Teste de entrada** - Você pode esperar ver alertas sobre o tráfego de entrada se as regras de DNAT estiverem configuradas no firewall. Isso é verdade, mesmo que apenas fontes específicas sejam permitidas na regra do DNAT e o tráfego seja negado de outra forma. O Azure Firewall não alerta todos os scanners de portas conhecidos; apenas em scanners que são conhecidos por também se envolverem em atividades maliciosas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [exemplos de log Analytics de firewall do Azure](log-analytics-samples.md)
-- Saiba como [implantar e configurar um firewall do Azure](tutorial-firewall-deploy-portal.md)
-- Examinar o [relatório de inteligência de segurança da Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)
+- Veja [as amostras do Azure Firewall Log Analytics](log-analytics-samples.md)
+- Saiba como [implantar e configurar um Firewall Azure](tutorial-firewall-deploy-portal.md)
+- Revise o [relatório de inteligência da Microsoft Security](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

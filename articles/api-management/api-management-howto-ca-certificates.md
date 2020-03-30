@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70073597"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um Certificado de Autoridade de Certificação personalizado no Gerenciamento de API do Azure
@@ -29,11 +29,11 @@ O artigo mostra como gerenciar Certificado de Autoridade de Certificação de um
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>Carregar um Certificado de Autoridade de Certificação
+## <a name="upload-a-ca-certificate"></a><a name="step1"> </a>Carregar um Certificado de Autoridade de Certificação
 
 ![Adicionar certificados de autoridade de certificação](media/api-management-howto-ca-certificates/00.png)
 
-Siga as etapas abaixo para fazer upload de um novo Certificado de Autoridade de Certificação do cliente. Se você ainda não criou uma instância de serviço de Gerenciamento de API, veja o tutorial [Criar uma instância de serviço de Gerenciamento de API](get-started-create-service-instance.md).
+Siga as etapas abaixo para fazer upload de um novo Certificado de Autoridade de Certificação do cliente. Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte o tutorial [Criar uma instância de serviço de Gerenciamento de API](get-started-create-service-instance.md).
 
 1. Navegue até a instância de serviço do Gerenciamento de API do Azure no portal do Azure.
 
@@ -54,7 +54,7 @@ Siga as etapas abaixo para fazer upload de um novo Certificado de Autoridade de 
 > [!NOTE]
 > Você pode carregar um Certificado de Autoridade de Certificação usando o comando `New-AzApiManagementSystemCertificate` do Powershell.
 
-## <a name="step1a"> </a>Excluir um certificado do cliente
+## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Excluir um certificado do cliente
 
 Para excluir um certificado, clique no menu de contexto **...** e selecione **Excluir** ao lado do certificado.
 

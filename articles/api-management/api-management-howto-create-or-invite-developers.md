@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 9de75b5537b3e267116882e7f151d893de575071
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072461"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerenciar contas de usuário no Gerenciamento de API do Azure
@@ -25,13 +25,13 @@ No Gerenciamento de API, os desenvolvedores são os usuários das APIs que você
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as tarefas neste artigo: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
+Complete as tarefas neste artigo: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-developer"> </a>Criar um novo desenvolvedor
+## <a name="create-a-new-developer"></a><a name="create-developer"> </a>Criar um novo desenvolvedor
 
 Para adicionar um novo usuário, siga as etapas desta seção:
 
@@ -44,7 +44,7 @@ Para adicionar um novo usuário, siga as etapas desta seção:
 
 Por padrão, as contas de desenvolvedor criadas recentemente têm o estado **Ativa** e são associadas ao grupo **Desenvolvedores**. As contas de desenvolvedor que estão com estado **ativa** podem ser utilizadas para acessar todas as APIs nas quais estão inscritas. Para associar um desenvolvedor recém-criado a grupos adicionais, consulte [Como associar grupos a desenvolvedores][How to associate groups with developers].
 
-## <a name="invite-developer"> </a>Convidar um desenvolvedor
+## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Convidar um desenvolvedor
 Para convidar um desenvolvedor, siga as etapas desta seção:
 
 1. Selecione a guia **Usuários** à esquerda da tela.
@@ -56,7 +56,7 @@ Quando um desenvolvedor é convidado, um email é enviado a ele. O email é gera
 
 Após o convite ser aceito, a conta se torna ativa.
 
-## <a name="block-developer"> </a> Desativar ou reativar uma conta de desenvolvedor
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a> Desativar ou reativar uma conta de desenvolvedor
 
 Por padrão, as contas de desenvolvedor criadas ou convidadas recentemente têm o estado **Ativa**. Para desativar uma conta de desenvolvedor, clique em **Bloquear**. Para reativar uma conta de desenvolvedor bloqueada, clique em **Ativar**. Uma conta de desenvolvedor bloqueada não pode acessar o portal do desenvolvedor nem chamar APIs. Para excluir uma conta de usuário, clique em **Excluir**.
 
@@ -68,9 +68,9 @@ Para bloquear um usuário, siga as seguintes etapas.
 
 ## <a name="reset-a-user-password"></a>Redefinir a senha de um usuário
 
-Para trabalhar de forma programática com contas de usuário, consulte a documentação da entidade de usuário na referência da [API REST do gerenciamento de API](/rest/api/apimanagement/) . Para redefinir uma senha de conta de usuário para um valor específico, você pode usar a operação [Atualizar um usuário](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e especificar a senha desejada.
+Para trabalhar programáticamente com contas de usuário, consulte a documentação da entidade do usuário na referência [da API De gerenciamento de Gerenciamento de API.](/rest/api/apimanagement/) Para redefinir uma senha de conta de usuário para um valor específico, você pode usar a operação [Atualizar um usuário](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e especificar a senha desejada.
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"></a><a name="next-steps"> </a>Próximas etapas
 Após criar uma conta de desenvolvedor, você pode associá-la a funções e inscrevê-la em produtos e APIs. Para obter mais informações, consulte [Como criar e utilizar grupos][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png

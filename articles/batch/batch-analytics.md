@@ -1,5 +1,5 @@
 ---
-title: Análise de lote do Azure
+title: Análise de lotes do Azure
 description: Os tópicos na Análise de lote contêm informações de referência para os eventos e alertas disponíveis para recursos de serviço em lotes.
 services: batch
 author: LauraBrenner
@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: d9538461dfa48a961f9325566b2adaf265e8daeb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025955"
 ---
 # <a name="batch-analytics"></a>Análise de lote
@@ -30,9 +30,9 @@ O serviço Lote do Azure emite os eventos de log de diagnóstico a seguir durant
 **Eventos do Log de Serviço**
 * [Criação de pool](batch-pool-create-event.md)
 * [Início de exclusão de pool](batch-pool-delete-start-event.md)
-* [Conclusão da exclusão de pool](batch-pool-delete-complete-event.md)
+* [Conclusão de exclusão de pool](batch-pool-delete-complete-event.md)
 * [Início de redimensionamento de pool](batch-pool-resize-start-event.md)
 * [Conclusão de redimensionamento de pool](batch-pool-resize-complete-event.md)
 * [Início da tarefa](batch-task-start-event.md)
-* [Conclusão da tarefa](batch-task-complete-event.md)
-* [Falha da tarefa](batch-task-fail-event.md)
+* [Conclusão de tarefa](batch-task-complete-event.md)
+* [Falha de tarefa](batch-task-fail-event.md)

@@ -1,6 +1,6 @@
 ---
-title: Monitorar tópicos e assinaturas de evento-grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Monitorar tópicos e assinaturas de evento
+title: Monitore tópicos e assinaturas de eventos - Azure Event Grid IoT Edge | Microsoft Docs
+description: Monitore tópicos e assinaturas de eventos
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,19 +9,19 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086667"
 ---
-# <a name="monitor-topics-and-event-subscriptions"></a>Monitorar tópicos e assinaturas de evento
+# <a name="monitor-topics-and-event-subscriptions"></a>Monitore tópicos e assinaturas de eventos
 
-A grade de eventos no Edge expõe um número de métricas para tópicos e assinaturas de evento no [formato Prometheus exposição](https://prometheus.io/docs/instrumenting/exposition_formats/). Este artigo descreve as métricas disponíveis e como habilitá-las.
+Event Grid on Edge expõe uma série de métricas para tópicos e assinaturas de eventos no formato de [exposição Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Este artigo descreve as métricas disponíveis e como habilitá-las.
 
 ## <a name="enable-metrics"></a>Habilitar a métrica
 
-Configure o módulo para emitir métricas definindo a variável de ambiente `metrics__reporterType` como `prometheus` nas opções de criação de contêiner:
+Configure o módulo para emitir `metrics__reporterType` métricas `prometheus` definindo a variável ambiente para as opções de criação de contêiner:
 
  ```json
         {
@@ -40,32 +40,32 @@ Configure o módulo para emitir métricas definindo a variável de ambiente `met
         }
  ```    
 
-As métricas estarão disponíveis em `5888/metrics` do módulo para http e `4438/metrics` para https. Por exemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto de extremidade para coletar métricas como nesta [arquitetura de exemplo](https://github.com/veyalla/ehm).
+As métricas estarão disponíveis no `5888/metrics` `4438/metrics` módulo para http e https. Por exemplo, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` para http. Neste ponto, um módulo de métricas pode sondar o ponto final para coletar métricas como neste [exemplo de arquitetura](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 
-Os tópicos e as assinaturas de evento emitem as métricas para fornecer informações sobre a entrega de eventos e o desempenho do módulo.
+Tanto os tópicos quanto as assinaturas de eventos emitem métricas para dar-lhe insights sobre a entrega de eventos e o desempenho do módulo.
 
-### <a name="topic-metrics"></a>Métricas de tópico
+### <a name="topic-metrics"></a>Métricas de tópicos
 
-| Métrica | DESCRIÇÃO |
+| Métrica | Descrição |
 | ------ | ----------- |
-| EventsReceived | Número de eventos publicados no tópico
-| UnmatchedEvents | Número de eventos publicados no tópico que não correspondem a uma assinatura de evento e são removidos
-| SuccessRequests | Número de solicitações de publicação de entrada recebidas pelo tópico
-| SystemErrorRequests | Número de solicitações de publicação de entrada com falha devido a um erro interno do sistema
-| UserErrorRequests | Número de solicitações de publicação de entrada com falha devido a um erro do usuário, como JSON malformado
-| SuccessRequestLatencyMs | Latência de resposta de solicitação de publicação em milissegundos
+| EventosRecebidos | Número de eventos publicados para o tema
+| Eventos incomparáveis | Número de eventos publicados para o tópico que não correspondem a uma Assinatura de Evento e são descartados
+| Pedidos de sucesso | Número de solicitações de publicação de entrada recebidas pelo tópico
+| Solicitações de erro do sistema | Número de solicitações de publicação de entrada falhou devido a um erro interno do sistema
+| Solicitações de erro do usuário | Número nas solicitações de publicação de entrada falhou devido a erro do usuário, como JSON malformado
+| SuccessRequestLatencyMs | Publicar latência de resposta de solicitação em milissegundos
 
 
-### <a name="event-subscription-metrics"></a>Métricas de assinatura de evento
+### <a name="event-subscription-metrics"></a>Métricas de assinatura de eventos
 
-| Métrica | DESCRIÇÃO |
+| Métrica | Descrição |
 | ------ | ----------- |
-| deliverySuccessCounts | Número de eventos entregues com êxito ao ponto de extremidade configurado
-| deliveryFailureCounts | Número de eventos que falharam ao serem entregues ao ponto de extremidade configurado
-| deliverySuccessLatencyMs | Latência de eventos entregues com êxito em milissegundos
-| deliveryFailureLatencyMs | Latência de falhas de entrega de eventos em milissegundos
-| systemDelayForFirstAttemptMs | Atraso do sistema de eventos antes da primeira tentativa de entrega em milissegundos
-| deliveryAttemptsCount | Número de tentativas de entrega de eventos-êxito e falha
-| expiredCounts | Número de eventos que expiraram e não foram entregues ao ponto de extremidade configurado
+| Entregaconta o sucesso | Número de eventos entregues com sucesso no ponto final configurado
+| Contagem de falhas de entrega | Número de eventos que não foram entregues no ponto final configurado
+| EntregaSucessoDebilidade | Latência de eventos entregues com sucesso em milissegundos
+| EntregaFalhade atrasoMs | Latência de falhas de entrega de eventos em milissegundos
+| SystemDelayForFirstAttemptMs | Atraso do sistema de eventos antes da primeira tentativa de entrega em milissegundos
+| Contagem de tentativas de entrega | Número de tentativas de entrega de eventos - sucesso e fracasso
+| Contagem expirada | Número de eventos que expiraram e não foram entregues ao ponto final configurado

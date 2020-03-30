@@ -1,5 +1,5 @@
 ---
-title: Failover e recuperação de desastre para o StorSimple virtual array
+title: Failover e recuperação de desastres para StorSimple Virtual Array
 description: Saiba mais sobre como realizar failover em sua StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 464fa05f658dd6e6e25d79f8840ceeb939383149
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77467208"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Failover de dispositivo e recuperação de desastre para o StorSimple Virtual Array via portal do Azure
@@ -40,11 +40,11 @@ A recuperação de desastres é modelada como uma restauração completa do disp
 > 
 > 
 
-A recuperação de desastres é orquestrada por meio do recurso de failover de dispositivo e é iniciada na folha **dispositivos** . Esta folha exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço Gerenciador de Dispositivos StorSimple. Para cada dispositivo, você pode ver o nome amigável, o status, a capacidade de provisionamento e a capacidade máxima, o tipo e o modelo são exibidos.
+A recuperação de desastres é orquestrada através do recurso de failover do dispositivo e é iniciada a partir da lâmina **Devices.** Esta folha exibe em formato de tabela todos os dispositivos StorSimple conectados ao seu serviço Gerenciador de Dispositivos StorSimple. Para cada dispositivo, você pode ver o nome amigável, o status, a capacidade de provisionamento e a capacidade máxima, o tipo e o modelo são exibidos.
 
 ## <a name="prerequisites-for-device-failover"></a>Pré-requisitos para failover de dispositivo
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 Para um failover de dispositivo, certifique-se de que os pré-requisitos a seguir sejam atendidos:
 
@@ -57,7 +57,7 @@ Para um failover de dispositivo, certifique-se de que os pré-requisitos a segui
   > 
 * O dispositivo de destino não pode ter o mesmo nome do que o dispositivo de origem.
 * O dispositivo de origem e o de destino precisam ser do mesmo tipo. Você só pode realizar failover de uma matriz virtual configurada como um servidor de arquivos para outro servidor de arquivos. O mesmo é verdadeiro para um servidor iSCSI.
-* Para a recuperação de desastre de um servidor de arquivos, é recomendável que você ingresse o dispositivo de destino no mesmo domínio do de origem. Essa configuração garante que as permissões de compartilhamento sejam resolvidas automaticamente. Há suporte apenas para o failover para um dispositivo de destino no mesmo domínio.
+* Para a recuperação de desastre de um servidor de arquivos, é recomendável que você ingresse o dispositivo de destino no mesmo domínio do de origem. Essa configuração garante que as permissões de compartilhamento sejam resolvidas automaticamente. Apenas o failover para um dispositivo de destino no mesmo domínio é suportado.
 * Os dispositivos de destino disponíveis para recuperação de desastre são dispositivos que têm a capacidade igual ou maior que a do dispositivo de origem. Os dispositivos conectados ao serviço, mas que não atendem aos critérios de espaço suficiente, não estão disponíveis como dispositivos de destino.
 
 ### <a name="other-considerations"></a>Outras considerações
@@ -134,11 +134,11 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
     
     1. O campo de dispositivo de origem é preenchido automaticamente. Observe o tamanho total dos dados para o dispositivo de origem. O tamanho dos dados deve ser menor do que a capacidade disponível no dispositivo de destino. Examine os detalhes associados ao dispositivo de origem, como o nome do dispositivo, a capacidade total e os nomes dos compartilhamentos submetidos a failover.
 
-    2. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino**. Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
+    2. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino**.  Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
 
     3. Verifique se **Estou ciente de que esta operação fará failover dos dados para o dispositivo de destino**. 
 
-    4. Clique em **Fazer failover**.
+    4. Clique **em 'Falha'**
     
         ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Um trabalho de failover é iniciado e você recebe uma notificação. Vá para **Dispositivos > Trabalhos** para monitorar o failover.
@@ -162,7 +162,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 
 **Falha de conectividade de nuvem durante a recuperação de desastre**
 
-Se a conectividade de nuvem é interrompida depois que começou a recuperação de desastre e antes de concluir a restauração de dispositivo, a recuperação de desastre falhará. Você receberá uma notificação de falha. O dispositivo de destino para recuperação de desastre é marcado como *inutilizável.* Você não pode usar o mesmo dispositivo de destino para futuras recuperações de desastre.
+Se a conectividade de nuvem é interrompida depois que começou a recuperação de desastre e antes de concluir a restauração de dispositivo, a recuperação de desastre falhará. Você recebe uma notificação de falha. O dispositivo de destino para recuperação de desastre é marcado como *inutilizável.* Você não pode usar o mesmo dispositivo de destino para futuras recuperações de desastre.
 
 **Nenhum dispositivo de destino compatível**
 

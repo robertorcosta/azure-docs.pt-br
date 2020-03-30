@@ -1,6 +1,6 @@
 ---
-title: Filtragem avançada – grade de eventos do Azure IoT Edge | Microsoft Docs
-description: Filtragem avançada na grade de eventos em IoT Edge.
+title: Filtragem avançada - Azure Event Grid IoT Edge | Microsoft Docs
+description: Filtragem avançada em Event Grid em IoT Edge.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72992555"
 ---
 # <a name="advanced-filtering"></a>Filtragem avançada
-A grade de eventos permite especificar filtros em qualquer propriedade no conteúdo JSON. Esses filtros são modelados como conjunto de condições de `AND`, sendo que cada condição externa tem condições de `OR` internas opcionais. Para cada condição de `AND`, especifique os seguintes valores:
+Event Grid permite especificar filtros em qualquer propriedade na carga útil json. Estes filtros são modelados como conjunto de `AND` condições, com cada condição externa tendo condições internas `OR` opcionais. Para `AND` cada condição, você especifica os seguintes valores:
 
-* `OperatorType`-o tipo de comparação.
-* `Key`-o caminho JSON para a propriedade na qual aplicar o filtro.
-* `Value`-o valor de referência no qual o filtro é executado (ou) `Values`-o conjunto de valores de referência no qual o filtro é executado.
+* `OperatorType`- O tipo de comparação.
+* `Key`- O caminho json para a propriedade em que aplicar o filtro.
+* `Value`- O valor de referência contra o `Values` qual o filtro é executado (ou) - O conjunto de valores de referência contra os quais o filtro é executado.
 
 ## <a name="json-syntax"></a>Sintaxe JSON
 
@@ -44,50 +44,50 @@ A sintaxe JSON para um filtro avançado é a seguinte:
 }
 ```
 
-## <a name="filtering-on-array-values"></a>Filtrando em valores de matriz
+## <a name="filtering-on-array-values"></a>Filtragem de valores de matriz
 
-A grade de eventos não dá suporte à filtragem em uma matriz de valores atualmente. Se um evento de entrada tiver um valor de matriz para a chave do filtro avançado, a operação de correspondência falhará. O evento de entrada termina não correspondendo à assinatura do evento.
+Event Grid não suporta filtragem em uma matriz de valores hoje. Se um evento de entrada tiver um valor de matriz para a chave do filtro avançado, a operação correspondente falhará. O evento de entrada acaba não correspondendo com a assinatura do evento.
 
-## <a name="and-or-not-semantics"></a>E-ou-não semântica
+## <a name="and-or-not-semantics"></a>E-OU-NÃO semântica
 
-Observe que no exemplo de JSON fornecido anteriormente, `AdvancedFilters` é uma matriz. Imagine cada elemento de matriz de `AdvancedFilter` como uma condição de `AND`.
+Observe que no exemplo json `AdvancedFilters` dado anteriormente, é uma matriz. Pense em `AdvancedFilter` cada elemento `AND` da matriz como uma condição.
 
-Para os operadores que dão suporte a vários valores (como `NumberIn`, `NumberNotIn`, `StringIn`, etc.), cada valor é tratado como uma condição de `OR`. Portanto, um `StringBeginsWith("a", "b", "c")` corresponderá a qualquer valor de cadeia de caracteres que comece com `a` ou `b` ou `c`.
+Para os operadores que suportam `NumberIn` `NumberNotIn`múltiplos valores (como , `StringIn` `OR` , , etc.), cada valor é tratado como uma condição. Assim, um `StringBeginsWith("a", "b", "c")` vai corresponder a qualquer `a` valor `b` `c`de string que começa com um ou ou ou .
 
 > [!CAUTION]
-> Os operadores NOT-`NumberNotIn` e `StringNotIn` se comportam como e condições em cada valor fornecido no campo `Values`.
+> Os operadores `NumberNotIn` NOT `StringNotIn` - e se comportam como `Values` e condições em cada valor dado no campo.
 >
-> Não fazer isso fará com que o filtro seja aceito – todos os filtros e derrotar a finalidade da filtragem.
+> Não fazê-lo fará do filtro um filtro Aceitar-Tudo e derrotará o propósito de filtrar.
 
 ## <a name="floating-point-rounding-behavior"></a>Comportamento de arredondamento de ponto flutuante
 
-A grade de eventos usa o tipo `decimal` .NET para lidar com todos os valores numéricos. Os valores numéricos especificados no JSON de assinatura de evento não estão sujeitos ao comportamento de arredondamento de ponto flutuante.
+Event Grid `decimal` usa o tipo .NET para lidar com todos os valores numéricos. Os valores numéres especificados na assinatura do evento JSON não estão sujeitos ao comportamento de arredondamento de ponto flutuante.
 
-## <a name="case-sensitivity-of-string-filters"></a>Distinção entre maiúsculas e minúsculas de filtros de cadeia
+## <a name="case-sensitivity-of-string-filters"></a>Sensibilidade do caso dos filtros de corda
 
-Todas as comparações de cadeia de caracteres não diferenciam maiúsculas de minúsculas. Não há como alterar esse comportamento hoje mesmo.
+Todas as comparações de cordas são insensíveis a casos. Não há como mudar esse comportamento hoje.
 
-## <a name="allowed-advanced-filter-keys"></a>Chaves de filtro avançado permitidas
+## <a name="allowed-advanced-filter-keys"></a>Permite chaves de filtro avançadas
 
-A propriedade `Key` pode ser uma propriedade de nível superior conhecida, ou ser um caminho JSON com vários pontos, em que cada ponto representa a depuração em um objeto JSON aninhado.
+A `Key` propriedade pode ser uma propriedade de alto nível bem conhecida, ou ser um caminho json com vários pontos, onde cada ponto significa pisar em um objeto json aninhado.
 
-A grade de eventos não tem nenhum significado especial para o `$` caractere na chave, diferentemente da especificação JSONPath.
+Event Grid não tem nenhum significado `$` especial para o personagem na chave, ao contrário da especificação JSONPath.
 
-### <a name="event-grid-schema"></a>Esquema de grade de eventos
+### <a name="event-grid-schema"></a>Esquema da grade de eventos
 
-Para eventos no esquema da grade de eventos:
+Para eventos no esquema event grid:
 
 * ID
 * Tópico
 * Assunto
 * EventType
 * DataVersion
-* Data. Prop1
-* Data. prop * Prop2. Prop3. Prop4. Prop5
+* Data.Prop1
+* Data.Prop*Prop2.Prop3.Prop4.Prop5
 
-### <a name="custom-event-schema"></a>Esquema de evento personalizado
+### <a name="custom-event-schema"></a>Esquema de eventos personalizado
 
-Não há nenhuma restrição sobre o `Key` no esquema de evento personalizado, pois a grade de eventos não impõe nenhum esquema de envelope na carga.
+Não há restrição no `Key` esquema de eventos personalizados, uma vez que a Event Grid não aplica nenhum esquema de envelope na carga.
 
 ## <a name="numeric-single-value-filter-examples"></a>Exemplos numéricos de filtro de valor único
 
@@ -149,7 +149,7 @@ Não há nenhuma restrição sobre o `Key` no esquema de evento personalizado, p
 }
 ```
 
-## <a name="string-range-value-filter-examples"></a>Exemplos de filtro de valor de intervalo de cadeia de caracteres
+## <a name="string-range-value-filter-examples"></a>Exemplos de filtro de valor de faixa de cordas
 
 * StringContains
 * StringBeginsWith
@@ -191,7 +191,7 @@ Não há nenhuma restrição sobre o `Key` no esquema de evento personalizado, p
 }
 ```
 
-## <a name="boolean-single-value-filter-examples"></a>Exemplos de filtro de valor único booliano
+## <a name="boolean-single-value-filter-examples"></a>Exemplos de filtro de valor único booleano
 
 * BoolEquals
 

@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72821434"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Exibir o status de trabalhos de Importação/Exportação do Azure
@@ -20,7 +20,7 @@ ms.locfileid: "72821434"
 Este artigo fornece informações sobre como exibir o status da unidade e do trabalho para trabalhos de Importação/Exportação do Azure. O serviço de importação/exportação do Azure é usado para transferir grandes quantidades de dados com segurança para Blobs do Azure e Arquivos do Azure. O serviço também é usado para exportar dados de armazenamento de Blobs do Azure.  
 
 ## <a name="view-job-and-drive-status"></a>Exibir o status do trabalho e da unidade
-Você pode acompanhar o status dos seus trabalhos de importação ou exportação no Portal do Azure. Clique na guia **importar/exportar** . Uma lista de seus trabalhos é exibida na página.
+Você pode acompanhar o status dos seus trabalhos de importação ou exportação no Portal do Azure. Clique na guia **Importação/Exportação.** Uma lista de seus trabalhos aparece na página.
 
 ![Exibir o estado do trabalho](./media/storage-import-export-service/jobstate.png)
 
@@ -73,11 +73,11 @@ A quantidade de tempo que leva para processar um trabalho de importação/export
 -  Tipo de trabalho e o tamanho dos dados sendo copiados
 -  Número de discos em um trabalho. 
 
-O serviço de Importação/Exportação não tem um SLA, mas o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias após o recebimento dos discos. Além do status postado no Portal do Azure, as APIs REST podem ser usadas para acompanhar o progresso do trabalho. O parâmetro de porcentagem concluída na chamada à API da operação [Listar Trabalhos](/previous-versions/azure/dn529083(v=azure.100)) fornece o percentual de progresso da cópia.
+O serviço de Importação/Exportação não tem um SLA, mas o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias após o recebimento dos discos. Além do status postado no Portal do Azure, as APIs REST podem ser usadas para acompanhar o progresso do trabalho. O parâmetro percentual completo na chamada API de operação [Trabalhos de Lista](/previous-versions/azure/dn529083(v=azure.100)) fornece o progresso da cópia percentual.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
-* [Exemplo de API REST de importação e exportação do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
+* [Amostra de API de exportação de importação do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

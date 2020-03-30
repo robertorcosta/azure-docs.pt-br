@@ -1,6 +1,6 @@
 ---
-title: Introdução ao uso da central de segurança do Azure para IoT serviço de integração de Hub IoT interno | Microsoft Docs
-description: Introdução ao fluxo de trabalho interno da central de segurança do Azure para o serviço de IoT.
+title: Comece a usar o Azure Security Center para o serviço de integração IoT Hub integrado de IoT| Microsoft Docs
+description: Comece com o fluxo de trabalho incorporado do Azure Security Center para serviço de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,29 +16,29 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: ef2affcd0cf7f6bd0a8ef0ec2dbc0244a971a57e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68600508"
 ---
-# <a name="get-started-with-built-in-iot-hub-integration"></a>Introdução à integração interna do Hub IoT 
+# <a name="get-started-with-built-in-iot-hub-integration"></a>Comece com a integração do Built-in IoT Hub 
 
-Essa opção permite que você use o serviço sem usar a central de segurança do Azure para agentes de segurança de IoT.
+Esta opção permite que você use o serviço sem usar o Azure Security Center para agentes de segurança IoT.
 
-## <a name="enable-built-in-iot-hub-integration"></a>Habilitar a integração interna do Hub IoT
-Para habilitar o monitoramento dos padrões de comunicação gerenciamento de identidade do dispositivo, dispositivo para nuvem e nuvem para dispositivo, faça o seguinte para iniciar o serviço: 
+## <a name="enable-built-in-iot-hub-integration"></a>Habilite a integração incorporada do IoT Hub
+Para permitir o monitoramento do gerenciamento de identidade do dispositivo, dispositivo em nuvem e padrões de comunicação em nuvem para dispositivos, faça o seguinte para iniciar o serviço: 
 
-1. Abra o **Hub IOT**.
-1. Selecione o menu **visão geral de segurança** . 
-1. Clique em **proteger sua solução de IOT** e conclua o formulário de integração. 
+1. Abra seu **IoT Hub**.
+1. Selecione o menu **'Visão geral' de segurança.** 
+1. Clique **em Proteger sua solução de IoT** e preencha o formulário de onboarding. 
 
-Parabéns! Você concluiu a habilitação da central de segurança do Azure para o serviço de IoT no Hub IoT. 
+Parabéns! Você completou a habilitação do Azure Security Center para serviço de IoT em seu Hub IoT. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 
-- Configurar sua [solução](quickstart-configure-your-solution.md)
+- Configure sua [solução](quickstart-configure-your-solution.md)
 - [Criar Módulos de Segurança](quickstart-create-security-twin.md)
-- Configurar [alertas personalizados](quickstart-create-custom-alerts.md)
+- Configure [alertas personalizados](quickstart-create-custom-alerts.md)
 

@@ -8,15 +8,15 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726413"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
 
-Este artigo mostra como executar cenários comuns usando o Armazenamento de Blobs do Microsoft Azure. Os exemplos são escritos em Objective-C e usam a [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)(Biblioteca do Cliente de Armazenamento do Azure para iOS). Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#next-steps) . Você também pode baixar o [aplicativo de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente o uso do Armazenamento do Azure em um aplicativo do iOS.
+Este artigo mostra como executar cenários comuns usando o Armazenamento de Blobs do Microsoft Azure. Os exemplos são escritos em Objective-C e usam a [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)(Biblioteca do Cliente de Armazenamento do Azure para iOS). Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs. Para obter mais informações sobre blobs, consulte a seção [Próximos passos.](#next-steps) Você também pode baixar o [aplicativo de exemplo](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) para ver rapidamente o uso do Armazenamento do Azure em um aplicativo do iOS.
 
 Para saber mais sobre armazenamento de Blobs, consulte [Introdução ao armazenamento de Blobs do Azure](storage-blobs-introduction.md).
 
@@ -62,7 +62,7 @@ Para usar essa biblioteca, você precisará do seguinte:
 A outra maneira de usar a biblioteca é criar a estrutura manualmente:
 
 1. Primeiro, baixe ou clone o [repositório azure-storage-ios](https://github.com/azure/azure-storage-ios).
-2. Vá para *azure-storage-ios* -> *Lib* -> *Biblioteca de cliente de Armazenamento do Azure* e abra `AZSClient.xcodeproj` no Xcode.
+2. Entre na Biblioteca do Cliente de Armazenamento*Lib* -> *Azure* *azure-storage-ios* ->  `AZSClient.xcodeproj` e abra no Xcode.
 3. No canto superior esquerdo do Xcode, altere o esquema ativo de "Biblioteca de Cliente de Armazenamento do Azure" para "Estrutura".
 4. Compile o projeto (⌘+B). Isso criará um arquivo `AZSClient.framework` na Área de Trabalho.
 
@@ -82,7 +82,7 @@ Você pode importar o arquivo de estrutura em seu aplicativo fazendo o seguinte:
 #import <AZSClient/AZSClient.h>
 ```
 
-Se você estiver usando o Swift, será necessário criar um cabeçalho de ponte e importar \<AZSClient/AZSClient. h > lá:
+Se você estiver usando o Swift, você precisará \<criar um cabeçalho de ponte e importar AZSClient/AZSClient.h> lá:
 
 1. Crie um arquivo de cabeçalho `Bridging-Header.h` e adicione a instrução de importação acima.
 2. Vá para a guia *Configurações de Build* e pesquise por *Cabeçalho Ponte do Objective-C*.
@@ -133,9 +133,9 @@ Você pode confirmar que isso funciona observando o [Gerenciador de Armazenament
 
 As permissões do contêiner são configuradas para acesso **privado** por padrão. No entanto, os contêineres fornecem algumas opções diferentes para acesso ao contêiner:
 
-- **Privado**: Dados de blob e contêiner podem ser lidos apenas pelo proprietário da conta.
-- **Blob**: Os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
-- **Contêiner**: Dados de blob e contêiner podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
+- **Privado**: os dados de contêiner e blob podem ser lidos apenas pelo proprietário da conta.
+- **Blob**: os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
+- **Contêiner**: os dados do contêiner e do blob podem ser lidos por solicitação anônima. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
 
 O exemplo a seguir mostra como criar um contêiner com permissões de acesso de **Contêiner** que permitirão o acesso público e somente leitura para todos os usuários na Internet:
 
@@ -224,12 +224,12 @@ O exemplo a seguir mostra como listar todos os blobs em um contêiner. Ao execut
 - **prefixo** -Você pode especificar o prefixo a ser usado para a listagem de blobs. Somente os blobs que começarem com esse prefixo serão listados.
 - **useFlatBlobListing** – conforme mencionado na seção [Nomeando e referenciando contêineres e blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata), embora o serviço Blob seja um esquema de armazenamento simples, você pode criar uma hierarquia virtual nomeando blobs com informações de caminho. No entanto, atualmente não há suporte para listagem não plana. Este recurso estará disponível em breve. Por enquanto, esse valor deve ser **YES**.
 - **blobListingDetails** - Você pode especificar os itens a serem incluídos ao listar blobs
-  - _AZSBlobListingDetailsNone_: Lista somente blobs confirmados e não retornam metadados do blob.
-  - _AZSBlobListingDetailsSnapshots_: Lista de blobs confirmados e instantâneos de blob.
-  - _AZSBlobListingDetailsMetadata_: Recupera metadados de blob para cada blob retornado na listagem.
-  - _AZSBlobListingDetailsUncommittedBlobs_: Lista de blobs confirmados e não confirmados.
-  - _AZSBlobListingDetailsCopy_: Inclui propriedades de cópia na listagem.
-  - _AZSBlobListingDetailsAll_: Lista todos os blobs confirmados disponíveis, blobs não confirmados e instantâneos e retorna todos os metadados e status de cópia para esses blobs.
+  - _AZSBlobListingDetailsNone_: lista apenas os blobs confirmados e não retorna os metadados dos blobs.
+  - _AZSBlobListingDetailsSnapshots_: lista os blobs confirmados e os instantâneos dos blobs.
+  - _AZSBlobListingDetailsMetadata_: recupera os metadados dos blobs de cada blob retornado na listagem.
+  - _AZSBlobListingDetailsUncommittedBlobs_: lista os blobs confirmados e não confirmados.
+  - _AZSBlobListingDetailsCopy_: inclui propriedades de cópia na listagem.
+  - _AZSBlobListingDetailsAll_: lista todos os blobs confirmados disponíveis, os blobs não confirmados e os instantâneos e retorna todos os metadados e status de cópia dos blobs.
 - **maxResults** - O número máximo de resultados a serem retornados para a operação. Use -1 para não definir um limite.
 - **completionHandler** - O bloco de código a ser executado com os resultados da operação de listagem.
 
@@ -391,8 +391,8 @@ Agora que você aprendeu como usar o Armazenamento de Blobs do iOS, siga esses l
 
 - [Biblioteca de Cliente do Armazenamento do Azure para iOS](https://github.com/azure/azure-storage-ios)
 - [Documentação de referência do iOS do Armazenamento do Azure](https://azure.github.io/azure-storage-ios/)
-- [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure Storage Services REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx) (Referência de API REST dos Serviços de Armazenamento do Azure)
 - [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage)
 
-Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Se você tiver dúvidas sobre esta biblioteca, sinta-se livre para postar no nosso [fórum MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).

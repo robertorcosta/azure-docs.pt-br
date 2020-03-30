@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 4767f7bb5ba02c838c0e21721e55a6564a14acd1
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69016649"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação de codificadores de mídia sob demanda do Azure  
@@ -30,7 +30,7 @@ Este tópico compara as funcionalidades de codificação do **Media Encoder Stan
 
 A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard) e o MEPW (Media Encoder Premium Workflow). 
 
-|Recurso|Codificador de Mídia Padrão|Media Encoder Premium Workflow|
+|Recurso|Media Encoder Standard|Fluxo de trabalho do Media Encoder Premium|
 |---|---|---|
 |Aplicar a lógica condicional durante a codificação<br/>(por exemplo, se a entrada for HD, codificar como áudio 5.1)|Não|Sim|
 |Legendagem oculta|Não|[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
@@ -43,14 +43,14 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 |Sobreposições de elementos gráficos|De fontes de imagem|De fontes de imagem e texto|
 |Várias faixas de idioma de áudio|Limitado|[Sim](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 
-## <a id="billing"></a>Medidor de cobrança usado por cada codificador
+## <a name="billing-meter-used-by-each-encoder"></a><a id="billing"></a>Medidor de cobrança usado por cada codificador
 | Nome do processador de mídia | Preços aplicáveis | Observações |
 | --- | --- | --- |
-| **Media Encoder Standard** |CODIFICADOR |As tarefas de codificação serão cobradas com base na duração total, em minutos, de todos os arquivos de mídia produzidos como saída, na taxa especificada [aqui][1], na coluna do codificador. |
-| **Fluxo de trabalho do Media Encoder Premium** |CODIFICADOR PREMIUM |As tarefas de codificação serão cobradas com base na duração total, em minutos, de todos os arquivos de mídia produzidos como saída, na taxa especificada [aqui][1], na coluna codificador Premium. |
+| **Media Encoder Standard** |CODIFICADOR |As Tarefas de Codificação serão cobradas com base na duração total, em minutos, de todos os arquivos de mídia gerados como saída, na taxa especificada [aqui][1], na coluna CODIFICADOR. |
+| **Fluxo de trabalho do Media Encoder Premium** |CODIFICADOR PREMIUM |As Tarefas de Codificação serão cobradas com base na duração total, em minutos, de todos os arquivos de mídia gerados como saída, na taxa especificada [aqui][1], na coluna CODIFICADOR PREMIUM. |
 
 ## <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
-| Formatos de arquivo/contêiner de entrada | Codificador de Mídia Padrão | Media Encoder Premium Workflow |
+| Formatos de arquivo/contêiner de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Sim |Sim |
 | MXF/SMPTE 377M |Sim |Sim |
@@ -67,7 +67,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | QuickTime (.mov) |Sim |Não |
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Codificador de Mídia Padrão | Media Encoder Premium Workflow |
+| Codecs de vídeo de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |Sim |
 | DNxHD ávido (em MXF) |Sim |Sim |
@@ -88,7 +88,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | HEVC/H.265|Perfil Principal|Main e Main 10 Profile|
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Media Encoder Standard | Media Encoder Premium Workflow |
+| Codecs de áudio de entrada | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |Não |Sim |
 | Dolby® E |Não |Sim |
@@ -99,12 +99,12 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | MP3 (MPEG-1 Audio Layer 3) |Sim |Sim |
 | Áudio do Windows Media |Sim |Sim |
 | WAV/PCM |Sim |Sim |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |Não |
+| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |Não |
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sim |Não |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |Não |
 
 ## <a name="output-containerfile-formats"></a>Formatos de contêiner/arquivo de saída
-| Formatos de contêiner/arquivo de saída | Codificador de Mídia Padrão | Media Encoder Premium Workflow |
+| Formatos de contêiner/arquivo de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Não |Sim |
 | MXF (OP1a, XDCAM e AS02) |Não |Sim |
@@ -117,7 +117,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | Formato de arquivo do Smooth Streaming (PIFF 1.3) |Não |Sim |
 
 ## <a name="output-video-codecs"></a>Codecs de vídeo de saída
-| Codecs de vídeo de saída | Codificador de Mídia Padrão | Fluxo de trabalho do Media Encoder Premium |
+| Codecs de vídeo de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AVC (H. 264; 8 bits; até perfil, nível elevado 5.2; 4K Ultra HD; Intra AVC) |Somente 8 bits 4:2:0 |Sim |
 | HEVC (H.265; 8 bits e 10 bits;)  |Não |Sim |
@@ -130,7 +130,7 @@ A tabela a seguir compara as funcionalidades entre o MES (Media Encoder Standard
 | Criação de miniaturas BMP |Sim |Não |
 
 ## <a name="output-audio-codecs"></a>Codecs de áudio de saída
-| Codecs de áudio de saída | Codificador de Mídia Padrão | Media Encoder Premium Workflow |
+| Codecs de áudio de saída | Media Encoder Standard | Fluxo de trabalho do Media Encoder Premium |
 | --- | --- | --- |
 | AES (SMPTE 331M e 302M, AES3-2003) |Não |Sim |
 | Dolby® Digital (AC3) |Não |Sim |

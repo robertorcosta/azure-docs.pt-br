@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71104974"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
@@ -52,7 +52,7 @@ Para exibir e definir as configurações do Git, clique no menu **Segurança** e
 ![Habilitar o GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Os segredos que não estiverem definidos como valores nomeados serão armazenados no repositório e permanecerão em seu histórico até você desabilitar e reabilitar o acesso ao git. Os valores nomeados fornecem um local seguro para gerenciar valores de cadeia de caracteres constantes, incluindo segredos, em todas as políticas e configuração de API, para que você não precise armazená-los diretamente em suas instruções de política. Para obter mais informações, consulte [como usar valores nomeados em políticas de gerenciamento de API do Azure](api-management-howto-properties.md).
+> Quaisquer segredos que não sejam definidos como Valores Nomeados serão armazenados no repositório e permanecerão em seu histórico até que você desabilite e rehabilite o acesso ao Git. Os Valores nomeados fornecem um lugar seguro para gerenciar valores de seqüência constantes, incluindo segredos, em todas as configurações e políticas de API, para que você não precise armazená-los diretamente em suas instruções de política. Para saber mais, confira [Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
 >
 >
 
@@ -164,7 +164,7 @@ Cada pasta pode conter um ou mais arquivos e, em alguns casos, uma ou mais pasta
 | --- | --- |
 | json |Informações de configuração sobre a respectiva entidade |
 | html |Descrições sobre a entidade, geralmente exibidas no portal do desenvolvedor |
-| xml |Declarações de políticas |
+| Xml |Declarações de políticas |
 | css |Folhas de estilo para personalização do portal do desenvolvedor |
 
 Esses arquivos podem ser criados, excluídos, editados e gerenciados em seu sistema de arquivos local, e as alterações podem ser implantadas de volta na instância de seu serviço de Gerenciamento de API.

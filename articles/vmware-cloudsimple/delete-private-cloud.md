@@ -1,6 +1,6 @@
 ---
-title: Excluir uma nuvem privada da AVS (soluções VMware do Azure)
-description: Descreve como excluir uma nuvem privada de AVS.
+title: Exclua uma solução Azure VMware por CloudSimple Private Cloud
+description: Descreve como excluir uma nuvem privada cloudsimple.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/06/2019
@@ -8,54 +8,54 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 77cbfb19c3861bac517142f7491e6b1a5fb4ca27
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6bc3e7030c500ea2d6072a1cce0f0b3d9fc62801
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024748"
 ---
-# <a name="delete-an-avs-private-cloud"></a>Excluir uma nuvem privada de AVS
+# <a name="delete-a-cloudsimple-private-cloud"></a>Exclua uma nuvemde nuvem simples nuvem privada
 
-A AVS fornece a flexibilidade para excluir uma nuvem privada de AVS. Uma nuvem privada de AVS consiste em um ou mais clusters vSphere. Cada cluster pode ter de 3 a 16 nós. Quando você exclui uma nuvem privada de AVS, todos os clusters serão excluídos.
+O CloudSimple oferece a flexibilidade para excluir uma Nuvem Privada.  Uma Nuvem Privada consiste em um ou mais clusters vSphere. Cada cluster pode ter de 3 a 16 nódulos. Quando você excluir uma Nuvem Privada, todos os clusters serão excluídos.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A exclusão de uma nuvem privada de AVS exclui toda a nuvem privada da AVS. Todos os componentes da nuvem privada da AVS serão excluídos. Se você quiser manter qualquer um dos dados, certifique-se de ter feito backup dos dados no armazenamento local ou no armazenamento do Azure.
+A exclusão de uma nuvem privada exclui toda a Nuvem Privada.  Todos os componentes da Nuvem Privada serão excluídos.  Se você quiser manter qualquer um dos dados, certifique-se de fazer backup dos dados para armazenamento no local ou armazenamento Azure.
 
-Os componentes de uma nuvem privada de AVS incluem:
+Os componentes de uma Nuvem Privada incluem:
 
-* Nós da AVS
+* Nódulos cloudsimple
 * Máquinas virtuais
 * VLANs/sub-redes
-* Todos os dados de usuário armazenados na nuvem privada da AVS
-* Todos os anexos de regra de firewall para uma VLAN/sub-rede
+* Todos os dados do usuário armazenados na Nuvem Privada
+* Todos os anexos de regras de firewall a uma VLAN/Sub-rede
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="delete-an-avs-private-cloud"></a>Excluir uma nuvem privada de AVS
+## <a name="delete-a-private-cloud"></a>Excluir uma nuvem privada
 
-1. [Acesse o portal da AVS](access-cloudsimple-portal.md).
+1. [Acesse o portal CloudSimple](access-cloudsimple-portal.md).
 
-2. Abra a página **recursos** .
+2. Abra a página **Recursos.**
 
-3. Clique na nuvem privada da AVS que você deseja excluir
+3. Clique na Nuvem Privada que deseja excluir
 
-4. Na página Resumo, clique em **excluir**.
+4. Na página de resumo, clique em **Excluir**.
 
-    ![Excluir a nuvem privada de AVS](media/delete-private-cloud.png)
+    ![Excluir nuvem privada](media/delete-private-cloud.png)
 
-5. Na página confirmação, insira o nome da nuvem privada da AVS e clique em **excluir**. 
+5. Na página de confirmação, digite o nome da Nuvem Privada e clique em **Excluir**. 
 
-    ![Excluir a nuvem privada de AVS-confirmar](media/delete-private-cloud-confirm.png)
+    ![Excluir nuvem privada - confirmar](media/delete-private-cloud-confirm.png)
 
-A nuvem privada da AVS é marcada para exclusão. O processo de exclusão é iniciado após três horas e exclui a nuvem privada da AVS.
+A Nuvem Privada está marcada para exclusão.  O processo de exclusão começa após três horas e exclui a Nuvem Privada.
 
 > [!CAUTION]
-> Os nós devem ser excluídos após a exclusão da nuvem privada da AVS. A medição de nós continuará até que os nós sejam excluídos da sua assinatura.
+> Os nós devem ser excluídos após a exclusão da Nuvem Privada.  A medição dos nós continuará até que os nós sejam excluídos da sua assinatura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Excluir nós](delete-nodes.md)

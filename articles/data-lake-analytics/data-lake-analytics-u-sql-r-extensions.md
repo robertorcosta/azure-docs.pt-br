@@ -1,6 +1,6 @@
 ---
 title: Estender scripts U-SQL com R no Azure Data Lake Analytics
-description: Saiba como executar o código R em scripts U-SQL usando Azure Data Lake Analytics. Inserir código R embutido ou referência de arquivos.
+description: Aprenda a executar código R em scripts U-SQL usando o Azure Data Lake Analytics. Incorporar código R em linha ou referência a partir de arquivos.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,19 +10,19 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: c5dd3f493e85afc925b639c142a293eed1e8cbd7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672691"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código R no Azure Data Lake Analytics
 
 O exemplo a seguir ilustra as etapas básicas para implantar código R:
 * Use a instrução `REFERENCE ASSEMBLY` para habilitar as extensões R para o Script U-SQL.
-* Use a operação `REDUCE` para particionar os dados de entrada em uma chave.
+* Use `REDUCE` a operação para particionar os dados de entrada em uma chave.
 * As extensões R para U-SQL incluem um redutor interno (`Extension.R.Reducer`) que executa o código R em cada vértice atribuído ao redutor. 
-* Uso de quadros de dados nomeados dedicados chamado `inputFromUSQL` e `outputToUSQL`, respectivamente, para passar dados entre U-SQL e R. os nomes do identificador de dataframe de entrada e saída são fixos (ou seja, os usuários não podem alterar esses nomes predefinidos de identificadores de dataframe de entrada e saída).
+* O uso de quadros `inputFromUSQL` de `outputToUSQL` dados nomeados dedicados chamados e, respectivamente, para passar dados entre U-SQL e R. Nomes identificadores de entrada e saída DataFrame são fixos (ou seja, os usuários não podem alterar esses nomes predefinidos de identificadores de dataframe de entrada e saída).
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Inserindo código R no script U-SQL
 
@@ -162,7 +162,7 @@ Somente o R 3.2.2 tem suporte.
 ### <a name="input-and-output-size-limitations"></a>Limitações de tamanho de Entrada e Saída
 Cada vértice tem uma quantidade limitada de memória atribuída a ele. Já que os DataFrames de entrada e de saída devem existir na memória no código R, o tamanho total para a entrada e saída não pode exceder os 500 MB.
 
-### <a name="sample-code"></a>Código de exemplo
+### <a name="sample-code"></a>Exemplo de código
 Mais código de exemplo está disponível em sua conta do Data Lake Store depois de você instalar as Extensões de Análise Avançada do U-SQL. O caminho para mais código de exemplo é: `<your_account_address>/usqlext/samples/R`. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>Implantar módulos R personalizados com o U-SQL
@@ -207,6 +207,6 @@ Primeiro, crie um módulo R personalizado, compacte-o e, em seguida, carregue o 
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usar funções da janela do U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)

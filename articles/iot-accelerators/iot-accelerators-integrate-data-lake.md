@@ -1,5 +1,5 @@
 ---
-title: Transmitir dados do monitoramento remoto para o Data Lake Store-Azure | Microsoft Docs
+title: Fluxo de dados do Monitoramento Remoto para Data Lake Store - Azure | Microsoft Docs
 description: Saiba como integrar a solução de Monitoramento Remoto com o Azure Data Lake Store usando um trabalho do Azure Stream Analytics.
 author: philmea
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889244"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de Monitoramento Remoto com o Azure Data Lake Store
@@ -21,7 +21,7 @@ Talvez você tenha necessidades de análise avançada além do que é oferecido 
 
 Neste manual, você usará um trabalho do Azure Stream Analytics para transmitir dados do hub IoT em sua solução de Monitoramento Remoto para um Azure Data Lake Store.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir estas instruções, você precisará do seguinte:
 
@@ -38,7 +38,7 @@ Crie um grupo de consumidores dedicados no hub IoT de sua solução de Monitoram
 > [!NOTE]
 > Os grupos de consumidores são utilizados pelas aplicações para obter dados do Hub IoT do Azure. Você deve criar um novo grupo de consumidores para cada cinco consumidores. Crie grupos de até 32 consumidores.
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 1. No Portal do Azure, clique no botão do **Cloud Shell**.
 
@@ -103,7 +103,7 @@ Crie um trabalho do Azure Stream Analytics para transmitir os dados de seu hub I
 
 1. Selecione a conta do Data Lake Store que você criou nas etapas anteriores e forneça a estrutura de pastas para transmitir dados para o armazenamento.
 
-1. No campo Formato de data, insira **/streaming/ {date}/{time}** . Deixe o formato de Data padrão de AAAA/MM/DD e de hora de HH.
+1. No campo Formato de data, insira **/streaming/ {date}/{time}**. Deixe o formato de Data padrão de AAAA/MM/DD e de hora de HH.
 
     ![Fornecer a estrutura de pastas](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
@@ -178,6 +178,6 @@ O Azure Stream Analytics usa uma linguagem de consulta do tipo SQL para especifi
 
     ![Explorar os dados de streaming](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 O Azure Data Lake Analytics pode ser usado para executar análise de big data em seus conjuntos de dados do Data Lake Store. Saiba mais na [Documentação do Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).

@@ -1,5 +1,5 @@
 ---
-title: Localizar relatórios de atividade do usuário no portal do Azure | Microsoft Docs
+title: Encontre relatórios de atividades do usuário no portal Azure | Microsoft Docs
 description: Saiba onde os relatórios de atividade do usuário do Azure Active Directory estão no portal do Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008209"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
@@ -48,7 +48,7 @@ O relatório de logs de auditoria consolida os seguintes relatórios:
 
 ### <a name="filtering-on-audit-logs"></a>Filtragem em logs de auditoria
 
-Você pode usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-a no filtro de **categoria** . Por exemplo, para exibir todas as atividades relacionadas a usuários, selecione a categoria **usermanagement** . 
+Você pode usar filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-os no filtro **Categoria.** Por exemplo, para visualizar todas as atividades relacionadas aos usuários, selecione a categoria **UserManagement.** 
 
 As categorias incluem:
 
@@ -60,28 +60,28 @@ As categorias incluem:
 - Contato
 - Dispositivo
 - DeviceConfiguration
-- DirectoryManagement
-- EntitlementManagement
-- GroupManagement
-- outro
+- Gerenciamento de diretórios
+- Gestão de Direitos
+- Gestão de Grupos
+- Outros
 - Política
-- ResourceManagement
-- RoleManagement
-- UserManagement
+- Gerenciamento de recursos
+- Gerenciamento de papéis
+- Gerenciamento de usuários
 
-Você também pode filtrar em um serviço específico usando o filtro suspenso de **serviço** . Por exemplo, para obter todos os eventos de auditoria relacionados ao gerenciamento de senhas de autoatendimento, selecione o filtro de **Gerenciamento de senhas de autoatendimento** .
+Você também pode filtrar em um serviço específico usando o filtro de isento **de serviço.** Por exemplo, para obter todos os eventos de auditoria relacionados ao gerenciamento de senhas de autoatendimento, selecione o filtro **Gerenciamento de senhas de autoatendimento.**
 
 Os serviços incluem:
 
 - Todos
 - Revisões de acesso
 - Provisionamento de conta de usuário 
-- SSO de aplicativo
+- Aplicativo SSO
 - Métodos de autenticação
 - B2C
 - Acesso Condicional
 - Diretório principal
-- Gerenciamento de direitos
+- Gestão de Direitos
 - Identity Protection
 - Usuários Convidados
 - PIM
@@ -99,34 +99,34 @@ Para acessar o relatório de entradas:
 2. Selecione o diretório no canto superior direito e, em seguida, selecione a folha **Azure Active Directory** do painel de navegação esquerdo.
 3. Selecione **Entradas** da seção **Atividade** da folha Azure Active Directory. 
 
-    ![Exibição de entradas](./media/howto-find-activity-reports/483.png "Exibição de entradas")
+    ![Exibição de logins](./media/howto-find-activity-reports/483.png "Exibição de logins")
 
 
 ### <a name="filtering-on-application-name"></a>Filtragem no nome do aplicativo
 
 É possível usar o relatório de entradas para exibir detalhes sobre o uso do aplicativo, filtrando o nome de usuário ou o nome do aplicativo.
 
-![Página filtrar eventos de entrada](./media/howto-find-activity-reports/07.png "Página filtrar eventos de entrada")
+![Filtrar a página Eventos de Login](./media/howto-find-activity-reports/07.png "Filtrar a página Eventos de Login")
 
 ## <a name="security-reports"></a>Relatórios de segurança
 
 ### <a name="anomalous-activity-reports"></a>Relatórios de atividades anômalas
 
-Os relatórios de atividade anômala fornecem informações sobre as detecções de riscos relacionadas à segurança que o Azure AD pode detectar e relatar.
+Relatórios de atividades anômalas fornecem informações sobre detecções de risco relacionadas à segurança que o Azure AD pode detectar e relatar.
 
-A tabela a seguir lista os relatórios de segurança da atividade anômala do Azure AD e os tipos de detecção de risco correspondentes no portal do Azure. Para obter mais informações, confira [Detecções de risco do Azure Active Directory](concept-risk-events.md).  
+A tabela a seguir lista os relatórios de segurança de atividadeanônita Azure AD e os tipos correspondentes de detecção de risco no portal Azure. Para obter mais informações, confira [Detecções de risco do Azure Active Directory](concept-risk-events.md).  
 
 
 | Relatório de atividades anômalas do Azure AD |  Tipo de detecção de risco de proteção de identidade|
 | :--- | :--- |
-| Usuários com credenciais insuficientes | Credenciais vazadas |
+| Usuários com credenciais vazadas | Credenciais vazadas |
 | Atividades de entrada irregulares | Viagem impossível a locais atípicos |
 | Entradas de dispositivos possivelmente infectados | Entradas de dispositivos infectados|
 | Entradas de fontes desconhecidas | Entradas de endereços IP anônimos |
 | Entradas de endereços IP com atividade suspeita | Entradas de endereços IP com atividade suspeita |
 | - | Entradas de locais desconhecidos |
 
-Os seguintes relatórios de segurança de atividade anômala do Azure AD não estão incluídos como detecções de risco no portal do Azure:
+Os seguintes relatórios de segurança de atividades anômalas Do Azure AD não estão incluídos como detecções de risco no portal Azure:
 
 * Entradas após várias falhas
 * Entradas de várias geografias
@@ -134,10 +134,10 @@ Os seguintes relatórios de segurança de atividade anômala do Azure AD não es
 
 ### <a name="detected-risk-detections"></a>Detecções de risco detectadas
 
-Você pode acessar relatórios sobre as detecções de risco detectadas na seção **segurança** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). As detecções de risco detectadas são controladas nos seguintes relatórios:   
+Você pode acessar relatórios sobre detecções de risco detectadas na seção **Segurança** da lâmina **do Azure Active Directory** no [portal Azure](https://portal.azure.com). As detecções de risco detectadas são rastreadas nos seguintes relatórios:   
 
 - [Usuários em risco](concept-user-at-risk.md)
-- [Entradas de risco](concept-risky-sign-ins.md)
+- [Entradas arriscadas](concept-risky-sign-ins.md)
 
     ![Relatórios de segurança](./media/howto-find-activity-reports/04.png "Relatórios de segurança")
 
@@ -149,11 +149,11 @@ Você pode acessar relatórios sobre as detecções de risco detectadas na seç�
 
 Baixei os logs de atividade (auditoria ou entradas) e não vejo todos os registros para o momento que escolhi. Por quê? 
 
- ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
+ ![Relatório](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
-Quando você baixa os logs de atividade no portal do Azure, limitamos a escala a 250000 registros, classificados por mais recentes primeiro. 
+Quando você baixa os registros de atividades no portal Azure, limitamos a escala a 250000 registros, classificados pelo primeiro mais recente. 
 
 #### <a name="resolution"></a>Resolução
 
@@ -165,7 +165,7 @@ Você pode aproveitar as [APIs de relatórios do Azure AD](concept-reporting-api
 
 Eu executei algumas ações no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Audit Logs`, mas não é possível encontrá-los.
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
+ ![Relatório](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -186,7 +186,7 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Eu entrei recentemente no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Sign-ins`, mas não é possível encontrá-los.
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
+ ![Relatório](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -207,7 +207,7 @@ Aguarde de 15 minutos a duas horas e verifique se as ações aparecem no log. Se
 
 Não consigo exibir mais de 30 dias de dados de entrada e de auditoria no portal do Azure. Por quê? 
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
+ ![Relatório](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061447"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
@@ -26,17 +26,17 @@ Caso você tenha uma pergunta geral sobre o Azure Active Directory (Azure AD) e 
 
 Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
-* [Perguntas sobre o registro de redefinição de senha](#password-reset-registration)
+* [Perguntas sobre registro de redefinição de senha](#password-reset-registration)
 * [Perguntas sobre a redefinição de senha](#password-reset)
 * [Perguntas sobre alteração de senha](#password-change)
-* [Perguntas sobre relatórios de gerenciamento de senha](#password-management-reports)
+* [Perguntas sobre relatórios de gerenciamento de senhas](#password-management-reports)
 * [Perguntas sobre o write-back de senha](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Registro de redefinição de senha
 
-* **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
+* **P: Meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
-  > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup)) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com)). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
+  > **A:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (https://aka.ms/ssprsetup)) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (https://myapps.microsoft.com)). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
   >
   >
 * **P: se habilitar a redefinição de senha para um grupo e, em seguida, optar por habilitá-la para todos, meu usuários deverão se registrar novamente?**
@@ -44,9 +44,9 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.
   >
   >
-* **P: posso definir dados de redefinição de senha em nome dos meus usuários?**
+* **P: Posso definir dados de redefinição de senha em nome dos meus usuários?**
 
-  > **R:** Sim, você pode fazer isso com Azure AD Connect, PowerShell, o [portal do Azure](https://portal.azure.com)ou o [centro de administração do Microsoft 365](https://admin.microsoft.com). Para obter mais informações, consulte [Dados usados pelo autoatendimento de redefinição de senha do Azure AD](howto-sspr-authenticationdata.md).
+  > **A:** Sim, você pode fazê-lo com o Azure AD Connect, PowerShell, o [portal Azure](https://portal.azure.com)ou o [centro de administradores Microsoft 365.](https://admin.microsoft.com) Para obter mais informações, consulte [Dados usados pelo autoatendimento de redefinição de senha do Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **P: posso sincronizar dados de perguntas de segurança do local?**
@@ -56,25 +56,25 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: meus usuários podem registrar dados de forma que outros usuários não possam ver esses dados?**
 
-  > **R:** Sim. Quando os usuários registram dados usando o portal de registro de redefinição de senha, os dados são salvos em campos de autenticação privada visíveis apenas por administradores globais e pelo usuário.
+  > **A:** Sim. Quando os usuários registram dados usando o portal de registro de redefinição de senha, os dados são salvos em campos de autenticação privada visíveis apenas por administradores globais e pelo usuário.
   >
   >
-* **P: meus usuários precisam ser registrados antes de poder usar a redefinição de senha?**
+* **P: Meus usuários têm que ser registrados antes que possam usar redefinição de senha?**
 
   > **R:** Não. Se você definir informações de autenticação suficientes em nome deles, os usuários não precisarão se registrar. A redefinição de senha funcionará desde que você tenha formatado corretamente os dados armazenados nos campos apropriados no diretório.
   >
   >
-* **P: posso sincronizar ou definir os campos telefone de autenticação, email de autenticação ou telefone de autenticação alternativo em nome dos meus usuários?**
+* **P: Posso sincronizar ou definir o telefone de autenticação, e-mail de autenticação ou campos de telefone de autenticação alternativos em nome dos meus usuários?**
 
   > **R:** Os campos que podem ser definidos por um Administrador Global são definidos no artigo [Requisitos de dados SSPR](howto-sspr-authenticationdata.md).
   >
   >
 * **P: como o portal de registro determina quais opções mostrar aos meus usuários?**
 
-  > **R:** O portal de registro de redefinição de senha só mostra as opções que você habilitou para os usuários. Essas opções são encontradas na seção **política de redefinição de senha do usuário** da guia **Configurar** do seu diretório. Por exemplo, se você não habilitar perguntas de segurança, os usuários não poderão se registrar para essa opção.
+  > **R:** O portal de registro de redefinição de senha só mostra as opções que você habilitou para os usuários. Essas opções são encontradas na seção **Diretiva de redefinição** de senha do usuário da guia **Configurar** do diretório. Por exemplo, se você não habilitar perguntas de segurança, os usuários não poderão se registrar para essa opção.
   >
   >
-* **P: quando um usuário é considerado registrado?**
+* **P: Quando um usuário é considerado registrado?**
 
   > **R:** Um usuário é considerado registrado no SSPR quando ele registrou, pelo menos, o **Número de métodos obrigatórios para a redefinição** que você definiu no [portal do Azure](https://portal.azure.com).
   >
@@ -95,14 +95,14 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > Os contadores serão redefinidos quando o usuário redefinir sua senha.
   >
   >
-* **P: quanto tempo deve levar até que eu receba uma chamada telefônica, um SMS ou um email de redefinição de senha?**
+* **P: Quanto tempo devo esperar para receber um e-mail, SMS ou telefonema da redefinição de senha?**
 
   > **R:** Emails, mensagens SMS e chamadas telefônicas devem chegar em menos de um minuto. O caso comum é de 5 a 20 segundos.
   > Se você não receber a notificação nesse período:
   > * Verifique a pasta Lixo Eletrônico.
   > * Verifique se o número ou o email de contato é aquele que você espera.
-  > * Verifique se os dados de autenticação no diretório estão formatados corretamente, por exemplo, + 1 4255551234 ou *usuário\@contoso.com*. 
-* **P: quais idiomas são compatíveis com a redefinição de senha?**
+  > * Verifique se os dados de autenticação no diretório estão corretamente formatados, por exemplo, +1 4255551234 ou *contoso.com do usuário\@*. 
+* **P: Quais idiomas são suportados por redefinição de senha?**
 
   > **R:** A interface do usuário de redefinição de senha, as mensagens SMS e as chamadas de voz estão localizadas nos mesmos idiomas com suporte no Office 365.
   >
@@ -114,7 +114,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: como eu instruo os usuários sobre onde acessar para redefinir as suas senhas?**
 
-  > **R:** tente alguma das sugestões em nosso artigo [Implantação do SSPR](howto-sspr-deployment.md#plan-communications).
+  > **A:** Experimente algumas das sugestões em nosso artigo [de implantação do SSPR.](howto-sspr-deployment.md#plan-communications)
   >
   >
 * **P: posso usar essa página em um dispositivo móvel?**
@@ -122,9 +122,9 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** sim, essa página funciona em dispositivos móveis.
   >
   >
-* **P: há suporte para desbloqueio das contas locais do Active Directory quando os usuários redefinirem as suas senhas?**
+* **P: Você suporta desbloquear contas ativas locais do Diretório quando os usuários redefinem suas senhas?**
 
-  > **R:** Sim. Quando um usuário redefine a senha, se o write-back de senha foi implantado usando o Azure AD Connect, a conta desse usuário é desbloqueada automaticamente quando ele redefine a senha.
+  > **A:** Sim. Quando um usuário redefine a senha, se o write-back de senha foi implantado usando o Azure AD Connect, a conta desse usuário é desbloqueada automaticamente quando ele redefine a senha.
   >
   >
 * **P: como posso integrar a redefinição de senha diretamente à experiência de entrada na área de trabalho do usuário?**
@@ -152,7 +152,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** as respostas podem ter entre 3 e 40 caracteres.
   >
   >
-* **P: as respostas duplicadas para perguntas de segurança são rejeitadas?**
+* **P: As respostas duplicadas às perguntas de segurança são rejeitadas?**
 
   > **R:** sim, rejeitamos respostas duplicadas para perguntas de segurança.
   >
@@ -174,12 +174,12 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: se um usuário tiver registrado mais do que o número máximo de perguntas obrigatórias para a redefinição, como as perguntas de segurança serão selecionadas durante a redefinição?**
 
-  > **R:** *N* número de perguntas de segurança são selecionadas aleatoriamente do número total de perguntas que um usuário registrou, em que *N* é o valor definido para a opção **número de perguntas obrigatórias para redefinir** . Por exemplo, se um usuário tiver registrado cinco perguntas de segurança, mas apenas três forem necessárias para redefinir uma senha, três das cinco perguntas serão selecionadas aleatoriamente e serão apresentadas na reinicialização. Se o usuário der respostas erradas, o processo de seleção ocorrerá novamente para evitar hammering de perguntas.
+  > **R:** *X* perguntas de segurança são selecionadas aleatoriamente do número total de perguntas que um usuário registrou, em que *X* é a quantidade que é definida para a opção **Número de perguntas obrigatórias para a redefinição**. Por exemplo, se um usuário tiver registrado cinco perguntas de segurança, mas apenas três forem necessárias para redefinir uma senha, três das cinco perguntas serão selecionadas aleatoriamente e serão apresentadas na reinicialização. Se o usuário der respostas erradas, o processo de seleção ocorrerá novamente para evitar hammering de perguntas.
   >
   >
 * **P: por quanto tempo vale a senha de uso único por email e SMS?**
 
-  > **R:** O tempo de vida da sessão para a redefinição de senha é de 15 minutos. Desde o início da operação de redefinição de senha, o usuário tem 15 minutos para redefinir sua senha. O email e a senha de uso único do SMS são válidos por 5 minutos durante a sessão de redefinição de senha.
+  > **R:** O tempo de vida da sessão para a redefinição de senha é de 15 minutos. Desde o início da operação de redefinição de senha, o usuário tem 15 minutos para redefinir sua senha. A senha única de e-mail e SMS são válidas por 5 minutos durante a sessão de redefinição de senha.
   >
   >
 * **P: Posso impedir os usuários de redefinirem sua senha?**
@@ -195,7 +195,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** os usuários podem alterar suas senhas em qualquer lugar em que veem seus ícones ou imagens de perfil, como no canto superior direito das experiências do portal do [Office 365](https://portal.office.com) ou do [Painel de Acesso](https://myapps.microsoft.com). Os usuários podem alterar suas senhas na [página de perfil do Painel de Acesso](https://account.activedirectory.windowsazure.com/r#/profile). Os usuários também poderão ser solicitados a alterar suas senhas automaticamente na tela de conexão do Azure AD se elas expirarem. Por fim, os usuários poderão navegar até o [portal de alteração de senha do Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) diretamente se desejarem alterar suas senhas.
   >
   >
-* **P: meus usuários podem ser notificados no portal do Office quando sua senha local expirar?**
+* **P: Meus usuários podem ser notificados no portal do Office quando sua senha no local expirar?**
 
   > **R:** sim, isso será possível hoje mesmo se você usar os Serviços de Federação do Active Directory (AD FS). Se você usar o AD FS, siga as instruções no artigo [Envio de declarações de política de senha com o AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se você usar a sincronização de hash de senha, isso não será possível atualmente. Nós não sincronizamos políticas de senha locais e, portanto, não é possível postar as notificações de expiração para experiências de nuvem. Em ambos os casos, também é possível [notificar os usuários cujas senhas estejam prestes a expirar usando o PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
@@ -208,12 +208,12 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 ## <a name="password-management-reports"></a>Relatórios de gerenciamento de senha
 
-* **P: quanto tempo leva para que os dados sejam exibidos nos relatórios de gerenciamento de senha?**
+* **P: Quanto tempo leva para os dados aparecerem nos relatórios de gerenciamento de senhas?**
 
   > **R:** os dados devem ser exibidos nos relatórios de gerenciamento de senha entre 5 e 10 minutos. Em algumas instâncias, pode levar até uma hora para que sejam exibidos.
   >
   >
-* **P: como posso filtrar os relatórios de gerenciamento de senha?**
+* **P: Como posso filtrar os relatórios de gerenciamento de senhas?**
 
   > **R:** para filtrar os relatórios de gerenciamento de senhas, selecione a lupa pequena na extremidade direita dos rótulos de coluna, próximo ao início do relatório. Se você quiser fazer uma filtragem mais avançada, poderá baixar o relatório do Excel e criar uma tabela dinâmica.
   >
@@ -223,19 +223,19 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** até 75 mil redefinições de senha ou eventos de registro de redefinição de senha são armazenados nos relatórios de gerenciamento de senha relativo ao período de, no máximo, 30 dias anteriores. Estamos trabalhando para expandir esse número e incluir mais eventos.
   >
   >
-* **P: qual o período mais antigo coberto pelos relatórios de gerenciamento de senha?**
+* **P: Até onde vão os relatórios de gerenciamento de senhas?**
 
   > **R:** os relatórios de gerenciamento de senha mostram operações ocorridas nos últimos 30 dias. Por enquanto, se você precisar arquivar esses dados, pode baixar os relatórios periodicamente e salvá-los em um local separado.
   >
   >
 * **P: existe um número máximo de linhas que podem ser exibidas nos relatórios de gerenciamento de senha?**
 
-  > **R:** Sim. Um máximo de 75 mil linhas pode aparecer nos relatórios de gerenciamento de senha, quer seja mostrado na interface do usuário ou baixado.
+  > **A:** Sim. Um máximo de 75 mil linhas pode aparecer nos relatórios de gerenciamento de senha, quer seja mostrado na interface do usuário ou baixado.
   >
   >
-* **P: Existe uma API para acessar os dados do relatório de redefinição de senha ou de registro de redefinição de senha?**
+* **P: Existe uma API para acessar os dados de redefinição de senha ou relatórios de registro?**
 
-  > **R:** Sim. Para saber como é possível acessar o fluxo de dados do relatório de redefinição de senha, consulte [Saiba como acessar eventos de relatório de redefinição de senha de maneira programática](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** Sim. Para saber como é possível acessar o fluxo de dados do relatório de redefinição de senha, consulte [Saiba como acessar eventos de relatório de redefinição de senha de maneira programática](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
@@ -246,7 +246,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** Consulte o artigo [Como funciona o write-back de senha](howto-sspr-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao seu ambiente local.
   >
   >
-* **P: quanto tempo leva para o Write-back de senha funcionar? Há um atraso de sincronização como há com a sincronização de hash de senha?**
+* **P: Quanto tempo a regravação de senha leva para funcionar? Existe um atraso de sincronização como há com a sincronização de hash de senha?**
 
   > **R:** o write-back de senha é instantâneo. É um pipeline síncrono que funciona de forma essencialmente diferente da sincronização com hash de senha. O write-back de senha permite aos usuários obter comentários em tempo real sobre o sucesso da operação de redefinição ou de alteração de senha. O tempo médio para um write-back bem-sucedido de uma senha é abaixo de 500 ms.
   >
@@ -268,10 +268,10 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: o write-back de senha impõe as políticas de senha do meu domínio?**
 
-  > **R:** Sim. O write-back de senha impõe a duração, o histórico e a complexidade da senha, filtros e qualquer outra restrição que você possa impor nas senhas no domínio local.
+  > **A:** Sim. O write-back de senha impõe a duração, o histórico e a complexidade da senha, filtros e qualquer outra restrição que você possa impor nas senhas no domínio local.
   >
   >
-* **P: o Write-back de senha é seguro?  Como eu posso ter certeza de que não serei invadido?**
+* **P: A regravação de senha é segura?  Como posso ter certeza que não serei hackeado?**
 
   > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as várias camadas de segurança implementadas pelo serviço de write-back de senha, verifique a seção [Segurança de write-back de senha](concept-sspr-writeback.md#password-writeback-security) no artigo [Visão geral do write-back de senha](howto-sspr-writeback.md).
   >
@@ -281,12 +281,12 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 * [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
-* [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
+* [Registre-se para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
+* [Você tem uma pergunta de licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
 * [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo está quebrado. Como fazer solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
+* [Acho que algo está quebrado. Como faço para solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058214"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solucionar problemas de mudança de nome do dispositivo de VM Linux no Azure
@@ -42,11 +42,11 @@ O problema ocorre porque a varredura de dispositivo no Linux agendada pelo subsi
 
 Para resolver esse problema, use nomenclatura persistente. Há quatro maneiras de usar uma nomenclatura persistente: por rótulo de sistema de arquivos, por UUID, por ID ou por caminho. Recomendamos o uso do rótulo do sistema de arquivos ou UUID para VMs Linux do Azure.
 
-A maioria das distribuições fornece os parâmetros `fstab`**nofail** ou **nobootwait**. Esses parâmetros permitem que um sistema inicialize quando a montagem do disco falha na inicialização. Consulte a documentação de sua distribuição para obter mais informações sobre esses parâmetros. Para saber mais sobre como configurar uma VM do Linux para usar um UUID quando você adiciona um disco de dados, consulte [Conectar-se à VM Linux para montar o novo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+A maioria das distribuições fornece os parâmetros `fstab` **nofail** ou **nobootwait**. Esses parâmetros permitem que um sistema inicialize quando a montagem do disco falha na inicialização. Consulte a documentação de sua distribuição para obter mais informações sobre esses parâmetros. Para saber mais sobre como configurar uma VM do Linux para usar um UUID quando você adiciona um disco de dados, consulte [Conectar-se à VM Linux para montar o novo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 Quando o agente Linux do Azure é instalado em uma VM, ele usa regras Udev para construir um conjunto de links simbólicos no caminho /dev/disk/azure. Aplicativos e scripts usam regras Udev para identificar os discos anexados à VM, junto com o tipo de disco e LUNs de disco.
 
-Se você já tiver editado o fstab de forma que sua VM não esteja inicializando e não seja possível usar o SSH para a VM, use o [console serial da VM](./serial-console-linux.md) para entrar no [modo de usuário único](./serial-console-grub-single-user-mode.md) e modificar seu fstab.
+Se você já editou seu fstab de tal forma que sua VM não está inicializando e você não pode fazer ssh para sua VM, você pode usar o [VM Serial Console](./serial-console-linux.md) para entrar no [modo de usuário único](./serial-console-grub-single-user-mode.md) e modificar o seu fstab.
 
 ### <a name="identify-disk-luns"></a>Identificar LUNs de disco
 
@@ -134,7 +134,7 @@ As regras Udev do agente Linux do Azure constroem um conjunto de links simbólic
 
 Os aplicativos usam os links para identificar o dispositivo de disco de inicialização e o disco de recurso (efêmero). No Azure, os aplicativos devem consultar os caminhos /dev/disk/azure/root-part1 ou /dev/disk/azure-resource-part1 para descobrir essas partições.
 
-Se houver partições adicionais na lista `blkid`, elas residirão em um disco de dados. Os aplicativos mantêm o UUID para essas partições e usar um caminho para descobrir o nome do dispositivo no tempo de execução:
+Se houver partições adicionais na lista `blkid`, elas residirão em um disco de dados. Os aplicativos mantêm o UUID para essas partições e usar um caminho para descobrir o nome do dispositivo no runtime:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
@@ -148,12 +148,12 @@ Para obter as regras de Armazenamento do Azure mais recentes, execute os seguint
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
-- [Ubuntu Usando UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Red Hat: Nomenclatura persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux O que os UUIDs podem fazer por você](https://www.linux.com/news/what-uuids-can-do-you)
-- [Udev Introdução ao gerenciamento de dispositivos em um sistema Linux moderno](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Ubuntu: usando UUID](https://help.ubuntu.com/community/UsingUUID)
+- [Chapéu Vermelho: Nomeação persistente](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+- [Linux: o que UUIDs podem fazer por você](https://www.linux.com/news/what-uuids-can-do-you)
+- [Udev: introdução ao gerenciamento de dispositivo no sistema Linux moderno](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

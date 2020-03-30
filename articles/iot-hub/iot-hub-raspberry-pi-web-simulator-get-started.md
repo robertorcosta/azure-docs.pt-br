@@ -1,5 +1,5 @@
 ---
-title: Conectar o simulador da Web do Raspberry Pi ao Hub IoT do Azure (Node. js)
+title: Conecte o simulador web Raspberry Pi ao Azure IoT Hub (Node.js)
 description: Conectar o simulador web Raspberry Pi ao Hub IoT do Azure para que o Raspberry Pi envie dados para a nuvem do Azure.
 author: wesmc7777
 manager: philmea
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: efbe41be6c923f3547df86fd6faeb56bff5e0802
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954522"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar o simulador online Raspberry Pi ao Hub IoT do Azure (Node.js)
@@ -50,7 +50,7 @@ Conecte o Raspberry Pi simulado a um Hub IoT criado por você. Em seguida, você
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
-* Como criar um Hub IoT do Azure e obter sua nova cadeia de conexão do dispositivo. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
+* Como criar um Hub IoT do Azure e obter sua nova cadeia de conexão do dispositivo. Se você não tiver uma conta no Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
 * Como trabalhar com o Simulador online Raspberry Pi.
 
@@ -61,7 +61,7 @@ Conecte o Raspberry Pi simulado a um Hub IoT criado por você. Em seguida, você
 Clique no botão para iniciar o simulador online Raspberry Pi.
 
 > [!div class="button"]
-> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Iniciar o simulador do Raspberry Pi</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Inicie o Raspberry Pi Simulator</a>
 
 Há três áreas no simulador da web.
 
@@ -96,15 +96,15 @@ Há três áreas no simulador da web.
 1. 
    ![Substituir a cadeia de conexão do dispositivo](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. Selecione **executar** ou digite `npm start` para executar o aplicativo.
+2. Selecione **Executar** ou digitar `npm start` para executar o aplicativo.
 
 Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens que são enviadas ao seu Hub IoT ![saída - dados de sensor enviados do Raspberry Pi para o seu Hub IoT](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo seu hub
+## <a name="read-the-messages-received-by-your-hub"></a>Leia as mensagens recebidas pelo seu hub
 
-Uma maneira de monitorar as mensagens recebidas pelo Hub IoT do dispositivo simulado é usar as ferramentas de IoT do Azure para Visual Studio Code. Para saber mais, confira [usar as ferramentas de IOT do Azure para Visual Studio Code para enviar e receber mensagens entre o dispositivo e o Hub IOT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Uma maneira de monitorar as mensagens recebidas pelo seu hub ioT a partir do dispositivo simulado é usar as Ferramentas De IoT do Azure para o Visual Studio Code. Para saber mais, consulte [Use Azure IoT Tools for Visual Studio Code para enviar e receber mensagens entre seu dispositivo e o IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para obter mais maneiras de processar dados enviados pelo seu dispositivo, continue na próxima seção.
+Para obter mais maneiras de processar os dados enviados pelo seu dispositivo, continue para a próxima seção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

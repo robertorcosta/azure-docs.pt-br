@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: otimizar o roteamento'
+title: 'Azure ExpressRoute: Otimizar o roteamento'
 description: Esta página fornece detalhes sobre como otimizar o roteamento quando houver mais de um circuito do ExpressRoute que se conecta entre a Microsoft e a rede corporativa.
 services: expressroute
 author: charwen
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
 ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74080132"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o roteamento do ExpressRoute
 Quando você tem vários circuitos de ExpressRoute, tem mais de um caminho para se conectar à Microsoft. Portanto, pode ocorrer um roteamento abaixo do ideal, ou seja, o tráfego pode levar um caminho mais longo para acessar a Microsoft e esta para acessar a sua rede. Quanto maior o caminho de rede, maior será a latência. A latência tem impacto direto na experiência de usuário e no desempenho do aplicativo. Este artigo ilustra esse problema e explica como otimizar o roteamento usando tecnologias de roteamento padrão.
 
-## <a name="path-selection-on-microsoft-and-public-peerings"></a>Seleção de caminho em emparelhamentos públicos e da Microsoft
-É importante garantir que, ao utilizar o emparelhamento da Microsoft ou público, o tráfego flua sobre o caminho desejado se você tiver um ou mais circuitos do ExpressRoute, bem como caminhos para a Internet por meio de um Internet Exchange (IX) ou provedor de serviços de Internet (ISP). O BGP utiliza um melhor algoritmo de seleção de caminho com base em vários fatores, incluindo o LPM (correspondência de prefixo mais longo). Para garantir que o tráfego destinado ao Azure por meio da Microsoft ou do emparelhamento público Percorra o caminho do ExpressRoute, os clientes devem implementar o atributo de *preferência local* para garantir que o caminho seja sempre preferido no ExpressRoute. 
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Seleção de caminhos em peerings Microsoft e Public
+É importante garantir que, ao utilizar a Microsoft ou o Public peering, o tráfego flua sobre o caminho desejado se você tiver um ou mais circuitos ExpressRoute, bem como caminhos para a Internet através de uma Internet Exchange (IX) ou provedor de serviços de Internet (ISP). O BGP utiliza um melhor algoritmo de seleção de caminho satisfaz uma série de fatores, incluindo o prefixo mais longo (LPM). Para garantir que o tráfego destinado ao Azure via Microsoft ou peering público atravesse o caminho do ExpressRoute, os clientes devem implementar o atributo *Preferência Local* para garantir que o caminho seja sempre preferido no ExpressRoute. 
 
 > [!NOTE]
-> A preferência local padrão é normalmente 100. Preferências de local mais altas são mais preferenciais. 
+> A preferência local padrão é tipicamente 100. Preferências locais mais altas são mais preferidas. 
 >
 >
 
-Considere o seguinte cenário de exemplo:
+Considere o seguinte exemplo:
 
 ![Problema de ExpressRoute, Caso 1 - qualidade inferior de roteamento do cliente para a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
-No exemplo acima, para preferir caminhos do ExpressRoute, configure a preferência local da seguinte maneira. 
+No exemplo acima, preferir os caminhos do ExpressRoute configure a Preferência Local da seguinte forma. 
 
-**Configuração do Cisco IOS-XE da perspectiva de R1:**
+**Configuração Cisco IOS-XE da perspectiva R1:**
 
     R1(config)#route-map prefer-ExR permit 10
     R1(config-route-map)#set local-preference 150
@@ -41,7 +41,7 @@ No exemplo acima, para preferir caminhos do ExpressRoute, configure a preferênc
     R1(config-router)#neighbor 1.1.1.2 activate
     R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
 
-**Configuração do Junos da perspectiva do R1:**
+**Configuração do Junos na perspectiva R1:**
 
     user@R1# set protocols bgp group ibgp type internal
     user@R1# set protocols bgp group ibgp local-preference 150
@@ -74,7 +74,7 @@ Há duas soluções para o problema. A primeira é simplesmente anunciar o prefi
 A segunda solução é continuar a anunciar ambos os prefixos em ambos os circuitos do ExpressRoute e, além disso, fornecer uma dica de qual prefixo é mais próximo de qual escritório. Como damos suporte a precedência de caminho AS do BGP, você pode configurar do caminho AS para o prefixo a fim de influenciar o roteamento. Neste exemplo, você pode aumentar o caminho AS de 172.2.0.0/31 no Leste dos EUA para que passemos a preferir circuito do ExpressRoute no Oeste dos EUA para o tráfego destinado a esse prefixo (já que a nossa rede pensará que o caminho para esse prefixo é mais curto nesse lado). Da mesma forma, você pode aumentar o caminho AS de 172.2.0.2/31 no Oeste dos EUA para que vejamos o circuito do ExpressRoute no Leste dos EUA como preferencial. O roteamento é otimizado para ambos os escritórios. Com esse design, se um circuito do ExpressRoute for interrompido, o Exchange Online poderá ainda acessá-lo por meio de outro circuito do ExpressRoute e sua WAN. 
 
 > [!IMPORTANT]
-> Removemos os números de as privados no caminho as para os prefixos recebidos no emparelhamento da Microsoft durante o emparelhamento usando um número de AS privado. Você precisa emparelhar com um público como e anexar os números de as no caminho as para influenciar o roteamento para o emparelhamento da Microsoft.
+> Removemos números AS privados no AS PATH para os prefixos recebidos no Microsoft Peering ao observar usando um número AS privado. Você precisa observar um AS público e anexar números as públicos no AS PATH para influenciar o roteamento para o Microsoft Peering.
 > 
 > 
 

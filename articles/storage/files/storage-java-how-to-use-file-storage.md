@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837466"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolvimento para o Arquivos do Azure com Java
@@ -121,7 +121,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
-Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código abaixo irá criar um subdiretório chamado **sampledir** sob o diretório raiz.
+Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. Os Arquivos do Azure permitem que você crie quantos diretórios a conta permitir. O código abaixo irá criar um subdiretório chamado ** sampledir ** sob o diretório raiz.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -225,10 +225,10 @@ if ( file.deleteIfExists() ) {
 Se você quiser saber mais sobre outras APIs de armazenamento do Azure, siga estes links.
 
 * [Azure para desenvolvedores Java](/java/azure)/)
-* [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
+* [Microsoft Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) (SDK de Armazenamento do Microsoft Azure para Java)
 * [SDK de Armazenamento do Azure para Android](https://github.com/azure/azure-storage-android)
 * [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog da Equipe do Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
-* [Transferir dados com o Utilitário de Linha de Comando AzCopy](../common/storage-use-azcopy.md)
+* [Azure Storage Services REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx) (Referência de API REST dos Serviços de Armazenamento do Azure)
+* [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Transferir dados com o Utilitário da Linha de Comando AzCopy](../common/storage-use-azcopy.md)
 * [Solução de problemas de Arquivos do Azure – Windows](storage-troubleshoot-windows-file-connection-problems.md)

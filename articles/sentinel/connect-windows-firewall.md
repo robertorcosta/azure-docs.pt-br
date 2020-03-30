@@ -1,6 +1,6 @@
 ---
-title: Conectar dados do firewall do Windows ao Azure Sentinel | Microsoft Docs
-description: Saiba como conectar dados do firewall do Windows ao Azure Sentinel.
+title: Conecte dados de firewall do Windows ao Azure Sentinel| Microsoft Docs
+description: Saiba como conectar dados de firewall do Windows ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,49 +16,49 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588052"
 ---
 # <a name="connect-windows-firewall"></a>Conectar firewall do Windows
 
 
 
-O conector do firewall do Windows permite que você conecte seus logs do firewall do Windows com facilidade, se eles estiverem conectados ao seu espaço de trabalho do Azure Sentinel. Essa conexão permite que você exiba painéis, crie alertas personalizados e melhore a investigação. Isso lhe dá mais informações sobre a rede da sua organização e aprimora seus recursos de operação de segurança. A solução coleta eventos de firewall do Windows dos computadores Windows nos quais um agente de Log Analytics está instalado. 
+O conector de firewall do Windows permite conectar facilmente os registros de firewalls do Windows, se eles estiverem conectados ao seu espaço de trabalho do Azure Sentinel. Essa conexão permite que você visualize dashboards, crie alertas personalizados e melhore a investigação. Isso lhe dá mais informações sobre a rede da sua organização e melhora os recursos de operação de segurança. A solução coleta eventos de firewall do Windows das máquinas Windows nas quais um agente do Log Analytics está instalado. 
 
 
 > [!NOTE]
-> - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
-> - Se o Azure Sentinel e a central de segurança do Azure forem coletados para o mesmo espaço de trabalho, não será necessário habilitar a solução de firewall do Windows por meio desse conector. Se você habilitá-lo mesmo assim, ele não causará dados duplicados. 
+> - Os dados serão armazenados na localização geográfica do espaço de trabalho em que você está executando o Azure Sentinel.
+> - Se o Azure Sentinel e o Azure Security Center forem coletados no mesmo espaço de trabalho, não há necessidade de ativar a solução do Firewall do Windows através deste conector. Se você habilitá-lo de qualquer maneira, ele não causará dados duplicados. 
 
-## <a name="enable-the-connector"></a>Habilitar o conector 
+## <a name="enable-the-connector"></a>Habilite o conector 
 
-1. No portal do Azure Sentinel, selecione **conectores de dados** e clique no bloco **Firewall do Windows** . 
-1.  Se seus computadores Windows estiverem no Azure:
-    1. Clique em **instalar agente na máquina virtual do Windows do Azure**.
-    1. Na lista **máquinas virtuais** , selecione o computador Windows que você deseja transmitir para o Azure Sentinel. Verifique se esta é uma VM do Windows.
-    1. Na janela que é aberta para essa VM, clique em **conectar**.  
-    1. Clique em **habilitar** na janela **conector do firewall do Windows** . 
+1. No portal Do Azure Sentinel, selecione **conectores de dados** e clique no firewall do **Windows.** 
+1.  Se suas máquinas Windows estiverem no Azure:
+    1. Clique **em Instalar agente na máquina virtual do Azure Windows**.
+    1. Na lista **de máquinas virtuais,** selecione a máquina Windows que deseja transmitir no Azure Sentinel. Certifique-se de que este é um VM do Windows.
+    1. Na janela que abre para aquela VM, clique **em Conectar**.  
+    1. Clique em **Ativar** na janela do **conector de firewall** do Windows. 
 
-2. Se seu computador Windows não for uma VM do Azure:
-    1. Clique em **instalar agente em computadores não Azure**.
-    1. Na janela **agente direto** , selecione baixar o **agente do Windows (64 bits)** ou **baixar o agente do Windows (32 bits)** .
-    1. Instale o agente em seu computador Windows. Copie a **ID do espaço de trabalho**, a **chave primária**e a **chave secundária** e use-as quando solicitado durante a instalação.
+2. Se a sua máquina Windows não for uma VM Azure:
+    1. Clique **em Instalar agente em máquinas não-Azure**.
+    1. Na janela **agente direto,** selecione **Baixar o agente windows (64 bits)** ou **baixar o agente do Windows (32 bits)**.
+    1. Instale o agente na sua máquina Windows. Copie o **ID do espaço de trabalho,** **a tecla principal**e **a tecla secundária** e use-as quando solicitada durante a instalação.
 
-4. Selecione os tipos de dados que você deseja transmitir.
-5. Clique em **instalar solução**.
-6. Para usar o esquema relevante no Log Analytics para o Firewall do Windows, procure por **SecurityEvent**.
+4. Selecione quais tipos de dados você deseja transmitir.
+5. Clique **em Instalar solução**.
+6. Para usar o esquema relevante no Log Analytics para o firewall do Windows, procure **securityevent**.
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
 
-Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics. 
+Pode levar mais de 20 minutos até que seus registros comecem a aparecer no Log Analytics. 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você aprendeu a conectar o Firewall do Windows ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+Neste documento, você aprendeu como conectar o firewall do Windows ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: orspodek
 ms.openlocfilehash: a04f17ac809832b6fec51d1ffe0d9fcd6285b4ff
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73581793"
 ---
 ## <a name="authentication"></a>Autenticação
 
-Para executar o exemplo a seguir, você precisa de um aplicativo Azure Active Directory (Azure AD) e uma entidade de serviço que possa acessar recursos. Para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no nível da assinatura, consulte [criar um aplicativo do Azure ad](/azure/active-directory/develop/howto-create-service-principal-portal). Você também precisa da ID do diretório (locatário), da ID do aplicativo e do segredo do cliente.
+Para executar o exemplo a seguir, você precisa de um aplicativo e serviço do Azure Active Directory (Azure AD) que possa acessar recursos. Para criar um aplicativo Azure AD gratuito e adicionar atribuição de função no nível de assinatura, consulte [Criar um aplicativo Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal). Você também precisa do ID do diretório (inquilino), do ID do aplicativo e do cliente secreto.
