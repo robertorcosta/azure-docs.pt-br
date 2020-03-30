@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: 4e08596e8cf71bbb0e88abdc51f5d8e69972464d
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665248"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é o Bing Local Business Search?
@@ -23,7 +23,7 @@ A API da Pesquisa de empresa local do Bing é um serviço RESTful que permite qu
 ## <a name="features"></a>Recursos
 | Recurso | DESCRIÇÃO |  
 | -- | -- | 
-| [Encontre empresas e locais](quickstarts/local-quickstart.md) | A API da Pesquisa de empresa local do Bing obtém resultados localizados de uma consulta. Os resultados incluem uma URL para o site da empresa e exibem texto, número de telefone e localização geográfica, incluindo: Coordenadas de GPS, cidade, endereço |  
+| [Encontre empresas e locais](quickstarts/local-quickstart.md) | A API da Pesquisa de empresa local do Bing obtém resultados localizados de uma consulta. Os resultados incluem um URL para o site da empresa e exibem texto, número de telefone e localização geográfica, incluindo: coordenadas de GPS, cidade, endereço |  
 | [Filtre resultados locais com limites geográficos](specify-geographic-search.md) | Adicione coordenadas como parâmetros de pesquisa para limitar os resultados a uma área geográfica específica, especificada por uma área delimitadora circular ou quadrada. | 
 | [Filtrar os resultados de negócios local por categoria](local-categories.md) | Pesquisar resultados de negócios local por categoria. Essa opção usa a localização inversa do IP ou coordenadas de GPS do chamador para retornar resultados localizados em várias categorias de negócios.|
 
@@ -42,6 +42,6 @@ Chame a API de Pesquisa de Empresa Local do Bing em qualquer linguagem de progra
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Consulta e resposta](local-search-query-response.md)
-- [Início rápido de negócios pesquisa local](quickstarts/local-quickstart.md)
+- [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
 - [Referência de API de pesquisa de negócios local](local-search-reference.md)
 - [Requisitos de uso e exibição](use-display-requirements.md)

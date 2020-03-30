@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 648842e86410985e3a6fb21f474b9df9d14e109d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906668"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -52,7 +52,7 @@ O ponto de extremidade global de Tradução de Texto é definido como o `endpoin
 Os `params` são usados para definir os idiomas de saída. Neste exemplo estamos traduzindo de inglês para italiano e alemão: `it` e `de`.
 
 >[!NOTE]
-> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, consulte [API de Tradução de Texto 3.0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 path = '/translate?api-version=3.0'
@@ -135,7 +135,7 @@ Se você quiser comparar seu código com o nosso, o exemplo completo está dispo
 ]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você embutiu sua chave de assinatura no programa, remova-a quando tiver terminado este início rápido.
 

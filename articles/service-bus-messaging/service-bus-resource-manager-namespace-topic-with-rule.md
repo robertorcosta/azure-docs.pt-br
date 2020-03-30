@@ -1,5 +1,5 @@
 ---
-title: Criar assinatura e regra de tópico do barramento de serviço usando o modelo do Azure
+title: Crie a assinatura e a regra do tópico Service Bus usando o modelo do Azure
 description: Criar um namespace do Barramento de Serviço com tópico, assinatura e regra usando um modelo do Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: d4c4f055114ccd0be4bbc588b7785eb0fb2f48c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cbaf447dfcf06ae11f2282d7d847978297af8b8
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426889"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384884"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço com tópico, assinatura e regra usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace do Barramento de Serviço com tópico, assinatura e regra (filtro). O artigo explica como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
-Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
+Para obter mais informações sobre a criação de modelos, consulte [Os modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para obter mais informações sobre práticas e padrões em convenções de nomenclatura de recursos do Azure, consulte [convenções de nomenclatura recomendadas para recursos do Azure][Recommended naming conventions for Azure resources].
+Para saber mais sobre as práticas e os padrões de convenções de nomenclatura de recursos do Azure, confira [Convenções de nomenclatura recomendandas para os recursos do Azure][Recommended naming conventions for Azure resources].
 
 Para ver o modelo completo, veja o [Modelo de namespace do Barramento de Serviço com tópico, assinatura e regra][Service Bus namespace with topic, subscription, and rule].
 
@@ -36,12 +36,10 @@ Para ver o modelo completo, veja o [Modelo de namespace do Barramento de Serviç
 > 
 > * [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
-> * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
+> * [Criar um espaço de nome de ônibus de serviço](service-bus-resource-manager-namespace.md)
 > * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 > 
-> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e procure por Barramento de Serviço.
-> 
-> 
+> Para verificar os modelos mais recentes, visite a galeria [Azure Quickstart Templates][Azure Quickstart Templates] e procure por Service Bus.
 
 ## <a name="what-do-you-deploy"></a>O que você implanta?
 
@@ -64,6 +62,7 @@ Com o Azure Resource Manager, defina parâmetros para os valores que você desej
 O modelo define os seguintes parâmetros:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 O nome do namespace do Barramento de Serviço a ser criado.
 
 ```json
@@ -73,6 +72,7 @@ O nome do namespace do Barramento de Serviço a ser criado.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
+
 O nome do tópico criado no namespace do Barramento de Serviço.
 
 ```json
@@ -82,6 +82,7 @@ O nome do tópico criado no namespace do Barramento de Serviço.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
+
 O nome da assinatura criada no namespace do Barramento de Serviço.
 
 ```json
@@ -89,7 +90,9 @@ O nome da assinatura criada no namespace do Barramento de Serviço.
 "type": "string"
 }
 ```
+
 ### <a name="servicebusrulename"></a>serviceBusRuleName
+
 O nome da regra (filtro) criada no namespace do Barramento de Serviço.
 
 ```json
@@ -97,7 +100,9 @@ O nome da regra (filtro) criada no namespace do Barramento de Serviço.
    "type": "string",
   }
 ```
+
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 A versão da API do Barramento de Serviço do modelo.
 
 ```json
@@ -108,7 +113,9 @@ A versão da API do Barramento de Serviço do modelo.
            "description": "Service Bus ApiVersion used by the template" 
        }
 ```
+
 ## <a name="resources-to-deploy"></a>Recursos a implantar
+
 Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com tópico, assinatura e regras.
 
 ```json
@@ -164,21 +171,25 @@ Cria um namespace de Barramento de Serviço padrão do tipo **Mensagens**, com t
 Para saber mais sobre a sintaxe e as propriedades de JSON, consulte [namespaces](/azure/templates/microsoft.servicebus/namespaces), [topics](/azure/templates/microsoft.servicebus/namespaces/topics), [subscriptions](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) e [rules](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
-```azurecli
+## <a name="azure-cli"></a>CLI do Azure
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
+
 Saiba como gerenciar esses recursos analisando estes artigos:
 
 * [Gerenciar o Barramento de Serviço do Azure](service-bus-management-libraries.md)
@@ -193,4 +204,3 @@ Saiba como gerenciar esses recursos analisando estes artigos:
 [Recommended naming conventions for Azure resources]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-

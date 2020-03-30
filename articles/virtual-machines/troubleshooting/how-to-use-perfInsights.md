@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250121"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
@@ -79,15 +79,15 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | Latency      | Média de solicitação de dados/s         |
 |              | Média de leitura/s                 |
 |              | Média de gravação/s                |
-| Tamanho de E/S      | Média de bytes/solicitação de dados       |
-|              | Média de bytes/leitura               |
-|              | Média de bytes/gravação              |
+| Tamanho de E/S      | Avg. Bytes/Solicitação de Dados       |
+|              | Avg. Bytes/Read               |
+|              | Avg. Bytes/Write              |
 | Produtividade   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
-| Comprimento da fila | Comprimento médio da fila de leitura        |
-|              | Comprimento médio da fila de gravação       |
-|              | Comprimento médio da fila de dados        |
+| Comprimento da fila | Avg. Leia o comprimento da fila        |
+|              | Comprimento da fila de gravação de Avg.       |
+|              | Avg. Comprimento da fila de dados        |
 
 ### <a name="advanced-performance-analysis"></a>Análise de desempenho avançado
 
@@ -266,7 +266,7 @@ A seção **Conclusões** exibe várias conclusões e recomendações relacionad
 
 As seções **DiskMap** e **VolumeMap** descrevem como volumes lógicos e discos físicos estão relacionados entre si.
 
-Na perspectiva do disco físico (DiskMap), a tabela mostra todos os volumes lógicos que estão em execução no disco. No exemplo a seguir, **PhysicalDrive2** executa dois volumes lógicos criados em várias partições (J e H):
+Na perspectiva do disco físico (DiskMap), a tabela mostra todos os volumes lógicos que estão em execução no disco. No exemplo a seguir, o **PhysicalDrive2** executa dois volumes lógicos criados em várias partições (J e H):
 
 ![Captura de tela da guia do disco](media/how-to-use-perfInsights/pi-disk-tab.png)
 
@@ -282,7 +282,7 @@ Se a VM de destino hospedar instâncias do SQL Server, você verá uma guia adic
 
 Esta seção contém uma guia **Conclusões** e guias adicionais para cada uma das instâncias do SQL Server hospedadas na VM.
 
-A guia **Conclusões** contém uma lista de todos os problemas de desempenho relacionados ao SQL encontrados juntamente com as recomendações.
+A guia **Achados** contém uma lista de todos os problemas de desempenho relacionados ao SQL encontrados, juntamente com as recomendações.
 
 No exemplo a seguir, **PhysicalDrive0** (executando a unidade C) é exibido. Isso ocorre porque os arquivos **modeldev** e **modellog** estão localizados na unidade C e são de tipos diferentes (como o arquivo de dados e o log de transações, respectivamente).
 

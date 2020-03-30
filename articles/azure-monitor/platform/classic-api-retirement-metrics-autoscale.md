@@ -4,12 +4,12 @@ description: APIs clássicas de métricas e de dimensionamento automático, tamb
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 980f4e840f7778c6ea3025db9b37a3454267bac7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9dfa6b278587f4ed79b1c3cd9eff1defd09ec0bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663548"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294652"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Desativação do Azure Monitor de APIs do modelo de implantação clássico para métricas e dimensionamento automático
 
@@ -36,7 +36,7 @@ Este artigo se aplica a você, se você estiver usando os seguintes componentes:
 
 Se você não tiver certeza se seu código ou ferramentas personalizadas estão chamando as APIs clássicas, veja o seguinte:
 
-- Revise o URI referenciado no seu código ou a ferramenta. As APIs clássicas usam o URI https://management.core.windows.net. Você deve usar o URI mais recente para o Gerenciador de Recursos baseados em APIs que começa com https://management.azure.com/.
+- Revise o URI referenciado no seu código ou a ferramenta. As APIs clássicas usam o URI https://management.core.windows.net. Você deve usar o URI mais recente para o Gerenciador de Recursos baseados em APIs que começa com `https://management.azure.com/`.
 
 - Compare o nome do assembly em seu computador. O assembly clássico mais antigo está no https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 
@@ -73,9 +73,9 @@ Não haverá nenhum impacto direto sobre os serviços do Azure ou as cargas de t
 
 Todas as chamadas para as APIs clássicas listadas anteriormente falharão e retornarão mensagens de erro semelhantes a:
 
-Para dimensionamento automático: *essa API foi preterida. Use os modelos portal do Azure, SDK do Azure Monitor, PowerShell, CLI ou Resource Manager para gerenciar as configurações de dimensionamento automático*.  
+Para autoescala: *Esta API foi depreciada. Use os modelos Azure portal, Azure Monitor SDK, PowerShell, CLI ou Resource Manager para gerenciar configurações de escala automática*.  
 
-Para métricas: *essa API foi preterida. Use o portal do Azure, o SDK do Azure Monitor, o PowerShell, a CLI para consultar métricas*.
+Para métricas: *Esta API foi depreciada. Use o portal Azure, Azure Monitor SDK, PowerShell, CLI para consultar métricas*.
 
 ## <a name="email-notifications"></a>Notificações por email
 

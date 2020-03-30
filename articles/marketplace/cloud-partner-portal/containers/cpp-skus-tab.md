@@ -1,19 +1,18 @@
 ---
-title: SKUs para uma imagem de contêineres do Azure | Azure Marketplace
+title: SKUs para uma imagem de Contêineres Azure | Mercado Azure
 description: Configurar SKUs para um contêiner do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 5b69eea8ad7fd4c62925b50434b653118890e280
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: adbe3d4c498c8f4e4968ca903f78c34aedca9a4d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823155"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279990"
 ---
 # <a name="container-skus-tab"></a>Guia de SKUs de contêiner
 
@@ -23,7 +22,7 @@ A guia **SKUs** da página **Nova Oferta** permite criar uma ou mais SKUs e asso
 
 Quando você começa a criar uma nova oferta, não há SKUs associados à oferta. Para criar uma nova SKU, siga estas etapas:
 
-1. Na guia SKUs, selecione **Nova SKU**
+1. Na guia SKUs, selecione **Novo SKU**
 
    ![Prompt de Nova SKU](./media/containers-sku-settings.png)
 
@@ -46,14 +45,14 @@ Os metadados do contêiner têm informações de referência de seus detalhes de
 
 ![Metadados do contêiner](./media/containers-image-repository.png)
     
-Os **detalhes do repositório de imagens** na captura de tela anterior contêm os campos a seguir.  Os campos obrigatórios são indicados por um asterisco (*).
+Os **detalhes do repositório** de imagem na captura de tela anterior contém os seguintes campos.  Os campos obrigatórios são indicados por um asterisco (*).
 
--   **ID da assinatura\*** -a ID da assinatura do Azure na qual o ACR está presente.
--   **Nome do grupo de recursos\*** -o nome do grupo de recursos do ACR.
--   **Nome do registro\*** -o nome do ACR.
--   **Nome do repositório\*** -o nome do repositório. Após a definição do nome, esse valor não pode ser alterado. Use um nome exclusivo para evitar um conflito com outras ofertas em sua conta.
--   **Username\*** -o nome de usuário (admin username) associado à imagem ACR.
--   **Senha\*** -a senha associada à imagem do ACR.
+-   **ID\* de assinatura** - O ID de assinatura do Azure onde o ACR está presente.
+-   **Nome\* do grupo de** recursos - O nome do grupo de recursos do ACR.
+-   **Nome\* do registro** - O nome ACR.
+-   **Nome do repositório\* ** - O nome do repositório. Após a definição do nome, esse valor não pode ser alterado. Use um nome exclusivo para evitar um conflito com outras ofertas em sua conta.
+-   **Nome\* de usuário** - O nome de usuário (nome de usuário do admin) associado à imagem ACR.
+-   **Senha\* ** - A senha associada à imagem ACR.
 
     >[!NOTE]
     >O nome de usuário e senha são necessários para assegurar que os parceiros tenham acesso ao ACR mencionado no processo de publicação.
@@ -63,7 +62,7 @@ Os **detalhes do repositório de imagens** na captura de tela anterior contêm o
 
 Ao publicar uma imagem de contêiner, você pode fornecer uma ou mais marcas de imagem e resumos do SHA.
 
-**\* de marca de imagem ou Resumo**
+**Tag\* de imagem ou digesto**
  
 - Essa marca ou resumo deve incluir pelo menos uma marca `latest` e uma marca de versão (por exemplo, começando com `xx.xx.xx-` em que xx é um número). Devem ser [marcas de manifesto](https://github.com/estesp/manifest-tool) para segmentar várias plataformas. Todas as marcas referenciadas por uma marca de manifesto também deverão ser adicionadas para que possamos enviá-las. 
 - Você pode adicionar várias versões de um contêiner usando marcas. Todas as marcas de manifesto (exceto `latest`) devem começar com `X.Y-` ou `X.Y.Z-` em que X, Y, Z são inteiros. <br/> Por exemplo, se uma marca `latest` apontar para `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, essas marcas deverão ser adicionadas aqui.

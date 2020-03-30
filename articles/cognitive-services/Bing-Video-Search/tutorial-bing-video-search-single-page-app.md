@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988253"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicativo de Pesquisa de Vídeo de página única
+# <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicativo de Pesquisa de Vídeo de página única
 A API de Pesquisa de Vídeo do Bing permite que você faça pesquisas na Web e obtenha resultados de vídeo relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -51,7 +51,7 @@ Como qualquer aplicativo Web de página única, esse aplicativo de tutorial incl
 > * CSS – define a aparência da página
 > * JavaScript – define o comportamento da página
 
-A maior parte do HTML e do CSS é convencional e, portanto, o tutorial não o aborda. O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário é conectado ao JavaScript que faz a pesquisa usando a marcação `<form>` do atributo `onsubmit`:
+A maior parte do HTML e do CSS é convencional e, portanto, o tutorial não o aborda. O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário é conectado ao JavaScript que faz a pesquisa usando a marcação `onsubmit` do atributo `<form>`:
 
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this)">
@@ -87,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-A marca `onsubmit` HTML `<form>` chama a função `bingWebSearch` para retornar os resultados da pesquisa. `bingWebSearch` usa `getSubscriptionKey()` para autenticar cada consulta. Conforme mostrado na definição anterior, `getSubscriptionKey` solicita ao usuário a chave, caso ela ainda não tenha sido inserida. A chave é então armazenada para continuar o uso pelo aplicativo.
+A marca `<form>` HTML `onsubmit` chama a função `bingWebSearch` para retornar os resultados da pesquisa. `bingWebSearch` usa `getSubscriptionKey()` para autenticar cada consulta. Conforme mostrado na definição anterior, `getSubscriptionKey` solicita ao usuário a chave, caso ela ainda não tenha sido inserida. A chave é então armazenada para continuar o uso pelo aplicativo.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -100,7 +100,7 @@ A figura a seguir mostra a caixa de texto de consulta e as opções que definem 
 
 O formulário HTML inclui elementos com os seguintes nomes:
 
-|Elemento|Descrição|
+|Elemento|DESCRIÇÃO|
 |-|-|
 | `where` | Um menu suspenso para selecionar o mercado (local e idioma) usado para a pesquisa. |
 | `query` | O campo de texto no qual inserir os termos de pesquisa. |
@@ -308,7 +308,7 @@ Os resultados da pesquisa são retornados como o objeto `value` de nível superi
 
 A API de Pesquisa de Notícias do Bing retorna até quatro tipos diferentes de resultados relacionados, cada um em seu próprio objeto de nível superior. Eles são:
 
-|Relação|Descrição|
+|Relação|DESCRIÇÃO|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra original na pesquisa original por outra. Por exemplo, se você pesquisar "flores vermelhas", uma palavra original pode ser "vermelhas" e uma sugestão dinâmica poderá ser "flores amarelas".|
 |`queryExpansions`|Consultas que restringem a pesquisa original com a adição de mais termos. Por exemplo, se você pesquisar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -332,7 +332,7 @@ searchItemRenderers = {
 ```
 Uma função de renderizador pode aceitar os seguintes parâmetros:
 
-|Parâmetro|Descrição|
+|Parâmetro|DESCRIÇÃO|
 |-|-|
 |`item`| O objeto do JavaScript que contém as propriedades do item, como a URL e a descrição.|
 |`index`| O índice do item de resultado na coleção.|

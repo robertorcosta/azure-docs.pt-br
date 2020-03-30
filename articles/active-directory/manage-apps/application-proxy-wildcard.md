@@ -1,5 +1,5 @@
 ---
-title: Aplicativos curinga no Proxy de Aplicativo do AD do Azure
+title: Aplicativos curinga no Proxy de aplicativo Ad do Azure
 description: Saiba como usar aplicativos curinga no proxy do aplicativo do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a9e7be5f582051e03cba08733fcbfa697cc8f5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275041"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481238"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicativos curinga no proxy do aplicativo do Azure Active Directory
 
@@ -53,16 +53,16 @@ Se tiver aplicativos adicionais com definições de configuração diferentes, v
 
 A criação de um aplicativo curinga se baseia no mesmo [fluxo de publicação do aplicativo](application-proxy-add-on-premises-application.md) disponível para todos os outros aplicativos. A única diferença é que você inclui um curinga na URL e, talvez, a configuração SSO.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, verifique se você atendeu a esses requisitos.
+Para começar, certifique-se de que você cumpriu esses requisitos.
 
 ### <a name="custom-domains"></a>Domínios personalizados
 
 Embora [domínios personalizados](application-proxy-configure-custom-domain.md) sejam opcionais para todos os outros aplicativos, eles são um pré-requisito para aplicativos curinga. A criação de domínios personalizados requer:
 
-1. Crie um domínio verificado no Azure.
-1. Carregue um certificado SSL no formato PFX para o proxy do aplicativo.
+1. Crie um domínio verificado dentro do Azure.
+1. Carregue um certificado TLS/SSL no formato PFX para o proxy do aplicativo.
 
 Você deve considerar o uso de um certificado curinga de acordo com o aplicativo que pretende criar. Você também pode usar um certificado que liste apenas aplicativos específicos. Neste caso, somente os aplicativos listados no certificado serão acessíveis por meio desse aplicativo curinga.
 
@@ -78,17 +78,17 @@ Para confirmar se configurou o CNAME corretamente, você pode usar [nslookup](ht
 
 ## <a name="considerations"></a>Considerações
 
-Aqui estão algumas considerações que você deve levar em conta para aplicativos curinga.
+Aqui estão algumas considerações que você deve levar em conta para aplicações curinga.
 
 ### <a name="accepted-formats"></a>Formatos aceitos
 
 Para aplicativos curinga, a **URL interna** deve ser formatada como `http(s)://*.<domain>`.
 
-![Para URL interna, use o formato http (s)://*. > de domínio\<](./media/application-proxy-wildcard/22.png)
+![Para URL interno, use o formato http(s)://*. \<> de domínio](./media/application-proxy-wildcard/22.png)
 
 Ao configurar uma **URL externa**, você deve usar o seguinte formato: `https://*.<custom domain>`
 
-![Para URL externa, use o formato https://*.\<> de domínio personalizado](./media/application-proxy-wildcard/21.png)
+![Para URL externo, use o formato https://*. \<> de domínio personalizado](./media/application-proxy-wildcard/21.png)
 
 Outras posições do curinga, vários curingas ou outras cadeias de caracteres regex não são compatíveis e estão causando erros.
 
@@ -105,7 +105,7 @@ Você também pode limitar o curinga para funcionar apenas para aplicativos espe
 
 Se usar essa opção, você também precisará de outra entrada CNAME para o valor `AppId.domain`, por exemplo, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, também apontando para o mesmo local. Você pode encontrar o **AppId** na página de propriedades do aplicativo curinga:
 
-![Localizar a ID do aplicativo na página de propriedades do aplicativo](./media/application-proxy-wildcard/01.png)
+![Encontre o ID do aplicativo na página de propriedade do aplicativo](./media/application-proxy-wildcard/01.png)
 
 ### <a name="setting-the-homepage-url-for-the-myapps-panel"></a>Definindo a URL da home page do painel MyApps
 
@@ -142,15 +142,15 @@ Seguindo as [etapas documentadas](application-proxy-add-on-premises-application.
 
 - URL Interna:
 
-    ![Exemplo: curinga na URL interna](./media/application-proxy-wildcard/42.png)
+    ![Exemplo: Curinga na URL interna](./media/application-proxy-wildcard/42.png)
 
 - URL Externa:
 
-    ![Exemplo: curinga na URL externa](./media/application-proxy-wildcard/43.png)
+    ![Exemplo: Curinga na URL externa](./media/application-proxy-wildcard/43.png)
 
 - SPN do Aplicativo Interno:
 
-    ![Exemplo: curinga na configuração de SPN](./media/application-proxy-wildcard/44.png)
+    ![Exemplo: Curinga na configuração SPN](./media/application-proxy-wildcard/44.png)
 
 Publicando o aplicativo curinga, você já pode acessar os três aplicativos navegando até as URLs a que já está acostumado (por exemplo, `travel.adventure-works.com`).
 
@@ -158,9 +158,9 @@ A configuração implementa a seguinte estrutura:
 
 ![Mostra a estrutura implementada pela configuração de exemplo](./media/application-proxy-wildcard/05.png)
 
-| Cor | DESCRIÇÃO |
+| Color | Descrição |
 | ---   | ---         |
-| Azul  | Aplicativos publicados explicitamente e visíveis no portal do Azure. |
+| Azul  | Aplicações explicitamente publicadas e visíveis no portal Azure. |
 | Cinza  | Os aplicativos que você pode acessar por meio do aplicativo pai. |
 
 ## <a name="scenario-2-general-wildcard-application-with-exception"></a>Cenário 2: aplicativo curinga geral com exceção
@@ -173,19 +173,19 @@ Após as [etapas documentadas](application-proxy-add-on-premises-application.md)
 
 - Na **URL Interna**, você define **finanças**, em vez de um curinga.
 
-    ![Exemplo: definir finanças em vez de um curinga na URL interna](./media/application-proxy-wildcard/52.png)
+    ![Exemplo: Defina finanças em vez de um curinga na URL interna](./media/application-proxy-wildcard/52.png)
 
 - Na **URL Externa**, você define **finanças**, em vez de um curinga.
 
-    ![Exemplo: definir finanças em vez de um curinga na URL externa](./media/application-proxy-wildcard/53.png)
+    ![Exemplo: Defina finanças em vez de um curinga na URL externa](./media/application-proxy-wildcard/53.png)
 
 - SPN do aplicativo interno definido como **finanças**, em vez de um curinga.
 
-    ![Exemplo: definir finanças em vez de um curinga na configuração de SPN](./media/application-proxy-wildcard/54.png)
+    ![Exemplo: Defina finanças em vez de um curinga na configuração do SPN](./media/application-proxy-wildcard/54.png)
 
 Esta configuração implementa o seguinte cenário:
 
-![Mostra a configuração implementada pelo cenário de exemplo](./media/application-proxy-wildcard/09.png)
+![Mostra a configuração implementada pelo cenário amostral](./media/application-proxy-wildcard/09.png)
 
 Como `finance.adventure-works.com` é uma URL mais específica que `*.adventure-works.com`, ela tem precedência. Os usuários que navegarem para `finance.adventure-works.com` têm a experiência especificada no aplicativo de recursos de finanças. Neste caso, somente os funcionários de finanças podem acessar `finance.adventure-works.com`.
 
@@ -193,5 +193,5 @@ Se tiver vários aplicativos publicados para finanças e `finance.adventure-work
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre **domínios personalizados**, confira [trabalhando com domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md).
-- Para saber mais sobre a **publicação de aplicativos**, consulte [publicar aplicativos usando o Azure proxy de aplicativo do AD](application-proxy-add-on-premises-application.md)
+- Para saber mais sobre **domínios personalizados,** consulte [Trabalhando com domínios personalizados no Proxy de aplicativo AZure AD](application-proxy-configure-custom-domain.md).
+- Para saber mais sobre **aplicativos de publicação,** consulte [Publicar aplicativos usando o Proxy de aplicativo Azure AD](application-proxy-add-on-premises-application.md)

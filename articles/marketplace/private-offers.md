@@ -1,20 +1,18 @@
 ---
-title: Ofertas privadas | Azure Marketplace
+title: Ofertas privadas | Mercado Azure
 description: Ofertas particulares no Azure Marketplace para editores de aplicativos e serviços.
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/1/2018
-ms.author: pabutler
-ms.openlocfilehash: 16903d4f9b1bad8a588b1a234ac84bc9c0150c4a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 67aba077304117ad357d4e004ce7bdb25ac58352
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827836"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285037"
 ---
 # <a name="private-offers"></a>Ofertas privadas
 
@@ -34,7 +32,7 @@ As ofertas privadas estão agora disponíveis para a Máquina Virtual, o Aplicat
 
 ## <a name="creating-private-offers-using-skus-and-plans"></a>Criar privada oferece usando SKUs e planos
 
-Para *ofertas novas ou existentes com SKUs ou planos públicos*, os editores podem criar facilmente novas variações privadas, criando novos SKUs ou planos e marcando-os como privados.  [SKUs particulares](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) e planos são componentes de uma oferta e só são visíveis e comprados pelos clientes segmentados. SKUs e planos particulares podem reutilizar as imagens de base e/ou oferecer metadados já publicados para um SKU ou plano público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem de base e oferecer metadados. Para as ofertas de máquina virtual e aplicativo do Azure somente, quando uma SKU privada compartilha uma imagem base com um SKU público, todas as alterações na imagem base da oferta serão propagadas em todas as SKUs públicas e privadas usando essa imagem base.
+Para *ofertas novas ou existentes com SKUs ou planos públicos*, os editores podem criar facilmente novas variações privadas, criando novos SKUs ou planos e marcando-os como privados.  [SKUs particulares](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) e planos são componentes de uma oferta e só são visíveis e comprados pelos clientes segmentados. SKUs e planos particulares podem reutilizar as imagens de base e/ou oferecer metadados já publicados para um SKU ou plano público. Essa opção permite que os editores criem várias variações privadas de uma oferta pública sem precisar publicar várias versões da mesma imagem de base e oferecer metadados. Para o aplicativo Virtual Machine e Azure oferece apenas, quando um SKU privado compartilha uma imagem base com um SKU público, qualquer alteração na imagem base da oferta se propagará em todas as SKUs públicas e privadas usando essa imagem base.
 
 Para *novas ofertas que incluam apenas SKUs ou planos privados*, os editores podem criar ofertas como qualquer outra oferta e marcar os SKUs ou os planos como privados. As ofertas que têm somente SKUs ou planos particulares não poderão ser descobertas ou acessadas pelo [Azure Marketplace](https://azuremarketplace.microsoft.com) ou pelo [portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/) por clientes que não estejam associados à oferta.
 
@@ -49,11 +47,11 @@ As ofertas privadas só podem ser descobertas através do [portal do Microsoft A
 
 ![[Ofertas privadas]](./media/marketplace-publishers-guide/private-offer.png)
 
-Ofertas particulares também aparecerão nos resultados da pesquisa. Basta procurar o selo "privado".
+Ofertas particulares também aparecerão nos resultados da pesquisa. Cuidado com o distintivo de "soldado".
 
 >[!Note]
->Ofertas privadas não são suportadas com assinaturas estabelecidas por meio de um revendedor do CSP (programa de provedor de soluções na nuvem).
+>As ofertas privadas não são suportadas com assinaturas estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a usar as ofertas privadas, siga as etapas no guia [SKUs e planos privados](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) .
+Para começar a usar ofertas privadas, siga os passos no guia [Private SKUs and Plans.](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)

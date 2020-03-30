@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5da0297dd97c8263bdc47f1d5a3d7d2d1f835e4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298827"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 
@@ -41,7 +41,7 @@ O StorSimple Virtual Array é uma máquina virtual (VM) provisionada no hipervis
 
 Implemente as seguintes práticas recomendadas ao provisionar a matriz virtual:
 
-|  | Hyper-V | VMware |
+|  | Hyper-v | VMware |
 | --- | --- | --- |
 | **Tipo de máquina virtual** |**geração 2** a ser usada com o Windows Server 2012 ou posterior e uma imagem *.vhdx* . <br></br> **geração 1** a ser usada com um Windows Server 2008 ou posterior e uma imagem *.vhd* . |Utilize a máquina virtual versão 8 ao usar a imagem *.vmdk*. |
 | **Tipo de memória** |Configurar como **memória estática**. <br></br> Não use a opção **memória dinâmica** . | |
@@ -79,9 +79,9 @@ Primeiro, para cada volume/compartilhamento em camadas, a reserva local seria ig
 * reserva local de 120 GB (para um compartilhamento/volume em camadas de 1 TB)
 * 330 GB para compartilhamento ou volume localmente fixado (adicionando 10% de reserva local ao tamanho de 300 GB provisionado)
 
-O espaço total necessário na camada local até agora é: 240 GB + 120 GB + 330 GB = 690 GB.
+O espaço total necessário na camada local até o momento é de: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Em segundo lugar, precisamos de pelo menos um espaço na camada local do tamanho da maior reserva única. Esse valor extra será usado caso você precise restaurar de um instantâneo de nuvem. Neste exemplo, a maior reserva local é 330 GB (incluindo a reserva para o sistema de arquivos), portanto, você adicionaria isso ao 690 GB: 690 GB + 330 GB = 1020 GB.
+Em segundo lugar, precisamos de pelo menos um espaço na camada local do tamanho da maior reserva única. Esse valor extra será usado caso você precise restaurar de um instantâneo de nuvem. Neste exemplo, a maior reserva local é 330 GB (incluindo a reserva para o sistema de arquivos) e, portanto, você adicionaria isso aos 690 GB: 690 GB + 330 GB = 1020 GB.
 Se executamos as restaurações adicionais subsequentes, sempre será possível liberar o espaço da operação de restauração anterior.
 
 Em terceiro lugar, precisamos de 15% do espaço total local até o momento para armazenar os instantâneos locais, de modo que apenas 85% disso esteja disponível. Neste exemplo, isso seria em torno de 1020 GB = 0,85&ast;TB de disco de dados provisionado. Portanto, o disco de dados provisionado seria (1020&ast;(1/0,85))= 1200 GB = 1,20 TB ~ 1,25 TB (arredondamento para o quartil mais próximo)
@@ -103,7 +103,7 @@ Com base em 12% de reserva do espaço local para volumes/compartilhamentos em ca
 * uma reserva local de 240 GB (para um compartilhamento/volume em camadas de 2 TB)
 * 330 GB para compartilhamento ou volume localmente fixado (adicionando 10% de reserva local ao espaço provisionado de 300 GB)
 
-O espaço total necessário na camada local é: 240 GB + 330 GB = 570 GB
+O espaço total necessário na camada local é de: 240 GB + 330 GB = 570 GB
 
 O espaço local mínimo necessário para restauração é de 330 GB.
 
@@ -159,7 +159,7 @@ Em sua matriz virtual, você pode provisionar compartilhamentos quando ele estiv
 
 Tenha em mente as seguintes práticas recomendadas ao provisionar compartilhamentos ou volumes em seu dispositivo virtual.
 
-* Os tamanhos de arquivo relativos ao tamanho provisionado de um compartilhamento em camadas pode afetar o desempenho em camadas. Trabalhar com arquivos grandes pode resultar em uma divisão lenta em camadas. Ao trabalhar com arquivos grandes, recomendamos que o maior arquivo seja inferior a 3% do tamanho do compartilhamento.
+* Os tamanhos de arquivo relativos ao tamanho provisionado de um compartilhamento em camadas pode afetar o desempenho em camadas. Trabalhar com arquivos grandes pode resultar em um nível lento. Ao trabalhar com arquivos grandes, recomendamos que o arquivo maior seja menor que 3% do tamanho do compartilhamento.
 * Um máximo de 16 volumes/compartilhamentos pode ser criado na matriz virtual. Para obter os limites de tamanho dos volumes/compartilhamentos localmente fixados e em camadas, sempre consulte [Limites da Matriz Virtual StorSimple](storsimple-ova-limits.md).
 * Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. O volume não pode ser expandido posteriormente.
 * Assim que o volume tiver sido criado, não será possível reduzir o tamanho do volume no StorSimple.
@@ -200,7 +200,7 @@ Use as seguintes práticas recomendadas ao configurar ACRs para volumes do StorS
 O StorSimple Virtual Array tem recursos de segurança e criptografia de dados que garantem a confidencialidade e a integridade dos dados. Ao usar esses recursos, é recomendável que você siga estas práticas recomendadas: 
 
 * Defina uma chave de criptografia de armazenamento de nuvem para gerar a criptografia AES-256 antes que os dados sejam enviados da sua matriz virtual para a nuvem. Essa chave não será necessária se seus dados forem criptografados inicialmente. A chave pode ser gerada e mantida segura usando um sistema de gerenciamento de chaves como o [Cofre de Chaves do Azure](../key-vault/key-vault-overview.md).
-* Ao configurar a conta de armazenamento por meio do serviço StorSimple Manager, habilite o modo SSL para criar um canal seguro para comunicação de rede entre seu dispositivo StorSimple e a nuvem.
+* Ao configurar a conta de armazenamento através do serviço StorSimple Manager, certifique-se de que você habilite o modo TLS para criar um canal seguro para comunicação de rede entre seu dispositivo StorSimple e a nuvem.
 * Regenere as chaves para suas contas de armazenamento (acessando o serviço de armazenamento do Azure) periodicamente para ser responsável por todas as alterações no acesso com base na lista de administradores alterada.
 * Os dados em sua matriz virtual são compactados e a eliminação de duplicação acontece antes que os dados sejam enviados para o Azure. Não recomendamos usar o serviço de função Eliminação de Duplicação de Dados no host do Windows Server.
 
@@ -250,7 +250,7 @@ Lembre-se das seguintes práticas recomendadas ao desativar sua matriz virtual:
 * Antes de desativar um StorSimple Virtual Array, certifique-se de interromper ou excluir clientes e hosts que dependem desse dispositivo virtual.
 * Exclua um dispositivo desativado se ele não estiver sendo usado para que ele não acumule cobranças.
 
-### <a name="monitoring"></a>Monitorando
+### <a name="monitoring"></a>Monitoramento
 Para garantir que seu StorSimple Virtual Array esteja em um estado de integridade contínuo, você precisará monitorar a matriz e garantir que receberá informações do sistema, incluindo alertas. Para monitorar a integridade geral da matriz virtual, implemente as seguintes práticas recomendadas:
 
 * Configure o monitoramento para acompanhar o uso do disco de dados da matriz virtual, bem como o disco do sistema operacional. Se estiver executando o Hyper-V, você poderá usar uma combinação do SCVMM (System Center Virtual Machine Manager) e do System Center Operations Manager para monitorar os hosts de virtualização.
@@ -287,6 +287,6 @@ Talvez seja necessário implantar várias matrizes virtuais para responder por u
 * Se você estiver implantando várias matrizes, recomendamos que, da perspectiva do balanceamento de carga, distribua a matriz por vários hosts de hipervisor diferentes.
 * Várias matrizes virtuais (quando configuradas como um servidor de arquivos ou como um servidor iSCSI) podem ser implantadas em um Namespace de Sistema de Arquivos Distribuído . Para ver as etapas detalhadas, acesse [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide (Guia de solução de namespace de sistema de arquivos distribuído com armazenamento em nuvem híbrida)](https://www.microsoft.com/download/details.aspx?id=45507). Atualmente, a replicação DFS não é recomendada para uso com a matriz virtual. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Saiba como [administrar o StorSimple Virtual Array](storsimple-virtual-array-manager-service-administration.md) por meio do serviço StorSimple Manager.
 

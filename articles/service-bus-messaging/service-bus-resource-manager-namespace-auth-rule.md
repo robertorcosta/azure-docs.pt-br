@@ -1,5 +1,5 @@
 ---
-title: Criar uma regra de autorização do barramento de serviço usando um modelo do Azure
+title: Crie uma regra de autorização de ônibus de serviço usando um modelo Azure
 description: Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426907"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384918"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Criar uma regra de autorização do Barramento de Serviço para namespace e fila usando um modelo do Azure Resource Manager
 
 Este artigo mostra como usar um modelo do Azure Resource Manager que cria uma [regra de autorização](service-bus-authentication-and-authorization.md#shared-access-signature) para um namespace e uma fila do Barramento de Serviço. O artigo explica como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
+Para obter mais informações sobre a criação de modelos, consulte [os modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para obter o modelo completo, consulte o [modelo de regra de autorização do barramento de serviço][Service Bus auth rule template] no github.
+Para ver o modelo completo, consulte o [Modelo de regra de autorização do Barramento de Serviço][Service Bus auth rule template] no GitHub.
 
 > [!NOTE]
 > Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação.
 > 
-> * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
+> * [Criar um espaço de nome de ônibus de serviço](service-bus-resource-manager-namespace.md)
 > * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 > * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 > * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise por **Barramento de Serviço**.
+> Para verificar os modelos mais recentes, visite a galeria [Azure Quickstart Templates][Azure Quickstart Templates] e procure **por Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ Para obter o modelo completo, consulte o [modelo de regra de autorização do ba
 
 Com esse modelo, você implantará uma regra de autorização do Barramento de Serviço para um namespace e uma entidade de sistema de mensagens (nesse caso, uma fila).
 
-O modelo usa [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) para autenticação. A SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma chave de acesso configurada no namespace ou na entidade do sistema de mensagens (fila ou tópico) à qual estão associados direitos específicos. Você poderá então usar essa chave para gerar um token SAS que os clientes poderão usar para se autenticarem no Barramento de Serviço.
+Este modelo usa [sas (SAS) de assinatura de acesso compartilhado](service-bus-sas.md) para autenticação. A SAS permite que os aplicativos se autentiquem no Barramento de Serviço usando uma chave de acesso configurada no namespace ou na entidade do sistema de mensagens (fila ou tópico) à qual estão associados direitos específicos. Você poderá então usar essa chave para gerar um token SAS que os clientes poderão usar para se autenticarem no Barramento de Serviço.
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
@@ -58,6 +58,7 @@ Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores
 O modelo define os parâmetros a seguir.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 O nome do namespace do Barramento de Serviço a ser criado.
 
 ```json
@@ -67,6 +68,7 @@ O nome do namespace do Barramento de Serviço a ser criado.
 ```
 
 ### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
+
 O nome da regra de autorização para o namespace.
 
 ```json
@@ -76,6 +78,7 @@ O nome da regra de autorização para o namespace.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
+
 O nome da fila no namespace do Barramento de Serviço.
 
 ```json
@@ -85,6 +88,7 @@ O nome da fila no namespace do Barramento de Serviço.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 A versão da API do Barramento de Serviço do modelo.
 
 ```json
@@ -97,6 +101,7 @@ A versão da API do Barramento de Serviço do modelo.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos a implantar
+
 Cria um namespace do Barramento de Serviço padrão do tipo **Mensagens**e uma regra de autorização do Barramento de Serviço para o namespace e a entidade.
 
 ```json
@@ -152,21 +157,25 @@ Cria um namespace do Barramento de Serviço padrão do tipo **Mensagens**e uma r
 Para saber mais sobre a sintaxe e as propriedades de JSON, consulte [namespaces](/azure/templates/microsoft.servicebus/namespaces), [queues](/azure/templates/microsoft.servicebus/namespaces/queues) e [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
-```azurecli
+## <a name="azure-cli"></a>CLI do Azure
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
+
 Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos consultando estes artigos:
 
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)

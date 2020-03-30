@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245690"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331730"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerenciar a confiança do AD FS com o Azure AD usando o Azure AD Connect
 
@@ -39,7 +39,7 @@ O Azure AD Connect pode gerenciar a federação entre o AD FS (Serviço de Feder
 
 O Azure AD Connect gerencia **somente** configurações relacionadas à confiança do AD do Azure. O Azure AD Connect não modifica nenhuma configuração em outras relações de confiança da terceira parte confiável no AD FS. A tabela a seguir indica as configurações controladas pelo Azure AD Connect.
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 | :--- | :--- |
 | Certificado de autenticação de token | O Azure AD Connect pode ser usado para redefinir e recriar a confiança com o Azure AD. O Azure AD Connect faz uma substituição imediata de certificados de assinatura de token para o AD FS e atualiza as configurações de federação de domínio do Azure AD.|
 | Algoritmo de assinatura de token | A Microsoft recomenda o uso do SHA-256 como o algoritmo de assinatura de token. O Azure AD Connect pode detectar se o algoritmo de assinatura de token está definido como um valor menos seguro que o SHA-256. Ele atualizará a configuração para SHA-256 na próxima operação de configuração possível. Outro objeto de confiança de terceira parte confiável precisa ser atualizado para usar o novo certificado de autenticação de tokens. |
@@ -64,7 +64,7 @@ A conexão do Azure AD não atualiza todas as configurações para a confiança 
 | Adicionar servidor WAP | Nenhum |
 | Opções do dispositivo | Regras de transformação de emissão, IWA para registro de dispositivo |
 | Adicionar domínio federado | Se o domínio estiver sendo adicionado pela primeira vez, ou seja, a configuração está mudando de federação de domínio único para federação de vários domínios - o Azure AD Connect recriará a confiança do zero. Se a confiança com o Azure AD já estiver configurada para vários domínios, somente as regras de transformação de emissão serão modificadas |
-| Atualizar SSL | Nenhum |
+| Atualizar TLS | Nenhum |
 
 Durante todas as operações, nas quais qualquer configuração é modificada, o Azure AD Connect faz um backup das configurações de confiança atuais em **% ProgramData% \ AADConnect \ ADFS**
 
@@ -77,7 +77,7 @@ Durante todas as operações, nas quais qualquer configuração é modificada, o
 
 O Azure AD Connect garante que a confiança do AD do Azure esteja sempre configurada com o conjunto correto de regras de declaração recomendadas. A Microsoft recomenda o uso do Azure AD connect para gerenciar sua confiança do AD do Azure. Esta seção lista o conjunto de regras de transformação de emissão e sua descrição.
 
-| Nome da regra | DESCRIÇÃO |
+| Nome da regra | Descrição |
 | --- | --- |
 | Problema de UPN | Essa regra consulta o valor de userprincipalname a partir do atributo configurado nas configurações de sincronização para userprincipalname.|
 | Consultar objectguid e msdsconsistencyguid para declaração de ImmutableId personalizada | Esta regra adiciona um valor temporário no pipeline para o valor de objectguid e msdsconsistencyguid, se existir |
@@ -105,12 +105,12 @@ O Azure AD Connect garante que a confiança do AD do Azure esteja sempre configu
 
 O Azure AD Connect versão 1.1.873.0 ou posterior faz um backup das configurações de confiança do Azure AD sempre que uma atualização é feita nas configurações de confiança do Azure AD. As configurações de confiança do AD do Azure são armazenadas em **% ProgramData% \ AADConnect \ ADFS**. O nome do arquivo está no seguinte formato AadTrust- &lt;date&gt;-&lt;time&gt; .txt, por exemplo - AadTrust-20180710-150216.txt
 
-![Uma captura de tela do exemplo de fazer backup de relação de confiança do AD do Azure](./media/how-to-connect-azure-ad-trust/backup.png)
+![Uma captura de tela de exemplo de backup da confiança do Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
 
 Você pode restaurar as regras de transformação de emissão usando as etapas sugeridas abaixo
 
 1. Abra a interface de usuário de gerenciamento do AD FS no Gerenciador de Servidores
-2. Abra as propriedades de confiança do Azure AD indo até Trusts de Terceiros de Confiança do  **AD FS &gt; Plataforma de Identidade do &gt; Microsoft Office 365 &gt;Editando a Diretiva de Emissão de Reivindicações**
+2. Abra as propriedades de confiança do Azure AD indo até Trusts de Terceiros de Confiança do ** AD FS &gt; Plataforma de Identidade do &gt; Microsoft Office 365 &gt;Editando a Diretiva de Emissão de Reivindicações**
 3. Clique em **Adicionar regra**
 4. No modelo de regra de declaração, selecione Enviar declarações usando uma regra personalizada e clique em **Próximo**
 5. Copie o nome da regra de declaração do arquivo de backup e cole-o no campo **Nome da regra de reivindicação**

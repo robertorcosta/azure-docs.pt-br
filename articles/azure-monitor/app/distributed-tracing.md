@@ -1,23 +1,23 @@
 ---
 title: Rastreamento distribuído no Azure Application Insights | Microsoft Docs
-description: Fornece informações sobre o suporte da Microsoft para o rastreamento distribuído por meio do encaminhador local e parceria no projeto OpenCensus
+description: Fornece informações sobre o suporte da Microsoft para rastreamento distribuído através de nossa parceria no projeto OpenCensus
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9f67250a232d4666e4655f83e9bdc7622754331
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136733"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294970"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é o Rastreamento distribuído?
 
-O advento de arquiteturas modernas de nuvem e [microsserviços](https://azure.com/microservices) deu origem a serviços simples e implantáveis de forma independente que podem ajudar a reduzir custos, aumentando a disponibilidade e a taxa de transferência. Mas embora esses movimentos tenham tornado serviços individuais mais fáceis de entender como um todo, eles tornaram os sistemas em geral mais difíceis de descobrir e depurar.
+O advento das modernas arquiteturas de nuvem e [microsserviços](https://azure.com/microservices) deu origem a serviços simples e implantáveis independentes que podem ajudar a reduzir custos e aumentar a disponibilidade e o throughput. Mas, embora esses movimentos tenham tornado os serviços individuais mais fáceis de entender como um todo, eles tornaram os sistemas globais mais difíceis de raciocinar e depurar.
 
-Em arquiteturas monolíticos, estamos acostumados a depurar com pilhas de chamadas. Pilhas de chamadas são ferramentas incríveis que mostram o fluxo de execução (Método A que chama o Método B que chama o Método C), junto com detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para monolitos ou serviços em execução em um único processo, mas como depuramos quando a chamada estiver em um limite de processo, não uma simples referência na pilha local? 
+Em arquiteturas monolíticas, nos acostumamos a depurar com pilhas de chamadas. Pilhas de chamadas são ferramentas incríveis que mostram o fluxo de execução (Método A que chama o Método B que chama o Método C), junto com detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para monolitos ou serviços em execução em um único processo, mas como depuramos quando a chamada estiver em um limite de processo, não uma simples referência na pilha local? 
 
 É aí que entra o rastreamento distribuído.  
 
@@ -37,7 +37,7 @@ Os SDKs do Application Insights para .NET, .NET Core, Java, Node.js e JavaScript
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Javascript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
 Com SDK adequado do Application Insights instalado e configurado, as informações de rastreamento são coletadas automaticamente para estruturas, bibliotecas e tecnologias populares pelos coletores automáticos de dependência do SDK. A lista completa de tecnologias com suporte está disponível na [documentação de coleta automática de dependência](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
@@ -55,5 +55,5 @@ O site do OpenCensus mantém a documentação de referência da API para [Python
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Guia de uso do OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
-* [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
+* [Mapa de aplicativos](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

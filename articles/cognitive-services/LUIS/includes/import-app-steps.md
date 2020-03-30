@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 12/03/2019
 ms.author: diberry
 ms.openlocfilehash: b0d1735df7a3ac36e20af771939aec6b8013f2df
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74840809"
 ---
 1. Na [versão prévia do portal do LUIS](https://preview.luis.ai), na página **Meus Aplicativos**, selecione **Importar** e, em seguida, **Importar como JSON**. Localize o arquivo JSON salvo na etapa anterior. Você não precisa alterar o nome do aplicativo. Selecione **Concluído**

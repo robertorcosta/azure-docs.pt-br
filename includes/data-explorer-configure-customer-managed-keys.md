@@ -4,51 +4,26 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7f5c02c6c009e8916ed063454e0ae6049892e95c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280587"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297882"
 ---
-O Azure Data Explorer criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter mais controle sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente para usar na criptografia de dados. As chaves gerenciadas pelo cliente devem ser armazenadas em um [Azure Key Vault](/azure/key-vault/key-vault-overview). Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar uma API de Azure Key Vault para gerar chaves. O cluster Data Explorer do Azure e o cofre de chaves devem estar na mesma região, mas podem estar em assinaturas diferentes. Para obter uma explicação detalhada sobre chaves gerenciadas pelo cliente, consulte [chaves gerenciadas pelo cliente com Azure Key Vault](/azure/storage/common/storage-service-encryption). Este artigo mostra como configurar chaves gerenciadas pelo cliente.
+O Azure Data Explorer criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, os dados são criptografados com chaves gerenciadas pela Microsoft. Para obter controle adicional sobre as chaves de criptografia, você pode fornecer chaves gerenciadas pelo cliente para criptografia de dados. 
 
-Para configurar chaves gerenciadas pelo cliente com o Azure Data Explorer, você deve [definir duas propriedades no cofre de chaves](/azure/key-vault/key-vault-ovw-soft-delete): **exclusão reversível** e **não limpar**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) ou o [CLI do Azure](/azure/key-vault/key-vault-soft-delete-cli). Somente chaves RSA e tamanho de chave 2048 têm suporte.
+As chaves gerenciadas pelo cliente devem ser armazenadas em [um Cofre de Chaves Azure](/azure/key-vault/key-vault-overview). Você pode criar suas próprias chaves e armazená-las em um cofre de chaves, ou pode usar uma API do Azure Key Vault para gerar chaves. O cluster Azure Data Explorer e o cofre-chave devem estar na mesma região, mas eles podem estar em assinaturas diferentes. Para obter uma explicação detalhada sobre as chaves gerenciadas pelo cliente, consulte [as chaves gerenciadas pelo cliente com o Azure Key Vault](/azure/storage/common/storage-service-encryption). 
+
+Este artigo mostra como configurar chaves gerenciadas pelo cliente.
+
+## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
+
+Para configurar as chaves gerenciadas pelo cliente com [o](/azure/key-vault/key-vault-ovw-soft-delete)Azure Data Explorer, você deve definir duas propriedades no cofre principal : Soft **Delete** e Não **Purga .** Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, execute **a habilitação de exclusão suave** e **a ativação da proteção de purga** no [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) ou [no Azure CLI](/azure/key-vault/key-vault-soft-delete-cli) em um cofre de chaves novo ou existente. Apenas as chaves RSA do tamanho 2048 são suportadas. Para obter mais informações sobre as chaves, consulte [chaves do Cofre de Chaves](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 > [!NOTE]
-> Não há suporte para a criptografia de dados usando chaves gerenciadas pelo cliente em [clusters de líderes e de acompanhamento](/azure/data-explorer/follower). 
+> A criptografia de dados usando chaves gerenciadas pelo cliente não é suportada em [clusters de líderes e seguidores](/azure/data-explorer/follower). 
 
 ## <a name="assign-an-identity-to-the-cluster"></a>Atribuir uma identidade ao cluster
 
-Para habilitar chaves gerenciadas pelo cliente para o cluster, primeiro atribua uma identidade gerenciada atribuída pelo sistema ao cluster. Você usará essa identidade gerenciada para conceder as permissões de cluster para acessar o cofre de chaves. Para configurar identidades gerenciadas atribuídas pelo sistema, consulte [identidades gerenciadas](/azure/data-explorer/managed-identities).
-
-## <a name="create-a-new-key-vault"></a>Criar um novo cofre de chaves
-
-Para criar um novo cofre de chaves usando o PowerShell, chame [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). O cofre de chaves que você usa para armazenar chaves gerenciadas pelo cliente para criptografia de Data Explorer do Azure deve ter duas configurações de proteção de chave habilitadas, **exclusão reversível** e **não limpar**. Substitua os valores de espaço reservado entre colchetes com seus próprios valores no exemplo abaixo.
-
-```azurepowershell-interactive
-$keyVault = New-AzKeyVault -Name <key-vault> `
-    -ResourceGroupName <resource_group> `
-    -Location <location> `
-    -EnableSoftDelete `
-    -EnablePurgeProtection
-```
-
-## <a name="configure-the-key-vault-access-policy"></a>Configurar a política de acesso do cofre de chaves
-
-Em seguida, configure a política de acesso para o cofre de chaves para que o cluster tenha permissões para acessá-lo. Nesta etapa, você usará a identidade gerenciada atribuída pelo sistema que você atribuiu anteriormente ao cluster. Para definir a política de acesso para o cofre de chaves, chame [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Substitua os valores de espaço reservado entre colchetes por seus próprios valores e use as variáveis definidas nos exemplos anteriores.
-
-```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy `
-    -VaultName $keyVault.VaultName `
-    -ObjectId $cluster.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get,recover
-```
-
-## <a name="create-a-new-key"></a>Criar uma nova chave
-
-Em seguida, crie uma nova chave no cofre de chaves. Para criar uma nova chave, chame [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Substitua os valores de espaço reservado entre colchetes por seus próprios valores e use as variáveis definidas nos exemplos anteriores.
-
-```azurepowershell-interactive
-$key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
-```
+Para habilitar as chaves gerenciadas pelo cliente para o cluster, primeiro atribua uma identidade gerenciada atribuída ao sistema ao cluster. Você usará essa identidade gerenciada para conceder permissões ao cluster para acessar o cofre de chaves. Para configurar identidades gerenciadas atribuídas ao sistema, consulte [identidades gerenciadas](/azure/data-explorer/managed-identities).

@@ -12,13 +12,13 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169724"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: usar PHP para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: Usar PHP para chamar a API de Pesquisa na Web do Bing  
 
 Use este Início Rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo Node.js envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 

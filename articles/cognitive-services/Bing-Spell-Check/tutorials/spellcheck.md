@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Obter resultados da verificação ortográfica usando a API de Verificação Ortográfica do Bing'
+title: 'Tutorial: obter resultados da verificação ortográfica usando a API de Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
 description: Use este tutorial para criar uma página da Web que envia consultas para a API de Verificação Ortográfica do Bing e exibe os resultados.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943102"
 ---
-# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Criar um cliente de Verificação Ortográfica em uma página da Web
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: criar um cliente de Verificação Ortográfica em uma página da Web
 
 Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Verificação Ortográfica do Bing. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -27,7 +27,7 @@ Este tutorial mostra como:
 > - Fazer uma consulta simples na API de Verificação Ortográfica do Bing
 > - Exibir os resultados da consulta
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Verificação Ortográfica do Bing. Se você não tiver uma, [crie um recurso da Verificação Ortográfica do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) no portal do Azure. Você também pode usar uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

@@ -1,25 +1,25 @@
 ---
 title: Cobertura de tráfego | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre a cobertura de tráfego em mapas de Microsoft Azure.
-author: farah-alyasari
-ms.author: v-faalya
+description: Neste artigo, você aprenderá sobre a cobertura de tráfego no Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 02d57f39f2a911864ebe16d05456409d0119b495
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209521"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333954"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
 
 Mapas do Azure fornece informações de tráfego avançadas na forma **fluxo** e **incidentes** de tráfego. Esses dados podem ser visualizados em mapas ou usados para gerar rotas mais inteligentes que fatores em condições reais de direção.
 
-No entanto, o Maps não tem o mesmo nível de informações e precisão para todos os países ou regiões. A tabela a seguir fornece informações sobre o tipo de informações de tráfego que você pode solicitar de cada país ou região: 
+No entanto, o Maps não tem o mesmo nível de informação e precisão para todos os países ou regiões. A tabela a seguir fornece informações sobre que tipo de informações de tráfego você pode solicitar de cada país ou região: 
 
 ## <a name="americas"></a>Américas
 
@@ -110,8 +110,8 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Ucrânia     |✓         |✓         |
 |United Kingdom     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
-|\+ Guernsey & Jersey     |✓         |✓         |
-|\+ Ilha de Man     |✓         |✓         |
+|+Guernsey & Jersey     |✓         |✓         |
+|+Ilha do Homem     |✓         |✓         |
 |Cidade do Vaticano   |✓         |✓         |
 
 

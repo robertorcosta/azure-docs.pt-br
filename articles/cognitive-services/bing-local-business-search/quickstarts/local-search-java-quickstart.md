@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665178"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Início Rápido: enviar uma consulta para a API de Pesquisa do Bing Local Business usando o Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Início Rápido: envie uma consulta para a API de pesquisa do Bing Local Business usando Java
 
 Use este início rápido para começar a enviar solicitações para a API de Pesquisa do Bing Local Business, que é um Serviço Cognitivo do Azure. Embora esse aplicativo simples seja escrito em Java, a API é um serviço da Web RESTful compatível com qualquer linguagem de programação capaz de fazer solicitações HTTP e analisar JSON.
 
@@ -53,7 +53,7 @@ O código a seguir cria um `WebRequest`, define o cabeçalho da chave de acesso 
 
 A API de pesquisa de negócios locais do Bing retorna os resultados do mecanismo de pesquisa do Bing.
 1. Baixe ou instale a biblioteca gson.
-2. Crie um novo projeto Java no seu IDE ou editor favorito.
+2. Crie um projeto Java em seu IDE ou editor favorito.
 3. Adicione o código fornecido abaixo.
 4. Substitua o valor de subscriptionKey por uma chave de acesso válida para a assinatura.
 5. Execute o programa.
@@ -167,4 +167,4 @@ public class LocalSearchCls {
 ## <a name="next-steps"></a>Próximas etapas
 - [ Início Rápido da Pesquisa de empresa local ](local-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](local-search-node-quickstart.md)
-- [Início rápido do Python para negócios de pesquisa local](local-search-python-quickstart.md)
+- [Início Rápido do Python em Pesquisa de empresa local](local-search-python-quickstart.md)

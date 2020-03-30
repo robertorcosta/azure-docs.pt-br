@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Usando Go para chamar a API de Análise de Texto'
+title: 'Início Rápido: usando Go para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto nos Serviços Cognitivos do Azure.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378748"
 ---
-# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Go para chamar o Serviço Cognitivo de Análise de Texto 
+# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando Go para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
 
 Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com Go.

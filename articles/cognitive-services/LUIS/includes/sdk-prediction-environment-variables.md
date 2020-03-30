@@ -4,10 +4,10 @@ description: incluir arquivo
 ms.topic: include
 ms.date: 01/23/2020
 ms.openlocfilehash: a7f4e0b47b3aaf9924f8c82eb6a9fa37decc0b2a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772403"
 ---
 ### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
@@ -26,7 +26,7 @@ Se pretender usar este início rápido para acessar seu aplicativo, você precis
 
 Use as instruções para seu sistema operacional.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_RUNTIME_KEY <replace-with-your-resource-key>
@@ -37,7 +37,7 @@ setx LUIS_APP_SLOT_NAME <replace-with-production-or-staging>
 
 Depois de adicionar as variáveis de ambiente, reinicie a janela do console.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_RUNTIME_KEY= <replace-with-your-resource-key>
@@ -48,7 +48,7 @@ export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
 
 Depois de adicionar as variáveis de ambiente, execute `source ~/.bashrc` na janela do console para que as alterações entrem em vigor.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Edite seu `.bash_profile` e adicione a variável de ambiente:
 

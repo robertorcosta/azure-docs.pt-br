@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171873"
 ---
 1. No Gerenciador de Cluster de Failover, expanda **funções** e realce seu grupo de disponibilidade.  
 
 2. Na guia **Recursos** , clique com o botão direito do mouse no nome do ouvinte e clique em **Propriedades**.
 
-3. Selecione a guia **Dependências** . Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND.  
+3. Clique na guia **Dependências.** Se vários recursos estiverem listados, verifique se os endereços IP têm dependências OU, não e.  
 
 4. Clique em **OK**.
 
@@ -31,7 +31,7 @@ ms.locfileid: "67171873"
 
 8. Inicie o SQL Server Management Studio e conecte-se à réplica principal.
 
-9. Vá até **Alta Disponibilidade do AlwaysOn** > **Grupos de Disponibilidade** >  **\<AvailabilityGroupName\>**  > **Ouvintes do Grupo de Disponibilidade**.  
+9. Vá para **AlwaysOn High Availability** > **Availability Groups** > **\<AvailabilityGroupName\>** > Availability Group**Listeners**.  
     O nome do ouvinte que você criou no Gerenciador de Cluster de Failover deve ser exibido.
 
 10. Clique com o botão direito do mouse no nome do ouvinte e, em seguida, clique em **Propriedades**.

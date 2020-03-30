@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79259351"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335979"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
@@ -36,12 +36,12 @@ Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Ge
 * [Como adicionar um usuário ao grupo Administradores?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Por que a política que desejo adicionar não está disponível no editor de política?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [Como configurar vários ambientes em uma única API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
-* [Pode usar o SOAP com Gerenciamento de API?](#can-i-use-soap-with-api-management)
+* [Pode usar SOAP com Gerenciamento de API?](#can-i-use-soap-with-api-management)
 * [Posso configurar um servidor de autorização OAUth 2.0 com segurança ADFS?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
-* [Que método de roteamento o Gerenciamento de API usa em implantações em vários locais geográficos?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
+* [Que método de roteamento o Gerenciamento de API usa quando implantado em vários locais geográficos?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Pode usar um modelo do Azure Resource Manager para criar uma instância do serviço de Gerenciamento de API?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [Posso usar um certificado SSL autoassinado para um back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
-* [Por que obtenho uma falha de autenticação ao tentar clonar um repositório GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
+* [Posso usar um certificado TLS/SSL auto-assinado para um back-end?](#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)
+* [Por que eu tenho uma falha de autenticação quando tento clonar um repositório GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [O Gerenciamento de API funciona com o Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Por que exigimos uma sub-rede dedicada em Resource Manager tipo VNETs quando o Gerenciamento de API é implantado nelas?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
 * [Qual é o tamanho mínimo de sub-rede necessário ao implantar o Gerenciamento de API em uma VNET?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
@@ -62,8 +62,8 @@ Quando um recurso está em visualização, isso significa que estamos buscando a
 Você tem várias opções para proteger a conexão entre o gateway de Gerenciamento de API e os serviços de back-end. Você pode:
 
 * Use a autenticação básica HTTP. Para obter mais informações, consulte [Importar e publicar sua primeira API](import-and-publish.md).
-* Use a autenticação mútua de SSL conforme descrito em [Saiba como garantir serviços de back-end usando a autenticação de certificado do cliente no Gerenciamento de API do Azure](api-management-howto-mutual-certificates.md).
-* Use a lista de permissões de IPs em seu serviço de back-end. Em todas as camadas do gerenciamento de API com exceção da camada de consumo, o endereço IP do gateway permanece constante, com algumas limitações descritas no [artigo de documentação de IP](api-management-howto-ip-addresses.md).
+* Use a autenticação mútua TLS conforme descrito em [Como proteger serviços back-end usando a autenticação de certificado sustal no Azure API Management](api-management-howto-mutual-certificates.md).
+* Use a lista de permissões de IPs em seu serviço de back-end. Em todos os níveis de Gerenciamento de API, com exceção do nível de consumo, o endereço IP do gateway permanece constante, com algumas ressalvas descritas no [artigo de documentação IP](api-management-howto-ip-addresses.md).
 * Conecte sua instância de Gerenciamento de API a uma Rede Virtual do Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Como copiar minha instância do serviço de Gerenciamento de API para uma nova instância?
@@ -83,9 +83,9 @@ Sim, você pode gerenciar o Gerenciamento de API de forma programática, usando:
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Como adicionar um usuário ao grupo Administradores?
 Veja como você pode adicionar um usuário ao grupo Administradores:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 2. Vá para o grupo de recursos que tem a instância de Gerenciamento de API que você deseja atualizar.
-3. No gerenciamento de API, atribua a função **colaborador do serviço de gerenciamento de API** ao usuário.
+3. No Gerenciamento de API, atribua a função de Contribuinte de Serviço de Gerenciamento de **Api** ao usuário.
 
 Agora o colaborador recém-adicionado pode usar [cmdlets](https://docs.microsoft.com/powershell/azure/overview) do Azure PowerShell. Veja como conectar-se como um administrador:
 
@@ -113,13 +113,13 @@ Para saber como configurar um servidor de autorização OAuth 2.0 com a seguran�
 O Gerenciamento de API usa o [método de roteamento de tráfego de desempenho](../traffic-manager/traffic-manager-routing-methods.md#performance) em implantações em vários locais geográficos. O tráfego é roteado para o gateway de API mais próximo. Se uma região ficar offline, o tráfego de entrada será automaticamente roteado para o gateway mais próximo. Saiba mais sobre os métodos de roteamentos em [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Pode usar um modelo do Azure Resource Manager para criar uma instância do serviço de Gerenciamento de API?
-Sim. Consulte os modelos de início rápido do [serviço de gerenciamento de API do Azure](https://aka.ms/apimtemplate) .
+Sim. Consulte os modelos de início rápido do [Azure API Management Service.](https://aka.ms/apimtemplate)
 
-### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>Posso usar um certificado SSL autoassinado para um back-end?
+### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>Posso usar um certificado TLS/SSL auto-assinado para um back-end?
 Sim. Isso pode ser feito usando o PowerShell ou enviando diretamente à API. Isso desabilitará a validação da cadeia de certificados e permitirá que você use certificados autoassinados ou assinados de forma privada ao se comunicar do Gerenciamento de API com os serviços de back-end.
 
 #### <a name="powershell-method"></a>Método com o PowerShell ####
-Use os cmdlets [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (para um novo back-end) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (para um back-end existente) do PowerShell e defina o parâmetro `-SkipCertificateChainValidation` como `True`.
+Use [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) os cmdlets [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) PowerShell (para novo back-end) ou (para back-end existentes) e defina o `-SkipCertificateChainValidation` parâmetro para `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

@@ -1,6 +1,6 @@
 ---
-title: Tutorial – integrar uma única floresta a um único locatário do Azure AD
-description: Este tópico descreve os pré-requisitos e os requisitos de hardware do provisionamento de nuvem.
+title: Tutorial - Integre uma única floresta com um único inquilino Azure AD
+description: Este tópico descreve os pré-requisitos e os requisitos de hardware de provisionamento em nuvem.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,20 +11,20 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f7c348e29fa2234627a53095a99e913a6389a27
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 55dab553a93db4650a5d7126d7f1a0c3ca5f808f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332226"
 ---
-# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: integrar uma única floresta a um único locatário do Azure AD
+# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integre uma única floresta com um único inquilino Azure AD
 
-Este tutorial orienta você pela criação de um ambiente de identidade híbrida usando o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect.
+Este tutorial orienta você a criar um ambiente de identidade híbrida usando o Azure Active Directory (Azure AD) Conectar provisionamento em nuvem.
 
-![Create](media/tutorial-single-forest/diagram1.png)
+![Criar](media/tutorial-single-forest/diagram1.png)
 
-Você pode usar o ambiente criado neste tutorial para teste ou para se familiarizar mais com o provisionamento na nuvem.
+Você pode usar o ambiente que você cria neste tutorial para testes ou para se familiarizar mais com o provisionamento de nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Azure Active Directory
@@ -34,37 +34,37 @@ Você pode usar o ambiente criado neste tutorial para teste ou para se familiari
 
 ### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
 
-1. Identificar um servidor de host ingressado no domínio que executa o Windows Server 2012 R2 ou superior com o mínimo de 4 GB de RAM e do tempo de execução do .NET 4.7.1 + 
+1. Identifique um servidor host com um domínio executando o Windows Server 2012 R2 ou superior com o mínimo de 4 GB de RAM e o tempo de execução .NET 4.7.1+ 
 
 2. Se houver um firewall entre os servidores e o Azure AD, configure os seguintes itens:
    - Certifique-se de que os agentes possam fazer solicitações de *saída* para o Azure AD nas seguintes portas:
 
      | Número da porta | Como ele é usado |
      | --- | --- |
-     | **80** | Baixa as listas de certificados revogados (CRLs) enquanto valida o certificado SSL |
+     | **80** | Baixa as listas de revogação de certificados (CRLs) enquanto valida o certificado TLS/SSL |
      | **443** | Lida com toda a comunicação de saída com o serviço |
      | **8080** (opcional) | Agentes relatarão seu status a cada 10 minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. |
      
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
-   - Se o seu firewall ou proxy permitir que você especifique os sufixos seguros, adicione as conexões t a **\*. msappproxy.net** e **\*. ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
+   - Se o firewall ou proxy permitir que você especifique sufixos seguros, adicione conexões t a ** \*.msappproxy.net** e ** \*.servicebus.windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
    - Seus agentes devem acessar **login.windows.net** e **login.microsoftonline.com** para o registro inicial. Abra seu firewall para essas URLs também.
    - Para validação do certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www\.microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalar o agente de provisionamento do Azure AD Connect
 1. Entre no servidor ingressado no domínio.  Se você estiver usando o tutorial [Ambiente básico do AD e Azure](tutorial-basic-ad-azure.md), será o DC1.
 2. Entre no portal do Azure usando credenciais de administrador global somente para nuvem.
-3. À esquerda, selecione **Azure Active Directory**, clique em **Azure ad Connect**e, no centro, selecione **gerenciar provisionamento (versão prévia)** .
+3. À esquerda, selecione **Azure Active Directory**, clique em **Azure AD Connect**e no centro selecione **Gerenciar provisionamento (visualização)**.
 
    ![Portal do Azure](media/how-to-install/install6.png)
 
-4. Clique em **baixar agente**.
-5. Execute o agente de provisionamento do Azure AD Connect.
+4. Clique **em Baixar agente**.
+5. Execute o agente de provisionamento Azure AD Connect.
 6. Na tela inicial, **Aceite** os termos de licenciamento e clique em **Instalar**.
 
    ![Tela de boas-vindas](media/how-to-install/install1.png)
 
 7. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.  Observe que, se você tiver a segurança aprimorada do IE habilitada, isso bloqueará a entrada.  Se esse for o caso, feche a instalação, desabilite a segurança aprimorada do IE no Gerenciador do Servidor e clique no **Assistente do Agente de Provisionamento AAD Connect** para reiniciar a instalação.
-8. Na tela **Conectar Active Directory**, clique em **Adicionar diretório** e, em seguida, entre com sua conta de administrador de domínio do Active Directory.  Observação: a conta de administrador de domínio não deve ter requisitos de alteração de senha. Caso a senha expire ou seja alterada, será necessário reconfigurar o agente com as novas credenciais. Esta operação adicionará o diretório local.  Clique em **Próximo**.
+8. Na tela **Conectar Active Directory**, clique em **Adicionar diretório** e, em seguida, entre com sua conta de administrador de domínio do Active Directory.  NOTA: A conta do administrador de domínio não deve ter requisitos de alteração de senha. Caso a senha expire ou seja alterada, será necessário reconfigurar o agente com as novas credenciais. Esta operação adicionará o diretório local.  Clique em **Avançar**.
 
    ![Tela de boas-vindas](media/how-to-install/install3.png)
 
@@ -72,7 +72,7 @@ Você pode usar o ambiente criado neste tutorial para teste ou para se familiari
 
    ![Tela de boas-vindas](media/how-to-install/install4.png)
 
-10. Quando essa operação for concluída, você deverá ver um aviso: **a configuração do agente foi verificada com êxito.**  Você pode clicar em **Sair**.</br>
+10. Uma vez que esta operação seja concluída, você deve ver um aviso: **a configuração do seu agente foi verificada com sucesso.**  Você pode clicar em **Sair**.</br>
 ![Tela de boas-vindas](media/how-to-install/install5.png)</br>
 11. Se ainda vir a tela inicial, clique em **Fechar**.
 
@@ -84,10 +84,10 @@ A verificação do agente ocorre no portal do Azure e no servidor local que est�
 Para verificar se o agente está sendo visto pelo Azure, siga estas etapas:
 
 1. Entre no portal do Azure.
-2. À esquerda, selecione **Azure Active Directory**, clique em **Azure AD Connect** e, no centro, selecione **Gerenciar provisionamento (versão prévia)** .</br>
+2. À esquerda, selecione **Azure Active Directory**, clique em **Azure AD Connect** e, no centro, selecione **Gerenciar provisionamento (versão prévia)**.</br>
 ![Azure portal](media/how-to-install/install6.png)</br>
 
-3.  Na tela **Provisionamento do Azure AD (versão prévia)** , clique em **Examinar todos os agentes**.
+3.  Na tela **Provisionamento do Azure AD (versão prévia)**, clique em **Examinar todos os agentes**.
 ![Provisionamento do Azure AD](media/how-to-install/install7.png)</br>
  
 4. Na **tela Agentes de provisionamento locais** você verá os agentes que instalou.  Verifique se o agente em questão está lá e se está marcado como **ativo**.
@@ -105,11 +105,11 @@ Para verificar se o agente está em execução, siga estas etapas:
  Use as seguintes etapas para configurar o provisionamento
 
 1.  Entre no Portal do Azure AD.
-2.  Clique em **Azure Active Directory**
+2.  Clique **em Azure Active Directory**
 3.  Clique em **Azure AD Connect**
-4.  Selecione **Gerenciar provisionamento (Versão Prévia)** 
+4.  Selecione **Gerenciar provisionamento (Visualização)**
 ![](media/how-to-configure/manage1.png)
-5.  Clique em **Nova Configuração**
+5.  Clique **em Nova Configuração**
 ![](media/tutorial-single-forest/configure1.png)
 7.  Na tela configuração, insira um **Email de notificação**, mova o seletor para **Habilitar** e clique em **Salvar**.
 ![](media/tutorial-single-forest/configure2.png)
@@ -128,14 +128,14 @@ Agora, você verificará se os usuários que você tinha em nosso diretório loc
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
 
-1. Navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Procurar para[https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar localmente.</br>
    ![Verificar](media/tutorial-single-forest/verify1.png)</br>
 
 Agora você configurou com êxito um ambiente de identidade híbrida que pode ser usado para testar e familiarizar-se com o que o Azure tem a oferecer.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
 - [O que é o provisionamento em nuvem do Azure AD Connect?](what-is-cloud-provisioning.md)

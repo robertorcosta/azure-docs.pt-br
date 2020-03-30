@@ -1,20 +1,18 @@
 ---
 title: Criar página de aterrissagem no Microsoft Azure Marketplace | Azure
 description: Saiba como criar uma página de aterrissagem no Microsoft Azure Marketplace e no Microsoft AppSource para editores de serviços e aplicativos.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2018
-ms.author: ellacroi
-ms.openlocfilehash: cf7d15ba375faf7dfb38bf5f691799875f2dd6e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6959e7ba7fbf7d9afca84a803f8df588ac9149f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819819"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280585"
 ---
 # <a name="build-your-landing-page"></a>Criar a página de aterrissagem
 
@@ -44,10 +42,10 @@ Quando você tiver um plano de campanha pronto, crie a página de aterrissagem n
 | **Criar uma URL curta e fácil de lembrar** | Usando URLs longas. URLs longas não são memorizáveis e são difíceis de localizar. |
 | **Adicionar conteúdo visual relevante, como um vídeo de depoimentos de cliente ou uma arquitetura de solução** | Usar muito texto faz com que seus clientes ignorem o conteúdo e parem a exploração.|
 | **Crie um plano de ação claro para direcionar os visitantes à sua página do catálogo do Marketplace** | Ter muitos links ou ações na página. |
-| **Coloque seu plano de ação em um cabeçalho ou seção claramente delineado** | Inserir os links para sua listagem do Marketplace em um parágrafo do texto. |
+| **Coloque seu plano de ação em um cabeçalho ou seção claramente delineado ** | Inserir os links para sua listagem do Marketplace em um parágrafo do texto. |
 | **Pesquisar as melhores palavras-chave e otimizar a página para pesquisa** | Supondo que o nome do seu produto gerará classificações de pesquisa superiores. |
 | **Usar as palavras-chave das suas campanhas publicitárias** | Usar muitas palavras-chave diferentes em suas propriedades da Web dilui seus investimentos de publicidade. |
-| **Colocar nomes de produtos e palavras-chave relevantes "em destaque"** | Fazer com que os usuários rolem a página para ver qual produto ou solução está sendo apresentada. |
+| **Coloque nomes de produtos e palavras-chave relevantes "acima da dobra"** | Fazer com que os usuários rolem a página para ver qual produto ou solução está sendo apresentada. |
 | **Use imagens da marca para validar sua solução em conformidade com as diretrizes de identidade visual da Microsoft, como o Azure Certified** | O uso de imagens de marca da Microsoft não está aprovado. |
 
 ## <a name="next-steps"></a>Próximas etapas

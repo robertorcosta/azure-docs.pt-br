@@ -1,6 +1,6 @@
 ---
-title: Códigos de erro da API REST-Azure Key Vault
-description: Esses códigos de erro podem ser retornados por uma operação em um serviço Web Azure Key Vault.
+title: Códigos de erro da API REST - Azure Key Vault
+description: Esses códigos de erro podem ser retornados por uma operação em um serviço web do Azure Key Vault.
 keywords: ''
 services: machine-learning
 author: msmbaldwin
@@ -9,27 +9,27 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 8c9390ea498647d34e8643ed4be596372ffb8696
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 01fb5393217834bc0196da25c4a56314ca7eae2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293378"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294547"
 ---
-# <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault códigos de erro da API REST
+# <a name="azure-key-vault-rest-api-error-codes"></a>Códigos de erro da API do Cofre da Chave Azure
  
-Os códigos de erro a seguir podem ser retornados por uma operação em um serviço Web Azure Key Vault.
+Os seguintes códigos de erro podem ser retornados por uma operação em um serviço web do Azure Key Vault.
  
-## <a name="http-401-unauthenticated-request"></a>HTTP 401: solicitação não autenticada
+## <a name="http-401-unauthenticated-request"></a>HTTP 401: Solicitação não autenticada
 
-401 significa que a solicitação não está autenticada para Key Vault. 
+401 significa que a solicitação não é autenticada para Key Vault. 
 
-Uma solicitação será autenticada se:
+Uma solicitação é autenticada se:
 
-- O cofre de chaves conhece a identidade do chamador; e
-- O chamador tem permissão para tentar acessar recursos de Key Vault. 
+- O cofre da chave sabe a identidade do chamador; E
+- O chamador pode tentar acessar os recursos do Key Vault. 
 
-Há várias razões diferentes pelas quais uma solicitação pode retornar 401.
+Existem várias razões diferentes para que um pedido possa retornar 401.
 
 ### <a name="no-authentication-token-attached-to-the-request"></a>Nenhum token de autenticação anexado à solicitação. 
 
@@ -50,15 +50,15 @@ Content-Length: 31
 }
 ```
 
-O cabeçalho "Authorization" é o token de acesso necessário com cada chamada para a Key Vault para operações de plano de dados. Se o cabeçalho estiver ausente, a resposta deverá ser 401.
+O cabeçalho "Autorização" é o token de acesso que é necessário a cada chamada ao Key Vault para operações de data-plane. Se o cabeçalho estiver faltando, então a resposta deve ser 401.
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>O token não tem o recurso correto associado a ele. 
 
-Ao solicitar um token de acesso do ponto de extremidade OAUTH do Azure, um parâmetro chamado "Resource" é obrigatório. O valor é importante para o provedor de token porque ele faz o escopo do token para seu uso pretendido. O recurso para **todos os** tokens para acessar um Key Vault é *https:\//Vault.keyvault.net* (sem barra à direita).
+Ao solicitar um token de acesso do ponto final do Azure OAUTH, um parâmetro chamado "recurso" é obrigatório. O valor é importante para o provedor de tokens porque ele escopo do token para o seu uso pretendido. O recurso para **todos os** tokens acessarem um Key Vault é *https:\//vault.keyvault.net* (sem barra de arrasto).
 
-### <a name="the-token-is-expired"></a>O token expirou
+### <a name="the-token-is-expired"></a>O token está expirado
 
-Os tokens são codificados em Base64 e os valores podem ser decodificados em sites como [http://jwt.calebb.net](http://jwt.calebb.net). Aqui está o token acima decodificado:
+Os tokens são codificados base64 e os valores podem [http://jwt.calebb.net](http://jwt.calebb.net)ser decodificados em sites como . Aqui está o token decodificado acima:
 
 ```
     {
@@ -86,20 +86,20 @@ Os tokens são codificados em Base64 e os valores podem ser decodificados em sit
 [signature]
 ```
 
-Podemos ver muitas partes importantes nesse token:
+Podemos ver muitas partes importantes neste token:
 
-- AUD (Audience): o recurso do token. Observe que isso é <https://vault.azure.net>. Esse token não funcionará para nenhum recurso que não corresponda explicitamente a esse valor, como grafo.
-- IAT (emitido em): o número de tiques desde o início da época em que o token foi emitido.
-- NBF (não antes): o número de tiques desde o início da época em que esse token se torna válido.
-- exp (expiração): o número de tiques desde o início da época em que esse token expira.
-- AppID (ID do aplicativo): o GUID para a ID do aplicativo que faz essa solicitação.
-- tid (ID do locatário): o GUID da ID de locatário da entidade de segurança que faz esta solicitação
+- aud (audiência): O recurso do token. Note que <https://vault.azure.net>isso é. Este token NÃO funcionará para qualquer recurso que não corresponda explicitamente a esse valor, como gráfico.
+- iat (emitido em): O número de carrapatos desde o início da época quando o token foi emitido.
+- nbf (não antes): O número de carrapatos desde o início da época quando este token se torna válido.
+- exp (expiração): O número de carrapatos desde o início da época quando este token expira.
+- appid (ID de aplicativo): O GUID para o ID do aplicativo que faz essa solicitação.
+- tid (ID do inquilino): O GUID para o ID do inquilino do principal fazendo esta solicitação
 
-É importante que todos os valores sejam corretamente identificados no token para que a solicitação funcione. Se tudo estiver correto, a solicitação não resultará em 401.
+É importante que todos os valores sejam devidamente identificados no token para que a solicitação funcione. Se tudo estiver correto, então a solicitação não resultará em 401.
 
 ### <a name="troubleshooting-401"></a>Solução de problemas 401
 
-401s deve ser investigado a partir do ponto de geração de token, antes que a solicitação seja feita ao cofre de chaves. Geralmente, o código está sendo usado para solicitar o token. Depois que o token é recebido, ele é passado para a solicitação de Key Vault. Se o código estiver sendo executado localmente, você poderá usar o Fiddler para capturar a solicitação/resposta para https://login.microsoftonline.com. Uma solicitação é parecida com esta:
+401s devem ser investigados a partir do ponto de geração de token, antes que a solicitação seja feita para o cofre-chave. Geralmente o código está sendo usado para solicitar o token. Uma vez que o token é recebido, ele é passado para a solicitação do Cofre de Chaves. Se o código estiver sendo executado localmente, você pode `https://login.microsoftonline.com`usar o Fiddler para capturar a solicitação/resposta a . Um pedido é assim:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
@@ -111,59 +111,59 @@ Content-Length: 192
 resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
-As informações fornecidas pelo usuário a seguir visualiza estar corretas:
+As seguintes informações fornecidas pelo usuário estão corretas:
 
-- A ID do locatário do cofre de chaves
-- Valor do recurso definido como https %3 A %2 F %2 F Vault. Azure. net (codificação de URL)
+- O iD do inquilino do cofre chave
+- Valor de recurso definido como https%3A%2F%2Fvault.azure.net (URL codificado)
 - ID do Cliente
 - Segredo do cliente
 
-Verifique se o restante da solicitação é quase idêntico.
+Certifique-se de que o resto da solicitação é quase idêntica.
 
-Se você só puder obter o token de acesso de resposta, poderá decodificá-lo (conforme mostrado acima) para garantir a ID do locatário, a ID do cliente (ID do aplicativo) e o recurso.
+Se você só conseguir obter o token de acesso de resposta, você pode decodificá-lo (como mostrado acima) para garantir o ID do inquilino, o ID do cliente (ID do aplicativo) e o recurso.
 
-## <a name="http-403-insufficient-permissions"></a>HTTP 403: permissões insuficientes
+## <a name="http-403-insufficient-permissions"></a>HTTP 403: Permissões insuficientes
 
-O HTTP 403 significa que a solicitação foi autenticada (ela conhece a identidade solicitada), mas a identidade não tem permissão para acessar o recurso solicitado. Há duas causas:
+HTTP 403 significa que a solicitação foi autenticada (ela conhece a identidade solicitante), mas a identidade não tem permissão para acessar o recurso solicitado. Há duas causas:
 
-- Não há nenhuma política de acesso para a identidade.
-- O endereço IP do recurso solicitante não está na lista de permissões nas configurações de firewall do cofre de chaves.
+- Não há política de acesso para a identidade.
+- O endereço IP do recurso solicitante não está listado em branco nas configurações de firewall do cofre de chaves.
 
-O HTTP 403 geralmente ocorre quando o aplicativo do cliente não está usando a ID do cliente que o cliente pensa. Isso geralmente significa que as políticas de acesso não estão configuradas corretamente para a identidade de chamada real.
+O HTTP 403 geralmente ocorre quando o aplicativo do cliente não está usando o ID do cliente que o cliente acha que é. Isso geralmente significa que as políticas de acesso não estão configuradas corretamente para a identidade real de chamada.
 
 ### <a name="troubleshooting-403"></a>Solução de problemas 403
 
-Primeiro, ative o registro em log. Para obter instruções sobre como fazer isso, consulte [Azure Key Vault log](key-vault-logging.md).
+Primeiro, ligue o registro. Para obter instruções sobre como fazê-lo, consulte [o registro do Azure Key Vault](key-vault-logging.md).
 
-Depois que o registro em log estiver ativado, você poderá determinar se o 403 é devido à política de acesso ou à política de firewall.
+Uma vez que o registro é ligado, você pode determinar se o 403 é devido à política de acesso ou política de firewall.
 
 #### <a name="error-due-to-firewall-policy"></a>Erro devido à política de firewall
 
-"O endereço do cliente (00.00.00.00) não é autorizado e o chamador não é um serviço confiável"
+"O endereço do cliente (00.00.00.00) não está autorizado e o chamador não é um serviço confiável"
 
-Há uma lista limitada de "serviços confiáveis do Azure". Os sites do Azure **não** são um serviço do Azure confiável. Para obter mais informações, consulte a postagem no blog [Key Vault acesso ao firewall por Azure app Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
+Há uma lista limitada de "Azure Trusted Services". Os sites do Azure **não** são um serviço azure confiável. Para obter mais informações, consulte o blog post [Key Vault Firewall access by Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
 
-Você deve adicionar o endereço IP do site do Azure ao Key Vault para que ele funcione.
+Você deve adicionar o endereço IP do Site do Azure ao Cofre de Chaves para que ele funcione.
 
-Se devido à política de acesso: Localize a ID de objeto para a solicitação e verifique se a ID do objeto corresponde ao objeto ao qual o usuário está tentando atribuir a política de acesso. Em geral, haverá vários objetos no AAD que têm o mesmo nome, portanto, escolher o correto é muito importante. Ao excluir e adicionar novamente a política de acesso, é possível ver se existem vários objetos com o mesmo nome.
+Se devido à política de acesso: encontre o ID do objeto para a solicitação e certifique-se de que o ID do objeto corresponda ao objeto ao qual o usuário está tentando atribuir a política de acesso. Muitas vezes haverá vários objetos no AAD que têm o mesmo nome, por isso escolher o correto é muito importante. Excluindo e readicionando a política de acesso, é possível ver se existem vários objetos com o mesmo nome.
 
-Além disso, a maioria das políticas de acesso não exige o uso do "aplicativo autorizado", conforme mostrado no Portal. O aplicativo autorizado é usado para cenários de autenticação "em nome de", que são raros. 
+Além disso, a maioria das políticas de acesso não requer o uso do "aplicativo autorizado", como mostrado no portal. O aplicativo autorizado é usado para cenários de autenticação "em nome", que são raros. 
 
 
-## <a name="http-429-too-many-requests"></a>HTTP 429: muitas solicitações
+## <a name="http-429-too-many-requests"></a>HTTP 429: Muitos pedidos
 
-A limitação ocorre quando o número de solicitações excede o máximo declarado para o período de tempo. Se a limitação ocorrer, a resposta do Key Vault será HTTP 429. Há máximos declarados para tipos de solicitações feitas. Por exemplo: a criação de uma chave HSM de 2048 bits é de 5 solicitações por 10 segundos, mas todas as outras transações HSM têm um limite de solicitação 1000/10 segundos. Portanto, é importante entender quais tipos de chamadas estão sendo feitas ao determinar a causa da limitação.
-Em geral, as solicitações para os Key Vault são limitadas a 2000 solicitações/10 segundos. As exceções são operações importantes, conforme documentado em [limites de serviço Key Vault](key-vault-service-limits.md)
+O estrangulamento ocorre quando o número de solicitações excede o máximo indicado para o período de tempo. Se ocorrer estrangulamento, a resposta do Cofre de Chaves será HTTP 429. Existem máximas indicadas para tipos de solicitações feitas. Por exemplo: a criação de uma chave HSM 2048 bits é de 5 solicitações por 10 segundos, mas todas as outras transações HSM têm um limite de 1000 solicitações/10 segundos. Por isso, é importante entender quais tipos de chamadas estão sendo feitas ao determinar a causa do estrangulamento.
+Em geral, as solicitações para o Key Vault são limitadas a 2000 solicitações/10 segundos. Exceções são operações-chave, como documentado nos [limites de serviço do Key Vault](key-vault-service-limits.md)
 
 ### <a name="troubleshooting-429"></a>Solução de problemas 429
-A limitação é contornada usando estas técnicas:
+O estrangulamento é trabalhado em torno de usar essas técnicas:
 
-- Reduza o número de solicitações feitas ao Key Vault determinando se há padrões para um recurso solicitado e tentando armazená-los em cache no aplicativo de chamada. 
+- Reduza o número de solicitações feitas ao Key Vault, determinando se há padrões para um recurso solicitado e tentando calá-las no aplicativo de chamada. 
 
-- Quando ocorre Key Vault limitação, adapte o código solicitante para usar uma retirada exponencial para tentar novamente. O algoritmo é explicado aqui: [como restringir seu aplicativo](key-vault-ovw-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
+- Quando ocorrer o estrangulamento do Key Vault, adapte o código solicitante para usar um backoff exponencial para tentar novamente. O algoritmo é explicado aqui: [Como estrangular seu aplicativo](key-vault-ovw-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
-- Se o número de solicitações não puder ser reduzido pelo cache e a retirada cronometrada não funcionar, considere dividir as chaves em vários cofres de chaves. O limite de serviço para uma única assinatura é cinco vezes o limite individual de Key Vault. Se estiver usando mais de 5 cofres de chaves, deve-se considerar o uso de várias assinaturas. 
+- Se o número de solicitações não puder ser reduzido por cache e o backoff cronometrado não funcionar, então considere dividir as chaves em vários cofres de chaves. O limite de serviço para uma única assinatura é de 5x o limite individual do Key Vault. Se usar mais de 5 Cofres-chave, deve-se considerar o uso de várias assinaturas. 
 
-Diretrizes detalhadas, incluindo solicitação para aumentar os limites, podem ser encontradas aqui: [diretrizes de limitação de Key Vault](key-vault-ovw-throttling.md)
+Orientação detalhada, incluindo solicitação para aumentar limites, pode ser encontrado aqui: [Orientação de estrangulamento do Key Vault](key-vault-ovw-throttling.md)
 
 

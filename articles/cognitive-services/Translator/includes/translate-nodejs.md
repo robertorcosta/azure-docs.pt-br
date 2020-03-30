@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: db48917bfb219a85dcaf0075d0dc7072858a9e27
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906734"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
@@ -53,7 +53,7 @@ var endpoint = process.env[endpoint_var];
 O método `request()`, disponibilizado por meio do módulo de solicitação, nos permite passar o método HTTP, a URL, os parâmetros de solicitação, os cabeçalhos e o JSON do corpo como um objeto `options`. Neste snippet de código, configuraremos a solicitação:
 
 >[!NOTE]
-> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, consulte [API de Tradução de Texto 3.0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```javascript
 let options = {
@@ -128,7 +128,7 @@ Se você quiser comparar seu código com o nosso, o exemplo completo está dispo
 ]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você embutiu sua chave de assinatura no programa, remova-a quando tiver terminado este início rápido.
 

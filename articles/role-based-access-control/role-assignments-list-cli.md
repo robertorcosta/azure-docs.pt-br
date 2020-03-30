@@ -1,6 +1,6 @@
 ---
-title: Listar atribuições de função usando o RBAC e CLI do Azure do Azure
-description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso do RBAC (controle de acesso baseado em função) do Azure e CLI do Azure.
+title: Listar atribuições de função usando Azure RBAC e Azure CLI
+description: Saiba como determinar quais recursos usuários, grupos, diretores de serviço ou identidades gerenciadas têm acesso ao controle de acesso baseado em função (RBAC) e CLI do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,41 +14,41 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b02ec00544ef11ca1048fd6d3bd9bdf3fccd8c8c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471407"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385054"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Listar atribuições de função usando o RBAC e CLI do Azure do Azure
+# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Listar atribuições de função usando Azure RBAC e Azure CLI
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] este artigo descreve como listar atribuições de função usando CLI do Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de função usando o Azure CLI.
 
 > [!NOTE]
-> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
+> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa [o gerenciamento de recursos delegado do Azure,](../lighthouse/concepts/azure-delegated-resource-management.md)as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
-- [Bash em Azure cloud Shell](/azure/cloud-shell/overview) ou [CLI do Azure](/cli/azure)
+- [Bash em Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure CLI](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
 
 Para listar as atribuições de função para um usuário específico, use a [lista de atribuições de função az](/cli/azure/role/assignment#az-role-assignment-list):
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee <assignee>
 ```
 
-Por padrão, somente as atribuições de função para a assinatura atual serão exibidas. Para exibir as atribuições de função para a assinatura atual e abaixo, adicione o parâmetro `--all`. Para exibir as atribuições de função herdadas, adicione o parâmetro `--include-inherited`.
+Por padrão, somente as atribuições de função para a assinatura atual serão exibidas. Para exibir atribuições de função para a `--all` assinatura atual e abaixo, adicione o parâmetro. Para exibir atribuições de função `--include-inherited` herdadas, adicione o parâmetro.
 
-O exemplo a seguir lista as atribuições de função atribuídas diretamente ao usuário do *patlong\@contoso.com* :
+O exemplo a seguir lista as atribuições de função atribuídas diretamente ao usuário *de contoso.com\@patlong:*
 
-```azurecli
+```azurecli-interactive
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-```Output
+```
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
@@ -63,19 +63,19 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>Listar as atribuições para um grupo de recursos
 
-Para listar as atribuições de função que existem em um escopo de grupo de recursos, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list):
+Para listar as atribuições de função existentes em um escopo de grupo de recursos, use [a lista de atribuição de função az](/cli/azure/role/assignment#az-role-assignment-list):
 
-```azurecli
+```azurecli-interactive
 az role assignment list --resource-group <resource_group>
 ```
 
-O exemplo a seguir lista as atribuições de função para o grupo de recursos *Pharma-Sales* :
+O exemplo a seguir lista as atribuições de função para o grupo de recursos *de vendas farmacêuticas:*
 
-```azurecli
+```azurecli-interactive
 az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-```Output
+```
 {
   "principalName": "patlong@contoso.com",
   "roleDefinitionName": "Backup Operator",
@@ -92,52 +92,56 @@ az role assignment list --resource-group pharma-sales --output json | jq '.[] | 
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Listar atribuições de função de um usuário
 
-Para listar todas as atribuições de função em um escopo de assinatura, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list). Para obter a ID da assinatura, você pode encontrá-la na folha **assinaturas** no portal do Azure ou pode usar a lista de [contas AZ](/cli/azure/account#az-account-list).
+Para listar todas as atribuições de função em um escopo de assinatura, use [a lista de atribuição de função az](/cli/azure/role/assignment#az-role-assignment-list). Para obter o ID de assinatura, você pode encontrá-lo na lâmina **assinaturas** no portal Azure ou você pode usar [a lista de contas az](/cli/azure/account#az-account-list).
 
-```azurecli
+```azurecli-interactive
 az role assignment list --subscription <subscription_name_or_id>
 ```
 
-```Example
+Exemplo:
+
+```azurecli-interactive
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
 ## <a name="list-role-assignments-for-a-management-group"></a>Listar as atribuições de função para um grupo de gerenciamento
 
-Para listar todas as atribuições de função em um escopo do grupo de gerenciamento, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list). Para obter a ID do grupo de gerenciamento, você pode encontrá-la na folha **grupos de gerenciamento** no portal do Azure ou pode usar [AZ Account Management-grupo List](/cli/azure/account/management-group#az-account-management-group-list).
+Para listar todas as atribuições de função em um escopo de grupo de gerenciamento, use [a lista de atribuição de função az](/cli/azure/role/assignment#az-role-assignment-list). Para obter o ID do grupo de gerenciamento, você pode encontrá-lo na lâmina **de grupos de gerenciamento** no portal Azure ou pode usar a lista [az account management-group](/cli/azure/account/management-group#az-account-management-group-list).
 
-```azurecli
+```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-```Example
+Exemplo:
+
+```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de função para uma identidade gerenciada
 
-1. Obtenha a ID de objeto da identidade gerenciada atribuída pelo sistema ou pelo usuário. 
+1. Obtenha o ID do objeto da identidade gerenciada atribuída pelo sistema ou atribuída pelo usuário.
 
-    Para obter a ID de objeto de uma identidade gerenciada atribuída pelo usuário, você pode usar [AZ ad SP List](/cli/azure/ad/sp#az-ad-sp-list) ou [AZ Identity List](/cli/azure/identity#az-identity-list).
+    Para obter o ID do objeto de uma identidade gerenciada atribuída pelo usuário, você pode usar [a lista az ad sp](/cli/azure/ad/sp#az-ad-sp-list) ou [az identity list](/cli/azure/identity#az-identity-list).
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp list --display-name "<name>" --query [].objectId --output tsv
     ```
 
-    Para obter a ID de objeto de uma identidade gerenciada atribuída pelo sistema, você pode usar [AZ ad SP List](/cli/azure/ad/sp#az-ad-sp-list).
+    Para obter o ID do objeto de uma identidade gerenciada atribuída ao sistema, você pode usar [a lista az ad sp](/cli/azure/ad/sp#az-ad-sp-list).
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
     ```
 
-1. Para listar as atribuições de função, use a [lista de atribuição de função AZ](/cli/azure/role/assignment#az-role-assignment-list).
+1. Para listar as atribuições de função, use [a lista de atribuição de função az](/cli/azure/role/assignment#az-role-assignment-list).
 
-    Por padrão, somente as atribuições de função para a assinatura atual serão exibidas. Para exibir as atribuições de função para a assinatura atual e abaixo, adicione o parâmetro `--all`. Para exibir as atribuições de função herdadas, adicione o parâmetro `--include-inherited`.
+    Por padrão, somente as atribuições de função para a assinatura atual serão exibidas. Para exibir atribuições de função para a `--all` assinatura atual e abaixo, adicione o parâmetro. Para exibir atribuições de função `--include-inherited` herdadas, adicione o parâmetro.
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment list --assignee <objectid>
     ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função usando o Azure RBAC e CLI do Azure](role-assignments-cli.md)
+- [Adicionar ou remover atribuições de função usando O Zure RBAC e a Cli do Azure](role-assignments-cli.md)

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: 2265471001896652a4ce35dbf8bd84aca50000fb
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665671"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Início Rápido: Enviar uma consulta para a API de Pesquisa de Empresas Locais do Bing em C#
@@ -211,4 +211,4 @@ namespace localSearch
 ## <a name="next-steps"></a>Próximas etapas
 - [Início Rápido da Pesquisa Java em empresas locais](local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](local-search-node-quickstart.md)
-- [Início rápido do Python para negócios de pesquisa local](local-search-python-quickstart.md)
+- [Início Rápido do Python em Pesquisa de empresa local](local-search-python-quickstart.md)

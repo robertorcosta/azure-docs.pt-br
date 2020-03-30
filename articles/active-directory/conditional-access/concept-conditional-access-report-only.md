@@ -1,54 +1,54 @@
 ---
-title: O que é o modo somente de relatório de acesso condicional? -Azure Active Directory
+title: O que é o modo somente de relatório de acesso condicional? - Diretório Ativo do Azure
 description: Como o modo somente relatório pode ajudar com a implantação da política de acesso condicional
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75880f4c533a503852d62ff940e53d4bcc30d218
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186113"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295293"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo somente de relatório de acesso condicional?
 
-O acesso condicional é amplamente usado por nossos clientes para manter a segurança, aplicando os controles de acesso certos nas circunstâncias certas. No entanto, um dos desafios com a implantação de uma política de acesso condicional em sua organização é determinar o impacto para os usuários finais. Pode ser difícil prever o número e os nomes de usuários afetados por iniciativas comuns de implantação, como o bloqueio de autenticação herdada, exigindo a autenticação multifator para uma população de usuários ou a implementação de políticas de risco de entrada. 
+O Acesso Condicional é amplamente utilizado por nossos clientes para se manter seguro aplicando os controles de acesso certos nas circunstâncias certas. No entanto, um dos desafios com a implantação de uma política de Acesso Condicional em sua organização é determinar o impacto para os usuários finais. Pode ser difícil prever o número e os nomes dos usuários impactados por iniciativas comuns de implantação, como bloquear a autenticação do legado, exigir autenticação multifatorial para uma população de usuários ou implementar políticas de risco de login. 
 
-O modo somente de relatório é um novo estado de política de acesso condicional que permite aos administradores avaliar o impacto das políticas de acesso condicional antes de habilitá-las em seu ambiente.  Com a versão do modo somente de relatório:
+O modo somente relatório é um novo estado de política de acesso condicional que permite que os administradores avaliem o impacto das políticas de acesso condicional antes de habilitá-las em seu ambiente.  Com a liberação do modo somente relatório:
 
-- As políticas de acesso condicional podem ser habilitadas no modo somente de relatório.
-- Durante a entrada, as políticas no modo somente de relatório são avaliadas, mas não impostas.
-- Os resultados são registrados nas guias **acesso condicional** e **somente relatório (visualização)** dos detalhes do log de entrada.
-- Os clientes com uma assinatura Azure Monitor podem monitorar o impacto de suas políticas de acesso condicional usando a pasta de trabalho de informações de acesso condicional.
+- As políticas de acesso condicional podem ser habilitadas no modo somente relatório.
+- Durante o login, as políticas no modo somente relatório são avaliadas, mas não aplicadas.
+- Os resultados estão registrados nas guias **Conditional Access** and **Report-only (Preview)** dos detalhes do registro de login.
+- Os clientes com uma assinatura do Azure Monitor podem monitorar o impacto de suas políticas de acesso condicional usando a pasta de trabalho do Conditional Access.
 
 > [!WARNING]
-> As políticas no modo somente de relatório que exigem dispositivos compatíveis podem solicitar que os usuários em Mac, iOS e Android selecionem um certificado de dispositivo durante a avaliação da política, mesmo que a conformidade do dispositivo não seja imposta. Esses prompts podem ser repetidos até que o dispositivo seja tornado em conformidade. Para impedir que os usuários finais recebam prompts durante a entrada, exclua plataformas de dispositivo Mac, iOS e Android de políticas somente de relatório que executam verificações de conformidade do dispositivo.
+> Políticas no modo somente relatório que requerem dispositivos compatíveis podem solicitar aos usuários no Mac, iOS e Android que selecionem um certificado de dispositivo durante a avaliação da diretiva, mesmo que a conformidade com o dispositivo não seja aplicada. Essas solicitações podem se repetir até que o dispositivo esteja em conformidade. Para evitar que os usuários finais recebam solicitações durante o login, exclua as plataformas de dispositivos Mac, iOS e Android de políticas somente de relatórios que executam verificações de conformidade de dispositivos.
 
-![Guia somente de relatório no log de entrada do Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
+![Guia somente de relatórios no log de login do Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 
 ## <a name="policy-results"></a>Resultados da política
 
-Quando uma política no modo somente de relatório é avaliada para uma determinada entrada, há quatro novos valores de resultado possíveis:
+Quando uma política no modo somente relatório é avaliada para um dado login, existem quatro novos valores de resultado possíveis:
 
-| Result | DESCRIÇÃO |
+| Result | Descrição |
 | --- | --- |
-| Somente relatório: êxito | Todas as condições de política configuradas, controles de concessão não interativa e controles de sessão necessários foram satisfeitos. Por exemplo, um requisito de autenticação multifator é atendido por uma declaração de MFA já presente no token ou uma política de dispositivo compatível é satisfeita com a execução de uma verificação de dispositivo em um dispositivo compatível. |
-| Somente relatório: falha | Todas as condições de política configuradas foram satisfeitas, mas nem todos os controles de concessão ou controles de sessão não interativos necessários foram satisfeitos. Por exemplo, uma política se aplica a um usuário em que um controle de bloco está configurado ou um dispositivo falha em uma política de dispositivo em conformidade. |
-| Somente relatório: ação do usuário necessária | Todas as condições de política configuradas foram satisfeitas, mas a ação do usuário seria necessária para satisfazer os controles de concessão ou controles de sessão necessários. Com o modo somente de relatório, o usuário não precisa atender aos controles necessários. Por exemplo, os usuários não são solicitados a enfrentar os desafios de autenticação multifator ou termos de uso.   |
-| Somente relatório: não aplicado | Nem todas as condições de política configuradas foram satisfeitas. Por exemplo, o usuário é excluído da política ou a política só se aplica a determinados locais nomeados confiáveis. |
+| Somente relatório: Sucesso | Todas as condições de diretiva configuradas, controles de subvenção não interativos necessários e controles de sessão foram satisfeitos. Por exemplo, um requisito de autenticação de vários fatores é satisfeito por uma reclamação MFA já presente no token, ou uma política de dispositivo compatível é satisfeita ao realizar uma verificação de dispositivo em um dispositivo compatível. |
+| Somente relatório: Falha | Todas as condições de política configuradas estavam satisfeitas, mas nem todos os controles de subvenção não interativos necessários ou controles de sessão estavam satisfeitos. Por exemplo, uma diretiva se aplica a um usuário onde um controle de bloco é configurado ou um dispositivo falha em uma política de dispositivo compatível. |
+| Somente relatório: Ação do usuário necessária | Todas as condições de diretiva configuradas foram satisfeitas, mas a ação do usuário seria necessária para satisfazer os controles de concessão ou controles de sessão necessários. Com o modo somente relatório, o usuário não é solicitado a satisfazer os controles necessários. Por exemplo, os usuários não são solicitados para desafios de autenticação de vários fatores ou termos de uso.   |
+| Somente relatório: Não aplicado | Nem todas as condições políticas configuradas foram satisfeitas. Por exemplo, o usuário é excluído da diretiva ou a política só se aplica a determinados locais nomeados confiáveis. |
 
-## <a name="conditional-access-insights-workbook"></a>Pasta de trabalho de informações de acesso condicional
+## <a name="conditional-access-insights-workbook"></a>A caderneta de visão do Conditional Access Insights
 
-Os administradores têm a capacidade de criar várias políticas no modo somente de relatório, portanto, é necessário entender o impacto individual de cada política e o impacto combinado de várias políticas avaliadas juntas. A nova pasta de trabalho de informações de acesso condicional permite que os administradores visualizem consultas de acesso condicional e monitorem o impacto de uma política para um determinado intervalo de tempo, conjunto de aplicativos e usuários. 
+Os administradores têm a capacidade de criar várias políticas no modo somente relatório, por isso é necessário entender tanto o impacto individual de cada política quanto o impacto combinado de múltiplas políticas avaliadas em conjunto. A nova carteira de trabalho Conditional Access Insights permite que os administradores visualizem consultas de acesso condicional e monitorem o impacto de uma diretiva para um determinado intervalo de tempo, conjunto de aplicativos e usuários. 
  
 ## <a name="next-steps"></a>Próximas etapas
 
-[Configurar o modo somente de relatório em uma política de acesso condicional](howto-conditional-access-report-only.md)
+[Configure o modo somente de relatório em uma diretiva de acesso condicional](howto-conditional-access-report-only.md)

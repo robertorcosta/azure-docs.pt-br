@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 85b06527a6d34ebd8d6bf1605533b9bf4d09fa84
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66236412"
 ---
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você deseja implementar seu próprio projeto de detecção de objeto (ou experimentar um projeto de [classificação de imagens](../csharp-tutorial.md) em vez disso), você talvez queira excluir o projeto de detecção de garfo/tesoura deste exemplo. Uma avaliação gratuita permite dois projetos de Visão Personalizada.
 

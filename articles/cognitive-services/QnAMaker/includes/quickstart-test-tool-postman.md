@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77112293"
 ---
 Este Início Rápido baseado no Postman fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento.
@@ -227,7 +227,7 @@ No Postman, altere apenas o JSON do corpo adicionando a propriedade `isTest`. O 
 A resposta JSON usa o mesmo esquema da consulta da base de dados de conhecimento publicada.
 
 > [!NOTE]
-> Se as bases de dados de conhecimento de teste e publicada forem exatamente iguais, ainda poderá haver uma pequena variação, pois o índice de teste será compartilhado entre todas as bases de dados de conhecimento no recurso.
+> Se as bases de dados de conhecimento de teste e publicadas forem exatamente iguais, ainda poderá haver uma pequena variação, pois o índice de teste é compartilhado entre todas as bases de dados de conhecimento no recurso.
 
 ## <a name="query-for-a-chit-chat-answer"></a>Consultar uma resposta de bate-papo
 

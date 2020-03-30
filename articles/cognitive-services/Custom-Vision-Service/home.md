@@ -10,14 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 829921ae5600873fdc8f2946ae3ff355bffb06a8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978587"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053631"
 ---
 # <a name="what-is-custom-vision"></a>O que é Visão Personalizada?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 A Visão Personalizada é um serviço cognitivo que permite criar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagem é um serviço de inteligência artificial que aplica rótulos (que representam _classes_) a imagens de acordo com suas características visuais. Ao contrário do serviço [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a Visão Personalizada permite que você determine quais rótulos aplicar.
 
@@ -29,7 +31,7 @@ O Serviço de Visão Personalizada usa um algoritmo de aprendizado de máquina p
 
 A funcionalidade de Visão Personalizada pode ser dividida em dois recursos. A **classificação de imagens** aplica um ou mais rótulos a uma imagem. A **detecção de objetos** é semelhante, mas também retorna as coordenadas na imagem em que os rótulos aplicados podem ser encontrados.
 
-### <a name="optimization"></a>Otimização
+### <a name="optimization"></a>Optimization
 
 O Serviço de Visão Personalizada foi otimizado para reconhecer rapidamente as principais diferenças entre imagens, de modo que você possa começar a criar protótipos do modelo com uma pequena quantidade de dados. Geralmente, 50 imagens por marca são um bom começo. No entanto, o serviço não é ideal para detectar diferenças sutis em imagens (por exemplo, detectar pequenas rachaduras ou depressões em cenários de garantia de qualidade).
 

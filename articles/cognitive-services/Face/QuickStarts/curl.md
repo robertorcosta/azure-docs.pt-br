@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Detectar rostos em uma imagem com a API REST do Azure e cURL'
+title: 'Início Rápido: Detectar faces em uma imagem usando a API REST e cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você usará a API de Detecção Facial do Azure com cURL para detectar faces em uma imagem.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 6a1a6d1fdce4853a2ac73f10eb4cf0a0505fa4c7
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76165900"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início Rápido: Detectar faces em uma imagem usando a API REST de Detecção Facial e cURL
 
 Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com cURL para detectar faces em uma imagem.
 
