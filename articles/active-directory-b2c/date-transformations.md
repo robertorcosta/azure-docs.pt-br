@@ -1,27 +1,27 @@
 ---
-title: Exemplos de transformação de declarações de data para políticas personalizadas
-description: Exemplos de transformação data Claims para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
+title: Exemplos de transformação de reivindicações de data para políticas personalizadas
+description: Exemplos de transformação de reivindicações de data para o esquema IEF (Identity Experience Framework, estrutura de experiência de identidade) do Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f3e5a7b90892f0ed0243d448ea1ac63fb56f277f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78188827"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476681"
 ---
 # <a name="date-claims-transformations"></a>Transformações de declarações de data
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo fornece exemplos de como usar as transformações de declarações de data do esquema de estrutura de experiência de identidade no Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
+Este artigo fornece exemplos para o uso das transformações de reivindicações de data do esquema Identity Experience Framework no Azure Active Directory B2C (Azure AD B2C). Para obter mais informações, confira [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
@@ -35,7 +35,7 @@ Verifica se uma declaração de data e hora (tipo de dados de cadeia de caracter
 | InputParameter | AssertIfRightOperandIsNotPresent | booleano | Especifica se essa declaração deve passar se o operando à direita estiver ausente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | INT | Especifica o número de milissegundos para permitir entre as duas datas e horas para considerar os tempos de igual (por exemplo, a conta para defasagem horária). |
 
-A transformação de declarações **AssertDateTimeIsGreaterThan** é sempre executada a partir um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados **DateTimeGreaterThan** do perfil técnico autodeclarado controla a mensagem de erro que o perfil técnico apresenta ao usuário.
+A transformação de declarações **AssertDateTimeIsGreaterThan** é sempre executada a partir um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [perfil técnico autodeclarado](self-asserted-technical-profile.md). Os metadados **DateTimeGreaterThan** do perfil técnico autodeclarado controla a mensagem de erro que o perfil técnico apresenta ao usuário. As mensagens de erro podem ser [localizadas](localization-string-ids.md#claims-transformations-error-messages).
 
 ![Execução do AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
@@ -81,8 +81,8 @@ O perfil técnico autodeclarado chama o perfil técnico **login-NonInteractive**
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000Z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000Z
 - Resultado: erro gerado
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -110,20 +110,20 @@ O exemplo a seguir demonstra a conversão da declaração `dateOfBirth` (tipo de
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 2020-15-03
 - Declarações de saída:
-    - **outputClaim**: 1559347200 (1 de junho de 2019 12:00:00 AM)
+    - **outputClaim**: 2020-15-03T00:00:00.0000000Z
 
-## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
+## <a name="convertdatetimetodateclaim"></a>converteto-datade-data
 
-Converte um ClaimType de **DateTime** em uma **Date** DeclareType. A transformação declarações remove o formato de hora da data.
+Converte um Tipo de Reclamação **de Data-Hora** em um Tipo de Reclamação **de Data.** A transformação de sinistros remove o formato de tempo da data.
 
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | dateTime | O ClaimType a ser convertido. |
 | OutputClaim | outputClaim | date | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
-O exemplo a seguir demonstra a conversão do `systemDateTime` de declaração (tipo de dados dateTime) em outro `systemDate` de declaração (tipo de dados de data).
+O exemplo a seguir demonstra `systemDateTime` a conversão do pedido `systemDate` (tipo de dados dateTime) para outro pedido (tipo de dados de data).
 
 ```XML
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
@@ -139,9 +139,9 @@ O exemplo a seguir demonstra a conversão do `systemDateTime` de declaração (t
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-  - **inputClaim**: 1559347200 (1º de junho de 2019 12:00:00 AM)
+  - **inputClaim**: 2020-15-03T11:34:22.000000Z
 - Declarações de saída:
-  - **outputClaim**: 2019-06-01
+  - **outputClaim**: 2020-15-03
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -162,7 +162,7 @@ Obtenha a data UTC atual e a hora e adicione o valor para um ClaimType.
 ### <a name="example"></a>Exemplo
 
 * Declarações de saída:
-    * **currentDateTime**: 1534418820 (16 de agosto de 2018 11:27:00 AM)
+    * **date:** 2020-15-03T11:40:35.000000Z
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
@@ -198,8 +198,8 @@ Para executar a transformação de declaração, primeiro você precisa obter a 
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
+    - **segundoData:** 2020-04-01T00:00:00.100000Z
 - Parâmetros de entrada:
     - **operator**: posterior a
     - **timeSpanInSeconds**: 7776000 (90 dias)

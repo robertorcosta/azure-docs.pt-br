@@ -1,6 +1,6 @@
 ---
-title: Comandos da CLI clássica do Azure
-description: Comandos da CLI (interface de linha de comando) do Azure para gerenciar recursos.
+title: Comandos CLI clássicos do Azure
+description: Os comandos CLI (Azure command interface interface de linha de comando) para gerenciar recursos.
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
 ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250875"
 ---
-# <a name="azure-classic-cli-commands"></a>Comandos da CLI clássica do Azure 
+# <a name="azure-classic-cli-commands"></a>Comandos CLI clássicos do Azure 
 
 [!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
-Este tópico descreve como instalar a CLI clássica do Azure. A CLI clássica foi preterida e só deve ser usada com o modelo de implantação clássico. Para todas as outras implantações, use o [CLI do Azure](https://docs.microsoft.com/cli/azure/).
+Este tópico descreve como instalar a CLI clássica do Azure. A CLI clássica foi preterida e só deve ser usada com o modelo de implantação clássico. Para todas as outras implantações, use o [Azure CLI](https://docs.microsoft.com/cli/azure/).
 
-Este artigo fornece sintaxe e opções para os comandos da CLI (interface de linha de comando) clássicas do Azure que você normalmente usaria para criar e gerenciar recursos do Azure. Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. 
+Este artigo fornece sintaxe e opções para comandos CLI (Azure classic command-line interface) que você normalmente usa para criar e gerenciar recursos do Azure. Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. 
 
-Para começar, primeiro [Instale a CLI clássica do Azure](../cli-install-nodejs.md) e [Conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli).
+Para começar, primeiro [instale o CLI clássico do Azure](../cli-install-nodejs.md) e [conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli).
 
 Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo do Gerenciador de Recursos, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Também é possível encontrar exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 
@@ -301,7 +301,7 @@ Opções de parâmetro:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="insights-events-alert-rules-autoscale-settings-metrics"></a>Percepções (eventos, regras de alerta, configurações de dimensionamento automático, métricas)
+## <a name="insights-events-alert-rules-autoscale-settings-metrics"></a>Insights (eventos, regras de alerta, configurações de escala automática, métricas)
 **Recupera os logs de operação para uma assinatura, uma correlationId, um grupo de recursos, o recurso ou o provedor de recursos**
 
     insights logs list [options]
@@ -1330,7 +1330,7 @@ Opções de parâmetro:
 <br>
 
     network public-ip list [options] <resource-group>
-Lista todos os recursos de IP público dentro de um grupo de recursos.
+Lista todos os recursos públicos de IP dentro de um grupo de recursos.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1503,7 +1503,7 @@ Opções de parâmetro:
 
     network gateway list [options] <resource-group>
 
-## <a name="resource-provider-registrations"></a>Registros do provedor de recursos
+## <a name="resource-provider-registrations"></a>Registros de provedores de recursos
 **Liste os provedores registrados atualmente no Resource Manager**
 
     provider list [options]

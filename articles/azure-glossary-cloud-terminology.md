@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276472"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
 O glossário do Microsoft Azure é um pequeno dicionário de terminologia de nuvem para a plataforma do Azure Consulte também:
 
-* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definições de serviços do Azure e suas contrapartes AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) – definições dos serviços do Azure e de suas contrapartes em AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Termos de computação em nuvem](https://azure.microsoft.com/overview/cloud-computing-dictionary/) – termos gerais de nuvem do setor.
 
 ## <a name="account"></a>account
@@ -34,7 +34,7 @@ Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Ele tam
 veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) e [contas que você pode usar para entrar no](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicativo de API
-Outro nome para o [aplicativo de Serviço de Aplicativo](#app-service-app).
+Outro nome para [app Service app](#app-service-app).
 
 ## <a name="app-service-app"></a>Aplicativo de Serviço de Aplicativo
 Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/overview.md) fornece para hospedar um site ou aplicativo Web, API Web ou [back-end de aplicativo móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicativos de Serviços de Aplicativos também são conhecidos como *Serviços de Aplicativos*, *aplicativos Web*, *aplicativos de API* e *aplicativos móveis*.
@@ -43,17 +43,17 @@ Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/
 Uma coleção de máquinas virtuais gerenciadas em conjunto a fim de fornecer redundância e confiabilidade de aplicativo. O uso de um conjunto de disponibilidade garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível.  
 Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="classic-model"></a>modelo de implantação clássico do Azure
+## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>modelo de implantação clássico do Azure
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Azure (o novo modelo é o Azure Resource Manager). Alguns serviços do Azure dão suporte somente ao modelo de implantação do Resource Manager, alguns dão suporte somente para o modelo de implantação clássico e alguns dão suporte a ambos. A documentação para cada serviço do Azure especifica a quais modelos esse serviço dá suporte.
 
-## <a name="cli"></a>CLI (interface de linha de comando) do Azure
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Interface de linha de comando Azure (CLI)
 Uma interface de linha de comando que pode ser usada para gerenciar os serviços do Azure de Windows, macOS e Linux.  Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI. Confira a [CLI do Azure](/cli/azure)
 
-## <a name="powershell"></a>PowerShell do Azure
+## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
 Uma interface de linha de comando para gerenciar os serviços do Azure por meio de uma linha de comando em computadores Windows. Alguns serviços, ou recursos do serviço, podem ser gerenciados apenas por meio do PowerShell ou da CLI.
-Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
+[Veja como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 
-## <a name="arm-model"></a>modelo de implantação do Azure Resource Manager
+## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modelo de implantação do Azure Resource Manager
 Um dos dois [modelos de implantação](resource-manager-deployment-model.md) usados para implantar recursos no Microsoft Azure (o outro é o modelo de implantação clássico). Alguns serviços do Azure dão suporte somente ao modelo de implantação do Resource Manager, alguns dão suporte somente para o modelo de implantação clássico e alguns dão suporte a ambos. A documentação para cada serviço do Azure especifica a quais modelos esse serviço dá suporte.
 
 ## <a name="fault-domain"></a>domínio de falha
@@ -66,7 +66,7 @@ Veja [Regiões do Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="geo-replication"></a>replicação geográfica
 O processo de replicação automaticamente de conteúdo como blobs, tabelas e filas dentro de um par regional.  
-Veja [Replicação Geográfica Ativa para o Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md)
+Veja [Replicação geográfica ativa para o Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image
@@ -75,7 +75,7 @@ Veja [Navegar e selecionar imagens de máquinas virtuais do Windows no Azure com
 
 ## <a name="limits"></a>limites
 O número de recursos que podem ser criados, ou o parâmetro de comparação de desempenho que pode ser atingido. Geralmente, os limites estão associados a assinaturas, serviços e ofertas.  
-Veja [Assinatura do Azure e limites de serviços, cotas e restrições](azure-resource-manager/management/azure-subscription-service-limits.md)
+Veja os limites de assinatura e serviço do [Azure, cotas e restrições](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>balanceador de carga
 Um recurso que distribui o tráfego recebido entre computadores em uma rede. No Azure, um balanceador de carga distribui o tráfego para máquinas virtuais definidas em um conjunto de balanceadores de carga. Um [balanceador de carga](load-balancer/load-balancer-overview.md) pode ser voltado à Internet ou interno.  
@@ -102,7 +102,7 @@ Veja [Visão geral do Azure Resource Manager](azure-resource-manager/management/
 Um contêiner no Resource Manager que armazena os recursos relacionados para um aplicativo. O grupo de recursos pode incluir todos os recursos de um aplicativo ou apenas os recursos que são agrupados logicamente. Você pode decidir como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.  
 Veja [Visão geral do Azure Resource Manager](azure-resource-manager/management/overview.md)
 
-## <a name="arm-template"></a>modelo do Resource Manager
+## <a name="resource-manager-template"></a><a name="arm-template"></a>Modelo do Resource Manager
 Um arquivo JSON que define declarativamente um ou mais recursos do Azure e que define as dependências entre os recursos implantados. O modelo pode ser usado para implantar os recursos de forma consiste e repetida.  
 Veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
 
@@ -114,11 +114,11 @@ Veja [Visão geral do Azure Resource Manager](azure-resource-manager/management/
 Um meio para controlar o acesso que pode ser atribuído a usuários, grupos e serviços. As funções são capazes de executar ações, por exemplo, criar, gerenciar e ler recursos do Azure.  
 Veja [RBAC: funções internas](role-based-access-control/built-in-roles.md)
 
-## <a name="sla"></a>SLA (contrato de nível de serviço)
+## <a name="service-level-agreement-sla"></a><a name="sla"></a>Contrato de nível de serviço (SLA)
 O contrato que descreve os compromissos da Microsoft em relação ao tempo de atividade e à conectividade. Cada serviço do Azure tem um SLA específico.  
 Veja [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="sas"></a>assinatura de acesso compartilhado (SAS)
+## <a name="shared-access-signature-sas"></a><a name="sas"></a>assinatura de acesso compartilhado (SAS)
 Uma assinatura que permite que você conceda acesso limitado a um recurso, sem expor sua chave de conta. Por exemplo, o [Armazenamento do Azure usa SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) para conceder acesso de cliente a objetos tais como blobs. O [Hub IoT usa SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder a dispositivos a permissão para enviar telemetria.
 
 ## <a name="storage-account"></a>do Azure
@@ -137,17 +137,17 @@ Veja [Usando marcas para organizar os recursos do Azure](resource-group-using-ta
 A coleção de máquinas virtuais em um conjunto de disponibilidade que são atualizadas ao mesmo tempo. As máquinas virtuais no mesmo domínio de atualização são reiniciadas juntas durante a manutenção planejada. O Azure nunca reinicia mais de um domínio de atualização por vez. Isso também é chamado de domínio de upgrade.  
 Veja [Gerenciar a disponibilidade de máquinas virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Gerenciar a disponibilidade de máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vm"></a>máquina virtual
+## <a name="virtual-machine"></a><a name="vm"></a>máquina virtual
 A implementação de software de um computador físico que executa um sistema operacional. Diversas máquinas virtuais podem ser executadas simultaneamente no mesmo hardware. No Azure, as máquinas virtuais estão disponíveis em vários tamanhos.  
 Veja [Documentação de Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-## <a name="vm-extension"></a>extensão da máquina virtual
+## <a name="virtual-machine-extension"></a><a name="vm-extension"></a>extensão da máquina virtual
 Um recurso que implementa comportamentos ou recursos que ajudam outros programas a funcionar, ou que fornecem a capacidade de interação com um computador em execução. Por exemplo, você pode usar a extensão de Acesso da Máquina Virtual para redefinir ou modificar valores de acesso remoto em uma máquina virtual do Azure.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
 Veja [Sobre os recursos e extensões de máquina virtual (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Sobre os recursos e extensões de máquina virtual (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vnet"></a>rede virtual
-Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Um [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) permite estabelecer conexões entre redes virtuais e entre uma rede virtual e uma rede local. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas em uma rede virtual.  
+## <a name="virtual-network"></a><a name="vnet"></a>rede virtual
+Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Um [Gateway Azure VPN](vpn-gateway/vpn-gateway-about-vpngateways.md) permite estabelecer conexões entre redes virtuais e entre uma rede virtual e uma rede local. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas em uma rede virtual.  
 Veja [Visão geral da Rede Virtual](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Aplicativo Web

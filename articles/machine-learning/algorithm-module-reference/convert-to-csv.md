@@ -1,7 +1,7 @@
 ---
-title: 'Converter em CSV: referência de módulo'
+title: 'Converter para CSV: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo converter para CSV no Azure Machine Learning para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
+description: Aprenda a usar o módulo Convert to CSV no Azure Machine Learning para converter um conjunto de dados em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,49 +9,49 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 8206a88695c89d04eabe89e79a5aff8469cc6862
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152424"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477673"
 ---
-# <a name="convert-to-csv-module"></a>Converter em módulo CSV
+# <a name="convert-to-csv-module"></a>Converter para módulo CSV
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no azure Machine Learning designer (visualização).
 
-Use este módulo para converter um conjunto de um em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
+Use este módulo para converter um conjunto de dados em um formato CSV que pode ser baixado, exportado ou compartilhado com módulos de script R ou Python.
 
 ### <a name="more-about-the-csv-format"></a>Mais sobre o formato CSV 
 
-O formato CSV, que significa "valores separados por vírgulas", é um formato de arquivo usado por muitas ferramentas de aprendizado de máquina externas. CSV é um formato de intercâmbio comum ao trabalhar com linguagens de software livre, como R ou Python.
+O formato CSV, que significa "valores separados por vírgula", é um formato de arquivo usado por muitas ferramentas externas de aprendizado de máquina. CSV é um formato de intercâmbio comum ao trabalhar com linguagens de código aberto, como R ou Python.
 
-Mesmo que você faça a maior parte de seu trabalho no Azure Machine Learning, há ocasiões em que você pode achar útil converter seu conjunto de seus conjuntos de seus para CSV para uso em ferramentas externas. Por exemplo:
+Mesmo que você faça a maior parte do seu trabalho no Azure Machine Learning, há momentos em que você pode achar útil converter seu conjunto de dados em CSV para usar em ferramentas externas. Por exemplo: 
 
-+ Baixe o arquivo CSV para abri-lo com o Excel ou importe-o para um banco de dados relacional.  
-+ Salve o arquivo CSV no armazenamento em nuvem e conecte-o de Power BI para criar visualizações.  
++ Baixe o arquivo CSV para abri-lo com o Excel ou importe-o em um banco de dados relacional.  
++ Salve o arquivo CSV para armazenamento em nuvem e conecte-se a ele a partir do Power BI para criar visualizações.  
 + Use o formato CSV para preparar dados para uso em R e Python. 
 
-Quando você converte um conjunto de um em CSV, o CSV é salvo em seu espaço de trabalho do Azure ML. Você pode usar um utilitário de armazenamento do Azure para abrir e usar o arquivo diretamente. Você também pode acessar o CSV no designer selecionando o módulo **converter em CSV** e, em seguida, selecionando o ícone de histograma na guia **saídas** no painel direito para exibir a saída. Você pode baixar o CSV da pasta de resultados para um diretório local.  
+Quando você converte um conjunto de dados em CSV, o csv é salvo no seu espaço de trabalho Azure ML. Você pode usar um utilitário de armazenamento Azure para abrir e usar o arquivo diretamente. Você também pode acessar o CSV no designer selecionando o módulo **Converter para CSV** e, em seguida, selecionar o ícone de histograma na guia **Saídas** no painel direito para exibir a saída. Você pode baixar o CSV da pasta Resultados para um diretório local.  
 
-## <a name="how-to-configure-convert-to-csv"></a>Como configurar converter em CSV
+## <a name="how-to-configure-convert-to-csv"></a>Como configurar converter para CSV
 
 
-1.  Adicione o módulo converter em CSV ao seu pipeline. Você pode encontrar esse módulo no grupo de **transformação de dados** no designer. 
+1.  Adicione o módulo Converter para CSV ao seu pipeline. Você pode encontrar este módulo no grupo **de Transformação de Dados** no designer. 
 
-2. Conecte-o a qualquer módulo que produza um conjunto de um DataSet.   
+2. Conecte-o a qualquer módulo que produza um conjunto de dados.   
   
-3.  Execute o pipeline.
+3.  Envie o oleoduto.
 
 ### <a name="results"></a>Resultados
   
 
-Selecione a guia **saídas** no painel direito de **converter em CSV**e selecione em um desses ícones sob as saídas de **porta**.  
+Selecione a guia **Saídas** no painel direito de **Converter para CSV**e selecione em um desses ícones as **saídas De porta**.  
 
-+ **Registrar conjunto de registros**: selecione o ícone e salve o arquivo CSV de volta no espaço de trabalho do Azure ml como um conjunto de uma separado. Você pode encontrar o conjunto de módulos como um módulo na árvore de módulo na seção **meus conjuntos de valores** .
++ **Registrar conjunto de dados**: Selecione o ícone e salve o arquivo CSV de volta ao espaço de trabalho do Azure ML como um conjunto de dados separado. Você pode encontrar o conjunto de dados como um módulo na árvore do módulo a seção **Meus conjuntos de dados.**
 
- + **Exibir saída**: selecione o ícone de olho e siga a instrução para procurar a pasta **Results_dataset** e baixe o arquivo data. csv.
+ + **Exibir saída**: Selecione o ícone do olho e siga as instruções para navegar na pasta **Results_dataset** e baixe o arquivo data.csv.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 

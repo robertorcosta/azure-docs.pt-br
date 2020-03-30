@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 13a3e57bb27c075fc045e87790dbe13369ed9f8e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254892"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar modelos de largura de banda do StorSimple
@@ -40,9 +40,9 @@ Com agendas de limitação da largura de banda, você pode:
 
 A folha **Modelos de largura de banda** apresenta todos os modelos de largura de banda para seu serviço exibidos em um formato tabular e contêm as seguintes informações:
 
-* **Nome** : um nome exclusivo atribuído ao modelo de largura de banda quando ele foi criado.
-* **Agenda** : o número de agendas contidas em um determinado modelo de largura de banda.
-* **Usado por** : o número de volumes usando os modelos de largura de banda.
+* **Nome** – Um nome exclusivo atribuído ao modelo de largura de banda quando ele foi criado.
+* **Agendamento** – O número de agendamentos contidos em um modelo específico de largura de banda.
+* **Usado por** – O número de volumes usando os modelos de largura de banda.
 
 Você também pode encontrar informações adicionais que ajudam a configurar modelos de largura de banda em:
 
@@ -64,7 +64,7 @@ Execute as etapas a seguir para criar um novo modelo de largura de banda.
     1. Especifique um nome exclusivo para o modelo de largura de banda.
     2. Defina uma agenda de largura de banda. Para criar uma agenda:
    
-        1. Na lista suspensa, escolha os **Dias** da semana para os quais a agenda será configurada. É possível selecionar vários dias.        
+        1. Na lista suspensa, escolha os **Dias** da semana para os quais o horário está configurado. É possível selecionar vários dias.        
         
         2. Insira uma **Hora Inicial** no formato _hh:mm_. Essa é a hora em que a agenda será iniciada.
 
@@ -73,7 +73,7 @@ Execute as etapas a seguir para criar um novo modelo de largura de banda.
            > [!NOTE]
            > Não há permissão para os agendamentos sobrepostos. Se as horas de início e término resultarem em um agendamento sobreposto, você verá uma mensagem de erro sobre isso.
 
-        4. Especifique a **Taxa da Largura de Banda**. Essa é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo StorSimple em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo.
+        4. Especifique a **Taxa de Largura de Banda**. Essa é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo StorSimple em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo.
 
             ![Defina uma agenda de largura de banda](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          
@@ -134,33 +134,33 @@ A agenda composta terá início na hora de sua escolha e será executa o dia tod
 
 ## <a name="questions-and-answers-about-bandwidth-templates"></a>Perguntas e respostas sobre modelos de largura de banda
 
-**P**. O que acontece aos controles de largura de banda quando você está entre as agendas? (Uma agenda foi encerrada e outra ainda não foi iniciada.)
+**Q**. O que acontece aos controles de largura de banda quando você está entre as agendas? (Uma agenda foi encerrada e outra ainda não foi iniciada.)
 
-**R**. Nesses casos, nenhum controle de largura de banda será utilizado. Isso significa que o dispositivo pode usar a largura de banda ilimitada ao dispor dados em camadas na nuvem.
+**A**. Nesses casos, nenhum controle de largura de banda será utilizado. Isso significa que o dispositivo pode usar a largura de banda ilimitada ao dispor dados em camadas na nuvem.
 
-**P**. Você pode modificar os modelos de largura de banda em um dispositivo offline?
+**Q**. Você pode modificar os modelos de largura de banda em um dispositivo offline?
 
-**R**. Você não poderá modificar os modelos de largura de banda em contêineres de volumes se o dispositivo correspondente estiver offline.
+**A**. Você não poderá modificar os modelos de largura de banda em contêineres de volumes se o dispositivo correspondente estiver offline.
 
-**P**. Você pode editar um modelo de largura de banda associado a um contêiner de volume quando os volumes associados estão offline?
+**Q**. Você pode editar um modelo de largura de banda associado a um contêiner de volume quando os volumes associados estão offline?
 
-**R**. Você pode modificar um modelo de largura de banda associado a um contêiner de volume cujos volumes estejam offline. Observe que quando os volumes estiverem offline, nenhum dado será disposto em camadas do dispositivo para a nuvem.
+**A**. Você pode modificar um modelo de largura de banda associado a um contêiner de volume cujos volumes estejam offline. Observe que quando os volumes estiverem offline, nenhum dado será disposto em camadas do dispositivo para a nuvem.
 
-**P**. Você pode excluir um modelo padrão?
+**Q**. Você pode excluir um modelo padrão?
 
-**R**. Embora você possa excluir um modelo padrão, não é uma boa ideia fazer isso. O uso de um modelo padrão, incluindo versões editadas, é rastreado. Os dados de rastreamento são analisados e, ao longo do tempo, são usados para melhorar o modelo padrão.
+**A**. Embora você possa excluir um modelo padrão, não é uma boa ideia fazer isso. O uso de um modelo padrão, incluindo versões editadas, é rastreado. Os dados de rastreamento são analisados e, ao longo do tempo, são usados para melhorar o modelo padrão.
 
-**P**. Como determinar se seus modelos de largura de banda precisam ser modificados?
+**Q**. Como determinar se seus modelos de largura de banda precisam ser modificados?
 
-**R**. Um dos sinais que indicam que é preciso modificar os modelos de largura de banda é quando você começa a perceber a lentidão da rede ou reduções várias vezes no dia. Se isso acontecer, monitore a rede de armazenamento e uso examinando os gráficos do desempenho de E/S e da taxa de transferência de rede.
+**A**. Um dos sinais que indicam que é preciso modificar os modelos de largura de banda é quando você começa a perceber a lentidão da rede ou reduções várias vezes no dia. Se isso acontecer, monitore a rede de armazenamento e uso examinando os gráficos do desempenho de E/S e da taxa de transferência de rede.
 
 Com os dados de taxa de transferência da rede, identifique a hora do dia e os contêineres de volume em que ocorre o gargalo da rede. Se isso ocorre quando dados estão sendo dispostos em camada na nuvem (obtenha essa informação do desempenho de E/S de todos os contêineres de volume do dispositivo para nuvem), você precisará modificar os modelos de largura de banda associados aos seus contêineres de volume.
 
 Depois que os modelos modificados estiverem em uso, você precisara monitorar a rede novamente em busca de latências significativas. Se elas ainda existirem, você precisará rever seus modelos de largura de banda.
 
-**P**. O que acontece se vários contêineres de volume em meu dispositivo tiverem agendas que se sobrepõem, mas diferentes limites se aplicarem a cada uma?
+**Q**. O que acontece se vários contêineres de volume em meu dispositivo tiverem agendas que se sobrepõem, mas diferentes limites se aplicarem a cada uma?
 
-**R**. Vamos supor que você tenha um dispositivo com 3 contêineres de volume. As agendas associadas a esses contêineres se sobrepõem completamente. Para cada um desses contêineres, os limites de largura de banda usados são 5, 10 e 15 Mbps, respectivamente. Quando a E/S estiver ocorrendo em todos esses contêineres ao mesmo tempo, no mínimo três limites de largura de banda poderão ser aplicados; nesse caso, 5 Mbps, pois essas solicitações de E/S de saída compartilham a mesma fila.
+**A**. Vamos supor que você tenha um dispositivo com 3 contêineres de volume. As agendas associadas a esses contêineres se sobrepõem completamente. Para cada um desses contêineres, os limites de largura de banda usados são 5, 10 e 15 Mbps, respectivamente. Quando a E/S estiver ocorrendo em todos esses contêineres ao mesmo tempo, no mínimo três limites de largura de banda poderão ser aplicados; nesse caso, 5 Mbps, pois essas solicitações de E/S de saída compartilham a mesma fila.
 
 ## <a name="best-practices-for-bandwidth-templates"></a>Práticas recomendadas para modelos de largura de banda
 

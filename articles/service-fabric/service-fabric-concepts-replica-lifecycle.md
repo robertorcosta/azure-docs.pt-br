@@ -1,15 +1,15 @@
 ---
-title: Réplicas e instâncias no Azure Service Fabric
+title: Réplicas e instâncias no tecido de serviço do Azure
 description: Saiba mais sobre réplicas e instâncias no Service Fabric, incluindo uma visão geral de seus ciclos de vida e funções.
 author: appi101
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258558"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instâncias 
@@ -107,11 +107,11 @@ A função da réplica não é relevante no estado em espera.
 ## <a name="replica-role"></a>Função da réplica 
 A função da réplica determina sua função no conjunto de réplicas:
 
-- **Primary (P)** : há uma primária no conjunto de réplicas responsável por executar operações de leitura e de gravação. 
-- **ActiveSecondary (S)** : essas são réplicas que recebem atualizações de estado da primária e as aplica e enviam confirmações de volta. Há várias secundárias ativas no conjunto de réplicas. O número dessas secundárias ativas determina o número de falhas que o serviço pode manipular.
-- **IdleSecondary (I)** : essas réplicas estão sendo criadas pela primária. Elas estão recebendo o estado da primária antes de poderem ser promovidas para a secundária ativa. 
-- **None (N)** : essas réplicas não têm uma responsabilidade no conjunto de réplicas.
-- **Unknown (U)** : essa é a função inicial de uma réplica antes de receber qualquer chamada à API **ChangeRole** do Service Fabric.
+- **Primary (P)**: há uma primária no conjunto de réplicas responsável por executar operações de leitura e de gravação. 
+- **ActiveSecondary (S)**: essas são réplicas que recebem atualizações de estado da primária e as aplica e enviam confirmações de volta. Há várias secundárias ativas no conjunto de réplicas. O número dessas secundárias ativas determina o número de falhas que o serviço pode manipular.
+- **IdleSecondary (I)**: essas réplicas estão sendo criadas pela primária. Elas estão recebendo o estado da primária antes de poderem ser promovidas para a secundária ativa. 
+- **None (N)**: essas réplicas não têm uma responsabilidade no conjunto de réplicas.
+- **Unknown (U)**: essa é a função inicial de uma réplica antes de receber qualquer chamada à API **ChangeRole** do Service Fabric.
 
 O diagrama a seguir ilustra as transições da função de réplica e alguns cenários de exemplo no qual elas podem ocorrer:
 

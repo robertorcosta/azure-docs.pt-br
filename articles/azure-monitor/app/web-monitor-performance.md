@@ -5,22 +5,22 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275614"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
 
-Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. [Application insights][start] informará sobre quaisquer problemas de desempenho e exceções, além de ajudá-lo a encontrar e diagnosticar as causas raiz.
+Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][start] lhe informará sobre quaisquer problemas de desempenho e exceções e lhe ajudará a localizar e diagnosticar as causas raiz.
 
 O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados localmente, em máquinas virtuais ou como sites do Microsoft Azure. 
 
 No lado do cliente, o Application Insights pode realizar a telemetria de páginas da Web e de uma grande variedade de dispositivos, incluindo iOS, Android e Aplicativos da Windows Store.
 
-## <a name="setup"></a>Configurar o monitoramento de desempenho
+## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Configurar o monitoramento de desempenho
 Se você ainda não tem o Application Insights adicionado ao seu projeto (ou seja, não tem o ApplicationInsights.config), escolha uma destas formas para começar:
 
 * [Aplicativos Web ASP.NET](../../azure-monitor/app/asp-net.md)
@@ -29,7 +29,7 @@ Se você ainda não tem o Application Insights adicionado ao seu projeto (ou sej
 * [Aplicativos da web de Java EE](../../azure-monitor/app/java-get-started.md)
   * [Adicionar monitoramento de dependência](../../azure-monitor/app/java-agent.md)
 
-## <a name="view"></a>Explorando métricas de desempenho
+## <a name="exploring-performance-metrics"></a><a name="view"></a>Explorando métricas de desempenho
 No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você configurou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:
 
 Clique em qualquer gráfico para ver mais detalhes e para ver os resultados por um período mais longo. Por exemplo, clique no bloco Solicitações e, em seguida, selecione um intervalo de tempo:
@@ -43,7 +43,7 @@ Clique em um gráfico para selecionar outras medidas que são exibidas, ou adici
 > [!NOTE]
 > **Desmarque todas as métricas** para ver a seleção completa que está disponível. As métricas se enquadram em grupos; quando qualquer membro de um grupo é selecionado, somente os outros membros do grupo aparecem.
 
-## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
+## <a name="what-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
 Há várias métricas de desempenho que você pode obter. Vamos começar com estas que aparecem por padrão na folha do aplicativo.
 
 ### <a name="requests"></a>Requests
@@ -94,16 +94,16 @@ Defina o recurso antes de outras propriedades. Não escolha os recursos webtest 
 
 Observe as unidades quando você for solicitado para inserir o valor de limite.
 
-*Não vejo o botão Adicionar Alerta.* - Esta é uma conta de grupo para a qual você tem acesso somente leitura? Verifique com o administrador da conta.
+*Não vejo o botão Adicionar Alerta.*  - Esta é uma conta de grupo para a qual você tem acesso somente leitura? Verifique com o administrador da conta.
 
-## <a name="diagnosis"></a>Diagnosticando problemas
+## <a name="diagnosing-issues"></a><a name="diagnosis"></a>Diagnosticando problemas
 Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
-* Configure [testes da Web][availability] a serem alertados se o seu site ficar inativo ou responder de forma incorreta ou lenta. 
+* Configure os [testes da Web][availability] para serem alertados se seu site cair ou responder de forma incorreta ou lenta. 
 * Compare a contagem de Solicitação com outras métricas para ver se falhas ou resposta lenta são relatadas ao carregar.
-* [Inserir e Pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a identificar problemas.
+* [Inserir e pesquisar instruções de rastreamento][diagnostic] em seu código para ajudar a detectar problemas.
 * Monitore seu aplicativo Web em operação com o [Live Metrics Stream][livestream].
-* Capture o estado do seu aplicativo .NET com [depurador de instantâneos][snapshot].
+* Capture o estado do seu aplicativo .NET com [snapshot depurador][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Encontrar e corrigir gargalos de desempenho com uma experiência de investigação de desempenho
 
@@ -130,14 +130,14 @@ A experiência de investigação de desempenho mostra insights relevantes ao lad
 ![Três picos de duração de GET Customers/Details num intervalo de 7 dias com uma janela de tempo](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
-## <a name="next"></a>Próximas etapas
-[Testes da Web][availability] -têm solicitações da Web enviadas ao seu aplicativo em intervalos regulares em todo o mundo.
+## <a name="next-steps"></a><a name="next"></a>Próximas etapas
+[Testes da Web][availability] – faça com que solicitações da Web sejam enviadas ao seu aplicativo em intervalos regulares de todo o mundo.
 
-[Capturar e Pesquisar rastreamentos de diagnóstico][diagnostic] – inserir chamadas de rastreamento e examinar os resultados para identificar os problemas.
+[Capturar e pesquisar rastreamento de diagnóstico][diagnostic] – Inserir chamadas de rastreamento e separar através dos resultados para problemas de pinpoint.
 
-[Acompanhamento de uso][usage] -Descubra como as pessoas usam seu aplicativo.
+[Acompanhamento de uso][usage] – Saiba como as pessoas usam seu aplicativo.
 
-[Solução de problemas][qna] -e Q & A
+[Solução de problemas][qna] – e P e R
 
 
 

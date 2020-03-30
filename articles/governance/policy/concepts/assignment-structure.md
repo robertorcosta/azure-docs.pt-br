@@ -1,29 +1,29 @@
 ---
-title: Detalhes da estrutura de atribuição de política
-description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
+title: Detalhes da estrutura de atribuição de políticas
+description: Descreve a definição de atribuição de diretiva usada pela Diretiva Azure para relacionar definições de políticas e parâmetros a recursos para avaliação.
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265292"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
-As atribuições de política são usadas pelo Azure Policy para definir quais recursos são atribuídos a quais políticas ou iniciativas. A atribuição de política pode determinar os valores dos parâmetros para esse grupo de recursos no momento da atribuição, possibilitando a reutilização de definições de política que abordam as mesmas propriedades de recurso com necessidades diferentes de conformidade.
+As atribuições de políticas são usadas pela Azure Policy para definir quais recursos são atribuídos quais políticas ou iniciativas. A atribuição de políticas pode determinar os valores dos parâmetros para esse grupo de recursos no momento da atribuição, possibilitando a reutilização de definições de políticas que abordam as mesmas propriedades de recursos com diferentes necessidades de conformidade.
 
-Você usa JSON para criar uma atribuição de política. A atribuição de política contém elementos para:
+Você usa json para criar uma atribuição de política. A atribuição de diretiva contém elementos para:
 
 - nome de exibição
 - descrição
 - metadata
-- modo de imposição
+- modo de aplicação
 - definição de política
 - parâmetros
 
-Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNotEnforce_ com parâmetros dinâmicos:
+Por exemplo, o JSON a seguir mostra uma atribuição de diretiva no modo _DoNotEnforce_ com parâmetros dinâmicos:
 
 ```json
 {
@@ -47,34 +47,34 @@ Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNot
 }
 ```
 
-Todos os exemplos de Azure Policy estão em [exemplos de Azure Policy](../samples/index.md).
+Todas as amostras de política do Azure estão em [amostras de Política Do Azure](../samples/index.md).
 
 ## <a name="display-name-and-description"></a>Nome de exibição e descrição
 
-Use **DisplayName** e **Description** para identificar a atribuição de política e fornecer contexto para seu uso com o conjunto específico de recursos. **displayName** tem um comprimento máximo de _128_ caracteres e **description** tem um comprimento máximo de _512_ caracteres.
+Você usa **displayName** e **descrição** para identificar a atribuição de políticas e fornecer contexto para seu uso com o conjunto específico de recursos. **displayName** tem um comprimento máximo de _128_ caracteres e **description** tem um comprimento máximo de _512_ caracteres.
 
-## <a name="enforcement-mode"></a>Modo de imposição
+## <a name="enforcement-mode"></a>Modo de execução
 
-A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/platform-logs-overview.md). Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras. **imposiçãomode** é diferente do efeito [desabilitado](./effects.md#disabled) , pois esse efeito impede que a avaliação de recursos aconteça.
+A propriedade **enforcementMode** fornece aos clientes a capacidade de testar o resultado de uma política sobre os recursos existentes sem iniciar o efeito de política ou desencadear entradas no registro de atividades do [Azure](../../../azure-monitor/platform/platform-logs-overview.md). Esse cenário é comumente referido como "E se" e se alinha a práticas seguras de implantação. **enforcementMode** é diferente do efeito [Disabled,](./effects.md#disabled) pois esse efeito impede que a avaliação de recursos aconteça.
 
-Essa propriedade tem os seguintes valores:
+Esta propriedade tem os seguintes valores:
 
-|Mode |Valor JSON |Type |Corrigir manualmente |Entrada do log de atividades |DESCRIÇÃO |
+|Mode |Valor JSON |Type |Remediar manualmente |Entrada de registro de atividades |Descrição |
 |-|-|-|-|-|-|
-|habilitado |Padrão |string |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
-|Desabilitado |DoNotEnforce |string |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
+|habilitado |Padrão |string |Sim |Sim |O efeito de política é aplicado durante a criação ou atualização de recursos. |
+|Desabilitado |Não faça cumprir |string |Sim |Não | O efeito de política não é aplicado durante a criação ou atualização de recursos. |
 
-Se **imposiçãomode** não for especificado em uma definição de política ou iniciativa, o valor _padrão_ será usado. [As tarefas de correção](../how-to/remediate-resources.md) podem ser iniciadas para políticas de [deployIfNotExists](./effects.md#deployifnotexists) , **mesmo quando** é definido como _DoNotEnforce_.
+Se **enforcementMode** não for especificado em uma definição de política ou iniciativa, o _padrão de_ valor será usado. [As tarefas de remediação](../how-to/remediate-resources.md) podem ser iniciadas para [implantarpolíticasIfNotExist,](./effects.md#deployifnotexists) mesmo quando **o enforcementMode** é definido como _DoNotEnforce_.
 
 ## <a name="policy-definition-id"></a>ID de definição de política
 
-Este campo deve ser o nome do caminho completo de uma definição de política ou uma definição de iniciativa.
-`policyDefinitionId` é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./definition-structure.md#initiatives) .
+Este campo deve ser o nome completo do caminho de uma definição de política ou de uma definição de iniciativa.
+`policyDefinitionId`é uma seqüência e não uma matriz. Recomenda-se que, se várias políticas forem frequentemente atribuídas em conjunto, use uma [iniciativa](./definition-structure.md#initiatives) em vez disso.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
-Esse segmento da atribuição de política fornece os valores para os parâmetros definidos na definição de [política ou definição de iniciativa](./definition-structure.md#parameters).
-Esse design torna possível reutilizar uma definição de política ou iniciativa com recursos diferentes, mas verificar valores comerciais ou resultados diferentes.
+Este segmento da atribuição de políticas fornece os valores para os parâmetros definidos na [definição da política ou definição de iniciativa](./definition-structure.md#parameters).
+Esse projeto permite reutilizar uma definição de política ou iniciativa com diferentes recursos, mas verificar se há diferentes valores ou resultados de negócios.
 
 ```json
 "parameters": {
@@ -87,12 +87,12 @@ Esse design torna possível reutilizar uma definição de política ou iniciativ
 }
 ```
 
-Neste exemplo, os parâmetros definidos anteriormente na definição de política são `prefix` e `suffix`. Essa atribuição de política específica define `prefix` para o **depta** e `suffix` a **-LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições de política, oferecendo flexibilidade.
+Neste exemplo, os parâmetros previamente definidos na definição da política são `prefix` e `suffix`. Esta atribuição `prefix` de política em `suffix` particular define-se para **DeptA** e para **-LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições de políticas, proporcionando flexibilidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
-- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
+- Conheça a estrutura de [definição de políticas](./definition-structure.md).
+- Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)
 - Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
-- Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
-- Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Aprenda a [remediar recursos não compatíveis.](../how-to/remediate-resources.md)
+- Reveja o que é um grupo de gestão com [organize seus recursos com grupos de gerenciamento do Azure.](../../management-groups/overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Aprenda a usar uma área restrita Apache Hadoop, emulador-Azure HDInsight
+title: Aprenda a usar uma caixa de areia Apache Hadoop, emulador - Azure HDInsight
 description: 'Para começar a aprender sobre o uso do ecossistema do Apache Hadoop, você pode configurar um sandbox do Hadoop a partir do Hortonworks em uma máquina virtual do Azure. '
 keywords: emulador do hadoop,área restrita do hadoop
 ms.reviewer: jasonh
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73044763"
 ---
-# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita do Apache Hadoop, um emulador em uma máquina virtual
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Comece com uma caixa de areia Apache Hadoop, um emulador em uma máquina virtual
 
 Aprenda a instalar o sandbox Apache Hadoop do Hortonworks em uma máquina virtual para aprender sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o HDFS (Sistema de Arquivos Distribuído Hadoop) e o envio de trabalhos. Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure, criando um cluster do HDInsight. Para saber mais sobre como começar, confira [Introdução ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -26,15 +26,15 @@ Aprenda a instalar o sandbox Apache Hadoop do Hortonworks em uma máquina virtua
 
 ## <a name="download-and-install-the-virtual-machine"></a>Baixar e instalar a máquina virtual
 
-1. Navegue até os [downloads do Cloudera](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
+1. Navegue pelos downloads do [Cloudera](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-1. Clique em **VIRTUALBOX** em **escolher tipo de instalação** para baixar a área restrita do Hortonworks mais recente em uma VM. Entre ou preencha o formulário de interesse do produto.
+1. Clique em **VIRTUALBOX** em **Escolher Tipo de Instalação** para baixar o mais recente Hortonworks Sandbox em uma VM. Faça login ou preencha o formulário de interesse do produto.
 
-1. Clique no botão **HDP sandbox (mais recente)** para iniciar o download.
+1. Clique no botão **HDP SANDBOX (LATEST)** para iniciar o download.
 
-Para obter instruções sobre como configurar a área restrita, consulte [Guia de implantação e instalação do Sandbox](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
+Para obter instruções sobre como configurar a caixa de areia, consulte [Sandbox Deployment and Install Guide](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-Para baixar uma área restrita da versão mais antiga do HDP, consulte os links em **versões mais antigas**.
+Para baixar uma caixa de areia de versão HDP mais antiga, consulte os links em **Versões Mais Antigas**.
 
 ## <a name="start-the-virtual-machine"></a>Iniciar a máquina virtual
 
@@ -42,7 +42,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 1. No menu **Arquivo**, clique em **Importar Dispositivo** e especifique a imagem da Área Restrita da Hortonworks.
 1. Selecione a Área Restrita da Hortonworks, clique em **Iniciar** e em **Início Normal**. Quando a máquina virtual tiver terminado o processo de inicialização, ela exibirá instruções de logon.
 
-    ![início normal do VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    ![virtualbox gerente início normal](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
 1. Abra um navegador da Web e navegue até a URL exibida (geralmente `http://127.0.0.1:8888`).
 
@@ -51,7 +51,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 1. Na etapa de **introdução** da página da Hortonworks Sandbox, selecione **Exibir Opções Avançadas**. Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
 
    > [!NOTE]
-   > Se você não tiver um cliente SSH instalado, use o SSH baseado na Web fornecido pela máquina virtual em **http://localhost:4200/** .
+   > Se você não tiver um cliente SSH instalado, você pode usar o SSH **http://localhost:4200/** baseado na Web fornecido pela máquina virtual em .
 
     Na primeira vez que você se conectar usando SSH, você receberá uma solicitação para alterar a senha da conta raiz. Insira uma nova senha, que você usa quando faz logon usando SSH.
 
@@ -73,7 +73,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, consulte os links 
 
         select * from sample_07 limit 10;
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
 

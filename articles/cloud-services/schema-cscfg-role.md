@@ -1,5 +1,6 @@
 ---
 title: Esquema de função dos Serviços de Nuvem do Azure | Microsoft Docs
+description: O elemento Função de um arquivo de configuração de serviço especifica quantas instâncias de função devem ser implantadas para cada função, valores de configuração e impressões digitais do certificado.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 0f0e79b462726b1aa6a953a4b8c92334d6b16492
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449097"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528414"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de função de configuração dos Serviços de Nuvem do Azure
 
@@ -21,7 +22,7 @@ O elemento `Role` do arquivo de configuração especifica o número de instânci
 
 Para obter mais informações sobre o Esquema de configuração do Serviço do Azure, consulte [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md) (Esquema de configuração do Serviço de Nuvem (clássico)). Para obter mais informações sobre o Esquema de definição do Serviço do Azure, consulte [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definição do Serviço de Nuvem (clássico)).
 
-##  Elemento de função <a name="Role"></a>
+##  <a name="role-element"></a>Elemento de função <a name="Role"></a>
 O exemplo a seguir mostra o elemento `Role` e seus elementos filho.
 
 ```xml 
@@ -40,18 +41,18 @@ O exemplo a seguir mostra o elemento `Role` e seus elementos filho.
 
 A tabela a seguir descreve os atributos do elemento `Role`.
 
-| Atributo | Description |
+| Atributo | Descrição |
 | --------- | ----------- |
 | name   | Obrigatórios. Especifica o nome da função. O nome deve corresponder ao nome fornecido para a função no arquivo de definição de serviço.|
 | vmName | Opcional. Especifica um nome DNS para uma máquina virtual. O nome deve ter dez caracteres ou menos.|
 
 A tabela a seguir descreve os elementos filho do elemento `Role`.
 
-| Elemento | Description |
+| Elemento | Descrição |
 | ------- | ----------- |
 | Instâncias | Obrigatórios. Especifica o número de instâncias a serem implantadas para a função. O número de instâncias é definido por um inteiro para o atributo `count`.|
 | Configuração   | Opcional. Especifica um nome e valor da configuração em uma coleção de configurações para uma função. O nome da configuração é definido por uma cadeia de caracteres para o atributo `name` e o valor da configuração é definido por uma cadeia de caracteres para o atributo `value`.|
 | Certificado | Opcional. Especifica o nome, a impressão digital e o algoritmo de um certificado de serviço a ser associado à função. O nome do certificado é definido por uma cadeia de caracteres para o atributo `name`. A impressão digital do certificado é definida por uma cadeia de caracteres de números hexadecimais sem espaços para o atributo `thumbprint`. Os números hexadecimais devem ser representados usando dígitos e caracteres alfa maiúsculos. O algoritmo do certificado é definido por uma cadeia de caracteres para o atributo `thumbprintAlgorithm`.|
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Consulte também
 [Esquema de configuração do Serviço de Nuvem (clássico)](schema-cscfg-file.md)

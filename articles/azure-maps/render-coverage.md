@@ -1,25 +1,25 @@
 ---
 title: Cobertura de renderização | Mapas do Microsoft Azure
-description: Neste artigo, saiba mais sobre regiões com mapas de Microsoft Azure renderizam a cobertura junto com seus níveis de detalhes renderizados.
-author: jingjing-z
+description: Neste artigo, conheça regiões com o Microsoft Azure Maps, tornando a cobertura juntamente com seu nível de detalhes renderizados.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209538"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536744"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
-O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro se encaixa em um único bloco. Na resolução mais alta, um único bloco representa 38 metros quadrados. Você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais à medida que aplicar zoom no mapa. Para obter mais informações sobre blocos, consulte [níveis de zoom e grade de blocos](zoom-levels-and-tile-grid.md).
+O Mapas do Azure usa blocos de varredura e blocos de vetor para criar mapas. Na resolução mais baixa, o mundo inteiro se encaixa em uma única telha. Na resolução mais alta, uma única telha representa 38 metros quadrados. Você verá mais detalhes sobre continentes, regiões, cidades e ruas individuais à medida que você amplia o mapa. Para obter mais informações sobre telhas, consulte [os níveis de Zoom e a grade de ladrilhos](zoom-levels-and-tile-grid.md).
 
-No entanto, o Maps não tem o mesmo nível de informações e precisão para todas as regiões. As tabelas a seguir detalham o nível de informações que você pode renderizar para cada região.
+No entanto, o Maps não tem o mesmo nível de informação e precisão para todas as regiões. As tabelas a seguir detalham o nível de informações que você pode renderizar para cada região.
 
 ## <a name="legend"></a>Legenda
 

@@ -4,10 +4,10 @@ description: Descreve as propriedades exportadas de exportação contínua em JS
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663868"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
@@ -142,7 +142,7 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
-| context.user.authAcquisitionDate |string |[Usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authAcquisitionDate |string |[Usuário Autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |string | |
 | context.user.isAuthenticated |booleano | |
 | context.user.storeRegion |string | |
@@ -292,7 +292,7 @@ Gerado por TrackMetric().
 
 O valor da métrica é encontrado em context.custom.metrics[0]
 
-Por exemplo:
+Por exemplo: 
 
     {
      "metric": [ ],
@@ -318,7 +318,7 @@ Por exemplo:
     }
 
 ## <a name="about-metric-values"></a>Sobre valores de métricas
-Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo:
+Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo: 
 
       "durationMetric": {
         "name": "contoso.org",
@@ -344,5 +344,5 @@ Exceto quando indicado o contrário, as durações são representadas em décimo
 
 ## <a name="see-also"></a>Confira também
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-* [Exportação Contínua](export-telemetry.md)
+* [Exportação contínua](export-telemetry.md)
 * [Exemplos de código](export-telemetry.md#code-samples)

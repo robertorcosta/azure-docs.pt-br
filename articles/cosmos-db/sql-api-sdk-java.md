@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API Java do SQL, recursos de & do SDK'
+title: 'Azure Cosmos DB: API SQL Java, Recursos & SDK'
 description: Saiba tudo sobre o SDK e a API Java do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK Java do SQL do Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,118 +9,118 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: sngun
 ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77558921"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [Resto](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Executor em massa-.NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
 O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suporte assíncrono, use o [Java SDK assíncrono da API do SQL](sql-api-sdk-async-java.md). 
 
 | |  |
 |---|---|
 |**Baixe o SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
-|**Documentação da API**|[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)|
+|**Documentação de API**|[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Introdução**|[Introdução ao SDK do Java](sql-api-java-get-started.md)|
-|**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-java-application.md)|
+|**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos web com O Azure Cosmos DB](sql-api-java-application.md)|
 |**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="a-name247247"></a><a name="2.4.7"/>2.4.7
-* Corrige o problema de tempo limite do pool de conexões.
-* Corrige a atualização do token de autenticação em repetições internas.
+### <a name="247"></a><a name="2.4.7"/>2.4.7
+* Corrige o problema do tempo de tempo do pool de conexão.
+* Corrige a atualização do token auth em repetições internas.
 
-### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
-* Atualização da marca de política de réplica do lado do cliente correta em databaseAccount e fez databaseAccount leituras de configuração do cache.
+### <a name="246"></a><a name="2.4.6"/>2.4.6
+* Atualizada a tag de política de replicação do lado do cliente correta no banco de dadosConta e fez o banco de dadosA configuração da conta é feita a partir do cache.
 
-### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
-* Evitando a repetição em um erro de intervalo de chaves de partição inválido, se o usuário fornecer pkRangeId.
+### <a name="245"></a><a name="2.4.5"/>2.4.5
+* Evitando a repetição do erro de intervalo da chave de partição inválida, se o usuário fornecer pkRangeId.
 
-### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
-* Atualizações otimizadas do cache do intervalo de chaves de partição.
-* Corrige o cenário em que o SDK não tem a relação de divisão da partição do servidor e resulta na atualização incorreta de caches de roteamento do lado do cliente.
+### <a name="244"></a><a name="2.4.4"/>2.4.4
+* Atualizações otimizadas do cache de faixa de configuração de partição.
+* Corrige o cenário em que o SDK não entretém a dica de divisão de partição do servidor e resulta em atualização incorreta de caches de roteamento lateral do cliente.
 
-### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+### <a name="242"></a><a name="2.4.2"/>2.4.2
 * Atualizações otimizadas do cache de coleta.
 
-### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
-* Adicionado suporte para recuperar a mensagem de exceção interna da cadeia de caracteres de diagnóstico de solicitação.
+### <a name="241"></a><a name="2.4.1"/>2.4.1
+* Adicionado suporte para recuperar a mensagem de exceção interna da seqüência de diagnóstico de solicitação.
 
-### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Introduziu a API da versão em PartitionKeyDefinition.
+### <a name="240"></a><a name="2.4.0"/>2.4.0
+* Introduziu aapi de versão em PartitionKeyDefinition.
 
-### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
-* Adicionado suporte de tempo limite separado para o modo direto.
+### <a name="230"></a><a name="2.3.0"/>2.3.0
+* Adicionado suporte de tempo extra separado para o modo direto.
 
-### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
-* Consumindo mensagem de erro nula do serviço e produzindo exceção do cliente de documento.
+### <a name="223"></a><a name="2.2.3"/>2.2.3
+* Consumir mensagem de erro nula do serviço e produzir exceção do cliente de documento.
 
-### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Melhoria da conexão de soquete, adicionando SoKeepAlive padrão true.
+### <a name="222"></a><a name="2.2.2"/>2.2.2
+* Melhoria da conexão do soquete, adicionando o padrão SoKeepAlive verdadeiro.
 
-### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* Suporte à cadeia de caracteres de diagnóstico de solicitação adicionado.
+### <a name="220"></a><a name="2.2.0"/>2.2.0
+* Adicionado solicitação de suporte de seqüência de seqüeique de diagnósticos.
 
-### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* Corrigido o bug em PartitionKey para hash v2.
+### <a name="213"></a><a name="2.1.3"/>2.1.3
+* Bug corrigido em PartitionKey para Hash V2.
 
-### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
-* Suporte adicionado para índices compostos.
-* Corrigido o bug no global Endpoint Manager para forçar a atualização.
-* Corrigido o bug para upserts com pré-condições no modo direto.
+### <a name="212"></a><a name="2.1.2"/>2.1.2
+* Adicionado suporte para índices compostos.
+* Corrigimos o bug no gerenciador global de endpoint para forçar a atualização.
+* Corrigimos o bug para upserts com pré-condições no modo direto.
 
-### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* Corrigido o bug no cache de endereços do gateway.
+### <a name="211"></a><a name="2.1.1"/>2.1.1
+* Corrigida bug no cache do endereço do gateway.
 
-### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Suporte à gravação de várias regiões adicionado ao modo direto.
 * Adicionada compatibilidade com a manipulação IOExceptions geradas como exceções de ServiceUnavailable, de um proxy.
 * Corrigido um bug na política de repetição de descoberta do ponto de extremidade.
 * Corrigido um bug para garantir que as exceções de ponteiro nulo não sejam geradas no BaseDatabaseAccountConfigurationProvider.
-* Corrigido um bug para garantir que QueryIterator não retorne nulos.
+* Corrigimos um bug para garantir que o QueryIterator não retorne nulos.
 * Corrigido um bug para garantir a que PartitionKey grande seja permitida
 
-### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+### <a name="200"></a><a name="2.0.0"/>2.0.0
 * Suporte à gravação de várias regiões adicionado ao modo de gateway.
 
-### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+### <a name="1164"></a><a name="1.16.4"/>1.16.4
 * Corrigido um bug nos intervalos de chave de partição de leitura para uma consulta.
 
-### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+### <a name="1163"></a><a name="1.16.3"/>1.16.3
 * Corrigido um bug no tamanho do cabeçalho do token de continuação de configuração no modo DirectHttps.
 
-### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
+### <a name="1162"></a><a name="1.16.2"/>1.16.2
 * Adicionada a falha de streaming em suporte.
 * Adicionado suporte para metadados personalizados.
 * Lógica de tratamento de sessão aprimorada.
 * Corrigido um bug no cache de intervalo de chave de partição.
 * Corrigido um bug NPE no modo direto.
 
-### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+### <a name="1161"></a><a name="1.16.1"/>1.16.1
 * Adição de suporte para o Índice Exclusivo.
 * Adição de suporte para limitação do tamanho do token de continuação nas opções de feed.
 * Correção de bug na Serialização JSON (carimbo de data/hora).
 * Correção de bug na Serialização JSON (enum).
 * Atualização da dependência com.fasterxml.jackson.core:jackson-databind para o 2.9.5.
 
-### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+### <a name="1160"></a><a name="1.16.0"/>1.16.0
 * Melhoria do Pool de Conexões para o Modo Direto.
 * Melhoria da Pré-busca para a consulta de partição cruzada não orderby.
 * Melhoria da geração de UUID.
@@ -129,45 +129,45 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 * Adição de suporte para Estatísticas de Intervalo de Chaves de Partição para a Coleção.
 * Correção de bug no Suporte a várias regiões.
 
-### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+### <a name="1150"></a><a name="1.15.0"/>1.15.0
 * Melhor desempenho de serialização Json.
 * Esta versão do SDK requer a versão mais recente do Emulador do Azure Cosmos DB disponível para fazer o download em https://aka.ms/cosmosdb-emulator.
 
-### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
+### <a name="1140"></a><a name="1.14.0"/>1.14.0
 * Alterações internas para bibliotecas de amigos da Microsoft.
 
-### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
+### <a name="1130"></a><a name="1.13.0"/>1.13.0
 * Corrigido um problema na leitura de intervalos de chaves de partição única.
 * Corrigido um problema na análise do ResourceID que afeta o banco de dados com nomes curtos.
 * Corrigido um problema causado pela codificação da chave de partição.
 
-### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
+### <a name="1120"></a><a name="1.12.0"/>1.12.0
 * Correções de bugs críticos para solicitar processamento durante divisões de partição.
 * Corrigido um problema com os níveis de consistência Strong e BoundedStaleness.
 
-### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
+### <a name="1110"></a><a name="1.11.0"/>1.11.0
 * Adição de suporte a um novo nível de consistência chamado ConsistentPrefix.
 * Corrigido um bug na leitura da coleção no modo de sessão.
 
-### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
+### <a name="1100"></a><a name="1.10.0"/>1.10.0
 * Suporte habilitado para coleção particionada com 2.500 RU/s e escala em incrementos de 100 RU/s.
 * Correção de um bug no assembly nativo que pode causar exceção NullRef em algumas consultas.
 
-### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
+### <a name="196"></a><a name="1.9.6"/>1.9.6
 * Corrigido um erro na configuração do mecanismo de consulta que pode causar exceções para consultas no modo de gateway.
 * Corrigidos alguns bugs no contêiner de sessão que podem causar uma exceção "Recurso proprietário não encontrado" para solicitações imediatamente após a criação da coleção.
 
-### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
+### <a name="195"></a><a name="1.9.5"/>1.9.5
 * Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Veja [Suporte de agregação](sql-query-aggregates.md).
 * Adicionado suporte para alteração de feed.
 * Adicionado suporte para informações de cota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o log de script de procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
-* Corrigido um bug em que a consulta no modo DirectHttps pode parar de responder ao encontrar falhas de restrição.
+* Corrigimos um bug no qual a consulta no modo DirectHttps pode parar de responder ao encontrar falhas no acelerador.
 * Corrigido um bug no modo de sessão de consistência.
 * Corrigido um erro que pode causar a NullReferenceException no HttpContext quando a taxa de solicitação é alta.
 * Desempenho aprimorado de modo DirectHttps.
 
-### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
+### <a name="194"></a><a name="1.9.4"/>1.9.4
 * Acréscimo de suporte a proxy com base em instância simples do cliente com API ConnectionPolicy.setProxy().
 * Acréscimo da API DocumentClient.close() para desligar apropriadamente a instância DocumentClient.
 * Melhor desempenho de consulta no modo de conectividade direta, derivando o plano de consulta do assembly nativo em vez do Gateway.
@@ -175,22 +175,22 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 * Registro em log refatorado para usar SLF4J.
 * Alguns outros bugs corrigidos no leitor de consistência.
 
-### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
+### <a name="193"></a><a name="1.9.3"/>1.9.3
 * Correção de um erro no gerenciamento de conexão para evitar perdas de conexão no modo de conectividade direta.
 * Corrigido um bug na consulta TOP, em que uma exceção NullReference poderia ser gerada.
 * Desempenho aprimorado por meio da redução do número de chamadas de rede para os caches internos.
 * Acréscimo do código de status, ActivityID e URI de Solicitação em DocumentClientException para melhor solução de problemas.
 
-### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
+### <a name="192"></a><a name="1.9.2"/>1.9.2
 * Correção de um problema no gerenciamento de conexão para estabilidade.
 
-### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
+### <a name="191"></a><a name="1.9.1"/>1.9.1
 * Adicionado suporte para o nível de consistência BoundedStaleness.
 * Adicionado suporte para conectividade direta para operações CRUD para coleções particionadas.
 * Corrigido um erro na consulta de um banco de dados com SQL.
 * Corrigido um erro no cache da sessão em que o token de sessão pode ser definido incorretamente.
 
-### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
+### <a name="190"></a><a name="1.9.0"/>1.9.0
 * Adicionado suporte para várias consultas paralelas de partição.
 * Adição de suporte a consultas TOP/ORDER BY de coleções particionadas.
 * Adicionado suporte para consistência forte.
@@ -200,46 +200,46 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 * Adicionado Polygon e LineString DataTypes ao especificar a política de indexação de coleção para consultas espaciais de isolamento geográfico.
 * Problemas corrigidos com Java Doc para Java 1.8.
 
-### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
+### <a name="181"></a><a name="1.8.1"/>1.8.1
 * Um bug foi corrigido em PartitionKeyDefinitionMap para armazenar as coleções de partição única em cache e para não fazer solicitações extras de chave de partição de busca.
 * Um bug foi corrigido para não tentar novamente quando um valor de chave de partição incorreto for fornecido.
 
-### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
+### <a name="180"></a><a name="1.8.0"/>1.8.0
 * Suporte adicionado para contas de banco de dados de várias regiões.
 * Suporte adicionado para repetição automática em solicitações limitadas, com opções para personalizar o número máximo de repetições e o tempo de espera máximo de repetição.  Consulte RetryOptions e ConnectionPolicy.getRetryOptions().
 * IPartitionResolver preterido com base no código de particionamento personalizado. Use coleções particionadas para uma taxa de transferência e armazenamento superiores.
 
-### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
+### <a name="171"></a><a name="1.7.1"/>1.7.1
 * Adicionado suporte à política de repetição para limitação.  
 
-### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+### <a name="170"></a><a name="1.7.0"/>1.7.0
 * Adicionado suporte a TTL (tempo de vida) para documentos.
 
-### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+### <a name="160"></a><a name="1.6.0"/>1.6.0
 * Implementação de [coleções particionadas](partition-data.md) e [níveis de desempenho definidos pelo usuário](performance-levels.md).
 
-### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
+### <a name="151"></a><a name="1.5.1"/>1.5.1
 * Foi corrigido um bug no HashPartitionResolver para gerar valores de hash em little-endian para ser consistente com outros SDKs.
 
-### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+### <a name="150"></a><a name="1.5.0"/>1.5.0
 * Adicionar resolvedores de hash e intervalo para ajudar com a fragmentação de arquivos em várias partições.
 
-### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+### <a name="140"></a><a name="1.4.0"/>1.4.0
 * Implementar o Upsert. Novos métodos upsertXXX adicionados para dar suporte ao recurso Upsert.
 * Implementar o roteamento com base em ID. Nenhuma alteração pública de API, todas as alterações são internas.
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="130"></a><a name="1.3.0"/>1.3.0
 * Versão ignorada para alinhar os números de versão com outros SDKs
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+### <a name="120"></a><a name="1.2.0"/>1.2.0
 * Oferece suporte ao Índice Geoespacial.
 * Valida a propriedade ID para todos os recursos. As IDs de recursos não podem conter caracteres ?, /, #, \, ou terminar com um espaço.
 * Adiciona o novo cabeçalho "andamento de transformação do índice" ao ResourceResponse.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"/>1.1.0
 * Implementa a política de indexação V2
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 * SDK DO GA
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
@@ -250,7 +250,7 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será rejeitada pelo serviço.
 
 > [!WARNING]
-> Todas as versões **1. x** do SDK do SQL para Java serão desativadas em **30 de maio de 2020**.
+> Todas as versões **1.x** do SQL SDK para Java serão retiradas em **30 de maio de 2020**.
 > 
 >
 
@@ -269,14 +269,14 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | [2.4.4](#2.4.4) |24 de outubro de 2019 |--- |
 | [2.4.2](#2.4.2) |26 de setembro de 2019 |--- |
 | [2.4.1](#2.4.1) |18 de julho de 2019 |--- |
-| [2.4.0](#2.4.0) |04 de maio de 2019 |--- |
-| [2.3.0](#2.3.0) |24 de abril de 2019 |--- |
-| [2.2.3](#2.2.3) |16 de abril de 2019 |--- |
-| [2.2.2](#2.2.2) |05 de abril de 2019 |--- |
+| [2.4.0](#2.4.0) |04 de Maio de 2019 |--- |
+| [2.3.0](#2.3.0) |Apr 24, 2019 |--- |
+| [2.2.3](#2.2.3) |Apr 16, 2019 |--- |
+| [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
 | [2.2.0](#2.2.0) |27 de março de 2019 |--- |
-| [2.1.3](#2.1.3) |13 de março de 2019 |--- |
-| [2.1.2](#2.1.2) |09 de março de 2019 |--- |
-| [2.1.1](#2.1.1) |13 de dezembro de 2018 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
+| [2.1.1](#2.1.1) |13 de dez de 2018 |--- |
 | [2.1.0](#2.1.0) |20 de novembro de 2018 |--- |
 | [2.0.0](#2.0.0) |21 de setembro de 2018 |--- |
 | [1.16.4](#1.16.4) |10 de setembro de 2018 |30 de maio de 2020 |

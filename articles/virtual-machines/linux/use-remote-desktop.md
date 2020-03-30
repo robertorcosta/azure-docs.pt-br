@@ -1,5 +1,5 @@
 ---
-title: Usar Área de Trabalho Remota para uma VM do Linux no Azure
+title: Use desktop remoto para um VM Linux no Azure
 description: Saiba como instalar e configurar a Área de Trabalho Remota (xrdp) para conectar-se a uma VM do Linux no Azure usando ferramentas gráficas
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 8631b05bc42df86ef6865bf2a07c0e3deaaad2fe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2b1b708618c60153b8dbce69b26d832fa18b25aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034286"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476596"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar a Área de Trabalho Remota para conectar-se uma VM do Linux no Azure
 As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](https://www.xrdp.org)) para sua VM do Linux usando o modelo de implantação do Resource Manager.
 
 
-## <a name="prerequisites"></a>pré-requisitos
-Este artigo requer uma VM do Ubuntu 18, 4 LTS existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
+## <a name="prerequisites"></a>Pré-requisitos
+Este artigo requer um Ubuntu 18.04 LTS VM existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
-- A [CLI do Azure](quick-create-cli.md)
-- O [Portal do Azure](quick-create-portal.md)
+- A [CLI Azure](quick-create-cli.md)
+- O [portal Azure](quick-create-portal.md)
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instalar um ambiente de área de trabalho em sua VM do Linux
 A maioria das VMs do Linux no Azure não tem um ambiente de área de trabalho instalado por padrão. As VMs do Linux são gerenciadas normalmente usando conexões SSH, em vez de um ambiente de área de trabalho. Há vários ambientes de área de trabalho no Linux para sua escolha. Dependendo de sua escolha de ambiente de área de trabalho, ele pode consumir de um a 2 GB de espaço em disco e demorar de cinco a 10 minutos para instalar e configurar todos os pacotes necessários.
 
-O exemplo a seguir instala o ambiente de área de trabalho leve do [xfce4](https://www.xfce.org/) em uma VM do Ubuntu 18, 4 LTS. Os comandos para outras distribuições variam um pouco (use `yum` para instalar no Red Hat Enterprise Linux e configurar as regras `selinux` apropriadas ou use `zypper` para instalar no SUSE, por exemplo).
+O exemplo a seguir instala o ambiente de desktop [xfce4](https://www.xfce.org/) leve em um Ubuntu 18.04 LTS VM. Os comandos para outras distribuições variam um pouco (use `yum` para instalar no Red Hat Enterprise Linux e configurar as regras `selinux` apropriadas ou use `zypper` para instalar no SUSE, por exemplo).
 
 Primeiro, SSH para sua VM. O seguinte exemplo conecta-se à VM chamada *myvm.westus.cloudapp.azure.com* com o nome de usuário *azureuser*. Use seus próprios valores:
 
@@ -48,7 +48,7 @@ Em seguida, instale o xfce usando `apt` da seguinte maneira:
 
 ```bash
 sudo apt-get update
-sudo apt-get install xfce4
+sudo apt-get -y install xfce4
 ```
 
 ## <a name="install-and-configure-a-remote-desktop-server"></a>Instalar e configurar um servidor de área de trabalho remoto
@@ -105,7 +105,7 @@ Após a autenticação, o ambiente de área de trabalho xfce carregará e será 
 Se o cliente RDP local usar o NLA (autenticação no nível da rede), talvez você precise desabilitar essa configuração de conexão. Atualmente, o XRDP não dá suporte ao NLA. Examine também soluções RDP alternativas que dão suporte ao NLA, como o [FreeRDP](https://www.freerdp.com).
 
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 Se você não puder se conectar à sua VM do Linux usando um cliente de Área de Trabalho Remota, use `netstat` em sua VM do Linux para verificar se sua VM está escutando conexões RDP da seguinte maneira:
 
 ```bash

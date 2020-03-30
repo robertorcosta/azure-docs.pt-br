@@ -1,5 +1,6 @@
 ---
 title: Esquema de definição (arquivo .cscfg) dos Serviços de Nuvem do Azure | Microsoft Docs
+description: Um arquivo de configuração de serviço (.cscfg) especifica quantas instâncias de função devem ser implantadas para cada função, valores de configuração e impressões digitais de certificado para uma função.
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 71c0bb1b09d480a05a9e5a54b269d0da8fde5bc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534738"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuração dos Serviços de Nuvem do Azure (arquivo .cscfg)
 O arquivo de configuração de serviço especifica o número de instâncias de função a ser implantado para cada função no serviço, os valores das configurações e as impressões digitais de todos os certificados associados a uma função. Se o serviço fizer parte de uma Rede Virtual, as informações de configuração da rede deverão ser fornecidas no arquivo de configuração de serviço, bem como no arquivo de configuração de rede virtual. A extensão padrão do arquivo de configuração de serviço é .cscfg.
@@ -50,12 +51,12 @@ Os tópicos a seguir descrevem o esquema para o elemento `ServiceConfiguration`:
 ## <a name="service-configuration-namespace"></a>Namespace de configuração de serviço
 O namespace de XML do arquivo de configuração de serviço é: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
-##  <a name="ServiceConfiguration"></a> Elemento ServiceConfiguration
+##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a> Elemento ServiceConfiguration
 O elemento `ServiceConfiguration` é o elemento de nível superior do arquivo de configuração de serviço.
 
 A tabela a seguir descreve os atributos do elemento `ServiceConfiguration`. Todos os valores de atributos são tipos de cadeia de caracteres.
 
-| Atributo | Description |
+| Atributo | Descrição |
 | --------- | ----------- |
 |serviceName|Obrigatórios. O nome do serviço de nuvem. O nome fornecido aqui deve corresponder ao nome especificado no arquivo de definição de serviço.|
 |osFamily|Opcional. Especifica o SO convidado que será executado em instâncias de função no serviço de nuvem. Para obter informações sobre versões do SO convidado com suporte, consulte [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md) (Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure).<br /><br /> Se você não incluir um valor `osFamily` e não tiver definido o atributo `osVersion` como uma versão específica do SO convidado, será usado um valor padrão de 1.|

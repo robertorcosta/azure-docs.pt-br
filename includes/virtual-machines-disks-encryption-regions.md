@@ -8,20 +8,18 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 717bf922ac600242892d86ad6b58d80b36a0710e
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 3d0bd5d6403264ae6c71b43468b61930bcf6b86c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299475"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79504398"
 ---
-Para SSDs Premium, SSDs padrão e HDDs padrão, somente as seguintes regiões dão suporte atualmente a chaves gerenciadas pelo cliente:
+Para SSDs premium, SSDs padrão e HDDs padrão, apenas as seguintes regiões atualmente suportam chaves gerenciadas pelo cliente:
 
-- Disponível como uma oferta GA nas regiões leste dos EUA, oeste dos EUA 2, Sul EUA Central, Sul do Reino Unido.
-- Disponível como uma visualização pública nas regiões EUA Central ocidental, leste dos EUA 2, Canadá central e Europa Setentrional.
+- Disponível como uma oferta de GA nas regiões públicas e regiões do Governo Azure.
 
-
-Para ultra discos, somente as seguintes regiões oferecem suporte a chaves gerenciadas pelo cliente como uma oferta GA:
+Para discos ultra, apenas as seguintes regiões suportam chaves gerenciadas pelo cliente como uma oferta ga:
 
 - Leste dos EUA
 - Oeste dos EUA 2

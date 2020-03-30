@@ -1,7 +1,7 @@
 ---
-title: Extrair recursos de N-Gram de referência de módulo de texto
+title: Extrair recursos n-gram da referência do módulo de texto
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo extrair N-Gram no Azure Machine Learning para personalizarr dados de texto.
+description: Aprenda a usar o módulo Extrato N-Gram no Azure Machine Learning para fazer a featurização de dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,132 +9,132 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: cae128505c61e7c640819041c6ffdae10a4947e7
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152271"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477605"
 ---
-# <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto
+# <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos n-gram da referência do módulo de texto
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia). Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
+Este artigo descreve um módulo no azure Machine Learning designer (visualização). Use os Recursos de Extrato N-Gram do módulo Texto para *fazer uma featurização de* dados de texto não estruturados. 
 
-## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuração dos recursos de extrair N-Gram do módulo de texto
+## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuração dos recursos de extrato N-Gram do módulo texto
 
-O módulo dá suporte aos seguintes cenários para usar um dicionário de n-Gram:
+O módulo suporta os seguintes cenários para usar um dicionário n-gram:
 
-* [Crie um novo dicionário de n-Gram](#create-a-new-n-gram-dictionary) a partir de uma coluna de texto livre.
+* [Crie um novo dicionário n-gram](#create-a-new-n-gram-dictionary) a partir de uma coluna de texto livre.
 
-* [Use um conjunto existente de recursos de texto](#use-an-existing-n-gram-dictionary) para personalizar uma coluna de texto livre.
+* [Use um conjunto de recursos de texto existentes](#use-an-existing-n-gram-dictionary) para fazer uma coluna de texto livre.
 
-* [Pontuar ou publicar um modelo](#score-or-publish-a-model-that-uses-n-grams) que usa n-grams.
+* [Marque ou publique um modelo](#score-or-publish-a-model-that-uses-n-grams) que use n-grams.
 
-### <a name="create-a-new-n-gram-dictionary"></a>Criar um novo dicionário de n-Gram
+### <a name="create-a-new-n-gram-dictionary"></a>Crie um novo dicionário n-gram
 
-1.  Adicione os recursos extrair N-Gram do módulo de texto ao seu pipeline e conecte o conjunto de módulos que contém o texto que você deseja processar.
+1.  Adicione os Recursos do Extrato N-Gram do módulo Texto ao seu pipeline e conecte o conjunto de dados que tem o texto que você deseja processar.
 
-1.  Use **coluna de texto** para escolher uma coluna de tipo de cadeia de caracteres que contém o texto que você deseja extrair. Como os resultados são detalhados, você pode processar apenas uma única coluna de cada vez.
+1.  Use **a coluna Texto** para escolher uma coluna de tipo de string que contenha o texto que deseja extrair. Como os resultados são verbosos, você pode processar apenas uma única coluna de cada vez.
 
-1. Defina o **modo de vocabulário** a ser **criado** para indicar que você está criando uma nova lista de recursos de n-Gram. 
+1. Defina **o modo Vocabulário** para **Criar** para indicar que você está criando uma nova lista de recursos n-gram. 
 
-1. Defina o **tamanho de n-gramas** para indicar o tamanho *máximo* dos n-gramas a serem extraídos e armazenados. 
+1. Defina **o tamanho de N-Grams** para indicar o tamanho *máximo* dos n-gramas para extrair e armazenar. 
 
-    Por exemplo, se você inserir 3, unigrams, bigrams e trigrams serão criados.
+    Por exemplo, se você inserir 3, unigramas, bigrams e trigramas serão criados.
 
-1. **Função de peso** especifica como criar o vetor de recurso de documento e como extrair o vocabulário de documentos.
+1. **A função de ponderação** especifica como construir o vetor de recurso do documento e como extrair vocabulário de documentos.
 
-    * **Peso binário**: atribui um valor de presença binária para os n-grams extraídos. O valor de cada n-Gram é 1 quando ele existe no documento; caso contrário, 0.
+    * **Peso Binário**: Atribui um valor de presença binário aos n-gramas extraídos. O valor para cada n-grama é 1 quando ele existe no documento, e 0 de outra forma.
 
-    * **TF Weight**: atribui uma pontuação de frequência de termo (TF) para os n-grams extraídos. O valor de cada n-Gram é sua frequência de ocorrência no documento.
+    * **Peso TF**: Atribui uma pontuação de freqüência de termo (TF) aos n-gramas extraídos. O valor para cada n-grama é sua freqüência de ocorrência no documento.
 
-    * **Peso IDF**: atribui uma pontuação de IDF (frequência de documento inversa) para os n-gramas extraídos. O valor de cada n-Gram é o log do tamanho de Corpus dividido por sua frequência de ocorrência no Corpus inteiro.
+    * **Peso do IDF**: Atribui uma pontuação de freqüência de documento inverso (IDF) aos n-gramas extraídos. O valor para cada n-grama é o registro do tamanho do corpus dividido por sua freqüência de ocorrência em todo o corpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF-IDF Weight**: atribui uma pontuação de termo de frequência/documento inverso (TF/IDF) para os n-grams extraídos. O valor de cada n-Gram é sua pontuação de TF multiplicada por sua pontuação de IDF.
+    *  **Peso TF-IDF**: Atribui uma freqüência de termo/freqüência de documento inverso (TF/IDF) ao n-grams extraído. O valor para cada n-gram é sua pontuação de TF multiplicada pela pontuação do IDF.
 
-1. Defina o **comprimento mínimo da palavra** como o número mínimo de letras que podem ser usadas em qualquer *palavra única* em um n-Gram.
+1. Defina **o comprimento mínimo** da palavra para o número mínimo de letras que podem ser usadas em qualquer *palavra* em um n-grama.
 
-1. Use o **comprimento máximo da palavra** para definir o número máximo de letras que podem ser usadas em qualquer *palavra única* em um n-grama.
+1. Use **comprimento máximo de palavras** para definir o número máximo de letras que podem ser usadas em qualquer *palavra* em um n-grama.
 
-    Por padrão, são permitidos até 25 caracteres por palavra ou token.
+    Por padrão, até 25 caracteres por palavra ou token são permitidos.
 
-1. Use a **frequência mínima absoluta do documento n-Gram** para definir as ocorrências mínimas necessárias para que qualquer n-Gram seja incluído no dicionário de n-Gram. 
+1. Use **a freqüência absoluta do documento n-gram mínimo** para definir as ocorrências mínimas necessárias para que qualquer n-gram seja incluído no dicionário n-gram. 
 
-    Por exemplo, se você usar o valor padrão de 5, qualquer n-Gram deverá aparecer pelo menos cinco vezes no corpus a ser incluído no dicionário de n-Gram. 
+    Por exemplo, se você usar o valor padrão de 5, qualquer n-gram deve aparecer pelo menos cinco vezes no corpus para ser incluído no dicionário n-gram. 
 
-1.  Defina a **taxa máxima de documentos de n-grama** para a proporção máxima do número de linhas que contêm um n-Gram específico, além do número de linhas no Corpus geral.
+1.  Definir **a razão máxima de documento n-grama** para a razão máxima do número de linhas que contêm um n-grama particular, sobre o número de linhas no corpus geral.
 
-    Por exemplo, uma taxa de 1 indicaria que, mesmo se um n-Gram específico estiver presente em cada linha, o n-Gram poderá ser adicionado ao dicionário de n-Gram. Normalmente, uma palavra que ocorre em cada linha seria considerada uma palavra de ruído e seria removida. Para filtrar as palavras de ruído dependentes do domínio, tente reduzir essa taxa.
+    Por exemplo, uma razão de 1 indicaria que, mesmo que um n-gram específico esteja presente em cada linha, o n-grama pode ser adicionado ao dicionário n-gram. Mais tipicamente, uma palavra que ocorre em cada linha seria considerada uma palavra de ruído e seria removida. Para filtrar palavras de ruído dependentes do domínio, tente reduzir essa proporção.
 
     > [!IMPORTANT]
-    > A taxa de ocorrência de palavras específicas não é uniforme. Varia de documento para documento. Por exemplo, se você estiver analisando comentários de clientes sobre um produto específico, o nome do produto poderá ser muito alta, e perto de uma palavra de ruído, mas ser um termo significativo em outros contextos.
+    > A taxa de ocorrência de palavras específicas não é uniforme. Varia de documento para documento. Por exemplo, se você está analisando comentários de clientes sobre um produto específico, o nome do produto pode ser de alta frequência e perto de uma palavra de ruído, mas ser um termo significativo em outros contextos.
 
-1. Selecione a opção **normalizar vetores de recurso de n-Gram** para normalizar os vetores de recurso. Se essa opção estiver habilitada, cada vetor de recurso de n-Gram será dividido por sua norma de L2.
+1. Selecione a opção **Normalize vetores de recurso n-gram** para normalizar os vetores de recurso. Se esta opção estiver habilitada, cada vetor de recurso n-gram será dividido pela norma L2.
 
-1. Execute o pipeline.
+1. Envie o oleoduto.
 
-### <a name="use-an-existing-n-gram-dictionary"></a>Usar um dicionário de n-Gram existente
+### <a name="use-an-existing-n-gram-dictionary"></a>Use um dicionário n-gram existente
 
-1.  Adicione os recursos extrair N-Gram do módulo de texto ao seu pipeline e conecte o conjunto de módulos que contém o texto que você deseja processar à porta do **conjunto** de recursos.
+1.  Adicione os Recursos do Extrato N-Gram do módulo Texto ao seu pipeline e conecte o conjunto de dados que tem o texto que deseja processar à porta **Dataset.**
 
-1.  Use a **coluna texto** para selecionar a coluna de texto que contém o texto que você deseja personalizar. Por padrão, o módulo seleciona todas as colunas do tipo **cadeia de caracteres**. Para obter melhores resultados, processe uma única coluna de cada vez.
+1.  Use **a coluna Texto** para selecionar a coluna de texto que contém o texto que deseja fazer featurize. Por padrão, o módulo seleciona todas as colunas de **string**tipo . Para obter melhores resultados, processe uma única coluna de cada vez.
 
-1. Adicione o conjunto de dados salvo que contém um dicionário de n-Gram gerado anteriormente e conecte-o à porta de **vocabulário de entrada** . Você também pode conectar a saída de **vocabulário de resultado** de uma instância upstream do módulo extrair recursos N-Gram de texto.
+1. Adicione o conjunto de dados salvo que contém um dicionário n-gram gerado anteriormente e conecte-o à porta **de vocabulário de entrada.** Você também pode conectar a saída **de vocabulário de resultado** de uma instância upstream dos Recursos Extrato N-Gram do módulo Texto.
 
-1. Para o **modo vocabulário**, selecione a opção atualização **somente leitura** na lista suspensa.
+1. Para **o modo Vocabulário,** selecione a opção **ReadOnly** update na lista de baixa.
 
-   A opção **ReadOnly** representa o corpus de entrada para o vocabulário de entrada. Em vez de calcular frequências de termo do novo conjunto de dados de texto (na entrada à esquerda), os pesos de n-Gram do vocabulário de entrada são aplicados como estão.
+   A opção **ReadOnly** representa o corpus de entrada para o vocabulário de entrada. Em vez de calcular as freqüências do termo de computação do novo conjunto de dados de texto (na entrada esquerda), os pesos de n-grama do vocabulário de entrada são aplicados como está.
 
    > [!TIP]
-   > Use esta opção quando estiver pontuando um classificador de texto.
+   > Use esta opção quando estiver marcando um classificador de texto.
 
-1.  Para todas as outras opções, consulte as descrições de propriedade na [seção anterior](#create-a-new-n-gram-dictionary).
+1.  Para todas as outras opções, consulte as descrições da propriedade na [seção anterior](#create-a-new-n-gram-dictionary).
 
-1.  Execute o pipeline.
+1.  Envie o oleoduto.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Pontuar ou publicar um modelo que usa n-grams
+### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Marcar ou publicar um modelo que usa n-grams
 
-1.  Copie os **recursos de extrair N-Gram do** módulo de texto do fluxo de bits de treinamento para o fluxo de texto de pontuação.
+1.  Copie os **Recursos do Extrato N-Gram do** módulo Texto do fluxo de dados de treinamento para o fluxo de dados de pontuação.
 
-1.  Conecte a saída de **vocabulário de resultado** do fluxo de **dados** de treinamento ao vocabulário de entrada no fluxo de informações de pontuação.
+1.  Conecte a saída do Vocabulário de **Resultado** do fluxo de dados de treinamento ao **Vocabulário de Entrada** no fluxo de dados de pontuação.
 
-1.  No fluxo de trabalho de pontuação, modifique os recursos de extrair N-Gram do módulo de texto e defina o parâmetro **modo de vocabulário** como **ReadOnly**. Deixe todas as outras as mesmas.
+1.  No fluxo de trabalho de pontuação, modifique os Recursos de Extrato N-Gram do módulo Texto e defina o parâmetro **de modo vocabulário** para **ReadOnly**. Deixe tudo igual.
 
-1.  Para publicar o pipeline, salve o **vocabulário de resultado** como um conjunto de uma.
+1.  Para publicar o pipeline, salve **o Vocabulário de Resultado** como um conjunto de dados.
 
-1.  Conecte o conjunto de texto salvo ao módulo extrair os recursos do N-Gram do Text no grafo de pontuação.
+1.  Conecte o conjunto de dados salvo aos Recursos de Extrato N-Gram do módulo Texto em seu gráfico de pontuação.
 
 ## <a name="results"></a>Resultados
 
-O módulo extrair recursos N-Gram do texto cria dois tipos de saída: 
+O Extract N-Gram Features from Text cria dois tipos de saída: 
 
-* **Conjunto de resultados**: essa saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **coluna de texto** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
+* **Conjunto de dados de resultados**: Esta saída é um resumo do texto analisado combinado com os n-gramas que foram extraídos. As colunas que você não selecionou na opção **Texto da coluna** são passadas para a saída. Para cada coluna de texto que você analisa, o módulo gera estas colunas:
 
-  * **Matriz de ocorrências de n-Gram**: o módulo gera uma coluna para cada n-Gram encontrado no total de Corpus e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
+  * **Matriz de ocorrências n-gram:** O módulo gera uma coluna para cada n-grama encontrado no corpus total e adiciona uma pontuação em cada coluna para indicar o peso do n-grama para essa linha. 
 
-* **Vocabulário de resultado**: o vocabulário contém o dicionário de n-Gram real, junto com as pontuações de frequência de termos que são geradas como parte da análise. Você pode salvar o conjunto de informações para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
+* **Vocabulário de resultados**: O vocabulário contém o dicionário n-gram real, juntamente com os escores de freqüência de termo que são gerados como parte da análise. Você pode salvar o conjunto de dados para reutilização com um conjunto diferente de entradas ou para uma atualização posterior. Você também pode reutilizar o vocabulário para modelagem e pontuação.
 
-### <a name="result-vocabulary"></a>Vocabulário de resultado
+### <a name="result-vocabulary"></a>Vocabulário de resultados
 
-O vocabulário contém o dicionário de n-Gram com as pontuações de frequência de termos que são geradas como parte da análise. As pontuações de DF e IDF são geradas independentemente de outras opções.
+O vocabulário contém o dicionário n-gram com os escores de freqüência de termo que são gerados como parte da análise. As pontuações do DF e do IDF são geradas independentemente de outras opções.
 
-+ **ID**: um identificador gerado para cada n-Gram exclusivo.
-+ **NGram**: o n-Gram. Espaços ou outros separadores de palavras são substituídos pelo caractere de sublinhado.
-+ **DF**: a pontuação de frequência do termo para o n-Gram no Corpus original.
-+ **IDF**: a pontuação de frequência de documento inversa para o n-Gram no Corpus original.
++ **ID**: Um identificador gerado para cada n-grama único.
++ **NGram**: O n-grama. Espaços ou outros separadores de palavras são substituídos pelo caractere sublinhado.
++ **DF**: A pontuação de freqüência do termo para o n-gram no corpus original.
++ **IDF**: A pontuação de freqüência de documento inverso para o n-gram no corpus original.
 
-Você pode atualizar manualmente esse conjunto de um, mas pode introduzir erros. Por exemplo:
+Você pode atualizar manualmente este conjunto de dados, mas você pode introduzir erros. Por exemplo: 
 
-* Um erro será gerado se o módulo encontrar linhas duplicadas com a mesma chave no vocabulário de entrada. Certifique-se de que duas linhas no vocabulário tenham a mesma palavra.
-* O esquema de entrada dos conjuntos de dados de vocabulário deve corresponder exatamente, incluindo nomes de coluna e tipos de coluna. 
-* A coluna de **ID** e a coluna **DF** devem ser do tipo inteiro. 
-* A coluna **IDF** deve ser do tipo float.
+* Um erro é levantado se o módulo encontrar linhas duplicadas com a mesma chave no vocabulário de entrada. Certifique-se de que não há duas linhas no vocabulário que tenham a mesma palavra.
+* O esquema de entrada dos conjuntos de dados do vocabulário deve corresponder exatamente, incluindo nomes de colunas e tipos de colunas. 
+* A coluna **ID** e a coluna **DF** devem ser do tipo inteiro. 
+* A coluna **IDF** deve ser do tipo flutuante.
 
 > [!Note]
-> Não conecte a saída de dados ao módulo treinar modelo diretamente. Você deve remover as colunas de texto livre antes que elas sejam inseridas no modelo de treinamento. Caso contrário, as colunas de texto livre serão tratadas como recursos categóricos.
+> Não conecte a saída de dados diretamente ao módulo Modelo de Trem. Você deve remover colunas de texto grátis antes que elas sejam alimentadas no Modelo de Trem. Caso contrário, as colunas de texto livre serão tratadas como características categóricas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.
+Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning.

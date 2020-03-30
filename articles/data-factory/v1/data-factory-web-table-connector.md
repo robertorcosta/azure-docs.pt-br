@@ -1,5 +1,5 @@
 ---
-title: Mover dados da tabela da Web usando Azure Data Factory
+title: Mover dados da Web Table usando a fábrica de dados do Azure
 description: Saiba mais sobre como mover dados de uma tabela em uma página da Web usando o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265708"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
@@ -34,7 +34,7 @@ Atualmente, o data factory dá suporte apenas para a movimentação de dados de 
 > [!IMPORTANT]
 > No momento, esse conector da Web dá suporte apenas à extração do conteúdo da tabela de uma página HTML. Para recuperar dados de um ponto de extremidade HTTP/s, use o [conector HTTP](data-factory-http-connector.md) em vez disso.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar este conector de tabela da Web, você precisa configurar um Integration Runtime auto-hospedado (também conhecido como Gateway de Gerenciamento de Dados) e configurar a propriedade `gatewayName` no serviço vinculado do coletor. Por exemplo, para copiar da tabela da Web para o Armazenamento de Blobs do Azure, configure o serviço vinculado do Armazenamento do Azure da seguinte forma:
 
@@ -55,7 +55,7 @@ Para usar este conector de tabela da Web, você precisa configurar um Integratio
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs. 
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio,** **Azure PowerShell,** **azure Resource Manager,** **.NET API**e **REST API**. Consulte [o tutorial de atividade copiar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -70,7 +70,7 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado à Web.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade type deve ser definida como: **Web** |Sim |
 | Url |URL para a origem da Web |Sim |
@@ -96,9 +96,9 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
-A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **WebTable** tem as propriedades a seguir
+A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **WebTable** tem as propriedades a seguir
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type |tipo do conjunto de dados. Deve ser definido como **WebTable** |Sim |
 | caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
@@ -163,7 +163,7 @@ O exemplo a seguir mostra como copiar dados de uma tabela da Web para um blob do
 }
 ```
 
-**Serviço vinculado de armazenamento do Azure**
+**Serviço vinculado ao Azure Storage**
 
 ```json
 {
@@ -205,7 +205,7 @@ O exemplo a seguir mostra como copiar dados de uma tabela da Web para um blob do
 ```
 
 
-**Conjunto de dados de saída de Blob do Azure**
+**Conjunto de dados de saída do Azure Blob**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
 
@@ -231,7 +231,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 
 
-**Pipeline com Atividade de cópia**
+**Pipeline com atividade de cópia**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **WebSource** e o tipo **sink** está definido como **BlobSink**.
 

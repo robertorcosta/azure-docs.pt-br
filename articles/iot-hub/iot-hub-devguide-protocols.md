@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284623"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referência – escolha um protocolo de comunicação
@@ -25,7 +25,7 @@ O Hub IoT permite que os dispositivos usem os seguintes protocolos para comunica
 * AMQP sobre WebSockets
 * HTTPS
 
-Para saber mais sobre como esses protocolos dão suporte a recursos específicos do Hub IoT, confira [Orientação sobre comunicações de dispositivo para nuvem](iot-hub-devguide-d2c-guidance.md) e [Orientação sobre comunicações de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md).
+Para saber mais sobre como esses protocolos dão suporte a recursos específicos do Hub IoT, confira [Orientação sobre comunicações de dispositivo para a nuvem](iot-hub-devguide-d2c-guidance.md) e [Orientação sobre comunicações de dispositivo para a nuvem](iot-hub-devguide-c2d-guidance.md).
 
 A tabela a seguir fornece as recomendações de alto nível para sua escolha de protocolo:
 
@@ -39,7 +39,7 @@ Considere os seguintes pontos ao escolher seu protocolo de comunicação do lado
 
 * **Padrão da nuvem para o dispositivo**. O HTTPS não tem uma maneira eficiente de implementar o envio por push do servidor. Assim, ao usar HTTPS, os dispositivos sondam o Hub IoT em busca de mensagens da nuvem para o dispositivo. Essa abordagem é ineficiente para o dispositivo e para o Hub IoT. De acordo com as diretrizes atuais de HTTPS, cada dispositivo deve sondar mensagens a cada 25 minutos ou mais. MQTT e o AMQP dão suporte ao envio por push do servidor quando recebem mensagens de nuvem para o dispositivo. Eles permitem envios por push imediatos de mensagens do Hub IoT para o dispositivo. Se a latência de entrega for uma preocupação, o MQTT ou AMQP serão as melhores opções de protocolo. Para dispositivos conectados raramente, o HTTPS funciona também.
 
-* **Gateways de campo**. Ao usar MQTT e HTTPS, você não pode conectar vários dispositivos (cada um com suas próprias credenciais por dispositivo) usando a mesma conexão TLS. Para [cenários de gateway de campo](iot-hub-devguide-endpoints.md#field-gateways), que exigem uma conexão TLS entre o gateway de campo e o Hub IoT para cada dispositivo conectado, esses protocolos ficam abaixo do ideal.
+* **Gateways de campo**. Ao usar MQTT e HTTPS, você não pode conectar vários dispositivos (cada um com suas próprias credenciais por dispositivo) usando a mesma conexão TLS. Para [cenários de gateway de campo](iot-hub-devguide-endpoints.md#field-gateways) que exigem uma conexão TLS entre o gateway de campo e o Hub IoT para cada dispositivo conectado, esses protocolos ficam abaixo do ideal.
 
 * **Dispositivos com poucos recursos**. As bibliotecas de MQTT e HTTPS têm uma superfície menor do que as bibliotecas de AMQP. Dessa forma, caso o dispositivo tenha recursos limitados (por exemplo, menos de 1 MB de RAM), esses protocolos poderão ser a única implementação de protocolo disponível.
 
@@ -48,7 +48,7 @@ Considere os seguintes pontos ao escolher seu protocolo de comunicação do lado
 * **Tamanho da carga**. O MQTT e o AMQP são protocolos binários, que resultam em cargas mais compactas que o HTTPS.
 
 > [!WARNING]
-> Ao usar HTTPS, cada dispositivo deve sondar mensagens da nuvem para o dispositivo não mais do que uma vez a cada 25 minutos. No desenvolvimento, cada dispositivo pode sondar com mais frequência, se desejado.
+> Ao usar HTTPS, cada dispositivo deve procurar mensagens de nuvem para dispositivo não mais do que uma vez a cada 25 minutos. Em desenvolvimento, cada dispositivo pode sondar com mais freqüência, se desejar.
 
 ## <a name="port-numbers"></a>Números de porta
 
