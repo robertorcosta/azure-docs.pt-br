@@ -1,5 +1,5 @@
 ---
-title: Usar Azure Resource Health para monitorar a integridade do banco de dados
+title: Use o Azure Resource Health para monitorar a saúde do banco de dados
 description: Use o Azure Resource Health para monitorar a integridade do Banco de Dados SQL, ajuda a diagnosticar e obter suporte quando um problema do Azure afeta seus recursos SQL.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
 ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79208866"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Use o Resource Health para solucionar problemas de conectividade do Banco de Dados SQL do Azure
@@ -40,7 +40,7 @@ Um status **Disponível** significa que o Resource Health não detectou falhas d
 
 ### <a name="degraded"></a>Degradado
 
-Um status **Degradado** significa que o Resource Health detectou a maioria dos logins bem-sucedidos, mas também algumas falhas. Esses são erros de logon transitório mais prováveis. Para reduzir o impacto de problemas de conexão causados por erros de login temporários, implemente [lógica de nova tentativa](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) em seu código.
+Um status **de Degradado** significa que a Resource Health detectou a maioria dos logins bem sucedidos, mas algumas falhas também. Esses são erros de logon transitório mais prováveis. Para reduzir o impacto de problemas de conexão causados por erros de login temporários, implemente [lógica de nova tentativa](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) em seu código.
 
 ![Degradado](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 

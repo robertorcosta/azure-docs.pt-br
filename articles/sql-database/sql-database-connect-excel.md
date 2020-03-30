@@ -1,5 +1,5 @@
 ---
-title: Conectar o Excel a um banco de dados individual
+title: Conecte o Excel a um único banco de dados
 description: Saiba como conectar o Microsoft Excel a um banco de dados individual no Banco de Dados SQL do Azure. Importar dados para o Excel para exploração de dados e geração de relatórios.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
 ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827126"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Conectar o Excel a um banco de dados individual no Banco de Dados SQL do Azure e criar um relatório
@@ -36,9 +36,9 @@ Você também precisará de uma cópia do Excel. Este artigo usa o [Microsoft Ex
    ![Selecione a fonte de dados: Conectar o Excel ao banco de dados SQL.](./media/sql-database-connect-excel/excel_data_source.png)
 
    O Assistente de conexão de dados é aberto.
-3. Na caixa de diálogo **Conectar ao servidor do banco de dados**, digite o **Nome do servidor** do Banco de Dados SQL que você deseja conectar no formato <*nomeservidor*> **.database.windows.net**. Por exemplo, **msftestserver.database.windows.net**. Opcionalmente, insira o nome de seu banco de dados. Selecione **OK** para abrir a janela de credenciais. 
+3. Na caixa de diálogo **Conectar ao servidor do banco de dados**, digite o **Nome do servidor** do Banco de Dados SQL que você deseja conectar no formato <*nomeservidor*>**.database.windows.net**. Por exemplo, **msftestserver.database.windows.net**. Opcionalmente, insira o nome de seu banco de dados. Selecione **OK** para abrir a janela de credenciais. 
 
-   ![Caixa de diálogo conectar ao servidor de banco de dados](media/sql-database-connect-excel/server-name.png)
+   ![Conecte-se à caixa de diálogo do servidor de banco de dados](media/sql-database-connect-excel/server-name.png)
 
 4. Na caixa de diálogo **Banco de Dados do SQL Server**, selecione **Banco de Dados** à esquerda e, em seguida, insira seu **nome de usuário** e **senha** para o servidor do Banco de Dados SQL ao qual você deseja se conectar. Selecione **Conectar** para abrir o **Navegador**. 
 
@@ -67,7 +67,7 @@ Agora que a conexão foi estabelecida, você tem várias opções diferentes qua
 
 > [!TIP]
 > Se você quiser se conectar a outras pastas de trabalho do Excel e planilhas para o banco de dados, selecione a guia **Dados** e selecione **Fontes recentes** para iniciar a caixa de diálogo **Fontes recentes**. A partir daí, escolha a conexão que você criou da lista e, em seguida, clique em **Abrir**.
-> caixa de diálogo ![fontes recentes](media/sql-database-connect-excel/recent-connections.png)
+> ![Caixa de diálogo Fontes recentes](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Criar uma conexão permanente usando um arquivo .odc
 
@@ -77,7 +77,7 @@ Para salvar os detalhes de conexão permanentemente, você pode criar um arquivo
    1. Selecione **Procurar mais** para abrir a caixa de diálogo **Selecionar fonte de dados**.   
    2. Selecione o arquivo **+NewSqlServerConnection.odc** e, em seguida, selecione **Abrir** para abrir o **Assistente para conexão de dados**.
 
-      ![Caixa de diálogo Nova conexão](media/sql-database-connect-excel/new-connection.png)
+      ![Caixa de diálogo Nova Conexão](media/sql-database-connect-excel/new-connection.png)
 
 2. Em **Assistente para conexão de dados**, digite seu nome do servidor e suas credenciais do Banco de Dados SQL. Selecione **Avançar**. 
    1. Selecione o banco de dados que contém os dados na lista suspensa. 
@@ -92,7 +92,7 @@ Para salvar os detalhes de conexão permanentemente, você pode criar um arquivo
 
 4. Selecione como você deseja importar os dados. Escolhemos a fazer uma Tabela dinâmica. Você também pode modificar as propriedades de conexão selecionando **Propriedades**. Selecione **OK** quando estiver pronto. Se você não escolheu salvar a senha com o arquivo, você será solicitado a digitar suas credenciais. 
 
-    ![Importar Dados](media/sql-database-connect-excel/import-data2.png)
+    ![Importar dados](media/sql-database-connect-excel/import-data2.png)
 
 5. Verifique se sua nova conexão foi salvo, expandindo a guia **Dados** e selecionando **Conexões existentes**. 
 

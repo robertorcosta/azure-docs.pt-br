@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: exemplos de configuração do roteador'
+title: 'Azure ExpressRoute: amostras de configuração do roteador'
 description: Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076657"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
@@ -32,7 +32,7 @@ Os modelos de configuração abaixo se aplicam a todos os emparelhamentos. Exami
 ## <a name="cisco-ios-xe-based-routers"></a>Roteadores com base em Cisco IOS-XE
 Os modelos nesta seção se aplicam a qualquer roteador que esteja executando a família de sistemas operacionais IOS XE.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e subinterfaces
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configuração de interfaces e subinterfaces
 Você precisará de uma sub interface por emparelhamento em cada roteador, que o conecte à Microsoft. Uma interface de sub-rotina pode ser identificada com uma ID de VLAN ou um par empilhado de IDs VLAN e um endereço IP.
 
 **Definição da interface Dot1Q**
@@ -51,7 +51,7 @@ Este exemplo fornece a definição de sub-interface para a sub-interface com dua
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Configurando sessões eBGP
+### <a name="2-setting-up-ebgp-sessions"></a>2. Criação de sessões de eBGP
 Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. O exemplo a seguir lhe permite configurar uma sessão BGP com a Microsoft. Se o endereço IPv4 usado para a sua sub interface era a.b.c. d, o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
     router bgp <Customer_ASN>
@@ -63,7 +63,7 @@ Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. 
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando prefixos a serem anunciados na sessão BGP
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuração de prefixos a serem anunciados durante a sessão BGP
 Você pode configurar seu roteador para anunciar prefixos selecionados para a Microsoft. Você pode fazer isso usando o exemplo a seguir.
 
     router bgp <Customer_ASN>
@@ -76,7 +76,7 @@ Você pode configurar seu roteador para anunciar prefixos selecionados para a Mi
      exit-address-family
     !
 
-### <a name="4-route-maps"></a>4. mapas de rota
+### <a name="4-route-maps"></a>4. Mapas de rota
 Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propagados em sua rede. Você pode usar o exemplo a seguir para realizar a tarefa. Certifique-se de que as listas de prefixo foram configuradas apropriadamente.
 
     router bgp <Customer_ASN>
@@ -97,7 +97,7 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
 ## <a name="juniper-mx-series-routers"></a>Roteadores da série Juniper MX
 Os exemplos nesta seção se aplicam aos os roteadores da série Juniper MX.
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configurando interfaces e subinterfaces
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configuração de interfaces e subinterfaces
 
 **Definição da interface Dot1Q**
 
@@ -132,7 +132,7 @@ Este exemplo fornece a definição de sub-interface para a sub-interface com dua
         }                                   
     }                           
 
-### <a name="2-setting-up-ebgp-sessions"></a>2. Configurando sessões eBGP
+### <a name="2-setting-up-ebgp-sessions"></a>2. Criação de sessões de eBGP
 Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. O exemplo a seguir lhe permite configurar uma sessão BGP com a Microsoft. Se o endereço IPv4 usado para a sua sub interface era a.b.c. d, o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
     routing-options {
@@ -148,7 +148,7 @@ Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. 
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configurando prefixos a serem anunciados na sessão BGP
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. Configuração de prefixos a serem anunciados durante a sessão BGP
 Você pode configurar seu roteador para anunciar prefixos selecionados para a Microsoft. Você pode fazer isso usando o exemplo a seguir.
 
     policy-options {
@@ -173,7 +173,7 @@ Você pode configurar seu roteador para anunciar prefixos selecionados para a Mi
     }
 
 
-### <a name="4-route-maps"></a>4. mapas de rota
+### <a name="4-route-maps"></a>4. Mapas de rota
 Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propagados em sua rede. Você pode usar o exemplo a seguir para realizar a tarefa. Certifique-se de que as listas de prefixo foram configuradas apropriadamente.
 
     policy-options {
@@ -203,6 +203,6 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
         }                                   
     }
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 Consulte as [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
 

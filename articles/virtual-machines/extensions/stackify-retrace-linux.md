@@ -1,5 +1,5 @@
 ---
-title: Retrace Stackify extensão do agente Linux do Azure
+title: Stackify Retrace Azure Linux Agent Extension
 description: Implantar o agente Linux de Stackify Retrace em uma máquina virtual Linux
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
 ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253787"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Extensão do Agente Linux de Stackify Retrace
@@ -37,7 +37,7 @@ O Retrace é a ÚNICA ferramenta que fornece todos os recursos a seguir em todos
 
 Esta extensão fornece um caminho de instalação para o agente Linux para Retrace. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional 
 

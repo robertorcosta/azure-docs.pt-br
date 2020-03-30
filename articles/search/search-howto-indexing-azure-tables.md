@@ -1,7 +1,7 @@
 ---
-title: Pesquisar o conteúdo do armazenamento de tabelas do Azure
+title: Pesquisar sobre o conteúdo de armazenamento da Tabela Azure
 titleSuffix: Azure Cognitive Search
-description: Saiba como indexar dados armazenados no armazenamento de tabelas do Azure com um indexador Pesquisa Cognitiva do Azure.
+description: Saiba como indexar dados armazenados no armazenamento da Tabela Azure com um indexador de pesquisa cognitiva do Azure.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,36 +10,36 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113005"
 ---
-# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas do armazenamento de tabelas do Azure com o Azure Pesquisa Cognitiva
+# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas do armazenamento da Tabela Azure com a Pesquisa Cognitiva do Azure
 
-Este artigo mostra como usar os Pesquisa Cognitiva do Azure para indexar dados armazenados no armazenamento de tabelas do Azure.
+Este artigo mostra como usar o Azure Cognitive Search para indexar dados armazenados no armazenamento da Tabela Azure.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Indexador do Armazenamento de Tabelas do Azure
 
 Você pode configurar um indexador de armazenamento de Tabela do Azure usando estes recursos:
 
-* [Portal do Azure](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
-* SDK do [.net](https://aka.ms/search-sdk) pesquisa cognitiva do Azure
+* [Portal Azure](https://ms.portal.azure.com)
+* [API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de azure Cognitive Search REST
+* Azure Cognitive Search [.NET SDK](https://aka.ms/search-sdk)
 
 Aqui, demonstraremos o fluxo usando a API REST. 
 
 ### <a name="step-1-create-a-datasource"></a>Etapa 1: Criar uma fonte de dados
 
-Um DataSource especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que permitem ao Azure Pesquisa Cognitiva identificar com eficiência as alterações nos dados.
+Uma fonte de dados especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que permitem ao Azure Cognitive Search identificar eficientemente as alterações nos dados.
 
 Para a indexação de tabela, a fonte de dados deve ter as seguintes propriedades:
 
 - **nome** é o nome exclusivo da fonte de dados dentro de seu serviço de pesquisa.
 - **type** deve ser `azuretable`.
 - O parâmetro **credentials** contém a cadeia de conexão da conta de armazenamento. Consulte a seção [Especificar credenciais](#Credentials) para obter detalhes.
-- **contêiner** define o nome da tabela e uma consulta opcional.
+- **o contêiner** define o nome da tabela e uma consulta opcional.
     - Especifique o nome da tabela usando o parâmetro `name`.
     - Opcionalmente, especifique uma consulta usando o parâmetro `query`. 
 
@@ -67,9 +67,9 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 
 Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras: 
 
-- **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Você pode obter a cadeia de caracteres de conexão no portal do Azure indo para a **folha de Conta de Armazenamento** > **Configurações** > **Chaves** (para contas de armazenamento clássico) ou **Configurações** > **Chaves de acesso** (para contas de armazenamento do Gerenciador de recursos do Azure).
-- **Conta de armazenamento compartilhado da cadeia de conexão de assinatura**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso compartilhado deve ter a lista e permissões de leitura nos contêineres (tabelas neste caso) e objetos (linhas de tabela).
--  **Assinatura de acesso compartilhado da tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na tabela.
+- **String de conexão de conta de armazenamento de acesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Você pode obter a seqüência de conexão do portal Azure indo para as**chaves** **de configuração** >  **do blade da** > conta de armazenamento (para contas clássicas de armazenamento) ou chaves de acesso **de configurações** > **Access keys** (para contas de armazenamento do Azure Resource Manager).
+- **Cadeia de conexão de assinatura de acesso compartilhado da conta de armazenamento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` A assinatura de acesso compartilhado deve ter a lista e as permissões de leitura em contêineres (tabelas neste caso) e objetos (linhas de tabela).
+-  **Assinatura de acesso** `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` compartilhado da tabela : A assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na mesa.
 
 Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de assinaturas de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -111,26 +111,26 @@ Após o índice e a fonte de dados terem sido criados, será possível criar o i
       "schedule" : { "interval" : "PT2H" }
     }
 
-Esse indexador é executado a cada duas horas. (O intervalo de agendamento é definido como "PT2H".) Para executar um indexador a cada 30 minutos, defina o intervalo como "PT30M". O intervalo mais curto com suporte é de cinco minutos. O agendamento é opcional; se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
+Esse indexador é executado a cada duas horas. (O intervalo de programação está definido como "PT2H".) Para executar um indexador a cada 30 minutos, defina o intervalo como "PT30M". O intervalo mais curto com suporte é de cinco minutos. O agendamento é opcional; se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
 
 Para obter mais informações sobre Criar a API do Indexador, consulte [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Para obter mais informações sobre como definir agendas do indexador, consulte [como agendar indexadores para o Azure pesquisa cognitiva](search-howto-schedule-indexers.md).
+Para obter mais informações sobre como definir horários de indexadores, [consulte Como agendar indexadores para a Pesquisa Cognitiva do Azure](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Lidar com nomes de campos diferentes
-Algumas vezes, os nomes de campos no índice existente são diferentes dos nomes de propriedades na sua tabela. Você pode usar os mapeamentos de campo para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre mapeamentos de campo, confira [mapeamentos de campo do indexador de pesquisa cognitiva do Azure ponte das diferenças entre fontes de pesquisa e índices](search-indexer-field-mappings.md).
+Algumas vezes, os nomes de campos no índice existente são diferentes dos nomes de propriedades na sua tabela. Você pode usar os mapeamentos de campo para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre mapeamentos de campo, consulte mapeamentos de [campo indexadores de pesquisa cognitiva do Azure fazem uma ponte entre as diferenças entre datasources e índices de pesquisa](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Manipular chaves de documento
-No Azure Pesquisa Cognitiva, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento adicionado ao índice. (Na verdade, ele é o único campo obrigatório.)
+Na Pesquisa Cognitiva do Azure, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento adicionado ao índice. (Na verdade, ele é o único campo obrigatório.)
 
-Como as linhas de tabela têm uma chave composta, o Azure Pesquisa Cognitiva gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de partição e de linha de coluna. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
+Como as linhas de tabela têm uma chave composta, `Key` o Azure Cognitive Search gera um campo sintético chamado que é uma concatenação de valores-chave de tecla de partição e linha. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
 
 > [!NOTE]
 > O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se você fizer isso, lembre-se também de usar a codificação de Base 64 protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
 >
 >
 
-## <a name="incremental-indexing-and-deletion-detection"></a>Indexação incremental e detecção de exclusão
+## <a name="incremental-indexing-and-deletion-detection"></a>Indexação incremental e detecção de exclusão 
 Ao configurar um indexador de tabela para ser executado em um agendamento, ele reindexará somente linhas novas ou atualizadas, conforme determinado pelo valor `Timestamp` de uma linha. Você não precisa especificar uma política de detecção de alteração. Indexação incremental é habilitada automaticamente para você.
 
 Para indicar que determinados documentos devem ser removidos do índice, você pode usar uma estratégia de exclusão reversível. Em vez de excluir uma linha, adicione uma propriedade para indicar que ela foi excluída e configure uma política de detecção de exclusão reversível na fonte de dados. Por exemplo, a política a seguir considerará que uma linha foi excluída se esta tiver uma propriedade de metadados `IsDeleted` com o valor `"true"`:
@@ -150,7 +150,7 @@ Para indicar que determinados documentos devem ser removidos do índice, você p
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
-Por padrão, o Azure Pesquisa Cognitiva usa o seguinte filtro de consulta: `Timestamp >= HighWaterMarkValue`. Já que as tabelas do Azure não têm um índice secundário no campo `Timestamp`, esse tipo de consulta requer uma verificação completa e, portanto, é lenta para tabelas grandes.
+Por padrão, o Azure Cognitive Search `Timestamp >= HighWaterMarkValue`usa o seguinte filtro de consulta: . Já que as tabelas do Azure não têm um índice secundário no campo `Timestamp`, esse tipo de consulta requer uma verificação completa e, portanto, é lenta para tabelas grandes.
 
 
 Aqui estão duas abordagens possíveis para melhorar o desempenho de indexação de tabela. Ambas as abordagens dependem do uso de partições de tabela: 
@@ -166,5 +166,5 @@ Aqui estão duas abordagens possíveis para melhorar o desempenho de indexação
     - Com essa abordagem, se você precisar disparar uma reindexação completa, você precisará redefinir a consulta de fonte de dados, além de redefinir o indexador. 
 
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar o Azure Pesquisa Cognitiva melhor
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar a Busca Cognitiva do Azure melhor
 Se você tiver solicitações de recursos ou ideias para aperfeiçoamentos, envie-os por meio do nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: Impedir exclusões acidentais | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect: impedir exclusões acidentais | Microsoft Docs'
 description: Este tópico descreve o recurso de prevenção contra exclusões acidentais (que impede exclusões acidentais) no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71827137"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir exclusões acidentais
@@ -58,7 +58,7 @@ Caso isso não seja esperado, investigue e tome medidas corretivas. Para ver qua
 
 ![Pesquisar Espaço do Conector](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] Se você não tiver certeza de que todas as exclusões são desejadas e deseja descer uma rota mais segura. Você pode usar o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold` para definir um novo limite em vez de desabilitar o limite que pode permitir exclusões indesejadas. 
+[!NOTE] Se você não tem certeza de que todas as exclusões são desejadas, e deseja seguir um caminho mais seguro. Você pode usar o cmdlet PowerShell: `Enable-ADSyncExportDeletionThreshold` para definir um novo limite em vez de desativar o limiar que poderia permitir exclusões indesejadas. 
 
 ## <a name="if-all-deletes-are-desired"></a>Se todas as exclusões forem desejadas
 Se todas as exclusões forem desejadas, siga este procedimento:
@@ -72,5 +72,5 @@ Se todas as exclusões forem desejadas, siga este procedimento:
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)

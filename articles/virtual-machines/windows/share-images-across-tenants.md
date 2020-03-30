@@ -1,6 +1,6 @@
 ---
-title: Compartilhar imagens da Galeria entre locatários no Azure
-description: Saiba como compartilhar imagens de VM entre locatários do Azure usando galerias de imagens compartilhadas.
+title: Compartilhe imagens da galeria entre os inquilinos no Azure
+description: Aprenda a compartilhar imagens de VM entre os inquilinos do Azure usando galerias de imagens compartilhadas.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -11,25 +11,25 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: cynthn
 ms.openlocfilehash: 9b7e7066f186017b7cc4408cd4f7edcc7e5f0dcd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74065511"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria em locatários do Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Compartilhar imagens de VM da galeria entre os inquilinos do Azure
 
-As galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC. Você pode usar o RBAC para compartilhar imagens dentro de seu locatário e até mesmo para indivíduos fora do seu locatário. Para obter mais informações sobre essa opção de compartilhamento simples, consulte [compartilhar a Galeria](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
+Galerias de imagens compartilhadas permitem compartilhar imagens usando o RBAC. Você pode usar o RBAC para compartilhar imagens dentro do seu inquilino e até mesmo para indivíduos fora do seu inquilino. Para obter mais informações sobre esta opção de compartilhamento simples, consulte o [Share da galeria](/azure/virtual-machines/windows/shared-images-portal#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
 > [!IMPORTANT]
-> Você não pode usar o portal para implantar uma VM de uma imagem em outro locatário do Azure. Para criar uma VM de uma imagem compartilhada entre locatários, você deve usar o [CLI do Azure](../linux/share-images-across-tenants.md) ou o PowerShell.
+> Você não pode usar o portal para implantar uma VM de uma imagem em outro inquilino azul. Para criar uma VM a partir de uma imagem compartilhada entre os inquilinos, você deve usar o [Azure CLI](../linux/share-images-across-tenants.md) ou Powershell.
 
 ## <a name="create-a-vm-using-powershell"></a>Criar uma VM usando o PowerShell
 
-Faça logon em ambos os locatários usando a ID do aplicativo, o segredo e a ID do locatário. 
+Faça login em ambos os inquilinos usando o ID do aplicativo, iD secreto e inquilino. 
 
 ```azurepowershell-interactive
 $applicationId = '<App ID>'
@@ -42,7 +42,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-Crie a VM no grupo de recursos que tem permissão no registro do aplicativo. Substitua as informações neste exemplo pelo seu próprio.
+Crie a VM no grupo de recursos que tem permissão no registro do aplicativo. Substitua as informações neste exemplo pelas suas.
 
 
 
@@ -86,4 +86,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode criar recursos da Galeria de imagens compartilhadas usando o [portal do Azure](shared-images-portal.md).
+Você também pode criar recursos de galeria de imagens compartilhadas usando o [portal Azure](shared-images-portal.md).

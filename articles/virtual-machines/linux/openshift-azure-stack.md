@@ -1,5 +1,5 @@
 ---
-title: Implantar OpenShift no Azure Stack
+title: Implantar openshift no Azure Stack
 description: Implante o OpenShift no Azure Stack.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: d6c73b8cd33aa85793a2ce839410065e03b97be7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035540"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar o OpenShift Container Platform ou OKD no Azure Stack
 
 O OpenShift pser implantado no Azure Stack. Há algumas diferenças importantes entre o Azure e o Azure Stack, portanto a implantação será um pouco diferentes e os recursos também poderão variar.
 
-Atualmente, o Provedor de Nuvem do Azure não funciona no Azure Stack. Por esse motivo, não será possível anexar um disco como armazenamento persistente no Azure Stack. Em vez disso, você pode configurar outras opções de armazenamento, como NFS, iSCSI, GlusterFS, etc. Como alternativa, você pode habilitar o CNS e usar o GlusterFS para armazenamento persistente. Se o CNS estiver habilitado, serão implantados três nós adicionais com o armazenamento adicional para uso do GlusterFS.
+Atualmente, o Provedor de Nuvem do Azure não funciona no Azure Stack. Por esse motivo, não será possível anexar um disco como armazenamento persistente no Azure Stack. Em vez disso, você pode configurar outras opções de armazenamento, como NFS, iSCSI, GlusterFS, etc. Como alternativa, você pode habilitar o CNS e usar glusterFS para armazenamento persistente. Se o CNS estiver habilitado, serão implantados três nós adicionais com o armazenamento adicional para uso do GlusterFS.
 
 Você pode usar um dos vários métodos para implantar o OpenShift Container Platform ou OKD no Azure Stack:
 
@@ -57,9 +57,9 @@ Uma imagem de RHEL (OpenShift Container Platform) ou imagem do CentOS (OKD) prec
 
 ## <a name="deploy-by-using-the-openshift-container-platform-or-okd-resource-manager-template"></a>Implantar usando o modelo do Resource Manager do OpenShift Container Platform ou do OKD
 
-Para implantar usando o modelo do Gerenciador de Recursos, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Para personalizar ainda mais a implantação, crie um fork do repositório do GitHub e altere os itens apropriados.
+Para implantar usando o modelo do Gerenciador de Recursos, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Para personalizar ainda mais a implantação, bifurque o repositório do GitHub e altere os itens apropriados.
 
-Algumas opções de personalização comuns incluem, mas não se limitam a:
+Algumas opções comuns de personalização incluem, mas não estão limitadas a:
 
 - Tamanho de VM de bastião (variável em azuredeploy.json)
 - Convenções de nomenclatura (variáveis em azuredeploy.json)

@@ -4,23 +4,23 @@ description: Use um script do PowerShell para instalar silenciosamente o Servido
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: 1539089e713bcf8e959707c6ff4a608f062a7c00
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172236"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autônoma do Servidor de Backup do Azure
 
 Saiba como executar uma instalação autônoma do Servidor de Backup do Azure.
 
-Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do Azure v1.
+Essas etapas não se aplicam se você estiver instalando o Azure Backup Server V1.
 
 ## <a name="install-backup-server"></a>Instalar o servidor de backup
 
-1. No servidor que hospeda o Servidor de Backup do Azure V2 ou posterior, crie um arquivo de texto. (Você pode criar o arquivo no bloco de notas ou em outro editor de texto.) Salve o arquivo como MABSSetup. ini.
+1. No servidor que hospeda o Servidor de Backup do Azure V2 ou posterior, crie um arquivo de texto. (Você pode criar o arquivo no Bloco de Notas ou em outro editor de texto.) Salve o arquivo como MABSSetup.ini.
 
-2. Cole o código a seguir no arquivo MABSSetup.ini. Substitua o texto dentro dos colchetes (\< \>) com valores do seu ambiente. O texto a seguir é um exemplo:
+2. Cole o código a seguir no arquivo MABSSetup.ini. Substitua o texto dentro\< \>dos suportes ( ) por valores do seu ambiente. O texto a seguir é um exemplo:
 
    ```text
    [OPTIONS]
@@ -61,5 +61,5 @@ Depois de instalar o Servidor de Backup, saiba como preparar seu servidor, ou co
 
 - [Preparar as cargas de trabalho do Servidor de Backup](backup-azure-microsoft-azure-backup.md)
 - [Usar o Servidor de Backup para fazer backup de um Servidor do VMware](backup-azure-backup-server-vmware.md)
-- [Usar o Servidor de Backup para fazer backup de um SQL Server](backup-azure-sql-mabs.md)
+- [Usar o Servidor de Backup para fazer backup de SQL Server](backup-azure-sql-mabs.md)
 - [Adicionar Armazenamento de Backup Moderno para o Servidor de Backup](backup-mabs-add-storage.md)

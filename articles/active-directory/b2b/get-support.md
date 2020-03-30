@@ -1,5 +1,5 @@
 ---
-title: Obtendo suporte para colaboração B2B-Azure Active Directory
+title: Obtendo suporte para colaboração B2B - Azure Active Directory
 description: O que é a experiência de suporte para colaboração B2B do Azure Active Directory?
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00817acf93295becefab2d1a61de84a3f5519338
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272764"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obtenção de suporte para colaboração B2B
@@ -37,6 +37,6 @@ Você leu a documentação, fez as coisas certas, mas ainda assim algo não func
    - Escolha Categoria como Adicionando Usuários (B2B)
    - Inclua todas as mensagens de erro, como CorrelationID, usuários afetados e assim por diante.
 
-   ![Captura de tela mostrando uma descrição do problema do tíquete de suporte](media/get-support/problem-description.png)
+   ![Captura de tela mostrando uma descrição do problema do bilhete de suporte](media/get-support/problem-description.png)
 
 3. Adicione suas informações de contato para um representante de suporte entrar em contato com você e auxiliar com a solução do problema.

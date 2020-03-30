@@ -1,5 +1,5 @@
 ---
-title: Visão geral do agente de VM Linux do Azure
+title: Visão geral do agente DeSm Do Azure Linux
 description: Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073863"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
@@ -60,7 +60,7 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
 * **Extensão de VM**
   
   * Injete o componente criado pela Microsoft e seus Parceiros na VM do Linux (IaaS) para habilitar o software e a automação da configuração
-  * Implementação de referência de extensão da VM em [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementação de referência de extensão vm em[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
 O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
@@ -72,7 +72,7 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Os sistemas a seguir foram testados e funcionam com o agente Linux do Azure:
 
 > [!NOTE]
-> Essa lista pode diferir da lista oficial de sistemas com suporte na Plataforma Microsoft Azure, conforme descrito aqui: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Esta lista pode diferir da lista oficial de sistemas suportados na Plataforma Microsoft Azure, conforme descrito aqui:[https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -106,7 +106,7 @@ Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distri
 Consulte a documentação do [repositório do agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent) para ver opções de instalação avançada, como instalação da origem ou em locais personalizados ou prefixos.
 
 ## <a name="command-line-options"></a>Opções de Linha de Comando
-### <a name="flags"></a>Sinalizadores
+### <a name="flags"></a>Flags
 * verbose: aumentar o nível de detalhes do comando especificado
 * forçar: Ignorar confirmação interativa para alguns comandos
 
@@ -344,5 +344,5 @@ As Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpad.net/ubuntu
 * Para mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:
   
   * [Wiki do Ubuntu: configurar partições de troca](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Injetando dados personalizados em uma Máquina Virtual do Azure](../windows/classic/inject-custom-data.md)
+  * [Injetando dados personalizados em uma máquina virtual do Azure](../windows/classic/inject-custom-data.md)
 

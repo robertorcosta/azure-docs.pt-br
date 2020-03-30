@@ -1,5 +1,5 @@
 ---
-title: Acesso remoto a aplicativos locais – Azure Proxy de Aplicativo do AD
+title: Acesso remoto a aplicativos locais - Proxy de aplicativo Azure AD
 description: O Proxy de Aplicativo do Azure Active Directory fornece acesso remoto seguro aos aplicativos Web locais. Após um logon único para o Azure AD, os usuários podem acessar aplicativos locais e de nuvem por meio de uma URL externa ou um portal interno do aplicativo. Por exemplo, o Proxy de Aplicativo pode fornecer acesso remoto e o logon único para a Área de Trabalho Remota, o SharePoint, o Teams, o Tableau, o Qlik e aplicativos LOB (linha de negócios).
 services: active-directory
 author: msmimart
@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4780786f0caea2c211b6b93fb0736feaade8de80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274844"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicativos locais por meio do Proxy de Aplicativo do Azure Active Directory 
@@ -27,7 +27,7 @@ O Proxy de Aplicativo do Azure AD é:
 
 - **Simples de usar**. Os usuários podem acessar seus aplicativos locais da mesma forma que acessam o O365 e outros aplicativos SaaS integrados ao Azure AD. Você não precisa alterar ou atualizar seus aplicativos para que funcionem com o Proxy de Aplicativo. 
 
-- **Seguro**. Os aplicativos locais podem usar os controles de autorização e análise de segurança do Azure. Por exemplo, aplicativos locais podem usar o acesso condicional e a verificação em duas etapas. O Proxy de Aplicativo não exige que você abra conexões de entrada através do firewall.
+- **Seguro**. Os aplicativos locais podem usar os controles de autorização e análise de segurança do Azure. Por exemplo, os aplicativos no local podem usar acesso condicional e verificação em duas etapas. O Proxy de Aplicativo não exige que você abra conexões de entrada através do firewall.
  
 - **Econômico**. As soluções locais geralmente exigem que você configure e mantenha redes de perímetro, servidores de borda ou outras infraestruturas complexas. O Proxy de Aplicativo é executado na nuvem, o que o torna fácil de usar. Para usar o Proxy de Aplicativo, você não precisa alterar a infraestrutura de rede ou instalar dispositivos adicionais no seu ambiente local.
 
@@ -44,7 +44,7 @@ O Proxy de Aplicativo funciona com:
 
 O Proxy de Aplicativo é compatível com o logon único. Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-O proxy de aplicativo é recomendado para conceder aos usuários remotos acesso a recursos internos. O proxy de aplicativo substitui a necessidade de um proxy reverso ou VPN. Ele não se destina a usuários internos na rede corporativa.  Esses usuários que desnecessariamente usam o proxy de aplicativo podem introduzir problemas de desempenho inesperados e indesejáveis.
+O Proxy do aplicativo é recomendado para dar aos usuários remotos acesso a recursos internos. O Proxy de aplicativo substitui a necessidade de uma VPN ou proxy reverso. Não se destina a usuários internos da rede corporativa.  Esses usuários que usam desnecessariamente o Proxy do aplicativo podem introduzir problemas de desempenho inesperados e indesejáveis.
 
 ## <a name="how-application-proxy-works"></a>Como o Proxy de Aplicativo funciona
 
@@ -59,7 +59,7 @@ O diagrama a seguir mostra como o Azure AD e o Proxy de Aplicativo trabalham jun
 5. O conector envia a solicitação para o aplicativo no local.  
 6. A resposta é enviada por meio do conector e do serviço Proxy de Aplicativo para o usuário.
 
-| Componente | DESCRIÇÃO |
+| Componente | Descrição |
 | --------- | ----------- |
 | Ponto de extremidade  | O ponto de extremidade é uma URL ou um [portal do usuário final](end-user-experiences.md). Os usuários podem acessar aplicativos enquanto estão fora de sua rede ao acessar uma URL externa. Usuários dentro de sua rede podem acessar o aplicativo por meio de uma URL ou de um portal do usuário final. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.|
 | AD do Azure | O Azure AD executa a autenticação usando o diretório do locatário armazenado na nuvem. |
@@ -69,7 +69,7 @@ O diagrama a seguir mostra como o Azure AD e o Proxy de Aplicativo trabalham jun
 | Aplicativo local | Por fim, o usuário é capaz de acessar um aplicativo local. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para começar a usar o proxy de aplicativo, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo](application-proxy-add-on-premises-application.md). 
+Para começar a usar o Proxy de aplicativo, consulte [Tutorial: Adicione um aplicativo local para acesso remoto através do Proxy do aplicativo](application-proxy-add-on-premises-application.md). 
 
 Para encontrar as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](https://blogs.technet.com/b/applicationproxyblog/)
 

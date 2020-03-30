@@ -1,5 +1,5 @@
 ---
-title: Provisionar novos locatários em um aplicativo multilocatário
+title: Provisão de novos inquilinos em um aplicativo multilocatário
 description: Saiba como provisionar e catalogar novos locatários em um aplicativo SaaS multilocatário do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 6ec8f8835e925663fc6ac21a6eb1df09d6927109
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132114"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 
 Neste tutorial, você aprenderá a provisionar e catalogar padrões de SaaS. Você também saberá como eles são implementados no aplicativo de banco de dados por locatário Wingtip de Tíquetes SaaS. Você vai criar e inicializar novos bancos de dados de locatário e os registrará no catálogo de locatários do aplicativo. O catálogo é um banco de dados que mantém o mapeamento entre os vários locatários do aplicativo SaaS e seus dados. O catálogo desempenha uma função importante no direcionamento das solicitações de aplicativo e gerenciamento para o banco de dados correto.
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >
@@ -45,7 +45,7 @@ O catálogo permite que o nome ou local do banco de dados seja alterado com impa
 
 O catálogo também pode armazenar um locatário adicional ou metadados de banco de dados, como a versão do esquema, o plano de serviço ou os SLAs oferecidos aos locatários. O catálogo pode armazenar outras informações que permitem gerenciamento de aplicativos, suporte ao cliente ou DevOps.
 
-Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados. No exemplo de banco de dados por locatário SaaS Wingtip tickets, o catálogo é usado para habilitar a consulta entre locatários, que é explorada no [tutorial de relatório ad hoc](saas-tenancy-cross-tenant-reporting.md). O gerenciamento de trabalhos entre bancos de dados é explorado nos tutoriais [Gerenciamento de esquema](saas-tenancy-schema-management.md) e [Análise de locatários](saas-tenancy-tenant-analytics.md).
+Além do aplicativo SaaS, o catálogo pode habilitar as ferramentas de banco de dados. Na amostra de banco de dados Wingtip Tickets SaaS por inquilino, o catálogo é usado para habilitar consulta entre inquilinos, que é explorada no [tutorial de relatórios Ad hoc](saas-tenancy-cross-tenant-reporting.md). O gerenciamento de trabalho entre bancos de dados é explorado nos tutoriais de [gerenciamento de esquemas](saas-tenancy-schema-management.md) e [análises de inquilinos.](saas-tenancy-tenant-analytics.md)
 
 Nos exemplos de Wingtip Tickets SaaS, o catálogo é implementado usando os recursos de Gerenciamento de Fragmentos na [EDCL (Biblioteca de cliente do Banco de Dados Elástico)](sql-database-elastic-database-client-library.md). O EDCL está disponível em Java e em .NET Framework. O EDCL permite que um aplicativo crie, gerencie e use um mapa de fragmentos com backup no banco de dados.
 
@@ -77,11 +77,11 @@ O código-fonte do aplicativo e os scripts do SaaS Wingtip Tickets estão dispon
 
 Para entender como o aplicativo Wingtip Tickets implementa o novo provisionamento de locatário, adicione um ponto de interrupção e siga o fluxo de trabalho ao provisionar um locatário.
 
-1. No ISE do PowerShell, abra \\...Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ e defina estes parâmetros:
+1. No PowerShell ISE, abra ... \\Provisão\\de módulos de aprendizagemECatalog\\_Demo-ProvisionAndCatalog.ps1_ e definir os seguintes parâmetros:
 
    * **$TenantName** = o nome do novo local do evento (por exemplo, *Bushwillow Blues*).
    * **$VenueType** = um dos tipos predefinidos de local: _blues_, classicalmusic, dance, jazz, judo, motor racing, multipurpose, opera, rockmusic, soccer.
-   * **$DemoScenario** = **1**, *Provisionar um único locatário*.
+   * **$DemoScenario** = **1**, *Provisão de um único inquilino*.
 
 2. Para adicionar um ponto de interrupção, coloque o cursor em qualquer lugar na linha que indica *Novo Locatário*. Em seguida, pressione F9.
 
@@ -91,7 +91,7 @@ Para entender como o aplicativo Wingtip Tickets implementa o novo provisionament
 
 4. Depois que a execução do script for interrompida no ponto de interrupção, pressione F11 para entrar no código.
 
-   ![Depurando](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![Depuração](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
@@ -102,20 +102,20 @@ Você não precisa seguir explicitamente esse fluxo de trabalho. Explica como de
 
 * **Importe o módulo CatalogAndDatabaseManagement.psm1.** Ele fornece um catálogo e abstração de nível de locatário sobre as funções de [Gerenciamento de Fragmento](sql-database-elastic-scale-shard-map-management.md). Esse módulo encapsula a maior parte do padrão do catálogo e vale a pena explorar.
 * **Importe o módulo SubscriptionManagement.psm1.** Ele contém funções para entrar no Azure e selecionar a assinatura do Azure com a qual você deseja trabalhar.
-* **Obtenha detalhes de configuração.** Intervenha em Get-Configuration usando F11 e veja como a configuração do aplicativo é especificada. Nomes de recurso e outros valores específicos de aplicativo são definidos aqui. Não altere esses valores até que você esteja familiarizado com os scripts.
+* **Obter detalhes de configuração.** Intervenha em Get-Configuration usando F11 e veja como a configuração do aplicativo é especificada. Nomes de recurso e outros valores específicos de aplicativo são definidos aqui. Não altere esses valores até que você esteja familiarizado com os scripts.
 * **Obtenha o objeto de catálogo.** Intervenha em Get-Catalog, que compõe e retorna um objeto de catálogo usado no script de nível superior. Essa função usa funções de Gerenciamento de Fragmentos importadas do **AzureShardManagement.psm1**. O objeto de catálogo é composto pelos seguintes elementos:
 
    * O $catalogServerFullyQualifiedName é criado usando o tronco padrão além do seu nome de usuário: _catalog-\<user\>.database.windows.net_.
    * O $catalogDatabaseName é recuperado da configuração: *tenantcatalog*.
    * O objeto $shardMapManager é inicializado no banco de dados do catálogo.
    * O objeto $shardMap é inicializado por meio do mapa do fragmentos do _tenantcatalog_ no banco de dados de catálogo. Um objeto de catálogo é composto e retornado. Ele é usado no script de nível superior.
-* **Calcule a nova chave de locatário.** Uma função de hash é usada para criar a chave de locatário com base no nome do locatário.
-* **Verifique se a chave de locatário já existe.** O catálogo é verificado para garantir que a chave está disponível.
+* **Calcule a nova chave do inquilino.** Uma função de hash é usada para criar a chave de locatário com base no nome do locatário.
+* **Verifique se a chave do inquilino já existe.** O catálogo é verificado para garantir que a chave está disponível.
 * **O banco de dados do locatário é provisionado com New-TenantDatabase.** Use F11 para ver como o banco de dados é provisionado usando um [modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
     O nome do banco de dados é construído com base no nome do locatário para deixar claro qual fragmento pertence a qual locatário. Você também pode usar outras convenções de nomenclatura de banco de dados. Um modelo do Resource Manager cria um banco de dados de locatário com a cópia de um banco de dados modelo _baseTenantDB_ no servidor de catálogo. Como alternativa, você pode criar um banco de dados e inicializá-lo com a importação de um bacpac. Ou você pode executar um script de inicialização de um local conhecido.
 
-    O modelo do Resource Manager está na pasta ...\Módulos de Aprendizado\Comum\: *tenantdatabasecopytemplate.json*
+    O modelo do Gerenciador de recursos está na pasta ...\Módulos de aprendizagem\Common\: *tenantdatabasecopytemplate.json*
 
 * **O banco de dados do locatário adicional é inicializado.** O nome do local (locatário) e o tipo de local são adicionados. Você também pode fazer outra inicialização aqui.
 
@@ -137,7 +137,7 @@ Este exercício provisiona um lote com 17 locatários. É recomendável que voc�
 
 1. No ISE do PowerShell, abra ...\\Módulos de Aprendizado\\Provisionamento e Catálogo\\*Demo-ProvisionAndCatalog.ps1*. Altere o parâmetro *$DemoScenario* para 3:
 
-   * **$DemoScenario** = **3** *Provisionar um lote de locatários*.
+   * **$DemoScenario** = **3**, *Provisão de um lote de inquilinos.*
 2. Para executar o script, pressione F5.
 
 O script implanta um lote de locatários adicionais. Ele usa um [modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla o lote e delega o provisionamento de cada banco de dados a um modelo vinculado. O uso de modelos dessa maneira permite que Azure Resource Manager seja o agente do processo de provisionamento do seu script. Os modelos provisionam bancos de dados em paralelo e, se necessário, controlam as repetições. O script é idempotente e, portanto, se ele falhar ou parar por qualquer motivo, execute-o novamente.
@@ -176,5 +176,5 @@ Experimente o [Tutorial de monitoramento de desempenho](saas-dbpertenant-perform
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Tutoriais adicionais que aproveitam a implantação inicial do aplicativo Wingtip Tickets SaaS Database per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md)
+* [Biblioteca de clientes de banco de dados elástico](sql-database-elastic-database-client-library.md)
 * [Depurar scripts no ISE do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dacurwin
 ms.openlocfilehash: a3bae0ce3e6ebcf64936d0ca4af4fb702e5ea404
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137017"
 ---
-Agora, você pode usar [Pontos de Extremidade Privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para fazer backup de dados de maneira segura de servidores dentro de uma rede virtual para seu cofre dos Serviços de Recuperação. O ponto de extremidade privado usa um IP do espaço de endereço da VNET para o cofre. O tráfego de rede entre seus recursos dentro da rede virtual e o cofre passa pela rede virtual e por um link privado na rede de backbone da Microsoft. Isso elimina a exposição à Internet pública. Os Pontos de Extremidade Privados podem ser usados para fazer backup e restaurar os bancos de dados SQL e SAP HANA executados dentro de suas VMs do Azure. Eles também podem ser usados para servidores locais que usam o agente MARS.
+Agora você pode usar [pontos finais privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) para fazer backup de seus dados com segurança de servidores dentro de uma rede virtual para o cofre dos Serviços de Recuperação. O ponto final privado usa um IP do espaço de endereço VNET para o seu cofre. O tráfego de rede entre seus recursos dentro da rede virtual e o cofre viaja pela sua rede virtual e um link privado na rede backbone da Microsoft. Isso elimina a exposição da internet pública. Os Private Endpoints podem ser usados para fazer backup e restaurar seus bancos de dados SQL e SAP HANA que são executados dentro de suas VMs Azure. Ele também pode ser usado para seus servidores locais usando o agente MARS.
 
-O backup da VM do Azure não requer conectividade com a Internet e, portanto, não requer Pontos de Extremidade Privados para permitir o isolamento de rede.
+O backup do Azure VM não requer conectividade à internet e, portanto, não requer Pontos finais privados para permitir o isolamento da rede.
 
 >[!NOTE]
-> Atualmente, esse recurso está na fase de uso inicial. Preencha [esta pesquisa](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) e envie um email para azbackupnetsec@microsoft.com se estiver interessado em usar Pontos de Extremidade Privados para o Backup do Azure. A capacidade de usar esse recurso está sujeita à aprovação do serviço de Backup do Azure.
+> Este recurso está atualmente em uso inicial. Preencha [esta pesquisa](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) e envie azbackupnetsec@microsoft.com um e-mail para se você estiver interessado em usar private endpoints para backup do Azure. A capacidade de usar esse recurso está sujeita à aprovação do serviço de backup do Azure.

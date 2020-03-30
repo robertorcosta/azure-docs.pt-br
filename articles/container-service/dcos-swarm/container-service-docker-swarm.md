@@ -10,10 +10,10 @@ ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: c76701ce74aafcccdbb2f1a2454f9528b52fc096
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136220"
 ---
 # <a name="deprecated-container-management-with-docker-swarm"></a>(PRETERIDO) Gerenciamento de contêiner com Docker Swarm
@@ -69,7 +69,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ## <a name="deploy-containers-by-using-docker-compose"></a>Implantar contêineres usando Docker Compose
 O recurso Docker Compose pode ser usado para automatizar a implantação e a configuração de vários contêineres. Para tanto, verifique se um túnel Secure Shell (SSH) foi criado e se a variável DOCKER_HOST foi definida (consulte os pré-requisitos acima).
 
-Crie um arquivo docker-compose.yml em seu sistema local. Para fazer isso, use este exemplo:
+Crie um arquivo docker-compose.yml em seu sistema local. Para fazer isso, use esta amostra:
 
 ```dockerfile
 web:

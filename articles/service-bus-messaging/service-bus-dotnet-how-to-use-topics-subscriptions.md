@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
 ms.openlocfilehash: 3fba1d62b9347303d630c80733c4fbfa279b5296
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74560108"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
@@ -33,9 +33,9 @@ Este tutorial cobre as seguintes etapas:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga as etapas no [início rápido: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
-    1. Crie um **namespace** do Barramento de Serviço.
-    2. Obtenha a **cadeia de conexão**.
+2. Siga as etapas do [Quickstart: Use o portal Azure para criar um tópico de Service Bus e assinaturas para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para fazer as seguintes tarefas:
+    1. Crie um espaço **de nome de ônibus de serviço**.
+    2. Obter a **seqüência de conexão**.
     3. Crie um **tópico** no namespace.
     4. Crie **uma assinatura** para o tópico no namespace.
 3. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
@@ -47,7 +47,7 @@ Para enviar mensagens para o tópico, escreva um aplicativo de console C# usando
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
-Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET Core)** .
+Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET Core)**.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Barramento de Serviço
 
@@ -75,7 +75,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
     static ITopicClient topicClient;
     ``` 
 
-3. Substitua o método `Main()` pelo seguinte método **async** `Main` que envia mensagens de forma assíncrona usando o método SendMessagesAsync que será adicionado na próxima etapa. 
+3. Substitua `Main()` o método pelo seguinte método **assíncrono** `Main` que envia mensagens de forma assíncrona usando o método SendMessagesAsync que você adicionará na próxima etapa. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -188,7 +188,7 @@ Inicie o Visual Studio e crie um novo projeto de **Aplicativo de console (.NET C
 
 ## <a name="receive-messages-from-the-subscription"></a>Receber mensagens da assinatura
 
-Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Core e instale o pacote NuGet **Microsoft. Azure. ServiceBus** , semelhante ao aplicativo remetente anterior.
+Para receber as mensagens enviadas, crie outro aplicativo de console .NET Core e instale o pacote **Microsoft.Azure.ServiceBus** NuGet, semelhante ao aplicativo de remetente anterior.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>Escrever código para receber mensagens da assinatura
 
@@ -210,7 +210,7 @@ Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Cor
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Substitua o método `Main()` pelo seguinte método **async** `Main`. Ele chama o método `RegisterOnMessageHandlerAndReceiveMessages()` que será adicionado na próxima etapa. 
+3. Substitua `Main()` o método pelo seguinte método **de assincronia.** `Main` Ele chama `RegisterOnMessageHandlerAndReceiveMessages()` o método que você adicionará no próximo passo. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -364,7 +364,7 @@ Para receber as mensagens enviadas, crie outro aplicativo de console do .NET Cor
         }
     }
     ```
-9. Execute o programa e verifique o portal novamente. Observe que os valores **Contagem de Mensagens** e **Atuais** agora são **0**.
+9. Execute o programa e verifique o portal novamente. Observe que os valores **de Contagem de Mensagens** e **Corrente** sao agora **0**.
    
     ![Tamanho do tópico][topic-message-receive]
 
@@ -373,7 +373,7 @@ Parabéns! Usando a biblioteca .NET padrão, você acabou de criar um tópico e 
 > [!NOTE]
 > É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira o [Repositório GitHub do Barramento de Serviço do Microsoft Azure com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram alguns dos recursos mais avançados de mensagens do Barramento de Serviço.
 

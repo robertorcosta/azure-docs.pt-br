@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o custo e a propriedade no Azure DevTest Labs
-description: Este artigo fornece informações que ajudam a otimizar o custo e a alinhar a propriedade em seu ambiente.
+title: Gerencie custos e propriedade no Azure DevTest Labs
+description: Este artigo fornece informações que ajudam você a otimizar o custo e alinhar a propriedade em todo o seu ambiente.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: b82d338f85f1b43712296ac7f27bdad55f8f1919
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74561670"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governança da infraestrutura do Azure DevTest Labs – Gerenciar o custo e a propriedade
@@ -29,7 +29,7 @@ O custo e a propriedade são preocupações primárias ao considerar a criação
 Como posso otimizar para custos no meu ambiente de DevTest Labs?
 
 ### <a name="answer"></a>Resposta
-Há vários recursos internos de DevTest Labs que ajudam você a otimizar o custo. Confira os [limites, gerenciamento de custos](devtest-lab-configure-cost-management.md) e os artigos [sobre políticas](devtest-lab-set-lab-policy.md) para limitar as atividades de seus usuários. 
+Há vários recursos internos de DevTest Labs que ajudam você a otimizar o custo. Confira os [limites, gerenciamento de custos e os artigos ](devtest-lab-configure-cost-management.md) [sobre políticas](devtest-lab-set-lab-policy.md) para limitar as atividades de seus usuários. 
 
 À medida que utiliza o DevTest Labs para cargas de trabalho de desenvolvimento e teste, é possível considerar a utilização do [Benefício da Assinatura de Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) como parte de seu Enterprise Agreement. Como alternativa, se você for um cliente do tipo Pago Conforme o Uso, considere a [oferta de DevTest Pago Conforme o Uso](https://azure.microsoft.com/offers/ms-azr-0023p/).
 
@@ -37,7 +37,7 @@ Essa abordagem oferece diversas vantagens:
 
 - Taxas especiais mais baixas para Desenvolvimento/Teste em máquinas virtuais, serviços de nuvem, HDInsight, Serviço de Aplicativo e Aplicativos Lógicos do Windows
 - Taxas EA (Enterprise Agreement) excelentes de outros serviços do Azure
-- Acesso a imagens exclusivas de Desenvolvimento/Teste na Galeria, incluindo Windows 8.1 e Windows 10
+- Acesso a imagens exclusivas de Desenvolvimento/Teste na Galeria, incluindo o Windows 8.1 e o Windows 10
  
 Somente os assinantes ativos do Visual Studio (assinaturas padrão, assinaturas de nuvem anuais e assinaturas de nuvem mensais) podem usar os recursos do Azure em execução em uma assinatura de Desenvolvimento/Teste do Enterprise. No entanto, os usuários finais podem acessar o aplicativo para fornecer comentários ou realizar testes de aceitação. O uso de recursos nessa assinatura é restrito ao desenvolvimento e teste de aplicativos e nenhuma garantia de tempo de ativação é oferecida.
 
@@ -61,5 +61,5 @@ Os membros da equipe de projeto/aplicativo devem ser adicionados à função Usu
 Para saber mais, confira a documentação do [Andaime empresarial do Azure – governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Confira [Política corporativa e conformidade](devtest-lab-guidance-governance-policy-compliance.md).

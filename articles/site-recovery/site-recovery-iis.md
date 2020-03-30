@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastre para um aplicativo Web do IIS usando Azure Site Recovery
+title: Configure a recuperação de desastres para um aplicativo web IIS usando o Azure Site Recovery
 description: Saiba como replicar máquinas de virtuais de um farm da Web do IIS usando o Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954659"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
@@ -26,7 +26,7 @@ Uma boa solução de recuperação de desastres tem suporte para modelos de plan
 
 Este artigo descreve como proteger um aplicativo Web baseado no IIS (Serviços de Informações da Internet) usando o [Azure Site Recovery](site-recovery-overview.md). O artigo aborda as melhores práticas para replicação de um aplicativo Web baseado no IIS de três camadas para Azure, como fazer uma análise da recuperação de desastres e como fazer failover no aplicativo para Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que você sabe fazer as tarefas a seguir:
 
@@ -60,16 +60,16 @@ Para os exemplos neste artigo, usamos máquinas virtuais VMware com o IIS 7.5 no
 
 Cenário | Para um site secundário | Para o Azure
 --- | --- | ---
-Hyper-V | sim | sim
-VMware | sim | sim
-Servidor físico | Não | sim
-Azure|ND|sim
+Hyper-v | Sim | Sim
+VMware | Sim | Sim
+Servidor físico | Não | Sim
+Azure|NA|Sim
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
 Para iniciar a replicação de todas as máquinas virtuais do web farm do IIS para Azure, siga as orientações em [Failover de teste para Azure no Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se você estiver usando um endereço IP estático, poderá especificar o endereço IP que você deseja que a máquina virtual use. Para configurar o endereço IP, vá para  **Configurações de Computação e Rede** > **TARGET IP**.
+Se você estiver usando um endereço IP estático, poderá especificar o endereço IP que você deseja que a máquina virtual use. Para definir o endereço IP, vá para **Computação e Configurações de rede** > **TARGET IP**.
 
 ![Captura de tela que mostra como configurar o IP de destino no painel Computação e Rede do Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 

@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d5b84a9d216457720e9bd4e17b002d6ab9490f9d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73888594"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST  
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
-> * [REST](media-services-rest-upload-files.md)
+> * [Resto](media-services-rest-upload-files.md)
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming adicionais. 
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legendas fechadas (e os metadados sobre esses arquivos.)  Uma vez que os arquivos são carregados no ativo, seu conteúdo é armazenado com segurança na nuvem para processamento e streaming posteriores. 
 
 Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele:
 
@@ -40,20 +40,20 @@ Neste tutorial, aprenda a carregar um arquivo e outra operação associada a ele
 > * Carregar um arquivo para o armazenamento de blob usando a URL de carregamento
 > * Criar um metadados no ativo para o arquivo de mídia carregado
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [Crie uma conta dos Serviços de Mídia do Azure usando o Portal do Azure](media-services-portal-create-account.md).
-- Verifique o artigo [Acessar a API dos Serviços de Mídia do Azure com a visão geral de autenticação do AAD](media-services-use-aad-auth-to-access-ams-api.md).
-- Além disso, para obter mais informações, consulte o artigo [usar a autenticação do Azure ad para acessar a API dos serviços de mídia com REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad) .
+- [Crie uma conta do Azure Media Services usando o portal Azure](media-services-portal-create-account.md).
+- Releia o artigo [Acessar a API dos Serviços de Mídia do Azure com a visão geral de autenticação do AAD](media-services-use-aad-auth-to-access-ams-api.md).
+- Também para obter mais informações, revise a [autenticação Use Azure AD para acessar a API de Serviços de Mídia com artigo REST.](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad)
 - Configurar o **Postman** conforme descrito em [Configurar Postman para chamadas de API de REST dos Serviços de Mídia](media-rest-apis-with-postman.md).
 
 ## <a name="considerations"></a>Considerações
 
 As seguintes considerações se aplicam ao usar a API de REST de Serviços de Mídia:
  
-* Ao acessar entidades nos Serviços de Mídia do REST API, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md). <br/>A coleção do Postman usada neste tutorial se encarrega da configuração de todos os cabeçalhos necessários.
-* Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}. Origin. mediaservices. Windows. net/{GUID}/{IAssetFile. Name}/streamingparameters.) Por esse motivo, a codificação por porcentagem não é permitida. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+* Ao acessar entidades nos Serviços de Mídia do REST API, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md). <br/>A coleção do Postman usada neste tutorial se encarrega da configuração de todos os cabeçalhos necessários.
+* Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao criar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por essa razão, a codificação percentual não é permitida. O valor da propriedade **Name** não pode ter nenhum dos [seguintes caracteres reservados por porcentagem de codificação](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 * O comprimento do nome não deve ser maior do que 260 caracteres.
 * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho do arquivo.
 
@@ -65,7 +65,7 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
 
 1. Adicione valores de conexão ao seu ambiente. 
 
-    Algumas variáveis que fazem parte do **ambiente** do [MediaServices](postman-environment.md) precisam ser definidas manualmente antes de iniciar a execução de operações definidas na [coleção](postman-collection.md).
+    Algumas variáveis que fazem parte do **ambiente do ** [MediaServices](postman-environment.md) precisam ser definidas manualmente antes de iniciar a execução de operações definidas na [coleção](postman-collection.md).
 
     Para obter valores para as primeiras cinco variáveis, consulte [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -87,9 +87,9 @@ Para obter etapas sobre como configurar o Postman para este tutorial, consulte [
         ]
     }
     ```
-4. À esquerda da janela do **postmaster** , clique em **1. Obtenha o token de autenticação do AAD** -> **obter o token do Azure ad para a entidade de serviço**.
+4. À esquerda da janela do **Carteiro,** clique em **1. Obtenha token AAD Auth** -> **Obtenha Azure AD Token for Service Principal**.
 
-    A parte da URL é preenchida com a variável de ambiente **AzureADSTSEndpoint** (anteriormente no tutorial, você definiu os valores de variáveis de ambiente que oferecem suporte à coleção).
+    A parte url é preenchida com a variável de ambiente **AzureADSTSEndpoint** (no início do tutorial, você define os valores das variáveis de ambiente que suportam a coleção).
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postment-get-token.png)
 
@@ -110,7 +110,7 @@ Antes de carregar todos os arquivos no armazenamento de blobs, defina os direito
 
 ### <a name="create-an-access-policy"></a>Crie uma política de acesso
 
-1. Selecione **AccessPolicy** -> **Criar AccessPolicy para Carregamento**.
+1. Selecione **A Política de** -> Acesso**Criar Política de Acesso para Upload**.
 2. Pressione **Enviar**.
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-access-policy.png)
@@ -121,9 +121,9 @@ Antes de carregar todos os arquivos no armazenamento de blobs, defina os direito
 
 ### <a name="overview"></a>Visão geral
 
-Um [ativo](https://docs.microsoft.com/rest/api/media/operations/asset) é um contêiner para vários tipos ou conjuntos de objetos nos Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
+Um [recurso](https://docs.microsoft.com/rest/api/media/operations/asset) é um contêiner para vários tipos ou conjuntos de objetos nos Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legendas fechadas. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
-Uma das propriedades que você pode adicionar ao criar um ativo é **Opções**. Você pode especificar uma das seguintes opções de criptografia: **Nenhuma** (padrão, nenhuma criptografia é usada), **CriptografiaDeArmazenamento** (para o conteúdo que foi previamente criptografado com criptografia de armazenamento no lado do cliente), **CriptografiaComumProtegida**, ou **CriptografiaEnvelopeProtegida**. Quando você tiver um ativo criptografado, você precisa configurar uma política de entrega. Para obter mais informações, confira a seção [Configurando as políticas de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
+Uma das propriedades que você pode adicionar ao criar um ativo é **Opções**. Você pode especificar uma das seguintes opções de criptografia: **Nenhuma** (padrão, nenhuma criptografia é usada), **CriptografiaDeArmazenamento** (para o conteúdo que foi previamente criptografado com criptografia de armazenamento no lado do cliente), **CriptografiaComumProtegida**, ou **CriptografiaEnvelopeProtegida**. Quando você tiver um ativo criptografado, você precisa configurar uma política de entrega. Para obter mais informações, consulte [Configurando políticas de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
 
 Se seu ativo for criptografado, você deve criar um **ContentKey** e vinculá-lo a seu ativo, conforme descrito no seguinte artigo: [Como criar um ContentKey](media-services-rest-create-contentkey.md). Após carregar os arquivos no ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **Ativos**. Faça isso usando a solicitação HTTP **MERGE** . 
 
@@ -131,7 +131,7 @@ Neste exemplo, estamos criando um ativo não criptografado.
 
 ### <a name="create-an-asset"></a>Criar um ativo
 
-1. Selecione **Ativos** -> **Criar ativo**.
+1. Selecionar **ativos** -> **Criar ativo**.
 2. Pressione **Enviar**.
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-asset.png)
@@ -162,7 +162,7 @@ Algumas considerações se aplicam:
 
 ### <a name="create-a-sas-locator"></a>Criar um localizador SAS.
 
-1. Selecione **Localizador** -> **Criar localizador SAS**.
+1. Selecione **localizador** -> **Criar localizador SAS**.
 2. Pressione **Enviar**.
 
     O script de "teste" cria a "URL de carregamento" com base no nome do arquivo de mídia especificado as informações de localizador SAS e define a variável de ambiente apropriada.
@@ -175,8 +175,8 @@ Algumas considerações se aplicam:
 
 Agora que você tem a URL de carregamento, você precisa gravar um código usando as APIs de blob do Azure diretamente para carregar seu arquivo para o contêiner SAS. Para obter mais informações, consulte os seguintes artigos:
 
-- [Usando o REST API do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [COLOCAR Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+- [Usando a API REST de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
 - [Carregar blobs o para armazenamento de Blob](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Carregar um arquivo com o Postman
@@ -200,7 +200,7 @@ Criar e configurar uma nova solicitação:
 
 Depois que o arquivo foi carregado, você precisa criar um metadados no ativo para o arquivo de mídia carregado no armazenamento de blob associado a seu ativo.
 
-1. Selecione **ArquivosdeAtivos** -> **CriarInformaçõesDeArquivos**.
+1. Selecione **AssetFiles** -> **CreateFileInfos**.
 2. Pressione **Enviar**.
 
     ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)

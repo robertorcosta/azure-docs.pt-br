@@ -1,5 +1,5 @@
 ---
-title: Expandir a unidade do sistema operacional de uma VM do Windows em um Azure
+title: Expanda a unidade do Sistema Operacional de uma VM Windows em um Azure
 description: Expanda o tamanho da unidade do sistema operacional de uma máquina virtual usando o Azure PowerShell no modelo de implantação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033495"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do sistema operacional de uma máquina virtual
@@ -31,7 +31,7 @@ Quando você cria uma nova VM (máquina virtual) em um Grupo de Recursos implant
 
 
 > [!IMPORTANT]
-> O redimensionamento do disco do sistema operacional de uma máquina virtual do Azure requer que a máquina virtual seja desalocada.
+> Redimensionar o disco do SISTEMA OPERACIONAL de uma máquina virtual do Azure requer que a máquina virtual seja desalocada.
 >
 > Depois de expandir os discos, você precisará [expandir o volume no sistema operacional](#expand-the-volume-within-the-os) para aproveitar o disco maior.
 > 

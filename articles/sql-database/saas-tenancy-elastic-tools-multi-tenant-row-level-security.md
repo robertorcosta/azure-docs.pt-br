@@ -1,5 +1,5 @@
 ---
-title: Aplicativos multilocatários com RLS e ferramentas de banco de dados elástico
+title: Aplicativos multi-inquilinos com RLS e ferramentas de banco de dados elásticos
 description: Use ferramentas de banco de dados elástico com segurança em nível de linha para criar um aplicativo com uma camada de dados altamente dimensionável.
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822028"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 
-As [ferramentas de banco](sql-database-elastic-scale-get-started.md) de dados elástico e a [RLS (segurança em nível de linha)][rls] cooperam para habilitar o dimensionamento da camada de dado de um aplicativo multilocatário com o banco de dados SQL do Azure. Juntas, essas tecnologias ajudam a criar um aplicativo que tem uma camada de dados altamente escalonável. A camada de dados é compatível com fragmentos de multilocatários e usa **ADO.NET SqlClient** ou **Entity Framework**. Para obter mais informações, confira [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](saas-tenancy-app-design-patterns.md).
+As [ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md) e a [RLS (segurança em nível de linha)][rls] cooperam para escalar a camada de dados de um aplicativo multilocatário com um Banco de Dados SQL do Azure. Juntas, essas tecnologias ajudam a criar um aplicativo que tem uma camada de dados altamente escalonável. A camada de dados é compatível com fragmentos de multilocatários e usa **ADO.NET SqlClient** ou **Entity Framework**. Para obter mais informações, confira [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](saas-tenancy-app-design-patterns.md).
 
-- **Ferramentas de banco de dados elástico** permitem que os desenvolvedores expandam a camada de dados com a fragmentação padrão usando bibliotecas .NET e modelos de serviço do Azure. O gerenciamento de fragmentos usando a [biblioteca de cliente do banco de dados elástico][s-d-elastic-database-client-library] ajuda a automatizar e simplificar muitas das tarefas infraestrutura normalmente associadas à fragmentação.
+- **Ferramentas de banco de dados elástico** permitem que os desenvolvedores expandam a camada de dados com a fragmentação padrão usando bibliotecas .NET e modelos de serviço do Azure. Gerenciar fragmentos usando a [Biblioteca Cliente do Banco de Dados Elástico][s-d-elastic-database-client-library] ajuda a automatizar e simplificar muitas das tarefas infraestruturais normalmente associadas à fragmentação.
 - A **segurança em nível de linha** permite que os desenvolvedores armazenem com segurança os dados para vários locatários no mesmo banco de dados. Políticas de segurança de RLS filtram linhas que não pertencem ao locatário executando uma consulta. Centralizar a lógica do filtro dentro do banco de dados simplifica a manutenção e reduz o risco de um erro de segurança. A alternativa de depender de todo o código de cliente para aplicar a segurança é arriscada.
 
 Ao usar esses recursos em conjunto, um aplicativo pode armazenar dados para vários locatários no mesmo banco de dados de fragmentos. Custa menos por locatário quando os locatários compartilham um banco de dados. Embora o mesmo aplicativo também pode oferecer a seus locatários premium a opção de pagar para seus próprios fragmentos de banco de dados de único locatário dedicado. Um dos benefícios do isolamento de locatário único é uma maior garantia de desempenho. Em um banco de dados de locatário único, não há nenhum outro locatário competindo pelos recursos.
@@ -45,7 +45,7 @@ O objetivo é usar as APIs do [roteamento dependente de dados](sql-database-elas
 
 Esse projeto expande o descrito em [Ferramentas de Banco de Dados Elástico para o SQL do Azure - Integração com o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) adicionando suporte para bancos de dados de fragmentos multilocatários. O projeto cria um aplicativo de console simples para a criação de blogs e postagens. O projeto inclui quatro locatários, além de dois bancos de dados de fragmento de multilocatário. Essa configuração é ilustrada no diagrama anterior.
 
-Compile e execute o aplicativo. Essa execução inicializa o gerenciador de mapas de fragmentos das ferramentas de banco de dados elástico e executa os seguintes testes:
+Criar e executar o aplicativo. Essa execução inicializa o gerenciador de mapas de fragmentos das ferramentas de banco de dados elástico e executa os seguintes testes:
 
 1. Usando o Entity Framework e o LINQ, crie um novo blog e exiba todos os blogs para cada locatário
 2. Usando o ADO.NET SqlClient, exiba todos os blogs para um locatário
@@ -56,7 +56,7 @@ Observe que, como a RLS ainda não foi habilitada nos bancos de dados de fragmen
 1. **Camada de aplicativo**: modifique o código do aplicativo para sempre definir TenantId atual em SESSION\_CONTEXT depois de abrir uma conexão. O projeto de exemplo já define o TenantId dessa maneira.
 2. **Camada de dados**: crie uma política de segurança RLS em cada banco de dados de fragmentos para filtrar as linhas com base na TenantId armazenada em SESSION\_CONTEXT. Crie uma política para cada um dos seus bancos de dados de fragmentos, caso contrário, linhas em fragmentos multilocatários não serão filtradas.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. camada de aplicativo: definir Tenantid na sessão\_contexto
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Nível de aplicação: Definir\_TenantId no CONTEXTO da SESSÃO
 
 Primeiro, você se conecta a um banco de dados do fragmento usando as APIs de roteamentos dependentes de dados da biblioteca de cliente do banco de dados elástico. O aplicativo ainda deve informar ao banco de dados qual TenantId está usando a conexão. O TenantId informa à política de segurança de RLS quais linhas devem ser filtradas como pertencentes a outros locatários. Armazene o TenantId atual no [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da conexão.
 
@@ -212,7 +212,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. camada de dados: criar política de segurança em nível de linha
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Nível de dados: Crie uma política de segurança em nível de linha
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Criar uma política de segurança para filtrar as linhas que cada locatário pode acessar
 
@@ -338,22 +338,22 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Manutenção
+### <a name="maintenance"></a>Manutenção 
 
 - **Adicionando novos fragmentos**: execute o script T-SQL para habilitar RLS em qualquer novo fragmento; do contrário, as consultas nesses fragmentos não serão filtradas.
 - **Adicionando novas tabelas**: adicione um predicado de FILTER e BLOCK à política de segurança em todos os fragmentos sempre que uma nova tabela for criada. Caso contrário, consultas na nova tabela não serão filtrados. Essa adição pode ser automatizada usando um gatilho DDL, conforme é descrito em [Aplicar Segurança em Nível de Linha automaticamente a tabelas recém-criadas (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Resumo
 
-Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para escalar horizontalmente a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência. Essa eficiência é pronunciada quando um grande número de locatários tiver apenas algumas linhas de dados. Fragmentos de locatário único podem dar suporte a locatários premium que têm requisitos de desempenho e de isolamento mais rígidos. Para obter mais informações, confira [a referência à Segurança em Nível de Linha][rls].
+Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência. Essa eficiência é pronunciada quando um grande número de locatários tiver apenas algumas linhas de dados. Fragmentos de locatário único podem dar suporte a locatários premium que têm requisitos de desempenho e de isolamento mais rígidos. Para obter mais informações, confira [a referência à Segurança em Nível de Linha][rls].
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 - [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
-- [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](saas-tenancy-app-design-patterns.md)
+- [Padrões de design para aplicativos SaaS de vários locatários com banco de dados SQL do Azure](saas-tenancy-app-design-patterns.md)
 - [Autenticação em aplicativos multilocatários usando o Azure AD e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Aplicativo de Pesquisas Tailspin](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 

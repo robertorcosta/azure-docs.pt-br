@@ -1,5 +1,5 @@
 ---
-title: Criar um instantâneo de um VHD no Azure
+title: Crie um instantâneo de um VHD no Azure
 description: Saiba como criar uma cópia de um VHD no Azure como um backup ou para solução de problemas.
 documentationcenter: ''
 author: roygara
@@ -15,10 +15,10 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 15696469ca3861586617e9f418f8a55a7ea90467
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034789"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo 
@@ -63,7 +63,7 @@ az snapshot list \
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure 
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 2. Iniciando no canto superior esquerdo, clique em **Criar um recurso** e procure **instantâneo**. Selecione **Instantâneo** nos resultados da pesquisa.
 3. Na folha **Instantâneo**, clique em **Criar**.
 4. Insira um **Nome** para o instantâneo.

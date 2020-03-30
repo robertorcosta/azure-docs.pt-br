@@ -1,5 +1,5 @@
 ---
-title: Usar o Gerenciador de nuvem do VS para gerenciar mensagens de dispositivo do Hub IoT do Azure
+title: Use o VS Cloud Explorer para gerenciar mensagens de dispositivos Azure IoT Hub
 description: Saiba como usar o Cloud Explorer para Visual Studio para monitorar o dispositivo para mensagens de nuvem e enviar mensagens da nuvem para o dispositivo no Hub IoT do Azure.
 author: shizn
 ms.service: iot-hub
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74079488"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Usar o Cloud Explorer para Visual Studio para enviar e receber mensagens entre seu dispositivo e o Hub IoT
 
 ![Diagrama de ponta a ponta](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
-O [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) para é uma extensão útil para Visual Studio que permite exibir os recursos do Azure, inspecionar suas propriedades e executar ações chave do desenvolvedor de dentro do Visual Studio. Este artigo se concentra em como usar o Cloud Explorer para enviar e receber mensagens entre o dispositivo e o Hub.
+O [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) para é uma extensão útil para Visual Studio que permite exibir os recursos do Azure, inspecionar suas propriedades e executar ações chave do desenvolvedor de dentro do Visual Studio. Este artigo se concentra em como usar o Cloud Explorer para enviar e receber mensagens entre seu dispositivo e seu hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
-Neste artigo, você aprenderá a usar o Cloud Explorer para Visual Studio para monitorar mensagens do dispositivo para a nuvem e para enviar mensagens da nuvem para o dispositivo. Mensagens do dispositivo para a nuvem podem ser dados de sensor que o dispositivo coleta e envia para o Hub IoT. Mensagens da nuvem para dispositivo podem ser comandos que o Hub IoT envia para seu dispositivo. Por exemplo, pisca um LED conectado ao seu dispositivo.
+Neste artigo, você aprende a usar o Cloud Explorer para o Visual Studio para monitorar mensagens de dispositivo para nuvem e enviar mensagens nuvem-para-dispositivo. Mensagens do dispositivo para a nuvem podem ser dados de sensor que o dispositivo coleta e envia para o Hub IoT. Mensagens da nuvem para dispositivo podem ser comandos que o Hub IoT envia para seu dispositivo. Por exemplo, pisca um LED conectado ao seu dispositivo.
 
 ## <a name="what-you-do"></a>O que fazer
 
-Neste artigo, você executa as seguintes tarefas:
+Neste artigo, você faz as seguintes tarefas:
 
 - Use o Cloud Explorer para Visual Studio para monitorar mensagens do dispositivo para a nuvem.
 
@@ -42,29 +42,29 @@ Você precisa dos pré-requisitos a seguir:
 
 - Um Hub IoT do Azure em sua assinatura.
 
-- Microsoft Visual Studio 2017 atualização 9 ou posterior. Este artigo usa o [Visual Studio 2019](https://www.visualstudio.com/vs/).
+- Microsoft Visual Studio 2017 Atualização 9 ou posterior. Este artigo usa [o Visual Studio 2019](https://www.visualstudio.com/vs/).
 
-- O componente Gerenciador de nuvem da Instalador do Visual Studio, que é selecionado por padrão com a carga de trabalho do Azure.
+- O componente Cloud Explorer do Visual Studio Installer, que é selecionado por padrão com a Carga de Trabalho do Azure.
 
 ## <a name="update-cloud-explorer-to-latest-version"></a>Atualize o Cloud Explorer para a versão mais recente
 
-O componente Cloud Explorer da Instalador do Visual Studio para Visual Studio 2017 dá suporte apenas ao monitoramento de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo. Para usar o Visual Studio 2017, baixe e instale o [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)mais recente.
+O componente Cloud Explorer do Visual Studio Installer para o Visual Studio 2017 só suporta o monitoramento de mensagens de dispositivo para nuvem e nuvem para dispositivo. Para usar o Visual Studio 2017, baixe e instale o mais recente [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS).
 
-## <a name="sign-in-to-access-your-hub"></a>Entre para acessar seu hub
+## <a name="sign-in-to-access-your-hub"></a>Faça login para acessar seu hub
 
-Para acessar o Hub, siga estas etapas:
+Para acessar seu hub, siga estas etapas:
 
-1. No Visual Studio, selecione **exibir** > **Cloud Explorer** para abrir o Cloud Explorer.
+1. No Visual Studio, selecione **View** > **Cloud Explorer** para abrir o Cloud Explorer.
 
-1. Selecione o ícone gerenciamento de contas para mostrar suas assinaturas.
+1. Selecione o ícone Gerenciamento de contas para mostrar suas assinaturas.
 
-    ![Ícone de gerenciamento de conta](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
+    ![Ícone de Gerenciamento de Contas](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
 
-1. Se você estiver conectado ao Azure, suas contas serão exibidas. Para entrar no Azure pela primeira vez, escolha **Adicionar uma conta**.
+1. Se você estiver conectado ao Azure, suas contas aparecerão. Para entrar no Azure pela primeira vez, escolha **Adicionar uma conta**.
 
-1. Selecione as assinaturas do Azure que você deseja usar e escolha **aplicar**.
+1. Selecione as assinaturas do Azure que deseja usar e escolha **Aplicar**.
 
-1. Expanda sua assinatura e expanda os **hubs IOT**.  Em cada Hub, você pode ver seus dispositivos para esse Hub.
+1. Expanda sua assinatura e expanda os **Hubs de IoT**.  Em cada hub, você pode ver seus dispositivos para esse hub.
 
     ![Lista de dispositivos](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
 
@@ -76,7 +76,7 @@ Para monitorar as mensagens enviadas do seu dispositivo ao seu Hub IoT, siga est
 
     ![Iniciar o monitoramento de mensagem D2C](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message-vs2019.png)
 
-1. As mensagens monitoradas aparecem em **saída**.
+1. As mensagens monitoradas aparecem em **Saída**.
 
     ![Monitorando o resultado da mensagem D2C](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result-vs2019.png)
 
@@ -92,7 +92,7 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 
     ![Enviar mensagem C2D](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-test.png)
 
-    Os resultados aparecem em **saída**.
+    Os resultados aparecem em **Saída**.
 
     ![Enviar resultado de uma mensagem C2D](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result-vs2019.png)
 

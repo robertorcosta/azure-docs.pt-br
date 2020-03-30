@@ -1,78 +1,78 @@
 ---
-title: Integração do Azure Monitor para o Azure Red Hat OpenShift 4,3
-description: Saiba como habilitar Azure Monitor em seu cluster Microsoft Azure Red Hat OpenShift.
+title: Integração do Monitor Azure para O Chapéu Vermelho Azure OpenShift 4.3
+description: Saiba como ativar o Azure Monitor no seu cluster Microsoft Azure Red Hat OpenShift.
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.openlocfilehash: a784fc070400995c56d16a3bc264d589bcb1f64e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082839"
 ---
-# <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Integração do Azure Monitor para o Azure Red Hat OpenShift 4,3
+# <a name="azure-monitor-integration-for-azure-red-hat-openshift-43"></a>Integração do Monitor Azure para O Chapéu Vermelho Azure OpenShift 4.3
 
 > [!IMPORTANT] 
-> Observe que o Azure Red Hat OpenShift 4,3 está disponível atualmente apenas em visualização privada no leste dos EUA. A aceitação da visualização privada é apenas por convite. Certifique-se de registrar sua assinatura antes de tentar habilitar esse recurso: [registro de visualização privada do Azure Red Hat OpenShift](https://aka.ms/aro-preview-register)
+> Observe que o Azure Red Hat OpenShift 4.3 está atualmente disponível apenas em pré-visualização privada no Leste dos EUA. A aceitação de pré-visualização privada é apenas por convite. Certifique-se de registrar sua assinatura antes de tentar habilitar este recurso: [Azure Red Hat OpenShift Private Preview Registration](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
-> Os recursos de visualização são autoatendimento e são fornecidos como estão e disponíveis e são excluídos do SLA (contrato de nível de serviço) e da garantia limitada. Portanto, os recursos não são destinados ao uso em produção.
+> Os recursos de visualização são de autoatendimento e são fornecidos como está e disponível e são excluídos do contrato de nível de serviço (SLA) e garantia limitada. Portanto, os recursos não são feitos para uso de produção.
 
-Este artigo descreve como habilitar a visualização privada de Azure Monitor para contêineres para clusters OpenShift 4,3 hospedados no local ou em qualquer ambiente de nuvem. As mesmas instruções também se aplicam para habilitar o monitoramento de clusters do Azure Red Hat OpenShift (toa) 4,3.  
+Este artigo descreve como ativar a visualização privada do Azure Monitor para contêineres para clusters OpenShift 4.3 hospedados no prem ou em qualquer ambiente de nuvem. As mesmas instruções também se aplicam para habilitar o monitoramento para os clusters ArO (Azure Red Hat OpenShift) 4.3.  
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Helm 3](https://helm.sh/docs/intro/install/)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Leme 3](https://helm.sh/docs/intro/install/)
 - Acesso ao kubeconfig do cluster kubernetes
 - Acesso a uma assinatura do Azure
-- Acesso ao cluster OpenShift 4,3 para instalar o Azure Monitor para contêineres Helm gráfico
-- Permissão de função de RBAC do colaborador mínimo na assinatura do Azure  
-- O agente de monitoramento requer as seguintes portas e domínios de saída para enviar os dados de monitoramento para o back-end de Azure Monitor (se bloqueado pelo proxy/firewall):
-  - *. ods.opinsights.azure.com 443
-  - *. oms.opinsights.azure.com 443
-  - *. blob.core.windows.net 443
+- Acesso ao cluster OpenShift 4.3 para instalar o gráfico Azure Monitor for Containers Helm
+- Permissão de função RBAC contribuinte mínimo na assinatura do Azure  
+- O Agente de monitoramento requer as seguintes portas de saída - e os domínios para enviar os dados de monitoramento para o backend do Azure Monitor (Se bloqueado por proxy/firewall):
+  - *.ods.opinsights.azure.com 443
+  - *.oms.opinsights.azure.com 443
+  - *.blob.core.windows.net 443
   - dc.services.visualstudio.com 443
 
 ## <a name="onboarding"></a>Integração
 
 > [!TIP]
-> O script usa os recursos do bash 4, portanto, verifique se seu Bash está atualizado. Você pode verificar sua versão atual com `bash --version`.
+> O script usa recursos do Bash 4, então certifique-se de que sua festa esteja atualizada. Você pode verificar sua `bash --version`versão atual com .
 
-### <a name="download-the-onboarding-script"></a>Baixar o script de integração
+### <a name="download-the-onboarding-script"></a>Baixe o script de onboarding
 
 ```bash
 curl -LO  https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/openshiftV4/onboarding_azuremonitor_for_containers.sh
 ```
 
-Execute o script a seguir com azureSubscriptionId, região do espaço de trabalho, ClusterName e contexto do cluster kubernetes.
+Execute o seguinte script com azureSubscriptionId, região do espaço de trabalho, clusterName e contexto do cluster Kubernetes.
 
 ```bash
 bash onboarding_azuremonitor_for_containers.sh <azureSubscriptionId> <azureRegionforLogAnalyticsWorkspace> <clusterName> <kubeconfigContextNameOftheCluster>
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```bash
  bash onboarding_azuremonitor_for_containers.sh 27ac26cf-a9f0-4908-b300-9a4e9a0fb205 eastus myocp42 admin 
 ```
 
-## <a name="configure-agent-data-collection"></a>Configurar coleta de dados do agente
+## <a name="configure-agent-data-collection"></a>Configurar a coleta de dados do agente
 
-Por padrão, o agente de monitoramento coleta os logs de contêiner {stdout; stderr} de todos os contêineres em execução em todos os namespaces, exceto Kube-System.  Se você quiser configurar a coleção de log de contêiner específica para namespace ou namespaces específicos, você poderá consultar a [configuração do agente de informações de contêiner](../azure-monitor/insights/container-insights-agent-config.md). Aqui, você pode configurar o agente de monitoramento com as configurações de coleta de dados desejadas usando o mapa de configuração.
+Por padrão, o Agente de Monitoramento coleta os registros de contêiner {stdout; stderr} de todos os contêineres em execução em todos os namespaces, exceto kube-system.  Se você quiser configurar a coleção de registros de contêineres específicas para espaços de nome ou namespaces específicos, você pode consultar a [configuração do agente Container Insights](../azure-monitor/insights/container-insights-agent-config.md). Aqui, você pode configurar o agente de monitoramento com as configurações desejadas de coleta de dados usando o mapa de configuração.
 
-## <a name="configure-scraping-of-prometheus-metrics"></a>Configurar a recorte de métricas de Prometheus
+## <a name="configure-scraping-of-prometheus-metrics"></a>Configurar a raspagem das métricas de Prometeu
 
-Azure Monitor para contêineres recorta as métricas Prometheus e ingestão para o back-end Azure Monitor. Consulte [configuração do contêiner insights Prometheus](../azure-monitor/insights/container-insights-prometheus-integration.md) para obter instruções sobre como configurar a recorte de Prometheus.
+O Monitor Azure para contêineres raspa as métricas do Prometheus e ingere para o backend do Monitor Azure. Consulte a [configuração do Container Insights Prometheus](../azure-monitor/insights/container-insights-prometheus-integration.md) para obter as instruções de como configurar a raspagem do Prometeu.
 
-Após a integração bem-sucedida, navegue até [monitoramento híbrido](https://aka.ms/azmon-containers-hybrid) e selecione ambiente como **"todos"** para exibir seu cluster OpenShift v4 recentemente integrado.
+Após o onboarding bem-sucedido, navegue até [o Monitoria Híbrido](https://aka.ms/azmon-containers-hybrid) e selecione o Ambiente como **"Todos"** para visualizar seu recém-instalado cluster OpenShift v4.
 
 ## <a name="disable-monitoring"></a>Desabilitar o monitoramento
 
-Se você quiser desabilitar o monitoramento, poderá excluir Azure Monitor o gráfico de Helm para contêineres usando o comando a seguir para parar de coletar e ingerir dados de monitoramento para Azure Monitor para o back-end de contêineres.
+Se você quiser desativar o monitoramento, você pode excluir o gráfico Azure Monitor for Containers Helm usando o seguinte comando para parar de coletar e ingerir dados de monitoramento para o Azure Monitor para back-end de contêineres.
 
 ``` bash
 helm del azmon-containers-release-1
@@ -80,21 +80,21 @@ helm del azmon-containers-release-1
 
 ## <a name="update-monitoring"></a>Monitoramento de atualização
 
-Execute novamente o script de integração conforme descrito na seção [integração](#onboarding) com o mesmo parâmetro para atualizar para o gráfico Helm mais recente.
+Reexecute o script de onboarding conforme descrito na seção [Onboarding](#onboarding) com o mesmo parâmetro para atualizar para o gráfico mais recente de Helm.
 
-## <a name="after-successful-onboarding"></a>Após a integração bem-sucedida
+## <a name="after-successful-onboarding"></a>Depois de um onboarding bem sucedido
 
-Navegue até [monitoramento híbrido](https://aka.ms/azmon-containers-hybrid)e você pode ver seu cluster OPENSHIFT/aro v4 habilitado recentemente com status de integridade na guia **clusters monitorados** . Lá, você pode obter informações mais aprofundadas, como métricas, inventário e logs, clicando na coluna **cluster** .
+Navegue até [o Monitoria Híbrida](https://aka.ms/azmon-containers-hybrid)e você poderá ver o cluster OpenShift/ARO v4 recém-ativado com status de saúde na guia **Clusters monitorados.** Lá, você pode obter insights mais profundos, como métricas, inventário e logs clicando na coluna **Cluster.**
 
-## <a name="supported-features"></a>Recursos com suporte
+## <a name="supported-features"></a>Recursos compatíveis
 
-Para obter mais informações sobre os recursos e a funcionalidade com suporte, consulte [visão geral do contêiner insights](../azure-monitor/insights/container-insights-overview.md).
+Para obter mais informações sobre os recursos e funcionalidades suportados, consulte [visão geral do Container Insights](../azure-monitor/insights/container-insights-overview.md).
 
-Entre em contato conosco por meio de askcoin@microsoft.com para obter comentários e dúvidas.
+Entre em askcoin@microsoft.com contato conosco através de comentários e perguntas.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre monitoramento, consulte:
-- [Visão geral do contêiner de informações](../azure-monitor/insights/container-insights-overview.md)
+- [Visão geral do Container Insights](../azure-monitor/insights/container-insights-overview.md)
 
-- [Visão geral da consulta de log](../azure-monitor/log-query/log-query-overview.md)
+- [Visão geral do log query](../azure-monitor/log-query/log-query-overview.md)

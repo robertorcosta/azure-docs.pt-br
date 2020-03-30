@@ -1,5 +1,5 @@
 ---
-title: 'Aplicativos SaaS: backups com redundância geográfica para recuperação de desastre'
+title: 'Aplicativos SaaS: backups geo-redundantes para recuperação de desastres'
 description: Aprenda a usar backups com redundância geográfica do Banco de Dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826468"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
-Este tutorial explora um cenário de recuperação de desastre para um aplicativo SaaS multilocatário implementado com o banco de dados por modelo de locatário. Use a [restauração geográfica](sql-database-recovery-using-backups.md) para recuperar bancos de dados de locatário e de catálogo de backups com redundância geográfica mantidos automaticamente em uma região de recuperação alternativa. Depois que a interrupção for resolvida, você usará a [replicação geográfica](sql-database-geo-replication-overview.md) para repatriar bancos de dados alterados para a região original deles.
+Este tutorial explora um cenário de recuperação de desastre para um aplicativo SaaS multilocatário implementado com o banco de dados por modelo de locatário. Você usa a [restauração geográfica](sql-database-recovery-using-backups.md) para recuperar os bancos de dados do catálogo e de locatário de backups com redundância geográfica automaticamente mantidos em uma região de recuperação alternativa. Depois que a interrupção for resolvida, você usará a [replicação geográfica](sql-database-geo-replication-overview.md) para repatriar bancos de dados alterados para a região original deles.
 
 ![Geo-restore-architecture](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -41,8 +41,8 @@ Este tutorial explora os fluxos de trabalho de restauração e repatriação. Vo
  
 
 Antes de iniciar este tutorial, conclua os seguintes pré-requisitos:
-* Implante o aplicativo de banco de dados SaaS da Wingtip Ticket por locatário. Para implantar em menos de cinco minutos, consulte [Deploy and explore the Wingtip Tickets SaaS database per tenant application](saas-dbpertenant-get-started-deploy.md) (Implantar e explorar o aplicativo de banco de dados SaaS da Wingtip Tickets por locatário). 
-* Instale o PowerShell do Azure. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Implante o aplicativo de banco de dados SaaS da Wingtip Ticket por locatário. Para implantar em menos de cinco minutos, consulte Implantar e explorar o banco de [dados Wingtip Tickets SaaS por aplicativo de inquilino](saas-dbpertenant-get-started-deploy.md). 
+* Instale o PowerShell do Azure. Para obter detalhes, consulte [Como começar com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introdução ao padrão de recuperação de restauração geográfica
 
@@ -57,17 +57,17 @@ A recuperação de desastre (DR) é uma consideração importante para muitos ap
  * Repatrie bancos de dados para a região original deles com impacto mínimo nos locatários quando a interrupção for resolvida.  
 
 > [!NOTE]
-> O aplicativo é recuperado para a região emparelhada da região em que o aplicativo é implantado. Para saber mais, veja [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> O aplicativo é recuperado para a região emparelhada da região em que o aplicativo é implantado. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
 
 Este tutorial usa recursos do Banco de Dados SQL do Azure e a plataforma do Azure para endereçar estes desafios:
 
 * [Modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) para reservar toda a capacidade necessária assim que possível. Os modelos do Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores originais e pools elásticos na região de recuperação. Um servidor e um pool separados também são criados para provisionar novos locatários.
-* [EDCL](sql-database-elastic-database-client-library.md) (Biblioteca de Cliente de Banco de Dados Elástico) para criar e manter um catálogo de banco de dados de locatário. O catálogo estendido inclui informações de configuração periodicamente atualizadas do banco de dados e do pool.
-* [Recursos de recuperação de gerenciamento de fragmentos](sql-database-elastic-database-recovery-manager.md) da EDCL para manter as entradas de localização de banco de dados no catálogo durante a recuperação e a repatriação.  
+* [Biblioteca de clientes de banco de dados elástico](sql-database-elastic-database-client-library.md) (EDCL), para criar e manter um catálogo de banco de dados de inquilinos. O catálogo estendido inclui informações de configuração periodicamente atualizadas do banco de dados e do pool.
+* Recursos de recuperação de gerenciamento de [fragmentos](sql-database-elastic-database-recovery-manager.md) do EDCL, para manter entradas de localização de banco de dados no catálogo durante a recuperação e repatriação.  
 * A [restauração geográfica](sql-database-disaster-recovery.md) para recuperar os bancos de dados do catálogo e de locatário de backups com redundância geográfica mantidos automaticamente. 
 * [Operações de restauração assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) enviadas na ordem de prioridade de locatário, enfileiradas para cada pool pelo sistema e processadas em lotes para o pool não ficar sobrecarregado. Essas operações podem ser canceladas antes ou durante a execução, se necessário.   
 * [Replicação geográfica](sql-database-geo-replication-overview.md) para repatriar os bancos de dados para a região original após a interrupção. Não há perda de dados e há o mínimo de impacto no locatário quando você usa a replicação geográfica.
-* [Aliases DNS do servidor SQL](dns-alias-overview.md) para permitir que o processo de sincronização de catálogo para se conectar ao catálogo ativo, independentemente de sua localização.  
+* [Os pseudônimos DNS do servidor SQL](dns-alias-overview.md)permitem que o processo de sincronização do catálogo se conecte ao catálogo ativo, independentemente de sua localização.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obter os scripts de recuperação de desastre
 
@@ -179,7 +179,7 @@ Imagine que há uma interrupção na região em que o aplicativo é implantado e
 
     * O script é aberto em uma nova janela do PowerShell e, em seguida, inicia um conjunto de trabalhos do PowerShell executados em paralelo. Esses trabalhos restauram servidores, pools e bancos de dados para a região de recuperação.
 
-    * A região de recuperação é a região emparelhada associada à região do Azure na qual você implantou o aplicativo. Para saber mais, veja [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * A região de recuperação é a região emparelhada associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Monitore o status do processo de recuperação na janela do PowerShell.
 
@@ -238,7 +238,7 @@ Quando o processo de recuperação for concluído, o aplicativo e todos os locat
 
     ![Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/contoso-recovery-location.png)
 
-3. No [portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
+3. No [Portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
 
     Observe o grupo de recursos que você implantou, mais o grupo de recursos de recuperação, com o sufixo -recovery. O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de novos recursos criados durante a interrupção. 
 
@@ -272,7 +272,7 @@ Nesse ponto no tutorial, você recuperou o aplicativo, que está em execução n
 > [!NOTE]
 > Outros tutoriais no exemplo não são projetados para funcionar com o aplicativo no estado de recuperação. Se você quiser explorar outros tutoriais, repatrie o aplicativo primeiro.
 
-## <a name="repatriation-process-overview"></a>Visão geral do processo repatriação
+## <a name="repatriation-process-overview"></a>Visão geral do processo de repatriação
 
 O processo de repatriação reverte o aplicativo e seus bancos de dados para sua região original após uma interrupção for resolvida.
 
@@ -312,7 +312,7 @@ Quando um banco de dados é repatriado, o banco de dados secundário na região 
 
 Na etapa 8, os recursos na região de recuperação, incluindo os servidores de recuperação e pools, são excluídos.
 
-## <a name="run-the-repatriation-script"></a>Executar o script de repatriação
+## <a name="run-the-repatriation-script"></a>Executar o script repatriação
 Vamos imaginar que a interrupção foi resolvida e executar o script de repatriação.
 
 Se você seguiu o tutorial, o script reativa imediatamente o Fabrikam Jazz club e o Dogwood Dojo na região original porque eles não foram modificados. Em seguida, ele repatria o novo locatário, Hawthorn Hall, e o Contoso Concert Hall porque ele foi modificado. O script também repatria o catálogo, que foi atualizado quando Hawthorn Hall foi provisionado.
@@ -364,7 +364,7 @@ Os bancos de dados de locatário podem ser distribuídos por regiões originais 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
 > 
 > * Usar o catálogo de locatário para manter informações de configuração atualizadas periodicamente, que permite que um ambiente de recuperação de imagem espelhada seja criado em outra região.

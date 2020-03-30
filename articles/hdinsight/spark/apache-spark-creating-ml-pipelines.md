@@ -1,5 +1,5 @@
 ---
-title: Criar Apache Spark pipeline do Machine Learning-Azure HDInsight
+title: Criar o pipeline de aprendizado de máquina Apache Spark - Azure HDInsight
 description: Use a biblioteca de aprendizado de máquina Apache Spark para criar pipelines de dados no Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494660"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Apache Spark
 
-A biblioteca de Machine Learning escalonável do Apache Spark (MLlib) oferece recursos de modelagem para um ambiente distribuído. O pacote Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível construído em DataFrames. Essas APIs ajudam a criar e ajustar pipelines práticos de Machine Learning.  *Machine Learning do Spark* refere-se a essa API baseada em DataFrame MLlib, e não à API de pipeline baseada em RDD mais antiga.
+A biblioteca de Machine Learning escalonável do Apache Spark (MLlib) oferece recursos de modelagem para um ambiente distribuído. O pacote [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) Spark é um conjunto de APIs de alto nível construídas em DataFrames. Essas APIs ajudam a criar e ajustar pipelines práticos de Machine Learning.  *Machine Learning do Spark* refere-se a essa API baseada em DataFrame MLlib, e não à API de pipeline baseada em RDD mais antiga.
 
 Um pipeline de Machine Learning (ML) é um fluxo de trabalho completo que combina vários algoritmos de Machine Learning em conjunto. Pode haver muitas etapas necessárias para processar e aprender com dados, exigindo uma sequência de algoritmos. Os pipelines definem os estágios e a ordenação de um processo de Machine Learning. No MLlib, os estágios de um pipeline são representados por uma sequência específica de PipelineStages, onde um Transformador e um Estimador executam cada uma das tarefas.
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorar e gerenciar pipelines usando o portal do Azure e o PowerShell
+title: Monitore e gerencie os gasodutos usando o portal Azure e o PowerShell
 description: Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73666974"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
@@ -46,7 +46,7 @@ No Portal do Azure, você pode:
 Esta seção também descreve como uma fatia do conjunto de dados faz a transição de um estado para outro.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue até sua data factory
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 2. Clique em **Data factories** no menu à esquerda. Se você não o vir, clique em **Mais serviços >** e clique em **Data factories** na categoria **INTELIGÊNCIA + ANÁLISE**.
 
    ![Procurar tudo > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -59,7 +59,7 @@ Esta seção também descreve como uma fatia do conjunto de dados faz a transiç
    ![Folha Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Modo de exibição de diagrama de uma data factory
-O modo de exibição de **Diagrama** de uma data factory fornece um único painel onde você pode monitorar e gerenciar o data factory e seus ativos. Para ver o modo de exibição de **Diagrama** de seu data factory, clique em **Diagrama** na home page do data factory.
+A visão **diagrama** de uma fábrica de dados fornece um único painel de vidro para monitorar e gerenciar a fábrica de dados e seus ativos. Para ver o modo de exibição de **Diagrama** de seu data factory, clique em **Diagrama** na home page do data factory.
 
 ![Modo de Exibição de Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
@@ -87,7 +87,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">DESCRIÇÃO</th>
+    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
 </tr>
 <tr>
     <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não chegou o momento de execução da fatia.</td>
@@ -105,7 +105,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>ActivityResume</td><td>A atividade está em pausa e não pode executar as fatias até que a atividades seja retomada.</td>
 </tr>
 <tr>
-<td>Retry</td><td>A execução da atividade está sendo repetida.</td>
+<td>Repetir</td><td>A execução da atividade está sendo repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
@@ -121,10 +121,10 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>A fatia está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
-<td>Cancelado</td><td>A fatia foi cancelada por ação do usuário.</td>
+<td>Canceled</td><td>A fatia foi cancelada por ação do usuário.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação falhou.</td>
@@ -163,7 +163,7 @@ Após a implantação de uma data factory e a atribuição de um período de ati
 
 O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed.
 
-A fatia começa em um estado de **Aguardando**, esperando pelo atendimento de pré-condições antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para um estado **Em Andamento** . A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **Pronta** ou **Falha** com base no resultado da execução.
+A fatia começa em um estado de **Aguardando**, esperando pelo atendimento de pré-condições antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para um estado **Em Andamento** . A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **Pronta** ou **Falha,** com base no resultado da execução.
 
 Você pode redefinir a fatia para voltar do estado **Pronto** ou **Falha** para o estado **Aguardando**. Você também pode marcar o estado da fatia como **Ignorar**, o que impedirá a execução da atividade e não processará a fatia.
 
@@ -173,12 +173,12 @@ Você pode gerenciar seus pipelines usando o Azure PowerShell. Por exemplo, voc�
 > [!NOTE] 
 > A exibição de diagrama não dá suporte à pausa e continuação de pipelines. Se você desejar usar uma interface do usuário, use o aplicativo de monitoramento e gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte o artigo [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
 
-Você pode pausar/suspender pipelines usando o cmdlet **Suspend-AzDataFactoryPipeline** do PowerShell. Esse cmdlet é útil quando você não quiser executar o pipeline até que um problema seja corrigido. 
+Você pode pausar/suspender os gasodutos usando o **cmdlet Suspend-AzDataFactoryPipeline** PowerShell. Esse cmdlet é útil quando você não quiser executar o pipeline até que um problema seja corrigido. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +189,7 @@ Depois que o problema com o pipeline for corrigido, você poderá retomar o pipe
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -211,7 +211,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 2. Na folha **Fatia de dados**, clique na execução de atividade com falha.
 
    ![Fatia de dados com erro](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. Na folha **Detalhes de execução da atividade**, você pode baixar os arquivos associados ao processamento do HDInsight. Clique em **Download** para que Status/stderr baixe o arquivo de log de erros que contém detalhes sobre o erro.
+3. Na folha **Detalhes de execução da atividade**, você pode baixar os arquivos associados ao processamento do HDInsight. Clique **em Baixar** para Status/stderr para baixar o arquivo de registro de erro que contém detalhes sobre o erro.
 
    ![Folha de detalhes da execução da atividade com erro](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
@@ -222,21 +222,21 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Por exemplo:
+   Por exemplo: 
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    Substitua **StartDateTime** pela hora de início do pipeline. 
-3. Agora, execute o cmdlet **Get-AzDataFactoryRun** para obter detalhes sobre a execução da atividade para a fatia.
+3. Agora, execute o **cmdlet Get-AzDataFactoryRun** para obter detalhes sobre a atividade executada para a fatia.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Por exemplo:
+    Por exemplo: 
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -267,7 +267,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Você pode executar o cmdlet **Save-AzDataFactoryLog** com o valor de ID que você vê na saída e baixar os arquivos de log usando o **-DownloadLogsoption** para o cmdlet.
+5. Você pode executar o **cmdlet Save-AzDataFactoryLog** com o valor de Id que você vê na saída e baixar os arquivos de log usando a **opção -DownloadLogspara** o cmdlet.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -288,7 +288,7 @@ Em caso de falha na validação da fatia devido a uma falha de política (por ex
 ![Corrigir os erros e validar](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
-Você pode executar novamente as falhas usando o cmdlet **set-AzDataFactorySliceStatus** . Consulte o tópico [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter a sintaxe e outros detalhes sobre o cmdlet.
+Você pode executar falhas usando o **cmdlet Set-AzDataFactorySliceStatus.** Consulte o tópico [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter sintaxe e outros detalhes sobre o cmdlet.
 
 **Exemplo:**
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Criar um novo alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definir a **Condição de alerta**. (Certifique-se de selecionar **Data factories** no campo **Filtrar por tipo de recurso** .) Você também pode especificar valores para **dimensões**.
+3.  Definir a **Condição de alerta**. (Certifique-se de selecionar **fábricas de dados** no **campo Filtro por tipo de recurso.)** Você também pode especificar valores para **Dimensões**.
 
     ![Definir a condição de alerta - Selecionar destino](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 

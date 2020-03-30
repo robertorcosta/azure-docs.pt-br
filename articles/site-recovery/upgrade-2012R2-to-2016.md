@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
 ms.openlocfilehash: 1d94935db542a0e64754ab8769996fe906f88b46
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954417"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Atualizar o Windows Server Server/System Center 2012 R2 VMM para o Windows Server/VMM 2016 
@@ -42,10 +42,10 @@ Antes da atualização, observe o seguinte:
 
 - Se você estiver usando o System Center 2012 R2 VMM, 
 
-    - Verifique as informações do banco de dados no VMM: **configurações** de -> do **console do VMM** -> conexão **geral** -> **banco de dados**
+    - Verifique as informações do banco de dados sobre vmm: -> **configurações** -> do **console VMM****Conexão banco de** -> **dados geral**
     - Verificar as contas de serviço que estão sendo usadas para o serviço de agente do System Center Virtual Machine Manager
     - Verifique se você tem um backup do Banco de Dados do VMM.
-    - Anote o nome do banco de dados dos servidores do SCVMM envolvidos. Isso pode ser feito navegando para **Console do VMM** -> **Configurações** -> **Geral** -> **Conexão de banco de dados**
+    - Anote o nome do banco de dados dos servidores do SCVMM envolvidos. Isso pode ser feito navegando até a**conexão** Banco de dados**de configurações** -> **gerais** -> do console ->  **VMM**
     - Anote a ID do VMM dos servidores do VMM 2012 R2 primário e de recuperação. A ID do VMM pode ser encontrada no Registro "HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup”.
     - Verifique se os novos SCVMMs que você adicionar ao cluster tem os mesmos nomes de antes. 
 
@@ -78,7 +78,7 @@ Antes de atualizar os hosts do Windows Server 2012 R2, você precisa atualizar o
 3. Em **Adicionar ou remover programas**, selecione **VMM** > **Desinstalar**. b. Selecione **Remover Recursos** e, em seguida, selecione **Servidor de gerenciamento do VMM e Console do VMM**. c. Em **Opções de Banco de Dados**, selecione **Manter banco de dados**. d. Examine o resumo e clique em **Desinstalar**.
 
 4. [Instalar o VMM 2016](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
-5. Inicie o SCVMM e verifique o status de cada host na guia **malhas** . clique em **Atualizar** para obter o status mais recente. Você deverá ver o status como “Precisa de Atenção”. 
+5. Inicie o SCVMM e verifique o status de cada hospedeiro na guia **Malhação.** Clique **em Atualizar** para obter o status mais recente. Você deverá ver o status como “Precisa de Atenção”. 
 17. Instale o último [Provedor do Microsoft Azure Site Recovery](https://aka.ms/downloaddra) no SCVMM.
 16. Instale o último [agente do MARS (Serviço de Recuperação do Microsoft Azure)](https://aka.ms/latestmarsagent) em cada host do cluster. Faça a atualização para garantir que o SCVMM possa consultar os hosts com êxito.
 
@@ -96,7 +96,7 @@ Antes de atualizar os hosts do Windows Server 2012 R2, você precisa atualizar o
 
 1.  Desinstale o provedor do ASR navegando para o Painel de Controle -> Programas -> Programas e Recursos -> Microsoft Azure Site Recovery e clique em Desinstalar
 2. Siga as etapas mencionadas [aqui](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) com base no modo de atualização que deseja executar.
-3. Inicie o console do SCVMM e verifique o status de cada host na guia **malhas** . clique em **Atualizar** para obter o status mais recente. Você deverá ver o status como “Precisa de Atenção”.
+3. Inicie o console SCVMM e verifique o status de cada hospedeiro na guia **Malhação.** Clique **em Atualizar** para obter o status mais recente. Você deverá ver o status como “Precisa de Atenção”.
 4. Instale o último [Provedor do Microsoft Azure Site Recovery](https://aka.ms/downloaddra) no SCVMM.
 5. Atualize o último [agente do MARS (Serviço de Recuperação do Microsoft Azure)](https://aka.ms/latestmarsagent) em cada host do cluster. Faça a atualização para garantir que o SCVMM possa consultar os hosts com êxito.
 

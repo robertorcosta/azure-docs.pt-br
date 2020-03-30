@@ -1,79 +1,79 @@
 ---
-title: Cadeias de conexão no Aplicativo Azure insights | Microsoft Docs
-description: Como usar cadeias de conexão.
+title: Strings de conexão no Azure Application Insights | Microsoft Docs
+description: Como usar strings de conexão.
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 7b049c04913d3415074f46b9d90ec34be874a2da
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136699"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
 ## <a name="overview"></a>Visão geral
 
-As cadeias de conexão fornecem aos usuários do Application Insight um único parâmetro de configuração, eliminando a necessidade de várias configurações de proxy. Altamente útil para servidores Web da intranet, soberanas ou ambientes de nuvem híbridas que procuram enviar dados para o serviço de monitoramento.
+As seqüências de conexão fornecem aos usuários do Application Insight uma única configuração, eliminando a necessidade de várias configurações de proxy. Altamente útil para servidores web intranet, ambientes de nuvem soberanos ou híbridos que procuram enviar dados para o serviço de monitoramento.
 
-Os pares chave-valor fornecem uma maneira fácil para os usuários definirem uma combinação de sufixo de prefixo para cada serviço/produto de Application Insights (ia).
+Os pares de valor-chave fornecem uma maneira fácil para os usuários definirem uma combinação de sufixo prefixo para cada serviço/produto de Application Insights (AI).
 
 > [!IMPORTANT]
-> Não é recomendável definir a cadeia de conexão e a chave de instrumentação. Caso um usuário defina ambos, o que foi definido por último terá precedência. 
+> Não recomendamos a configuração da tecla Connection String e Instrumentation. No caso de um usuário definir ambos, o que foi definido por último terá precedência. 
 
 
 ## <a name="scenario-overview"></a>Visão geral do cenário 
 
-Os cenários de clientes nos quais visualizamos isso tem o maior impacto:
+Cenários de clientes onde visualizamos isso tendo mais impacto:
 
 - Exceções de firewall ou redirecionamentos de proxy 
 
-    Nos casos em que o monitoramento do servidor Web da intranet é necessário, nossa solução anterior solicitou que os clientes adicionassem pontos de extremidade de serviço individuais à sua configuração. Para saber mais, clique [aqui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
-    As cadeias de conexão oferecem uma alternativa melhor, reduzindo esse esforço para uma única configuração. Um prefixo simples, emenda de sufixo, permite preenchimento automático e redirecionamento de todos os pontos de extremidade para os serviços corretos. 
+    Nos casos em que o monitoramento para servidor web intranet é necessário, nossa solução anterior pediu aos clientes para adicionar pontos finais de serviço individuais à sua configuração. Para mais informações, consulte [aqui](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    As strings de conexão oferecem uma alternativa melhor reduzindo esse esforço para uma única configuração. Um simples prefixo, a alteração do sufixo permite a população automática e o redirecionamento de todos os pontos finais para os serviços certos. 
 
-- Ambientes de nuvem híbrida ou soberanas
+- Ambientes de nuvem soberanos ou híbridos
 
-    Os usuários podem enviar dados para uma [região do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definida.
-    As cadeias de conexão permitem definir configurações de ponto de extremidade para seus servidores de intranet ou configurações de nuvem híbrida. 
+    Os usuários podem enviar dados para uma [região de governo azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definida.
+    As strings de conexão permitem definir as configurações de ponto final para seus servidores de intranet ou configurações de nuvem híbrida. 
 
 ## <a name="getting-started"></a>Introdução
 
-### <a name="finding-my-connection-string"></a>Localizando minha cadeia de conexão?
+### <a name="finding-my-connection-string"></a>Encontrando minha corda de conexão?
 
-Sua cadeia de conexão é exibida na folha visão geral do recurso de Application Insights.
+A seqüência de conexões é exibida na lâmina visão geral do recurso Application Insights.
 
-![Cadeia de conexão na folha visão geral](media/overview-dashboard/overview-connection-string.png)
+![string de conexão na lâmina de visão geral](media/overview-dashboard/overview-connection-string.png)
 
 ### <a name="schema"></a>Esquema
 
 #### <a name="max-length"></a>Comprimento máximo
 
-A conexão tem um comprimento máximo com suporte de 4096 caracteres.
+A conexão tem um comprimento máximo suportado de 4096 caracteres.
 
 #### <a name="key-value-pairs"></a>Pares chave-valor
 
-A cadeia de conexão consiste em uma lista de configurações representadas como pares chave-valor separados por ponto e vírgula: `key1=value1;key2=value2;key3=value3`
+A seqüência de conexões consiste em uma lista de configurações representadas como pares de valor-chave separados por ponto e vírgula:`key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>Sintaxe
 
-- `InstrumentationKey` (ex: 00000000-0000-0000-0000-000000000000) a cadeia de conexão é um campo **obrigatório** .
-- `Authorization` (ex: iKey) (essa configuração é opcional porque hoje só damos suporte à autorização de iKey.)
-- `EndpointSuffix` (ex: applicationinsights.azure.cn) definir o sufixo do ponto de extremidade instruirá o SDK ao qual a nuvem do Azure se conectará. O SDK montará o restante do ponto de extremidade para serviços individuais.
-- Pontos de extremidade explícitos.
-  Qualquer serviço pode ser explicitamente substituído na cadeia de conexão.
-   - `IngestionEndpoint` (ex: https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint` (ex: https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint` (ex: https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint` (ex: https://snapshot.applicationinsights.azure.com)
+- `InstrumentationKey`(ex: 00000000-0000-0000-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000  A seqüência de conexões é um campo **obrigatório.**
+- `Authorization`(ex: ikey) (Esta configuração é opcional porque hoje nós apenas suportamos a autorização ikey.)
+- `EndpointSuffix`(ex: applicationinsights.azure.cn) A configuração do sufixo de ponto final instruirá o SDK a que a nuvem do Azure se conectará. O SDK reunirá o resto do ponto final para serviços individuais.
+- Pontos finais explícitos.
+  Qualquer serviço pode ser explicitamente substituído na seqüência de conexões.
+   - `IngestionEndpoint`(ex:https://dc.applicationinsights.azure.com)
+   - `LiveEndpoint`(ex:https://live.applicationinsights.azure.com)
+   - `ProfilerEndpoint`(ex:https://profiler.applicationinsights.azure.com)
+   - `SnapshotEndpoint`(ex:https://snapshot.applicationinsights.azure.com)
 
-#### <a name="endpoint-schema"></a>Esquema de ponto de extremidade
+#### <a name="endpoint-schema"></a>Esquema de ponto final
 
 `<prefix>.<suffix>`
-- Prefixo: define um serviço. 
-- Sufixo: define o nome de domínio comum.
+- Prefixo: Define um serviço. 
+- Sufixo: Define o nome de domínio comum.
 
 ##### <a name="valid-suffixes"></a>Sufixos válidos
 
@@ -87,73 +87,73 @@ Consulte também: https://docs.microsoft.com/azure/azure-monitor/app/custom-endp
 
 ##### <a name="valid-prefixes"></a>Prefixos válidos
 
-- [Ingestão de telemetria](./app-insights-overview.md): `dc`
-- [Métricas ao vivo](./live-stream.md): `live`
-- [Criador de perfil](./profiler-overview.md): `profiler`
-- [Instantâneo](./snapshot-debugger.md): `snapshot`
+- [Ingestão de Telemetria:](./app-insights-overview.md)`dc`
+- [Métricas ao vivo](./live-stream.md):`live`
+- [Perfil:](./profiler-overview.md)`profiler`
+- [Instantâneo:](./snapshot-debugger.md)`snapshot`
 
 
 
-## <a name="connection-string-examples"></a>Exemplos de cadeia de conexão
+## <a name="connection-string-examples"></a>Exemplos de seqüência de conexão
 
 
-### <a name="minimal-valid-connection-string"></a>Cadeia de conexão mínima válida
+### <a name="minimal-valid-connection-string"></a>Seqüência de conexão válida mínima
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;`
 
-Neste exemplo, somente a chave de instrumentação foi definida.
+Neste exemplo, apenas a chave de instrumentação foi definida.
 
-- O esquema de autorização assume como padrão "iKey" 
-- Chave de instrumentação: 00000000-0000-0000-0000-000000000000
-- Os URIs de serviço regional baseiam-se nos [padrões do SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e se conectarão ao Azure global público:
-   - Ingestão: https://dc.services.visualstudio.com/
-   - Métricas ao vivo: https://rt.services.visualstudio.com/
-   - Criador de perfil: https://agent.azureserviceprofiler.net/
-   - Depurador: https://agent.azureserviceprofiler.net/  
+- O esquema de autorização é padrão para "ikey" 
+- Chave de instrumentação: 0000000-0000-0000-0000000000000000000000
+- Os URIs de serviço regional são baseados nos padrões do [SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e se conectarão ao Azure global público:
+   - Ingestão:https://dc.services.visualstudio.com/
+   - Métricas ao vivo:https://rt.services.visualstudio.com/
+   - Profiler:https://agent.azureserviceprofiler.net/
+   - Depurador:https://agent.azureserviceprofiler.net/  
 
 
 
-### <a name="connection-string-with-endpoint-suffix"></a>Cadeia de conexão com sufixo de ponto de extremidade
+### <a name="connection-string-with-endpoint-suffix"></a>String de conexão com sufixo de ponto final
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-Neste exemplo, essa cadeia de conexão especifica o sufixo do ponto de extremidade e o SDK criará pontos de extremidades de serviço.
+Neste exemplo, essa seqüência de conexões especifica o sufixo de ponto final e o SDK construirá pontos finais de serviço.
 
-- O esquema de autorização assume como padrão "iKey" 
-- Chave de instrumentação: 00000000-0000-0000-0000-000000000000
-- Os URIs de serviço regional se baseiam no sufixo de ponto de extremidade fornecido: 
-   - Ingestão: https://dc.ai.contoso.com
-   - Métricas ao vivo: https://live.ai.contoso.com
-   - Criador de perfil: https://profiler.ai.contoso.com 
-   - Depurador: https://snapshot.ai.contoso.com   
+- O esquema de autorização é padrão para "ikey" 
+- Chave de instrumentação: 0000000-0000-0000-0000000000000000000000
+- Os URIs de serviço regionais são baseados no sufixo de ponto final fornecido: 
+   - Ingestão:https://dc.ai.contoso.com
+   - Métricas ao vivo:https://live.ai.contoso.com
+   - Profiler:https://profiler.ai.contoso.com 
+   - Depurador:https://snapshot.ai.contoso.com   
 
 
 
-### <a name="connection-string-with-explicit-endpoint-overrides"></a>Cadeia de conexão com substituições de ponto de extremidade explícitas 
+### <a name="connection-string-with-explicit-endpoint-overrides"></a>String de conexão com substituições explícitas de ponto final 
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-Neste exemplo, essa cadeia de conexão especifica substituições explícitas para cada serviço. O SDK usará os pontos de extremidade exatos fornecidos sem modificação.
+Neste exemplo, essa seqüência de conexões especifica substituições explícitas para cada serviço. O SDK usará os pontos finais exatos fornecidos sem modificação.
 
-- O esquema de autorização assume como padrão "iKey" 
-- Chave de instrumentação: 00000000-0000-0000-0000-000000000000
-- Os URIs de serviço regional baseiam-se nos valores de substituição explícitos: 
+- O esquema de autorização é padrão para "ikey" 
+- Chave de instrumentação: 0000000-0000-0000-0000000000000000000000
+- Os URIs de serviço regionais baseiam-se nos valores de substituição explícitos: 
    - Ingestão: https:\//custom.com:111/
    - Métricas ao vivo: https:\//custom.com:222/
-   - Criador de perfil: https:\//custom.com:333/ 
+   - Profiler: https:\//custom.com:333/ 
    - Depurador: https:\//custom.com:444/   
 
 
-## <a name="how-to-set-a-connection-string"></a>Como definir uma cadeia de conexão
+## <a name="how-to-set-a-connection-string"></a>Como definir uma seqüência de conexão
 
-Há suporte para cadeias de conexão nas seguintes versões do SDK:
-- .NET e .NET Core v 2.12.0
-- Java v 2.5.1
-- JavaScript v 2.3.0
-- NodeJS v 1.5.0
-- Python v 1.0.0
+As strings de conexão são suportadas nas seguintes versões do SDK:
+- .NET e .NET Core v2.12.0
+- Java v2.5.1
+- Javascript v2.3.0
+- NodeJS v1.5.0
+- Python v1.0.0
 
-Uma cadeia de conexão pode ser definida no código, na variável de ambiente ou no arquivo de configuração.
+Uma seqüência de conexão pode ser definida por código, variável de ambiente ou arquivo de configuração.
 
 
 
@@ -161,11 +161,11 @@ Uma cadeia de conexão pode ser definida no código, na variável de ambiente ou
 
 - Cadeia de conexão: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### <a name="net-sdk-example"></a>Exemplo do SDK do .net
+### <a name="net-sdk-example"></a>Exemplo .Net SDK
 
-TelemetryConfiguration. ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetriaConfiguração.ConexãoString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net definido explicitamente:
+.Net Explicitamente definido:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-Arquivo de configuração .net:
+Arquivo .Net Config:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -183,7 +183,7 @@ Arquivo de configuração .net:
 ```
 
 
-Config. JSON do NetCore: 
+NetCore config.json: 
 
 ```json
 {
@@ -194,10 +194,10 @@ Config. JSON do NetCore:
 ```
 
 
-### <a name="java-sdk-example"></a>Exemplo de SDK do Java
+### <a name="java-sdk-example"></a>Exemplo de Java SDK
 
 
-Java definido explicitamente:
+Java explicitamente definido:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -210,11 +210,11 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### <a name="javascript-sdk-example"></a>Exemplo de SDK do JavaScript
+### <a name="javascript-sdk-example"></a>Exemplo de Javascript SDK
 
-Importante: o JavaScript não dá suporte ao uso de variáveis de ambiente.
+Importante: Javascript não suporta o uso de Variáveis de Ambiente.
 
-Usando o trecho de código:
+Usando o trecho:
 
 ```javascript
 <script type="text/javascript">
@@ -239,7 +239,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### <a name="node-sdk-example"></a>Exemplo de SDK do node
+### <a name="node-sdk-example"></a>Exemplo de Node SDK
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -247,11 +247,11 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### <a name="python-sdk-example"></a>Exemplo de SDK do Python
+### <a name="python-sdk-example"></a>Exemplo python SDK
 
-Recomendamos que os usuários definam a variável de ambiente.
+Recomendamos que os usuários definam a variável ambiente.
 
-Para definir explicitamente a cadeia de conexão:
+Para definir explicitamente a seqüência de conexões:
 
 ```python
 from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -268,7 +268,7 @@ Introdução ao runtime com:
 
 * [Aplicativos hospedados no IIS na VM do Azure e no conjunto de dimensionamento de máquinas virtuais do Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Servidor IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicativos Web do Azure](../../azure-monitor/app/azure-web-apps.md)
+* [Aplicativos Web do Azure ](../../azure-monitor/app/azure-web-apps.md)
 
 Introdução ao tempo de desenvolvimento com:
 

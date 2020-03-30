@@ -8,10 +8,10 @@ ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72333171"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
@@ -28,7 +28,7 @@ Imagine que você está trabalhando em um arquivo de texto em um compartilhament
 ### <a name="general-backup-purposes"></a>Objetivos gerais de backup
 Depois de criar um compartilhamento de arquivos, você pode criar periodicamente um instantâneo de compartilhamento do seu compartilhamento de arquivos para usá-lo no backup de dados. O instantâneo de compartilhamento, quando executado periodicamente, ajuda a manter versões anteriores dos dados que podem ser usadas em futuras auditorias exigidas ou na recuperação de desastre.
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funcionalidades
 O instantâneo de compartilhamento é uma cópia somente leitura dos dados em determinado momento. Você pode criar, excluir e gerenciar instantâneos usando a API REST. Os mesmos recursos também estão disponíveis na biblioteca de cliente, na CLI do Azure e no portal do Azure. 
 
 Você pode exibir instantâneos de um compartilhamento usando a API REST e o SMB. Você pode recuperar a lista de versões do diretório ou arquivo e montar uma versão específica diretamente como uma unidade (disponível apenas no Windows - consulte [Limites](#limits)). 
@@ -57,7 +57,7 @@ Embora os instantâneos de compartilhamento sejam salvos incrementalmente, você
 
 Instantâneos não contam em relação ao limite de compartilhamento de 5 TB. Não há nenhum limite para a quantidade total de espaço ocupado pelo instantâneo de compartilhamento. Os limites de conta de armazenamento ainda se aplicam.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 O número máximo de instantâneos de compartilhamento que os Arquivos do Azure permitem atualmente é 200. Depois de 200 instantâneos de compartilhamento, os instantâneos mais antigos precisarão ser excluídos para criar novos instantâneos de compartilhamento. 
 
 Não há nenhum limite de chamadas simultâneas para criar o instantâneo de compartilhamento. Não há nenhum limite de quantidade de espaço que os instantâneos de compartilhamento de determinado compartilhamento de arquivos pode consumir. 
@@ -71,7 +71,7 @@ Você pode copiar arquivos individuais de um instantâneo de compartilhamento de
 
 O instantâneo de compartilhamento permanece intacto após a cópia, mas o compartilhamento de arquivos base é substituído por uma cópia dos dados que estavam disponíveis no instantâneo de compartilhamento. Todos os arquivos restaurados contam como “conteúdo alterado”.
 
-Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino diferente com um nome diferente. O arquivo de destino resultante é um arquivo gravável que não é um instantâneo de compartilhamento. Nesse caso, o compartilhamento de arquivos base permanecerá intacto.
+Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino diferente com um nome diferente. O arquivo de destino resultante é um arquivo gravável que não é um instantâneo de compartilhamento. Neste caso, seu compartilhamento de arquivos base permanecerá intacto.
 
 Quando um arquivo de destino é substituído por uma cópia, todos os instantâneos de compartilhamento associados ao arquivo de destino original permanecem intactos.
 
@@ -82,9 +82,9 @@ Antes de implantar o agendador de instantâneos de compartilhamento, leve em con
 
 Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arquivo. Compartilhamentos de instantâneos não impedem exclusões de digitação acidental em uma conta de armazenamento ou compartilhamento de arquivos. Para ajudar a proteger a conta de armazenamento de exclusões acidentais, você pode bloquear a conta de armazenamento ou o grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Trabalhar com instantâneos de compartilhamento em:
-    - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [CLI](storage-how-to-use-files-cli.md)
+    - [Powershell](storage-how-to-use-files-powershell.md)
+    - [Cli](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Perguntas frequentes sobre instantâneo de compartilhamento](storage-files-faq.md#share-snapshots)

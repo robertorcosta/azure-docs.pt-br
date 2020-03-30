@@ -1,5 +1,5 @@
 ---
-title: Usar imagens de cliente do Windows no Azure
+title: Use imagens de cliente do Windows no Azure
 description: Como usar os benefícios da assinatura do Visual Studio para implantar o Windows 7, Windows 8 ou Windows 10 no Azure em cenários de desenvolvimento/teste
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 812e6d251943d4418666f221ad8b5d2b6e501736
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74039494"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usar o cliente do Windows no Azure para cenários de desenvolvimento/teste
@@ -26,8 +26,8 @@ Use o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) no Azure para cenário
 ![Detalhes da imagem no portal do Azure](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> Para obter a imagem do Windows 10 Pro e Windows 10 Pro N na Galeria do Azure, veja [Como implantar o Windows 10 no Azure com direitos de hospedagem de multilocatário](windows-desktop-multitenant-hosting-deployment.md)
->![Detalhes da imagem do Pro no portal do Azure](./media/client-images/windows-client-pro-images.png) 
+> Para obter a imagem do Windows 10 Pro e do Windows 10 Pro N na Azure Gallery, consulte [Como implantar o Windows 10 no Azure com](windows-desktop-multitenant-hosting-deployment.md)
+>![dados de direitos de hospedagem multilocatários Pro Image do portal Azure](./media/client-images/windows-client-pro-images.png) 
 >
 
 ## <a name="subscription-eligibility"></a>Qualificação de assinatura

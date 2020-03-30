@@ -1,5 +1,5 @@
 ---
-title: Variáveis do sistema no Azure Data Factory
+title: Variáveis do sistema na fábrica de dados do Azure
 description: Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factory. Você pode usar essas variáveis em expressões ao definir entidades do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: 0a5237336530d30c3801b13b910171e236e87a23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679283"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema com suporte pelo Azure Data Factory
@@ -24,7 +24,7 @@ Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factor
 ## <a name="pipeline-scope"></a>Escopo do pipeline
 Essas variáveis de sistema podem ser referenciadas em qualquer lugar no pipeline dp JSON.
 
-| Nome de variável | DESCRIÇÃO |
+| Nome de variável | Descrição |
 | --- | --- |
 | @pipeline().DataFactory |Nome do data factory em que a execução do pipeline está ocorrendo |
 | @pipeline().Pipeline |Nome do pipeline |
@@ -37,16 +37,16 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no pipelin
 ## <a name="schedule-trigger-scope"></a>Escopo do Gatilho de Agendamento
 Essas variáveis de sistema podem ser referenciadas em qualquer lugar no JSON do gatilho se ele for do tipo: "ScheduleTrigger."
 
-| Nome de variável | DESCRIÇÃO |
+| Nome de variável | Descrição |
 | --- | --- |
 | @trigger().scheduledTime |Hora em que o gatilho foi agendado para invocar a execução do pipeline. Por exemplo, para um gatilho disparado a cada cinco minutos, essa variável retornaria `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z` e `2017-06-01T22:30:00Z` respectivamente.|
-| @trigger().startTime |Hora em que o gatilho **realmente** foi disparado para invocar a execução do pipeline. Por exemplo, para um gatilho disparado a cada cinco minutos, essa variável retornaria algo como `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z` e `2017-06-01T22:30:00.9935483Z` respectivamente. (Observação: o carimbo de data/hora é por padrão no formato ISO 8601)|
+| @trigger().startTime |Hora em que o gatilho **realmente** foi disparado para invocar a execução do pipeline. Por exemplo, para um gatilho disparado a cada cinco minutos, essa variável retornaria algo como `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z` e `2017-06-01T22:30:00.9935483Z` respectivamente. (Nota: O carimbo de tempo é padrão no formato ISO 8601)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Escopo do Gatilho de Janela em Cascata
 Essas variáveis de sistema podem ser referenciadas em qualquer lugar no JSON do gatilho se ele for do tipo: "TumblingWindowTrigger."
-(Observação: o carimbo de data/hora é por padrão no formato ISO 8601)
+(Nota: O carimbo de tempo é padrão no formato ISO 8601)
 
-| Nome de variável | DESCRIÇÃO |
+| Nome de variável | Descrição |
 | --- | --- |
 | @trigger().outputs.windowStartTime |Início da janela em que o gatilho foi agendado para invocar a execução do pipeline. Se o gatilho da janela em cascata tiver uma frequência "por hora", esse seria o horário no início da hora.|
 | @trigger().outputs.windowEndTime |Fim da janela em que o gatilho foi agendado para invocar a execução do pipeline. Se o gatilho da janela em cascata tiver uma frequência "por hora", esse seria o horário no fim da hora.|

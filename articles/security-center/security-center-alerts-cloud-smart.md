@@ -1,6 +1,6 @@
 ---
-title: Incidentes da central de segurança do Azure – correlação inteligente de alertas
-description: Este tópico explica como o Fusion usa a correlação de alertas inteligentes na nuvem para gerar incidentes de segurança na central de segurança do Azure.
+title: Incidentes no Azure Security Center - correlações inteligentes de alertas
+description: Este tópico explica como a fusion usa correlação de alerta inteligente em nuvem para gerar incidentes de segurança no Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,29 +14,29 @@ ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
 ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73686480"
 ---
-# <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlação de alertas inteligentes na nuvem na central de segurança do Azure (incidentes)
+# <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlação de alerta inteligente na nuvem no Azure Security Center (incidentes)
 
-A central de segurança do Azure analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para alertá-lo sobre atividades mal-intencionadas.
+O Azure Security Center analisa continuamente as cargas de trabalho híbridas em nuvem usando análises avançadas e inteligência de ameaças para alertá-lo sobre atividades maliciosas.
 
-A amplitude da cobertura de ameaças está crescendo. A necessidade de detectar até mesmo o menor comprometimento é importante, e pode ser um desafio para os analistas de segurança fazer triagem dos diferentes alertas e identificar um ataque real. A central de segurança ajuda os analistas a lidar com esse alerta fadiga. Ele ajuda a diagnosticar ataques à medida que ocorrem, correlacionando alertas diferentes e sinais de baixa fidelidade em incidentes de segurança.
+A amplitude da cobertura de ameaças está crescendo. A necessidade de detectar até mesmo o menor compromisso é importante, e pode ser um desafio para os analistas de segurança triagem dos diferentes alertas e identificar um ataque real. O Security Center ajuda os analistas a lidar com essa fadiga de alerta. Ele ajuda a diagnosticar ataques à medida que ocorrem, correlacionando diferentes alertas e sinais de baixa fidelidade em incidentes de segurança.
 
-A análise de fusão é a tecnologia e o back-end analítico que capacita os incidentes da central de segurança, permitindo que ele correlacione alertas e sinais contextuais diferentes. A fusão examina os diferentes sinais relatados em uma assinatura entre os recursos. O Fusion localiza padrões que revelam a progressão de ataque ou sinais com informações contextuais compartilhadas, indicando que você deve usar um procedimento de resposta unificado para eles.
+A análise de fusão é a tecnologia e o back-end analítico que alimenta os incidentes do Security Center, permitindo que ele correlaciona diferentes alertas e sinais contextuais juntos. Fusion analisa os diferentes sinais relatados em uma assinatura através dos recursos. Fusion encontra padrões que revelam progressão de ataque ou sinais com informações contextuais compartilhadas, indicando que você deve usar um procedimento de resposta unificado para eles.
 
-O Fusion Analytics combina o conhecimento do domínio de segurança com o ia para analisar alertas, descobrindo novos padrões de ataque conforme eles ocorrem. 
+A análise de fusão combina o conhecimento do domínio de segurança com a IA para analisar alertas, descobrindo novos padrões de ataque à medida que ocorrem. 
 
-A central de segurança aproveita a matriz de ataques MITRE para associar alertas à sua intenção percebida, ajudando a formalizar o conhecimento do domínio de segurança. Além disso, usando as informações coletadas para cada etapa de um ataque, a central de segurança pode eliminar a atividade que parece ser uma das etapas de um ataque, mas, na verdade, não é.
+O Security Center aproveita a Matriz de Ataque MITRE para associar alertas com suas intenções percebidas, ajudando a formalizar o conhecimento do domínio de segurança. Além disso, usando as informações coletadas para cada passo de um ataque, o Security Center pode descartar atividades que parecem ser etapas de um ataque, mas na verdade não é.
 
-Como os ataques geralmente ocorrem em diferentes locatários, a central de segurança pode combinar algoritmos de ia para analisar as sequências de ataque que são relatadas em cada assinatura. Essa técnica identifica as sequências de ataque como padrões de alerta predominantes, em vez de apenas ser associada incidentalmente entre si.
+Como os ataques ocorrem frequentemente em diferentes inquilinos, o Security Center pode combinar algoritmos de IA para analisar seqüências de ataque que são relatadas em cada assinatura. Esta técnica identifica as seqüências de ataque como padrões de alerta prevalentes, em vez de apenas serem incidentalmente associadas umas com as outras.
 
-Durante uma investigação de um incidente, os analistas geralmente precisam de um contexto extra para alcançar uma veredicto sobre a natureza da ameaça e como atenuá-la. Por exemplo, mesmo quando uma anomalia de rede é detectada, sem entender o que mais está acontecendo na rede ou em relação ao recurso de destino, é difícil entender as ações a serem tomadas em seguida. Para ajudar, um incidente de segurança pode incluir artefatos, eventos relacionados e informações. As informações adicionais disponíveis para incidentes de segurança variam de acordo com o tipo de ameaça detectada e a configuração do seu ambiente. 
+Durante uma investigação de um incidente, os analistas muitas vezes precisam de um contexto extra para chegar a um veredicto sobre a natureza da ameaça e como atenuá-la. Por exemplo, mesmo quando uma anomalia de rede é detectada, sem entender o que mais está acontecendo na rede ou no que diz respeito ao recurso direcionado, é difícil entender quais ações tomar a seguir. Para ajudar, um incidente de segurança pode incluir artefatos, eventos relacionados e informações. As informações adicionais disponíveis para incidentes de segurança variam, dependendo do tipo de ameaça detectada e da configuração do seu ambiente. 
 
-![Captura de tela do relatório de incidente de segurança detectado](./media/security-center-alerts-cloud-smart/security-incident.png)
+![Captura de tela do incidente de segurança detectado relatório](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-Para entender melhor os incidentes de segurança, consulte [como lidar com incidentes de segurança na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-incident).
+Para entender melhor os incidentes de segurança, consulte [Como lidar com incidentes de segurança no Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
 

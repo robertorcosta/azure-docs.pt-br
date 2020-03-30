@@ -1,6 +1,6 @@
 ---
-title: Visualizar dados do Azure Data Explorer usando o Grafana
-description: Neste artigo, você aprende a configurar o Azure Data Explorer como uma fonte de dados para Grafana e, em seguida, Visualizar dados de um cluster de exemplo.
+title: Visualize dados do Azure Data Explorer usando grafana
+description: Neste artigo, você aprende a configurar o Azure Data Explorer como fonte de dados para o Grafana e, em seguida, visualizar dados de um cluster de amostras.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,25 +8,25 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74037987"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
 
-O Grafana é uma plataforma de análise que permite consultar e visualizar dados e, em seguida, criar e compartilhar painéis com base nas visualizações. O Grafana fornece um *plug-in* do Azure Data Explore que permite conectar e visualizar dados do Azure Data Explorer. Neste artigo, você aprende a configurar o Azure Data Explorer como uma fonte de dados para Grafana e, em seguida, Visualizar dados de um cluster de exemplo.
+O Grafana é uma plataforma de análise que permite consultar e visualizar dados e, em seguida, criar e compartilhar painéis com base nas visualizações. O Grafana fornece um *plug-in* do Azure Data Explore que permite conectar e visualizar dados do Azure Data Explorer. Neste artigo, você aprende a configurar o Azure Data Explorer como fonte de dados para o Grafana e, em seguida, visualizar dados de um cluster de amostras.
 
-Use o vídeo a seguir para saber como usar o plug-in do Data Explorer do Azure do Grafana, configurar o Data Explorer do Azure como uma fonte de dados para Grafana e, em seguida, Visualizar dados. 
+Use o vídeo a seguir, para aprender como usar o plugin Azure Data Explorer da Grafana, configurar o Azure Data Explorer como fonte de dados para o Grafana e, em seguida, visualizar dados. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
-Como alternativa, você pode [Configurar a fonte de dados](#configure-the-data-source) e [Visualizar os dados](#visualize-data) conforme detalhado no artigo abaixo.
+Alternativamente, você pode [configurar a fonte de dados](#configure-the-data-source) e visualizar [dados](#visualize-data) conforme detalhado no artigo abaixo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará do seguinte para concluir este artigo:
+Você precisa do seguinte para concluir este artigo:
 
 * [Grafana versão 5.3.0 ou posterior](https://docs.grafana.org/installation/) para o sistema operacional
 
@@ -60,13 +60,13 @@ Com a entidade de serviço atribuída à função *visualizadores*, agora você 
     | --- | --- | --- |
     | ID da assinatura | ID DA ASSINATURA | SubscriptionId |
     | ID do locatário | ID do Diretório | locatário |
-    | ID do cliente | ID do aplicativo | appId |
+    | Id do Cliente | ID do aplicativo | appId |
     | Segredo do cliente | Senha | password |
     | | | |
 
 1. Selecione **Salvar e Testar**.
 
-    Se o teste for obtido com êxito, siga para a próxima seção. Se você tiver problemas, verifique os valores especificados em Grafana e examine as etapas anteriores.
+    Se o teste for obtido com êxito, siga para a próxima seção. Se você se deparar com quaisquer problemas, verifique os valores especificados no Grafana e revise as etapas anteriores.
 
 ## <a name="visualize-data"></a>Visualizar dados
 
@@ -101,7 +101,7 @@ Agora que você terminou de configurar o Azure Data Explorer como uma fonte de d
 
     ![Últimas seis horas](media/grafana/last-six-hours.png)
 
-1. Especifique um intervalo personalizado que abrange 2007, o ano incluído em nosso conjunto de dados de exemplo do StormEvents. Escolha **Aplicar**.
+1. Especifique um intervalo personalizado que abrange 2007, o ano incluído em nosso conjunto de dados de exemplo do StormEvents. Selecione **Aplicar**.
 
     ![Intervalo de datas personalizado](media/grafana/custom-date-range.png)
 
@@ -113,7 +113,7 @@ Agora que você terminou de configurar o Azure Data Explorer como uma fonte de d
 
 ## <a name="create-alerts"></a>Criar alertas
 
-1. No painel inicial, selecione **alertas** > **canais de notificação** para criar um novo canal de notificação
+1. No Home Dashboard, selecione **canais de** > notificação de**alerta** para criar um novo canal de notificação
 
     ![criar canal de notificação](media/grafana/create-notification-channel.png)
 
@@ -121,16 +121,16 @@ Agora que você terminou de configurar o Azure Data Explorer como uma fonte de d
 
     ![Criar novo canal de notificação](media/grafana/new-notification-channel-adx.png)
 
-1. No **painel**, selecione **Editar** na lista suspensa.
+1. No **Painel de controle,** **selecione Editar** a partir da versão emitida.
 
-    ![Selecione Editar no painel](media/grafana/edit-panel-4-alert.png)
+    ![selecionar editar no painel de instrumentos](media/grafana/edit-panel-4-alert.png)
 
-1. Selecione o ícone de sino de alerta para abrir o painel **alerta** . Selecione **criar alerta**. Preencha as propriedades a seguir no painel **alerta** .
+1. Selecione o ícone do sino de alerta para abrir o painel **Alerta.** Selecione **Criar alerta**. Complete as seguintes propriedades no painel **Alerta.**
 
-    ![Propriedades do alerta](media/grafana/alert-properties.png)
+    ![propriedades do alerta](media/grafana/alert-properties.png)
 
-1. Selecione o ícone **salvar painel** para salvar as alterações.
+1. Selecione o ícone **Salvar painel** para salvar suas alterações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gravar consultas para Azure Data Explorer](write-queries.md)
+* [Escrever consultas para O Azure Data Explorer](write-queries.md)
