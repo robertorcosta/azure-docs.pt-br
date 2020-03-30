@@ -1,6 +1,6 @@
 ---
-title: Soluções para erros comuns e problemas em cenários B2B
-description: Encontre soluções para erros e problemas comuns ao solucionar problemas de cenários B2B em aplicativos lógicos do Azure
+title: Soluções para erros e problemas comuns em cenários B2B
+description: Encontre soluções para erros e problemas comuns ao solucionar cenários B2B em Aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666679"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros e soluções B2B para os Aplicativos Lógicos do Azure
@@ -63,7 +63,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 | Ação do usuário | Adicione @base64ToBinary a AS2Message antes de enviar ao parceiro. |
 |||
 
-Por exemplo:
+Por exemplo: 
 
 ```json
 "HTTP": {
@@ -83,7 +83,7 @@ Por exemplo:
 | Ação do usuário | Adicione @base64ToBinary ao MDN antes de enviar ao parceiro. | 
 |||
 
-Por exemplo:
+Por exemplo: 
 
 ```json
 "Response": {

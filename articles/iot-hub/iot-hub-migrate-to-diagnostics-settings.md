@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
 ms.openlocfilehash: ab07da38c01b052a4220274fb059683a22950a3f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75750714"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrar seu Hub IoT do monitoramento de operações para as configurações de diagnóstico
 
 Os clientes que usam o [monitoramento de operações](iot-hub-operations-monitoring.md) para acompanhar o status das operações no Hub IoT podem migrar o fluxo de trabalho para [as configurações de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md), um recurso do Azure Monitor. As configurações de diagnóstico fornecem informações de diagnóstico de nível de recurso para muitos serviços do Azure.
 
-**A funcionalidade de monitoramento de operações do Hub IOT foi preterida**e foi removida do Portal. Este artigo fornece etapas para mover suas cargas de trabalho do monitoramento de operações para as configurações de diagnóstico. Para saber mais sobre a linha do tempo de substituição, confira [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
+**A funcionalidade de monitoramento de operações do IoT Hub é preterida**e foi removida do portal. Este artigo fornece etapas para mover suas cargas de trabalho do monitoramento de operações para as configurações de diagnóstico. Para saber mais sobre a linha do tempo de substituição, confira [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
 ## <a name="update-iot-hub"></a>Atualizar Hub IoT
 
@@ -30,9 +30,9 @@ Para atualizar o Hub IoT no portal do Azure, primeiro, ative as configurações 
 ### <a name="turn-off-operations-monitoring"></a>Desligue o monitoramento de operações
 
 > [!NOTE]
-> A partir de 11 de março de 2019, o recurso de monitoramento de operações é removido da interface de portal do Azure do Hub IoT. As etapas abaixo não se aplicam mais. Para migrar, verifique se as categorias corretas estão ativadas no Azure Monitor configurações de diagnóstico acima.
+> A partir de 11 de março de 2019, o recurso de monitoramento de operações é removido da interface do portal Azure do IoT Hub. As etapas abaixo não se aplicam mais. Para migrar, certifique-se de que as categorias corretas estejam ligadas nas configurações de diagnóstico do Azure Monitor acima.
 
-Depois de testar as novas configurações de diagnóstico em seu fluxo de trabalho, você pode desativar o recurso de monitoramento de operações. 
+Depois de testar as novas configurações de diagnóstico no fluxo de trabalho, você pode desativar o recurso de monitoramento de operações. 
 
 1. No menu do Hub IoT, selecione **Monitoramento de operações**.
 
@@ -44,7 +44,7 @@ Depois de testar as novas configurações de diagnóstico em seu fluxo de trabal
 
 Os esquemas para monitoramento de operações e configurações de diagnóstico variam um pouco. É importante que você atualize os aplicativos que usam atualmente o monitoramento de operações para mapear para o esquema usado pelas configurações de diagnóstico. 
 
-Além disso, as configurações de diagnóstico oferecem cinco novas categorias para acompanhamento. Depois de atualizar aplicativos para o esquema existente, adicione as novas categorias também:
+Além disso, as configurações de diagnóstico oferecem cinco novas categorias para rastreamento. Depois de atualizar aplicativos para o esquema existente, adicione as novas categorias também:
 
 * Operações de dispositivo gêmeo para nuvem
 * Operações de nuvem gêmea para dispositivo
@@ -56,8 +56,8 @@ Para as estruturas de esquema específicas, confira [Compreender o esquema para 
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>Monitoramento de dispositivo se conectar e desconectar eventos com baixa latência
 
-Para monitorar eventos de conexão e desconexão do dispositivo em produção, é recomendável assinar o [evento **dispositivo desconectado** ](iot-hub-event-grid.md#event-types) na grade de eventos para obter alertas e monitorar o estado da conexão do dispositivo. Use este [tutorial](iot-hub-how-to-order-connection-state-events.md) para saber como integrar os eventos Dispositivo Conectado e Dispositivo Desconectado do Hub IoT em sua solução de IoT.
+Para monitorar eventos de conexão e desconexão do dispositivo na produção, recomendamos assinar o evento [ **desconectado** ](iot-hub-event-grid.md#event-types) do dispositivo no Event Grid para obter alertas e monitorar o estado de conexão do dispositivo. Use este [tutorial](iot-hub-how-to-order-connection-state-events.md) para saber como integrar os eventos Dispositivo Conectado e Dispositivo Desconectado do Hub IoT em sua solução de IoT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md)

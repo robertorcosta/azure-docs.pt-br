@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: 9e2f04f59a56be6c516eb90de45fdf7327673086
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75416585"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado desejado e gerenciar dessincronização
@@ -61,7 +61,7 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
-> Em cenários mais avançados em que você precisa que vários módulos sejam importados para fornecer recursos de DSC, verifique se cada módulo tem uma linha de `Import-DscResource` exclusiva em sua configuração.
+> Em cenários mais avançados, onde você precisa de vários módulos para serem `Import-DscResource` importados que fornecem recursos DSC, certifique-se de que cada módulo tenha uma linha única em sua configuração.
 
 Chame o cmdlet `Import-AzureRmAutomationDscConfiguration` para carregar a configuração em sua conta de Automação:
 
@@ -132,14 +132,14 @@ Para obter informações de como alterar o intervalo de verificação de conform
 
 ## <a name="working-with-partial-configurations"></a>Trabalhando com configurações parciais
 
-A configuração de estado da automação do Azure dá suporte ao uso de [configurações parciais](/powershell/scripting/dsc/pull-server/partialconfigs).
-Nesse cenário, a DSC é configurada para gerenciar várias configurações de forma independente e cada configuração é recuperada da automação do Azure.
+A configuração do estado de automação do Azure suporta o uso de [configurações parciais](/powershell/scripting/dsc/pull-server/partialconfigs).
+Nesse cenário, o DSC é configurado para gerenciar várias configurações de forma independente, e cada configuração é recuperada do Azure Automation.
 No entanto, apenas uma configuração pode ser atribuída a um nó por conta de automação.
-Isso significa que se você estiver usando duas configurações para um nó, precisará de duas contas de automação.
+Isso significa que se você estiver usando duas configurações para um nó, você precisará de duas contas de automação.
 
-Para obter detalhes sobre como registrar uma configuração parcial do serviço de pull, consulte a documentação para [configurações parciais](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+Para obter detalhes sobre como registrar uma configuração parcial do serviço pull, consulte a documentação para [configurações parciais](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
-Para obter mais informações sobre como as equipes podem trabalhar em conjunto para gerenciar servidores de forma colaborativa usando a configuração como código, consulte [noções básicas sobre a função do DSC em um pipeline de CI/CD](/powershell/scripting/dsc/overview/authoringadvanced).
+Para obter mais informações sobre como as equipes podem trabalhar juntas para gerenciar servidores de forma colaborativa usando a configuração como código, consulte [Entendendo a função do DSC em um pipeline de CI/CD](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Verificar o status de conformidade de um nó gerenciado
 
@@ -156,28 +156,28 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="removing-nodes-from-service"></a>Removendo nós do serviço
+## <a name="removing-nodes-from-service"></a>Removendo os nódulos do serviço
 
-Quando você adiciona um nó à configuração de estado da automação do Azure, as configurações no local Configuration Manager são definidas para registrar com o serviço e as configurações de pull e os módulos necessários para configurar o computador.
-Se você optar por remover o nó do serviço, poderá fazer isso usando os cmdlets portal do Azure ou AZ.
+Quando você adiciona um nó à configuração do estado de automação do Azure, as configurações do Local Configuration Manager são definidas para registrar-se com as configurações de serviço e puxar e módulos necessários para configurar a máquina.
+Se você optar por remover o nó do serviço, você pode fazê-lo usando o portal Azure ou os cmdlets Az.
 
 > [!NOTE]
-> O cancelamento do registro de um nó do serviço define apenas as configurações de Configuration Manager locais para que o nó não se conecte mais ao serviço.
-> Isso não afeta a configuração atualmente aplicada ao nó.
-> Para remover a configuração atual, use o [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) ou exclua o arquivo de configuração local (essa é a única opção para nós do Linux).
+> Cancelar o registro de um nó do serviço define apenas as configurações do Gerenciador de configuração local para que o nó não esteja mais conectado ao serviço.
+> Isso não afeta a configuração que é aplicada atualmente ao nó.
+> Para remover a configuração atual, use o [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) ou exclua o arquivo de configuração local (esta é a única opção para nós Linux).
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Na automação do Azure, clique em **configuração de estado (DSC)** no sumário.
-Em seguida, clique em **nós** para exibir a lista de nós que estão registrados com o serviço.
-Clique no nome do nó que você deseja remover.
-Na exibição de nó que é aberta, clique em **Cancelar registro**.
+A partir do Azure Automation, clique na **configuração de Estado (DSC)** na tabela de conteúdos.
+Em seguida, clique **em Nós** para visualizar a lista de nós registrados no serviço.
+Clique no nome do nó que deseja remover.
+Na exibição Nó que abre, clique em **Descadastrar**.
 
 ### <a name="powershell"></a>PowerShell
 
-Para cancelar o registro de um nó do serviço de configuração de estado da automação do Azure usando o PowerShell, siga a documentação do cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+Para cancelar o registro de um nó do serviço de configuração do Estado de Automação do Azure usando o PowerShell, siga a documentação do cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
 - Para saber mai sobre nós de integração, veja [Máquinas de integração para o gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md)

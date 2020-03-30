@@ -1,6 +1,6 @@
 ---
-title: Fazer logon Azure Cosmos DB linguagem de consulta
-description: Saiba mais sobre a função de sistema SQL de LOG em Azure Cosmos DB para retornar o logaritmo natural da expressão numérica especificada
+title: LOG no idioma de consulta do Azure Cosmos DB
+description: Saiba mais sobre a função do sistema LOG SQL no Azure Cosmos DB para retornar o logaritmo natural da expressão numérica especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302501"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
@@ -71,10 +71,10 @@ SELECT EXP(LOG(10)) AS expLog
 
 ## <a name="remarks"></a>Comentários
 
-Essa função do sistema não usará o índice.
+Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

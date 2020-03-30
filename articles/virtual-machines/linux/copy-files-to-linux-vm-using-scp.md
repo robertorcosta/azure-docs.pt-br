@@ -1,5 +1,5 @@
 ---
-title: Mover arquivos de e para VMs Linux do Azure com o SCP
+title: Mover arquivos de e para VMs Do Azure Linux com SCP
 description: Mova arquivos de e para uma VM Linux no Azure com segurança usando o SCP e um par de chaves SSH.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: a0837790b70de42073338bf085ee0f3976b866f6
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969617"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Mover arquivos de e para uma VM Linux usando o SCP
@@ -49,7 +49,7 @@ Para obter mais informações sobre como configurar o `~/.ssh/config` e chaves S
 
 Para o primeiro exemplo, copiamos um arquivo de configuração do Azure para uma VM Linux usada para implantar a automação. Já que esse arquivo contém credenciais de API do Azure, as quais incluem segredos, a segurança é importante. O túnel criptografado fornecido por SSH protege o conteúdo do arquivo.
 
-O comando a seguir copia o arquivo local *.azure/config* para uma VM do Azure com o FQDN *myserver.eastus.cloudapp.azure.com*. O nome de usuário administrador na VM do Azure é *azureuser*. O arquivo é direcionado para o diretório */home/azureuser/* . Substitua seus próprios valores nesse comando.
+O comando a seguir copia o arquivo local *.azure/config* para uma VM do Azure com o FQDN *myserver.eastus.cloudapp.azure.com*. O nome de usuário administrador na VM do Azure é *azureuser*. O arquivo é direcionado para o diretório */home/azureuser/*. Substitua seus próprios valores nesse comando.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
@@ -65,8 +65,8 @@ O comando a seguir copia os arquivos no diretório *inicial/azureuser/logs/* na 
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-O sinalizador `-r` instrui o SCP a copiar recursivamente os arquivos e diretórios do ponto do diretório listado no comando.  Observe também que a sintaxe de linha de comando é semelhante a um comando de cópia `cp`.
+O `-r` sinalizador instrui o SCP a copiar recursivamente os arquivos e diretórios do ponto do diretório listado no comando.  Observe também que a sintaxe de linha de comando é semelhante a um comando de cópia `cp`.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Gerenciar usuários, SSH e verificar ou reparar discos em VMs do Linux do Azure usando a extensão VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

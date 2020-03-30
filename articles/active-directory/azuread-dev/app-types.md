@@ -12,12 +12,13 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b91cc5249b386a465ea98b5e81b199323481a733
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165144"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154943"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos na v1.0
 
@@ -31,11 +32,11 @@ O diagrama a seguir ilustra os cenários e os tipos de aplicativos e como os dif
 
 Estes são os cinco cenários de aplicativo principais suportados pelo Azure AD:
 
-- **[SPA (aplicativo de página única)](single-page-application.md)** : um usuário precisa entrar em um aplicativo de página única protegida pelo Azure AD.
-- **[Navegador da Web para aplicativo Web](web-app.md)** : um usuário precisa entrar em um aplicativo Web protegido pelo Azure AD.
-- **[Aplicativo nativo para API Web](native-app.md)** : um aplicativo nativo executado em um telefone, tablet ou PC precisa autenticar um usuário para obter recursos de uma API Web protegida pelo Azure AD.
-- **[Aplicativo Web para API Web](web-api.md)** : um aplicativo Web precisa obter recursos de uma API Web protegida pelo Azure AD.
-- **[Servidor ou aplicativo daemon para API Web](service-to-service.md)** : um aplicativo daemon ou um aplicativo de servidor sem interface do usuário da Web precisa obter recursos de uma API Web protegida pelo Azure AD.
+- **[Aplicativo de página única (SPA)](single-page-application.md)**: Um usuário precisa fazer login em um aplicativo de uma página única que é protegido pelo Azure AD.
+- **[Navegador web para aplicativo web](web-app.md)**: Um usuário precisa fazer login em um aplicativo web que é protegido pelo Azure AD.
+- **[Aplicativo nativo para API web](native-app.md)**: Um aplicativo nativo que é executado em um telefone, tablet ou PC precisa autenticar um usuário para obter recursos de uma API web que é protegida pelo Azure AD.
+- **[Aplicação web para API web](web-api.md)**: Um aplicativo web precisa obter recursos de uma API web protegida pelo Azure AD.
+- **[Aplicativo daemon ou servidor para API web](service-to-service.md)**: Um aplicativo daemon ou um aplicativo de servidor sem interface de usuário web precisa obter recursos de uma API web protegida pelo Azure AD.
 
 Siga os links para saber mais sobre cada tipo de aplicativo e compreender os cenários de alto nível antes de começar a trabalhar com o código. Você também pode aprender sobre as diferenças que precisa saber ao escrever um aplicativo específico que funciona com o ponto de extremidade v1.0 ou ponto de extremidade v2.0.
 
@@ -50,7 +51,7 @@ Além disso, se seu aplicativo precisar de uma parte ou segmento específico de 
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Como registrar um aplicativo que usa o ponto de extremidade do Azure AD v 1.0
 
-Qualquer aplicativo que terceirize a autenticação ao Azure AD deve ser registrado em um diretório. Esta etapa envolve comunicar o Azure AD sobre seu aplicativo, incluindo a URL da sua localização, a URL para enviar respostas após a autenticação, o URI para identificar seu aplicativo e mais. Essas informações são necessárias por alguns motivos:
+Qualquer aplicativo que terceirize a autenticação ao Azure AD deve ser registrado em um diretório. Essa etapa envolve contar ao Azure AD sobre seu aplicativo, incluindo a URL onde ele está localizado, a URL para enviar respostas após a autenticação, o URI para identificar seu aplicativo e muito mais. Essas informações são necessárias por alguns motivos:
 
 * O Azure AD precisa se comunicar com o aplicativo ao lidar com tokens de logon ou troca. As informações transmitidas entre o Azure AD e o aplicativo incluem o seguinte:
   
@@ -71,7 +72,7 @@ O provisionamento fica mais claro quando você entende que há duas categorias d
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerações adicionais ao desenvolver aplicativos de locatário único ou multilocatário
 
-Surgem algumas considerações adicionais ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você estiver disponibilizando seu aplicativo a usuários em vários diretórios, você precisa de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único só precisa procurar em seu próprio diretório por um usuário, enquanto que um aplicativo multilocatário precisa identificar um usuário específico em todos os diretórios no Azure AD. Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é https://login.microsoftonline.com/common para todos os diretórios no Azure AD, enquanto um ponto de extremidade específico do locatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto de extremidade comum deve ser considerado com especial importância ao desenvolver seu aplicativo, pois você precisará da lógica necessária para lidar com vários locatários durante o login, logout e validação de token.
+Surgem algumas considerações adicionais ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você está disponibilizando seu aplicativo para usuários em vários diretórios, você precisa de um mecanismo para determinar em qual inquilino eles estão. Um aplicativo de locatário único só precisa procurar em seu próprio diretório por um usuário, enquanto que um aplicativo multilocatário precisa identificar um usuário específico em todos os diretórios no Azure AD. Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é `https://login.microsoftonline.com/common` para todos os diretórios no Azure AD, enquanto um ponto de extremidade específico do locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com`. O ponto final comum é especialmente importante de se considerar ao desenvolver seu aplicativo porque você precisará da lógica necessária para lidar com vários inquilinos durante a login, a saída e a validação de tokens.
 
 Se você está desenvolvendo atualmente um aplicativo de locatário único, mas deseja disponibilizá-lo para muitas organizações, você pode facilmente fazer alterações no aplicativo e em sua configuração no Azure AD para habilitá-lo a multilocatários. Além disso, o Azure AD usa a mesma chave de assinatura para todos os tokens em todos os diretórios, independentemente de você estar fornecendo autenticação em um aplicativo de locatário único ou multilocatário.
 

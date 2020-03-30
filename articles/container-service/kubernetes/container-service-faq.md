@@ -10,10 +10,10 @@ ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887777"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(PRETERIDO) Perguntas frequentes sobre o Serviço de Contêiner
@@ -24,7 +24,7 @@ ms.locfileid: "75887777"
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Quais orquestradores de contêiner têm suporte no Serviço de Contêiner do Azure? 
 
-Há suporte para o DC/OS de software livre, Docker Swarm e Kubernetes. Para obter mais informações, confira a [Visão geral](container-service-intro-kubernetes.md).
+Há suporte para o DC/OS de software livre, Docker Swarm e Kubernetes. Para obter mais informações, consulte a [visão geral](container-service-intro-kubernetes.md).
  
 ### <a name="do-you-support-docker-swarm-mode"></a>Há suporte para o modo Docker Swarm? 
 
@@ -46,13 +46,13 @@ O [Mecanismo ACS](https://github.com/Azure/acs-engine) é um projeto de software
 
 Para obter mais detalhes, consulte nossa [política de suporte para contêineres](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
-## <a name="cluster-management"></a>Gerenciamento de cluster
+## <a name="cluster-management"></a>Gerenciamento de clusters
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Como criar chaves SSH para o cluster?
 
 Você pode usar as ferramentas padrão no sistema operacional para criar um RSA SSH público e um par de chaves privadas para autenticação em relação a máquinas virtuais Linux para o cluster. Para obter as etapas, confira as diretrizes de [OS X e Linux](../../virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../../virtual-machines/linux/ssh-from-windows.md). 
 
-Se você usar comandos de CLI do Azure para implantar um cluster do serviço de contêiner, as chaves SSH poderão ser geradas automaticamente para o cluster.
+Se você usar comandos da CLI do Azure para implantar um cluster do serviço de contêiner, as chaves SSH poderão ser geradas automaticamente para seu cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Como criar uma entidade de serviço para o cluster Kubernetes?
 
@@ -104,7 +104,7 @@ Você pode encontrar a cadeia de conexão no portal do Azure ou usando as ferram
 
 4. Na página **Resumo**, em **Saídas**, são fornecidos vários links de cluster. **SSHMaster0** fornece uma cadeia de conexão SSH para o primeiro mestre no cluster do serviço de contêiner. 
 
-Como mencionado anteriormente, você também pode usar ferramentas do Azure para localizar o FQDN do mestre. Fazer uma conexão SSH com o mestre usando o FQDN do mestre e o nome de usuário que você especificou ao criar o cluster. Por exemplo:
+Como mencionado anteriormente, você também pode usar ferramentas do Azure para localizar o FQDN do mestre. Fazer uma conexão SSH com o mestre usando o FQDN do mestre e o nome de usuário que você especificou ao criar o cluster. Por exemplo: 
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
@@ -114,7 +114,7 @@ Para obter mais informações, confira [Conectar-se a um cluster do Serviço de 
 
 ### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>Minha resolução de nome DNS não está funcionando no Windows. O que devo fazer?
 
-Há alguns problemas de DNS conhecidos no Windows cujas correções ainda estão sendo bloqueadas ativamente. Verifique se você está usando a versão mais atualizada do mecanismo ACS e do Windows (com [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que seu ambiente possa se beneficiar disso. Caso contrário, consulte a tabela abaixo para conhecer as etapas de mitigação:
+Existem alguns problemas conhecidos de DNS no Windows cujas correções ainda estão sendo ativamente eliminadas. Certifique-se de que você está usando a versão mais atualizada do acs-engine e windows (com [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) e [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que seu ambiente possa se beneficiar disso. Caso contrário, consulte a tabela abaixo para conhecer as etapas de mitigação:
 
 | Sintoma de DNS | Solução alternativa  |
 |-------------|-------------|
@@ -122,7 +122,7 @@ Há alguns problemas de DNS conhecidos no Windows cujas correções ainda estão
 | Acesso ao serviço VIP interrompido | Configure um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) para sempre manter um pod normal (sem privilégios) em execução |
 |Quando o nó no qual o contêiner está sendo executado ficar indisponível, as consultas DNS poderão falhar, resultando em uma "entrada de cache negativo" | Execute o seguinte dentro dos contêineres afetados: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Se isso ainda não resolver o problema, tente desabilitar completamente o cache de DNS: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais](../../container-service/kubernetes/container-service-intro-kubernetes.md) sobre o Serviço de Contêiner do Azure.
 * Implantar um cluster de serviço de contêiner usando o [portal](../../container-service/dcos-swarm/container-service-deployment.md) ou a [CLI do Azure](../../container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

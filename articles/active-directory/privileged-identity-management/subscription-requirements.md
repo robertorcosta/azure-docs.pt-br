@@ -1,5 +1,5 @@
 ---
-title: Requisitos de licença para usar o Privileged Identity Management-Azure Active Directory | Microsoft Docs
+title: Requisitos de licença para usar o Privileged Identity Management - Azure Active Directory | Microsoft Docs
 description: Descreve os requisitos de licenciamento para uso do Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -18,58 +18,58 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75932331"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisitos de licença para usar o Privileged Identity Management
 
-Para usar o Azure AD (Azure Active Directory) PIM (Privileged Identity Management), um diretório precisa ter uma licença válida. Além disso, as licenças precisam ser atribuídas aos administradores e aos usuários relevantes. Este artigo descreve os requisitos de licença para usar o Privileged Identity Management.
+Para usar o Azure AD (Azure Active Directory) PIM (Privileged Identity Management), um diretório precisa ter uma licença válida. Além disso, as licenças precisam ser atribuídas aos administradores e aos usuários relevantes. Este artigo descreve os requisitos de licença para usar o Gerenciamento de Identidade Privilegiada.
 
 ## <a name="valid-licenses"></a>Licenças válidas
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-## <a name="how-many-licenses-must-you-have"></a>Quantas licenças você precisa ter?
+## <a name="how-many-licenses-must-you-have"></a>Quantas licenças você deve ter?
 
-Certifique-se de que seu diretório tenha pelo menos tantas licenças Azure AD Premium P2, pois você tem funcionários que executarão as seguintes tarefas:
+Certifique-se de que seu diretório tenha pelo menos tantas licenças Azure AD Premium P2 quanto você tem funcionários que estarão executando as seguintes tarefas:
 
-- Usuários atribuídos como qualificados para funções do Azure AD gerenciadas usando o PIM
+- Usuários atribuídos como elegíveis para funções Ad do Azure gerenciadas usando PIM
 - Usuários capazes de aprovar ou rejeitar solicitações de ativação no PIM
 - Usuários atribuídos a uma função de recurso do Azure com atribuições Just-In-Time ou diretas (por tempo limitado)  
 - Usuários atribuídos a uma revisão de acesso
 - Usuários que executam revisões de acesso
 
-As licenças do Azure AD Premium P2 **não** são necessárias para as seguintes tarefas:
+As licenças Azure AD Premium P2 **não** são necessárias para as seguintes tarefas:
 
-- Nenhuma licença é necessária para usuários com funções de administrador global ou de administrador de função com privilégios que configuram o PIM, configurar políticas, receber alertas e configurar revisões de acesso.
+- Não são necessárias licenças para usuários com as funções de Administrador Global ou Administrador de Funções Privilegiadas que configuram o PIM, configuram políticas, recebem alertas e configuram avaliações de acesso.
 
-Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+Para obter mais informações sobre licenças, consulte [Atribuir ou remover licenças usando o portal Azure Active Directory](../fundamentals/license-users-groups.md).
 
-## <a name="example-license-scenarios"></a>Cenários de licença de exemplo
+## <a name="example-license-scenarios"></a>Exemplos de cenários de licença
 
-Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar o número de licenças que você deve ter.
+Aqui estão alguns exemplos de cenários de licenças para ajudá-lo a determinar o número de licenças que você deve ter.
 
 | Cenário | Cálculo | Número de licenças |
 | --- | --- | --- |
-| O Woodgrove Bank tem 10 administradores para diferentes departamentos e 2 administradores globais que configuram e gerenciam o PIM. Eles tornam cinco administradores qualificados. | Cinco licenças para os administradores que estão qualificados | 5 |
-| O design gráfico Institute tem 25 administradores dos quais 14 são gerenciados por meio do PIM. A ativação de função requer aprovação e há três usuários diferentes na organização que podem aprovar ativações. | 14 licenças para as funções qualificadas + três aprovadores | 17 |
-| A contoso tem 50 administradores dos quais a 42 é gerenciada por meio do PIM. A ativação de função requer aprovação e há cinco usuários diferentes na organização que podem aprovar ativações. A contoso também faz revisões mensais de usuários atribuídos a revisores e funções de administrador são os gerentes dos usuários dos quais seis não estão em funções de administrador gerenciadas pelo PIM. | 42 licenças para as funções qualificadas + cinco aprovadores + seis revisores | 53 |
+| O Woodgrove Bank possui 10 administradores para diferentes departamentos e 2 administradores globais que configuram e gerenciam o PIM. Eles tornam cinco administradores elegíveis. | Cinco licenças para os administradores elegíveis | 5 |
+| O Graphic Design Institute tem 25 administradores, dos quais 14 são gerenciados através do PIM. A ativação da função requer aprovação e há três usuários diferentes na organização que podem aprovar ativações. | 14 licenças para as funções elegíveis + três aprovadores | 17 |
+| Contoso tem 50 administradores dos quais 42 são gerenciados através do PIM. A ativação da função requer aprovação e há cinco usuários diferentes na organização que podem aprovar ativações. Contoso também faz avaliações mensais de usuários atribuídos a funções de administrador e os revisores são os gerentes dos usuários dos quais seis não estão em funções de administrador gerenciados pelo PIM. | 42 licenças para as funções elegíveis + cinco aprovadores + seis revisores | 53 |
 
 ## <a name="what-happens-when-a-license-expires"></a>O que acontece quando uma licença expira?
 
-Se uma licença Azure AD Premium P2, EMS E5 ou de avaliação expirar, Privileged Identity Management recursos não estarão mais disponíveis em seu diretório:
+Se um Azure AD Premium P2, EMS E5 ou licença de teste expirar, os recursos de Gerenciamento de Identidade Privilegiado não estarão mais disponíveis em seu diretório:
 
 - Atribuições de função permanentes para funções do Azure AD não serão afetadas.
-- O serviço de Privileged Identity Management no portal do Azure, bem como os cmdlets do API do Graph e as interfaces do PowerShell do Privileged Identity Management, não estarão mais disponíveis para que os usuários ativem funções privilegiadas, gerenciem o acesso privilegiado ou executem revisões de acesso de funções com privilégios.
+- O serviço de Gerenciamento de Identidade Privilegiada no portal Azure, bem como os cmdlets de API do Gráfico e as interfaces PowerShell de Gerenciamento de Identidade Privilegiada, não estarão mais disponíveis para os usuários ativarem funções privilegiadas, gerenciarem acesso privilegiado ou executarem revisões de acesso de funções privilegiadas.
 - Atribuições de funções qualificadas de funções do Azure AD serão removidas, pois os usuários não poderão mais ativar funções privilegiadas.
-- Todas as revisões de acesso em andamento das funções do Azure AD serão encerradas e Privileged Identity Management definições de configuração serão removidas.
-- Privileged Identity Management não enviará mais emails sobre alterações de atribuição de função.
+- Quaisquer revisões de acesso contínuas das funções Ad do Azure serão encerradas e as configurações de configuração do Gerenciamento de Identidade Privilegiada serão removidas.
+- O Gerenciamento de Identidade Privilegiado não enviará mais e-mails sobre alterações de atribuição de papéis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Implantar o Privileged Identity Management](pim-deployment-plan.md)
-- [Começar a usar o Privileged Identity Management](pim-getting-started.md)
-- [Funções que você não pode gerenciar no Privileged Identity Management](pim-roles.md)
+- [Começar usando o Privileged Identity Management](pim-getting-started.md)
+- [Funções que você não pode gerenciar no Gerenciamento de Identidade Privilegiada](pim-roles.md)

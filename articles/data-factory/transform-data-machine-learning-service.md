@@ -1,6 +1,6 @@
 ---
-title: Executar pipelines de Azure Machine Learning
-description: Saiba como executar seus pipelines de Azure Machine Learning em seus pipelines de Azure Data Factory.
+title: Executar pipelines de aprendizado de máquina do Azure
+description: Aprenda a executar seus pipelines de Machine Learning do Azure em seus pipelines da Fábrica de Dados Do Azure.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,17 +11,17 @@ author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
 ms.openlocfilehash: b54504cf8ca7b32bf14bd4b7e0c561ffd56d4098
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155156"
 ---
-# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Executar pipelines de Azure Machine Learning no Azure Data Factory
+# <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Execute os pipelines de aprendizado de máquina do Azure na fábrica de dados do Azure
 
-Execute seus pipelines de Azure Machine Learning como uma etapa em seus pipelines de Azure Data Factory. A atividade Machine Learning executar pipeline permite cenários de previsão de lote, como a identificação de possíveis padrões de empréstimo, a determinação de sentimentos e a análise de padrões de comportamento do cliente.
+Execute seus pipelines de Aprendizado de Máquina do Azure como um passo em seus pipelines da Fábrica de Dados Do Azure. A atividade do Machine Learning Execute Pipeline permite cenários de previsão de lotes, como identificar possíveis inadimplências de empréstimos, determinar sentimentos e analisar padrões de comportamento do cliente.
 
-O vídeo abaixo apresenta uma introdução de seis minutos e uma demonstração desse recurso.
+O vídeo abaixo apresenta uma introdução de seis minutos e uma demonstração deste recurso.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
@@ -48,26 +48,26 @@ O vídeo abaixo apresenta uma introdução de seis minutos e uma demonstração 
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Description | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 name | Nome da atividade no pipeline | String | Sim
-type | O tipo de atividade é ' AzureMLExecutePipeline ' | String | Sim
-linkedServiceName | Serviço vinculado para Azure Machine Learning | Referência de serviço vinculado | Sim
-mlPipelineId | ID do pipeline de Azure Machine Learning publicado | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim
-Experimentoname | Nome de teste de execução do histórico da execução do pipeline de Machine Learning | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
-mlPipelineParameters | Pares de chave, valor a serem passados para o ponto de extremidade do pipeline de Azure Machine Learning publicado. As chaves devem corresponder aos nomes dos parâmetros de pipeline definidos no pipeline de Machine Learning publicado | Objeto com pares chave-valor (ou expressão com o objeto ResultType) | Não
-mlParentRunId | A ID de execução do pipeline Azure Machine Learning pai | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
-continueOnStepFailure | Se deseja continuar a execução de outras etapas no pipeline de Machine Learning executar se uma etapa falhar | booleano | Não
+type | Tipo de atividade é 'AzureMLExecutePipeline' | String | Sim
+linkedServiceName | Serviço vinculado ao Aprendizado de Máquina do Azure | Referência de serviço vinculado | Sim
+mlPipelineId | ID do pipeline publicado azure Machine Learning | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim
+experimentName | Executar o nome do experimento de história do pipeline de Aprendizado de Máquina executado | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
+mlPipelineParâmetros | Chave, pares de valor a serem passados para o ponto final do pipeline azure Machine Learning publicado. As chaves devem corresponder aos nomes dos parâmetros de pipeline definidos no pipeline de Machine Learning publicado | Objeto com pares de valores-chave (ou Expressão com objeto resultType) | Não
+mlParentRunId | O pipeline de aprendizado de máquina azure pai executar ID | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Não
+continueOnStepFailure | Se continuar a execução de outras etapas no pipeline de Machine Learning executado se um passo falhar | booleano | Não
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:
 
 * [Executar atividade de fluxo de dados](control-flow-execute-data-flow-activity.md)
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
+* [Atividade suína](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
-* [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
+* [Atividade de faísca](transform-data-using-spark.md)
+* [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
+* [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)

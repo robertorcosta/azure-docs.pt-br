@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 author: rolyon
 ms.service: active-directory
@@ -9,15 +9,15 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67476243"
 ---
-## <a name="create-one-or-more-access-reviews"></a>Criar um ou mais revisões de acesso
+## <a name="create-one-or-more-access-reviews"></a>Crie uma ou mais avaliações de acesso
 
-1. Clique em **New** para criar uma nova revisão de acesso.
+1. Clique **em Novo** para criar uma nova revisão de acesso.
 
 1. Nomeie a revisão de acesso. Opcionalmente, forneça uma descrição à revisão. O nome e a descrição são mostrados aos revisores.
 
@@ -25,39 +25,39 @@ ms.locfileid: "67476243"
 
 1. Defina a **Data de início**. Por padrão, uma revisão de acesso ocorre uma vez, inicia na mesma hora em que é criada e termina em um mês. Você pode alterar as datas de início e de término para iniciar uma análise de acesso em uma data futura e que dure quantos dias você desejar.
 
-    ![Data de início, frequência, duração, end, número de vezes e data de término](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
+    ![Data de início, frequência, duração, fim, número de vezes e data de término](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. Para fazer a revisão de acesso recorrente, altere o **frequência** definindo a partir **uma vez** para **semanal**, **mensal**,  **Trimestral**, **anualmente**, ou **ou semestralmente**. Use o **duração** controle deslizante ou caixa de texto para definir quantos dias de cada análise da série de recorrentes será aberto para a entrada de revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar revisões sobrepostas.
+1. Para tornar a revisão de acesso recorrente, altere a configuração de **freqüência** de **Uma vez** para **Semanal,** **Mensal,** **Trimestral,** **Anual ou** **Semestral**. Use o controle deslizante **de duração** ou caixa de texto para definir quantos dias cada revisão da série recorrente estará aberta para entrada dos revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar revisões sobrepostas.
 
-1. Use a configuração **Final** para especificar como terminar a série de revisão de acesso recorrente. A série pode terminar de três maneiras: ela é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou após a conclusão de um número definido de ocorrências. Você, administrador de outro usuário ou outro administrador Global pode parar a série após a criação, alterando a data no **configurações**, de modo que ele termina nessa data.
+1. Use a configuração **Final** para especificar como terminar a série de revisão de acesso recorrente. A série pode terminar de três maneiras: ela é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou após a conclusão de um número definido de ocorrências. Você, outro administrador de usuário ou outro administrador Global pode interromper a série após a criação alterando a data em **Configurações,** para que ela termine nessa data.
 
-1. No **usuários** , selecione uma ou mais funções que você deseja examinar a associação de.
+1. Na seção **Usuários,** selecione uma ou mais funções das que deseja revisar a adesão.
 
-    ![Escopo de usuários para revisar a associação de função do](./media/active-directory-privileged-identity-management-access-reviews/users.png)
+    ![Escopo dos usuários para revisar a adesão à função de](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Selecionar mais de uma função, você criará várias revisões de acesso. Por exemplo, selecionar cinco funções criará cinco revisões de acesso separados.
+    > Selecionar mais de uma função criará várias avaliações de acesso. Por exemplo, selecionar cinco funções criará cinco avaliações de acesso separadas.
 
-    Se você estiver criando uma revisão de acesso de funções do Azure AD, o código a seguir mostra um exemplo de lista de associações de revisão.
+    Se você estiver criando uma revisão de acesso das funções do Azure AD, o seguinte mostrará um exemplo da lista de membros do Review.
 
-    ![Painel de associação de revisão, listando as funções do Azure AD, você pode selecionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![Revisar o painel de membros listando funções azure AD que você pode selecionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Se você estiver criando uma revisão de acesso das funções de recurso do Azure, veja a seguir um exemplo de lista de associações de revisão.
+    Se você estiver criando uma revisão de acesso das funções de recurso do Azure, o seguinte mostrará um exemplo da lista de membros do Review.
 
-    ![Painel de associação de revisão, listando as funções de recurso do Azure, você pode selecionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![Revisar o painel de membros listando funções de recursos do Azure que você pode selecionar](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
-1. No **revisores** , selecione uma ou mais pessoas para examinar todos os usuários. Ou você pode selecionar para que os membros examinem seus próprios acessos.
+1. Na seção **Revisores,** selecione uma ou mais pessoas para revisar todos os usuários. Ou você pode selecionar para que os membros examinem seus próprios acessos.
 
-    ![Lista de revisores de usuários selecionados ou membros (próprio)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![Lista de revisores de usuários ou membros selecionados (self)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
-    - **Usuários selecionados** -Use essa opção quando você não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
-    - **Membros (próprio)** -Use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
+    - **Usuários selecionados** - Use esta opção quando você não sabe quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
+    - **Membros (self)** - Use essa opção para que os usuários revisem suas próprias atribuições de função.
 
 ### <a name="upon-completion-settings"></a>Após configurações de conclusão
 
 1. Para especificar o que acontece após a conclusão de uma revisão, expanda a seção **Após configurações de conclusão**.
 
-    ![Após a conclusão configurações automaticamente se aplicam e revisão não deve responder](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![Após as configurações de conclusão para aplicar automaticamente e não deve responder](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
 1. Se você quiser remover automaticamente o acesso para usuários que foram negados, defina **Resultados de aplicação automática ao recurso** para **Habilitar**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
 
@@ -72,7 +72,7 @@ ms.locfileid: "67476243"
 
 1. Para especificar configurações adicionais, expanda a seção **Configurações avançadas**.
 
-    ![Configurações avançadas para mostrar recomendações, requer motivo sob aprovação, notificações por email e lembretes](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![Configurações avançadas para recomendações de exibição, requerem razão sobre aprovação, notificações de e-mail e lembretes](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
 1. Definir **Mostrar recomendações** à **Habilitar** para mostrar aos revisores as recomendações do sistema com base nas informações de acesso do usuário.
 

@@ -1,15 +1,15 @@
 ---
-title: Arquitetura do Gerenciador de recursos
-description: Uma visão geral do e informações arquitetônicas sobre o serviço do Gerenciador de recursos de Cluster Service Fabric do Azure.
+title: Arquitetura gerenciador de recursos
+description: Uma visão geral e informações arquitetônicas sobre o serviço Azure Service Fabric Cluster Resource Manager.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551685"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Visão geral da arquitetura do Gerenciador de Recursos de Cluster
@@ -43,7 +43,7 @@ Vamos observar o seguinte diagrama:
 
 <center>
 
-![arquitetura do balanceador de recursos][Image1]
+![Arquitetura balanceador de recursos][Image1]
 </center>
 
 No runtime, muitas alterações poderiam acontecer. Por exemplo, digamos que a quantidade de recursos que alguns recursos consomem muda, alguns serviços falham e alguns nós entram e saem do cluster. Todas as alterações em um nó são agregadas e enviadas periodicamente ao serviço do Gerenciador de Recursos de Cluster (1 e 2), onde são agregadas novamente, analisadas e armazenadas. Em intervalo de segundos, o serviço analisa todas as alterações e determina se alguma ação é necessária (3). Por exemplo, ele poderia observar que alguns nós vazios foram adicionados ao cluster. Como resultado, ele decide mover alguns serviços para esses nós. O Gerenciador de Recursos de Cluster também poderia observar que um nó específico está sobrecarregado ou que determinados serviços falharam ou foram excluídos, liberando recursos em outro lugar.
@@ -52,11 +52,11 @@ Vamos observar o próximo diagrama e ver o que acontece em seguida. Digamos que 
 
 <center>
 
-![arquitetura do balanceador de recursos][Image2]
+![Arquitetura balanceador de recursos][Image2]
 </center>
 
-## <a name="next-steps"></a>Próximos passos
-- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](./service-fabric-cluster-resource-manager-cluster-description.md)
+## <a name="next-steps"></a>Próximas etapas
+- O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre eles, confira este artigo sobre [a descrição de um cluster de malha de serviço](./service-fabric-cluster-resource-manager-cluster-description.md)
 - As tarefas principais do Gerenciador de Recursos de Cluster são o rebalanceamento do cluster e a imposição de regras de posicionamento. Para obter mais informações sobre como configurar esses comportamentos, consulte [Balanceamento do cluster do Service Fabric](./service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png

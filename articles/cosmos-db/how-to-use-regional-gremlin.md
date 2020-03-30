@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897856"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos de extremidade regionais para a conta de grafo do Azure Cosmos DB
@@ -112,4 +112,4 @@ foreach (string location in readLocations)
 * [Como gerenciar o controle de contas de banco de dados](how-to-manage-database-account.md) no Azure Cosmos DB
 * [Alta disponibilidade](high-availability.md) no Azure Cosmos DB
 * [Distribuição global com o Azure Cosmos DB – nos bastidores](global-dist-under-the-hood.md)
-* [Exemplos da CLI do Azure para o Azure Cosmos DB](cli-samples.md)
+* [Azure CLI Amostras](cli-samples.md) para Azure Cosmos DB

@@ -1,6 +1,6 @@
 ---
 title: Copiar dados de fontes do Microsoft Access
-description: Saiba como copiar dados de fontes do Microsoft Access para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline de Azure Data Factory.
+description: Saiba como copiar dados de fontes do Microsoft Access para armazenamentos de dados sink suportados usando uma atividade de cópia em um pipeline da Fábrica de Dados Do Azure.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,52 +12,52 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
 ms.openlocfilehash: d6110065e28b8f179cd1d113107fb3508e1c3e44
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892539"
 ---
-# <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados do Microsoft Access usando o Azure Data Factory
+# <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copiar dados de e para os armazenamentos de dados do Microsoft Access usando o Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um armazenamento de dados do Microsoft Access. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados do Azure para copiar dados de um armazenamento de dados do Microsoft Access. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector do Microsoft Access tem suporte para as seguintes atividades:
+Este conector Microsoft Access é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procurar](control-flow-lookup-activity.md)
 
-Você pode copiar dados da fonte do Microsoft Access para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados da fonte do Microsoft Access para qualquer armazenamento de dados do sink suportado. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar esse conector de acesso da Microsoft, você precisa:
+Para usar este conector Microsoft Access, você precisa:
 
-- Configurar um Integration Runtime auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
-- Instale o driver ODBC do Microsoft Access para o armazenamento de dados no computador Integration Runtime.
+- Configurar um Integration Runtime auto-hospedado. Consulte [o artigo 'Executtime de integração'.](create-self-hosted-integration-runtime.md)
+- Instale o driver Microsoft Access ODBC para o armazenamento de dados na máquina Integration Runtime.
 
 >[!NOTE]
->A versão 2016 do Microsoft Access do driver ODBC não funciona com este conector. Use o driver versão 2013 ou 2010 em vez disso.
+>A versão microsoft access 2016 do driver ODBC não funciona com este conector. Use a versão do driver 2013 ou 2010 em vez disso.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector do Microsoft Access.
+As seções a seguir fornecem detalhes sobre propriedades usadas para definir entidades da Fábrica de Dados específicas do conector Microsoft Access.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As propriedades a seguir têm suporte para o serviço vinculado do Microsoft Access:
+As seguintes propriedades são suportadas para o serviço vinculado ao Microsoft Access:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como: **MicrosoftAccess** | Sim |
-| connectionString | A cadeia de conexão ODBC excluindo a parte da credencial. Você pode especificar a cadeia de conexão ou usar o DSN do sistema (nome da fonte de dados) que você configurou no computador Integration Runtime (você ainda precisa especificar a parte da credencial no serviço vinculado adequadamente).<br> Você também pode colocar uma senha em Azure Key Vault e efetuar pull do `password` configuração fora da cadeia de conexão. Consulte [armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
-| authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados do Microsoft Access.<br/>Os valores permitidos são: **Básica** e **Anônima**. | Sim |
+| type | A propriedade do tipo deve ser definida como: **MicrosoftAccess** | Sim |
+| connectionString | A seqüência de conexão ODBC excluindo a porção de credencial. Você pode especificar a seqüência de conexão ou usar o sistema DSN (Nome da Fonte de Dados) configurado na máquina Integration Runtime (você ainda precisa especificar a parte de credencial no serviço vinculado de acordo com o serviço).<br> Você também pode colocar uma senha no Azure Key Vault e puxar a `password` configuração para fora da seqüência de conexão.Consulte as [credenciais da Loja no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
+| authenticationType | Tipo de autenticação usada para se conectar ao armazenamento de dados do Microsoft Access.<br/>Os valores permitidos são: **Básica** e **Anônima**. | Sim |
 | userName | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não |
-| password | Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| password | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
 | credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Marque esse campo como uma SecureString. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
 
@@ -87,13 +87,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do Microsoft Acc
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de Microsoft Access.
+Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados Microsoft Access.
 
-Para copiar dados do Microsoft Access, há suporte para as seguintes propriedades:
+Para copiar dados do Microsoft Access, as seguintes propriedades são suportadas:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **MicrosoftAccessTable** | Sim |
+| type | A propriedade do tipo do conjunto de dados deve ser definida como: **MicrosoftAccessTable** | Sim |
 | tableName | Nome da tabela no Microsoft Access. | Não para fonte (se "query" na fonte da atividade for especificada);<br/>Sim para coletor |
 
 **Exemplo**
@@ -116,15 +116,15 @@ Para copiar dados do Microsoft Access, há suporte para as seguintes propriedade
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte do Microsoft Access.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista de propriedades suportadas pela fonte do Microsoft Access.
 
 ### <a name="microsoft-access-as-source"></a>Microsoft Access como fonte
 
-Para copiar dados do armazenamento de dados compatível com o Microsoft Access, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados do armazenamento de dados compatível com o Microsoft Access, as seguintes propriedades são suportadas na seção **origem** da atividade de cópia:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **MicrosoftAccessSource** | Sim |
+| type | A propriedade tipo da fonte de atividade de cópia deve ser definida como: **MicrosoftAccessSource** | Sim |
 | Consulta | Utiliza a consulta personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -159,9 +159,9 @@ Para copiar dados do armazenamento de dados compatível com o Microsoft Access, 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

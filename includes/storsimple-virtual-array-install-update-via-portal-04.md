@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 6f2ad6426c2c93fa595648af374df5566c45e57f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171950"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Para instalar atualizações por meio do Portal do Azure
@@ -61,4 +61,4 @@ ms.locfileid: "67171950"
 
     ![atualizar dispositivo](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Depois que as atualizações forem instaladas com êxito, você verá uma mensagem sobre isso na folha **Atualizações do dispositivo**. 
+9. Depois que as atualizações são instaladas com sucesso, você vê uma mensagem para este efeito na lâmina **de atualizações** do dispositivo. 

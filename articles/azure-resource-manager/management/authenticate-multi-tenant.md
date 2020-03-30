@@ -4,10 +4,10 @@ description: Descreve como o Azure Resource Manager trata de solicitações de a
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75478819"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticar solicitações entre locatários
@@ -18,10 +18,10 @@ Ao criar um aplicativo multilocatário, talvez você precise lidar com solicita�
 
 A solicitação tem os seguintes valores de cabeçalho de autenticação:
 
-| Nome do cabeçalho | Description | Valor de exemplo |
+| Nome do cabeçalho | Descrição | Valor de exemplo |
 | ----------- | ----------- | ------------ |
 | Autorização | Token primário | &lt;Token primário&gt; portador |
-| x-ms-authorization-auxiliary | Tokens auxiliares | Portador &lt;auxiliares-token1&gt;, EncryptedBearer &lt;Auxiliary-token2&gt;, portador &lt;auxiliar-token3&gt; |
+| x-ms-authorization-auxiliary | Tokens auxiliares | Portador &lt;&gt;auxiliar-token1, Dispositivo &lt;auxiliar de Portador&gt;Criptografado2, Portador &lt;auxiliar-token3&gt; |
 
 O cabeçalho auxiliar pode conter até três tokens auxiliares. 
 
@@ -33,7 +33,7 @@ Quando seu aplicativo envia uma solicitação para o Resource Manager, a solicit
 
 Quando a solicitação faz referência a um recurso de um locatário diferente, o Resource Manager verifica os tokens auxiliares para determinar se a solicitação pode ser processada. Todos os tokens auxiliares no cabeçalho devem ser válidos e não estar expirados. Se nenhum token tiver expirado, o Resource Manager retornará um código de resposta 401. A resposta inclui a ID do cliente e a ID do locatário do token que não é válido. Se o cabeçalho auxiliar contiver um token válido para o locatário, a solicitação de locatário cruzada será processada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre solicitações de autenticação, consulte [fluxos de autenticação e cenários de aplicativos](../../active-directory/develop/authentication-flows-app-scenarios.md).
 * Para obter mais informações sobre tokens, veja [Tokens de acesso do Azure Active Directory](../../active-directory/develop/access-tokens.md).

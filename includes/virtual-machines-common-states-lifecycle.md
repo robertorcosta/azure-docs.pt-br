@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171861"
 ---
 As VMs (Máquinas Virtuais) do Azure passam por diferentes estados que podem ser categorizados entre os estados de *provisionamento* e *energia*. A finalidade deste artigo é descrever esses estados e realçar especificamente quando os clientes são cobrados pelo uso de instância. 
@@ -32,7 +32,7 @@ A tabela a seguir fornece uma descrição de cada estado da instância e indica 
 Estado
 </th>
 <th>
-DESCRIÇÃO
+Descrição
 </th>
 <th>
 Cobrança de uso de instância
@@ -40,7 +40,7 @@ Cobrança de uso de instância
 </tr>
 <tr>
 <td>
-<p><b>Iniciando</b></p>
+<p><b>Começando</b></p>
 </td>
 <td>
 <p>A VM está iniciando.</p>
@@ -58,7 +58,7 @@ Cobrança de uso de instância
 </tr>
 <tr>
 <td>
-<p><b>Executando</b></p>
+<p><b>Em execução</b></p>
 </td>
 <td>
 <p>Estado de funcionamento normal para uma VM</p>
@@ -71,12 +71,12 @@ Cobrança de uso de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Cobrado</b></p>
+<p><b>Faturado</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Parando</b></p>
+<p><b>Parar</b></p>
 </td>
 <td>
 <p>Esse é um estado de transição. Quando concluído, ele será exibido como **Parado**.</p>
@@ -89,12 +89,12 @@ Cobrança de uso de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Cobrado</b></p>
+<p><b>Faturado</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Interrompido</b></p>
+<p><b>Parou</b></p>
 </td>
 <td>
 <p>A VM foi desligada de dentro do sistema operacional convidado ou usando as APIs PowerOff.</p>
@@ -178,7 +178,7 @@ Aqui estão os estados operação de transição depois que a plataforma aceitou
 <p><b>Estados</b></p>
 </td>
 <td width="366">
-<p>DESCRIÇÃO</p>
+<p>Descrição</p>
 </td>
 </tr>
 <tr>
@@ -210,7 +210,7 @@ Aqui estão os estados operação de transição depois que a plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>Excluindo</b></p>
+<p><b>Excluir</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -287,7 +287,7 @@ Depois que a operação for concluída, a VM fará a transição para um dos seg
 
 A API de exibição de instância fornece informações sobre o estado de execução da VM. Para obter mais informações, consulte a documentação da API [Máquinas virtuais – Exibição de instância](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview).
 
-O Gerenciador de recursos do Azure fornece uma interface do usuário simples para exibir o estado de execução de VM: [Resource Explorer](https://resources.azure.com/).
+O Gerenciador de recursos do Azure fornece uma interface do usuário simple para exibir o estado de execução de VM: [Resource Explorer](https://resources.azure.com/).
 
 Os estados de provisionamento são visíveis na exibição de instância e de propriedades da VM. Os estados de energia estão disponíveis na exibição de instância da VM. 
 

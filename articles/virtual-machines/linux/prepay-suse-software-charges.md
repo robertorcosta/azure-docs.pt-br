@@ -1,6 +1,6 @@
 ---
-title: Pagar antecipadamente por planos de software-reservas do Azure
-description: Saiba como você pode pagar por planos de software para economizar dinheiro em seus custos pagos conforme o uso.
+title: Pré-pago para planos de software - Reservas Azure
+description: Saiba como você pode pagar antecipadamente por planos de software para economizar dinheiro em relação aos seus custos de pagamento.
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines-linux
@@ -10,68 +10,68 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75973125"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagar antecipadamente planos de software do Azure
 
-Ao pagar por seu uso de software SUSE e RedHat no Azure, você pode economizar dinheiro nos custos pagos conforme o uso. Os descontos se aplicam apenas a medidores SUSE e RedHat e não ao uso da máquina virtual. Você pode comprar reservas para máquinas virtuais separadamente para economizar mais.
+Quando você paga antecipadamente pelo uso do software SUSE e RedHat no Azure, você pode economizar dinheiro com os custos de pagamento. Os descontos só se aplicam aos medidores SUSE e RedHat e não no uso da máquina virtual. Você pode comprar reservas para máquinas virtuais separadamente para economias adicionais.
 
-Você pode comprar planos de software SUSE e RedHat na portal do Azure. Comprar um plano:
+Você pode comprar planos de software SUSE e RedHat no portal Azure. Comprar um plano:
 
-- Você deve ter a função de proprietário para pelo menos uma assinatura corporativa ou individual com preço pago conforme o uso.
-- Para assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal do EA](https://ea.azure.com/). Se a configuração estiver desabilitada, você deverá ser um administrador do EA para a assinatura.
-- Para o programa CSP (provedor de soluções na nuvem), os agentes de administração ou os agentes de vendas podem comprar os planos de software.
+- Você deve ter a função de proprietário para pelo menos uma assinatura Enterprise ou individual com preços de pagamento à medida que você vai.
+- Para assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal do EA](https://ea.azure.com/). Se a configuração estiver desativada, você deve ser um administrador da EA para a assinatura.
+- Para o programa Cloud Solution Provider (CSP), os agentes de admin ou agentes de vendas podem comprar os planos de software.
 
-## <a name="buy-a-software-plan"></a>Comprar um plano de software
+## <a name="buy-a-software-plan"></a>Compre um plano de software
 
-1. Entre no portal do Azure e acesse as [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
-2. Clique em **Adicionar** e selecione o plano de software que você deseja comprar.
-Preencha os campos obrigatórios. Qualquer VM SUSE Linux ou RedHat VM que corresponda aos atributos do que você compra Obtém o desconto. O número real de implantações que obtêm o desconto depende do escopo e da quantidade selecionada.
-3. Selecione uma assinatura. Ele é usado para pagar pelo plano.
-O método de pagamento de assinatura é cobrado pelos custos antecipados da reserva. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou contrato individual com o preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
+1. Faça login no portal Azure e vá para [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Clique **em Adicionar** e, em seguida, selecione o plano de software que deseja comprar.
+Preencha os campos obrigatórios. Qualquer VM SUSE Linux ou RedHat VM que corresponda aos atributos do que você compra recebe o desconto. O número real de implantações que obtêm o desconto depende do escopo e da quantidade selecionada.
+3. Selecione uma assinatura. É usado para pagar pelo plano.
+O método de pagamento da assinatura é cobrado dos custos iniciais da reserva. O tipo de assinatura deve ser um Contrato Empresarial (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou acordo individual com preços de pagamento (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
     - Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média.
-    - Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito da assinatura ou no método de pagamento da fatura.
+    - Para uma assinatura individual com preços de pagamento, os encargos são cobrados no cartão de crédito da assinatura ou no método de pagamento da fatura.
 4. Selecione um escopo. O escopo pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado).
-    - Assinatura única-o desconto do plano é aplicado ao uso correspondente na assinatura.
-    - Compartilhado-o desconto do plano é aplicado às instâncias correspondentes em qualquer assinatura em seu contexto de cobrança. Para clientes corporativos, o contexto de cobrança é o registro e inclui todas as assinaturas no registro. Para o plano individual com clientes de preços pagos conforme o uso, o contexto de cobrança é todos os planos individuais com assinaturas de preços pagas conforme o uso criadas pelo administrador da conta.
-5. Selecione um produto para escolher o tamanho da VM e o tipo de imagem. O desconto se aplica somente ao tamanho de VM selecionado.
-6. Selecione um termo de um ou três anos.
-7. Escolha uma quantidade, que é o número de instâncias de VM pré-paga que podem obter o desconto de cobrança.
-8. Adicione o produto ao carrinho, examine e compre.
+    - Assinatura única - O desconto do plano é aplicado ao uso correspondente na assinatura.
+    - Compartilhado - O desconto do plano é aplicado às instâncias correspondentes em qualquer assinatura em seu contexto de faturamento. Para clientes corporativos, o contexto de faturamento é a inscrição e inclui todas as assinaturas na inscrição. Para um plano individual com clientes de preços de pagamento, o contexto de faturamento é todo plano individual com assinaturas de preços de pagamento criadas pelo administrador da conta.
+5. Selecione um produto para escolher o tamanho da VM e o tipo de imagem. O desconto se aplica apenas ao tamanho da VM selecionada.
+6. Selecione um mandato de um ano ou três anos.
+7. Escolha uma quantidade, que é o número de instâncias de VM pré-pagas que podem obter o desconto de faturamento.
+8. Adicione o produto ao carrinho, revise e compre.
 
-O desconto de reserva é aplicado automaticamente ao medidor de software para o qual você paga. Os encargos de computação da VM não são cobertos pelo plano. Você pode comprar as reservas de VM separadamente.
+O desconto de reserva é aplicado automaticamente ao medidor de software que você pré-paga. As taxas de computação vm não estão cobertas pelo plano. Você pode comprar as reservas de VM separadamente.
 
-## <a name="discount-applies-to-different-suse-vm-sizes"></a>O desconto se aplica a diferentes tamanhos de VM SUSE
+## <a name="discount-applies-to-different-suse-vm-sizes"></a>Desconto se aplica a diferentes tamanhos de VM suse
 
-Assim como as instâncias de VM reservadas, os planos do SUSE Linux oferecem flexibilidade de tamanho de instância. Seu desconto se aplica mesmo quando você implanta uma VM que tem um tamanho diferente do plano SUSE que você comprou. Para obter mais informações, consulte [entender como o desconto do plano de software é aplicado](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
+Como instâncias de VM reservadas, os planos Do SUSE Linux oferecem flexibilidade de tamanho de instância. Seu desconto se aplica mesmo quando você implanta uma VM de tamanho diferente do plano SUSE que você comprou. Para obter mais informações, consulte [Entenda como o desconto do plano de software é aplicado.](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 
-## <a name="redhat-plan-discount"></a>Desconto do plano de RedHat
+## <a name="redhat-plan-discount"></a>Desconto do plano RedHat
 
-Os planos estão disponíveis apenas para máquinas virtuais Red Hat Enterprise Linux. O desconto não se aplica às VMs do RedHat Enterprise Linux SAP HANA VMs ou ao RedHat Enterprise Linux SAP Business apps.
+Os planos estão disponíveis apenas para máquinas virtuais Red Hat Enterprise Linux. O desconto não se aplica aos VMs RedHat Enterprise Linux SAP HANA ou RedHat Enterprise Linux SAP Business Apps.
 
-Os descontos do plano do RedHat se aplicam somente ao tamanho da VM que você selecionar no momento da compra. Os planos de RHEL não podem ser reembolsados ou trocados após a compra.
+Os descontos do plano RedHat se aplicam apenas ao tamanho da VM que você selecionar no momento da compra. Os planos RHEL não podem ser reembolsados ou trocados após a compra.
 
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>Cancelamento e trocas não permitidas
 
-Não é possível cancelar ou trocar um plano SUSE ou RedHat que você comprou. Verifique seu uso para garantir que você compre o plano certo. Para obter ajuda para identificar o que comprar, consulte [entender como o desconto do plano de software é aplicado](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
+Você não pode cancelar ou trocar um plano SUSE ou RedHat que você comprou. Verifique seu uso para garantir que você compre o plano certo. Para ajudar a identificar o que comprar, consulte [Entenda como o desconto do plano de software é aplicado.](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para aprender a gerenciar uma reserva, confira [Gerenciar reservas do Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
+Para saber como gerenciar uma reserva, consulte [Gerenciar reservas do Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Para saber mais, leia os seguintes artigos:
 
 - [O que são Reservas do Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Gerenciar Reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Gerenciar reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva do SUSE é aplicado](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
