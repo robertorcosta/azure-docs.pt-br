@@ -1,33 +1,33 @@
 ---
-title: Configurar terminação SSL com certificados Key Vault-PowerShell
+title: Configure a terminação SSL com certificados key vault - PowerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como você pode integrar Aplicativo Azure gateway com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
+description: Saiba como integrar o Gateway de aplicativos Do Azure com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 2f7eafc6fc1533bd837fae60dd3b9673f6f97aa8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913014"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371219"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurar a terminação SSL com certificados de Key Vault usando Azure PowerShell
+# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configure a terminação SSL com certificados key vault usando o Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) é um repositório de segredos gerenciado por plataforma que você pode usar para proteger segredos, chaves e certificados SSL. Aplicativo Azure gateway dá suporte à integração com Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Esse suporte é limitado ao SKU do gateway de aplicativo v2.
+[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerenciada por plataformas que você pode usar para proteger segredos, chaves e certificados SSL. O Azure Application Gateway suporta a integração com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Este suporte é limitado ao Application Gateway v2 SKU.
 
-Para obter mais informações, consulte [terminação SSL com certificados Key Vault](key-vault-certs.md).
+Para obter mais informações, consulte [o término do SSL com os certificados Key Vault](key-vault-certs.md).
 
-Este artigo mostra como usar um script de Azure PowerShell para integrar o cofre de chaves ao seu gateway de aplicativo para certificados de terminação SSL.
+Este artigo mostra como usar um script Azure PowerShell para integrar seu cofre de chaves com o gateway de aplicativo para certificados de rescisão SSL.
 
-Este artigo requer Azure PowerShell módulo versão 1.0.0 ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisa criar uma conexão com o Azure executando `Connect-AzAccount`.
+Este artigo requer a versão 1.0.0 do módulo Azure PowerShell ou posterior. Para saber qual é a versão, execute `Get-Module -ListAvailable Az`. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste artigo, você também precisa criar `Connect-AzAccount`uma conexão com o Azure executando .
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você deve ter o módulo ManagedServiceIdentity instalado:
 
@@ -48,7 +48,7 @@ $kv = "TestKeyVaultAppGw"
 $appgwName = "AppGwKVIntegration"
 ```
 
-### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Criar um grupo de recursos e uma identidade gerenciada pelo usuário
+### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Crie um grupo de recursos e uma identidade gerenciada pelo usuário
 
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
@@ -56,7 +56,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Criar um cofre de chaves, uma política e um certificado para serem usados pelo gateway de aplicativo
+### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Crie um cofre de chaves, uma política e um certificado a serem usados pelo gateway de aplicativo
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> O sinalizador-EnableSoftDelete deve ser usado para que o término do SSL funcione corretamente.
+> O sinalizador -EnableSoftDelete deve ser usado para que a rescisão do SSL funcione corretamente. Se você estiver configurando [key vault soft-delete através do Portal, o](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)período de retenção deve ser mantido em 90 dias, o valor padrão. O Application Gateway ainda não suporta um período de retenção diferente. 
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -82,14 +82,14 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-virtual-ip-vip-address"></a>Criar um endereço VIP (IP virtual público) estático
+### <a name="create-a-static-public-virtual-ip-vip-address"></a>Crie um endereço VIP (VIP) público estático
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-front-end-ports"></a>Criar pool e portas de front-end
+### <a name="create-pool-and-front-end-ports"></a>Criar portas de pool e front-end
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -102,13 +102,13 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Aponte o certificado SSL para o cofre de chaves
+### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Aponte o certificado SSL para o cofre principal
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
 ```
 
-### <a name="create-listeners-rules-and-autoscale"></a>Criar ouvintes, regras e dimensionamento automático
+### <a name="create-listeners-rules-and-autoscale"></a>Crie ouvintes, regras e autoescala
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Https `
@@ -125,7 +125,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 ```
 
-### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Atribuir a identidade gerenciada pelo usuário ao gateway de aplicativo
+### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Atribuir a identidade gerenciada pelo usuário ao gateway do aplicativo
 
 ```azurepowershell
 $appgwIdentity = New-AzApplicationGatewayIdentity -UserAssignedIdentityId $identity.Id
@@ -142,6 +142,6 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
   -SslCertificates $sslCert01 -AutoscaleConfiguration $autoscaleConfig
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre terminação SSL](ssl-overview.md)
+[Saiba mais sobre o término do SSL](ssl-overview.md)

@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ed393f721d4461ebadea41f8dad707d4881865cd
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183897"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: protocolos de autenticação
@@ -28,7 +28,7 @@ As informações neste guia são úteis se você escreve seu código enviando e 
 Todo aplicativo que usa o Azure AD B2C precisa ser registrado em seu diretório B2C no [Portal do Azure](https://portal.azure.com). O processo de registro do aplicativo coleta e atribui alguns valores ao seu aplicativo:
 
 * Uma **ID de aplicativo** que identifica exclusivamente o aplicativo.
-* Um **URI de Redirecionamento** ou **Identificador de Pacote** que pode ser usado para direcionar as respostas de volta ao aplicativo.
+* Um **uri redirecionado** ou **identificador de pacote** que pode ser usado para direcionar respostas de volta ao seu aplicativo.
 * Alguns outros valores específicos de cenário. Para obter mais informações, saiba [como registrar seu aplicativo](tutorial-register-applications.md).
 
 Depois de registrar seu aplicativo, ele se comunicará com o Azure AD (Azure Active Directory), enviando solicitações para o ponto de extremidade:
@@ -40,15 +40,15 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 Em quase todos os fluxos do OAuth e do OpenID Connect, há quatro partes envolvidas na troca:
 
-![Diagrama mostrando as quatro funções do OAuth 2,0](./media/protocols-overview/protocols_roles.png)
+![Diagrama mostrando as quatro funções OAuth 2.0](./media/protocols-overview/protocols_roles.png)
 
 * O **servidor de autorização** é o ponto de extremidade do Azure AD. Ele trata de forma segura tudo o que for relacionado ao acesso e informações do usuário. Ele também manipula as relações de confiança entre as partes em um fluxo. Ele é responsável pela verificação da identidade do usuário, concessão e revogação do acesso a recursos e emissão de tokens. Ele também é conhecido como o provedor de identidade.
 
-* O **Proprietário do Recurso** normalmente é o usuário final. Ele é a parte que possui os dados e tem o poder de permitir que terceiros acessem esses dados ou recurso.
+* O **proprietário do recurso** é tipicamente o usuário final. Ele é a parte que possui os dados e tem o poder de permitir que terceiros acessem esses dados ou recurso.
 
 * O **cliente OAuth** é seu aplicativo. Ele é identificado pela ID do aplicativo. Geralmente é a parte com a qual os usuários finais interagem. Ele também solicita tokens do servidor de autorização. O proprietário do recurso deve conceder ao cliente a permissão para acessar o recurso.
 
-* O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no servidor de autorização para autenticar e autorizar o cliente OAuth com segurança. Ele também usa os tokens de acesso de portador para garantir a concessão a um recurso.
+* O **servidor de recursos** é onde o recurso ou dados reside. Ele confia no servidor de autorização para autenticar e autorizar o cliente OAuth com segurança. Ele também usa os tokens de acesso de portador para garantir a concessão a um recurso.
 
 ## <a name="policies-and-user-flows"></a>Políticas e fluxos de usuários
 Sem dúvida, as políticas do AD B2C do Azure são os recursos mais importantes do serviço. O AD B2C do Azure amplia os protocolos padrão do OAuth 2.0 e do OpenID Connect ao introduzir as políticas. Elas permitem que o AD B2C do Azure execute muito mais do que uma simples autenticação e uma autorização.

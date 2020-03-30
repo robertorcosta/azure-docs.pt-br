@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978153"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On em uma VM do Azure com o PowerShell
@@ -30,7 +30,7 @@ ms.locfileid: "75978153"
 Antes de começar, considere que agora você pode concluir esta tarefa no modelo do Azure Resource Manager. O modelo do Azure Resource Manager é recomendável para novas implantações. Confira, [Introdução aos grupos de disponibilidade Always On do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássica.
+> Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico.](../../../azure-resource-manager/management/deployment-models.md) Este artigo aborda o uso do modelo de implantação clássica.
 
 As VMs (máquinas virtuais) do Azure podem ajudar os administradores de banco de dados a reduzir o custo de um sistema SQL Server de alta disponibilidade. Este tutorial mostra como implementar um grupo de disponibilidade usando o SQL Server Always On de ponta a ponta dentro de um ambiente do Azure. Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos seguintes elementos:
 
@@ -46,7 +46,7 @@ O objetivo deste tutorial é mostrar as etapas necessárias para configurar a so
 
 * Você já tem uma conta do Azure com a assinatura de máquina virtual.
 * Você instalou os [cmdlets do Azure PowerShell](/powershell/azure/overview).
-* Você já tem uma compreensão sólida dos grupos de disponibilidade Always On para soluções locais. Para obter mais informações, confira [Grupos de disponibilidade Always On (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Você já tem uma compreensão sólida dos grupos de disponibilidade Always On para soluções locais. Para obter mais informações, consulte [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Conectar-se à sua assinatura do Azure e criar a rede virtual
 1. Em uma janela do PowerShell no computador local, importe o módulo do Azure, baixe o arquivo de configurações de publicação no seu computador e conecte sua sessão do PowerShell à sua assinatura do Azure importando as configurações de publicação baixadas.
@@ -84,7 +84,7 @@ O objetivo deste tutorial é mostrar as etapas necessárias para configurar a so
 
    * As variáveis **$storageAccountName** e **$dcServiceName** devem ser exclusivas, pois são usadas para identificar sua conta de armazenamento de nuvem e servidor de nuvem, respectivamente, na Internet.
    * Os nomes que você especifica para as variáveis **$affinityGroupName** e **$virtualNetworkName** são configurados no documento de configuração da rede virtual que você usará mais tarde.
-   * **$sqlImageName** especifica o nome atualizado da imagem da VM que contém o SQL Server 2012 Service Pack 1 Enterprise Edition.
+   * **$sqlImageName** especifica o nome atualizado da imagem de VM que contém o SQL Server 2012 Service Pack 1 Enterprise Edition.
    * Para simplificar, **Contoso!000** é a mesma senha usada durante todo o tutorial.
 
 3. Crie um grupo de afinidades.
@@ -100,7 +100,7 @@ O objetivo deste tutorial é mostrar as etapas necessárias para configurar a so
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    O arquivo de configuração contém o seguinte documento XML. Em resumo, ele especifica uma rede virtual chamada **ContosoNET** no grupo de afinidades chamado **ContosoAG**. Ele tem o espaço de endereço **10.10.0.0/16** e duas sub-redes, **10.10.1.0/24** e **10.10.2.0/24**, que são as sub-redes anterior e posterior, respectivamente. A sub-rede anterior é onde você pode colocar aplicativos cliente, como o Microsoft SharePoint. A sub-rede posterior é onde você colocará as VMs do SQL Server. Se você alterar as variáveis **$affinityGroupName** e **$virtualNetworkName** no início, também será necessário alterar os nomes correspondentes abaixo.
+    O arquivo de configuração contém o seguinte documento XML. Em resumo, ele especifica uma rede virtual chamada **ContosoNET** no grupo de afinidades chamado **ContosoAG**. Ele tem o espaço de endereço **10.10.0.0/16** e duas sub-redes, **10.10.1.0/24** e **10.10.2.0/24**, que são as sub-redes anterior e posterior, respectivamente. A sub-rede anterior é onde você pode colocar aplicativos cliente, como o Microsoft SharePoint. A sub-rede posterior é onde você colocará as VMs do SQL Server. Se alterar as variáveis **$affinityGroupName** e **$virtualNetworkName** antes, você também deverá modificar os nomes correspondentes abaixo.
 
         <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
@@ -226,7 +226,7 @@ O servidor do controlador de domínio foi provisionado com êxito. Em seguida, v
             -ChangePasswordAtLogon $false `
             -Enabled $true
 
-    **CORP\Install** é usado para configurar qualquer coisa relacionada às instâncias de serviço do SQL Server, ao cluster de failover e ao grupo de disponibilidade. **CORP\SQLSvc1** e **CORP\SQLSvc2** são usados como as contas de serviço do SQL Server para duas VMs do SQL Server.
+    **CORP\Install** é usado para configurar qualquer coisa relacionada às instâncias de serviço do SQL Server, ao cluster de failover e ao grupo de disponibilidade. **CORP\SQLSvc1** e **CORP\SQLSvc2** são usados como contas de serviço do SQL Server para as duas VMs do SQL Server.
 7. Em seguida, execute os comandos a seguir para conceder a **CORP\Install** as permissões para criar objetos de computador no domínio.
 
         Cd ad:
@@ -289,7 +289,7 @@ O servidor do controlador de domínio foi provisionado com êxito. Em seguida, v
    * **Add-AzureProvisioningConfig** ingressa a VM no domínio do Active Directory que você criou.
    * **Set-AzureSubnet** coloca a VM na sub-rede posterior.
    * **New-AzureVM** cria um novo serviço de nuvem e a nova VM do Azure no novo serviço de nuvem. O parâmetro **DnsSettings** especifica que o servidor DNS para os servidores no novo serviço de nuvem tem o endereço IP **10.10.0.4**. Esse é o endereço IP do servidor do controlador de domínio. Esse parâmetro é necessário para habilitar que as novas VMs no serviço de nuvem ingressem no domínio do Active Directory com êxito. Sem esse parâmetro, você deve definir manualmente as configurações de IPv4 na sua VM para usar o servidor do controlador de domínio como o servidor DNS primário depois que a VM é provisionada e, em seguida, adicionar a VM ao domínio do Active Directory.
-3. Execute os seguintes comandos redirecionados para criar VMs do SQL Server, chamadas **ContosoSQL1** e **ContosoSQL2**.
+3. Execute comandos conectados a seguir para criar VMs do SQL Server, denominadas **ContosoSQL1** e **ContosoSQL2**.
 
         # Create ContosoSQL1...
         New-AzureVMConfig `
@@ -377,11 +377,11 @@ O servidor do controlador de domínio foi provisionado com êxito. Em seguida, v
     As VMs do SQL Server agora estão provisionadas e em execução, mas estão instaladas com o SQL Server com as opções padrão.
 
 ## <a name="initialize-the-failover-cluster-vms"></a>Inicializar as VMs do cluster de failover
-Nesta seção, você precisa modificar os três servidores que usará no cluster de failover e na instalação do SQL Server. Mais especificamente:
+Nesta seção, você precisa modificar os três servidores que usará no cluster de failover e na instalação do SQL Server. Especificamente:
 
 * Todos os servidores: é necessário instalar o recurso **Clustering de Failover**.
 * Todos os servidores: é necessário adicionar **CORP\Install** como o **administrador** do computador.
-* Somente ContosoSQL1 e ContosoSQL2: é necessário adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
+* ContosoSQL1 e ContosoSQL2 apenas: Você precisa adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
 * Somente ContosoSQL1 e ContosoSQL2: é necessário adicionar **NT AUTHORITY\System** como uma conexão com as seguintes permissões:
 
   * Alterar qualquer grupo de disponibilidade
@@ -389,10 +389,10 @@ Nesta seção, você precisa modificar os três servidores que usará no cluster
   * Exibir o estado do servidor
 * Somente ContosoSQL1 e ContosoSQL2: o protocolo **TCP** já está habilitado na VM do SQL Server. No entanto, ainda é necessário abrir o firewall para o acesso remoto do SQL Server.
 
-Agora você está pronto para começar. Começando com o **ContosoQuorum**, siga as etapas abaixo:
+Agora você está pronto para começar. Começando com **ContosoQuorum**, siga as etapas abaixo:
 
-1. Conecte-se ao **ContosoQuorum** iniciando os arquivos da área de trabalho remota. Use o nome de usuário **AzureAdmin** do administrador do computador e a senha **Contoso!000**, que você especificou quando criou as VMs.
-2. Verifique se os computadores ingressaram com êxito em **corp.contoso.com**.
+1. Conecte-se a **ContosoQuorum** iniciando os arquivos da área de trabalho remota. Use o nome de usuário **AzureAdmin** do administrador do computador e a senha **Contoso!000**, que você especificou quando criou as VMs.
+2. Verifique se os computadores foram unidos com êxito em **corp.contoso.com**.
 3. Aguarde a instalação do SQL Server concluir a execução das tarefas automatizadas de inicialização antes de continuar.
 4. Abra uma janela do PowerShell no modo de administrador.
 5. Instale o recurso do Clustering de Failover do Windows.
@@ -409,7 +409,7 @@ Agora você está pronto para começar. Começando com o **ContosoQuorum**, siga
 Em seguida, inicialize **ContosoSQL1** e **ContosoSQL2**. Siga as etapas abaixo, que são idênticas para ambas as VMs do SQL Server.
 
 1. Conecte-se às duas VMs do SQL Server iniciando os arquivos da área de trabalho remota. Use o nome de usuário **AzureAdmin** do administrador do computador e a senha **Contoso!000**, que você especificou quando criou as VMs.
-2. Verifique se os computadores ingressaram com êxito em **corp.contoso.com**.
+2. Verifique se os computadores foram unidos com êxito em **corp.contoso.com**.
 3. Aguarde a instalação do SQL Server concluir a execução das tarefas automatizadas de inicialização antes de continuar.
 4. Abra uma janela do PowerShell no modo de administrador.
 5. Instale o recurso do Clustering de Failover do Windows.
@@ -423,7 +423,7 @@ Em seguida, inicialize **ContosoSQL1** e **ContosoSQL2**. Siga as etapas abaixo,
 
         Set-ExecutionPolicy -Execution RemoteSigned -Force
         Import-Module -Name "sqlps" -DisableNameChecking
-8. Adicione **CORP\Install** como a função sysadmin para a instância padrão do SQL Server.
+8. Adicione **CORP\Install** como a função sysadmin à instância padrão do SQL Server.
 
         net localgroup administrators "CORP\Install" /Add
         Invoke-SqlCmd -Query "EXEC sp_addsrvrolemember 'CORP\Install', 'sysadmin'" -ServerInstance "."
@@ -564,7 +564,7 @@ Agora você está pronto para configurar o grupo de disponibilidade. Você usar�
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Agora você implementou com êxito o SQL Server Always On criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte de ILB para grupos de disponibilidade Always On no Azure](../classic/ps-sql-int-listener.md).
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server nas Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

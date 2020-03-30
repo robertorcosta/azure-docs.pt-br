@@ -4,17 +4,17 @@ description: Como um desenvolvedor de soluções, saiba como usar o SDK do servi
 author: Philmea
 ms.author: philmea
 ms.date: 12/26/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: e349aadfd629202b1c8cdb5c53a88e0a6c2e06de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159210"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Conectar-se a um dispositivo de IoT Plug and Play Preview e interagir com ele
 
@@ -52,7 +52,7 @@ Com as mesmas instruções usadas para os exemplos de serviço e de dispositivo,
 
 * `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
-Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IoT**na guia**Cadeias de conexão**do seu**Repositório corporativo](https://preview.catalog.azureiotsolutions.com).
+Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IoT** na guia **Cadeias de conexão** do seu **Repositório corporativo](https://preview.catalog.azureiotsolutions.com).
 
 A cadeia de conexão tem a aparência do exemplo a seguir:
 
@@ -91,7 +91,7 @@ Para criar uma rota de gêmeos digitais:
 1. Na guia **Rotas**, selecione **Adicionar**.
 1. Insira um valor no campo **Nome** e escolha um **Ponto de extremidade**. Se você ainda não configurou um ponto de extremidade, selecione **Adicionar ponto de extremidade**.
 1. Na lista suspensa **Fonte de dados**, selecione **Eventos de Alteração de Gêmeo Digital**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 O JSON a seguir mostra um exemplo de um evento de alteração de gêmeo digital:
 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.openlocfilehash: 93659a0891b09c83db9f63fe0756fcf4d7e87f6a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594678"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para conectividade de rede e segurança no Serviço de Kubernetes do Azure (AKS)
@@ -20,7 +20,7 @@ Este artigo sobre práticas recomendadas se concentra na conectividade de rede e
 > [!div class="checklist"]
 > * Comparar os modos de rede kubenet e CNI do Azure no AKS
 > * Planeje o endereçamento de IP necessário e conectividade
-> * Distribuir o tráfego usando balanceadores de carga, controladores de entrada ou um WAF (firewall do aplicativo Web)
+> * Distribua tráfego usando balanceadores de carga, controladores de ingestão ou um firewall de aplicação web (WAF)
 > * Conectar-se com segurança a nós do cluster
 
 ## <a name="choose-the-appropriate-network-model"></a>Escolha o modelo de rede apropriado
@@ -29,8 +29,8 @@ Este artigo sobre práticas recomendadas se concentra na conectividade de rede e
 
 Redes virtuais fornecem a conectividade básica para que os clientes acessem seus aplicativos e nós do AKS. Há duas maneiras diferentes para implantar clusters AKS em redes virtuais:
 
-* **Rede Kubenet** – o Azure gerencia os recursos da rede virtual à medida que o cluster é implantado e usa o plug-in kubernetes do [Kubenet][kubenet] .
-* **Rede CNI do Azure** – implanta em uma rede virtual existente e usa o plug-in KUBERNETES do [CNI (interface de rede de contêiner do Azure)][cni-networking] . Pods recebem IPs individuais que podem rotear para outros serviços de rede ou a recursos locais.
+* **Rede Kubenet** – o Azure gerencia os recursos de rede virtual quando o cluster é implantado e usa o plug-in do Kubernetes [kubenet][kubenet].
+* **Rede do CNI do Azure ** – implanta em uma rede virtual existente e usa o plug-in do Kubernetes [CNI (Adaptador de Rede do Contêiner do Azure)][cni-networking]. Pods recebem IPs individuais que podem rotear para outros serviços de rede ou a recursos locais.
 
 A Interface de Rede do Contêiner (CNI) é um protocolo de fornecedor que permite que o runtime do contêiner faça solicitações para um provedor de rede. O CNI do Azure atribui endereços IP para nós e pods e fornece recursos IPAM (gerenciamento) de endereço IP que você conecta as redes virtuais existentes do Azure. Cada recurso de nó e o’ pod recebe um endereço IP na rede virtual do Azure, e nenhum roteamento adicional é necessário para se comunicar com outros serviços ou recursos.
 
@@ -42,11 +42,11 @@ Quando você usa a rede do CNI do Azure, o recurso de rede virtual fica em um gr
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Para obter mais informações sobre a delegação de entidade de serviço do AKS, consulte [delegar acesso a outros recursos do Azure][sp-delegation].
+Para obter mais informações sobre a delegação de entidade de serviço AKS, consulte [Delegar acesso a outros recursos do Azure][sp-delegation].
 
-Como cada nó e pod recebe seu próprio endereço IP, planeje os intervalos de endereços para as sub-redes do AKS. A sub-rede deve ser grande o suficiente para fornecer endereços IP para cada nó, pods e recursos de rede que você implanta. Cada cluster do AKS deve ser colocado em sua própria sub-rede. Para permitir a conectividade para redes emparelhadas ou locais no Azure, não use os intervalos de endereços IP que se sobrepõem com os recursos de rede existente. Há limites padrão ao número de pods que cada nó executa com a rede kubenet e a do CNI do Azure. Para lidar com eventos de expansão ou atualizações de cluster, você também precisa de endereços IP adicionais disponíveis para uso na sub-rede atribuída. Esse espaço de endereço adicional é especialmente importante se você usar contêineres do Windows Server (atualmente em visualização no AKS), pois esses pools de nós exigem uma atualização para aplicar os patches de segurança mais recentes. Para obter mais informações sobre nós do Windows Server, consulte [atualizar um pool de nós no AKs][nodepool-upgrade].
+Como cada nó e pod recebe seu próprio endereço IP, planeje os intervalos de endereços para as sub-redes do AKS. A sub-rede deve ser grande o suficiente para fornecer endereços IP para cada nó, pods e recursos de rede que você implanta. Cada cluster do AKS deve ser colocado em sua própria sub-rede. Para permitir a conectividade para redes emparelhadas ou locais no Azure, não use os intervalos de endereços IP que se sobrepõem com os recursos de rede existente. Há limites padrão ao número de pods que cada nó executa com a rede kubenet e a do CNI do Azure. Para lidar com eventos de escala ou upgrades de cluster, você também precisa de endereços IP adicionais disponíveis para uso na sub-rede atribuída. Esse espaço adicional de endereço é especialmente importante se você usar contêineres do Windows Server (atualmente em visualização no AKS), pois esses pools de nó exigem uma atualização para aplicar os patches de segurança mais recentes. Para obter mais informações sobre os nós do Windows Server, consulte [Atualizar um pool de nós no AKS][nodepool-upgrade].
 
-Para calcular o endereço IP necessário, consulte [Configurar a rede CNI do Azure no AKs][advanced-networking].
+Para calcular o endereço IP necessário, consulte [Configurar rede do CNI do Azure no AKS][advanced-networking].
 
 ### <a name="kubenet-networking"></a>Rede Kubenet
 
@@ -96,28 +96,28 @@ spec:
          servicePort: 80
 ```
 
-Um controlador de entrada é um daemon que é executado em um nó do AKS e observa as solicitações de entrada. Em seguida, o tráfego é distribuído com base em regras definidas no recurso de entrada. O controlador de entrada mais comum se baseia em [NGINX]. O AKS não o restringe a um controlador específico, portanto, você pode usar outros controladores, como [contorno][contour], [HAProxy][haproxy]ou [Traefik][traefik].
+Um controlador de entrada é um daemon que é executado em um nó do AKS e observa as solicitações de entrada. Em seguida, o tráfego é distribuído com base em regras definidas no recurso de entrada. O controlador de entrada mais comum se baseia em [NGINX]. O AKS não restringe a um controlador específico, portanto, você pode usar outros controladores, como [Contorno][contour], [HAProxy][haproxy], ou [ Traefik][traefik].
 
-Controladores de entrada devem ser agendados em um nó do Linux. Os nós do Windows Server (atualmente em visualização no AKS) não devem executar o controlador de entrada. Use um seletor de nó no manifesto do YAML ou na implantação do gráfico do Helm para indicar que o recurso deve ser executado em um nó baseado em Linux. Para obter mais informações, consulte [usar seletores de nó para controlar onde os pods estão agendados no AKs][concepts-node-selectors].
+Os controladores de ingress devem ser agendados em um nó Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de ingestão. Use um seletor de nós em seu manifesto YAML ou na implantação do gráfico Helm para indicar que o recurso deve ser executado em um nó baseado em Linux. Para obter mais informações, consulte [Usar seletores de nó para controlar onde os pods são programados no AKS][concepts-node-selectors].
 
 Há muitos cenários para entrada, incluindo os guias de instruções a seguir:
 
 * [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
-* [Criar um controlador de entrada que usa uma rede interna e privada e um endereço IP][aks-ingress-internal]
-* [Criar um controlador de entrada que usa seus próprios certificados TLS][aks-ingress-own-tls]
-* Criar um controlador de entrada que usa vamos criptografar para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou [com um endereço IP público estático][aks-ingress-static-tls]
+* [Criar um controlador de entrada que usa uma rede privada interna e um endereço IP][aks-ingress-internal]
+* [Criar um controlador de ingresso que usa seus próprios certificados TLS][aks-ingress-own-tls]
+* Crie um controlador de ingresso que use Let's Encrypt para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] ou [com um endereço IP público estático][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Tráfego seguro com um firewall do aplicativo Web (WAF)
 
-**Diretrizes de práticas recomendadas** -para verificar o tráfego de entrada para ataques potenciais, use um WAF (firewall do aplicativo Web), como o [Barracuda WAF para o Azure][barracuda-waf] ou aplicativo Azure gateway. Esses recursos mais avançados de rede também podem rotear o tráfego além de apenas conexões HTTP e HTTPS ou terminação SSL básica.
+**Orientação de prática recomendada** - para verificar o tráfego de entrada quanto a ataques potenciais, use o firewall do aplicativo Web (WAF), como [Barracuda WAF para Azure][barracuda-waf] ou Gateway de Aplicativo do Azure. Esses recursos mais avançados de rede também podem rotear o tráfego além de apenas conexões HTTP e HTTPS ou terminação SSL básica.
 
 Normalmente, um controlador de entrada que distribui o tráfego para serviços e aplicativos é um recurso do Kubernetes no cluster do AKS. O controlador é executado como um daemon em um nó do AKS e consome alguns dos recursos do nó, como CPU, memória e largura de banda de rede. Em ambientes maiores, você geralmente deseja descarregar alguns desses roteamentos de tráfego ou a terminação TLS a um recurso de rede fora do cluster do AKS. Você também deseja verificar o tráfego de entrada para possíveis ataques.
 
 ![Um firewall do aplicativo web (WAF) como o Gateway de Aplicativo do Azure pode proteger e distribuir o tráfego para seu cluster do AKS](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Um firewall do aplicativo web (WAF) fornece uma camada adicional de segurança pela filtragem do tráfego de entrada. O Open Web Application Security Project (OWASP) fornece um conjunto de regras para assistir a ataques, como scripts entre sites ou intoxicação por cookie. [Aplicativo Azure gateway][app-gateway] (atualmente em visualização em AKs) é um WAF que pode ser integrado a clusters AKs para fornecer esses recursos de segurança, antes que o tráfego atinja o cluster e os aplicativos do AKS. Outras soluções de terceiros também executam essas funções, portanto, você pode continuar a usar os investimentos existentes ou experiência em um determinado produto.
+Um firewall do aplicativo web (WAF) fornece uma camada adicional de segurança pela filtragem do tráfego de entrada. O Open Web Application Security Project (OWASP) fornece um conjunto de regras para assistir a ataques, como scripts entre sites ou intoxicação por cookie. [O Azure Application Gateway][app-gateway] (atualmente em pré-visualização no AKS) é um WAF que pode se integrar com clusters AKS para fornecer esses recursos de segurança, antes que o tráfego atinja seu cluster e aplicativos AKS. Outras soluções de terceiros também executam essas funções, portanto, você pode continuar a usar os investimentos existentes ou experiência em um determinado produto.
 
-Recursos de entrada ou do Balanceador de carga continuam sendo executados no cluster do AKS para refinar ainda mais a distribuição de tráfego. Gateway de Aplicativo pode ser gerenciado centralmente como um controlador de entrada com uma definição de recurso. Para começar, [crie um controlador de entrada do gateway de aplicativo][app-gateway-ingress].
+Recursos de entrada ou do Balanceador de carga continuam sendo executados no cluster do AKS para refinar ainda mais a distribuição de tráfego. Gateway de Aplicativo pode ser gerenciado centralmente como um controlador de entrada com uma definição de recurso. Para começar, [crie um controlador de Entrada do Gateway de Aplicativo][app-gateway-ingress].
 
 ## <a name="control-traffic-flow-with-network-policies"></a>Controlar o fluxo de tráfego com políticas de rede
 
@@ -125,7 +125,7 @@ Recursos de entrada ou do Balanceador de carga continuam sendo executados no clu
 
 As políticas de rede são recursos de Kubernetes que permitem controlar o fluxo de tráfego entre os pods. Você pode optar por permitir ou negar o tráfego com base em configurações, como rótulos atribuídos, namespace ou porta de tráfego. O uso de políticas de rede é uma maneira mais nativa da nuvem de controlar o fluxo de tráfego. Como os pods são criados dinamicamente em um cluster AKS, as políticas de rede necessárias podem ser aplicadas automaticamente. Não use grupos de segurança de rede do Azure para controlar o tráfego entre pods, use as políticas de rede.
 
-Para usar a política de rede, o recurso precisa estar habilitado durante a criação de um cluster AKS. Não é possível habilitar a política de rede em um cluster AKS existente. Planeje com antecedência para garantir que a política de rede seja habilitada nos clusters e que eles sejam usados conforme necessário. A política de rede deve ser usada somente para nós baseados em Linux e pods em AKS.
+Para usar a política de rede, o recurso precisa estar habilitado durante a criação de um cluster AKS. Não é possível habilitar a política de rede em um cluster AKS existente. Planeje com antecedência para garantir que a política de rede seja habilitada nos clusters e que eles sejam usados conforme necessário. A política de rede só deve ser usada para nós e pods baseados em Linux em AKS.
 
 Uma política de rede é criada como um recurso do Kubernetes usando um manifesto YAML. As políticas são aplicadas a pods definidos, em seguida, as regras de entrada ou saída definem como o tráfego pode fluir. O exemplo a seguir aplica uma política de rede aos pods com o rótulo *app: back-end* aplicado. Então, a regra de entrada permitirá apenas o tráfego dos pods com o rótulo *app: front-end*:
 
@@ -145,7 +145,7 @@ spec:
           app: frontend
 ```
 
-Para começar a usar as políticas, confira [proteger o tráfego entre os pods usando as políticas de rede no serviço de kubernetes do Azure (AKs)][use-network-policies].
+Para começar a usar as políticas, confira [Proteger o tráfego entre os pods usando as políticas de rede no AKS (Serviço de Kubernetes do Azure)][use-network-policies].
 
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Conecte-se com segurança a nós por meio de um host bastião
 
@@ -155,11 +155,11 @@ A maioria das operações no AKS pode ser concluída usando as ferramentas de ge
 
 ![Conecte-se aos nós do AKS usando um host bastião jump box](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-A rede de gerenciamento para o host bastião deve ser segura também. Use um [Gateway de VPN][vpn-gateway] ou [ExpressRoute do Azure][expressroute] para se conectar a uma rede local e controlar o acesso usando grupos de segurança de rede.
+A rede de gerenciamento para o host bastião deve ser segura também. Use um [Microsoft Azure ExpressRoute][expressroute] ou [gateway de VPN][vpn-gateway] para se conectar a uma rede local e controlar o acesso usando os grupos de segurança de rede.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo se concentra na conectividade de rede e segurança. Para obter mais informações sobre noções básicas de rede no kubernetes, consulte [conceitos de rede para aplicativos no serviço kubernetes do Azure (AKs)][aks-concepts-network]
+Este artigo se concentra na conectividade de rede e segurança. Para obter mais informações sobre conceitos básicos de rede no Kubernetes, consulte [Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)][aks-concepts-network]
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

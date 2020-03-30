@@ -1,27 +1,27 @@
 ---
-title: Criar um cluster de Service Fabric do Linux no Azure
+title: Crie um cluster de malha de serviço linux no Azure
 description: Saiba como implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure existente usando o CLI do Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251777"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
 Neste artigo você aprenderá como implantar um cluster Linux do Service Fabric em uma [VNET (rede virtual) do Azure](../virtual-network/virtual-networks-overview.md) usando a CLI do Azure e um modelo. Ao terminar, você terá um cluster em execução na nuvem no qual você poderá implantar aplicativos. Para criar um cluster do Windows usando o PowerShell, consulte [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) (Criar um cluster seguro do Windows no Azure).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
-* Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instalar a [CLI do Service Fabric](service-fabric-cli.md)
-* Instale a [CLI do Azure](/cli/azure/install-azure-cli)
+* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Instale o [CLI da malha de serviço](service-fabric-cli.md)
+* Instale o [Azure CLI](/cli/azure/install-azure-cli)
 * Para saber os principais conceitos sobre clusters, leia [Visão geral dos clusters do Azure](service-fabric-azure-clusters-overview.md)
 * [Planejar e preparar](service-fabric-cluster-azure-deployment-preparation.md) para uma implantação de cluster de produção.
 
@@ -31,10 +31,10 @@ Os procedimentos a seguir criam um cluster de sete nós do Service Fabric. Para 
 
 Baixe os seguintes arquivos do modelo do Resource Manager:
 
-* [AzureDeploy. JSON][template]
-* [AzureDeploy. Parameters. JSON][parameters]
+* [AzureDeploy.json][template]
+* [AzureDeploy.Parameters.json][parameters]
 
-Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [AzureDeploy. JSON][template] implanta um número de recursos, incluindo o seguinte.
+Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [AzureDeploy.json][template] implanta um número de recursos, incluindo o seguinte.
 
 ### <a name="service-fabric-cluster"></a>Cluster do Service Fabric
 
@@ -44,9 +44,9 @@ No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Linux é implanta
 * cinco nós no tipo de nó primário (configurável nos parâmetros de modelo), um nó em cada um dos outros tipos de nó
 * Sistema operacional: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
 * certificado protegidos (configurável nos parâmetros de modelo)
-* [Serviço DNS](service-fabric-dnsservice.md) está habilitado
-* [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros de modelo)
-* [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros de modelo)
+* [O serviço DNS](service-fabric-dnsservice.md) está habilitado
+* [Nível](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de durabilidade do Bronze (configurável nos parâmetros do modelo)
+* [Nível](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de confiabilidade da Prata (configurável nos parâmetros do modelo)
 * ponto de extremidade de conexão de cliente: 19000 (configurável nos parâmetros de modelo)
 * ponto de extremidade de conexão de cliente: 19080 (configurável nos parâmetros de modelo)
 
@@ -70,7 +70,7 @@ Se forem necessárias outras portas de aplicativo, você precisará ajustar o re
 
 ## <a name="set-template-parameters"></a>Definir os parâmetros do modelo
 
-O arquivo de parâmetros [AzureDeploy. Parameters][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que você talvez precise modificar para sua implantação:
+O arquivo de parâmetros [AzureDeploy.Parameters][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que você talvez precise modificar para sua implantação:
 
 |Parâmetro|Valor de exemplo|Observações|
 |---|---||
@@ -86,9 +86,9 @@ O arquivo de parâmetros [AzureDeploy. Parameters][parameters] declara muitos va
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Implantar a rede virtual e o cluster
 
-Em seguida, configure a topologia de rede e implante o cluster do Service Fabric. O modelo do Gerenciador de recursos [AzureDeploy. JSON][template] cria uma rede virtual (VNET) e uma sub-rede para Service Fabric. O modelo também implanta um cluster com a segurança de certificado habilitada.  Para clusters de produção, use um certificado de uma autoridade de certificação (CA) como o certificado de cluster. Um certificado autoassinado pode ser usado para proteger clusters de teste.
+Em seguida, configure a topologia de rede e implante o cluster do Service Fabric. O modelo do Resource Manager [AzureDeploy.json][template] cria uma VNET (rede virtual) e uma sub-rede para o Service Fabric. O modelo também implanta um cluster com a segurança de certificado habilitada.  Para clusters de produção, use um certificado de uma autoridade de certificação (CA) como o certificado de cluster. Um certificado autoassinado pode ser usado para proteger clusters de teste.
 
-O modelo deste artigo implanta um cluster que usa a impressão digital do certificado para identificar o certificado de cluster.  Dois certificados não podem ter a mesma impressão digital, o que dificulta o gerenciamento de certificados. Alternar um cluster implantado do uso de impressões digitais de certificado para o uso de nomes comuns do certificado simplifica muito o gerenciamento de certificados.  Para saber como atualizar o cluster para que ele use nomes comuns de certificado para o gerenciamento de certificados, leia [Alterar o cluster para o gerenciamento de nomes comuns de certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+O modelo deste artigo implanta um cluster que usa a impressão digital do certificado para identificar o certificado de cluster.  Dois certificados não podem ter a mesma impressão digital, o que dificulta o gerenciamento de certificados. Alternar um cluster implantado do uso de impressões digitais de certificado para o uso de nomes comuns do certificado simplifica muito o gerenciamento de certificados.  Para saber como atualizar o cluster para usar nomes comuns de certificado sustais para gerenciamento de certificados, leia [cluster de alteração para gerenciamento de nomes comuns de certificados](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Criar um cluster usando um certificado existente
 
@@ -151,7 +151,7 @@ Verifique se você está conectado e se o cluster está íntegro usando o comand
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não for imediatamente para o próximo artigo, [exclua o cluster](service-fabric-cluster-delete.md) para evitar a cobrança de encargos.
 
@@ -159,7 +159,7 @@ Se você não for imediatamente para o próximo artigo, [exclua o cluster](servi
 
 Saiba como [dimensionar um cluster.](service-fabric-tutorial-scale-cluster.md)
 
-O modelo deste artigo implanta um cluster que usa a impressão digital do certificado para identificar o certificado de cluster.  Dois certificados não podem ter a mesma impressão digital, o que dificulta o gerenciamento de certificados. Alternar um cluster implantado do uso de impressões digitais de certificado para o uso de nomes comuns do certificado simplifica muito o gerenciamento de certificados.  Para saber como atualizar o cluster para que ele use nomes comuns de certificado para o gerenciamento de certificados, leia [Alterar o cluster para o gerenciamento de nomes comuns de certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+O modelo deste artigo implanta um cluster que usa a impressão digital do certificado para identificar o certificado de cluster.  Dois certificados não podem ter a mesma impressão digital, o que dificulta o gerenciamento de certificados. Alternar um cluster implantado do uso de impressões digitais de certificado para o uso de nomes comuns do certificado simplifica muito o gerenciamento de certificados.  Para saber como atualizar o cluster para usar nomes comuns de certificado sustais para gerenciamento de certificados, leia [cluster de alteração para gerenciamento de nomes comuns de certificados](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

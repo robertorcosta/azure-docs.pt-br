@@ -1,26 +1,26 @@
 ---
 title: Usar a Grade de Eventos do Azure com eventos no esquema CloudEvents
-description: Descreve como usar o esquema CloudEvents para eventos na grade de eventos do Azure. O serviço oferece suporte a eventos na implementação JSON de eventos de nuvem.
+description: Descreve como usar o esquema CloudEvents para eventos no Azure Event Grid. O serviço suporta eventos na implementação json de Eventos em Nuvem.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0efccd2851885dad209d5548a76737c25777b891
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79265071"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80372443"
 ---
-# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usar o esquema do CloudEvents v 1.0 com a grade de eventos
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use o esquema CloudEvents v1.0 com event grid
 
-Além de seu [esquema de evento padrão](event-schema.md), a grade de eventos do Azure oferece suporte nativo a eventos na [implementação JSON do CloudEvents v 1.0 e da Associação de](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocolo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
+Além do seu [esquema de eventos padrão,](event-schema.md)o Azure Event Grid suporta nativamente eventos na [implementação jSON do cloudevents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [da vinculação](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)do protocolo HTTP . [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
 
 O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum do evento para publicar e consumir eventos com base em nuvem. Esse esquema permite ferramentas uniforme, formas padrão de roteamento e manipulação de eventos e maneiras universais de desserializar o esquema de evento externo. Com um esquema comum, você pode integrar facilmente mais trabalho entre plataformas.
 
-O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Computing Foundation](https://www.cncf.io/). Ele está disponível atualmente como a versão 1,0.
+O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Computing Foundation](https://www.cncf.io/). Está atualmente disponível como versão 1.0.
 
 Este artigo descreve como usar o esquema de CloudEvents com a Grade de Eventos.
 
@@ -60,7 +60,7 @@ Aqui está um exemplo de um evento de Armazenamento de Blob do Azure no formato 
 }
 ```
 
-Uma descrição detalhada dos campos disponíveis, seus tipos e definições no CloudEvents v 1.0 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Uma descrição detalhada dos campos disponíveis, seus tipos e definições em CloudEvents v1.0 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e no esquema da Grade de Eventos são os mesmos, exceto para `content-type`. Para o esquema CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema Grade de Eventos, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
 
@@ -136,17 +136,17 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventSchemaV1_0
 ```
 
- No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Use um gatilho HTTP. Para obter exemplos de como implementar um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [usando CloudEvents com Azure Functions](#azure-functions).
+ No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Use um gatilho HTTP. Para exemplos de implementação de um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [Usando CloudEvents com Funções Azure](#azure-functions).
 
- ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto de extremidade com CloudEvents v 1.0
+ ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto final com CloudEvents v1.0
 
-Se você já estiver familiarizado com a grade de eventos, talvez esteja ciente do handshake de validação do ponto de extremidade da grade de eventos para evitar abusos. O CloudEvents v 1.0 implementa sua própria [semântica de proteção de abuso](security-authentication.md#webhook-event-delivery) usando o método de opções http. Saiba mais sobre isso [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao usar o esquema CloudEvents para saída, a grade de eventos usa com a proteção de abuso do CloudEvents v 1.0 em vez do mecanismo de evento de validação da grade de eventos.
+Se você já está familiarizado com event grid, você pode estar ciente do aperto de mão de validação de ponto final da Event Grid para evitar abusos. CloudEvents v1.0 implementa sua própria [semântica de proteção](security-authentication.md#webhook-event-delivery) contra abuso usando o método HTTP OPTIONS. Saiba mais sobre isso [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao usar o esquema CloudEvents para saída, event grid usa com a proteção de abuso CloudEvents v1.0 no lugar do mecanismo de evento de validação event Grid.
 
 <a name="azure-functions"></a>
 
-## <a name="use-with-azure-functions"></a>Usar com Azure Functions
+## <a name="use-with-azure-functions"></a>Use com funções do Azure
 
-A [associação da grade de eventos Azure Functions](../azure-functions/functions-bindings-event-grid.md) não dá suporte nativo a CloudEvents, portanto as funções disparadas por http são usadas para ler mensagens CloudEvents. Ao usar um gatilho HTTP para ler CloudEvents, você precisa escrever código para o que o gatilho de grade de eventos faz automaticamente:
+A [vinculação Azure Functions Event Grid](../azure-functions/functions-bindings-event-grid.md) não suporta nativamente CloudEvents, então as funções acionadas pelo HTTP são usadas para ler mensagens do CloudEvents. Ao usar um gatilho HTTP para ler CloudEvents, você tem que escrever código para o que o gatilho da Grade de Eventos faz automaticamente:
 
 * Envie uma resposta de validação para [uma solicitação de validação de assinatura](../event-grid/security-authentication.md#webhook-event-delivery).
 * Invoque a função uma vez por elemento da matriz de eventos contida no corpo da solicitação.
@@ -157,35 +157,27 @@ O código C# de exemplo a seguir para um gatilho HTTP simula o comportamento do 
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
+    if (req.Method == "OPTIONS")
+    {
+        // If the request is for subscription validation, send back the validation code
+        
+        var response = req.CreateResponse(HttpStatusCode.OK);
+        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
+
+        return response;
+    }
 
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
 
-    if (message.Type == JTokenType.Array)
-    {
-        // If the request is for subscription validation, send back the validation code.
-        if (string.Equals((string)message[0]["eventType"],
-        "Microsoft.EventGrid.SubscriptionValidationEvent",
-        System.StringComparison.OrdinalIgnoreCase))
-        {
-            log.LogInformation("Validate request received");
-            return req.CreateResponse<object>(new
-            {
-                validationResponse = message[0]["data"]["validationCode"]
-            });
-        }
-    }
-    else
-    {
-        // The request is not for subscription validation, so it's for an event.
-        // CloudEvents schema delivers one event at a time.
-        log.LogInformation($"Source: {message["source"]}");
-        log.LogInformation($"Time: {message["eventTime"]}");
-        log.LogInformation($"Event data: {message["data"].ToString()}");
-    }
+    // The request is not for subscription validation, so it's for an event.
+    // CloudEvents schema delivers one event at a time.
+    log.LogInformation($"Source: {message["source"]}");
+    log.LogInformation($"Time: {message["eventTime"]}");
+    log.LogInformation($"Event data: {message["data"].ToString()}");
 
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -196,15 +188,18 @@ O código JavaScript de exemplo a seguir para um gatilho HTTP simula o comportam
 ```javascript
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-
-    var message = req.body;
-    // If the request is for subscription validation, send back the validation code.
-    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+    
+    if (req.method == "OPTIONS) {
+        // If the request is for subscription validation, send back the validation code
+        
         context.log('Validate request received');
-        var code = message[0].data.validationCode;
         context.res = { status: 200, body: { "ValidationResponse": code } };
+        context.res.headers.append('Webhook-Allowed-Origin', 'eventgrid.azure.net');
     }
-    else {
+    else
+    {
+        var message = req.body;
+        
         // The request is not for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
         var event = JSON.parse(message);
@@ -212,6 +207,7 @@ module.exports = function (context, req) {
         context.log('Time: ' + event.eventTime);
         context.log('Data: ' + JSON.stringify(event.data));
     }
+ 
     context.done();
 };
 ```

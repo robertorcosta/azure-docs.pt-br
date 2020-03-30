@@ -1,21 +1,21 @@
 ---
-title: Visão geral do serviço de análise de falha
+title: Visão geral do serviço de análise de falhas
 description: Este artigo descreve o Serviço de Análise de Falha no Service Fabric para induzir falhas e executar cenários de teste em seus serviços.
 author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465578"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introdução ao Serviço de Análise de Falha
 O Serviço de Análise de Falha foi desenvolvido para testar serviços criados com base no Microsoft Azure Service Fabric. Com o Serviço de Análise de Falha, é possível induzir falhas significativas e executar cenários de teste completos para seus aplicativos. Esses cenários e falhas praticam e validam os vários estados e transições pelos quais um serviço passa durante seu tempo de vida, tudo de maneira consistente, segura e controlada.
 
-Ações são as falhas individuais visando um serviço com o objetivo de testá-lo. Um desenvolvedor de serviço pode usá-las como blocos de construção para escrever cenários complicados. Por exemplo:
+Ações são as falhas individuais visando um serviço com o objetivo de testá-lo. Um desenvolvedor de serviço pode usá-las como blocos de construção para escrever cenários complicados. Por exemplo: 
 
 * Reinicie um nó para simular qualquer quantidade de situações nas quais um computador ou VM é reinicializada.
 * Mova uma réplica de seu serviço com estado para simular o balanceamento de carga, failover ou atualização do aplicativo.
@@ -79,15 +79,15 @@ No Service Fabric, por meio do Serviço de Análise de Falha, estamos propondo a
 Com o Service Fabric, embora haja diferença na escala das falhas em ambientes diferentes, os mecanismos reais seriam idênticos. Isso permite um pipeline de código até implantação muito mais rápido e a capacidade de testar os serviços com cargas reais.
 
 ## <a name="using-the-fault-analysis-service"></a>Usando o Serviço de Análise de Falha
-**C#**
+**C #**
 
 Recursos do Serviço de Análise de Falha estão no namespace System.Fabric no pacote NuGet Microsoft.ServiceFabric. Para usar os recursos do Serviço de Análise de Falha, inclua o pacote nuget como uma referência em seu projeto.
 
-**PowerShell**
+**Powershell**
 
 Para usar o PowerShell, você deve instalar o SDK do Service Fabric. Depois da instalação do SDK, o módulo ServiceFabric PowerShell é automaticamente carregado para você usar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para realmente criar serviços em escala de nuvem, é essencial garantir, antes e após a implantação, que os serviços possam dar suporte a falhas reais. No mundo dos serviços atual, a capacidade de inovar e mover rapidamente o código para produção é muito importante. O Serviço de Análise de Falha ajuda os desenvolvedores de serviço a fazer exatamente isso.
 
 Comece testando seus aplicativos e serviços usando os [cenários de teste](service-fabric-testability-scenarios.md) internos ou crie seus próprios cenários de teste usando as [ações de falha](service-fabric-testability-actions.md) fornecidas pelo Serviço de Análise de Falha.

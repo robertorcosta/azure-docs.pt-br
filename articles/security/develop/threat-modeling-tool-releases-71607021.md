@@ -1,5 +1,5 @@
 ---
-title: Versão de Microsoft Threat Modeling Tool 7/2/2019
+title: Microsoft Threat Modeling Tool lançamento 02/07/2019
 titleSuffix: Azure
 description: Documentando as notas sobre a versão da Threat Modeling Tool
 author: jegeib
@@ -9,32 +9,32 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: d4a97a10b8055af4401dbe163723b1fb38a5d12f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269668"
 ---
-# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Versão de atualização do Threat Modeling Tool 7.1.60702.1-7/2/2019
+# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Atualização da ferramenta de modelagem de ameaças 7.1.60702.1 - 02/07/2019
 
-A versão 7.1.60702.1 do Microsoft Threat Modeling Tool (TMT) foi lançada em julho de 2 2019 e contém as seguintes alterações:
+A versão 7.1.60702.1 da Ferramenta de Modelagem de Ameaças da Microsoft (TMT) foi lançada em julho de 2019 e contém as seguintes alterações:
 
 - Aprimoramentos de acessibilidade
 - Correções de bug
-- Inclusão de um conjunto de estênceis fornecido pela comunidade de código aberto
+- Inclusão de uma comunidade de código aberto forneceu conjunto de estêncil
 
 ## <a name="feature-changes"></a>Alterações de recurso
 
-### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>Um novo conjunto de estênceis de dispositivos médicos fornecido pela comunidade de código-fonte aberto está disponível
+### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>Um novo conjunto de estêncil de dispositivos médicos fornecido pela comunidade de código aberto está disponível
 
-Um conjunto de estênceis para modelagem de dispositivos médicos foi contribuído pela comunidade de código-fonte aberto. Após a atualização, o novo conjunto de estêncil será exibido no menu suspenso seleção de modelo. Para obter informações sobre como contribuir com estênceis ou conteúdo para modelos, examine as informações na [página do GitHub](https://github.com/Microsoft/threat-modeling-templates)do projeto.
+Um conjunto de estêncil para modelar dispositivos médicos foi contribuído pela comunidade de código aberto. Após a atualização, o novo conjunto de estêncil aparecerá no menu suspenso de seleção do modelo. Para obter informações sobre a contribuição de estêncil ou conteúdo para modelos, revise as informações na página do [GitHub](https://github.com/Microsoft/threat-modeling-templates)do projeto.
 
 ![Opção de validação de modelo](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
 
 ## <a name="system-requirements"></a>Requisitos do sistema
 
 - Sistemas operacionais com suporte
-  - [Atualização de Aniversário do Microsoft Windows 10 ou posterior](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)
+  - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
 - Versão necessária do .NET
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
 - Requisitos adicionais
@@ -44,6 +44,6 @@ Um conjunto de estênceis para modelagem de dispositivos médicos foi contribuí
 
 - A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Baixe a versão mais recente da [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

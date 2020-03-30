@@ -1,5 +1,5 @@
 ---
-title: Baixar o modelo para uma VM do Azure
+title: Baixe o modelo de uma VM Azure
 description: Baixe o modelo de uma VM para ajudar a automatizar as implantações no modelo de implantação do Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: c73026515f0d7fde4e2f82838696700b1bb17c77
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033556"
 ---
 # <a name="download-the-template-for-a-vm"></a>Baixar o modelo para uma VM

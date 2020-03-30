@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 467ba9f36dbcd44c5b8d87ee2f20d178d62d9732
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1f19d258531e5368238cba72c986aede3f4a64ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930825"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130832"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [considerações de segurança de movimentação de dados para o Data Factory](../data-movement-security-considerations.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [considerações de segurança de movimentação de dados para o Data Factory](../data-movement-security-considerations.md).
 
 ## <a name="introduction"></a>Introdução
 Este artigo descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para proteger seus dados. Os recursos de gerenciamento do Azure Data Factory se baseiam na infraestrutura de segurança do Azure e usam todas as medidas de segurança possíveis oferecidas pelo Azure.
 
 Em uma solução de Data Factory, você cria um ou mais [pipelines](data-factory-create-pipelines.md)de dados. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Esses pipelines residem na região em que o data factory foi criado. 
 
-Embora o Data Factory esteja disponível somente nas regiões **Oeste dos EUA**, **Leste dos EUA** e **Europa Setentrional**, o serviço de movimentação de dados está disponível [globalmente em várias regiões](data-factory-data-movement-activities.md#global). O serviço Data Factory garante que os dados não saem de uma área geográfica/região, a menos que você explicitamente instrua o serviço a usar uma região alternativa caso o serviço de movimentação de dados ainda não tenha sido implantado nessa região. 
+Embora o Data Factory esteja disponível somente nas regiões **Oeste dos EUA**, **Leste dos EUA** e **Norte da Europa**, o serviço de movimentação de dados está disponível [globalmente em várias regiões](data-factory-data-movement-activities.md#global). O serviço Data Factory garante que os dados não saem de uma área geográfica/região, a menos que você explicitamente instrua o serviço a usar uma região alternativa caso o serviço de movimentação de dados ainda não tenha sido implantado nessa região. 
 
 O Azure Data Factory em si não armazena nenhum dado, exceto as credenciais do serviço vinculado de armazenamentos de dados em nuvem, que são criptografadas com o uso de certificados. Ele permite criar fluxos de trabalho controlados por dados para orquestrar a movimentação de dados entre [armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) e o processamento de dados usando [serviços de computação](data-factory-compute-linked-services.md) em outras regiões ou em um ambiente local. Ele também permite [monitorar e gerenciar fluxos de trabalho](data-factory-monitor-manage-pipelines.md) usando mecanismos programáticos e de interface do usuário.
 
@@ -60,13 +60,13 @@ Caso o armazenamento de dados em nuvem dê suporte a HTTPS ou TLS, todas as tran
 ### <a name="data-encryption-at-rest"></a>Criptografia de dados em repouso
 Alguns armazenamentos de dados dão suporte à criptografia de dados em repouso. Sugerimos que você habilite o mecanismo de criptografia de dados nesses armazenamentos de dados. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-A TDE (Transparent Data Encryption) do SQL Data Warehouse do Azure ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real dos dados em repouso. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [Proteger um banco de dados no SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
+A TDE (Transparent Data Encryption) do SQL Data Warehouse do Azure ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real dos dados em repouso. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [Proteger um banco de dados no SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Banco de dados SQL do Azure
+#### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 O Banco de Dados SQL do Azure também dá suporte à TDE (Transparent Data Encryption), que ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real dos dados, sem a necessidade de alterações no aplicativo. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [Transparent Data Encryption com o Banco de Dados SQL do Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
-#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+#### <a name="azure-data-lake-store"></a>Repositório Azure Data Lake
 O Azure Data Lake Store também fornece criptografia para os dados armazenados na conta. Quando está habilitado, o Data Lake Store criptografa os dados automaticamente antes de persisti-los e descriptografá-los antes da recuperação, tornando-os transparentes para o cliente que acessa os dados. Para obter mais informações, consulte [Segurança no Azure Data Lake Store](../../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Armazenamento de Blobs do Azure e Armazenamento de Tabelas do Azure
@@ -94,7 +94,7 @@ As credenciais dos armazenamentos de dados locais são armazenadas localmente (n
 - Usando **texto sem formatação** (menos seguro) por HTTPS no Portal do Azure/Assistente de Cópia. As credenciais são passadas em texto sem formatação para o gateway local.
 - Usando a **biblioteca de Criptografia do JavaScript no Assistente de Cópia**.
 - Usando o **aplicativo gerenciador de credenciais baseado em clique único**. O aplicativo de clique único é executado no computador local que tem acesso ao gateway e define as credenciais para o armazenamento de dados. Essa opção e a próxima são as opções mais seguras. Por padrão, o aplicativo gerenciador de credenciais usa a porta 8050 no computador com o gateway para uma comunicação segura.  
-- Use o cmdlet do PowerShell [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) para criptografar credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode usar as credenciais criptografadas retornadas por este cmdlet e adicioná-las ao elemento **EncryptedCredential** da **CONNECTIONSTRING** no arquivo JSON que você usa com o cmdlet [New-AZDATAFACTORYLINKEDSERVICE](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou no trecho de JSON no editor de data Factory no Portal. Essa opção e o aplicativo de clique único são as opções mais seguras. 
+- Use [o cmdlet Do New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell para criptografar credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. Você pode usar as credenciais criptografadas devolvidas por este cmdlet e adicioná-la ao elemento **Credential Criptografado** da **conexãoString** no arquivo JSON que você usa com o cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou no trecho JSON no Data Factory Editor no portal. Essa opção e o aplicativo de clique único são as opções mais seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Criptografia baseada na biblioteca de criptografia do JavaScript
 Você pode criptografar as credenciais do armazenamento de dados usando a [biblioteca de Criptografia do JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) no [Assistente de Cópia](data-factory-copy-wizard.md). Quando você seleciona essa opção, o Assistente de Cópia recupera a chave pública do gateway e a utiliza para criptografar as credenciais do armazenamento de dados. As credenciais são descriptografadas pelo computador do gateway e protegidas pela [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) do Windows.
@@ -126,7 +126,7 @@ Uma rede virtual é uma representação lógica de sua rede na nuvem. Você pode
 
 A tabela a seguir resume as recomendações de configuração de rede e de gateway de acordo com diferentes combinações dos locais de origem e de destino para a movimentação de dados híbridos.
 
-| Origem | Destino | Configuração de rede | Instalação do gateway |
+| Fonte | Destino | Configuração de rede | Instalação do gateway |
 | ------ | ----------- | --------------------- | ------------- | 
 | Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPsec (ponto a site ou site a site) | O gateway pode ser instalado localmente ou em uma VM (máquina virtual) do Azure na VNet | 
 | Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (Emparelhamento Privado) | O gateway pode ser instalado localmente ou em uma VM do Azure na VNet | 
@@ -173,9 +173,9 @@ Alguns armazenamentos de dados na nuvem também exigem a lista de permissões do
 
 Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP do computador do gateway. Por padrão, alguns desses armazenamentos de dados poderão não exigir a lista de permissões do endereço IP. 
 
-- [Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
+- [Banco de dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Repositório Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
@@ -190,7 +190,7 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 **Pergunta:** Quais são os requisitos de certificado do Gateway?
 **Resposta:** O gateway atual exige um certificado que é usado pelo aplicativo gerenciador de credenciais para a configuração segura das credenciais do armazenamento de dados. Esse certificado é um certificado autoassinado criado e configurado pela instalação do gateway. Em vez disso, você pode usar seu próprio certificado TLS/SSL. Para obter mais informações, consulte a seção [Aplicativo gerenciador de credenciais de clique único](#click-once-credentials-manager-app). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter informações sobre o desempenho da atividade de cópia, consulte [Guia desempenho e ajuste da atividade de cópia](data-factory-copy-activity-performance.md).
 
  

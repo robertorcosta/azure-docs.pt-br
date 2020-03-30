@@ -1,5 +1,5 @@
 ---
-title: Características de uma interação de locatário múltiplo – Azure AD | Microsoft Docs
+title: Características da interação múltipla do inquilino - Azure AD | Microsoft Docs
 description: Gerenciar os locatários do Azure Active Directory considerando os locatários como recursos totalmente independentes
 services: active-tenant
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4eb09ab7fa31af5edf14b113a6a88e08df2d115
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562251"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Entender como interagem vários locatários do Azure Active Directory
@@ -46,7 +46,7 @@ Configure cada locatário do Azure AD de maneira independente para sincronizar o
 Para adicionar um locatário do Azure AD no Portal do Azure, entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do Azure AD e, à esquerda, selecione **Novo**.
 
 > [!NOTE]
-> Ao contrário de outros recursos do Azure, os locatários não são recursos filho de uma assinatura do Azure. Se sua assinatura do Azure for cancelada ou expirada, você ainda poderá acessar os dados do locatário usando Azure PowerShell, a API do Microsoft Graph ou o centro de administração do Microsoft 365. Você também pode [associar outra assinatura ao locatário](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> Ao contrário de outros recursos do Azure, os locatários não são recursos filho de uma assinatura do Azure. Se sua assinatura do Azure for cancelada ou expirada, você ainda poderá acessar os dados do inquilino usando o Azure PowerShell, a API do Microsoft Graph ou o centro de administradores do Microsoft 365. Você também pode [associar outra assinatura ao locatário](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Próximas etapas

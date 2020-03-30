@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76990497"
 ---
 # <a name="manage-multiple-tenants"></a>Gerenciar vários locatários
@@ -68,7 +68,7 @@ Ao [carregar vídeos](https://api-portal.videoindexer.ai/docs/services/operation
 
 ## <a name="azure-subscription-per-tenant"></a>Assinatura do Azure por locatário 
 
-Ao usar essa arquitetura, cada locatário terá sua própria assinatura do Azure. Para cada usuário, você criará uma nova conta do Video Indexer na assinatura do locatário.
+Ao usar essa arquitetura, cada inquilino terá sua própria assinatura do Azure. Para cada usuário, você criará uma nova conta do Video Indexer na assinatura do locatário.
 
 ![Assinatura do Azure por locatário](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
@@ -77,6 +77,6 @@ Ao usar essa arquitetura, cada locatário terá sua própria assinatura do Azure
 * Essa é a única opção que permite a separação de cobrança.
 * Essa integração tem mais sobrecarga de gerenciamento do que a conta do Video Indexer por locatário. Se a cobrança não for um requisito, é recomendável usar uma das outras opções descritas neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Visão geral](video-indexer-overview.md)

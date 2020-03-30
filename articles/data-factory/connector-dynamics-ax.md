@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 4acad5e2de55211b6c4492513f331c36286ed852
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892790"
 ---
-# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiar dados do Dynamics AX usando o Azure Data Factory
+# <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiar dados do Dynamics AX usando a Fábrica de Dados do Azure
 
 Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados de uma fonte Dynamics AX. O artigo baseia-se em [Atividade de Cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da Atividade de Cópia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector do Dynamics AX tem suporte para as seguintes atividades:
+Este conector Dynamics AX é suportado para as seguintes atividades:
 
-- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
-- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
+- [Atividade de procurar](control-flow-lookup-activity.md)
 
 Você pode copiar dados do Dynamics AX para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores, consulte [Armazenamentos de dados e formatos compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -37,7 +37,7 @@ Especificamente, este conector do Dynamics AX é compatível com à cópia de da
 >[!TIP]
 >Você também pode usar esse conector para copiar dados do **Dynamics 365 Finance and Operations**. Consulte o [suporte OData](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) e o [método de autenticação](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication) do Dynamic 365.
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,7 +59,7 @@ Para usar a autenticação de entidade de serviço, siga estas etapas:
 
 As propriedades a seguir têm suporte no serviço vinculado do Dynamics AX:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **tipo** deve ser definida como: **DynamicsAX**. |Sim |
 | url | Ponto de extremidade OData da instância do Dynamics AX (ou Dynamics 365 Finance and Operations). |Sim |
@@ -103,7 +103,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Dynamics AX, defina a propriedade **tipo** do conjunto de dados como **DynamicsAXResource**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **tipo** do conjunto de dados deve ser definida como **DynamicsAXResource**. | Sim |
 | caminho | Caminho para a entidade OData do Dynamics AX. | Sim |
@@ -135,9 +135,9 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 ### <a name="dynamics-ax-as-source"></a>Dynamics AX como fonte
 
-Para copiar dados do Dynamics AX, defina o **tipo** de fonte em Copiar atividade para **DynamicsAXSource**. As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
+Para copiar dados do Dynamics AX, defina o **tipo** de fonte em Copiar atividade para **DynamicsAXSource**. As seguintes propriedades são suportadas na seção Origem atividade **de** cópia:
 
-| Propriedade | Description | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade **tipo** da fonte Copiar atividade deve ser definida como **DynamicsAXSource**. | Sim |
 | Consulta | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
@@ -175,10 +175,10 @@ Para copiar dados do Dynamics AX, defina o **tipo** de fonte em Copiar atividade
 ```
 
 
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
 
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores no Azure Data Factory, consulte [Armazenamentos e formatos de dados compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).

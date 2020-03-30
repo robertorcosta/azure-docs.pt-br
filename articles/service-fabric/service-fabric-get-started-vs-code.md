@@ -1,15 +1,15 @@
 ---
-title: Service Fabric do Azure com VS Code Introdução
+title: Tecido de serviço azure com código VS começando
 description: Este artigo é uma visão geral da criação de aplicativos do Microsoft Azure Service Fabric usando o Visual Studio Code.
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258480"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Microsoft Azure Service Fabric para Visual Studio Code
@@ -21,11 +21,11 @@ Este artigo fornece uma visão geral dos requisitos e instalação da extensão,
 > [!IMPORTANT]
 > Aplicativos do Java do Microsoft Service Fabric podem ser desenvolvidos em máquinas Windows, mas podem ser implantados nos clusters do Linux do Azure apenas. Não há suporte para a depuração de aplicativos Java no Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos a seguir devem ser instalados em todos os ambientes.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Código visual do estúdio](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [SDK do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
@@ -69,7 +69,7 @@ A extensão de serviços confiáveis do Service Fabric para VS Code fornece muit
 
 O comando **Microsoft Azure Service Fabric: criar aplicativo** cria um novo aplicativo do Microsoft Azure Service Fabric no workspace atual. Dependendo de quais geradores yeoman estão instalados no computador de desenvolvimento, você pode criar vários tipos de aplicativo do Microsoft Azure Service Fabric, incluindo projetos Java, C#, contêiner e convidado. 
 
-1.  Selecione o comando **Service Fabric: criar aplicativo**
+1.  Selecione a **malha de serviço: crie o** comando Aplicativo
 2.  Selecione o tipo para o novo aplicativo do Microsoft Azure Service Fabric. 
 3.  Insira o nome do aplicativo que você deseja criar
 3.  Selecione o tipo de serviço que você deseja adicionar ao seu aplicativo do Microsoft Azure Service Fabric. 
@@ -80,7 +80,7 @@ O comando **Microsoft Azure Service Fabric: criar aplicativo** cria um novo apli
 ### <a name="service-fabric-add-service"></a>Microsoft Azure Service Fabric: Adicionar Serviço
 O comando do **Microsoft Service Fabric: Adicionar Serviço** adiciona um novo serviço a um aplicativo do Microsoft Azure Service Fabric existente. O aplicativo que o serviço será adicionado ao deve ser o diretório raiz do workspace. 
 
-1.  Selecione o comando **Microsoft Azure Service Fabric: Adicionar serviço**.
+1.  Selecione o **comando Malha de serviço: Adicionar** serviço.
 2.  Selecione o tipo para o aplicativo do Microsoft Azure Service Fabric atual. 
 3.  Selecione o tipo de serviço que você deseja adicionar ao seu aplicativo do Microsoft Azure Service Fabric. 
 4.  Siga os prompts para nomear o serviço. 
@@ -98,7 +98,7 @@ O comando do **Microsoft Azure Service Fabric: publicar aplicativo** comando o s
 O comando do **Microsoft Azure Service Fabric: publicar aplicativo** implanta o seu aplicativo no Microsoft Azure Service Fabric em um cluster remoto. Verifique se que o cluster local está em execução antes de usar o comando. 
 
 1. Selecione o comando **Microsoft Azure Service Fabric: Implantar aplicativo**
-2. Exiba o cluster local com Service Fabric Explorer (http:\//localhost: 19080/Explorer) para confirmar que o aplicativo foi instalado. Isso pode levar algum tempo, portanto seja paciente.
+2. Exibir o cluster local com o\/Service Fabric Explorer (http: /localhost:19080/Explorer) para confirmar se o aplicativo foi instalado. Isso pode levar algum tempo, portanto seja paciente.
 3. Você também pode usar o comando **Service Fabric: publicar aplicativo** sem parâmetros definidos no arquivo de Cloud.json para implantar um cluster local.
 
 > [!NOTE]
@@ -111,7 +111,7 @@ O comando **Microsoft Azure Service Fabric: remover aplicativo** remove um aplic
 2.  Exiba o cluster local com o Service Fabric Explorer para confirmar que o aplicativo foi removido. Isso pode levar algum tempo, portanto seja paciente.
 
 ### <a name="service-fabric-build-application"></a>Microsoft Azure Service Fabric: Compilar aplicativo
-O comando **Service Fabric: Compilar aplicativo** pode criar aplicativos Java ou C# Service Fabric. 
+O **comando Malha de serviço: criar aplicativo** pode criar aplicativos Java ou C# Service Fabric. 
 
 1.  Verifique se que você está na pasta raiz do aplicativo antes de executar esse comando. O comando identifica o tipo de aplicativo (C# ou Java) e compila seu aplicativo adequadamente.
 2.  Selecione o comando **Microsoft Azure Service Fabric: Compilar aplicativo**.

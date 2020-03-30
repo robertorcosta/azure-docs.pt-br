@@ -1,15 +1,15 @@
 ---
-title: Visão geral dos clusters Service Fabric autônomos
+title: Visão geral dos clusters de malha de serviço autônomo
 description: Os clusters do Service Fabric são executados no Windows Server e Linux, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric em qualquer lugar que possa executar o Windows Server ou Linux.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465634"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Visão geral de clusters independentes do Service Fabric
@@ -20,7 +20,7 @@ Um tipo de nó define o tamanho, o número e as propriedades de um conjunto de n
 
 O processo de criação de um cluster do Service Fabric local é semelhante ao processo de criação de um cluster em qualquer nuvem escolhida com um conjunto de VMs. As etapas iniciais para provisionar as VMs são administradas pelo provedor da nuvem ou pelo ambiente local que você está usando. Depois que você tiver um conjunto de VMs com conectividade de rede habilitada entre elas, as etapas para configurar o pacote do Service Fabric, editar as configurações do cluster e executar os scripts de gerenciamento e criação do cluster serão idênticas. Isso garante que o seu conhecimento e experiência com a operação e o gerenciamento de clusters do Service Fabric poderão ser transferidos quando você optar por novos ambientes de hospedagem.
 
-## <a name="cluster-security"></a>Segurança do cluster
+## <a name="cluster-security"></a>Segurança de cluster
 Um cluster do Service Fabric é um recurso que pertence a você.  É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster.
 
 ### <a name="node-to-node-security"></a>Segurança de nó para nó
@@ -42,7 +42,7 @@ O Service Fabric também dá suporte ao controle de acesso para limitar o acesso
 
 Para obter mais informações, leia [RBAC (Controle de acesso baseado em função)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
-## <a name="scaling"></a>Dimensionamento
+## <a name="scaling"></a>Scaling
 
 As demandas de aplicativos alteram ao longo do tempo. Talvez seja necessário aumentar os recursos de cluster para atender ao aumento do tráfego ou de carga de trabalho do aplicativo ou diminuir os recursos de cluster quando houver queda de demanda. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós). É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster. Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
@@ -61,7 +61,7 @@ Para obter mais informações, leia [Atualização de clusters independentes](se
 * Windows Server 2016 
 * Windows Server 2019
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como [proteger](service-fabric-cluster-security.md), [dimensionar](service-fabric-cluster-scaling-standalone.md) e [atualizar](service-fabric-cluster-upgrade-standalone.md) clusters independentes.
 
 Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md).

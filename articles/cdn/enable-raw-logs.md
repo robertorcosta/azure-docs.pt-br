@@ -1,96 +1,101 @@
 ---
-title: Logs brutos de HTTP da CDN do Azure
-description: Este artigo descreve os logs brutos de HTTP do Azure CDN.
+title: Logs brutos do Azure CDN HTTP
+description: Este artigo descreve os logs brutos do Azure CDN HTTP.
 services: cdn
-author: asudbring
-manager: KumudD
+author: sohamnchatterjee
+manager: danielgi
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2020
-ms.author: allensu
-ms.openlocfilehash: 79ced4df8df12bf2ef1fbe0075b53d02fafb2aff
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.date: 03/23/2020
+ms.author: sohamnc
+ms.openlocfilehash: c6e8570746ae3dd0051dbec084c89d90580d28b1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129862"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371626"
 ---
-# <a name="azure-cdn-http-raw-logs"></a>Logs brutos de HTTP da CDN do Azure
-Os logs brutos fornecem informações avançadas sobre operações e erros que são importantes para auditoria e solução de problemas. Os logs brutos diferem dos logs de atividade. Os logs de atividade fornecem visibilidade das operações realizadas nos recursos do Azure. Os logs brutos fornecem um registro das operações do recurso.
+# <a name="azure-cdn-http-raw-logs"></a>Logs brutos do Azure CDN HTTP
+Os registros brutos fornecem informações ricas sobre operações e erros que são importantes para auditoria e solução de problemas. Os registros brutos diferem dos registros de atividade. Os registros de atividades fornecem visibilidade às operações realizadas nos recursos do Azure. Os registros brutos fornecem um registro das operações do seu recurso.
 
 > [!IMPORTANT]
-> O recurso de logs brutos de HTTP está disponível para a CDN do Azure da Microsoft.
+> O recurso HTTP raw logs está disponível para CDN Azure da Microsoft.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="configuration"></a>Configuração
 
-Para configurar logs brutos para seu perfil do Azure CDN do Microsoft: 
+Para configurar registros Raw para seu CDN do Azure a partir do perfil da Microsoft: 
 
-1. No menu portal do Azure, selecione **todos os recursos** >>  **\<seu > de perfil-CDN**.
+1. No menu portal Do Zure, selecione **Todos os recursos** >> **\<do seu perfil CDN>**.
 
-2. Em **monitoramento**, selecione **configurações de diagnóstico**.
+2. Em **Monitoramento,** **selecione Configurações de Diagnóstico**.
 
-3. Selecione **+ Adicionar configuração de diagnóstico**.
+3. Selecione **+ Adicione a configuração de diagnóstico**.
 
-    ![Configuração de diagnóstico da CDN](./media/cdn-raw-logs/raw-logs-01.png)
+    ![Configuração de diagnóstico de CDN](./media/cdn-raw-logs/raw-logs-01.png)
 
     > [!IMPORTANT]
-    > Os logs brutos só estão disponíveis no nível do perfil enquanto os logs de código de status http agregados estão disponíveis no nível do ponto de extremidade.
+    > Os logs brutos só estão disponíveis no nível do perfil enquanto os logs de código de status http agregados estão disponíveis no nível de ponto final.
 
-4. Em **configurações de diagnóstico**, insira um nome para a configuração de diagnóstico em **nome das configurações de diagnóstico**.
+4. Em **Configurações de diagnóstico,** digite um nome para a configuração de diagnóstico em **Nome das configurações de diagnóstico**.
 
-5. Selecione o **log** e defina a retenção em dias.
+5. Selecione o **registro** e defina a retenção em dias.
 
-6. Selecione os **detalhes de destino**. As opções de destino são:
-    * **Enviar para Log Analytics**
-        * Selecione a **assinatura** e **log Analytics espaço de trabalho**.
+6. Selecione os **detalhes destino**. As opções de destino são:
+    * **Enviar para o Log Analytics**
+        * Selecione o **espaço de trabalho De assinatura** e log **analytics**.
     * **Arquivar em uma conta de armazenamento**
-        * Selecione a **assinatura** e a **conta de armazenamento**.
-    * **Transmitir para um hub de eventos**
-        * Selecione a **assinatura**, o **namespace do hub de eventos**, o **nome do hub de eventos (opcional)** e o nome da política do hub de **eventos**.
+        * Selecione a **Assinatura** e a **Conta de Armazenamento**.
+    * **Fluxo para um hub de eventos**
+        * Selecione o **nome de assinatura,** **o namespace do hub de eventos,** **o nome do hub de eventos (opcional)** e **o nome da política do hub de eventos**.
 
-    ![Configuração de diagnóstico da CDN](./media/cdn-raw-logs/raw-logs-02.png)
+    ![Configuração de diagnóstico de CDN](./media/cdn-raw-logs/raw-logs-02.png)
 
 7. Selecione **Salvar**.
 
-## <a name="raw-logs-properties"></a>Propriedades de logs brutos
+## <a name="raw-logs-properties"></a>Propriedades de troncos brutos
 
-No momento, o Azure CDN do serviço da Microsoft fornece logs brutos (em lotes por hora). Os logs brutos fornecem solicitações de API individuais com cada entrada com o seguinte esquema: 
+O CDN do Azure do Microsoft Service atualmente fornece logs Raw. Os logs brutos fornecem solicitações individuais de API com cada entrada com o seguinte esquema: 
 
 | Propriedade              | Descrição                                                                                                                                                                                          |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| TrackingReference     | A cadeia de caracteres de referência exclusiva que identifica uma solicitação servida pela porta da frente, também enviada como o cabeçalho X-Azure-ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
+| Referência de rastreamento     | A seqüência de referência única que identifica uma solicitação atendida pelo Front Door, também enviada como cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos registros de acesso para uma solicitação específica. |
 | HttpMethod            | Método HTTP usado pela solicitação.                                                                                                                                                                     |
 | HttpVersion           | Tipo de solicitação ou conexão.                                                                                                                                                                   |
-| RequestUri            | URI da solicitação recebida.                                                                                                                                                                         |
-| RequestBytes          | O tamanho da mensagem de solicitação HTTP em bytes, incluindo os cabeçalhos de solicitação e o corpo da solicitação.                                                                                                   |
-| ResponseBytes         | Bytes enviados pelo servidor de back-end como a resposta.                                                                                                                                                    |
+| Requesturi            | URI da solicitação recebida.                                                                                                                                                                         |
+| RequestBytes          | O tamanho da mensagem de solicitação HTTP em bytes, incluindo os cabeçalhos de solicitação e o órgão de solicitação.                                                                                                   |
+| ResponseBytes         | Bytes enviados pelo servidor backend como resposta.                                                                                                                                                    |
 | UserAgent             | O tipo de navegador que o cliente usou.                                                                                                                                                               |
 | ClientIp              | Endereço IP do cliente que fez a solicitação.                                                                                                                                                  |
-| TimeTaken             | O período de tempo que a ação levou, em milissegundos.                                                                                                                                            |
-| SecurityProtocol      | A versão do protocolo TLS/SSL usada pela solicitação ou NULL se não houver criptografia.                                                                                                                           |
-| Ponto de extremidade              | O host do ponto de extremidade da CDN foi configurado no perfil da CDN pai.                                                                                                                                   |
-| Nome do host de back-end     | O nome do host de back-end ou da origem em que as solicitações estão sendo enviadas.                                                                                                                                |
-| Enviado à blindagem de origem | Se for true, significa que a solicitação foi respondida do cache da blindagem de origem em vez do pop de borda. A blindagem de origem é um cache pai usado para melhorar a taxa de acertos do cache.                                       |
-| HttpStatusCode        | O código de status HTTP retornado do proxy.                                                                                                                                                        |
-| HttpStatusDetails     | Status resultante na solicitação. O significado desse valor de cadeia de caracteres pode ser encontrado em uma tabela de referência de status.                                                                                              |
-| pop                   | O pop de borda, que respondeu à solicitação do usuário. As abreviações dos POPs são códigos de aeroporto de seus respectivos metrôs.                                                                                   |
-| Status do cache          | Significa se o objeto foi retornado do cache ou veio da origem.                                                                                                             |
+| TimeTaken             | O tempo que a ação levou, em milissegundos.                                                                                                                                            |
+| Securityprotocol      | A versão do protocolo TLS/SSL usada pela solicitação ou nula se não houver criptografia.                                                                                                                           |
+| Ponto de extremidade              | O host de ponto final do CDN foi configurado o perfil CDN pai.                                                                                                                                   |
+| Nome do host backend     | O nome do host backend ou origem onde as solicitações estão sendo enviadas.                                                                                                                                |
+| Enviado para o escudo de origem | Se for verdade, significa que a solicitação foi respondida a partir do cache do escudo de origem em vez do pico de borda. O Origin Shield é um cache pai usado para melhorar a relação de acerto de cache.                                       |
+| HttpStatusCode        | O código de status HTTP retornou do proxy.                                                                                                                                                        |
+| Detalhes do Status http     | Status resultante na solicitação. O significado desse valor de string pode ser encontrado em uma tabela de referência status.                                                                                              |
+| Pop                   | O edge pop, que respondeu ao pedido do usuário. As abreviaturas dos POPs são códigos aeroportuários de seus respectivos metros.                                                                                   |
+| Cache Status          | Significa se o objeto foi devolvido do cache ou veio da origem.                                                                                                             |
+> [!IMPORTANT]
+> O recurso HTTP Raw logs está disponível automaticamente para quaisquer perfis criados ou atualizados após **25 de fevereiro de 2020**. Para perfis de CDN criados anteriormente, deve-se atualizar o ponto final do CDN após configurar o registro. Por exemplo, pode-se navegar para filtragem geográfica em pontos finais de CDN e bloquear qualquer país que não seja relevante para sua carga de trabalho e salvar. 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-Neste artigo, você habilitou os logs brutos de HTTP para o serviço de CDN da Microsoft.
+> [!NOTE]
+> Os logs podem ser visualizados no perfil do Log Analytics executando uma consulta. Uma consulta de exemplo seria pareada com o AzureDiagnostics | onde categoria == "AzureCdnAccessLog"
 
-Para obter mais informações sobre a CDN do Azure e os outros serviços do Azure mencionados neste artigo, consulte:
+## <a name="next-steps"></a>Próximas etapas
+Neste artigo, você habilitou registros brutos HTTP para o serviço Microsoft CDN.
 
-* [Analisar](cdn-log-analysis.md) Padrões de uso da CDN do Azure.
+Para obter mais informações sobre o Azure CDN e os outros serviços do Azure mencionados neste artigo, consulte:
 
-* Saiba mais sobre o [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+* [Analisar](cdn-log-analysis.md) Padrões de uso do Azure CDN.
 
-* Configure [log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+* Saiba mais sobre [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+
+* Configure [o Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).

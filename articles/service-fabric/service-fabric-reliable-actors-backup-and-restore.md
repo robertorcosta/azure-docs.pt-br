@@ -1,15 +1,15 @@
 ---
-title: Fazer backup e restaurar atores de Service Fabric do Azure
+title: Backup e restauração de atores do Azure Service Fabric
 description: Aprenda a implementar o backup e a restauração nos atores do Azure Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vturecek
 ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75370452"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauração dos Reliable Actors
@@ -113,7 +113,7 @@ Para obter mais informações sobre Reliable Actors, leia os seguintes artigos:
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [.NET código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

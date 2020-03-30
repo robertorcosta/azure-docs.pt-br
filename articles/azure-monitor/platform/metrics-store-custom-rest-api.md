@@ -1,5 +1,5 @@
 ---
-title: Enviar métricas para o banco de dados de métricas Azure Monitor usando a API REST
+title: Envie métricas para o banco de dados métrico do Azure Monitor usando a API REST
 description: Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 author: anirudhcavale
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662257"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
@@ -99,7 +99,7 @@ Se você receber uma mensagem de erro em alguma parte do processo, considere as 
 
 ## <a name="view-your-metrics"></a>Exibir as métricas 
 
-1. Entre no Portal do Azure. 
+1. Entre no portal do Azure. 
 
 1. No menu à esquerda, selecione **Monitor**. 
 
@@ -116,6 +116,6 @@ Se você receber uma mensagem de erro em alguma parte do processo, considere as 
 1. No menu suspenso **métricas**, selecione **QueueDepth**.  
 
  
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md).
 

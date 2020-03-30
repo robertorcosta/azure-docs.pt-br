@@ -1,15 +1,15 @@
 ---
-title: Como exibir a integridade agregada das entidades de Service Fabric do Azure
+title: Como ver a saúde agregada das entidades de malha de serviço sinuosas do Azure
 description: Descreve como consultar, exibir e avaliar a integridade agregada das entidades do Azure Service Fabric, por meio de consultas de integridade e consultas gerais.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464121"
 ---
 # <a name="view-service-fabric-health-reports"></a>Como exibir relatórios de integridade do Service Fabric
@@ -19,7 +19,7 @@ O cluster é populado automaticamente com relatórios de integridade enviados pe
 
 O Service Fabric fornece várias maneiras de obter a integridade agregada de entidades:
 
-* [Gerenciador de Malha do Serviço](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização
 * Consultas de integridade (por meio do PowerShell, da API ou de REST)
 * Consultas gerais que retornam uma lista de entidades que têm a integridade como uma das propriedades (por meio do PowerShell, da API ou de REST)
 
@@ -58,7 +58,7 @@ Visualização do cluster com o Gerenciador do Service Fabric:
 A Malha do Serviço expõe consultas de integridade para cada um dos [tipos de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy)com suporte. Elas podem ser acessados pela API usando métodos de [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), por cmdlets do PowerShell e por REST. Essas consultas retornam informações de integridade completas sobre a entidade: o estado de integridade agregada, eventos de integridade da entidade, estados de integridade dos filhos (quando aplicável), avaliações não íntegras (quando a entidade não está íntegra) e estatísticas sobre a integridade dos filhos (quando aplicável).
 
 > [!NOTE]
-> Uma entidade de integridade retorna para o usuário quando ela é totalmente populada no repositório de integridade. A entidade deve estar ativa (não excluída) e ter um relatório do sistema. Suas entidades pai na cadeia hierárquica também devem ter relatórios do sistema. Se qualquer uma dessas condições não for satisfeita, as consultas de integridade retornarão uma [fabricexception](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) com [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` que mostra por que a entidade não é retornada.
+> Uma entidade de integridade retorna para o usuário quando ela é totalmente populada no repositório de integridade. A entidade deve estar ativa (não excluída) e ter um relatório do sistema. Suas entidades pai na cadeia hierárquica também devem ter relatórios do sistema. Se alguma dessas condições não for atendida, as consultas de integridade retornam um [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) com [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` que mostra por que a entidade não é retornada.
 >
 >
 
@@ -1044,7 +1044,7 @@ As consultas que contêm **HealthState** para entidades são:
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Algumas das consultas retornam resultados paginados. O retorno dessas consultas é uma lista derivada de [PagedList\<t >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não couberem em uma mensagem, serão retornados apenas uma página e um ContinuationToken que acompanha onde a enumeração parou. Continue a chamar a mesma consulta e a passar o token de continuação da consulta anterior a fim de obter os próximos resultados.
+> Algumas das consultas retornam resultados paginados. O retorno dessas consultas é uma lista derivada do [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não couberem em uma mensagem, serão retornados apenas uma página e um ContinuationToken que acompanha onde a enumeração parou. Continue a chamar a mesma consulta e a passar o token de continuação da consulta anterior a fim de obter os próximos resultados.
 
 ### <a name="examples"></a>Exemplos
 O código a seguir obtém os aplicativos não íntegros no cluster:
@@ -1227,7 +1227,7 @@ HealthEvents          :
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Usar relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Adicionar relatórios de integridade personalizados do Service Fabric](service-fabric-report-health.md)
