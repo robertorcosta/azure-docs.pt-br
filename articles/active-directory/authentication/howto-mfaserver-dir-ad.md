@@ -1,5 +1,5 @@
 ---
-title: Servidor e Active Directory do Azure MFA Azure Active Directory
+title: Servidor Azure MFA e Diretório Ativo - Diretório Ativo do Azure
 description: Como integrar o Servidor de Autenticação Multifator do Azure ao Active Directory para sincronizar os diretórios.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,32 +12,32 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51c6284c0d7ee21f67d37465100f84d4b2f5ae2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848078"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480973"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
 
 Use a seção Integração de Diretórios do Servidor do Azure MFA para se integrar com o Active Directory ou com outro diretório LDAP. Você pode configurar atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o MFA Server para novas implantações. Novos clientes que gostariam de exigir autenticação multifatorial de seus usuários devem usar a Autenticação Multifatorial baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 ## <a name="settings"></a>Configurações
 
 Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configurado para importar ou sincronizar usuários do Active Directory.  A guia Integração de Diretório permite substituir o comportamento padrão e associar a um diretório LDAP diferente, a um diretório ADAM ou a um controlador de domínio específico do Active Directory.  Ele também permite o uso da autenticação LDAP para proxy LDAP ou associação LDAP como um destino RADIUS, pré-autenticação para autenticação IIS ou autenticação principal para o portal do usuário.  A tabela a seguir descreve as configurações individuais.
 
-![Editar a configuração de LDAP no servidor MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+![Editar configuração LDAP no Servidor MFA](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Não há garantia de que a integração de diretórios funcione com diretórios diferentes de Active Directory Domain Services.
+> A integração de diretórios não é garantida para trabalhar com diretórios que não os Serviços de Domínio de Diretório Ativo.
 
 | Recurso | Descrição |
 | --- | --- |
-| Usar o Active Directory |Selecione a opção Usar o Active Directory para usar o Active Directory na importação e na sincronização.  Esta é a configuração padrão. <br>Observação: para que a integração do Active Directory funcione corretamente, ingresse o computador em um domínio e entre com uma conta de domínio. |
+| Usar o Active Directory |Selecione a opção Usar o Active Directory para usar o Active Directory na importação e na sincronização.  Essa é a configuração padrão. <br>Observação: para que a integração do Active Directory funcione corretamente, ingresse o computador em um domínio e entre com uma conta de domínio. |
 | Incluir domínios confiáveis |Marque a caixa de seleção **Incluir Domínios Confiáveis** para que o agente tente se conectar a domínios confiáveis pelo domínio atual, a outro domínio na floresta ou a domínios envolvidos em uma relação de confiança de floresta.  Quando não estiver importando ou sincronizando usuários de qualquer um dos domínios confiáveis, desmarque a caixa de seleção para melhorar o desempenho.  O padrão é verificado. |
 | Usar configuração LDAP específica |Selecione a opção Usar LDAP para usar as configurações de LDAP especificadas na importação e na sincronização. Observação: quando a opção Usar LDAP é selecionada, a interface do usuário altera referências do Active Directory para LDAP. |
 | Botão Editar |O botão Editar permite que as configurações atuais de LDAP sejam modificadas. |
@@ -47,7 +47,7 @@ A tabela a seguir descreve as definições de configuração de LDAP.
 
 | Recurso | Descrição |
 | --- | --- |
-| Servidor |Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP.  Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Observação: quando o Tipo de Associação for SSL, é necessário um nome de host totalmente qualificado. |
+| Servidor |Insira o nome do host ou o endereço IP do servidor que está executando o diretório LDAP.  Um servidor de backup também pode ser especificado separado por ponto-e-vírgula. <br>Nota: Quando o Tipo de ligação é SSL (TLS), é necessário um nome de host totalmente qualificado. |
 | DN base |Insira o nome diferenciado do objeto de diretório base do qual todas as consultas de diretório são iniciadas.  Por exemplo, d=abc,dc=com. |
 | Tipo de associação – Consultas |Selecione o tipo de associação apropriado a ser usado na associação do diretório LDAP à pesquisa.  Isso é usado para importações, sincronização e resolução de nome de usuário. <br><br>  Anônimo: uma associação anônima será executada.  O DN e associar senha não são usados.  Isso só funciona se o diretório LDAP permitir a associação anônima e as permissões autorizarem a consulta dos registros e atributos adequados.  <br><br> Simples: Associar DN e Associar Senha são passados como texto sem formatação para associar ao diretório LDAP.  Isso serve para testes, a fim de verificar se o servidor pode ser acessado e se a conta de associação tem o acesso apropriado. Depois que o certificado apropriado tiver sido instalado, use o SSL.  <br><br> SSL: Associar DN e Associar Senha são criptografados usando SSL para associar ao diretório LDAP.  Instale um certificado localmente confiança do diretório LDAP.  <br><br> Windows: Associar Nome de Usuário e Associar Senha são usados para se conectar com segurança a um controlador de domínio do Active Directory ou diretório ADAM.  Se Associar Nome de Usuário for deixado em branco, a conta do usuário conectado será usada na associação. |
 | Tipo de associação – Autenticações |Selecione o tipo de associação apropriado para usar ao executar a autenticação de associação LDAP.  Veja as descrições de tipo de associação em Tipo de associação: consultas.  Por exemplo, isso permite que a associação anônima seja utilizada para consultas enquanto associação SSL seja usada para proteger as autenticações de associação LDAP. |
@@ -60,7 +60,7 @@ A tabela a seguir descreve as definições de configuração de LDAP.
 
 Filtros permitem que você defina os critérios para qualificar os registros ao executar uma pesquisa de diretório.  Definindo o filtro, você pode definir o escopo de objetos que você deseja sincronizar.  
 
-![Configurar a filtragem de diretório no servidor MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Configure a filtragem do diretório no servidor MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 A Autenticação Multifator do Azure tem estas três opções de filtro:
 
@@ -70,17 +70,17 @@ A Autenticação Multifator do Azure tem estas três opções de filtro:
 
 ## <a name="attributes"></a>Atributos
 
-Você pode personalizar atributos como necessário para um diretório específico.  Isso permite que você adicione atributos personalizados e ajuste a sincronização somente para os atributos de que você precisa. Use o nome do atributo conforme definido no esquema de diretório para o valor de cada campo de atributo. A tabela a seguir fornece informações adicionais sobre cada recurso.
+Você pode personalizar atributos como necessário para um diretório específico.  Isso permite que você adicione atributos personalizados e ajuste a sincronização somente para os atributos de que você precisa. Use o nome do atributo como definido no esquema do diretório para o valor de cada campo de atributo. A tabela a seguir fornece informações adicionais sobre cada recurso.
 
 Os atributos podem ser inseridos manualmente e não precisam coincidir com um atributo na lista de atributos.
 
-![Personalizar atributos de integração de diretórios no servidor MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Personalize atributos de integração de diretórios no MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Recurso | Descrição |
 | --- | --- |
 | Identificador exclusivo |Digite o nome do atributo que serve como o identificador exclusivo do contêiner, do grupo de segurança e dos registros de usuário.  No Active Directory, isso geralmente é objectGUID. Outras implementações LDAP podem usar entryUUID ou algo semelhante.  O padrão é objectGUID. |
 | Tipo de identificador exclusivo |Selecione o tipo de atributo de identificador exclusivo.  No Active Directory, o atributo objectGUID é do tipo GUID. Outras implementações LDAP podem usar o tipo Cadeia de Caracteres ou Matriz de Bytes ASCII.  O padrão é GUID. <br><br>É importante definir esse tipo corretamente, já que os itens de sincronização são referenciados por seu identificador exclusivo. O tipo de identificador exclusivo é usado para localizar o objeto diretamente no diretório.  Definir esse tipo como Cadeia de Caracteres quando o diretório realmente armazena o valor como uma matriz de bytes de caracteres ASCII e impede que a sincronização funcione corretamente. |
-| Nome distinto |Digite o nome do atributo que contém o nome distinto para cada registro.  No Active Directory, isso geralmente é distinguishedName. Outras implementações LDAP podem usar entryDN ou algo semelhante.  O padrão é distinguishedName. <br><br>Se um atributo que contém apenas o nome distinto não existir, o atributo de caminho ADs poderá ser usado.  A parte do caminho "LDAP://\<servidor\>/" é removida automaticamente, deixando apenas o nome distinto do objeto. |
+| Nome distinto |Digite o nome do atributo que contém o nome distinto para cada registro.  No Active Directory, isso geralmente é distinguishedName. Outras implementações LDAP podem usar entryDN ou algo semelhante.  O padrão é distinguishedName. <br><br>Se um atributo contendo apenas o nome distinto não existir, o atributo de caminho de anúncios pode ser usado.  A parte do caminho "LDAP://\<servidor\>/" é removida automaticamente, deixando apenas o nome distinto do objeto. |
 | Nome do contêiner |Insira o nome do atributo que contém o nome em um registro de contêiner.  O valor desse atributo é exibido na hierarquia do contêiner ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. <br><br>Se contêineres diferentes usarem atributos diferentes para seus nomes, use ponto-e-vírgula para separar vários atributos de nome de contêiner.  O primeiro atributo de nome de contêiner encontrado em um objeto de contêiner é usado para exibir seu nome. |
 | Nome do grupo de segurança |Insira o nome do atributo que contém o nome em um registro de grupo de segurança.  O valor desse atributo é exibido na lista Grupo de segurança ao importar do Active Directory ou adicionar itens de sincronização.  O padrão é o nome. |
 | Nome de Usuário |Digite o nome do atributo que contém o nome de usuário em um registro de usuário.  O valor deste atributo é usado como o nome de usuário do servidor de Autenticação Multifator.  Um segundo atributo pode ser especificado como um backup do primeiro.  O segundo atributo só será usado se o primeiro atributo não contiver um valor para o usuário.  Os padrões são userPrincipalName e sAMAccountName. |
@@ -103,11 +103,11 @@ Os atributos podem ser inseridos manualmente e não precisam coincidir com um at
 | Extensão |Insira o nome do atributo que contém o ramal do número de telefone em um registro de usuário.  O valor do campo de ramal só será usado como ramal do número de telefone principal.  O padrão é em branco. <br><br>Se o atributo Ramal não for especificado, os ramais poderão ser incluídos como parte do atributo de telefone. Nesse caso, preceda a extensão com um 'x' para que ele é analisado corretamente.  Por exemplo, 3123-4567 x890 resultaria em 3123-4567 como o número de telefone e 890 como o ramal. |
 | Botão Restaurar Padrões |Clique em **Restaurar Padrões** para retornar todos os atributos ao valor padrão.  Os padrões devem funcionar corretamente com o esquema do Active Directory ou do ADAM normal. |
 
-Para editar atributos, clique em **Editar** na guia atributos.  Isso abre uma janela onde você pode editar os atributos. Selecione o **...**  ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos.
+Para editar atributos, clique em **Editar** na guia Atributos.  Isso traz à tona uma janela onde você pode editar os atributos. Selecione o **...** ao lado de qualquer atributo para abrir uma janela onde você pode escolher quais atributos a serem exibidos.
 
-![Editar mapeamento de atributo de diretório no servidor MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Editar mapeamento de atributos de diretório no Servidor MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
-## <a name="synchronization"></a>Sincronização
+## <a name="synchronization"></a>Synchronization
 
 A sincronização mantém o banco de dados do usuário do Azure MFA sincronizado com os usuários no Active Directory ou outro diretório LDAP. O processo é semelhante à importação manual de usuários do Active Directory, mas faz sondagens para processar alterações do grupo de segurança e de usuário do Active Directory.  Ela também desativa ou remove usuários que foram removidos de um contêiner, o grupo de segurança ou o Active Directory.
 
@@ -117,7 +117,7 @@ O serviço ADSync do multi-Factor Auth usa a extensão do servidor DirSync LDAP 
 
 Se o diretório LDAP der suporte e se estiver configurado para DirSync, a sondagem de alterações do grupo de segurança e de usuário funcionam da mesma forma como acontece com o Active Directory.  Se o diretório LDAP não der suporte para o controle DirSync, uma sincronização completa será executada durante cada ciclo.
 
-![Sincronização de objetos de diretório para o servidor MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Sincronização de objetos de diretório para o Servidor MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 A tabela a seguir contém informações adicionais sobre cada uma das configurações de sincronização do guia.
 
@@ -143,8 +143,8 @@ Os botões Mover para cima e Mover para baixo permitem que o administrador alter
 > [!TIP]
 > Uma sincronização completa deve ser executada após a remoção de itens de sincronização.  Uma sincronização completa deve ser executada após a ordenação dos itens de sincronização.  Clique em **Sincronizar Agora** para executar uma sincronização completa.
 
-## <a name="multi-factor-authentication-servers"></a>Servidores de autenticação multifator
+## <a name="multi-factor-authentication-servers"></a>Servidores de autenticação multifatorial
 
-Servidores de autenticação multifator adicionais podem ser configurados para servir como um proxy RADIUS de backup, proxy LDAP ou para autenticação do IIS. A configuração da Sincronização será compartilhada entre todos os agentes. No entanto, apenas um desses agentes pode ter o serviço do servidor de autenticação multifator em execução. Esta guia permite que você selecione o servidor de autenticação multifator que deve ser habilitado para sincronização.
+Os servidores adicionais de autenticação multifatorial podem ser configurados para servir como um proxy RADIUS de backup, proxy LDAP ou para autenticação IIS. A configuração da Sincronização será compartilhada entre todos os agentes. No entanto, apenas um desses agentes pode ter o serviço de servidor de autenticação multifatorial em execução. Esta guia permite selecionar o servidor de autenticação multifatorial que deve ser ativado para sincronização.
 
-![Servidores de autenticação multifator relacionados](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Servidores de autenticação multifatorial relacionados](./media/howto-mfaserver-dir-ad/dirint6.png)

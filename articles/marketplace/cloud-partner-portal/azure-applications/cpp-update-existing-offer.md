@@ -1,19 +1,18 @@
 ---
-title: Atualizar uma oferta de aplicativo do Azure existente | Azure Marketplace
+title: Atualize uma oferta de aplicativo existente do Azure | Mercado Azure
 description: Como atualizar uma oferta existente de aplicativo do Azure no Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pabutler
-ms.openlocfilehash: 6854e445ea63639866e9e39a6afc725237bbc8fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 152fd24fbc5d2762d381ffce2a937bc448858b0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826106"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275944"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Atualizar uma oferta existente de aplicativo do Azure
 
@@ -31,7 +30,7 @@ Para ajudá-lo nessas modificações, o portal fornece os recursos **Comparar** 
 
 Há atributos de uma oferta de contêiner ou um SKU que não podem ser alterados depois que a oferta estiver ativa no Azure Marketplace. Você não pode alterar as configurações a seguir:
 
-- ID da Oferta e ID do Publicador da oferta
+- ID da oferta e ID do Editor da oferta
 - ID da SKU dos SKUs existentes
 - Marcas de versão, por exemplo: `1.0.1`
 - Alterações no modelo de cobrança/licença para SKUs existentes
@@ -67,11 +66,11 @@ Utilize os seguintes passos para atualizar os metadados do mercado associados à
 
 1. Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 2. Em **Todas as ofertas**, localize a oferta que você gostaria de atualizar.
-3. Vá para a guia **Marketplace** . Use as instruções em [publicar a oferta de aplicativo do Azure](./cpp-publish-offer.md) para fazer alterações de metadados.
+3. Vá para a guia **Marketplace.** Use as instruções na [oferta do aplicativo Publish Azure](./cpp-publish-offer.md) para fazer alterações de metadados.
 4. Selecione **Publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
  
 >[!Note]
->A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
+>O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](../../cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP.
 
 ## <a name="deleting-an-existing-offer"></a>Excluindo uma oferta existente
 
@@ -84,7 +83,7 @@ Para obter mais informações, confira [Excluir uma oferta/um SKU do Azure Marke
 
 ## <a name="compare-feature"></a>Recurso Comparar
 
-Ao fazer alterações em uma oferta publicada, você pode usar o recurso Comparar para auditar as alterações feitas.
+Ao fazer alterações em uma oferta publicada, é possível usar o recurso Comparar para auditar as alterações feitas.
 
 Para usar o recurso Comparar:
 
@@ -97,4 +96,4 @@ Para ver a atividade de histórico de publicação, selecione a guia **Históric
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Oferta de aplicativo do Azure](./cpp-azure-app-offer.md)
+[Oferta de aplicativos do Azure](./cpp-azure-app-offer.md)

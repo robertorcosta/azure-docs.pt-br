@@ -1,13 +1,13 @@
 ---
-title: Empacotar um aplicativo de Service Fabric do Azure
-description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do Azure e como se preparar para a implantação em um cluster.
+title: Empacote um aplicativo de malha de serviço do Azure
+description: Saiba como empacotar um aplicativo de malha de serviço do Azure e como se preparar para a implantação em um cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258337"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
@@ -43,12 +43,12 @@ As pastas são nomeadas para corresponder a atributos **Name** de cada elemento 
 
 ## <a name="use-setupentrypoint"></a>Use o SetupEntryPoint
 
-Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar um executável antes do início do serviço ou você precisa executar uma operação com privilégios elevados. Por exemplo:
+Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar um executável antes do início do serviço ou você precisa executar uma operação com privilégios elevados. Por exemplo: 
 
 * Configurar e inicializar as variáveis de ambiente que o serviço executável precisa. Isso não é limitado apenas a executáveis gravados por meio de modelos de programação do Service Fabric. Por exemplo, npm.exe precisa de algumas variáveis de ambiente configurados para implantar um aplicativo node.js.
 * Configurando o controle de acesso, instalando certificados de segurança.
 
-Para obter mais informações sobre como configurar o **SetupEntryPoint**, consulte [Configurar a política para um ponto de entrada de instalação do serviço](service-fabric-application-runas-security.md)
+Para obter mais informações sobre como configurar o **SetupEntryPoint,** consulte [Configurar a diretiva para um ponto de entrada de configuração de serviço](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
 
@@ -56,9 +56,9 @@ Para obter mais informações sobre como configurar o **SetupEntryPoint**, consu
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Compilar um pacote usando o Visual Studio
 
-Se você usou o Visual Studio para criar seu aplicativo, poderá usar o comando *Package* para criar automaticamente um pacote que corresponda ao layout descrito acima.
+Se você usou o Visual Studio para criar seu aplicativo, você pode usar o comando *Pacote* para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
-Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo em *Gerenciador de soluções* e escolha o comando **pacote** :
+Para criar um pacote, clique com o botão direito do mouse no projeto do aplicativo no *Solution Explorer* e escolha o comando **Pacote:**
 
 ![Empacotando um aplicativo no Visual Studio][vs-package-command]
 
@@ -226,11 +226,11 @@ Para provisionar o pacote, use o provisionamento o externo, o que requer o URI d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias de aplicativo
+[Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias do aplicativo
 
-[Gerenciar parâmetros de aplicativo para vários ambientes][11] descreve como configurar parâmetros e variáveis de ambiente para diferentes instâncias de aplicativo.
+[Gerenciamento de parâmetros do aplicativo para vários ambientes][11] descreve como configurar os parâmetros e variáveis de ambiente para diferentes instâncias do aplicativo.
 
-[Configurar políticas de segurança para seu aplicativo][12] descreve como executar serviços em políticas de segurança para restringir o acesso.
+[Configurar políticas de segurança para seu aplicativo][12] descreve como executar serviços sob políticas de segurança para restringir o acesso.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

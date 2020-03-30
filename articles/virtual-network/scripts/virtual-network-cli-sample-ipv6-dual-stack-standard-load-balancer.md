@@ -1,7 +1,7 @@
 ---
-title: Exemplo de script CLI do Azure-configurar o front-end IPv6-Standard Load Balancer
+title: Amostra de script Azure CLI - Configure Frontend IPv6 - Balancer de carga padrão
 titlesuffix: Azure Virtual Network
-description: Habilitar pontos de extremidade IPv6 usando o CLI do Azure na rede virtual do Azure
+description: Habilitar pontos finais iPv6 usando o Azure CLI na Rede Virtual Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,37 +12,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 86c8acedb230989fa7a7f28690bd4be9c51ead9e
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5f5856a89a04b58b138ee23a5f289ceff0915acf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201332"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235048"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configurar pontos de extremidade IPv6 no exemplo de script de rede virtual usando Standard Load Balancer (versão prévia)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configure os pontos finais do IPv6 na amostra de script de rede virtual usando o Standard Load Balancer(visualização)
 
-Este artigo mostra como implantar um aplicativo de pilha dupla (IPv4 + IPv6) no Azure que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um Standard Load Balancer com configurações de front-end duplas (IPv4 + IPv6), VMs com NICs que têm um IP duplo configuração, regras de grupo de segurança de rede duplas e IPs públicos duplos.
+Este artigo mostra como implantar um aplicativo dual stack (IPv4 + IPv6) no Azure que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um Balancer de Carga Padrão com configurações front-end duplas (IPv4 + IPv6), VMs com NICs que possuem um IP duplo configuração, regras de grupo de segurança de rede dupla e IPs públicos duplos.
 
-Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/bash) ou de uma instalação local da CLI do Azure. Se você usar a CLI localmente, este script requer que você esteja executando a versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/bash) ou de uma instalação local da CLI do Azure. Se você usar a CLI localmente, este script requer que você esteja executando a versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Caso precise instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
-Para usar o recurso IPv6 para rede virtual do Azure, você deve configurar sua assinatura somente uma vez da seguinte maneira:
+## <a name="prerequisites"></a>Pré-requisitos
+Para usar o recurso de rede virtual IPv6 for Azure, você deve configurar sua assinatura apenas uma vez da seguinte forma:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
-Demora até 30 minutos para a conclusão do registro de recursos. Você pode verificar o status do Registro executando o seguinte comando de CLI do Azure:
 
-```azurelci
+Demora até 30 minutos para a conclusão do registro de recursos. Você pode verificar seu status de registro executando o seguinte comando Azure CLI:
+
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 Após a conclusão do registro, execute o seguinte comando:
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
 
@@ -279,13 +281,14 @@ az vm create \
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Exibir rede virtual de pilha dupla IPv6 no portal do Azure
-Você pode exibir a rede virtual de pilha dupla IPv6 em portal do Azure da seguinte maneira:
-1. Na barra de pesquisa do portal, insira *dsVnet*.
-2. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-o. Isso inicia a página **visão geral** da rede virtual de pilha dupla chamada *dsVnet*. A rede virtual de pilha dupla mostra as duas NICs com as configurações de IPv4 e IPv6 localizadas na sub-rede de pilha dupla chamada *dsSubnet*. 
+
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Exibir rede virtual de pilha dupla IPv6 no portal Azure
+Você pode visualizar a rede virtual iPv6 dual stack no portal Azure da seguinte forma:
+1. Na barra de pesquisa do portal, digite *dsVnet*.
+2. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-o. Isso lança a página **Visão Geral** da rede virtual dual stack chamada *dsVnet*. A rede virtual dual stack mostra os dois NICs com as configurações IPv4 e IPv6 localizadas na sub-rede de pilha dupla chamada *dsSubnet*. 
 
 > [!NOTE]
-> O IPv6 para rede virtual do Azure está disponível na portal do Azure em somente leitura para esta versão de visualização.
+> A rede virtual IPv6 for Azure está disponível no portal Azure apenas para esta versão de pré-visualização.
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -317,6 +320,6 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para obter mais informações sobre a CLI do Azure, consulte [a documentação da Cli do Azure](https://docs.microsoft.com/cli/azure).
 
 Exemplos adicionais de script de CLI de rede do Azure podem ser encontrados na [Documentação de rede do Azure](../cli-samples.md).

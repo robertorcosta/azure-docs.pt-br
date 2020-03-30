@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282218"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
@@ -32,7 +32,7 @@ Proxy reverso expõe um ou mais pontos de extremidade no nó local para serviço
 ![Comunicação interna][1]
 
 > [!NOTE]
-> **Plataformas com suporte**
+> **Plataformas suportadas**
 >
 > Proxy reverso no Service Fabric atualmente dá suporte às seguintes plataformas
 > * *Cluster do Windows*: Windows 8 e posteriores ou Windows Server 2012 e posteriores
@@ -68,7 +68,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para o encaminhamento HTTPS, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md) após a configuração do proxy reverso para escutar o HTTPS.
 * **FQDN (nome de domínio totalmente qualificado) do cluster | IP interno:** para clientes externos, o proxy reverso pode ser configurado para que seja acessível por meio do domínio do cluster, por exemplo, mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy reverso é executado em todos os nós. Para o tráfego interno, o proxy reverso pode ser alcançado no localhost ou em qualquer IP de nó interno (por exemplo, 10.0.0.1).
 * **Porta:** essa é a porta, como 19081, que foi especificada para o proxy reverso.
-* **ServiceInstanceName:** esse é o nome totalmente qualificado da instância de serviço implantado que você está tentando alcançar sem o esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/* , você usaria *myapp/myservice*.
+* **ServiceInstanceName:** esse é o nome totalmente qualificado da instância de serviço implantado que você está tentando alcançar sem o esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você usaria *myapp/myservice*.
 
     O nome da instância de serviço diferencia maiúsculas de minúsculas. O uso de maiúsculas e minúsculas diferentes no nome da instância de serviço da URL causa uma falha das solicitações com 404 (Não Encontrado).
 * **Caminho de sufixo:** esse é o caminho de URL real, por exemplo, *myapi/values/add/3*, para o serviço ao qual você deseja se conectar.
@@ -78,7 +78,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector** Especifica como a réplica de destino ou a instância deve ser selecionada.
   * Quando o serviço de destino tem monitoração de estado, TargetReplicaSelector pode ser um dos seguintes: 'PrimaryReplica', 'RandomSecondaryReplica' ou 'RandomReplica'. Quando esse parâmetro não é especificado, o padrão é 'PrimaryReplica'.
   * Quando o serviço de destino não tem monitoração de estado, o proxy reverso escolhe uma instância aleatória da partição de serviço para encaminhar a solicitação a ela.
-* **Tempo limite:** especifica o tempo limite da solicitação HTTP criada pelo proxy inverso para o serviço em nome da solicitação do cliente. O valor padrão é 60 segundos. Esse é um parâmetro opcional.
+* **Tempo:**  Isso especifica o tempo para a solicitação HTTP criada pelo proxy reverso para o serviço em nome da solicitação do cliente. O valor padrão é 60 segundos. Esse é um parâmetro opcional.
 
 ### <a name="example-usage"></a>Exemplo de uso
 Por exemplo, vamos pegar o serviço *fabric:/MyApp/MyService* que abre um ouvinte HTTP na URL a seguir:
@@ -152,7 +152,7 @@ Os serviços do Service Fabric executados nos contêineres do Docker Compose exi
 ## <a name="next-steps"></a>Próximas etapas
 * [Definir e configurar proxy reverso em um cluster](service-fabric-reverseproxy-setup.md).
 * [Definir encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
-* [Diagnosticar eventos de proxy reverso](service-fabric-reverse-proxy-diagnostics.md)
+* [Diagnosticar eventos do proxy reverso](service-fabric-reverse-proxy-diagnostics.md)
 * Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API Web que usa o OWIN nos Reliable Services](service-fabric-reliable-services-communication-webapi.md)

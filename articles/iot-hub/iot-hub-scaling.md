@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ecc1ae5138fe5a1e42fed9be2e31b5afa8b6d5b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79284415"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497508"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -33,21 +33,21 @@ Cada camada do Hub IoT está disponível em três tamanhos, com base na quantida
 
 A camada Standard do Hub IoT permite todos os recursos e é necessária para qualquer solução de IoT que pretende usar os recursos de comunicação bidirecional. A camada Básica permite um subconjunto dos recursos e destina-se a soluções de IoT que precisam apenas de comunicação unidirecional dos dispositivos para a nuvem. Ambas as camadas oferecem os mesmos recursos de segurança e autenticação.
 
-Somente um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hub/) em uma camada pode ser escolhido por Hub IoT. Por exemplo, você pode criar um hub IoT com várias unidades S1, mas não com uma combinação de unidades de diferentes edições, como S1 e S2.
+Somente um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hub/) em uma camada pode ser escolhido por Hub IoT. Por exemplo, você pode criar um Hub IoT com várias unidades de S1, mas não com uma mistura de unidades de diferentes edições, como S1 e S2.
 
-| Recurso | Camada básica | Camada gratuita/Standard |
+| Recurso | Camada básica | Nível livre/padrão |
 | ---------- | ---------- | ------------- |
 | [Telemetria de dispositivo para nuvem](iot-hub-devguide-messaging.md) | Sim | Sim |
 | [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | Sim | Sim |
-| [Roteamento de mensagens](iot-hub-devguide-messages-read-custom.md), [aprimoramentos de mensagens](iot-hub-message-enrichments-overview.md)e [integração de grade de eventos](iot-hub-event-grid.md) | Sim | Sim |
+| [Roteamento de mensagens,](iot-hub-devguide-messages-read-custom.md) [enriquecimento de mensagens](iot-hub-message-enrichments-overview.md)e [integração da Grade de Eventos](iot-hub-event-grid.md) | Sim | Sim |
 | [Protocolos HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Sim | Sim |
 | [Serviço de provisionamento de dispositivos](../iot-dps/about-iot-dps.md) | Sim | Sim |
-| [Monitoramento e diagnósticos](iot-hub-monitor-resource-health.md) | Sim | Sim |
-| [Mensagens de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
+| [Monitoramento e diagnóstico](iot-hub-monitor-resource-health.md) | Sim | Sim |
+| [Mensagens da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
 | [Dispositivos gêmeos](iot-hub-devguide-device-twins.md), [Módulos gêmeos](iot-hub-devguide-module-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | Sim |
 | [Fluxos de dispositivo (versão prévia)](iot-hub-device-streams-overview.md) |   | Sim |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sim |
-| [Visualização de Plug and Play de IoT](../iot-pnp/overview-iot-plug-and-play.md) |   | Sim |
+| [Visualização de Plug and Play IoT plug and play](../iot-pnp/overview-iot-plug-and-play.md) |   | Sim |
 
 O Hub IoT também oferece uma camada gratuita destinado a testes e avaliação. Ela tem todos os recursos da camada Standard, mas provisões limitadas de mensagens. Não é possível fazer upgrade da camada gratuita para Básica ou Standard.
 
@@ -55,54 +55,54 @@ O Hub IoT também oferece uma camada gratuita destinado a testes e avaliação. 
 
 Os Hubs IoT do Azure contêm muitos componentes principais de [Hubs de Eventos do Azure](../event-hubs/event-hubs-features.md), incluindo [Partições](../event-hubs/event-hubs-features.md#partitions). Os fluxos de eventos para Hubs IoT geralmente são preenchidos com dados de telemetria recebidos, relatados por vários dispositivos de IoT. O particionamento do fluxo de eventos é usado para reduzir as contenções que ocorrem ao ler e gravar simultaneamente em fluxos de eventos.
 
-O limite de partição é escolhido quando o Hub IoT é criado e não pode ser alterado. O limite máximo de partições para o Hub IOT da camada básica e o Hub IoT da camada Standard é 32. A maioria dos Hubs IoT precisa apenas de 4 partições. Para obter mais informações sobre como determinar as partições, consulte as Perguntas frequentes sobre Hubs de Eventos [De quantas partições eu preciso?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+O limite de partição é escolhido quando o Hub IoT é criado e não pode ser alterado. O limite máximo de partição para o IoT Hub de nível básico e o Padrão IoT Hub é de 32. A maioria dos Hubs IoT precisa apenas de 4 partições. Para obter mais informações sobre como determinar as partições, consulte as Perguntas frequentes sobre Hubs de Eventos [De quantas partições eu preciso?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 ## <a name="tier-upgrade"></a>Upgrade de camada
 
-Após criar o hub IoT, você poderá fazer upgrade da camada básica para a camada padrão sem interromper as operações existentes. Para obter mais informações, consulte [Como fazer upgrade do Hub IoT](iot-hub-upgrade.md).
+Após criar o hub IoT, você poderá fazer upgrade da camada básica para a camada padrão sem interromper as operações existentes. Para obter mais informações, consulte [Como atualizar seu hub de IoT](iot-hub-upgrade.md).
 
 A configuração da partição permanecerá inalterada quando você migrar da camada básica para a camada padrão.
 
 > [!NOTE]
-> A camada gratuita não dá suporte à atualização para Basic ou Standard.
+> O nível gratuito não suporta a atualização para o básico ou padrão.
 
 ## <a name="iot-hub-rest-apis"></a>APIs REST do Hub IoT
 
 A diferença nos recursos com suporte entre as camadas Básica e Standard do Hub IoT significa que algumas chamadas de API não funcionam com hubs de camada Básica. A tabela a seguir mostra quais APIs estão disponíveis:
 
-| API | Camada básica | Camada gratuita/Standard |
+| API | Camada básica | Nível livre/padrão |
 | --- | ---------- | ------------- |
-| [Excluir dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Sim | Sim |
-| [Obter dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sim | Sim |
-| [Excluir módulo](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Sim | Sim |
-| [Obter módulo](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Sim | Sim |
-| [Obter estatísticas de registro](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Sim | Sim |
-| [Obter estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Sim | Sim |
-| [Criar ou atualizar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Sim | Sim |
-| [Criar ou atualizar o módulo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Sim | Sim |
-| [Consulta Hub IoT](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Sim | Sim |
+| [Excluir um dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletedevice) | Sim | Sim |
+| [Obter dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevice) | Sim | Sim |
+| [Excluir módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletemodule) | Sim | Sim |
+| [Obter módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getmodule) | Sim | Sim |
+| [Obter estatísticas de registro](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevicestatistics) | Sim | Sim |
+| [Obtenha estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getservicestatistics) | Sim | Sim |
+| [Criar ou atualizar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatedevice) | Sim | Sim |
+| [Criar ou atualizar módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatemodule) | Sim | Sim |
+| [Consulta Hub IoT](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/queryiothub) | Sim | Sim |
 | [Criar URI de SAS de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sim | Sim |
 | [Receber notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sim | Sim |
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sim | Sim |
-| Enviar eventos de módulo | Somente AMQP e MQTT | Somente AMQP e MQTT |
+| Enviar eventos de módulo | SOMENTE AMQP e MQTT | SOMENTE AMQP e MQTT |
 | [Atualizar o status de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sim | Sim |
-| [Operação de dispositivo em massa](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Sim, exceto pelos recursos do IoT Edge | Sim |
-| [Cancelar trabalho de importação/exportação](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Sim | Sim |
-| [Criar trabalho de importação/exportação](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Sim | Sim |
-| [Obter trabalho de importação/exportação](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Sim | Sim |
-| [Obter trabalhos de importação/exportação](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | Sim | Sim |
-| [Limpar fila de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sim |
-| [Obter dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sim |
-| [Obter módulo "ir para"](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Sim |
-| [Invocar um método de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Sim |
-| [Atualizar dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sim |
-| [Atualizar o módulo de atualização](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Sim |
+| [Operação de dispositivo em massa](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/bulkdevicecrud) | Sim, exceto pelos recursos do IoT Edge | Sim |
+| [Cancelar o trabalho de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/cancelimportexportjob) | Sim | Sim |
+| [Criar trabalho de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createimportexportjob) | Sim | Sim |
+| [Obter trabalho de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjob) | Sim | Sim |
+| [Obter empregos de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) | Sim | Sim |
+| [Limpar fila de comandos](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) |   | Sim |
+| [Obter dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) |   | Sim |
+| [Obter módulo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/twin/getmoduletwin) |   | Sim |
+| [Invocar um método de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/devicemethod/invokedevicemethod) |   | Sim |
+| [Atualizar dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/twin/updatedevicetwin) |   | Sim |
+| [Atualizar módulo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/twin/updatemoduletwin) |   | Sim |
 | [Abandonar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sim |
 | [Completar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sim |
-| [Cancelar trabalho](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Sim |
-| [Criar trabalho](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Sim |
-| [Obter Trabalho](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Sim |
-| [Trabalhos de consulta](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Sim |
+| [Cancelar o trabalho](https://docs.microsoft.com/rest/api/iothub/service/jobclient/canceljob) |   | Sim |
+| [Criar trabalho](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | Sim |
+| [Obter Trabalho](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getjob) |   | Sim |
+| [Trabalhos de consulta](https://docs.microsoft.com/rest/api/iothub/service/jobclient/queryjobs) |   | Sim |
 
 ## <a name="message-throughput"></a>Taxa de transferência da mensagem
 
@@ -112,30 +112,30 @@ A melhor maneira de dimensionar uma solução do Hub IoT é avaliar o tráfego d
 * Mensagens da nuvem para o dispositivo
 * Operações de registro de identidade
 
-O tráfego é medido para o Hub IoT em uma base por unidade. Ao criar um hub IoT, você escolhe sua camada e edição e define o número de unidades disponíveis. Você pode comprar até 200 unidades para a edição B1, B2, S1 ou S2, ou até 10 unidades para a edição B3 ou S3. Depois que o Hub IoT for criado, você poderá alterar o número de unidades disponíveis em sua edição, atualizar ou fazer downgrade entre as edições dentro de sua camada (B1 para B2) ou atualizar da camada básica para a padrão (B1 para S1) sem interromper as operações existentes. Para obter mais informações, consulte [Como fazer upgrade do Hub IoT](iot-hub-upgrade.md).  
+O tráfego é medido para o seu hub de IoT em uma base por unidade. Quando você cria um hub de IoT, você escolhe seu nível e edição e define o número de unidades disponíveis. Você pode comprar até 200 unidades para a edição B1, B2, S1 ou S2, ou até 10 unidades para a edição B3 ou S3. Depois que seu hub de IoT for criado, você pode alterar o número de unidades disponíveis em sua edição, atualizar ou fazer downgrade entre edições dentro de seu nível (B1 para B2) ou atualizar do nível básico para o padrão (B1 para S1) sem interromper suas operações existentes. Para obter mais informações, consulte [Como atualizar seu hub de IoT](iot-hub-upgrade.md).  
 
 Como um exemplo dos recursos de tráfego de cada camada, as mensagens de dispositivo para nuvem seguem estas diretrizes de taxa de transferência sustentada:
 
-| Camada de edição | Taxa de transferência sustentada | Taxa de envio sustentada |
+| Edição de nível | Taxa de transferência sustentada | Taxa de envio sustentada |
 | --- | --- | --- |
 | B1, S1 |Até 1111 KB/minuto por unidade<br/>(1,5 GB/dia/unidade) |Média de 278 mensagens/minuto por unidade<br/>(400.000 mensagens/dia por unidade) |
 | B2, S2 |Até 16 MB/minuto por unidade<br/>(22,8 GB/dia/unidade) |Média de 4.167 mensagens/minuto por unidade<br/>(6 milhões de mensagens/dia por unidade) |
 | B3, S3 |Até 814 MB/minuto por unidade<br/>(1144,4 GB/dia/unidade) |Média de 208,333 mensagens/minuto por unidade<br/>(300 milhões de mensagens/dia por unidade) |
 
-A taxa de transferência do dispositivo para a nuvem é apenas uma das métricas que você precisa considerar ao criar uma solução de IoT. Para obter informações mais abrangentes, consulte [cotas e limitações do Hub IOT](iot-hub-devguide-quotas-throttling.md).
+O throughput dispositivo-nuvem é apenas uma das métricas que você precisa considerar ao projetar uma solução DeI. Para obter informações mais [abrangentes, consulte cotas e aceleradores do IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 ### <a name="identity-registry-operation-throughput"></a>Taxa de transferência de operações de registro de identidade
 
 As operações de Registro de identidade do Hub IoT não devem ser operações em tempo de execução, pois estão relacionadas principalmente com provisionamento do dispositivo.
 
-Consulte [Cotas e limites do Hub IoT](iot-hub-devguide-quotas-throttling.md)para obter números específicos de desempenho de intermitência.
+Para ver número de pico de desempenho específicos, consulte [Cotas e limites do Hub IoT](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="auto-scale"></a>Dimensionamento automático
 
-Se estiver se aproximando do limite de mensagens permitido em seu hub IoT, você poderá usar estas [etapas para dimensionar automaticamente](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) para incrementar uma unidade do Hub IOT na mesma camada do Hub IOT.
+Se você estiver se aproximando do limite de mensagem permitido em seu hub IoT, você poderá usar essas [etapas para dimensionar automaticamente](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) para incrementar uma unidade IoT Hub no mesmo nível ioT Hub.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre os recursos do Hub IoT e detalhes de desempenho, consulte [preços do Hub IOT](https://azure.microsoft.com/pricing/details/iot-hub) ou [cotas e restrições do Hub IOT](iot-hub-devguide-quotas-throttling.md).
+* Para obter mais informações sobre os recursos e detalhes de desempenho do Hub IoT, consulte [Preços do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub) ou [Cotas e limitações do Hub IoT](iot-hub-devguide-quotas-throttling.md).
 
 * Para alterar a camada do Hub IoT, siga as etapas em [Fazer upgrade do Hub IoT](iot-hub-upgrade.md).

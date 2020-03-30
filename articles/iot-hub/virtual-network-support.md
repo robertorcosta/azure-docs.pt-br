@@ -1,70 +1,72 @@
 ---
-title: Suporte ao Hub IoT do Azure para redes virtuais
-description: Como usar o padrão de conectividade de redes virtuais com o Hub IoT
+title: Suporte ao Azure IoT Hub para redes virtuais
+description: Como usar o padrão de conectividade de redes virtuais com o IoT Hub
 services: iot-hub
 author: rezasherafat
 ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: rezas
-ms.openlocfilehash: 1b250bee302cb305ee613010238283ceac4014ed
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 34f66c13b0e7eb7092332a48744f9abfd8f0db80
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79375077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501426"
 ---
-# <a name="iot-hub-support-for-virtual-networks"></a>Suporte do Hub IoT para redes virtuais
+# <a name="iot-hub-support-for-virtual-networks"></a>Suporte ao IoT Hub para redes virtuais
 
-Este artigo apresenta o padrão de conectividade VNET e elabora como configurar uma experiência de conectividade privada para um hub IoT por meio de uma VNET do Azure de Propriedade do cliente.
+Este artigo introduz o padrão de conectividade VNET e elabora sobre como configurar uma experiência de conectividade privada a um hub de IoT através de um Azure VNET de propriedade do cliente.
 
 > [!NOTE]
-> Os recursos do Hub IoT descritos neste artigo estão disponíveis no momento para o Hub IoT criado nas seguintes regiões: leste dos EUA, Sul EUA Central e oeste dos EUA 2.
+> Os recursos do IoT Hub descritos neste artigo estão atualmente disponíveis para hubs de IoT [criados com identidade de serviço gerenciado](#create-an-iot-hub-with-managed-service-identity) nas seguintes regiões: Leste dos EUA, Centro-Sul dos EUA e Us$ 2.
 
 
 ## <a name="introduction"></a>Introdução
 
-Por padrão, os nomes de host do Hub IoT são mapeados para um ponto de extremidade público com um endereço IP roteável publicamente pela Internet. Conforme mostrado na ilustração a seguir, esse ponto de extremidade público do Hub IoT é compartilhado entre hubs de propriedade de clientes diferentes e pode ser acessado por dispositivos IoT em redes de longa distância, bem como em redes locais semelhantes.
+Por padrão, os nomes de hostdo do IoT Hub mapeiam para um ponto final público com um endereço IP publicamente roteável na Internet. Como mostrado na ilustração abaixo, este ponto final público do IoT Hub é compartilhado entre hubs de diferentes clientes e pode ser acessado por dispositivos IoT em redes de ampla área, bem como redes locais.
 
-Vários recursos do Hub IoT, incluindo [Roteamento de mensagens](./iot-hub-devguide-messages-d2c.md), [carregamento de arquivos](./iot-hub-devguide-file-upload.md)e [importação/exportação de dispositivos em massa](./iot-hub-bulk-identity-mgmt.md) , exigem conectividade do Hub IOT para um recurso do Azure de Propriedade do cliente em seu ponto de extremidade público. Conforme ilustrado abaixo, esses caminhos de conectividade constituem coletivamente o tráfego de saída do Hub IoT para recursos do cliente.
-ponto de extremidade público do ![Hub IoT](./media/virtual-network-support/public-endpoint.png)
-
-
-Por vários motivos, os clientes podem querer restringir a conectividade com seus recursos do Azure (incluindo o Hub IoT) por meio de uma VNET que eles possuem e operam. Esses motivos incluem:
-
-* Apresentando camadas adicionais de segurança por meio do isolamento de nível de rede para o Hub IoT, impedindo a exposição da conectividade ao seu hub pela Internet pública.
-
-* Habilitação de uma experiência de conectividade privada de seus ativos de rede local, garantindo que seus dados e tráfego sejam transmitidos diretamente para a rede de backbone do Azure.
-
-* Impedir ataques de vazamento de redes locais confidenciais. 
-
-* Seguindo os padrões de conectividade de todo o Azure estabelecidos usando [pontos de extremidade privados](../private-link/private-endpoint-overview.md).
+Vários recursos do IoT Hub, incluindo [roteamento de mensagens,](./iot-hub-devguide-messages-d2c.md) [upload de arquivos](./iot-hub-devguide-file-upload.md)e [importação/exportação de dispositivos em massa,](./iot-hub-bulk-identity-mgmt.md) exigem conectividade do IoT Hub a um recurso Azure de propriedade do cliente sobre seu ponto final público. Como ilustrado abaixo, esses caminhos de conectividade constituem coletivamente o tráfego de saída do IoT Hub para os recursos do cliente.
+![Ponto final público do IoT Hub](./media/virtual-network-support/public-endpoint.png)
 
 
-Este artigo descreve como atingir essas metas usando [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para a conectividade de entrada ao Hub IOT, como usando a exceção de serviços de primeira parte confiável do Azure para a conectividade de saída do Hub IOT para outros recursos do Azure.
+Por várias razões, os clientes podem querer restringir a conectividade aos seus recursos do Azure (incluindo o IoT Hub) através de um VNET que eles possuem e operam. Essas razões incluem:
+
+* Introduzindo camadas adicionais de segurança através do isolamento de nível de rede para o seu hub de IoT, impedindo a exposição de conectividade ao seu hub através da Internet pública.
+
+* Habilitar uma experiência de conectividade privada a partir de seus ativos de rede local, garantindo que seus dados e tráfego sejam transmitidos diretamente para a rede backbone do Azure.
+
+* Prevenção de ataques de exfiltração de redes locais sensíveis. 
+
+* Seguindo padrões de conectividade estabelecidos em todo o Azure usando [pontos finais privados.](../private-link/private-endpoint-overview.md)
 
 
-## <a name="ingress-connectivity-to-iot-hub-using-private-endpoints"></a>Conectividade de entrada ao Hub IoT usando pontos de extremidade privados
+Este artigo descreve como alcançar esses objetivos usando [endpoints privados](../private-link/private-endpoint-overview.md) para a conectividade de entrada no IoT Hub, como usar a exceção de serviços de primeira parte confiáveis do Azure para a conectividade de saída do IoT Hub para outros recursos do Azure.
 
-Um ponto de extremidade privado é um endereço IP privado alocado dentro de uma VNET de Propriedade do cliente por meio da qual um recurso do Azure pode ser acessado. Tendo um ponto de extremidade privado para o Hub IoT, você poderá permitir que os serviços que operam dentro de sua VNET alcancem o Hub IoT sem exigir que o tráfego seja enviado ao ponto de extremidade público do Hub IoT. Da mesma forma, os dispositivos que operam no local podem usar a [VPN (rede virtual privada)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o emparelhamento privado do [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para obter conectividade com sua VNET no Azure e subsequentemente para o Hub IOT (por meio de seu ponto de extremidade privado). Como resultado, os clientes que desejam restringir a conectividade aos pontos de extremidade públicos do seu hub IoT (ou possivelmente bloqueá-lo completamente) podem atingir esse objetivo usando as [regras de firewall do Hub IOT](./iot-hub-ip-filtering.md) e mantendo a conectividade com o Hub usando o ponto de extremidade privado.
+
+## <a name="ingress-connectivity-to-iot-hub-using-private-endpoints"></a>Conectividade de ingress ao IoT Hub usando pontos finais privados
+
+Um ponto final privado é um endereço IP privado alocado dentro de um VNET de propriedade do cliente através do qual um recurso do Azure é acessível. Ao ter um ponto final privado para o seu hub de IoT, você poderá permitir que os serviços que operam dentro do seu VNET cheguem ao IoT Hub sem exigir que o tráfego seja enviado para o ponto final público do IoT Hub. Da mesma forma, os dispositivos que operam em suas instalações podem usar [a Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering para obter conectividade com seu VNET no Azure e, posteriormente, ao seu IoT Hub (através de seu ponto final privado). Como resultado, os clientes que desejam restringir a conectividade aos pontos finais públicos de seu hub de IoT (ou possivelmente bloqueá-lo completamente) podem alcançar esse objetivo usando as regras de [firewall do IoT Hub,](./iot-hub-ip-filtering.md) mantendo a conectividade com seu Hub usando o ponto final privado.
 
 > [!NOTE]
-> O foco principal dessa configuração é para dispositivos dentro de uma rede local. Essa configuração não é recomendável para dispositivos implantados em uma rede de longa distância.
+> O foco principal desta configuração é para dispositivos dentro de uma rede local. Essa configuração não é aconselhada para dispositivos implantados em uma rede de ampla área.
 
-![Ponto de extremidade público do Hub IoT](./media/virtual-network-support/virtual-network-ingress.png)
+![Ponto final público do IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
-Antes de continuar, verifique se os seguintes pré-requisitos foram atendidos:
+Antes de prosseguir, certifique-se de que os seguintes pré-requisitos sejam cumpridos:
 
-* O Hub IoT deve ser provisionado em uma das [regiões com suporte](#regional-availability-private-endpoints).
+* Seu hub de IoT deve ser provisionado com [identidade de serviço gerenciada](#create-an-iot-hub-with-managed-service-identity).
 
-* Você provisionou uma VNET do Azure com uma sub-rede na qual o ponto de extremidade privado será criado. Consulte [criar uma rede virtual usando CLI do Azure](../virtual-network/quick-create-cli.md) para obter mais detalhes.
+* Seu hub de IoT deve ser provisionado em uma das [regiões suportadas.](#regional-availability-private-endpoints)
 
-* Para dispositivos que operam dentro de redes locais, configure a [VPN (rede virtual privada)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou o emparelhamento privado do [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) em sua VNET do Azure.
+* Você forneceu um VNET do Azure com uma sub-rede na qual o ponto final privado será criado. Consulte [criar uma rede virtual usando o Azure CLI](../virtual-network/quick-create-cli.md) para obter mais detalhes.
+
+* Para dispositivos que operam dentro de redes locais, configure [a Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou a [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering em seu Azure VNET.
 
 
-### <a name="regional-availability-private-endpoints"></a>Disponibilidade regional (pontos de extremidade privados)
+### <a name="regional-availability-private-endpoints"></a>Disponibilidade regional (pontos finais privados)
 
-Pontos de extremidade privados com suporte no Hub IoT criado nas seguintes regiões:
+Pontos finais privados suportados no IoT Hub's criado nas seguintes regiões:
 
 * Leste dos EUA
 
@@ -73,50 +75,50 @@ Pontos de extremidade privados com suporte no Hub IoT criado nas seguintes regi�
 * Oeste dos EUA 2
 
 
-### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Configurar um ponto de extremidade privado para a entrada do Hub IoT
+### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Configure um ponto final privado para a ingestão do IoT Hub
 
-Para configurar um ponto de extremidade privado, siga estas etapas:
+Para configurar um ponto final privado, siga estas etapas:
 
-1. Execute o seguinte comando CLI do Azure para registrar novamente o provedor de Hub IoT do Azure com sua assinatura:
+1. Execute o seguinte comando Azure CLI para recadastrar o provedor Azure IoT Hub com sua assinatura:
 
     ```azurecli-interactive
     az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
     ```
 
-2. Navegue até a guia **conexões de ponto de extremidade privado** no portal do Hub IOT (essa guia só está disponível para os hubs IOT nas [regiões com suporte](#regional-availability-private-endpoints)) e clique no sinal de **+** para adicionar um novo ponto de extremidade privado.
+2. Navegue até a guia **Conexões de ponto final Privado** em seu portal IoT Hub (esta guia só está disponível para em Hubs IoT nas [regiões suportadas)](#regional-availability-private-endpoints)e clique no **+** sinal para adicionar um novo ponto final privado.
 
-3. Forneça a assinatura, o grupo de recursos, o nome e a região para criar o novo ponto de extremidade privado (idealmente, o ponto de extremidade privado deve ser criado na mesma região que o Hub; consulte a [seção disponibilidade regional](#regional-availability-private-endpoints) para obter mais detalhes).
+3. Forneça a assinatura, o grupo de recursos, o nome e a região para criar o novo endpoint privado (idealmente, o ponto final privado deve ser criado na mesma região que o seu hub; consulte a [seção de disponibilidade regional](#regional-availability-private-endpoints) para obter mais detalhes).
 
-4. Clique em **Avançar: recurso**e forneça a assinatura para o recurso do Hub IOT e selecione **"Microsoft. Devices/IotHubs"** como tipo de recurso, o nome do Hub IOT como **recurso**e **iotHub** como um subrecurso de destino.
+4. Clique **em Next: Resource**e forneça a assinatura do seu recurso ioT Hub e selecione **"Microsoft.Devices/IotHubs"** como tipo de recurso, seu nome IoT Hub como **recurso**e **iotHub** como sub-recurso de destino.
 
-5. Clique em **Avançar: configuração** e forneça sua rede virtual e sub-rede para criar o ponto de extremidade privado no. Selecione a opção para integrar com a zona DNS privada do Azure, se desejado.
+5. Clique **em Next: Configuração** e forneça sua rede virtual e sub-rede para criar o ponto final privado. Selecione a opção de integração com a zona DNS privada do Azure, se desejar.
 
-6. Clique em **Avançar: marcas**e, opcionalmente, forneça todas as marcas para o recurso.
+6. Clique **em Next: Tags**e, opcionalmente, forneça quaisquer tags para o seu recurso.
 
-7. Clique em **revisar + criar** para criar seu recurso de ponto de extremidade privado.
+7. Clique **em 'Revisar + criar** para criar seu recurso de ponto final privado'.
 
 
-### <a name="pricing-private-endpoints"></a>Preços (pontos de extremidade privados)
+### <a name="pricing-private-endpoints"></a>Preços (pontos finais privados)
 
 Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link).
 
 
-## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Conectividade de saída do Hub IoT para outros recursos do Azure
+## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Conectividade de saída do IoT Hub para outros recursos do Azure
 
-O Hub IoT precisa de acesso ao armazenamento de BLOBs do Azure, aos hubs de eventos, aos recursos do barramento de serviço para [Roteamento de mensagens](./iot-hub-devguide-messages-d2c.md), [carregamento de arquivos](./iot-hub-devguide-file-upload.md)e [importação/exportação de dispositivos em massa](./iot-hub-bulk-identity-mgmt.md), que normalmente ocorre no ponto de extremidade público dos recursos. Caso você associe sua conta de armazenamento, hubs de eventos ou recurso do barramento de serviço a uma VNET, a configuração aconselhada bloqueará a conectividade com o recurso por padrão. Consequentemente, isso impedirá a funcionalidade do Hub IoT que exige acesso a esses recursos.
+O IoT Hub precisa ter acesso ao armazenamento de blob do Azure, hubs de eventos, recursos de barramento de serviço para [roteamento de mensagens,](./iot-hub-devguide-messages-d2c.md) [upload de arquivos](./iot-hub-devguide-file-upload.md)e [importação/exportação de dispositivos em massa,](./iot-hub-bulk-identity-mgmt.md)que normalmente ocorre sobre o ponto final público dos recursos. No caso de você vincular sua conta de armazenamento, hubs de eventos ou recurso de barramento de serviço a um VNET, a configuração aconselhada bloqueará a conectividade com o recurso por padrão. Consequentemente, isso impedirá a funcionalidade do IoT Hub, que requer acesso a esses recursos.
 
-Para aliviar essa situação, você precisa habilitar a conectividade do seu recurso de Hub IoT para sua conta de armazenamento, hubs de eventos ou recursos de barramento de serviço por meio da opção de **serviços confiáveis de primeira parte do Azure** .
+Para aliviar essa situação, você precisa ativar a conectividade do recurso IoT Hub para sua conta de armazenamento, hubs de eventos ou recursos de barramento de serviço através da opção **de serviços confiáveis do Azure.**
 
 Os pré-requisitos são os seguintes:
 
-* O Hub IoT deve ser provisionado em uma das [regiões com suporte](#regional-availability-trusted-microsoft-first-party-services).
+* Seu hub de IoT deve ser provisionado em uma das [regiões suportadas.](#regional-availability-trusted-microsoft-first-party-services)
 
-* O Hub IoT deve ser atribuído a uma identidade de serviço gerenciada no tempo de provisionamento do Hub. Siga a instrução sobre como [criar um hub com a identidade de serviço gerenciada](#create-a-hub-with-managed-service-identity).
+* Seu IoT Hub deve ser atribuído a uma identidade de serviço gerenciada no tempo de provisionamento do hub. Siga instruções sobre como [criar um hub com identidade de serviço gerenciada.](#create-an-iot-hub-with-managed-service-identity)
 
 
-### <a name="regional-availability-trusted-microsoft-first-party-services"></a>Disponibilidade regional (serviços de terceiros da Microsoft confiáveis)
+### <a name="regional-availability-trusted-microsoft-first-party-services"></a>Disponibilidade regional (serviços confiáveis do primeiro grupo da Microsoft)
 
-A exceção de serviços de primeira parte confiável do Azure para ignorar as restrições de firewall para o armazenamento do Azure, os hubs de eventos e os recursos do barramento de serviço tem suporte apenas para hubs IoT nas seguintes regiões:
+A exceção de serviços de primeira parte confiável do Azure para contornar as restrições de firewall ao armazenamento do Azure, hubs de eventos e recursos de barramento de serviço só é suportado para Hubs IoT nas seguintes regiões:
 
 * Leste dos EUA
 
@@ -125,170 +127,180 @@ A exceção de serviços de primeira parte confiável do Azure para ignorar as r
 * Oeste dos EUA 2
 
 
-### <a name="pricing-trusted-microsoft-first-party-services"></a>Preços (serviços de terceiros da Microsoft confiáveis)
+### <a name="pricing-trusted-microsoft-first-party-services"></a>Preços (serviços confiáveis da Microsoft first party)
 
-O recurso de exceção de serviços de terceiros da Microsoft confiável é gratuito em hubs IoT nas [regiões com suporte](#regional-availability-trusted-microsoft-first-party-services). Os encargos das contas de armazenamento provisionadas, dos hubs de eventos ou dos recursos do barramento de serviço se aplicam separadamente.
+O recurso de exceção de serviços de primeira parte confiável da Microsoft é gratuito em Hubs de IoT nas [regiões suportadas](#regional-availability-trusted-microsoft-first-party-services). Os encargos para as contas de armazenamento provisionadas, hubs de eventos ou recursos de barramento de serviço são aplicados separadamente.
 
 
-### <a name="create-a-hub-with-managed-service-identity"></a>Criar um hub com identidade de serviço gerenciada
+### <a name="create-an-iot-hub-with-managed-service-identity"></a>Crie um hub de IoT com identidade de serviço gerenciada
 
-Uma identidade de serviço gerenciada pode ser atribuída ao seu Hub no momento do provisionamento de recursos (atualmente, não há suporte para esse recurso em hubs existentes). Para essa finalidade, você precisa usar o modelo de recurso ARM abaixo:
+Uma identidade de serviço gerenciada pode ser atribuída ao seu hub no tempo de provisionamento de recursos (esse recurso não é suportado atualmente para hubs existentes), o que exige que o hub IoT use o TLS 1.2 como a versão mínima. Para isso, você precisa usar o modelo de recurso ARM abaixo:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Devices/IotHubs",
-            "apiVersion": "2020-03-01",
-            "name": "<provide-a-valid-resource-name>",
-            "location": "<any-of-supported-regions>",
-            "identity": { "type": "SystemAssigned" },
-            "properties": { "minTlsVersion": "1.2" },
-            "sku": {
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "minTlsVersion": "1.2"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "properties": {
+                "minTlsVersion": "1.2"
+              },
+              "sku": {
                 "name": "<your-hubs-SKU-name>",
                 "tier": "<your-hubs-SKU-tier>",
                 "capacity": 1
+              }
             }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-02-01",
-            "name": "updateIotHubWithKeyEncryptionKey",
-            "dependsOn": [ "<provide-a-valid-resource-name>" ],
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "0.9.0.0",
-                    "resources": [
-                        {
-                            "type": "Microsoft.Devices/IotHubs",
-                            "apiVersion": "2020-03-01",
-                            "name": "<provide-a-valid-resource-name>",
-                            "location": "<any-of-supported-regions>",
-                            "identity": { "type": "SystemAssigned" },
-                            "properties": { "minTlsVersion": "1.2" },
-                            "sku": {
-                                "name": "<your-hubs-SKU-name>",
-                                "tier": "<your-hubs-SKU-tier>",
-                                "capacity": 1
-                            }
-                        }
-                    ]
-                }
-            }
+          ]
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
-Depois de substituir os valores do `name`de recursos, `location`, `SKU.name` e `SKU.tier`, você pode usar CLI do Azure para implantar o recurso em um grupo de recursos existente usando:
+Depois de substituir os `name`valores pelo seu recurso, `location` `SKU.name` e, `SKU.tier`você pode usar o Azure CLI para implantar o recurso em um grupo de recursos existente usando:
 
 ```azurecli-interactive
 az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
-Depois que o recurso for criado, você poderá recuperar a identidade de serviço gerenciada atribuída ao seu hub usando CLI do Azure:
+Depois que o recurso é criado, você pode recuperar a identidade de serviço gerenciada atribuída ao seu hub usando o Azure CLI:
 
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
 ```
 
-Depois que o Hub IoT com uma identidade de serviço gerenciada for provisionado, siga a seção correspondente para configurar pontos de extremidade de roteamento para [contas de armazenamento](#egress-connectivity-to-storage-account-endpoints-for-routing), [hubs de eventos](#egress-connectivity-to-event-hubs-endpoints-for-routing)e recursos de barramento de [serviço](#egress-connectivity-to-service-bus-endpoints-for-routing) ou para configurar o [upload de arquivo](#egress-connectivity-to-storage-accounts-for-file-upload) e [importação/exportação de dispositivo em massa](#egress-connectivity-to-storage-accounts-for-bulk-device-importexport).
+Uma vez que o IoT Hub com uma identidade de serviço gerenciada seja provisionado, siga a seção correspondente para configurar pontos finais de roteamento para [contas de armazenamento,](#egress-connectivity-to-storage-account-endpoints-for-routing) [hubs de eventos](#egress-connectivity-to-event-hubs-endpoints-for-routing)e recursos de [barramento](#egress-connectivity-to-service-bus-endpoints-for-routing) de serviço ou para configurar [o upload de arquivos](#egress-connectivity-to-storage-accounts-for-file-upload) e [importação/exportação de dispositivos em massa.](#egress-connectivity-to-storage-accounts-for-bulk-device-importexport)
 
 
-### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Conectividade de saída para pontos de extremidade da conta de armazenamento para roteamento
+### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Conectividade de egresso aos pontos finais da conta de armazenamento para roteamento
 
-O Hub IoT pode ser configurado para rotear mensagens para uma conta de armazenamento de Propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse uma conta de armazenamento enquanto as restrições de firewall estão em vigor, o Hub IoT precisa ter uma identidade de serviço gerenciada (consulte como [criar um hub com a identidade de serviço gerenciada](#create-a-hub-with-managed-service-identity)). Depois que uma identidade de serviço gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar sua conta de armazenamento.
+O IoT Hub pode ser configurado para direcionar mensagens para uma conta de armazenamento de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse uma conta de armazenamento enquanto as restrições de firewall estão em vigor, seu IoT Hub precisa ter uma identidade de serviço gerenciada (veja como [criar um hub com identidade de serviço gerenciada).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerenciada seja provisionada, siga as etapas abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para acessar sua conta de armazenamento.
 
-1. Na portal do Azure, navegue até a guia controle de acesso da conta de armazenamento **(iam)** e clique em **Adicionar** na seção **Adicionar uma atribuição de função** .
+1. No portal Azure, navegue até a guia De controle de **acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na seção Adicionar uma função **de atribuição.**
 
-2. Selecione **colaborador de dados de armazenamento de blob** como **função**, **usuário do Azure AD, grupo ou entidade de serviço** , como **atribuir acesso ao** e selecione o nome do recurso do Hub IOT na lista suspensa. Clique no botão **Salvar**.
+2. Selecione **O contribuinte de dados blob de armazenamento** como **função,** usuário, grupo ou principal de serviço do **Azure AD** como **Atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de paradas. Clique no botão **Salvar**.
 
-3. Navegue até a guia **firewalls e redes virtuais** na sua conta de armazenamento e habilite a opção **permitir acesso de redes selecionadas** . Na lista **exceções** , marque a caixa **permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento**. Clique no botão **Salvar**.
+3. Navegue até a guia **Firewalls e redes virtuais** em sua conta de armazenamento e habilite permitir o acesso a partir da opção **de redes selecionadas.** Na lista **Exceções,** verifique a caixa para **permitir que serviços confiáveis da Microsoft acessem essa conta de armazenamento**. Clique no botão **Salvar**.
 
-4. Na página de recursos do Hub IoT, navegue até a guia **Roteamento de mensagens** .
+4. Na página de recursos do seu IoT Hub, navegue até a guia **de roteamento de mensagens.**
 
-5. Navegue até a seção **pontos de extremidade personalizados** e clique em **Adicionar**. Selecione **armazenamento** como o tipo de ponto de extremidade.
+5. Navegue até a seção **Pontos finais personalizados** e clique **em Adicionar**. Selecione **Armazenamento** como o tipo de ponto final.
 
-6. Na página que aparece, forneça um nome para o ponto de extremidade, selecione o contêiner que você pretende usar no armazenamento de BLOBs, forneça a codificação e o formato de nome de arquivo. Selecione **sistema atribuído** como o **tipo de autenticação** para o ponto de extremidade de armazenamento. Clique no botão **Criar**.
+6. Na página que aparece, forneça um nome para o seu ponto final, selecione o contêiner que você pretende usar no armazenamento blob, forneça codificação e formato de nome do arquivo. Selecione **Sistema Atribuído** como o **tipo de autenticação** ao ponto final do armazenamento. Clique no botão **Criar**.
 
-Agora seu ponto de extremidade de armazenamento personalizado está configurado para usar a identidade atribuída pelo sistema do Hub e tem permissão para acessar seu recurso de armazenamento, apesar de suas restrições de firewall. Agora você pode usar esse ponto de extremidade para configurar uma regra de roteamento.
-
-
-### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Conectividade de saída para pontos de extremidade de hubs de eventos para roteamento
-
-O Hub IoT pode ser configurado para rotear mensagens para um namespace de hubs de eventos de Propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso de hubs de eventos enquanto as restrições de firewall estiverem em vigor, o Hub IoT precisará ter uma identidade de serviço gerenciada (consulte como [criar um hub com a identidade de serviço gerenciada](#create-a-hub-with-managed-service-identity)). Depois que uma identidade de serviço gerenciada for provisionada, siga as etapas abaixo para conceder permissão RBAC à identidade de recurso do hub para acessar seus hubs de eventos.
-
-1. Na portal do Azure, navegue até a guia **iam (controle de acesso** dos hubs de eventos) e clique em **Adicionar** na seção **Adicionar uma atribuição de função** .
-
-2. Selecione os **hubs de eventos remetente de dados** como **função**, **usuário do Azure AD, grupo ou entidade de serviço** , como **atribuir acesso ao** e selecione o nome do recurso do Hub IOT na lista suspensa. Clique no botão **Salvar**.
-
-3. Navegue até a guia **firewalls e redes virtuais** em seus hubs de eventos e habilite a opção **permitir acesso de redes selecionadas** . Na lista **exceções** , marque a caixa **permitir que os serviços confiáveis da Microsoft acessem os hubs de eventos**. Clique no botão **Salvar**.
-
-4. Na página de recursos do Hub IoT, navegue até a guia **Roteamento de mensagens** .
-
-5. Navegue até a seção **pontos de extremidade personalizados** e clique em **Adicionar**. Selecione **hubs de eventos** como o tipo de ponto de extremidade.
-
-6. Na página que aparece, forneça um nome para o ponto de extremidade, selecione o namespace e a instância dos hubs de eventos e clique no botão **criar** .
-
-Agora seu ponto de extremidade de hubs de eventos personalizado está configurado para usar a identidade atribuída pelo sistema do Hub e tem permissão para acessar seu recurso de hubs de eventos, apesar de suas restrições de firewall. Agora você pode usar esse ponto de extremidade para configurar uma regra de roteamento.
+Agora, seu ponto final de armazenamento personalizado está configurado para usar a identidade atribuída ao sistema do seu hub, e ele tem permissão para acessar seu recurso de armazenamento, apesar de suas restrições de firewall. Agora você pode usar este ponto final para configurar uma regra de roteamento.
 
 
-### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Conectividade de saída para pontos de extremidade do barramento de serviço para roteamento
+### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Conectividade de saída para hubs de eventos para roteamento
 
-O Hub IoT pode ser configurado para rotear mensagens para um namespace do barramento de serviço de Propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso do barramento de serviço enquanto as restrições de firewall estiverem em vigor, o Hub IoT precisará ter uma identidade de serviço gerenciada (consulte como [criar um hub com a identidade de serviço gerenciada](#create-a-hub-with-managed-service-identity)). Depois que uma identidade de serviço gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar o barramento de serviço.
+O IoT Hub pode ser configurado para direcionar mensagens para um namespace de hubs de eventos de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso de hubs de eventos enquanto as restrições de firewall estão em vigor, seu IoT Hub precisa ter uma identidade de serviço gerenciada (veja como [criar um hub com identidade de serviço gerenciada).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerenciada seja provisionada, siga as etapas abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para acessar seus hubs de eventos.
 
-1. Na portal do Azure, navegue até a guia controle de acesso do barramento de serviço **(iam)** e clique em **Adicionar** na seção **Adicionar uma atribuição de função** .
+1. No portal Azure, navegue até a guia **de controle de acesso (IAM)** dos hubs de eventos e clique em **Adicionar** na seção Adicionar uma função **de atribuição.**
 
-2. Selecione o **remetente de dados do barramento de serviço** como **função**, **usuário do Azure AD, grupo ou entidade de serviço** , como **atribuir acesso ao** e selecionar o nome do recurso do Hub IOT na lista suspensa. Clique no botão **Salvar**.
+2. Selecione **o Remetente de Dados do Event Hubs** como **função,** usuário, grupo ou principal de serviço do **Azure** Como **Atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de paradas. Clique no botão **Salvar**.
 
-3. Navegue até a guia **firewalls e redes virtuais** em seu barramento de serviço e habilite a opção **permitir acesso de redes selecionadas** . Na lista **exceções** , marque a caixa **permitir que serviços confiáveis da Microsoft acessem este barramento de serviço**. Clique no botão **Salvar**.
+3. Navegue até a guia **Firewalls e redes virtuais** em seus hubs de eventos e habilite permitir o acesso a partir da opção **de redes selecionadas.** Na lista **Exceções,** verifique a caixa para **permitir que serviços confiáveis da Microsoft acessem hubs de eventos**. Clique no botão **Salvar**.
 
-4. Na página de recursos do Hub IoT, navegue até a guia **Roteamento de mensagens** .
+4. Na página de recursos do seu IoT Hub, navegue até a guia **de roteamento de mensagens.**
 
-5. Navegue até a seção **pontos de extremidade personalizados** e clique em **Adicionar**. Selecione o tópico **fila do barramento de serviço** ou barramento de **serviço** (conforme aplicável) como o tipo de ponto de extremidade.
+5. Navegue até a seção **Pontos finais personalizados** e clique **em Adicionar**. Selecione **os hubs de evento** como o tipo de ponto final.
 
-6. Na página exibida, forneça um nome para o ponto de extremidade, selecione o namespace e a fila ou o tópico do barramento de serviço (conforme aplicável). Clique no botão **Criar**.
+6. Na página que aparece, forneça um nome para o seu ponto final, selecione o namespace e a instância dos hubs de eventos e clique no botão **Criar.**
 
-Agora o ponto de extremidade do barramento de serviço personalizado está configurado para usar a identidade atribuída pelo sistema do Hub e tem permissão para acessar o recurso do barramento de serviço, apesar de suas restrições de firewall. Agora você pode usar esse ponto de extremidade para configurar uma regra de roteamento.
-
-
-### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Conectividade de saída para contas de armazenamento para upload de arquivo
-
-O recurso de upload de arquivo do Hub IoT permite que os dispositivos carreguem arquivos para uma conta de armazenamento de Propriedade do cliente. Para permitir que o upload do arquivo funcione, os dispositivos e o Hub IoT precisam ter conectividade com a conta de armazenamento. Se as restrições de firewall estiverem em vigor na conta de armazenamento, os dispositivos precisarão usar qualquer um dos mecanismos da conta de armazenamento com suporte (incluindo [pontos de extremidade privados](../private-link/create-private-endpoint-storage-portal.md), [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) ou configuração de [Firewall direto](../storage/common/storage-network-security.md)) para obter conectividade. Da mesma forma, se as restrições de firewall estiverem em vigor na conta de armazenamento, o Hub IoT precisará ser configurado para acessar o recurso de armazenamento por meio da exceção de serviços confiáveis da Microsoft. Para essa finalidade, o Hub IoT deve ter uma identidade de serviço gerenciada (consulte como [criar um hub com a identidade de serviço gerenciada](#create-a-hub-with-managed-service-identity)). Depois que uma identidade de serviço gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar sua conta de armazenamento.
-
-1. Na portal do Azure, navegue até a guia controle de acesso da conta de armazenamento **(iam)** e clique em **Adicionar** na seção **Adicionar uma atribuição de função** .
-
-2. Selecione **colaborador de dados de armazenamento de blob** como **função**, **usuário do Azure AD, grupo ou entidade de serviço** , como **atribuir acesso ao** e selecione o nome do recurso do Hub IOT na lista suspensa. Clique no botão **Salvar**.
-
-3. Navegue até a guia **firewalls e redes virtuais** na sua conta de armazenamento e habilite a opção **permitir acesso de redes selecionadas** . Na lista **exceções** , marque a caixa **permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento**. Clique no botão **Salvar**.
-
-4. Na página de recursos do Hub IoT, navegue até a guia **upload de arquivo** .
-
-5. Na página exibida, selecione o contêiner que você pretende usar em seu armazenamento de BLOBs, defina as configurações de **notificação de arquivo**, **TTL SAS**, **TTL padrão** e **contagem máxima de entrega** conforme desejado. Selecione **sistema atribuído** como o **tipo de autenticação** para o ponto de extremidade de armazenamento. Clique no botão **Criar**.
-
-Agora seu ponto de extremidade de armazenamento para upload de arquivo está configurado para usar a identidade atribuída pelo sistema do Hub e tem permissão para acessar seu recurso de armazenamento, apesar de suas restrições de firewall.
+Agora, o ponto final dos hubs de eventos personalizados está configurado para usar a identidade atribuída ao sistema do seu hub, e ele tem permissão para acessar o recurso de hubs de eventos, apesar de suas restrições de firewall. Agora você pode usar este ponto final para configurar uma regra de roteamento.
 
 
-### <a name="egress-connectivity-to-storage-accounts-for-bulk-device-importexport"></a>Conectividade de saída para contas de armazenamento para importação/exportação de dispositivos em massa
+### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Conectividade de saída para pontos finais de ônibus de serviço para roteamento
 
-O Hub IoT dá suporte à funcionalidade para [importar/exportar](./iot-hub-bulk-identity-mgmt.md) informações de dispositivos em massa de/para um blob de armazenamento fornecido pelo cliente. Para permitir que o recurso de importação/exportação em massa funcione, ambos os dispositivos e o Hub IoT precisam ter conectividade com a conta de armazenamento.
+O IoT Hub pode ser configurado para encaminhar mensagens para um namespace de barramento de serviço de propriedade do cliente. Para permitir que a funcionalidade de roteamento acesse um recurso de barramento de serviço enquanto as restrições de firewall estão em vigor, seu IoT Hub precisa ter uma identidade de serviço gerenciada (veja como [criar um hub com identidade de serviço gerenciada).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerenciada seja provisionada, siga as etapas abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para acessar seu barramento de serviço.
 
-Essa funcionalidade requer conectividade do Hub IoT para a conta de armazenamento. Para acessar um recurso do barramento de serviço enquanto as restrições de firewall estiverem em vigor, o Hub IoT precisará ter uma identidade de serviço gerenciada (consulte como [criar um hub com a identidade de serviço gerenciada](#create-a-hub-with-managed-service-identity)). Depois que uma identidade de serviço gerenciada for provisionada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar o barramento de serviço.
+1. No portal Azure, navegue até a guia **De controle de acesso (IAM)** do seu barramento de serviço e clique em **Adicionar** na seção Adicionar uma função **de atribuição.**
 
-1. Na portal do Azure, navegue até a guia controle de acesso da conta de armazenamento **(iam)** e clique em **Adicionar** na seção **Adicionar uma atribuição de função** .
+2. Selecione **O Remetente de Dados de Barra de Serviço** como **função,** usuário, grupo ou principal de serviço do **Azure** Como **Atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de paradas. Clique no botão **Salvar**.
 
-2. Selecione **colaborador de dados de armazenamento de blob** como **função**, **usuário do Azure AD, grupo ou entidade de serviço** , como **atribuir acesso ao** e selecione o nome do recurso do Hub IOT na lista suspensa. Clique no botão **Salvar**.
+3. Navegue até a guia **Firewalls e redes virtuais** em seu barramento de serviço e habilite permitir o acesso a partir da opção **de redes selecionadas.** Na lista **Exceções,** verifique a caixa para **permitir que serviços confiáveis da Microsoft acessem este barramento de serviço**. Clique no botão **Salvar**.
 
-3. Navegue até a guia **firewalls e redes virtuais** na sua conta de armazenamento e habilite a opção **permitir acesso de redes selecionadas** . Na lista **exceções** , marque a caixa **permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento**. Clique no botão **Salvar**.
+4. Na página de recursos do seu IoT Hub, navegue até a guia **de roteamento de mensagens.**
 
-Agora você pode usar a API REST do Azure IoT para [criar trabalhos de exportação de importação](https://docs.microsoft.com/rest/api/iothub/jobclient/getimportexportjobs) para obter informações sobre como usar a funcionalidade de importação/exportação em massa. Observe que você precisará fornecer o `storageAuthenticationType="identityBased"` no seu corpo de solicitação e usar `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` como a URL de entrada e saída da sua conta de armazenamento, respectivamente.
+5. Navegue até a seção **Pontos finais personalizados** e clique **em Adicionar**. Selecione **a fila de barramento de serviço** ou o tópico de **barramento de serviço** (conforme aplicável) como o tipo de ponto final.
+
+6. Na página que aparece, forneça um nome para o seu ponto final, selecione o espaço de nome do seu barramento de serviço e a fila ou tópico (conforme aplicável). Clique no botão **Criar**.
+
+Agora, o ponto final do seu ponto final de barramento de serviço personalizado está configurado para usar a identidade atribuída ao sistema do seu hub, e ele tem permissão para acessar seu recurso de barramento de serviço, apesar de suas restrições de firewall. Agora você pode usar este ponto final para configurar uma regra de roteamento.
 
 
-O SDK do Hub IoT do Azure também dá suporte a essa funcionalidade no Gerenciador de registro do cliente de serviço. O trecho de código a seguir mostra como iniciar um trabalho de importação ou de exportação no C# usando o SDK do.
+### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Conectividade de saída para contas de armazenamento para upload de arquivos
+
+O recurso de upload de arquivos do IoT Hub permite que os dispositivos carreguem arquivos para uma conta de armazenamento de propriedade do cliente. Para permitir que o upload do arquivo funcione, tanto os dispositivos quanto o IoT Hub precisam ter conectividade com a conta de armazenamento. Se as restrições de firewall estiverem em vigor na conta de armazenamento, seus dispositivos precisarão usar qualquer mecanismo da conta de armazenamento suportado (incluindo [pontos finais privados,](../private-link/create-private-endpoint-storage-portal.md) [pontos finais de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) ou [configuração de firewall direto)](../storage/common/storage-network-security.md)para obter conectividade. Da mesma forma, se as restrições de firewall estiverem em vigor na conta de armazenamento, o IoT Hub precisa ser configurado para acessar o recurso de armazenamento através da exceção confiável dos serviços da Microsoft. Para isso, seu IoT Hub deve ter uma identidade de serviço gerenciada (veja como [criar um hub com identidade de serviço gerenciada).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerenciada seja provisionada, siga as etapas abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para acessar sua conta de armazenamento.
+
+1. No portal Azure, navegue até a guia De controle de **acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na seção Adicionar uma função **de atribuição.**
+
+2. Selecione **O contribuinte de dados blob de armazenamento** como **função,** usuário, grupo ou principal de serviço do **Azure AD** como **Atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de paradas. Clique no botão **Salvar**.
+
+3. Navegue até a guia **Firewalls e redes virtuais** em sua conta de armazenamento e habilite permitir o acesso a partir da opção **de redes selecionadas.** Na lista **Exceções,** verifique a caixa para **permitir que serviços confiáveis da Microsoft acessem essa conta de armazenamento**. Clique no botão **Salvar**.
+
+4. Na página de recursos do seu IoT Hub, navegue até a guia **De upload de arquivo.**
+
+5. Na página que aparece, selecione o contêiner que você pretende usar no armazenamento blob, configure as **configurações de notificação de arquivo,** **SAS TTL,** **TTL padrão** e **contagem máxima de entrega** conforme desejado. Selecione **Sistema Atribuído** como o **tipo de autenticação** ao ponto final do armazenamento. Clique no botão **Criar**.
+
+Agora, seu ponto final de armazenamento para upload de arquivos está configurado para usar a identidade atribuída ao sistema do seu hub, e ele tem permissão para acessar seu recurso de armazenamento, apesar de suas restrições de firewall.
+
+
+### <a name="egress-connectivity-to-storage-accounts-for-bulk-device-importexport"></a>Egress a conectividade com as contas de armazenamento para importação/exportação de dispositivos a granel
+
+O IoT Hub oferece suporte à funcionalidade de [importar/exportar](./iot-hub-bulk-identity-mgmt.md) informações de dispositivos em massa a partir de/para um blob de armazenamento fornecido pelo cliente. Para permitir que o recurso de importação/exportação em massa funcione, tanto os dispositivos quanto o IoT Hub precisam ter conectividade com a conta de armazenamento.
+
+Essa funcionalidade requer conectividade do IoT Hub à conta de armazenamento. Para acessar um recurso de barramento de serviço enquanto as restrições de firewall estão em vigor, seu IoT Hub precisa ter uma identidade de serviço gerenciada (veja como [criar um hub com identidade de serviço gerenciada).](#create-an-iot-hub-with-managed-service-identity) Uma vez que uma identidade de serviço gerenciada seja provisionada, siga as etapas abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para acessar seu barramento de serviço.
+
+1. No portal Azure, navegue até a guia De controle de **acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na seção Adicionar uma função **de atribuição.**
+
+2. Selecione **O contribuinte de dados blob de armazenamento** como **função,** usuário, grupo ou principal de serviço do **Azure AD** como **Atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de paradas. Clique no botão **Salvar**.
+
+3. Navegue até a guia **Firewalls e redes virtuais** em sua conta de armazenamento e habilite permitir o acesso a partir da opção **de redes selecionadas.** Na lista **Exceções,** verifique a caixa para **permitir que serviços confiáveis da Microsoft acessem essa conta de armazenamento**. Clique no botão **Salvar**.
+
+Agora você pode usar as API's Azure IoT REST para [criar empregos de exportação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) de importação para obter informações sobre como usar a funcionalidade de importação/exportação em massa. Observe que você precisará `storageAuthenticationType="identityBased"` fornecer o corpo `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` o uso em sua solicitação e como URL de entrada e saída da sua conta de armazenamento, respectivamente.
+
+
+O Azure IoT Hub SDK's também suporta essa funcionalidade no gerenciador de registro do cliente de serviço. O trecho de código a seguir mostra como iniciar um trabalho de importação ou exportação usando o C# SDK.
 
 ```csharp
 // Call an import job on the IoT Hub
@@ -305,32 +317,29 @@ await registryManager.ExportDevicesAsync(
 ```
 
 
-Para usar esta versão limitada por região dos SDKs do IoT do Azure com suporte VNET C#para, Java e node. js:
+Para usar esta versão limitada da região dos SDKs Azure IoT com suporte a rede virtual para C#, Java e Node.js:
 
-1. Crie uma variável de ambiente chamada `EnableStorageIdentity` e defina seu valor como `1`.
+1. Crie uma variável `EnableStorageIdentity` de ambiente `1`nomeada e defina seu valor para .
 
-2. Baixe o SDK:
-    - > [Java](https://aka.ms/vnetjavasdk)
-    - > [C#](https://aka.ms/vnetcsharsdk)
-    - > [Node.js](https://aka.ms/vnetnodesdk)
+2. Baixe o SDK: [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node.js](https://aka.ms/vnetnodesdk)
  
-Para o Python, baixe nossa versão limitada do github.
+Para Python, baixe nossa versão limitada do GitHub.
 
-1. Navegue até a [página de versão do GitHub](https://aka.ms/vnetpythonsdk).
+1. Navegue até a página de versão do [GitHub](https://aka.ms/vnetpythonsdk).
 
-2. Baixe o arquivo a seguir, que você encontrará na parte inferior da página de versão sob o cabeçalho chamado **ativos**.
-    > *azure_iot_hub-2.2.0. Limited-PY2. PY3-None-any. WHL*
+2. Baixe o arquivo a seguir, que você encontrará na parte inferior da página de versão o cabeçalho chamado **ativos**.
+    > *azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl*
 
 3. Abra um terminal e navegue até a pasta com o arquivo baixado.
 
-4. Execute o seguinte comando para instalar o SDK do serviço Python com suporte para VNETs:
-    > instalação de Pip./azure_iot_hub-2.2.0. Limited-PY2. PY3-None-any. WHL
+4. Execute o seguinte comando para instalar o SDK do Serviço Python com suporte para redes virtuais:
+    > instalação pip ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Use os links abaixo para saber mais sobre os recursos do Hub IoT:
+Use os links abaixo para saber mais sobre os recursos do IoT Hub:
 
-* [Roteamento de mensagens](./iot-hub-devguide-messages-d2c.md)
-* [Upload de arquivo](./iot-hub-devguide-file-upload.md)
-* [Importação/exportação de dispositivo em massa](./iot-hub-bulk-identity-mgmt.md) 
+* [Roteamento de mensagem](./iot-hub-devguide-messages-d2c.md)
+* [Upload de arquivos](./iot-hub-devguide-file-upload.md)
+* [Importação/exportação de dispositivos a granel](./iot-hub-bulk-identity-mgmt.md) 

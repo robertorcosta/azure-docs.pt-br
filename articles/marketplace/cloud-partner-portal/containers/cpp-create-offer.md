@@ -1,19 +1,18 @@
 ---
-title: Criar uma oferta de contêineres do Azure | Azure Marketplace
+title: Crie uma oferta de contêineres Azure | Mercado Azure
 description: Como publicar um novo contêiner para o Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: a9766f234b074fd259eeb7bcc184573e21e390a7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d2a18d0fee4352cd88e4c64ab99a7dfc1b08ed75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823214"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280075"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Criar uma nova oferta de contêiner com o Portal do Cloud Partner
 
@@ -36,7 +35,7 @@ Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com/)e, em seguida
 
 A página **Nova Oferta** para o tipo de oferta de contêiner fornece um conjunto de guias e campos de formulário que você usará para criar uma nova oferta. Cada um dos artigos a seguir explica como usar a guia para definir os grupos de ativos e serviços de suporte para sua nova oferta de contêiner.
 
-- [Guia Configurações da Oferta](./cpp-offer-settings-tab.md)
+- [Guia Configurações de oferta](./cpp-offer-settings-tab.md)
 - [Guia SKUs](./cpp-skus-tab.md)
 - [Guia Marketplace](./cpp-marketplace-tab.md)
 - [Guia Suporte](./cpp-support-tab.md)

@@ -3,27 +3,26 @@ title: Guia do desenvolvedor do Cofre da Chave do Azure
 description: Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 331e3d5855e4ea1fc18a3b638741f6297a7a27d8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a8cb0ea9fb3c6e8388271c4274baf4ecc7282cda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184665"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247224"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
 O Key Vault permite acessar com segurança informações confidenciais nos aplicativos:
 
 - As chaves e os segredos são protegidos sem que você mesmo precise escrever código e você pode usá-los facilmente em seus aplicativos.
-- Você pode fazer com que seus clientes possuam e gerenciem suas próprias chaves e se concentrar em fornecer os principais recursos do software. Dessa forma, os aplicativos não serão responsáveis ou potencialmente responsáveis pelas chaves e segredos do locatário de seus clientes.
+- Você pode fazer com que seus clientes possuam e gerenciem suas próprias chaves e se concentrar em fornecer os principais recursos do software. Desta forma, seus aplicativos não serão os donos da responsabilidade ou responsabilidade potencial pelas chaves e segredos dos seus clientes.
 - Seu aplicativo pode usar chaves para assinatura e criptografia, mas ainda manter o gerenciamento de chaves fora de seu aplicativo, permitindo que sua solução seja adequada a um aplicativo distribuído geograficamente.
-- A partir da versão de setembro de 2016 do Key Vault, seus aplicativos agora podem gerenciar certificados do Key Vault. Para obter mais informações, consulte [Sobre chaves, segredos e certificados](/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Gerenciar certificados do Cofre chave. Para obter mais informações, consulte [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md).
 
 Para obter mais informações gerais sobre o Cofre de Chaves do Azure, confira [O que é o Cofre de Chaves](key-vault-overview.md).
 
@@ -39,9 +38,14 @@ Para obter mais informações sobre identidades gerenciadas para recursos do Azu
 
 Antes de trabalhar com chaves, segredos ou certificados em seu cofre de chaves, você criará e gerenciará seu cofre de chaves por meio da CLI, do PowerShell, de Modelos do Resource Manager ou REST, conforme descrito nos seguintes artigos:
 
-- [Criar e gerenciar Cofres das Chaves com CLI](key-vault-manage-with-cli2.md)
-- [Criar e gerenciar Cofres das Chaves com PowerShell](key-vault-overview.md)
-- [Criar um cofre de chaves e adicionar um segredo por meio de um modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Criar e gerenciar Cofres das Chaves com CLI](quick-create-cli.md)
+- [Criar e gerenciar Cofres das Chaves com PowerShell](quick-create-powershell.md)
+- [Crie e gerencie os cofres-chave com a porta Azure](quick-create-portal.md)
+- [Crie e gerencie os cofres-chave com python](quick-create-python.md)
+- [Crie e gerencie cofres-chave com Java](quick-create-java.md)
+- [Crie e gerencie cofres-chave com node.js](quick-create-node.md)
+- [Criar e gerenciar cofres-chave com .NET (v4 SDK)](quick-create-net.md)
+- [Criar um cofre de chaves e adicionar um segredo por meio de um modelo do Azure Resource Manager](quick-create-template.md)
 - [Criar e gerenciar Cofres de Chaves com REST](/rest/api/keyvault/)
 
 
@@ -59,7 +63,7 @@ Todos os recursos do Key Vault são acessíveis por meio da interface REST; cofr
 
 #### <a name="net"></a>.NET
 
-[Referência da API .NET para o Keu Vault](/dotnet/api/microsoft.azure.keyvault).
+[Referência da API .NET para o Keu Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
 
 Para obter mais informações sobre a versão 2.x do SDK do .NET, consulte as [Notas de versão](key-vault-dotnet2api-release-notes.md).
 
@@ -71,24 +75,19 @@ Para obter mais informações sobre a versão 2.x do SDK do .NET, consulte as [N
 
 No Node.js, a API de gerenciamento do Key Vault e a API de objeto do Key Vault são separadas. O seguinte artigo de visão geral dá acesso a ambas. 
 
-[Módulos do Azure Key Vault para Node.js](/nodejs/api/overview/azure/key-vault)
+[Módulos do Azure Key Vault para Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
 
 #### <a name="python"></a>Python
 
-[Bibliotecas do Azure Key Vault para Python](/python/api/overview/azure/key-vault)
+[Bibliotecas do Azure Key Vault para Python](/python/api/overview/azure/key-vault?view=azure-python)
 
-#### <a name="azure-cli-2"></a>CLI 2 do Azure
+#### <a name="azure-cli"></a>CLI do Azure
 
-[CLI do Azure para Key Vault](/cli/azure/keyvault)
+[CLI do Azure para Key Vault](/cli/azure/keyvault?view=azure-cli-latest)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Azure PowerShell para Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
-
-### <a name="quickstart-guides"></a>Guias de início rápido
-
-- [Criar Cofre da Chave](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Introdução ao Key Vault em Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
+[Azure PowerShell para Key Vault](/powershell/module/az.keyvault/?view=azps-3.6.1#key_vault)
 
 ### <a name="code-examples"></a>Exemplos de código
 
@@ -118,7 +117,7 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para 
 
 Estes artigos abordam outros cenários e serviços que usam ou se integram ao Key Vault.
 
-- A [Azure Disk Encryption](../security/fundamentals/encryption-overview.md) aproveita o recurso padrão da indústria [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
+- [O Azure Disk Encryption](../security/fundamentals/encryption-overview.md) aproveita o recurso padrão do [setor BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo ao mesmo tempo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 - O [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) fornece a opção de criptografia dos dados que são armazenados na conta. Em relação ao gerenciamento de chaves, o Data Lake Store fornece dois modos para gerenciar suas chaves-mestras de criptografia (MEKs), que são necessárias para descriptografar os dados armazenados no Data Lake Store. Você também pode deixar o Data Lake Store gerenciar as MEKs para você ou optar por manter a propriedade das MEKs usando sua conta do Cofre de Chaves do Azure. Você pode especificar o modo de gerenciamento de chaves ao criar uma conta do Data Lake Store.
 - [Proteção de Informações do Azure](/azure/information-protection/plan-implement-tenant-key) permite a você gerenciar sua própria chave de locatário. Por exemplo, em vez de a Microsoft gerenciar sua chave de locatário (o padrão), você pode gerenciá-la para cumprir os regulamentos específicos que se aplicam à sua organização. Gerenciar sua própria chave de locatário também é conhecido como "traga sua própria chave", ou BYOK.
 

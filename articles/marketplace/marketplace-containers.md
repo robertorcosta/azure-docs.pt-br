@@ -2,30 +2,29 @@
 title: Guia de Publicação da Oferta de Contêineres para o Azure Marketplace
 description: Este artigo descreve os requisitos para publicar Contêineres no Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: ffdc6b22209c1d334ac7b75c7079e755a7405154
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 882d428d7a8a9b56408aaa68964fa1e36c7cc7c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823003"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277299"
 ---
 # <a name="containers-offer-publishing-guide"></a>Guia de Publicação da Oferta de Contêineres
 
 Ofertas de contêiner ajudam você a publicar sua imagem de contêiner no Azure Marketplace. Use este guia para compreender os requisitos dessa oferta. 
 
-Essas são ofertas de transação que são implantadas e cobradas pelo Marketplace. A chamada à ação que um usuário vê é "Obtenha agora."
+Essas são ofertas de transação que são implantadas e cobradas pelo Marketplace. A chamada à ação que um usuário vê é "Obtenha agora".
 
 Use o tipo de oferta de Contêiner quando a solução é uma imagem de contêiner do Docker provisionada como um serviço de contêiner do Azure baseado em Kubernetes.
 
 >[!NOTE]
->Por exemplo, um serviço de contêiner do Azure baseado em Kubernetes, como o Serviço de Kubernetes do Azure ou as Instâncias de Contêiner do Azure, a escolha de clientes do Azure para um tempo de execução de contêiner baseado em Kubernetes.  
+>Por exemplo, um serviço de contêiner do Azure baseado em Kubernetes, como o Serviço de Kubernetes do Azure ou as Instâncias de Contêiner do Azure, a escolha de clientes do Azure para um runtime de contêiner baseado em Kubernetes.  
 
 A Microsoft atualmente dá suporte a modelos de licenciamento BYOL (traga sua própria licença) e gratuito.
 

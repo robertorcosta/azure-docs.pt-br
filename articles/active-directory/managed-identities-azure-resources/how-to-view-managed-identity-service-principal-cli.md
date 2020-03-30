@@ -1,5 +1,5 @@
 ---
-title: Exibir a entidade de serviço de uma identidade gerenciada-CLI do Azure-Azure AD
+title: Ver o principal de serviço de uma identidade gerenciada - Azure CLI - Azure AD
 description: Instruções passo a passo para exibir a entidade de serviço de uma identidade gerenciada usando CLI do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fedef003c6d4143d3ad1814081d55b61d5ee020
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298692"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>Exibir a entidade de serviço de uma identidade gerenciada usando CLI do Azure
@@ -28,7 +28,7 @@ As identidades gerenciadas dos recursos do Azure fornecem aos serviços do Azure
 
 Neste artigo, você aprende como exibir a entidade de serviço de uma identidade gerenciada usando CLI do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md).
 - Caso ainda não tenha uma conta do Azure, [inscreva-se para obter uma conta gratuita](https://azure.microsoft.com/free/).

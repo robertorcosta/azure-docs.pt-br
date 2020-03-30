@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285234"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
@@ -52,11 +52,11 @@ O ciclo de vida de um dispositivo gêmeo está vinculado à [identidade do dispo
 
 Um dispositivo gêmeo é um documento JSON que inclui:
 
-* **Marcas**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcas não ficam visíveis para os aplicativos do dispositivo.
+* **Tags**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcas não ficam visíveis para os aplicativos do dispositivo.
 
 * **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração de dispositivo ou condições. O back-end da solução pode definir as propriedades desejadas e o aplicativo de dispositivo pode lê-las. O aplicativo do dispositivo também pode receber notificações de alterações nas propriedades desejadas.
 
-* **Propriedades reportadas**. Usado junto com as propriedades desejadas para sincronizar a configuração de dispositivo ou condições. O aplicativo de dispositivo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
+* **Propriedades relatadas**. Usado junto com as propriedades desejadas para sincronizar a configuração de dispositivo ou condições. O aplicativo de dispositivo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
 
 * **Propriedades de identidade do dispositivo**. A raiz do documento JSON do dispositivo gêmeo contém as propriedades somente leitura da identidade do dispositivo correspondente armazenada no [registro identidade](iot-hub-devguide-identity-registry.md).
 
@@ -119,7 +119,7 @@ No exemplo anterior, o dispositivo gêmeo contém uma propriedade `batteryLevel`
 
 ### <a name="desired-property-example"></a>Exemplo da propriedade desejada
 
-No exemplo anterior, as propriedades relatadas e desejadas do dispositivo gêmeo `telemetryConfig` são usadas pelo aplicativo do dispositivo e pelo back-end da solução para sincronizar a configuração de telemetria para o dispositivo em questão. Por exemplo:
+No exemplo anterior, as propriedades relatadas e desejadas do dispositivo gêmeo `telemetryConfig` são usadas pelo aplicativo do dispositivo e pelo back-end da solução para sincronizar a configuração de telemetria para o dispositivo em questão. Por exemplo: 
 
 1. O back-end da solução define a propriedade desejada com o valor de configuração desejado. Aqui está a parte do documento com o conjunto de propriedades desejado:
 
@@ -231,7 +231,7 @@ Além dessas operações, o back-end da solução pode:
 
 O aplicativo do dispositivo opera no dispositivo gêmeo usando as seguintes operações atômicas:
 
-* **Recuperar dispositivo gêmeo**. Esta operação retorna o documento de dispositivo de documentos (incluindo as propriedades do sistema desejadas e reportadas) para o dispositivo conectado no momento. (As marcas não são visíveis para os aplicativos do dispositivo.)
+* **Recuperar dispositivo gêmeo**. Esta operação retorna o documento duplo do dispositivo (incluindo as propriedades desejadas e relatadas do sistema) para o dispositivo atualmente conectado. (As tags não são visíveis para aplicativos de dispositivos.)
 
 * **Atualizar parcialmente as propriedades reportadas**. Essa operação permite a atualização parcial das propriedades reportadas do dispositivo conectado no momento. Esta operação usa o mesmo formato de atualização JSON que a solução de back-end usa para uma atualização parcial de propriedades desejadas.
 
@@ -245,15 +245,15 @@ Os [SDKs do dispositivo IoT do Azure](iot-hub-devguide-sdks.md) facilitam o uso 
 
 Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* **Chaves**: todas as chaves em objetos JSON são codificadas em UTF-8, diferencia maiúsculas de minúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
+* **Teclas**: Todas as teclas em objetos JSON são codificadas utf-8, sensíveis a maiúsculas e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controle UNICODE (segmentos C0 e C1) e `.`, `$` e SP.
 
-* **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Não há permissão para matrizes.
+* **Valores**: Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booleano, número, string, objeto. Não há permissão para matrizes.
 
-    * Os inteiros podem ter um valor mínimo de-4503599627370496 e um valor máximo de 4503599627370495.
+    * Os inteiros podem ter um valor mínimo de -4503599627370496 e um valor máximo de 4503599627370495.
 
-    * Os valores de cadeia de caracteres são codificados em UTF-8 e podem ter um comprimento máximo de 4 KB.
+    * Os valores das cordas são codificados utf-8 e podem ter um comprimento máximo de 4 KB.
 
-* **Profundidade**: a profundidade máxima de objetos JSON em marcas, propriedades desejadas e propriedades relatadas é 10. Por exemplo, o seguinte objeto é válido:
+* **Profundidade**: A profundidade máxima dos objetos JSON em tags, propriedades desejadas e propriedades relatadas é de 10. Por exemplo, o seguinte objeto é válido:
 
    ```json
    {
@@ -287,27 +287,27 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
 
 ## <a name="device-twin-size"></a>Tamanho do dispositivo gêmeo
 
-O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com o valor de `properties/desired` e `properties/reported`. Esses totais são exclusivos de elementos somente leitura, como `$etag`, `$version`e `$metadata/$lastUpdated`.
+O IoT Hub impõe um limite de `tags`tamanho de 8 KB no valor de `properties/desired` `properties/reported`, e um limite de tamanho de 32 KB cada um no valor de e . Esses totais são exclusivos de `$etag`elementos somente leitura, como , `$version`e `$metadata/$lastUpdated`.
 
-O tamanho do papel é calculado da seguinte maneira:
+O tamanho duplo é calculado da seguinte forma:
 
-* Para cada propriedade no documento JSON, o Hub IoT computa cumulativamente e adiciona o comprimento da chave e do valor da propriedade.
+* Para cada propriedade no documento JSON, o IoT Hub computa cumulativamente e adiciona o comprimento da chave e do valor da propriedade.
 
-* As chaves de propriedade são consideradas cadeias de caracteres codificadas em UTF8.
+* As chaves de propriedade são consideradas como strings codificadas pelo UTF8.
 
-* Valores de propriedade simples são considerados cadeias de caracteres codificadas em UTF8, valores numéricos (8 bytes) ou valores Boolianos (4 bytes).
+* Valores de propriedade simples são considerados como strings codificadas por UTF8, valores numéricos (8 Bytes) ou valores booleanos (4 Bytes).
 
-* O tamanho das cadeias de caracteres codificadas em UTF8 é calculado por meio da contagem de todos os caracteres, excluindo caracteres de controle UNICODE (segmentos C0 e C1).
+* O tamanho das strings codificadas pelo UTF8 é calculado contando todos os caracteres, excluindo caracteres de controle UNICODE (segmentos C0 e C1).
 
-* Valores de propriedade complexos (objetos aninhados) são calculados com base no tamanho agregado das chaves de propriedade e dos valores de propriedade que eles contêm.
+* Os valores de propriedade complexos (objetos aninhados) são calculados com base no tamanho agregado das chaves de propriedade e valores de propriedade que eles contêm.
 
-O Hub IoT rejeita com um erro todas as operações que aumentariam o tamanho dos documentos `tags`, `properties/desired`ou `properties/reported` acima do limite.
+O IoT Hub rejeita com um erro todas `tags`as `properties/desired`operações que aumentariam o tamanho do , ou `properties/reported` documentos acima do limite.
 
 ## <a name="device-twin-metadata"></a>Metadados do dispositivo gêmeo
 
 O Hub IoT mantém o carimbo de data e hora da última atualização de cada objeto JSON nas propriedades desejadas e reportadas do dispositivo gêmeo. Os carimbos de data e hora estão em UTC e são codificados no formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
 
-Por exemplo:
+Por exemplo: 
 
 ```json
 {
@@ -359,7 +359,7 @@ Essas informações são armazenadas em cada nível (não apenas nas folhas da e
 ## <a name="optimistic-concurrency"></a>Simultaneidade otimista
 
 Marcas, propriedades desejadas e reportadas oferecem suporte à simultaneidade otimista.
-Marcas tem uma Etag, de acordo com [RFC7232](https://tools.ietf.org/html/rfc7232), que representa a representação JSON da marca. Você pode usar ETags em operações de atualização condicionais do back-end da solução para garantir a consistência.
+As tags possuem uma ETag, conforme [RFC7232](https://tools.ietf.org/html/rfc7232), que representa a representação JSON da tag. Você pode usar ETags em operações de atualização condicionais do back-end da solução para garantir a consistência.
 
 As propriedades desejadas e reportadas do dispositivo gêmeo não têm as ETags, mas um valor `$version` com garantia de ser incremental. De forma semelhante a uma ETag, a versão pode ser usada pela parte de atualização para impor a consistência das atualizações. Por exemplo, um aplicativo de dispositivo para uma propriedade relatada ou o back-end de solução para uma propriedade desejada.
 

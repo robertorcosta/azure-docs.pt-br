@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 32a453678fe3702fcb4b77f0b04a8ed5c889ef59
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270999"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
@@ -39,10 +39,10 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
 **Etapa 1** - Provedores de Autoridade de Certificação (CA)  
 -   Entrada como o administrador de TI, administradores de PKI ou qualquer pessoa gerenciando contas com autoridades de certificação, para uma determinada empresa (por exemplo, Contoso) é um pré-requisito para usar certificados de Key Vault.  
     As CAs a seguir são os provedores parceiros atuais do Key Vault:  
-    -   O DigiCert-Key Vault oferece certificados OV TLS/SSL com DigiCert.  
-    -   O GlobalSign-Key Vault oferece certificados OV TLS/SSL com GlobalSign.  
+    -   DigiCert - Key Vault oferece certificados OV TLS/SSL com DigiCert.  
+    -   GlobalSign - Key Vault oferece certificados OV TLS/SSL com a GlobalSign.  
 
-**Etapa 2** -um administrador de conta para um provedor de autoridade de certificação cria credenciais a serem usadas pelo Key Vault para registrar, renovar e usar certificados TLS/SSL via Key Vault.
+**Passo 2** - Um anúncio de conta para um provedor de CA cria credenciais a serem usadas pelo Key Vault para registrar, renovar e usar certificados TLS/SSL via Key Vault.
 
 **Etapa 3** - Um administrador de Contoso, junto com um funcionário da Contoso (usuário do Key Vault) que possui certificados, dependendo da autoridade de certificação, pode obter um certificado com o administrador ou diretamente a partir da conta com a autoridade de certificação.  
 
@@ -53,7 +53,7 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
 
     Para obter mais informações sobre como criar contas com provedores de autoridade de certificação, consulte a postagem relacionada no [blog do Key Vault](https://aka.ms/kvcertsblog).  
 
-**Etapa 3.1** – Configurar [contatos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contato para o usuário do Key Vault. O Key Vault não impõe essa etapa.  
+**Etapa 3.1** - Configure [contatos de certificados](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contato para o usuário do Key Vault. O Key Vault não impõe essa etapa.  
 
 Observação - Esse processo, por meio de etapa 3.1, é uma operação única.  
 
@@ -63,9 +63,9 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
 
 **Etapa 4** - As descrições a seguir correspondem às etapas numeradas em verde no diagrama anterior.  
   (1) - No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.  
-  (2)-Key Vault envia uma solicitação de certificado TLS/SSL para a autoridade de certificação.  
+  (2) - O Key Vault envia uma solicitação de certificado TLS/SSL à CA.  
   (3) - Seu aplicativo faz a apuração, em um processo de loop e espera, para seu Key Vault para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault recebe a resposta da autoridade de certificação com o certificado x509.  
-  (4)-a autoridade de certificação responde à solicitação de certificado TLS/SSL de Key Vault com um certificado de TLS/SSL X509.  
+  (4) - A CA responde à solicitação de certificado TLS/SSL da Key Vault com um Certificado X509 TLS/SSL.  
   (5) - A criação do novo certificado é concluído com a fusão do Certificado X509 para a autoridade de certificação.  
 
   Usuário do Key Vault – cria um certificado com a especificação de uma política
@@ -98,16 +98,16 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
 
 -   Além disso, o usuário pode editar a política, que está funcionando no momento da importação, mas contém padrões onde nenhuma informação foi especificada durante a importação. Ex.: sem informações do emissor  
 
-### <a name="formats-of-import-we-support"></a>Formatos de importação para os quais damos suporte
-Damos suporte ao seguinte tipo de importação para o formato de arquivo PEM. Um único certificado codificado por PEM junto com uma chave codificada e não criptografada PKCS # 8 que tem o seguinte
+### <a name="formats-of-import-we-support"></a>Formatos de importação que suportamos
+Nós suportamos o seguinte tipo de importação para formato de arquivo PEM. Um único certificado codificado de PEM, juntamente com uma chave codificada e não criptografada PKCS#8, que tem o seguinte
 
------INICIAR CERTIFICADO----------FIM DO CERTIFICADO-----
+-----INICIAR CERTIFICADO----- -----FINAL-----
 
------INICIAR CHAVE PRIVADA----------ENCERRAR CHAVE PRIVADA-----
+-----COMEÇAR CHAVE PRIVADA----- -----END CHAVE PRIVADA-----
 
-Na mesclagem de certificados, damos suporte a dois formatos baseados em PEM. Você pode mesclar um único certificado codificado PKCS # 8 ou um arquivo P7B codificado em base64. -----INICIAR CERTIFICADO----------FIM DO CERTIFICADO-----
+Na mesclagem de certificados, suportamos 2 formatos baseados em PEM. Você pode mesclar um único certificado codificado PKCS#8 ou um arquivo P7B codificado base64. -----INICIAR CERTIFICADO----- -----FINAL-----
 
-No momento, não há suporte para chaves do EC no formato PEM.
+Atualmente, não suportamos chaves CE no formato PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Criar um certificado com uma autoridade de certificação não parceira do Key Vault  
  Esse método permite trabalhar com outras autoridades de certificação diferentes dos provedores parceiros do Key Vault, o que significa que sua organização pode trabalhar com uma autoridade de certificação de sua escolha.  
@@ -126,6 +126,6 @@ No momento, não há suporte para chaves do EC no formato PEM.
 
   (5) - Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Consulte também
 
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

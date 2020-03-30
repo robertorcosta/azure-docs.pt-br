@@ -1,21 +1,21 @@
 ---
-title: Continuidade dos negócios-banco de dados do Azure para MySQL
-description: Saiba mais sobre continuidade de negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para o serviço MySQL.
+title: Continuidade de negócios - Banco de dados Azure para MySQL
+description: Saiba mais sobre a continuidade de negócios (restauração point-in-time, paralisação do data center, georestauração) ao usar o banco de dados Azure para o serviço MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 3f82dfd5e289b09761dbdbdc5af4da76d7c961d4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765351"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537220"
 ---
-# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Entender a continuidade dos negócios no banco de dados do Azure para MySQL
+# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Entenda a continuidade de negócios no Banco de Dados Azure para MySQL
 
-Este artigo descreve os recursos que o banco de dados do Azure para MySQL fornece para a continuidade dos negócios e a recuperação de desastres. Saiba mais sobre as opções para recuperação dos eventos interruptivos que podem causar perda de dados ou tornar o banco de dados e o aplicativo indisponíveis. Aprenda o que fazer quando um erro de usuário ou de aplicativo afeta a integridade dos dados, quando uma região do Azure tem uma interrupção ou quando seu aplicativo necessita de manutenção.
+Este artigo descreve os recursos que o Azure Database for MySQL fornece para continuidade de negócios e recuperação de desastres. Saiba mais sobre as opções para recuperação dos eventos interruptivos que podem causar perda de dados ou tornar o banco de dados e o aplicativo indisponíveis. Aprenda o que fazer quando um erro de usuário ou de aplicativo afeta a integridade dos dados, quando uma região do Azure tem uma interrupção ou quando seu aplicativo necessita de manutenção.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Recursos que podem ser utilizados para fornecer continuidade dos negócios
 
@@ -23,17 +23,17 @@ O Banco de Dados do Azure para MySQL fornece recursos de continuidade dos negóc
 
 A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
 
-| **Recurso** | **Básico** | **Uso geral** | **Memória otimizada** |
+| **Recurso** | **Basic** | **Propósito Geral** | **Memória otimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados.
+> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de aplicativo ou usuário
 
-Você pode usar os backups do serviço para recuperar um servidor de vários eventos interruptivos. Um usuário pode excluir alguns dados acidentalmente, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Um aplicativo pode substituir acidentalmente dados corretos por dados incorretos, devido a uma falha de aplicativo, e assim por diante.
+Você pode usar os backups do serviço para recuperar um servidor de vários eventos disruptivos. Um usuário pode excluir alguns dados acidentalmente, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Um aplicativo pode substituir acidentalmente dados corretos por dados incorretos, devido a uma falha de aplicativo, e assim por diante.
 
 Você pode executar uma restauração pontual para criar uma cópia do servidor em um ponto no tempo conhecido e ideal. Esse ponto no tempo deve estar dentro do período de retenção de backup que você configurou para o servidor. Depois que os dados forem restaurados para o novo servidor, você poderá substituir o servidor de origem pelo servidor restaurado recentemente, ou copiar os dados necessários do servidor restaurado para o servidor de origem.
 
@@ -48,7 +48,7 @@ A outra opção é usar a restauração geográfica do Banco de Dados do Azure p
 > [!IMPORTANT]
 > A restauração geográfica somente será possível se o servidor foi provisionado com armazenamento de backup com redundância geográfica. Se você quiser alternar de backups com redundância local para backups com redundância geográfica de um servidor existente, será necessário fazer um despejo usando o mysqldump do servidor existente e restaurá-lo em um servidor recém-criado configurado com backups com redundância geográfica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre backups automáticos, confira [Backups automáticos no Banco de Dados do Azure para MySQL](concepts-backup.md).
 - Saiba como restaurar usando o [portal do Azure](howto-restore-server-portal.md) ou a [CLI do Azure](howto-restore-server-cli.md).

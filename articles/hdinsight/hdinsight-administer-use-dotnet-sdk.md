@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 36a77d49b507d3d0158d1b4b492d0141350de50f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79272702"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240631"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o .NET SDK
 
@@ -25,7 +25,7 @@ Saiba como gerenciar clusters HDInsight usando o [SDK do .NET do HDInsight](http
 
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Conectar-se ao Azure HDInsight
 
@@ -175,7 +175,7 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
     
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
@@ -226,7 +226,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > Ao conceder/revogar o acesso, você redefinirá o nome de usuário de cluster e a senha.
 
-Isso também pode ser feito por meio do Portal. Consulte [gerenciar clusters de Apache Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-portal-linux.md).
+Isso também pode ser feito por meio do Portal. Consulte [Gerenciar clusters Apache Hadoop no HDInsight usando o portal Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Atualizar credenciais de usuário HTTP
 
@@ -264,16 +264,16 @@ Consulte [Use o Apache Oozie com o Hadoop para definir e executar um fluxo de tr
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de Blob do Azure
 
-Consulte [carregar dados no HDInsight][hdinsight-upload-data].
+Veja [Carregar dados no HDInsight][hdinsight-upload-data].
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Consulte também
 
 * [Documentação de referência do SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrar o HDInsight usando uma interface de linha de comando][hdinsight-admin-cli]
-* [Criar clusters HDInsight][hdinsight-provision]
-* [Carregar dados no HDInsight][hdinsight-upload-data]
-* [Introdução ao Azure HDInsight][hdinsight-get-started]
+* [Criar clusters do HDInsight][hdinsight-provision]
+* [Carregar dados para hdinsight][hdinsight-upload-data]
+* [Comece com o Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

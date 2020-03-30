@@ -1,19 +1,18 @@
 ---
-title: Criar ativos técnicos de imagem de contêineres do Azure | Azure Marketplace
+title: Criar ativos técnicos de imagem do Azure Containers | Mercado Azure
 description: Crie os recursos técnicos para um contêiner do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: 6aae1957a3dcc58339eb4f3c9e250513843ceb18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 71b3ec4bf505c333e5eca170e1f5e808ab51f41a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819061"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280058"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Prepare seus recursos técnicos de contêiner
 
@@ -39,13 +38,13 @@ Além do domínio da solução, a equipe de engenharia deverá ter conhecimento 
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar sua imagem do contêiner:
 
--   [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
--   [CLI do Azure](https://docs.microsoft.com/cli/azure)
+-   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao ambiente de desenvolvimento:
 
--   [Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio Code](https://code.visualstudio.com/)
+-   [Explorador de armazenamento azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Código visual do estúdio](https://code.visualstudio.com/)
     *   Extensão: [Ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Extensão: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   Extensão: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
@@ -56,8 +55,8 @@ Também é recomendável que você revise as ferramentas disponíveis na página
 
 Veja o seguinte para obter mais informações:
 
-* [Tutorial: criar uma imagem de contêiner para implantação em instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [Tutorial: criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [Tutorial: Crie uma imagem de contêiner para implantação no Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutorial: Construa e implante imagens de contêiner na nuvem com tarefas de registro de contêineres do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Próximas etapas
 

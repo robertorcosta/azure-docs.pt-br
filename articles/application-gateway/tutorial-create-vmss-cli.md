@@ -1,5 +1,5 @@
 ---
-title: Usar um back-end de conjunto de dimensionamento de máquinas virtuais-CLI
+title: Use um backend de escala de máquina virtual - CLI
 titleSuffix: Azure Application Gateway
 description: Saiba como criar um gateway de aplicativo com um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure.
 services: application-gateway
@@ -8,35 +8,35 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ec1837419390fc29e53565881e41fd4265914f78
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a5b9fa6eca25aa5ed64725ee677330053e60cb37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074518"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239476"
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Crie um gateway de aplicativo com um conjunto de dimensionamento de máquinas virtuais usando a CLI do Azure
 
 Você pode usar a CLI do Azure para criar um [gateway de aplicativo](application-gateway-introduction.md) que usa um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicativo
+> * Criar um Gateway de Aplicativo
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos usando [az group create](/cli/azure/group#az-group-create). 
+Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Criar um grupo de recursos usando [az group create](/cli/azure/group#az-group-create). 
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupAG* no local *eastus*.
+O exemplo a seguir cria um grupo de recursos denominado *myResourceGroupAG* no local *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -64,7 +64,7 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
 Você pode usar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente. 
 
@@ -84,13 +84,13 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- Pode levar vários minutos para o gateway de aplicativo ser criado. Depois de criar o gateway de aplicativo, você pode ver esses novos recursos:
+ O gateway de aplicativo pode demorar vários minutos para ser criado. Depois de criar o gateway de aplicativo, você pode ver esses novos recursos:
 
 - *appGatewayBackendPool* - Um gateway de aplicativo deve ter pelo menos um pool de endereços de back-end.
 - *appGatewayBackendHttpSettings* - Especifica que a porta 80 e um protocolo HTTP são usados para comunicação.
 - *appGatewayHttpListener* - O ouvinte padrão associado ao *appGatewayBackendPool*.
 - *appGatewayFrontendIP* - Atribui *myAGPublicIPAddress* ao *appGatewayHttpListener*.
-- *rule1* - A regra de roteamento padrão que está associada com *appGatewayHttpListener*.
+- *rule1* - A regra padrão de roteamento que está associada ao *appGatewayHttpListener*.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
@@ -126,9 +126,9 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Para obter o endereço IP público do gateway de aplicativo, você pode usar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e, em seguida, cole-o na barra de endereços do seu navegador.
+Para obter o endereço IP público do gateway de aplicativo, você pode usar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e cole-o na barra de endereços do seu navegador.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -136,7 +136,7 @@ az network public-ip show \
   --output tsv
 ```
 
-![Testar a URL de base no gateway do aplicativo](./media/tutorial-create-vmss-cli/tutorial-nginxtest.png)
+![Testar a URL de base no gateway de aplicativo](./media/tutorial-create-vmss-cli/tutorial-nginxtest.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -144,7 +144,7 @@ Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar um gateway de aplicativo
+> * Criar um Gateway de Aplicativo
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
-Para saber mais sobre os gateways de aplicativo e seus recursos associados, prossiga até os artigos de instrução.
+Para saber mais sobre os gateways de aplicativo e seus recursos associados, continue para os artigos de instrução.

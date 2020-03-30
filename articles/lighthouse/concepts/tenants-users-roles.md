@@ -1,14 +1,14 @@
 ---
 title: Locatários, funções e usuários em cenários do Azure Lighthouse
 description: Entenda os conceitos de locatários, usuários e funções do Azure Active Directory, além de como eles podem ser usados em cenários do Azure Lighthouse.
-ms.date: 01/16/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 7540e17fd80f9a1d8e996295000c126614b838d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156328"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246884"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locatários, funções e usuários em cenários do Azure Lighthouse
 
@@ -31,7 +31,7 @@ Atualmente, todas as [funções internas](../../role-based-access-control/built-
 - A função interna [Administrador de Acesso de Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) tem suporte, mas apenas para a finalidade limitada de [atribuir funções a uma identidade gerenciada no locatário do cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Nenhuma outra permissão normalmente concedida por essa função será aplicada. Se você definir um usuário com essa função, também deverá especificar as funções internas que esse usuário pode atribuir às identidades gerenciadas.
 
 > [!NOTE]
-> Quando uma nova função interna aplicável for adicionada ao Azure, ela poderá ser atribuída durante [a integração de um cliente usando modelos de Azure Resource Manager](../how-to/onboard-customer.md). Pode haver um atraso antes que a função recém-adicionada fique disponível no Portal do Cloud Partner ao [publicar uma oferta de serviço gerenciado](../how-to/publish-managed-services-offers.md).
+> Uma vez que uma nova função incorporada aplicável seja adicionada ao Azure, ela pode ser atribuída ao [embarcar em um cliente usando modelos do Azure Resource Manager](../how-to/onboard-customer.md). Pode haver um atraso antes que a função recém-adicionada seja disponibilizada no Cloud Partner Portal ao [publicar uma oferta de serviço gerenciada](../how-to/publish-managed-services-offers.md).
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Práticas recomendadas para definir usuários e funções
 
@@ -42,7 +42,10 @@ Ao criar suas autorizações, recomendamos as melhores práticas abaixo:
 - Inclua um usuário com a [Função Excluir Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que você possa [remover o acesso à delegação](../how-to/onboard-customer.md#remove-access-to-a-delegation) posteriormente, se necessário. Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
 - Certifique-se de que qualquer usuário que precise [exibir a página Meus clientes no portal do Azure](../how-to/view-manage-customers.md) tenha a função [Leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitura).
 
-## <a name="next-steps"></a>Próximos passos
+> [!IMPORTANT]
+> Para adicionar permissões para um grupo Azure AD, o **tipo Grupo** deve ser **Segurança** e não **Office 365**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, confira [Criar um grupo básico e adicionar membros usando Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as [práticas recomendadas de segurança para o gerenciamento de recursos delegados do Azure](recommended-security-practices.md).
 - Integre seus clientes ao gerenciamento de recursos delegados do Azure, seja [usando modelos do Azure Resource Manager](../how-to/onboard-customer.md) ou [publicando uma oferta privada ou pública de serviços gerenciados para o Azure Marketplace](../how-to/publish-managed-services-offers.md).

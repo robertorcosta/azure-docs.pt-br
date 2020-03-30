@@ -1,19 +1,18 @@
 ---
-title: Implantar uma VM do Azure de um VHD de usuário | Azure Marketplace
+title: Implantar uma VM Azure de um Usuário VHD | Mercado Azure
 description: Explica como implantar uma imagem de VHD do usuário para criar uma instância de VM do Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816640"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277949"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implantar uma VM do Azure de um VHD do usuário
 
@@ -32,7 +31,7 @@ Copie o modelo do Azure Resource Manager para [implantação de VHD](cpp-deploy-
 | userStorageAccountName     | Nome da conta de armazenamento                                                    |
 | sNameForPublicIP           | Nome DNS do IP público. Precisa estar em letras minúsculas                                  |
 | subscriptionId             | O identificador da assinatura                                                  |
-| Local                   | Local geográfico padrão do Azure para o grupo de recursos                       |
+| Location                   | Local geográfico padrão do Azure para o grupo de recursos                       |
 | vmName                     | Nome da Máquina Virtual                                                    |
 | vaultName                  | Nome do cofre de chaves                                                          |
 | vaultResourceGroup         | Grupo de recursos do cofre de chaves

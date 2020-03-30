@@ -6,21 +6,21 @@ ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279007"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
-Este artigo mostra como criar uma conta da Automação do Azure no portal do Azure. Você pode usar a conta de automação do portal para avaliar e saber mais sobre a automação sem usar soluções de gerenciamento adicionais ou integração com logs de Azure Monitor. Você pode adicionar essas soluções de gerenciamento ou integrá-las a logs de Azure Monitor para monitoramento avançado de trabalhos de runbook em qualquer ponto no futuro.
+Este artigo mostra como criar uma conta da Automação do Azure no portal do Azure. Você pode usar a conta de automação do portal para avaliar e aprender sobre Automação sem usar soluções adicionais de gerenciamento ou integração com logs do Monitor Do Azure. Você pode adicionar essas soluções de gerenciamento ou integrar-se aos logs do Azure Monitor para monitoramento avançado de trabalhos de runbook em qualquer ponto no futuro.
 
 Com uma conta de Automação, você pode autenticar runbooks gerenciando recursos no Azure Resource Manager ou no modelo de implantação clássico. Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário.
 
 Ao criar uma conta de Automação no portal do Azure, essas contas são criadas automaticamente:
 
-* **Conta Executar como**. Essa conta executa as seguintes tarefas:
+* **Executar como conta**. Essa conta executa as seguintes tarefas:
   * Cria uma entidade de serviço no Azure AD (Azure Active Directory).
   * Cria um certificado.
   * Atribui o RBAC (Controle de Acesso Baseado em Função) de Colaborador, que gerencia os recursos do Azure Resource Manager por meio de runbooks.
@@ -31,8 +31,8 @@ Com essas contas criadas para você, você pode começar rapidamente a criar e i
 
 Para criar ou atualizar uma conta de Automação e concluir as tarefas descritas neste artigo, é necessário ter os seguintes privilégios e permissões:
 
-* Para criar uma conta de automação, sua conta de usuário do Azure AD deve ser adicionada a uma função com permissões equivalentes à função de proprietário da **Microsoft.** Recursos de automação. Para obter mais informações, confira [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
-* Na portal do Azure, em **Azure Active Directory** > **gerenciar** configurações de **usuário** > , se **registros de aplicativo** estiver definido como **Sim**, os usuários não administradores em seu locatário do Azure ad poderão [registrar Active Directory aplicativos](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se **Registros do aplicativo** estiver definido como **Não**, o usuário que executar esta ação precisará ser um administrador global no Microsoft Azure AD.
+* Para criar uma conta de Automação, sua conta de usuário Azure AD deve ser adicionada a uma função com permissões equivalentes à função Proprietário para **Microsoft. Recursos de automação.** Para obter mais informações, confira [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
+* No portal Azure, em**Configurações****de Gerenciamento de** > Gerenciamento de Diretório > Ativo do **Azure,** se os registros do Aplicativo forem **definidos** como **Sim,** usuários não-administradores em seu inquilino Azure AD podem [registrar aplicativos do Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se **Registros do aplicativo** estiver definido como **Não**, o usuário que executar esta ação precisará ser um administrador global no Microsoft Azure AD.
 
 Caso não seja membro da instância do Active Directory da assinatura antes de ser adicionado à função de administrador global/coadministrador da assinatura, você será adicionado ao Active Directory como convidado. Neste cenário, você recebe esta mensagem na página **Adicionar Conta de Automação**: “Você não tem permissões para criar”.
 
@@ -64,7 +64,7 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
    >
    > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. No painel **Adicionar Conta de Automação**, na caixa **Nome**, insira um nome para a nova conta de Automação. Esse nome não pode ser alterado depois de ser escolhido. *Os nomes de conta de automação são exclusivos por região e grupo de recursos. Os nomes das contas de automação que foram excluídas podem não estar imediatamente disponíveis.*
+1. No painel **Adicionar Conta de Automação**, na caixa **Nome**, insira um nome para a nova conta de Automação. Esse nome não pode ser alterado depois de ser escolhido. *Os nomes das contas de automação são únicos por região e grupo de recursos. Os nomes de Contas de Automação que foram excluídos podem não estar disponíveis imediatamente.*
 1. Se você tem mais de uma assinatura, na caixa **Assinatura**, especifique a assinatura que deseja usar para a nova conta.
 1. Para **Grupo de recursos**, insira ou selecione um grupo de recursos novo ou existente.
 1. Para **Local**, selecione um local de datacenter do Azure.
@@ -84,7 +84,7 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
 
 Quando a criação da conta de Automação tiver sido criada com êxito, vários recursos serão criados automaticamente para você. Após a criação, esses runbooks poderão ser excluídos com segurança se você não quiser mantê-los. As contas Executar como poderão ser usadas para autenticar a conta em um runbook e deverão ser mantidas, exceto se você criar outra ou não forem mais necessárias. A tabela a seguir resume os recursos para a conta Executar como.
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Um runbook gráfico de exemplo que demonstra como fazer a autenticação usando a conta Executar como. O runbook obtém todos os recursos do Resource Manager. |
 | Runbook do AzureAutomationTutorialScript |Um runbook de exemplo do PowerShell que demonstra como fazer a autenticação usando a conta Executar como. O runbook obtém todos os recursos do Resource Manager. |
@@ -92,18 +92,18 @@ Quando a criação da conta de Automação tiver sido criada com êxito, vários
 | AzureRunAsCertificate |Um ativo de certificado criado automaticamente quando a conta de Automação é criada ou usando um script do PowerShell para uma conta existente. O certificado é autenticado no Azure, do modo que você possa gerenciar os recursos do Azure Resource Manager em runbooks. Esse certificado tem um tempo de vida de um ano. |
 | AzureRunAsConnection |Um ativo de conexão criado automaticamente quando a conta de Automação é criada ou usando um script do PowerShell para uma conta existente. |
 
-## <a name="classic-run-as-accounts"></a>Contas Executar como clássicas
+## <a name="classic-run-as-accounts"></a>Contas clássicas de run-as
 
-As contas Executar como clássicas não são mais criadas, por padrão, quando você cria uma conta de automação do Azure. Se você ainda precisar de uma conta Executar como clássica, execute as etapas a seguir.
+As contas clássicas do Run-As não são mais criadas, por padrão, quando você cria uma conta de Automação Azure. Se você ainda precisar de uma conta Classic Run-A, execute as seguintes etapas.
 
-1. Na página da sua **conta de automação** , selecione **contas Executar como** em **configurações da conta**.
-2. Selecione **conta Executar como clássica do Azure**.
-3. Clique em **criar** para prosseguir com a criação da conta Executar como clássica.
+1. Na página **da conta de automação,** **selecione Executar como contas** em **Configurações de conta**.
+2. Selecione **Azure Classic Run as Account**.
+3. Clique em **Criar** para prosseguir com a criação da conta Classic Run As.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre a criação gráfica, consulte [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
-* Para começar a usar os runbooks do PowerShell, confira [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).
-* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, veja [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
-* Para começar a usar runbooks Python2, veja [Meu primeiro runbook Python2](automation-first-runbook-textual-python2.md).
+* Para saber mais sobre a autoria gráfica, consulte [a autoria gráfica no Azure Automation](automation-graphical-authoring-intro.md).
+* Para começar com os runbooks do PowerShell, consulte [Meu primeiro runbook PowerShell](automation-first-runbook-textual-powershell.md).
+* Para começar com os runbooks do fluxo de trabalho PowerShell, consulte [Meu primeiro runbook de fluxo de trabalho PowerShell](automation-first-runbook-textual.md).
+* Para começar com os runbooks python2, consulte [Meu primeiro runbook Python2](automation-first-runbook-textual-python2.md).
 

@@ -1,19 +1,18 @@
 ---
-title: Configurar a VM hospedada em Microsoft Azure para o Azure Marketplace
+title: Configure a VM hospedada no Microsoft Azure para o Azure Marketplace
 description: Explica como dimensionar, atualizar e generalizar uma VM hospedada no Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: ce7fe49b07dc250a9f56ff73229e347b997f0cc0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b0ed430098203c5c1a0d00eb7bf17da1be0000cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824489"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278085"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar a VM hospedada no Azure
 
@@ -23,7 +22,7 @@ Este artigo explica como dimensionar, atualizar e generalizar uma VM (máquina v
 ## <a name="sizing-the-vhds"></a>Dimensionar os VHDs
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Se você tiver selecionado uma das VMs pré-configuradas com um sistema operacional (e, opcionalmente, serviços adicionais), você já selecionou um tamanho de VM do Azure padrão, conforme descrito na [guia SKUs da máquina virtual](./cpp-skus-tab.md).  Iniciar sua solução com um sistema operacional pré-configurado é a abordagem recomendada.  No entanto, se você estiver instalando um sistema operacional manualmente, será necessário dimensionar o VHD principal na imagem da VM:
+Se você selecionou uma das VMs pré-configuradas com um sistema operacional (e, opcionalmente, serviços adicionais), então você já escolheu um tamanho padrão de VM do Azure, conforme descrito na [guia SKUs](./cpp-skus-tab.md)da máquina virtual .  Iniciar sua solução com um sistema operacional pré-configurado é a abordagem recomendada.  No entanto, se você estiver instalando um sistema operacional manualmente, será necessário dimensionar o VHD principal na imagem da VM:
 
 - Para Windows, o VHD do sistema operacional deve ser criado como um VHD de formato fixo de 127-128 GB. 
 - Para Linux, esse VHD deve ser criado como um VHD de formato fixo de 30 a 50 GB.
@@ -67,11 +66,11 @@ Os discos do sistema operacional do Windows são generalizados com a [ferramenta
 > [!WARNING]
 >  Como as atualizações poderão ser executadas automaticamente após executar o sysprep, você deverá desativar a VM até que ela seja implantada.  Esse desligamento evitará atualizações subsequentes de alterações específicas da instância no sistema operacional do VHD ou serviços instalados.
 
-Para obter mais informações sobre como executar o Sysprep, consulte [etapas para generalizar um VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+Para obter mais informações sobre como executar o sysprep, consulte [Passos para generalizar um VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 
-O processo de duas etapas a seguir generaliza uma VM Linux e a implanta novamente como uma VM separada. Essas duas etapas são apenas os conceitos básicos do processo. Para obter mais informações sobre essas duas etapas e por que elas devem ser feitas, consulte [como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md). Para fins de criação do VHD para sua oferta do Azure Marketplace, você pode parar quando chegar à seção "criar uma VM com base na imagem capturada".
+O processo de duas etapas a seguir generaliza uma VM Linux e a reimplanta como uma VM separada. Essas duas etapas são apenas o essencial do processo. Para obter mais informações sobre essas duas etapas e por que elas devem ser feitas, consulte [Como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md). Com o propósito de criar o VHD para sua oferta do Azure Marketplace, você pode parar quando chegar à seção "Criar uma VM a partir da imagem capturada".
 
 #### <a name="remove-the-azure-linux-agent"></a>Remover o agente Linux do Azure
 1.  Conecte-se à VM do Linux usando um cliente SSH.
@@ -96,4 +95,4 @@ A criação de cópias da VM geralmente é útil para backup, teste, failover pe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que a VM for generalizada, tiver sido desalocada e você tiver criado uma imagem da VM, você estará pronto para [implantar uma máquina virtual de um disco rígido virtual](./cpp-deploy-vm-vhd.md).
+Depois que sua VM é generalizada, foi desalocada e você criou uma imagem da VM, você está pronto para [implantar uma máquina virtual a partir de um disco rígido virtual](./cpp-deploy-vm-vhd.md).

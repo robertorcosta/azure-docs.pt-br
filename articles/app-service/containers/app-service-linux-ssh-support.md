@@ -1,6 +1,6 @@
 ---
-title: Acesso SSH para contêineres do Linux
-description: Você pode abrir uma sessão SSH para um contêiner do Linux no serviço Azure App. Os contêineres personalizados do Linux têm suporte com algumas modificações em sua imagem personalizada.
+title: Acesso SSH para contêineres Linux
+description: Você pode abrir uma sessão de SSH para um contêiner Linux no Azure App Service. Os contêineres Linux personalizados são suportados com algumas modificações na sua imagem personalizada.
 keywords: serviço de aplicativo do azure, aplicativo web, linux, oss
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
@@ -9,17 +9,17 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280177"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte de SSH para o Serviço de Aplicativo do Azure no Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) normalmente é usado para executar comandos administrativos remotamente a partir de um terminal de linha de comando. O serviço de aplicativo no Linux fornece suporte a SSH no contêiner do aplicativo. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) normalmente é usado para executar comandos administrativos remotamente a partir de um terminal de linha de comando. O App Service on Linux fornece suporte ao SSH no contêiner do aplicativo. 
 
-![SSH do serviço de aplicativo do Linux](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
+![SSH do Serviço de Aplicativos Linux](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 Você também pode se conectar ao contêiner diretamente do seu computador de desenvolvimento local usando o SSH e SFTP.
 
@@ -29,7 +29,7 @@ Você também pode se conectar ao contêiner diretamente do seu computador de de
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>Use o suporte de SSH com imagens personalizadas do Docker
 
-Consulte [Configurar o ssh em um contêiner personalizado](configure-custom-container.md#enable-ssh).
+Consulte [Configurar SSH em um recipiente personalizado](configure-custom-container.md#enable-ssh).
 
 ## <a name="open-ssh-session-from-remote-shell"></a>Abrir sessão SSH de shell remoto
 
@@ -41,7 +41,7 @@ Usando o túnel TCP, você pode criar uma conexão de rede entre o computador de
 
 Para começar, você precisa instalar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como funciona sem instalar a CLI do Azure, abra [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Abra uma conexão remota para seu aplicativo usando o comando [criar az webapp remoto-conexão](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Especifique _\<subscription-id >_ , _\<nome-do-grupo >_ e \_\<nome-do-aplicativo > _ para seu aplicativo.
+Abra uma conexão remota para seu aplicativo usando o comando [criar az webapp remoto-conexão](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Especifique \_ \< _ \<>de assinatura, _ _ \<nome do grupo>_ e nome do aplicativo>_ para o seu aplicativo.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -121,4 +121,4 @@ Para obter mais informações sobre o aplicativo Web para contêineres, consulte
 * [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres](quickstart-docker-go.md)
 * [Usando o .NET Core no Serviço de Aplicativo do Azure no Linux](quickstart-dotnetcore.md)
 * [Usando o Ruby no Serviço de Aplicativo do Azure no Linux](quickstart-ruby.md)
-* [Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure](app-service-linux-faq.md)
+* [Aplicativo web do serviço do azure para perguntas frequentes sobre contêineres](app-service-linux-faq.md)

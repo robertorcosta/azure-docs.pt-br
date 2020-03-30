@@ -1,40 +1,40 @@
 ---
-title: Controle de versão do conjunto de
+title: Versão do conjunto de dados
 titleSuffix: Azure Machine Learning
-description: Saiba como obter a melhor versão de seus conjuntos de informações e como o controle de versão funciona com pipelines do Machine Learning.
+description: Aprenda a melhor versão de seus conjuntos de dados e como a versão funciona com pipelines de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
-author: sihhu
+author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: acbd2e3ba756255cbc69ae8a7b7ad62d7a1c1c5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939246"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528465"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de testes de versão e acompanhamento em experimentos
+# <a name="version-and-track-datasets-in-experiments"></a>Versão e rastrear conjuntos de dados em experimentos
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a controlar a versão e o acompanhamento de conjuntos de Azure Machine Learning para reprodução. O controle de versão do conjunto de dados é uma maneira de marcar o estado de seus dados de forma que você possa aplicar uma versão específica do conjunto para experimentos futuros.
+Neste artigo, você aprenderá como versaver e rastrear os conjuntos de dados do Azure Machine Learning para reprodutibilidade. A versão do conjunto de dados é uma maneira de marcar o estado de seus dados para que você possa aplicar uma versão específica do conjunto de dados para experimentos futuros.
 
-Cenários típicos de controle de versão:
+Cenários típicos de versionamento:
 
-* Quando novos dados estão disponíveis para novo treinamento
-* Quando você estiver aplicando uma preparação de dados ou abordagens de engenharia de recursos diferentes
+* Quando novos dados estão disponíveis para retreinamento
+* Quando você está aplicando diferentes abordagens de preparação de dados ou de engenharia de recursos
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para este tutorial, é necessário:
 
-- [SDK do Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Este SDK inclui o pacote de conjuntos de linhas do [azureml](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) .
+- [Azure Machine Learning SDK para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Este SDK inclui o pacote [de conjuntos de dados azureml.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py)
     
-- Um [espaço de trabalho Azure Machine Learning](concept-workspace.md). Recupere um existente executando o código a seguir ou [crie um novo espaço de trabalho](how-to-manage-workspace.md).
+- Um [espaço de trabalho de aprendizado de máquina do Azure.](concept-workspace.md) Recupere um já existente executando o código a seguir ou [crie um novo espaço de trabalho](how-to-manage-workspace.md).
 
     ```Python
     import azureml.core
@@ -42,17 +42,17 @@ Para este tutorial, é necessário:
     
     ws = Workspace.from_config()
     ```
-- Um [conjunto de Azure Machine Learning](how-to-create-register-datasets.md).
+- Um [conjunto de dados de aprendizado de máquina do Azure](how-to-create-register-datasets.md).
 
 <a name="register"></a>
 
-## <a name="register-and-retrieve-dataset-versions"></a>Registrar e recuperar versões do conjunto de registros
+## <a name="register-and-retrieve-dataset-versions"></a>Registre e recupere versões do conjunto de dados
 
-Ao registrar um conjunto de registros, você pode fazer a versão, reutilizá-lo e compartilhá-lo entre experimentos e colegas. Você pode registrar vários conjuntos de registros com o mesmo nome e recuperar uma versão específica por nome e número de versão.
+Ao registrar um conjunto de dados, você pode fazer a versão, reutilizá-lo e compartilhá-lo entre experimentos e com colegas. Você pode registrar vários conjuntos de dados com o mesmo nome e recuperar uma versão específica por nome e número de versão.
 
-### <a name="register-a-dataset-version"></a>Registrar uma versão do conjunto de registros
+### <a name="register-a-dataset-version"></a>Registre uma versão do conjunto de dados
 
-O código a seguir registra uma nova versão do conjunto de `titanic_ds` DataSet definindo o parâmetro `create_new_version` como `True`. Se não houver nenhum conjunto de `titanic_ds` existente registrado com o espaço de trabalho, o código criará um novo conjunto de um com o nome `titanic_ds` e definirá sua versão como 1.
+O código a seguir registra `titanic_ds` uma nova versão `create_new_version` do `True`conjunto de dados definindo o parâmetro para . Se não houver um `titanic_ds` conjunto de dados existente registrado no espaço de trabalho, `titanic_ds` o código criará um novo conjunto de dados com o nome e define sua versão como 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -60,13 +60,13 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
-Você também pode registrar uma nova versão de um conjunto de registros em 
+Você também pode registrar uma nova versão de um conjunto de dados em 
 
-### <a name="retrieve-a-dataset-by-name"></a>Recuperar um conjunto de um DataSet por nome
+### <a name="retrieve-a-dataset-by-name"></a>Recuperar um conjunto de dados pelo nome
 
-Por padrão, o método [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) na classe `Dataset` retorna a versão mais recente do conjunto de informações registrado com o espaço de trabalho. 
+Por padrão, o método [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) na `Dataset` classe retorna a versão mais recente do conjunto de dados registrado no espaço de trabalho. 
 
-O código a seguir obtém a versão 1 do conjunto de `titanic_ds` DataSet.
+O código a seguir `titanic_ds` recebe a versão 1 do conjunto de dados.
 
 ```Python
 from azureml.core import Dataset
@@ -78,16 +78,16 @@ titanic_ds = Dataset.get_by_name(workspace = workspace,
 
 <a name="best-practice"></a>
 
-## <a name="versioning-best-practice"></a>Prática recomendada de controle de versão
+## <a name="versioning-best-practice"></a>Versão da melhor prática
 
-Quando você cria uma versão de conjunto de dados, você *não* está criando uma cópia extra do dado com o espaço de trabalho. Uma vez que os conjuntos de dados são referências a eles em seu serviço de armazenamento, você tem uma única fonte de verdade, gerenciada pelo seu serviço de armazenamento.
+Quando você cria uma versão do conjunto de dados, você *não* está criando uma cópia extra de dados com o espaço de trabalho. Como os conjuntos de dados são referências aos dados do seu serviço de armazenamento, você tem uma única fonte de verdade, gerenciada pelo seu serviço de armazenamento.
 
 >[!IMPORTANT]
-> Se os dados referenciados pelo DataSet forem substituídos ou excluídos, a chamada de uma versão específica do DataSet *não* reverterá a alteração.
+> Se os dados referenciados pelo seu conjunto de dados forem substituídos ou excluídos, chamar uma versão específica do conjunto de dados *não* reverterá a alteração.
 
-Quando você carrega dados de um DataSet, o conteúdo de dados atual referenciado pelo DataSet é sempre carregado. Se você quiser certificar-se de que cada versão do conjunto de dados seja reproduzível, recomendamos que você não modifique o conteúdo de dados referenciado pela versão do DataSet. Quando novos dados chegam, salve novos arquivos de dados em uma pasta de dados separada e, em seguida, crie uma nova versão de conjunto de dados a fim de incluí-los na nova pasta.
+Quando você carrega dados de um conjunto de dados, o conteúdo de dados atual referenciado pelo conjunto de dados é sempre carregado. Se você quiser ter certeza de que cada versão do conjunto de dados é reprodutível, recomendamos que você não modifique o conteúdo de dados referenciado pela versão do conjunto de dados. Quando novos dados chegarem, salve novos arquivos de dados em uma pasta de dados separada e crie uma nova versão do conjunto de dados para incluir dados dessa nova pasta.
 
-A imagem e o código de exemplo a seguir mostram a maneira recomendada para estruturar suas pastas de dados e criar versões de conjuntos de dados que fazem referência a essas pastas:
+O seguinte código de imagem e amostra mostra a maneira recomendada de estruturar suas pastas de dados e criar versões de conjunto de dados que fazem referência a essas pastas:
 
 ![Estrutura de pastas](./media/how-to-version-track-datasets/folder-image.png)
 
@@ -117,11 +117,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>Versão um conjunto de uma saída de pipeline
+## <a name="version-a-pipeline-output-dataset"></a>Versão de um conjunto de dados de saída de pipeline
 
-Você pode usar um conjunto de dados como entrada e saída de cada etapa Machine Learning pipeline. Quando você executa novamente os pipelines, a saída de cada etapa de pipeline é registrada como uma nova versão do conjunto de resultados.
+Você pode usar um conjunto de dados como a entrada e a saída de cada etapa do pipeline de Machine Learning. Quando você reexecuta pipelines, a saída de cada etapa do pipeline é registrada como uma nova versão do conjunto de dados.
 
-Como Machine Learning pipelines preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline é reproduzido, os conjuntos de resultados de saída com versão são reproduzíveis. Saiba mais sobre [conjuntos de informações em pipelines](how-to-create-your-first-pipeline.md#steps).
+Como os pipelines de Machine Learning preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline for reexecutado, os conjuntos de dados de saída versãodo são reprodutíveis. Saiba mais sobre [conjuntos de dados em pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -155,11 +155,11 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>Acompanhar conjuntos de os testes em experimentos
+## <a name="track-datasets-in-experiments"></a>Rastrear conjuntos de dados em experimentos
 
-Para cada experimento de Machine Learning, você pode facilmente rastrear os conjuntos de dados usados como entrada por meio do objeto experimento `Run`.
+Para cada experimento de Aprendizado de Máquina, você pode facilmente `Run` rastrear os conjuntos de dados usados como entrada através do objeto do experimento.
 
-O código a seguir usa o método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) para controlar quais conjuntos de dados de entrada foram usados com a execução do experimento:
+O código a [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) seguir usa o método para rastrear quais conjuntos de dados de entrada foram usados com a execução do experimento:
 
 ```Python
 # get input datasets
@@ -170,13 +170,13 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Você também pode encontrar o `input_datasets` de experimentos usando https://ml.azure.com/. 
+Você também pode `input_datasets` encontrar a https://ml.azure.com/partir de experimentos usando . 
 
-A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento no Azure Machine Learning Studio. Para este exemplo, vá para o painel **experimentos** e abra a guia **Propriedades** para uma execução específica de seu experimento, `keras-mnist`.
+A imagem a seguir mostra onde encontrar o conjunto de dados de entrada de um experimento no estúdio Azure Machine Learning. Para este exemplo, vá ao painel **Experimentos** e abra a guia `keras-mnist` **Propriedades** para uma execução específica do seu experimento, .
 
 ![Conjuntos de dados de entrada](./media/how-to-version-track-datasets/input-datasets.png)
 
-Use o código a seguir para registrar modelos com conjuntos de valores:
+Use o seguinte código para registrar modelos com conjuntos de dados:
 
 ```Python
 model = run.register_model(model_name='keras-mlp-mnist',
@@ -184,13 +184,13 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Após o registro, você pode ver a lista de modelos registrados com o conjunto de registros usando Python ou vá para https://ml.azure.com/.
+Após o registro, você pode ver a lista de modelos https://ml.azure.com/registrados com o conjunto de dados usando Python ou ir para .
 
-A exibição a seguir é do painel **conjuntos de valores** em **ativos**. Selecione o conjunto de um e selecione a guia **modelos** para obter uma lista dos modelos registrados com o conjunto de um. 
+A seguinte visualização é do painel **Conjuntos de dados** em **Ativos**. Selecione o conjunto de dados e selecione a guia **Modelos** para uma lista dos modelos registrados no conjunto de dados. 
 
 ![Modelos de conjuntos de dados de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Treinar com conjuntos de os](how-to-train-with-datasets.md)
-* [Mais notebooks de conjunto de anotações de exemplo](https://aka.ms/dataset-tutorial)
+* [Treinar com conjuntos de dados](how-to-train-with-datasets.md)
+* [Mais notebooks de conjunto de dados de exemplo](https://aka.ms/dataset-tutorial)

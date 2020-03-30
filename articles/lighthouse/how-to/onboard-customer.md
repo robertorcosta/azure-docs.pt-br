@@ -1,25 +1,25 @@
 ---
 title: Integrar um cliente no gerenciamento de recursos delegados do Azure
 description: Saiba como integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário.
-ms.date: 01/28/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7cf0ff1d64603215a9607f5a25ebc4077f9fa9da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6a5f4ce03f762b5903e8b3d6f10810819e02e422
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270674"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246867"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente no gerenciamento de recursos delegados do Azure
 
-Este artigo explica como você, como um provedor de serviços, pode integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos delegados (assinaturas e/ou grupos de recursos) sejam acessados e gerenciados por meio de seu próprio locatário do Azure Active Directory (Azure AD). Embora possamos nos referir aos provedores de serviços e clientes aqui, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Este artigo explica como você, como um provedor de serviços, pode integrar um cliente ao gerenciamento de recursos delegado do Azure, permitindo que seus recursos delegados (assinaturas e/ou grupos de recursos) sejam acessados e gerenciados por meio de seu próprio locatário do Azure Active Directory (Azure AD). Enquanto nos referimos a provedores de serviços e clientes aqui, [as empresas que gerenciam vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Você pode repetir esse processo se estiver gerenciando recursos para vários clientes. Assim, quando um usuário autorizado entra no seu locatário, pode receber autorizado em vários escopos de locatários do cliente para executar operações de gerenciamento sem precisar entrar em cada locatário individual do cliente.
 
-Para acompanhar o impacto nos compromissos do cliente e receber o reconhecimento, associe sua ID do Microsoft Partner Network (MPN) a pelo menos uma conta de usuário que tenha acesso a cada uma de suas assinaturas integradas. Observe que você precisará executar essa associação em seu locatário do provedor de serviços. Para simplificar, é recomendável criar uma conta de entidade de serviço em seu locatário que esteja associada à ID do MPN e concedendo acesso de leitor de ti a todos os clientes que você carregar. Para obter mais informações, consulte [vincular uma ID de parceiro às suas contas do Azure](../../billing/billing-partner-admin-link-started.md). 
+Para acompanhar seu impacto nos engajamentos dos clientes e receber reconhecimento, associe seu ID da Microsoft Partner Network (MPN) com pelo menos uma conta de usuário que tenha acesso a cada uma de suas assinaturas a bordo. Observe que você precisará executar essa associação em seu locatário do provedor de serviços. Para simplificar, recomendamos criar uma conta principal de serviço em seu inquilino que esteja associada ao seu ID MPN e conceder-lhe acesso ao Leitor a cada cliente que você estiver a bordo. Para obter mais informações, consulte [Vincular um ID de parceiro às suas contas do Azure](../../billing/billing-partner-admin-link-started.md). 
 
 > [!NOTE]
-> Os clientes também podem ser integrados quando comprarem uma oferta de serviços gerenciados (pública ou privada) que você publicou no Azure Marketplace. Para mais informações, veja [Publicar ofertas de Serviços Gerenciados no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui junto com uma oferta publicada no Azure Marketplace.
+> Os clientes também podem ser integrados quando comprarem uma oferta de serviços gerenciados (pública ou privada) que você publicou no Azure Marketplace. Para mais informações, veja [Publicar ofertas de Serviços Gerenciados no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de onboarding descrito aqui, juntamente com uma oferta publicada no Azure Marketplace.
 
 O processo de integração requer que as ações sejam executadas dentro do locatário do provedor de serviços e do locatário do cliente. Todas essas etapas são descritas neste artigo.
 
@@ -29,16 +29,16 @@ Para integrar o locatário de um cliente, ele deve ter uma assinatura ativa do A
 
 - A ID do locatário do provedor de serviços (em que você gerenciará os recursos do cliente)
 - A ID do locatário do cliente (cujos recursos serão gerenciados pelo provedor de serviços)
-- As IDs de assinatura para cada assinatura específica no locatário do cliente que será gerenciado pelo provedor de serviços (ou que contém os grupos de recursos que serão gerenciados pelo provedor de serviços).
+- Os IDs de assinatura de cada assinatura específica no inquilino do cliente que serão gerenciados pelo provedor de serviços (ou que contêm os grupos de recursos que serão gerenciados pelo provedor de serviços).
 
 > [!NOTE]
-> Mesmo que você queira carregar um ou mais grupos de recursos em uma assinatura, a implantação deve ser feita no nível da assinatura, portanto, você precisará da ID da assinatura.
+> Mesmo que você só deseje embarcar um ou mais grupos de recursos dentro de uma assinatura, a implantação deve ser feita no nível de assinatura, então você precisará do ID de assinatura.
 
-Se você ainda não tiver esses valores de ID, poderá recuperá-los de uma das maneiras a seguir. Certifique-se de usar esses valores exatos em sua implantação.
+Se você ainda não tiver esses valores de ID, você pode recuperá-los de uma das seguintes maneiras. Certifique-se de usar esses valores exatos em sua implantação.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Você pode ver a sua ID de locatário passando o mouse sobre o nome da sua conta no lado superior direito do portal do Azure ou selecionando **Mudar diretório**. Para selecionar e copiar sua ID de locatário, pesquise "Azure Active Directory" no portal, selecione **Propriedades** e copie o valor mostrado no campo **ID de diretório**. Para localizar a ID de uma assinatura no locatário do cliente, pesquise por "assinaturas" e, em seguida, selecione a ID da assinatura apropriada.
+Você pode ver a sua ID de locatário passando o mouse sobre o nome da sua conta no lado superior direito do portal do Azure ou selecionando **Mudar diretório**. Para selecionar e copiar sua ID de locatário, pesquise "Azure Active Directory" no portal, selecione **Propriedades** e copie o valor mostrado no campo **ID de diretório**. Para encontrar o ID de uma assinatura no inquilino do cliente, procure por "Assinaturas" e selecione o ID de assinatura apropriado.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -66,7 +66,10 @@ Como provedor de serviços, talvez você queira executar várias tarefas para um
 
 Para facilitar o gerenciamento, é recomendável usar grupos de usuários do Azure AD para cada função, permitindo que você adicione ou remova usuários individuais do grupo em vez de atribuir as permissões diretamente a esse usuário. Também pode ser que você queira atribuir funções a uma entidade de serviço. Siga o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho. Para saber mais e obter recomendações sobre as funções compatíveis, confira [Locatários, usuários e funções em cenários do Azure Lighthouse](../concepts/tenants-users-roles.md).
 
-Para definir autorizações, você precisará saber os valores de ID para cada usuário, grupo de usuários ou entidade de serviço no locatário do provedor de serviços ao qual você deseja conceder acesso. Você também precisa da ID de definição de função para cada função interna que deseja atribuir. Se você ainda não os tiver, poderá recuperá-los executando os comandos abaixo no locatário do provedor de serviços.
+> [!IMPORTANT]
+> Para adicionar permissões para um grupo Azure AD, o **tipo Grupo** deve ser **Segurança** e não **Office 365**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, confira [Criar um grupo básico e adicionar membros usando Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+Para definir as autorizações, você precisará saber os valores de ID para cada usuário, grupo de usuário ou diretor de serviço no inquilino do provedor de serviços ao qual você deseja conceder acesso. Você também precisa da ID de definição de função para cada função interna que deseja atribuir. Se você ainda não os tiver, você pode recuperá-los executando os comandos abaixo de dentro do inquilino do provedor de serviços.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -108,18 +111,18 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo do Azure Resource Manager
 
-Para integrar seu cliente, você precisará criar um modelo do [Azure Resource Manager](../../azure-resource-manager/index.yml) para sua oferta com as seguintes informações. Os valores de **mspOfferName** e **mspOfferDescription** serão visíveis para o cliente ao exibir detalhes da oferta na [página provedores de serviço](view-manage-service-providers.md) do portal do Azure.
+Para integrar seu cliente, você precisará criar um modelo do [Azure Resource Manager](../../azure-resource-manager/index.yml) para sua oferta com as seguintes informações. Os valores **mspOfferName** e **mspOfferDescriptionserão** visíveis para o cliente ao visualizar detalhes da oferta na [página provedores](view-manage-service-providers.md) de serviços do portal Azure.
 
 |Campo  |Definição  |
 |---------|---------|
 |**mspOfferName**     |Um nome que descreve essa definição. Esse valor é exibido para o cliente como o título da oferta.         |
-|**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "oferta de gerenciamento de VM da Contoso").      |
+|**mspOfferDescription**     |Uma breve descrição de sua oferta (por exemplo, "Contoso VM management offer").      |
 |**managedByTenantId**     |ID do locatário.          |
-|**autorizações**     |Os valores de **PrincipalId** para os usuários/grupos/SPNs do seu locatário, cada um com um **principalIdDisplayName** para ajudar seu cliente a entender a finalidade da autorização e é mapeado para um valor **roleDefinitionId** interno para especificar o nível de acesso.      |
+|**Autorizações**     |Os **valores principaisId** para os usuários/grupos/SPNs do seu inquilino, cada um com um **principalIdDisplayName** para ajudar o cliente a entender o propósito da autorização e mapeado para um valor **de roleDefinitionId** incorporado para especificar o nível de acesso.      |
 
-O processo de integração requer um modelo de Azure Resource Manager (fornecido em nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/)) e um arquivo de parâmetros correspondente que você modifica para corresponder à sua configuração e definir suas autorizações.
+O processo de onboarding requer um modelo do Azure Resource Manager (fornecido em nosso [repo de amostras)](https://github.com/Azure/Azure-Lighthouse-samples/)e um arquivo de parâmetros correspondente que você modifica para corresponder à sua configuração e definir suas autorizações.
 
-O modelo escolhido dependerá se você está integrando uma assinatura inteira, um grupo de recursos ou vários grupos de recursos em uma assinatura. Também fornecemos um modelo que pode ser usado por clientes que compraram uma oferta de serviço gerenciado que você publicou no Azure Marketplace, se você preferir integrar suas assinaturas dessa maneira.
+O modelo escolhido dependerá se você está onboarding uma assinatura inteira, um grupo de recursos ou vários grupos de recursos dentro de uma assinatura. Também fornecemos um modelo que pode ser usado por clientes que compraram uma oferta de serviço gerenciado que você publicou no Azure Marketplace, se você preferir integrar suas assinaturas dessa maneira.
 
 |Para fazer essa integração  |use este modelo do Azure Resource Manager  |e altere esse arquivo de parâmetros |
 |---------|---------|---------|
@@ -129,11 +132,11 @@ O modelo escolhido dependerá se você está integrando uma assinatura inteira, 
 |Assinatura (ao usar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> O processo descrito aqui requer uma implantação de nível de assinatura separada para cada assinatura sendo integrada, mesmo se você estiver integrando assinaturas no mesmo locatário do cliente. Implantações separadas também serão necessárias se você estiver integrando vários grupos de recursos dentro de assinaturas diferentes no mesmo locatário do cliente. No entanto, a integração de vários grupos de recursos em uma única assinatura pode ser feita em uma implantação em nível de assinatura.
+> O processo descrito aqui requer uma implantação separada em nível de assinatura para cada assinatura estar a bordo, mesmo se você estiver embarcando assinaturas no mesmo inquilino do cliente. Implantações separadas também são necessárias se você estiver onboarding vários grupos de recursos em diferentes assinaturas no mesmo inquilino do cliente. No entanto, o onboarding de vários grupos de recursos dentro de uma única assinatura pode ser feito em uma implantação em nível de assinatura.
 >
 > Implantações separadas também são necessárias para várias ofertas que estão sendo aplicadas à mesma assinatura (ou grupos de recursos dentro de uma assinatura). Cada oferta aplicada deve usar um **mspOfferName** diferente.
 
-O exemplo a seguir mostra um arquivo **delegatedResourceManagement. Parameters. JSON** modificado que pode ser usado para carregar uma assinatura. Os arquivos de parâmetro do grupo de recursos, localizados na pasta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management), são semelhantes, mas também incluem o parâmetro **rgName** para identificar os grupos de recursos específicos a integrar.
+O exemplo a seguir mostra um arquivo **delegadousedResourceManagement.json** modificado que pode ser usado para embarcar em uma assinatura. Os arquivos de parâmetro do grupo de recursos, localizados na pasta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management), são semelhantes, mas também incluem o parâmetro **rgName** para identificar os grupos de recursos específicos a integrar.
 
 ```json
 {
@@ -186,16 +189,16 @@ O exemplo a seguir mostra um arquivo **delegatedResourceManagement. Parameters. 
 }
 ```
 
-A última autorização no exemplo acima adiciona **principalId** com a função de Administrador de Acesso do Usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nessa autorização poderá atribuir essas funções internas a [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) no locatário do cliente, o que é necessário para [implantar políticas que podem ser corrigidas](deploy-policy-remediation.md). Nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário.
+A última autorização no exemplo acima adiciona **principalId** com a função de Administrador de Acesso do Usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nesta autorização poderá atribuir essas funções [incorporadas a identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) no inquilino do cliente, o que é necessário para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md). Nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implantar os modelos do Azure Resource Manager
 
-Depois de atualizar o arquivo de parâmetros, um usuário no locatário do cliente deve implantar o modelo de Azure Resource Manager em seu locatário como uma implantação em nível de assinatura. Uma implantação separada é necessária para cada assinatura que você deseja integrar ao gerenciamento de recursos delegados do Azure (ou para cada assinatura que contenha grupos de recursos que você deseja integrar).
+Depois de atualizar seu arquivo de parâmetros, um usuário no inquilino do cliente deve implantar o modelo do Azure Resource Manager dentro de seu inquilino como uma implantação de nível de assinatura. Uma implantação separada é necessária para cada assinatura que você deseja integrar ao gerenciamento de recursos delegados do Azure (ou para cada assinatura que contenha grupos de recursos que você deseja integrar).
 
 Como essa é uma implantação em nível de assinatura, ela não pode ser iniciada no portal do Azure. A implantação pode ser feita usando a CLI do PowerShell ou do Azure, como mostrado abaixo.
 
 > [!IMPORTANT]
-> Essa implantação em nível de assinatura deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Essa implantação em nível de assinatura deve ser feita por uma conta não-convidada no inquilino do cliente que tenha a [função de proprietário incorporada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a assinatura que está sendo a bordo (ou que contém os grupos de recursos que estão sendo embarcados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -279,9 +282,9 @@ az account list
 
 ## <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 
-Por padrão, os usuários no locatário do cliente que têm as permissões apropriadas podem remover o acesso do provedor de serviço a recursos delegados na [página provedores de serviço](view-manage-service-providers.md#add-or-remove-service-provider-offers) do portal do Azure. Quando eles fizerem isso, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
+Por padrão, os usuários do inquilino do cliente que possuem as permissões apropriadas podem remover o acesso do provedor de serviços aos recursos delegados na página de provedores de [serviços](view-manage-service-providers.md#add-or-remove-service-provider-offers) do portal Azure. Quando o fizerem, nenhum usuário do inquilino do provedor de serviços poderá acessar os recursos que haviam sido delegados anteriormente.
 
-Se você tiver integrado usuários com a [função excluir atribuição de registro de serviços gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao integrar um cliente para o gerenciamento de recursos delegado do Azure, esses usuários também poderão remover a delegação.
+Se você tiver usuários a bordo com a [Função de Exclusão de Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar em um cliente para o gerenciamento de recursos delegados do Azure, esses usuários também poderão remover a delegação.
 
 O exemplo a seguir mostra uma atribuição que concede a **Função de Exclusão de Atribuição de Registro de Serviços Gerenciados** que pode ser incluída em um arquivo de parâmetro:
 
@@ -301,7 +304,7 @@ Um usuário com essa permissão pode remover uma delegação de uma das maneiras
 
 1. Navegue até a [página Meus clientes](view-manage-customers.md).
 2. Selecione **delegações**.
-3. Localize a delegação que você deseja remover e, em seguida, selecione o ícone de lixeira que aparece em sua linha.
+3. Encontre a delegação que deseja remover e selecione o ícone da lata de lixo que aparece em sua linha.
 
 ### <a name="powershell"></a>PowerShell
 

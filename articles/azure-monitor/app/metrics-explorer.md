@@ -4,14 +4,14 @@ description: Como interpretar os gráficos no gerenciador de métricas e como pe
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275887"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
-As métricas em [Application insights][start] são valores medidos e contagens de eventos que são enviados na telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
+Métricas no [Application Insights][start] são contagens e valores medidos de eventos enviados em telemetria do seu aplicativo. Eles ajudam você a detectar problemas de desempenho e observar as tendências referentes a como seu aplicativo está sendo usado. Há uma grande variedade de métricas padrão, e você também pode criar suas próprias métricas e eventos personalizados.
 
 > [!NOTE]
 > Este artigo descreve a experiência do Metrics Explorer clássico que, atualmente, foi preterido e será desativado no futuro. É recomendável verificar a nova experiência descrita [neste artigo](../platform/metrics-charts.md).
@@ -80,7 +80,7 @@ Selecione um gráfico ou uma grade, ative o agrupamento e escolha uma propriedad
 >
 >
 
-Se você tiver codificado [métricas personalizadas][track] em seu aplicativo e eles incluírem valores de propriedade, você poderá selecionar a propriedade na lista.
+Se você tiver codificado [métricas personalizadas][track] em seu aplicativo e elas incluírem valores de propriedade, você poderá selecionar a propriedade na lista.
 
 O gráfico é muito pequeno para dados segmentados? Ajuste sua altura:
 
@@ -97,7 +97,7 @@ Métricas podem ser agregadas de maneiras diferentes:
 * **Soma** adiciona os valores de todos os pontos de dados recebidos no intervalo de amostragem ou no período do gráfico.
 * **Média** divide a Soma pelo número de pontos de dados recebidos durante o intervalo.
 * **Únicas** são usadas para contagens de usuários e contas. Durante o intervalo de amostragem, ou durante o período do gráfico, a figura mostra a contagem de diferentes usuários vistos no momento.
-* **%** – versões de percentual de cada agregação são usadas somente com gráficos segmentados. O total sempre resulta em 100% e o gráfico mostra a contribuição relativa de diferentes componentes de um total.
+* **%**- as versões percentuais de cada agregação são utilizadas apenas com gráficos segmentados. O total sempre resulta em 100% e o gráfico mostra a contribuição relativa de diferentes componentes de um total.
 
     ![Agregação de percentual](./media/metrics-explorer/percentage-aggregation.png)
 
@@ -166,7 +166,7 @@ Para ser notificado por email sobre valores incomuns de qualquer métrica, adici
 
 ![No Metrics Explorer, escolher Regras de Alerta, Adicionar Alerta](./media/metrics-explorer/appinsights-413setMetricAlert.png)
 
-[Saiba mais sobre alertas][alerts].
+[Saiba mais sobre alertas.][alerts]
 
 
 ## <a name="continuous-export"></a>Exportação Contínua
@@ -180,14 +180,14 @@ Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá
 
 Em um gráfico de métricas, clique no ícone do Analytics para ir diretamente à consulta do Analytics equivalente.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 *Não vejo dados no gráfico.*
 
 * Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro.
 
     Se quiser definir filtros diferentes em gráficos diferentes, crie-os em folhas diferentes e os salve como favoritos separados. Se desejar, você poderá fixá-los ao painel para que eles sejam exibidos lado a lado.
 * Se você agrupar um gráfico por uma propriedade que não esteja definida na métrica, o gráfico ficará vazio. Tente limpar “agrupar por” ou escolha uma propriedade de agrupamento diferente.
-* Haverá dados de desempenho (CPU, taxa de E/S, etc.) disponíveis para serviços Web Java, aplicativos da área de trabalho do Windows, [aplicativos Web e serviços do IIS se você instalar o Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) e os [Serviços de Nuvem do Azure](../../azure-monitor/app/app-insights-overview.md). Esses dados não estão disponíveis para sites do Azure.
+* Os dados de desempenho (CPU, taxa de IO e assim por diante) estão disponíveis para serviços web Java, aplicativos de desktop do Windows, [aplicativos e serviços web IIS se você instalar o monitor de status](../../azure-monitor/app/monitor-performance-live-website-now.md)e o [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). Esses dados não estão disponíveis para sites do Azure.
 
 ## <a name="video"></a>Vídeo
 

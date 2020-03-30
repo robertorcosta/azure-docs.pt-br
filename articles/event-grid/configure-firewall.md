@@ -1,6 +1,6 @@
 ---
-title: Configurar o firewall de IP para tópicos ou domínios da grade de eventos do Azure (versão prévia)
-description: Este artigo descreve como definir as configurações de firewall para os tópicos ou os domínios da grade de eventos.
+title: Configure firewall IP para tópicos ou domínios do Azure Event Grid (Preview)
+description: Este artigo descreve como configurar configurações de firewall para tópicos ou domínios do Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,53 +8,53 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: spelluru
 ms.openlocfilehash: b195872ca1002970fa96ae133d5eb47a9267796d
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299862"
 ---
-# <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Configurar o firewall de IP para tópicos ou domínios da grade de eventos do Azure (versão prévia)
-Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido). Para obter mais informações sobre os recursos de segurança de rede com suporte na grade de eventos, consulte [segurança de rede para a grade de eventos](network-security.md).
+# <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Configure firewall IP para tópicos ou domínios do Azure Event Grid (Preview)
+Por padrão, tópico e domínio são acessíveis a partir da internet, desde que a solicitação venha com autenticação e autorização válidas. Com firewall IP, você pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida). Para obter mais informações sobre os recursos de segurança da rede suportados pelo Event Grid, consulte [Segurança de rede para a Grade de Eventos](network-security.md).
 
-Este artigo descreve como definir as configurações de firewall IP para os tópicos ou domínios da grade de eventos do Azure.
+Este artigo descreve como configurar configurações de firewall IP para tópicos ou domínios do Azure Event Grid.
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
-Esta seção mostra como usar o portal do Azure para criar regras de firewall de IP de entrada. As etapas mostradas nesta seção são para tópicos. Você pode usar etapas semelhantes para criar regras de IP de entrada para **domínios**. 
+Esta seção mostra como usar o portal Azure para criar regras de firewall IP de entrada. Os passos mostrados nesta seção são para tópicos. Você pode usar etapas semelhantes para criar regras ip de entrada para **domínios**. 
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o seu tópico ou domínio da grade de eventos e alterne para a guia **rede** .
-2. Selecione **redes públicas** para permitir que toda a rede, incluindo a Internet, acesse o recurso. 
+1. No [portal Azure,](https://portal.azure.com)navegue até o tópico ou domínio da grade de eventos e mude para a guia **Rede.**
+2. Selecione **redes públicas** para permitir que todas as redes, incluindo a internet, acessem o recurso. 
 
-    Você pode restringir o tráfego usando regras de firewall baseadas em IP. Especifique um único endereço IPv4 ou um intervalo de endereços IP na notação CIDR (roteamento entre domínios sem classificação). 
+    Você pode restringir o tráfego usando regras de firewall baseadas em IP. Especifique um único endereço IPv4 ou uma série de endereços IP na notação DE ROTEAmento interdomínio (CIDR) sem classe. 
 
-    ![Página redes públicas](./media/configure-firewall/public-networks-page.png)
-3. Selecione **pontos de extremidade privados somente** para permitir que somente as conexões de ponto final privado acessem esse recurso. Use a guia **conexões de ponto de extremidade privado** nesta página para gerenciar conexões. 
+    ![Página de redes públicas](./media/configure-firewall/public-networks-page.png)
+3. Selecione **pontos finais privados apenas** para permitir que apenas conexões de ponto final privado acessem esse recurso. Use a **guia Conexões de ponto final privado** nesta página para gerenciar conexões. 
 
-    ![Página redes públicas](./media/configure-firewall/private-endpoints-page.png)
+    ![Página de redes públicas](./media/configure-firewall/private-endpoints-page.png)
 4. Selecione **Salvar** na barra de ferramentas. 
 
 
 
 ## <a name="use-azure-cli"></a>Usar a CLI do Azure
-Esta seção mostra como usar CLI do Azure comandos para criar tópicos com regras de IP de entrada. As etapas mostradas nesta seção são para tópicos. Você pode usar etapas semelhantes para criar regras de IP de entrada para **domínios**. 
+Esta seção mostra como usar os comandos Azure CLI para criar tópicos com regras ip de entrada. Os passos mostrados nesta seção são para tópicos. Você pode usar etapas semelhantes para criar regras ip de entrada para **domínios**. 
 
 
-### <a name="enable-public-network-access-for-an-existing-topic"></a>Habilitar o acesso à rede pública para um tópico existente
-Por padrão, o acesso à rede pública está habilitado para tópicos e domínios. Você pode restringir o tráfego Configurando regras de firewall de IP de entrada. 
+### <a name="enable-public-network-access-for-an-existing-topic"></a>Permitir o acesso à rede pública para um tópico existente
+Por padrão, o acesso à rede pública é habilitado para tópicos e domínios. Você pode restringir o tráfego configurando regras de firewall IP de entrada. 
 
 ```azurecli-interactive
 az rest --method patch --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" --body "{\""properties\"": {\""publicNetworkAccess\"": \""Enabled\""}}"
 ```
 
-### <a name="disable-public-network-access-for-an-existing-topic"></a>Desabilitar o acesso à rede pública para um tópico existente
-Quando o acesso à rede pública está desabilitado para um tópico ou domínio, o tráfego pela Internet pública não é permitido. Somente as conexões de ponto de extremidade privado terão permissão para acessar esses recursos. 
+### <a name="disable-public-network-access-for-an-existing-topic"></a>Desativar o acesso à rede pública para um tópico existente
+Quando o acesso à rede pública é desativado para um tópico ou domínio, o tráfego pela internet pública não é permitido. Somente conexões de ponto final privado poderão acessar esses recursos. 
 
 ```azurecli-interactive
 az rest --method patch --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" --body "{\""properties\"": {\""publicNetworkAccess\"": \""Disabled\""}}"
 ```
 
-### <a name="create-topic-with-inbound-ip-rules"></a>Criar tópico com regras de IP de entrada
-O comando da CLI de exemplo a seguir cria um tópico de grade de eventos com regras de IP de entrada em uma única etapa. 
+### <a name="create-topic-with-inbound-ip-rules"></a>Criar tópico com regras ip de entrada
+O comando CLI da amostra a seguir cria um tópico de grade de eventos com regras IP de entrada em uma etapa. 
 
 ```azurecli-interactive
 az rest --method put \
@@ -62,8 +62,8 @@ az rest --method put \
     --body {\""location\"":\""<LOCATION>\", \""properties\"" :{\""publicNetworkAccess\"":\""enabled\"",\""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 ```
 
-### <a name="create-topic-first-and-then-add-inbound-ip-rules"></a>Criar tópico primeiro e adicionar regras de IP de entrada
-Este exemplo cria um tópico de grade de eventos primeiro e, em seguida, adiciona regras de IP de entrada para o tópico em um comando separado. Ele também atualiza as regras de IP de entrada que foram definidas no segundo comando. 
+### <a name="create-topic-first-and-then-add-inbound-ip-rules"></a>Crie o tópico primeiro e, em seguida, adicione regras ip de entrada
+Este exemplo cria primeiro um tópico de grade de eventos e, em seguida, adiciona regras ip de entrada para o tópico em um comando separado. Ele também atualiza as regras de IP de entrada que foram definidas no segundo comando. 
 
 ```azurecli-interactive
 
@@ -85,17 +85,17 @@ az rest --method put \
 
 
 ## <a name="use-powershell"></a>Usar o PowerShell
-Esta seção mostra como usar Azure PowerShell comandos para criar tópicos de grade de eventos do Azure com regras de firewall de IP de entrada. As etapas mostradas nesta seção são para tópicos. Você pode usar etapas semelhantes para criar regras de IP de entrada para **domínios**. 
+Esta seção mostra como usar os comandos Do Azure PowerShell para criar tópicos do Azure Event Grid com regras de firewall IP de entrada. Os passos mostrados nesta seção são para tópicos. Você pode usar etapas semelhantes para criar regras ip de entrada para **domínios**. 
 
 ### <a name="prerequisite"></a>Pré-requisito
-Siga as instruções de [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md) para criar um aplicativo Azure Active Directory e anote os seguintes valores:
+Siga as instruções de [Como: Use o portal para criar um aplicativo azure AD e um princípio de serviço que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md) para criar um aplicativo do Azure Active Directory e anotar os seguintes valores:
 
 - ID do diretório (locatário)
-- ID do aplicativo (cliente)
+- ID de aplicação (cliente)
 - Segredo de aplicativo (cliente)
 
-### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Preparar token e cabeçalhos para chamadas à API REST 
-Execute os seguintes comandos de pré-requisito para obter um token de autenticação para usar com chamadas à API REST e autorização e outras informações de cabeçalho. 
+### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Preparar token e cabeçalhos para chamadas de API REST 
+Execute os seguintes comandos pré-requisitos para obter um token de autenticação para usar com chamadas de API REST e autorização e outras informações de cabeçalho. 
 
 ```azurepowershell-interactive
 # replace <CLIENT ID> and <CLIENT SECRET>
@@ -113,8 +113,8 @@ $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_tok
 $Headers.Add("Content-Type","application/json")
 ```
 
-### <a name="enable-public-network-access-for-an-existing-topic"></a>Habilitar o acesso à rede pública para um tópico existente
-Por padrão, o acesso à rede pública está habilitado para tópicos e domínios. Você pode restringir o tráfego Configurando regras de firewall de IP de entrada. 
+### <a name="enable-public-network-access-for-an-existing-topic"></a>Permitir o acesso à rede pública para um tópico existente
+Por padrão, o acesso à rede pública é habilitado para tópicos e domínios. Você pode restringir o tráfego configurando regras de firewall IP de entrada. 
 
 ```azurepowershell-interactive
 $body = @{"properties"=@{"publicNetworkAccess"="enabled"}} | ConvertTo-Json -Depth 5
@@ -126,8 +126,8 @@ Invoke-RestMethod -Method 'Patch' `
     | ConvertTo-Json -Depth 5
 ```
 
-### <a name="disable-public-network-access-for-an-existing-topic"></a>Desabilitar o acesso à rede pública para um tópico existente
-Quando o acesso à rede pública está desabilitado para um tópico ou domínio, o tráfego pela Internet pública não é permitido. Somente as conexões de ponto de extremidade privado terão permissão para acessar esses recursos. 
+### <a name="disable-public-network-access-for-an-existing-topic"></a>Desativar o acesso à rede pública para um tópico existente
+Quando o acesso à rede pública é desativado para um tópico ou domínio, o tráfego pela internet pública não é permitido. Somente conexões de ponto final privado poderão acessar esses recursos. 
 
 ```azurepowershell-interactive
 $body = @{"properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json -Depth 5
@@ -139,7 +139,7 @@ Invoke-RestMethod -Method 'Patch' `
     | ConvertTo-Json -Depth 5
 ```
 
-### <a name="create-an-event-grid-topic-with-inbound-rules-in-one-step"></a>Criar um tópico de grade de eventos com regras de entrada em uma etapa
+### <a name="create-an-event-grid-topic-with-inbound-rules-in-one-step"></a>Crie um tópico de grade de eventos com regras de entrada em uma etapa
 
 ```azurepowershell-interactive
 
@@ -160,7 +160,7 @@ Invoke-RestMethod -Method 'Get' `
 ```
 
 
-### <a name="create-event-grid-topic-first-and-then-add-inbound-ip-rules"></a>Criar tópico de grade de eventos primeiro e, em seguida, adicionar regras de IP de entrada
+### <a name="create-event-grid-topic-first-and-then-add-inbound-ip-rules"></a>Criar o tópico da grade de eventos primeiro e, em seguida, adicionar regras ip de entrada
 
 ```azurepowershell-interactive
 

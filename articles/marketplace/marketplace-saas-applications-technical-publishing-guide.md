@@ -5,15 +5,15 @@ services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: c213bbcb3c7859aa4718916aafab970b3ffd4613
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813037"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288352"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de Publicação da Oferta de Aplicativos SaaS
 
@@ -33,7 +33,7 @@ Aplicativos SaaS estão disponíveis em ambas as vitrines do Azure A tabela a se
 
 | Oferta de aplicativos SaaS | Requisitos de negócios | Requisitos técnicos |  
 | --- | --- | --- |  
-| **Fale conosco** | Sim | Não |  
+| **Entre em contato conosco** | Sim | Não |  
 | **Power BI/Dynamics** | Sim | Sim (Integração com o Azure AD) |  
 | **Aplicativos SaaS**| Sim | Sim (Integração com o Azure AD) |     
 
@@ -67,11 +67,11 @@ Para começar, é recomendável que você tenha uma assinatura dedicada à publi
 
 As melhores documentações, exemplos e diretrizes do Azure Active Directory estão nestes sites: 
 
-* [Guia do desenvolvedor do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Guia do Desenvolvedor de Diretórioativo Ativo do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Integração com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Integração com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Integrar aplicativos com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrando aplicativos com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Roteiro do Azure - Segurança e Identidade](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -95,7 +95,7 @@ Além disso, o Azure Active Directory fornece um site para verificar se há atua
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Usar o Azure Active Directory para habilitar avaliações  
 
-A Microsoft autentica todos os usuários do Marketplace com o Azure AD, portanto, quando um usuário autenticado clica na sua listagem de avaliação no Marketplace e é redirecionado para seu ambiente de avaliação, você pode provisionar o usuário diretamente em uma avaliação sem a necessidade de um etapa de entrada adicional. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+A Microsoft autentica todos os usuários do Marketplace com o Azure AD, portanto, quando um usuário autenticado clica através de sua listagem de teste no Marketplace e é redirecionado para o seu ambiente de teste, você pode provisionar o usuário diretamente em um Teste sem exigir um etapa adicional de login. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Usar o Azure AD para habilitar a autenticação em 1 clique no aplicativo ou avaliação:  
 * Simplifica a experiência do cliente do Marketplace para Avaliação.  
@@ -105,7 +105,7 @@ Usar o Azure AD para habilitar a autenticação em 1 clique no aplicativo ou ava
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificar a integração do Azure AD para Marketplace  
 
-Certificar sua integração do Azure AD de algumas maneiras diferentes, dependendo se seu aplicativo é de locatário único ou multilocatário e se você é novo no SSO (logon único) federado do Azure AD ou já dá suporte a ele.  
+Certifique sua integração azure AD de algumas maneiras diferentes, dependendo se seu aplicativo é de um único inquilino ou multi-inquilino, e se você é novo no Azure AD federado único sign-on (SSO), ou já o suporta.  
 
 **Para aplicativos multilocatários:**  
 
@@ -127,19 +127,19 @@ Se você é novo no SSO Federado do Azure AD, faça o seguinte:
 ## <a name="saas-subscriptions"></a>Assinaturas de SaaS
 
 Use o tipo de oferta de aplicativo SaaS para permitir que o cliente compre a solução técnica baseada em SaaS como uma assinatura. Os requisitos a seguir devem ser atendidos em relação ao aplicativo SaaS:
-- Preço e faturar o serviço a um plano (mensal ou anual) ou a uma taxa por usuário.
+- Preço e faturar o serviço em um apartamento (mensal ou anual), ou a uma taxa por usuário.
 - Fornece um método para atualizar ou cancelar o serviço a qualquer momento.
-A Microsoft hospeda a transação comercial. A Microsoft cobra o cliente em seu nome. Para oferecer um aplicativo SaaS como uma assinatura, você deve integrar-se com as APIs de preenchimento de SaaS.  Seu serviço deve oferecer suporte ao provisionamento, atualização e cancelamento.
+A Microsoft hospeda a transação comercial. A Microsoft cobra o cliente em seu nome. Para oferecer um Aplicativo SaaS como assinatura, você deve se integrar com as APIs de atendimento saas.  Seu serviço deve suportar provisionamento, atualização e cancelamento.
 
 | Requisito | Detalhes |  
 |:--- |:--- |  
-|Cobrança e medição | Sua oferta é cobrada com base no modelo de preços selecionado antes da publicação (taxa fixa ou por usuário).  Se estiver usando o modelo de taxa fixa, você pode, opcionalmente, incluir dimensões adicionais usadas para cobrar os clientes pelo uso não incluído na taxa fixa. |  
+|Cobrança e medição | Sua oferta é precificada com base no modelo de preços que você seleciona antes de publicar (taxa fixa ou por usuário).  Se usar o modelo de taxa fixa, você pode incluir opcionalmente dimensões adicionais usadas para cobrar dos clientes pelo uso não incluído na tarifa fixa. |  
 |Cancelamento | Sua oferta é cancelável pelo cliente a qualquer momento. |  
 |Página de destino da transação | Você hospeda uma página inicial da transação de associação de marcas do Azure na qual os usuários podem criar e gerenciar suas contas de serviço de SaaS. |   
 | API de assinatura | Você expõe um serviço que pode interagir com a Assinatura de SaaS para criar, atualizar e excluir um plano de serviço e uma conta de usuário. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente. |  
 
 >[!Note]
->A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
+>O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](./cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP.
 
 ## <a name="next-steps"></a>Próximas etapas
 Caso ainda não tenha feito isso,

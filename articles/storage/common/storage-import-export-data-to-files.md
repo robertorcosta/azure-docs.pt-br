@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 201d0c0a545c5ba7ae1bb0b5e119f7acb1ae362f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268295"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
@@ -21,7 +21,7 @@ Este artigo fornece instruções passo a passo sobre como usar o serviço de Imp
 
 O serviço de Importação/Exportação dá suporte somente à importação de Arquivos do Azure para o Armazenamento do Microsoft Azure. Não há suporte para a exportação de Arquivos do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de criar um trabalho de importação para transferir dados ao Arquivos do Azure, revise cuidadosamente e preencha a seguinte lista de pré-requisitos. Você deve:
 
@@ -30,7 +30,7 @@ Antes de criar um trabalho de importação para transferir dados ao Arquivos do 
 - Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks).
 - Ter um sistema Windows executando uma [Versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems).
 - [Baixe o WAImportExport versão 2](https://aka.ms/waiev2) no sistema Windows. Descompacte para a pasta padrão `waimportexport`. Por exemplo, `C:\WaImportExport`.
-- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente de FedEx/DHL, contate a equipe de operações Azure Data Box em `adbops@microsoft.com`.  
+- Ter uma conta FedEx/DHL. Se você quiser usar uma operadora diferente da FedEx/DHL, entre `adbops@microsoft.com`em contato com a equipe de operações da Caixa de Dados do Azure em .  
     - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
     - Gerar um número de controle para o trabalho de exportação.
     - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
@@ -50,7 +50,7 @@ Execute as etapas a seguir para preparar as unidades.
 2. Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
 3. Modificar o arquivo *dataset.csv* na pasta raiz onde a ferramenta reside. Dependendo de você querer importar um arquivo ou pasta ou ambos, adicione as entradas no arquivo *dataset.csv* semelhante aos exemplos a seguir.  
 
-   - **Para importar um arquivo**: no exemplo a seguir, os dados a serem copiados residem na unidade F:. O arquivo *MyFile1.txt* é copiado para a raiz de *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, ele será criado na conta de Armazenamento do Microsoft Azure. A estrutura de pastas é mantida.
+   - **Para importar um arquivo**: No exemplo a seguir, os dados a copiar residem na unidade F: . O arquivo *MyFile1.txt* é copiado para a raiz de *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, ele será criado na conta de Armazenamento do Microsoft Azure. A estrutura de pastas é mantida.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -120,7 +120,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
     ![Ir para Importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Clique em **Criar Trabalho de Importação/Exportação**.
+3. Clique **em Criar trabalho de importação/exportação**.
 
     ![Clique em Trabalho de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
@@ -145,7 +145,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 4. Em **Informações sobre a remessa de devolução**:
 
-    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações de Azure Data Box em `adbops@microsoft.com` com as informações sobre a transportadora que você planeja usar.
+    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente da FedEx/DHL, escolha uma opção existente a partir da queda. Entre em contato com a `adbops@microsoft.com` equipe de operações da Caixa de Dados do Azure com as informações sobre a operadora que você pretende usar.
     - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação.
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
