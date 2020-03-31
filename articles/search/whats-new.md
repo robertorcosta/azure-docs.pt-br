@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/03/2020
-ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/24/2020
+ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271315"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247190"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
@@ -26,6 +26,12 @@ Conheça o que há de novo no serviço. Marque esta página para manter-se atual
 O Azure Search foi renomeado para **Azure Cognitive Search** para refletir o uso expandido (ainda opcional) de habilidades cognitivas e processamento de IA nas principais operações. As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são alteradas. As soluções de pesquisa novas e existentes não são afetadas pela alteração do nome do serviço.
 
 ## <a name="feature-announcements"></a>Comunicados de recursos
+
+### <a name="march-2020"></a>Março de 2020
+
++ [Exclusão temporária do blob nativo (versão prévia)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) significa que o indexador do Armazenamento de Blobs do Azure no Azure Cognitive Search reconhecerá os blobs que estão no estado de exclusão temporária e removerá o documento de pesquisa correspondente durante a indexação.
+
++ A nova [API REST de Gerenciamento (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) estável está disponível. 
 
 ### <a name="february-2020"></a>Fevereiro de 2020
 

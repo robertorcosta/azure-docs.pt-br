@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com o portal'
 description: Neste início rápido, use o portal do Azure para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 11/25/2019
+ms.date: 03/24/2020
 ms.topic: quickstart
-ms.openlocfilehash: ac876b546ea3bda7541db61e0ab68842a3845541
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3a514478f3cefa49c37c3431a80b578dff480584
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482315"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240001"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade
 
@@ -17,7 +17,7 @@ Este guia de início rápido orienta você no processo de criação de uma atrib
 
 No final deste processo, você identificará com êxito quais máquinas virtuais não estão usando discos gerenciados. Eles _não estão em conformidade_ com a atribuição da política.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -27,15 +27,15 @@ Neste guia de início rápido, crie uma atribuição de política e atribua a de
 
 1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
-   ![Pesquisar Política em Todos os Serviços](./media/assign-policy-portal/search-policy.png)
+   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
 
 1. Selecione **Atribuições** no lado esquerdo da página de Política do Azure. Uma atribuição é uma política que foi atribuída para entrar em vigor em um escopo específico.
 
-   ![Selecionar a página Atribuições na página Visão Geral da Política](./media/assign-policy-portal/select-assignments.png)
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Selecionar a página Atribuições na página Visão Geral da Política" border="false":::
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   ![Atribuir uma definição de política na página Atribuições](./media/assign-policy-portal/select-assign-policy.png)
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Atribuir uma definição de política na página Atribuições" border="false":::
 
 1. Na página **Atribuir Política**, selecione o **Escopo** clicando no botão de reticências e selecionando uma assinatura ou então um grupo de gerenciamento. Opcionalmente, selecione um grupo de recursos. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Em seguida, clique em **Selecionar** na parte inferior da página **Escopo**.
 
@@ -47,13 +47,13 @@ Neste guia de início rápido, crie uma atribuição de política e atribua a de
 
    - Impor marca e seu valor
    - Aplicar marca e seu valor
-   - Requer o SQL Server versão 12.0
+   - Herdar uma marca do grupo de recursos se ela estiver ausente
 
    Para ver uma lista parcial das políticas internas disponíveis, confira [Exemplos do Azure Policy](./samples/index.md).
 
 1. Pesquise a lista de definições de política para encontrar a definição _Auditar VMs que não usam discos gerenciados_. Clique na política e clique em **Selecionar**.
 
-   ![Encontre a definição de política correta](./media/assign-policy-portal/select-available-definition.png)
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Encontre a definição de política correta" border="false":::
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política selecionada, mas você pode alterá-lo. Neste exemplo, deixe _Auditar VMs que não usam discos gerenciados_. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre essa atribuição de política.
    **Atribuído por** preencherá automaticamente com base em quem está conectado. Esse campo é opcional, portanto, valores personalizados podem ser inseridos.
@@ -68,7 +68,7 @@ Agora você está pronto para identificar recursos fora de conformidade para ent
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as **VMs de auditoria que não usam a atribuição de política de discos gerenciados** que você criou.
 
-![Detalhes de conformidade na página Conformidade com a Política](./media/assign-policy-portal/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Detalhes de conformidade na página Conformidade com a Política" border="false":::
 
 Se houver recursos sem conformidade com essa nova atribuição, eles aparecerão em **Recursos sem conformidade**.
 
@@ -84,7 +84,7 @@ Quando uma condição é avaliada em relação a seus recursos existentes e resu
 \* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
 Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição criada, siga estas etapas:
 
@@ -92,7 +92,7 @@ Para remover a atribuição criada, siga estas etapas:
 
 1. Clique com o botão direito do mouse na atribuição de política **Auditar VMs que não usam discos gerenciados** e selecione **Excluir atribuição**.
 
-   ![Excluir uma atribuição da página Conformidade](./media/assign-policy-portal/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Excluir uma atribuição da página Conformidade" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

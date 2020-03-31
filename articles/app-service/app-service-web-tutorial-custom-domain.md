@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: mapear o nome DNS personalizado existente'
+title: 'Tutorial: Mapear um nome DNS personalizado existente'
 description: Saiba como adicionar um nome de domínio DNS personalizado existente (domínio intuitivo) a um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no Serviço de Aplicativo do Azure.
 keywords: serviço do aplicativo, serviço do aplicativo do azure, mapeamento de domínio, nome de domínio, domínio existente, nome de host
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: 37bb1193056894ea824f4aa1723fb327f54bccae
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 2e62062fabfbb7c320bbeaf473979ccef96b0ba3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373640"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047207"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: mapear um nome DNS personalizado existente para o serviço Azure App
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
 O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este tutorial mostra como mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure.
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Redirecionar a URL padrão para um diretório personalizado
 > * Automatizar o mapeamento de domínio com scripts
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -190,17 +190,17 @@ Para mapear um registro A para um aplicativo, o Serviço de Aplicativo exige **d
 
 Para o `contoso.com` exemplo de domínio, crie os registros TXT e acordo com a tabela a seguir (`@` normalmente representa o domínio raiz).
 
-| Tipo de registro | Host | {1&gt;Valor&lt;1} |
+| Tipo de registro | Host | Valor |
 | - | - | - |
-| A | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
+| Um | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
 > Para adicionar um subdomínio (como `www.contoso.com`) usando um registro A em vez de um [registro CNAME](#map-a-cname-record) recomendado, seu registro A e o registro TXT devem se parecer com a tabela a seguir:
 >
-> | Tipo de registro | Host | {1&gt;Valor&lt;1} |
+> | Tipo de registro | Host | Valor |
 > | - | - | - |
-> | A | `www` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
+> | Um | `www` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 
@@ -355,7 +355,7 @@ Set-AzWebApp `
 
 Para obter mais informações, consulte [Atribuir um domínio personalizado para um aplicativo web](scripts/powershell-configure-custom-domain.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 

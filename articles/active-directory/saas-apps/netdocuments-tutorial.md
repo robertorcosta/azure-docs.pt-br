@@ -17,10 +17,10 @@ ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72035710"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao NetDocuments
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o NetDocuments ao Azure AD (Azure Ac
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -149,7 +149,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
 5. Na caixa de diálogo **Identidade Federada**, execute as seguintes etapas:
    
-    ![Identidade Federada](./media/netdocuments-tutorial/ic795049.png "Identidade Federada")
+    ![Identidade Federada](./media/netdocuments-tutorial/ic795049.png "Identidade federada")
    
     a. Para **Tipo de servidor de identidade federada**, selecione **Serviços de Federação do Active Directory**.
    
@@ -168,7 +168,7 @@ No caso do NetDocuments, o provisionamento é uma tarefa manual.
 
 2. No menu na parte superior, clique em **Administrador**.
    
-    ![Admin](./media/netdocuments-tutorial/ic795051.png "Admin")
+    ![Administrador](./media/netdocuments-tutorial/ic795051.png "Admin")
 
 3. Clique em **Adicionar e remover usuários e grupos**.
    

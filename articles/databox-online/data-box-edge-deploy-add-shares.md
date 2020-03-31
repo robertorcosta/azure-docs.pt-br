@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946160"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79212957"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutorial: Transferir dados com o Azure Data Box Edge
 
@@ -59,26 +59,28 @@ Para criar um compartilhamento, siga o procedimento a seguir:
     O tipo pode ser **SMB** ou **NFS**, sendo SMB o padrão. SMB é o padrão para clientes do Windows e NFS é usado para clientes Linux.  
     O restante das opções varia levemente dependendo se você escolher compartilhamentos SMB ou NFS. 
 
-    c. Forneça uma conta de armazenamento na qual o compartilhamento residirá. 
+    c. Forneça uma conta de armazenamento na qual o compartilhamento residirá.
 
-    
+      > [!IMPORTANT]
+      > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+
     d. Na lista suspensa **Serviço de armazenamento**, selecione **Blob de Blocos**, **Blob de Páginas** ou **Arquivos**.  
     O tipo de serviço selecionado depende de qual formato você deseja que os dados usem no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de blocos no Azure, selecionamos **Blob de Blocos**. Se você selecionar o **Blob de Páginas**, deverá garantir que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
 
     e. Crie um contêiner de blob ou use um existente na lista suspensa. Se for criar um contêiner de blob, forneça um nome de contêiner. Se um contêiner ainda não existir, ele será criado na conta de armazenamento com o nome do compartilhamento criado recentemente.
-   
-    f. Dependendo de se você criou um compartilhamento SMB ou um compartilhamento NFS, execute uma das seguintes etapas: 
-     
-    - **Compartilhamento SMB**: Em **Todos os usuários locais com privilégios**, selecione **Criar novo** ou **Usar existente**. Se você criar um novo usuário local, digite um nome de usuário e a senha e, em seguida, confirme a senha. Essa ação atribui permissões para o usuário local. No momento, não há suporte para a modificação de permissões no nível de compartilhamento.
+
+    f. Dependendo de se você criou um compartilhamento SMB ou um compartilhamento NFS, execute uma das seguintes etapas:
+
+    * **Compartilhamento SMB**: Em **Todos os usuários locais com privilégios**, selecione **Criar novo** ou **Usar existente**. Se você criar um novo usuário local, digite um nome de usuário e a senha e, em seguida, confirme a senha. Essa ação atribui permissões para o usuário local. No momento, não há suporte para a modificação de permissões no nível de compartilhamento.
 
         Se você marcar a caixa de seleção **Permitir somente operações de leitura** para esses dados de compartilhamento, poderá especificar usuários somente leitura.
 
         ![Adicionar compartilhamento SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **Compartilhamento NFS**: Insira os endereços IP dos clientes permitidos que podem acessar o compartilhamento.
+
+    * **Compartilhamento NFS**: Insira os endereços IP dos clientes permitidos que podem acessar o compartilhamento.
 
         ![Adicionar compartilhamento NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. Selecione **Criar** para criar o compartilhamento.
     
     Você será notificado de que a criação do compartilhamento está em andamento. Depois que o compartilhamento for criado com as configurações especificadas, o bloco **Compartilhamentos** será atualizado para refletir o novo compartilhamento.

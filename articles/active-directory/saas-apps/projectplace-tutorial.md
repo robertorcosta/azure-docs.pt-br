@@ -17,10 +17,10 @@ ms.date: 05/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 179721075484c35c5ebbb3d936b83bc407b75a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093534"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Tutorial: Integrar o Projectplace ao Azure Active Directory
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá a integrar o Projectplace ao Azure AD (Azure Ac
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -143,11 +143,11 @@ Para permitir que os usuários do Azure AD entrem no Projectplace, você precisa
 
 2. Acesse **Pessoas** e selecione **Membros**:
    
-    ![Acesse Pessoas e, em seguida, selecione Membros](./media/projectplace-tutorial/ic790228.png "Pessoas")
+    ![Acessar Pessoas e selecionar Membros](./media/projectplace-tutorial/ic790228.png "Pessoas")
 
 3. Selecione **Adicionar membro**:
    
-    ![Selecionar Adicionar membro](./media/projectplace-tutorial/ic790232.png "Adicionar membros")
+    ![Selecionar Adicionar Membro](./media/projectplace-tutorial/ic790232.png "Adicionar Membros")
 
 4. Na seção **Adicionar Membro**, realize as etapas a seguir.
    
@@ -173,4 +173,4 @@ Ao selecionar o bloco do Projectplace no Painel de Acesso, você deverá entrar 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

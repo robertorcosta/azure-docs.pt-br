@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 623ec5e082a8ed889329936d020bf28434a56fbf
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 32466cc0a1ab9b86fc2fb8eb791c232ae13f1c01
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942525"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79213568"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferir dados com o Azure Data Box Gateway
 
@@ -27,9 +27,9 @@ Esse procedimento leva cerca de 10 minutos para ser concluído.
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Adicionar um compartilhamento
 > * Conectar-se para compartilhar
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,6 +56,8 @@ Para criar um compartilhamento, realize o seguinte procedimento:
     2. Escolha um **Tipo** para o compartilhamento. O tipo pode ser SMB ou NFS, em que SMB é o padrão. SMB é o padrão para clientes do Windows e NFS é usado para clientes Linux. Dependendo da escolha entre compartilhamentos SMB ou NFS, as opções apresentadas serão ligeiramente diferentes.
 
     3. Forneça uma conta de armazenamento na qual o compartilhamento residirá. Se um contêiner ainda não existir, ele será criado na conta de armazenamento com o nome do compartilhamento criado recentemente. Se o contêiner já existir, esse contêiner será usado.
+       > [!IMPORTANT]
+       > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. Escolha o **Serviço de armazenamento** entre blob de blocos, blobs de página ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nesta instância, queremos que os dados residam como blocos de blob no Azure e, portanto, vamos escolher o Blob de Blocos. Se escolher o Blob de Páginas, você deverá fazer com que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
    

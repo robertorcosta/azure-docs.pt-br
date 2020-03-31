@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 2af153e5cf09cf331be016066e9c9210a0d39b03
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838168"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80257607"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início Rápido: Criar uma instância gerenciada do Banco de Dados SQL do Azure
 
@@ -51,7 +51,7 @@ As etapas a seguir mostram como criar uma instância gerenciada:
 
    Use a tabela abaixo como uma referência para obter informações obrigatórias nesta guia.
 
-   | Configuração| Valor sugerido | DESCRIÇÃO |
+   | Configuração| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
    | **Assinatura** | Sua assinatura. | Uma assinatura que concede a você permissão para criar recursos. |
    | **Grupo de recursos** | Um grupo de recursos novo ou existente.|Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
@@ -74,7 +74,7 @@ As etapas a seguir mostram como criar uma instância gerenciada:
 
    Use a tabela abaixo como uma referência para obter informações obrigatórias nesta guia.
 
-   | Configuração| Valor sugerido | DESCRIÇÃO |
+   | Configuração| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
    | **Rede virtual** | Selecione a **Criar nova rede virtual** ou uma rede virtual e uma sub-rede válidas.| Se uma rede ou uma sub-rede não estiver disponível, ela precisará ser [modificada para atender aos requisitos de rede](sql-database-managed-instance-configure-vnet-subnet.md) antes de ser selecionada como um destino para a nova instância gerenciada. Para obter mais informações sobre os requisitos de configuração do ambiente de rede para uma instância gerenciada, confira [Configurar uma rede virtual para uma instância gerenciada](sql-database-managed-instance-connectivity-architecture.md). |
    | **Tipo de conexão** | Escolha entre um tipo de conexão de proxy e redirecionamento.|Para obter mais informações sobre tipos de conexão, confira [Política de conexão do Banco de Dados SQL do Azure](sql-database-connectivity-architecture.md#connection-policy).|
@@ -91,12 +91,12 @@ As etapas a seguir mostram como criar uma instância gerenciada:
 
    Use a tabela abaixo como uma referência para obter informações obrigatórias nesta guia.
 
-   | Configuração| Valor sugerido | DESCRIÇÃO |
+   | Configuração| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
    | **Ordenação** | Escolha a ordenação que deseja usar para a instância gerenciada. Se estiver migrando bancos de dados do SQL Server, verifique a ordenação de origem usando `SELECT SERVERPROPERTY(N'Collation')` e use esse valor.| Para obter informações sobre ordenações, confira [Definir ou alterar a ordenação do servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Fuso horário** | Selecione o fuso horário que sua instância gerenciada observará.|Para obter mais informações, confira [Fusos horários](sql-database-managed-instance-timezone.md).|
-   | **Usar como secundário de failover** | Selecione **Sim**. | Habilite esta opção para usar a instância gerenciada como o secundário de um grupo de failover.|
-   | **Instância gerenciada primária** (se **Usar como secundário de failover** estiver definido como **Sim**) | Escolha uma instância gerenciada primária existente que será ingressada na mesma zona DNS que a instância gerenciada que você está criando. | Esta etapa habilitará a configuração pós-criação do grupo de failover. Para obter mais informações, confira [Tutorial: Adicionar uma instância gerenciada do Banco de Dados SQL a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md).|
+   | **Usar como secundário de failover** | Selecione **Sim** na barra superior. | Habilite esta opção para usar a instância gerenciada como o secundário de um grupo de failover.|
+   | **Instância gerenciada primária** (se **Usar como secundário de failover** estiver definido como **Sim**) | Escolha uma instância gerenciada primária existente que será ingressada na mesma zona DNS que a instância gerenciada que você está criando. | Esta etapa habilitará a configuração pós-criação do grupo de failover. Para saber mais, confira [Tutorial: Adicionar uma instância gerenciada do Banco de Dados SQL a um grupo de failover](sql-database-managed-instance-failover-group-tutorial.md).|
 
 ### <a name="review--create"></a>Examinar + criar
 
@@ -122,6 +122,10 @@ As etapas a seguir mostram como criar uma instância gerenciada:
 > 1. No portal do Azure, abra o grupo de recursos (na guia **Conceitos Básicos**) no qual você está implantando uma instância gerenciada.
 > 2. Selecione **Implantações**.
 > 3. Selecione a operação de implantação de instância gerenciada em andamento.
+
+> [!IMPORTANT]
+> Para poder obter o status da criação da instância gerenciada, você precisa ter **permissões de leitura** no grupo de recursos. Se você não tiver essa permissão ou se revogá-la enquanto a instância gerenciada estiver no processo de criação, isso poderá fazer com que a instância gerenciada não fique visível na lista de implantações do grupo de recursos.
+>
 
 ## <a name="post-deployment-operations"></a>Operações de pós-implantação
 

@@ -1,13 +1,13 @@
 ---
 ms.openlocfilehash: 26eff7b10542843be561264c316bdcf1a63271f7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67171623"
 ---
-## <a name="setting-up-the-library"></a>Configurando a biblioteca
+## <a name="setting-up-the-library"></a>Configurar a biblioteca
 
-Chame Start () para habilitar a sessão para processar dados de ambiente.
+Invoque Start() para habilitar sua sessão a processar os dados do ambiente.
 
-Para manipular eventos gerados pela sua sessão, defina o `delegate` propriedade da sessão a um objeto, como seu modo de exibição. Esse objeto deve implementar o protocolo SSCCloudSpatialAnchorSessionDelegate.
+Para manipular eventos gerados pela sua sessão, defina a propriedade `delegate` de sua sessão para um objeto, como o modo de exibição. Esse objeto precisa implementar o protocolo SSCCloudSpatialAnchorSessionDelegate.

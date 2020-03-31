@@ -6,27 +6,27 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c984faf22b8e4cd499a5588f45d7072610f33544
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.openlocfilehash: 11c57065e21c48a23148cacd91a42737edc13538
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767918"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80049404"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
 O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir suas metas de identidade híbrida.  Ela fornece os seguintes recursos:
-    
+     
 - [Sincronização de hash de senha](whatis-phs.md) – um método de entrada que sincroniza o hash da senha do AD local do usuário com o Azure AD.
 - [Autenticação de passagem](how-to-connect-pta.md) – um método de entrada que permite que os usuários usem a mesma senha localmente e na nuvem, mas não exige a infraestrutura adicional de um ambiente federado.
 - [Integração de federação](how-to-connect-fed-whatis.md) – a federação é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura do AD FS local. Ela também fornece recursos de gerenciamento do AD FS, como renovação de certificado e implantações adicionais de servidor do AD FS.
 - [Sincronização](how-to-connect-sync-whatis.md) – responsável pela criação de usuários, grupos e outros objetos.  Também é responsável por garantir que as informações de identidade dos usuários e grupos locais correspondam às da nuvem.  Essa sincronização também inclui os hashes de senha.
--   [Monitoramento de Integridade](whatis-hybrid-identity-health.md) – o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
+-      [Monitoramento de Integridade](whatis-hybrid-identity-health.md) – o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
 
 
 ![O que é o Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -46,7 +46,7 @@ A integração de seus diretórios locais ao AD do Azure torna os usuários mais
 
 * Os usuários podem usar uma única identidade para acessar aplicativos locais e serviços na nuvem, como o Office 365.
 * Ferramenta única para fornecer uma experiência de implantação fácil de sincronização e entrada.
-* Fornece os recursos mais recentes para seus cenários. Azure AD Connect substitui versões mais antigas das ferramentas de integração de identidade, como DirSync e Azure AD Sync. Para obter mais informações, consulte [comparação de ferramentas de integração de diretório de identidade híbrida](plan-hybrid-identity-design-considerations-tools-comparison.md).
+* Fornece os recursos mais recentes para seus cenários. O Azure AD Connect substitui as versões mais antigas das ferramentas de integração de identidade, como DirSync e Azure AD Sync. Para saber mais, confira [Comparação das ferramentas de integração de diretórios de Identidade Híbrida](plan-hybrid-identity-design-considerations-tools-comparison.md).
 
 ## <a name="why-use-azure-ad-connect-health"></a>Por que usar o Azure AD Connect Health?
 No Azure AD, os usuários são mais produtivos porque há uma identidade comum para acessar recursos de nuvem e locais. Garantir que o ambiente seja confiável, para que os usuários possam acessar esses recursos, torna-se um desafio.  O Azure AD Connect Health ajuda no monitoramento e na obtenção de informações sobre a sua infraestrutura de identidade local, garantindo assim a confiabilidade do ambiente. É tão simples quanto instalar um agente em cada um de seus servidores de identidade locais.
@@ -55,7 +55,7 @@ O Azure AD Connect Health para AD FS dá suporte ao AD FS 2.0 no Windows Server 
 
 Principais benefícios e melhores práticas:
 
-|Principais benefícios|Práticas recomendadas|
+|Principais benefícios|Práticas Recomendadas|
 |-----|-----|
 |Segurança aprimorada|[Tendências de bloqueio de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Relatório de entradas de falha](how-to-connect-health-adfs-risky-ip.md)</br>[Em conformidade com a privacidade](reference-connect-health-user-privacy.md)|
 |Receba alertas sobre [todos os problemas críticos do sistema ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuração e disponibilidade do servidor</br>[Desempenho e conectividade](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Manutenção regular|
@@ -71,7 +71,7 @@ Principais benefícios e melhores práticas:
 ## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Requisitos de licença para usar o Azure AD Connect Health
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
 - [Configurações Expressas](how-to-connect-install-express.md)

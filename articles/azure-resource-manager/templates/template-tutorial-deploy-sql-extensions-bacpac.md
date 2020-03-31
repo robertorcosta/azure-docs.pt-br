@@ -5,18 +5,18 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 27ac4b67aa19aa59abe80ccf9409acf7b587a22b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250107"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239270"
 ---
-# <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager
+# <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM
 
-Saiba como usar a extensão de Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do Azure Resource Manager. Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato. 
+Saiba como usar a extensão de Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato. 
 
-Neste tutorial, você criará um modelo para implantar um servidor SQL do Azure e um banco de dados SQL e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do Azure Resource Manager, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do Azure Resource Manager](./template-tutorial-deploy-vm-extensions.md).
+Neste tutorial, você criará um modelo para implantar um servidor SQL do Azure e um banco de dados SQL e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do ARM, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do ARM](./template-tutorial-deploy-vm-extensions.md).
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -33,20 +33,20 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](./use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](./use-vs-code-to-create-template.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador do Azure SQL Server. Aqui está um exemplo que você pode usar para gerar uma senha:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do ARM](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-a-bacpac-file"></a>Preparar um arquivo BACPAC
 
 Um arquivo BACPAC é compartilhado no [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Para criar seus próprio arquivo, confira [Exportar um Banco de Dados SQL do Azure para um arquivo BACPAC](../../sql-database/sql-database-export.md). Se você optar por publicar o arquivo em seu próprio local, deverá atualizar o modelo posteriormente no tutorial.
 
-O arquivo BACPAC deve ser armazenado em uma conta de Armazenamento do Azure antes que possa ser importado usando um modelo do Resource Manager. O script do PowerShell a seguir prepara o arquivo BACPAC com estas etapas:
+O arquivo BACPAC deve ser armazenado em uma conta de Armazenamento do Azure antes que possa ser importado usando um modelo do ARM. O script do PowerShell a seguir prepara o arquivo BACPAC com estas etapas:
 
 * Baixe o arquivo BACPAC.
 * Criar uma conta do Armazenamento do Azure.

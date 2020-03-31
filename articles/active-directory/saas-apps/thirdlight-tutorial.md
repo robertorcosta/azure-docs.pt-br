@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: integração do Azure Active Directory com o ThirdLight
@@ -34,7 +34,7 @@ Se quiser saber mais sobre a integração de aplicativos SaaS ao Azure AD, confi
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao ThirdLight, você precisa ter:
 
@@ -138,7 +138,7 @@ Para configurar o logon único do Azure AD com o ThirdLight, execute estas etapa
 
 1. Na seção de configuração do SAML2, execute as seguintes etapas.
   
-    ![Seção de configuração do SAML2](./media/thirdlight-tutorial/ic805844.png "Seção de configuração do SAML2")
+    ![Seção de configuração SAML2](./media/thirdlight-tutorial/ic805844.png "Seção de configuração SAML2")
 
     1. Selecione **Habilitar Logon Único do SAML2**.
 

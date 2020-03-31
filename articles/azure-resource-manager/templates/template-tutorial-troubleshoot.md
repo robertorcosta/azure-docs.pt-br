@@ -5,16 +5,16 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ab12b206d5bb82956a8b607368af44ea0eaca40e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471031"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239244"
 ---
-# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutorial: Solucionar problemas de implantações de modelo do Resource Manager
+# <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solucionar problemas de implantações do modelo do ARM
 
-Saiba como solucionar erros de implantações de modelo do Resource Manager. Neste tutorial, você configurará dois erros em um modelo e aprenderá a usar os logs de atividades e o histórico de implantação para resolver os problemas.
+Saiba como solucionar erros de implantação de modelo do ARM (Azure Resource Manager). Neste tutorial, você configurará dois erros em um modelo e aprenderá a usar os logs de atividades e o histórico de implantação para resolver os problemas.
 
 Há dois tipos de erros relacionados à implantação de modelo:
 
@@ -35,11 +35,11 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Criar um modelo com problemas
 
@@ -128,4 +128,4 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a solucionar erros de implantação de modelo do Resource Manager.  Para obter mais informações, confira [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
+Neste tutorial, você aprendeu a solucionar erros de implantação de modelo do ARM.  Para obter mais informações, confira [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: df1d70f895e2e0a81344cf2a4e8e2d9963c951fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integração do Azure Active Directory com o Igloo Software
@@ -34,7 +34,7 @@ A integração do Igloo Software ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Igloo Software, você precisa dos seguintes itens:
 
@@ -135,19 +135,19 @@ Para configurar o logon único do Azure AD com o Igloo Software, execute as segu
 
 2. Vá para o **Painel de Controle**.
 
-     ![Painel de controle](./media/igloo-software-tutorial/ic799949.png "Painel de controle")
+     ![Painel de Controle](./media/igloo-software-tutorial/ic799949.png "Painel de Controle")
 
 3. Na guia **Associação**, clique em **Configurações de Entrada**.
 
-    ![Configurações de entrada](./media/igloo-software-tutorial/ic783968.png "Configurações de entrada")
+    ![Configurações de Entrada](./media/igloo-software-tutorial/ic783968.png "Configurações de Entrada")
 
 4. Na seção Configuração do SAML, clique em **Configurar Autenticação SAML**.
 
-    ![Configuração SAML](./media/igloo-software-tutorial/ic783969.png "configuração SAML")
+    ![Configuração do SAML](./media/igloo-software-tutorial/ic783969.png "Configuração de SAML")
 
 5. Na seção **Configuração Geral** , realize as seguintes etapas:
 
-    ![Configuração geral](./media/igloo-software-tutorial/ic783970.png "Configuração geral")
+    ![Configuração Geral](./media/igloo-software-tutorial/ic783970.png "Configuração Geral")
 
     a. Na caixa de texto **Nome da Conexão** , digite um nome personalizado para a sua configuração.
 
@@ -161,7 +161,7 @@ Para configurar o logon único do Azure AD com o Igloo Software, execute as segu
 
 6. Em **Configuração de Resposta e Autenticação**, realize as seguintes etapas:
 
-    ![Configuração de autenticação e resposta](./media/igloo-software-tutorial/IC783971.png "Configuração de autenticação e resposta")
+    ![Configuração de Resposta e Autenticação](./media/igloo-software-tutorial/IC783971.png "Configuração de Resposta e Autenticação")
   
     a. Para **Provedor de Identidade**, selecione **Microsoft ADFS**.
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 03/13/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443135"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79366267"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>O que é a Versão prévia do Gerenciador de Firewall do Azure?
 
@@ -80,13 +80,14 @@ A Versão prévia do Gerenciador de Firewall do Azure tem os seguintes problemas
 
 |Problema  |Descrição  |Atenuação  |
 |---------|---------|---------|
-|Limitações da filtragem de terceiros|A filtragem de tráfego V2I com provedores de terceiros não tem suporte no Firewall do Azure B2V e V2V.|Em investigação.|
-|Divisão de tráfego sem suporte no momento|A divisão de tráfego do Office 365 e PaaS público do Azure não tem suporte no momento. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Atualmente investigando a divisão de tráfego no hub.
-|Um hub virtual seguro por região|Você não pode ter mais de um hub virtual seguro por região|Crie várias WANs virtuais em uma região.|
-|As políticas básicas devem estar na mesma região que a política local|Crie todas as políticas locais na mesma região que a política básica. Você ainda pode aplicar uma política que foi criada em uma região em um hub seguro de outra região.|Em investigação.|
-|A comunicação entre os hubs não está funcionando com o hub virtual seguro|A comunicação do hub virtual seguro com o hub virtual seguro ainda não tem suporte.|Em investigação.|
+|Limitações da filtragem de terceiros.|A filtragem de tráfego V2I com provedores de terceiros não tem suporte no Firewall do Azure B2V e V2V.|Investigando|
+|Divisão de tráfego sem suporte no momento.|A divisão de tráfego do Office 365 e PaaS público do Azure não tem suporte no momento. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.
+|Um hub virtual seguro por região.|Você não pode ter mais de um hub virtual seguro por região.|Crie várias WANs virtuais em uma região.|
+|As políticas básicas devem estar na mesma região que a política local.|Crie todas as políticas locais na mesma região que a política básica. Você ainda pode aplicar uma política que foi criada em uma região em um hub seguro de outra região.|Investigando|
+|A comunicação entre os hubs não está funcionando com o hub virtual seguro|A comunicação do hub virtual seguro com o hub virtual seguro ainda não tem suporte.|Investigando|
 |Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
-|Grupos de IPs não são compatíveis com a Política de Firewall|Os Grupos de IPs estão em versão prévia pública e atualmente só são compatíveis com regras de firewall tradicionais|Correção em andamento
+|Grupos de IPs não são compatíveis com a Política de Firewall.|Os Grupos de IPs estão em versão prévia pública e atualmente só são compatíveis com regras de firewall tradicionais.|Conserto em andamento.
+|Não há suporte para as assinaturas de CSP (Provedor de solução de nuvem).|Atualmente, não há suporte para as [assinaturas de CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).|Investigando
 
 ## <a name="next-steps"></a>Próximas etapas
 

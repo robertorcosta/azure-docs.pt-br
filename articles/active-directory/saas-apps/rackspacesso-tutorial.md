@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Active Directory ao Rackspace SSO
@@ -34,7 +34,7 @@ A integração do Rackspace SSO ao Microsoft Azure AD oferece os seguintes benef
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Microsoft Azure AD ao Rackspace SSO, são necessários os seguintes itens:
 
@@ -200,7 +200,7 @@ O Rackspace usa uma **Política de Mapeamento de Atributos** para atribuir funç
 O exemplo a seguir de **Política de Mapeamento de Atributo** demonstra:
 1. Definir o nome do usuário do Rackspace na declaração SAML `user.name`. Qualquer declaração pode ser usada, mas é mais comum defini-la como um campo que contém o endereço de email do usuário.
 1. Definir as funções de Rackspace `admin` e `billing:admin` em um usuário combinando um grupo do Azure AD, seja por Nome de Grupo ou por UID de Grupo. Uma *substituição* de `"{0}"` no campo `roles` é usada e será substituída pelos resultados das expressões da regra `remote`.
-1. Usar a `"{D}"` *substituição padrão* para permitir que o Rackspace recupere campos adicionais de SAML procurando declarações SAML padrão e bem conhecidas na troca de SAML.
+1. Usar a *substituição padrão* `"{D}"` para permitir que o Rackspace recupere campos adicionais de SAML procurando declarações SAML padrão e bem conhecidas na troca de SAML.
 
 ```yaml
 ---

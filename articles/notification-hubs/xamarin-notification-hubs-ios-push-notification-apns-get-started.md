@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações por push para i Xamarin iOS usando os Hubs de Notificação do Azure | Microsoft Docs
+title: Enviar notificações por push para o Xamarin usando os Hubs de Notificação do Azure | Microsoft Docs
 description: Neste tutorial, você aprende a usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo Xamarin.iOS.
 services: notification-hubs
 keywords: notificações por push do IOS, mensagens por push, notificações por push, mensagem por push
@@ -18,12 +18,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: e693d771d9a4726a1a9d698b5b7ed61d19197bdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895026"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127003"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push a aplicativos Xamarin.iOS usando os Hubs de Notificação do Azure
 
@@ -44,7 +44,7 @@ Neste tutorial, você cria/atualiza o código para executar as seguintes tarefas
 > * Configurar o hub de notificação para notificações por push do iOS
 > * Enviar notificações por push de teste
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 * Versão mais recente do [Xcode][Install Xcode]
@@ -206,7 +206,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 
 ## <a name="send-test-push-notifications"></a>Enviar notificações por push de teste
 
-Você pode testar o recebimento de notificações no aplicativo com a opção *Envio de Teste* no [Portal do Azure]. Isso envia uma notificação por push de teste para seu dispositivo.
+Você pode testar o recebimento de notificações no aplicativo com a opção *Envio de Teste* no [Azure portal]. Isso envia uma notificação por push de teste para seu dispositivo.
 
 ![Portal do Azure – Envio de Teste][30]
 
@@ -238,4 +238,4 @@ Neste tutorial, você envia notificações de transmissão para todos os seus di
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: https://go.microsoft.com/fwlink/p/?LinkId=272584
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

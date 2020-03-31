@@ -6,16 +6,16 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250066"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239172"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault à implantação do modelo do Resource Manager
+# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault em sua implantação de modelo do ARM
 
-Saiba como recuperar segredos de um cofre de chaves do Azure e transmitir os segredos como parâmetros durante a implantação do Resource Manager. O valor do parâmetro nunca fica exposto porque você só faz referência à ID do cofre de chaves. Para saber mais, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./key-vault-parameter.md).
+Saiba como recuperar segredos de um cofre de chaves do Azure e transmitir os segredos como parâmetros durante a implantação de um modelo do ARM (Azure Resource Manager). O valor do parâmetro nunca fica exposto porque você só faz referência à ID do cofre de chaves. Para saber mais, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./key-vault-parameter.md).
 
 No tutorial [Definir a ordem de implantação do recurso](./template-tutorial-create-templates-with-dependent-resources.md), você cria uma VM (máquina virtual). Você precisará fornecer o nome de usuário e a senha do administrador da VM. Em vez de fornecer a senha, armazene previamente a senha em um cofre de chaves do Azure e personalize o modelo para recuperar a senha do cofre de chaves durante a implantação.
 
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
 * Para aumentar a segurança, use uma senha gerada para a conta Administrador da VM. Veja um exemplo de geração de senha:
 
     ```console
@@ -49,7 +49,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="prepare-a-key-vault"></a>Preparar um cofre de chaves
 
-Nesta seção, você criará um cofre de chaves e adicionará um segredo a ele para poder recuperá-lo durante a implantação do seu modelo. Há muitas maneiras de criar um cofre de chaves. Neste tutorial, você usará o Azure PowerShell para implantar um [modelo do Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). O modelo faz o seguinte:
+Nesta seção, você criará um cofre de chaves e adicionará um segredo a ele para poder recuperá-lo durante a implantação do seu modelo. Há muitas maneiras de criar um cofre de chaves. Neste tutorial, você usará o Azure PowerShell para implantar um [modelo do ARM](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). O modelo faz o seguinte:
 
 * Crie um cofre de chaves com a propriedade `enabledForTemplateDeployment` habilitada. Essa propriedade precisa ser *true* para que o processo de implantação de modelo possa acessar os segredos definidos no cofre de chaves.
 * Adicione um segredo ao cofre de chaves. O segredo armazena a senha do administrador da VM.
@@ -97,7 +97,7 @@ Agora você preparou um cofre de chaves e um segredo. As seções a seguir mostr
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de início rápido
 
-Modelos de Início Rápido do Azure é um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 
@@ -107,7 +107,7 @@ Modelos de Início Rápido do Azure é um repositório de modelos do Resource Ma
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. Escolha **Abrir** para abrir o arquivo. O cenário é o mesmo usado no [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md).
+1. Escolha **Abrir** para abrir o arquivo. O cenário é o mesmo usado no [Tutorial: Criar modelos do ARM com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md).
    O modelo define cinco recursos:
 
    * `Microsoft.Storage/storageAccounts`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).

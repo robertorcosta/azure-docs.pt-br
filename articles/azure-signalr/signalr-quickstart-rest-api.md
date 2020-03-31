@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74157689"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início Rápido: Difundir mensagens em tempo real do aplicativo de console
@@ -19,7 +19,7 @@ O Azure SignalR Service fornece [API REST](https://github.com/Azure/azure-signal
 
 Neste início rápido, você aprenderá como enviar mensagens de um aplicativo de linha de comando para aplicativos cliente conectados em C#.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido pode ser executado no macOS, Windows ou Linux.
 
@@ -111,7 +111,7 @@ broadcast
 
 Você pode iniciar vários clientes com nomes de clientes diferentes.
 
-## <a name="usage"> </a> Integração com serviços de terceiros
+## <a name="integration-with-third-party-services"></a><a name="usage"> </a> Integração com serviços de terceiros
 
 O serviço Azure SignalR permite que serviços de terceiros integrem-se ao sistema.
 

@@ -1,15 +1,15 @@
 ---
 title: Criar um membro do Azure Blockchain Service – portal do Azure
 description: Crie um membro do Azure Blockchain Service para um consórcio Blockchain usando o portal do Azure.
-ms.date: 01/23/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 03cd4be1228fcf6a501203e6efb40a8b45c30d0c
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.reviewer: ravastra
+ms.openlocfilehash: 3c468633a193d78fb1c017a756ee372c6feefb12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760769"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79203654"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Início Rápido: Criar um membro do blockchain do Azure Blockchain Service usando o portal do Azure
 
@@ -36,7 +36,7 @@ Um membro do Azure Blockchain Service é um nó de blockchain em uma rede privad
     Consórcio | Para um novo consórcio, insira um nome exclusivo. Se estiver ingressando em um consórcio por meio de um convite, escolha o consórcio no qual você está ingressando. Para obter mais informações sobre os consórcios, confira [Consórcio do Azure Blockchain Service](consortium.md).
     Nome | Escolha um nome exclusivo para o membro do Azure Blockchain Service. O nome do membro do blockchain só pode conter letras minúsculas e números. O primeiro caractere precisa ser uma letra. O valor precisa ter entre 2 e 20 caracteres.
     Senha da conta de membro | A senha da conta do membro é usada para criptografar a chave privada para a conta do Ethereum criada para o membro. Use a conta do membro e a senha da conta do membro para o gerenciamento do consórcio.
-    Preços | A configuração e o custo de nó do novo serviço. Selecione o link **Alterar** para escolher entre as camadas de serviço **Standard** e **Basic**.
+    Preços | A configuração e o custo de nó do novo serviço. Selecione o link **Alterar** para escolher entre as camadas de serviço **Standard** e **Basic**. Use a camada *Basic* para desenvolvimento, teste e prova de conceitos. Use a camada *Standard* para implantações de nível de produção.
     Senha do nó | A senha do nó de transação padrão do membro. Use a senha para a autenticação básica ao se conectar ao ponto de extremidade público do nó de transação padrão do membro do blockchain.
 
 1. Selecione **Examinar + criar** para validar suas configurações. Selecione **Criar** para provisionar o serviço. O provisionamento leva cerca de 10 minutos.

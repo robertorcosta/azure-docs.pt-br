@@ -6,23 +6,23 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765676"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067713"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Início Rápido: Criar um Banco de Dados do Azure para MySQL usando um comando de CLI do Azure simples - az postgres up (versão prévia)
 
 > [!IMPORTANT]
 > O comando da CLI do Azure [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) está na versão prévia.
 
-O Banco de Dados do Azure para MySQL é um serviço gerenciado que permite executar, gerenciar e dimensionar bancos de dados altamente disponíveis do MySQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como usar o comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) para criar um servidor Banco de Dados do Azure para MySQL usando a CLI do Azure. Além de criar o servidor, o `az mysql up` comando cria um banco de dados de exemplo, um usuário raiz no banco de dados, abre o firewall para serviços do Azure e cria regras de firewall para o computador cliente de padrão. Isso ajuda a agilizar o processo de desenvolvimento.
+O Banco de Dados do Azure para MySQL é um serviço gerenciado que permite executar, gerenciar e dimensionar bancos de dados altamente disponíveis do MySQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure na linha de comando ou em scripts. Este início rápido mostra como usar o comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) para criar um servidor Banco de Dados do Azure para MySQL usando a CLI do Azure. Além de criar o servidor, o `az mysql up` comando cria um banco de dados de exemplo, um usuário raiz no banco de dados, abre o firewall para serviços do Azure e cria regras de firewall para o computador cliente de padrão. Isso ajuda a agilizar o processo de desenvolvimento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -34,7 +34,7 @@ Você precisará fazer logon em sua conta usando o comando [login az](/cli/azure
 az login
 ```
 
-Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Substitua a propriedade **id de assinatura** da saída **logon az** para a sua assinatura no espaço reservado da ID da assinatura.
+Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Substitua a propriedade **ID da assinatura** da saída **az logon** por sua assinatura no espaço reservado da ID de assinatura.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -63,8 +63,8 @@ resource-group | Gerada pelo sistema | Um novo grupo de recursos do Azure.
 sku-name | GP_Gen5_2 | O nome da SKU. Segue a convenção {tipo de preço}\_{geração de computação}\_{vCores} em formato abreviado. O padrão é servidor Gen5 de Uso Geral com 2 vCores. Consulte nossa [página de preços](https://azure.microsoft.com/pricing/details/mysql/) para obter mais informações sobre os tipos.
 backup-retention | 7 | Quanto tempo um backup deve ser retido. A unidade é dias.
 geo-redundant-backup | Desabilitado | Indica se os backups com redundância geográfica devem ser habilitados para este servidor ou não.
-location | westus2 | O local do Azure para o servidor.
-ssl-enforcement | Desabilitado | Se o ssl deve ser habilitado ou não para este servidor.
+local | westus2 | O local do Azure para o servidor.
+ssl-enforcement | Desabilitado | Se o SSL deve ser habilitado para este servidor.
 storage-size | 5120 | A capacidade de armazenamento do servidor (a unidade é megabytes).
 version | 5.7 | A versão principal do MySQL.
 admin-user | Gerada pelo sistema | O nome de usuário para o logon de administrador.
@@ -90,7 +90,7 @@ Após o comando `az mysql up` ser concluído, uma lista de cadeias de conexão p
 
 Você pode usar o comando [az mysql show-connection-string](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) para listar essas cadeias de conexão novamente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Limpe todos os recursos que você criou no início rápido usando o comando a seguir. Esse comando exclui o servidor Banco de Dados do Azure para MySQL e o grupo de recursos.
 

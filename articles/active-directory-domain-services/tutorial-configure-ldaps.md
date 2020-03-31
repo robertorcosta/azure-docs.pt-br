@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: a711303b95eb4acb9c226ce052466bf65d15a038
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612780"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481527"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -66,9 +66,9 @@ O certificado solicitado ou criado precisa atender aos requisitos a seguir. O do
 * **Nome da entidade**: o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se o domínio for chamado *aaddscontoso.com*, o nome da entidade do certificado precisará ser * *.aaddscontoso.com*.
     * O nome DNS ou o nome alternativo da entidade do certificado precisa ser um certificado curinga para garantir que o LDAP Seguro funcione corretamente com o Azure AD Domain Services. Os controladores de domínio usam nomes aleatórios e podem ser removidos ou adicionados para garantir que o serviço permaneça disponível.
 * **Uso de chave** – o certificado precisa ser configurado para *assinaturas digitais* e *codificação de chave*.
-* **Finalidade do certificado** : o certificado deve ser válido para autenticação de servidor SSL.
+* **Finalidade do certificado**: o certificado deve ser válido para autenticação de servidor TLS.
 
-Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado pelo próprio domínio gerenciado, como *aaddscontoso.com*:
+Há várias ferramentas disponíveis para criar um certificado autoassinado, como OpenSSL, Keytool, MakeCert, o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate] etc. Neste tutorial, vamos criar um certificado autoassinado para LDAP seguro usando o cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra uma janela do PowerShell como **Administrador** e execute os comandos a seguir. Substitua a variável *$dnsName* pelo nome DNS usado pelo próprio domínio gerenciado, como *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -142,7 +142,7 @@ Para usar o certificado digital criado na etapa anterior com o domínio gerencia
 1. Como esse certificado é usado para descriptografar dados, você deve controlar cuidadosamente o acesso. Uma senha pode ser usada para proteger o uso do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
     Na página **Segurança**, escolha a opção de **Senha** para proteger o arquivo de certificado *.PFX*. Insira e confirme uma senha e, em seguida, selecione **Avançar**. Essa senha será usada na próxima seção para habilitar o LDAP Seguro para o domínio gerenciado do Azure AD DS.
-1. Na página **Arquivo a ser Exportado**, especifique o nome do arquivo e a localização em que deseja exportar o certificado, como *C:\Users\accountname\azure-ad-ds.pfx*.
+1. Na página **Arquivo a ser Exportado**, especifique o nome do arquivo e a localização em que deseja exportar o certificado, como *C:\Users\accountname\azure-ad-ds.pfx*. Anote a senha e o local do arquivo *.PFX*, pois essas informações serão necessárias nas próximas etapas.
 1. Na página de revisão, selecione **Concluir** para exportar o certificado para um arquivo de certificado *.PFX*. Uma caixa de diálogo de confirmação é exibida quando o certificado é exportado com êxito.
 1. Mantenha o MMC aberto para uso na seção a seguir.
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2ef528438591006be6e4cdec508dd15a7fb0a143
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6e3313e3ae201d0b730d8582fed9659d89f0d0c1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357674"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063048"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?
 
@@ -46,7 +46,7 @@ Ao planejar sua estratégia de controle de acesso, uma melhor prática é conced
 
 ## <a name="how-rbac-works"></a>Como funciona o RBAC
 
-A maneira de controlar o acesso aos recursos usando RBAC é criar atribuições de função. Esse é um conceito fundamental que deve ser entendido, isto é, como as permissões são aplicadas. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo.
+A maneira de controlar o acesso aos recursos usando RBAC é criar atribuições de função. Esse é um conceito fundamental que deve ser entendido: como as permissões são aplicadas. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo.
 
 ### <a name="security-principal"></a>Entidade de segurança
 
@@ -68,7 +68,7 @@ Uma *definição de função* é um conjunto de permissões. Normalmente ela é 
 O Azure inclui várias [funções internas](built-in-roles.md) que você pode usar. A seguir são listadas quatro funções internas fundamentais. As três primeiras se aplicam a todos os tipos de recursos.
 
 - [Proprietário](built-in-roles.md#owner) - Possui acesso total a todos os recursos, inclusive o direito de delegar acesso a outros usuários.
-- [Colaborador](built-in-roles.md#contributor) - Pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
+- [Colaborador](built-in-roles.md#contributor) – Pode criar e gerenciar todos os tipos de recursos do Azure, mas não pode permitir acesso a outras pessoas.
 - [Leitor](built-in-roles.md#reader) - Pode exibir os recursos existentes do Azure.
 - [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) - Permite gerenciar o acesso do usuário aos recursos do Azure.
 
@@ -102,7 +102,7 @@ Você pode criar atribuições de função usando o portal do Azure, CLI do Azur
 
 ## <a name="multiple-role-assignments"></a>Atribuições de função múltiplas
 
-O que acontece se você tem várias atribuições de função sobrepostas? O RBAC é um modelo aditivo e, portanto, suas permissões efetivas são a adição das atribuições de função. Considere o exemplo a seguir em que um usuário recebe a função Colaborador no escopo da assinatura e a função Leitor em um grupo de recursos. A adição das permissões de Colaborador e das permissões de Leitor é, efetivamente, a função Colaborador para o grupo de recursos. Portanto, nesse caso, a atribuição de função Leitor não tem nenhum impacto.
+O que acontece se você tem várias atribuições de função sobrepostas? O RBAC é um modelo aditivo e, portanto, suas permissões efetivas são a soma das atribuições de função. Considere o exemplo a seguir em que um usuário recebe a função Colaborador no escopo da assinatura e a função Leitor em um grupo de recursos. A soma das permissões de Colaborador e das permissões de Leitor é, efetivamente, a função Colaborador para o grupo de recursos. Portanto, nesse caso, a atribuição de função Leitor não tem nenhum impacto.
 
 ![Atribuições de função múltiplas](./media/overview/rbac-multiple-roles.png)
 

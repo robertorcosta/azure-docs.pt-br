@@ -5,16 +5,16 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250041"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239184"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de uso em modelos do Azure Resource Manager
+# <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Usar condição em modelos do ARM
 
-Saiba como implantar recursos do Azure com base em condições.
+Saiba como implantar recursos do Azure com base em condições em um modelo do ARM (Azure Resource Manager).
 
 No tutorial [Definir ordem de implantação de recursos](./template-tutorial-create-templates-with-dependent-resources.md), você criará uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar uma nova conta de armazenamento todas as vezes, você permitirá que as pessoas escolham entre criar uma nova conta de armazenamento e usar uma conta de armazenamento existente. Para isso, você definirá um parâmetro adicional. Se o valor do parâmetro for “new”, uma nova conta de armazenamento será criada. Caso contrário, uma conta de armazenamento existente com o nome fornecido é usada.
 
@@ -31,9 +31,9 @@ Este tutorial cobre as seguintes tarefas:
 Este tutorial aborda apenas um cenário básico de como usar as condições. Para obter mais informações, consulte:
 
 * [Estrutura de arquivos de modelo: Condição](conditional-resource-deployment.md).
-* [Implantar condicionalmente um recurso em um modelo do Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Implantar condicionalmente um recurso em um modelo do ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Função de modelo: If](./template-functions-logical.md#if).
-* [Funções de comparação para modelos do Azure Resource Manager](./template-functions-comparison.md)
+* [Funções de comparação para modelos do ARM](./template-functions-comparison.md)
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -41,18 +41,18 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do ARM](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Modelos de Início Rápido do Azure é um repositório de modelos do Gerenciador de Recursos. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:

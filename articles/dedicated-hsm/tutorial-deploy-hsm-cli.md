@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4750673eb60529d812e4df71de9203d4d59a0cc9
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212265"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79454305"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implantar HSMs em uma rede virtual existente usando a CLI
 
@@ -36,7 +36,7 @@ Uma arquitetura de implantação típica, com várias regiões e com alta dispon
 
 Este tutorial se concentra na integração de HSMs e do Gateway do ExpressRoute exigido (consulte a Sub-rede 1 acima) a uma rede virtual existente (consulte a VNET 1 acima).  Todos os outros recursos são recursos padrão do Azure. O mesmo processo de integração pode ser usado para HSMs na sub-rede 4 na VNET 3 ou acima.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 O HSM dedicado do Azure não está disponível atualmente no portal do Azure. Toda a interação com o serviço ocorrerá por meio da linha de comando ou usando o PowerShell. Este tutorial usará a CLI (interface de linha de comando) no Azure Cloud Shell. Se você estiver familiarizado com a CLI do Azure, siga estas instruções de introdução: [Introdução à CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
@@ -47,7 +47,7 @@ Suposições:
 - Você criou um Grupo de Recursos para esses recursos, e os novos que foram implantados neste tutorial serão incluídos nesse grupo.
 - Você já criou a rede virtual, a sub-rede e as máquinas virtuais necessárias de acordo com o diagrama acima e agora deseja integrar dois HSMs à implantação.
 
-Todas as instruções abaixo pressupõem que você já navegou até o portal do Azure e abriu o Cloud Shell (selecione "\>\_" na canto superior direito do portal).
+Todas as instruções abaixo pressupõem que você já navegou até o portal do Azure e abriu o Cloud Shell (selecione "\>\_" no canto superior direito do portal).
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Provisionar um HSM Dedicado
 
@@ -144,7 +144,8 @@ az network vnet create \
 ```
 
 ```azurecli
---vnet-name myHSM-vnet \
+az network vnet create \
+  --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \
   --address-prefixes 10.2.1.0/24 \
@@ -160,7 +161,7 @@ az network vnet subnet create \
 ```
 
 >[!NOTE]
->A configuração mais importante a ser observada em relação à rede virtual é que a sub-rede do dispositivo HSM deve ter as delegações definidas como “Microsoft.HardwareSecurityModules/dedicatedHSMs”.  O provisionamento de HSM não funcionará sem isso.
+>A configuração mais importante a ser observada em relação à rede virtual é que a sub-rede do dispositivo HSM deve ter as delegações definidas como "Microsoft.HardwareSecurityModules/dedicatedHSMs".  O provisionamento de HSM não funcionará sem isso.
 
 Assim que todos os pré-requisitos forem atendidos, execute o comando a seguir para usar o modelo do Azure Resource Manager, após atualizar os valores com seus nomes exclusivos (pelo menos o nome do grupo de recursos):
 
@@ -177,7 +178,7 @@ Essa implantação deve levar aproximadamente de 25 a 30 minutos para ser conclu
 
 ![status do provisionamento](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-Quando a implantação for concluída com êxito, "provisioningState": "êxito" será exibido. Você pode se conectar à máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
+Quando a implantação for concluída com êxito, "provisioningState": "Êxito" será exibido. Você pode se conectar à máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Verificando a implantação
 
@@ -193,7 +194,7 @@ az resource show \
 
 ![saída do provisionamento](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
-Agora você também pode ver os recursos usando o [Azure Resource Explorer](https://resources.azure.com/).   Uma vez no Explorer, expanda “Assinaturas” à esquerda, expanda sua assinatura específica do HSM Dedicado, expanda “grupos de recursos”, expanda o grupo de recursos que você usou e, por fim, selecione o item “recursos”.
+Agora você também pode ver os recursos usando o [Azure Resource Explorer](https://resources.azure.com/).   Uma vez no Explorer, expanda "Assinaturas" à esquerda, expanda sua assinatura específica do HSM Dedicado, expanda "grupos de recursos", expanda o grupo de recursos que você usou e, por fim, selecione o item "recursos".
 
 ## <a name="testing-the-deployment"></a>Testar a implantação
 

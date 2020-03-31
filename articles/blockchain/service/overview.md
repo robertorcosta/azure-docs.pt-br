@@ -1,15 +1,15 @@
 ---
 title: Visão geral do Azure Blockchain Service
 description: Visão geral do Azure Blockchain Service
-ms.date: 11/21/2019
+ms.date: 03/12/2020
 ms.topic: overview
-ms.reviewer: janders
-ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: ravastra
+ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387370"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205080"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -29,7 +29,7 @@ A implantação do Azure Blockchain Service é feita por meio do portal do Azure
 
 ### <a name="performance-and-service-tiers"></a>Níveis de desempenho e serviço
 
-O Azure Blockchain Service oferece duas camadas de serviço: planos *Básico* e *Standard*. Cada camada oferece desempenho e recursos diferentes para oferecer suporte a cargas de trabalho leves de desenvolvimento e teste até implantações de blockchain de produção em escala maciça. Ambas as camadas incluem pelo menos um nó de transação e um de validador (Básico) ou dois nós de validação (Standard).
+O Azure Blockchain Service oferece duas camadas de serviço: planos *Básico* e *Standard*. Cada camada oferece desempenho e recursos diferentes para oferecer suporte a cargas de trabalho leves de desenvolvimento e teste até implantações de blockchain de produção em escala maciça. Use a camada *Basic* para desenvolvimento, teste e prova de conceitos. Use a camada *Standard* para implantações de nível de produção. Ambas as camadas incluem pelo menos um nó de transação e um de validador (Básico) ou dois nós de validação (Standard). 
 
 ![Tipos de preço](./media/overview/pricing-tiers.png)
 

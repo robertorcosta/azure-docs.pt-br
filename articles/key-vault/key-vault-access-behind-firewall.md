@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 36dada57e587da6e023a83c8ebb6555abe44b9ba
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 42b4eab5f2417f97ab3d37274e6fca1965eca95f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184839"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457450"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acessar o Cofre de Chaves do Azure por trás de um firewall
 
@@ -52,7 +52,7 @@ Para o gerenciamento do Cofre de Chaves (CRUD e configuração de política de a
 | Tipo de operação | Ponto de extremidade:porta |
 | --- | --- |
 | Operações do plano de controle do cofre de chaves<br> por meio do Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 |
-| API do Graph do Active Directory do Azure |**Global:**<br> graph.windows.net:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> graph.windows.net:443<br><br> **Azure Alemanha:**<br> graph.cloudapi.de:443 |
+| API do Microsoft Graph |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> graph.microsoft.com:443<br><br> **Azure Alemanha:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operações do cofre de chaves
 
