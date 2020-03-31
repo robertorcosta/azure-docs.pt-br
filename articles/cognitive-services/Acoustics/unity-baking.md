@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 310decf8053ea16ba46250ba3aabe81c9c254e5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72243119"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unity
@@ -129,7 +129,7 @@ Se você comparar os voxels criados com resolução grossa versus resolução fi
 
 ![A visualização de voxels grossos no editor do Unity](media/voxel-cubes-preview.png)
 
-Os resultados da simulação são interpolados entre os locais de ponto de investigação do ouvinte em tempo de execução. Verifique se existem pontos de investigação perto de qualquer lugar em que o player deve entrar na cena.
+Os resultados da simulação são interpolados entre os locais de ponto de investigação do ouvinte em runtime. Verifique se existem pontos de investigação perto de qualquer lugar em que o player deve entrar na cena.
 
 ![A visualização de investigações no editor do Unity](media/probes-preview.png)
 
@@ -201,7 +201,7 @@ Por segurança, as credenciais do Azure são armazenadas no computador local e a
    ![O status da tarefa do bake](media/azure-batch-task-state.png)  
 
 
-### <a name="Estimating-bake-cost"></a> Estimar o custo de bake do Azure
+### <a name="estimate-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Estimar o custo de bake do Azure
 
 Para estimar o custo de um bake, comece com o valor do **Custo de Computação Estimado**, que é uma duração. Multiplique esse valor pelo custo por hora na moeda local para o **Tipo de Nó da VM** selecionado. Observe que o resultado não incluirá o tempo do nó necessário para colocar os nós em funcionamento.
 
@@ -209,7 +209,7 @@ Por exemplo, digamos que você selecione **Standard_F8s_v2** para o tipo de nó,
 
 Encontre o custo dos nós por hora em [Preços do Lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux). (Selecione **Computação otimizada** ou **Computação de alto desempenho** como a categoria.)
 
-## <a name="Local-bake"></a> Prepare sua cena no seu PC
+## <a name="bake-your-scene-on-your-pc"></a><a name="Local-bake"></a> Prepare sua cena no seu PC
 Faça também o bake da cena em seu próprio computador. Essa método pode ser útil para fazer experimentos com a acústica em cenas pequenas antes de criar uma conta do Lote do Azure. Observe, porém, que a simulação acústica local pode levar muito tempo, dependendo do tamanho da cena.
 
 ### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
@@ -233,7 +233,7 @@ Instale e configure o Docker no computador que processará a simulação:
 2. Para iniciar a simulação, execute o script *runlocalbake.bat* no Windows ou o script *runlocalbake.sh* no macOS. Esse script busca a imagem do Docker do Projeto Acústico com o conjunto de ferramentas necessário para o processamento da simulação e inicia a simulação.
 3. Após a conclusão da simulação, copie o arquivo *.ace* resultante novamente para o projeto do Unity. Para garantir que o Unity o reconheça como um arquivo binário, acrescente ".bytes" à extensão do arquivo (por exemplo, "Scene1.ace.bytes"). Os logs detalhados da simulação são armazenados em *AcousticsLog.txt.* Se você tiver algum problema, inspecione esse arquivo para ajudar a diagnosticar o problema.
 
-## <a name="Data-Files"></a> Arquivos de dados adicionados pelo processo de bake
+## <a name="data-files-added-by-the-bake-process"></a><a name="Data-Files"></a> Arquivos de dados adicionados pelo processo de bake
 
 Os quatro arquivos de dados a seguir são criados durante o processo de bake. Um contém os resultados da simulação e é fornecido com o seu título. Os outros armazenam dados relacionados ao editor do Unity.
 

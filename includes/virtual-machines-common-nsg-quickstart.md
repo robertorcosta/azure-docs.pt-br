@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171892"
 ---
 No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou adaptador de rede de VMs. Coloque os filtros, que controlam o tráfego de entrada e de saída, em um grupo de segurança de rede anexado ao recurso que recebe o tráfego.
@@ -29,7 +29,7 @@ Após criar uma VM configurada para servir solicitações da Web na porta TCP 80
 
    - **Intervalos de porta de origem**: * (permite qualquer porta de origem)
 
-   - **Valor de prioridade**: Insira um valor menor que 65.500 e mais alto na ordem de prioridade do padrão catch-all negar regra de entrada.
+   - **Valor de prioridade**: insira um valor menor do que 65.500 e maior em prioridade do que a regra de entrada de negação padrão que captura tudo.
 
 3. Associe o grupo de segurança de rede ao adaptador de rede de VMs ou à sub-rede.
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: c6883b9b79adfc4f91af354147d45ea27d806d78
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396104"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80240111"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto
 
@@ -44,7 +44,6 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 
 > [!IMPORTANT]
 > * Este início rápido destina-se somente à versão `3.0-preview` da biblioteca de clientes da Análise de Texto, que inclui uma versão prévia pública para a [Análise de Sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e o [NER (reconhecimento de entidade nomeada)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) aprimorados.
->    * Lembre-se de seguir as instruções para a versão que você está usando.
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -57,6 +56,7 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 > * A última versão prévia da API de Análise de Texto é `3.0-preview`, que inclui uma versão prévia pública para a [Análise de Sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e o [NER (reconhecimento de entidade nomeada)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) aprimorados. A última versão estável é `2.1`.
 >    * Lembre-se de seguir as instruções para a versão que você está usando.
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Confira a documentação de referência abaixo.
+> * Você também pode executar esta versão da biblioteca de clientes da Análise de Texto [no seu navegador](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 

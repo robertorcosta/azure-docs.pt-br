@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448426"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Ruby
 
 Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing usando o Ruby. Este aplicativo simples envia uma solicitação à API e retorna uma lista de palavras não reconhecidas por ele, seguido das correções sugeridas. Embora esse aplicativo seja escrito no Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior.
 

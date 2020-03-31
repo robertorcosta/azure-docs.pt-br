@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: nitinme
 ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118275"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutorial: Usar o Reconhecimento de Formulários com Aplicativos Lógicos do Azure para analisar faturas
@@ -31,7 +31,7 @@ Este tutorial abrange:
 > * Configurar o aplicativo lógico para usar um recurso do Reconhecimento de Formulários
 > * Testar o fluxo de trabalho executando o aplicativo lógico
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
 

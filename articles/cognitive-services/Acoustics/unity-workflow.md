@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: fd00e4105ce4edae9d014df2a83c5ae3aaf778da
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854273"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Tutorial de design do Projeto Acústico do Unity
@@ -81,13 +81,13 @@ Fontes de som colocadas dentro de voxels ocupados não receberão tratamento ac�
 A exibição do voxel também pode ajudar a determinar se os componentes visuais do jogo têm uma transformação aplicada a eles. Em caso afirmativo, aplique a mesma transformação ao GameObject que hospeda o **Acoustics Manager**.
 
 ### <a name="bake-time-vs-run-time-voxels"></a>Tempo de bake vs. voxels de tempo de execução
-É possível exibir voxels na janela do editor no momento do design do jogo e na janela do jogo em tempo de execução. O tamanho dos voxels é diferente nessas exibições. Isso ocorre porque a interpolação de tempo de execução acústica usa uma grade de voxel mais fina para resultados de interpolação mais suaves. O posicionamento da fonte de som deve ser verificado usando os voxels de tempo de execução.
+É possível exibir voxels na janela do editor no momento do design do jogo e na janela do jogo em runtime. O tamanho dos voxels é diferente nessas exibições. Isso ocorre porque a interpolação de runtime acústica usa uma grade de voxel mais fina para resultados de interpolação mais suaves. O posicionamento da fonte de som deve ser verificado usando os voxels de runtime.
 
 Voxels de tempo de design:
 
 ![Captura de tela dos voxels do Projeto Acústico durante o tempo de design](media/voxels-design-time.png)
 
-Voxels de tempo de execução:
+Voxels de runtime:
 
 ![Captura de tela dos voxels do Projeto Acústico durante o tempo de execução](media/voxels-runtime.png)
 

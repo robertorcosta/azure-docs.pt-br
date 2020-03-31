@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8c3f5dae62aef6c8e8ec1eeaeb712ebff67397c9
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77566175"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-javascript"></a>Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional 2.0 e 2.1 e JavaScript
@@ -41,7 +41,7 @@ Em comparação com Pesquisa Visual Computacional 2.0 e 2.1, a versão prévia p
 
 ---
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 

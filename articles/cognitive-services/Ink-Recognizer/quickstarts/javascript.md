@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: a37f2b7044fcba04ca18093aa73563961e9e35de
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448137"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e JavaScript
@@ -29,7 +29,7 @@ Normalmente, você chamará a API em um aplicativo de escrita à tinta digital. 
 
 O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um navegador da Web
 - Os dados de traço de tinta de exemplo deste início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).

@@ -1,16 +1,16 @@
 ---
 title: Habilitar sincronização offline (Android)
-description: Saiba como usar os aplicativos móveis do serviço de aplicativo para armazenar em cache e sincronizar dados offline em seu aplicativo Android.
+description: Aprenda a usar o App Service Mobile Apps para armazenar e sincronizar dados offline em seu aplicativo para Android.
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: c215105af5fe1ef8056b0d816cf2c2a6b96f2038
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461616"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Android
@@ -21,7 +21,7 @@ Este tutorial aborda o recurso de sincronização offline de Aplicativos móveis
 
 Se essa for sua primeira experiência com os Aplicativos Móveis do Azure, você deve primeiro concluir o tutorial [Criar um aplicativo do iOS]. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de Dados Offline em Aplicativos Móveis do Azure].
+Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 ## <a name="update-the-app-to-support-offline-sync"></a>Atualizar o aplicativo para dar suporte à sincronização offline
 Com sincronização offline você lê e grava de uma *tabela de sincronização* (usando a interface *IMobileServiceSyncTable*), que é parte de um banco de dados **SQLite** no dispositivo.
@@ -85,14 +85,14 @@ Quando você pressiona o botão, inicia uma nova tarefa em segundo plano. Primei
 5. Exiba os dados de TodoItem novamente no portal do Azure. Os TodoItems novos e modificados agora devem aparecer.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Sincronização de Dados Offline em Aplicativos Móveis do Azure]
-* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] \(Observação: o vídeo está nos serviços móveis, mas a sincronização offline funciona de maneira semelhante nos aplicativos móveis do Azure\)
+* [Sincronização de dados offline em Aplicativos Móveis do Azure]
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] \(observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure\)
 
 <!-- URLs. -->
 
-[Sincronização de Dados Offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de dados offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 
-[Criar um aplicativo do iOS]: app-service-mobile-android-get-started.md
+[Crie um aplicativo para Android]: app-service-mobile-android-get-started.md
 
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

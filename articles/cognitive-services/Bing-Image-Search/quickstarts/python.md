@@ -12,10 +12,10 @@ ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930738"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Início Rápido: pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e Python
@@ -30,7 +30,7 @@ Você pode executar esse exemplo como um bloco de anotações do Jupyter em [MyB
 O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) com anotações e tratamentos de erro adicionais.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 2.x ou 3.x](https://www.python.org/)
 * A [PIL (Biblioteca de Imagens Python)](https://pillow.readthedocs.io/en/stable/index.html)

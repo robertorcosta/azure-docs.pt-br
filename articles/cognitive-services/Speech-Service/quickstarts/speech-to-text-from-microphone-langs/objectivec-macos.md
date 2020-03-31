@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/23/2019
 ms.author: chlandsi
 ms.openlocfilehash: c2f0fbe66b26c6eca6e0c0b2530efacba9bae958
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75380585"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer uma fala em Objective-C no macOS usando o SDK de Fala
@@ -23,7 +23,7 @@ Também estão disponíveis inícios rápidos para [sintetização de voz](~/art
 
 Neste artigo, você aprenderá a criar um aplicativo macOS em Objective-C usando o SDK de Fala dos Serviços Cognitivos do Azure para transcrever uma fala gravada de um microfone para texto.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, você precisará do seguinte:
 

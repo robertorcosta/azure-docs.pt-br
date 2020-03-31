@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9a76d4f083c791bb1e3c29b4068c2f82f3cd0bc5
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 21d8659e13506777f6045272f68c69dd63f09cf5
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973689"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244674"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Início Rápido: Gerar uma miniatura usando a API REST da Pesquisa Visual Computacional e o Python
 
@@ -24,7 +24,7 @@ Neste início rápido, você gerará uma miniatura de uma imagem usando a API RE
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres do ponto de extremidade de serviço, denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 - Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download).
@@ -34,6 +34,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para criar e executar a amostra, copie o código a seguir no editor de códigos. 
 
 ```python
+import os
+import sys
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 # %matplotlib inline

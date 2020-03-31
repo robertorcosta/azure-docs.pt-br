@@ -1,5 +1,5 @@
 ---
-title: Exportar banco de dados U-SQL-Ferramentas do Azure Data Lake para Visual Studio
+title: Exportar banco de dados U-SQL- Ferramentas do Lago de Dados Do Azure para O Visual Studio
 description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio para exportar um banco de dados U-SQL e importá-lo automaticamente em uma conta local.
 services: data-lake-analytics
 author: yanancai
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315787"
 ---
 # <a name="export-a-u-sql-database"></a>Exportar um banco de dados U-SQL
@@ -26,7 +26,7 @@ Quando você desenvolve e ajusta consultas U-SQL em ambientes de desenvolvimento
 
 ## <a name="export-steps"></a>Etapas de exportação
 
-### <a name="step-1-export-the-database-in-server-explorer"></a>Etapa 1: Exportar o banco de dados no Gerenciador de Servidores
+### <a name="step-1-export-the-database-in-server-explorer"></a>Etapa 1: exporte o banco de dados no Gerenciador de Servidores
 
 Todas as contas do Data Lake Analytics para as quais você tem permissão estão listadas no Gerenciador de Servidores. Para exportar o banco de dados:
 
@@ -37,7 +37,7 @@ Todas as contas do Data Lake Analytics para as quais você tem permissão estão
 
      Se a opção de menu **Exportar** não estiver disponível, você precisará [atualizar a ferramenta para a versão mais recente](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Etapa 2: Configurar os objetos que você deseja exportar
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Etapa 2: configure os objetos que deseja exportar
 
 Se você precisar de uma pequena parte de um banco de dados grande, poderá configurar um subconjunto dos objetos que deseja exportar no assistente de exportação. 
 
@@ -45,7 +45,7 @@ A ação de exportação é concluída pela execução de um trabalho de U-SQL. 
 
 ![Assistente para exportação de banco de dados - selecionar objetos para exportação](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
 
-### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Etapa 3: Verificar a lista de objetos e outras configurações
+### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Etapa 3: verifique a lista de objetos e outras configurações
 
 Nesta etapa, você pode verificar os objetos selecionados na caixa **Lista de objetos para exportação**. Se houver erros, selecione **Anterior** para voltar e configurar corretamente os objetos que você deseja exportar.
 
@@ -55,13 +55,13 @@ Você também pode definir outras configurações para o destino de exportação
 |-------------|-----------|
 |Nome do destino|Esse nome indica onde você deseja salvar os recursos do banco de dados exportado. Os exemplos são assemblies, arquivos adicionais e dados de exemplo. Uma pasta com esse nome é criada na sua pasta raiz local de dados.|
 |Diretório do projeto|Esse caminho define onde você deseja salvar o script U-SQL exportado. Todas as definições de objeto de banco de dados são salvas neste local.|
-|Somente Esquema|Se você selecionar essa opção, apenas definições e recursos de banco de dados (como assemblies e arquivos adicionais) são exportados.|
-|Esquema e Dados|Se você selecionar essa opção, as definições de banco de dados, recursos e os dados serão exportadas. As linhas N superiores das tabelas são exportadas.|
-|Importar Automaticamente para o Banco de Dados Local|Se você selecionar essa opção, o banco de dados exportado será importado automaticamente para o banco de dados local quando a exportação é concluída.|
+|Somente esquema|Se você selecionar essa opção, apenas definições e recursos de banco de dados (como assemblies e arquivos adicionais) são exportados.|
+|Esquema e dados|Se você selecionar essa opção, as definições de banco de dados, recursos e os dados serão exportadas. As linhas N superiores das tabelas são exportadas.|
+|Importar automaticamente para o banco de dados local|Se você selecionar essa opção, o banco de dados exportado será importado automaticamente para o banco de dados local quando a exportação é concluída.|
 
 ![Assistente de exportação de banco de dados - lista de objetos para exportação e outras configurações](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
 
-### <a name="step-4-check-the-export-results"></a>Etapa 4: Verificar os resultados da exportação
+### <a name="step-4-check-the-export-results"></a>Etapa 4: verifique os resultados da exportação
 
 Quando a exportação for concluída, você poderá exibir os resultados exportados na janela de log do assistente. O exemplo a seguir mostra como localizar script U-SQL e banco de dados de recursos exportados, incluindo assemblies, arquivos adicionais e dados de exemplo:
 

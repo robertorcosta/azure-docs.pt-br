@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 97bf62c61aee63ce97496e54b99ad641d6150876
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c7bd97de4e46e1c8da467840006fe2520851caf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972687"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238874"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o Node.js
 
 Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em JavaScript, a API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma instância da Pesquisa Personalizada do Bing. Confira [Início Rápido: Criar sua primeira instância da Pesquisa Personalizada do Bing](quick-start.md) para obter mais informações.
 

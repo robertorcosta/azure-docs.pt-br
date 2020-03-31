@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019
 ms.openlocfilehash: 98fb7eab52c710d9008aafefc50c2d00979d3350
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973825"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Início Rápido: Analisar uma imagem remota usando a API REST da Pesquisa Visual Computacional com o Node.js
@@ -24,7 +24,7 @@ Neste início rápido, você analisará uma imagem armazenada remotamente para e
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - É necessário ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
 - É necessário ter o [npm](https://www.npmjs.com/) instalado.
@@ -163,7 +163,7 @@ Uma resposta com êxito é retornada em JSON. O exemplo analisa e exibe uma resp
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o arquivo e, em seguida, desinstale o pacote `request` npm. Para desinstalar o pacote, siga estas etapas:
 

@@ -1,5 +1,5 @@
 ---
-title: Atualizando o servidor MFA do Azure-Azure Active Directory
+title: Atualizando o Azure MFA Server - Azure Active Directory
 description: Etapas e diretrizes para atualizar o Servidor de Autenticação Multifator do Azure para uma versão mais nova.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 756c45541907c52448805376e1b054180c31fdf5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848095"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o último Servidor de Autenticação Multifator do Azure
@@ -25,7 +25,7 @@ Este artigo descreve o processo de atualização do Servidor do Azure MFA (Auten
 Se estiver atualizando da v6.x ou anterior para a v7.x ou mais nova, todos os componentes serão alterados do .NET 2.0 para o .NET 4.5. Todos os componentes também exigem os Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Atualização 1 ou posterior. O instalador do Servidor MFA instala as versões x86 e x64 desses componentes, caso ainda não estejam instalados. Se o Portal do Usuário e o Serviço Web do Aplicativo Móvel forem executados em servidores separados, você precisará instalar esses pacotes antes de atualizar esses componentes. É possível pesquisar a última atualização dos Pacotes Redistribuíveis do Microsoft Visual C++ 2015 no [Centro de Download da Microsoft](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o MFA Server para novas implantações. Novos clientes que gostariam de exigir autenticação multifatorial de seus usuários devem usar a Autenticação Multifatorial baseada na nuvem. Os clientes existentes que ativaram o MFA Server antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 Etapas rápidas de atualização:
 
@@ -66,7 +66,7 @@ Se você tiver o Portal do Usuário em vários servidores, repita a instalação
 ## <a name="upgrade-the-mobile-app-web-service"></a>Atualizar o Serviço Web do Aplicativo Móvel
 
 > [!NOTE]
-> Ao atualizar de uma versão do servidor MFA do Azure com mais de 8,0 para 8.0 +, o serviço Web de aplicativos móveis pode ser desinstalado após a atualização
+> Ao atualizar a partir de uma versão do Azure MFA Server mais antiga que 8.0 a 8.0+ então o serviço web do aplicativo móvel pode ser desinstalado após a atualização
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Atualizar os adaptadores do AD FS
 
@@ -98,7 +98,7 @@ Essas instruções se aplicarão apenas se você executar o Servidor de Autentic
 
    Se ocorrer um erro informando que os Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Atualização 1 ou posterior são obrigatórios, baixe e instale o último pacote de atualização no [Centro de Download da Microsoft](https://www.microsoft.com/download/). Instale as versões x86 e x64.
 
-3. Acesse **AD FS** > **Políticas de Autenticação** > **Editar Política de Autenticação Multifator Global**. Desmarque **WindowsAzureMultiFactorAuthentication** ou **AzureMFAServerAuthentication** (dependendo da versão atual instalada).
+3. Ir para políticas de**autenticação** >  **AD FS** > Editar política global de**autenticação multifatorial**. Desmarque **WindowsAzureMultiFactorAuthentication** ou **AzureMFAServerAuthentication** (dependendo da versão atual instalada).
 
    Quando essa etapa for concluída, a verificação em duas etapas por meio do Servidor MFA não estará disponível neste cluster do AD FS após a conclusão da etapa 8.
 
@@ -106,14 +106,14 @@ Essas instruções se aplicarão apenas se você executar o Servidor de Autentic
 5. Registre o novo adaptador do AD FS executando o script Register-MultiFactorAuthenticationAdfsAdapter.ps1 do PowerShell. Isso se aplica a todos os servidores no mesmo cluster do AD FS, pois há uma configuração central.
 6. Reinicie o serviço do AD FS em cada servidor removido do farm do AD FS.
 7. Adicione os servidores atualizados novamente ao farm do AD FS e remova os outros servidores do farm.
-8. Acesse **AD FS** > **Políticas de Autenticação** > **Editar Política de Autenticação Multifator Global**. Marque **AzureMfaServerAuthentication**.
+8. Ir para políticas de**autenticação** >  **AD FS** > Editar política global de**autenticação multifatorial**. Marque **AzureMfaServerAuthentication**.
 9. Repita a etapa 2 para atualizar os servidores agora removidos do farm do AD FS e reinicie o serviço do AD FS nesses servidores.
 10. Adicione esses servidores novamente ao farm do AD FS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Obtenha exemplos de [Cenários avançados com a Autenticação Multifator do Azure e VPNs de terceiros](howto-mfaserver-nps-vpn.md)
 
 * [Sincronizar o Servidor MFA com o Windows Server Active Directory](howto-mfaserver-dir-ad.md)
 
-* [Configurar a Autenticação do Windows](howto-mfaserver-windows.md) para os aplicativos
+* [Configure a autenticação do Windows](howto-mfaserver-windows.md) para seus aplicativos

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774297"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Content Moderator para .NET
@@ -29,7 +29,7 @@ Use a biblioteca de clientes do Content Moderator para .NET para:
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Exemplos](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).

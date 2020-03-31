@@ -1,6 +1,6 @@
 ---
-title: Relocalidade grosseira
-description: Saiba mais sobre como usar a relocalização grosseira para encontrar âncoras perto de você.
+title: Relocalização grosseira
+description: Aprenda a usar a relocalização grosseira para encontrar âncoras perto de você.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -9,35 +9,35 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844387"
 ---
 # <a name="coarse-relocalization"></a>Relocalização grosseira
 
-A relocalização de alta disponibilidade é um recurso que fornece uma resposta inicial para a pergunta: *onde está meu dispositivo agora/qual conteúdo devo observar?* A resposta não é precisa, mas, em vez disso, está no formato: *você está perto dessas âncoras; Tente localizar uma delas*.
+A relocalização grosseira é um recurso que fornece uma resposta inicial à pergunta: *Onde está meu dispositivo agora / Que conteúdo devo observar?* A resposta não é precisa, mas sim está na forma: *Você está perto dessas âncoras; tente localizar uma delas.*
 
-A relocalização de alta geração funciona associando várias leituras de sensor no dispositivo com a criação e a consulta de âncoras. Para cenários de posicionamento externo, os dados do sensor normalmente são a posição do GPS (GPS) do dispositivo. Quando o GPS não está disponível ou não é confiável (como inportas), os dados do sensor consistem nos pontos de acesso WiFi e nos beacons do Bluetooth no intervalo. Todos os dados de sensor coletados contribuem para a manutenção de um índice espacial que é usado pelas âncoras espaciais do Azure para determinar rapidamente as âncoras que estão dentro de aproximadamente 100 metros do seu dispositivo.
+A relocalização grosseira funciona associando várias leituras de sensores no dispositivo com a criação e a consulta de âncoras. Para cenários externos, os dados do sensor são tipicamente a posição GPS (Global Positioning System) do dispositivo. Quando o GPS não está disponível ou não é confiável (como dentro de casa), os dados do sensor consistem nos pontos de acesso WiFi e nos faróis Bluetooth ao alcance. Todos os dados do sensor coletados contribuem para a manutenção de um índice espacial que é usado pelas âncoras espaciais do Azure para determinar rapidamente as âncoras que estão a aproximadamente 100 metros do seu dispositivo.
 
-A pesquisa rápida de âncoras habilitadas por alta relocalização simplifica o desenvolvimento de aplicativos apoiados por coleções de escala mundial de âncoras (digamos, milhões de geograficamente distribuídos). A complexidade do gerenciamento de âncora está todas ocultas, permitindo que você se concentre mais em sua lógica de aplicativo incrível. Toda a âncora pesada é feita para você nos bastidores por âncoras espaciais do Azure.
+A rápida pesquisa de âncoras habilitadas pela relocalização grosseira simplifica o desenvolvimento de aplicações apoiadas por coleções em escala mundial de âncoras (digamos, milhões de âncoras geodistribuídas). A complexidade do gerenciamento de âncoras está toda escondida, permitindo que você se concentre mais em sua lógica de aplicação incrível. Toda a âncora de trabalho pesado é feita para você nos bastidores por Âncoras Espaciais Azure.
 
 ## <a name="collected-sensor-data"></a>Dados do sensor coletados
 
 Os dados do sensor que você pode enviar para o serviço de âncora são um dos seguintes:
 
-* Posição do GPS: latitude, longitude, altitude.
-* Intensidade de sinal dos pontos de acesso WiFi no intervalo.
-* Intensidade de sinal de beacons Bluetooth no intervalo.
+* Posição GPS: latitude, longitude, altitude.
+* Força de sinal de pontos de acesso WiFi ao alcance.
+* Força do sinal dos faróis Bluetooth ao alcance.
 
-Em geral, seu aplicativo precisará adquirir permissões específicas do dispositivo para acessar dados GPS, WiFi ou BLE. Além disso, alguns dos dados do sensor acima não estão disponíveis por design em determinadas plataformas. Para considerar essas situações, a coleção de dados do sensor é opcional e está desativada por padrão.
+Em geral, seu aplicativo precisará adquirir permissões específicas do dispositivo para acessar dados GPS, WiFi ou BLE. Além disso, alguns dos dados do sensor acima não estão disponíveis por design em determinadas plataformas. Para dar conta dessas situações, a coleta de dados do sensor é opcional e é desligada por padrão.
 
-## <a name="set-up-the-sensor-data-collection"></a>Configurar a coleta de dados do sensor
+## <a name="set-up-the-sensor-data-collection"></a>Configure a coleta de dados do sensor
 
-Vamos começar criando um provedor de impressão digital do sensor e fazendo com que a sessão se reconheça:
+Vamos começar criando um provedor de impressão digital do sensor e tornando a sessão ciente disso:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 // Create the sensor fingerprint provider
@@ -50,7 +50,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 // Create the sensor fingerprint provider
@@ -64,7 +64,7 @@ cloudSpatialAnchorSession = [[ASACloudSpatialAnchorSession alloc] init];
 cloudSpatialAnchorSession.locationProvider = sensorProvider;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 // Create the sensor fingerprint provider
@@ -78,7 +78,7 @@ cloudSpatialAnchorSession = ASACloudSpatialAnchorSession()
 cloudSpatialAnchorSession!.locationProvider = sensorProvider
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 // Create the sensor fingerprint provider
@@ -91,7 +91,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -105,7 +105,7 @@ cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
 cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 ```cpp
 // Create the sensor fingerprint provider
 PlatformLocationProvider sensorProvider = PlatformLocationProvider();
@@ -118,55 +118,55 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Em seguida, você precisará decidir quais sensores deseja usar para a relocalização de alta geração. Essa decisão é específica para o aplicativo que você está desenvolvendo, mas as recomendações na tabela a seguir devem fornecer um bom ponto de partida:
+Em seguida, você precisará decidir quais sensores você gostaria de usar para relocalização grosseira. Esta decisão é específica para a aplicação que você está desenvolvendo, mas as recomendações na tabela a seguir devem lhe dar um bom ponto de partida:
 
 
-|             | Inportações | Externas |
+|             | Dentro | Ao ar livre |
 |-------------|---------|----------|
-| GPS         | Desligar | Ligar |
-| Wi-Fi        | Ligar | Ativado (opcional) |
-| Beacons BLE | Em (opcional com advertências, veja abaixo) | Desligar |
+| Gps         | Desativado | Por |
+| Wi-Fi        | Por | Em (opcional) |
+| Sinalizadores BLE | Ligado (opcional com ressalvas, veja abaixo) | Desativado |
 
 
 ### <a name="enabling-gps"></a>Habilitando GPS
 
 Supondo que seu aplicativo já tenha permissão para acessar a posição GPS do dispositivo, você pode configurar âncoras espaciais do Azure para usá-lo:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.GeoLocationEnabled = true;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.geoLocationEnabled = true;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
 sensors.geoLocationEnabled = true
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -175,20 +175,20 @@ sensors.GeoLocationEnabled(true);
 
 ---
 
-Ao usar o GPS em seu aplicativo, tenha em mente que as leituras fornecidas pelo hardware normalmente são:
+Ao usar o GPS em seu aplicativo, tenha em mente que as leituras fornecidas pelo hardware são tipicamente:
 
-* frequência assíncrona e baixa (menos de 1 Hz).
-* Não confiável/ruidosa (em média, no desvio padrão de 7 m).
+* assíncrono e baixa frequência (menos de 1 Hz).
+* não confiável / barulhento (em média 7 m desvio padrão).
 
-Em geral, o so do dispositivo e as âncoras espaciais do Azure farão alguma filtragem e extrapolação no sinal de GPS bruto em uma tentativa de mitigar esses problemas. Esse processamento extra exige tempo adicional para a convergência, portanto, para obter os melhores resultados, você deve tentar:
+Em geral, tanto o sistema operacional do dispositivo quanto as âncoras espaciais Azure farão alguma filtragem e extrapolação no sinal GPS bruto na tentativa de mitigar esses problemas. Este processamento extra requer tempo adicional para convergência, então para melhores resultados você deve tentar:
 
-* criar um provedor de impressão digital do sensor o mais cedo possível em seu aplicativo
-* manter o provedor de impressão digital do sensor ativo entre várias sessões
+* criar um provedor de impressão digital sensor o mais cedo possível em sua aplicação
+* manter o provedor de impressão digital do sensor vivo entre várias sessões
 * compartilhar o provedor de impressão digital do sensor entre várias sessões
 
-Se você planeja usar o provedor de impressão digital do sensor fora de uma sessão de ancoragem, certifique-se de iniciá-lo antes de solicitar as estimativas do sensor. Por exemplo, o código a seguir cuidará da atualização da posição do dispositivo no mapa em tempo real:
+Se você planeja usar o provedor de impressão digital do sensor fora de uma sessão de âncora, certifique-se de iniciá-lo antes de solicitar estimativas do sensor. Por exemplo, o código a seguir cuidará da atualização da posição do seu dispositivo no mapa em tempo real:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 // Game about to start, start tracking the sensors
@@ -211,7 +211,7 @@ while (m_isRunning)
 sensorProvider.Stop();
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 // Game about to start, start tracking the sensors
@@ -231,7 +231,7 @@ while (m_isRunning)
 [sensorProvider stop];
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 // Game about to start, start tracking the sensors
@@ -252,7 +252,7 @@ while m_isRunning
 sensorProvider?.stop()
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 // Game about to start, start tracking the sensors
@@ -272,7 +272,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -292,7 +292,7 @@ while (m_isRunning)
 sensorProvider->Stop();
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -314,45 +314,45 @@ sensorProvider.Stop();
 
 ---
 
-### <a name="enabling-wifi"></a>Habilitando WiFi
+### <a name="enabling-wifi"></a>Habilitando wi-fi
 
 Supondo que seu aplicativo já tenha permissão para acessar o estado WiFi do dispositivo, você pode configurar âncoras espaciais do Azure para usá-lo:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.WifiEnabled = true;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.wifiEnabled = true;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
 sensors.wifiEnabled = true
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->WifiEnabled(true);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -361,56 +361,56 @@ sensors.WifiEnabled(true);
 
 ---
 
-Ao usar o WiFi em seu aplicativo, tenha em mente que as leituras fornecidas pelo hardware normalmente são:
+Ao usar wi-fi em seu aplicativo, tenha em mente que as leituras fornecidas pelo hardware são tipicamente:
 
-* frequência assíncrona e baixa (menos de 0,1 Hz).
-* potencialmente limitado no nível do sistema operacional.
-* Não confiável/ruidosa (em média, no desvio padrão de 3-dBm).
+* assíncrono e baixa frequência (menos de 0,1 Hz).
+* potencialmente estrangulado no nível do SO.
+* não confiável / barulhento (em média 3-dBm desvio padrão).
 
-As âncoras espaciais do Azure tentarão criar um mapa de força de sinal WiFi filtrado durante uma sessão em uma tentativa de mitigar esses problemas. Para obter os melhores resultados, você deve tentar:
+As âncoras espaciais do Azure tentarão construir um mapa de força de sinal WiFi filtrado durante uma sessão na tentativa de mitigar esses problemas. Para obter melhores resultados, você deve tentar:
 
-* Crie a sessão bem antes de colocar a primeira âncora.
-* Mantenha a sessão ativa pelo tempo máximo possível (ou seja, crie todas as âncoras e a consulta em uma sessão).
+* criar a sessão bem antes de colocar a primeira âncora.
+* manter a sessão viva pelo maior tempo possível (ou seja, criar todas as âncoras e consultas em uma sessão).
 
-### <a name="enabling-bluetooth-beacons"></a>Habilitando beacons Bluetooth
+### <a name="enabling-bluetooth-beacons"></a>Ativando sinalizadores Bluetooth
 
-Supondo que seu aplicativo já tenha permissão para acessar o estado do Bluetooth do dispositivo, você pode configurar âncoras espaciais do Azure para usá-lo:
+Supondo que seu aplicativo já tenha permissão para acessar o estado Bluetooth do dispositivo, você pode configurar âncoras espaciais do Azure para usá-lo:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.BluetoothEnabled = true;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.bluetoothEnabled = true;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
 sensors.bluetoothEnabled = true
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->BluetoothEnabled(true);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors();
@@ -419,13 +419,13 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-Os beacons são geralmente dispositivos versáteis, onde tudo-incluindo UUIDs e endereços MAC-podem ser configurados. Essa flexibilidade pode ser problemática para âncoras espaciais do Azure, pois considera que beacons sejam identificados exclusivamente por seus UUIDs. Deixar de garantir essa exclusividade provavelmente causará fendas espaciais. Para obter os melhores resultados, você deve:
+Os beacons são tipicamente dispositivos versáteis, onde tudo - incluindo UUIDs e endereços MAC - pode ser configurado. Essa flexibilidade pode ser problemática para as âncoras espaciais do Azure, pois considera que os faróis são identificados exclusivamente por seus UUIDs. Não garantir essa singularidade provavelmente causará buracos de minhoca espaciais. Para obter melhores resultados, você deve:
 
-* Atribua UUIDs exclusivos aos seus beacons.
-* implantá-los-normalmente em um padrão normal, como uma grade.
-* Passe a lista de UUIDs de Beacon exclusivos para o provedor de impressão digital do sensor:
+* atribuir UUIDs exclusivos aos seus faróis.
+* implantá-los - tipicamente em um padrão regular, como uma grade.
+* passar a lista de UUIDs de farol exclusivos para o provedor de impressão digital do sensor:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
@@ -436,7 +436,7 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 };
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
@@ -445,7 +445,7 @@ ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.knownBeaconProximityUuids = uuids;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let uuids = [String]()
@@ -456,7 +456,7 @@ let sensors = locationProvider?.sensors
 sensors.knownBeaconProximityUuids = uuids
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 String uuids[] = new String[2];
@@ -467,7 +467,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -478,7 +478,7 @@ const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->KnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 std::vector<winrt::hstring> uuids;
@@ -491,15 +491,15 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-As âncoras espaciais do Azure só controlarão os beacons Bluetooth que estão na lista UUIDs de proximidade de Beacon conhecidos. Os beacons mal-intencionados programados para ter UUIDs relacionados à permissão ainda podem afetar negativamente a qualidade do serviço. Por esse motivo, você deve usar beacons somente em espaços na organização em que você pode controlar sua implantação.
+As âncoras espaciais do Azure só rastrearão os faróis Bluetooth que estão na lista de UIDs de proximidade de farol conhecido. Os beacons maliciosos programados para ter UUIDs listados como permitidos ainda podem afetar negativamente a qualidade do serviço. Por essa razão, você deve usar beacons apenas em espaços curados onde você pode controlar sua implantação.
 
-## <a name="querying-with-sensor-data"></a>Consultando com dados de sensor
+## <a name="querying-with-sensor-data"></a>Consultando com dados do sensor
 
-Depois de criar âncoras com dados de sensor associados, você pode começar a recuperá-los usando as leituras do sensor relatadas pelo seu dispositivo. Não é mais necessário fornecer ao serviço uma lista de âncoras conhecidas que você espera encontrar. em vez disso, basta permitir que o serviço saiba o local do seu dispositivo conforme relatado por seus sensores integrados. As âncoras espaciais do Azure descobrirão o conjunto de âncoras perto de seu dispositivo e tentarão fazer a correspondência Visual delas.
+Depois de criar âncoras com dados de sensores associados, você pode começar a recuperá-los usando as leituras de sensores relatadas pelo seu dispositivo. Você não é mais obrigado a fornecer ao serviço uma lista de âncoras conhecidas que você espera encontrar - em vez disso, você apenas adite o serviço saber a localização do seu dispositivo conforme relatado por seus sensores a bordo. As âncoras espaciais do Azure descobrirão o conjunto de âncoras perto do seu dispositivo e tentarão combiná-las visualmente.
 
-Para fazer com que as consultas usem os dados do sensor, comece criando os critérios do "próximo dispositivo":
+Para ter consultas, use os dados do sensor, inicie criando critérios de "dispositivo próximo":
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -514,7 +514,7 @@ anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice = nearDeviceCriteria;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASANearDeviceCriteria *nearDeviceCriteria = [[ASANearDeviceCriteria alloc] init];
@@ -529,7 +529,7 @@ ASAAnchorLocateCriteria *anchorLocateCriteria = [[ASAAnchorLocateCriteria alloc]
 anchorLocateCriteria.nearDevice = nearDeviceCriteria;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let nearDeviceCriteria = ASANearDeviceCriteria()!
@@ -544,7 +544,7 @@ let anchorLocateCriteria = ASAAnchorLocateCriteria()!
 anchorLocateCriteria.nearDevice = nearDeviceCriteria
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -559,7 +559,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -574,7 +574,7 @@ auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
 anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
@@ -592,43 +592,43 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 ---
 
-O parâmetro `DistanceInMeters` controla a distância com que exploraremos o gráfico de âncora para recuperar o conteúdo. Suponha que, por exemplo, você tenha preenchido algum espaço com âncoras em uma densidade constante de 2 todos os medidores. Além disso, a câmera em seu dispositivo está observando uma única âncora e o serviço a localizou com êxito. Provavelmente, você está interessado em recuperar todas as âncoras que colocou perto, em vez da âncora única que está observando no momento. Supondo que as âncoras que você colocou estão conectadas em um grafo, o serviço pode recuperar todas as âncoras próximas para você seguindo as bordas no grafo. A quantidade de percurso de grafo feita é controlada por `DistanceInMeters`; Você receberá todas as âncoras conectadas às que você localizou, que estão mais próximas que `DistanceInMeters`.
+O `DistanceInMeters` parâmetro controla até onde vamos explorar o gráfico âncora para recuperar conteúdo. Assuma, por exemplo, que você tenha povoado algum espaço com âncoras a uma densidade constante de 2 a cada metro. Além disso, a câmera do seu dispositivo está observando uma única âncora e o serviço localizou-a com sucesso. Você provavelmente está interessado em recuperar todas as âncoras que você colocou nas proximidades em vez da única âncora que você está observando no momento. Supondo que as âncoras que você colocou estejam conectadas em um gráfico, o serviço pode recuperar todas as âncoras próximas para você seguindo as bordas do gráfico. A quantidade de gráficos transversais é controlada por; `DistanceInMeters` você terá todas as âncoras conectadas ao que você localizou, `DistanceInMeters`que estão mais perto do que .
 
-Tenha em mente que valores grandes para `MaxResultCount` podem afetar negativamente o desempenho. Defina-o como um valor sensato para seu aplicativo.
+Tenha em mente que `MaxResultCount` grandes valores para pode afetar negativamente o desempenho. Defina-o como um valor sensato para sua aplicação.
 
-Por fim, você precisará dizer à sessão para usar a pesquisa baseada em sensor:
+Finalmente, você precisará dizer à sessão para usar o visual baseado em sensores:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 [cloudSpatialAnchorSession createWatcher:anchorLocateCriteria];
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -638,36 +638,36 @@ cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 
 ## <a name="expected-results"></a>Resultados esperados
 
-Dispositivos GPS de nível de consumidor normalmente são muito imprecisos. Um estudo de [Zandenbergen e Barbeau (2011)][6] relata a precisão mediana de telefones celulares com GPS assistido (A-GPS) para cerca de 7 metros – um valor grande a ser ignorado! Para considerar esses erros de medição, o serviço trata as âncoras como distribuições de probabilidade no espaço GPS. Dessa forma, uma âncora é agora a região de espaço que mais provavelmente (isto é, com mais de 95% de confiança) contém sua posição GPS verdadeira e desconhecida.
+Os dispositivos GPS de nível de consumo são tipicamente bastante imprecisos. Um estudo realizado por [Zandenbergen e Barbeau (2011)][6] relata que a precisão mediana dos telefones celulares com GPS assistido (A-GPS) é de cerca de 7 metros - um valor muito grande a ser ignorado! Para explicar esses erros de medição, o serviço trata as âncoras como distribuições de probabilidade no espaço GPS. Como tal, uma âncora é agora a região do espaço que provavelmente (ou seja, com mais de 95% de confiança) contém sua verdadeira e desconhecida posição GPS.
 
-O mesmo raciocínio é aplicado ao consultar com GPS. O dispositivo é representado como outra região de confiança espacial em relação à sua posição de GPS verdadeira, desconhecida. Descobrir âncoras próximas se traduz em simplesmente localizar as âncoras com regiões de confiança *próximas o suficiente* da região de confiança do dispositivo, conforme ilustrado na imagem abaixo:
+O mesmo raciocínio é aplicado ao consultar com GPS. O dispositivo é representado como outra região de confiança espacial em torno de sua posição GPS verdadeira e desconhecida. Descobrir âncoras próximas traduz-se em simplesmente encontrar as âncoras com regiões de confiança *próximas o suficiente* à região de confiança do dispositivo, conforme ilustrado na imagem abaixo:
 
-![Seleção de candidatos à âncora com GPS](media/coarse-reloc-gps-separation-distance.png)
+![Seleção de candidatos âncoras com GPS](media/coarse-reloc-gps-separation-distance.png)
 
-A precisão do sinal GPS, tanto na criação de âncoras quanto durante as consultas, tem uma grande influência sobre o conjunto de âncoras retornadas. Por outro lado, as consultas baseadas em Wi-Fi/beacons considerarão todas as âncoras que têm pelo menos um ponto de acesso/Beacon em comum com a consulta. Nesse sentido, o resultado de uma consulta baseada em Wi-Fi/beacons é determinado principalmente pelo intervalo físico dos pontos de acesso/beacons e obstruções ambientais.
+A precisão do sinal GPS, tanto na criação da âncora como durante as consultas, tem uma grande influência sobre o conjunto de âncoras devolvidas. Em contraste, consultas baseadas em WiFi/beacons considerarão todas as âncoras que tenham pelo menos um ponto de acesso/farol em comum com a consulta. Nesse sentido, o resultado de uma consulta baseada em WiFi/beacons é determinado principalmente pela faixa física dos pontos de acesso/balizas, e obstruções ambientais.
 
-A tabela a seguir estima o espaço de pesquisa esperado para cada tipo de sensor:
+A tabela abaixo estima o espaço de busca esperado para cada tipo de sensor:
 
-| Sensor      | Raio do espaço de pesquisa (aproximadamente) | Detalhes |
+| Sensor      | Raio de espaço de busca (aprox.) | Detalhes |
 |-------------|:-------:|---------|
-| GPS         | 20 m-30 m | Determinado pela incerteza de GPS entre outros fatores. Os números relatados são estimados para a precisão de GPS mediana de telefones celulares com um-GPS, que é 7 metros. |
-| Wi-Fi        | 50 m-100 m | Determinado pelo intervalo dos pontos de acesso sem fio. Depende da frequência, força do transmissor, obstruções físicas, interferência e assim por diante. |
-| Beacons BLE |  70 m | Determinado pelo intervalo do Beacon. Depende da frequência, da força de transmissão, das obstruções físicas, da interferência e assim por diante. |
+| Gps         | 20 m - 30 m | Determinado pela incerteza do GPS entre outros fatores. Os números relatados são estimados para a precisão mediana do GPS de telefones celulares com A-GPS, que é de 7 metros. |
+| Wi-Fi        | 50 m - 100 m | Determinado pela faixa dos pontos de acesso sem fio. Depende da freqüência, força do transmissor, obstruções físicas, interferências, e assim por diante. |
+| Sinalizadores BLE |  70 m | Determinado pelo alcance do farol. Depende da freqüência, força de transmissão, obstruções físicas, interferências, e assim por diante. |
 
 ## <a name="per-platform-support"></a>Suporte por plataforma
 
-A tabela a seguir resume os dados do sensor coletados em cada uma das plataformas com suporte, juntamente com as limitações específicas da plataforma:
+A tabela a seguir resume os dados do sensor coletados em cada uma das plataformas suportadas, juntamente com quaisquer ressalvas específicas da plataforma:
 
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| GPS         | N/D | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
-| Wi-Fi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Com suporte. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
-| Beacons BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
+| Gps         | N/D | Suportado através de APIs [do LocationManager][3] (tanto GPS quanto NETWORK) | Suportado através de APIs [cllocationmanager][4] |
+| Wi-Fi        | Suportado a uma taxa de aproximadamente uma varredura a cada 3 segundos |  Com suporte. Começando com a API nível 28, as varreduras WiFi são aceleradas para 4 chamadas a cada 2 minutos. A partir do Android 10, o estrangulamento pode ser desativado no menu de configurações do Desenvolvedor. Para obter mais informações, consulte a [documentação][5]do Android . | N/A - sem API pública |
+| Sinalizadores BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Use a relocalização de alta utilização em um aplicativo.
+Use relocalização grosseira em um aplicativo.
 
 > [!div class="nextstepaction"]
 > [Unity](../how-tos/set-up-coarse-reloc-unity.md)

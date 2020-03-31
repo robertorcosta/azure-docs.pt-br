@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: implantar um aplicativo com o portal do LUIS'
+title: 'Início Rápido: Implantar um aplicativo usando o portal do LUIS'
 titleSuffix: Azure Cognitive Services
 description: Este início rápido mostra como implantar um aplicativo criando um recurso de ponto de extremidade de previsão, atribuindo o recurso, treinando e publicando o aplicativo.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393694"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79218495"
 ---
-# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: implantar um aplicativo no portal do LUIS
+# <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
 Depois que o aplicativo estiver pronto para retornar previsões de enunciado para um aplicativo cliente, como um chat bot, você precisará implantar o aplicativo no ponto de extremidade de previsão.
 
 Neste início rápido, você aprenderá a implantar um aplicativo. Crie um recurso de ponto de extremidade de previsão, atribua o recurso ao aplicativo, treine e publique o aplicativo.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Obtenha uma [assinatura do Azure](https://azure.microsoft.com/free).
 * Conclua o [início rápido do portal anterior](get-started-portal-build-app.md) ou [baixe e importe o aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -37,11 +37,11 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
 1. Configure a assinatura com as seguintes definições:
 
-   |Configuração|{1&gt;Valor&lt;1}|Finalidade|
+   |Configuração|Valor|Finalidade|
    |--|--|--|
-   |{1&gt;Nome&lt;1}|`my-luis-resource`|O nome do recurso do Azure. Você precisa desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
-   |Assinatura|Sua assinatura|Selecione uma das assinaturas associadas à sua conta.|
-   |Grupo de recursos|`my-resource-group`|Crie um novo grupo de recursos para todos os recursos de serviço cognitivo. Quando você terminar os recursos, poderá excluir o grupo de recursos para limpar sua assinatura. |
+   |Nome|`my-luis-resource`|O nome do recurso do Azure. Você precisa desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
+   |Subscription|Sua assinatura|Selecione uma das assinaturas associadas à sua conta.|
+   |Resource group|`my-resource-group`|Crie um novo grupo de recursos para todos os recursos de serviço cognitivo. Quando você terminar os recursos, poderá excluir o grupo de recursos para limpar sua assinatura. |
    |Localização de criação|**Oeste dos EUA**|A região do Azure para criação.|
    |Tipo de preço de criação|**F0**|O tipo de preço padrão para criação.|
    |Localização do runtime|**Oeste dos EUA**|A região do Azure para consultas de ponto de extremidade de previsão.|
@@ -144,7 +144,7 @@ Para ver este mesmo nível de informações no painel de teste, publique o aplic
 
 Quando você concluir este guia de início rápido, selecione **Meus aplicativos** no menu de navegação superior. Marque a caixa de seleção do aplicativo na lista e selecione **Excluir** na barra de ferramentas de contexto acima da lista.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Identificar intenções e entidades comuns](luis-tutorial-prebuilt-intents-entities.md)

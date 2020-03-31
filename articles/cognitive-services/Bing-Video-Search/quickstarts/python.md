@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382677"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Python
@@ -26,7 +26,7 @@ Você pode executar esse exemplo como um bloco de anotações do Jupyter em [MyB
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Python [2.x ou 3.x](https://python.org)
 

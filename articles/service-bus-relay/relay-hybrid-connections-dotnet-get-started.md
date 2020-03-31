@@ -1,6 +1,6 @@
 ---
-title: Retransmissão do Azure Conexões Híbridas-WebSockets no .NET
-description: Escreva um C# aplicativo de console para retransmissão do Azure conexões híbridas WebSockets.
+title: Conexões híbridas do Relé Azure - WebSockets em .NET
+description: Escreva um aplicativo de console C# para WebSockets de conexões híbridas do Azure Relay.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 13612f8ffa343e483165a8dbdd54d1b2b1f5e2cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75355189"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução às WebSockets de Conexões Híbridas de Retransmissão no .NET
@@ -39,7 +39,7 @@ Neste início rápido, você segue os seguintes passos:
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 * [Visual Studio 2015 ou posterior](https://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017.
-* Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
+* Uma assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
@@ -64,9 +64,9 @@ No Visual Studio, grave um aplicativo de console em C# para enviar mensagens à 
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Parabéns, você criou um aplicativo de Conexões Híbridas completo!
+Parabéns, você criou um aplicativo completo de Conexões Híbridas!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste Início Rápido, você criou aplicativos de cliente e servidor do .NET que usavam WebSockets para enviar e receber mensagens. O recurso Conexões Híbridas de Retransmissão do Azure também dá suporte ao uso de HTTP para enviar e receber mensagens. Para saber como usar HTTP com as Conexões Híbridas de Retransmissão do Azure, consulte o [Início Rápido do HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).
 
 Neste Início Rápido, você usou o .NET Framework para criar aplicativos cliente e servidor. Para saber como escrever aplicativos cliente e servidor usando o Node.js, confira o [Início Rápido de WebSockets do Node.js](relay-hybrid-connections-node-get-started.md) ou o [Início Rápido do HTTP Node.js](relay-hybrid-connections-http-requests-dotnet-get-started.md).

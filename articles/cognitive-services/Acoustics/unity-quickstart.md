@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: fabdd221ef99414eae0156babbd76dedb1f0745d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72243014"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Início Rápido do Unity do Projeto Acústico

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 7c83350dbecaf20e9b35f159b2c01824777bc665
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973706"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Pesquisa Visual Computacional para gerar metadados de imagem no Armazenamento do Azure
@@ -33,7 +33,7 @@ Este tutorial mostra como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ou posterior, com as cargas de trabalho "ASP.NET e desenvolvimento para a Web" e "Desenvolvimento do Azure" instaladas.
 - Uma conta do Armazenamento do Azure com um contêiner de blobs configurado para armazenamento de imagens (siga o [Exercício 1 do Laboratório do Armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) caso precise de ajuda com esta etapa).
@@ -137,7 +137,7 @@ Para exibir todos os metadados anexados, use o Gerenciador de Armazenamento do A
 
 ![Janela de caixa de diálogo Propriedades de imagem, com marcas de metadados listadas](../Images/blob-metadata.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso deseje continuar trabalhando em seu aplicativo Web, confira a seção [Próximas etapas](#next-steps). Se você não pretende continuar usando esse aplicativo, exclua todos os recursos específicos do aplicativo. Para excluir recursos, exclua o grupo de recursos que contém sua assinatura do Armazenamento do Azure e o recurso da Pesquisa Visual Computacional. Isso removerá a conta de armazenamento, os blobs carregados nela e o recurso do Serviço de Aplicativo necessário para se conectar ao aplicativo Web ASP.NET. 
 

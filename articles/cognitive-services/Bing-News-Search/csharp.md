@@ -12,10 +12,10 @@ ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: e6911c51ecfe1c8f6924bf403e9ad00e14558a09
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448471"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Início Rápido: Pesquisar notícias usando C# e a API REST de Pesquisa de Notícias do Bing
@@ -24,7 +24,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de N
 
 Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * A estrutura [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote do NuGet.

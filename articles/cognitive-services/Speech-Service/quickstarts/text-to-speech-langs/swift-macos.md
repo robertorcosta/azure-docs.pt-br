@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: ea0f61ddd2c60d2806af0f6dcf97c7d2388335d0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975866"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início Rápido: Sintetizar fala em Swift no macOS usando o SDK de Fala
 
 Neste artigo, você aprenderá a criar um aplicativo macOS em Swift usando o SDK de Fala dos Serviços Cognitivos para sintetizar fala com base em texto e reproduzi-la com a saída de áudio padrão.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, aqui está uma lista de pré-requisitos:
 

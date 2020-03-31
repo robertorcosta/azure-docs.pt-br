@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: ecb42d200eb8808f6bfa4cfb91e98909e350038b
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118613"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar um aplicativo de tradução com o WPF
@@ -44,7 +44,7 @@ Essa lista inclui os Serviços Cognitivos usados neste tutorial. Siga o link par
 | Conversor de Texto | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detecta o idioma do texto de entrada. Inclui a pontuação de confiança para detecção. |
 | Verificação Ortográfica do Bing | [Verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrige erros de ortografia para melhorar a precisão da tradução. |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de continuar, você precisará do seguinte:
 

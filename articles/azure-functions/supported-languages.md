@@ -4,10 +4,10 @@ description: Saiba quais linguagens são compatíveis (GA) e quais são experime
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74942249"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguagens com suporte no Azure Functions
@@ -22,9 +22,9 @@ Há três níveis de suporte:
 * **Versão prévia** – ainda não tem suporte, mas é esperado para alcançar o status de GA no futuro.
 * **Experimental** – não tem suporte e pode ser abandonado no futuro; nenhuma garantia de status de GA ou de versão prévia eventual.
 
-## <a name="languages-by-runtime-version"></a>Idiomas por versão de tempo de execução 
+## <a name="languages-by-runtime-version"></a>Idiomas por versão em tempo de execução 
 
-[Três versões do tempo de execução de Azure Functions](functions-versions.md) estão disponíveis. A tabela a seguir indica quais linguagens têm suporte em cada versão de runtime.
+[Três versões do tempo de execução do Azure Functions](functions-versions.md) estão disponíveis. A tabela a seguir indica quais linguagens têm suporte em cada versão de runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -34,20 +34,20 @@ As linguagens experimentais na versão 1.x não escalam bem e não oferecem supo
 
 Não use recursos experimentais para algo em que você confia, pois não há suporte oficial para eles. Não devem ser abertos casos de suporte para problemas com linguagens experimentais. 
 
-Versões de tempo de execução posteriores não dão suporte a idiomas experimentais. O suporte para novos idiomas é adicionado somente quando o idioma pode ter suporte em produção. 
+Versões posteriores em tempo de execução não suportam linguagens experimentais. O suporte para novos idiomas é adicionado somente quando o idioma pode ter suporte em produção. 
 
 ### <a name="language-extensibility"></a>Extensibilidade de linguagem
 
-A partir da versão 2. x, o tempo de execução foi projetado para oferecer [extensibilidade de linguagem](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). As linguagens JavaScript e Java no runtime 2.x são criadas com essa extensibilidade.
+A partir da versão 2.x, o tempo de execução foi projetado para oferecer [extensibilidade linguística.](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility) As linguagens JavaScript e Java no runtime 2.x são criadas com essa extensibilidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como desenvolver funções nos idiomas com suporte, consulte os seguintes recursos:
+Para saber mais sobre como desenvolver funções nos idiomas suportados, consulte os seguintes recursos:
 
-+ [C#referência do desenvolvedor da biblioteca de classes](functions-dotnet-class-library.md)
-+ [C#referência do desenvolvedor de script](functions-reference-csharp.md)
-+ [Referência do desenvolvedor Java](functions-reference-java.md)
-+ [Referência do desenvolvedor de JavaScript](functions-reference-node.md)
-+ [Referência do desenvolvedor do PowerShell](functions-reference-powershell.md)
-+ [Referência do desenvolvedor do Python](functions-reference-python.md)
-+ [Referência do desenvolvedor TypeScript](functions-reference-node.md#typescript)
++ [Referência de desenvolvedor de biblioteca de classe C#](functions-dotnet-class-library.md)
++ [Referência do desenvolvedor de script c#](functions-reference-csharp.md)
++ [Referência de desenvolvedor Java](functions-reference-java.md)
++ [Referência ao desenvolvedor JavaScript](functions-reference-node.md)
++ [Referência ao desenvolvedor PowerShell](functions-reference-powershell.md)
++ [Referência de desenvolvedor Python](functions-reference-python.md)
++ [Referência ao desenvolvedor typeScript](functions-reference-node.md#typescript)

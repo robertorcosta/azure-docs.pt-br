@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 31cdc9663283b580acc10e7ac8d5a77f9036a7a8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772350"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do Content Moderator para Python
@@ -31,7 +31,7 @@ Use a biblioteca de clientes do Content Moderator para Python para:
 
 [Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)

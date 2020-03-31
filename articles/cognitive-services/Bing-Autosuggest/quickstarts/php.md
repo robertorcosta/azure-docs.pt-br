@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 64874791be62ec1ed5c1c5874fb055efa4b44dc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0aa309ba34abdfbe91493498ae6ec49785e0e0d4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384705"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238996"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Início Rápido: Sugerir consultas de pesquisa com a API de REST de Sugestão Automática do Bing e PHP
 
 Use este guia de início rápido para começar a fazer chamadas para a API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo simples do PHP envia uma consulta de pesquisa parcial para a API e retorna as sugestões para pesquisas. Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [PHP 5.6.x](https://php.net/downloads.php) ou posterior
 

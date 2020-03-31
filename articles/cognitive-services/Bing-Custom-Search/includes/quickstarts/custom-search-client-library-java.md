@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
 ms.openlocfilehash: e175d77ec4684053070e817f8a6ec7e9455668b1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78253062"
 ---
 Introdução à biblioteca de clientes da Pesquisa Personalizada do Bing para Java. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada sem anúncios para os tópicos de seu interesse. O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingCustomSearch)

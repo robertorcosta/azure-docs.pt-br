@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 0493f9e4b45d8d4804d1933bb923d3483b87005e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 451d5b0eb4fea8ba9764268d963bb7b021414f4b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448987"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239065"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do Detector de Anomalias para Python
 
@@ -28,7 +28,7 @@ Use a biblioteca de cliente do Detector de Anomalias para Python para:
 
 [Documentação de referência da biblioteca](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pacote (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Localize o código de exemplo no GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * Um ponto de extremidade e uma chave do Detector de Anomalias

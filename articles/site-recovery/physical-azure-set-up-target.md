@@ -1,5 +1,5 @@
 ---
-title: Configurar o ambiente de destino para servidores físicos no Azure Site Recovery
+title: Configure o ambiente de destino para servidores físicos no Azure Site Recovery
 description: Este artigo descreve como configurar o ambiente de destino do Azure para recuperação de desastre de servidores físicos usando o Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953894"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 
 Este artigo descreve como preparar seu ambiente do Azure para iniciar a replicação de servidores físicos (x64) executando Windows ou Linux no Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo supõe que:
-- Você criou um Cofre dos Serviços de Recuperação para proteger seus servidores físicos. Você pode criar um cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "Portal do Azure").
+- Você criou um Cofre dos Serviços de Recuperação para proteger seus servidores físicos. Você pode criar um Cofre de Serviços de Recuperação a partir do [portal Azure](https://portal.azure.com "Portal do Azure").
 - Você [configurou seu ambiente local](physical-azure-disaster-recovery.md) para replicar servidores físicos no Azure.
 
 ## <a name="prepare-target"></a>Preparar o destino

@@ -12,17 +12,17 @@ ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987947"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Início Rápido: Obter a intenção com um navegador
 
 Para entender o que um ponto de extremidade de previsão do LUIS retorna, exiba um resultado de previsão em um navegador da Web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para consultar um aplicativo público, você precisará de:
 
@@ -34,7 +34,7 @@ Para consultar um aplicativo público, você precisará de:
 1. Abra um navegador da Web.
 1. Use as URLs completas abaixo, substituindo `YOUR-KEY` pela própria chave de Criação ou Previsão do LUIS. As solicitações são solicitações GET e incluem a autorização, com a chave de Criação ou Previsão do LUIS, como um parâmetro de cadeia de consulta.
 
-    #### <a name="v3-prediction-requesttabv3-1-1"></a>[Solicitação de previsão V3](#tab/V3-1-1)
+    #### <a name="v3-prediction-request"></a>[Solicitação de previsão V3](#tab/V3-1-1)
 
 
     O formato da URL V3 para uma solicitação de ponto de extremidade **GET** (por slots) é:
@@ -43,7 +43,7 @@ Para consultar um aplicativo público, você precisará de:
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
-    #### <a name="v2-prediction-requesttabv2-1-2"></a>[Solicitação de previsão V2](#tab/V2-1-2)
+    #### <a name="v2-prediction-request"></a>[Solicitação de previsão V2](#tab/V2-1-2)
 
     O formato da URL V2 para uma solicitação de ponto de extremidade **GET** é:
 
@@ -53,7 +53,7 @@ Para consultar um aplicativo público, você precisará de:
 
 1. Cole a URL em uma janela do navegador e pressione Enter. O navegador exibe um resultado JSON que indica que o LUIS detecta a intenção `HomeAutomation.TurnOn` como a intenção principal e a entidade `HomeAutomation.Operation` com o valor `on`.
 
-    #### <a name="v3-prediction-responsetabv3-2-1"></a>[Resposta de previsão V3](#tab/V3-2-1)
+    #### <a name="v3-prediction-response"></a>[Resposta de previsão V3](#tab/V3-2-1)
 
     ```JSON
     {
@@ -74,7 +74,7 @@ Para consultar um aplicativo público, você precisará de:
     }
     ```
 
-    #### <a name="v2-prediction-responsetabv2-2-2"></a>[Resposta de previsão V2](#tab/V2-2-2)
+    #### <a name="v2-prediction-response"></a>[Resposta de previsão V2](#tab/V2-2-2)
 
     ```json
     {
@@ -99,7 +99,7 @@ Para consultar um aplicativo público, você precisará de:
 
 1. Para ver todas as intenções, adicione o parâmetro de cadeia de consulta apropriado.
 
-    #### <a name="v3-prediction-endpointtabv3-3-1"></a>[Ponto de extremidade de previsão V3](#tab/V3-3-1)
+    #### <a name="v3-prediction-endpoint"></a>[Ponto de extremidade de previsão V3](#tab/V3-3-1)
 
     Adicione `show-all-intents=true` ao final da cadeia de consulta para **mostrar todas as intenções**:
 
@@ -132,7 +132,7 @@ Para consultar um aplicativo público, você precisará de:
     }
     ```
 
-    #### <a name="v2-prediction-endpointtabv2"></a>[Ponto de extremidade de previsão V2](#tab/V2)
+    #### <a name="v2-prediction-endpoint"></a>[Ponto de extremidade de previsão V2](#tab/V2)
 
     Adicione `verbose=true` ao final da cadeia de consulta para **mostrar todas as intenções**:
 

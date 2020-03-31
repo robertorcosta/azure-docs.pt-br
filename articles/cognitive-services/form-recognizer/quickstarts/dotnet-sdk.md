@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118356"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET
@@ -30,7 +30,7 @@ Use a biblioteca de clientes do Reconhecimento de Formulários para .NET para:
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Veja [Criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para compilar os dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).

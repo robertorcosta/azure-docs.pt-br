@@ -1,16 +1,16 @@
 ---
 title: Implantar aplicativos com modelos
-description: Encontre orientações sobre como criar modelos de Azure Resource Manager para provisionar e implantar aplicativos do serviço de aplicativo.
+description: Encontre orientações sobre a criação de modelos do Azure Resource Manager para provisionar e implantar aplicativos do App Service.
 author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77211710"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Diretrizes sobre a implantação de aplicativos Web usando modelos do Azure Resource Manager
@@ -22,7 +22,7 @@ Este artigo fornece recomendações para a criação de modelos do Azure Resourc
 Definir dependências para aplicativos web requer uma compreensão de como os recursos de um aplicativo web interagem. Se você especificar dependências em uma ordem incorreta, poderá causar erros de implantação ou criar uma condição de corrida que interrompe a implantação.
 
 > [!WARNING]
-> Se você incluir uma extensão de site do MSDeploy no seu modelo, será necessário configurar qualquer recurso de configuração como dependente do recurso do MSDeploy. As alterações de configuração fazem com que o site seja reiniciado de maneira assíncrona. Ao tornar os recursos de configuração dependentes do MSDeploy, você assegura que o MSDeploy seja concluída antes do reinício do site. Sem essas dependências, o site poderá reiniciar durante o processo de implantação do MSDeploy. Para um modelo de exemplo, consulte [Modelo Wordpress com dependência de Implantação da Web](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
+> Se você incluir uma extensão de site do MSDeploy no seu modelo, será necessário configurar qualquer recurso de configuração como dependente do recurso do MSDeploy. As alterações de configuração fazem com que o site seja reiniciado de maneira assíncrona. Ao tornar os recursos de configuração dependentes do MSDeploy, você assegura que o MSDeploy seja concluída antes do reinício do site. Sem essas dependências, o site poderá reiniciar durante o processo de implantação do MSDeploy. Para um modelo de exemplo, consulte [WordPress Template with Web Deploy Dependency](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json).
 
 A imagem a seguir mostra a ordem de dependência para vários recursos do Serviço de Aplicativo:
 
@@ -41,7 +41,7 @@ Os recursos são implantados na seguinte ordem:
 **Camada 3**
 * Controle do código-fonte - depende do aplicativo Web.
 * Extensão de site do MSDeploy - depende do aplicativo Web.
-* Aplicativo Azure instância do insights que se destina ao aplicativo Web – depende do aplicativo Web.
+* A instância do Azure Application Insights que tem como alvo o aplicativo web - depende do aplicativo web.
 
 **Camada 4**
 * Certificado do Serviço de Aplicativo - depende do controle do código-fonte ou MSDeploy se qualquer um estiver presente. Caso contrário, ele depende do aplicativo web.
@@ -90,7 +90,7 @@ Se seu modelo do Resource Manager usar MSDeploy, as mensagens de erro de implant
 
 1. Vá para o [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) do site.
 2. Navegue até a pasta em D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Procure os arquivos appManagerStatus.xml e appManagerLog.xml. O primeiro arquivo registra o status. O segundo arquivo registra as informações sobre o erro. Se o erro não estiver claro para você, você poderá incluí-lo quando estiver solicitando ajuda no [Fórum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+3. Procure os arquivos appManagerStatus.xml e appManagerLog.xml. O primeiro arquivo registra o status. O segundo arquivo registra as informações sobre o erro. Se o erro não estiver claro para você, você pode incluí-lo quando estiver pedindo ajuda no [fórum.](https://docs.microsoft.com/answers/topics/azure-webapps.html)
 
 ## <a name="choose-a-unique-web-app-name"></a>Escolha um nome de aplicativo Web exclusivo
 

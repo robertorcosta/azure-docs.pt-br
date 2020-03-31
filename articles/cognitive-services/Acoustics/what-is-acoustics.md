@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71351139"
 ---
 # <a name="what-is-project-acoustics"></a>O que é Projeto Acústico?
@@ -33,7 +33,7 @@ A inovação principal do Projeto Acústico é unir simulação acústica basead
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>Apresentação em vídeo do GDC 2019 (cerca de 30 min)
 [![Vídeo do Projeto Acústico](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Clique para reproduzir o vídeo")
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 A [Integração do Unity do Projeto Acústico](unity-integration.md) é do tipo arrastar e soltar e inclui um plugin de mecanismo de áudio do Unity. Aumente os controles de fonte de áudio do Unity, anexando um componente dos controles C# do Projeto Acústico a cada objeto de áudio.
 
 A [Integração do Unreal do Projeto Acústico](unreal-integration.md) inclui plugins de editor e de jogo para o Unreal e um plugin de mixer Wwise. Um componente de áudio personalizado estende funcionalidade familiar do Wwise dentro do Unreal com controles de design de acústica em tempo real. Os controles de design também são expostos no Wwise no plugin do mixer.
@@ -41,10 +41,10 @@ A [Integração do Unreal do Projeto Acústico](unreal-integration.md) inclui pl
 ## <a name="workflow"></a>Fluxo de trabalho
 * **Pré-bake:** Comece configurando o bake selecionando qual geometria responde à acústica, por exemplo, ignorando os faróis de luz. Em seguida, edite as atribuições de material automáticas e selecione as áreas de navegação para guiar a amostragem do ouvinte. Não há nenhuma marcação manual para zonas de reverberação/portal/sala.
 * **Bake:** Uma etapa de análise é executada localmente, o que faz voxelização e outras análises geométricas na cena com base nas seleções acima. Os resultados são visualizados no editor para verificar a configuração da cena. No envio de bake, os dados de voxel são enviados para o Azure e você obtém de volta no ativo do jogo de acústica.
-* **Tempo de execução:** Carregue o ativo em seu nível e você estará pronto para ouvir a acústica em seu nível. Projete a acústica em tempo real no editor usando os controles do código-fonte granulares. Os controles também podem ser obtidos a partir do nível de script.
+* **Runtime:** Carregue o ativo em seu nível e você estará pronto para ouvir a acústica em seu nível. Projete a acústica em tempo real no editor usando os controles do código-fonte granulares. Os controles também podem ser obtidos a partir do nível de script.
 
-## <a name="runtime-platforms"></a>Plataformas de tempo de execução
-Os plug-ins do tempo de execução do Projeto Acústico podem atualmente ser implantados nas seguintes plataformas:
+## <a name="runtime-platforms"></a>Plataformas de runtime
+Os plug-ins do runtime do Projeto Acústico podem atualmente ser implantados nas seguintes plataformas:
 * Windows
 * MacOS
 * Android

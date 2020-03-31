@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448116"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o Java
@@ -29,7 +29,7 @@ Normalmente, você chamará a API em um aplicativo de escrita à tinta digital. 
 
 O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - O JDK ([Java&trade; Development Kit) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
 

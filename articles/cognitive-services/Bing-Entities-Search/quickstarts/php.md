@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383930"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o PHP
@@ -23,7 +23,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de E
 
 Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [PHP 5.6.x](https://php.net/downloads.php) ou posterior
 

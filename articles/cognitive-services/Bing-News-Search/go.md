@@ -10,18 +10,18 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: a72859e378bc1f97ebaed6a11ea3b250a33651d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aaeb905c9cdc1e7b74e21d3c191f6a24a94fcd7d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448534"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053805"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Início Rápido: Obtenha resultados de notícias usando a API de REST de Pesquisa de Notícias do Bing e Go
 
 Este início rápido usa a linguagem Go para chamar a API de Pesquisa de Notícias do Bing. Os resultados incluem os nomes e as URLs de fontes de notícias identificados pela cadeia de caracteres de consulta.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 * Instalar os [binários do Go](https://golang.org/dl/)
 * Instalar a biblioteca de spew go para a reformatação automática exibir os resultados
     * Instalar esta biblioteca: `$ go get -u https://github.com/davecgh/go-spew`
@@ -73,13 +73,13 @@ type NewsAnswer struct {
                 Width   int  `json: "width"`
                 Height  int   `json: "height"`
             } `json: "thumbnail"` 
+            } `json: "image"` 
             Description  string  `json: "description"`
             Provider  []struct   {
                 Type   string    `json: "_type"`
                 Name  string     `json: "name"`
             } `json: "provider"` 
             DatePublished   string   `json: "datePublished"`
-        } `json: "image"` 
     } `json: "value"` 
 }
 

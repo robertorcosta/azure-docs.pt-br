@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: d3afcded894f72626a4f24bcbe85c34ac1329c29
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72242914"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Início rápido do Projeto Acústico Unreal/Wwise
@@ -64,7 +64,7 @@ O plug-in Unreal do Projeto Acústico requer que o comportamento adicional seja 
     ![O editor de código com VSVersion foi alterado para "vc150"](media/vsversion-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Abra o projeto Unreal 
-Quando você abrir o projeto Unreal, ele solicitará que você recompile os módulos. Selecione **Sim**.
+Quando você abrir o projeto Unreal, ele solicitará que você recompile os módulos. Selecione **Sim** na barra superior.
 
 Se abrir o projeto falhar devido a falhas de build, verifique se você instalou o plug-in Wwise do Projeto Acústico para a mesma versão do Wwise usada no projeto de exemplo do Projeto Acústico.
 

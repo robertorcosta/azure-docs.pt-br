@@ -13,17 +13,17 @@ ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
 ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978791"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Início Rápido: pesquisar na Web usando a API REST de Pesquisa na Web do Bing e Go
 
 Use este Início Rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo Go envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em Go, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
 * [Binários do Go](https://golang.org/dl/)

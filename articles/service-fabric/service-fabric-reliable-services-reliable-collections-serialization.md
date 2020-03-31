@@ -1,13 +1,13 @@
 ---
-title: Serialização de objeto de coleção confiável
-description: Saiba mais sobre a serialização de objeto de coleções confiáveis do Azure Service Fabric, incluindo a estratégia padrão e como definir a serialização personalizada. '
+title: Serialização de objetos de coleta confiável
+description: Saiba mais sobre a serialização de objetos do Azure Service Fabric Reliable Collections, incluindo a estratégia padrão e como definir serialização personalizada.'
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639540"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
@@ -23,17 +23,17 @@ O Gerenciador de Estado Confiável inclui um serializador interno para alguns ti
 Serializadores internos são mais eficientes, pois sabem que seus tipos não podem ser alterados e não precisam incluir informações sobre o tipo, como seu nome de tipo.
 
 O Gerenciador de Estado Confiável tem um serializador interno para os seguintes tipos: 
-- GUID
+- Guid
 - bool
 - byte
 - sbyte
 - byte[]
 - char
-- cadeia de caracteres
+- string
 - decimal
 - double
 - FLOAT
-- int
+- INT
 - uint
 - long
 - ulong
@@ -44,7 +44,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 
 Os serializadores personalizados são geralmente usados para aumentar o desempenho ou criptografar os dados durante a transmissão e em disco. Entre outros motivos, de modo geral, os serializadores personalizados são mais eficientes do que os serializadores genéricos, já que eles não precisam serializar informações sobre o tipo. 
 
-[IReliableStateManager. TryAddStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo t especificado. Esse registro deve ocorrer na construção do StatefulServiceBase para garantir que antes do início da recuperação, todas as coleções confiáveis tenham acesso ao serializador relevante para ler seus dados persistentes.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo T dado. Esse registro deve acontecer na construção da StatefulServiceBase para garantir que, antes do início da recuperação, todas as Coleções Confiáveis tenham acesso ao serializador relevante para ler seus dados persistindo.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -62,10 +62,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Como implementar um serializador personalizado
 
-Um serializador personalizado precisa implementar a interface [IStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Um serializador personalizado precisa implementar a interface [iStateSerializer\<T>.](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1)
 
 > [!NOTE]
-> IStateSerializer\<T > inclui uma sobrecarga para Write e Read que usa um T chamado valor base adicional. Essa API destina-se à serialização diferencial. Atualmente, o recurso de serialização diferencial não está exposto. Portanto, essas duas sobrecargas só são chamadas quando a serialização diferencial é exposta e habilitada.
+> IStateSerializer\<T> inclui uma sobrecarga para Gravação e Leitura que leva em um T adicional chamado valor base. Essa API destina-se à serialização diferencial. Atualmente, o recurso de serialização diferencial não está exposto. Portanto, essas duas sobrecargas só são chamadas quando a serialização diferencial é exposta e habilitada.
 
 Veja a seguir um tipo personalizado de exemplo chamado OrderKey que contém quatro propriedades
 
@@ -85,7 +85,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Veja a seguir um exemplo de implementação de IStateSerializer\<OrderKey >.
+A seguir está um exemplo\<de implementação do IStateSerializer OrderKey>.
 Observe que as sobrecargas de Leitura e Gravação que usam o baseValue chamam sua respectiva sobrecarga para compatibilidade com versões posteriores.
 
 ```csharp
@@ -137,11 +137,11 @@ Os usuários do serializador personalizado devem seguir as diretrizes do seriali
 Uma maneira comum de dar suporte a todas as versões é adicionar informações de tamanho ao início e adicionar somente propriedades opcionais.
 Dessa forma, cada versão pode ler o máximo que puder e pular para a parte restante do fluxo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
-  * [Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
-  * Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
-  * Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
-  * Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+  * [Atualizar seu aplicativo Usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você através de uma atualização de aplicativo usando o PowerShell.
+  * Controle como o aplicativo atualiza usando [parâmetros de atualização](service-fabric-application-upgrade-parameters.md).
+  * Aprenda a usar funcionalidades avançadas ao atualizar seu aplicativo, referindo-se a [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
+  * Corrija problemas comuns em atualizações de aplicativos, referindo-se às etapas em [Upgrades de aplicativos de solução de problemas](service-fabric-application-upgrade-troubleshooting.md).

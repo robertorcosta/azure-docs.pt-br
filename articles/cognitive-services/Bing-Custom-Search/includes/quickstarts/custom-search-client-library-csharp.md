@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
-ms.openlocfilehash: b722fd34a78f1e9c2f4a660c205cf4a1e163a5d7
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: ba80d1396b30b61bdfe4c121220429f5a7d994b0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78253054"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79486050"
 ---
 Introdução à biblioteca de clientes da Pesquisa Personalizada do Bing para C#. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada sem anúncios para os tópicos de seu interesse. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
@@ -86,9 +86,9 @@ Use a biblioteca de clientes da Pesquisa Personalizada do Bing para C# com as se
     {
         Console.WriteLine("Didn't see any Web data..");
     }
-    ```csharp
+    ```
 
-## Next steps
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Build a Custom Search web app](../../tutorials/custom-search-web-page.md)
+> [Criar um aplicativo Web de Pesquisa Personalizada](../../tutorials/custom-search-web-page.md)

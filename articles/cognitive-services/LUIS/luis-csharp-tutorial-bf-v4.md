@@ -4,10 +4,10 @@ description: Usando C#, crie um bot de bate-papo integrado com reconhecimento vo
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 2381f4cba39f81ab593f3149a2708f442156f30d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987982"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Use um Bot de aplicativo Web habilitado com Reconhecimento Vocal em C#
@@ -22,7 +22,7 @@ Use C# para criar um bot de bate-papo integrado com reconhecimento vocal (LUIS).
 > * Iniciar o bot e o emulador localmente no seu computador
 > * Exibir resultados de enunciado no bot
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Emulador de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)

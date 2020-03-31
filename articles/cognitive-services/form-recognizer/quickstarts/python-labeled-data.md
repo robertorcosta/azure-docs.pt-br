@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
 ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482286"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python
@@ -22,7 +22,7 @@ Neste início rápido, você usará a API REST do Reconhecimento de Formulários
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, é necessário ter:
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar o exemplo localmente).
