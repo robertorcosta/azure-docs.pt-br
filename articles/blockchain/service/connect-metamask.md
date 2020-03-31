@@ -4,20 +4,20 @@ description: Conectar-se a uma rede do serviço Azure Blockchain usando o MetaMa
 ms.date: 09/12/2019
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 21e45b80a9a08dd6bdeefb0ab01fadabaa08cbce
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c0bad9efde44ce53f6b0656af3ac4af32ffe051d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456027"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205107"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Início Rápido: Usar o MetaMask para se conectar e implantar um contrato inteligente
 
-Neste Início Rápido, você usará o MetaMask para se conectar a uma rede do serviço Azure Blockchain e usará o Remix para implantar um contrato inteligente. O MetaMask é uma extensão do navegador para gerenciar uma carteira Ether e executar ações de contrato inteligente.
+Neste início rápido, você usará o MetaMask para se conectar a uma rede do Azure Blockchain Service e usará o Remix para implantar um contrato inteligente. O MetaMask é uma extensão do navegador para gerenciar uma carteira Ether e executar ações de contrato inteligente.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir [Início Rápido: Criar um membro do blockchain usando o portal do Azure](create-member.md) ou [Início Rápido: Criar um membro do blockchain do Azure Blockchain Service usando a CLI do Azure](create-member-cli.md)
 * Instalar a [extensão do navegador MetaMask](https://metamask.io)
@@ -25,15 +25,16 @@ Neste Início Rápido, você usará o MetaMask para se conectar a uma rede do se
 
 ## <a name="get-endpoint-address"></a>Obter o endereço do ponto de extremidade
 
-É necessário o endereço do ponto de extremidade do serviço Azure Blockchain para se conectar à rede do blockchain. Encontre o endereço do ponto de extremidade e as chaves de acesso no portal do Azure.
+É necessário o endereço do ponto de extremidade do serviço Azure Blockchain para se conectar à rede do blockchain. O endereço do ponto de extremidade e as chaves de acesso estão no portal do Azure.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Navegue para o membro do serviço Azure Blockchain. Selecione **Nós de transação** e o link do nó de transação padrão.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Navegue para o membro do serviço Azure Blockchain.
+1. Selecione **Nós de transação** e o link do nó de transação padrão.
 
     ![Selecionar o nó de transação padrão](./media/connect-metamask/transaction-nodes.png)
 
 1. Selecione **Cadeias de conexão > Chaves de acesso**.
-1. Copie o endereço do ponto de extremidade de **HTTPS (Chave de acesso 1)** . Você precisará do endereço para a próxima seção.
+1. Copie o endereço do ponto de extremidade de **HTTPS (Chave de acesso 1)** .
 
     ![Cadeia de conexão](./media/connect-metamask/connection-string.png)
 
@@ -44,10 +45,10 @@ Neste Início Rápido, você usará o MetaMask para se conectar a uma rede do se
 
     ![RPC personalizada](./media/connect-metamask/custom-rpc.png)
 
-1. Em **Nova Rede > URL da Nova RPC**, insira o endereço do ponto de extremidade copiado da seção anterior.
+1. Em **Nova Rede > Nova URL RPC**, cole o endereço do ponto de extremidade que você copiou acima.
 1. Clique em **Salvar**.
 
-    Se a conexão for bem-sucedida, a rede privada será exibida no menu suspenso da rede.
+    Se a conexão tiver sido bem-sucedida, a rede privada será exibida no menu suspenso da rede.
 
     ![Nova rede](./media/connect-metamask/new-network.png)
 
@@ -86,7 +87,7 @@ O Remix é um ambiente de desenvolvimento do Solidity baseado em navegador. Usan
     ```
 
     O **contrato simples** declara uma variável de estado chamada **saldo**. Há duas funções definidas. A função **add** adiciona um número para obter o **saldo**. A função **get** retorna o valor do **saldo**.
-1. Para compilar o contrato, primeiro selecione o painel do compilador Solidity e, em seguida, selecione **Compilar simple.sol**. 
+1. Para compilar o contrato, primeiro selecione o painel do compilador Solidity e, em seguida, selecione **Compilar simple.sol**.
 
     ![Compilar](./media/connect-metamask/compile.png)
 
@@ -99,7 +100,7 @@ O Remix é um ambiente de desenvolvimento do Solidity baseado em navegador. Usan
     ![Implantar](./media/connect-metamask/deploy.png)
 
 
-1. Uma notificação do MetaMask é exibida, alertando-o de fundos insuficientes para executar a transação.
+1. Uma notificação do MetaMask alerta você de fundos insuficientes para executar a transação.
 
     Para uma rede de blockchain pública, você precisará do Ether para pagar o custo de transação. Como essa é uma rede privada em um consórcio, você pode definir o preço do gás como zero.
 
@@ -114,24 +115,24 @@ O Remix é um ambiente de desenvolvimento do Solidity baseado em navegador. Usan
 
     ![Contrato implantado](./media/connect-metamask/deployed-contract.png)
 
-    Existem duas ações **adicionar** e **obter** que são mapeadas para as funções definidas no contrato.
+    Duas ações, **adicionar** e **obter**, são mapeadas para as funções definidas no contrato.
 
-1. Para executar uma transação **adicionar** no blockchain, insira um número a ser adicionado e, em seguida, selecione **adicionar**. Você pode receber uma mensagem de falha na estimativa de gás do Remix. Você enviará uma transação a um blockchain privado que não requer gás. Selecione **Enviar Transação** para forçar a transação.
-1. Assim como quando você implantou o contrato, uma notificação do MetaMask é exibida, alertando-o de fundos insuficientes para executar a transação.
+1. Para executar uma transação **adicionar** no blockchain, insira um número a ser adicionado e, em seguida, selecione **adicionar**. Você pode receber uma mensagem de falha na estimativa de gás do Remix: "Você enviará uma transação a um blockchain privado que não requer gás." Selecione **Enviar Transação** para forçar a transação.
+1. Assim como quando você implantou o contrato, uma notificação do MetaMask alerta você de fundos insuficientes para executar a transação.
 
     Como essa é uma rede privada em um consórcio, podemos definir o preço do gás como zero.
 
-1.  Selecione **Valor do Gás > Editar > Avançado**, defina o **Preço do Gás** como 0 e selecione **Salvar**.
+1. Selecione **Valor do Gás > Editar > Avançado**, defina o **Preço do Gás** como 0 e selecione **Salvar**.
 1. Selecione **Confirmar** para enviar a transação ao blockchain.
 1. Selecione a ação **obter**. Essa é uma chamada para consultar os dados do nó. Uma transação não é necessária.
-1. No painel de depuração do Remix, é possível ver detalhes sobre as transações no blockchain.
 
-    ![Histórico de depuração](./media/connect-metamask/debug.png)
+O painel de depuração do Remix mostra detalhes sobre as transações no blockchain:
 
-    Você poderá ver a criação do contrato **simples**, a transação para **simple.add** e a chamada a **simple.get**.
+    ![Debug history](./media/connect-metamask/debug.png)
 
-1. Você também poderá ver o histórico de transações no MetaMask. Abra a extensão do navegador MetaMask.
-1. Na seção **Histórico**, você poderá ver um log do contrato implantado e das transações.
+    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+
+Para ver o histórico de transações no MetaMask, abra a extensão do navegador do MetaMask e veja se há um registro dos contratos e transações implantados na seção **Histórico**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

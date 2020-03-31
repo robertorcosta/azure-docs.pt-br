@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2019
-ms.openlocfilehash: 857cfb4587d7b73a59fafac83dadbef3ad920ebf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/23/2020
+ms.openlocfilehash: c94ac0c27d747da1a98cd9d67ced91a5913147e6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971433"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132693"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar um trabalho do Spark no Azure Databricks usando o modelo do Azure Resource Manager
 
 Neste início rápido, você usará um modelo do Azure Resource Manager para criar um workspace do Azure Databricks com um cluster do Apache Spark. Execute um trabalho no cluster e use gráficos personalizados para produzir relatórios em tempo real de uso gratuito/pago com base em dados demográficos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 
@@ -60,6 +60,8 @@ Nesta seção, você criará um workspace do Azure Databricks usando o modelo do
 4. A criação do workspace leva alguns minutos. Durante a criação do workspace, o portal exibe o bloco **Enviando a implantação para o Azure Databricks** no lado direito. Talvez seja necessário rolar diretamente no painel para ver o bloco. Também é exibida na parte superior da tela de uma barra de progresso. Você pode assistir a área de andamento.
 
    ![Bloco de implantação do Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Bloco de implantação do Databricks")
+
+   Quando a implantação de um workspace falha, ele ainda é criado com estado de falha. Exclua o workspace com falha e crie um que resolva os erros de implantação. Quando você exclui o workspace com falha, o grupo de recursos gerenciado e todos os recursos implantados com êxito também são excluídos.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 

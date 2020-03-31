@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integração do Azure Active Directory com o Jitbit Helpdesk
@@ -34,7 +34,7 @@ A integração do Jitbit Helpdesk ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Jitbit Helpdesk, você precisará dos seguintes itens:
 
@@ -224,7 +224,7 @@ Para permitir que os usuários do Azure AD entrem no Jitbit Helpdesk, eles devem
 
 1. Clique em **Adicionar usuário**.
 
-    ![Adicionar Usuário](./media/jitbit-helpdesk-tutorial/ic777685.png "Adicionar Usuário")
+    ![Adicionar usuário](./media/jitbit-helpdesk-tutorial/ic777685.png "Adicionar usuário")
 
 1. Na seção Criar, digite os dados da conta do Azure AD que deseja provisionar da seguinte maneira:
 
@@ -255,4 +255,4 @@ Ao clicar no bloco do Jitbit Helpdesk no Painel de Acesso, você deverá entrar 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

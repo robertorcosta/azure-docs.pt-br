@@ -3,17 +3,17 @@ title: Introdução às Filas do Azure - Armazenamento do Azure
 description: Introdução às Filas do Azure
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/07/2019
+ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a2bea77578282d68d86bc1a8cea765aa2cbd555
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750439"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060864"
 ---
 # <a name="what-are-azure-queues"></a>O que são as Filas do Azure?
 
@@ -23,7 +23,7 @@ O armazenamento de Filas do Azure é um serviço usado para armazenar grandes qu
 
 O serviço Fila contém os seguintes componentes:
 
-![Conceitos de fila](./media/storage-queues-introduction/queue1.png)
+![Diagrama mostrando a relação entre uma conta de armazenamento, filas e mensagens](./media/storage-queues-introduction/queue1.png)
 
 * **Formato de URL:** As consultas são endereçáveis usando o seguinte formato de URL:
 

@@ -1,5 +1,6 @@
 ---
 title: O que é a NAT de Rede Virtual do Azure?
+titlesuffix: Azure Virtual Network
 description: Visão geral de recursos, da arquitetura e da implementação da NAT de Rede Virtual. Saiba como funciona a NAT de Rede Virtual e como usar recursos de gateway da NAT na nuvem.
 services: virtual-network
 documentationcenter: na
@@ -11,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359248"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79409891"
 ---
-# <a name="what-is-virtual-network-nat-public-preview"></a>O que é NAT de Rede Virtual (versão prévia pública)?
+# <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
 A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectividade de Internet somente de saída para redes virtuais. Quando configurado em uma sub-rede, toda a conectividade de saída usa seus endereços IP públicos estáticos especificados.  A conectividade de saída é possível sem endereços IP públicos ou de balanceador de carga conectados diretamente a máquinas virtuais. A NAT é totalmente gerenciada e altamente resiliente.
 
@@ -36,10 +37,6 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 
 
 *Figura: NAT de Rede Virtual*
-
-
->[!NOTE] 
->A NAT de Rede Virtual está disponível atualmente como versão prévia pública. No momento, ela só está disponível em um conjunto limitado de [regiões](#region-availability). Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter detalhes.
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Endereços IP estáticos para somente saída
 
@@ -91,9 +88,9 @@ O lado privado da NAT envia pacotes de Redefinição de TCP para tentativas de s
 
 O lado público da NAT não gera pacotes de Redefinição de TCP nem nenhum outro tráfego.  Somente o tráfego produzido pela rede virtual do cliente é emitido.
 
-## <a name="configurable-idle-timeout"></a>Tempo limite de ociosidade configurável
+## <a name="configurable-tcp-idle-timeout"></a>Tempo limite de ociosidade de TCP configurável
 
-Um tempo limite de ociosidade padrão de 4 minutos é usado e pode ser aumentado para até 120 minutos. Qualquer atividade em um fluxo também pode redefinir o temporizador de ociosidade, incluindo keepalives TCP.
+Um tempo limite de ociosidade TCP padrão de 4 minutos é usado e pode ser aumentado para até 120 minutos. Qualquer atividade em um fluxo também pode redefinir o temporizador de ociosidade, incluindo keepalives TCP.
 
 ## <a name="regional-or-zone-isolation-with-availability-zones"></a>Isolamento regional ou de zona com zonas de disponibilidade
 
@@ -125,48 +122,6 @@ Você pode monitorar a operação da NAT por meio de métricas multidimensionais
 
 Em disponibilidade geral, o caminho de dados da NAT tem pelo menos 99,9% de disponibilidade.
 
-## <a name = "region-availability"></a>Disponibilidade de região
-
-A NAT está disponível atualmente nestas regiões:
-
-- Europa Ocidental
-- Leste do Japão
-- Leste dos EUA 2
-- Oeste dos EUA
-- Oeste dos EUA 2
-- Centro-Oeste dos EUA
-
-## <a name = "enable-preview"></a>Participação da versão prévia pública
-
-As assinaturas devem ser registradas para permitir a participação na versão prévia pública.  A participação requer um processo em duas etapas e as instruções são fornecidas abaixo para a CLI do Azure e o Azure PowerShell.  A ativação pode levar vários minutos para ser concluída.
-
-### <a name="azure-cli"></a>CLI do Azure
-
-1. registrar a assinatura para a versão prévia pública
-
-    ```azurecli-interactive
-      az feature register --namespace Microsoft.Network --name AllowNatGateway
-    ```
-
-2. ativar o registro
-
-    ```azurecli-interactive
-      az provider register --namespace Microsoft.Network
-    ```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-1. registrar a assinatura para a versão prévia pública
-
-    ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
-    ```
-
-2. ativar o registro
-
-    ```azurepowershell-interactive
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="pricing"></a>Preços
 
@@ -180,7 +135,9 @@ O gateway da NAT é cobrado com dois medidores separados:
 As horas do recurso representam o tempo durante o qual um recurso do gateway da NAT existe.
 Os dados processados representam todo o tráfego processado por um recurso do gateway da NAT.
 
-Durante a versão prévia pública, há um desconto de preço de 50%.
+## <a name="availability"></a>Disponibilidade
+
+A NAT de rede virtual e o recurso de gateway de NAT estão disponíveis em todas as [regiões](https://azure.microsoft.com/global-infrastructure/regions/) de nuvem pública do Azure.
 
 ## <a name="support"></a>Suporte
 
@@ -188,11 +145,12 @@ Há suporte para a NAT por meio de canais de suporte normais.
 
 ## <a name="feedback"></a>Comentários
 
-Desejamos saber como podemos aprimorar o serviço. Compartilhe conosco seus [comentários sobre a versão prévia pública](https://aka.ms/natfeedback).  Você também pode propor e votar em quais itens deveríamos criar em seguida, no [UserVoice para a NAT](https://aka.ms/natuservoice).
+Desejamos saber como podemos aprimorar o serviço. Proponha e vote em quais itens deveríamos criar em seguida, no [UserVoice para NAT](https://aka.ms/natuservoice).
+
 
 ## <a name="limitations"></a>Limitações
 
-* A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
+* A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard. Os recursos Básicos, como um balanceador de carga básico, e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
 * A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.  A NAT não pode ser implantada em uma sub-rede com o prefixo IPv6.
 * O registro em log de fluxo do NSG não é compatível com o uso de NAT.
 * A NAT não pode abranger várias redes virtuais.
@@ -201,4 +159,4 @@ Desejamos saber como podemos aprimorar o serviço. Compartilhe conosco seus [com
 
 * Saiba mais sobre o [recurso de gateway da NAT](./nat-gateway-resource.md).
 * [Diga-nos o que criar em seguida para a NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
-* [Forneça comentários sobre a versão prévia pública](https://aka.ms/natfeedback).
+

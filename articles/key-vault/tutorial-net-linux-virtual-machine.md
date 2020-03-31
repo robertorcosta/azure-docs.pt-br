@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 05968fdd9e2ddfd89bd9310c744d9ee699f440d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198160"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472717"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Usar uma VM do Linux e um aplicativo .NET para armazenar segredos no Azure Key Vault
 
@@ -114,7 +114,7 @@ az vm create \
 
 A criação da VM e dos recursos de suporte demora alguns minutos. A saída de exemplo a seguir mostra que a operação de criação de VM foi bem-sucedida.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -139,7 +139,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 A saída do comando deverá ser:
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}

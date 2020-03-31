@@ -8,20 +8,20 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: 46bad14978957ab474cfc0eda3e523874246d3f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586216"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132703"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início Rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
 Neste início rápido, você usará o portal do Azure para criar um workspace do Azure Databricks com um cluster do Apache Spark. Você executará um trabalho no cluster e usará gráficos personalizados para produzir relatórios em tempo real com base nos dados de segurança de Boston.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 
@@ -58,6 +58,8 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 3. Selecione **Examinar + Criar** e depois **Criar**. A criação do workspace leva alguns minutos. Durante a criação do workspace, você pode exibir o status da implantação em **Notificações**. Quando esse processo for concluído, sua conta de usuário será adicionada automaticamente como um usuário administrador no workspace.
 
     ![Bloco de implantação do Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Bloco de implantação do Databricks")
+
+    Quando a implantação de um workspace falha, ele ainda é criado com estado de falha. Exclua o workspace com falha e crie um que resolva os erros de implantação. Quando você exclui o workspace com falha, o grupo de recursos gerenciado e todos os recursos implantados com êxito também são excluídos.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster Spark no Databricks
 

@@ -2,18 +2,18 @@
 title: Início rápido – Criar registro no portal
 description: Aprenda rapidamente a criar um registro de Docker privado no Registro de Contêiner do Azure com o portal do Azure.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611229"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79409216"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início Rápido: criar um registro de contêiner privado usando o portal do Azure
 
-Um registro de contêiner do Azure é um registro particular do Docker no Azure no qual você pode armazenar e gerenciar suas imagens de contêiner particulares do Docker. Neste guia de início rápido, você criará um registro de contêiner com o Portal do Azure. Em seguida, use os comandos do Docker para efetuar push de uma imagem de contêiner no Registro e, por fim, efetuar pull e executar a imagem do seu Registro.
+Um registro de contêiner do Azure é um registro particular do Docker no Azure no qual você pode armazenar e gerenciar imagens de contêiner particulares do Docker e artefatos relacionados. Neste guia de início rápido, você criará um registro de contêiner com o Portal do Azure. Em seguida, use os comandos do Docker para efetuar push de uma imagem de contêiner no Registro e, por fim, efetuar pull e executar a imagem do seu Registro.
 
 Para fazer logon no Registro para trabalhar com imagens de contêiner, este início rápido exige que você esteja executando a CLI do Azure (versão 2.0.55 ou posterior recomendada). Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
@@ -29,9 +29,11 @@ Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner**.
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-01]
 
-Insira os valores para **Nome do registro** e **Grupo de recursos**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Para este início rápido crie um novo grupo de recursos no local `West US` denominado `myResourceGroup` e para **SKU**, selecione “Basic”. Selecione **Criar** para implantar a instância do ACR.
+Na guia **Noções básicas**, insira valores para **Grupo de recursos** e **Nome do registro**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Para este início rápido crie um novo grupo de recursos no local `West US` denominado `myResourceGroup` e para **SKU**, selecione “Basic”. 
 
 ![Criar registro de contêiner no portal do Azure][qs-portal-03]
+
+Aceite os valores padrão para as configurações restantes. Em seguida, selecione **Examinar + criar**. Depois de revisar as configurações, selecione **Criar**.
 
 Neste início rápido você criará um Registro *Básico*, que é uma opção com otimização de custo para desenvolvedores que estão aprendendo sobre o Registro de Contêiner do Azure. Para obter detalhes sobre as camadas de serviço disponíveis, confira [SKUs de registro de contêiner][container-registry-skus].
 
@@ -39,11 +41,11 @@ Quando a mensagem **Implantação bem-sucedida** é exibida, selecione o registr
 
 ![Visão geral do registro de contêiner no portal do Azure][qs-portal-05]
 
-Anote o valor do **Servidor de logon**. Você pode usar esse valor nas etapas a seguir ao trabalhar com o Registro com a CLI do Azure e o Docker.
+Anote o valor do **Servidor de logon**. Você usa esse valor nas etapas a seguir ao enviar por push e efetuar pull de imagens com o Docker.
 
 ## <a name="log-in-to-registry"></a>Fazer logon no registro
 
-Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Abra um shell de comando em seu sistema operacional e use o comando [az acr login][az-acr-login] na CLI do Azure. (Especifique apenas Nome do Contêiner. Não inclua 'azurecr.io')
+Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Abra um shell de comando em seu sistema operacional e use o comando [az acr login][az-acr-login] na CLI do Azure. (Especifique somente o nome do registro ao fazer logon. Não inclua o sufixo 'azurecr.io'.)
 
 ```azurecli
 az acr login --name <acrName>
@@ -57,7 +59,7 @@ O comando retorna `Login Succeeded` na conclusão.
 
 Para listar as imagens no seu Registro, navegue até o seu Registro no portal e selecione **Repositórios**, então selecione o repositório que você criou com `docker push`.
 
-Neste exemplo, selecionamos o repositório **hello-world** e nós podemos ver a imagem marcada com `v1` em **TAGS**.
+Neste exemplo, selecionamos o repositório **hello-world** e podemos ver a imagem marcada com `v1` em **Marcas**.
 
 ![Listar imagens de contêiner no portal do Azure][qs-portal-09]
 

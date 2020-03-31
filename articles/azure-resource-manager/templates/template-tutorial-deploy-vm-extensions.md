@@ -5,16 +5,16 @@ author: mumian
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b7aeaed0bfc2621cb2c71ab3f5e618771a1c26
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 469948d3d3207dd684d5a9b752e0c448ac7e83a9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250080"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239260"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implantar extensões de máquina virtual com modelos do Azure Resource Manager
+# <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implantar extensões de máquina virtual com modelos do ARM
 
-Saiba como usar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para executar tarefas de configuração e automação pós-implantação em VMs do Azure. Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Neste tutorial, você implantará uma extensão de Script Personalizado de um modelo do Azure Resource Manager para executar um script do PowerShell em uma VM Windows.  O script instala o servidor Web na VM.
+Saiba como usar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para executar tarefas de configuração e automação pós-implantação em VMs do Azure. Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Neste tutorial, você implantará uma extensão de Script Personalizado de um modelo do ARM (Azure Resource Manager) para executar um script do PowerShell em uma VM Windows.  O script instala o servidor Web na VM.
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -31,14 +31,14 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do ARM](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-a-powershell-script"></a>Preparar um script do PowerShell
 
@@ -52,7 +52,7 @@ Se você optar por publicar o arquivo em seu próprio local, deverá atualizar o
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de início rápido
 
-Modelos de Início Rápido do Azure é um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 1. Na caixa **Nome do arquivo**, cole a URL a seguir: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -107,7 +107,7 @@ Para obter mais informações sobre essa definição de recurso, veja [referênc
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Para obter o procedimento de implantação, veja a seção "Implantar o modelo" do [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). É recomendável usar uma senha gerada para a conta de administrador da máquina virtual. Veja a seção [Pré-requisitos](#prerequisites) deste artigo.
+Para obter o procedimento de implantação, veja a seção "Implantar o modelo" do [Tutorial: Criar modelos do ARM com recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). É recomendável usar uma senha gerada para a conta de administrador da máquina virtual. Veja a seção [Pré-requisitos](#prerequisites) deste artigo.
 
 ## <a name="verify-the-deployment"></a>Verificar a implantação
 

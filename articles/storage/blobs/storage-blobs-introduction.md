@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ff1d34462680ddd6be7f1a47d9a27594bcce4ff6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972445"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061499"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao armazenamento de Blobs do Azure
 
@@ -23,13 +23,13 @@ ms.locfileid: "75972445"
 
 O Armazenamento de Blobs oferece três tipos de recursos:
 
-- A **conta de armazenamento**. 
+- A **conta de armazenamento**
 - Um **contêiner** na conta de armazenamento
-- Um **blob** em um contêiner 
+- Um **blob** em um contêiner
 
 O diagrama a seguir mostra a relação entre esses recursos.
 
-![relação entre o Blob da conta e o recurso de Contêiner](./media/storage-blob-introduction/blob1.png)
+![Diagrama mostrando a relação entre uma conta de armazenamento, contêineres e blobs](./media/storage-blobs-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 
@@ -54,9 +54,9 @@ Um contêiner organiza um conjunto de blobs, semelhantes a um diretório em um s
  
 O Armazenamento do Azure dá suporte a três tipos de blobs:
 
-* **Blobs de bloco** armazenam texto e dados binários, até aproximadamente 4,7 TB. Blobs de bloco são compostos de blocos de dados que podem ser gerenciados individualmente.
-* **Blobs de acréscimo** são compostos de blocos, como blobs de blocos, mas são otimizados para operações de acréscimo. Blobs de acréscimo são ideais para cenários como o registro de dados das máquinas virtuais.
-* **Blobs de Páginas** armazenam arquivos de acesso aleatório de até 8 TB. Os blobs de página armazenam arquivos de VHD (disco rígido virtual) e servem como discos para máquinas virtuais do Azure. Para saber mais sobre blobs de páginas, confira [Visão geral dos blobs de páginas do Azure](storage-blob-pageblob-overview.md)
+- **Blobs de bloco** armazenam texto e dados binários, até aproximadamente 4,7 TB. Blobs de bloco são compostos de blocos de dados que podem ser gerenciados individualmente.
+- **Blobs de acréscimo** são compostos de blocos, como blobs de blocos, mas são otimizados para operações de acréscimo. Blobs de acréscimo são ideais para cenários como o registro de dados das máquinas virtuais.
+- **Blobs de Páginas** armazenam arquivos de acesso aleatório de até 8 TB. Os blobs de página armazenam arquivos de VHD (disco rígido virtual) e servem como discos para máquinas virtuais do Azure. Para saber mais sobre blobs de páginas, confira [Visão geral dos blobs de páginas do Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de blobs, confira [Compreendendo os Blobs de Blocos, Blobs de Acréscimo e Blobs de Página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

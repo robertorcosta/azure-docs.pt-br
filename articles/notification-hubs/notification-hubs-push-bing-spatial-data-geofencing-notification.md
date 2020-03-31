@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9f8697332d34fc044c805db6c6595fdf067ed054
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387493"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127200"
 ---
-# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações por push baseadas em localização com os Hubs de Notificação do Azure e o Bing Spatial Data
+# <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações por push baseadas em localização com os Hubs de Notificação e o Bing Spatial Data
 
 Neste tutorial, você aprenderá a entregar notificações por push baseadas na localização com os Hubs de Notificação do Azure e o Bing Spatial Data.
 
@@ -37,7 +37,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Configurar o back-end
 > * Enviar notificações por push de teste no aplicativo da UWP (Plataforma Universal do Windows)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Visual Studio 2015 Atualização 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) ou posterior ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)).
@@ -107,7 +107,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 
     ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
-    Uma vez concluída a criação do projeto, você deverá ter o agente para o próprio aplicativo. Agora vamos configurar tudo para a infraestrutura de delimitação geográfica. Como você vai usar os serviços do Bing para essa solução, há um ponto de extremidade de API REST público que permite consultar quadros de local específico:
+    Uma vez concluída a criação do projeto, você deverá ter o agente para o próprio aplicativo. Agora vamos configurar tudo para a infraestrutura de isolamento geográfico. Como você vai usar os serviços do Bing para essa solução, há um ponto de extremidade de API REST público que permite consultar quadros de local específico:
 
     ```text
     http://spatial.virtualearth.net/REST/v1/data/
@@ -164,7 +164,7 @@ Neste tutorial, você deve executar as seguintes etapas:
     }
     ```
 
-    Para saber mais sobre como obter o local do usuário em aplicativos UWP, consulte [Obter a localização do usuário](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    Para saber mais sobre como obter o local do usuário em aplicativos UWP, confira[Obter a localização do usuário](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
 5. Para verificar se a aquisição da localização está funcionando, abra o lado do código da página principal (`MainPage.xaml.cs`). Criar um novo manipulador de eventos para o evento `Loaded` no construtor `MainPage`.
 
     ```csharp
@@ -196,7 +196,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
-    Agora você sabe que a aquisição de localização funciona, você pode remover o manipulador de eventos carregado se desejar porque você não irá usá-lo mais.
+    Agora você sabe que a aquisição de localização funciona, você pode remover o manipulador de eventos carregado se desejar, porque você não o usará mais.
 8. A próxima etapa é capturar as alterações de localização. Na classe `LocationHelper`, adicione o manipulador de eventos para `PositionChanged`:
 
     ```csharp

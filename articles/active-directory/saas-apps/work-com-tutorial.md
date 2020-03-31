@@ -17,10 +17,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7a6dc16eef1bb36a5bd6cbf0502a83481230bc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Azure Active Directory com o Work.com
@@ -35,7 +35,7 @@ A integração do Work.com ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Work.com, você precisará dos seguintes itens:
 
@@ -134,37 +134,37 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
 
 2. Vá para **Configuração**.
    
-    ![Configuração](./media/work-com-tutorial/ic794108.png "Configuração")
+    ![Instalação](./media/work-com-tutorial/ic794108.png "Instalação")
 
 3. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
    
-    ![Meu Domínio](./media/work-com-tutorial/ic767825.png "Meu Domínio")
+    ![Meu domínio](./media/work-com-tutorial/ic767825.png "Meu domínio")
 
 4. Para confirmar se o domínio foi configurado corretamente, verifique se ele está em “**Etapa 4 Implantado nos Usuários**” e examine “**Minhas Configurações de Domínio**”.
    
-    ![Domínio Implantado no Usuário](./media/work-com-tutorial/ic784377.png "Domínio Implantado no Usuário")
+    ![Domínio implantado para o usuário](./media/work-com-tutorial/ic784377.png "Domínio implantado para o usuário")
 
 5. Entre no seu locatário do Work.com.
 
 6. Vá para **Configuração**.
     
-    ![Configuração](./media/work-com-tutorial/ic794108.png "Configuração")
+    ![Instalação](./media/work-com-tutorial/ic794108.png "Instalação")
 
 7. Expanda o menu **Controles de Segurança** e clique em **Configurações de Logon Único**.
     
-    ![Configurações de Logon Único](./media/work-com-tutorial/ic794113.png "Configurações de Logon Único")
+    ![Configurações de logon único](./media/work-com-tutorial/ic794113.png "Configurações de logon único")
 
 8. Na página do diálogo **Configurações de Logon Único** , realize as seguintes etapas:
     
-    ![SAML habilitado](./media/work-com-tutorial/ic781026.png "SAML habilitado")
+    ![SAML habilitado](./media/work-com-tutorial/ic781026.png "SAML Habilitado")
     
     a. Selecione **SAML Habilitado**.
     
-    b. Clique em **Novo**.
+    b. Clique em **Nova**.
 
 9. Na seção de **Configurações de Logon Único do SAML** , realize as seguintes etapas:
     
-    ![Configurações de Logon Único do SAML](./media/work-com-tutorial/ic794114.png "Configurações de Logon Único do SAML")
+    ![Configuração de logon único do SAML](./media/work-com-tutorial/ic794114.png "Configuração de Logon Único do SAML")
     
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.  
        
@@ -191,15 +191,15 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
 
 10. No painel de navegação à esquerda, no portal clássico do Work.com, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
     
-    ![Meu Domínio](./media/work-com-tutorial/ic794115.png "Meu Domínio")
+    ![Meu domínio](./media/work-com-tutorial/ic794115.png "Meu domínio")
 
 11. Na página **Meu Domínio**, na seção **Identidade Visual da Página de Logon**, clique em **Editar**.
     
-    ![Identidade Visual da Página de Logon](./media/work-com-tutorial/ic767826.png "Identidade Visual da Página de Logon")
+    ![Identidade visual da página de logon](./media/work-com-tutorial/ic767826.png "Identidade visual da página de logon")
 
 12. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
     
-    ![Identidade Visual da Página de Logon](./media/work-com-tutorial/ic784366.png "Identidade Visual da Página de Logon")
+    ![Identidade visual da página de logon](./media/work-com-tutorial/ic784366.png "Identidade visual da página de logon")
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -261,19 +261,19 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
 
 2. Vá para **Configuração**.
    
-    ![Configuração](./media/work-com-tutorial/IC794108.png "Configuração")
+    ![Instalação](./media/work-com-tutorial/IC794108.png "Instalação")
 
 3. Vá para **Gerenciar Usuários \> Usuários**.
    
-    ![Gerenciar Usuários](./media/work-com-tutorial/IC784369.png "Gerenciar Usuários")
+    ![Gerenciar usuários](./media/work-com-tutorial/IC784369.png "Gerenciar Usuários")
 
 4. Clique em **Novo Usuário**.
    
-    ![Todos os Usuários](./media/work-com-tutorial/IC794117.png "Todos os Usuários")
+    ![Todos os usuários](./media/work-com-tutorial/IC794117.png "Todos os Usuários")
 
 5. Na seção Editar Usuários, execute as etapas a seguir nos atributos de uma conta do Azure AD válida que você deseja provisionar nas caixas de texto relacionadas:
    
-    ![Editar Usuário](./media/work-com-tutorial/ic794118.png "Editar Usuário")
+    ![Edição de usuário](./media/work-com-tutorial/ic794118.png "Editar usuário")
    
     a. Na caixa de texto **Nome**, digite o **nome** do usuário, **Brenda**.
     
@@ -307,5 +307,5 @@ Ao clicar no bloco do Work.com no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

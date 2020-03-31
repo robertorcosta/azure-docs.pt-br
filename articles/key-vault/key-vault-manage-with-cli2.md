@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: f69b65ece09a63c7a1d9e23d5cd488d9659724ad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387309"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457416"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerenciar o Key Vault usando a CLI do Azure 
 
@@ -39,7 +39,7 @@ O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter 
 Para obter uma visão geral do Azure Key Vault, consulte [O que é o Azure Key Vault?](key-vault-overview.md)
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar comandos da CLI do Azure neste artigo, você deve ter os seguintes itens:
 
@@ -128,7 +128,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 A saída do comando mostra as propriedades do cofre da chave que você criou. As duas propriedades mais importantes são:
 
-* **name**: no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
+* **nome**: no exemplo, o nome é ContosoKeyVault. Você usará esse nome para outros comandos do Key Vault.
 * **vaultUri**: no exemplo, o URI é https://contosokeyvault.vault.azure.net. Aplicativos que usam seu cofre via API REST devem usar esse URI.
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais tem autorização.
@@ -219,11 +219,11 @@ Para autorizar o mesmo aplicativo a ler segredos em seu cofre, digite o seguinte
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Definir as políticas de acesso avançado do cofre de chaves
+## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Definir as políticas de acesso avançado do cofre de chaves
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar políticas avançadas para o cofre de chaves.
 
- Habilitar o Key Vault para implantação: permite que as máquinas virtuais recuperem certificados armazenados como segredos do cofre.
+ Habilitar o Key Vault para a implantação: Permitir que as máquinas virtuais recuperem certificados armazenados como segredos do cofre.
 
  ```azurecli
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
@@ -235,11 +235,11 @@ Habilitar o Key Vault para criptografia de disco: exigido ao usar o cofre para c
  az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-disk-encryption "true"
  ```  
 
-Habilitar o Key Vault para implantação de modelo: permite que o Resource Manager recupere segredos do cofre.
+Habilitar o Key Vault para implantação de modelo: Permite que o Resource Manager recupere segredos do cofre.
 
-```azurecli 
- az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
- ```
+```azurecli
+az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
+```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Trabalhar com HSMs (módulos de segurança de hardware)
 
@@ -265,7 +265,7 @@ Você pode usar o comando a seguir para importar uma chave de um arquivo PEM par
 az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --pem-file "/.softkey.pem" --protection "hsm" --pem-password "PaSSWORD"
 ```
 
-O próximo comando importa um pacote de BYOK ("traga sua própria chave"). Isso permite gerar sua chave no HSM local e transferi-la para os HSMs no serviço de Cofre da Chave, sem que a chave deixe os limites do HSM:
+O próximo comando importa um pacote de BYOK ("bring your own key"). Isso permite gerar sua chave no HSM local e transferi-la para os HSMs no serviço de Cofre da Chave, sem que a chave deixe os limites do HSM:
 
 ```azurecli
 az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
@@ -321,7 +321,7 @@ Aqui está um exemplo de como remover um segredo específica:
 az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter a referência completa da CLI do Azure de comandos do cofre de chaves, consulte [referência da CLI do Key Vault](/cli/azure/keyvault).
 

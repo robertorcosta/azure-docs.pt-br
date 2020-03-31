@@ -4,15 +4,15 @@ description: Este artigo fornece uma visão geral do Azure WAF (Firewall do Apli
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/06/2020
+ms.date: 03/18/2020
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 44bc8db5d8ada0378f8f9d0911ed398ba491d289
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 49024c86d09f5cdd9e8b04d5a49f60021660b0c4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851195"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79475780"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>O que é o Firewall do Aplicativo Web do Azure?
 
@@ -24,13 +24,12 @@ A prevenção de tais ataques no código do aplicativo é desafiadora. Isso pode
 
 Uma solução WAF pode reagir a uma ameaça de segurança mais rapidamente, corrigindo uma vulnerabilidade conhecida de modo central, em vez de proteger cada um dos aplicativos Web individuais.
 
-## <a name="supported-services"></a>Serviços com suporte
+## <a name="supported-service"></a>Serviço com suporte
 
-O WAF pode ser implantado com o [Gateway de Aplicativo do Azure](../application-gateway/overview.md) e o [Azure Front Door Service](../frontdoor/front-door-overview.md). Os dois serviços são balanceadores de carga de Camada 7 (HTTP/S), mas o Gateway de Aplicativo é um serviço regional, e o Front Door é um serviço global. O WAF tem recursos que são personalizados para cada serviço específico.
-
-Para obter mais informações, confira a visão geral do WAF para cada serviço.
+O WAF pode ser implantado com o Gateway de Aplicativo do Azure, o Azure Front Door e o serviço da Rede de Distribuição de Conteúdo (CDN) do Azure da Microsoft. A WAF na CDN do Azure está atualmente em versão prévia pública.  O WAF tem recursos que são personalizados para cada serviço específico. Para obter mais informações sobre os recursos do WAF para cada serviço, confira a visão geral de cada serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre o Firewall do Aplicativo Web no Gateway de Aplicativo, confira [Firewall de Aplicativo Web no Gateway de Aplicativo do Azure](./ag/ag-overview.md).
 - Para obter mais informações sobre o firewall do aplicativo Web no Azure Front Door Service, confira [firewall do aplicativo Web no Azure Front Door Service](./afds/afds-overview.md).
+- Para obter mais informações sobre o firewall do aplicativo Web na CDN do Azure, confira [Firewall do aplicativo Web no Serviço da CDN do Azure](./cdn/cdn-overview.md)

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: b144a70ee88138966d9cc38a56e1cff1e63fca1b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 66efa0f2922e70908616c7c447d782efee8f6b1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424135"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79137170"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerenciar um gateway de VPN usando o PowerShell
 
@@ -28,9 +28,7 @@ O diagrama a seguir mostra a rede virtual e o gateway da VPN criados como parte 
 
 ![Gateway de VNet e VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell e Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Trabalhar com o Azure Cloud Shell e Azure PowerShell
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -166,7 +164,7 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 Para obter mais informações, consulte [Redefinir um gateway VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você avançar para o [próximo tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), o ideal será manter esses recursos porque eles são os pré-requisitos.
 

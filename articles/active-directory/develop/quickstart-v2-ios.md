@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: f0b4d1f557006ba8a343a0497262cc5c8254e86c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 090f59c4074ca2613c3bd32030b0869a1cd4e9d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561575"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80129034"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -270,25 +270,30 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 Os aplicativos não deverão exigir que seus usuários entrem sempre que solicitarem um token. Se o usuário já está conectado, esse método permite que os aplicativos solicitem tokens silenciosamente. 
 
 ```swift
-guard let account = try self.applicationContext!.allAccounts().first else { return }
-        
-let silentParams = MSALSilentTokenParameters(scopes: kScopes, account: account)
-self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
+self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
+            
+   guard let account = currentAccount else {
+      return
+   }
+            
+   let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
+   self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
+}
 ```
 
 > |Em que: ||
 > |---------|---------|
 > | `scopes` | Contém os escopos que estão sendo solicitados (ou seja, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (`api://<Application ID>/access_as_user`)) |
-> | `account` | A conta para a qual um token está sendo solicitado. Este é um guia de início rápido sobre um aplicativo de conta única. Se você quiser criar um aplicativo de várias contas, precisará definir a lógica para identificar qual conta usar em solicitações de token usando `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | A conta para a qual um token está sendo solicitado. Este é um guia de início rápido sobre um aplicativo de conta única. Se quiser criar um aplicativo de várias contas, você precisará definir a lógica para identificar qual conta usar em solicitações de token usando `accountsFromDeviceForParameters:completionBlock:` e passando o `accountIdentifier` correto |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Experimente o tutorial do iOS para obter um guia passo a passo completo sobre a criação de aplicativos, incluindo uma explicação completa sobre este Início Rápido.
+Experimente o tutorial para iOS e macOS para obter um guia passo a passo completo sobre a criação de aplicativos, incluindo uma explicação completa sobre este início rápido.
 
 ### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar o aplicativo usado neste início rápido
 
 > [!div class="nextstepaction"]
-> [Tutorial Chamar a API do Graph do iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Tutorial sobre como chamar a API do Graph para iOS e macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

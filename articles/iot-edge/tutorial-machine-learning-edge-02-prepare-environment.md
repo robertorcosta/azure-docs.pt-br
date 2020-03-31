@@ -4,16 +4,16 @@ description: 'Tutorial: Prepare seu ambiente para o desenvolvimento e a implanta
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9809a9b4d644a1fa11fe9cce1cbd35b037206b29
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944287"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79296788"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configurar um ambiente para aprendizado de máquina no IoT Edge
 
@@ -189,12 +189,13 @@ Como parte da criação do Hub IoT, o script que executamos na seção anterior 
 
 1. Expanda a seção **Armazenamento**:
 
-   ![Verifique se turbofandevicestorage está na lista de pontos de extremidade personalizados](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Verifique se turbofanDeviceStorage está na lista de pontos de extremidade personalizados](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   Observamos que **turbofandevicestorage** está na lista de pontos de extremidade personalizados. Observe as seguintes características sobre este ponto de extremidade:
+   Observamos que **turbofanDeviceStorage** está na lista de pontos de extremidade personalizados. Observe as seguintes características sobre este ponto de extremidade:
 
    * Ele aponta para o contêiner de Armazenamento de Blobs que você criou chamado `devicedata`, conforme indicado pelo **Nome do contêiner**.
    * O **Formato de nome de arquivo** tem a partição como o último elemento no nome. Achamos que esse formato é mais conveniente para as operações de arquivo que faremos com o Azure Notebooks mais adiante no tutorial.
+   * O **Status** deve ser íntegro.
 
 1. Selecione a guia **Rotas**.
 

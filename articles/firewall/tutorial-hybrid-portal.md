@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/21/2020
+ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 15901186194853aebf3b8222f271203161770380
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561435"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239680"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -45,7 +45,7 @@ Neste tutorial, você aprenderá como:
 
 Caso deseje usar o Azure PowerShell para concluir este procedimento, confira [Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Uma rede híbrida usa o modelo de arquitetura hub e spoke para rotear o tráfego entre as VNets do Azure e as redes locais. A arquitetura hub e spoke tem os seguintes requisitos:
 
@@ -54,7 +54,7 @@ Uma rede híbrida usa o modelo de arquitetura hub e spoke para rotear o tráfego
    Além disso, as rotas para as redes virtuais conectadas pelo gateway ou das redes locais serão propagadas automaticamente às tabelas de roteiros para as redes virtuais emparelhadas usando o trânsito de gateway. Para saber mais, confira [Configurar o trânsito de gateway de VPN para o emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Defina **UseRemoteGateways** quando você emparelhar VNet-Spoke com VNet-Hub. Se **UseRemoteGateways** estiver definido e **AllowGatewayTransit** no emparelhamento remoto também estiver definido, a rede virtual spoke usará gateways da rede virtual remota para trânsito.
-- Para rotear o tráfego de sub-rede spoke por meio do firewall do hub, você precisa de uma UDR (Rota Definida pelo Usuário) que aponta para o firewall com a opção **Desabilitar a propagação de rotas BGP** definida. A opção **Desabilitar a propagação de rotas BGP** impede a distribuição de rota para as sub-redes spoke. Isso impede que as rotas aprendidas entrem em conflito com sua UDR.
+- Para rotear o tráfego de sub-rede spoke por meio do firewall do hub, você precisa de uma UDR (Rota Definida pelo Usuário) que aponte para o firewall com a opção **Propagação de rotas de gateway de rede virtual** desabilitada. A opção **Propagação de rotas de gateway de rede virtual** desabilitada impede a distribuição de rota para as sub-redes spoke. Isso impede que as rotas aprendidas entrem em conflito com sua UDR.
 - Configure uma UDR na sub-rede do gateway do hub que aponta para o endereço IP do firewall como o próximo salto para as redes spoke. Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
 
 Consulte a seção [Criar Rotas](#create-the-routes) deste tutorial para ver como essas rotas são criadas.

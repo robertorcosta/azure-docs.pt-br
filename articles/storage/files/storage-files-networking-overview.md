@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 09d7f93c7a1d8ad9e567ecfe0bb3854d9d54f6e0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597738"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067161"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de rede dos Arquivos do Azure 
 Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneiras:
@@ -22,7 +22,9 @@ Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneira
 
 Este artigo se concentra em como configurar a rede para quando seu caso de uso chamar o acesso ao compartilhamento de arquivo do Azure diretamente, em vez de usar a Sincronização de Arquivos do Azure. Para obter mais informações sobre considerações de rede para uma implantação da Sincronização de Arquivos do Azure, consulte [Como configurar as definições de firewall e proxy da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md).
 
-A configuração de rede para compartilhamentos de arquivos do Azure é feita na conta de armazenamento do Azure. Uma conta de armazenamento é um constructo de gerenciamento que representa um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivos bem como outros recursos de armazenamento, como filas ou contêineres de blob. As contas de armazenamento expõem várias configurações que ajudam a proteger o acesso à rede para seus compartilhamentos de arquivos: pontos de extremidade de rede, configurações de firewall da conta de armazenamento e criptografia em trânsito.
+A configuração de rede para compartilhamentos de arquivos do Azure é feita na conta de armazenamento do Azure. Uma conta de armazenamento é um constructo de gerenciamento que representa um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivos bem como outros recursos de armazenamento, como filas ou contêineres de blob. As contas de armazenamento expõem várias configurações que ajudam a proteger o acesso à rede para seus compartilhamentos de arquivos: pontos de extremidade de rede, configurações de firewall da conta de armazenamento e criptografia em trânsito. 
+
+Recomendamos ler [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) antes de ler este guia conceitual.
 
 ## <a name="accessing-your-azure-file-shares"></a>Acessar seus compartilhamentos de arquivos do Azure
 Quando você implanta um compartilhamento de arquivo do Azure em uma conta de armazenamento, o compartilhamento de arquivo é imediatamente acessível por meio do ponto de extremidade público da conta de armazenamento. Isso significa que as solicitações autenticadas, como solicitações autorizadas pela identidade de logon de um usuário, podem se originar de maneira segura de dentro ou fora do Azure. 
@@ -65,6 +67,8 @@ O uso de pontos de extremidade privados com Arquivos do Azure permite que você:
 - Conecte-se com segurança aos compartilhamentos de arquivo do Azure de redes locais usando uma conexão VPN ou ExpressRoute com emparelhamento privado.
 - Projeta seus compartilhamentos de arquivo do Azure configurando o firewall da conta de armazenamento para bloquear todas as conexões no ponto de extremidade público. Por padrão, a criação de um ponto de extremidade privado não bloqueia conexões com o ponto de extremidade público.
 - Aumente a segurança da rede virtual permitindo que você bloqueie o vazamento de dados da rede virtual (e limites de emparelhamento).
+
+Para criar um ponto de extremidade privado, confira [Configuração de pontos de extremidade privados para os Arquivos do Azure](storage-files-networking-endpoints.md).
 
 ### <a name="private-endpoints-and-dns"></a>Pontos de extremidade privados e DNS
 Quando você cria um ponto de extremidade privado, por padrão também criamos uma zona DNS privada (ou atualizamos uma existente) correspondente ao subdomínio `privatelink`. A rigor, a criação de uma zona DNS privada não é necessária para usar um ponto de extremidade privado para sua conta de armazenamento, mas é altamente recomendável em geral e explicitamente necessário ao montar seu compartilhamento de arquivo do Azure com uma entidade de usuário do Active Directory ou acessar da API FileREST.
@@ -126,7 +130,7 @@ Isso reflete o fato de que a conta de armazenamento pode expor o ponto de extrem
 
 - Modificar os arquivos de hosts em seus clientes para fazer o `storageaccount.file.core.windows.net` resolver o endereço IP privado do ponto de extremidade privado desejado. Isso não é recomendável para ambientes de produção, já que você precisará fazer essas alterações em cada cliente que desejar montar seus compartilhamentos de arquivo do Azure e as alterações na conta de armazenamento ou no ponto de extremidade privado não serão manipuladas automaticamente.
 - Criar um registro A para `storageaccount.file.core.windows.net` em seus servidores DNS locais. Isso tem a vantagem de que os clientes em seu ambiente local poderão resolver automaticamente a conta de armazenamento sem a necessidade de configurar cada cliente; no entanto, essa solução é igualmente frágil à modificação do arquivo de hosts porque as alterações não são refletidas. Embora essa solução seja frágil, ela pode ser a melhor opção para alguns ambientes.
-- Encaminhe a zona `core.windows.net` de seus servidores DNS locais para a zona DNS privada do Azure. O host DNS privado do Azure pode ser acessado por meio de um endereço IP especial (`168.63.129.16`) que só pode ser acessado dentro de redes virtuais vinculadas à zona DNS privada do Azure. Para solucionar essa limitação, você pode executar servidores DNS adicionais dentro de sua rede virtual que encaminharão `core.windows.net` para a zona DNS privada do Azure. Para simplificar essa configuração, fornecemos os cmdlets do PowerShell que implantarão automaticamente os servidores DNS em sua rede virtual do Azure e os configurarão conforme desejado.
+- Encaminhe a zona `core.windows.net` de seus servidores DNS locais para a zona DNS privada do Azure. O host DNS privado do Azure pode ser acessado por meio de um endereço IP especial (`168.63.129.16`) que só pode ser acessado dentro de redes virtuais vinculadas à zona DNS privada do Azure. Para solucionar essa limitação, você pode executar servidores DNS adicionais dentro de sua rede virtual que encaminharão `core.windows.net` para a zona DNS privada do Azure. Para simplificar essa configuração, fornecemos os cmdlets do PowerShell que implantarão automaticamente os servidores DNS em sua rede virtual do Azure e os configurarão conforme desejado. Para saber como configurar o encaminhamento de DNS, confira [Configurar DNS com os Arquivos do Azure](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Configurações de firewall da conta de armazenamento
 Um firewall é uma política de rede que controla quais solicitações têm permissão para acessar o ponto de extremidade público para uma conta de armazenamento. Usando o firewall da conta de armazenamento, você pode restringir o acesso ao ponto de extremidade público da conta de armazenamento a determinados endereços ou intervalos IP ou a uma rede virtual. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringirá o acesso de rede a uma ou mais redes virtuais. 

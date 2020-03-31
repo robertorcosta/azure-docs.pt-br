@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: fd7e5b502c9ec0eef08bc937a7db7cd441b8713b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67171647"
 ---
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia, você aprendeu sobre como criar e localizar as âncoras usando o SDK do Azure espacial âncoras. Para saber mais sobre as relações de âncora, continue para o próxima guia.
+Neste guia, você aprendeu sobre como criar e localizar âncoras usando o SDK das Âncoras Espaciais do Azure. Para saber mais sobre os relacionamentos de âncora, vá para o próximo guia.
 
 > [!div class="nextstepaction"]
-> [Relações de âncora](/azure/spatial-anchors/concepts/anchor-relationships-way-finding/)
+> [Relacionamentos de âncora](/azure/spatial-anchors/concepts/anchor-relationships-way-finding/)

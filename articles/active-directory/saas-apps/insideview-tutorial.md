@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Azure Active Directory com o InsideView
@@ -35,7 +35,7 @@ Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [L
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao InsideView, você precisará ter:
 
@@ -131,11 +131,11 @@ Para configurar o logon único do Azure AD com o InsideView, siga estas etapas:
 
 1. Na parte superior da janela, selecione **Admin** (Administrador), **SingleSignOn Settings** (Configurações de Logon Único) e, em seguida, **Add SAML** (Adicionar SAML).
    
-   ![Configurações de logon único do SAML](./media/insideview-tutorial/ic794135.png "SAML single sign-on settings")
+   ![Configurações de logon único do SAML](./media/insideview-tutorial/ic794135.png "Configurações de logon único do SAML")
 
 1. Na seção **Add a New SAML** (Adicionar um Novo SAML), execute as etapas a seguir.
 
-    ![Seção Adicionar um Novo SAML](./media/insideview-tutorial/ic794136.png "Add a New SAML section")
+    ![Adicionar uma nova seção SAML](./media/insideview-tutorial/ic794136.png "Adicionar uma nova seção SAML")
 
     1. Na caixa **STS Name** (Nome do STS), insira um nome para a configuração.
 
@@ -216,7 +216,7 @@ Para criar usuários ou contatos no InsideView, contate a [equipe de suporte do 
 
 Agora você precisará testar a configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao selecionar o bloco do InsideView no Painel de Acesso, você deverá ser conectado automaticamente à instância do InsideView, para a qual você configurou o SSO. Para obter mais informações sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o bloco do InsideView no Painel de Acesso, você deverá ser conectado automaticamente à instância do InsideView, para a qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, confira [Acessar e usar aplicativos no portal Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
 ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74538255"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 ![Adicionar tutorial do produto](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
@@ -47,11 +47,11 @@ Neste tutorial, você aprenderá como:
 
     Quando você adicionar um produto, precisará fornecer as seguintes informações: 
 
-    | NOME                     | DESCRIÇÃO                                                                                                                                                                                                                                                                                                             |
+    | Nome                     | Descrição                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nome de exibição             | O nome que você deseja que seja mostrado no **Portal do Desenvolvedor**.                                                                                                                                                                                                                                                        |
-    | NOME                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
-    | DESCRIÇÃO              | O campo **Descrição** permite que você forneça informações detalhadas sobre o produto, como sua finalidade, as APIs a que fornece acesso, entre outras informações úteis.                                                                                                                                               |
+    | Nome                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
+    | Descrição              | O campo **Descrição** permite que você forneça informações detalhadas sobre o produto, como sua finalidade, as APIs a que fornece acesso, entre outras informações úteis.                                                                                                                                               |
     | Estado                    | Pressione **Publicado** se você deseja publicar o produto. Antes que as APIs de um produto possam ser chamadas, o produto precisa ser publicado. Por padrão, novos produtos não são publicados e ficam visíveis somente para o grupo **Administradores** .                                                                                      |
     | Exige assinatura    | Marque **Exige assinatura** se um usuário precisar se inscrever para usar o produto.                                                                                                                                                                                                                                   |
     | Requer aprovação        | Marque **Exigir aprovação** se quiser que um administrador revise e aceite ou rejeite as tentativas de assinatura para o produto. Se a caixa não estiver marcada, as tentativas de assinatura serão aprovadas automaticamente.                                                                                                                         |
@@ -69,7 +69,7 @@ Exibir/adicionar assinantes ao produto na guia **Assinaturas**.
 
 Defina a visibilidade de um produto para desenvolvedores ou convidados na guia **Controle de acesso**.
 
-## <a name="add-apis"> </a>Adicionar APIs a um produto
+## <a name="add-apis-to-a-product"></a><a name="add-apis"> </a>Adicionar APIs a um produto
 
 Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Você pode adicionar uma API existente durante a criação do produto. Você pode adicionar uma API ao produto mais tarde, seja na página **Configurações** dos Produtos ou durante a criação de uma API.
 
@@ -89,7 +89,7 @@ Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso �
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar e publicar um produto

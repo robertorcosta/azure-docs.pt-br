@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Amazon Web Services (AWS) | Microsoft Docs'
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services) | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o AWS (Amazon Web Services).
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6970debd3885a513ac0e30d6cc5391b0db66cf9b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
-ms.translationtype: MT
+ms.openlocfilehash: 40fd8217285643aa7d706d194d7f78ba0634dd32
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669277"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048960"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
 
 Neste tutorial, você aprenderá a integrar a AWS (Amazon Web Services) ao Azure AD (Azure Active Directory). Quando você integra a AWS (Amazon Web Services) com o Azure Active Directory, pode:
 
@@ -53,7 +53,7 @@ Com esses valores, o Azure AD remove o valor de **#** e envia o valor correto `h
 > [!Note]
 > Use apenas o aplicativo da galeria.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -173,7 +173,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     a. Em **Tipo de provedor**, selecione **SAML**.
 
-    b. Para **nome do provedor**, digite um nome de provedor (por exemplo: *WAAD*).
+    b. Em **Nome do Provedor**, digite um nome para o provedor (por exemplo: *WAAD*).
 
     c. Para carregar seu **arquivo de metadados** baixado do Portal do Azure, selecione **Escolher Arquivo**.
 
@@ -193,13 +193,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     a. Em **Selecionar tipo de entidade confiável**, selecione **Federação do SAML 2.0**.
 
-    b. Em **escolher um provedor saml 2,0**, selecione o **provedor SAML** que você criou anteriormente (por exemplo: *WAAD*).
+    b. Em **Escolher um provedor do SAML 2.0**, selecione o **Provedor do SAML** criado anteriormente (por exemplo: *WAAD*).
 
     c. Selecione **Permitir acesso do Console de Gerenciamento do AWS e programação**.
   
-    d. Selecione **Avançar: permissões**.
+    d. Selecione **Avançar: Permissões.**
 
-9. Na caixa de diálogo **Anexar políticas de permissão**, anexe a política adequada conforme sua organização. Em seguida, selecione **Avançar: revisão**.  
+9. Na caixa de diálogo **Anexar políticas de permissão**, anexe a política adequada conforme sua organização. Em seguida, selecione **Avançar: Análise**.  
 
     ![Captura de tela da caixa de diálogo Anexar política de permissões][33]
 
@@ -294,7 +294,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     b. Pesquise a política recém-criada na seção filtro **AzureAD_SSOUserRole_Policy**.
 
-    c. Selecione a política e, em seguida, selecione **Avançar: revisão**.
+    c. Selecione a política e, em seguida, **Próximo: Análise**.
 
 19. Examine a política para o usuário anexado.
 
@@ -337,10 +337,10 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     ![Captura de tela da seção Configurações, com Ativado realçado](./media/amazon-web-service-tutorial/provisioning2.png)
 
 > [!NOTE]
-> O serviço de provisionamento importa funções somente do AWS para o Azure AD. O serviço não provisiona usuários e grupos do Azure AD para o AWS.
+> O serviço de provisionamento importa funções apenas do AWS para o Azure AD. Esse serviço não provisiona usuários e grupos do Azure AD para o AWS.
 
 > [!NOTE]
-> Depois de salvar as credenciais de provisionamento, você deve aguardar a execução do ciclo de sincronização inicial. A sincronização normalmente leva cerca de 40 minutos para ser concluída. Você pode ver o status na parte inferior da página de **provisionamento** , em **status atual**.
+> Depois de salvar as credenciais de provisionamento, você deve aguardar a execução do ciclo de sincronização inicial. A conclusão da sincronização leva cerca de 40 minutos. Você pode ver o status na parte inferior da página **Provisionamento**, em **Status Atual**.
 
 ### <a name="create-amazon-web-services-aws-test-user"></a>Criar usuário de teste da AWS (Amazon Web Services)
 
@@ -370,9 +370,9 @@ Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve faz
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

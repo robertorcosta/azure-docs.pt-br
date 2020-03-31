@@ -1,5 +1,6 @@
 ---
 title: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS
+description: Saiba como adicionar um domínio personalizado da CDN do Azure e habilitar o HTTPS nesse domínio para seu ponto de extremidade de armazenamento de blobs personalizado.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be09229136289e343856f1e2ba61cda63730d21f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279098"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80053962"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Acessar blobs de armazenamento usando um domínio personalizado da CDN do Azure via HTTPS
 
 Depois de integrar sua conta de armazenamento do Azure à CDN (Rede de Distribuição de Conteúdo) do Azure, você poderá adicionar um domínio personalizado e habilitar o HTTPS nesse domínio para o ponto de extremidade de Armazenamento de Blobs personalizado. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de concluir as etapas deste tutorial, primeiro você precisará integrar sua conta de armazenamento do Azure à CDN do Azure. Para saber mais, confira [Início Rápido: Integrar uma conta de armazenamento do Azure à CDN do Azure](cdn-create-a-storage-account-with-cdn.md).
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160219"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048428"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar um aplicativo OpenID/OAuth da galeria de aplicativo do Azure AD
 
@@ -71,7 +71,7 @@ O usuário ou administrador pode então dar consentimento ao aplicativo. O conse
 > [!NOTE]
 > Se você estiver disponibilizando seu aplicativo a usuários em múltiplos diretórios, será necessário um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único só precisa procurar por um usuário em seu próprio diretório. Um aplicativo multilocatário precisa identificar um usuário específico em todos os diretórios no Azure AD.
 > 
-> Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common) para todos os diretórios no Azure AD. Um ponto de extremidade específico de locatário pode ser [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com). 
+> Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é `https://login.microsoftonline.com/common` para todos os diretórios no Azure AD. Um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
 >
 > É importante levar em consideração o ponto de extremidade comum quando estiver desenvolvendo seu aplicativo. Você precisará da lógica adequada para lidar com vários locatários durante a entrada, saída e validação de token.
 
@@ -125,7 +125,7 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
 3. Se o usuário ainda não tiver sido autenticado, o ponto de extremidade /authorize do Azure AD solicitará a entrada.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Autenticação](./media/openidoauth-tutorial/authentication.png)
 
 4. Depois que o usuário tiver entrado, o Azure AD determinará se o usuário precisará ver uma página de consentimento. Essa decisão depende do fato de o usuário (ou do administrador da organização) já ter dado o consentimento de aplicativo.
 
@@ -152,6 +152,6 @@ Depois que o administrador fornecer seu consentimento e a entidade de serviço f
 
 Um administrador de locatários pode desabilitar a capacidade dos usuários regulares consentirem aplicativos. Se essa funcionalidade estiver desabilitada, o consentimento do administrador sempre será necessário para o aplicativo a ser usado no locatário. Se desejar testar seu aplicativo com o consentimento do usuário final desabilitado, é possível localizar a opção de configuração no [portal do Azure](https://portal.azure.com/). Ela está na seção [Configurações de usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) em **Aplicativos empresariais**.
 
-O parâmetro *prompt=admin_consent* também pode ser usado por aplicativos que solicitam permissões que não necessitam do consentimento do administrador. Um exemplo é um aplicativo que exige uma experiência na qual o administrador de locatários “se inscreve” uma vez, e não é solicitado o consentimento de nenhum outro usuário desse ponto em diante.
+O parâmetro *prompt=admin_consent* também pode ser usado por aplicativos que solicitam permissões que não necessitam do consentimento do administrador. Um exemplo é um aplicativo que exige uma experiência na qual o administrador de locatários "se inscreve" uma vez, e não é solicitado o consentimento de nenhum outro usuário desse ponto em diante.
 
 Imagine que um aplicativo exige o consentimento do administrador e que um administrador entra sem o parâmetro *prompt = admin_consent* ser enviado. Quando o administrador fornece consentimento ao aplicativo com sucesso, este se aplica somente à sua conta de usuário. Os usuários normais ainda não poderão entrar ou dar consentimento ao aplicativo. Esse recurso é útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir o acesso de outros usuários.

@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 16091286aecc6dfdbcfa833a76920ff4bc9c64de
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b254621cc414fb9b2b76263957adc80da6e9c22d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821122"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79213996"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelos do Azure Resource Manager para o Banco de Dados SQL do Azure
 
 Os modelos do Azure Resource Manager permitem que você defina a infraestrutura como código e implante suas soluções na nuvem do Azure.
 
-## <a name="single-database--elastic-pooltabsingle-database"></a>[Banco de dados individual e pool elástico](#tab/single-database)
+## <a name="single-database--elastic-pool"></a>[Banco de dados individual e pool elástico](#tab/single-database)
 
 A tabela a seguir inclui links para modelos do Azure Resource Manager para o Banco de Dados SQL do Azure.
 
@@ -34,14 +34,14 @@ A tabela a seguir inclui links para modelos do Azure Resource Manager para o Ban
 | [Grupos de failover](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Esse modelo cria dois servidores lógicos do SQL do Azure, um banco de dados SQL e um grupo de failover.|
 | [Detecção de Ameaças](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Esse modelo permite que você implante um servidor lógico do SQL do Azure e um conjunto de Bancos de Dados SQL do Azure com a Detecção de Ameaças habilitada, com um endereço de email para alertas para cada banco de dados. A Detecção de Ameaças faz parte da oferta ATP (Proteção Avançada contra Ameaças ao SQL) e fornece uma camada de segurança que responde às ameaças potenciais em servidores e bancos de dados SQL.|
 | [Auditoria no Armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Esse modelo permite que você implante um servidor lógico do SQL do Azure com a Auditoria habilitada para gravar logs de auditoria em um armazenamento de blobs. A auditoria do Banco de Dados SQL do Azure acompanha eventos do banco de dados e os grava em um log de auditoria que pode colocado em sua conta de armazenamento do Azure, no workspace do OMS ou nos Hubs de Eventos.|
-| [Auditoria no Hub de Eventos do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Esse modelo permite que você implante um servidor do SQL do Azure com a Auditoria habilitada para gravar logs de auditoria em um Hub de Eventos existente. Para enviar eventos de auditoria para o Hub de Eventos, defina as configurações de auditoria com `Enabled` `State` e defina `IsAzureMonitorTargetEnabled` como `true`. Além disso, defina as Configurações de Diagnóstico com a categoria de logs de diagnóstico `SQLSecurityAuditEvents` no banco de dados `master` (para a auditoria no nível do servidor). A auditoria do Banco de Dados SQL do Azure e do SQL Data Warehouse acompanha eventos do banco de dados e os grava em um log de auditoria que pode ser colocado em sua conta de armazenamento do Azure, no workspace do OMS ou nos Hubs de Eventos.|
+| [Auditoria no Hub de Eventos do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Esse modelo permite que você implante um servidor do SQL do Azure com a Auditoria habilitada para gravar logs de auditoria em um Hub de Eventos existente. Para enviar eventos de auditoria para o Hub de Eventos, defina as configurações de auditoria com `State` `Enabled` e defina `IsAzureMonitorTargetEnabled` como `true`. Além disso, defina as Configurações de Diagnóstico com a categoria de logs de diagnóstico `SQLSecurityAuditEvents` no banco de dados `master` (para a auditoria no nível do servidor). A auditoria do Banco de Dados SQL do Azure e do SQL Data Warehouse acompanha eventos do banco de dados e os grava em um log de auditoria que pode ser colocado em sua conta de armazenamento do Azure, no workspace do OMS ou nos Hubs de Eventos.|
 | [Aplicativo Web do Azure com o Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Essa amostra cria um Aplicativo Web do Azure gratuito e um Banco de Dados SQL no nível de serviço "Básico".|
 | [Aplicativo Web do Azure e Cache Redis com o Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Esse modelo cria um Aplicativo Web, um Cache Redis e um Banco de Dados SQL no mesmo grupo de recursos, além de criar duas cadeias de conexão no Aplicativo Web para o Banco de Dados SQL e o Cache Redis.|
 | [Importar dados do armazenamento de blobs usando o ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Esse modelo do Azure Resource Manager cria um Azure Data Factory V2 que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL.|
 | [Cluster HDInsight com um Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Esse modelo permite que você crie um cluster HDInsight, um servidor do Banco de Dados SQL, um Banco de Dados SQL e duas tabelas. Esse modelo é usado pelo [artigo Usar o Sqoop com o Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [Aplicativo Lógico do Azure que executa um procedimento armazenado SQL de acordo com um agendamento](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Esse modelo permite que você crie um Aplicativo Lógico que executará um procedimento armazenado SQL de acordo com um agendamento. Os argumentos para o procedimento podem ser colocados na seção do corpo do modelo.|
 
-## <a name="managed-instancetabmanaged-instance"></a>[Instância Gerenciada](#tab/managed-instance)
+## <a name="managed-instance"></a>[Instância Gerenciada](#tab/managed-instance)
 
 A tabela a seguir inclui links para modelos do Azure Resource Manager para a Instância Gerenciada do Banco de Dados SQL do Azure.
 

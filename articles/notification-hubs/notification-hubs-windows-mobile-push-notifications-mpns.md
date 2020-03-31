@@ -1,5 +1,5 @@
 ---
-title: Notificações por push para aplicativos do Windows Phone usando Hubs de Notificação do Azure | Microsoft Docs
+title: Enviar notificações por push para aplicativos do Windows Phone usando Hubs de Notificações do Azure | Microsoft Docs
 description: Neste tutorial, você aprende a usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo Silverlight do Windows Phone 8 ou Windows Phone 8.1.
 services: notification-hubs
 documentationcenter: windows
@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7f026dd5953dd233b0183d8ce7978f647fb8c6af
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9cad4bfc474ef23492858ed3b0a6447932b589b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213462"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127075"
 ---
-# <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos do Windows Phone usando Hubs de Notificação do Azure
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos do Windows Phone usando os Hubs de Notificação
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 > * Criar um aplicativo do Windows Phone
 > * Enviar uma notificação de teste
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [O Visual Studio 2015 Express com componentes de desenvolvimento móvel](https://www.visualstudio.com/vs/older-downloads/)

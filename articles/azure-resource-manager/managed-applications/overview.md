@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4508b69261cd7b1fb5e400eaf7ffaae67d5cb476
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4aa5dfd288819930da2f7af36b7d70df709e638
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647957"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473023"
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -19,7 +19,7 @@ Os aplicativos gerenciados do Azure permitem que você ofereça soluções de nu
 Um aplicativo gerenciado é semelhante a um modelo de solução no Marketplace, com uma diferença importante. Em um aplicativo gerenciado, os recursos são implantados em um grupo de recursos gerenciado pelo distribuidor do aplicativo. O grupo de recursos está presente na assinatura do consumidor, mas uma identidade no locatário do fornecedor tem acesso ao grupo de recursos. Como fornecedor, você deve especificar o custo do suporte contínuo da solução.
 
 > [!NOTE]
-> Anteriormente, a documentação dos Provedores de Clientes do Azure era incluída na documentação dos aplicativos gerenciados. Essa documentação foi movida. Agora, confira [Provedores Personalizados do Azure](../custom-providers/overview.md).
+> Anteriormente, a documentação dos Provedores Personalizados do Azure era incluída na documentação dos aplicativos gerenciados. Essa documentação foi movida. Agora, confira [Provedores Personalizados do Azure](../custom-providers/overview.md).
 
 ## <a name="advantages-of-managed-applications"></a>Vantagens dos aplicativos gerenciados
 

@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ffd47d886a9d74c637f4f7ff634b3fd4c4a77574
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390758"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79408276"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Início rápido: configurar um locatário
+# <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um locatário
 
 A plataforma de identidade da Microsoft permite que os desenvolvedores criem aplicativos direcionados para uma ampla variedade de ambientes e identidades personalizados do Microsoft 365. Para começar a usar a plataforma de identidade da Microsoft, você precisará ter acesso a um ambiente, também chamado de locatário do Azure AD, que pode registrar e gerenciar aplicativos, ter acesso a dados do Microsoft 365 e implantar restrições personalizadas de Acesso Condicional e de locatário.
 
@@ -70,8 +70,8 @@ Se você ainda não tem um locatário do Azure AD ou deseja criar um para desenv
 
 Para começar a criar aplicativos que entram em contas sociais e locais, você precisará criar um locatário do Azure AD B2C. Para começar, siga [criando um locatário do Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-* Experimente um início rápido de codificação e comece a autenticação de usuários. 
-* Para obter exemplos de código mais detalhados, confira a seção **Tutoriais** da documentação.
-* Deseja implantar seu aplicativo na nuvem? Confira [implantando contêineres no Azure](https://docs.microsoft.com/azure/index?pivot=products&panel=containers).
+* [Registrar um aplicativo](quickstart-register-app.md) e integrar à plataforma de identidade da Microsoft. 
+* Aprenda as [noções básicas de autenticação](authentication-scenarios.md).
+* Veja [Como as assinaturas do Azure são associadas ao Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para saber mais sobre a relação entre um locatário do Azure AD e assinaturas.

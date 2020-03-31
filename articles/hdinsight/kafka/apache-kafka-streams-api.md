@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/08/2019
-ms.openlocfilehash: f256adfd1fc970512cad5fb93ec235fc27a50373
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.custom: hdinsightactive
+ms.date: 03/20/2020
+ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817736"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80064487"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Usar a API de streams do Apache Kafka no Azure HDInsight
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar tópicos Kafka
 > * Executar o código
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster Kafka no HDInsight 3.6. Para saber como criar um Kafka no cluster HDInsight, consulte o documento [Iniciar com Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -72,7 +72,7 @@ As coisas importantes para entender no arquivo `pom.xml` são:
 * Plug-ins: os plug-ins do Maven oferecem várias funcionalidades. Neste projeto, são usados os seguintes plug-ins:
 
     * `maven-compiler-plugin`: usado para definir a versão do Java usada pelo projeto como 8. Java 8 é exigido pelo HDInsight 3.6.
-    * `maven-shade-plugin`: usado para gerar um uber jar que contém esse aplicativo, bem como todas as dependências. Também é usado para definir o ponto de entrada do aplicativo, para que você possa executar diretamente o arquivo Jar sem a necessidade de especificar a classe principal.
+    * `maven-shade-plugin`: usado para gerar um uber jar que contém esse aplicativo, bem como eventuais dependências. Também é usado para definir o ponto de entrada do aplicativo, para que você possa executar diretamente o arquivo Jar sem a necessidade de especificar a classe principal.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -165,7 +165,8 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     export password='PASSWORD'
     ```
 
-4. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real e a armazenará em uma variável. Digite o seguinte comando:
+4. Extraia o nome do cluster com grafia correta de maiúsculas e minúsculas. A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá a grafia de maiúsculas e minúsculas real e a armazenará em uma variável. Insira o seguinte comando:
+
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
@@ -173,7 +174,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     > [!Note]  
     > Se você estiver realizando esse processo de fora do cluster, haverá um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em letras minúsculas do portal do Azure. Em seguida, substitua o nome do cluster por `<clustername>` no comando a seguir e execute-o: `export clusterName='<clustername>'`.  
 
-5. Para obter os hosts de broker Kafka e os hosts Apache Zookeeper, use os comandos a seguir. Quando solicitado, insira a senha para a conta de logon do cluster (admin). Você receberá uma solicitação de senha duas vezes.
+5. Para obter os hosts de broker Kafka e os hosts Apache Zookeeper, use os comandos a seguir. Quando solicitado, insira a senha para a conta de logon do cluster (admin).
 
     ```bash
     export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
@@ -181,8 +182,8 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-> [!Note]  
-> Esses comandos exigem acesso ao Ambari. Se o cluster estiver atrás de um NSG, execute esses comandos em um computador que possa acessar o Ambari. 
+    > [!Note]  
+    > Esses comandos exigem acesso ao Ambari. Se o cluster estiver atrás de um NSG, execute esses comandos em um computador que possa acessar o Ambari.
 
 6. Para criar os tópicos usados pela operação de streaming, use os seguintes comandos:
 
@@ -257,7 +258,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este tutorial, você pode excluir o grupo de recursos. A exclusão do grupo de recursos também exclui o cluster HDInsight associado e todos os outros recursos associados ao grupo de recursos.
 

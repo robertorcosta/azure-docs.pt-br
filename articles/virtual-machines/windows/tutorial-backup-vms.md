@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 603bffe3d28214dbdcd51888925c3c653d0759e7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 89ed0bad2729a9e0983d4ef7f8a53faa4f5426ac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068177"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415649"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Windows no Azure
 
@@ -33,7 +33,7 @@ Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup
 
 ## <a name="backup-overview"></a>Visão geral do backup
 
-Quando o serviço de Backup do Azure inicia um trabalho de backup, ele dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a extensão _VMSnapshot_. A extensão é instalada durante o primeiro backup de VM se a VM está em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
+Quando o serviço de Backup do Azure inicia um trabalho de backup, ele dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a [extensão VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). A extensão é instalada durante o primeiro backup de VM se a VM está em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
 
 Ao gerar um instantâneo de VMs do Windows, o Serviço de backup coordena com o VSS (Serviço de Cópias de Sombra de Volume) para obter um instantâneo consistente dos discos da máquina virtual. Depois que o serviço de Backup do Azure gera o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior.
 
@@ -42,7 +42,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 ## <a name="create-a-backup"></a>Criar um backup
 Crie um backup diário agendado simples em um Cofre de Serviços de Recuperação. 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. No menu à esquerda, selecione **Máquinas virtuais**. 
 1. Na lista, selecione uma VM da qual fazer backup.
 1. Na folha da VM, na seção **Operações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
@@ -93,7 +93,7 @@ Neste exemplo, mostraremos como recuperar o arquivo de imagem que é usado na p�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um backup de uma VM

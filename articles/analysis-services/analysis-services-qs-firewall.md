@@ -7,22 +7,23 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a1f774aae071a561bdda2d8c349861d640cb287
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 68994f9b79af55b32527eed52bbc4e5866c89538
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572467"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205152"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar firewall do servidor – Portal
 
 Este guia de início rápido ajuda você a configurar um firewall para o servidor Azure Analysis Services. Habilitar um firewall e configurar intervalos de endereços IP para somente os computadores que acessam o servidor são uma parte importante para proteger o servidor e os dados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um servidor do Analysis Services na sua assinatura. Para obter mais informações, confira [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md) ou [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)
 - Um ou mais intervalos de endereços IP para computadores cliente (se necessário).
-- Observe que, no momento, não há suporte para o cenário de Importação do Power BI Premium.
+- No momento não há suporte a alguns cenários em que o Power BI Premium se conecta ao Azure Analysis Services, incluindo importação de dados (atualização) e relatórios paginados, mesmo quando Permitir acesso do Power BI está habilitado. Há suporte ao cenário mais comum do uso do Live Connect do Power BI Premium. Há suporte para todos os cenários do Power BI Pro.
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure 
 
@@ -38,7 +39,7 @@ Este guia de início rápido ajuda você a configurar um firewall para o servido
 
      ![Configurações de firewall](./media/analysis-services-qs-firewall/aas-qs-firewall.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua os intervalos de endereços IP ou desabilite o firewall.
 

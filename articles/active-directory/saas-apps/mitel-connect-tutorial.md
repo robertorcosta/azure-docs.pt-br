@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160544"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integração do Azure Active Directory ao Mitel MiCloud Connect
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Mitel MiCloud Connect ao Azure AD 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao MiCloud Connect, você precisará dos seguintes itens:
 
@@ -110,18 +110,18 @@ Para configurar o MiCloud Connect com o SSO do Azure AD, é mais fácil abrir o 
     A caixa de diálogo Configurações de Logon Único do Connect será exibida.
     
 3. Marque a caixa de seleção **Habilitar Logon Único**.
-    ![image](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png)
+    ![imagem](./media/mitel-connect-tutorial/Mitel_Connect_Enable.png)
 
 
 4. No portal do Azure, clique no ícone **Editar** na seção **Configuração Básica do SAML**.
-    ![image](common/edit-urls.png)
+    ![imagem](common/edit-urls.png)
 
     A caixa de diálogo Configuração Básica do SAML será exibida.
 
 5.  Copie a URL do campo **Mitel Identifier (Entity ID)** (Identificador do Mitel [ID da Entidade]) no portal da conta do Mitel e cole-a no campo **Identificador (ID da Entidade)** no portal do Azure.
 
 6. Copie a URL do campo **Reply URL (Assertion Consumer Service URL)** (URL de Resposta [URL do Serviço do Consumidor de Declaração]) no portal da conta do Mitel e cole-a no campo **URL de Resposta (URL do Serviço do Consumidor de Declaração)** no portal do Azure.  
-   ![image](./media/mitel-connect-tutorial/Mitel_Azure_BasicConfig.png)
+   ![imagem](./media/mitel-connect-tutorial/Mitel_Azure_BasicConfig.png)
 
 7. Na caixa de texto **URL de Logon**, digite uma das seguintes URLs:
 
@@ -133,17 +133,17 @@ Para configurar o MiCloud Connect com o SSO do Azure AD, é mais fácil abrir o 
 8. Clique em **Salvar** na caixa de diálogo **Configuração Básica do SAML** no portal do Azure.
 
 9. Na seção **Certificado de Autenticação SAML** na página **Logon baseado em SAML** do portal do Azure, clique em **Baixar** ao lado de **Certificado (Base64)** para baixar o **Certificado de Autenticação** e salvá-lo no computador.
-    ![image](./media/mitel-connect-tutorial/Azure_SigningCert.png)
+    ![imagem](./media/mitel-connect-tutorial/Azure_SigningCert.png)
 
 10. Abra o arquivo de Certificado de Autenticação em um editor de texto, copie todos os dados no arquivo e, em seguida, cole os dados no campo **Certificado de Autenticação** no portal da conta do Mitel. 
-    ![image](./media/mitel-connect-tutorial/Mitel_Connect_SigningCert.png)
+    ![imagem](./media/mitel-connect-tutorial/Mitel_Connect_SigningCert.png)
 
 11. Na seção **Configurar o Mitel Connect** da página **Logon baseado em SAML** do portal do Azure, faça o seguinte:
 
     a. Copie a URL do campo **URL de Logon** e cole-a no campo **URL de Entrada** no portal da conta do Mitel.
 
     b. Copie a URL do campo **Identificador do Azure AD** e cole-a no campo **ID da Entidade** no portal da conta do Mitel.
-    ![image](./media/mitel-connect-tutorial/Mitel_Azure_SetupConnect.png)
+    ![imagem](./media/mitel-connect-tutorial/Mitel_Azure_SetupConnect.png)
 
 12. Clique em **Salvar** na caixa de diálogo **Configurações de Logon Único do Connect** no portal da conta do Mitel.
 
@@ -228,4 +228,4 @@ Ao clicar no bloco do Mitel Connect no Painel de Acesso, você deverá ser redir
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

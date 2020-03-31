@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/20/2020
+ms.openlocfilehash: 50a3eebaa18674a0d0a7e9da88b8d3386e5016c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454321"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067785"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -57,7 +57,7 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor MySQL:
 
    ![Criar servidor - janela do tipo de preço](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Selecione **Criar** para provisionar o servidor. O provisionamento pode levar até 20 minutos.
+4. Selecione **Examinar + criar** para provisionar o servidor. O provisionamento pode levar até 20 minutos.
    
 5. Selecione **Notificações** na barra de ferramentas (ícone de sino) para monitorar o processo de implantação.
    
@@ -109,7 +109,7 @@ Conectar-se ao seu servidor usando a ferramenta de linha de comando **mysql.exe*
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
-    parâmetro mysql |Valor sugerido|DESCRIÇÃO
+    parâmetro mysql |Valor sugerido|Descrição
     ---|---|---
     --host | *Nome do servidor* | O valor do nome do servidor usado anteriormente na criação do Banco de Dados do Azure para o servidor MySQL. Nosso servidor de exemplo é **mydemoserver.mysql.database.azure.com**. Use o nome de domínio totalmente qualificado ( **\*.mysql.database.azure.com**) conforme mostrado no exemplo. Caso não se lembre do nome do servidor, siga as etapas da seção anterior para obter as informações de conexão. 
     --user | *Nome de logon do administrador do servidor* |O nome de usuário de logon do administrador do servidor fornecido ao criar o Banco de Dados do Azure para o servidor MySQL anteriormente. Caso não se lembre do nome de usuário, siga as etapas da seção anterior para obter as informações de conexão. O formato é *nome de usuário\@nome do servidor*.
@@ -171,7 +171,7 @@ Agora, você conectou o Banco de Dados do Azure para servidor MySQL e criou um b
 ## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>Conectar-se ao servidor usando a ferramenta GUI do MySQL Workbench
 Para se conectar ao servidor usando a ferramenta de interface gráfica do usuário MySQL Workbench, execute as seguintes etapas:
 
-1.  Abra o aplicativo MySQL Workbench no computador cliente. Você pode baixar e instalar o MySQL Workbench em [Baixar MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+1.    Abra o aplicativo MySQL Workbench no computador cliente. Você pode baixar e instalar o MySQL Workbench em [Baixar MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 2. Crie uma nova conexão. Selecione o ícone de sinal de adição (+) ao lado do título **Conexões MySQL**.
 
@@ -202,9 +202,9 @@ Limpe os recursos criados no Guia de início rápido de duas maneiras. Você pod
 
 Para excluir o grupo de recursos inteiro, incluindo o servidor criado recentemente, siga as seguintes etapas:
 
-1.  Encontre o grupo de recursos no portal do Azure. No menu à esquerda, selecione **Grupos de recursos**e selecione o nome do seu grupo de recursos (como o nosso exemplo, **myresourcegroup**).
+1.    Encontre o grupo de recursos no portal do Azure. No menu à esquerda, selecione **Grupos de recursos**e selecione o nome do seu grupo de recursos (como o nosso exemplo, **myresourcegroup**).
 
-2.  Na página do grupo de recursos, selecione **Excluir**. Em seguida, insira o nome do grupo de recursos (como o nosso exemplo **myresourcegroup**) na caixa para confirmar a exclusão e selecione **Excluir**.
+2.    Na página do grupo de recursos, selecione **Excluir**. Em seguida, insira o nome do grupo de recursos (como o nosso exemplo **myresourcegroup**) na caixa para confirmar a exclusão e selecione **Excluir**.
 
 Para excluir apenas o servidor criado recentemente, execute as seguintes etapas:
 

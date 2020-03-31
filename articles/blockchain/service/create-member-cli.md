@@ -1,15 +1,15 @@
 ---
 title: Criar um membro do Azure Blockchain Service – CLI do Azure
 description: Crie um membro do Azure Blockchain Service para um consórcio Blockchain usando a CLI do Azure.
-ms.date: 01/23/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 703444b6077c2301e1ffec77c8096fb76ddaa731
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.reviewer: ravastra
+ms.openlocfilehash: 0a3cf3d7c7f3dc0b8ece6fd6a466e42ae970b61c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759919"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214729"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Início Rápido: Criar um membro do blockchain do serviço Azure Blockchain usando a CLI do Azure
 
@@ -58,7 +58,7 @@ az resource create \
 | **password** | A senha do nó de transação padrão do membro. Use a senha para a autenticação básica ao se conectar ao ponto de extremidade público do nó de transação padrão do membro do blockchain.
 | **consortium** | Nome do consórcio a ser ingressado ou criado. Para obter mais informações sobre os consórcios, confira [Consórcio do Azure Blockchain Service](consortium.md).
 | **consortiumAccountPassword** | A senha da conta do consórcio também é conhecida como a senha da conta do membro. A senha da conta do membro é usada para criptografar a chave privada para a conta do Ethereum criada para o membro. Use a conta do membro e a senha da conta do membro para o gerenciamento do consórcio.
-| **skuName** | Tipo de camada. Use S0 para Standard e B0 para Básico.
+| **skuName** | Tipo de camada. Use S0 para Standard e B0 para Básico. Use a camada *Basic* para desenvolvimento, teste e prova de conceitos. Use a camada *Standard* para implantações de nível de produção.
 
 São necessários cerca de 10 minutos para criar o membro do blockchain e os recursos de suporte.
 

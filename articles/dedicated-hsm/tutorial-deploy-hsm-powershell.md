@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368551"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474417"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantando HSMs em uma rede virtual existente usando o PowerShell
 
@@ -38,7 +38,7 @@ Este tutorial se concentra na integração de alguns HSMs e do Gateway do Expres
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Atualmente, o HSM Dedicado do Azure não está disponível no portal do Azure e, portanto, toda a interação com o serviço será pela linha de comando ou usando o PowerShell. Este tutorial usará o PowerShell no Azure Cloud Shell. Se você for novo no PowerShell, execute as instruções de introdução aqui: [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -250,15 +250,7 @@ Caso tenha terminado de usar somente o dispositivo HSM, ele poderá ser excluíd
 > [!NOTE]
 > Caso tenha problema com alguma configuração do dispositivo Gemalto, entre em contato com o [atendimento ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
 
-Caso deseje remover apenas o recurso HSM do Azure, use o seguinte comando, substituindo as variáveis "$" pelos parâmetros exclusivos:
-
-```powershel
-
-Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
-
-```
-
-Ao concluir o uso dos recursos desse grupo de recursos, remova-os com o seguinte comando:
+Caso deseje remover o recurso HSM do Azure, use o seguinte comando, substituindo as variáveis "$" pelos parâmetros exclusivos:
 
 ```powershell
 

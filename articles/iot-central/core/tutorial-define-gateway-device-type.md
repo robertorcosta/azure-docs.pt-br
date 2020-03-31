@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: ec84d3804c24766c6344e9909ba10089e186599c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623453"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79298828"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo de gateway de IoT no aplicativo Azure IoT Central
 
@@ -30,7 +30,7 @@ Além de permitir que dispositivos downstream se comuniquem com seu aplicativo I
 * Responder a atualizações de propriedade graváveis feitas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
 * Responder a comandos, como reinicialização do dispositivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa [Criar um aplicativo Azure IoT Central](./quick-deploy-iot-central.md).
 
@@ -203,6 +203,9 @@ Neste tutorial, você aprendeu a:
 * Definir uma visualização para a telemetria do dispositivo.
 * Adicionar relacionamentos.
 * Publicar seu modelo de dispositivo.
+
+> [!NOTE]
+> Atualmente, a geração de código baseada em VS Code não é uma ação compatível com dispositivos de gateway modelados no IoT Central.
 
 Em seguida, você pode:
 

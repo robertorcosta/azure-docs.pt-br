@@ -6,13 +6,13 @@ author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 5a7c4ce6d5868efef4cfb4fbe2183ec8337ff5b6
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/13/2020
+ms.openlocfilehash: f40c2b5f7134458b3f8cb492652bebf14388634c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301838"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477129"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Tutorial: Converter um código experimental de ML em um código de produção
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Gere o [modelo MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) e use os notebooks `experimentation/Diabetes Ridge Regression Training.ipynb` e `experimentation/Diabetes Ridge Regression Scoring.ipynb`. Esses notebooks são usados como um exemplo de conversão de experimentação para produção.
+- Gere o [modelo MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) e use os notebooks `experimentation/Diabetes Ridge Regression Training.ipynb` e `experimentation/Diabetes Ridge Regression Scoring.ipynb`. Esses notebooks são usados como um exemplo de conversão de experimentação para produção. É possível encontrar esses notebooks em [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
 - Instale o nbconvert. Siga apenas as instruções de instalação da seção __Como instalar o nbconvert__ na página [Instalação](https://nbconvert.readthedocs.io/en/latest/install.html).
 
 ## <a name="remove-all-nonessential-code"></a>Remover todo o código não essencial
@@ -74,7 +74,7 @@ Em segundo lugar, o código do Jupyter precisa ser refatorado em funções. A re
 Em `experimentation/Diabetes Ridge Regression Training.ipynb`, conclua as seguintes etapas:
 
 1. Crie uma função chamada `train_model`, que usa os parâmetros `data` e `alpha` e retorna um modelo.
-1. Copie o código nos títulos “Treinar Modelo no Conjunto de Treinamento” e “Validar Modelo no Conjunto de Validação” para a função `train_model`.
+1. Copie o código nos títulos "Treinar Modelo no Conjunto de Treinamento" e "Validar Modelo no Conjunto de Validação" para a função `train_model`.
 
 A função `train_model` deverá ser semelhante ao seguinte código:
 
@@ -88,7 +88,7 @@ def train_model(data, alpha):
     return reg
 ```
 
-Depois que a função `train_model` for criada, substitua o código nos títulos “Treinar Modelo no Conjunto de Treinamento” e “Validar Modelo no Conjunto de Validação” pela seguinte instrução:
+Depois que a função `train_model` for criada, substitua o código nos títulos "Treinar Modelo no Conjunto de Treinamento" e "Validar Modelo no Conjunto de Validação" pela seguinte instrução:
 
 ```python
 reg = train_model(data, alpha)
@@ -99,7 +99,7 @@ A instrução anterior chama a função `train_model` transmitindo os parâmetro
 Em `experimentation/Diabetes Ridge Regression Training.ipynb`, conclua as seguintes etapas:
 
 1. Crie uma função chamada `main`, que não usa nenhum parâmetro e não retorna nada.
-1. Copie o código nos títulos “Carregar Dados”, “Dividir Dados em Conjuntos de Treinamento e Validação” e “Salvar Modelo” na função `main`.
+1. Copie o código nos títulos "Carregar Dados", "Dividir Dados em Conjuntos de Treinamento e Validação" e "Salvar Modelo" na função `main`.
 1. Copie a chamada recém-criada a `train_model` para a função `main`.
 
 A função `main` deverá ser semelhante ao seguinte código:
@@ -122,7 +122,7 @@ def main():
     joblib.dump(value=reg, filename=model_name)
 ```
 
-Depois que a função `main` for criada, substitua todo o código nos títulos “Carregar Dados”, “Dividir Dados em Conjuntos de Treinamento e Validação” e “Salvar Modelo” junto com a chamada recém-criada para `train_model` pela seguinte instrução:
+Depois que a função `main` for criada, substitua todo o código nos títulos "Carregar Dados", "Dividir Dados em Conjuntos de Treinamento e Validação" e "Salvar Modelo" junto com a chamada recém-criada para `train_model` pela seguinte instrução:
 
 ```python
 main()
@@ -170,7 +170,7 @@ main()
 Em `experimentation/Diabetes Ridge Regression Scoring.ipynb`, conclua as seguintes etapas:
 
 1. Crie uma função chamada `init`, que não usa nenhum parâmetro e não retorna nada.
-1. Copie o código no título “Carregar Modelo” na função `init`.
+1. Copie o código no título "Carregar Modelo" na função `init`.
 
 A função `init` deverá ser semelhante ao seguinte código:
 
@@ -181,7 +181,7 @@ def init():
     model = joblib.load(model_path)
 ```
 
-Depois que a função `init` for criada, substitua todo o código no título “Carregar Modelo” por uma só chamada para `init` da seguinte maneira:
+Depois que a função `init` for criada, substitua todo o código no título "Carregar Modelo" por uma só chamada para `init` da seguinte maneira:
 
 ```python
 init()
@@ -195,7 +195,7 @@ Em `experimentation/Diabetes Ridge Regression Scoring.ipynb`, conclua as seguint
     {"result": result.tolist()}
     ```
 
-1. Copie o código nos títulos “Preparar Dados” e “Dados de Pontuação” na função `run`.
+1. Copie o código nos títulos "Preparar Dados" e "Pontuar Dados" na função `run`.
 
     A função `run` deverá ser semelhante ao seguinte código (lembre-se de remover as instruções que definem as variáveis `raw_data` e `request_headers`, que serão usadas posteriormente quando a função `run` for chamada):
 
@@ -208,7 +208,7 @@ Em `experimentation/Diabetes Ridge Regression Scoring.ipynb`, conclua as seguint
         return {"result": result.tolist()}
     ```
 
-Depois que a função `run` for criada, substitua todo o código nos cabeçalhos “Preparar Dados” e “Pontuar Dados” pelo seguinte código:
+Depois que a função `run` for criada, substitua todo o código nos cabeçalhos "Preparar Dados" e "Pontuar Dados" pelo seguinte código:
 
 ```python
 raw_data = '{"data":[[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}'

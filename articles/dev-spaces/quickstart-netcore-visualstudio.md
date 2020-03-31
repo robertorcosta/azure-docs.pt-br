@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, cont�
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 5d0d1541600f4c10b021d5d7f7f435f1aa5ae589
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245025"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239713"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio e .NET Core – Azure Dev Spaces
 
@@ -94,7 +94,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-No exemplo acima, a URL pública é http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue até a URL pública do seu serviço e interaja com o serviço em execução no espaço de desenvolvimento.
+No exemplo acima, a URL pública é http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. 
+
+Selecione **Depurar** e, em seguida, **Iniciar Depuração**. Depois de alguns segundos, seu serviço será iniciado e o Visual Studio abrirá um navegador com a URL pública do serviço. Se o navegador não abrir automaticamente, navegue até a URL pública de seu serviço em um navegador e interaja com o serviço em execução no espaço de desenvolvimento.
 
 Esse processo pode ter desabilitado o acesso público ao serviço. Para habilitar o acesso público, atualize o [valor de entrada em *values.yaml*][ingress-update].
 
@@ -106,7 +108,7 @@ Se o Visual Studio ainda estiver conectado ao seu espaço de desenvolvimento, cl
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-Salve suas alterações e inicie o serviço usando **Azure Dev Spaces** na lista suspensa de configurações de inicialização. Abra a URL pública do serviço em um navegador e clique em *Sobre*. Observe que a mensagem atualizada é exibida.
+Salve as alterações, selecione **Depurar** e, em seguida, **Iniciar Depuração**. Depois de alguns segundos, seu serviço será iniciado e o Visual Studio abrirá um navegador com a URL pública do serviço. Se um navegador não abrir automaticamente, navegue até a URL pública de seu serviço em um navegador e clique em *Sobre*. Observe que a mensagem atualizada é exibida.
 
 Em vez de recompilar e reimplantar uma nova imagem de contêiner sempre que houver edições de código, o Azure Dev Spaces recompilará incrementalmente o código dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
 
@@ -133,5 +135,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [Trabalhando com vários contêineres e desenvolvimento em equipe](multi-service-netcore-visualstudio.md)
 
-[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

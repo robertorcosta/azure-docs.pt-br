@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 03/17/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e928d67ba7102df3d342e77705ea895f9230ff3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887696"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79497684"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é Azure Active Directory Identity Protection?
 
@@ -46,9 +46,9 @@ Em sua [postagem no blog em outubro de 2018](https://techcommunity.microsoft.com
 
 O Identity Protection identifica riscos nas seguintes classificações:
 
-| Tipo de detecção de risco | DESCRIÇÃO |
+| Tipo de detecção de risco | Descrição |
 | --- | --- |
-| Viagem atípica | Entrada de uma localização atípica com base nas entradas recentes do usuário. |
+| Viagem atípica | Entrada proveniente de uma localização atípica com base nas conexões recentes do usuário. |
 | Endereço IP anônimo | Entrada de um endereço IP anônimo (por exemplo: navegador Tor, VPNs para anonimato). |
 | Propriedades de entrada desconhecidas | Entrada com propriedades que não vimos recentemente para o usuário especificado. |
 | Endereço IP vinculado a malware | Entrada de um endereço IP vinculado a malware |
@@ -79,6 +79,15 @@ Informações sobre integrar o Identity Protection ao Azure Sentinel podem ser e
 
 O Identity Protection requer que os usuários sejam um Leitor de Segurança, Operador de Segurança, Administrador da Segurança, Leitor Global ou Administrador Global para acessarem.
 
+| Função | O que ele pode fazer | O que não pode fazer |
+| --- | --- | --- |
+| Administrador global | Acesso total à proteção de identidade |   |
+| Administrador de segurança | Acesso total à proteção de identidade | Redefinir senha para um usuário |
+| Operador de segurança | Exibir todos os relatórios da Proteção de Identidade e a folha de Visão Geral <br><br> Ignorar o risco do usuário, confirmar a entrada segura, confirmar o comprometimento | Configurar ou alterar políticas <br><br> Redefinir senha para um usuário <br><br> Configurar alertas |
+| Leitor de segurança | Exibir todos os relatórios da Proteção de Identidade e a folha de Visão Geral | Configurar ou alterar políticas <br><br> Redefinir senha para um usuário <br><br> Configurar alertas <br><br> Fornecer comentários sobre as detecções |
+
+Os administradores do Acesso Condicional também podem criar políticas que consideram o risco de entrada como uma condição; encontre mais informações no artigo [Acesso condicional: Condições](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+
 ## <a name="license-requirements"></a>Requisitos de licença
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
@@ -97,7 +106,7 @@ O Identity Protection requer que os usuários sejam um Leitor de Segurança, Ope
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral da segurança](concept-identity-protection-security-overview.md)
+- [Visão geral de segurança](concept-identity-protection-security-overview.md)
 
 - [O que é risco](concept-identity-protection-risks.md)
 

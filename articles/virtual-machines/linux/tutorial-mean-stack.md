@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e0ed3454f11907c5f183f08fd2ec51db3384225
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034400"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154314"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha do MongoDB, Express, AngularJS e Node.js (MEAN) em uma máquina virtual do Linux no Azure
 
@@ -339,7 +339,7 @@ O [AngularJS](https://angularjs.org) fornece uma estrutura da Web para criar exi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um aplicativo Web que controla registros de livros usando uma pilha MEAN em uma VM do Linux. Você aprendeu como:
+Neste tutorial, você criou um aplicativo Web que controla registros de livros usando uma pilha MEAN em uma VM do Linux. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma VM do Linux
@@ -349,7 +349,7 @@ Neste tutorial, você criou um aplicativo Web que controla registros de livros u
 > * Acessar as rotas com AngularJS
 > * Executar o aplicativo
 
-Vá para o próximo tutorial para saber como proteger servidores Web com certificados SSL.
+Vá para o próximo tutorial para saber como proteger servidores Web com certificados TLS.
 
 > [!div class="nextstepaction"]
-> [Proteger servidor Web com SSL](tutorial-secure-web-server.md)
+> [Proteger o servidor Web com TLS](tutorial-secure-web-server.md)

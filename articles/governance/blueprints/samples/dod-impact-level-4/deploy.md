@@ -1,14 +1,14 @@
 ---
 title: Modelo do blueprint do Nível de Impacto 4 do DoD
 description: Etapas de implantação do modelo de blueprint do Nível de Impacto 4 do DoD, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 087b5947f86d33e44cd72754b79acd457674d545
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154694"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415301"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implantar o modelo de blueprint do Nível de Impacto 4 do DoD
 
@@ -132,7 +132,8 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura|As informações sobre os efeitos da política podem [Compreender os efeitos do Azure Policy](../../../policy/concepts/effects.md).|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|O MFA deve ser habilitado em contas com permissões de gravação em sua assinatura|As informações sobre os efeitos da política podem [Compreender os efeitos do Azure Policy](../../../policy/concepts/effects.md).|
 |\[Versão Prévia\]: Nível de Impacto 4 do DoD|Atribuição de política|O backup com redundância geográfica de longo prazo deve ser habilitado para os Bancos de Dados SQL do Azure|As informações sobre os efeitos da política podem [Compreender os efeitos do Azure Policy](../../../policy/concepts/effects.md).|
-
+|Locais permitidos|Atribuição de política|Locais permitidos|Esta política permite que você restrinja os locais que sua organização pode especificar ao implantar recursos. Use para impor seus requisitos de conformidade geográfica.|
+|Localizações permitidas para grupos de recursos|Atribuição de política |Locais permitidos|Esta política permite que você restrinja os locais em que sua organização pode criar grupos de recursos. Use para impor seus requisitos de conformidade geográfica.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

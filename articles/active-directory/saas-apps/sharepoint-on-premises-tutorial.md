@@ -11,73 +11,61 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 22b673ef481593247b6ee1007c13390a498c66be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037020"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048625"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SharePoint local
 
-Neste tutorial, você aprenderá como integrar o SharePoint local ao Azure AD (Azure Active Directory).
-A integração do SharePoint local com o Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá como integrar o SharePoint local ao Azure AD (Azure Active Directory). Ao integrar o SharePoint local ao Azure AD, você pode:
 
-* Você pode controlar no Azure AD quem tem acesso ao SharePoint no local.
-* Você pode permitir que seus usuários entrem automaticamente no SharePoint local (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Você pode controlar no Azure AD quem tem acesso ao SharePoint local.
+* Permitir que os usuários sejam conectados automaticamente ao SharePoint local com suas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o SharePoint local, você precisa dos seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Uma assinatura do SharePoint local habilitada para logon único
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura do SharePoint local habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O SharePoint local dá suporte a SSO iniciado por **SP**
+* Depois de configurar o SharePoint local, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Consulte este [link](https://docs.microsoft.com/archive/blogs/kaevans/sharepoint-2013-user-profile-sync-for-claims-users) para saber como sincronizar perfis de usuário do SharePoint local para o Azure AD
 
 ## <a name="adding-sharepoint-on-premises-from-the-gallery"></a>Adicionando o SharePoint no local da galeria
 
 Para configurar a integração do SharePoint local ao Azure AD, você precisa adicionar o SharePoint local da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o SharePoint local da galeria, execute as etapas a seguir:**
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
-
-    ![O botão Azure Active Directory](common/select-azuread.png)
-
-    > [!NOTE]   
+    > [!NOTE]
     > Se o elemento não estiverem disponíveis, também é possível abrir pelo link fixo **Todos os serviços** na parte superior do painel de navegação à esquerda. Na visão geral a seguir, o link do **Azure Active Directory** está localizado na seção **Identidade** ou ele pode ser pesquisado usando a caixa de texto de filtro.
 
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **SharePoint local** na caixa de pesquisa.
+1. Selecione **SharePoint local** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-sharepoint-on-premises"></a>Configurar e testar o logon único do Azure AD para o SharePoint local
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+Configure e teste o SSO do Azure AD com o SharePoint local usando um usuário de teste chamado **B. Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SharePoint local.
 
-    ![O botão Novo aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, digite **SharePoint local**, selecione **SharePoint local** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
-
-    ![SharePoint local na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-
-Nesta seção, você configurará e testará o logon único do Azure AD com o SharePoint local, com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SharePoint local.
-
-Para configurar e testar o logon único do Azure AD com o SharePoint local, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Microsoft Azure AD com o SharePoint local, conclua os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o Logon Único do SharePoint local](#configure-sharepoint-on-premises-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
@@ -107,7 +95,6 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![Informações de logon único de Domínio e URLs do SharePoint local](common/sp-identifier-reply.png)
 
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
@@ -318,6 +305,7 @@ A configuração funciona para um único aplicativo Web, mas precisa de configur
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
+
 6. Em Administração Central, vá para o aplicativo Web e habilite o provedor de identidade confiável existente. Lembre-se de também configurar a URL da página de entrada como uma página de entrada personalizada `/_trust/`.
 
 7. Em Administração Central, clique no aplicativo Web e escolha **Política de Usuário**. Adicione um usuário com as permissões apropriadas, conforme demonstrado anteriormente neste artigo.
@@ -359,7 +347,7 @@ Para ajudar nesse cenário, há uma solução de código aberto chamada [ AzureC
 
 ### <a name="create-sharepoint-on-premises-test-user"></a>Criar um usuário de teste do SharePoint local
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no SharePoint local. Trabalhe com a [Equipe de suporte do SharePoint local](https://support.office.com/) para adicionar os usuários na plataforma do SharePoint local. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no SharePoint local. Trabalhe com a [Equipe de suporte do SharePoint local](https://support.office.com/) para adicionar os usuários na plataforma do SharePoint local. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -371,6 +359,8 @@ Ao clicar no bloco do SharePoint local no Painel de Acesso, você deverá entrar
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

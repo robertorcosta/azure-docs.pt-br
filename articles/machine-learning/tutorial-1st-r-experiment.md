@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Modelo de regressão logística em R'
+title: 'Tutorial: Usar o R para criar um modelo de machine learning'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, você criará um modelo de regressão logística usando pacotes R azuremlsdk e caret para prever a probabilidade de uma fatalidade em um acidente de automóvel.
+description: Neste tutorial, você usará o SDK do R do Azure Machine Learning para criar um modelo de regressão logística que prevê a probabilidade de uma fatalidade em um acidente de carro.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 09c976f3076ea41a0441ea62a14ba4d45395a1d4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 72488ba339399c526e882ffd11c41410a0b011ea
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648284"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159067"
 ---
-# <a name="tutorial-create-a-logistic-regression-model-in-r-with-azure-machine-learning"></a>Tutorial: Criar um modelo de regressão logística em R com o Azure Machine Learning
+# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutorial: Usar o R para criar um modelo de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste tutorial, você usará R e o Azure Machine Learning para criar um modelo de regressão logística que prevê a probabilidade de uma fatalidade em um acidente de automóvel. Depois de concluir este tutorial, você terá o conhecimento prático do SDK de R do Azure Machine Learning para encarar o desenvolvimento de experimentos e fluxos de trabalho mais complexos.
+Neste tutorial, você usará o SDK do R do Azure Machine Learning para criar um modelo de regressão logística que prevê a probabilidade de uma fatalidade em um acidente de carro. Você verá como os recursos de nuvem do Azure Machine Learning funcionam com o R para fornecer um ambiente escalonável para treinamento e implantação de um modelo.  
 
 Neste tutorial, você executa as seguintes tarefas:
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Implantar um ponto de extremidade de previsão
 > * Testar o modelo do R
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 
 ## <a name="create-a-workspace"></a>Criar um workspace
@@ -49,7 +49,7 @@ Você cria um workspace pelo portal do Azure, um console baseado na Web para ger
 > Anote seu **workspace** e sua **assinatura**. Você precisará dessas informações para criar o experimento no local certo. 
 
 
-## <a name="azure"></a>Clonar uma pasta do notebook
+## <a name="clone-a-notebook-folder"></a><a name="azure"></a>Clonar uma pasta do notebook
 
 Este exemplo usa o servidor de notebook em nuvem em seu workspace para uma experiência pré-configurada e sem instalação. Use [seu próprio ambiente](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) se preferir ter controle sobre seu ambiente, pacotes e dependências.
 

@@ -10,13 +10,13 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129577"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222903"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: conectar, configurar e ativar Azure Data Box Edge 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Edge 
 
 Este tutorial descreve como conectar-se, configurar e ativar seu dispositivo Azure Data Box Edge usando a interface do usuário Web local.
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Conectar-se a um dispositivo físico
 > * Configurar e ativar o dispositivo físico
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de configurar e configurar seu dispositivo Data Box Edge, verifique o seguinte:
 
@@ -54,7 +54,7 @@ Antes de configurar e configurar seu dispositivo Data Box Edge, verifique o segu
 4. Selecione **Continuar para essa página da Web**.  
     Essas etapas podem variar dependendo do navegador que você está usando.
 
-5. Entrar para a web da interface do usuário do seu dispositivo. A senha padrão é *Password1*. 
+5. Entrar para a web da interface do usuário do seu dispositivo. A senha padrão é *Senha1*. 
    
     ![Página de entrada do dispositivo Data Box Edge](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
@@ -103,9 +103,9 @@ O painel exibe as várias configurações necessárias para configurar e registr
    d. Para validar e aplicar as configurações de proxy da Web, selecione **Aplicar configurações**.
    
    > [!NOTE]
-   > Não há suporte para arquivos de PAC (configuração automática de proxy). Um arquivo PAC define como os navegadores da Web e outros agentes de usuário podem escolher automaticamente o servidor proxy apropriado (método de acesso) para buscar uma determinada URL.
-   > Os proxies que tentam interceptar e ler todo o tráfego (em seguida, assinar novamente tudo com sua própria certificação) não são compatíveis, pois o certificado do proxy não é confiável.
-   > Normalmente, os proxies transparentes funcionam bem com Azure Data Box Edge.
+   > Não há suporte para arquivos PAC (configuração automática de proxy). Um arquivo PAC define como os navegadores da Web e outros agentes de usuário podem escolher automaticamente o servidor proxy apropriado (método de acesso) para buscar uma determinada URL.
+   > Os proxies que tentam interceptar e ler todo o tráfego (e depois assinar novamente tudo com a própria certificação) não são compatíveis, pois o certificado do proxy não é confiável.
+   > Normalmente, os proxies transparentes funcionam bem com o Azure Data Box Edge.
 
 4. (Opcional) No painel esquerdo, selecione **Configurações de hora** e, em seguida, configure o fuso horário e os servidores NTP primários e secundários para seu dispositivo.  
     Os servidores NTP são necessários, pois seu dispositivo deve sincronizar a hora para que ele possa se autenticar com seus provedores de serviço de nuvem.
@@ -150,7 +150,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
 A configuração do dispositivo foi concluída. Agora você pode adicionar compartilhamentos em seu dispositivo.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 

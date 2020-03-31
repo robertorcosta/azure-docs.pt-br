@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67091657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: integração do Azure Active Directory com o ScreenSteps
@@ -34,7 +34,7 @@ A integração do ScreenSteps ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao ScreenSteps, você precisará dos seguintes itens:
 
@@ -130,19 +130,19 @@ Para configurar o logon único do Azure AD com o ScreenSteps, execute as seguint
 
 1. Clique em **Configurações da Conta**.
 
-    ![Gerenciamento de contas](./media/screensteps-tutorial/ic778523.png "Gerenciamento de contas")
+    ![Gerenciamento de conta](./media/screensteps-tutorial/ic778523.png "Gerenciamento de contas")
 
 1. Clique em **Logon Único**.
 
-    ![Autenticação Remota](./media/screensteps-tutorial/ic778524.png "Autenticação Remota")
+    ![Autenticação remota](./media/screensteps-tutorial/ic778524.png "Autenticação Remota")
 
 1. Clique em  **Criar Ponto de Extremidade de Logon Único**.
 
-    ![Autenticação Remota](./media/screensteps-tutorial/ic778525.png "Autenticação Remota")
+    ![Autenticação remota](./media/screensteps-tutorial/ic778525.png "Autenticação Remota")
 
 1. Na seção **Criar um Ponto de Extremidade de Logon Único**, realize as seguintes etapas:
 
-    ![Criar um Ponto de Extremidade de Autenticação](./media/screensteps-tutorial/ic778526.png "Criar um Ponto de Extremidade de Autenticação")
+    ![Criar um ponto de extremidade de autenticação](./media/screensteps-tutorial/ic778526.png "Criar um Ponto de Extremidade de Autenticação")
 
     a. Na caixa de texto **Título** , digite um título.
 
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com o ScreenSteps, execute as seguint
 
 1. Na seção **Editar um Ponto de Extremidade de Logon Único**, realize as seguintes etapas:
 
-    ![Ponto de Extremidade de Autenticação Remota](./media/screensteps-tutorial/ic778527.png "Ponto de Extremidade de Autenticação Remota")
+    ![Ponto de extremidade de autenticação remota](./media/screensteps-tutorial/ic778527.png "Ponto de Extremidade de Autenticação Remota")
 
     a. Clique em **Carregar novo arquivo de Certificado SAML** e carregue o certificado que você baixou do Portal do Azure.
 
@@ -241,4 +241,4 @@ Ao clicar no bloco do ScreenSteps no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

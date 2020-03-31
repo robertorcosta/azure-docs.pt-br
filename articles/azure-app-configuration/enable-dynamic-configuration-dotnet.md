@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 7780bdbc92868f62e8d066d171b2a04fe06a981d
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484869"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245796"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Usar configuração dinâmica em um aplicativo .NET Framework
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Configure seu aplicativo .NET Framework para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Injete a configuração mais recente em seu aplicativo.
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -38,13 +38,15 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Configurações** >  **+ Criar** para adicionar os seguintes pares chave-valor:
+6. Selecione **Gerenciador de Configurações** >  **+ Criar** > **Chave-valor** para adicionar os seguintes pares chave-valor:
 
     | Chave | Valor |
     |---|---|
     | TestApp:Settings:Message | Dados da Configuração de Aplicativo do Azure |
 
     Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
+
+7. Escolha **Aplicar**.
 
 ## <a name="create-a-net-framework-console-app"></a>Criar um aplicativo de console .NET Framework
 
