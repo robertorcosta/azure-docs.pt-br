@@ -17,10 +17,10 @@ ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc5f7bf299465b6af272c9b417a62f121b9a4d82
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67164925"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Tutorial: Integrar o JOBHUB ao Azure Active Directory
@@ -29,11 +29,11 @@ Neste tutorial, você aprenderá a integrar o JOBHUB ao Azure AD (Azure Active D
 
 * Controlar no Azure AD quem tem acesso ao JOBHUB.
 * Permitir que os usuários sejam conectados automaticamente ao JOBHUB com suas contas do Azure AD.
-* Gerencie suas contas em uma localização central – o portal do Azure.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para configurar a integração do JOBHUB ao Azure AD, você precisará adicionar
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar da por meio da galeria**, digite **JOBHUB** na caixa de pesquisa.
 1. Selecione **JOBHUB** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
@@ -73,12 +73,12 @@ Para configurar e testar o SSO do Azure AD com o JOBHUB, conclua os seguintes bl
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **JOBHUB**, localize a seção **Gerenciar** e selecione **Logon único**.
-1. Na página **Selecionar um método de logon único**, selecione **SAML**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:  Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://pasona.jobhub.jp/saml/init`
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:  Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://pasona.jobhub.jp/saml/init`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do JOBHUB](mailto:platform@pasonagroup.co.jp) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -123,7 +123,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **JOBHUB**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
@@ -149,5 +149,5 @@ Ao selecionar o bloco do JOBHUB no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
