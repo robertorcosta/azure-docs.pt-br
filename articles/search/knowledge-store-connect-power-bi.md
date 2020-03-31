@@ -9,22 +9,22 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270038"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar um repositório de conhecimento com o Power BI
 
 > [!IMPORTANT] 
-> O repositório de conhecimento está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
+> O repositório de conhecimento está atualmente em versão prévia pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de versão prévia. Atualmente, há suporte limitado ao portal e não há suporte para o SDK do .NET.
 
 Neste artigo, você aprenderá a conectar e a explorar um repositório de conhecimento usando o Power Query no aplicativo Power BI Desktop. Você pode começar mais rápido com modelos ou criar um painel personalizado do zero.
 
 + Siga as etapas em [Criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md) ou [Criar um repositório de conhecimento do Azure Cognitive Search usando REST](knowledge-store-create-rest.md) para criar o repositório de conhecimento de exemplo usado neste passo a passo. Também será necessário o nome da conta de Armazenamento do Azure que você usou para criar o repositório de conhecimento, junto com sua chave de acesso do portal do Azure.
 
-+ [Instalar o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
++ [Instalar power BI desktop](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Modelo do Power BI de exemplo – somente para o portal do Azure
 
@@ -114,7 +114,7 @@ Você pode localizar e gerenciar recursos no portal usando o link **Todos os rec
 
 Se você estiver usando um serviço gratuito, estará limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como explorar esse repositório de conhecimento usando o Gerenciador de Armazenamento, confira o artigo a seguir.
 

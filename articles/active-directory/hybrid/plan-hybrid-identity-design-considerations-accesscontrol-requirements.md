@@ -18,17 +18,17 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60295136"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determina os requisitos de controle de acesso para sua solução de identidade híbrida
 Quando uma organização está projetando sua solução de identidade híbrida, ela também pode usar essa oportunidade para examinar os requisitos de acesso para os recursos que pretende tornar disponível aos usuários. O acesso a dados cruza todos os quatro pilares da identidade, que são:
 
 * Administração
-* Authentication
+* Autenticação
 * Autorização
 * Auditoria
 
@@ -60,7 +60,7 @@ Qual modelo sua organização adotará vai variar de acordo com suas necessidade
 * Sua organização usa o logon único para aplicativos localizados no local ou na nuvem?
   * Em caso afirmativo, a adoção de um modelo de identidade híbrida afeta esse processo?
 
-## <a name="access-control"></a>Controle de Acesso
+## <a name="access-control"></a>Controle de acesso
 Embora a autenticação e a autorização sejam os principais elementos para habilitar o acesso a dados corporativos usando a validação do usuário, também é importante controlar o nível de acesso que esses usuários terão e o nível de acesso que os administradores terão sobre os recursos que gerenciam. Sua solução de identidade híbrida deve ser capaz de fornecer acesso granular aos recursos, à delegação e ao controle de acesso baseado em função. Verifique se as seguintes perguntas são respondidas sobre o controle de acesso:
 
 * Sua empresa tem mais de um usuário com privilégio elevado para gerenciar seu sistema de identidade?
@@ -74,13 +74,13 @@ Embora a autenticação e a autorização sejam os principais elementos para hab
   * Em caso afirmativo, onde estão localizados os recursos de destino (no local ou na nuvem)?
 
 > [!NOTE]
-> Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção.  Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
+> Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md) irá passar por cima das opções disponíveis e vantagens/desvantagens de cada opção.  Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar requisitos de resposta a incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

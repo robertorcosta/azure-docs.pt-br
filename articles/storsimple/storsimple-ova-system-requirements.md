@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple os requisitos de sistema da matriz virtual
+title: Requisitos do sistema Microsoft Azure StorSimple Virtual Array
 description: Aprender sobre os requisitos de software e de rede para sua StorSimple Virtual Array
 author: alkohli
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267541"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298815"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da matriz virtual StorSimple
 
@@ -45,11 +45,11 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 > Não instale as ferramentas do VMware no StorSimple Virtual Array. Isso resulta em uma configuração sem suporte.
 
 ### <a name="virtual-device-requirements"></a>Requisitos de dispositivo virtual
-| **Componente** | **Requisito** |
+| **Componente** | **Exigência** |
 | --- | --- |
 | Número mínimo de processadores virtuais (núcleos) |4 |
 | Mínimo de memória (RAM) |8 GB <br> Para um servidor de arquivos, 8 GB para menos de 2 milhões de arquivos e 16 GB para 2 a 4 milhões de arquivos|
-| Espaço em disco<sup>1</sup> |Disco do sistema operacional - 80 GB <br></br>Disco de dados - 500 GB a 8 TB |
+| Espaço em disco<sup>1</sup> |Disco do sistema operacional - 80 GB  <br></br>Disco de dados - 500 GB a 8 TB |
 | Número mínimo de interface(s) de rede |1 |
 | Largura de banda de Internet<sup>2</sup> |Largura de banda mínima necessária: 5 Mbps <br> Largura de banda recomendada: 100 Mbps <br> A velocidade de transferência de dados é ajustada conforme a largura de banda de Internet. Por exemplo, 100 GB de dados levam dois dias para serem transferidos a 5 Mbps, o que pode levar a falhas de backup porque os backups diários não serão concluídos em um dia. Com uma largura de banda de 100 Mbps, 100 GB de dados podem ser transferido em 2,5 horas.   |
 
@@ -67,9 +67,9 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 ### <a name="supported-storage-clients"></a>Clientes de armazenamento com suporte
 Os requisitos de software a seguir referem-se aos iniciadores iSCSI que acessam o StorSimple Array Virtual (configurado como um servidor iSCSI).
 
-| **Sistemas operacionais com suporte** | **Versão necessária** | **Requisitos/observações adicionais** |
+| **Sistemas operacionais suportados** | **Versão necessária** | **Requisitos/observações adicionais** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados. Os volumes iSCSI do StorSimple têm suporte apenas em: <ul><li>Volumes simples em discos básicos do Windows.</li><li>Windows NTFS para formatar um volume.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados. Os volumes iSCSI do StorSimple têm suporte apenas em:  <ul><li>Volumes simples em discos básicos do Windows.</li><li>Windows NTFS para formatar um volume.</li> |
 
 Os requisitos de software a seguir referem-se aos clientes SMB que acessam o StorSimple Array Virtual (configurado como um servidor de arquivos).
 
@@ -89,7 +89,7 @@ Há suporte para o armazenamento de blob de blocos do Azure. Blobs de página n�
 ## <a name="networking-requirements"></a>Requisitos de rede
 A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego de gerenciamento, de nuvem, SMB ou iSCSI. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
-| **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Necessário** | **Observações** |
+| **Porta No.<sup>1</sup>** | **Entrada ou saída** | **Escopo da porta** | **Obrigatório** | **Observações** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
@@ -102,7 +102,7 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
 > [!IMPORTANT]
-> Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
+> Certifique-se de que o firewall não modifique ou descriptografe qualquer tráfego TLS entre o dispositivo StorSimple e o Azure.
 > 
 > 
 

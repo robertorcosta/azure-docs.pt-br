@@ -1,6 +1,6 @@
 ---
-title: Conceitos de laboratórios de sala de aula-Azure Lab Services | Microsoft Docs
-description: Aprenda os conceitos básicos dos serviços de laboratório e como ele pode facilitar a criação e o gerenciamento de laboratórios.
+title: Conceitos de Laboratórios de Sala de Aula - Azure Lab Services | Microsoft Docs
+description: Aprenda os conceitos básicos de Serviços de Laboratório e como ele pode facilitar a criação e o gerenciamento de laboratórios.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
 ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77526222"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos laboratórios de sala de aula
 
-A lista a seguir contém os principais conceitos e definições dos serviços de laboratório:
+A lista a seguir contém conceitos e definições importantes do Lab Services:
 
 ## <a name="quota"></a>Quota
 
-Cota é o limite de tempo (em horas) que um professor pode definir para que um aluno use uma VM de laboratório. Ele pode ser definido como 0 ou um número específico de horas. Se a cota for definida como 0, um aluno só poderá usar a máquina virtual quando uma agenda estiver em execução ou quando um professor ligar manualmente a máquina virtual do aluno.  
+Cota é o limite de tempo (em horas) que um professor pode definir para um aluno usar uma VM de laboratório. Pode ser definido como 0, ou um número específico de horas. Se a cota for definida como 0, o aluno só poderá usar a máquina virtual quando um horário estiver em execução ou quando um professor liga manualmente a máquina virtual para o aluno.  
 
-As horas de cota são contadas quando o aluno inicia a própria VM do laboratório.  Se um professor iniciar manualmente a VM do laboratório para um aluno, as horas de cota não serão usadas para esse aluno.
+As horas de cotas são contadas quando o aluno inicia o laboratório VM.  Se um professor inicia manualmente o VM do laboratório para um aluno, as horas de cotas não são usadas para esse aluno.
 
 ## <a name="schedules"></a>Agendas
 
-Agendas são os slots de tempo que um professor pode criar para a classe para que as VMs dos alunos estejam disponíveis para o tempo de aula.  As agendas podem ser uma única vez ou recorrentes.  As horas de cota não são usadas quando uma agenda está em execução.
+Os horários são as faixas horárias que um professor pode criar para a aula para que as VMs do aluno estejam disponíveis para o horário de aula.  Os horários podem ser únicos ou recorrentes.  As horas de cota não são usadas quando um horário está em execução.
 
-Há três tipos de agendas: Standard, somente iniciar e somente parar.
+Existem três tipos de horários: Padrão, Somente Start e Stop.
 
-- **Standard**.  Essa agenda iniciará todas as VMs de aluno na hora de início especificada e desligará todas as VMs de aluno na hora de parada especificada.
-- **Somente iniciar**.   Essa agenda iniciará todas as VMs de aluno na hora especificada.  As VMs dos alunos não serão interrompidas até que um aluno interrompa a VM por meio do portal de Azure Lab Services ou que ocorra uma agenda somente de interrupção.
-- **Somente parar**.  Essa agenda interromperá todas as VMs de aluno na hora especificada.  
+- **Padrão**.  Este cronograma iniciará todas as VMs dos alunos na hora de início especificada e desligará todas as VMs dos alunos na hora de parada especificada.
+- **Comece apenas**.   Este cronograma iniciará todas as VMs dos alunos no horário especificado.  As VMs dos alunos não serão paradas até que um aluno pare a VM através do portal azure Lab Services ou ocorra um cronograma de parada.
+- **Pare apenas.**  Este cronograma irá parar todas as VMs dos alunos no horário especificado.  
 
-## <a name="template-virtual-machine"></a>Máquina virtual de modelo
+## <a name="template-virtual-machine"></a>Modelo de máquina virtual
 
-Uma máquina virtual de modelo em um laboratório é uma imagem de máquina virtual base da qual as máquinas virtuais de todos os usuários são criadas. Os criadores/criador de laboratório configuram a máquina virtual de modelo e as configuram com o software que eles desejam fornecer para treinar os participantes para fazer laboratórios. Quando você publica uma VM de modelo, o Azure Lab Services cria ou atualiza VMs de laboratório com base na VM de modelo.
+Uma máquina virtual de modelo em um laboratório é uma imagem de máquina virtual base a partir da qual todas as máquinas virtuais dos usuários são criadas. Os criadores de treinadores/laboratórios configuram a máquina virtual do modelo e a configuram com o software que eles querem fornecer aos participantes de treinamento para fazer laboratórios. Quando você publica um modelo VM, o Azure Lab Services cria ou atualiza vMs de laboratório com base no modelo VM.
 
 ## <a name="user-profiles"></a>Perfis do usuário
 

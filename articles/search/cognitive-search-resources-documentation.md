@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: d2b25fb93a1e35ffa82cf49c60d181b841b1692d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616185"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentação para enriquecimento de IA na Pesquisa Cognitiva do Azure
@@ -23,9 +23,9 @@ Os artigos a seguir são a documentação completa sobre o enriquecimento de IA.
 
 ## <a name="getting-started"></a>Introdução
 + [Introdução à IA na Pesquisa Cognitiva do Azure](cognitive-search-concept-intro.md)
-+ [Início rápido: criar um conconhecimento de cognitiva no portal do Azure](cognitive-search-quickstart-blob.md)
-+ [Tutorial: indexação aprimorada com o ia](cognitive-search-tutorial-blob.md)
-+ [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
++ [Quickstart: Crie uma habilidade cognitiva no portal Azure](cognitive-search-quickstart-blob.md)
++ [Tutorial: Indexação enriquecida com IA](cognitive-search-tutorial-blob.md)
++ [Exemplo: Criar uma habilidade personalizada para o enriquecimento de IA](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Diretrizes
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

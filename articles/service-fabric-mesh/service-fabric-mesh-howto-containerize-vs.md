@@ -1,15 +1,15 @@
 ---
 title: Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric
-description: Adicione Service Fabric suporte de orquestração de contêiner de malha a projetos de console e ASP.NET que usam o .NET Framework completo.
+description: Adicione suporte à orquestração de contêineres Service Fabric Mesh para projetos de ASP.NET e console que usam a estrutura completa .NET.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462041"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric
@@ -23,7 +23,7 @@ No Visual Studio 2017, é possível adicionar suporte à geração de contêiner
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Se você não tiver uma assinatura do Azure, você pode [criar uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Verifique se você [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md). Isso inclui a instalação do runtime do Service Fabric, SDK, Docker, Visual Studio 2017 e criar um cluster local.
 
@@ -65,6 +65,6 @@ Depois que o suporte à orquestração de contêineres for adicionado ao seu apl
 
 Agora você pode publicar o aplicativo na Malha do Azure Service Fabric.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Veja como publicar um aplicativo na Malha do Service Fabric: [Tutorial - Implantar um aplicativo de Malha do Service Fabric para a Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

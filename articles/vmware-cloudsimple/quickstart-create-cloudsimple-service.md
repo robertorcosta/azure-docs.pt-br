@@ -1,7 +1,7 @@
 ---
-title: Início rápido de soluções do Azure VMware (AVS)-criar serviço
-description: Saiba como criar o serviço AVS, nós de compra e nós de reserva
-titleSuffix: Azure VMware Solutions (AVS)
+title: 'Quickstart: Crie o serviço VMware CloudSimple'
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Saiba como criar o serviço CloudSimple, comprar nós e reservas
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/16/2019
@@ -9,51 +9,51 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e7eb414e51ca38f524ab83bfb51f80f771524287
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024425"
 ---
-# <a name="quickstart---create-azure-vmware-solutions-avs-service"></a>Início rápido-criar serviço de soluções VMware do Azure (AVS)
+# <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Quickstart - Crie a solução Azure VMware pelo serviço CloudSimple
 
-Para começar, crie as soluções do Azure VMware (AVS) no portal do Azure.
+Para começar, crie a Solução Azure VMware pelo CloudSimple no portal Azure.
 
-## <a name="vmware-solutions-avs---service-overview"></a>Soluções VMware (AVS)-visão geral do serviço
+## <a name="vmware-solution-by-cloudsimple---service-overview"></a>Solução VMware por CloudSimple - Visão geral do serviço
 
-O serviço AVS permite que você consuma a solução Azure VMware pela AVS. A criação do serviço permite provisionar nós, reservar nós e criar nuvens privadas de AVS. Você adiciona o serviço AVS em cada região do Azure onde o serviço AVS está disponível. O serviço define a rede de borda da solução do Azure VMware por AVS. Essa rede de borda é usada para serviços que incluem conectividade VPN, ExpressRoute e Internet para suas nuvens privadas da AVS.
+O serviço CloudSimple permite que você consuma a Solução VMware do CloudSimple.  A criação do serviço permite que você prover nódulos, reservas e criar nuvens privadas.  Você adiciona o serviço CloudSimple em cada região do Azure onde o serviço CloudSimple está disponível.  O serviço define a rede de borda do Azure VMware Solution by CloudSimple.  Essa rede de borda é usada para serviços que incluem VPN, ExpressRoute e conectividade com a Internet com suas nuvens privadas.
 
-Para adicionar o serviço AVS, você deve criar uma sub-rede de gateway. A sub-rede de gateway é usada ao criar a rede de borda e requer um bloco CIDR/28. O espaço de endereço de sub-rede de gateway deve ser exclusivo. Ele não pode se sobrepor a nenhum dos espaços de endereço de rede local nem do espaço de endereço de rede virtual do Azure.
+Para adicionar o serviço CloudSimple, você deve criar uma sub-rede de gateway. A sub-rede gateway é usada ao criar a rede de borda e requer um bloco CIDR /28. O espaço de endereço da sub-rede gateway deve ser único. Ele não pode se sobrepor a nenhum dos espaços de endereço situoto da rede local ou ao espaço de endereço da rede virtual do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Aloque um bloco CIDR/28 para a sub-rede de gateway. Uma sub-rede de gateway é necessária por serviço AVS e é exclusiva para a região na qual ela é criada. A sub-rede de gateway é usada para a solução do Azure VMware por serviços de rede de borda de sincronização automática e requer um bloco CIDR/28. O espaço de endereço de sub-rede de gateway deve ser exclusivo. Ele não deve se sobrepor a nenhuma rede que se comunique com o ambiente da AVS. As redes que se comunicam com o AVS incluem redes locais e redes virtuais do Azure.
+Aloque um bloco /28 CIDR para a sub-rede gateway.  Uma sub-rede gateway é necessária por serviço CloudSimple e é exclusiva da região em que é criada. A sub-rede gateway é usada para a Solução Azure VMware por serviços de rede cloudSimple edge e requer um bloco DE R$ 28. O espaço de endereço da sub-rede gateway deve ser único. Ele não deve se sobrepor a nenhuma rede que se comunique com o ambiente CloudSimple.  As redes que se comunicam com o CloudSimple incluem redes locais e redes virtuais Do Zure.
 
-Examine os [pré-requisitos de rede](cloudsimple-network-checklist.md). 
+Revisar [pré-requisitos de rede](cloudsimple-network-checklist.md). 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-the-service"></a>Criar o serviço
 
 1. Selecione **Todos os serviços**.
-2. Pesquise o **serviço AVS**.
+2. Procure por **Serviço CloudSimple**.
 
-    ![Pesquisar serviço AVS](media/create-cloudsimple-service-search.png)
+    ![Pesquisar serviço cloudsimple](media/create-cloudsimple-service-search.png)
 
-3. Selecione **serviços de sincronização automática**.
-4. Clique em **Adicionar** para criar um novo serviço.
+3. Selecione **Serviços cloudsimple**.
+4. Clique **em Adicionar** para criar um novo serviço.
 
-    ![Adicionar serviço AVS](media/create-cloudsimple-service-add.png)
+    ![Adicionar serviço CloudSimple](media/create-cloudsimple-service-add.png)
 
-5. Selecione a assinatura na qual você deseja criar o serviço AVS.
-6. Selecione o grupo de recursos para o serviço. Para adicionar um novo grupo de recursos, clique em **criar novo**.
-7. Insira o nome para identificar o serviço.
-8. Insira o CIDR para o gateway de serviço. Especifique uma sub-rede/28 que não se sobreponha a nenhuma de suas sub-redes locais, sub-redes do Azure ou sub-redes de AVS planejadas. Você não pode alterar o CIDR depois que o serviço é criado.
+5. Selecione a assinatura onde deseja criar o serviço CloudSimple.
+6. Selecione o grupo de recursos para o serviço. Para adicionar um novo grupo de recursos, clique **em Criar novo**.
+7. Digite o nome para identificar o serviço.
+8. Digite o CIDR para o gateway de serviço. Especifique uma sub-rede /28 que não se sobreponha a nenhuma de suas sub-redes no local, sub-redes Azure ou sub-redes CloudSimple planejadas. Você não pode alterar o CIDR depois que o serviço é criado.
 
-    ![Criando o serviço AVS](media/create-cloudsimple-service.png)
+    ![Criando o serviço CloudSimple](media/create-cloudsimple-service.png)
 
 9. Clique em **OK**.
 
@@ -61,30 +61,30 @@ O serviço é criado e adicionado à lista de serviços.
 
 ## <a name="provision-nodes"></a>Provisionar nós
 
-Para configurar a capacidade paga conforme o uso para um ambiente de nuvem privada da AVS, primeiro provisionar nós na portal do Azure.
+Para configurar a capacidade de pagamento para um ambiente CloudSimple Private Cloud, primeiro provisionar os nós no portal Azure.
 
 1. Selecione **Todos os serviços**.
-2. Pesquise **nós AVS**.
+2. Procure por **nódulos CloudSimple**.
 
-    ![Pesquisar nós de AVS](media/create-cloudsimple-node-search.png)
+    ![Pesquisar emvocês simples na Nuvem](media/create-cloudsimple-node-search.png)
 
-3. Selecione **nós AVS**.
-4. Clique em **Adicionar** para criar nós.
+3. Selecione **'Nós simples' do Cloud**.
+4. Clique **em Adicionar** para criar nós.
 
-    ![Adicionar nós AVS](media/create-cloudsimple-node-add.png)
+    ![Adicionar nodos cloudsimple](media/create-cloudsimple-node-add.png)
 
-5. Selecione a assinatura em que você deseja provisionar nós AVS.
-6. Selecione o grupo de recursos para os nós. Para adicionar um novo grupo de recursos, clique em **criar novo**.
-7. Insira o prefixo para identificar os nós.
-8. Selecione o local dos recursos do nó.
+5. Selecione a assinatura onde deseja provisionar os nós CloudSimple.
+6. Selecione o grupo de recursos para os nós. Para adicionar um novo grupo de recursos, clique **em Criar novo**.
+7. Digite o prefixo para identificar os nódulos.
+8. Selecione o local para os recursos do nó.
 9. Selecione o local dedicado para hospedar os recursos do nó.
 10. Selecione o [tipo de nó](cloudsimple-node.md).
-11. Selecione o número de nós a serem provisionados.
-12. Selecione **Examinar + criar**.
-13. Examine as configurações. Para modificar as configurações, clique em **anterior**.
+11. Selecione o número de nós para provisão.
+12. Selecione **Revisão + Criar**.
+13. Revise as configurações. Para modificar quaisquer configurações, clique **em Previous**.
 14. Selecione **Criar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Criar uma nuvem privada de AVS e configurar o ambiente](quickstart-create-private-cloud.md)
-* Saiba mais sobre o [serviço AVS](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* [Criar nuvem privada e configurar ambiente](quickstart-create-private-cloud.md)
+* Saiba mais sobre [o serviço CloudSimple](https://docs.azure.cloudsimple.com/cloudsimple-service)

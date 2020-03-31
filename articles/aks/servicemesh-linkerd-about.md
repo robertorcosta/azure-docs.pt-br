@@ -6,92 +6,92 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593760"
 ---
 # <a name="linkerd"></a>Linkerd
 
 ## <a name="overview"></a>Visão geral
 
-O [Linkerd][linkerd] é uma malha de serviço leve e fácil de usar.
+[Linkerd][linkerd] é uma malha de serviço fácil de usar e leve.
 
 ## <a name="architecture"></a>Arquitetura
 
-O Linkerd fornece um plano de dados composto por UltraLight [Linkerd][linkerd-proxy] de proxy especializado. Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho em malha. Os proxies também expõem métricas por meio de pontos de extremidade de métricas do [Prometheus][prometheus] .
+O Linkerd fornece um plano de dados composto por sidecars proxy especializados ultraleves [Linkerd.][linkerd-proxy] Esses proxies inteligentes controlam todo o tráfego de rede dentro e fora de seus aplicativos e cargas de trabalho. Os proxies também expõem métricas através de pontos finais de métricas [Prometheus.][prometheus]
 
-O plano de controle gerencia a configuração e a telemetria agregada por meio dos seguintes [componentes][linkerd-architecture]:
+O plano de controle gerencia a configuração e a telemetria agregada através dos [seguintes componentes:][linkerd-architecture]
 
-- **Controlador** -fornece a API que orienta a CLI e o painel do Linkerd. Fornece configuração para proxies.
+- **Controlador** - Fornece api que aciona o Linkerd CLI e o Dashboard. Fornece configuração para proxies.
 
-- **Toque** – estabelecer inspeções em tempo real em solicitações e respostas.
+- **Toque** - Estabeleça relógios em tempo real em solicitações e respostas.
 
-- **Identidade** -fornece recursos de identidade e segurança que permitem a MTLS entre serviços.
+- **Identidade** - Fornece recursos de identidade e segurança que permitem o mTLS entre os serviços.
 
-- **Web** -fornece o painel do Linkerd.
-
-
-O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e do plano de controle interagem.
+- **Web** - Fornece o painel Linkerd.
 
 
-![Visão geral dos componentes e da arquitetura do Linkerd.](media/servicemesh/linkerd/about-architecture.png)
+O diagrama de arquitetura a seguir demonstra como os vários componentes dentro do plano de dados e plano de controle interagem.
+
+
+![Visão geral dos componentes e arquitetura do Linkerd.](media/servicemesh/linkerd/about-architecture.png)
 
 
 ## <a name="selection-criteria"></a>Critérios de seleção
 
-É importante entender e considerar as seguintes áreas ao avaliar Linkerd para suas cargas de trabalho:
+É importante entender e considerar as seguintes áreas ao avaliar o Linkerd para suas cargas de trabalho:
 
-- [Princípios de design](#design-principles)
+- [Princípios de Design](#design-principles)
 - [Funcionalidades](#capabilities)
 - [Cenários](#scenarios)
 
 
 ### <a name="design-principles"></a>Princípios de design
 
-Os princípios de design a seguir [guiam][design-principles] o projeto Linkerd:
+Os seguintes princípios de design [guiam][design-principles] o projeto Linkerd:
 
-- **Mantenha a simplicidade** – deve ser fácil de usar e entender.
+- **Mantenha-o simples** - Deve ser fácil de usar e entender.
 
-- **Minimize os requisitos de recursos** -imponha o mínimo de desempenho e custo de recursos.
+- **Minimizar os requisitos de recursos** - Impor desempenho mínimo e custo de recursos.
 
-- **Basta trabalhar** – não interrompa os aplicativos existentes e não exija configuração complexa.
+- **Apenas Trabalhe** - Não quebre os aplicativos existentes e não exija configuração complexa.
 
 
 ### <a name="capabilities"></a>Funcionalidades
 
 O Linkerd fornece o seguinte conjunto de recursos:
 
-- **Malha** – opção de depuração interna
+- **Malha** – opção de depuração construída
 
-- **Gerenciamento de tráfego** – divisão, tempos limite, novas tentativas, entrada
+- **Gerenciamento de Tráfego** – divisão, intervalos, repetições, ingress
 
-- **Segurança** – criptografia (MTLS), certificados autogirados a cada 24 horas
+- **Segurança** – criptografia (mTLS), certificados rodados automaticamente a cada 24 horas
 
-- **Observação** : métricas de ouro, toque, rastreamento, perfis de serviço e métricas por rota, painel da Web com grafos de topologia, Prometheus, grafana
+- **Observabilidade** – métricas douradas, toque, rastreamento, perfis de serviço e métricas por rota, painel web com gráficos de topologia, prometeu, grafana
 
 
 ### <a name="scenarios"></a>Cenários
 
-O Linkerd é adequado e sugerido para os seguintes cenários:
+Linkerd é bem adequado e sugerido para os seguintes cenários:
 
 - Simples de usar com apenas o conjunto essencial de requisitos de capacidade
 
-- Baixa latência, baixa sobrecarga, com foco na observação e gerenciamento de tráfego simples
+- Baixa latência, baixa sobrecarga, com foco em observância e gestão simples do tráfego
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A documentação a seguir descreve como você pode instalar o Linkerd no AKS (serviço kubernetes do Azure):
+A documentação a seguir descreve como você pode instalar o Linkerd no Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Instalar o Linkerd no serviço kubernetes do Azure (AKS)][linkerd-install]
+> [Instale linkerd no Azure Kubernetes Service (AKS)][linkerd-install]
 
-Você também pode explorar ainda mais os recursos e a arquitetura do Linkerd:
+Você também pode explorar ainda mais os recursos e arquitetura do Linkerd:
 
-- [Recursos do Linkerd][linkerd-features]
-- [Arquitetura do Linkerd][linkerd-architecture]
+- [Características do Linkerd][linkerd-features]
+- [Arquitetura Linkerd][linkerd-architecture]
 
 <!-- LINKS - external -->
 [linkerd]: https://linkerd.io/2/overview/

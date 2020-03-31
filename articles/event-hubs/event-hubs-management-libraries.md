@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 431fe04461f422274697d1e91c4b56e914ce2d4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60746651"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gerenciamento dos Hubs de Eventos
@@ -27,11 +27,11 @@ Você pode usar as bibliotecas de gerenciamento de Hubs de eventos podem provisi
 * Criação de Hubs de eventos, atualização, exclusão
 * Criação de grupo de consumidores, atualização, exclusão
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a usar as bibliotecas de gerenciamento de Hubs de eventos, você deverá se autenticar com o Azure Active Directory (AAD). AAD exige que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
-* [Usar o portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Use o portal Azure para criar o aplicativo e o principal de serviços do Active Directory que podem acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
@@ -74,5 +74,5 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Exemplo do Gerenciamento do .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
+* [.NET Amostra de gerenciamento](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referência de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

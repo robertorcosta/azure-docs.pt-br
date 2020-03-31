@@ -1,6 +1,6 @@
 ---
-title: Disponibilidade de infraestrutura do Azure-segurança do Azure
-description: Este artigo fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes.
+title: Disponibilidade de infra-estrutura do Azure - Segurança do Azure
+description: Este artigo fornece informações sobre o que a Microsoft faz para proteger a infra-estrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727226"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilidade da infraestrutura do Azure
-Este artigo fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes. O Azure fornece disponibilidade robusta, com base na redundância abrangente obtida com a tecnologia de virtualização.
+Este artigo fornece informações sobre o que a Microsoft faz para proteger a infra-estrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes. O Azure fornece disponibilidade robusta, com base na redundância abrangente obtida com a tecnologia de virtualização.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Desastres naturais e interrupções temporárias
 A equipe de Operações e infraestrutura de nuvem da Microsoft projeta, cria, opera e aprimora a segurança da infraestrutura de nuvem. Essa equipe garante que a infraestrutura do Azure esteja fornecendo alta disponibilidade e confiabilidade, alta eficiência e escalabilidade inteligente. A equipe fornece uma nuvem mais segura, privada e confiável.
@@ -34,7 +34,7 @@ Redes de fibra ótica robustas e de alta velocidade conectam datacenters com out
 
 A Microsoft garante alta disponibilidade por meio de monitoramento avançado e resposta a incidentes, suporte a serviços e capacidade de failover de backup. Centros de operações da Microsoft distribuídos geograficamente operam 24 horas por dia, 7 dias por semana, 365 dias por ano. A rede do Azure é uma das maiores do mundo. A rede de fibra ótica e de distribuição de conteúdo conecta datacenters e nós de borda para garantir alto desempenho e confiabilidade.
 
-## <a name="disaster-recovery"></a>Recuperação de desastres
+## <a name="disaster-recovery"></a>Recuperação de desastre
 O Azure mantém seus dados duráveis em dois locais. Você pode escolher o local do site de backup. Em ambos os locais, o Azure mantém constantemente três réplicas íntegras de seus dados.
 
 ## <a name="database-availability"></a>Disponibilidade do banco de dados
@@ -47,10 +47,10 @@ O Azure fornece armazenamento por meio de um serviço de armazenamento altamente
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, consulte:
 
 - [Recursos, local e segurança física do Azure](physical-security.md)
-- [Limites e componentes do sistema de informações do Azure](infrastructure-components.md)
+- [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do Banco de Dados SQL do Azure](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

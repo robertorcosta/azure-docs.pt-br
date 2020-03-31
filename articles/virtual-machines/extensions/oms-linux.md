@@ -15,28 +15,28 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
 ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250550"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Log Analytics para Linux
 
 ## <a name="overview"></a>Visão geral
 
-Os logs de Azure Monitor fornecem recursos de monitoramento, alertas e correção de alertas em ativos locais e na nuvem. A extensão de máquina virtual Log Analytics para Linux é publicada e tem suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Linux.
+O Azure Monitor Logs fornece recursos de monitoramento, alerta e remediação de alerta sustais em ativos em nuvem e no local. A extensão da máquina virtual log analytics para Linux é publicada e suportada pela Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Linux.
 
 >[!NOTE]
 >Como parte da transição contínua do Microsoft OMS (Operations Management Suite) para o Azure Monitor, o Agente do OMS para Windows ou Linux será chamado de agente do Log Analytics para Windows e agente do Log Analytics para Linux.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-Para obter detalhes sobre as distribuições do Linux com suporte, consulte o artigo [visão geral do agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
+Para obter detalhes sobre as distribuições Linux suportadas, consulte o artigo visão geral do [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
 
 ### <a name="agent-and-vm-extension-version"></a>Versão do Agente e da Extensão de VM
 A tabela a seguir fornece um mapeamento da versão da extensão de VM do Log Analytics e o pacote do agente do Log Analytics para cada versão. Há um link para as notas de versão da versão do pacote do agente do Log Analytics. As notas de versão incluem detalhes sobre correções de bug e novos recursos disponíveis para uma determinada liberação de agente.  
@@ -115,9 +115,9 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Log Analytics. A 
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem a configuração pós-implantação, como a integração a logs de Azure Monitor. Um modelo do Resource Manager de exemplo que inclui a extensão de VM do agente de Log Analytics pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Os modelos são ideais ao implantar uma ou mais máquinas virtuais que requerem configuração pós-implantação, como o onboarding no Azure Monitor Logs. Um modelo de gerenciador de recursos de exemplo que inclui a extensão VM do Log Analytics Agent pode ser encontrado na [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/templates/child-resource-name-type.md). 
+A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir nome e digite para recursos de crianças](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 O exemplo a seguir pressupõe que a extensão de VM está aninhada dentro do recurso de máquina virtual. Ao aninhar o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 
@@ -171,7 +171,7 @@ Ao inserir o JSON da extensão na raiz do modelo, o nome do recurso inclui uma r
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
-A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do Log Analytics para uma máquina virtual existente. Substitua o valor *myworkspacekey pela* abaixo pela sua chave do espaço de trabalho e pelo valor *myworkspaceid* pela sua ID do espaço de trabalho. Esses valores podem ser encontrados em seu espaço de trabalho do Log Analytics no portal do Azure em *Configurações avançadas*. 
+A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do Log Analytics para uma máquina virtual existente. Substitua o valor *myWorkspaceKey* abaixo pela sua chave de espaço de trabalho e o valor *myWorkspaceId* pelo seu ID de espaço de trabalho. Esses valores podem ser encontrados no espaço de trabalho do Log Analytics no portal Azure em *Configurações Avançadas*. 
 
 ```azurecli
 az vm extension set \
@@ -185,7 +185,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Dados sobre o estado das implantações de extensão podem ser recuperados do Portal do Azure usando a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando a CLI do Azure.
 
@@ -210,10 +210,10 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 | 19 | Falha da instalação do pacote OMI | 
 | 20 | Falha da instalação do pacote SCX |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
-| 55 | Não é possível conectar ao serviço de Azure Monitor ou aos pacotes necessários ausentes ou o Gerenciador de pacotes dpkg está bloqueado| Verifique se o sistema tem acesso à Internet ou que um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do workspace e verifique se os utilitários curl e tar estão instalados. |
+| 55 | Não é possível conectar-se ao serviço do Monitor Do Azure ou os pacotes necessários ausentes ou o gerenciador de pacotes dpkg está bloqueado| Verifique se o sistema tem acesso à Internet ou que um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do workspace e verifique se os utilitários curl e tar estão instalados. |
 
 Informações adicionais podem ser encontradas no [Guia de solução de problemas do Log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer ponto deste artigo, você pode entrar em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

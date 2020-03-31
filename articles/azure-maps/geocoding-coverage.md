@@ -1,25 +1,25 @@
 ---
 title: Cobertura de geocodificação | Mapas do Microsoft Azure
-description: O processo de converter o endereço do local em coordenadas de latitude e longitude é conhecido como geocodificação. Neste artigo, você aprenderá sobre regiões com cobertura de geocodificação em mapas de Microsoft Azure.
-author: farah-alyasari
-ms.author: v-faalya
+description: O processo de conversão do endereço de localização para coordenadas de latitude e longitude é conhecido como geocodificação. Neste artigo, você aprenderá sobre regiões com cobertura de geocodificação no Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 149dd0a3e709bbf4660aaae176f76f560de873e2
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9836bd35b16c4c308b7c9d096b104c0cec68a34c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335645"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 
-Quando você procura um local com o Azure Maps, o serviço de pesquisa, por exemplo, [obter o endereço de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), leva seus termos de pesquisa e retorna as coordenadas de latitude e longitude. Esse processo é chamado de geocodificação. No entanto, o mapas do Azure não tem o mesmo nível de informações e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais você pode procurar de forma confiável em cada região. 
+Quando você procura um local com o Azure Maps, o serviço de pesquisa, por exemplo, [obter endereço de pesquisa,](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)pega seus termos de pesquisa e retorna as coordenadas de latitude e longitude. Esse processo é chamado de geocodificação. No entanto, o Azure Maps não tem o mesmo nível de informação e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais você pode procurar de forma confiável em cada região. 
 
-A capacidade de geocódigo em um país/região depende da cobertura de dados de estrada e da precisão de geocodificação do serviço de geocodificação. As categorizações a seguir são usadas, especifique o nível de suporte de geocodificação em cada país/região.
+A capacidade de geocodificação em um país/região depende da cobertura de dados rodoviários e da precisão de geocodificação do serviço de geocodificação. As categorizações a seguir são usadas para especificar o nível de suporte à geocodificação em cada país/região.
 * **Pontos de endereço** - dados de endereços podem ser resolvidos para uma coordenada de latitude/longitude dentro do pacote de endereço (limite de propriedade). Às vezes chamado de “Telhado” preciso. Esse é o nível mais alto de precisão para endereços disponíveis. 
 * **Números residenciais** - endereços são interpolados para uma coordenada de latitude/longitude na rua.
 * **Nível da rua** - endereços são resolvidos para a coordenada de latitude/longitude da rua que contém o endereço. O número da casa não pode ser processado.
@@ -84,7 +84,7 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 | Uruguai                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Virgens Britânicas                              |                 |                |              |      ✓     |          ✓         |
-| Ilhas Virgens dos EUA                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ilhas Virgens dos Estados Unidos                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 

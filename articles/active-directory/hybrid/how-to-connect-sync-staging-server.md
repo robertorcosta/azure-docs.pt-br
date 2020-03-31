@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261015"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: servidor de preparo e recuperação de desastre
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de preparação e recuperação de desastres
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
 
 ## <a name="staging-mode"></a>Modo de preparo
@@ -42,7 +42,7 @@ Durante a instalação, você pode selecionar o servidor em **modo de preparo**.
 
 Você ainda pode forçar uma exportação usando o Synchronization Service Manager.
 
-Um servidor no modo de preparo continua a receber alterações do Active Directory e do Azure AD e pode assumir rapidamente as responsabilidades de outro servidor em caso de falha. Se você fizer alterações de configuração no servidor primário, será sua responsabilidade fazer as mesmas alterações no servidor em modo de preparo.
+Um servidor no modo de preparação continua a receber alterações do Active Directory e do Azure AD e pode assumir rapidamente as responsabilidades de outro servidor em caso de falha. Se você fizer alterações de configuração no servidor primário, será sua responsabilidade fazer as mesmas alterações no servidor em modo de preparo.
 
 Para aqueles com conhecimento das tecnologias mais antigas de sincronização, o modo de preparo é diferente, pois o servidor tem seu próprio banco de dados SQL. Essa arquitetura permite que o servidor de modo de preparo esteja localizado em um datacenter diferente.
 
@@ -64,10 +64,10 @@ Para aplicar esse método, siga estas etapas:
 Se você tiver feito alterações personalizadas no servidor primário e deseja comparar a configuração com o servidor de preparo, use o [documentador de configuração do Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
 #### <a name="import-and-synchronize"></a>Importar e sincronizar
-1. Selecione **Conectores** e selecione o primeiro conector com o tipo **Active Directory Domain Services**. Clique em **Executar**, selecione **Importação completa** e **OK**. Siga estas etapas para todos os Conectores desse tipo.
-2. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)** . Clique em **Executar**, selecione **Importação completa** e **OK**.
+1. Selecione **Conectores** e selecione o primeiro Conector com o tipo **Serviços de Domínio Active Directory**. Clique em **Executar**, selecione **Importação completa** e **OK**. Siga estas etapas para todos os Conectores desse tipo.
+2. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)**. Clique em **Executar**, selecione **Importação completa** e **OK**.
 3. Verifique se a guia Conectores ainda está selecionada. Para cada Conector com tipo **Active Directory Domain Services**, clique em **Executar**, selecione **Sincronização Delta** e **OK**.
-4. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)** . Clique em **Executar**, selecione **Sincronização Delta** e **OK**.
+4. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)**. Clique em **Executar**, selecione **Sincronização Delta** e **OK**.
 
 Você agora preparou a exportação das alterações para o Azure AD e AD local (se estiver usando implantação híbrida do Exchange). As próximas etapas permitem que você inspecione o que está prestes a ser alterado antes de realmente começar a exportação para os diretórios.
 
@@ -271,4 +271,4 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 **Tópicos de visão geral**  
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)  
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)  
+* [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)  

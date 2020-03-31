@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: c6ed546735058e330368151adb0df7323f943050
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593663"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Otimização de streaming de mídia com a CDN do Azure 
@@ -79,15 +79,15 @@ Depois de criar o ponto de extremidade, ele aplica a otimização a todos os arq
 
 ### <a name="caching"></a>Cache
 
-Se a **CDN Standard do Azure da Akamai** detectar que o ativo é um manifesto ou fragmento de streaming, ela usará diferentes tempos de expiração de cache da entrega Web geral. (Consulte a lista completa na tabela a seguir.) Como sempre, o controle de cache ou os cabeçalhos Expires enviados da origem são respeitados. Se o ativo não for um ativo de mídia, ela armazenará em cache usando os tempos de expiração da distribuição na Web geral.
+Se a **CDN Standard do Azure da Akamai** detectar que o ativo é um manifesto ou fragmento de streaming, ela usará diferentes tempos de expiração de cache da entrega Web geral. (Veja a lista completa na tabela a seguir.) Como sempre, os cabeçalhos de controle de cache ou Expirações enviados da origem são honrados. Se o ativo não for um ativo de mídia, ela armazenará em cache usando os tempos de expiração da distribuição na Web geral.
 
 O tempo de cache negativo curto é útil para descarregamento de origem quando muitos usuários solicitam um fragmento que ainda não existe. Um exemplo é um transmissão ao vivo em que os pacotes não estão disponíveis na origem nesse segundo. O intervalo de cache mais longo também ajuda a descarregar as solicitações da origem, já que o conteúdo de vídeo normalmente não é modificado.
  
 
 |   | Distribuição na Web geral | Streaming de mídia geral | Streaming de mídia de vídeo por demanda  
 --- | --- | --- | ---
-Caching: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
-Caching: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo | 1 segundo
+Cache: Positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
+Cache: Negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhum | 1 segundo | 1 segundo
  
 ### <a name="deal-with-origin-failure"></a>Lidar com falhas de origem  
 

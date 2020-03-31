@@ -6,23 +6,23 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156099"
 ---
-# <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolva modelos do Azure Resource Manager para consistência de nuvem
+# <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência de nuvem
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento em um local são reutilizáveis em outro. Um modelo torna as implantações consistentes e repetíveis entre ambientes, incluindo o Azure global, as nuvens soberanas do Azure e o Azure Stack. No entanto, para reutilizar modelos entre nuvens, você precisa considerar dependências específicas da nuvem, como explica este guia.
+Um dos principais benefícios do Azure é a consistência. Os investimentos de desenvolvimento em um local são reutilizáveis em outro. Um modelo ARM (Resource Manager, gerente de recursos do Azure) torna suas implantações consistentes e repetíveis em ambientes, incluindo as nuvens soberanas globais Azure, Azure e Azure Stack. No entanto, para reutilizar modelos entre nuvens, você precisa considerar dependências específicas da nuvem, como explica este guia.
 
 A Microsoft oferece serviços de nuvem inteligentes e prontos para a empresa em muitos locais, incluindo:
 
 * A plataforma Azure global com suporte de uma rede cada vez maior de datacenters gerenciados pela Microsoft em regiões no mundo todo.
-* Nuvens soberanas isoladas como Azure Alemanha, Azure governamental e Azure China 21Vianet. As nuvens soberanas fornecem uma plataforma consistente com a maioria dos mesmos recursos excelentes aos quais os clientes do Azure global têm acesso.
+* Nuvens soberanas isoladas como a Azure Alemanha, O Governo do Azure e a China 21Vianet. As nuvens soberanas fornecem uma plataforma consistente com a maioria dos mesmos recursos excelentes aos quais os clientes do Azure global têm acesso.
 * Azure Stack, uma plataforma de nuvem híbrida que possibilita entregar serviços do Azure por meio do datacenter de sua empresa. As empresas podem configurar o Azure Stack em seus próprios datacenters ou consumir os Serviços do Azure por meio de provedores de serviço, executando o Azure Stack em suas instalações (também conhecidas como regiões hospedadas).
 
 No centro de todas essas nuvens, o Azure Resource Manager fornece uma API que permite a comunicação de uma ampla variedade de interfaces do usuário com a plataforma Azure. Essa API oferece funcionalidades avançadas de infraestrutura como código. Qualquer tipo de recurso que está disponível na plataforma de nuvem do Azure pode ser implantado e configurado com o Azure Resource Manager. Com um único modelo, você pode implantar e configurar seu aplicativo completo para um estado final operacional.
@@ -33,7 +33,7 @@ A consistência do Azure global, as nuvens soberanas, as nuvens hospedadas e uma
 
 No entanto, embora as nuvens globais, soberanas, hospedadas e híbridas forneçam serviços consistentes, nem todas as nuvens são idênticas. Como resultado, você pode criar um modelo com dependências dos recursos disponíveis apenas em uma nuvem específica.
 
-O restante deste guia descreve as áreas a serem consideradas no planejamento para desenvolver novos modelos ou atualizar modelos existentes do Azure Resource Manager para o Azure Stack. Em geral, sua lista de verificação deve incluir os seguintes itens:
+O resto deste guia descreve as áreas a serem consideradas ao planejar desenvolver novos ou atualizados modelos ARM existentes para o Azure Stack. Em geral, sua lista de verificação deve incluir os seguintes itens:
 
 * Verifica se as funções, os pontos de extremidade, os serviços e outros recursos no modelo estão disponíveis nos locais de implantação de destino.
 * Armazene modelos aninhados e artefatos de configuração em locais acessíveis, garantindo o acesso entre nuvens.
@@ -41,17 +41,17 @@ O restante deste guia descreve as áreas a serem consideradas no planejamento pa
 * Garanta que os parâmetros de modelo usados funcionam nas nuvens de destino.
 * Verifique se as propriedades específicas do recurso estão disponíveis nas nuvens de destino.
 
-Para obter uma introdução aos modelos do Azure Resource Manager, confira [Implantação de modelo](overview.md).
+Para uma introdução aos modelos ARM, consulte [implantação de modelos](overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Garantir o funcionamento das funções de modelo
 
-A sintaxe básica de um modelo do Resource Manager é o JSON. Os modelos usam um superconjunto do JSON, estendendo a sintaxe com expressões e funções. O processador de linguagem do modelo é frequentemente atualizado para dar suporte a funções de modelo adicionais. Para obter uma explicação detalhada sobre as funções de modelo disponíveis, confira [Funções de modelo do Azure Resource Manager](template-functions.md).
+A sintaxe básica de um modelo ARM é JSON. Os modelos usam um superconjunto do JSON, estendendo a sintaxe com expressões e funções. O processador de linguagem do modelo é frequentemente atualizado para dar suporte a funções de modelo adicionais. Para obter uma explicação detalhada das funções do modelo disponível, consulte [as funções do modelo ARM](template-functions.md).
 
 As novas funções de modelo introduzidas no Azure Resource Manager não ficam imediatamente disponíveis nas nuvens soberanas ou no Azure Stack. Para implantar um modelo com êxito, todas as funções referenciadas no modelo precisam estar disponíveis na nuvem de destino.
 
 As funcionalidades do Azure Resource Manager sempre serão introduzidas primeiro no Azure global. Use o seguinte script do PowerShell para verificar se as funções de modelo recém-introduzidas também estão disponíveis no Azure Stack:
 
-1. Crie um clone do repositório GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
+1. Faça um clone do repositório [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)GitHub: .
 
 1. Quando você tiver um clone local do repositório, conecte-se ao Azure Resource Manager do destino com o PowerShell.
 
@@ -205,7 +205,7 @@ Para construir o URI absoluto de um artefato, o método preferencial é usar a f
 }
 ```
 
-Com essa abordagem, todos os artefatos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar o local de todos os vínculos, você precisa apenas especificar uma URL base diferente para os _parâmetros artifactsLocation_.
+Com essa abordagem, todos os artefatos de implantação, incluindo scripts de configuração, podem ser armazenados no mesmo local com o próprio modelo. Para alterar a localização de todos os links, você só precisa especificar uma URL base diferente para os _parâmetros de localização_dos artefatos .
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Incluir funcionalidades regionais diferentes
 
@@ -439,12 +439,12 @@ Namespaces de ponto de extremidade também pode ser usados na saída de um model
 * Cadeias de conexão (MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Gerenciador de Tráfego
 * domainNameLabel de um endereço IP público
-* Serviços de nuvem
+* Serviços de Nuvem
 
 Em geral, evite pontos de extremidade embutidos em código em um modelo. A melhor prática é usar a função de modelo de referência para recuperar os pontos de extremidade dinamicamente. Por exemplo, o ponto de extremidade mais geralmente embutido em código é o namespace de ponto de extremidade para contas de armazenamento. Cada conta de armazenamento tem um FQDN exclusivo que é construído pela concatenação do nome da conta de armazenamento com o namespace de ponto de extremidade. Uma conta de Armazenamento de Blobs chamada mystorageaccount1 resulta em FQDNs diferentes, dependendo da nuvem:
 
 * **mystorageaccount1.blob.core.windows.net** quando criado na nuvem do Azure global.
-* **mystorageaccount1.blob.Core.chinacloudapi.cn** quando criado na nuvem da 21Vianet do Azure na China.
+* **mystorageaccount1.blob.core.chinacloudapi.cn** quando criado na nuvem Azure China 21Vianet.
 
 A seguinte função de modelo de referência recupera o namespace de ponto de extremidade do provedor de recursos de armazenamento:
 
@@ -487,7 +487,7 @@ Para recuperar uma lista das imagens de VM disponíveis em um local, execute o s
 az vm image list -all
 ```
 
-Recupere a mesma lista com o cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e especifique o local desejado com o parâmetro `-Location`. Por exemplo:
+Recupere a mesma lista com o cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e especifique o local desejado com o parâmetro `-Location`. Por exemplo: 
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -497,7 +497,7 @@ Esse comando leva alguns minutos para retornar todas as imagens disponíveis na 
 
 Se você disponibilizou essas imagens de VM para o Azure Stack, o armazenamento disponível é consumido. Para acomodar até mesmo a menor unidade de escala, o Azure Stack permite que você selecione as imagens que deseja adicionar a um ambiente.
 
-O seguinte exemplo de código mostra uma abordagem consistente para referir-se ao fornecedor, à oferta e aos parâmetros de SKU nos modelos do Azure Resource Manager:
+A amostra de código a seguir mostra uma abordagem consistente para consultar os parâmetros do editor, da oferta e do SKU em seus modelos ARM:
 
 ```json
 "storageProfile": {
@@ -590,7 +590,7 @@ Para recuperar uma lista das extensões de VM que estão disponíveis para uma r
 az vm extension image list --location myLocation
 ```
 
-Execute também o cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e use `-Location` para especificar o local da imagem de máquina virtual. Por exemplo:
+Execute também o cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e use `-Location` para especificar o local da imagem de máquina virtual. Por exemplo: 
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -651,7 +651,7 @@ Para ver uma lista de fornecedores, use o comando [Get-AzureRmVmImagePublisher](
 
 ## <a name="tips-for-testing-and-automation"></a>Dicas para testes e automação
 
-É um desafio manter o controle de todas as configurações relacionadas, as funcionalidades e as limitações durante a criação de um modelo. A abordagem comum é desenvolver e testar modelos em uma única nuvem antes de direcioná-los a outros locais. No entanto, quanto mais cedo os testes forem executados no processo de criação, menos solução de problemas e reescrita de código precisarão ser feitas por sua equipe de desenvolvimento. Pode ser demorado solucionar problemas de implantações que falham devido a dependências de local. É por isso que recomendamos testes automatizados o mais rápido possível no ciclo de criação. Por fim, você precisará de menos tempo de desenvolvimento e menos recursos, e seus artefatos consistentes com a nuvem se tornarão ainda mais valiosos.
+É um desafio manter o controle de todas as configurações relacionadas, as funcionalidades e as limitações durante a criação de um modelo. A abordagem comum é desenvolver e testar modelos em uma única nuvem antes de direcioná-los a outros locais. No entanto, quanto mais cedo os testes forem executados no processo de criação, menos solução de problemas e reescrita de código precisarão ser feitas por sua equipe de desenvolvimento. Pode ser demorado solucionar problemas de implantações que falham devido a dependências de local. É por isso que recomendamos testes automatizados o mais cedo possível no ciclo de criação. Por fim, você precisará de menos tempo de desenvolvimento e menos recursos, e seus artefatos consistentes com a nuvem se tornarão ainda mais valiosos.
 
 A imagem a seguir mostra um exemplo típico de um processo de desenvolvimento para uma equipe usando um IDE (ambiente de desenvolvimento integrado). Em estágios diferentes na linha do tempo, diferentes tipos de teste são executados. Aqui, dois desenvolvedores estão trabalhando na mesma solução, mas esse cenário se aplica igualmente a um único desenvolvedor ou a uma equipe grande. Normalmente, cada desenvolvedor cria uma cópia local de um repositório central, permitindo que cada um trabalhe na cópia local sem afetar os outros que podem estar trabalhando nos mesmos arquivos.
 
@@ -665,7 +665,7 @@ Considere as seguintes dicas para testes e automação:
 * Lembre-se de que alguns testes podem ser executados sem uma conexão com o Azure Resource Manager. Outros, como o teste de implantação de modelo, exigem que o Resource Manager execute determinadas ações que não podem ser executadas offline.
 * O teste de um modelo de implantação na API de validação não é igual a uma implantação real. Além disso, mesmo se você implantar um modelo de um arquivo local, as referências aos modelos aninhados no modelo serão recuperadas pelo Resource Manager diretamente, e os artefatos referenciados pelas extensões de VM serão recuperados pelo agente de VM em execução dentro da VM implantada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Considerações sobre o modelo do Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
-* [Melhores práticas para modelos do Azure Resource Manager](template-syntax.md)
+* [Práticas recomendadas para modelos ARM](template-syntax.md)

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969315"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
@@ -23,19 +23,19 @@ O tipo de resolução de nomes que você usa depende de como as máquinas virtua
 
 A tabela a seguir ilustra os cenários e as soluções de resolução de nomes correspondentes:
 
-| **Cenário** | **Solução** | **Suffix** |
+| **Cenário** | **Solução** | **Sufixo** |
 | --- | --- | --- |
 | Resolução de nomes entre as instâncias de função ou as máquinas virtuais na mesma rede virtual |Resolução de nomes que o Azure fornece |nome de host ou FQDN (nome de domínio totalmente qualificado) |
-| Resolução de nomes entre as instâncias de função ou as máquinas virtuais em redes virtuais diferentes |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
-| Resolução de nomes de serviço e de computador locais em instâncias de função ou máquinas virtuais no Azure |Servidores DNS gerenciados pelo cliente (por exemplo, controlador de domínio local, controlador de domínio somente leitura local ou DNS secundário sincronizados usando transferências de zona). Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
-| Resolução de nomes de host do Azure de computadores locais |Encaminhe consultas para um servidor de proxy de DNS gerenciada pelo cliente na rede virtual correspondente. O servidor proxy encaminha consultas para o Azure para resolução. Confira [Resolução de nomes usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
+| Resolução de nomes entre as instâncias de função ou as máquinas virtuais em redes virtuais diferentes |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS). Consulte [a resolução Nome usando seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
+| Resolução de nomes de serviço e de computador locais em instâncias de função ou máquinas virtuais no Azure |Servidores DNS gerenciados pelo cliente (por exemplo, controlador de domínio local, controlador de domínio somente leitura local ou DNS secundário sincronizados usando transferências de zona). Consulte [a resolução Nome usando seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
+| Resolução de nomes de host do Azure de computadores locais |Encaminhe consultas para um servidor de proxy de DNS gerenciada pelo cliente na rede virtual correspondente. O servidor proxy encaminha consultas para o Azure para resolução. Consulte [a resolução Nome usando seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Somente FQDN |
 | DNS inverso para IPs internos |[Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |n/d |
 
 ## <a name="name-resolution-that-azure-provides"></a>Resolução de nomes que o Azure fornece
 Junto com a resolução de nomes DNS públicos, o Azure fornece uma resolução de nomes interna para máquinas virtuais e instâncias de função que estão na mesma rede virtual. Em redes virtuais baseadas no Azure Resource Manager, o sufixo DNS é consistente em toda a rede virtual; o FQDN não é necessário. Os nomes DNS podem ser atribuídos a máquinas virtuais e placas de adaptador de rede (NICs). Embora a resolução de nomes que o Azure fornece não solicite qualquer configuração, ela não é a escolha apropriada para todos os cenários de implantação, como mostrado na tabela acima.
 
 ### <a name="features-and-considerations"></a>Recursos e considerações
-**Recursos:**
+**Características:**
 
 * não é necessária nenhuma configuração para usar a resolução de nomes que o Azure fornece.
 * O serviço de resolução de nomes que o Azure fornece está altamente disponível. Você não precisa criar e gerenciar clusters de seus próprios servidores DNS.
@@ -64,14 +64,14 @@ Vários pacotes de cache DNS diferentes, como dnsmasq, estão disponíveis. Aqui
 **Ubuntu (usa resolvconf)**
   * Instale o pacote dnsmasq ("sudo apt-get install dnsmasq").
 
-**SUSE (usa netconf)** :
+**SUSE (usa netconf)**:
 1. Instale o pacote dnsmasq ("sudo zypper install dnsmasq").
 2. Habilite o serviço dnsmasq ("systemctl enable dnsmasq.service").
 3. Inicie o serviço dnsmasq ("systemctl start dnsmasq.service").
 4. Edite "/etc/sysconfig/network/config" e altere NETCONFIG_DNS_FORWARDER = "" para "dnsmasq".
 5. Atualize resolv.conf ("netconfig update") para definir o cache do resolvedor DNS local.
 
-**CentOS por Rogue Wave Software (anteriormente OpenLogic) (usa o NetworkManager)**
+**CentOS by Rogue Wave Software (anteriormente OpenLogic; usa NetworkManager)**
 1. Instale o pacote de dnsmasq ("sudo yum install dnsmasq").
 2. Habilite o serviço dnsmasq ("systemctl enable dnsmasq.service").
 3. Inicie o serviço dnsmasq ("systemctl start dnsmasq.service").
@@ -83,7 +83,7 @@ Vários pacotes de cache DNS diferentes, como dnsmasq, estão disponíveis. Aqui
 >
 >
 
-**Tentativa no lado do cliente**
+**Tentativas do lado do cliente**
 
 O DNS é principalmente um protocolo UDP. Como o protocolo UDP não garante a entrega de mensagens, o próprio protocolo DNS manipula a lógica de repetição. Cada cliente DNS (sistema operacional) pode apresentar uma lógica de repetição diferente dependendo da preferência dos criadores:
 
@@ -104,7 +104,7 @@ O arquivo resolv.conf é gerado automaticamente e não deve ser editado. As etap
 1. Adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG_DNS_RESOLVER_OPTIONS = "" em '/ etc/sysconfig/rede/config'.
 2. Execute 'netconfig update' para atualizar.
 
-**CentOS por Rogue Wave Software (anteriormente OpenLogic)** (usa o NetworkManager)
+**CentOS by Rogue Wave Software (anteriormente OpenLogic)** (usa NetworkManager)
 1. Adicione 'RES_OPTIONS="timeout:1 attempts:5"' to '/etc/sysconfig/network'.
 2. Execute 'service network restart' para atualizar.
 

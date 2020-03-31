@@ -1,16 +1,16 @@
 ---
 title: Adicionar autenticação no Apache Cordova
-description: Saiba como usar aplicativos móveis no serviço de Azure App para autenticar usuários de seu aplicativo Apache Cordova com provedores de identidade, como Google, Facebook, Twitter e Microsoft.
+description: Aprenda a usar aplicativos móveis no Azure App Service para autenticar usuários do seu aplicativo Apache Cordova com provedores de identidade como Google, Facebook, Twitter e Microsoft.
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 3714ce2a8098608851991115aa82afdc00d08a47
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459381"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Adicionar autenticação ao aplicativo Apache Cordova
@@ -19,12 +19,12 @@ ms.locfileid: "77459381"
 ## <a name="summary"></a>Resumo
 Neste tutorial, você adiciona a autenticação ao projeto de início rápido todolist no Apache Cordova usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [Introdução aos Aplicativos Móveis] , que você deve concluir primeiro.
 
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. No Visual Studio:
@@ -35,7 +35,7 @@ Agora, é possível verificar se o acesso anônimo para o back-end foi desabilit
 
 Em seguida, atualize o aplicativo para autenticar os usuários antes de solicitar recursos do back-end do Aplicativo Móvel.
 
-## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 1. Abra o projeto no **Visual Studio** e abra o arquivo `www/index.html` para edição.
 2. Localize a marca meta `Content-Security-Policy` na seção de cabeçalho.  Adicione o host OAuth à lista de fontes permitidas.
 
@@ -85,7 +85,7 @@ Em seguida, atualize o aplicativo para autenticar os usuários antes de solicita
 4. No código que você acabou de adicionar, substitua `SDK_Provider_Name` pelo nome de seu provedor de logon. Por exemplo, para o Azure Active Directory, use `client.login('aad')`.
 5. Execute seu projeto.  Após a conclusão da inicialização do projeto, o aplicativo mostrará a página de logon do OAuth para o provedor de autenticação escolhido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a><a name="next-steps"></a>Próximos passos
 * Saiba mais [Sobre autenticação] com o Serviço de Aplicativo do Azure.
 * Continue o tutorial adicionando [Notificações por push] a seu aplicativo do Apache Cordova.
 
@@ -98,7 +98,7 @@ Saiba como usar os SDKs.
 <!-- URLs. -->
 [Introdução aos Aplicativos Móveis]: app-service-mobile-cordova-get-started.md
 [documentação de Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
-[Notificações por Push]: app-service-mobile-cordova-get-started-push.md
+[Notificações push]: app-service-mobile-cordova-get-started-push.md
 [Sobre autenticação]: app-service-mobile-auth.md
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

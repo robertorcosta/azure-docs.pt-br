@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76932542"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](dns-operations-recordsets-portal.md)
-> * [CLI clássica do Azure](dns-operations-recordsets-cli-nodejs.md)
-> * [CLI do Azure](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Cli clássico do Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
+> * [Powershell](dns-operations-recordsets.md)
 
 Este artigo mostra como gerenciar os registros de DNS para sua zona de DNS usando o Azure PowerShell. Os registros DNS também podem ser gerenciados usando a [CLI do Azure](dns-operations-recordsets-cli.md) da plataforma cruzada ou o [portal do Azure](dns-operations-recordsets-portal.md).
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 ## <a name="create-a-new-dns-record"></a>Criar um novo registro DNS
 
-Se o novo registro tem o mesmo nome e tipo de um registro existente, você precisa [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tiver um nome e tipo diferentes para todos os registros existentes, você precisará criar um novo conjunto de registros. 
+Se o seu novo registro tiver o mesmo nome e digite como um registro existente, você precisa [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tiver um nome e tipo diferentes para todos os registros existentes, você precisará criar um novo conjunto de registros. 
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Criar registros 'A' em um novo conjunto de registros
 
@@ -230,7 +230,7 @@ Para adicionar um registro a um conjunto de registros existente, siga estas trê
     Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-O uso de `Set-AzDnsRecordSet` *substitui* o conjunto de registros existente no DNS do Azure (e todos os registros que ele contém) pelo conjunto de registros especificado. As [verificações de Etag](dns-zones-records.md#etags) são usadas para garantir que as alterações simultâneas não sejam substituídas. Você pode usar o argumento `-Overwrite` opcional para omitir essas verificações.
+Usar `Set-AzDnsRecordSet` *substitui* o conjunto de registros existente no DNS do Azure (e todos os registros que ele contém) pelo conjunto de registros especificado. As [verificações de Etag](dns-zones-records.md#etags) são usadas para garantir que as alterações simultâneas não sejam substituídas. Você pode usar o argumento `-Overwrite` opcional para omitir essas verificações.
 
 Esta sequência de operações também pode ser *redirecionada*, significando que você passa o objeto do conjunto de registros usando a barra vertical, em vez de passá-lo como um parâmetro:
 
@@ -392,7 +392,7 @@ Você pode substituir a configuração `$ConfirmPreference` atual usando o parâ
 
 Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, consulte [Sobre as Variáveis de Preferência](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as [zonas e os registros no DNS do Azure](dns-zones-records.md).
 <br>

@@ -1,22 +1,22 @@
 ---
 title: Cache local
-description: Saiba como o cache local funciona no serviço Azure App e como habilitar, redimensionar e consultar o status do cache local do seu aplicativo.
+description: Saiba como funciona o cache local no Azure App Service e como ativar, redimensionar e consultar o status do cache local do seu aplicativo.
 tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
 ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78227882"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 
 > [!NOTE]
-> O cache local não tem suporte em aplicativos de funções ou aplicativos de serviço de aplicativo em contêiner, como em [contêineres do Windows](app-service-web-get-started-windows-container.md) ou no [serviço de aplicativo no Linux](containers/app-service-linux-intro.md).
+> O cache local não é suportado em aplicativos de função ou aplicativos de serviço de aplicativo contêiner, como em [Contêineres do Windows](app-service-web-get-started-windows-container.md) ou no [App Service no Linux](containers/app-service-linux-intro.md).
 
 
 O conteúdo do Serviço de Aplicativo do Azure é armazenado no Armazenamento do Microsoft Azure e exibido de forma duradoura como um compartilhamento de conteúdo. Esse design tem como objetivo trabalhar com vários aplicativos e tem os seguintes atributos:  
@@ -24,7 +24,7 @@ O conteúdo do Serviço de Aplicativo do Azure é armazenado no Armazenamento do
 * O conteúdo é compartilhado entre várias instâncias de VM (máquina virtual) do aplicativo.
 * O conteúdo é duradouro e pode ser modificado pela execução dos aplicativos.
 * Os arquivos de log e arquivos de dados de diagnóstico estão disponíveis na mesma pasta de conteúdo compartilhado.
-* A publicação de novo conteúdo atualiza a pasta de conteúdo diretamente. Você pode exibir imediatamente o mesmo conteúdo por meio do site do SCM e do aplicativo em execução (normalmente, algumas tecnologias, como ASP.NET, iniciam uma reinicialização do aplicativo em algumas alterações de arquivo para obter o conteúdo mais recente).
+* A publicação de novo conteúdo atualiza a pasta de conteúdo diretamente. Você pode visualizar imediatamente o mesmo conteúdo através do site do SCM e do aplicativo em execução (normalmente algumas tecnologias, como ASP.NET iniciar uma reinicialização do aplicativo em algumas alterações de arquivo para obter o conteúdo mais recente).
 
 Embora muitos aplicativos usem um ou todos esses recursos, outros precisam somente de um repositório de conteúdo de alto desempenho somente leitura de onde eles possam ser executados com alta disponibilidade. Esses aplicativos podem se beneficiar de uma instância de máquina virtual de um cache local específico.
 
@@ -36,7 +36,7 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como o cache local altera o comportamento do serviço de aplicativo
 * _D:\home_ aponta para o cache local, que é criado na instância da VM quando o aplicativo é inicializado. _D:\local_ continua apontando para o armazenamento temporário específico da VM.
-* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 300 MB por padrão, mas você pode aumentá-lo em até 2 GB. Se os arquivos copiados excederem o tamanho do cache local, o serviço de aplicativo ignorará silenciosamente o cache local e lerá do compartilhamento de arquivos remoto.
+* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 300 MB por padrão, mas você pode aumentá-lo em até 2 GB. Se os arquivos copiados excederem o tamanho do cache local, o App Service ignorará silenciosamente o cache local e lerá a partir do compartilhamento remoto de arquivos.
 * O cache local é de leitura/gravação. No entanto, qualquer modificação é descartada quando o aplicativo move as máquinas virtuais ou é reiniciado. Não use o cache local para aplicativos que armazenam dados de missão crítica no armazenamento de conteúdo.
 * _D:\home\LogFiles_ e _D:\home\Data_ contêm arquivos de log e dados do aplicativo. As duas subpastas são armazenadas localmente na instância da VM e são copiadas para o armazenamento de conteúdo compartilhado periodicamente. Os aplicativos podem manter arquivos e dados de log, gravando-os nessas pastas. No entanto, a cópia para o armazenamento de conteúdo compartilhado é melhor esforço, por isso, é possível que os arquivos de log e os dados sejam perdidos devido a uma falha súbita de uma instância de VM.
 * [ O fluxo de logs ](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Você pode observar até um atraso de um minuto nos logs transmitidos.
@@ -48,8 +48,8 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 ## <a name="enable-local-cache-in-app-service"></a>Habilitar o Cache Local no Serviço de Aplicativo
 Configure o Cache Local usando uma combinação de configurações de aplicativo reservadas. Você pode configurar essas configurações de aplicativo usando os seguintes métodos:
 
-* [Azure portal](#Configure-Local-Cache-Portal)
-* [Azure Resource Manager](#Configure-Local-Cache-ARM)
+* [Portal Azure](#Configure-Local-Cache-Portal)
+* [Gerente de Recursos do Azure](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurar o Cache Local usando o portal do Azure
 <a name="Configure-Local-Cache-Portal"></a>
@@ -94,7 +94,7 @@ Recomendamos que você use o Cache Local em conjunto com o recurso [Ambientes de
 * Quando estiver pronto, execute uma [operação de permuta](../app-service/deploy-staging-slots.md#Swap) entre seus slots de Preparo e de Produção.  
 * As configurações temporárias incluem o nome e a parte temporária em um slot. Assim, quando o Slot de preparo for trocado pelo de Produção, ele herda as configurações do aplicativo do Cache Local. O Slot de produção recém-trocado será executado no cache local após alguns minutos e será aquecido como parte do aquecimento de slot após a troca. Assim, quando a permuta do slot é concluída, o slot de produção é executado no cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como saber se o Cache Local se aplica ao meu aplicativo?
 Se o seu aplicativo precisa de um repositório de conteúdo confiável e de alto desempenho, não usa o repositório de conteúdo para gravar dados críticos em runtime e tem menos de 2 GB de tamanho total, a resposta é sim! Para obter o tamanho total das pastas /siteextensions e /site, você pode usar a extensão de site "Uso de Disco de Aplicativos Web do Azure."

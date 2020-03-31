@@ -1,21 +1,21 @@
 ---
-title: Solucionar problemas de backup lento de arquivos e pastas
+title: Solucionando problemas de backup lento de arquivos e pastas
 description: Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa dos problemas de desempenho de Backup do Azure
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c650ee735ffcdd50f4361a867fa592f4965ab68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78295956"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408684"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 
 Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
 
-* [Há afunilamentos de desempenho no computador que está sendo submetido a backup.](#cause1)
+* [Há gargalos de desempenho no computador que estão sendo backup.](#cause1)
 * [Outro processo ou software antivírus está interferindo com o processo de Backup do Azure.](#cause2)
 * [O agente do Backup está em execução em uma VM (máquina virtual) do Azure.](#cause3)  
 * [Você está fazendo backup de um grande número de arquivos (milhões).](#cause4)
@@ -26,17 +26,17 @@ Também recomendamos que você revise as [Perguntas frequentes do serviço Backu
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Causa: trabalho de backup em execução no modo não otimizado
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Causa: Trabalho de backup em execução no modo não otimizado
 
-* O agente MARS pode executar o trabalho de backup no **modo otimizado** usando o diário de alterações do USN (número de sequência de atualização) ou o **modo não otimizado** verificando as alterações em diretórios ou arquivos examinando todo o volume.
-* O modo não otimizado é lento porque o agente precisa verificar cada arquivo no volume e comparar com os metadados para determinar os arquivos alterados.
-* Para verificar isso, abra os **detalhes do trabalho** no console do agente Mars e verifique o status para ver se ele diz transferência de **dados (não otimizado, pode levar mais tempo)** , conforme mostrado abaixo:
+* O agente MARS pode executar o trabalho de backup no **modo otimizado** usando usn (número de seqüência de atualização) ou **modo não otimizado,** verificando se há alterações em diretórios ou arquivos, digitalizando todo o volume.
+* O modo não otimizado é lento porque o agente tem que escanear cada arquivo no volume e comparar com os metadados para determinar os arquivos alterados.
+* Para verificar isso, abra **os detalhes** do trabalho do console do agente MARS e verifique o status para ver se ele diz transferir **dados (não otimizados, pode levar mais tempo)** como mostrado abaixo:
 
-    ![Executando em modo não otimizado](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+    ![Funcionando no modo não otimizado](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
-* As seguintes condições podem fazer com que o trabalho de backup seja executado no modo não otimizado:
-  * O primeiro backup (também conhecido como replicação inicial) sempre será executado no modo não otimizado
-  * Se o trabalho de backup anterior falhar, o próximo trabalho de backup agendado será executado como não otimizado.
+* As seguintes condições podem fazer com que o trabalho de backup é executado no modo não otimizado:
+  * O primeiro backup (também conhecido como Replicação Inicial) será sempre executado no modo não otimizado
+  * Se o trabalho de backup anterior falhar, o próximo trabalho de backup programado será executado como não otimizado.
 
 <a id="cause1"></a>
 
@@ -44,19 +44,19 @@ Também recomendamos que você revise as [Perguntas frequentes do serviço Backu
 
 Gargalos no computador do qual está sendo feito backup podem causar atrasos. Por exemplo, a capacidade do computador de ler ou gravar em disco ou a largura de banda disponível para enviar dados pela rede podem causar gargalos.
 
-O Windows fornece uma ferramenta interna chamada Perfmon ( [Monitor de desempenho](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) ) para detectar esses afunilamentos.
+O Windows fornece uma ferramenta incorporada chamada Monitor de [Desempenho](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) para detectar esses gargalos.
 
 Veja alguns contadores de desempenho e intervalos que podem ser úteis para diagnosticar gargalos para obter o backup ideal.
 
 | Contador | Status |
 | --- | --- |
-| Disco Lógico(Disco Físico) – %ocioso |* 100% ociosos a 50% ocioso = íntegro</br>* 49% ociosos a 20% ociosos = aviso ou monitor</br>* 19% ociosos a 0% ocioso = crítico ou fora de especificação |
-| Disco lógico (disco físico)--% média de disco s leitura ou gravação |* 0, 1 ms a 0, 15 ms = íntegro</br>* 0, 15 ms a 0, 25 MS = aviso ou monitor</br>* 0, 26 MS ou maior = crítico ou fora de especificação |
+| Disco Lógico(Disco Físico) – %ocioso |* 100% ocioso a 50% ocioso = Saudável</br>* 49% ocioso a 20% ocioso = Aviso ou Monitor</br>* 19% ocioso a 0% ocioso = Crítico ou Fora de Especificação |
+| Disco lógico (disco físico)--%Avg. Disk Sec Ler ou gravar |* 0,001 ms a 0,015 ms = Saudável</br>* 0,015 ms a 0,025 ms = Aviso ou Monitor</br>* 0,026 ms ou mais = Crítico ou Fora de Especificação |
 | Disco Lógico(Disco Físico) -- Comprimento da Fila do Disco Atual (para todas as instâncias) |80 solicitações por mais de seis minutos |
-| Memória--Bytes de Pool não Pagináveis |* Menos de 60% do pool consumido = íntegro<br>* 61% a 80% do pool consumido = aviso ou monitor</br>* Maior que 80% de pool consumido = crítico ou fora de especificação |
-| Memória--Bytes de Pool Pagináveis |* Menos de 60% do pool consumido = íntegro</br>* 61% a 80% do pool consumido = aviso ou monitor</br>* Maior que 80% de pool consumido = crítico ou fora de especificação |
-| Memória--Megabytes disponíveis |* 50% de memória livre disponível ou mais = íntegro</br>* 25% de memória livre disponível = monitor</br>* 10% de memória livre disponível = aviso</br>* Menos de 100 MB ou 5% de memória livre disponível = crítico ou fora de especificação |
-| Processor--\%Tempo do Processor (todas as instâncias) |* Menor que 60% consumido = íntegro</br>* 61% a 90% consumido = monitor ou cuidado</br>* 91% a 100% consumido = crítico |
+| Memória--Bytes de Pool não Pagináveis |* Menos de 60% da piscina consumida = Saudável<br>* 61% a 80% da piscina consumida = Aviso ou Monitor</br>* Maior que 80% de piscina consumida = Crítico ou Fora de Especificação |
+| Memória--Bytes de Pool Pagináveis |* Menos de 60% da piscina consumida = Saudável</br>* 61% a 80% da piscina consumida = Aviso ou Monitor</br>* Maior que 80% de piscina consumida = Crítico ou Fora de Especificação |
+| Memória--Megabytes disponíveis |* 50% da memória gratuita disponível ou mais = Saudável</br>* 25% da memória gratuita disponível = Monitor</br>* 10% da memória gratuita disponível = Aviso</br>* Menos de 100 MB ou 5% da memória livre disponível = Crítica ou Fora de Especificação |
+| Processor--\%Tempo do Processor (todas as instâncias) |* Menos de 60% consumido = Saudável</br>* 61% a 90% consumidos = Monitor ou Cuidado</br>* 91% a 100% consumido = Crítico |
 
 > [!NOTE]
 > Se você determinar que a infraestrutura é o motivo, é recomendável desfragmentar os discos regularmente para melhorar o desempenho.
@@ -95,3 +95,7 @@ Os seguintes indicadores podem ajudá-lo a entender o gargalo e funcionam adequa
 
 * **A interface do usuário está mostrando o progresso para a transferência de dados**. Os dados ainda estão sendo transferidos. A largura de banda de rede ou o tamanho dos dados podem estar causando atrasos.
 * **A interface do usuário não está mostrando o progresso para a transferência de dados**. Abra os logs localizados em C:\Arquivos de Programas\Agente de Serviços de Recuperação do Microsoft Azure\Temp e, em seguida, verifique a entrada FileProvider::EndData nos logs. Essa entrada significa que a transferência de dados foi concluída e a operação de catálogo está ocorrendo. Não cancele os trabalhos de backup. Em vez disso, espere um pouco mais até a conclusão da operação de catálogo. Se o problema persistir, contate o [suporte do Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Perguntas comuns sobre backup de arquivos e pastas](backup-azure-file-folder-backup-faq.md)

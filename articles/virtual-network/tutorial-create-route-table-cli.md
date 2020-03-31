@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: ff5897766bb56b76a34940ecd786773fd844a336
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683109"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235060"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
-Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes dentro de uma rede virtual. É possível criar as próprias rotas para substituir o roteamento padrão do Azure. A capacidade de criar rotas personalizadas será útil, por exemplo, se você quiser rotear o tráfego entre sub-redes por meio de uma NVA (solução de virtualização de rede). Neste artigo, você aprenderá a:
+Por padrão, o Azure roteia automaticamente o tráfego entre todas as sub-redes dentro de uma rede virtual. É possível criar as próprias rotas para substituir o roteamento padrão do Azure. A capacidade de criar rotas personalizadas será útil, por exemplo, se você quiser rotear o tráfego entre sub-redes por meio de uma NVA (solução de virtualização de rede). Neste artigo, você aprenderá como:
 
 * Criar uma tabela de rotas
 * Criar uma rota
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.28 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
@@ -51,11 +51,11 @@ Antes que você possa criar uma tabela de rotas, crie um grupo de recursos com [
 az group create \
   --name myResourceGroup \
   --location eastus
-``` 
+```
 
 Crie uma tabela de rotas com [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). O exemplo a seguir cria uma tabela de rotas nomeada *myRouteTablePublic*. 
 
-```azurecli-interactive 
+```azurecli-interactive
 # Create a route table
 az network route-table create \
   --resource-group myResourceGroup \
@@ -74,7 +74,7 @@ az network route-table route create \
   --address-prefix 10.0.1.0/24 \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address 10.0.2.4
-``` 
+```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
@@ -123,7 +123,7 @@ Uma NVA é uma VM que executa uma função de rede, como roteamento, firewall ou
 
 Criar uma NVA na sub-rede *DMZ* com [az vm create](/cli/azure/vm). Quando você cria uma VM, o Azure cria e atribui um endereço IP público para a VM, por padrão. O parâmetro `--public-ip-address ""` instrui o Azure para não criar e atribuir um endereço IP público para a VM, pois a VM não precisa estar conectada à internet. Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
 
-```azure-cli-interactive
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
@@ -155,6 +155,7 @@ az vm extension set \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
+
 O comando pode demorar até um minuto para executar.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
@@ -192,7 +193,7 @@ az vm create \
 
 A VM demora alguns minutos para criar. Quando a VM estiver criada, a CLI do Azure mostra informações semelhantes ao exemplo a seguir: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
@@ -204,13 +205,14 @@ A VM demora alguns minutos para criar. Quando a VM estiver criada, a CLI do Azur
   "resourceGroup": "myResourceGroup"
 }
 ```
+
 Anote o **publicIpAddress**. Esse endereço será usado para acessar a VM da internet em uma etapa posterior.
 
 ## <a name="route-traffic-through-an-nva"></a>Rotear o tráfego por meio de uma NVA
 
-Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua  *\<publicIpAddress >* com o endereço IP público da VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua * \<publicIpAddress>* pelo endereço IP público da VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -218,7 +220,7 @@ Quando uma senha for solicitada, insira a senha que você selecionou em [Criar m
 
 Utilize o comando a seguir para instalar o rastreamento de rotas na VM *myVmPrivate*:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -230,7 +232,7 @@ traceroute myVmPublic
 
 A resposta é semelhante ao seguinte exemplo:
 
-```bash
+```output
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
@@ -239,13 +241,13 @@ Você pode ver que o tráfego é roteado diretamente da VM *myVmPrivate* para a 
 
 Utilize o comando a seguir para SSH para a VM *myVmPublic* da VM *myVmPrivate*:
 
-```bash 
+```bash
 ssh azureuser@myVmPublic
 ```
 
 Utilize o comando a seguir para instalar o rastreamento de rotas na VM *myVmPublic*:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -257,11 +259,12 @@ traceroute myVmPrivate
 
 A resposta é semelhante ao seguinte exemplo:
 
-```bash
+```output
 traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
+
 Você pode ver que o primeiro salto é 10.0.2.4, que é o endereço IP privado da NVA. O segundo salto é 10.0.1.4, o endereço IP privado da VM *myVmPrivate*. A rota adicionada à tabela de rotas *myRouteTablePublic* e associada à sub-rede *Pública* fez o Azure encaminhar o tráfego através de NVA, em vez de diretamente para a sub-rede *Privada*.
 
 Feche as sessões SSH para as VMs *myVmPublic* e *myVmPrivate*.
@@ -270,7 +273,7 @@ Feche as sessões SSH para as VMs *myVmPublic* e *myVmPrivate*.
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

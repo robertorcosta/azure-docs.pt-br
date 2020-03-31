@@ -1,5 +1,5 @@
 ---
-title: Filtragem geográfica em um domínio para o serviço de porta frontal do Azure
+title: Filtragem geogeografe em um domínio para o Serviço de Porta Frontal do Azure
 description: Neste artigo, você aprenderá sobre a política de filtragem geográfica do Azure Front Door Service
 services: web-application-firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 7c49892f97d9c15efcaecccb6133c67133e81c87
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137553"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472598"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica em um domínio do Azure Front Door?
 
@@ -21,7 +21,7 @@ Por padrão, o Azure Front Door Service responde às solicitações de usuário,
 
 Uma política de WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é composta de condições de correspondência, uma ação e uma prioridade. Na condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência.  Para a regra de filtragem geográfica, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, o valor é o código de país de duas letras. Você pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de caracteres REQUEST_URI para criar uma regra de filtragem geográfica com base no caminho.
 
-Você pode configurar uma política de filtragem geográfica para sua porta frontal usando o portal do Azure, [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) ou nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Você pode configurar uma política de filtragem geográfica para seu Front Door usando o [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) ou usando nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="country-code-reference"></a>Referência do código do país
 

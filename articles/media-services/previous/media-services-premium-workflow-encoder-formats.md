@@ -15,10 +15,10 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269751"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs e formatos de fluxo de trabalho do Media Encoder Premium
@@ -28,13 +28,13 @@ ms.locfileid: "79269751"
 
 Este documento contém uma lista de formatos de arquivo de entrada e saída e codecs com suporte pela versão de demonstração pública do codificador de **Fluxo de trabalho do Media Encoder Premium** .
 
-[Codecs e formatos de entrada do Media Encoder Premium Workflow](#input_formats)
+[Formatos e codecs de fluxo de trabalho premium do codificador de mídia](#input_formats)
 
 Codecs e formatos de saída do Media Encoder Premium Workflow
 
 **Fluxo de trabalho do Media Encoder Premium** dá suporte a legendas codificadas descritas [nesta](#closed_captioning) seção 
 
-## <a id="input_formats"></a>Codecs e formatos de entrada de fluxo de trabalho do Media Encoder Premium
+## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codecs e formatos de entrada de fluxo de trabalho do Media Encoder Premium
 
 A seção a seguir lista os codecs e formatos de arquivo aos quais esse processador de mídia dá suporte como entrada.
 
@@ -71,7 +71,7 @@ A seção a seguir lista os codecs e formatos de arquivo aos quais esse processa
 * Áudio do Windows Media
 * WAV/PCM
 
-## <a id="output_format"></a>Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium
+## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium
 
 A seção a seguir lista os codecs e formatos de arquivo com suporte como a saída desse processador de mídia.
 
@@ -112,7 +112,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 >[!NOTE]
 >Se você codificar para Dolby® Digital (AC3), a saída só poderá ser gravada em um arquivo ISO MP4.
 
-## <a id="closed_captioning"></a>Suporte a legenda codificada
+## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>Suporte a legenda codificada
 
 Na ingestão, o **fluxo de trabalho do Media Encoder Premium** dá suporte a:
 
@@ -139,7 +139,7 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Abra um tíquete de suporte navegando até [Nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Você pode abrir um ticket de suporte navegando para [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

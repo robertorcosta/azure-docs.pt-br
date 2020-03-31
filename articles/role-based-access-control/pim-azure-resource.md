@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o acesso aos recursos do Azure com o Azure AD e o PIM
+title: Gerencie o acesso aos recursos do Azure com o Azure AD e o PIM
 description: Saiba como gerenciar acesso aos recursos do Azure usando PIM (Azure Active Directory Privileged Identity Management) e RBAC (controle de acesso baseado em função).
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.openlocfilehash: 53c6375ce04425eae27f4c935e613cc27d058dc8
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77138046"
 ---
 # <a name="manage-access-to-azure-resources-with-azure-ad-privileged-identity-management"></a>Gerenciar o acesso aos recursos do Azure com o Azure AD Privileged Identity Management

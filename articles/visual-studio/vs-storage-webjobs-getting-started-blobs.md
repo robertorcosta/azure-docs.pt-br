@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de BLOBs usando o Visual Studio (projetos de trabalho Web)
+title: Comece com o armazenamento blob usando o Visual Studio (projetos WebJob)
 description: Como começar a usar o armazenamento de Blob em um projeto WebJob depois de se conectar a um armazenamento do Azure usando os serviços conectados do Visual Studio.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72299966"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de Blob do Azure e aos serviços conectados do Visual Studio (projetos WebJob)
@@ -29,7 +29,7 @@ Este artigo fornece exemplos de código C# que mostram como disparar um processo
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Como disparar uma função quando um blob é criado ou atualizado
 Esta seção mostra como usar o atributo **BlobTrigger** .
 
- **Observação:** O SDK dos Trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo é inerentemente lento; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado.  Se seu aplicativo precisar processar blobs imediatamente, o método recomendado é criar uma mensagem da fila ao criar o blob e usar o atributo **QueueTrigger** em vez do atributo **BlobTrigger** na função que processa o blob.
+ **Observação:** o SDK dos trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo é inerentemente lento; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado.  Se seu aplicativo precisar processar blobs imediatamente, o método recomendado é criar uma mensagem da fila ao criar o blob e usar o atributo **QueueTrigger** em vez do atributo **BlobTrigger** na função que processa o blob.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Espaço reservado único para nome de blob com extensão
 O seguinte exemplo de código copia blobs de texto que aparecem no contêiner de *entrada* para o contêiner de *saída*:
@@ -79,7 +79,7 @@ O exemplo de código a seguir altera a extensão do arquivo à medida que ele co
 ## <a name="types-that-you-can-bind-to-blobs"></a>Tipos que você pode associar a blobs
 Você pode usar o atributo **BlobTrigger** nos seguintes tipos:
 
-* **string**
+* **String**
 * **TextReader**
 * **Fluxo**
 * **ICloudBlob**
@@ -145,7 +145,7 @@ O número máximo de novas tentativas é configurável. A mesma **MaxDequeueCoun
 
 A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionID (no formato *{nome do trabalho Web}* . Funções. *{Nome da função}* , por exemplo: WebJob1.Functions.CopyBlob)
+* FunctionId (no formato *{Nome do Trabalho Web}*.Functions.*{Nome da função}*, por exemplo: Trabalho Web1.Functions.CopyBlob)
 * BlobType ("BlockBlob" ou "PageBlob")
 * ContainerName
 * BlobName
@@ -194,7 +194,7 @@ O SDK de WebJobs garante que nenhuma função **BlobTrigger** seja chamada mais 
 
 Os recebimentos de blob são armazenados em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure especificada pela cadeia de conexão AzureWebJobsStorage. Um recebimento de blob tem as seguintes informações:
 
-* A função que foi chamada para o blob (" *{nome do WebJob}* . Funções. *{Nome da função}* ", por exemplo: "WebJob1.Functions.CopyBlob")
+* A função que foi chamada para o blob ("*{Nome do Trabalho Web}*.Functions.*{Nome da função}*", por exemplo: "Trabalho Web1.Functions.CopyBlob")
 * O nome do contêiner
 * O tipo de blob ("BlockBlob" ou "PageBlob")
 * O nome do blob

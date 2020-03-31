@@ -5,10 +5,10 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/08/2019
 ms.openlocfilehash: 5089af4a4e1714d49b844a1b6823487a3f6a8dcf
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74483004"
 ---
 Comece a usar o serviço Detector de Anomalias criando um dos recursos do Azure abaixo.
@@ -37,7 +37,7 @@ Usando a chave e o ponto de extremidade do recurso criado, crie duas variáveis 
 
 Use as instruções para seu sistema operacional.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx ANOMALY_DETECTOR_KEY <replace-with-your-anomaly-detector-key>
@@ -46,7 +46,7 @@ setx ANOMALY_DETECTOR_ENDPOINT <replace-with-your-anomaly-detector-endpoint>
 
 Depois de adicionar a variável de ambiente, reinicie a janela do console.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
@@ -55,7 +55,7 @@ export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 
 Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela de console para que as alterações entrem em vigor.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Edite seu `.bash_profile` e adicione a variável de ambiente:
 
