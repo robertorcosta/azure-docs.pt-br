@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a70e52771828de6cc9fad7998097d70c28a64fd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: MT
+ms.openlocfilehash: 9f9f7f709d31967e892900ccb25657a5963c0379
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127441"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370212"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: criar um locatário na área de trabalho virtual do Windows
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Criar um locatário na Área de Trabalho Virtual do Windows
 
 A criação de um locatário na Área de Trabalho Virtual do Windows é a primeira etapa para a criação de sua solução de virtualização de área de trabalho. Um locatário é um grupo de um ou mais pools de host. Cada pool de hosts consiste em vários hosts de sessão, em execução como máquinas virtuais no Azure e registrados no serviço da Área de Trabalho Virtual do Windows. Cada pool de hosts também consiste em um ou mais grupos de aplicativos que são usados para publicar recursos de aplicativo remoto e área de trabalho remota para usuários. Com um locatário, é possível criar pools de hosts, criar grupos de aplicativos, atribuir usuários e fazer conexões por meio do serviço.
 
@@ -82,7 +82,7 @@ Para atribuir a função de aplicativo TenantCreator:
 3. Selecione **Usuários e grupos**. Você pode ver que o administrador que deu consentimento ao aplicativo já está listado com a função **Acesso Padrão** atribuída. Isso não é suficiente para criar um locatário da Área de Trabalho Virtual do Windows. Continue a seguir estas instruções para adicionar a função **TenantCreator** a um usuário.
    
    ![Captura de tela dos usuários e grupos designados para gerenciar o aplicativo empresarial "Área de Trabalho Virtual do Windows". A captura de tela mostra apenas uma atribuição, que é de "Acesso Padrão".](media/tenant-default-access.png)
-4. Selecione **Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na folha **Adicionar Atribuição**.
+4. Selecione **+ Adicionar usuário** e, em seguida, selecione **Usuários e grupos** na guia **Adicionar Atribuição**.
 5. Pesquise uma conta de usuário que criará o locatário da Área de Trabalho Virtual do Windows. Para simplificar, isso pode ser a conta de administrador global.
    - Se você estiver usando um provedor de identidade da Microsoft, como contosoadmin@live.com ou contosoadmin@outlook.com, talvez não consiga entrar na Área de Trabalho Virtual do Windows. É recomendável usar uma conta específica do domínio, como admin@contoso.com ou admin@contoso.onmicrosoft.com.
 
@@ -148,7 +148,7 @@ New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -A
 New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de criar seu locatário, você precisará criar uma entidade de serviço no Azure Active Directory e atribuir a ela uma função dentro da Área de Trabalho Virtual do Windows. A entidade de serviço permitirá que você implante com êxito a oferta do Azure Marketplace da Área de Trabalho Virtual do Windows para criar um pool de host. Para saber mais sobre os pools de host, continue com o tutorial para criar um pool de hosts na Área de Trabalho Virtual do Windows.
 

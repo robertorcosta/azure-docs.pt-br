@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c938b6174226ef9ea1104c5e95968d6122e922cf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72386317"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Enviar notificações por push para dispositivos Android usando Hubs de Notificação do Microsoft Azure e o Google Cloud Messaging (preterido)
@@ -53,7 +53,7 @@ Neste tutorial, você executa as seguintes ações:
 > * Conectar seu aplicativo ao hub de notificação
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
@@ -76,7 +76,7 @@ Neste tutorial, você executa as seguintes ações:
 
 Agora, o hub de notificação está configurado para funcionar com o GCM, e você tem as cadeias de conexão para registrar seu aplicativo para receber e enviar notificações por push.
 
-## <a id="connecting-app"></a>Conectar seu aplicativo ao hub de notificação
+## <a name="connect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Conectar seu aplicativo ao hub de notificação
 
 ### <a name="create-a-new-android-project"></a>Criar um novo aplicativo Android
 
@@ -167,8 +167,8 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
     Atualize os três espaços reservados no código a seguir para a classe `NotificationSettings`:
 
    * `SenderId`: o número do projeto obtido anteriormente no [Console do Google Cloud](https://cloud.google.com/console).
-   * `HubListenConnectionString`: a cadeia de conexão `DefaultListenAccessSignature` para seu hub. Você pode copiar essa cadeia de conexão clicando em **Políticas de Acesso** na página **Configurações** do hub no [Portal do Azure].
-   * `HubName`: use o nome do hub de notificação que aparece na página do hub no [Portal do Azure].
+   * `HubListenConnectionString`: a cadeia de conexão `DefaultListenAccessSignature` para seu hub. Você pode copiar essa cadeia de conexão clicando em **Políticas de Acesso** na página **Configurações** do hub no [Azure portal].
+   * `HubName`: use o nome do hub de notificação que aparece na página do hub no [Azure portal].
 
      `NotificationSettings` :
 
@@ -383,7 +383,7 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
         });
     }
     ```
-10. O método `ToastNotify` usa o controle *"Hello World"* `TextView` para informar de forma persistente o status e as notificações no aplicativo. No layout activity_main.xml, adicione a seguinte ID para esse controle.
+10. O método `ToastNotify` usa o controle *"Olá, Mundo"* `TextView` para informar de modo persistente o status e as notificações no aplicativo. No layout activity_main.xml, adicione a seguinte ID para esse controle.
 
     ```xml
     android:id="@+id/text_hello"
@@ -468,10 +468,10 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 
 ### <a name="test-send-push-notifications-from-the-azure-portal"></a>Testar e enviar notificações por push do portal do Azure
 
-Você pode testar o recebimento de notificações por push em seu aplicativo enviando-as por meio do [portal do Azure].
+Você pode testar o recebimento de notificações por push em seu aplicativo enviando-as por meio do [Azure portal].
 
 1. Na seção **Solução de problemas**, selecione **Envio de Teste**.
-2. Para **Plataformas**, selecione **Android**.
+2. Em **Plataformas**, selecione **Android**.
 3. Selecione **Enviar** para enviar a notificação de teste.
 4. Confirme que você vê a mensagem de notificação no dispositivo Android.
 
@@ -518,7 +518,7 @@ Normalmente, você enviaria notificações usando um servidor back-end. Em algun
     ```
 3. Em seu arquivo `NotificationSetting.java`, adicione a seguinte configuração à classe `NotificationSettings`.
 
-    Atualize `HubFullAccess` com a cadeia de conexão **DefaultFullSharedAccessSignature** para o hub. Essa cadeia de conexão pode ser copiada do [portal do Azure] clicando em **Políticas de Acesso** na página **Configurações** do hub de notificação.
+    Atualize `HubFullAccess` com a cadeia de conexão **DefaultFullSharedAccessSignature** para o hub. Essa cadeia de conexão pode ser copiada do [Azure portal] clicando em **Políticas de Acesso** na página **Configurações** do hub de notificação.
 
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
@@ -746,4 +746,4 @@ Neste tutorial, você envia notificações de transmissão para todos os seus di
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

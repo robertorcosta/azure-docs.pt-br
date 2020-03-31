@@ -9,14 +9,16 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 878b64fe6dd491adbb61c4c74cf4a5fc039858cd
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163034"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79371402"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar a Versão prévia dos Gêmeos Digitais do Azure e configurar um grafo espacial
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 Você pode usar o serviço de versão prévia dos Gêmeos Digitais do Azure para reunir pessoas, lugares e dispositivos em um sistema espacial coerente. Esta série de tutoriais demonstra como usar os Gêmeos Digitais do Azure para detectar a ocupação de salas com condições ideais de temperatura e qualidade do ar. 
 
@@ -36,7 +38,7 @@ No primeiro tutorial desta série, você aprenderá a:
 
 Estes tutoriais usam e modificam os mesmos exemplos que o [início rápido para encontrar salas disponíveis](quickstart-view-occupancy-dotnet.md) usa, para uma cobertura mais detalhada e aprofundada dos conceitos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você ainda não tem uma conta do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

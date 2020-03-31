@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127760"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294823"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -123,11 +123,32 @@ Para otimizar o desempenho, verifique se a rede atende aos seguintes requisitos:
 
 Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área de Trabalho Virtual do Windows:
 
-* [Windows](connect-windows-7-and-10.md)
+* [Área de trabalho do Windows](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (versão prévia)](connect-android.md)
+
+> [!IMPORTANT]
+> A Área de Trabalho Virtual do Windows não dá suporte ao cliente de RADC (Conexões de RemoteApp e Área de Trabalho) nem ao cliente de Conexão de Área de Trabalho Remota (MSTSC).
+
+> [!IMPORTANT]
+> No momento, a Área de Trabalho Virtual do Windows não dá suporte ao cliente da Área de Trabalho Remota da Microsoft Store. O suporte para esse cliente será adicionado em uma versão futura.
+
+Os clientes da Área de Trabalho Remota precisam ter acesso às seguintes URLs:
+
+|Endereço|Porta de saída|Finalidade|Cliente(s)|
+|---|---|---|---|
+|*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|Todos|
+|*.servicebus.windows.net|Porta TCP 443|Solucionar problemas de dados|Todos|
+|go.microsoft.com|Porta TCP 443|FWLinks da Microsoft|Todos|
+|aka.ms|Porta TCP 443|Redutor de URL da Microsoft|Todos|
+|docs.microsoft.com|Porta TCP 443|Documentação|Todos|
+|privacy.microsoft.com|Porta TCP 443|Política de privacidade|Todos|
+|query.prod.cms.rt.microsoft.com|Porta TCP 443|Atualizações do cliente|Área de Trabalho do Windows|
+
+>[!IMPORTANT]
+>Abrir essas URLs é essencial para ter uma experiência do cliente confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos do cliente e não incluem URLs para outros serviços, como o Azure Active Directory.
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens compatíveis do sistema operacional da máquina virtual
 

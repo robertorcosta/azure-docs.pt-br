@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: copiar de VHDs para Managed disks'
+title: 'Tutorial: Copiar de VHDs para discos gerenciados'
 titleSuffix: Azure Data Box
 description: Saiba como copiar dados de VHDs de cargas de trabalho de VM local para o Azure Data Box
 services: databox
@@ -9,36 +9,38 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 965c768df9138d850c2ac9f88e3797dcc54fa3fc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380204"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501864"
 ---
-# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: usar Data Box para importar dados como discos gerenciados no Azure
+# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Usar o Data Box para importar dados como discos gerenciados no Azure
 
 Este tutorial descreve como usar o Azure Data Box para migrar VHDs locais para discos gerenciados no Azure. Os VHDs de VMs locais são copiados para o Data Box como blobs de páginas e transferidos por upload para o Azure como discos gerenciados. Em seguida, esses discos gerenciados podem ser anexados a VMs do Azure.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Examinar os pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [tutorial: configurar Azure data Box](data-box-deploy-set-up.md).
+1. Você concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**.
 3. Você está conectado a uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se não houver uma conexão de 10 GbE disponível, use um link de dados de 1 GbE, mas as velocidades de cópia são afetadas.
 4. Você revisou:
 
     - [Tamanhos compatíveis de disco gerenciado nos limites de tamanho de objeto do Azure](data-box-limits.md#azure-object-size-limits).
     - [Introdução aos discos gerenciados do Azure](/azure/virtual-machines/windows/managed-disks-overview). 
+
+5. Você manteve uma cópia dos dados de origem até ter confirmado que o Data Box transferiu os seus dados para o Armazenamento do Azure.
 
 ## <a name="connect-to-data-box"></a>Conectar-se à caixa de dados
 
@@ -93,7 +95,7 @@ Se estiver usando um computador host do Windows Server, siga estas etapas para c
 
     ```
     C:\>net use \\169.254.250.200\mydbmdrgl_MDisk /u:mdisk
-    Enter the password for ‘mdisk’ to connect to '169.254.250.200':
+    Enter the password for 'mdisk' to connect to '169.254.250.200':
     The command completed successfully.
     C: \>
     ```

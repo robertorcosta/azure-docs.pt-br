@@ -8,29 +8,30 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: f0a4bb23d8a868e7c11153748259eba23a0cca38
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380217"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501830"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: copiar dados para Azure Data Box via NFS
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio do NFS
 
 Este tutorial descreve como conectar-se e copiar dados do computador host usando a IU da Web local.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * {1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+>
+> * Pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
-1. Você concluiu o [Tutorial: Configurar a Caixa de Dados do Azure](data-box-deploy-set-up.md).
+1. Você concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
 2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**.
 3. Você tem um computador host que tem os dados que você deseja copiar para o Data Box. O computador host deve
     - Executar um [Sistema operacional com suporte](data-box-system-requirements.md).
@@ -83,17 +84,17 @@ Se você estiver usando um computador host Linux, execute as seguintes etapas pa
 
 Quando você estiver conectado aos compartilhamentos de caixa de dados, a próxima etapa é copiar dados. Antes de começar a cópia de dados, examine as considerações a seguir:
 
-- Assegure-se de copiar os dados para compartilhamentos que correspondam ao formato de dados apropriado. Por exemplo, copie os dados blob do bloco para o compartilhamento de blobs de bloco. Copie VHDs para blobs de páginas. Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o upload de dados para o Azure falhará.
--  Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos nos [armazenamento do Azure e nos limites da Caixa de Dados](data-box-limits.md). 
-- Se os dados, que estão sendo carregados pelo Data Box, forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas de trabalho de upload e corrupção de dados.
-- Recomendamos que você não use o SMB e o NFS simultaneamente ou copie os mesmos dados para o mesmo destino final no Azure. Em tais casos, o resultado final não pode ser determinado.
-- **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
-- Em caso de ingestão de diretório e nomes de arquivos que diferenciam maiúsculas de minúsculas de um compartilhamento NFS para NFS em Data Box: 
-    - O uso de maiúsculas e minúsculas é preservado no nome.
-    - Os arquivos não diferenciam maiúsculas de minúsculas.
-    
-    Por exemplo, ao copiar `SampleFile.txt` e `Samplefile.Txt`, a diferença será preservada no nome quando copiada para a Data Box, mas o segundo arquivo substituirá o primeiro, pois são considerados o mesmo arquivo.
+* Assegure-se de copiar os dados para compartilhamentos que correspondam ao formato de dados apropriado. Por exemplo, copie os dados blob do bloco para o compartilhamento de blobs de bloco. Copie VHDs para blobs de páginas. Se o formato de dados não corresponder ao tipo de compartilhamento apropriado, em uma etapa posterior, o upload de dados para o Azure falhará.
+*  Ao copiar dados, verifique se o tamanho dos dados está de acordo com os limites de tamanho descritos nos [armazenamento do Azure e nos limites da Caixa de Dados](data-box-limits.md). 
+* Se os dados, que estão sendo carregados pelo Data Box, forem carregados simultaneamente por outros aplicativos fora do Data Box, isso poderá resultar em falhas de trabalho de upload e corrupção de dados.
+* Recomendamos que você não use o SMB e o NFS simultaneamente ou copie os mesmos dados para o mesmo destino final no Azure. Em tais casos, o resultado final não pode ser determinado.
+* **Sempre crie uma pasta para os arquivos que você pretende copiar no compartilhamento e, em seguida, copie os arquivos para a pasta**. A pasta criada nos compartilhamentos de blob de blocos e de blob de páginas representa um contêiner no qual os dados são carregados como blobs. Não é possível copiar arquivos diretamente para a pasta *raiz* na conta de armazenamento.
+* Em caso de ingestão de diretório e nomes de arquivos que diferenciam maiúsculas de minúsculas de um compartilhamento NFS para NFS em Data Box:
+  * O diferença entre maiúsculas e minúsculas é preservada no nome.
+  * Os arquivo não diferenciam maiúsculas de minúsculas.
 
+    Por exemplo, ao copiar `SampleFile.txt` e `Samplefile.Txt`, a diferença será preservada no nome quando copiada para a Data Box, mas o segundo arquivo substituirá o primeiro, pois são considerados o mesmo arquivo.
+* Mantenha uma cópia dos dados de origem até que haja a confirmação de que o Data Box transferiu os seus dados para o Armazenamento do Azure.
 
 Se você estiver usando um computador host Linux, use um utilitário de cópia semelhante ao Robocopy. Algumas das alternativas disponíveis no Linux são [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -143,12 +144,12 @@ Para garantir a integridade dos dados, a soma de verificação é computada em l
    ![Verificar o espaço livre e usado no painel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * {1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+> * Pré-requisitos
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 

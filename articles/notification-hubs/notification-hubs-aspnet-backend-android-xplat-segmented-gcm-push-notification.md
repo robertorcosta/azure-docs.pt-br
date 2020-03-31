@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa2aa7b77bf174f4a2ca89408ee037b398a32e4d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387437"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127297"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Enviar notificações por push para dispositivos Android específicos usando os Hubs de Notificação do Azure e o Google Cloud Messaging (preterido)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Tutorial: Enviar notificações por push para dispositivos Android específicos usando o Google Cloud Messaging (preterido)
 
 > [!WARNING]
 > Em 10 de abril de 2018, o Google preteriu o GCM (Google Cloud Messaging). As APIs de cliente e servidor do GCM foram preteridas e serão removidas até 29 de maio de 2019. Para saber mais, confira [Perguntas frequentes sobre o GCM e o FCM](https://developers.google.com/cloud-messaging/faq).
@@ -45,7 +45,7 @@ Neste tutorial, você executa as seguintes ações:
 > * Enviar notificações marcadas.
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial se baseia no aplicativo criado no [Tutorial: Enviar notificações por push para dispositivos Android usando Hubs de Notificação do Microsoft Azure e o Google Cloud Messaging][get-started]. Antes de iniciar este tutorial, conclua o [Tutorial: Enviar notificações por push para dispositivos Android usando Hubs de Notificação do Microsoft Azure e o Google Cloud Messaging][get-started].
 
@@ -328,7 +328,7 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 Neste tutorial, você enviou notificações de notícias a dispositivos específicos Android que foram registrados para as categorias. Para saber como enviar notificações por push a usuários específicos, avance ao seguinte tutorial:
 
 > [!div class="nextstepaction"]
->[Notificações por push para usuários específicos](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[Enviar notificações por push para usuários específicos](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

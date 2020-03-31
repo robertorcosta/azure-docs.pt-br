@@ -69,18 +69,24 @@
           href: boot-diagnostics.md
         - name: Erros de BitLocker
           href: troubleshoot-bitlocker-boot-error.md
-        - name: Verificação de erros do sistema de arquivos
-          href: troubleshoot-check-disk-boot-error.md
         - name: Erros de tela azul
           href: troubleshoot-common-blue-screen-error.md
-        - name: Inicialização da VM paralisada
-          href: troubleshoot-vm-boot-configure-update.md
+        - name: Verificação de erros do sistema de arquivos
+          href: troubleshoot-check-disk-boot-error.md
+        - name: Processo crítico desabilitado
+          href: troubleshoot-guide-critical-process-died.md
         - name: Falha de serviço crítico
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: Não é um disco inicializável
+          href: troubleshoot-guide-not-bootable-disk.md
         - name: Reinicializar loop
           href: troubleshoot-reboot-loop.md
         - name: Preso na atualização do Windows
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Inicialização da VM paralisada
+          href: troubleshoot-vm-boot-configure-update.md
+        - name: Não é possível inicializar a VM devido ao gerenciador de inicialização do Windows
+          href: troubleshoot-guide-windows-boot-manager-menu.md
 - name: Não é possível conectar-se à minha VM
   items:
     - name: RDP

@@ -1,5 +1,5 @@
 ---
-title: Notificações por push para Windows Phones específicos usando Hubs de Notificação do Azure | Microsoft Docs
+title: Enviar notificações por push para Windows Phones específicos usando Hubs de Notificação do Azure | Microsoft Docs
 description: Neste tutorial, você aprende a usar os Hubs de Notificação do Azure para enviar notificações por push dispositivos Windows Phone 8 ou Windows Phone 8.1 específicos (não todos) registrados com o back-end do aplicativo.
 services: notification-hubs
 documentationcenter: windows
@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213398"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126937"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para dispositivos Windows Phone específicos usando Hubs de Notificação do Azure
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para Windows Phones específicos usando Hubs de Notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 > * Enviar notificações marcadas
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua o [Tutorial: Enviar notificações por push para aplicativos do Windows Phone usando Hubs de Notificação do Azure](notification-hubs-windows-mobile-push-notifications-mpns.md). Neste tutorial, você atualiza o aplicativo móvel para poder se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias.
 

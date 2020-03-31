@@ -9,15 +9,15 @@ ms.date: 03/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: d5165b160ffc196416052a56aaa0d93c05db56bc
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127992"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222283"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: criar um pool de hosts usando o Azure Marketplace
+# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um pool de host usando o Azure Marketplace
 
-Neste tutorial, você aprenderá a criar um pool de hosts em um locatário de área de trabalho virtual do Windows usando uma oferta Microsoft Azure Marketplace.
+Neste tutorial, você aprenderá como criar um pool de hosts em um locatário de Área de Trabalho Virtual do Windows usando uma oferta do Microsoft Azure Marketplace.
 
 Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas dentro dos ambientes de locatário da Área de Trabalho Virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativo com o qual os usuários podem interagir como se eles estivessem em uma área de trabalho física.
 
@@ -30,10 +30,10 @@ As tarefas neste tutorial incluem:
 > * Associar as VMs ao domínio do Active Directory.
 > * Registrar as VMs com a Área de Trabalho Virtual do Windows.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um locatário na área de trabalho virtual. Um [tutorial](tenant-setup-azure-active-directory.md) anterior cria um locatário.
-* [Módulo do PowerShell de área de trabalho virtual do Windows](/powershell/windows-virtual-desktop/overview/).
+* [Módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/).
 
 Quando você tiver esse módulo, execute o seguinte cmdlet para entrar em sua conta:
 
@@ -57,53 +57,53 @@ Depois disso, siga as instruções na próxima seção para inserir as informaç
 
 ### <a name="basics"></a>Noções básicas
 
-Veja o que você faz para a guia **noções básicas** :
+Veja o que você faz para a guia **Noções básicas**:
 
 1. Selecione uma **Assinatura**.
-1. Para **grupo de recursos**, selecione **criar novo** e forneça um nome para o novo grupo de recursos.
-1. Selecione uma **região**.
-1. Insira um nome para o pool de hosts que é exclusivo no locatário da área de trabalho virtual do Windows.
-1. Selecione **tipo de área de trabalho**. Se você selecionar **pessoal**, cada usuário que se conecta a esse pool de hosts é permanentemente atribuído a uma máquina virtual.
-1. Insira os usuários que podem entrar nos clientes de área de trabalho virtual do Windows e acessar uma área de trabalho. Use uma lista separada por vírgulas. Por exemplo, se você quiser atribuir `user1@contoso.com` e `user2@contoso.com` acesso, digite *`user1@contoso.com,user2@contoso.com`*
-1. Para **local de metadados de serviço**, selecione o mesmo local que a rede virtual que tem conectividade com o servidor de Active Directory.
+1. Para o **Grupo de recursos**, selecione **Criar** e forneça um nome para o novo grupo de recursos.
+1. Selecione uma **Região**.
+1. Insira um nome para o pool de hosts que seja exclusivo dentro do locatário da Área de Trabalho Virtual do Windows.
+1. Selecione **Tipo de área de trabalho**. Se você selecionar **Pessoal**, cada usuário que se conectar a esse pool de hosts será atribuído permanentemente a uma máquina virtual.
+1. Insira os usuários que podem entrar nos clientes de Área de Trabalho Virtual do Windows e acessar uma área de trabalho. Usar uma lista separada por vírgulas. Por exemplo, se você quiser atribuir acesso a `user1@contoso.com` e `user2@contoso.com`, insira *`user1@contoso.com,user2@contoso.com`*
+1. Para **Local dos metadados de serviço**, selecione o mesmo local da rede virtual que tenha conectividade com o servidor do Active Directory.
 
    >[!IMPORTANT]
-   >Se você estiver usando uma solução Azure Active Directory Domain Services pura (Azure AD DS) e Azure Active Directory (Azure AD), certifique-se de implantar o pool de hosts na mesma região que o seu AD DS do Azure para evitar erros de associação de domínio e de credenciais.
+   >Se você estiver usando o Azure AD DS (Azure Active Directory Domain Services) e a solução do Azure AD (Azure Active Directory), não se esqueça de implantar o pool de hosts na mesma região que o Azure AD DS para evitar erros de associação de domínio e de credenciais.
 
-1. Selecione **Avançar: configurar máquinas virtuais**.
+1. Selecione **Avançar: Configurar máquinas virtuais**.
 
 ### <a name="configure-virtual-machines"></a>Configurar máquinas virtuais
 
-Para a guia **configurar máquinas virtuais** :
+Para a guia **Configurar máquinas virtuais**:
 
-1. Aceite os padrões ou personalize o número e o tamanho das máquinas virtuais.
+1. Aceite os padrões ou personalize o número e tamanho das máquinas virtuais.
 
     >[!NOTE]
-    >Se o tamanho específico da máquina virtual que você está procurando não aparecer no seletor de tamanho, isso é porque ainda não o integramos à ferramenta do Azure Marketplace. Para solicitar um tamanho, crie uma solicitação ou vote em uma solicitação existente no [Fórum de UserVoice da área de trabalho virtual do Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Se o tamanho específico da máquina virtual que você procura não aparece no seletor de tamanho, é porque ainda não o integramos à ferramenta Azure Marketplace. Para solicitar um tamanho, crie uma solicitação ou atualize uma solicitação existente no [fórum UserVoice da Área de Trabalho Virtual do Windows](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
-1. Digite um prefixo para os nomes das máquinas virtuais. Por exemplo, se você inserir o *prefixo*, as máquinas virtuais serão chamadas de **prefixo-0**, **prefixo-1**e assim por diante.
-1. Selecione **Avançar: configurações da máquina virtual**.
+1. Digite um prefixo para os nomes das máquinas virtuais. Por exemplo, se você inserir o nome *prefixo*, as máquinas virtuais serão chamadas de **prefixo-0,** **prefixo-1** e assim por diante.
+1. Selecione **Avançar: Configurações da máquina virtual**.
 
 ### <a name="virtual-machine-settings"></a>Configurações da máquina virtual
 
-Para a guia **configurações de máquina virtual** :
+Para a guia **Configurações de máquina virtual**:
 
-1. Para **Origem da imagem**, selecione a origem e insira as informações apropriadas para saber como encontrá-las e como armazená-las. As opções são diferentes para o armazenamento de BLOBs, a imagem gerenciada e a galeria.
+1. Para **Origem da imagem**, selecione a origem e insira as informações apropriadas para saber como encontrá-las e como armazená-las. As opções são diferentes para o Armazenamento de blobs, a Imagem gerenciada e a Galeria.
 
-   Se você optar por não usar discos gerenciados, selecione a conta de armazenamento que contém o arquivo *. vhd* .
-1. Insira o nome principal do usuário e a senha. Essa conta deve ser a conta de domínio que adicionará as máquinas virtuais ao domínio Active Directory. Esse mesmo nome de usuário e senha será criado nas máquinas virtuais como uma conta local. É possível redefinir essas contas locais mais tarde.
+   Se você optar por não usar discos gerenciados, selecione a conta de armazenamento que contém o arquivo *.vhd*.
+1. Insira o nome UPN e a senha. Essa conta deve ser a conta de domínio que adicionará as máquinas virtuais ao domínio do Active Directory. Esse mesmo nome de usuário e senha será criado nas máquinas virtuais como uma conta local. É possível redefinir essas contas locais mais tarde.
 
    >[!NOTE]
-   > Se você estiver unindo suas máquinas virtuais a um ambiente de AD DS do Azure, verifique se o usuário ingressar no domínio é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+   > Se você estiver unindo suas máquinas virtuais em um ambiente do Azure AD DS, verifique se o usuário de ingresso no domínio é um membro do [grupo de Administradores do AAD DC](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
    >
-   > A conta também deve fazer parte do Azure AD DS domínio gerenciado ou locatário do Azure AD. Contas de diretórios externos associadas ao seu locatário do Azure AD não podem ser autenticadas corretamente durante o processo de ingresso no domínio.
+   > A conta também precisa fazer parte do domínio gerenciado do Azure AD DS ou do locatário do Azure AD. Contas de diretórios externos associadas ao seu locatário do Azure AD não podem ser autenticadas corretamente durante o processo de ingresso no domínio.
 
-1. Selecione a **rede virtual** que tem conectividade com o servidor de Active Directory e, em seguida, escolha uma sub-rede para hospedar as máquinas virtuais.
-1. Selecione **Avançar: informações da área de trabalho virtual do Windows**.
+1. Selecione a **Rede virtual** que tem conectividade com o servidor do Active Directory e escolha uma sub-rede para hospedar as máquinas virtuais.
+1. Selecione **Avançar: Informações da Área de Trabalho Virtual do Windows**.
 
 ### <a name="windows-virtual-desktop-tenant-information"></a>Informações de locatário da Área de Trabalho Virtual do Windows
 
-Para a guia **informações de locatário da área de trabalho virtual do Windows** :
+Para a guia **Informações de locatário da Área de Trabalho Virtual do Windows**:
 
 1. Para **Nome do grupo de locatário da Área de Trabalho Virtual do Windows**, digite o nome do grupo de locatário que contém seu locatário. Deixe-o como o padrão, a menos que você tenha recebido um nome de grupo de locatário específico.
 1. Para **Nome de locatário da Área de Trabalho Virtual do Windows**, digite o nome do locatário no qual você criará esse pool de hosts.
@@ -111,29 +111,29 @@ Para a guia **informações de locatário da área de trabalho virtual do Window
 
    Se você concluiu o [Criar entidades de serviço e atribuições de função com o PowerShell](./create-service-principal-role-powershell.md), selecione **Entidade de Serviço**.
 
-1. Para a **entidade de serviço**, para a ID de **locatário do Azure ad**, insira a conta de administrador de locatários para a instância do Azure AD que contém a entidade de serviço. Há suporte apenas para entidades de serviço com uma credencial de senha.
-1. Selecione **Avançar: revisar + criar**.
+1. Para **Entidade de serviço**, para **ID do locatário do Azure AD**, insira a conta do administrador de locatários para a instância do Azure AD que contém a entidade de serviço. Há suporte apenas para entidades de serviço com uma credencial de senha.
+1. Selecione **Avançar: Revisar + criar**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Conclua a instalação e crie a máquina virtual
 
-Em **examinar e criar**, examine as informações de instalação. Se você precisar alterar algo, volte e faça as alterações. Quando estiver pronto, selecione **criar** para implantar o pool de hosts.
+Em **Examinar e Criar**, examine as informações de instalação. Se você precisar alterar algo, volte e faça as alterações. Quando você estiver pronto, selecione **Criar** para implantar seu pool de hosts.
 
-Dependendo de quantas máquinas virtuais você está criando, esse processo pode levar 30 minutos ou mais para ser concluído.
+Dependendo de quantas máquinas virtuais você estiver criando, esse processo poderá levar 30 minutos ou mais para ser concluído.
 
 >[!IMPORTANT]
-> Para ajudar a proteger seu ambiente de área de trabalho virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 em suas máquinas virtuais. A área de trabalho virtual do Windows não requer uma porta de entrada aberta 3389 para que os usuários acessem as máquinas virtuais do pool de hosts.
+> Para ajudar a proteger seu ambiente da Área de Trabalho Virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 nas máquinas virtuais. A Área de Trabalho Virtual do Windows não exige uma porta de entrada 3389 aberta para que os usuários acessem as máquinas virtuais do pool de hosts.
 >
-> Se você precisar abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do acesso just-in-time. Para obter mais informações, consulte [proteger suas portas de gerenciamento com acesso just-in-time](../security-center/security-center-just-in-time.md).
+> Caso você precise abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do acesso just-in-time. Para obter mais informações, confira [Proteger suas portas de gerenciamento com acesso just-in-time](../security-center/security-center-just-in-time.md).
 
 ## <a name="optional-assign-additional-users-to-the-desktop-application-group"></a>(Opcional) Atribuir usuários adicionais ao grupo de aplicativos da área de trabalho
 
-Depois que o Azure Marketplace terminar de criar o pool, você poderá atribuir mais usuários ao grupo de aplicativos da área de trabalho. Se você não quiser adicionar mais, ignore esta seção.
+Depois que o Azure Marketplace terminar de criar o pool, você poderá atribuir mais usuários ao grupo de aplicativos da área de trabalho. Se você não quiser adicionar mais usuários, ignore esta seção.
 
-Para atribuir usuários ao grupo de aplicativos da área de trabalho:
+Para atribuir usuários adicionais ao grupo de aplicativos da área de trabalho:
 
 1. Abra uma janela do PowerShell.
 
-1. Execute o seguinte comando para entrar no ambiente de área de trabalho virtual do Windows:
+1. Execute o seguinte comando para entrar no ambiente da Área de Trabalho Virtual do Windows:
 
    ```powershell
    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -145,18 +145,18 @@ Para atribuir usuários ao grupo de aplicativos da área de trabalho:
    Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
    ```
 
-   O UPN do usuário deve corresponder à identidade do usuário no Azure AD, por exemplo, *user1@contoso.com* . Se você quiser adicionar vários usuários, execute o comando para cada usuário.
+   O UPN do usuário deve corresponder à identidade de usuário no Azure AD, por exemplo, *user1@contoso.com* . Se você desejar adicionar vários usuários, execute este comando para cada um.
 
-Os usuários adicionados ao grupo de aplicativos da área de trabalho podem entrar na área de trabalho virtual do Windows com clientes Área de Trabalho Remota com suporte e ver um recurso para uma área de trabalho de sessão.
+Os usuários que você adicionar ao grupo de aplicativo de área de trabalho poderão entrar na Área de Trabalho Virtual do Windows com os clientes de Área de Trabalho Remota compatíveis e verão um recurso para uma área de trabalho de sessão.
 
 Veja os clientes com suporte atuais:
 
 * [Cliente da Área de Trabalho Remota para Windows 7 e Windows 10](connect-windows-7-and-10.md)
 * [Cliente Web da Área de Trabalho Virtual do Windows](connect-web.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-Você criou um pool de hosts e atribuiu usuários para acessar sua área de trabalho. Você pode preencher o pool de hosts com programas RemoteApp. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira este tutorial:
+Você criou um pool de hosts e atribuiu usuários para acessar a área de trabalho dele. Você pode popular o pool de hosts com programas do RemoteApp. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira este tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial Gerenciar grupos de aplicativos](./manage-app-groups.md)

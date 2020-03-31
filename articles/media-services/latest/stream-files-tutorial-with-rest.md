@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359548"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472026"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
 Os Serviços de Mídia do Azure permitem codificar os arquivos de mídia em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. Por exemplo, talvez você queira transmitir por streaming o conteúdo nos formatos MPEG-DASH ou HLS da Apple. Antes do streaming, será necessário codificar o arquivo de mídia digital de alta qualidade. Para obter diretrizes de codificação, consulte [Conceito de codificação](encoding-concept.md).
 
@@ -40,7 +40,7 @@ Este tutorial mostra como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 
@@ -48,7 +48,7 @@ Este tutorial mostra como:
 
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as APIs de REST mostradas em alguns dos tutoriais do REST AMS. 
 
-    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Estamos usando o **Postman** mas qualquer ferramenta REST seria adequada. As outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Baixar arquivos Postman
 
@@ -58,7 +58,9 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## <a name="access-api"></a>API de acesso
+
+Para obter informações detalhadas, confira [Obter credenciais para acessar a API dos Serviços de Mídia](access-api-howto.md)
 
 ## <a name="configure-postman"></a>Configurar Postman
 
@@ -75,7 +77,7 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
     > [!Note]
     > Atualize as variáveis de acesso com valores obtidos a partir da seção **Acessar a API de Serviços de Mídia do Azure** acima.
 
-7. Clique duas vezes no arquivo selecionado e digite os valores que você obteve seguindo as etapas de [acesso a API](#access-the-media-services-api).
+7. Clique duas vezes no arquivo selecionado e digite os valores que você obteve seguindo as etapas de [acesso a API](#access-api).
 8. Feche a caixa de diálogo.
 9. Selecione o ambiente, **Ambiente do Serviço de Mídia do Azure v3**, no menu suspenso.
 
@@ -106,7 +108,7 @@ Nesta seção, enviamos solicitações relevantes para codificar e criar URLs pa
 
 ### <a name="get-azure-ad-token"></a>Obter token do Microsoft Azure AD 
 
-1. Na janela à esquerda do aplicativo do postmaster, selecione "etapa 1: obter token de autenticação do AAD".
+1. Na janela esquerda do aplicativo Postman, selecione "Etapa 1: obter token de autenticação do Azure Active Directory".
 2. Em seguida, selecione "Obter token do Microsoft Azure AD para autenticação de entidade de serviço".
 3. Pressione **Enviar**.
 
@@ -250,7 +252,7 @@ Neste exemplo, a entrada do trabalho é baseada na URL HTTPS ("https:\//nimbuscd
 
 Este trabalho levará algum tempo para concluir e quando você desejar ser notificado. Para ver o progresso do trabalho, é recomendável usar a Grade de Eventos. Ela é projetada para alta disponibilidade, desempenho consistente e escala dinâmica. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. A manipulação de eventos simples e reativa baseada em HTTP ajuda você a criar soluções eficientes por meio da filtragem e do roteamento de eventos.  Consulte [Rotear eventos para um ponto de extremidade personalizado de web](job-state-events-cli-how-to.md).
 
-O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Em fila**, **Processamento**, **Concluído** (o estado final). Se o trabalho encontrou um erro, você receberá o estado do **Erro**. Se o trabalho está no processo de ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
+O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Enfileirado**, **Processando**, **Concluído** (o estado final). Se o trabalho encontrou um erro, você receberá o estado do **Erro**. Se o trabalho está no processo de ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
 
 #### <a name="job-error-codes"></a>Códigos de erro do trabalho
 
@@ -396,7 +398,7 @@ az group delete --name amsResourceGroup
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você sabe como carregar, codificar e transmitir seu vídeo, consulte o seguinte artigo: 
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589396"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80157459"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -39,12 +39,10 @@ Este artigo descreve os seguintes tópicos do Azure IoT Central:
 - Os trabalhos não são compatíveis com tipos complexos.
 - Não há compatibilidade com tipos de esquema de matriz.
 - Somente o SDK do dispositivo C e os SDKs do serviço e do dispositivo Node.js são compatíveis.
-- Só estão disponíveis nos locais Estados Unidos, Europa, Pacífico Asiático e Austrália.
+- No momento, o IoT Central está disponível nos Estados Unidos, na Europa, no Pacífico Asiático, na Austrália, no Reino Unido e no Japão.
+- Você não pode usar o modelo de aplicativo **Aplicativo personalizado (herdado)** no Reino Unido e no Japão.
 - Os modelos de funcionalidade do dispositivo precisam ter todas as interfaces definidas embutidas no mesmo arquivo.
 - O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em versão prévia e só tem suporte em regiões selecionadas.
-
-    > [!NOTE]
-    > Entre em contato com o suporte técnico para obter acesso para criar um aplicativo de versão prévia com suporte para dispositivos IoT Plug and Play.
 
 ## <a name="personas"></a>Personas
 
@@ -76,7 +74,6 @@ Este modelo de dispositivo inclui:
 - Um _modelo de funcionalidade de dispositivo_ que descreve as funcionalidades que um dispositivo deve implementar, tais como a telemetria que ele envia e as propriedades que ele relata.
 - Propriedades de nuvem que não são armazenadas no dispositivo.
 - Personalizações, painéis e formulários que fazem parte do aplicativo do IoT Central.
-
 
 ### <a name="pricing"></a>Preços
 

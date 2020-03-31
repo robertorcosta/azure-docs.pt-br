@@ -1,23 +1,24 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com os modelos'
 description: Neste início rápido, você usa um modelo do Resource Manager para criar uma atribuição de política para identificar recursos que não estão em conformidade.
-ms.date: 11/25/2019
+ms.date: 03/16/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8b9b0024e5c15c78c6777b8657839791484d66b5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.custom: subject-armqs
+ms.openlocfilehash: 9f9998c407c39d11615a5997549a363a276b9e10
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980521"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471397"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo do Resource Manager
 
 A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos.
-Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
+Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados. No final deste processo, você identificará com êxito quais máquinas virtuais não estão usando discos gerenciados. Eles _não estão em conformidade_ com a atribuição da política.
 
-No final deste processo, você identificará com êxito quais máquinas virtuais não estão usando discos gerenciados. Eles _não estão em conformidade_ com a atribuição da política.
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -25,10 +26,17 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Neste início rápido, você criará uma atribuição de política e atribuirá uma definição de política interna chamada _Auditar VMs que não usam discos gerenciados_. Para ver uma lista parcial das políticas internas disponíveis, confira [Exemplos do Azure Policy](./samples/index.md).
 
-Há vários métodos para criar atribuições de política. Neste início rápido, você usará um [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
-Veja uma cópia do modelo:
+### <a name="review-the-template"></a>Examinar o modelo
 
-[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+
+O recurso definido no modelo inclui:
+
+- [Microsoft.Authorization/policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
+
+### <a name="deploy-the-template"></a>Implantar o modelo
 
 > [!NOTE]
 > o serviço Azure Policy é gratuito. Para saber mais, confira [Visão geral do Azure Policy](./overview.md).
@@ -58,7 +66,7 @@ Alguns recursos adicionais:
 - Para saber como desenvolver modelos do Resource Manager, confira a [Documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Para conhecer a implantação de nível de assinatura, confira [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md) (Criar grupos de recursos e recursos no nível da assinatura).
 
-## <a name="identify-non-compliant-resources"></a>Identificar recursos sem conformidade
+## <a name="validate-the-deployment"></a>Validar a implantação
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as **VMs de auditoria que não usam a atribuição de política de discos gerenciados** que você criou.
 

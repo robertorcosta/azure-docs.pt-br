@@ -31,6 +31,11 @@
     - name: Gerenciar dados de Automação do Azure
       href: automation-managing-data.md
       displayName: backup
+    - name: Solucionar problemas
+      items:
+        - name: Solução de problemas da conta de automação
+          href: troubleshoot/automation-account.md
+          displayName: troubleshoot
 - name: Automação de processos
   items:
     - name: Visão geral do Runbook Worker Híbrido

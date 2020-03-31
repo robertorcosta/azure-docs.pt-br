@@ -16,7 +16,7 @@
           href: quickstarts/csharp.md
         - name: Usando Java
           href: quickstarts/java.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: quickstarts/nodejs.md
         - name: Usando Python
           href: quickstarts/python.md
@@ -29,7 +29,7 @@
       items:
         - name: 'Usando C#'
           href: visual-search-sdk-c-sharp.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: visual-search-sdk-node.md
         - name: Usando Python
           href: visual-search-sdk-python.md
@@ -41,6 +41,10 @@
       href: tutorial-visual-search-image-upload.md
     - name: Cortar e pesquisar uma área de uma imagem
       href: tutorial-visual-search-crop-area-results.md
+    - name: Localizar imagens semelhantes de pesquisas anteriores
+      href: tutorial-visual-search-insights-token.md
+    - name: Criar um aplicativo Web de página única
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -63,10 +67,6 @@
     - name: Miniaturas de redimensionamento e corte
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
-    - name: Procurar por uma imagem usando tokens de insight de imagem
-      href: tutorial-visual-search-insights-token.md
-    - name: Criar um aplicativo Web de página única
-      href: tutorial-bing-visual-search-single-page-app.md
 - name: Referência
   items:
     - name: API REST v7

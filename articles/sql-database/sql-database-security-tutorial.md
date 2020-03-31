@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818031"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222583"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger um banco de dados individual ou em pool
 
@@ -42,7 +42,7 @@ Para obter mais informações, confira os artigos [Visão geral](/azure/sql-data
 > [!TIP]
 > O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente sobre como [Proteger seu Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir o tutorial, verifique se você tem os seguintes pré-requisitos:
 
@@ -149,7 +149,7 @@ Para obter informações sobre como configurar o Azure AD, confira:
 
 ## <a name="manage-database-access"></a>Gerenciar o acesso ao banco de dados
 
-Gerencie o acesso ao banco de dados adicionando usuários ao banco de dados ou permitindo o acesso do usuário com cadeias de conexão seguras. As cadeias de conexão são úteis para aplicativos externos. Para obter mais informações, confira [Controle de acesso do SQL do Azure](sql-database-control-access.md) e [Autenticação do AD](sql-database-aad-authentication.md).
+Gerencie o acesso ao banco de dados adicionando usuários ao banco de dados ou permitindo o acesso do usuário com cadeias de conexão seguras. As cadeias de conexão são úteis para aplicativos externos. Para saber mais, consulte [Gerenciar logons e contas de usuário](sql-database-manage-logins.md) e [Autenticação do AD](sql-database-aad-authentication.md).
 
 Para adicionar usuários, escolha o tipo de autenticação de banco de dados:
 
@@ -157,7 +157,7 @@ Para adicionar usuários, escolha o tipo de autenticação de banco de dados:
 
 - **Autenticação do Azure AD**: usa identidades gerenciadas pelo Azure AD
 
-### <a name="sql-authentication"></a>Autenticação do SQL
+### <a name="sql-authentication"></a>Autenticação SQL
 
 Para adicionar um usuário com a autenticação do SQL:
 
@@ -331,14 +331,14 @@ Para habilitar ou verificar a criptografia:
 
 1. Se necessário, defina **Criptografia de dados** como **ATIVADO**. Clique em **Salvar**.
 
-    ![Transparent Data Encryption](./media/sql-database-security-tutorial/encryption-settings.png)
+    ![Criptografia de Dados Transparente](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
 > Para exibir o status da criptografia, conecte-se ao banco de dados usando o [SSMS](./sql-database-connect-query-ssms.md) e consulte a coluna `encryption_state` da exibição [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql). Um estado igual a `3` indica que o banco de dados está criptografado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a aprimorar a segurança de seu banco de dados com apenas algumas etapas simples. Você aprendeu como:
+Neste tutorial, você aprendeu a aprimorar a segurança de seu banco de dados com apenas algumas etapas simples. Você aprendeu a:
 
 > [!div class="checklist"]
 > - Criar regras de firewall no nível do servidor e do banco de dados

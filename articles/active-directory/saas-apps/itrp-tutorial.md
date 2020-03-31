@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67656686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Active Directory com o ITRP
@@ -35,7 +35,7 @@ Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [L
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao ITRP, você precisará ter:
 
@@ -139,17 +139,17 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
 1. Na parte superior da janela, selecione o ícone **Configurações**:
 
-    ![Ícone de Configurações](./media/itrp-tutorial/ic775570.png "Ícone de Configurações")
+    ![Ícone Configurações](./media/itrp-tutorial/ic775570.png "Ícone Configurações")
 
 1. No painel à esquerda, selecione **Logon Único**:
 
-    ![Selecionar logon único](./media/itrp-tutorial/ic775571.png "Selecionar logon único")
+    ![Selecione Logon Único](./media/itrp-tutorial/ic775571.png "Selecionar Logon Único")
 
 1. Na seção de configuração de **Logon único**, execute as seguintes etapas.
 
-    ![Seção Logon único](./media/itrp-tutorial/ic775572.png "Seção Logon único")
+    ![Seção Logon Único](./media/itrp-tutorial/ic775572.png "Seção Logon Único")
 
-    ![Seção Logon único](./media/itrp-tutorial/ic775573.png "Seção Logon único")
+    ![Seção Logon Único](./media/itrp-tutorial/ic775573.png "Seção Logon Único")
 
     1. Selecione **Habilitado**.
 
@@ -229,7 +229,7 @@ Para criar uma conta de usuário, siga estas etapas:
 
 1. Selecione o sinal de adição ( **+** ) para adicionar uma pessoa:
 
-    ![Selecionar o sinal de adição](./media/itrp-tutorial/ic775576.png "Selecionar o sinal de adição")
+    ![Selecione o sinal de mais](./media/itrp-tutorial/ic775576.png "Selecione o sinal de mais")
 
 1. Na caixa de diálogo **Adicionar Nova Pessoa**, execute as seguintes etapas.
 
@@ -254,4 +254,4 @@ Ao selecionar o bloco do ITRP no Painel de Acesso, você será conectado automat
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

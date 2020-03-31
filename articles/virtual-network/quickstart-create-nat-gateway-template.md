@@ -15,19 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 0f6a303bfa42538bf56efa7e9f669588c8bff66c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6b3dee698e63ed2b0a44f05b593b8840d1cd23ee
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082720"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80066409"
 ---
 # <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Início Rápido: Criar um gateway da NAT – modelo do Resource Manager
 
-Comece a usar a NAT da Rede Virtual utilizando um Modelo do Azure Resource Manager.  Este modelo implanta uma rede virtual, um gateway da NAT e uma máquina virtual Ubuntu. A máquina virtual Ubuntu é implantada em uma sub-rede associada ao gateway da NAT.
-
->[!NOTE] 
->A NAT de Rede Virtual do Azure está disponível como versão prévia pública neste momento e em um conjunto limitado de [regiões](https://azure.microsoft.com/global-infrastructure/regions/). Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter detalhes.
+Comece a usar a NAT da Rede Virtual utilizando um Modelo do Azure Resource Manager.  Este modelo implanta uma rede virtual, um recurso de gateway da NAT e uma máquina virtual Ubuntu. A máquina virtual Ubuntu é implantada em uma sub-rede associada ao recurso de gateway da NAT.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

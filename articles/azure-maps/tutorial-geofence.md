@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Criar uma cerca geográfica e controlar dispositivos em um mapa | Microsoft Azure Mapas'
 description: Saiba como configurar um limite geográfico e acompanhar os dispositivos em relação ao limite geográfico usando o Serviço Espacial dos Microsoft Azure Mapas.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370209"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333859"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
@@ -32,7 +32,7 @@ Neste tutorial, abordaremos como:
 > *   Use APIs do serviço do limite geográfico do Azure Mapas para controlar se um ativo de construção está ou não dentro do local de construção.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure 
 
@@ -150,13 +150,13 @@ Depois que o aplicativo Postman for instalado, siga estas etapas para carregar o
    }
    ```
 
-5. Clique em enviar e revise o cabeçalho de resposta. Após uma solicitação bem-sucedida, o cabeçalho **Localização** conterá o URI de status. O URI de status estará no formato a seguir. 
+5. Clique em enviar e revise o cabeçalho de resposta. Após uma solicitação bem-sucedida, o cabeçalho **Localização** conterá o URI de status. O URI de status estará no formato a seguir. O valor de uploadStatusId não fica entre { }. É uma prática comum usar { } para mostrar valores que o usuário precisa inserir ou valores que são diferentes para um usuário diferente.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copie o URI de status e acrescente a chave de assinatura. O formato do URI de status deverá ser semelhante ao mostrado abaixo. Observe que, no formato abaixo, você alterará a {subscription-key}, incluindo as { }, para a sua chave de assinatura.
+6. Copie o URI de status e acrescente a chave de assinatura. O formato do URI de status deverá ser semelhante ao mostrado abaixo. Observe que, no formato abaixo, você alteraria a {subscription-key}, não incluindo as { }, para a sua chave de assinatura.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -166,7 +166,8 @@ Depois que o aplicativo Postman for instalado, siga estas etapas para carregar o
 
    ```JSON
    {
-    "udid" : "{udId}"
+    "status": "Succeeded",
+    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
    }
    ```
 

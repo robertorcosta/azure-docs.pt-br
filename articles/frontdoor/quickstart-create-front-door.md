@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184509"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471414"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: Crie um Front Door para um aplicativo Web global altamente disponível
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
 Entre no Portal do Azure em https://portal.azure.com.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 -Este início rápido requer que você implante duas instâncias de um aplicativo Web em execução em diferentes regiões do Azure (*Leste dos EUA* e *Europa Ocidental*). Ambas as instâncias do aplicativo Web são executadas no modo ativo/ativo, ou seja, qualquer uma delas pode usar o tráfego a qualquer momento, diferentemente de uma configuração ativo/stand-by em que um funciona como um failover.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Web** > **Aplicativo Web** > **Criar**.
@@ -39,7 +39,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
      | Configuração         | Valor     |
      | ---              | ---  |
-     | NOME           | Insira um nome exclusivo para o aplicativo Web  |
+     | Nome           | Insira um nome exclusivo para o aplicativo Web  |
      | Resource group          | Selecione **Novo** e, em seguida, digite *myResourceGroupFD1* |
      | Plano do Serviço de Aplicativo/Localização         | Selecione **Novo**.  No Plano do Serviço de Aplicativo, insira *myAppServicePlanEastUS*e selecione **OK**. 
      |      Location  |   Leste dos EUA        |
@@ -51,7 +51,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
      | Configuração         | Valor     |
      | ---              | ---  |
-     | NOME           | Insira um nome exclusivo para o aplicativo Web  |
+     | Nome           | Insira um nome exclusivo para o aplicativo Web  |
      | Resource group          | Selecione **Novo** e, em seguida, digite *myResourceGroupFD2* |
      | Plano do Serviço de Aplicativo/Localização         | Selecione **Novo**.  No Plano do Serviço de Aplicativo, insira *myAppServicePlanWestEurope*e selecione **OK**. 
      |      Location  |   Europa Ocidental      |
@@ -90,7 +90,7 @@ Depois de criar um Front Door, levará alguns minutos para a configuração ser 
 ### <a name="view-front-door-handle-application-failover"></a>Exibir o failover do aplicativo de identificador do Front Door
 Se desejar testar o failover global instantâneo do Front Door em ação, será possível acessar um dos sites criados e interrompê-lo. Com base na configuração de Investigação de integridade definida para o pool de back-end, faremos o failover instantaneamente do tráfego para a implantação do outro site. Também é possível testar o comportamento desabilitando o back-end na configuração do pool de back-end para o Front Door. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, exclua os grupos de recursos, os aplicativos Web e todos os recursos relacionados.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 3e505e4823db8c9f42bbff216f30326081110dcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: integração do Azure Active Directory ao TeamSeer
@@ -34,7 +34,7 @@ A integração do TeamSeer ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao TeamSeer, você precisa dos seguintes itens:
 
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes 
 
 1. Clique em **Instalação**.
 
-    ![Configuração](./media/teamseer-tutorial/ic789635.png "Configuração")
+    ![Instalação](./media/teamseer-tutorial/ic789635.png "Instalação")
 
 1. Clique em **Configurar detalhes do provedor de SAML**.
 

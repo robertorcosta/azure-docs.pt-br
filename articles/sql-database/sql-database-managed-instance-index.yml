@@ -3,7 +3,7 @@ documentType: LandingData
 title: Instância gerenciada do SQL
 metadata:
   title: 'Documentação da instância gerenciada – Tutoriais, Referência de API'
-  meta.description: Learn how to use a managed instance in Azure SQL Database.
+  description: 'Encontre guias de início rápido, tutoriais e exemplos para a instância gerenciada do Banco de Dados SQL do Azure, uma instância do Mecanismo de Banco de Dados do Microsoft SQL Server totalmente gerenciada hospedada na nuvem.'
   services: sql-database
   author: jovanpop-msft
   ms.reviewer: carlrab

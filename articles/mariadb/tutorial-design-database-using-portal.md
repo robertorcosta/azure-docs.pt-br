@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776701"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80063801"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure
 
@@ -42,14 +42,14 @@ Crie um servidor do Banco de Dados do Azure para MariaDB com um conjunto definid
 1. Marque o botão **Criar um recurso** (+) no canto superior esquerdo do portal.
 
 2. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MariaDB**. Digite também **MariaDB** na caixa de pesquisa para encontrar o serviço.
-   
+
    ![Acessar o MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Selecione o bloco **Banco de Dados do Azure para MariaDB**, depois selecione **Criar**. Insira ou selecione as informações necessárias.
-   
+3. Selecione o bloco **Banco de Dados do Azure para MariaDB**. Insira ou selecione as informações necessárias.
+
    ![Criar formulário](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-    Configuração | Valor sugerido | Descrição do campo 
+    Configuração | Valor sugerido | Descrição do campo
     ---|---|---
     Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o servidor de Banco de Dados do Azure para MariaDB. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é acrescentado ao nome do servidor que você inseriu. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter entre 3 e 63 caracteres.
     Subscription | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
@@ -67,14 +67,14 @@ Crie um servidor do Banco de Dados do Azure para MariaDB com um conjunto definid
    > [!TIP]
    > Com o **aumento automático** habilitado, seu servidor aumenta o armazenamento quando você está se aproximando do limite alocado, sem afetar sua carga de trabalho.
 
-4. Selecione **Criar**. Em um ou dois minutos, um novo servidor do Banco de Dados do Azure para MariaDB estará em execução na nuvem. Para monitorar o processo de implantação, selecione **Notificações** na barra de ferramentas.
+4. Clique em **Revisar + Criar**. Na barra de ferramentas, clique no botão **Notificações** para monitorar o processo de implantação. A implantação pode levar até 20 minutos.
 
 ## <a name="configure-the-firewall"></a>Configurar o firewall
 
 Um Banco de Dados do Azure para MariaDB é protegido por um firewall. Por padrão, todas as conexões ao servidor e aos bancos de dados dentro do servidor são rejeitadas. Antes de se conectar ao Banco de Dados do Azure para MariaDB pela primeira vez, configure o firewall para adicionar o endereço IP (ou intervalo de endereços IP) da rede pública do computador cliente.
 
 1. Selecione seu servidor recém-criado, depois selecione **Segurança de conexão**.
-   
+
    ![Segurança da conexão](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. Você pode selecionar **Adicionar Meu IP** ou configurar regras de firewall aqui. Lembre-se de selecionar **Salvar** depois de criar as regras.
 
@@ -85,7 +85,7 @@ Agora você pode se conectar ao servidor usando a ferramenta de linha de comando
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
-Obtenha os valores para **Nome do servidor** (totalmente qualificado) e o **Nome de logon do administrador do servidor** para o servidor do Banco de Dados do Azure para MariaDB no portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando a ferramenta de linha de comando do MySQL. 
+Obtenha os valores para **Nome do servidor** (totalmente qualificado) e o **Nome de logon do administrador do servidor** para o servidor do Banco de Dados do Azure para MariaDB no portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando a ferramenta de linha de comando do MySQL.
 
 1. No [portal do Azure](https://portal.azure.com/), no menu à esquerda, selecione **Todos os recursos**. Insira o nome do servidor e busque o servidor do Banco de Dados do Azure para MariaDB. Selecione o nome do servidor para exibir os detalhes do servidor.
 
@@ -97,17 +97,17 @@ Em nosso exemplo, o nome do servidor é **mydemoserver.mariadb.database.azure.co
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Conectar-se ao servidor usando o MySQL
 
-Use a [ferramenta de linha de comando do MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para estabelecer uma conexão com seu servidor do Banco de Dados do Azure para MariaDB. Você pode executar a ferramenta de linha de comando do MySQL no Azure Cloud Shell no navegador ou no computador usando as ferramentas do MySQL instaladas localmente. Para abrir o Azure Cloud Shell, selecione o botão **Experimentar** em um bloco de código deste artigo ou visite o portal do Azure e clique no ícone **>_** na barra de ferramentas superior direita. 
+Use a [ferramenta de linha de comando do MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para estabelecer uma conexão com seu servidor do Banco de Dados do Azure para MariaDB. Você pode executar a ferramenta de linha de comando do MySQL no Azure Cloud Shell no navegador ou no computador usando as ferramentas do MySQL instaladas localmente. Para abrir o Azure Cloud Shell, selecione o botão **Experimentar** em um bloco de código deste artigo ou visite o portal do Azure e clique no ícone **>_** na barra de ferramentas superior direita.
 
 Insira o comando para se conectar:
 
-```azurecli-interactive
+```bash
 mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Criar um banco de dados vazio
 
-Quando você estiver conectado ao servidor, crie um banco de dados em branco com o qual você irá trabalhar:
+Quando você estiver conectado ao servidor, crie um banco de dados em branco com o qual você trabalhará:
 
 ```sql
 CREATE DATABASE mysampledb;
@@ -171,7 +171,7 @@ Imagine que você excluiu acidentalmente uma tabela de banco de dados importante
    ![Restaurar um banco de dados](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. Na página **Restaurar**, insira ou selecione as seguintes informações:
-   
+
    ![Formulário de restauração](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **Ponto de restauração**: Selecione um ponto no tempo para o qual deseja fazer a restauração, no período listado. Lembre-se de converter o fuso horário local para UTC.

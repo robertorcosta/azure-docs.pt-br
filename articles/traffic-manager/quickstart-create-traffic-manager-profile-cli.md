@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: rohink
-ms.openlocfilehash: 36ad1c47e115f06aea2017a049cefe36304504bf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e19850243498fc24c9a726f4603590df15f3a046
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934833"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79531508"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego para um aplicativo Web de alta disponibilidade usando a CLI do Azure
 
@@ -88,6 +88,7 @@ az appservice plan create \
     --sku S1
 
 ```
+
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Criar um aplicativo Web no plano do Serviço de Aplicativo
 Crie duas instâncias do aplicativo Web usando [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) nas regiões do Azure *Leste dos EUA* e *Oeste da Europa* dos planos do Serviço de Aplicativo.
 
@@ -127,6 +128,7 @@ az webapp show \
     --query id
 
 ```
+
 Anote a ID exibida na saída e use-a no comando a seguir para adicionar o ponto de extremidade:
 
 ```azurecli-interactive
@@ -151,6 +153,7 @@ az webapp show \
     --query id
 
 ```
+
 Anote a ID exibida na saída e use-a no comando a seguir para adicionar o ponto de extremidade:
 
 ```azurecli-interactive
@@ -212,7 +215,7 @@ Copie o valor **RelativeDnsName**. O nome DNS do perfil do Gerenciador de Tráfe
 
 Ao terminar, exclua os grupos de recursos, aplicativos Web e todos os recursos relacionados usando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
-```azurepowershell-interactive
+```azurecli-interactive
 
 az group delete \
     --resource-group myResourceGroup

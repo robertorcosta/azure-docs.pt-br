@@ -8,13 +8,13 @@
       href: whats-new.md
     - name: Perguntas comuns
       items:
-        - name: Dúvidas sobre o Migrações para Azure
+        - name: Geral
           href: resources-faq.md
-        - name: Dúvidas sobre o dispositivo Migrações para Azure
+        - name: Dispositivo de Migrações para Azure
           href: common-questions-appliance.md
-        - name: 'Perguntas sobre descoberta, visualização de avaliação/dependência'
+        - name: Ferramenta de Avaliação de Servidor/análise de dependência
           href: common-questions-discovery-assessment.md
-        - name: Perguntas sobre a Migração do Servidor
+        - name: Ferramenta Migração de Servidor
           href: common-questions-server-migration.md
 - name: Tutoriais
   items:
@@ -74,34 +74,40 @@
           href: migrate-appliance.md
         - name: Requisitos de dispositivo para replicação
           href: migrate-replication-appliance.md
+    - name: Arquitetura do dispositivo de Migrações para Azure
+      href: migrate-appliance-architecture.md
     - name: Arquitetura de migração do Hyper-V
       href: hyper-v-migration-architecture.md
-    - name: Arquitetura de migração baseada em agente
+    - name: Arquitetura de migração baseada em agente do VMware
       href: agent-based-migration-architecture.md
-    - name: Práticas recomendadas para avaliações
-      href: best-practices-assessment.md
     - name: Visão geral de avaliações
       href: concepts-assessment-calculation.md
-    - name: Visualização de dependência
+    - name: Práticas recomendadas para avaliações
+      href: best-practices-assessment.md
+    - name: Visão geral de análise de dependência
       href: concepts-dependency-visualization.md
 - name: Guias de instruções
   items:
-    - name: Trabalhar com uma versão anterior
-      href: migrate-v1.md
     - name: Criar e gerenciar projetos de Migrações para Azure
       href: create-manage-projects.md
-    - name: Implantar um dispositivo VMware
-      href: how-to-set-up-appliance-vmware.md
-    - name: Implantar um dispositivo Hyper-V
-      href: how-to-set-up-appliance-hyper-v.md
-    - name: Implantar um dispositivo de servidor físico
-      href: how-to-set-up-appliance-physical.md
-    - name: Descobrir aplicativos/funções/recursos
-      href: how-to-discover-applications.md
     - name: Adicionar uma ferramenta pela primeira vez
       href: how-to-add-tool-first-time.md
     - name: Adicionar ferramentas de avaliação
       href: how-to-assess.md
+    - name: Implantar dispositivo de Migrações para Azure
+      items:
+        - name: Implantar o dispositivo para VMware (OVA)
+          href: how-to-set-up-appliance-vmware.md
+        - name: Implantar o dispositivo para Hyper-V (VHD)
+          href: how-to-set-up-appliance-hyper-v.md
+        - name: Implantar o dispositivo para VMware/Hyper-V (script)
+          href: deploy-appliance-script.md
+        - name: Implantar dispositivo para servidores físicos
+          href: how-to-set-up-appliance-physical.md
+    - name: Limitar o escopo da descoberta para VMs VMware
+      href: set-discovery-scope.md
+    - name: Descobrir aplicativos/funções/recursos
+      href: how-to-discover-applications.md
     - name: Agrupar as máquinas para avaliação
       href: how-to-create-a-group.md
     - name: Analisar dependências do computador (baseadas em agente)
@@ -122,6 +128,8 @@
       href: prepare-for-migration.md
     - name: Excluir um projeto das Migrações para Azure
       href: how-to-delete-project.md
+    - name: Trabalhar com uma versão anterior
+      href: migrate-v1.md
     - name: Dimensionar a avaliação e a migração
       items:
         - name: Avaliar grandes números de VMs da VMware

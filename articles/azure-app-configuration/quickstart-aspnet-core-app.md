@@ -8,18 +8,18 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ee50d180c579e117c16f1a956871068f0a46e976
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 537dabe09c41012b9e15998ce3af8198dcfb62d3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498568"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245767"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo ASP.NET Core com a Configuração de Aplicativo do Azure
 
 Neste início rápido, você deverá usar a Configuração de Aplicativos do Azure para centralizar o armazenamento e o gerenciamento de configurações de aplicativo para um aplicativo ASP.NET Core. O ASP.NET Core cria um único objeto de configuração baseado no par chave-valor, usando as configurações de uma ou mais fontes de dados especificadas por um aplicativo. Essas origens de dados são conhecidas como *provedores de configuração*. Como o cliente .NET Core da Configuração de Aplicativos é implementado como um provedor de configuração, o serviço aparece como outra fonte de dados.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [SDK do .NET Core](https://dotnet.microsoft.com/download)
@@ -31,7 +31,7 @@ Neste início rápido, você deverá usar a Configuração de Aplicativos do Azu
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Configurações** > **Criar** para adicionar os seguintes pares chave-valor:
+6. Selecione **Gerenciador de Configurações** > **Criar** > **Chave-valor** para adicionar os seguintes pares chave-valor:
 
     | Chave | Valor |
     |---|---|
@@ -40,7 +40,7 @@ Neste início rápido, você deverá usar a Configuração de Aplicativos do Azu
     | TestApp:Settings:FontColor | Preto |
     | TestApp:Settings:Message | Dados da Configuração de Aplicativo do Azure |
 
-    Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
+    Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto. Escolha **Aplicar**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar um aplicativo Web ASP.NET Core
 
@@ -58,44 +58,51 @@ dotnet new mvc --no-https
 
 Para usar o Gerenciador de Segredos, adicione um elemento `UserSecretsId` ao arquivo *.csproj*.
 
-Abra o arquivo *.csproj*. Adicione um elemento `UserSecretsId`, conforme mostrado aqui. Use o mesmo GUID ou substitua esse valor pelo seu próprio. Salve o arquivo.
+1. Abra o arquivo *.csproj*.
 
-> [!IMPORTANT]
-> `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3.0.  Selecione a sintaxe correta com base em seu ambiente.
+1.  Adicione um elemento `UserSecretsId`, conforme mostrado aqui. Use o mesmo GUID ou substitua esse valor pelo seu próprio.
 
-#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
-
-</Project>
-```
-
-#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
+    > [!IMPORTANT]
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3.0.  Selecione a sintaxe correta com base em seu ambiente.
     
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
+    
+    </Project>
+    ```
+    
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+        
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+    </Project>
+    ```
+    ---
 
-</Project>
-```
----
+1. Salve o arquivo *.csproj*.
 
-A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalho de desenvolvimento fora da árvore do seu projeto. Essa abordagem ajuda a impedir o compartilhamento acidental de segredos do aplicativo no código-fonte. Para obter mais informações sobre o Gerenciador de Segredos, confira [Armazenamento seguro de segredos do aplicativo em desenvolvimento no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalho de desenvolvimento fora da árvore do seu projeto. Essa abordagem ajuda a impedir o compartilhamento acidental de segredos do aplicativo no código-fonte.
+
+> [!TIP]
+> Para saber mais sobre o Gerenciador de Segredos, confira [Armazenamento seguro de segredos do aplicativo em desenvolvimento no ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de Configuração de Aplicativos
 
@@ -113,7 +120,7 @@ A ferramenta Gerenciador de Segredos armazena dados confidenciais para o trabalh
 
 1. Adicione um segredo chamado *ConnectionStrings:AppConfig* ao Gerenciador de Segredos.
 
-    Esse segredo contém a cadeia de conexão para acessar o repositório de Configuração de Aplicativos. Substitua o valor no seguinte comando pela cadeia de conexão do repositório de Configuração de Aplicativos.
+    Esse segredo contém a cadeia de conexão para acessar o repositório de Configuração de Aplicativos. Substitua o valor no seguinte comando pela cadeia de conexão do repositório de Configuração de Aplicativos. Encontre a cadeia de conexão em **Chaves de Acesso** no portal do Azure.
 
     Este comando deve ser executado no mesmo diretório que o arquivo *.csproj*.
 

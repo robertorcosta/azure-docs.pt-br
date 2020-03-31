@@ -1,14 +1,14 @@
 ---
 title: Controles do modelo de blueprint do Nível de Impacto 4 do DoD
 description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 15ab3bc8bf53d54161ecc3b1f0dc138c3ff923c1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 001c838ed6a19269a6abbcebd59ee2e344b6a296
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154704"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415386"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD
 
@@ -83,6 +83,20 @@ Este blueprint ajuda você a monitorar e controlar o acesso remoto por meio da a
 - A depuração remota deve ser desativada para o aplicativo de funções
 - Depuração remota deve ser desativada para o aplicativo da Web
 
+## <a name="ac-23-data-mining"></a>Mineração de dados AC-23
+
+Esse blueprint fornece definições de política que ajudam você a garantir que as notificações de segurança estejam adequadamente habilitadas. Além disso, esse blueprint assegura que a auditoria e a segurança de dados avançada estejam configuradas em SQL Servers.
+
+- A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
+- Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada do SQL Server
+- Os tipos de Proteção Avançada contra Ameaças devem estar definidos como “Todos” nas configurações de Segurança de Dados Avançada da instância gerenciada de SQL
+- A auditoria deve ser habilitada nas configurações de segurança de dados avançada no SQL Server
+- As notificações por email para os administradores e proprietários de assinaturas devem ser habilitadas nas configurações da Segurança de Dados Avançada do SQL Server
+- As notificações por email para administradores e proprietários de assinatura devem ser habilitadas nas configurações da Segurança de Dados Avançada da instância gerenciada do SQL
+- As configurações da Segurança de Dados Avançada para o SQL Server devem conter um endereço de email para receber alertas de segurança
+- As configurações da Segurança de Dados Avançada para a instância gerenciada do SQL devem conter um endereço de email para receber alertas de segurança
+
 ## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) Conteúdo de Registros de Auditoria | Gerenciamento Centralizado do Conteúdo do Registro de Auditoria Planejada
 
 Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Log Analytics, permitindo o gerenciamento e a configuração centralizada. Este blueprint ajuda você a garantir que os eventos sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente do Log Analytics em máquinas virtuais do Azure.
@@ -123,8 +137,6 @@ Essas definições de política também auditam a configuração dos logs de dia
 Para obter verificação e monitoramento detalhados de vulnerabilidades, recomendamos que você use o Azure Sentinel e a Central de Segurança do Azure também.
 
 - \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
-- \[Versão Prévia\]: Habilitar o Azure Monitor para VMs
-- \[Versão Prévia\]: habilitar o Azure Monitor para os VMSS (Conjuntos de Dimensionamento de VMs)
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - Configuração de diagnóstico de auditoria
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
@@ -133,6 +145,8 @@ Para obter verificação e monitoramento detalhados de vulnerabilidades, recomen
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
+- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
+- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
 
 ## <a name="au-12-audit-generation"></a>AU-12 Geração de Auditoria
 
@@ -236,6 +250,16 @@ Este blueprint ajuda você a impor senhas fortes por meio da atribuição de def
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não armazenam senhas usando a criptografia reversível
 
+## <a name="ir-6-2-incident-reporting--vulnerabilities-related-to-incidents"></a>IR-6 (2) relatório de incidentes | Vulnerabilidades relacionadas a incidentes
+
+Esse blueprint fornece definições de políticas que auditam registros com a análise de avaliação de vulnerabilidade em máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e SQL Servers. Esses insights fornecem informações em tempo real sobre o estado de segurança dos recursos implantados e podem ajudá-lo a priorizar as ações de correção.
+
+- As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
+- As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
+- As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
+- As vulnerabilidades nas configurações de segurança do contêiner devem ser corrigidas
+- As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
+
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 Verificação de Vulnerabilidade
 
 Este blueprint ajuda você a gerenciar as vulnerabilidades do sistema de informações por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que monitoram vulnerabilidades do sistema operacional, vulnerabilidades do SQL e vulnerabilidades da máquina virtual na Central de Segurança do Azure. A Central de Segurança do Azure fornece funcionalidades de relatórios que permitem ter insights em tempo real sobre o estado de segurança de recursos implantados do Azure. Este blueprint também atribui definições de política que auditam e impõem a Segurança de Dados Avançada em servidores SQL. A segurança de dados avançada inclui recursos de avaliação de vulnerabilidade e proteção avançada contra ameaças para ajudá-lo a entender as vulnerabilidades de seus recursos implantados.
@@ -312,6 +336,30 @@ Este blueprint ajuda você a gerenciar as falhas do sistema de informações por
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 
+## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>Correção de falhas SI-02 (06) | Remoção de versões anteriores do software/firmware
+
+Esse blueprint atribui definições de política que ajudam você a garantir que os aplicativos estejam usando a versão mais recente do .NET Framework, HTTP, Java, PHP, Python e TLS. Esse blueprint também atribui uma definição de política que garante que os Serviços do Kubernetes sejam atualizados para uma versão não vulnerável do Kubernetes.
+
+- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo de API
+- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a versão do '.NET Framework' seja a última, se usada como parte do aplicativo Web
+- Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de API
+- Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de funções
+- Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo Web
+- Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo de API
+- Garantir que a "versão do Java" seja a mais recente, se usada como parte do aplicativo de funções
+- Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo Web
+- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de API
+- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a 'versão do PHP' seja a última, se usada como parte do aplicativo Web
+- Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de API
+- Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a 'versão do Python' seja a última, se usada como parte do aplicativo Web
+- A última versão do TLS deve ser usada no aplicativo de API
+- A última versão do TLS deve ser usada no aplicativo de funções
+- A última versão do TLS deve ser usada no aplicativo Web
+- \[Versão Prévia\]: Os Serviços de Kubernetes devem ser atualizados para uma versão não vulnerável do Kubernetes
+
 ## <a name="si-3-malicious-code-protection"></a>SI-3 Proteção contra código mal-intencionado
 
 Este blueprint ajuda você a gerenciar a proteção de ponto de extremidade, incluindo a proteção contra código mal-intencionado, por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que monitoram a proteção de ponto de extremidade ausente em máquinas virtuais na Central de Segurança do Azure e impõem a solução Microsoft Antimalware em máquinas virtuais do Windows.
@@ -347,6 +395,18 @@ Esse blueprint ajuda a monitorar seu sistema por meio da auditoria e da imposiç
 - Implantar a Detecção de Ameaças em servidores SQL
 - Locais permitidos
 - Localizações permitidas para grupos de recursos
+
+## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>SI-4 (12) Monitoramento do sistema de informações | Alertas automatizados
+
+Esse blueprint fornece definições de política que ajudam você a garantir que as notificações de segurança estejam adequadamente habilitadas. Além disso, esse blueprint assegura que o tipo de preço Standard esteja habilitado para a Central de Segurança do Azure. Observe que o tipo de preço Standard habilita a detecção de ameaças para redes e máquinas virtuais, fornecendo inteligência contra ameaças, detecção de anomalias e análise de comportamento na Central de Segurança do Azure.
+
+- A notificação por email para o proprietário da assinatura para alertas de severidade alta deve ser habilitada
+- Um endereço de email de contato de segurança deve ser fornecido para a sua assinatura 
+- As notificações por email para administradores e proprietários de assinatura devem ser habilitadas nas configurações da Segurança de Dados Avançada da instância gerenciada do SQL 
+- As notificações por email para os administradores e proprietários de assinaturas devem ser habilitadas nas configurações da Segurança de Dados Avançada do SQL Server 
+- Um número de telefone de contato de segurança deve ser fornecido para a sua assinatura
+- As configurações da Segurança de Dados Avançada para o SQL Server devem conter um endereço de email para receber alertas de segurança
+- O tipo de preço Standard da Central de Segurança deve ser selecionado
 
 ## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) Monitoramento do sistema de informações | Analisar o tráfego/vazamento oculto
 

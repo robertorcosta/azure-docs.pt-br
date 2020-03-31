@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71950419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Azure Active Directory ao TOPdesk – Público
@@ -34,7 +34,7 @@ A integração do TOPdesk – Public ao Azure AD oferece os seguintes benefício
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao TOPdesk – Public, você precisa dos seguintes itens:
 
@@ -151,7 +151,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Public, execute as 
 
 3. Clique em **Configurações de Logon**.
    
-    ![Configurações de logon](./media/topdesk-public-tutorial/ic790599.png "Configurações de logon")
+    ![Configurações de Logon](./media/topdesk-public-tutorial/ic790599.png "Configurações de Logon")
 
 4. Expanda o menu **Configurações de Logon** e clique em **Geral**.
    
@@ -159,7 +159,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Public, execute as 
 
 5. Na seção **Público** da seção de configuração de **Logon do SAML**, realize as seguintes etapas:
    
-    ![Configurações técnicas](./media/topdesk-public-tutorial/ic790601.png "Configurações técnicas")
+    ![Configurações Técnicas](./media/topdesk-public-tutorial/ic790601.png "Configurações Técnicas")
    
     a. Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
    
@@ -183,11 +183,11 @@ Para configurar o logon único do Azure AD com o TOPdesk – Public, execute as 
 
 7. Na seção **Público**, clique em **Adicionar**.
     
-    ![Logon SAML](./media/topdesk-public-tutorial/ic790625.png "logon SAML")
+    ![Logon do SAML](./media/topdesk-public-tutorial/ic790625.png "Logon do SAML")
 
 8. Na página do diálogo **Assistente de configuração do SAML** , realize as seguintes etapas:
     
-    ![Assistente de configuração SAML](./media/topdesk-public-tutorial/ic790608.png "Assistente de configuração SAML")
+    ![Assistente de configuração do SAML](./media/topdesk-public-tutorial/ic790608.png "Assistente de configuração do SAML")
     
     a. Para carregar o arquivo de metadados baixado do Portal do Azure, em **Metadados de Federação**, clique em **Procurar**.
 
@@ -261,11 +261,11 @@ Para permitir que os usuários do Azure AD se conectem ao TOPdesk – Public, el
 
 2. No menu na parte superior, clique em **TOPdesk \> Novo \> Arquivos de Suporte \> Pessoa**.
    
-    ![Pessoa](./media/topdesk-public-tutorial/ic790628.png "Pessoa")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png "Person")
 
 3. Na caixa de diálogo Nova Pessoa, execute as seguintes etapas:
    
-    ![Nova pessoa](./media/topdesk-public-tutorial/ic790629.png "Nova pessoa")
+    ![Nova Pessoa](./media/topdesk-public-tutorial/ic790629.png "Nova Pessoa")
    
     a. Clique na guia Geral.
 

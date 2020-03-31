@@ -58,22 +58,24 @@
       href: best-practices.md
     - name: Políticas de Acesso Condicional Comum
       items:
+        - name: Bloquear a autenticação herdada
+          href: howto-conditional-access-policy-block-legacy.md
         - name: Exigir MFA para administradores
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Exigir MFA para gerenciamento do Azure
           href: howto-conditional-access-policy-azure-management.md
         - name: Exigir MFA para todos os usuários
           href: howto-conditional-access-policy-all-users-mfa.md
-        - name: Bloquear a autenticação herdada
-          href: howto-conditional-access-policy-block-legacy.md
         - name: Acesso condicional baseado em risco
           href: howto-conditional-access-policy-risk.md
-        - name: Exigir local confiável para registro de MFA
+        - name: Proteger o registro de informações de segurança
           href: howto-conditional-access-policy-registration.md
         - name: Bloquear o acesso por local
           href: howto-conditional-access-policy-location.md
         - name: Exigir dispositivos em conformidade
           href: howto-conditional-access-policy-compliant-device.md
+        - name: Acesso bloqueado
+          href: howto-conditional-access-policy-block-access.md
     - name: Bloquear a autenticação herdada
       href: block-legacy-authentication.md
     - name: Requer aplicativos de cliente aprovados
@@ -92,8 +94,10 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrar políticas clássicas
       href: policy-migration-mfa.md
-    - name: solução de problemas
+    - name: Solução de problemas
       items:
+        - name: Solucionar problemas de entrada
+          href: troubleshoot-conditional-access.md
         - name: Solucionar problemas usando a ferramenta What If
           href: troubleshoot-conditional-access-what-if.md
 - name: Recursos

@@ -4,12 +4,12 @@ description: Fornece instruções de início rápido para configurar o monitoram
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 495c40ca8e383dd5a3cf3ba9e5bd42e2936ea015
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670841"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132363"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Início Rápido: Iniciar o monitoramento do seu site com o Application Insights do Azure Monitor
 
@@ -126,7 +126,7 @@ Se planejar continuar trabalhando com inícios rápidos adicionais ou tutoriais,
 > [!NOTE]
 > Se você tiver usado um grupo de recursos existente, as instruções abaixo não funcionarão e você precisará apenas excluir o recurso individual do Application Insights. Saiba que sempre que você excluir um grupo de recursos, todos os recursos subjacentes que são membros desse grupo serão excluídos.
 
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**.
+1. No menu à esquerda no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup** ou no nome de seu grupo de recursos temporário.
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas

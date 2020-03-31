@@ -8,18 +8,18 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 8190265753bddb3038c5403411c4be193dd8075c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c56088a2c51c50c7f9cf1ff1e790d580fdb08d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433631"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245388"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Framework com a Configuração de Aplicativo do Azure
 
 Neste guia de início rápido, você incorpora a Configuração de Aplicativos do Azure em um aplicativo com base em .NET Framework para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -29,13 +29,15 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador de Configurações** > **Criar** para adicionar os seguintes pares chave-valor:
+6. Selecione **Gerenciador de Configurações** > **Criar** > **Chave-valor** para adicionar os seguintes pares chave-valor:
 
     | Chave | Valor |
     |---|---|
     | TestApp:Settings:Message | Dados da Configuração de Aplicativo do Azure |
 
     Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
+
+7. Escolha **Aplicar**.
 
 ## <a name="create-a-net-console-app"></a>Criar um aplicativo de console do .NET
 
@@ -92,7 +94,7 @@ Neste guia de início rápido, você incorpora a Configuração de Aplicativos d
 
 1. Defina uma variável de ambiente chamada **ConnectionString** como a cadeia de conexão do repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o seguinte comando:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 

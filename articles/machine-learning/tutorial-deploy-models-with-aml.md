@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de classificação de imagens: Implantar modelos'
 titleSuffix: Azure Machine Learning
-description: Este tutorial mostra como usar o Azure Machine Learning para implantar um modelo de classificação de imagem com o Scikit-learn em um Python Jupyter Notebook. Este tutorial é a segunda de uma série de duas partes.
+description: Este tutorial, o segundo de uma série de duas partes, mostra como usar o Azure Machine Learning para implantar um modelo de classificação de imagem com o scikit-learn em um Notebook Jupyter Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 81e02492f7e79b87e1513a910afe4719908adbbb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116494"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159058"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implantar um modelo de classificação de imagem em Instâncias de Contêiner do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este tutorial é **parte dois de uma série de tutoriais de duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), você treinou modelos de machine learning e, depois, registrou um modelo no workspace na nuvem.  
-
-Agora, você está pronto para implantar o modelo como um serviço Web na [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/). Um serviço Web é uma imagem, neste caso, uma imagem do Docker. Ele encapsula a lógica de pontuação e o próprio modelo. 
+Este tutorial é **parte dois de uma série de tutoriais de duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), você treinou modelos de machine learning e, depois, registrou um modelo no workspace na nuvem.  Agora, você está pronto para implantar o modelo como um serviço Web. Um serviço Web é uma imagem, neste caso, uma imagem do Docker. Ele encapsula a lógica de pontuação e o próprio modelo. 
 
 Nesta parte do tutorial, você usará o Azure Machine Learning para as seguintes tarefas:
 
@@ -38,7 +36,7 @@ Instâncias de Contêiner são uma ótima solução para testar e compreender o 
 >[!NOTE]
 > O código deste artigo foi testado com a versão 1.0.41 do SDK do Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar o notebook, primeiro conclua o treinamento de modelo no [Tutorial (parte 1): treinar um modelo de classificação de imagem](tutorial-train-models-with-aml.md).   Em seguida, abra o notebook *img-classification-part2-deploy.ipynb* na pasta *tutorials/image-classification-mnist-data* clonada.
 
@@ -50,7 +48,7 @@ Este tutorial também estará disponível no [GitHub](https://github.com/Azure/M
 > Alterne para o Jupyter Notebook agora se quiser ler enquanto executa o código.
 > Para executar uma única célula de código em um notebook, clique na célula de código e pressione **Shift + Enter**. Ou execute o notebook inteiro escolhendo a **Executar tudo** na barra de ferramentas superior.
 
-## <a name="start"></a>Configurar o ambiente
+## <a name="set-up-the-environment"></a><a name="start"></a>Configurar o ambiente
 
 Inicie configurando um ambiente de teste.
 
@@ -299,7 +297,6 @@ Obtenha o ponto de extremidade HTTP do serviço Web de pontuação, que aceita c
 ```python
 print(service.scoring_uri)
 ```
-
 
 ## <a name="test-the-deployed-service"></a>Testar o serviço implantado
 

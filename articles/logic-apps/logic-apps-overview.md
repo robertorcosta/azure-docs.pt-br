@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/29/2018
-ms.openlocfilehash: 2327632fc2a71855874bb8fe45e97af430fa696a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/11/2020
+ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358702"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290544"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Visão geral – O que são Aplicativos Lógicos do Azure?
 
@@ -36,7 +36,7 @@ Para criar soluções de integração empresarial com os Aplicativos Lógicos do
 
 Cada fluxo de trabalho do aplicativo lógico começa com um gatilho, que é acionado quando um evento específico ocorre, ou quando novos dados disponíveis atendem a critérios específicos. Vários gatilhos fornecidos pelos conectores nos Aplicativos Lógicos incluem recursos básicos de agendamento para que você possa configurar a regularidade das execuções das suas cargas de trabalho. Para um agendamento mais complexo ou recorrências avançadas, você pode usar um gatilho de recorrência como a primeira etapa em qualquer fluxo de trabalho. Saiba mais sobre [fluxos de trabalho baseados em agendamento](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-Cada vez que o disparador é acionado, o mecanismo de Aplicativo Lógico cria uma instância de aplicativo lógico que executa as ações no fluxo de trabalho. Essas ações também podem incluir conversões de dados e controles de fluxo, como instruções condicionais, instruções de comutação, loops e ramificações. Por exemplo, esse aplicativo lógico começa com um gatilho Dynamics 365 com os critérios internos "Quando um registro é atualizado". Se o gatilho detectar um evento que corresponde a esses critérios, o gatilho será acionado e executará ações do fluxo de trabalho. Aqui, essas ações incluem transformação XML, atualizações de dados, ramificação de decisões e notificações por email.
+Cada vez que o disparador é acionado, o mecanismo de Aplicativo Lógico cria uma instância de aplicativo lógico que executa as ações no fluxo de trabalho. Essas ações também podem incluir conversões de dados e controles de fluxo de trabalho, como instruções condicionais, instruções de comutação, loops e ramificações. Por exemplo, esse aplicativo lógico começa com um gatilho Dynamics 365 com os critérios internos "Quando um registro é atualizado". Se o gatilho detectar um evento que corresponde a esses critérios, o gatilho será acionado e executará ações do fluxo de trabalho. Aqui, essas ações incluem transformação XML, atualizações de dados, ramificação de decisões e notificações por email.
 
 ![Designer de Aplicativos Lógicos - exemplo de aplicativo lógico](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
@@ -100,6 +100,18 @@ Indo na outra direção, BizTalk Server pode se conectar e se comunicar com apli
 
 Crie seus aplicativos lógicos como modelos do Azure Resource Manager para que você possa [automatizar a implantação de aplicativos lógicos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) em vários ambientes e regiões.
 
+### <a name="access-resources-inside-azure-virtual-networks"></a>Acessar recursos dentro de redes virtuais do Azure
+
+Os aplicativos lógicos podem acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços que estão dentro de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) quando você cria um [*ISE (ambiente do serviço de integração*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)). Um ISE é uma instância isolada do serviço de Aplicativos Lógicos que usa recursos dedicados e é executado separadamente do serviço de Aplicativos Lógicos multilocatários "globais".
+
+A execução de aplicativos lógicos em sua própria instância isolada separada ajuda a reduzir o impacto que outros locatários do Azure podem ter sobre o desempenho de seus aplicativos, também conhecido como o efeito ["vizinhos com ruído"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Um ISE proporciona estes benefícios:
+
+* Seus próprios endereços IP estáticos, que são separados dos endereços IP estáticos compartilhados pelos aplicativos lógicos no serviço multilocatário. Você também pode configurar um único endereço IP de saída público, estático e previsível para se comunicar com os sistemas de destino. Dessa forma, você não precisa configurar aberturas adicionais do firewall nesses sistemas de destino para cada ISE.
+
+* Aumento dos limites de duração da execução, retenção de armazenamento, taxa de transferência, tempos limite de solicitação e resposta HTTP, tamanhos de mensagem e solicitações de conector personalizado. Para obter mais informações, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md).
+
+Quando você cria um ISE, o Azure *injeta* ou implanta esse ISE em sua rede virtual do Azure. Em seguida, é possível usar esse ISE como o local para os aplicativos lógicos e as contas de integração que precisam de acesso. Para obter mais informações sobre como criar um ISE, confira [Conectar-se a redes virtuais do Azure de Aplicativos Lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
 ### <a name="built-in-extensibility"></a>Extensibilidade integrada
 
 Se você não encontrar o conector que deseja executar código personalizado, poderá estender os aplicativos lógicos criando e chamando seus próprios snippets de código sob demanda por meio do [Azure Functions](../azure-functions/functions-overview.md). Criar suas próprias [APIs](../logic-apps/logic-apps-create-api-app.md) e seus [conectores personalizados](../logic-apps/custom-connector-overview.md) que podem ser chamados dos aplicativos lógicos.
@@ -114,6 +126,10 @@ Saiba mais sobre aplicativos lógicos com esses vídeos introdutórios:
 * [Integração do Enterprise com Aplicativos Lógicos do Azure](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188)
 * [Criando processos de negócios avançados com Aplicativos Lógicos](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179)
 
+## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-power-automate"></a>Como os Aplicativos Lógicos diferem do Functions, dos WebJobs e do Power Automate?
+
+Todos esses serviços ajudam a "colar" e a interligar sistemas distintos. Cada serviço tem suas vantagens e benefícios, e combinar seus recursos é a melhor maneira de criar rapidamente um sistema de integração completa escalonável. Para saber mais, confira [Escolher entre Aplicativos Lógicos, Functions, WebJobs e Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+
 <a name="logic-app-concepts"></a>
 
 ## <a name="key-terms"></a>Principais termos
@@ -127,10 +143,6 @@ Saiba mais sobre aplicativos lógicos com esses vídeos introdutórios:
 * **Ações**: Ações são todas as etapas que ocorrem após o gatilho. Cada ação normalmente é mapeada para uma operação definida por um conector gerenciado, uma API personalizada ou um conector personalizado.
 
 * **Enterprise Integration Pack**: para cenários de integração mais avançados, os Aplicativos Lógicos incluem recursos do BizTalk Server. O Enterprise Integration Pack fornece os conectores que ajudam os aplicativos lógicos a executar facilmente validação, transformação e muito mais.
-
-## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>Como os aplicativos lógicos diferem do Functions, dos WebJobs e do Flow?
-
-Todos esses serviços ajudam a "colar" e a interligar sistemas distintos. Cada serviço tem suas vantagens e benefícios, e combinar seus recursos é a melhor maneira de criar rapidamente um sistema de integração completa escalonável. Para saber mais, confira [Escolher entre Flow, Aplicativos Lógicos, Functions e WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 ## <a name="get-started"></a>Introdução
 

@@ -5,20 +5,20 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: ad6ea3c68ed6f48ac48bbbdafed7f8660df23937
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250121"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239221"
 ---
-# <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Proteger os artefatos em implantações de modelo do Azure Resource Manager
+# <a name="tutorial-secure-artifacts-in-arm-template-deployments"></a>Tutorial: Proteger artefatos em implantações de modelos do ARM
 
-Saiba como proteger os artefatos usados em modelos do Azure Resource Manager usando uma conta de Armazenamento do Azure com SAS (assinaturas de acesso compartilhado). Artefatos de implantação são quaisquer arquivos, além do arquivo de modelo principal, necessários para concluir uma implantação. Por exemplo, no [Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md), o modelo principal cria uma instância do Banco de Dados SQL do Azure. Ele também chama um arquivo BACPAC para criar tabelas e inserir dados. O arquivo BACPAC é um artefato e é armazenado em uma conta do Armazenamento do Azure. Uma chave de conta de armazenamento foi usada para acessar o artefato. 
+Saiba como proteger os artefatos usados em modelos do ARM (Azure Resource Manager) usando uma conta de Armazenamento do Azure com SAS (assinaturas de acesso compartilhado). Artefatos de implantação são quaisquer arquivos, além do arquivo de modelo principal, necessários para concluir uma implantação. Por exemplo, no [Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM](./template-tutorial-deploy-sql-extensions-bacpac.md), o modelo principal cria uma instância do Banco de Dados SQL do Azure. Ele também chama um arquivo BACPAC para criar tabelas e inserir dados. O arquivo BACPAC é um artefato e é armazenado em uma conta do Armazenamento do Azure. Uma chave de conta de armazenamento foi usada para acessar o artefato.
 
 Neste tutorial, você pode usar SAS para conceder acesso limitado ao arquivo BACPAC em sua própria conta de Armazenamento do Azure. Para saber mais sobre SAS, confira [Usar SAS (assinaturas de acesso compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-Para saber como proteger um modelo vinculado, confira [Tutorial: Criar modelos do Azure Resource Manager vinculados](./template-tutorial-create-linked-templates.md).
+Para saber como proteger um modelo vinculado, confira [Tutorial: Criar modelos do ARM vinculados](./template-tutorial-create-linked-templates.md).
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -35,19 +35,19 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com uma extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](./use-vs-code-to-create-template.md).
-* Examine [Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). O modelo usado neste tutorial é o desenvolvido naquele tutorial. Um link de download do modelo concluído é fornecido neste artigo.
+* Visual Studio Code com uma extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](./use-vs-code-to-create-template.md).
+* Examine [Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM](./template-tutorial-deploy-sql-extensions-bacpac.md). O modelo usado neste tutorial é o desenvolvido naquele tutorial. Um link de download do modelo concluído é fornecido neste artigo.
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador do SQL Server. Aqui está um exemplo que você pode usar para gerar uma senha:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do ARM](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-a-bacpac-file"></a>Preparar um arquivo BACPAC
 
-Nesta seção, você prepara um arquivo BACPAC para que o arquivo esteja acessível com segurança quando você implantar o modelo do Resource Manager. Há cinco procedimentos nesta seção:
+Nesta seção, você vai preparar um arquivo BACPAC para que o arquivo esteja acessível com segurança quando você implantar o modelo do ARM. Há cinco procedimentos nesta seção:
 
 * Baixe o arquivo BACPAC.
 * Criar uma conta do Armazenamento do Azure.
@@ -115,7 +115,7 @@ Nesta seção, você prepara um arquivo BACPAC para que o arquivo esteja acessí
 
 ## <a name="open-an-existing-template"></a>Abrir um modelo existente
 
-Nesta sessão, você modifica o modelo criado no [Tutorial: Importar arquivos BACPAC do SQL com modelos do Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md) para chamar o arquivo BACPAC com um token SAS. O modelo desenvolvido no tutorial de extensão do SQL é compartilhado em [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+Nesta sessão, você modifica o modelo criado no [Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM](./template-tutorial-deploy-sql-extensions-bacpac.md) para chamar o arquivo BACPAC com um token SAS. O modelo desenvolvido no tutorial de extensão do SQL é compartilhado em [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 1. Em **Nome do arquivo**, cole a seguinte URL:
@@ -138,7 +138,7 @@ Nesta sessão, você modifica o modelo criado no [Tutorial: Importar arquivos BA
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-1. Substitua a definição do parâmetro storageAccountKey pela definição de parâmetro a seguir: 
+1. Substitua a definição do parâmetro storageAccountKey pela definição de parâmetro a seguir:
 
     ```json
         "_artifactsLocationSasToken": {
@@ -211,7 +211,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você implantou um servidor SQL e um banco de dados SQL e importou um arquivo BACPAC usando um token SAS. Para saber como criar um pipeline do Azure para desenvolver e implantar modelos do Resource Manager, veja:
+Neste tutorial, você implantou um servidor SQL e um banco de dados SQL e importou um arquivo BACPAC usando um token SAS. Para saber como implantar recursos do Azure em várias regiões e como usar práticas de implantação seguras, consulte
 
 > [!div class="nextstepaction"]
-> [Integração contínua com o Azure Pipeline](./template-tutorial-use-azure-pipelines.md)
+> [Usar práticas de implantação segura](./deployment-manager-tutorial.md)

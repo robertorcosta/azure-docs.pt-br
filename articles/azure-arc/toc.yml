@@ -14,6 +14,8 @@
       href: ./servers/onboard-service-principal.md
     - name: Conectar computadores ao Azure Arc com o DSC do PowerShell
       href: ./servers/onboard-dsc.md
+- name: Gerenciar agente
+  href: ./servers/manage-agent.md
 - name: Referência
   items:
     - name: Interface da CLI do Agente do Computador Conectado do Azure

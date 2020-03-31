@@ -11,79 +11,67 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: ed33d50da84347f55d355802e7767c8477c30e87
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 03/10/2020
+ms.openlocfilehash: 31bd47128a272e75d7021180b536fe6bf7420f55
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482150"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79299287"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início Rápido: Usar o SQL Server Management Studio para conectar e consultar um Banco de Dados SQL do Azure
 
-Neste Início Rápido, você usará o [SSMS][ssms-install-latest-84g] (SQL Server Management Studio) para conectar-se a um Banco de Dados SQL do Azure. Em seguida, você executará instruções Transact-SQL para consultar, inserir, atualizar e excluir dados. Você pode usar o SSMS para gerenciar qualquer infraestrutura SQL, desde o SQL Server até o Banco de Dados SQL para Microsoft Windows.  
+Neste início rápido, você aprenderá a usar o SSMS (SQL Server Management Studio) para conectar-se a um Banco de Dados SQL do Azure e executar algumas consultas.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Um banco de dados SQL do Azure. Você pode usar um destes guias de início rápido para criar e, em seguida, configurar um banco de dados no Banco de Dados SQL do Azure:
+A conclusão deste início rápido requer os seguintes itens:
 
-  || Banco de dados individual | Instância gerenciada |
-  |:--- |:--- |:---|
-  | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurar | [Regra de firewall de IP no nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Conectividade do local](sql-database-managed-instance-configure-p2s.md)
-  |Carregar dados|Adventure Works carregado por guia de início rápido|[Restaurar o Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restaurar ou importar o Adventure Works por meio do arquivo [BACPAC](sql-database-import.md) do [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
+- O banco de dados de exemplo AdventureWorksLT. Se você precisar de uma cópia funcional do banco de dados AdventureWorksLT, crie uma concluindo o início rápido [Criar um banco de dados SQL do Azure](sql-database-single-database-get-started.md).
+    - Os scripts neste artigo são escritos para usar o banco de dados AdventureWorksLT. Se você estiver usando uma instância gerenciada, precisará importar o banco de dados do Adventure Works para um banco de dados de instância ou modificar os scripts deste artigo para usar o banco de dados da Wide World Importers.
 
-  > [!IMPORTANT]
-  > Os scripts deste artigo são escritos para usar o banco de dados do Adventure Works. Com uma instância gerenciada, você deve importar o banco de dados do Adventure Works para um banco de dados de instância ou modificar os scripts deste artigo para usar o banco de dados da Wide World Importers.
-
-## <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
-
-Antes de começar, verifique se você instalou a versão mais recente do [SSMS][ssms-install-latest-84g].
+Se você simplesmente quiser executar algumas consultas ad hoc sem instalar o SSMS, confira [Início rápido: Usar o editor de consultas do portal do Azure para consultar um banco de dados SQL](sql-database-connect-query-portal.md).
 
 ## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
+Obtenha as informações de conexão necessárias para se conectar ao banco de dados. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon para concluir o início rápido.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL**.
+2. Navegue até a página **banco de dados SQL** ou **instâncias gerenciadas do SQL** que você deseja consultar.
 
-3. Na página **Visão geral**, examine o nome do servidor totalmente qualificado próximo ao **Nome do servidor** para um banco de dados individual ou o nome do servidor totalmente qualificado próximo ao **Host** para instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone **Copiar**.
+3. Na página **Visão geral**, copie o nome do servidor totalmente qualificado. Ele está próximo ao **Nome do servidor** para um banco de dados individual ou o nome do servidor totalmente qualificado próximo ao **Host** para instância gerenciada. O nome totalmente qualificado é semelhante a: *servername.database.windows.net*, exceto que ele tem o nome do servidor real.
 
 ## <a name="connect-to-your-database"></a>Conectar-se ao seu banco de dados
 
-No SMSS, conecte-se ao servidor do Banco de Dados SQL do Azure.
+No SSMS, conecte-se ao servidor do Banco de Dados SQL do Azure.
 
 > [!IMPORTANT]
-> Um servidor do Banco de Dados SQL do Azure escuta na porta 1433. Para se conectar a um servidor do Banco de Dados SQL do Azure por trás de um firewall corporativo, essa porta do firewall deve estar aberta.
->
+> Um servidor do Banco de Dados SQL do Azure escuta na porta 1433. Para se conectar a um servidor do Banco de Dados SQL do Azure por trás de um firewall corporativo, essa porta do firewall precisa estar aberta.
 
-1. Abra o SSMS. A caixa de diálogo **Conectar-se ao Servidor** é exibida.
+1. Abra o SSMS.
 
-2. Insira as seguintes informações:
+2. A caixa de diálogo **Conectar-se ao Servidor** é exibida. Insira as seguintes informações:
 
-   | Configuração      | Valor sugerido    | DESCRIÇÃO |
+   | Configuração      | Valor sugerido    | Descrição |
    | ------------ | ------------------ | ----------- |
    | **Tipo de servidor** | Mecanismo de banco de dados | Valor obrigatório. |
-   | **Nome do servidor** | O nome do servidor totalmente qualificado | Algo como: **mynewserver20170313.database.windows.net**. |
-   | **Autenticação** | Autenticação do SQL Server | Este tutorial usa a Autenticação do SQL. |
+   | **Nome do servidor** | O nome do servidor totalmente qualificado | Algo como: **servername.database.windows.net**. |
+   | **Autenticação** | Autenticação do SQL Server | Este tutorial usa a autenticação do SQL. |
    | **Logon** | ID de usuário da conta do administrador do servidor | A ID de usuário da conta do administrador do servidor usada para criar o servidor. |
    | **Senha** | Senha da conta do administrador do servidor | A senha da conta do administrador do servidor usada para criar o servidor. |
    ||||
 
    ![conectar-se ao servidor](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Selecione **Opções** na caixa de diálogo **Conectar-se ao servidor**. No menu suspenso **Conectar ao banco de dados**, selecione **mySampleDatabase**. Se você deixar o menu suspenso como padrão, a conexão será feita para o banco de dados **mestre**.
+3. Selecione **Opções** na caixa de diálogo **Conectar-se ao servidor**. No menu suspenso **Conectar-se ao banco de dados**, selecione **mySampleDatabase**. A conclusão do início rápido na seção [Pré-requisitos](#prerequisites) cria um banco de dados AdventureWorksLT chamado mySampleDatabase. Se sua cópia funcional do banco de dados AdventureWorks tiver um nome diferente de mySampleDatabase, selecione-a em vez disso.
 
    ![conectar o banco de dados no servidor](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
 4. Selecione **Conectar**. A janela Pesquisador de Objetos se abre.
 
-5. Para exibir objetos do banco de dados, expanda **Bancos de Dados** e, em seguida, expanda **mySampleDatabase**.
+5. Para exibir objetos do banco de dados, expanda **Bancos de Dados** e, em seguida, expanda o nó do banco de dados.
 
    ![Objetos mySampleDatabase](./media/sql-database-connect-query-ssms/connected.png)  
 
@@ -93,7 +81,7 @@ Execute esse código Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms
 
 1. No Pesquisador de Objetos, clique com o botão direito do mouse em **mySampleDatabase** e selecione **Nova Consulta**. Abre uma nova janela de consulta conectada ao banco de dados.
 
-2. Na janela de consultas, cole esta consulta SQL.
+2. Na janela da consulta, cole a seguinte consulta SQL:
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -102,11 +90,11 @@ Execute esse código Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. Na barra de ferramentas, selecione **Executar** para recuperar dados das tabelas `Product` e `ProductCategory`.
+3. Na barra de ferramentas, selecione **Executar** para executar a consulta e recuperar dados das tabelas `Product` e `ProductCategory`.
 
     ![consulta para recuperar dados da tabela Product e ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
-## <a name="insert-data"></a>Inserir dados
+### <a name="insert-data"></a>Inserir dados
 
 Execute esse código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) para criar um produto na tabela `SalesLT.Product`.
 
@@ -133,7 +121,7 @@ Execute esse código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms
 
 2. Selecione **Executar** para inserir uma nova linha na tabela `Product`. O painel **Mensagens** é exibido **(1 linha afetada)** .
 
-## <a name="view-the-result"></a>Exibir o resultado
+#### <a name="view-the-result"></a>Exibir o resultado
 
 1. Substitua a consulta anterior por esta.
 
@@ -146,11 +134,11 @@ Execute esse código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms
 
    ![resultado da consulta de tabela Product](./media/sql-database-connect-query-ssms/result.png)
 
-## <a name="update-data"></a>Atualizar dados
+### <a name="update-data"></a>Atualizar dados
 
 Execute este código Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) para modificar seu novo produto.
 
-1. Substitua a consulta anterior por esta.
+1. Substitua a consulta anterior por aquela que retorna o novo registro criado anteriormente:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -160,7 +148,7 @@ Execute este código Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms
 
 2. Selecione **Executar** para atualizar a linha especificada na tabela `Product`. O painel **Mensagens** é exibido **(1 linha afetada)** .
 
-## <a name="delete-data"></a>Excluir dados
+### <a name="delete-data"></a>Excluir dados
 
 Execute esse código Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) para remover o novo produto.
 
@@ -184,7 +172,3 @@ Execute esse código Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms
 - Para conectar e consultar usando o Java, veja [Conectar e consultar com o Java](sql-database-connect-query-java.md).
 - Para conectar e consultar usando o Python, veja [Conectar e consultar com o Python](sql-database-connect-query-python.md).
 - Para conectar e consultar usando o Ruby, veja [Conectar e consultar com o Ruby](sql-database-connect-query-ruby.md).
-
-<!-- Article link references. -->
-
-[ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms

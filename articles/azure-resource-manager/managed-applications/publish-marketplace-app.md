@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 73d4ccbda854d631248daef439aa3bd232d42e06
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649063"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472989"
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Aplicativos gerenciados do Azure no Marketplace
+# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutorial: Publicar aplicativos gerenciados do Azure no Marketplace
 
 Os fornecedores podem usar os aplicativos gerenciados do Azure para oferecer suas soluções para todos os clientes do Azure Marketplace. Os fornecedores podem incluir os provedores de serviços gerenciados (MSPs), os fornecedores de software independentes (ISVs) e os integradores de sistemas (Sis). Os aplicativos gerenciados reduzem a sobrecarga de manutenção e de serviço para os clientes. Os editores podem vender infraestrutura e software por meio do marketplace. Eles podem anexar serviços e suporte operacional para aplicativos gerenciados. Para saber mais, consulte [Visão geral do aplicativo gerenciado](overview.md).
 

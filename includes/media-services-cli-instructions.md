@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: media-services
 author: Juliako
 ms.service: media-services
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ebbac39c8850737ea6f9ef333e45d305a520655
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814732"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79461207"
 ---
-## <a name="cli-shell"></a>Shell da CLI
+## <a name="use-cli-shell"></a>Usar o shell da CLI
 
 É recomendável usar o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) para executar comandos da CLI. O **Cloud Shell** é um shell interativo e grátis que pode ser usado para executar as etapas deste artigo. Ferramentas comuns do Azure estão pré-instaladas e configuradas para uso com sua conta. Ele dá a você a flexibilidade de escolher a experiência de shell que melhor se adequa ao modo como você trabalha. Usuários do Linux podem optar por uma experiência com o Bash, enquanto usuários do Windows podem optar pelo PowerShell.
 
@@ -43,7 +43,7 @@ Caminho relativo para a iteração (todos os sistemas operacionais)
 Caminho de arquivo absoluto no sistema operacional Linux/Mac e Windows
 
 * `@ "/usr/home/mytestfile.json"`
-*   `@"c:\tmp\user\mytestfile.json"`
+*    `@"c:\tmp\user\mytestfile.json"`
 
 Use `{file}` se o comando estiver solicitando um caminho para o arquivo. Por exemplo, `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> Use `@{file}` se o comando for carregar o arquivo especificado. Por exemplo, `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.
 

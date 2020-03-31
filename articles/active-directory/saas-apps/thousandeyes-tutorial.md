@@ -17,10 +17,10 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd179049f88454c62244cf1819cee08ef78d0633
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373246"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ThousandEyes
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o ThousandEyes ao Azure AD (Azure Ac
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -142,11 +142,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 4. Clique na guia **Segurança e Autenticação**.
 
-    ![Segurança e autenticação](./media/thousandeyes-tutorial/ic790068.png "Segurança e autenticação")
+    ![Segurança e Autenticação](./media/thousandeyes-tutorial/ic790068.png "Segurança e Autenticação")
 
 5. Na seção **Configurações de Logon Único** , realize as seguintes etapas:
 
-    ![Configurar o logon único](./media/thousandeyes-tutorial/ic790069.png "Configurar o logon único")
+    ![Configurações de Logon Único](./media/thousandeyes-tutorial/ic790069.png "Configurações de Logon Único")
 
     a. Selecione **Habilitar Logon Único**.
 
@@ -162,7 +162,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ### <a name="create-thousandeyes-test-user"></a>Criar usuário de teste do ThousandEyes
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no ThousandEyes. O ThousandEyes dá suporte ao provisionamento automático do usuário, que está habilitado por padrão. Você pode encontrar [aqui](thousandeyes-provisioning-tutorial.md) mais detalhes de como configurar o provisionamento automático de usuário.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no ThousandEyes. O ThousandEyes dá suporte ao provisionamento automático do usuário, que está habilitado por padrão. Você pode encontrar mais detalhes [ aqui ](thousandeyes-provisioning-tutorial.md) sobre como configurar o provisionamento automático de usuários.
 
 **Se você precisar criar o usuário manualmente, execute as seguintes etapas:**
 
@@ -178,11 +178,11 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Thousa
 
 4. Clique na guia **Contas e Usuários**.
 
-    ![Contas e usuários](./media/thousandeyes-tutorial/IC790073.png "Contas e usuários")
+    ![Contas e Usuários](./media/thousandeyes-tutorial/IC790073.png "Contas e Usuários")
 
 5. Na seção **Adicionar Usuários e Contas**, realize as seguintes etapas:
 
-    ![Adicionar contas de usuário](./media/thousandeyes-tutorial/IC790074.png "Adicionar contas de usuário")
+    ![Adicionar Contas de Usuário](./media/thousandeyes-tutorial/IC790074.png "Adicionar contas de usuário")
 
     a. Na caixa de texto **Nome**, digite o nome do usuário como **B.Fernandes**.
 

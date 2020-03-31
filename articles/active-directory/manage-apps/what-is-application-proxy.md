@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7047dfd0f02ffe95dcacfdf4ddc014047a338513
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108171"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481187"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 
@@ -81,7 +81,7 @@ Após o logon, os usuários externos podem acessar os aplicativos Web locais usa
 
 ![Arquitetura do Proxy de Aplicativo do Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 Há várias maneiras de configurar um aplicativo para logon único e o método escolhido depende da autenticação que seu aplicativo usa. O Proxy de Aplicativo dá suporte aos seguintes tipos de aplicativos:
 
@@ -145,7 +145,7 @@ O diagrama a seguir ilustra, de forma geral, como os serviços de autenticação
 |AD (Active Directory)|O Active Directory é executado localmente para realizar a autenticação para contas de domínio. Quando o logon único está configurado, o conector se comunica com o AD para realizar qualquer autenticação adicional necessária.|
 |Aplicativo local|Por fim, o usuário é capaz de acessar um aplicativo local.|
 
-O Proxy de Aplicativo do Azure AD é formado pelo serviço Proxy de Aplicativo baseado em nuvem e um conector local. O conector escuta solicitações do serviço Proxy de Aplicativo e trata das conexões para os aplicativos internos. É importante observar que todas as comunicações ocorrem por SSL e sempre originam-se no conector para o serviço Proxy de Aplicativo. Ou seja, as comunicações são apenas de saída. O conector usa um certificado de cliente para autenticar o serviço Proxy de Aplicativo para todas as chamadas. A única exceção desta segurança de conexão é a etapa de configuração inicial em que o certificado de cliente é estabelecido. Para obter mais detalhes, confira [Nos bastidores](application-proxy-security.md#under-the-hood) do Proxy de Aplicativo.
+O Proxy de Aplicativo do Azure AD é formado pelo serviço Proxy de Aplicativo baseado em nuvem e um conector local. O conector escuta solicitações do serviço Proxy de Aplicativo e trata das conexões para os aplicativos internos. É importante observar que todas as comunicações ocorrem por TLS e sempre originam-se no conector para o serviço do Proxy de Aplicativo. Ou seja, as comunicações são apenas de saída. O conector usa um certificado de cliente para autenticar o serviço Proxy de Aplicativo para todas as chamadas. A única exceção desta segurança de conexão é a etapa de configuração inicial em que o certificado de cliente é estabelecido. Para obter mais detalhes, confira [Nos bastidores](application-proxy-security.md#under-the-hood) do Proxy de Aplicativo.
 
 ### <a name="application-proxy-connectors"></a>Conectores do Proxy de Aplicativo
 
@@ -183,7 +183,7 @@ Para saber mais sobre como escolher o local de instalação dos conectores e oti
 Até este ponto, nos concentramos em usar o Proxy de Aplicativo para publicar aplicativos locais externamente também permitindo o logon único em todos os aplicativos na nuvem e no local. No entanto, vale a pena mencionar outros casos de uso do Proxy de Aplicativo. Elas incluem:
 
 * **Publicar APIs REST com segurança**. Quando você tem lógica de negócios ou APIs em execução no local ou hospedadas em máquinas virtuais na nuvem, o Proxy de Aplicativo fornece um ponto de extremidade público para acesso à API. O acesso ao ponto de extremidade da API permite controlar a autenticação e a autorização sem exigir portas de entrada. Ele fornece segurança adicional por meio dos recursos do Azure AD Premium, como autenticação multifator e acesso condicional baseado em dispositivo para áreas de trabalho, iOS, MAC e dispositivos Android usando o Intune. Para saber mais, confira [Como habilitar aplicativos cliente nativos para interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md) e [Proteger uma API usando o OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
-* **Serviços da Área de Trabalho Remota** **(RDS)** . As implantações de RDS padrão exigem conexões de entrada abertas. No entanto, a [implantação de RDS com o Proxy de Aplicativo](application-proxy-integrate-with-remote-desktop-services.md) tem uma conexão permanente de saída no servidor que executa o serviço do conector. Dessa forma, você pode oferecer mais aplicativos aos usuários finais publicando aplicativos locais por meio dos Serviços de Área de Trabalho Remota. Além disso, é possível reduzir a superfície de ataque da implantação com um conjunto limitado de verificação em duas etapas e controles de acesso condicional para o RDS.
+* **RDS** **(Serviços de Área de Trabalho Remota)** . As implantações de RDS padrão exigem conexões de entrada abertas. No entanto, a [implantação de RDS com o Proxy de Aplicativo](application-proxy-integrate-with-remote-desktop-services.md) tem uma conexão permanente de saída no servidor que executa o serviço do conector. Dessa forma, você pode oferecer mais aplicativos aos usuários finais publicando aplicativos locais por meio dos Serviços de Área de Trabalho Remota. Além disso, é possível reduzir a superfície de ataque da implantação com um conjunto limitado de verificação em duas etapas e controles de acesso condicional para o RDS.
 * **Publicar aplicativos que se conectam usando WebSockets**. O suporte ao [Qlik Sense](application-proxy-qlik.md) está em Versão prévia pública e será expandido para outros aplicativos no futuro.
 * **Habilitar aplicativos cliente nativos para interagir com aplicativos de proxy**. Você pode usar o Proxy de Aplicativo do Azure AD para publicar aplicativos Web. No entanto, ele também pode ser usado para publicar [aplicativos cliente nativos](application-proxy-configure-native-client-application.md) configurados com a ADAL (Biblioteca de Autenticação do AD). Os aplicativos cliente nativos diferem dos aplicativos Web porque eles são instalados em um dispositivo, enquanto os aplicativos Web são acessados por meio de um navegador.
 

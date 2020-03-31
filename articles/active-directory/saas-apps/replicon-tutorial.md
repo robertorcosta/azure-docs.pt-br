@@ -17,10 +17,10 @@ ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b27615b0c76b5c23bbc79788431b0e909b8bf22a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67092760"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutorial: Integrar o Replicon ao Azure Active Directory
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Replicon ao Azure AD (Azure Active
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
@@ -107,7 +107,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 2. Para configurar o SAML 2.0, execute as seguintes etapas:
 
-    ![Habilitar autenticação de SAML](./media/replicon-tutorial/ic777805.png "Habilitar autenticação de SAML")
+    ![Habilitar a Autenticação SAML](./media/replicon-tutorial/ic777805.png "Habilitar a autenticação do SAML")
 
     a. Para exibir a caixa de diálogo **EnableSAML Authentication2**, acrescente o seguinte à URL, após a chave da empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
@@ -165,11 +165,11 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no Replicon.
 
 3. Clique em **+Adicionar Usuário**.
 
-    ![Adicionar Usuário](./media/replicon-tutorial/ic777807.png "Adicionar Usuário")
+    ![Adicionar Usuário](./media/replicon-tutorial/ic777807.png "Adicionar usuário")
 
 4. Na seção **Perfil de Usuário** , realize as seguintes etapas:
 
-    ![Perfil de usuário](./media/replicon-tutorial/ic777808.png "Perfil de usuário")
+    ![Perfil do usuário](./media/replicon-tutorial/ic777808.png "Perfil de Usuário")
 
     a. Na caixa de texto **Nome de Logon**, digite o endereço de email do Microsoft Azure Active Directory para o usuário do que você deseja provisionar, como `B.Simon@contoso.com`.
 

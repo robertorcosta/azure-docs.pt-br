@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33830ce5822b2edee345cf58fc6f2a53d3c863fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd021b9547048e9f5218ce4f2b8b110b15d05963
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227598"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Azure Active Directory com o Deputy
 
@@ -35,7 +35,7 @@ A integração do Deputy ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Deputy, você precisará dos seguintes itens:
 
@@ -174,7 +174,7 @@ Para configurar o logon único do Azure AD com o Deputy, execute as seguintes et
 
 ### <a name="configure-deputy-single-sign-on"></a>Configurar o logon único do Deputy
 
-1. Navegue até a seguinte URL:[https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Vá para as **Configurações de Segurança** e clique em **Editar**.
+1. Navegue até a seguinte URL: `https://(your-subdomain).deputy.com/exec/config/system_config`. Vá para as **Configurações de Segurança** e clique em **Editar**.
    
     ![Configurar o logon único](./media/deputy-tutorial/tutorial_deputy_004.png)
 

@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432252"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204249"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever risco de crédito – Azure Machine Learning Studio (clássico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -38,7 +40,7 @@ Nesta parte do tutorial, você vai:
 
 Depois, você usará esse experimento para [treinar modelos na parte 2](tutorial-part2-credit-risk-train.md) e, em seguida [implantá-los na parte 3](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial pressupõe que você tenha usado o Machine Learning Studio (clássico) pelo menos uma vez e tenha noções básicas sobre os conceitos de aprendizado de máquina. Mas não pressupõe que você seja um especialista em qualquer um deles.
 
@@ -66,7 +68,7 @@ Após criar o espaço de trabalho, abra o Microsoft Machine Learning Studio (cl�
 > Na página **CONFIGURAÇÕES**, clique em **USUÁRIOS** e, em seguida, clique em **CONVIDAR MAIS USUÁRIOS** na parte inferior da janela.
 > 
 
-## <a name="upload"></a>Carregar dados existentes
+## <a name="upload-existing-data"></a><a name="upload"></a>Carregar dados existentes
 
 Para desenvolver um modelo preditivo para risco de crédito, você precisará de dados que possam ser usados para treinar e testar o modelo. Para este tutorial, usaremos o “Conjunto de Dados Statlog (Dados de Crédito Alemão) UCI” do repositório UC Irvine Machine Learning. Você pode encontrá-lo aqui:  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>

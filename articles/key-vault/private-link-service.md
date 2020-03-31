@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6a5cc5bbdb56e308d79b8eb2c8db546184cedb39
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 53036a43cbb0fe3c3a1e61f7124fe7dcbef228f3
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080336"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388926"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault ao Link Privado do Azure
 
@@ -19,11 +19,11 @@ O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por e
 
 Um Ponto de Extremidade Privado do Azure é um adaptador de rede que conecta você de maneira privada e segura a um serviço com tecnologia do Link Privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
 
-Para obter mais informações, confira [O que é o Link Privado do Azure (versão prévia)?](../private-link/private-link-overview.md)
+Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para integrar um cofre de chaves com o Link Privado do Azure (versão prévia), você precisará do seguinte:
+Para integrar um cofre de chaves com o Link Privado do Azure, você precisará do seguinte:
 
 - Um cofre de chaves.
 - Uma rede virtual do Azure.
@@ -46,7 +46,7 @@ Você pode criar um cofre de chaves seguindo as etapas em [Definir e recuperar u
 
 Após configurar os conceitos básicos do cofre de chaves, selecione a guia Rede e siga estas etapas:
 
-1. Selecione o botão de opção do Ponto de Extremidade Privado (versão prévia) na guia Rede.
+1. Selecione o botão de opção do Ponto de Extremidade Privado na guia Rede.
 1. Clique no botão “+ Adicionar” para adicionar um ponto de extremidade privado.
 
     ![Imagem](./media/private-link-service-1.png)
@@ -57,7 +57,7 @@ Após configurar os conceitos básicos do cofre de chaves, selecione a guia Rede
 1. Deixe a opção "integrar-se ao DNS de zona privada" inalterada.  
 1. Selecione "Ok".
 
-    ![Imagem](./media/private-link-service-2.png)
+    ![Imagem](./media/private-link-service-8.png)
  
 Agora você poderá ver o ponto de extremidade privado configurado. Agora você tem a opção de excluir e editar esse ponto de extremidade privado. Selecione o botão “Examinar + Criar” e crie o cofre de chaves. Levará entre 5 e 10 minutos para a implantação ser concluída. 
 
@@ -69,7 +69,7 @@ Se você já tem um cofre de chaves, pode criar uma conexão de link privado seg
 1. Na barra de pesquisa, digite “cofres de chaves”
 1. Selecione o cofre de chaves na lista à qual você deseja adicionar um ponto de extremidade privado.
 1. Selecione a guia “Rede” em Configurações
-1. Selecione a guia Conexões de ponto de extremidade privado (versão prévia) na parte superior da página
+1. Selecione a guia Conexões de ponto de extremidade privado na parte superior da página
 1. Selecione o botão “+ Ponto de Extremidade Privado” na parte superior da página.
 
     ![Imagem](./media/private-link-service-3.png) ![Imagem](./media/private-link-service-4.png)
@@ -100,6 +100,10 @@ az provider register -n Microsoft.KeyVault
 ### <a name="create-a-new-key-vault"></a>Criar um Key Vault
 ```console
 az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### <a name="turn-on-key-vault-firewall"></a>Ativar o firewall do Key Vault
+```console
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 ```console
@@ -220,9 +224,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 
-**Preço**: para obter informações sobre preço, confira [Preço do Link Privado do Azure (versão prévia)](https://azure.microsoft.com/pricing/details/private-link/).
+**Preço**: Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações**:  o ponto de extremidade privado para o Azure Key Vault está em versão prévia pública. O recurso está disponível em todas as regiões públicas do Azure.
+**Limitações**:  O ponto de extremidade privado para o Azure Key Vault só está disponível nas regiões públicas do Azure.
 
 **Número máximo de Pontos de Extremidade Privados por Key Vault**: 64.
 
@@ -232,5 +236,5 @@ Para saber mais, confira [Serviço de Link Privado do Azure: Limitações](../pr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Link Privado do Azure (versão prévia)](../private-link/private-link-service-overview.md)
+- Saiba mais sobre o [Link Privado do Azure](../private-link/private-link-service-overview.md)
 - Saiba mais sobre o [Azure Key Vault](key-vault-overview.md)

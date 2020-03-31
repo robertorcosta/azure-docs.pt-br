@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e8ae31122d59238ac104d7d873cf56f32977c9af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086509"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integração do Azure Active Directory com o xMatters OnDemand
@@ -34,7 +34,7 @@ A integração do xMatters OnDemand ao Azure AD oferece os seguintes benefícios
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o xMatters OnDemand, são necessários os seguintes itens:
 
@@ -152,11 +152,11 @@ Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as segu
 
 2. Na barra de ferramentas na parte superior, clique em **Administrador** e em **Detalhes da Empres**a na barra de navegação à esquerda.
 
-    ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
+    ![Administrador](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
 3. Na página **Configuração do SAML** , realize as seguintes etapas:
 
-    ![Configuração SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuração SAML")
+    ![Configuração do SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuração do SAML")
 
     a. Selecione **Habilitar SAML**.
 
@@ -168,7 +168,7 @@ Para configurar o logon único do Azure AD com o xMatters OnDemand, siga as segu
 
     e. Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**.
 
-    ![Detalhes da empresa](./media/xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
+    ![Company details](./media/xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -260,5 +260,5 @@ Quando clicar no bloco do xMatters OnDemand no Painel de Acesso, você deverá s
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

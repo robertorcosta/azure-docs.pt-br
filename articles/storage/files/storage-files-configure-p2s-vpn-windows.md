@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 90995b1c9d10c7b589706f5abf37f92d76e4362b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5f12b77f5baa1a3b06a093aac7267c65a038881e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560344"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061011"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurar uma VPN P2S (ponto a site) no Windows para uso com os Arquivos do Azure
 Você pode usar uma conexão de VPN P2S (ponto a site) para montar compartilhamentos de arquivo do Azure no SMB de fora do Azure, sem precisar abrir a porta 445. Uma conexão VPN Ponto a Site é uma conexão VPN entre o Azure e um cliente individual. Para usar uma conexão VPN P2S com os Arquivos do Azure, será preciso configurar uma conexão VPN P2S para cada cliente que desejar se conectar. Se muitos clientes precisarem se conectar aos seus compartilhamentos de arquivo do Azure de suas redes locais, você poderá usar uma VPN S2S (Site a Site) em vez de uma conexão ponto a site para cada um deles. Para saber mais, confira [Configurar uma VPN Site a Site para usar com os Arquivos do Azure](storage-files-configure-s2s-vpn.md).
@@ -21,21 +21,12 @@ Recomendamos que você leia [Considerações de rede para acesso direto ao compa
 
 O artigo detalha as etapas de configuração de uma VPN Ponto a Site no Windows (cliente Windows e Windows Server) para criar compartilhamentos de arquivo do Azure diretamente no local. Se você deseja encaminhar o tráfego da Sincronização de Arquivos do Azure por uma VPN, confira [Definir configurações de proxy e firewall da Sincronização de Arquivos do Azure](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 - A versão mais recente do módulo do Azure PowerShell. Para obter mais informações sobre como instalar o Azure PowerShell, confira [Instalar e configurar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e escolha seu sistema operacional. Se preferir, você poderá usar a CLI do Azure no Windows. No entanto, as instruções a seguir são apresentadas para o Azure PowerShell.
 
-- O módulo de DNS Privado do Azure PowerShell. Atualmente, ele não é distribuído como parte do módulo do Azure PowerShell, portanto pode ser instalado com o seguinte método:
-    ```PowerShell
-    if ($PSVersionTable.PSVersion -ge [System.Version]::new(6, 0)) {
-        Install-Module -Name Az.PrivateDns -AllowClobber -AllowPrerelease
-    } else {
-        Install-Module -Name Az.PrivateDns -RequiredVersion "0.1.3"
-    }
+- Um compartilhamento de arquivos do Azure que você gostaria de montar no local. Os compartilhamentos de arquivo do Azure são implantados em contas de armazenamento, que são constructos de gerenciamento que representam um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivo bem como outros recursos de armazenamento, como filas ou contêineres de blobs. Você pode aprender mais sobre como implantar compartilhamentos de arquivo do Azure e contas de armazenamento em [Criar um compartilhamento de arquivo do Azure](storage-how-to-create-file-share.md).
 
-    Import-Module -Name Az.PrivateDns
-    ```  
-
-- Um compartilhamento de arquivos do Azure que você gostaria de montar no local. Você pode usar um compartilhamento de arquivos do Azure [Padrão](storage-how-to-create-file-share.md) ou [Premium](storage-how-to-create-premium-fileshare.md) com a VPN Ponto a Site.
+- Um ponto de extremidade privado para a conta de armazenamento contendo o compartilhamento de arquivo do Azure que você deseja montar localmente. Para saber mais sobre como criar um ponto de extremidade privado, consulte [Configuração de pontos de extremidades de rede do serviço Arquivos do Azure](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
 ## <a name="deploy-a-virtual-network"></a>Implantar uma rede virtual
 Para acessar o compartilhamento de arquivo do Azure e outros recursos do Azure do local por meio de uma VPN ponto a site, você precisa criar uma rede virtual ou VNet. A conexão VPN P2S que você criará automaticamente é uma ponte entre seu computador Windows local e essa rede virtual do Azure.
@@ -85,91 +76,6 @@ $privateEndpointSubnet = $virtualNetwork.Subnets | `
     Where-Object { $_.Name -eq "PrivateEndpointSubnet" }
 $gatewaySubnet = $virtualNetwork.Subnets | ` 
     Where-Object { $_.Name -eq "GatewaySubnet" }
-```
-
-## <a name="restrict-the-storage-account-to-the-virtual-network"></a>Restringir a conta de armazenamento à rede virtual
-Por padrão, quando cria uma conta de armazenamento, você pode acessá-la de qualquer lugar do mundo, desde que consiga autenticar sua solicitação (por exemplo, com sua identidade de Active Directory ou com a chave da conta de armazenamento). Para que o acesso a essa conta de armazenamento fique restrito à rede virtual que acabou de criar, você precisa criar um conjunto de regras de rede que permita o acesso dentro da rede virtual e negue todos os demais.
-
-Restringir a conta de armazenamento à rede virtual requer o uso de um ponto de extremidade de serviço. O ponto de extremidade de serviço é um constructo de rede pelo qual o IP público/DNS público pode ser acessado somente de dentro da rede virtual. Como não há garantia de que o endereço IP público permanecerá o mesmo, é preferível usar um ponto de extremidade privado em vez de um de serviço para a conta de armazenamento. No entanto, não é possível restringir a conta de armazenamento, a menos que um ponto de extremidade de serviço também seja exposto.
-
-Lembre-se de substituir `<storage-account-name>` pela conta de armazenamento que deseja acessar.
-
-```PowerShell
-$storageAccountName = "<storage-account-name>"
-
-$storageAccount = Get-AzStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName
-
-$networkRule = Add-AzStorageAccountNetworkRule `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName `
-    -VirtualNetworkResourceId $serviceEndpointSubnet.Id
-
-Update-AzStorageAccountNetworkRuleSet `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName `
-    -Bypass AzureServices `
-    -DefaultAction Deny `
-    -VirtualNetworkRule $networkRule | Out-Null
-``` 
-
-## <a name="create-a-private-endpoint-preview"></a>Criar um ponto de extremidade privado (versão prévia)
-Criar um ponto de extremidade privado para sua conta de armazenamento dará à conta um endereço IP dentro do espaço de endereços IP de sua rede virtual. Quando você cria o compartilhamento de arquivo do Azure do local usando esse endereço IP privado, as regras de roteamento definidas automaticamente pela instalação da VPN encaminham sua solicitação de criação para a conta de armazenamento por meio da VPN. 
-
-```PowerShell
-$internalVnet = Get-AzResource `
-    -ResourceId $virtualNetwork.Id `
-    -ApiVersion "2019-04-01"
-
-$internalVnet.Properties.subnets[1].properties.privateEndpointNetworkPolicies = "Disabled"
-$internalVnet | Set-AzResource -Force | Out-Null
-
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection `
-    -Name "myConnection" `
-    -PrivateLinkServiceId $storageAccount.Id `
-    -GroupId "file"
-
-$privateEndpoint = New-AzPrivateEndpoint `
-    -ResourceGroupName $resourceGroupName `
-    -Name "$storageAccountName-privateEndpoint" `
-    -Location $region `
-    -Subnet $privateEndpointSubnet `
-    -PrivateLinkServiceConnection $privateEndpointConnection
-
-$zone = Get-AzPrivateDnsZone -ResourceGroupName $resourceGroupName
-if ($null -eq $zone) {
-    $zone = New-AzPrivateDnsZone `
-        -ResourceGroupName $resourceGroupName `
-        -Name "privatelink.file.core.windows.net"
-} else {
-    $zone = $zone[0]
-}
-
-$link = New-AzPrivateDnsVirtualNetworkLink `
-    -ResourceGroupName $resourceGroupName `
-    -ZoneName $zone.Name `
-    -Name ($virtualNetwork.Name + "-link") `
-    -VirtualNetworkId $virtualNetwork.Id
-
-$internalNic = Get-AzResource `
-    -ResourceId $privateEndpoint.NetworkInterfaces[0].Id `
-    -ApiVersion "2019-04-01"
-
-foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
-    foreach($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
-        $recordName = $fqdn.split('.', 2)[0]
-        $dnsZone = $fqdn.split('.', 2)[1]
-        New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName `
-            -Name $recordName `
-            -RecordType A `
-            -ZoneName $zone.Name `
-            -Ttl 600 `
-            -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
-                -IPv4Address $ipconfig.properties.privateIPAddress) | Out-Null
-    }
-}
 ```
 
 ## <a name="create-root-certificate-for-vpn-authentication"></a>Criar um certificado raiz para autenticação da VPN

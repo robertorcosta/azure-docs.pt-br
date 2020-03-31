@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 027876e3d8d669d2ab41d37e24f4171c2349adaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutorial: Integração do Azure Active Directory com o Panopto
@@ -34,7 +34,7 @@ A integração do Panopto ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Panopto, você precisará dos seguintes itens:
 
@@ -132,15 +132,15 @@ Para configurar o logon único do Azure AD com o Panopto, execute as seguintes e
 
 2. Na barra de ferramentas à esquerda, clique em **System** (Sistema) e, em seguida, clique em **Identity Providers** (Provedores de Identidade).
    
-    ![System](./media/panopto-tutorial/ic777670.png "System")
+    ![Sistema](./media/panopto-tutorial/ic777670.png "Sistema")
 
 3. Clique em **Add Provider** (Adicionar Provedor).
    
-    ![Identity Providers](./media/panopto-tutorial/ic777671.png "Identity Providers")
+    ![Provedores de Identidade](./media/panopto-tutorial/ic777671.png "Provedores de Identidade")
    
 4. Na seção de provedor SAML, execute as seguintes etapas:
    
-    ![SaaS configuration](./media/panopto-tutorial/ic777672.png "SaaS configuration")
+    ![Configuração do SaaS](./media/panopto-tutorial/ic777672.png "Configuração do SaaS")
     
     a. Na lista **Provider Type** (Tipo de Provedor), selecione **SAML20**.    
     
@@ -227,5 +227,5 @@ Ao clicar no bloco do Panopto no Painel de Acesso, você será conectado automat
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

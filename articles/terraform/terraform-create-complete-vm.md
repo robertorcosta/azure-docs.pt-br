@@ -3,13 +3,13 @@ title: Início Rápido – Usar o Terraform para criar uma VM do Linux completa 
 description: Neste início rápido, você usará o Terraform para criar e gerenciar um ambiente completo de máquina virtual do Linux no Azure
 keywords: azure devops terraform linux vm máquina virtual
 ms.topic: quickstart
-ms.date: 03/09/2020
-ms.openlocfilehash: 03974d68477855d4ff55b7179312c91ba7d0d055
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.date: 03/15/2020
+ms.openlocfilehash: f262734cc16d97e4d73af371410403a4cbb8815e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943515"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79415454"
 ---
 # <a name="quickstart-create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Início Rápido: Criar uma infraestrutura completa de máquina virtual do Linux no Azure usando o Terraform
 
@@ -27,7 +27,7 @@ O Terraform permite definir e criar implantações de infraestrutura completa no
 
 Vamos percorrer cada seção de um modelo do Terraform. Você também poderá ver a versão completa do [modelo do Terraform](#complete-terraform-script) que você pode copiar e colar.
 
-A seção `provider` informa o Terraform para usar um provedor do Azure. Para obter os valores de *subscription_id*, *client_id*, *client_secret* e *tenant_id*, veja [Instalar e configurar o Terraform](terraform-install-configure.md). 
+A seção `provider` informa o Terraform para usar um provedor do Azure. Para obter valores para `subscription_id`, `client_id`, `client_secret` e `tenant_id`, confira [Instalar e configurar o Terraform](terraform-install-configure.md). 
 
 > [!TIP]
 > Se você criar variáveis de ambiente para os valores ou se estiver usando a [experiência do Bash do Azure Cloud Shell](/azure/cloud-shell/overview) , não precisará incluir as declarações de variáveis nesta seção.
@@ -35,7 +35,7 @@ A seção `provider` informa o Terraform para usar um provedor do Azure. Para ob
 ```hcl
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x. 
-    # If you are using version 1.x, the "features" block is not allowed.
+    # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
     
@@ -59,10 +59,10 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-Nas seções adicionais, você faz referência ao grupo de recursos com *${azurerm_resource_group.myterraformgroup.name}* .
+Nas seções adicionais, você faz referência ao grupo de recursos com `${azurerm_resource_group.myterraformgroup.name}`.
 
 ## <a name="create-virtual-network"></a>Criar rede virtual
-A seção a seguir em cria uma rede virtual chamada *myVnet* no espaço de endereço *10.0.0.0/16*:
+A seção a seguir em cria uma rede virtual chamada `myVnet` no espaço de endereço `10.0.0.0/16`:
 
 ```hcl
 resource "azurerm_virtual_network" "myterraformnetwork" {
@@ -77,7 +77,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 }
 ```
 
-A seção a seguir cria uma sub-rede denominada *mySubnet* na rede virtual *myVnet*:
+A seção a seguir cria uma sub-rede denominada `mySubnet` na rede virtual `myVnet`:
 
 ```hcl
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -90,7 +90,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 
 ## <a name="create-public-ip-address"></a>Criar um endereço IP público
-Para acessar os recursos na Internet, crie e atribua um endereço IP público para a sua VM. A seção a seguir cria um endereço IP público denominado *myPublicIP*:
+Para acessar os recursos na Internet, crie e atribua um endereço IP público para a sua VM. A seção a seguir cria um endereço IP público denominado `myPublicIP`:
 
 ```hcl
 resource "azurerm_public_ip" "myterraformpublicip" {
@@ -107,7 +107,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 
 
 ## <a name="create-network-security-group"></a>Criar um grupo de segurança de rede
-Os grupos de segurança de rede controlam o fluxo de entrada e saída de tráfego de rede de sua VM. A seção a seguir cria um grupo de segurança de rede denominado *myNetworkSecurityGroup* e define uma regra para permitir o tráfego de SSH na porta TCP 22:
+Os grupos de segurança de rede controlam o fluxo de entrada e saída de tráfego de rede de sua VM. A seção a seguir cria um grupo de segurança de rede denominado `myNetworkSecurityGroup` e define uma regra para permitir o tráfego de SSH na porta TCP 22:
 
 ```hcl
 resource "azurerm_network_security_group" "myterraformnsg" {
@@ -135,7 +135,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 
 
 ## <a name="create-virtual-network-interface-card"></a>Criar placa de adaptador de rede virtual
-Uma placa de adaptador de rede virtual (NIC) conecta-se à VM para uma determinada rede virtual, um endereço IP público e um grupo de segurança de rede. A seção a seguir em um modelo do Terraform cria uma NIC virtual denominada *myNIC* conectada aos recursos da rede virtual que você criou:
+Uma placa de adaptador de rede virtual (NIC) conecta-se à VM para uma determinada rede virtual, um endereço IP público e um grupo de segurança de rede. A seção a seguir em um modelo do Terraform cria uma NIC virtual denominada `myNIC` conectada aos recursos da rede virtual que você criou:
 
 ```hcl
 resource "azurerm_network_interface" "myterraformnic" {
@@ -196,9 +196,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-A etapa final é criar uma máquina virtual e usar todos os recursos criados. A seção a seguir cria uma VM denominada *myVM* e anexa a NIC virtual denominada *myNIC*. A imagem mais recente do *Ubuntu 16.04-LTS* é usada e um usuário chamado *azureuser* é criado com a autenticação de senha desabilitada.
+A etapa final é criar uma máquina virtual e usar todos os recursos criados. A seção a seguir cria uma VM denominada `myVM` e anexa a NIC virtual denominada `myNIC`. A imagem mais recente do `Ubuntu 16.04-LTS` é usada e um usuário chamado `azureuser` é criado com a autenticação de senha desabilitada.
 
- Os dados de chave SSH são fornecidos na seção *ssh_keys*. Forneça uma chave SSH pública válida no campo *key_data*.
+ Os dados de chave SSH são fornecidos na seção `ssh_keys`. Forneça uma chave SSH pública no campo `key_data`.
 
 ```hcl
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
@@ -214,7 +214,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         storage_account_type = "Premium_LRS"
     }
 
-    storage_image_reference {
+    source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
         sku       = "16.04.0-LTS"
@@ -242,13 +242,13 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 
 ## <a name="complete-terraform-script"></a>Script completo do Terraform
 
-Para reunir todas essas seções e ver Terraform em ação, crie um arquivo chamado *terraform_azure.tf* e cole o seguinte conteúdo:
+Para reunir todas essas seções e ver Terraform em ação, crie um arquivo chamado `terraform_azure.tf` e cole o seguinte conteúdo:
 
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x. 
-    # If you are using version 1.x, the "features" block is not allowed.
+    # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
 
@@ -418,7 +418,7 @@ Com o modelo do Terraform criado, a primeira etapa é inicializar o Terraform. E
 terraform init
 ```
 
-A próxima etapa é fazer o Terraform revisar e validar o modelo. Esta etapa compara os recursos solicitados para as informações de estado salvo por Terraform e, em seguida, gera a execução planejada. Os recursos *não* são criados no Azure.
+A próxima etapa é fazer o Terraform revisar e validar o modelo. Esta etapa compara os recursos solicitados para as informações de estado salvo por Terraform e, em seguida, gera a execução planejada. Os recursos do Azure não são criados neste momento.
 
 ```bash
 terraform plan

@@ -1,6 +1,6 @@
 ---
 title: Criar um banco de dados individual
-description: Crie e consulte um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure, o PowerShell e a CLI do Azure.
+description: Criar um banco de dados individual do Banco de Dados SQL do Azure usando o portal do Azure, o PowerShell ou a CLI do Azure. Consulte o banco de dados com o Editor de Consultas no portal do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,48 +10,43 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 02/14/2020
-ms.openlocfilehash: 2dacdfaa5443707ab82ae53922ac439319375276
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/10/2020
+ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252089"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215424"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure, o PowerShell e a CLI do Azure
+# <a name="quickstart-create-an-azure-sql-database-single-database"></a>Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure
 
-A criação de um [banco de dados individual](sql-database-single-database.md) é a opção de implantação mais rápida e simples para criação de um Banco de Dados SQL do Azure. Este Início Rápido mostra como criar e, em seguida, consultar um banco de dados individual usando o portal do Azure.
+Neste início rápido, você usará o portal do Azure, um script do PowerShell ou um script da CLI do Azure para criar um banco de dados individual do Banco de Dados SQL do Azure. Em seguida, você consultará o banco de dados usando o **Editor de consultas** no portal do Azure. 
 
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/). 
+Um [banco de dados individual](sql-database-single-database.md) é a opção de implantação mais rápida e simples para o Banco de Dados SQL do Azure. Você gerenciará um banco de dados individual dentro de um [Servidor do Banco de Dados SQL](sql-database-servers.md), que está dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) em uma região do Azure especificada. Neste início rápido, você criará um grupo de recursos e o servidor SQL para o novo banco de dados.
 
-Para todas as etapas deste início rápido, entre no [portal do Azure](https://portal.azure.com/).
+Você poderá criar um banco de dados individual na camada de computação *provisionada* ou *sem servidor*. É pré-alocada a um banco de dados provisionado uma quantidade fixa de recursos de computação, incluindo CPU e memória, e esse banco de dados usa um dos dois [modelos de compra](sql-database-purchase-models.md). Este início rápido cria um banco de dados provisionado usando o modelo de compra [baseado em vCore](sql-database-service-tiers-vcore.md), mas você também pode escolher um modelo [baseado em DTU](sql-database-service-tiers-DTU.md). 
+
+A camada de computação sem servidor só está disponível no modelo de compra baseado em vCore e tem um intervalo dimensionado automaticamente de recursos de computação, incluindo CPU e memória. Para criar um banco de dados individual na camada de computação sem servidor, confira [Criar um banco de dados sem servidor](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+
+## <a name="prerequisite"></a>Pré-requisito
+
+- Uma assinatura ativa do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-single-database"></a>Criar um banco de dados individual
-
-Um banco de dados individual pode ser criado no nível de computação provisionada ou sem servidor.
-
-- Um banco de dados individual na camada de computação provisionada tem uma quantidade pré-alocada de recursos de computação, incluindo a CPU e a memória, usando um de dois [modelos de compra](sql-database-purchase-models.md).
-- Um banco de dados individual na camada de computação sem servidor tem uma variedade de recursos de computação, incluindo CPU e memória, que são dimensionados automaticamente e está disponível apenas nos [modelos de compra baseado em vCore](sql-database-service-tiers-vcore.md).
-
-Quando você cria um banco de dados individual, você também define um [servidor do Banco de Dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) em uma região especificada.
-
-> [!NOTE]
-> Este início rápido usa o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), mas o [modelo de compra baseado em DTU](sql-database-service-tiers-DTU.md) também está disponível.
-
-Para criar um banco de dados individual que contém os dados de exemplo AdventureWorksLT:
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="query-the-database"></a>Consultar o banco de dados
 
-Agora que você criou o banco de dados, use a ferramenta de consulta interna no portal do Azure para se conectar ao banco de dados e consultar os dados.
+Depois que o banco de dados for criado, você poderá usar o **Editor de consultas** interno no portal do Azure para se conectar ao banco de dados e consultar os dados.
 
+1. No portal, pesquise e selecione **bancos de dados SQL** e selecione seu banco de dados na lista.
 1. Na página **Banco de Dados SQL** do banco de dados, selecione **Editor de consulta (versão prévia)** no menu à esquerda.
+1. Insira suas informações de logon do administrador do servidor e selecione **OK**.
+   
+   ![Entrar no Editor de consultas](./media/sql-database-single-database-get-started/query-editor-login.png)
 
-   ![Entrar no Editor de consultas](./media/sql-database-get-started-portal/query-editor-login.png)
-
-2. Insira suas informações de logon e selecione **OK**.
-3. Insira a consulta a seguir no painel **Editor de consultas**.
+1. Insira a consulta a seguir no painel **Editor de consultas**.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -60,28 +55,47 @@ Agora que você criou o banco de dados, use a ferramenta de consulta interna no 
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-4. Selecione **Executar** e, em seguida, examine os resultados da consulta no painel **Resultados**.
+1. Selecione **Executar** e, em seguida, examine os resultados da consulta no painel **Resultados**.
 
-   ![Resultados do Editor de consultas](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![Resultados do Editor de consultas](./media/sql-database-single-database-get-started/query-editor-results.png)
 
-5. Feche a página **Editor de consultas** e selecione **OK** quando solicitado para descartar as edições não salvas.
+1. Feche a página **Editor de consultas** e selecione **OK** quando solicitado para descartar as edições não salvas.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Mantenha esse grupo de recursos, o servidor de banco de dados e o banco de dados individual caso deseje ir para as [Próximas etapas](#next-steps). As próximas etapas mostram como se conectar e consultar seu banco de dados usando diferentes métodos.
+Mantenha o grupo de recursos, o servidor e o banco de dados individual para as próximas etapas e saiba como conectar e consultar seu banco de dados com métodos diferentes.
 
-Quando terminar de usar esses recursos, você poderá excluí-los da seguinte maneira:
+Quando você terminar de usar esses recursos, você poderá excluir o grupo de recursos criado, que também excluirá o servidor e o banco de dados individual dentro dele.
 
-1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e, em seguida, **myResourceGroup**.
-2. Na página do grupo de recursos, selecione **Excluir grupo de recursos**.
-3. Insira *myResourceGroup* no campo e, em seguida, selecione **Excluir**.
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
+Para excluir **myResourceGroup** e todos os recursos dele usando o portal do Azure:
+
+1. No portal, pesquise e selecione **Grupos de recursos** e, em seguidas, **myResourceGroup** na lista.
+1. Na página Grupo de recursos, selecione **Excluir grupo de recursos**.
+1. Em **Digite o nome do grupo de recursos**, insira *myResourceGroup* e selecione **Excluir**.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para excluir o grupo de recursos e os recursos dele, execute o seguinte comando da CLI do Azure usando o nome do seu grupo de recursos:
+
+```azurecli-interactive
+az group delete --name <your resource group>
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para excluir o grupo de recursos e os recursos dele, execute o seguinte cmdlet do PowerShell usando o nome do seu grupo de recursos:
+
+ ```azurepowershell-interactive
+Remove-AzResourceGroup -Name <your resource group>
+```
+
+---
 ## <a name="next-steps"></a>Próximas etapas
 
-- Crie uma regra de firewall no nível do servidor para se conectar ao banco de dados individual por meio de ferramentas locais ou remotas. Para obter mais informações, consulte [Criar uma regra de firewall no nível do servidor](sql-database-server-level-firewall-rule.md).
-- Depois de criar uma regra de firewall no nível do servidor, [conecte-se e consulte](sql-database-connect-query.md) seu banco de dados usando várias ferramentas e linguagens diferentes.
-  - [Conectar e consultar usando o SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Conectar e consultar usando o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Para criar um banco de dados individual na camada de computação provisionada usando a CLI do Azure, confira [Exemplos de CLI do Azure](sql-database-cli-samples.md).
-- Para criar um banco de dados individual na camada de computação provisionada usando o Azure PowerShell, confira [Exemplos de CLI do Azure](sql-database-powershell-samples.md).
-- Para criar um banco de dados individual na camada de computação sem servidor usando o Azure Powershell, confira [Criar banco de dados sem servidor](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+[Conectar e consultar](sql-database-connect-query.md) seu banco de dados usando diferentes ferramentas e linguagens:
+> [!div class="nextstepaction"]
+> [Conectar e consultar usando o SQL Server Management Studio](sql-database-connect-query-ssms.md)
+> 
+> [Conectar e consultar usando o Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

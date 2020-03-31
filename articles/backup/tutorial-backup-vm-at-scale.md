@@ -1,15 +1,15 @@
 ---
-title: Tutorial – Fazer backup de máquinas virtuais do Azure em escala
+title: Tutorial – Fazer backup de várias máquinas virtuais do Azure
 description: Neste tutorial, saiba como criar um cofre dos Serviços de Recuperação, definir uma política de backup e fazer backup de várias máquinas virtuais simultaneamente.
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171847"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245235"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -24,7 +24,7 @@ Ao fazer backup dos dados no Azure, você os armazena em um recurso do Azure cha
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -124,13 +124,13 @@ Para executar um trabalho de backup sob demanda:
 
     ![definir o último dia em que o ponto de recuperação de Fazer Backup Agora será retido](./media/tutorial-backup-vm-at-scale/backup-now-short.png)
 
-    As notificações de implantação informam que o trabalho de backup foi disparado, e que você pode monitorar o andamento do trabalho na página de Trabalhos de backup. Dependendo do tamanho da sua máquina virtual, a criação do backup inicial poderá demorar um pouco.
+    As notificações de implantação informam que o trabalho de backup foi disparado, e que você pode monitorar o andamento do trabalho na página de Trabalhos de Backup. Dependendo do tamanho da sua máquina virtual, a criação do backup inicial poderá demorar um pouco.
 
     Quando o trabalho de backup inicial for concluído, você poderá ver seu status no menu Trabalho de backup. O trabalho de backup sob demanda criou o ponto de restauração inicial para *myVM*. Se você quiser fazer backup de outras máquinas virtuais, repita essas etapas em cada máquina virtual.
 
     ![Bloco dos Trabalhos de Backup](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planeja continuar trabalhando com os tutoriais subsequentes, não limpe os recursos criados neste tutorial. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse tutorial no Portal do Azure.
 

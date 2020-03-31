@@ -4,10 +4,10 @@ description: Entenda como o serviço do Azure Blueprints permite criar, definir 
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74321773"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
@@ -48,7 +48,7 @@ Uma política pode ser incluída como um dos muitos _artefatos_ em uma definiç�
 
 Um plano gráfico é composto por _artefatos_. Plantas atualmente dão suporte os recursos a seguir como artefatos:
 
-|Recurso  | Opções de hierarquia| DESCRIÇÃO  |
+|Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager. |
 |Modelo do Azure Resource Manager | Assinatura, Grupo de Recursos | Modelos, incluindo aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
@@ -106,7 +106,7 @@ Para atribuir ou desatribuir um plano gráfico, sua conta precisa das seguintes 
 
 As seguintes funções internas estão disponíveis:
 
-|Função RBAC | DESCRIÇÃO |
+|Função RBAC | Descrição |
 |-|-|
 |[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, inclui todas as permissões relacionadas ao Azure Blueprint. |
 |[Colaborador](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, pode criar e excluir definições de blueprint, mas não tem permissões de atribuição de blueprint. |
@@ -124,10 +124,10 @@ As seguintes limitações existem para determinados campos:
 
 |Objeto|Campo|Caracteres Permitidos|Máx. Comprimento|
 |-|-|-|-|
-|Blueprint|NOME|letras, números, hifens e pontos|48|
+|Blueprint|Nome|letras, números, hifens e pontos|48|
 |Blueprint|Versão|letras, números, hifens e pontos|20|
-|Atribuição de planta|NOME|letras, números, hifens e pontos|90|
-|Artefato de blueprint|NOME|letras, números, hifens e pontos|48|
+|Atribuição de planta|Nome|letras, números, hifens e pontos|90|
+|Artefato de blueprint|Nome|letras, números, hifens e pontos|48|
 
 ## <a name="video-overview"></a>Visão geral em vídeo
 

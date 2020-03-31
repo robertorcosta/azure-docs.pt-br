@@ -64,6 +64,14 @@
       href: load-balancer-security-controls.md
 - name: Como
   items:
+    - name: conjuntos de escala de máquina virtual
+      items:
+        - name: Usar com um Azure Load Balancer existente – Portal
+          href: configure-vm-scale-set-portal.md
+        - name: Usar com um Azure Load Balancer existente – PowerShell
+          href: configure-vm-scale-set-powershell.md
+        - name: Usar com um Azure Load Balancer existente – CLI
+          href: configure-vm-scale-set-cli.md
     - name: Fazer upgrade de um Basic Load Balancer para um Standard Load Balancer
       items:
         - name: Atualizar um Basic Load Balancer público
